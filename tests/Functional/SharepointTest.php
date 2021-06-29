@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 use Microsoft\Graph\Test\GraphTestBase;
-use Microsoft\Graph\Model;
+use Beta\Microsoft\Graph\Model;
 
 class SharepointTest extends TestCase
 {
