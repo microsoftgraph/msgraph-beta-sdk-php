@@ -41,4 +41,4 @@ jobs:
         composer install
     - name: Run analysis 
       run: |
-          vendor/bin/phpstan analyse src tests --memory-limit=500M --error-format=github
+          vendor/bin/phpstan analyse src tests --memory-limit=700M --error-format=github
