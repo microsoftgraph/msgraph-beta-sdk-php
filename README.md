@@ -10,7 +10,7 @@ You can install the PHP SDK with Composer, either run `composer require microsof
 ```
 {
     "require": {
-        "microsoft/microsoft-graph-beta": "^0.1.0"
+        "microsoft/microsoft-graph-beta": "^2.0.0"
     }
 }
 ```
