@@ -1,5 +1,5 @@
 {
-	"name": "microsoft/microsoft-graph",
+	"name": "microsoft/microsoft-graph-beta",
 	"type": "library",
 	"description": "The Microsoft Graph SDK for PHP",
 	"homepage": "https://developer.microsoft.com/en-us/graph",
