@@ -12,9 +12,9 @@
  *  - Packagist returns tagged versions in descending order (latest release first)
 */
 
-const CONSTANTS_FILEPATH = "./src/Core/GraphConstants.php";
+const CONSTANTS_FILEPATH = "./src/GraphConstants.php";
 const SDK_VERSION_VAR_NAME = "SDK_VERSION"; # Name of version variable in GraphConstants.php
-const PACKAGIST_ENDPOINT = "https://packagist.org/packages/microsoft/microsoft-graph.json";
+const PACKAGIST_ENDPOINT = "https://packagist.org/packages/microsoft/microsoft-graph-beta.json";
 const CONSTANTS_README_FILEPATH = "./README.md";
 
 function getLatestPackagistVersion(): string 
