@@ -14,8 +14,8 @@ on:
     branches:
       - "beta/pipelinebuild/*"
     paths:
-      - 'src/Beta/**/*.php'
-      - '!src/Core/GraphConstants.php'
+      - 'src/**/*.php'
+      - '!src/GraphConstants.php'
 
 defaults:
   run:
