@@ -57,6 +57,7 @@ class RoleManagement implements \JsonSerializable
     
     /**
     * Gets the directory
+    * Read-only. Nullable.
     *
     * @return RbacApplication|null The directory
     */
@@ -75,6 +76,7 @@ class RoleManagement implements \JsonSerializable
     
     /**
     * Sets the directory
+    * Read-only. Nullable.
     *
     * @param RbacApplication $val The directory
     *
@@ -186,11 +188,14 @@ class RoleManagement implements \JsonSerializable
     /**
     * Gets the ODataType
     *
-    * @return string The ODataType
+    * @return string|null The ODataType
     */
     public function getODataType()
     {
-        return $this->_propDict["@odata.type"];
+        if (array_key_exists('@odata.type', $this->_propDict)) {
+            return $this->_propDict["@odata.type"];
+        }
+        return null;
     }
     
     /**

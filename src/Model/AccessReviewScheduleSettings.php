@@ -86,7 +86,7 @@ class AccessReviewScheduleSettings extends Entity
     }
     /**
     * Gets the defaultDecision
-    * Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
+    * Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, or Recommendation.
     *
     * @return string|null The defaultDecision
     */
@@ -101,7 +101,7 @@ class AccessReviewScheduleSettings extends Entity
 
     /**
     * Sets the defaultDecision
-    * Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
+    * Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, or Recommendation.
     *
     * @param string $val The value of the defaultDecision
     *
@@ -227,6 +227,7 @@ class AccessReviewScheduleSettings extends Entity
 
     /**
     * Gets the recommendationLookBackDuration
+    * Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. If not specified, the duration is 30 days.
     *
     * @return Duration|null The recommendationLookBackDuration
     */
@@ -245,6 +246,7 @@ class AccessReviewScheduleSettings extends Entity
 
     /**
     * Sets the recommendationLookBackDuration
+    * Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. If not specified, the duration is 30 days.
     *
     * @param Duration $val The value to assign to the recommendationLookBackDuration
     *
@@ -257,7 +259,7 @@ class AccessReviewScheduleSettings extends Entity
     }
     /**
     * Gets the recommendationsEnabled
-    * Indicates whether decision recommendations are enabled/disabled.
+    * Indicates whether decision recommendations are enabled or disabled.
     *
     * @return bool|null The recommendationsEnabled
     */
@@ -272,7 +274,7 @@ class AccessReviewScheduleSettings extends Entity
 
     /**
     * Sets the recommendationsEnabled
-    * Indicates whether decision recommendations are enabled/disabled.
+    * Indicates whether decision recommendations are enabled or disabled.
     *
     * @param bool $val The value of the recommendationsEnabled
     *

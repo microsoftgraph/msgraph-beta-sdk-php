@@ -59,7 +59,7 @@ class DeviceManagement extends Entity
     
     /**
     * Gets the intuneAccountId
-    * Intune Account ID for given tenant
+    * Intune Account Id for given tenant
     *
     * @return string|null The intuneAccountId
     */
@@ -74,7 +74,7 @@ class DeviceManagement extends Entity
     
     /**
     * Sets the intuneAccountId
-    * Intune Account ID for given tenant
+    * Intune Account Id for given tenant
     *
     * @param string $val The intuneAccountId
     *
@@ -2492,6 +2492,66 @@ class DeviceManagement extends Entity
     
 
      /** 
+     * Gets the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails
+    * User experience analytics appHealth Application Performance by App Version details
+     *
+     * @return array|null The userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails
+     */
+    public function getUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails()
+    {
+        if (array_key_exists("userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails", $this->_propDict)) {
+           return $this->_propDict["userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails
+    * User experience analytics appHealth Application Performance by App Version details
+    *
+    * @param UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails $val The userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails
+    *
+    * @return DeviceManagement
+    */
+    public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails($val)
+    {
+        $this->_propDict["userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId
+    * User experience analytics appHealth Application Performance by App Version Device Id
+     *
+     * @return array|null The userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId
+     */
+    public function getUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId()
+    {
+        if (array_key_exists("userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId", $this->_propDict)) {
+           return $this->_propDict["userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId
+    * User experience analytics appHealth Application Performance by App Version Device Id
+    *
+    * @param UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId $val The userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId
+    *
+    * @return DeviceManagement
+    */
+    public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId($val)
+    {
+        $this->_propDict["userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId"] = $val;
+        return $this;
+    }
+    
+
+     /** 
      * Gets the userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion
     * User experience analytics appHealth Application Performance by OS Version
      *
@@ -3005,6 +3065,36 @@ class DeviceManagement extends Entity
     
 
      /** 
+     * Gets the userExperienceAnalyticsModelScores
+    * User experience analytics model scores
+     *
+     * @return array|null The userExperienceAnalyticsModelScores
+     */
+    public function getUserExperienceAnalyticsModelScores()
+    {
+        if (array_key_exists("userExperienceAnalyticsModelScores", $this->_propDict)) {
+           return $this->_propDict["userExperienceAnalyticsModelScores"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the userExperienceAnalyticsModelScores
+    * User experience analytics model scores
+    *
+    * @param UserExperienceAnalyticsModelScores $val The userExperienceAnalyticsModelScores
+    *
+    * @return DeviceManagement
+    */
+    public function setUserExperienceAnalyticsModelScores($val)
+    {
+        $this->_propDict["userExperienceAnalyticsModelScores"] = $val;
+        return $this;
+    }
+    
+
+     /** 
      * Gets the userExperienceAnalyticsNotAutopilotReadyDevice
     * User experience analytics devices not Windows Autopilot ready.
      *
@@ -3186,6 +3276,39 @@ class DeviceManagement extends Entity
     public function setUserExperienceAnalyticsScoreHistory($val)
     {
         $this->_propDict["userExperienceAnalyticsScoreHistory"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric
+    * User experience analytics work from anywhere hardware readiness metrics.
+    *
+    * @return UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric|null The userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric
+    */
+    public function getUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric()
+    {
+        if (array_key_exists("userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric", $this->_propDict)) {
+            if (is_a($this->_propDict["userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric") || is_null($this->_propDict["userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric"])) {
+                return $this->_propDict["userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric"];
+            } else {
+                $this->_propDict["userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric"] = new UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric($this->_propDict["userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric"]);
+                return $this->_propDict["userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric
+    * User experience analytics work from anywhere hardware readiness metrics.
+    *
+    * @param UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric $val The userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric
+    *
+    * @return DeviceManagement
+    */
+    public function setUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric($val)
+    {
+        $this->_propDict["userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric"] = $val;
         return $this;
     }
     
@@ -3792,6 +3915,39 @@ class DeviceManagement extends Entity
         return $this;
     }
     
+    /**
+    * Gets the reports
+    * Reports singleton
+    *
+    * @return DeviceManagementReports|null The reports
+    */
+    public function getReports()
+    {
+        if (array_key_exists("reports", $this->_propDict)) {
+            if (is_a($this->_propDict["reports"], "\Beta\Microsoft\Graph\Model\DeviceManagementReports") || is_null($this->_propDict["reports"])) {
+                return $this->_propDict["reports"];
+            } else {
+                $this->_propDict["reports"] = new DeviceManagementReports($this->_propDict["reports"]);
+                return $this->_propDict["reports"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the reports
+    * Reports singleton
+    *
+    * @param DeviceManagementReports $val The reports
+    *
+    * @return DeviceManagement
+    */
+    public function setReports($val)
+    {
+        $this->_propDict["reports"] = $val;
+        return $this;
+    }
+    
 
      /** 
      * Gets the microsoftTunnelConfigurations
@@ -4153,35 +4309,35 @@ class DeviceManagement extends Entity
     }
     
     /**
-    * Gets the reports
-    * Reports singleton
+    * Gets the remoteAssistanceSettings
+    * The remote assistance settings singleton
     *
-    * @return DeviceManagementReports|null The reports
+    * @return RemoteAssistanceSettings|null The remoteAssistanceSettings
     */
-    public function getReports()
+    public function getRemoteAssistanceSettings()
     {
-        if (array_key_exists("reports", $this->_propDict)) {
-            if (is_a($this->_propDict["reports"], "\Beta\Microsoft\Graph\Model\DeviceManagementReports") || is_null($this->_propDict["reports"])) {
-                return $this->_propDict["reports"];
+        if (array_key_exists("remoteAssistanceSettings", $this->_propDict)) {
+            if (is_a($this->_propDict["remoteAssistanceSettings"], "\Beta\Microsoft\Graph\Model\RemoteAssistanceSettings") || is_null($this->_propDict["remoteAssistanceSettings"])) {
+                return $this->_propDict["remoteAssistanceSettings"];
             } else {
-                $this->_propDict["reports"] = new DeviceManagementReports($this->_propDict["reports"]);
-                return $this->_propDict["reports"];
+                $this->_propDict["remoteAssistanceSettings"] = new RemoteAssistanceSettings($this->_propDict["remoteAssistanceSettings"]);
+                return $this->_propDict["remoteAssistanceSettings"];
             }
         }
         return null;
     }
     
     /**
-    * Sets the reports
-    * Reports singleton
+    * Sets the remoteAssistanceSettings
+    * The remote assistance settings singleton
     *
-    * @param DeviceManagementReports $val The reports
+    * @param RemoteAssistanceSettings $val The remoteAssistanceSettings
     *
     * @return DeviceManagement
     */
-    public function setReports($val)
+    public function setRemoteAssistanceSettings($val)
     {
-        $this->_propDict["reports"] = $val;
+        $this->_propDict["remoteAssistanceSettings"] = $val;
         return $this;
     }
     
@@ -4302,6 +4458,36 @@ class DeviceManagement extends Entity
     public function setTroubleshootingEvents($val)
     {
         $this->_propDict["troubleshootingEvents"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the windowsDriverUpdateProfiles
+    * A collection of windows driver update profiles
+     *
+     * @return array|null The windowsDriverUpdateProfiles
+     */
+    public function getWindowsDriverUpdateProfiles()
+    {
+        if (array_key_exists("windowsDriverUpdateProfiles", $this->_propDict)) {
+           return $this->_propDict["windowsDriverUpdateProfiles"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the windowsDriverUpdateProfiles
+    * A collection of windows driver update profiles
+    *
+    * @param WindowsDriverUpdateProfile $val The windowsDriverUpdateProfiles
+    *
+    * @return DeviceManagement
+    */
+    public function setWindowsDriverUpdateProfiles($val)
+    {
+        $this->_propDict["windowsDriverUpdateProfiles"] = $val;
         return $this;
     }
     

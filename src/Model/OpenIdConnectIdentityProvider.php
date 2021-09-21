@@ -59,7 +59,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase
     
     /**
     * Gets the clientId
-    * The client ID for the application obtained when registering the application with the identity provider. Required.
+    * The client identifier for the application obtained when registering the application with the identity provider. Required.
     *
     * @return string|null The clientId
     */
@@ -74,7 +74,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase
     
     /**
     * Sets the clientId
-    * The client ID for the application obtained when registering the application with the identity provider. Required.
+    * The client identifier for the application obtained when registering the application with the identity provider. Required.
     *
     * @param string $val The clientId
     *
@@ -88,7 +88,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase
     
     /**
     * Gets the clientSecret
-    * The client secret for the application obtained when registering the application with the identity provider. The clientSecret has a dependency on responseType. When responseType is code, a secret is required for the auth code exchange.When responseType is id_token the secret is not required because there is no code exchange. The id_token is returned directly from the authorization response. This is write-only. A read operation returns '****'.
+    * The client secret for the application obtained when registering the application with the identity provider. The clientSecret has a dependency on responseType. When responseType is code, a secret is required for the auth code exchange.When responseType is id_token the secret is not required because there is no code exchange. The id_token is returned directly from the authorization response. This is write-only. A read operation returns ****.
     *
     * @return string|null The clientSecret
     */
@@ -103,7 +103,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase
     
     /**
     * Sets the clientSecret
-    * The client secret for the application obtained when registering the application with the identity provider. The clientSecret has a dependency on responseType. When responseType is code, a secret is required for the auth code exchange.When responseType is id_token the secret is not required because there is no code exchange. The id_token is returned directly from the authorization response. This is write-only. A read operation returns '****'.
+    * The client secret for the application obtained when registering the application with the identity provider. The clientSecret has a dependency on responseType. When responseType is code, a secret is required for the auth code exchange.When responseType is id_token the secret is not required because there is no code exchange. The id_token is returned directly from the authorization response. This is write-only. A read operation returns ****.
     *
     * @param string $val The clientSecret
     *

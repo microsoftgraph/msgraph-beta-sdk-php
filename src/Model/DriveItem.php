@@ -100,7 +100,7 @@ class DriveItem extends BaseItem
             if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["content"])) {
                 return $this->_propDict["content"];
             } else {
-                $this->_propDict["content"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["content"]);
+                $this->_propDict["content"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
                 return $this->_propDict["content"];
             }
         }
@@ -349,7 +349,41 @@ class DriveItem extends BaseItem
     }
     
     /**
+    * Gets the malware
+    * Malware metadata, if the item was detected to contain malware. Read-only.
+    *
+    * @return Malware|null The malware
+    */
+    public function getMalware()
+    {
+        if (array_key_exists("malware", $this->_propDict)) {
+            if (is_a($this->_propDict["malware"], "\Beta\Microsoft\Graph\Model\Malware") || is_null($this->_propDict["malware"])) {
+                return $this->_propDict["malware"];
+            } else {
+                $this->_propDict["malware"] = new Malware($this->_propDict["malware"]);
+                return $this->_propDict["malware"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the malware
+    * Malware metadata, if the item was detected to contain malware. Read-only.
+    *
+    * @param Malware $val The malware
+    *
+    * @return DriveItem
+    */
+    public function setMalware($val)
+    {
+        $this->_propDict["malware"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the media
+    * Information about the media (audio or video) item. Read-write. Only on OneDrive for Business and SharePoint.
     *
     * @return Media|null The media
     */
@@ -368,6 +402,7 @@ class DriveItem extends BaseItem
     
     /**
     * Sets the media
+    * Information about the media (audio or video) item. Read-write. Only on OneDrive for Business and SharePoint.
     *
     * @param Media $val The media
     *
@@ -414,7 +449,7 @@ class DriveItem extends BaseItem
     
     /**
     * Gets the pendingOperations
-    * If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
+    * If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.
     *
     * @return PendingOperations|null The pendingOperations
     */
@@ -433,7 +468,7 @@ class DriveItem extends BaseItem
     
     /**
     * Sets the pendingOperations
-    * If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
+    * If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.
     *
     * @param PendingOperations $val The pendingOperations
     *
@@ -707,6 +742,7 @@ class DriveItem extends BaseItem
     
     /**
     * Gets the source
+    * Information about the drive item source. Read-only. Only on OneDrive for Business and SharePoint.
     *
     * @return DriveItemSource|null The source
     */
@@ -725,6 +761,7 @@ class DriveItem extends BaseItem
     
     /**
     * Sets the source
+    * Information about the drive item source. Read-only. Only on OneDrive for Business and SharePoint.
     *
     * @param DriveItemSource $val The source
     *

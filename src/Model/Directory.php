@@ -27,6 +27,7 @@ class Directory extends Entity
 
      /** 
      * Gets the administrativeUnits
+    * Conceptual container for user and group directory objects.
      *
      * @return array|null The administrativeUnits
      */
@@ -41,6 +42,7 @@ class Directory extends Entity
     
     /** 
     * Sets the administrativeUnits
+    * Conceptual container for user and group directory objects.
     *
     * @param AdministrativeUnit $val The administrativeUnits
     *
@@ -79,6 +81,36 @@ class Directory extends Entity
     public function setDeletedItems($val)
     {
         $this->_propDict["deletedItems"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the federationConfigurations
+    * Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol.
+     *
+     * @return array|null The federationConfigurations
+     */
+    public function getFederationConfigurations()
+    {
+        if (array_key_exists("federationConfigurations", $this->_propDict)) {
+           return $this->_propDict["federationConfigurations"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the federationConfigurations
+    * Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol.
+    *
+    * @param IdentityProviderBase $val The federationConfigurations
+    *
+    * @return Directory
+    */
+    public function setFederationConfigurations($val)
+    {
+        $this->_propDict["federationConfigurations"] = $val;
         return $this;
     }
     

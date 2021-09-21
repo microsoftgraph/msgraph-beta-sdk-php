@@ -25,6 +25,35 @@ namespace Beta\Microsoft\Graph\Model;
 class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
 {
     /**
+    * Gets the addingGameCenterFriendsBlocked
+    * Yes prevents users from adding friends to Game Center. Available for devices running macOS versions 10.13 and later.
+    *
+    * @return bool|null The addingGameCenterFriendsBlocked
+    */
+    public function getAddingGameCenterFriendsBlocked()
+    {
+        if (array_key_exists("addingGameCenterFriendsBlocked", $this->_propDict)) {
+            return $this->_propDict["addingGameCenterFriendsBlocked"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the addingGameCenterFriendsBlocked
+    * Yes prevents users from adding friends to Game Center. Available for devices running macOS versions 10.13 and later.
+    *
+    * @param bool $val The addingGameCenterFriendsBlocked
+    *
+    * @return MacOSGeneralDeviceConfiguration
+    */
+    public function setAddingGameCenterFriendsBlocked($val)
+    {
+        $this->_propDict["addingGameCenterFriendsBlocked"] = boolval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the airDropBlocked
     * Indicates whether or not to allow AirDrop.
     *
@@ -50,93 +79,6 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     public function setAirDropBlocked($val)
     {
         $this->_propDict["airDropBlocked"] = boolval($val);
-        return $this;
-    }
-    
-    /**
-    * Gets the airPrintBlocked
-    * Indicates whether or not AirPrint is blocked (macOS 10.12 and later).
-    *
-    * @return bool|null The airPrintBlocked
-    */
-    public function getAirPrintBlocked()
-    {
-        if (array_key_exists("airPrintBlocked", $this->_propDict)) {
-            return $this->_propDict["airPrintBlocked"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the airPrintBlocked
-    * Indicates whether or not AirPrint is blocked (macOS 10.12 and later).
-    *
-    * @param bool $val The airPrintBlocked
-    *
-    * @return MacOSGeneralDeviceConfiguration
-    */
-    public function setAirPrintBlocked($val)
-    {
-        $this->_propDict["airPrintBlocked"] = boolval($val);
-        return $this;
-    }
-    
-    /**
-    * Gets the airPrintBlockiBeaconDiscovery
-    * Indicates whether or not iBeacon discovery of AirPrint printers is blocked. This prevents spurious AirPrint Bluetooth beacons from phishing for network traffic (macOS 10.3 and later).
-    *
-    * @return bool|null The airPrintBlockiBeaconDiscovery
-    */
-    public function getAirPrintBlockiBeaconDiscovery()
-    {
-        if (array_key_exists("airPrintBlockiBeaconDiscovery", $this->_propDict)) {
-            return $this->_propDict["airPrintBlockiBeaconDiscovery"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the airPrintBlockiBeaconDiscovery
-    * Indicates whether or not iBeacon discovery of AirPrint printers is blocked. This prevents spurious AirPrint Bluetooth beacons from phishing for network traffic (macOS 10.3 and later).
-    *
-    * @param bool $val The airPrintBlockiBeaconDiscovery
-    *
-    * @return MacOSGeneralDeviceConfiguration
-    */
-    public function setAirPrintBlockiBeaconDiscovery($val)
-    {
-        $this->_propDict["airPrintBlockiBeaconDiscovery"] = boolval($val);
-        return $this;
-    }
-    
-    /**
-    * Gets the airPrintForceTrustedTLS
-    * Indicates if trusted certificates are required for TLS printing communication (macOS 10.13 and later).
-    *
-    * @return bool|null The airPrintForceTrustedTLS
-    */
-    public function getAirPrintForceTrustedTLS()
-    {
-        if (array_key_exists("airPrintForceTrustedTLS", $this->_propDict)) {
-            return $this->_propDict["airPrintForceTrustedTLS"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the airPrintForceTrustedTLS
-    * Indicates if trusted certificates are required for TLS printing communication (macOS 10.13 and later).
-    *
-    * @param bool $val The airPrintForceTrustedTLS
-    *
-    * @return MacOSGeneralDeviceConfiguration
-    */
-    public function setAirPrintForceTrustedTLS($val)
-    {
-        $this->_propDict["airPrintForceTrustedTLS"] = boolval($val);
         return $this;
     }
     
@@ -490,6 +432,64 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     public function setEmailInDomainSuffixes($val)
     {
         $this->_propDict["emailInDomainSuffixes"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the eraseContentAndSettingsBlocked
+    * TRUE disables the reset option on supervised devices. FALSE enables the reset option on supervised devices. Available for devices running macOS versions 12.0 and later.
+    *
+    * @return bool|null The eraseContentAndSettingsBlocked
+    */
+    public function getEraseContentAndSettingsBlocked()
+    {
+        if (array_key_exists("eraseContentAndSettingsBlocked", $this->_propDict)) {
+            return $this->_propDict["eraseContentAndSettingsBlocked"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the eraseContentAndSettingsBlocked
+    * TRUE disables the reset option on supervised devices. FALSE enables the reset option on supervised devices. Available for devices running macOS versions 12.0 and later.
+    *
+    * @param bool $val The eraseContentAndSettingsBlocked
+    *
+    * @return MacOSGeneralDeviceConfiguration
+    */
+    public function setEraseContentAndSettingsBlocked($val)
+    {
+        $this->_propDict["eraseContentAndSettingsBlocked"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the gameCenterBlocked
+    * Yes disables Game Center, and the Game Center icon is removed from the Home screen. Available for devices running macOS versions 10.13 and later.
+    *
+    * @return bool|null The gameCenterBlocked
+    */
+    public function getGameCenterBlocked()
+    {
+        if (array_key_exists("gameCenterBlocked", $this->_propDict)) {
+            return $this->_propDict["gameCenterBlocked"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the gameCenterBlocked
+    * Yes disables Game Center, and the Game Center icon is removed from the Home screen. Available for devices running macOS versions 10.13 and later.
+    *
+    * @param bool $val The gameCenterBlocked
+    *
+    * @return MacOSGeneralDeviceConfiguration
+    */
+    public function setGameCenterBlocked($val)
+    {
+        $this->_propDict["gameCenterBlocked"] = boolval($val);
         return $this;
     }
     
@@ -867,6 +867,35 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     public function setKeychainBlockCloudSync($val)
     {
         $this->_propDict["keychainBlockCloudSync"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the multiplayerGamingBlocked
+    * TRUE prevents multiplayer gaming when using Game Center. FALSE allows multiplayer gaming when using Game Center. Available for devices running macOS versions 10.13 and later.
+    *
+    * @return bool|null The multiplayerGamingBlocked
+    */
+    public function getMultiplayerGamingBlocked()
+    {
+        if (array_key_exists("multiplayerGamingBlocked", $this->_propDict)) {
+            return $this->_propDict["multiplayerGamingBlocked"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the multiplayerGamingBlocked
+    * TRUE prevents multiplayer gaming when using Game Center. FALSE allows multiplayer gaming when using Game Center. Available for devices running macOS versions 10.13 and later.
+    *
+    * @param bool $val The multiplayerGamingBlocked
+    *
+    * @return MacOSGeneralDeviceConfiguration
+    */
+    public function setMultiplayerGamingBlocked($val)
+    {
+        $this->_propDict["multiplayerGamingBlocked"] = boolval($val);
         return $this;
     }
     
@@ -1427,6 +1456,93 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     }
     
     /**
+    * Gets the softwareUpdateMajorOSDeferredInstallDelayInDays
+    * Specify the number of days (1-90) to delay visibility of major OS software updates. Available for devices running macOS versions 11.3 and later. Valid values 0 to 90
+    *
+    * @return int|null The softwareUpdateMajorOSDeferredInstallDelayInDays
+    */
+    public function getSoftwareUpdateMajorOSDeferredInstallDelayInDays()
+    {
+        if (array_key_exists("softwareUpdateMajorOSDeferredInstallDelayInDays", $this->_propDict)) {
+            return $this->_propDict["softwareUpdateMajorOSDeferredInstallDelayInDays"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the softwareUpdateMajorOSDeferredInstallDelayInDays
+    * Specify the number of days (1-90) to delay visibility of major OS software updates. Available for devices running macOS versions 11.3 and later. Valid values 0 to 90
+    *
+    * @param int $val The softwareUpdateMajorOSDeferredInstallDelayInDays
+    *
+    * @return MacOSGeneralDeviceConfiguration
+    */
+    public function setSoftwareUpdateMajorOSDeferredInstallDelayInDays($val)
+    {
+        $this->_propDict["softwareUpdateMajorOSDeferredInstallDelayInDays"] = intval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the softwareUpdateMinorOSDeferredInstallDelayInDays
+    * Specify the number of days (1-90) to delay visibility of minor OS software updates. Available for devices running macOS versions 11.3 and later. Valid values 0 to 90
+    *
+    * @return int|null The softwareUpdateMinorOSDeferredInstallDelayInDays
+    */
+    public function getSoftwareUpdateMinorOSDeferredInstallDelayInDays()
+    {
+        if (array_key_exists("softwareUpdateMinorOSDeferredInstallDelayInDays", $this->_propDict)) {
+            return $this->_propDict["softwareUpdateMinorOSDeferredInstallDelayInDays"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the softwareUpdateMinorOSDeferredInstallDelayInDays
+    * Specify the number of days (1-90) to delay visibility of minor OS software updates. Available for devices running macOS versions 11.3 and later. Valid values 0 to 90
+    *
+    * @param int $val The softwareUpdateMinorOSDeferredInstallDelayInDays
+    *
+    * @return MacOSGeneralDeviceConfiguration
+    */
+    public function setSoftwareUpdateMinorOSDeferredInstallDelayInDays($val)
+    {
+        $this->_propDict["softwareUpdateMinorOSDeferredInstallDelayInDays"] = intval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the softwareUpdateNonOSDeferredInstallDelayInDays
+    * Specify the number of days (1-90) to delay visibility of non-OS software updates. Available for devices running macOS versions 11.3 and later. Valid values 0 to 90
+    *
+    * @return int|null The softwareUpdateNonOSDeferredInstallDelayInDays
+    */
+    public function getSoftwareUpdateNonOSDeferredInstallDelayInDays()
+    {
+        if (array_key_exists("softwareUpdateNonOSDeferredInstallDelayInDays", $this->_propDict)) {
+            return $this->_propDict["softwareUpdateNonOSDeferredInstallDelayInDays"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the softwareUpdateNonOSDeferredInstallDelayInDays
+    * Specify the number of days (1-90) to delay visibility of non-OS software updates. Available for devices running macOS versions 11.3 and later. Valid values 0 to 90
+    *
+    * @param int $val The softwareUpdateNonOSDeferredInstallDelayInDays
+    *
+    * @return MacOSGeneralDeviceConfiguration
+    */
+    public function setSoftwareUpdateNonOSDeferredInstallDelayInDays($val)
+    {
+        $this->_propDict["softwareUpdateNonOSDeferredInstallDelayInDays"] = intval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the softwareUpdatesEnforcedDelayInDays
     * Sets how many days a software update will be delyed for a supervised device. Valid values 0 to 90
     *
@@ -1486,7 +1602,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     
     /**
     * Gets the updateDelayPolicy
-    * Determines whether to delay OS and/or app updates for macOS. Possible values are: none, delayOSUpdateVisibility, delayAppUpdateVisibility.
+    * Determines whether to delay OS and/or app updates for macOS. Possible values are: none, delayOSUpdateVisibility, delayAppUpdateVisibility, unknownFutureValue, delayMajorOsUpdateVisibility.
     *
     * @return MacOSSoftwareUpdateDelayPolicy|null The updateDelayPolicy
     */
@@ -1505,7 +1621,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     
     /**
     * Sets the updateDelayPolicy
-    * Determines whether to delay OS and/or app updates for macOS. Possible values are: none, delayOSUpdateVisibility, delayAppUpdateVisibility.
+    * Determines whether to delay OS and/or app updates for macOS. Possible values are: none, delayOSUpdateVisibility, delayAppUpdateVisibility, unknownFutureValue, delayMajorOsUpdateVisibility.
     *
     * @param MacOSSoftwareUpdateDelayPolicy $val The updateDelayPolicy
     *
@@ -1514,6 +1630,35 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     public function setUpdateDelayPolicy($val)
     {
         $this->_propDict["updateDelayPolicy"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the wallpaperModificationBlocked
+    * TRUE prevents the wallpaper from being changed. FALSE allows the wallpaper to be changed. Available for devices running macOS versions 10.13 and later.
+    *
+    * @return bool|null The wallpaperModificationBlocked
+    */
+    public function getWallpaperModificationBlocked()
+    {
+        if (array_key_exists("wallpaperModificationBlocked", $this->_propDict)) {
+            return $this->_propDict["wallpaperModificationBlocked"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the wallpaperModificationBlocked
+    * TRUE prevents the wallpaper from being changed. FALSE allows the wallpaper to be changed. Available for devices running macOS versions 10.13 and later.
+    *
+    * @param bool $val The wallpaperModificationBlocked
+    *
+    * @return MacOSGeneralDeviceConfiguration
+    */
+    public function setWallpaperModificationBlocked($val)
+    {
+        $this->_propDict["wallpaperModificationBlocked"] = boolval($val);
         return $this;
     }
     

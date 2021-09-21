@@ -121,7 +121,7 @@ class OfficeSuiteApp extends MobileApp
     
     /**
     * Gets the localesToInstall
-    * The property to represent the locales which are installed when the apps from Office365 is installed. It uses standard RFC 6033. Ref: https://technet.microsoft.com/library/cc179219(v=office.16).aspx
+    * The property to represent the locales which are installed when the apps from Office365 is installed. It uses standard RFC 6033. Ref: https://technet.microsoft.com/en-us/library/cc179219(v=office.16).aspx
     *
     * @return string|null The localesToInstall
     */
@@ -136,7 +136,7 @@ class OfficeSuiteApp extends MobileApp
     
     /**
     * Sets the localesToInstall
-    * The property to represent the locales which are installed when the apps from Office365 is installed. It uses standard RFC 6033. Ref: https://technet.microsoft.com/library/cc179219(v=office.16).aspx
+    * The property to represent the locales which are installed when the apps from Office365 is installed. It uses standard RFC 6033. Ref: https://technet.microsoft.com/en-us/library/cc179219(v=office.16).aspx
     *
     * @param string $val The localesToInstall
     *
@@ -160,7 +160,7 @@ class OfficeSuiteApp extends MobileApp
             if (is_a($this->_propDict["officeConfigurationXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["officeConfigurationXml"])) {
                 return $this->_propDict["officeConfigurationXml"];
             } else {
-                $this->_propDict["officeConfigurationXml"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["officeConfigurationXml"]);
+                $this->_propDict["officeConfigurationXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["officeConfigurationXml"]);
                 return $this->_propDict["officeConfigurationXml"];
             }
         }
