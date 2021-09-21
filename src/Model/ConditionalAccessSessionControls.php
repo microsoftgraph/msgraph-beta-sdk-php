@@ -91,6 +91,65 @@ class ConditionalAccessSessionControls extends Entity
     }
 
     /**
+    * Gets the continuousAccessEvaluation
+    *
+    * @return ContinuousAccessEvaluationSessionControl|null The continuousAccessEvaluation
+    */
+    public function getContinuousAccessEvaluation()
+    {
+        if (array_key_exists("continuousAccessEvaluation", $this->_propDict)) {
+            if (is_a($this->_propDict["continuousAccessEvaluation"], "\Beta\Microsoft\Graph\Model\ContinuousAccessEvaluationSessionControl") || is_null($this->_propDict["continuousAccessEvaluation"])) {
+                return $this->_propDict["continuousAccessEvaluation"];
+            } else {
+                $this->_propDict["continuousAccessEvaluation"] = new ContinuousAccessEvaluationSessionControl($this->_propDict["continuousAccessEvaluation"]);
+                return $this->_propDict["continuousAccessEvaluation"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the continuousAccessEvaluation
+    *
+    * @param ContinuousAccessEvaluationSessionControl $val The value to assign to the continuousAccessEvaluation
+    *
+    * @return ConditionalAccessSessionControls The ConditionalAccessSessionControls
+    */
+    public function setContinuousAccessEvaluation($val)
+    {
+        $this->_propDict["continuousAccessEvaluation"] = $val;
+         return $this;
+    }
+    /**
+    * Gets the disableResilienceDefaults
+    * Session control that determines whether it is acceptable for Azure AD to extend existing sessions based on information collected prior to an outage or not.
+    *
+    * @return bool|null The disableResilienceDefaults
+    */
+    public function getDisableResilienceDefaults()
+    {
+        if (array_key_exists("disableResilienceDefaults", $this->_propDict)) {
+            return $this->_propDict["disableResilienceDefaults"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the disableResilienceDefaults
+    * Session control that determines whether it is acceptable for Azure AD to extend existing sessions based on information collected prior to an outage or not.
+    *
+    * @param bool $val The value of the disableResilienceDefaults
+    *
+    * @return ConditionalAccessSessionControls
+    */
+    public function setDisableResilienceDefaults($val)
+    {
+        $this->_propDict["disableResilienceDefaults"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the persistentBrowser
     * Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly.
     *

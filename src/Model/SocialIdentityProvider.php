@@ -26,7 +26,7 @@ class SocialIdentityProvider extends IdentityProviderBase
 {
     /**
     * Gets the clientId
-    * The client identifier for the application obtained when registering the application with the identity provider. Required.
+    * The identifier for the client application obtained when registering the application with the identity provider. Required.
     *
     * @return string|null The clientId
     */
@@ -41,7 +41,7 @@ class SocialIdentityProvider extends IdentityProviderBase
     
     /**
     * Sets the clientId
-    * The client identifier for the application obtained when registering the application with the identity provider. Required.
+    * The identifier for the client application obtained when registering the application with the identity provider. Required.
     *
     * @param string $val The clientId
     *
@@ -55,7 +55,7 @@ class SocialIdentityProvider extends IdentityProviderBase
     
     /**
     * Gets the clientSecret
-    * The client secret for the application that is obtained when the application is registered with the identity provider. This is write-only. A read operation returns '****'. Required.
+    * The client secret for the application that is obtained when the application is registered with the identity provider. This is write-only. A read operation returns ****. Required.
     *
     * @return string|null The clientSecret
     */
@@ -70,7 +70,7 @@ class SocialIdentityProvider extends IdentityProviderBase
     
     /**
     * Sets the clientSecret
-    * The client secret for the application that is obtained when the application is registered with the identity provider. This is write-only. A read operation returns '****'. Required.
+    * The client secret for the application that is obtained when the application is registered with the identity provider. This is write-only. A read operation returns ****. Required.
     *
     * @param string $val The clientSecret
     *

@@ -3636,6 +3636,35 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     }
     
     /**
+    * Gets the managedPasteboardRequired
+    * Open-in management controls how people share data between unmanaged and managed apps. Setting this to true enforces copy/paste restrictions based on how you configured Block viewing corporate documents in unmanaged apps  and  Block viewing non-corporate documents in corporate apps.
+    *
+    * @return bool|null The managedPasteboardRequired
+    */
+    public function getManagedPasteboardRequired()
+    {
+        if (array_key_exists("managedPasteboardRequired", $this->_propDict)) {
+            return $this->_propDict["managedPasteboardRequired"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the managedPasteboardRequired
+    * Open-in management controls how people share data between unmanaged and managed apps. Setting this to true enforces copy/paste restrictions based on how you configured Block viewing corporate documents in unmanaged apps  and  Block viewing non-corporate documents in corporate apps.
+    *
+    * @param bool $val The managedPasteboardRequired
+    *
+    * @return IosGeneralDeviceConfiguration
+    */
+    public function setManagedPasteboardRequired($val)
+    {
+        $this->_propDict["managedPasteboardRequired"] = boolval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the mediaContentRatingApps
     * Media content rating settings for Apps. Possible values are: allAllowed, allBlocked, agesAbove4, agesAbove9, agesAbove12, agesAbove17.
     *
@@ -4108,6 +4137,35 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     public function setOnDeviceOnlyDictationForced($val)
     {
         $this->_propDict["onDeviceOnlyDictationForced"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the onDeviceOnlyTranslationForced
+    * When set to TRUE, the setting disables connections to Siri servers so that users can’t use Siri to translate text. When set to FALSE, the setting allows connections to to Siri servers to users can use Siri to translate text. Available for devices running iOS and iPadOS versions 15.0 and later.
+    *
+    * @return bool|null The onDeviceOnlyTranslationForced
+    */
+    public function getOnDeviceOnlyTranslationForced()
+    {
+        if (array_key_exists("onDeviceOnlyTranslationForced", $this->_propDict)) {
+            return $this->_propDict["onDeviceOnlyTranslationForced"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the onDeviceOnlyTranslationForced
+    * When set to TRUE, the setting disables connections to Siri servers so that users can’t use Siri to translate text. When set to FALSE, the setting allows connections to to Siri servers to users can use Siri to translate text. Available for devices running iOS and iPadOS versions 15.0 and later.
+    *
+    * @param bool $val The onDeviceOnlyTranslationForced
+    *
+    * @return IosGeneralDeviceConfiguration
+    */
+    public function setOnDeviceOnlyTranslationForced($val)
+    {
+        $this->_propDict["onDeviceOnlyTranslationForced"] = boolval($val);
         return $this;
     }
     
@@ -5363,6 +5421,35 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     public function setWiFiConnectOnlyToConfiguredNetworks($val)
     {
         $this->_propDict["wiFiConnectOnlyToConfiguredNetworks"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the wiFiConnectToAllowedNetworksOnlyForced
+    * Require devices to use Wi-Fi networks set up via configuration profiles. Available for devices running iOS and iPadOS versions 14.5 and later.
+    *
+    * @return bool|null The wiFiConnectToAllowedNetworksOnlyForced
+    */
+    public function getWiFiConnectToAllowedNetworksOnlyForced()
+    {
+        if (array_key_exists("wiFiConnectToAllowedNetworksOnlyForced", $this->_propDict)) {
+            return $this->_propDict["wiFiConnectToAllowedNetworksOnlyForced"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the wiFiConnectToAllowedNetworksOnlyForced
+    * Require devices to use Wi-Fi networks set up via configuration profiles. Available for devices running iOS and iPadOS versions 14.5 and later.
+    *
+    * @param bool $val The wiFiConnectToAllowedNetworksOnlyForced
+    *
+    * @return IosGeneralDeviceConfiguration
+    */
+    public function setWiFiConnectToAllowedNetworksOnlyForced($val)
+    {
+        $this->_propDict["wiFiConnectToAllowedNetworksOnlyForced"] = boolval($val);
         return $this;
     }
     
