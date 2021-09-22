@@ -1,7 +1,7 @@
 {
 	"name": "microsoft/microsoft-graph-beta",
 	"type": "library",
-	"description": "The Microsoft Graph SDK for PHP",
+	"description": "The Microsoft Graph Beta SDK for PHP",
 	"homepage": "https://developer.microsoft.com/en-us/graph",
 	"license": "MIT",
 	"authors": [
@@ -27,7 +27,7 @@
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Microsoft\\Graph\\Test\\": "tests/",
+			"Microsoft\\Graph\\Test\\": "tests/"
 		}
 	}
 }
