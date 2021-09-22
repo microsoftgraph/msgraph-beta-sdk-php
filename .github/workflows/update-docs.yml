@@ -4,6 +4,7 @@
 name: "Update Docs"
 
 on:
+  workflow_dispatch:
   push:
     branches: dev
 
@@ -54,4 +55,4 @@ jobs:
           LABELS: generated
         run: |
           curl -fsSL https://github.com/github/hub/raw/master/script/get | bash -s 2.14.1
-          bin/hub pull-request -b dev -m "$MESSAGE_TITLE" -m "$MESSAGE_BODY" -l "$LABELS"
+          bin/hub pull-request -b ${{ github.ref }} -m "$MESSAGE_TITLE" -m "$MESSAGE_BODY" -l "$LABELS"
