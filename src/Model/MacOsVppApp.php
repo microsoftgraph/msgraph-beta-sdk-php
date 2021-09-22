@@ -90,8 +90,8 @@ class MacOsVppApp extends MobileApp
     */
     public function getLicensingType()
     {
-        if (array_key_exists("licensingType", $this->_propDict)) {
-            if (is_a($this->_propDict["licensingType"], "\Beta\Microsoft\Graph\Model\VppLicensingType") || is_null($this->_propDict["licensingType"])) {
+        if (array_key_exists("licensingType", $this->_propDict) && !is_null($this->_propDict["licensingType"])) {
+            if (is_a($this->_propDict["licensingType"], "\Beta\Microsoft\Graph\Model\VppLicensingType")) {
                 return $this->_propDict["licensingType"];
             } else {
                 $this->_propDict["licensingType"] = new VppLicensingType($this->_propDict["licensingType"]);
@@ -123,8 +123,8 @@ class MacOsVppApp extends MobileApp
     */
     public function getReleaseDateTime()
     {
-        if (array_key_exists("releaseDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["releaseDateTime"], "\DateTime") || is_null($this->_propDict["releaseDateTime"])) {
+        if (array_key_exists("releaseDateTime", $this->_propDict) && !is_null($this->_propDict["releaseDateTime"])) {
+            if (is_a($this->_propDict["releaseDateTime"], "\DateTime")) {
                 return $this->_propDict["releaseDateTime"];
             } else {
                 $this->_propDict["releaseDateTime"] = new \DateTime($this->_propDict["releaseDateTime"]);
@@ -153,22 +153,29 @@ class MacOsVppApp extends MobileApp
      * Gets the revokeLicenseActionResults
     * Results of revoke license actions on this app.
      *
-     * @return array|null The revokeLicenseActionResults
+     * @return MacOsVppAppRevokeLicensesActionResult[]|null The revokeLicenseActionResults
      */
     public function getRevokeLicenseActionResults()
     {
-        if (array_key_exists("revokeLicenseActionResults", $this->_propDict)) {
-           return $this->_propDict["revokeLicenseActionResults"];
-        } else {
-            return null;
+        if (array_key_exists('revokeLicenseActionResults', $this->_propDict) && !is_null($this->_propDict['revokeLicenseActionResults'])) {
+            $revokeLicenseActionResults = [];
+            if (count($this->_propDict['revokeLicenseActionResults']) > 0 && is_a($this->_propDict['revokeLicenseActionResults'][0], 'MacOsVppAppRevokeLicensesActionResult')) {
+                return $this->_propDict['revokeLicenseActionResults'];
+            }
+            foreach ($this->_propDict['revokeLicenseActionResults'] as $singleValue) {
+                $revokeLicenseActionResults []= new MacOsVppAppRevokeLicensesActionResult($singleValue);
+            }
+            $this->_propDict['revokeLicenseActionResults'] = $revokeLicenseActionResults;
+            return $this->_propDict['revokeLicenseActionResults'];
         }
+        return null;
     }
     
     /** 
     * Sets the revokeLicenseActionResults
     * Results of revoke license actions on this app.
     *
-    * @param MacOsVppAppRevokeLicensesActionResult $val The revokeLicenseActionResults
+    * @param MacOsVppAppRevokeLicensesActionResult[] $val The revokeLicenseActionResults
     *
     * @return MacOsVppApp
     */
@@ -244,8 +251,8 @@ class MacOsVppApp extends MobileApp
     */
     public function getVppTokenAccountType()
     {
-        if (array_key_exists("vppTokenAccountType", $this->_propDict)) {
-            if (is_a($this->_propDict["vppTokenAccountType"], "\Beta\Microsoft\Graph\Model\VppTokenAccountType") || is_null($this->_propDict["vppTokenAccountType"])) {
+        if (array_key_exists("vppTokenAccountType", $this->_propDict) && !is_null($this->_propDict["vppTokenAccountType"])) {
+            if (is_a($this->_propDict["vppTokenAccountType"], "\Beta\Microsoft\Graph\Model\VppTokenAccountType")) {
                 return $this->_propDict["vppTokenAccountType"];
             } else {
                 $this->_propDict["vppTokenAccountType"] = new VppTokenAccountType($this->_propDict["vppTokenAccountType"]);
@@ -361,22 +368,29 @@ class MacOsVppApp extends MobileApp
      * Gets the assignedLicenses
     * The licenses assigned to this app.
      *
-     * @return array|null The assignedLicenses
+     * @return MacOsVppAppAssignedLicense[]|null The assignedLicenses
      */
     public function getAssignedLicenses()
     {
-        if (array_key_exists("assignedLicenses", $this->_propDict)) {
-           return $this->_propDict["assignedLicenses"];
-        } else {
-            return null;
+        if (array_key_exists('assignedLicenses', $this->_propDict) && !is_null($this->_propDict['assignedLicenses'])) {
+            $assignedLicenses = [];
+            if (count($this->_propDict['assignedLicenses']) > 0 && is_a($this->_propDict['assignedLicenses'][0], 'MacOsVppAppAssignedLicense')) {
+                return $this->_propDict['assignedLicenses'];
+            }
+            foreach ($this->_propDict['assignedLicenses'] as $singleValue) {
+                $assignedLicenses []= new MacOsVppAppAssignedLicense($singleValue);
+            }
+            $this->_propDict['assignedLicenses'] = $assignedLicenses;
+            return $this->_propDict['assignedLicenses'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignedLicenses
     * The licenses assigned to this app.
     *
-    * @param MacOsVppAppAssignedLicense $val The assignedLicenses
+    * @param MacOsVppAppAssignedLicense[] $val The assignedLicenses
     *
     * @return MacOsVppApp
     */

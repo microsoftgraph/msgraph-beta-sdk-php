@@ -32,8 +32,8 @@ class Post extends OutlookItem
     */
     public function getBody()
     {
-        if (array_key_exists("body", $this->_propDict)) {
-            if (is_a($this->_propDict["body"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["body"])) {
+        if (array_key_exists("body", $this->_propDict) && !is_null($this->_propDict["body"])) {
+            if (is_a($this->_propDict["body"], "\Beta\Microsoft\Graph\Model\ItemBody")) {
                 return $this->_propDict["body"];
             } else {
                 $this->_propDict["body"] = new ItemBody($this->_propDict["body"]);
@@ -123,8 +123,8 @@ class Post extends OutlookItem
     */
     public function getFrom()
     {
-        if (array_key_exists("from", $this->_propDict)) {
-            if (is_a($this->_propDict["from"], "\Beta\Microsoft\Graph\Model\Recipient") || is_null($this->_propDict["from"])) {
+        if (array_key_exists("from", $this->_propDict) && !is_null($this->_propDict["from"])) {
+            if (is_a($this->_propDict["from"], "\Beta\Microsoft\Graph\Model\Recipient")) {
                 return $this->_propDict["from"];
             } else {
                 $this->_propDict["from"] = new Recipient($this->_propDict["from"]);
@@ -185,8 +185,8 @@ class Post extends OutlookItem
     */
     public function getImportance()
     {
-        if (array_key_exists("importance", $this->_propDict)) {
-            if (is_a($this->_propDict["importance"], "\Beta\Microsoft\Graph\Model\Importance") || is_null($this->_propDict["importance"])) {
+        if (array_key_exists("importance", $this->_propDict) && !is_null($this->_propDict["importance"])) {
+            if (is_a($this->_propDict["importance"], "\Beta\Microsoft\Graph\Model\Importance")) {
                 return $this->_propDict["importance"];
             } else {
                 $this->_propDict["importance"] = new Importance($this->_propDict["importance"]);
@@ -215,22 +215,29 @@ class Post extends OutlookItem
      * Gets the newParticipants
     * Conversation participants that were added to the thread as part of this post.
      *
-     * @return array|null The newParticipants
+     * @return Recipient[]|null The newParticipants
      */
     public function getNewParticipants()
     {
-        if (array_key_exists("newParticipants", $this->_propDict)) {
-           return $this->_propDict["newParticipants"];
-        } else {
-            return null;
+        if (array_key_exists('newParticipants', $this->_propDict) && !is_null($this->_propDict['newParticipants'])) {
+            $newParticipants = [];
+            if (count($this->_propDict['newParticipants']) > 0 && is_a($this->_propDict['newParticipants'][0], 'Recipient')) {
+                return $this->_propDict['newParticipants'];
+            }
+            foreach ($this->_propDict['newParticipants'] as $singleValue) {
+                $newParticipants []= new Recipient($singleValue);
+            }
+            $this->_propDict['newParticipants'] = $newParticipants;
+            return $this->_propDict['newParticipants'];
         }
+        return null;
     }
     
     /** 
     * Sets the newParticipants
     * Conversation participants that were added to the thread as part of this post.
     *
-    * @param Recipient $val The newParticipants
+    * @param Recipient[] $val The newParticipants
     *
     * @return Post
     */
@@ -248,8 +255,8 @@ class Post extends OutlookItem
     */
     public function getReceivedDateTime()
     {
-        if (array_key_exists("receivedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["receivedDateTime"], "\DateTime") || is_null($this->_propDict["receivedDateTime"])) {
+        if (array_key_exists("receivedDateTime", $this->_propDict) && !is_null($this->_propDict["receivedDateTime"])) {
+            if (is_a($this->_propDict["receivedDateTime"], "\DateTime")) {
                 return $this->_propDict["receivedDateTime"];
             } else {
                 $this->_propDict["receivedDateTime"] = new \DateTime($this->_propDict["receivedDateTime"]);
@@ -281,8 +288,8 @@ class Post extends OutlookItem
     */
     public function getSender()
     {
-        if (array_key_exists("sender", $this->_propDict)) {
-            if (is_a($this->_propDict["sender"], "\Beta\Microsoft\Graph\Model\Recipient") || is_null($this->_propDict["sender"])) {
+        if (array_key_exists("sender", $this->_propDict) && !is_null($this->_propDict["sender"])) {
+            if (is_a($this->_propDict["sender"], "\Beta\Microsoft\Graph\Model\Recipient")) {
                 return $this->_propDict["sender"];
             } else {
                 $this->_propDict["sender"] = new Recipient($this->_propDict["sender"]);
@@ -309,24 +316,31 @@ class Post extends OutlookItem
 
      /** 
      * Gets the attachments
-    * The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable.
+    * Read-only. Nullable. Supports $expand.
      *
-     * @return array|null The attachments
+     * @return Attachment[]|null The attachments
      */
     public function getAttachments()
     {
-        if (array_key_exists("attachments", $this->_propDict)) {
-           return $this->_propDict["attachments"];
-        } else {
-            return null;
+        if (array_key_exists('attachments', $this->_propDict) && !is_null($this->_propDict['attachments'])) {
+            $attachments = [];
+            if (count($this->_propDict['attachments']) > 0 && is_a($this->_propDict['attachments'][0], 'Attachment')) {
+                return $this->_propDict['attachments'];
+            }
+            foreach ($this->_propDict['attachments'] as $singleValue) {
+                $attachments []= new Attachment($singleValue);
+            }
+            $this->_propDict['attachments'] = $attachments;
+            return $this->_propDict['attachments'];
         }
+        return null;
     }
     
     /** 
     * Sets the attachments
-    * The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable.
+    * Read-only. Nullable. Supports $expand.
     *
-    * @param Attachment $val The attachments
+    * @param Attachment[] $val The attachments
     *
     * @return Post
     */
@@ -339,24 +353,31 @@ class Post extends OutlookItem
 
      /** 
      * Gets the extensions
-    * The collection of open extensions defined for the post. Read-only. Nullable.
+    * The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.
      *
-     * @return array|null The extensions
+     * @return Extension[]|null The extensions
      */
     public function getExtensions()
     {
-        if (array_key_exists("extensions", $this->_propDict)) {
-           return $this->_propDict["extensions"];
-        } else {
-            return null;
+        if (array_key_exists('extensions', $this->_propDict) && !is_null($this->_propDict['extensions'])) {
+            $extensions = [];
+            if (count($this->_propDict['extensions']) > 0 && is_a($this->_propDict['extensions'][0], 'Extension')) {
+                return $this->_propDict['extensions'];
+            }
+            foreach ($this->_propDict['extensions'] as $singleValue) {
+                $extensions []= new Extension($singleValue);
+            }
+            $this->_propDict['extensions'] = $extensions;
+            return $this->_propDict['extensions'];
         }
+        return null;
     }
     
     /** 
     * Sets the extensions
-    * The collection of open extensions defined for the post. Read-only. Nullable.
+    * The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.
     *
-    * @param Extension $val The extensions
+    * @param Extension[] $val The extensions
     *
     * @return Post
     */
@@ -368,14 +389,14 @@ class Post extends OutlookItem
     
     /**
     * Gets the inReplyTo
-    * The earlier post that this post is replying to in the conversationThread. Read-only.
+    * Read-only. Supports $expand.
     *
     * @return Post|null The inReplyTo
     */
     public function getInReplyTo()
     {
-        if (array_key_exists("inReplyTo", $this->_propDict)) {
-            if (is_a($this->_propDict["inReplyTo"], "\Beta\Microsoft\Graph\Model\Post") || is_null($this->_propDict["inReplyTo"])) {
+        if (array_key_exists("inReplyTo", $this->_propDict) && !is_null($this->_propDict["inReplyTo"])) {
+            if (is_a($this->_propDict["inReplyTo"], "\Beta\Microsoft\Graph\Model\Post")) {
                 return $this->_propDict["inReplyTo"];
             } else {
                 $this->_propDict["inReplyTo"] = new Post($this->_propDict["inReplyTo"]);
@@ -387,7 +408,7 @@ class Post extends OutlookItem
     
     /**
     * Sets the inReplyTo
-    * The earlier post that this post is replying to in the conversationThread. Read-only.
+    * Read-only. Supports $expand.
     *
     * @param Post $val The inReplyTo
     *
@@ -403,21 +424,28 @@ class Post extends OutlookItem
      /** 
      * Gets the mentions
      *
-     * @return array|null The mentions
+     * @return Mention[]|null The mentions
      */
     public function getMentions()
     {
-        if (array_key_exists("mentions", $this->_propDict)) {
-           return $this->_propDict["mentions"];
-        } else {
-            return null;
+        if (array_key_exists('mentions', $this->_propDict) && !is_null($this->_propDict['mentions'])) {
+            $mentions = [];
+            if (count($this->_propDict['mentions']) > 0 && is_a($this->_propDict['mentions'][0], 'Mention')) {
+                return $this->_propDict['mentions'];
+            }
+            foreach ($this->_propDict['mentions'] as $singleValue) {
+                $mentions []= new Mention($singleValue);
+            }
+            $this->_propDict['mentions'] = $mentions;
+            return $this->_propDict['mentions'];
         }
+        return null;
     }
     
     /** 
     * Sets the mentions
     *
-    * @param Mention $val The mentions
+    * @param Mention[] $val The mentions
     *
     * @return Post
     */
@@ -432,22 +460,29 @@ class Post extends OutlookItem
      * Gets the multiValueExtendedProperties
     * The collection of multi-value extended properties defined for the post. Read-only. Nullable.
      *
-     * @return array|null The multiValueExtendedProperties
+     * @return MultiValueLegacyExtendedProperty[]|null The multiValueExtendedProperties
      */
     public function getMultiValueExtendedProperties()
     {
-        if (array_key_exists("multiValueExtendedProperties", $this->_propDict)) {
-           return $this->_propDict["multiValueExtendedProperties"];
-        } else {
-            return null;
+        if (array_key_exists('multiValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['multiValueExtendedProperties'])) {
+            $multiValueExtendedProperties = [];
+            if (count($this->_propDict['multiValueExtendedProperties']) > 0 && is_a($this->_propDict['multiValueExtendedProperties'][0], 'MultiValueLegacyExtendedProperty')) {
+                return $this->_propDict['multiValueExtendedProperties'];
+            }
+            foreach ($this->_propDict['multiValueExtendedProperties'] as $singleValue) {
+                $multiValueExtendedProperties []= new MultiValueLegacyExtendedProperty($singleValue);
+            }
+            $this->_propDict['multiValueExtendedProperties'] = $multiValueExtendedProperties;
+            return $this->_propDict['multiValueExtendedProperties'];
         }
+        return null;
     }
     
     /** 
     * Sets the multiValueExtendedProperties
     * The collection of multi-value extended properties defined for the post. Read-only. Nullable.
     *
-    * @param MultiValueLegacyExtendedProperty $val The multiValueExtendedProperties
+    * @param MultiValueLegacyExtendedProperty[] $val The multiValueExtendedProperties
     *
     * @return Post
     */
@@ -462,22 +497,29 @@ class Post extends OutlookItem
      * Gets the singleValueExtendedProperties
     * The collection of single-value extended properties defined for the post. Read-only. Nullable.
      *
-     * @return array|null The singleValueExtendedProperties
+     * @return SingleValueLegacyExtendedProperty[]|null The singleValueExtendedProperties
      */
     public function getSingleValueExtendedProperties()
     {
-        if (array_key_exists("singleValueExtendedProperties", $this->_propDict)) {
-           return $this->_propDict["singleValueExtendedProperties"];
-        } else {
-            return null;
+        if (array_key_exists('singleValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['singleValueExtendedProperties'])) {
+            $singleValueExtendedProperties = [];
+            if (count($this->_propDict['singleValueExtendedProperties']) > 0 && is_a($this->_propDict['singleValueExtendedProperties'][0], 'SingleValueLegacyExtendedProperty')) {
+                return $this->_propDict['singleValueExtendedProperties'];
+            }
+            foreach ($this->_propDict['singleValueExtendedProperties'] as $singleValue) {
+                $singleValueExtendedProperties []= new SingleValueLegacyExtendedProperty($singleValue);
+            }
+            $this->_propDict['singleValueExtendedProperties'] = $singleValueExtendedProperties;
+            return $this->_propDict['singleValueExtendedProperties'];
         }
+        return null;
     }
     
     /** 
     * Sets the singleValueExtendedProperties
     * The collection of single-value extended properties defined for the post. Read-only. Nullable.
     *
-    * @param SingleValueLegacyExtendedProperty $val The singleValueExtendedProperties
+    * @param SingleValueLegacyExtendedProperty[] $val The singleValueExtendedProperties
     *
     * @return Post
     */

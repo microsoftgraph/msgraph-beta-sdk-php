@@ -31,8 +31,8 @@ class PurchaseInvoice extends Entity
     */
     public function getBuyFromAddress()
     {
-        if (array_key_exists("buyFromAddress", $this->_propDict)) {
-            if (is_a($this->_propDict["buyFromAddress"], "\Beta\Microsoft\Graph\Model\PostalAddressType") || is_null($this->_propDict["buyFromAddress"])) {
+        if (array_key_exists("buyFromAddress", $this->_propDict) && !is_null($this->_propDict["buyFromAddress"])) {
+            if (is_a($this->_propDict["buyFromAddress"], "\Beta\Microsoft\Graph\Model\PostalAddressType")) {
                 return $this->_propDict["buyFromAddress"];
             } else {
                 $this->_propDict["buyFromAddress"] = new PostalAddressType($this->_propDict["buyFromAddress"]);
@@ -116,8 +116,8 @@ class PurchaseInvoice extends Entity
     */
     public function getDiscountAmount()
     {
-        if (array_key_exists("discountAmount", $this->_propDict)) {
-            if (is_a($this->_propDict["discountAmount"], "\Beta\Microsoft\Graph\Model\Decimal") || is_null($this->_propDict["discountAmount"])) {
+        if (array_key_exists("discountAmount", $this->_propDict) && !is_null($this->_propDict["discountAmount"])) {
+            if (is_a($this->_propDict["discountAmount"], "\Beta\Microsoft\Graph\Model\Decimal")) {
                 return $this->_propDict["discountAmount"];
             } else {
                 $this->_propDict["discountAmount"] = new Decimal($this->_propDict["discountAmount"]);
@@ -174,8 +174,8 @@ class PurchaseInvoice extends Entity
     */
     public function getDueDate()
     {
-        if (array_key_exists("dueDate", $this->_propDict)) {
-            if (is_a($this->_propDict["dueDate"], "\DateTime") || is_null($this->_propDict["dueDate"])) {
+        if (array_key_exists("dueDate", $this->_propDict) && !is_null($this->_propDict["dueDate"])) {
+            if (is_a($this->_propDict["dueDate"], "\DateTime")) {
                 return $this->_propDict["dueDate"];
             } else {
                 $this->_propDict["dueDate"] = new \DateTime($this->_propDict["dueDate"]);
@@ -205,8 +205,8 @@ class PurchaseInvoice extends Entity
     */
     public function getInvoiceDate()
     {
-        if (array_key_exists("invoiceDate", $this->_propDict)) {
-            if (is_a($this->_propDict["invoiceDate"], "\DateTime") || is_null($this->_propDict["invoiceDate"])) {
+        if (array_key_exists("invoiceDate", $this->_propDict) && !is_null($this->_propDict["invoiceDate"])) {
+            if (is_a($this->_propDict["invoiceDate"], "\DateTime")) {
                 return $this->_propDict["invoiceDate"];
             } else {
                 $this->_propDict["invoiceDate"] = new \DateTime($this->_propDict["invoiceDate"]);
@@ -236,8 +236,8 @@ class PurchaseInvoice extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -294,8 +294,8 @@ class PurchaseInvoice extends Entity
     */
     public function getPayToAddress()
     {
-        if (array_key_exists("payToAddress", $this->_propDict)) {
-            if (is_a($this->_propDict["payToAddress"], "\Beta\Microsoft\Graph\Model\PostalAddressType") || is_null($this->_propDict["payToAddress"])) {
+        if (array_key_exists("payToAddress", $this->_propDict) && !is_null($this->_propDict["payToAddress"])) {
+            if (is_a($this->_propDict["payToAddress"], "\Beta\Microsoft\Graph\Model\PostalAddressType")) {
                 return $this->_propDict["payToAddress"];
             } else {
                 $this->_propDict["payToAddress"] = new PostalAddressType($this->_propDict["payToAddress"]);
@@ -460,8 +460,8 @@ class PurchaseInvoice extends Entity
     */
     public function getShipToAddress()
     {
-        if (array_key_exists("shipToAddress", $this->_propDict)) {
-            if (is_a($this->_propDict["shipToAddress"], "\Beta\Microsoft\Graph\Model\PostalAddressType") || is_null($this->_propDict["shipToAddress"])) {
+        if (array_key_exists("shipToAddress", $this->_propDict) && !is_null($this->_propDict["shipToAddress"])) {
+            if (is_a($this->_propDict["shipToAddress"], "\Beta\Microsoft\Graph\Model\PostalAddressType")) {
                 return $this->_propDict["shipToAddress"];
             } else {
                 $this->_propDict["shipToAddress"] = new PostalAddressType($this->_propDict["shipToAddress"]);
@@ -572,8 +572,8 @@ class PurchaseInvoice extends Entity
     */
     public function getTotalAmountExcludingTax()
     {
-        if (array_key_exists("totalAmountExcludingTax", $this->_propDict)) {
-            if (is_a($this->_propDict["totalAmountExcludingTax"], "\Beta\Microsoft\Graph\Model\Decimal") || is_null($this->_propDict["totalAmountExcludingTax"])) {
+        if (array_key_exists("totalAmountExcludingTax", $this->_propDict) && !is_null($this->_propDict["totalAmountExcludingTax"])) {
+            if (is_a($this->_propDict["totalAmountExcludingTax"], "\Beta\Microsoft\Graph\Model\Decimal")) {
                 return $this->_propDict["totalAmountExcludingTax"];
             } else {
                 $this->_propDict["totalAmountExcludingTax"] = new Decimal($this->_propDict["totalAmountExcludingTax"]);
@@ -603,8 +603,8 @@ class PurchaseInvoice extends Entity
     */
     public function getTotalAmountIncludingTax()
     {
-        if (array_key_exists("totalAmountIncludingTax", $this->_propDict)) {
-            if (is_a($this->_propDict["totalAmountIncludingTax"], "\Beta\Microsoft\Graph\Model\Decimal") || is_null($this->_propDict["totalAmountIncludingTax"])) {
+        if (array_key_exists("totalAmountIncludingTax", $this->_propDict) && !is_null($this->_propDict["totalAmountIncludingTax"])) {
+            if (is_a($this->_propDict["totalAmountIncludingTax"], "\Beta\Microsoft\Graph\Model\Decimal")) {
                 return $this->_propDict["totalAmountIncludingTax"];
             } else {
                 $this->_propDict["totalAmountIncludingTax"] = new Decimal($this->_propDict["totalAmountIncludingTax"]);
@@ -634,8 +634,8 @@ class PurchaseInvoice extends Entity
     */
     public function getTotalTaxAmount()
     {
-        if (array_key_exists("totalTaxAmount", $this->_propDict)) {
-            if (is_a($this->_propDict["totalTaxAmount"], "\Beta\Microsoft\Graph\Model\Decimal") || is_null($this->_propDict["totalTaxAmount"])) {
+        if (array_key_exists("totalTaxAmount", $this->_propDict) && !is_null($this->_propDict["totalTaxAmount"])) {
+            if (is_a($this->_propDict["totalTaxAmount"], "\Beta\Microsoft\Graph\Model\Decimal")) {
                 return $this->_propDict["totalTaxAmount"];
             } else {
                 $this->_propDict["totalTaxAmount"] = new Decimal($this->_propDict["totalTaxAmount"]);
@@ -773,8 +773,8 @@ class PurchaseInvoice extends Entity
     */
     public function getCurrency()
     {
-        if (array_key_exists("currency", $this->_propDict)) {
-            if (is_a($this->_propDict["currency"], "\Beta\Microsoft\Graph\Model\Currency") || is_null($this->_propDict["currency"])) {
+        if (array_key_exists("currency", $this->_propDict) && !is_null($this->_propDict["currency"])) {
+            if (is_a($this->_propDict["currency"], "\Beta\Microsoft\Graph\Model\Currency")) {
                 return $this->_propDict["currency"];
             } else {
                 $this->_propDict["currency"] = new Currency($this->_propDict["currency"]);
@@ -801,21 +801,28 @@ class PurchaseInvoice extends Entity
      /** 
      * Gets the purchaseInvoiceLines
      *
-     * @return array|null The purchaseInvoiceLines
+     * @return PurchaseInvoiceLine[]|null The purchaseInvoiceLines
      */
     public function getPurchaseInvoiceLines()
     {
-        if (array_key_exists("purchaseInvoiceLines", $this->_propDict)) {
-           return $this->_propDict["purchaseInvoiceLines"];
-        } else {
-            return null;
+        if (array_key_exists('purchaseInvoiceLines', $this->_propDict) && !is_null($this->_propDict['purchaseInvoiceLines'])) {
+            $purchaseInvoiceLines = [];
+            if (count($this->_propDict['purchaseInvoiceLines']) > 0 && is_a($this->_propDict['purchaseInvoiceLines'][0], 'PurchaseInvoiceLine')) {
+                return $this->_propDict['purchaseInvoiceLines'];
+            }
+            foreach ($this->_propDict['purchaseInvoiceLines'] as $singleValue) {
+                $purchaseInvoiceLines []= new PurchaseInvoiceLine($singleValue);
+            }
+            $this->_propDict['purchaseInvoiceLines'] = $purchaseInvoiceLines;
+            return $this->_propDict['purchaseInvoiceLines'];
         }
+        return null;
     }
     
     /** 
     * Sets the purchaseInvoiceLines
     *
-    * @param PurchaseInvoiceLine $val The purchaseInvoiceLines
+    * @param PurchaseInvoiceLine[] $val The purchaseInvoiceLines
     *
     * @return PurchaseInvoice
     */
@@ -832,8 +839,8 @@ class PurchaseInvoice extends Entity
     */
     public function getVendor()
     {
-        if (array_key_exists("vendor", $this->_propDict)) {
-            if (is_a($this->_propDict["vendor"], "\Beta\Microsoft\Graph\Model\Vendor") || is_null($this->_propDict["vendor"])) {
+        if (array_key_exists("vendor", $this->_propDict) && !is_null($this->_propDict["vendor"])) {
+            if (is_a($this->_propDict["vendor"], "\Beta\Microsoft\Graph\Model\Vendor")) {
                 return $this->_propDict["vendor"];
             } else {
                 $this->_propDict["vendor"] = new Vendor($this->_propDict["vendor"]);

@@ -32,8 +32,8 @@ class GroupPolicyConfiguration extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -123,8 +123,8 @@ class GroupPolicyConfiguration extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -182,22 +182,29 @@ class GroupPolicyConfiguration extends Entity
      * Gets the assignments
     * The list of group assignments for the configuration.
      *
-     * @return array|null The assignments
+     * @return GroupPolicyConfigurationAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'GroupPolicyConfigurationAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new GroupPolicyConfigurationAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * The list of group assignments for the configuration.
     *
-    * @param GroupPolicyConfigurationAssignment $val The assignments
+    * @param GroupPolicyConfigurationAssignment[] $val The assignments
     *
     * @return GroupPolicyConfiguration
     */
@@ -212,22 +219,29 @@ class GroupPolicyConfiguration extends Entity
      * Gets the definitionValues
     * The list of enabled or disabled group policy definition values for the configuration.
      *
-     * @return array|null The definitionValues
+     * @return GroupPolicyDefinitionValue[]|null The definitionValues
      */
     public function getDefinitionValues()
     {
-        if (array_key_exists("definitionValues", $this->_propDict)) {
-           return $this->_propDict["definitionValues"];
-        } else {
-            return null;
+        if (array_key_exists('definitionValues', $this->_propDict) && !is_null($this->_propDict['definitionValues'])) {
+            $definitionValues = [];
+            if (count($this->_propDict['definitionValues']) > 0 && is_a($this->_propDict['definitionValues'][0], 'GroupPolicyDefinitionValue')) {
+                return $this->_propDict['definitionValues'];
+            }
+            foreach ($this->_propDict['definitionValues'] as $singleValue) {
+                $definitionValues []= new GroupPolicyDefinitionValue($singleValue);
+            }
+            $this->_propDict['definitionValues'] = $definitionValues;
+            return $this->_propDict['definitionValues'];
         }
+        return null;
     }
     
     /** 
     * Sets the definitionValues
     * The list of enabled or disabled group policy definition values for the configuration.
     *
-    * @param GroupPolicyDefinitionValue $val The definitionValues
+    * @param GroupPolicyDefinitionValue[] $val The definitionValues
     *
     * @return GroupPolicyConfiguration
     */

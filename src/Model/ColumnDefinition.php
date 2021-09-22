@@ -32,8 +32,8 @@ class ColumnDefinition extends Entity
     */
     public function getBoolean()
     {
-        if (array_key_exists("boolean", $this->_propDict)) {
-            if (is_a($this->_propDict["boolean"], "\Beta\Microsoft\Graph\Model\BooleanColumn") || is_null($this->_propDict["boolean"])) {
+        if (array_key_exists("boolean", $this->_propDict) && !is_null($this->_propDict["boolean"])) {
+            if (is_a($this->_propDict["boolean"], "\Beta\Microsoft\Graph\Model\BooleanColumn")) {
                 return $this->_propDict["boolean"];
             } else {
                 $this->_propDict["boolean"] = new BooleanColumn($this->_propDict["boolean"]);
@@ -65,8 +65,8 @@ class ColumnDefinition extends Entity
     */
     public function getCalculated()
     {
-        if (array_key_exists("calculated", $this->_propDict)) {
-            if (is_a($this->_propDict["calculated"], "\Beta\Microsoft\Graph\Model\CalculatedColumn") || is_null($this->_propDict["calculated"])) {
+        if (array_key_exists("calculated", $this->_propDict) && !is_null($this->_propDict["calculated"])) {
+            if (is_a($this->_propDict["calculated"], "\Beta\Microsoft\Graph\Model\CalculatedColumn")) {
                 return $this->_propDict["calculated"];
             } else {
                 $this->_propDict["calculated"] = new CalculatedColumn($this->_propDict["calculated"]);
@@ -98,8 +98,8 @@ class ColumnDefinition extends Entity
     */
     public function getChoice()
     {
-        if (array_key_exists("choice", $this->_propDict)) {
-            if (is_a($this->_propDict["choice"], "\Beta\Microsoft\Graph\Model\ChoiceColumn") || is_null($this->_propDict["choice"])) {
+        if (array_key_exists("choice", $this->_propDict) && !is_null($this->_propDict["choice"])) {
+            if (is_a($this->_propDict["choice"], "\Beta\Microsoft\Graph\Model\ChoiceColumn")) {
                 return $this->_propDict["choice"];
             } else {
                 $this->_propDict["choice"] = new ChoiceColumn($this->_propDict["choice"]);
@@ -160,8 +160,8 @@ class ColumnDefinition extends Entity
     */
     public function getContentApprovalStatus()
     {
-        if (array_key_exists("contentApprovalStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["contentApprovalStatus"], "\Beta\Microsoft\Graph\Model\ContentApprovalStatusColumn") || is_null($this->_propDict["contentApprovalStatus"])) {
+        if (array_key_exists("contentApprovalStatus", $this->_propDict) && !is_null($this->_propDict["contentApprovalStatus"])) {
+            if (is_a($this->_propDict["contentApprovalStatus"], "\Beta\Microsoft\Graph\Model\ContentApprovalStatusColumn")) {
                 return $this->_propDict["contentApprovalStatus"];
             } else {
                 $this->_propDict["contentApprovalStatus"] = new ContentApprovalStatusColumn($this->_propDict["contentApprovalStatus"]);
@@ -193,8 +193,8 @@ class ColumnDefinition extends Entity
     */
     public function getCurrency()
     {
-        if (array_key_exists("currency", $this->_propDict)) {
-            if (is_a($this->_propDict["currency"], "\Beta\Microsoft\Graph\Model\CurrencyColumn") || is_null($this->_propDict["currency"])) {
+        if (array_key_exists("currency", $this->_propDict) && !is_null($this->_propDict["currency"])) {
+            if (is_a($this->_propDict["currency"], "\Beta\Microsoft\Graph\Model\CurrencyColumn")) {
                 return $this->_propDict["currency"];
             } else {
                 $this->_propDict["currency"] = new CurrencyColumn($this->_propDict["currency"]);
@@ -226,8 +226,8 @@ class ColumnDefinition extends Entity
     */
     public function getDateTime()
     {
-        if (array_key_exists("dateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["dateTime"], "\Beta\Microsoft\Graph\Model\DateTimeColumn") || is_null($this->_propDict["dateTime"])) {
+        if (array_key_exists("dateTime", $this->_propDict) && !is_null($this->_propDict["dateTime"])) {
+            if (is_a($this->_propDict["dateTime"], "\Beta\Microsoft\Graph\Model\DateTimeColumn")) {
                 return $this->_propDict["dateTime"];
             } else {
                 $this->_propDict["dateTime"] = new DateTimeColumn($this->_propDict["dateTime"]);
@@ -259,8 +259,8 @@ class ColumnDefinition extends Entity
     */
     public function getDefaultValue()
     {
-        if (array_key_exists("defaultValue", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultValue"], "\Beta\Microsoft\Graph\Model\DefaultColumnValue") || is_null($this->_propDict["defaultValue"])) {
+        if (array_key_exists("defaultValue", $this->_propDict) && !is_null($this->_propDict["defaultValue"])) {
+            if (is_a($this->_propDict["defaultValue"], "\Beta\Microsoft\Graph\Model\DefaultColumnValue")) {
                 return $this->_propDict["defaultValue"];
             } else {
                 $this->_propDict["defaultValue"] = new DefaultColumnValue($this->_propDict["defaultValue"]);
@@ -379,8 +379,8 @@ class ColumnDefinition extends Entity
     */
     public function getGeolocation()
     {
-        if (array_key_exists("geolocation", $this->_propDict)) {
-            if (is_a($this->_propDict["geolocation"], "\Beta\Microsoft\Graph\Model\GeolocationColumn") || is_null($this->_propDict["geolocation"])) {
+        if (array_key_exists("geolocation", $this->_propDict) && !is_null($this->_propDict["geolocation"])) {
+            if (is_a($this->_propDict["geolocation"], "\Beta\Microsoft\Graph\Model\GeolocationColumn")) {
                 return $this->_propDict["geolocation"];
             } else {
                 $this->_propDict["geolocation"] = new GeolocationColumn($this->_propDict["geolocation"]);
@@ -441,8 +441,8 @@ class ColumnDefinition extends Entity
     */
     public function getHyperlinkOrPicture()
     {
-        if (array_key_exists("hyperlinkOrPicture", $this->_propDict)) {
-            if (is_a($this->_propDict["hyperlinkOrPicture"], "\Beta\Microsoft\Graph\Model\HyperlinkOrPictureColumn") || is_null($this->_propDict["hyperlinkOrPicture"])) {
+        if (array_key_exists("hyperlinkOrPicture", $this->_propDict) && !is_null($this->_propDict["hyperlinkOrPicture"])) {
+            if (is_a($this->_propDict["hyperlinkOrPicture"], "\Beta\Microsoft\Graph\Model\HyperlinkOrPictureColumn")) {
                 return $this->_propDict["hyperlinkOrPicture"];
             } else {
                 $this->_propDict["hyperlinkOrPicture"] = new HyperlinkOrPictureColumn($this->_propDict["hyperlinkOrPicture"]);
@@ -468,7 +468,7 @@ class ColumnDefinition extends Entity
     
     /**
     * Gets the indexed
-    * Specifies whether the column values can used for sorting and searching.
+    * Specifies whether the column values can be used for sorting and searching.
     *
     * @return bool|null The indexed
     */
@@ -483,7 +483,7 @@ class ColumnDefinition extends Entity
     
     /**
     * Sets the indexed
-    * Specifies whether the column values can used for sorting and searching.
+    * Specifies whether the column values can be used for sorting and searching.
     *
     * @param bool $val The indexed
     *
@@ -555,7 +555,7 @@ class ColumnDefinition extends Entity
     
     /**
     * Gets the isSealed
-    * Specifies whether column can be changed.
+    * Specifies whether the column can be changed.
     *
     * @return bool|null The isSealed
     */
@@ -570,7 +570,7 @@ class ColumnDefinition extends Entity
     
     /**
     * Sets the isSealed
-    * Specifies whether column can be changed.
+    * Specifies whether the column can be changed.
     *
     * @param bool $val The isSealed
     *
@@ -590,8 +590,8 @@ class ColumnDefinition extends Entity
     */
     public function getLookup()
     {
-        if (array_key_exists("lookup", $this->_propDict)) {
-            if (is_a($this->_propDict["lookup"], "\Beta\Microsoft\Graph\Model\LookupColumn") || is_null($this->_propDict["lookup"])) {
+        if (array_key_exists("lookup", $this->_propDict) && !is_null($this->_propDict["lookup"])) {
+            if (is_a($this->_propDict["lookup"], "\Beta\Microsoft\Graph\Model\LookupColumn")) {
                 return $this->_propDict["lookup"];
             } else {
                 $this->_propDict["lookup"] = new LookupColumn($this->_propDict["lookup"]);
@@ -652,8 +652,8 @@ class ColumnDefinition extends Entity
     */
     public function getNumber()
     {
-        if (array_key_exists("number", $this->_propDict)) {
-            if (is_a($this->_propDict["number"], "\Beta\Microsoft\Graph\Model\NumberColumn") || is_null($this->_propDict["number"])) {
+        if (array_key_exists("number", $this->_propDict) && !is_null($this->_propDict["number"])) {
+            if (is_a($this->_propDict["number"], "\Beta\Microsoft\Graph\Model\NumberColumn")) {
                 return $this->_propDict["number"];
             } else {
                 $this->_propDict["number"] = new NumberColumn($this->_propDict["number"]);
@@ -685,8 +685,8 @@ class ColumnDefinition extends Entity
     */
     public function getPersonOrGroup()
     {
-        if (array_key_exists("personOrGroup", $this->_propDict)) {
-            if (is_a($this->_propDict["personOrGroup"], "\Beta\Microsoft\Graph\Model\PersonOrGroupColumn") || is_null($this->_propDict["personOrGroup"])) {
+        if (array_key_exists("personOrGroup", $this->_propDict) && !is_null($this->_propDict["personOrGroup"])) {
+            if (is_a($this->_propDict["personOrGroup"], "\Beta\Microsoft\Graph\Model\PersonOrGroupColumn")) {
                 return $this->_propDict["personOrGroup"];
             } else {
                 $this->_propDict["personOrGroup"] = new PersonOrGroupColumn($this->_propDict["personOrGroup"]);
@@ -712,7 +712,7 @@ class ColumnDefinition extends Entity
     
     /**
     * Gets the propagateChanges
-    * If 'True' changes to this column will be propagated to lists that implement the column.
+    * If 'true', changes to this column will be propagated to lists that implement the column.
     *
     * @return bool|null The propagateChanges
     */
@@ -727,7 +727,7 @@ class ColumnDefinition extends Entity
     
     /**
     * Sets the propagateChanges
-    * If 'True' changes to this column will be propagated to lists that implement the column.
+    * If 'true', changes to this column will be propagated to lists that implement the column.
     *
     * @param bool $val The propagateChanges
     *
@@ -770,7 +770,7 @@ class ColumnDefinition extends Entity
     
     /**
     * Gets the required
-    * Specifies whether the column value is not optional.
+    * Specifies whether the column value isn't optional.
     *
     * @return bool|null The required
     */
@@ -785,7 +785,7 @@ class ColumnDefinition extends Entity
     
     /**
     * Sets the required
-    * Specifies whether the column value is not optional.
+    * Specifies whether the column value isn't optional.
     *
     * @param bool $val The required
     *
@@ -805,8 +805,8 @@ class ColumnDefinition extends Entity
     */
     public function getTerm()
     {
-        if (array_key_exists("term", $this->_propDict)) {
-            if (is_a($this->_propDict["term"], "\Beta\Microsoft\Graph\Model\TermColumn") || is_null($this->_propDict["term"])) {
+        if (array_key_exists("term", $this->_propDict) && !is_null($this->_propDict["term"])) {
+            if (is_a($this->_propDict["term"], "\Beta\Microsoft\Graph\Model\TermColumn")) {
                 return $this->_propDict["term"];
             } else {
                 $this->_propDict["term"] = new TermColumn($this->_propDict["term"]);
@@ -838,8 +838,8 @@ class ColumnDefinition extends Entity
     */
     public function getText()
     {
-        if (array_key_exists("text", $this->_propDict)) {
-            if (is_a($this->_propDict["text"], "\Beta\Microsoft\Graph\Model\TextColumn") || is_null($this->_propDict["text"])) {
+        if (array_key_exists("text", $this->_propDict) && !is_null($this->_propDict["text"])) {
+            if (is_a($this->_propDict["text"], "\Beta\Microsoft\Graph\Model\TextColumn")) {
                 return $this->_propDict["text"];
             } else {
                 $this->_propDict["text"] = new TextColumn($this->_propDict["text"]);
@@ -871,8 +871,8 @@ class ColumnDefinition extends Entity
     */
     public function getThumbnail()
     {
-        if (array_key_exists("thumbnail", $this->_propDict)) {
-            if (is_a($this->_propDict["thumbnail"], "\Beta\Microsoft\Graph\Model\ThumbnailColumn") || is_null($this->_propDict["thumbnail"])) {
+        if (array_key_exists("thumbnail", $this->_propDict) && !is_null($this->_propDict["thumbnail"])) {
+            if (is_a($this->_propDict["thumbnail"], "\Beta\Microsoft\Graph\Model\ThumbnailColumn")) {
                 return $this->_propDict["thumbnail"];
             } else {
                 $this->_propDict["thumbnail"] = new ThumbnailColumn($this->_propDict["thumbnail"]);
@@ -898,14 +898,14 @@ class ColumnDefinition extends Entity
     
     /**
     * Gets the type
-    * For site columns, the type of column. Read-only
+    * For site columns, the type of column. Read-only.
     *
     * @return ColumnTypes|null The type
     */
     public function getType()
     {
-        if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\ColumnTypes") || is_null($this->_propDict["type"])) {
+        if (array_key_exists("type", $this->_propDict) && !is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\ColumnTypes")) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new ColumnTypes($this->_propDict["type"]);
@@ -917,7 +917,7 @@ class ColumnDefinition extends Entity
     
     /**
     * Sets the type
-    * For site columns, the type of column. Read-only
+    * For site columns, the type of column. Read-only.
     *
     * @param ColumnTypes $val The type
     *
@@ -937,8 +937,8 @@ class ColumnDefinition extends Entity
     */
     public function getValidation()
     {
-        if (array_key_exists("validation", $this->_propDict)) {
-            if (is_a($this->_propDict["validation"], "\Beta\Microsoft\Graph\Model\ColumnValidation") || is_null($this->_propDict["validation"])) {
+        if (array_key_exists("validation", $this->_propDict) && !is_null($this->_propDict["validation"])) {
+            if (is_a($this->_propDict["validation"], "\Beta\Microsoft\Graph\Model\ColumnValidation")) {
                 return $this->_propDict["validation"];
             } else {
                 $this->_propDict["validation"] = new ColumnValidation($this->_propDict["validation"]);
@@ -964,14 +964,14 @@ class ColumnDefinition extends Entity
     
     /**
     * Gets the sourceColumn
-    * The source column for content type column.
+    * The source column for the content type column.
     *
     * @return ColumnDefinition|null The sourceColumn
     */
     public function getSourceColumn()
     {
-        if (array_key_exists("sourceColumn", $this->_propDict)) {
-            if (is_a($this->_propDict["sourceColumn"], "\Beta\Microsoft\Graph\Model\ColumnDefinition") || is_null($this->_propDict["sourceColumn"])) {
+        if (array_key_exists("sourceColumn", $this->_propDict) && !is_null($this->_propDict["sourceColumn"])) {
+            if (is_a($this->_propDict["sourceColumn"], "\Beta\Microsoft\Graph\Model\ColumnDefinition")) {
                 return $this->_propDict["sourceColumn"];
             } else {
                 $this->_propDict["sourceColumn"] = new ColumnDefinition($this->_propDict["sourceColumn"]);
@@ -983,7 +983,7 @@ class ColumnDefinition extends Entity
     
     /**
     * Sets the sourceColumn
-    * The source column for content type column.
+    * The source column for the content type column.
     *
     * @param ColumnDefinition $val The sourceColumn
     *

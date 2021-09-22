@@ -60,8 +60,9 @@ class WebApplication extends Entity
     */
     public function getImplicitGrantSettings()
     {
-        if (array_key_exists("implicitGrantSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["implicitGrantSettings"], "\Beta\Microsoft\Graph\Model\ImplicitGrantSettings") || is_null($this->_propDict["implicitGrantSettings"])) {
+        if (array_key_exists("implicitGrantSettings", $this->_propDict) && !is_null($this->_propDict["implicitGrantSettings"])) {
+     
+            if (is_a($this->_propDict["implicitGrantSettings"], "\Beta\Microsoft\Graph\Model\ImplicitGrantSettings")) {
                 return $this->_propDict["implicitGrantSettings"];
             } else {
                 $this->_propDict["implicitGrantSettings"] = new ImplicitGrantSettings($this->_propDict["implicitGrantSettings"]);
@@ -157,7 +158,7 @@ class WebApplication extends Entity
     * Sets the redirectUris
     * Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
     *
-    * @param string $val The value of the redirectUris
+    * @param string[] $val The value of the redirectUris
     *
     * @return WebApplication
     */
@@ -165,5 +166,40 @@ class WebApplication extends Entity
     {
         $this->_propDict["redirectUris"] = $val;
         return $this;
+    }
+
+    /**
+    * Gets the redirectUriSettings
+    *
+    * @return RedirectUriSettings[]|null The redirectUriSettings
+    */
+    public function getRedirectUriSettings()
+    {
+        if (array_key_exists("redirectUriSettings", $this->_propDict) && !is_null($this->_propDict["redirectUriSettings"])) {
+       
+            if (count($this->_propDict['redirectUriSettings']) > 0 && is_a($this->_propDict['redirectUriSettings'][0], 'RedirectUriSettings')) {
+               return $this->_propDict['redirectUriSettings'];
+            }
+            $redirectUriSettings = [];
+            foreach ($this->_propDict['redirectUriSettings'] as $singleValue) {
+               $redirectUriSettings []= new RedirectUriSettings($singleValue);
+            }
+            $this->_propDict['redirectUriSettings'] = $redirectUriSettings;
+            return $this->_propDict['redirectUriSettings'];
+            }
+        return null;
+    }
+
+    /**
+    * Sets the redirectUriSettings
+    *
+    * @param RedirectUriSettings[] $val The value to assign to the redirectUriSettings
+    *
+    * @return WebApplication The WebApplication
+    */
+    public function setRedirectUriSettings($val)
+    {
+        $this->_propDict["redirectUriSettings"] = $val;
+         return $this;
     }
 }

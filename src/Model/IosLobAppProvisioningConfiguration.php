@@ -32,8 +32,8 @@ class IosLobAppProvisioningConfiguration extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -123,8 +123,8 @@ class IosLobAppProvisioningConfiguration extends Entity
     */
     public function getExpirationDateTime()
     {
-        if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+        if (array_key_exists("expirationDateTime", $this->_propDict) && !is_null($this->_propDict["expirationDateTime"])) {
+            if (is_a($this->_propDict["expirationDateTime"], "\DateTime")) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -156,8 +156,8 @@ class IosLobAppProvisioningConfiguration extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -189,11 +189,11 @@ class IosLobAppProvisioningConfiguration extends Entity
     */
     public function getPayload()
     {
-        if (array_key_exists("payload", $this->_propDict)) {
-            if (is_a($this->_propDict["payload"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["payload"])) {
+        if (array_key_exists("payload", $this->_propDict) && !is_null($this->_propDict["payload"])) {
+            if (is_a($this->_propDict["payload"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["payload"];
             } else {
-                $this->_propDict["payload"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["payload"]);
+                $this->_propDict["payload"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["payload"]);
                 return $this->_propDict["payload"];
             }
         }
@@ -306,22 +306,29 @@ class IosLobAppProvisioningConfiguration extends Entity
      * Gets the assignments
     * The associated group assignments for IosLobAppProvisioningConfiguration.
      *
-     * @return array|null The assignments
+     * @return IosLobAppProvisioningConfigurationAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'IosLobAppProvisioningConfigurationAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new IosLobAppProvisioningConfigurationAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * The associated group assignments for IosLobAppProvisioningConfiguration.
     *
-    * @param IosLobAppProvisioningConfigurationAssignment $val The assignments
+    * @param IosLobAppProvisioningConfigurationAssignment[] $val The assignments
     *
     * @return IosLobAppProvisioningConfiguration
     */
@@ -336,22 +343,29 @@ class IosLobAppProvisioningConfiguration extends Entity
      * Gets the deviceStatuses
     * The list of device installation states for this mobile app configuration.
      *
-     * @return array|null The deviceStatuses
+     * @return ManagedDeviceMobileAppConfigurationDeviceStatus[]|null The deviceStatuses
      */
     public function getDeviceStatuses()
     {
-        if (array_key_exists("deviceStatuses", $this->_propDict)) {
-           return $this->_propDict["deviceStatuses"];
-        } else {
-            return null;
+        if (array_key_exists('deviceStatuses', $this->_propDict) && !is_null($this->_propDict['deviceStatuses'])) {
+            $deviceStatuses = [];
+            if (count($this->_propDict['deviceStatuses']) > 0 && is_a($this->_propDict['deviceStatuses'][0], 'ManagedDeviceMobileAppConfigurationDeviceStatus')) {
+                return $this->_propDict['deviceStatuses'];
+            }
+            foreach ($this->_propDict['deviceStatuses'] as $singleValue) {
+                $deviceStatuses []= new ManagedDeviceMobileAppConfigurationDeviceStatus($singleValue);
+            }
+            $this->_propDict['deviceStatuses'] = $deviceStatuses;
+            return $this->_propDict['deviceStatuses'];
         }
+        return null;
     }
     
     /** 
     * Sets the deviceStatuses
     * The list of device installation states for this mobile app configuration.
     *
-    * @param ManagedDeviceMobileAppConfigurationDeviceStatus $val The deviceStatuses
+    * @param ManagedDeviceMobileAppConfigurationDeviceStatus[] $val The deviceStatuses
     *
     * @return IosLobAppProvisioningConfiguration
     */
@@ -366,22 +380,29 @@ class IosLobAppProvisioningConfiguration extends Entity
      * Gets the groupAssignments
     * The associated group assignments.
      *
-     * @return array|null The groupAssignments
+     * @return MobileAppProvisioningConfigGroupAssignment[]|null The groupAssignments
      */
     public function getGroupAssignments()
     {
-        if (array_key_exists("groupAssignments", $this->_propDict)) {
-           return $this->_propDict["groupAssignments"];
-        } else {
-            return null;
+        if (array_key_exists('groupAssignments', $this->_propDict) && !is_null($this->_propDict['groupAssignments'])) {
+            $groupAssignments = [];
+            if (count($this->_propDict['groupAssignments']) > 0 && is_a($this->_propDict['groupAssignments'][0], 'MobileAppProvisioningConfigGroupAssignment')) {
+                return $this->_propDict['groupAssignments'];
+            }
+            foreach ($this->_propDict['groupAssignments'] as $singleValue) {
+                $groupAssignments []= new MobileAppProvisioningConfigGroupAssignment($singleValue);
+            }
+            $this->_propDict['groupAssignments'] = $groupAssignments;
+            return $this->_propDict['groupAssignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the groupAssignments
     * The associated group assignments.
     *
-    * @param MobileAppProvisioningConfigGroupAssignment $val The groupAssignments
+    * @param MobileAppProvisioningConfigGroupAssignment[] $val The groupAssignments
     *
     * @return IosLobAppProvisioningConfiguration
     */
@@ -396,22 +417,29 @@ class IosLobAppProvisioningConfiguration extends Entity
      * Gets the userStatuses
     * The list of user installation states for this mobile app configuration.
      *
-     * @return array|null The userStatuses
+     * @return ManagedDeviceMobileAppConfigurationUserStatus[]|null The userStatuses
      */
     public function getUserStatuses()
     {
-        if (array_key_exists("userStatuses", $this->_propDict)) {
-           return $this->_propDict["userStatuses"];
-        } else {
-            return null;
+        if (array_key_exists('userStatuses', $this->_propDict) && !is_null($this->_propDict['userStatuses'])) {
+            $userStatuses = [];
+            if (count($this->_propDict['userStatuses']) > 0 && is_a($this->_propDict['userStatuses'][0], 'ManagedDeviceMobileAppConfigurationUserStatus')) {
+                return $this->_propDict['userStatuses'];
+            }
+            foreach ($this->_propDict['userStatuses'] as $singleValue) {
+                $userStatuses []= new ManagedDeviceMobileAppConfigurationUserStatus($singleValue);
+            }
+            $this->_propDict['userStatuses'] = $userStatuses;
+            return $this->_propDict['userStatuses'];
         }
+        return null;
     }
     
     /** 
     * Sets the userStatuses
     * The list of user installation states for this mobile app configuration.
     *
-    * @param ManagedDeviceMobileAppConfigurationUserStatus $val The userStatuses
+    * @param ManagedDeviceMobileAppConfigurationUserStatus[] $val The userStatuses
     *
     * @return IosLobAppProvisioningConfiguration
     */

@@ -32,8 +32,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getAccountSetupDuration()
     {
-        if (array_key_exists("accountSetupDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["accountSetupDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["accountSetupDuration"])) {
+        if (array_key_exists("accountSetupDuration", $this->_propDict) && !is_null($this->_propDict["accountSetupDuration"])) {
+            if (is_a($this->_propDict["accountSetupDuration"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["accountSetupDuration"];
             } else {
                 $this->_propDict["accountSetupDuration"] = new Duration($this->_propDict["accountSetupDuration"]);
@@ -65,8 +65,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getAccountSetupStatus()
     {
-        if (array_key_exists("accountSetupStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["accountSetupStatus"], "\Beta\Microsoft\Graph\Model\WindowsAutopilotDeploymentState") || is_null($this->_propDict["accountSetupStatus"])) {
+        if (array_key_exists("accountSetupStatus", $this->_propDict) && !is_null($this->_propDict["accountSetupStatus"])) {
+            if (is_a($this->_propDict["accountSetupStatus"], "\Beta\Microsoft\Graph\Model\WindowsAutopilotDeploymentState")) {
                 return $this->_propDict["accountSetupStatus"];
             } else {
                 $this->_propDict["accountSetupStatus"] = new WindowsAutopilotDeploymentState($this->_propDict["accountSetupStatus"]);
@@ -98,8 +98,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getDeploymentDuration()
     {
-        if (array_key_exists("deploymentDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["deploymentDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["deploymentDuration"])) {
+        if (array_key_exists("deploymentDuration", $this->_propDict) && !is_null($this->_propDict["deploymentDuration"])) {
+            if (is_a($this->_propDict["deploymentDuration"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["deploymentDuration"];
             } else {
                 $this->_propDict["deploymentDuration"] = new Duration($this->_propDict["deploymentDuration"]);
@@ -131,8 +131,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getDeploymentEndDateTime()
     {
-        if (array_key_exists("deploymentEndDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["deploymentEndDateTime"], "\DateTime") || is_null($this->_propDict["deploymentEndDateTime"])) {
+        if (array_key_exists("deploymentEndDateTime", $this->_propDict) && !is_null($this->_propDict["deploymentEndDateTime"])) {
+            if (is_a($this->_propDict["deploymentEndDateTime"], "\DateTime")) {
                 return $this->_propDict["deploymentEndDateTime"];
             } else {
                 $this->_propDict["deploymentEndDateTime"] = new \DateTime($this->_propDict["deploymentEndDateTime"]);
@@ -164,8 +164,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getDeploymentStartDateTime()
     {
-        if (array_key_exists("deploymentStartDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["deploymentStartDateTime"], "\DateTime") || is_null($this->_propDict["deploymentStartDateTime"])) {
+        if (array_key_exists("deploymentStartDateTime", $this->_propDict) && !is_null($this->_propDict["deploymentStartDateTime"])) {
+            if (is_a($this->_propDict["deploymentStartDateTime"], "\DateTime")) {
                 return $this->_propDict["deploymentStartDateTime"];
             } else {
                 $this->_propDict["deploymentStartDateTime"] = new \DateTime($this->_propDict["deploymentStartDateTime"]);
@@ -197,8 +197,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getDeploymentState()
     {
-        if (array_key_exists("deploymentState", $this->_propDict)) {
-            if (is_a($this->_propDict["deploymentState"], "\Beta\Microsoft\Graph\Model\WindowsAutopilotDeploymentState") || is_null($this->_propDict["deploymentState"])) {
+        if (array_key_exists("deploymentState", $this->_propDict) && !is_null($this->_propDict["deploymentState"])) {
+            if (is_a($this->_propDict["deploymentState"], "\Beta\Microsoft\Graph\Model\WindowsAutopilotDeploymentState")) {
                 return $this->_propDict["deploymentState"];
             } else {
                 $this->_propDict["deploymentState"] = new WindowsAutopilotDeploymentState($this->_propDict["deploymentState"]);
@@ -230,8 +230,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getDeploymentTotalDuration()
     {
-        if (array_key_exists("deploymentTotalDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["deploymentTotalDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["deploymentTotalDuration"])) {
+        if (array_key_exists("deploymentTotalDuration", $this->_propDict) && !is_null($this->_propDict["deploymentTotalDuration"])) {
+            if (is_a($this->_propDict["deploymentTotalDuration"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["deploymentTotalDuration"];
             } else {
                 $this->_propDict["deploymentTotalDuration"] = new Duration($this->_propDict["deploymentTotalDuration"]);
@@ -292,8 +292,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getDevicePreparationDuration()
     {
-        if (array_key_exists("devicePreparationDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["devicePreparationDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["devicePreparationDuration"])) {
+        if (array_key_exists("devicePreparationDuration", $this->_propDict) && !is_null($this->_propDict["devicePreparationDuration"])) {
+            if (is_a($this->_propDict["devicePreparationDuration"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["devicePreparationDuration"];
             } else {
                 $this->_propDict["devicePreparationDuration"] = new Duration($this->_propDict["devicePreparationDuration"]);
@@ -325,8 +325,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getDeviceRegisteredDateTime()
     {
-        if (array_key_exists("deviceRegisteredDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceRegisteredDateTime"], "\DateTime") || is_null($this->_propDict["deviceRegisteredDateTime"])) {
+        if (array_key_exists("deviceRegisteredDateTime", $this->_propDict) && !is_null($this->_propDict["deviceRegisteredDateTime"])) {
+            if (is_a($this->_propDict["deviceRegisteredDateTime"], "\DateTime")) {
                 return $this->_propDict["deviceRegisteredDateTime"];
             } else {
                 $this->_propDict["deviceRegisteredDateTime"] = new \DateTime($this->_propDict["deviceRegisteredDateTime"]);
@@ -387,8 +387,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getDeviceSetupDuration()
     {
-        if (array_key_exists("deviceSetupDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceSetupDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["deviceSetupDuration"])) {
+        if (array_key_exists("deviceSetupDuration", $this->_propDict) && !is_null($this->_propDict["deviceSetupDuration"])) {
+            if (is_a($this->_propDict["deviceSetupDuration"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["deviceSetupDuration"];
             } else {
                 $this->_propDict["deviceSetupDuration"] = new Duration($this->_propDict["deviceSetupDuration"]);
@@ -420,8 +420,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getDeviceSetupStatus()
     {
-        if (array_key_exists("deviceSetupStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceSetupStatus"], "\Beta\Microsoft\Graph\Model\WindowsAutopilotDeploymentState") || is_null($this->_propDict["deviceSetupStatus"])) {
+        if (array_key_exists("deviceSetupStatus", $this->_propDict) && !is_null($this->_propDict["deviceSetupStatus"])) {
+            if (is_a($this->_propDict["deviceSetupStatus"], "\Beta\Microsoft\Graph\Model\WindowsAutopilotDeploymentState")) {
                 return $this->_propDict["deviceSetupStatus"];
             } else {
                 $this->_propDict["deviceSetupStatus"] = new WindowsAutopilotDeploymentState($this->_propDict["deviceSetupStatus"]);
@@ -482,8 +482,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getEnrollmentStartDateTime()
     {
-        if (array_key_exists("enrollmentStartDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentStartDateTime"], "\DateTime") || is_null($this->_propDict["enrollmentStartDateTime"])) {
+        if (array_key_exists("enrollmentStartDateTime", $this->_propDict) && !is_null($this->_propDict["enrollmentStartDateTime"])) {
+            if (is_a($this->_propDict["enrollmentStartDateTime"], "\DateTime")) {
                 return $this->_propDict["enrollmentStartDateTime"];
             } else {
                 $this->_propDict["enrollmentStartDateTime"] = new \DateTime($this->_propDict["enrollmentStartDateTime"]);
@@ -515,8 +515,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getEnrollmentState()
     {
-        if (array_key_exists("enrollmentState", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentState"], "\Beta\Microsoft\Graph\Model\EnrollmentState") || is_null($this->_propDict["enrollmentState"])) {
+        if (array_key_exists("enrollmentState", $this->_propDict) && !is_null($this->_propDict["enrollmentState"])) {
+            if (is_a($this->_propDict["enrollmentState"], "\Beta\Microsoft\Graph\Model\EnrollmentState")) {
                 return $this->_propDict["enrollmentState"];
             } else {
                 $this->_propDict["enrollmentState"] = new EnrollmentState($this->_propDict["enrollmentState"]);
@@ -548,8 +548,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getEnrollmentType()
     {
-        if (array_key_exists("enrollmentType", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentType"], "\Beta\Microsoft\Graph\Model\WindowsAutopilotEnrollmentType") || is_null($this->_propDict["enrollmentType"])) {
+        if (array_key_exists("enrollmentType", $this->_propDict) && !is_null($this->_propDict["enrollmentType"])) {
+            if (is_a($this->_propDict["enrollmentType"], "\Beta\Microsoft\Graph\Model\WindowsAutopilotEnrollmentType")) {
                 return $this->_propDict["enrollmentType"];
             } else {
                 $this->_propDict["enrollmentType"] = new WindowsAutopilotEnrollmentType($this->_propDict["enrollmentType"]);
@@ -581,8 +581,8 @@ class DeviceManagementAutopilotEvent extends Entity
     */
     public function getEventDateTime()
     {
-        if (array_key_exists("eventDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["eventDateTime"], "\DateTime") || is_null($this->_propDict["eventDateTime"])) {
+        if (array_key_exists("eventDateTime", $this->_propDict) && !is_null($this->_propDict["eventDateTime"])) {
+            if (is_a($this->_propDict["eventDateTime"], "\DateTime")) {
                 return $this->_propDict["eventDateTime"];
             } else {
                 $this->_propDict["eventDateTime"] = new \DateTime($this->_propDict["eventDateTime"]);
@@ -843,22 +843,29 @@ class DeviceManagementAutopilotEvent extends Entity
      * Gets the policyStatusDetails
     * Policy and application status details for this device.
      *
-     * @return array|null The policyStatusDetails
+     * @return DeviceManagementAutopilotPolicyStatusDetail[]|null The policyStatusDetails
      */
     public function getPolicyStatusDetails()
     {
-        if (array_key_exists("policyStatusDetails", $this->_propDict)) {
-           return $this->_propDict["policyStatusDetails"];
-        } else {
-            return null;
+        if (array_key_exists('policyStatusDetails', $this->_propDict) && !is_null($this->_propDict['policyStatusDetails'])) {
+            $policyStatusDetails = [];
+            if (count($this->_propDict['policyStatusDetails']) > 0 && is_a($this->_propDict['policyStatusDetails'][0], 'DeviceManagementAutopilotPolicyStatusDetail')) {
+                return $this->_propDict['policyStatusDetails'];
+            }
+            foreach ($this->_propDict['policyStatusDetails'] as $singleValue) {
+                $policyStatusDetails []= new DeviceManagementAutopilotPolicyStatusDetail($singleValue);
+            }
+            $this->_propDict['policyStatusDetails'] = $policyStatusDetails;
+            return $this->_propDict['policyStatusDetails'];
         }
+        return null;
     }
     
     /** 
     * Sets the policyStatusDetails
     * Policy and application status details for this device.
     *
-    * @param DeviceManagementAutopilotPolicyStatusDetail $val The policyStatusDetails
+    * @param DeviceManagementAutopilotPolicyStatusDetail[] $val The policyStatusDetails
     *
     * @return DeviceManagementAutopilotEvent
     */

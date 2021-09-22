@@ -32,8 +32,8 @@ class EmailActivityStatistics extends ActivityStatistics
     */
     public function getAfterHours()
     {
-        if (array_key_exists("afterHours", $this->_propDict)) {
-            if (is_a($this->_propDict["afterHours"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["afterHours"])) {
+        if (array_key_exists("afterHours", $this->_propDict) && !is_null($this->_propDict["afterHours"])) {
+            if (is_a($this->_propDict["afterHours"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["afterHours"];
             } else {
                 $this->_propDict["afterHours"] = new Duration($this->_propDict["afterHours"]);
@@ -65,8 +65,8 @@ class EmailActivityStatistics extends ActivityStatistics
     */
     public function getReadEmail()
     {
-        if (array_key_exists("readEmail", $this->_propDict)) {
-            if (is_a($this->_propDict["readEmail"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["readEmail"])) {
+        if (array_key_exists("readEmail", $this->_propDict) && !is_null($this->_propDict["readEmail"])) {
+            if (is_a($this->_propDict["readEmail"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["readEmail"];
             } else {
                 $this->_propDict["readEmail"] = new Duration($this->_propDict["readEmail"]);
@@ -98,8 +98,8 @@ class EmailActivityStatistics extends ActivityStatistics
     */
     public function getSentEmail()
     {
-        if (array_key_exists("sentEmail", $this->_propDict)) {
-            if (is_a($this->_propDict["sentEmail"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["sentEmail"])) {
+        if (array_key_exists("sentEmail", $this->_propDict) && !is_null($this->_propDict["sentEmail"])) {
+            if (is_a($this->_propDict["sentEmail"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["sentEmail"];
             } else {
                 $this->_propDict["sentEmail"] = new Duration($this->_propDict["sentEmail"]);

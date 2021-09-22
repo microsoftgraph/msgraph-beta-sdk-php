@@ -61,8 +61,8 @@ class NoncustodialDataSource extends DataSourceContainer
     */
     public function getDataSource()
     {
-        if (array_key_exists("dataSource", $this->_propDict)) {
-            if (is_a($this->_propDict["dataSource"], "\Beta\Microsoft\Graph\Ediscovery\Model\DataSource") || is_null($this->_propDict["dataSource"])) {
+        if (array_key_exists("dataSource", $this->_propDict) && !is_null($this->_propDict["dataSource"])) {
+            if (is_a($this->_propDict["dataSource"], "\Beta\Microsoft\Graph\Ediscovery\Model\DataSource")) {
                 return $this->_propDict["dataSource"];
             } else {
                 $this->_propDict["dataSource"] = new DataSource($this->_propDict["dataSource"]);

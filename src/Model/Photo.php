@@ -250,14 +250,15 @@ class Photo extends Entity
 
     /**
     * Gets the takenDateTime
-    * The date and time the photo was taken in UTC time. Read-only.
+    * Represents the date and time the photo was taken. Read-only.
     *
     * @return \DateTime|null The takenDateTime
     */
     public function getTakenDateTime()
     {
-        if (array_key_exists("takenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["takenDateTime"], "\DateTime") || is_null($this->_propDict["takenDateTime"])) {
+        if (array_key_exists("takenDateTime", $this->_propDict) && !is_null($this->_propDict["takenDateTime"])) {
+     
+            if (is_a($this->_propDict["takenDateTime"], "\DateTime")) {
                 return $this->_propDict["takenDateTime"];
             } else {
                 $this->_propDict["takenDateTime"] = new \DateTime($this->_propDict["takenDateTime"]);
@@ -269,7 +270,7 @@ class Photo extends Entity
 
     /**
     * Sets the takenDateTime
-    * The date and time the photo was taken in UTC time. Read-only.
+    * Represents the date and time the photo was taken. Read-only.
     *
     * @param \DateTime $val The value to assign to the takenDateTime
     *

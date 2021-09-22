@@ -87,22 +87,29 @@ class DeviceManagementSettingCategory extends Entity
      * Gets the settingDefinitions
     * The setting definitions this category contains
      *
-     * @return array|null The settingDefinitions
+     * @return DeviceManagementSettingDefinition[]|null The settingDefinitions
      */
     public function getSettingDefinitions()
     {
-        if (array_key_exists("settingDefinitions", $this->_propDict)) {
-           return $this->_propDict["settingDefinitions"];
-        } else {
-            return null;
+        if (array_key_exists('settingDefinitions', $this->_propDict) && !is_null($this->_propDict['settingDefinitions'])) {
+            $settingDefinitions = [];
+            if (count($this->_propDict['settingDefinitions']) > 0 && is_a($this->_propDict['settingDefinitions'][0], 'DeviceManagementSettingDefinition')) {
+                return $this->_propDict['settingDefinitions'];
+            }
+            foreach ($this->_propDict['settingDefinitions'] as $singleValue) {
+                $settingDefinitions []= new DeviceManagementSettingDefinition($singleValue);
+            }
+            $this->_propDict['settingDefinitions'] = $settingDefinitions;
+            return $this->_propDict['settingDefinitions'];
         }
+        return null;
     }
     
     /** 
     * Sets the settingDefinitions
     * The setting definitions this category contains
     *
-    * @param DeviceManagementSettingDefinition $val The settingDefinitions
+    * @param DeviceManagementSettingDefinition[] $val The settingDefinitions
     *
     * @return DeviceManagementSettingCategory
     */

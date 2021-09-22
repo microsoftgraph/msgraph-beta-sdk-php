@@ -26,22 +26,26 @@ class MeetingPolicyUpdatedEventMessageDetail extends EventMessageDetail
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.meetingPolicyUpdatedEventMessageDetail");
     }
 
 
     /**
     * Gets the initiator
+    * Initiator of the event.
     *
     * @return IdentitySet|null The initiator
     */
     public function getInitiator()
     {
-        if (array_key_exists("initiator", $this->_propDict)) {
-            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["initiator"])) {
+        if (array_key_exists("initiator", $this->_propDict) && !is_null($this->_propDict["initiator"])) {
+     
+            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["initiator"];
             } else {
                 $this->_propDict["initiator"] = new IdentitySet($this->_propDict["initiator"]);
@@ -53,6 +57,7 @@ class MeetingPolicyUpdatedEventMessageDetail extends EventMessageDetail
 
     /**
     * Sets the initiator
+    * Initiator of the event.
     *
     * @param IdentitySet $val The value to assign to the initiator
     *
@@ -65,6 +70,7 @@ class MeetingPolicyUpdatedEventMessageDetail extends EventMessageDetail
     }
     /**
     * Gets the meetingChatEnabled
+    * Represents whether the meeting chat is enabled or not.
     *
     * @return bool|null The meetingChatEnabled
     */
@@ -79,6 +85,7 @@ class MeetingPolicyUpdatedEventMessageDetail extends EventMessageDetail
 
     /**
     * Sets the meetingChatEnabled
+    * Represents whether the meeting chat is enabled or not.
     *
     * @param bool $val The value of the meetingChatEnabled
     *
@@ -91,6 +98,7 @@ class MeetingPolicyUpdatedEventMessageDetail extends EventMessageDetail
     }
     /**
     * Gets the meetingChatId
+    * Unique identifier of the meeting chat.
     *
     * @return string|null The meetingChatId
     */
@@ -105,6 +113,7 @@ class MeetingPolicyUpdatedEventMessageDetail extends EventMessageDetail
 
     /**
     * Sets the meetingChatId
+    * Unique identifier of the meeting chat.
     *
     * @param string $val The value of the meetingChatId
     *

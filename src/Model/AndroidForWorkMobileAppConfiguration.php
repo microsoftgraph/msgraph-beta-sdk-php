@@ -87,22 +87,29 @@ class AndroidForWorkMobileAppConfiguration extends ManagedDeviceMobileAppConfigu
      * Gets the permissionActions
     * List of Android app permissions and corresponding permission actions.
      *
-     * @return array|null The permissionActions
+     * @return AndroidPermissionAction[]|null The permissionActions
      */
     public function getPermissionActions()
     {
-        if (array_key_exists("permissionActions", $this->_propDict)) {
-           return $this->_propDict["permissionActions"];
-        } else {
-            return null;
+        if (array_key_exists('permissionActions', $this->_propDict) && !is_null($this->_propDict['permissionActions'])) {
+            $permissionActions = [];
+            if (count($this->_propDict['permissionActions']) > 0 && is_a($this->_propDict['permissionActions'][0], 'AndroidPermissionAction')) {
+                return $this->_propDict['permissionActions'];
+            }
+            foreach ($this->_propDict['permissionActions'] as $singleValue) {
+                $permissionActions []= new AndroidPermissionAction($singleValue);
+            }
+            $this->_propDict['permissionActions'] = $permissionActions;
+            return $this->_propDict['permissionActions'];
         }
+        return null;
     }
     
     /** 
     * Sets the permissionActions
     * List of Android app permissions and corresponding permission actions.
     *
-    * @param AndroidPermissionAction $val The permissionActions
+    * @param AndroidPermissionAction[] $val The permissionActions
     *
     * @return AndroidForWorkMobileAppConfiguration
     */
@@ -120,8 +127,8 @@ class AndroidForWorkMobileAppConfiguration extends ManagedDeviceMobileAppConfigu
     */
     public function getProfileApplicability()
     {
-        if (array_key_exists("profileApplicability", $this->_propDict)) {
-            if (is_a($this->_propDict["profileApplicability"], "\Beta\Microsoft\Graph\Model\AndroidProfileApplicability") || is_null($this->_propDict["profileApplicability"])) {
+        if (array_key_exists("profileApplicability", $this->_propDict) && !is_null($this->_propDict["profileApplicability"])) {
+            if (is_a($this->_propDict["profileApplicability"], "\Beta\Microsoft\Graph\Model\AndroidProfileApplicability")) {
                 return $this->_propDict["profileApplicability"];
             } else {
                 $this->_propDict["profileApplicability"] = new AndroidProfileApplicability($this->_propDict["profileApplicability"]);

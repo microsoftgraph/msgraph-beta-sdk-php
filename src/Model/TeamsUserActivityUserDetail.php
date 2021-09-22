@@ -119,8 +119,8 @@ class TeamsUserActivityUserDetail extends Entity
     */
     public function getAudioDuration()
     {
-        if (array_key_exists("audioDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["audioDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["audioDuration"])) {
+        if (array_key_exists("audioDuration", $this->_propDict) && !is_null($this->_propDict["audioDuration"])) {
+            if (is_a($this->_propDict["audioDuration"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["audioDuration"];
             } else {
                 $this->_propDict["audioDuration"] = new Duration($this->_propDict["audioDuration"]);
@@ -181,8 +181,8 @@ class TeamsUserActivityUserDetail extends Entity
     */
     public function getDeletedDate()
     {
-        if (array_key_exists("deletedDate", $this->_propDict)) {
-            if (is_a($this->_propDict["deletedDate"], "\DateTime") || is_null($this->_propDict["deletedDate"])) {
+        if (array_key_exists("deletedDate", $this->_propDict) && !is_null($this->_propDict["deletedDate"])) {
+            if (is_a($this->_propDict["deletedDate"], "\DateTime")) {
                 return $this->_propDict["deletedDate"];
             } else {
                 $this->_propDict["deletedDate"] = new \DateTime($this->_propDict["deletedDate"]);
@@ -301,8 +301,8 @@ class TeamsUserActivityUserDetail extends Entity
     */
     public function getLastActivityDate()
     {
-        if (array_key_exists("lastActivityDate", $this->_propDict)) {
-            if (is_a($this->_propDict["lastActivityDate"], "\DateTime") || is_null($this->_propDict["lastActivityDate"])) {
+        if (array_key_exists("lastActivityDate", $this->_propDict) && !is_null($this->_propDict["lastActivityDate"])) {
+            if (is_a($this->_propDict["lastActivityDate"], "\DateTime")) {
                 return $this->_propDict["lastActivityDate"];
             } else {
                 $this->_propDict["lastActivityDate"] = new \DateTime($this->_propDict["lastActivityDate"]);
@@ -479,8 +479,8 @@ class TeamsUserActivityUserDetail extends Entity
     */
     public function getReportRefreshDate()
     {
-        if (array_key_exists("reportRefreshDate", $this->_propDict)) {
-            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime") || is_null($this->_propDict["reportRefreshDate"])) {
+        if (array_key_exists("reportRefreshDate", $this->_propDict) && !is_null($this->_propDict["reportRefreshDate"])) {
+            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime")) {
                 return $this->_propDict["reportRefreshDate"];
             } else {
                 $this->_propDict["reportRefreshDate"] = new \DateTime($this->_propDict["reportRefreshDate"]);
@@ -628,8 +628,8 @@ class TeamsUserActivityUserDetail extends Entity
     */
     public function getScreenShareDuration()
     {
-        if (array_key_exists("screenShareDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["screenShareDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["screenShareDuration"])) {
+        if (array_key_exists("screenShareDuration", $this->_propDict) && !is_null($this->_propDict["screenShareDuration"])) {
+            if (is_a($this->_propDict["screenShareDuration"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["screenShareDuration"];
             } else {
                 $this->_propDict["screenShareDuration"] = new Duration($this->_propDict["screenShareDuration"]);
@@ -719,8 +719,8 @@ class TeamsUserActivityUserDetail extends Entity
     */
     public function getVideoDuration()
     {
-        if (array_key_exists("videoDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["videoDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["videoDuration"])) {
+        if (array_key_exists("videoDuration", $this->_propDict) && !is_null($this->_propDict["videoDuration"])) {
+            if (is_a($this->_propDict["videoDuration"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["videoDuration"];
             } else {
                 $this->_propDict["videoDuration"] = new Duration($this->_propDict["videoDuration"]);

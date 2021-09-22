@@ -60,8 +60,9 @@ class BookingReminder extends Entity
     */
     public function getOffset()
     {
-        if (array_key_exists("offset", $this->_propDict)) {
-            if (is_a($this->_propDict["offset"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["offset"])) {
+        if (array_key_exists("offset", $this->_propDict) && !is_null($this->_propDict["offset"])) {
+     
+            if (is_a($this->_propDict["offset"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["offset"];
             } else {
                 $this->_propDict["offset"] = new Duration($this->_propDict["offset"]);
@@ -93,8 +94,9 @@ class BookingReminder extends Entity
     */
     public function getRecipients()
     {
-        if (array_key_exists("recipients", $this->_propDict)) {
-            if (is_a($this->_propDict["recipients"], "\Beta\Microsoft\Graph\Model\BookingReminderRecipients") || is_null($this->_propDict["recipients"])) {
+        if (array_key_exists("recipients", $this->_propDict) && !is_null($this->_propDict["recipients"])) {
+     
+            if (is_a($this->_propDict["recipients"], "\Beta\Microsoft\Graph\Model\BookingReminderRecipients")) {
                 return $this->_propDict["recipients"];
             } else {
                 $this->_propDict["recipients"] = new BookingReminderRecipients($this->_propDict["recipients"]);

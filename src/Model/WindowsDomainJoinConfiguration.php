@@ -145,22 +145,29 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration
      * Gets the networkAccessConfigurations
     * Reference to device configurations required for network connectivity
      *
-     * @return array|null The networkAccessConfigurations
+     * @return DeviceConfiguration[]|null The networkAccessConfigurations
      */
     public function getNetworkAccessConfigurations()
     {
-        if (array_key_exists("networkAccessConfigurations", $this->_propDict)) {
-           return $this->_propDict["networkAccessConfigurations"];
-        } else {
-            return null;
+        if (array_key_exists('networkAccessConfigurations', $this->_propDict) && !is_null($this->_propDict['networkAccessConfigurations'])) {
+            $networkAccessConfigurations = [];
+            if (count($this->_propDict['networkAccessConfigurations']) > 0 && is_a($this->_propDict['networkAccessConfigurations'][0], 'DeviceConfiguration')) {
+                return $this->_propDict['networkAccessConfigurations'];
+            }
+            foreach ($this->_propDict['networkAccessConfigurations'] as $singleValue) {
+                $networkAccessConfigurations []= new DeviceConfiguration($singleValue);
+            }
+            $this->_propDict['networkAccessConfigurations'] = $networkAccessConfigurations;
+            return $this->_propDict['networkAccessConfigurations'];
         }
+        return null;
     }
     
     /** 
     * Sets the networkAccessConfigurations
     * Reference to device configurations required for network connectivity
     *
-    * @param DeviceConfiguration $val The networkAccessConfigurations
+    * @param DeviceConfiguration[] $val The networkAccessConfigurations
     *
     * @return WindowsDomainJoinConfiguration
     */

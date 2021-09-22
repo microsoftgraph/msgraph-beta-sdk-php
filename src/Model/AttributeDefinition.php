@@ -55,25 +55,29 @@ class AttributeDefinition extends Entity
     /**
     * Gets the apiExpressions
     *
-    * @return StringKeyStringValuePair|null The apiExpressions
+    * @return StringKeyStringValuePair[]|null The apiExpressions
     */
     public function getApiExpressions()
     {
-        if (array_key_exists("apiExpressions", $this->_propDict)) {
-            if (is_a($this->_propDict["apiExpressions"], "\Beta\Microsoft\Graph\Model\StringKeyStringValuePair") || is_null($this->_propDict["apiExpressions"])) {
-                return $this->_propDict["apiExpressions"];
-            } else {
-                $this->_propDict["apiExpressions"] = new StringKeyStringValuePair($this->_propDict["apiExpressions"]);
-                return $this->_propDict["apiExpressions"];
+        if (array_key_exists("apiExpressions", $this->_propDict) && !is_null($this->_propDict["apiExpressions"])) {
+       
+            if (count($this->_propDict['apiExpressions']) > 0 && is_a($this->_propDict['apiExpressions'][0], 'StringKeyStringValuePair')) {
+               return $this->_propDict['apiExpressions'];
             }
-        }
+            $apiExpressions = [];
+            foreach ($this->_propDict['apiExpressions'] as $singleValue) {
+               $apiExpressions []= new StringKeyStringValuePair($singleValue);
+            }
+            $this->_propDict['apiExpressions'] = $apiExpressions;
+            return $this->_propDict['apiExpressions'];
+            }
         return null;
     }
 
     /**
     * Sets the apiExpressions
     *
-    * @param StringKeyStringValuePair $val The value to assign to the apiExpressions
+    * @param StringKeyStringValuePair[] $val The value to assign to the apiExpressions
     *
     * @return AttributeDefinition The AttributeDefinition
     */
@@ -169,18 +173,22 @@ class AttributeDefinition extends Entity
     * Gets the metadata
     * Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
     *
-    * @return MetadataEntry|null The metadata
+    * @return MetadataEntry[]|null The metadata
     */
     public function getMetadata()
     {
-        if (array_key_exists("metadata", $this->_propDict)) {
-            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\MetadataEntry") || is_null($this->_propDict["metadata"])) {
-                return $this->_propDict["metadata"];
-            } else {
-                $this->_propDict["metadata"] = new MetadataEntry($this->_propDict["metadata"]);
-                return $this->_propDict["metadata"];
+        if (array_key_exists("metadata", $this->_propDict) && !is_null($this->_propDict["metadata"])) {
+       
+            if (count($this->_propDict['metadata']) > 0 && is_a($this->_propDict['metadata'][0], 'MetadataEntry')) {
+               return $this->_propDict['metadata'];
             }
-        }
+            $metadata = [];
+            foreach ($this->_propDict['metadata'] as $singleValue) {
+               $metadata []= new MetadataEntry($singleValue);
+            }
+            $this->_propDict['metadata'] = $metadata;
+            return $this->_propDict['metadata'];
+            }
         return null;
     }
 
@@ -188,7 +196,7 @@ class AttributeDefinition extends Entity
     * Sets the metadata
     * Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
     *
-    * @param MetadataEntry $val The value to assign to the metadata
+    * @param MetadataEntry[] $val The value to assign to the metadata
     *
     * @return AttributeDefinition The AttributeDefinition
     */
@@ -234,8 +242,9 @@ class AttributeDefinition extends Entity
     */
     public function getMutability()
     {
-        if (array_key_exists("mutability", $this->_propDict)) {
-            if (is_a($this->_propDict["mutability"], "\Beta\Microsoft\Graph\Model\Mutability") || is_null($this->_propDict["mutability"])) {
+        if (array_key_exists("mutability", $this->_propDict) && !is_null($this->_propDict["mutability"])) {
+     
+            if (is_a($this->_propDict["mutability"], "\Beta\Microsoft\Graph\Model\Mutability")) {
                 return $this->_propDict["mutability"];
             } else {
                 $this->_propDict["mutability"] = new Mutability($this->_propDict["mutability"]);
@@ -291,18 +300,22 @@ class AttributeDefinition extends Entity
     * Gets the referencedObjects
     * For attributes with reference type, lists referenced objects (for example, the manager attribute would list User as the referenced object).
     *
-    * @return ReferencedObject|null The referencedObjects
+    * @return ReferencedObject[]|null The referencedObjects
     */
     public function getReferencedObjects()
     {
-        if (array_key_exists("referencedObjects", $this->_propDict)) {
-            if (is_a($this->_propDict["referencedObjects"], "\Beta\Microsoft\Graph\Model\ReferencedObject") || is_null($this->_propDict["referencedObjects"])) {
-                return $this->_propDict["referencedObjects"];
-            } else {
-                $this->_propDict["referencedObjects"] = new ReferencedObject($this->_propDict["referencedObjects"]);
-                return $this->_propDict["referencedObjects"];
+        if (array_key_exists("referencedObjects", $this->_propDict) && !is_null($this->_propDict["referencedObjects"])) {
+       
+            if (count($this->_propDict['referencedObjects']) > 0 && is_a($this->_propDict['referencedObjects'][0], 'ReferencedObject')) {
+               return $this->_propDict['referencedObjects'];
             }
-        }
+            $referencedObjects = [];
+            foreach ($this->_propDict['referencedObjects'] as $singleValue) {
+               $referencedObjects []= new ReferencedObject($singleValue);
+            }
+            $this->_propDict['referencedObjects'] = $referencedObjects;
+            return $this->_propDict['referencedObjects'];
+            }
         return null;
     }
 
@@ -310,7 +323,7 @@ class AttributeDefinition extends Entity
     * Sets the referencedObjects
     * For attributes with reference type, lists referenced objects (for example, the manager attribute would list User as the referenced object).
     *
-    * @param ReferencedObject $val The value to assign to the referencedObjects
+    * @param ReferencedObject[] $val The value to assign to the referencedObjects
     *
     * @return AttributeDefinition The AttributeDefinition
     */
@@ -356,8 +369,9 @@ class AttributeDefinition extends Entity
     */
     public function getType()
     {
-        if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\AttributeType") || is_null($this->_propDict["type"])) {
+        if (array_key_exists("type", $this->_propDict) && !is_null($this->_propDict["type"])) {
+     
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\AttributeType")) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new AttributeType($this->_propDict["type"]);

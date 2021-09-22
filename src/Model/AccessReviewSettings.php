@@ -144,8 +144,9 @@ class AccessReviewSettings extends Entity
     */
     public function getAutoReviewSettings()
     {
-        if (array_key_exists("autoReviewSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["autoReviewSettings"], "\Beta\Microsoft\Graph\Model\AutoReviewSettings") || is_null($this->_propDict["autoReviewSettings"])) {
+        if (array_key_exists("autoReviewSettings", $this->_propDict) && !is_null($this->_propDict["autoReviewSettings"])) {
+     
+            if (is_a($this->_propDict["autoReviewSettings"], "\Beta\Microsoft\Graph\Model\AutoReviewSettings")) {
                 return $this->_propDict["autoReviewSettings"];
             } else {
                 $this->_propDict["autoReviewSettings"] = new AutoReviewSettings($this->_propDict["autoReviewSettings"]);
@@ -233,8 +234,9 @@ class AccessReviewSettings extends Entity
     */
     public function getRecurrenceSettings()
     {
-        if (array_key_exists("recurrenceSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["recurrenceSettings"], "\Beta\Microsoft\Graph\Model\AccessReviewRecurrenceSettings") || is_null($this->_propDict["recurrenceSettings"])) {
+        if (array_key_exists("recurrenceSettings", $this->_propDict) && !is_null($this->_propDict["recurrenceSettings"])) {
+     
+            if (is_a($this->_propDict["recurrenceSettings"], "\Beta\Microsoft\Graph\Model\AccessReviewRecurrenceSettings")) {
                 return $this->_propDict["recurrenceSettings"];
             } else {
                 $this->_propDict["recurrenceSettings"] = new AccessReviewRecurrenceSettings($this->_propDict["recurrenceSettings"]);

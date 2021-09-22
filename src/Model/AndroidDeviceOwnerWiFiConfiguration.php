@@ -206,8 +206,8 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
     */
     public function getWiFiSecurityType()
     {
-        if (array_key_exists("wiFiSecurityType", $this->_propDict)) {
-            if (is_a($this->_propDict["wiFiSecurityType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerWiFiSecurityType") || is_null($this->_propDict["wiFiSecurityType"])) {
+        if (array_key_exists("wiFiSecurityType", $this->_propDict) && !is_null($this->_propDict["wiFiSecurityType"])) {
+            if (is_a($this->_propDict["wiFiSecurityType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerWiFiSecurityType")) {
                 return $this->_propDict["wiFiSecurityType"];
             } else {
                 $this->_propDict["wiFiSecurityType"] = new AndroidDeviceOwnerWiFiSecurityType($this->_propDict["wiFiSecurityType"]);

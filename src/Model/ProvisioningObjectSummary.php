@@ -59,8 +59,8 @@ class ProvisioningObjectSummary extends Entity
     */
     public function getActivityDateTime()
     {
-        if (array_key_exists("activityDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["activityDateTime"], "\DateTime") || is_null($this->_propDict["activityDateTime"])) {
+        if (array_key_exists("activityDateTime", $this->_propDict) && !is_null($this->_propDict["activityDateTime"])) {
+            if (is_a($this->_propDict["activityDateTime"], "\DateTime")) {
                 return $this->_propDict["activityDateTime"];
             } else {
                 $this->_propDict["activityDateTime"] = new \DateTime($this->_propDict["activityDateTime"]);
@@ -179,8 +179,8 @@ class ProvisioningObjectSummary extends Entity
     */
     public function getInitiatedBy()
     {
-        if (array_key_exists("initiatedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["initiatedBy"], "\Beta\Microsoft\Graph\Model\Initiator") || is_null($this->_propDict["initiatedBy"])) {
+        if (array_key_exists("initiatedBy", $this->_propDict) && !is_null($this->_propDict["initiatedBy"])) {
+            if (is_a($this->_propDict["initiatedBy"], "\Beta\Microsoft\Graph\Model\Initiator")) {
                 return $this->_propDict["initiatedBy"];
             } else {
                 $this->_propDict["initiatedBy"] = new Initiator($this->_propDict["initiatedBy"]);
@@ -238,22 +238,29 @@ class ProvisioningObjectSummary extends Entity
      * Gets the modifiedProperties
     * Details of each property that was modified in this provisioning action on this object.
      *
-     * @return array|null The modifiedProperties
+     * @return ModifiedProperty[]|null The modifiedProperties
      */
     public function getModifiedProperties()
     {
-        if (array_key_exists("modifiedProperties", $this->_propDict)) {
-           return $this->_propDict["modifiedProperties"];
-        } else {
-            return null;
+        if (array_key_exists('modifiedProperties', $this->_propDict) && !is_null($this->_propDict['modifiedProperties'])) {
+            $modifiedProperties = [];
+            if (count($this->_propDict['modifiedProperties']) > 0 && is_a($this->_propDict['modifiedProperties'][0], 'ModifiedProperty')) {
+                return $this->_propDict['modifiedProperties'];
+            }
+            foreach ($this->_propDict['modifiedProperties'] as $singleValue) {
+                $modifiedProperties []= new ModifiedProperty($singleValue);
+            }
+            $this->_propDict['modifiedProperties'] = $modifiedProperties;
+            return $this->_propDict['modifiedProperties'];
         }
+        return null;
     }
     
     /** 
     * Sets the modifiedProperties
     * Details of each property that was modified in this provisioning action on this object.
     *
-    * @param ModifiedProperty $val The modifiedProperties
+    * @param ModifiedProperty[] $val The modifiedProperties
     *
     * @return ProvisioningObjectSummary
     */
@@ -271,8 +278,8 @@ class ProvisioningObjectSummary extends Entity
     */
     public function getProvisioningAction()
     {
-        if (array_key_exists("provisioningAction", $this->_propDict)) {
-            if (is_a($this->_propDict["provisioningAction"], "\Beta\Microsoft\Graph\Model\ProvisioningAction") || is_null($this->_propDict["provisioningAction"])) {
+        if (array_key_exists("provisioningAction", $this->_propDict) && !is_null($this->_propDict["provisioningAction"])) {
+            if (is_a($this->_propDict["provisioningAction"], "\Beta\Microsoft\Graph\Model\ProvisioningAction")) {
                 return $this->_propDict["provisioningAction"];
             } else {
                 $this->_propDict["provisioningAction"] = new ProvisioningAction($this->_propDict["provisioningAction"]);
@@ -304,8 +311,8 @@ class ProvisioningObjectSummary extends Entity
     */
     public function getProvisioningStatusInfo()
     {
-        if (array_key_exists("provisioningStatusInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["provisioningStatusInfo"], "\Beta\Microsoft\Graph\Model\ProvisioningStatusInfo") || is_null($this->_propDict["provisioningStatusInfo"])) {
+        if (array_key_exists("provisioningStatusInfo", $this->_propDict) && !is_null($this->_propDict["provisioningStatusInfo"])) {
+            if (is_a($this->_propDict["provisioningStatusInfo"], "\Beta\Microsoft\Graph\Model\ProvisioningStatusInfo")) {
                 return $this->_propDict["provisioningStatusInfo"];
             } else {
                 $this->_propDict["provisioningStatusInfo"] = new ProvisioningStatusInfo($this->_propDict["provisioningStatusInfo"]);
@@ -334,22 +341,29 @@ class ProvisioningObjectSummary extends Entity
      * Gets the provisioningSteps
     * Details of each step in provisioning.
      *
-     * @return array|null The provisioningSteps
+     * @return ProvisioningStep[]|null The provisioningSteps
      */
     public function getProvisioningSteps()
     {
-        if (array_key_exists("provisioningSteps", $this->_propDict)) {
-           return $this->_propDict["provisioningSteps"];
-        } else {
-            return null;
+        if (array_key_exists('provisioningSteps', $this->_propDict) && !is_null($this->_propDict['provisioningSteps'])) {
+            $provisioningSteps = [];
+            if (count($this->_propDict['provisioningSteps']) > 0 && is_a($this->_propDict['provisioningSteps'][0], 'ProvisioningStep')) {
+                return $this->_propDict['provisioningSteps'];
+            }
+            foreach ($this->_propDict['provisioningSteps'] as $singleValue) {
+                $provisioningSteps []= new ProvisioningStep($singleValue);
+            }
+            $this->_propDict['provisioningSteps'] = $provisioningSteps;
+            return $this->_propDict['provisioningSteps'];
         }
+        return null;
     }
     
     /** 
     * Sets the provisioningSteps
     * Details of each step in provisioning.
     *
-    * @param ProvisioningStep $val The provisioningSteps
+    * @param ProvisioningStep[] $val The provisioningSteps
     *
     * @return ProvisioningObjectSummary
     */
@@ -367,8 +381,8 @@ class ProvisioningObjectSummary extends Entity
     */
     public function getServicePrincipal()
     {
-        if (array_key_exists("servicePrincipal", $this->_propDict)) {
-            if (is_a($this->_propDict["servicePrincipal"], "\Beta\Microsoft\Graph\Model\ProvisioningServicePrincipal") || is_null($this->_propDict["servicePrincipal"])) {
+        if (array_key_exists("servicePrincipal", $this->_propDict) && !is_null($this->_propDict["servicePrincipal"])) {
+            if (is_a($this->_propDict["servicePrincipal"], "\Beta\Microsoft\Graph\Model\ProvisioningServicePrincipal")) {
                 return $this->_propDict["servicePrincipal"];
             } else {
                 $this->_propDict["servicePrincipal"] = new ProvisioningServicePrincipal($this->_propDict["servicePrincipal"]);
@@ -400,8 +414,8 @@ class ProvisioningObjectSummary extends Entity
     */
     public function getSourceIdentity()
     {
-        if (array_key_exists("sourceIdentity", $this->_propDict)) {
-            if (is_a($this->_propDict["sourceIdentity"], "\Beta\Microsoft\Graph\Model\ProvisionedIdentity") || is_null($this->_propDict["sourceIdentity"])) {
+        if (array_key_exists("sourceIdentity", $this->_propDict) && !is_null($this->_propDict["sourceIdentity"])) {
+            if (is_a($this->_propDict["sourceIdentity"], "\Beta\Microsoft\Graph\Model\ProvisionedIdentity")) {
                 return $this->_propDict["sourceIdentity"];
             } else {
                 $this->_propDict["sourceIdentity"] = new ProvisionedIdentity($this->_propDict["sourceIdentity"]);
@@ -433,8 +447,8 @@ class ProvisioningObjectSummary extends Entity
     */
     public function getSourceSystem()
     {
-        if (array_key_exists("sourceSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["sourceSystem"], "\Beta\Microsoft\Graph\Model\ProvisioningSystem") || is_null($this->_propDict["sourceSystem"])) {
+        if (array_key_exists("sourceSystem", $this->_propDict) && !is_null($this->_propDict["sourceSystem"])) {
+            if (is_a($this->_propDict["sourceSystem"], "\Beta\Microsoft\Graph\Model\ProvisioningSystem")) {
                 return $this->_propDict["sourceSystem"];
             } else {
                 $this->_propDict["sourceSystem"] = new ProvisioningSystem($this->_propDict["sourceSystem"]);
@@ -465,8 +479,8 @@ class ProvisioningObjectSummary extends Entity
     */
     public function getStatusInfo()
     {
-        if (array_key_exists("statusInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["statusInfo"], "\Beta\Microsoft\Graph\Model\StatusBase") || is_null($this->_propDict["statusInfo"])) {
+        if (array_key_exists("statusInfo", $this->_propDict) && !is_null($this->_propDict["statusInfo"])) {
+            if (is_a($this->_propDict["statusInfo"], "\Beta\Microsoft\Graph\Model\StatusBase")) {
                 return $this->_propDict["statusInfo"];
             } else {
                 $this->_propDict["statusInfo"] = new StatusBase($this->_propDict["statusInfo"]);
@@ -497,8 +511,8 @@ class ProvisioningObjectSummary extends Entity
     */
     public function getTargetIdentity()
     {
-        if (array_key_exists("targetIdentity", $this->_propDict)) {
-            if (is_a($this->_propDict["targetIdentity"], "\Beta\Microsoft\Graph\Model\ProvisionedIdentity") || is_null($this->_propDict["targetIdentity"])) {
+        if (array_key_exists("targetIdentity", $this->_propDict) && !is_null($this->_propDict["targetIdentity"])) {
+            if (is_a($this->_propDict["targetIdentity"], "\Beta\Microsoft\Graph\Model\ProvisionedIdentity")) {
                 return $this->_propDict["targetIdentity"];
             } else {
                 $this->_propDict["targetIdentity"] = new ProvisionedIdentity($this->_propDict["targetIdentity"]);
@@ -530,8 +544,8 @@ class ProvisioningObjectSummary extends Entity
     */
     public function getTargetSystem()
     {
-        if (array_key_exists("targetSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["targetSystem"], "\Beta\Microsoft\Graph\Model\ProvisioningSystem") || is_null($this->_propDict["targetSystem"])) {
+        if (array_key_exists("targetSystem", $this->_propDict) && !is_null($this->_propDict["targetSystem"])) {
+            if (is_a($this->_propDict["targetSystem"], "\Beta\Microsoft\Graph\Model\ProvisioningSystem")) {
                 return $this->_propDict["targetSystem"];
             } else {
                 $this->_propDict["targetSystem"] = new ProvisioningSystem($this->_propDict["targetSystem"]);

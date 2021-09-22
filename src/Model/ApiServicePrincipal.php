@@ -27,25 +27,29 @@ class ApiServicePrincipal extends Entity
     /**
     * Gets the resourceSpecificApplicationPermissions
     *
-    * @return ResourceSpecificPermission|null The resourceSpecificApplicationPermissions
+    * @return ResourceSpecificPermission[]|null The resourceSpecificApplicationPermissions
     */
     public function getResourceSpecificApplicationPermissions()
     {
-        if (array_key_exists("resourceSpecificApplicationPermissions", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceSpecificApplicationPermissions"], "\Beta\Microsoft\Graph\Model\ResourceSpecificPermission") || is_null($this->_propDict["resourceSpecificApplicationPermissions"])) {
-                return $this->_propDict["resourceSpecificApplicationPermissions"];
-            } else {
-                $this->_propDict["resourceSpecificApplicationPermissions"] = new ResourceSpecificPermission($this->_propDict["resourceSpecificApplicationPermissions"]);
-                return $this->_propDict["resourceSpecificApplicationPermissions"];
+        if (array_key_exists("resourceSpecificApplicationPermissions", $this->_propDict) && !is_null($this->_propDict["resourceSpecificApplicationPermissions"])) {
+       
+            if (count($this->_propDict['resourceSpecificApplicationPermissions']) > 0 && is_a($this->_propDict['resourceSpecificApplicationPermissions'][0], 'ResourceSpecificPermission')) {
+               return $this->_propDict['resourceSpecificApplicationPermissions'];
             }
-        }
+            $resourceSpecificApplicationPermissions = [];
+            foreach ($this->_propDict['resourceSpecificApplicationPermissions'] as $singleValue) {
+               $resourceSpecificApplicationPermissions []= new ResourceSpecificPermission($singleValue);
+            }
+            $this->_propDict['resourceSpecificApplicationPermissions'] = $resourceSpecificApplicationPermissions;
+            return $this->_propDict['resourceSpecificApplicationPermissions'];
+            }
         return null;
     }
 
     /**
     * Sets the resourceSpecificApplicationPermissions
     *
-    * @param ResourceSpecificPermission $val The value to assign to the resourceSpecificApplicationPermissions
+    * @param ResourceSpecificPermission[] $val The value to assign to the resourceSpecificApplicationPermissions
     *
     * @return ApiServicePrincipal The ApiServicePrincipal
     */

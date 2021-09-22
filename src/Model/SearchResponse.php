@@ -32,8 +32,9 @@ class SearchResponse extends Entity
     */
     public function getQueryAlterationResponse()
     {
-        if (array_key_exists("queryAlterationResponse", $this->_propDict)) {
-            if (is_a($this->_propDict["queryAlterationResponse"], "\Beta\Microsoft\Graph\Model\AlterationResponse") || is_null($this->_propDict["queryAlterationResponse"])) {
+        if (array_key_exists("queryAlterationResponse", $this->_propDict) && !is_null($this->_propDict["queryAlterationResponse"])) {
+     
+            if (is_a($this->_propDict["queryAlterationResponse"], "\Beta\Microsoft\Graph\Model\AlterationResponse")) {
                 return $this->_propDict["queryAlterationResponse"];
             } else {
                 $this->_propDict["queryAlterationResponse"] = new AlterationResponse($this->_propDict["queryAlterationResponse"]);
@@ -61,18 +62,22 @@ class SearchResponse extends Entity
     * Gets the value
     * Represents results from a search query, and the terms used for the query.
     *
-    * @return SearchResultSet|null The value
+    * @return SearchResultSet[]|null The value
     */
     public function getValue()
     {
-        if (array_key_exists("value", $this->_propDict)) {
-            if (is_a($this->_propDict["value"], "\Beta\Microsoft\Graph\Model\SearchResultSet") || is_null($this->_propDict["value"])) {
-                return $this->_propDict["value"];
-            } else {
-                $this->_propDict["value"] = new SearchResultSet($this->_propDict["value"]);
-                return $this->_propDict["value"];
+        if (array_key_exists("value", $this->_propDict) && !is_null($this->_propDict["value"])) {
+       
+            if (count($this->_propDict['value']) > 0 && is_a($this->_propDict['value'][0], 'SearchResultSet')) {
+               return $this->_propDict['value'];
             }
-        }
+            $value = [];
+            foreach ($this->_propDict['value'] as $singleValue) {
+               $value []= new SearchResultSet($singleValue);
+            }
+            $this->_propDict['value'] = $value;
+            return $this->_propDict['value'];
+            }
         return null;
     }
 
@@ -80,7 +85,7 @@ class SearchResponse extends Entity
     * Sets the value
     * Represents results from a search query, and the terms used for the query.
     *
-    * @param SearchResultSet $val The value to assign to the value
+    * @param SearchResultSet[] $val The value to assign to the value
     *
     * @return SearchResponse The SearchResponse
     */

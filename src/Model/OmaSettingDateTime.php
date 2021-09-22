@@ -26,9 +26,11 @@ class OmaSettingDateTime extends OmaSetting
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.omaSettingDateTime");
     }
 
@@ -41,8 +43,9 @@ class OmaSettingDateTime extends OmaSetting
     */
     public function getValue()
     {
-        if (array_key_exists("value", $this->_propDict)) {
-            if (is_a($this->_propDict["value"], "\DateTime") || is_null($this->_propDict["value"])) {
+        if (array_key_exists("value", $this->_propDict) && !is_null($this->_propDict["value"])) {
+     
+            if (is_a($this->_propDict["value"], "\DateTime")) {
                 return $this->_propDict["value"];
             } else {
                 $this->_propDict["value"] = new \DateTime($this->_propDict["value"]);

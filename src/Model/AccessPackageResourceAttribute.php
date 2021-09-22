@@ -31,8 +31,9 @@ class AccessPackageResourceAttribute extends Entity
     */
     public function getAttributeDestination()
     {
-        if (array_key_exists("attributeDestination", $this->_propDict)) {
-            if (is_a($this->_propDict["attributeDestination"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceAttributeDestination") || is_null($this->_propDict["attributeDestination"])) {
+        if (array_key_exists("attributeDestination", $this->_propDict) && !is_null($this->_propDict["attributeDestination"])) {
+     
+            if (is_a($this->_propDict["attributeDestination"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceAttributeDestination")) {
                 return $this->_propDict["attributeDestination"];
             } else {
                 $this->_propDict["attributeDestination"] = new AccessPackageResourceAttributeDestination($this->_propDict["attributeDestination"]);
@@ -88,8 +89,9 @@ class AccessPackageResourceAttribute extends Entity
     */
     public function getAttributeSource()
     {
-        if (array_key_exists("attributeSource", $this->_propDict)) {
-            if (is_a($this->_propDict["attributeSource"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceAttributeSource") || is_null($this->_propDict["attributeSource"])) {
+        if (array_key_exists("attributeSource", $this->_propDict) && !is_null($this->_propDict["attributeSource"])) {
+     
+            if (is_a($this->_propDict["attributeSource"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceAttributeSource")) {
                 return $this->_propDict["attributeSource"];
             } else {
                 $this->_propDict["attributeSource"] = new AccessPackageResourceAttributeSource($this->_propDict["attributeSource"]);

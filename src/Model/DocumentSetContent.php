@@ -32,8 +32,9 @@ class DocumentSetContent extends Entity
     */
     public function getContentType()
     {
-        if (array_key_exists("contentType", $this->_propDict)) {
-            if (is_a($this->_propDict["contentType"], "\Beta\Microsoft\Graph\Model\ContentTypeInfo") || is_null($this->_propDict["contentType"])) {
+        if (array_key_exists("contentType", $this->_propDict) && !is_null($this->_propDict["contentType"])) {
+     
+            if (is_a($this->_propDict["contentType"], "\Beta\Microsoft\Graph\Model\ContentTypeInfo")) {
                 return $this->_propDict["contentType"];
             } else {
                 $this->_propDict["contentType"] = new ContentTypeInfo($this->_propDict["contentType"]);
@@ -58,7 +59,7 @@ class DocumentSetContent extends Entity
     }
     /**
     * Gets the fileName
-    * Name of the file in resource folder that should be added as a default content or a template in the document set
+    * Name of the file in resource folder that should be added as a default content or a template in the document set.
     *
     * @return string|null The fileName
     */
@@ -73,7 +74,7 @@ class DocumentSetContent extends Entity
 
     /**
     * Sets the fileName
-    * Name of the file in resource folder that should be added as a default content or a template in the document set
+    * Name of the file in resource folder that should be added as a default content or a template in the document set.
     *
     * @param string $val The value of the fileName
     *

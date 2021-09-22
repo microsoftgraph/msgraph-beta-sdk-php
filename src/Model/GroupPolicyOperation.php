@@ -32,8 +32,8 @@ class GroupPolicyOperation extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -65,8 +65,8 @@ class GroupPolicyOperation extends Entity
     */
     public function getOperationStatus()
     {
-        if (array_key_exists("operationStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["operationStatus"], "\Beta\Microsoft\Graph\Model\GroupPolicyOperationStatus") || is_null($this->_propDict["operationStatus"])) {
+        if (array_key_exists("operationStatus", $this->_propDict) && !is_null($this->_propDict["operationStatus"])) {
+            if (is_a($this->_propDict["operationStatus"], "\Beta\Microsoft\Graph\Model\GroupPolicyOperationStatus")) {
                 return $this->_propDict["operationStatus"];
             } else {
                 $this->_propDict["operationStatus"] = new GroupPolicyOperationStatus($this->_propDict["operationStatus"]);
@@ -98,8 +98,8 @@ class GroupPolicyOperation extends Entity
     */
     public function getOperationType()
     {
-        if (array_key_exists("operationType", $this->_propDict)) {
-            if (is_a($this->_propDict["operationType"], "\Beta\Microsoft\Graph\Model\GroupPolicyOperationType") || is_null($this->_propDict["operationType"])) {
+        if (array_key_exists("operationType", $this->_propDict) && !is_null($this->_propDict["operationType"])) {
+            if (is_a($this->_propDict["operationType"], "\Beta\Microsoft\Graph\Model\GroupPolicyOperationType")) {
                 return $this->_propDict["operationType"];
             } else {
                 $this->_propDict["operationType"] = new GroupPolicyOperationType($this->_propDict["operationType"]);

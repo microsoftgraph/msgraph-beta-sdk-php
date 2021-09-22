@@ -26,13 +26,14 @@ class CloudPcUserSettingAssignment extends Entity
 {
     /**
     * Gets the createdDateTime
+    * The date and time this assignment was created. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'.
     *
     * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -44,6 +45,7 @@ class CloudPcUserSettingAssignment extends Entity
     
     /**
     * Sets the createdDateTime
+    * The date and time this assignment was created. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -57,13 +59,14 @@ class CloudPcUserSettingAssignment extends Entity
     
     /**
     * Gets the target
+    * The assignment target for the user setting. Currently, the only target supported for this user setting is a user group. For details, see cloudPcManagementGroupAssignmentTarget.
     *
     * @return CloudPcManagementAssignmentTarget|null The target
     */
     public function getTarget()
     {
-        if (array_key_exists("target", $this->_propDict)) {
-            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\CloudPcManagementAssignmentTarget") || is_null($this->_propDict["target"])) {
+        if (array_key_exists("target", $this->_propDict) && !is_null($this->_propDict["target"])) {
+            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\CloudPcManagementAssignmentTarget")) {
                 return $this->_propDict["target"];
             } else {
                 $this->_propDict["target"] = new CloudPcManagementAssignmentTarget($this->_propDict["target"]);
@@ -75,6 +78,7 @@ class CloudPcUserSettingAssignment extends Entity
     
     /**
     * Sets the target
+    * The assignment target for the user setting. Currently, the only target supported for this user setting is a user group. For details, see cloudPcManagementGroupAssignmentTarget.
     *
     * @param CloudPcManagementAssignmentTarget $val The target
     *

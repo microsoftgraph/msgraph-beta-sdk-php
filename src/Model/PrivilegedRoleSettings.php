@@ -90,8 +90,8 @@ class PrivilegedRoleSettings extends Entity
     */
     public function getElevationDuration()
     {
-        if (array_key_exists("elevationDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["elevationDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["elevationDuration"])) {
+        if (array_key_exists("elevationDuration", $this->_propDict) && !is_null($this->_propDict["elevationDuration"])) {
+            if (is_a($this->_propDict["elevationDuration"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["elevationDuration"];
             } else {
                 $this->_propDict["elevationDuration"] = new Duration($this->_propDict["elevationDuration"]);
@@ -181,8 +181,8 @@ class PrivilegedRoleSettings extends Entity
     */
     public function getMaxElavationDuration()
     {
-        if (array_key_exists("maxElavationDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["maxElavationDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["maxElavationDuration"])) {
+        if (array_key_exists("maxElavationDuration", $this->_propDict) && !is_null($this->_propDict["maxElavationDuration"])) {
+            if (is_a($this->_propDict["maxElavationDuration"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["maxElavationDuration"];
             } else {
                 $this->_propDict["maxElavationDuration"] = new Duration($this->_propDict["maxElavationDuration"]);
@@ -243,8 +243,8 @@ class PrivilegedRoleSettings extends Entity
     */
     public function getMinElevationDuration()
     {
-        if (array_key_exists("minElevationDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["minElevationDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["minElevationDuration"])) {
+        if (array_key_exists("minElevationDuration", $this->_propDict) && !is_null($this->_propDict["minElevationDuration"])) {
+            if (is_a($this->_propDict["minElevationDuration"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["minElevationDuration"];
             } else {
                 $this->_propDict["minElevationDuration"] = new Duration($this->_propDict["minElevationDuration"]);

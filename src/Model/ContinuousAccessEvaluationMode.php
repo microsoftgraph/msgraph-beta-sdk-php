@@ -2,7 +2,7 @@
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
-* ApplicationIdentityType File
+* ContinuousAccessEvaluationMode File
 * PHP version 7
 *
 * @category  Library
@@ -16,7 +16,7 @@ namespace Beta\Microsoft\Graph\Model;
 use Microsoft\Graph\Core\Enum;
 
 /**
-* ApplicationIdentityType class
+* ContinuousAccessEvaluationMode class
 *
 * @category  Model
 * @package   Microsoft.Graph
@@ -24,14 +24,12 @@ use Microsoft\Graph\Core\Enum;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class ApplicationIdentityType extends Enum
+class ContinuousAccessEvaluationMode extends Enum
 {
     /**
-    * The Enum ApplicationIdentityType
+    * The Enum ContinuousAccessEvaluationMode
     */
-    const AAD_APPLICATION = "aadApplication";
-    const BOT = "bot";
-    const TENANT_BOT = "tenantBot";
-    const OFFICE365_CONNECTOR = "office365Connector";
-    const OUTGOING_WEBHOOK = "outgoingWebhook";
+    const STRICT_ENFORCEMENT = "strictEnforcement";
+    const DISABLED = "disabled";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

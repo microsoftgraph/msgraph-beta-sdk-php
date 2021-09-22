@@ -61,8 +61,8 @@ class MobileAppContentFile extends Entity
     */
     public function getAzureStorageUriExpirationDateTime()
     {
-        if (array_key_exists("azureStorageUriExpirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["azureStorageUriExpirationDateTime"], "\DateTime") || is_null($this->_propDict["azureStorageUriExpirationDateTime"])) {
+        if (array_key_exists("azureStorageUriExpirationDateTime", $this->_propDict) && !is_null($this->_propDict["azureStorageUriExpirationDateTime"])) {
+            if (is_a($this->_propDict["azureStorageUriExpirationDateTime"], "\DateTime")) {
                 return $this->_propDict["azureStorageUriExpirationDateTime"];
             } else {
                 $this->_propDict["azureStorageUriExpirationDateTime"] = new \DateTime($this->_propDict["azureStorageUriExpirationDateTime"]);
@@ -94,8 +94,8 @@ class MobileAppContentFile extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -214,11 +214,11 @@ class MobileAppContentFile extends Entity
     */
     public function getManifest()
     {
-        if (array_key_exists("manifest", $this->_propDict)) {
-            if (is_a($this->_propDict["manifest"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["manifest"])) {
+        if (array_key_exists("manifest", $this->_propDict) && !is_null($this->_propDict["manifest"])) {
+            if (is_a($this->_propDict["manifest"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["manifest"];
             } else {
-                $this->_propDict["manifest"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["manifest"]);
+                $this->_propDict["manifest"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["manifest"]);
                 return $this->_propDict["manifest"];
             }
         }
@@ -334,8 +334,8 @@ class MobileAppContentFile extends Entity
     */
     public function getUploadState()
     {
-        if (array_key_exists("uploadState", $this->_propDict)) {
-            if (is_a($this->_propDict["uploadState"], "\Beta\Microsoft\Graph\Model\MobileAppContentFileUploadState") || is_null($this->_propDict["uploadState"])) {
+        if (array_key_exists("uploadState", $this->_propDict) && !is_null($this->_propDict["uploadState"])) {
+            if (is_a($this->_propDict["uploadState"], "\Beta\Microsoft\Graph\Model\MobileAppContentFileUploadState")) {
                 return $this->_propDict["uploadState"];
             } else {
                 $this->_propDict["uploadState"] = new MobileAppContentFileUploadState($this->_propDict["uploadState"]);

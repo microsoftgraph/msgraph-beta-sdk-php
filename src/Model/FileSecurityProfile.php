@@ -193,8 +193,8 @@ class FileSecurityProfile extends Entity
     */
     public function getFirstSeenDateTime()
     {
-        if (array_key_exists("firstSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["firstSeenDateTime"], "\DateTime") || is_null($this->_propDict["firstSeenDateTime"])) {
+        if (array_key_exists("firstSeenDateTime", $this->_propDict) && !is_null($this->_propDict["firstSeenDateTime"])) {
+            if (is_a($this->_propDict["firstSeenDateTime"], "\DateTime")) {
                 return $this->_propDict["firstSeenDateTime"];
             } else {
                 $this->_propDict["firstSeenDateTime"] = new \DateTime($this->_propDict["firstSeenDateTime"]);
@@ -221,21 +221,28 @@ class FileSecurityProfile extends Entity
      /** 
      * Gets the hashes
      *
-     * @return array|null The hashes
+     * @return FileHash[]|null The hashes
      */
     public function getHashes()
     {
-        if (array_key_exists("hashes", $this->_propDict)) {
-           return $this->_propDict["hashes"];
-        } else {
-            return null;
+        if (array_key_exists('hashes', $this->_propDict) && !is_null($this->_propDict['hashes'])) {
+            $hashes = [];
+            if (count($this->_propDict['hashes']) > 0 && is_a($this->_propDict['hashes'][0], 'FileHash')) {
+                return $this->_propDict['hashes'];
+            }
+            foreach ($this->_propDict['hashes'] as $singleValue) {
+                $hashes []= new FileHash($singleValue);
+            }
+            $this->_propDict['hashes'] = $hashes;
+            return $this->_propDict['hashes'];
         }
+        return null;
     }
     
     /** 
     * Sets the hashes
     *
-    * @param FileHash $val The hashes
+    * @param FileHash[] $val The hashes
     *
     * @return FileSecurityProfile
     */
@@ -252,8 +259,8 @@ class FileSecurityProfile extends Entity
     */
     public function getLastSeenDateTime()
     {
-        if (array_key_exists("lastSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime") || is_null($this->_propDict["lastSeenDateTime"])) {
+        if (array_key_exists("lastSeenDateTime", $this->_propDict) && !is_null($this->_propDict["lastSeenDateTime"])) {
+            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSeenDateTime"];
             } else {
                 $this->_propDict["lastSeenDateTime"] = new \DateTime($this->_propDict["lastSeenDateTime"]);
@@ -280,21 +287,28 @@ class FileSecurityProfile extends Entity
      /** 
      * Gets the malwareStates
      *
-     * @return array|null The malwareStates
+     * @return MalwareState[]|null The malwareStates
      */
     public function getMalwareStates()
     {
-        if (array_key_exists("malwareStates", $this->_propDict)) {
-           return $this->_propDict["malwareStates"];
-        } else {
-            return null;
+        if (array_key_exists('malwareStates', $this->_propDict) && !is_null($this->_propDict['malwareStates'])) {
+            $malwareStates = [];
+            if (count($this->_propDict['malwareStates']) > 0 && is_a($this->_propDict['malwareStates'][0], 'MalwareState')) {
+                return $this->_propDict['malwareStates'];
+            }
+            foreach ($this->_propDict['malwareStates'] as $singleValue) {
+                $malwareStates []= new MalwareState($singleValue);
+            }
+            $this->_propDict['malwareStates'] = $malwareStates;
+            return $this->_propDict['malwareStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the malwareStates
     *
-    * @param MalwareState $val The malwareStates
+    * @param MalwareState[] $val The malwareStates
     *
     * @return FileSecurityProfile
     */
@@ -419,8 +433,8 @@ class FileSecurityProfile extends Entity
     */
     public function getVendorInformation()
     {
-        if (array_key_exists("vendorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
+        if (array_key_exists("vendorInformation", $this->_propDict) && !is_null($this->_propDict["vendorInformation"])) {
+            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation")) {
                 return $this->_propDict["vendorInformation"];
             } else {
                 $this->_propDict["vendorInformation"] = new SecurityVendorInformation($this->_propDict["vendorInformation"]);
@@ -447,21 +461,28 @@ class FileSecurityProfile extends Entity
      /** 
      * Gets the vulnerabilityStates
      *
-     * @return array|null The vulnerabilityStates
+     * @return VulnerabilityState[]|null The vulnerabilityStates
      */
     public function getVulnerabilityStates()
     {
-        if (array_key_exists("vulnerabilityStates", $this->_propDict)) {
-           return $this->_propDict["vulnerabilityStates"];
-        } else {
-            return null;
+        if (array_key_exists('vulnerabilityStates', $this->_propDict) && !is_null($this->_propDict['vulnerabilityStates'])) {
+            $vulnerabilityStates = [];
+            if (count($this->_propDict['vulnerabilityStates']) > 0 && is_a($this->_propDict['vulnerabilityStates'][0], 'VulnerabilityState')) {
+                return $this->_propDict['vulnerabilityStates'];
+            }
+            foreach ($this->_propDict['vulnerabilityStates'] as $singleValue) {
+                $vulnerabilityStates []= new VulnerabilityState($singleValue);
+            }
+            $this->_propDict['vulnerabilityStates'] = $vulnerabilityStates;
+            return $this->_propDict['vulnerabilityStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the vulnerabilityStates
     *
-    * @param VulnerabilityState $val The vulnerabilityStates
+    * @param VulnerabilityState[] $val The vulnerabilityStates
     *
     * @return FileSecurityProfile
     */

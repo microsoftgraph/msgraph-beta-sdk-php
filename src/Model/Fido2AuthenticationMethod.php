@@ -84,14 +84,14 @@ class Fido2AuthenticationMethod extends AuthenticationMethod
     
     /**
     * Gets the attestationLevel
-    * The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.
+    * The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested.
     *
     * @return AttestationLevel|null The attestationLevel
     */
     public function getAttestationLevel()
     {
-        if (array_key_exists("attestationLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["attestationLevel"], "\Beta\Microsoft\Graph\Model\AttestationLevel") || is_null($this->_propDict["attestationLevel"])) {
+        if (array_key_exists("attestationLevel", $this->_propDict) && !is_null($this->_propDict["attestationLevel"])) {
+            if (is_a($this->_propDict["attestationLevel"], "\Beta\Microsoft\Graph\Model\AttestationLevel")) {
                 return $this->_propDict["attestationLevel"];
             } else {
                 $this->_propDict["attestationLevel"] = new AttestationLevel($this->_propDict["attestationLevel"]);
@@ -103,7 +103,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod
     
     /**
     * Sets the attestationLevel
-    * The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.
+    * The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested.
     *
     * @param AttestationLevel $val The attestationLevel
     *
@@ -123,8 +123,8 @@ class Fido2AuthenticationMethod extends AuthenticationMethod
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -155,8 +155,8 @@ class Fido2AuthenticationMethod extends AuthenticationMethod
     */
     public function getCreationDateTime()
     {
-        if (array_key_exists("creationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["creationDateTime"], "\DateTime") || is_null($this->_propDict["creationDateTime"])) {
+        if (array_key_exists("creationDateTime", $this->_propDict) && !is_null($this->_propDict["creationDateTime"])) {
+            if (is_a($this->_propDict["creationDateTime"], "\DateTime")) {
                 return $this->_propDict["creationDateTime"];
             } else {
                 $this->_propDict["creationDateTime"] = new \DateTime($this->_propDict["creationDateTime"]);

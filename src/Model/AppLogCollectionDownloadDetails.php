@@ -32,8 +32,9 @@ class AppLogCollectionDownloadDetails extends Entity
     */
     public function getAppLogDecryptionAlgorithm()
     {
-        if (array_key_exists("appLogDecryptionAlgorithm", $this->_propDict)) {
-            if (is_a($this->_propDict["appLogDecryptionAlgorithm"], "\Beta\Microsoft\Graph\Model\AppLogDecryptionAlgorithm") || is_null($this->_propDict["appLogDecryptionAlgorithm"])) {
+        if (array_key_exists("appLogDecryptionAlgorithm", $this->_propDict) && !is_null($this->_propDict["appLogDecryptionAlgorithm"])) {
+     
+            if (is_a($this->_propDict["appLogDecryptionAlgorithm"], "\Beta\Microsoft\Graph\Model\AppLogDecryptionAlgorithm")) {
                 return $this->_propDict["appLogDecryptionAlgorithm"];
             } else {
                 $this->_propDict["appLogDecryptionAlgorithm"] = new AppLogDecryptionAlgorithm($this->_propDict["appLogDecryptionAlgorithm"]);

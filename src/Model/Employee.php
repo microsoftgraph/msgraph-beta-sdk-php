@@ -31,8 +31,8 @@ class Employee extends Entity
     */
     public function getAddress()
     {
-        if (array_key_exists("address", $this->_propDict)) {
-            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PostalAddressType") || is_null($this->_propDict["address"])) {
+        if (array_key_exists("address", $this->_propDict) && !is_null($this->_propDict["address"])) {
+            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PostalAddressType")) {
                 return $this->_propDict["address"];
             } else {
                 $this->_propDict["address"] = new PostalAddressType($this->_propDict["address"]);
@@ -62,8 +62,8 @@ class Employee extends Entity
     */
     public function getBirthDate()
     {
-        if (array_key_exists("birthDate", $this->_propDict)) {
-            if (is_a($this->_propDict["birthDate"], "\DateTime") || is_null($this->_propDict["birthDate"])) {
+        if (array_key_exists("birthDate", $this->_propDict) && !is_null($this->_propDict["birthDate"])) {
+            if (is_a($this->_propDict["birthDate"], "\DateTime")) {
                 return $this->_propDict["birthDate"];
             } else {
                 $this->_propDict["birthDate"] = new \DateTime($this->_propDict["birthDate"]);
@@ -147,8 +147,8 @@ class Employee extends Entity
     */
     public function getEmploymentDate()
     {
-        if (array_key_exists("employmentDate", $this->_propDict)) {
-            if (is_a($this->_propDict["employmentDate"], "\DateTime") || is_null($this->_propDict["employmentDate"])) {
+        if (array_key_exists("employmentDate", $this->_propDict) && !is_null($this->_propDict["employmentDate"])) {
+            if (is_a($this->_propDict["employmentDate"], "\DateTime")) {
                 return $this->_propDict["employmentDate"];
             } else {
                 $this->_propDict["employmentDate"] = new \DateTime($this->_propDict["employmentDate"]);
@@ -232,8 +232,8 @@ class Employee extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -479,8 +479,8 @@ class Employee extends Entity
     */
     public function getTerminationDate()
     {
-        if (array_key_exists("terminationDate", $this->_propDict)) {
-            if (is_a($this->_propDict["terminationDate"], "\DateTime") || is_null($this->_propDict["terminationDate"])) {
+        if (array_key_exists("terminationDate", $this->_propDict) && !is_null($this->_propDict["terminationDate"])) {
+            if (is_a($this->_propDict["terminationDate"], "\DateTime")) {
                 return $this->_propDict["terminationDate"];
             } else {
                 $this->_propDict["terminationDate"] = new \DateTime($this->_propDict["terminationDate"]);
@@ -507,21 +507,28 @@ class Employee extends Entity
      /** 
      * Gets the picture
      *
-     * @return array|null The picture
+     * @return Picture[]|null The picture
      */
     public function getPicture()
     {
-        if (array_key_exists("picture", $this->_propDict)) {
-           return $this->_propDict["picture"];
-        } else {
-            return null;
+        if (array_key_exists('picture', $this->_propDict) && !is_null($this->_propDict['picture'])) {
+            $picture = [];
+            if (count($this->_propDict['picture']) > 0 && is_a($this->_propDict['picture'][0], 'Picture')) {
+                return $this->_propDict['picture'];
+            }
+            foreach ($this->_propDict['picture'] as $singleValue) {
+                $picture []= new Picture($singleValue);
+            }
+            $this->_propDict['picture'] = $picture;
+            return $this->_propDict['picture'];
         }
+        return null;
     }
     
     /** 
     * Sets the picture
     *
-    * @param Picture $val The picture
+    * @param Picture[] $val The picture
     *
     * @return Employee
     */

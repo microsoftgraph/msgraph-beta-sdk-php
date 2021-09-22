@@ -88,8 +88,9 @@ class AssignmentFilterEvaluationSummary extends Entity
     */
     public function getAssignmentFilterLastModifiedDateTime()
     {
-        if (array_key_exists("assignmentFilterLastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["assignmentFilterLastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["assignmentFilterLastModifiedDateTime"])) {
+        if (array_key_exists("assignmentFilterLastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["assignmentFilterLastModifiedDateTime"])) {
+     
+            if (is_a($this->_propDict["assignmentFilterLastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["assignmentFilterLastModifiedDateTime"];
             } else {
                 $this->_propDict["assignmentFilterLastModifiedDateTime"] = new \DateTime($this->_propDict["assignmentFilterLastModifiedDateTime"]);
@@ -121,8 +122,9 @@ class AssignmentFilterEvaluationSummary extends Entity
     */
     public function getAssignmentFilterPlatform()
     {
-        if (array_key_exists("assignmentFilterPlatform", $this->_propDict)) {
-            if (is_a($this->_propDict["assignmentFilterPlatform"], "\Beta\Microsoft\Graph\Model\DevicePlatformType") || is_null($this->_propDict["assignmentFilterPlatform"])) {
+        if (array_key_exists("assignmentFilterPlatform", $this->_propDict) && !is_null($this->_propDict["assignmentFilterPlatform"])) {
+     
+            if (is_a($this->_propDict["assignmentFilterPlatform"], "\Beta\Microsoft\Graph\Model\DevicePlatformType")) {
                 return $this->_propDict["assignmentFilterPlatform"];
             } else {
                 $this->_propDict["assignmentFilterPlatform"] = new DevicePlatformType($this->_propDict["assignmentFilterPlatform"]);
@@ -154,8 +156,9 @@ class AssignmentFilterEvaluationSummary extends Entity
     */
     public function getAssignmentFilterType()
     {
-        if (array_key_exists("assignmentFilterType", $this->_propDict)) {
-            if (is_a($this->_propDict["assignmentFilterType"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentFilterType") || is_null($this->_propDict["assignmentFilterType"])) {
+        if (array_key_exists("assignmentFilterType", $this->_propDict) && !is_null($this->_propDict["assignmentFilterType"])) {
+     
+            if (is_a($this->_propDict["assignmentFilterType"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentFilterType")) {
                 return $this->_propDict["assignmentFilterType"];
             } else {
                 $this->_propDict["assignmentFilterType"] = new DeviceAndAppManagementAssignmentFilterType($this->_propDict["assignmentFilterType"]);
@@ -183,18 +186,22 @@ class AssignmentFilterEvaluationSummary extends Entity
     * Gets the assignmentFilterTypeAndEvaluationResults
     * A collection of filter types and their corresponding evaluation results.
     *
-    * @return AssignmentFilterTypeAndEvaluationResult|null The assignmentFilterTypeAndEvaluationResults
+    * @return AssignmentFilterTypeAndEvaluationResult[]|null The assignmentFilterTypeAndEvaluationResults
     */
     public function getAssignmentFilterTypeAndEvaluationResults()
     {
-        if (array_key_exists("assignmentFilterTypeAndEvaluationResults", $this->_propDict)) {
-            if (is_a($this->_propDict["assignmentFilterTypeAndEvaluationResults"], "\Beta\Microsoft\Graph\Model\AssignmentFilterTypeAndEvaluationResult") || is_null($this->_propDict["assignmentFilterTypeAndEvaluationResults"])) {
-                return $this->_propDict["assignmentFilterTypeAndEvaluationResults"];
-            } else {
-                $this->_propDict["assignmentFilterTypeAndEvaluationResults"] = new AssignmentFilterTypeAndEvaluationResult($this->_propDict["assignmentFilterTypeAndEvaluationResults"]);
-                return $this->_propDict["assignmentFilterTypeAndEvaluationResults"];
+        if (array_key_exists("assignmentFilterTypeAndEvaluationResults", $this->_propDict) && !is_null($this->_propDict["assignmentFilterTypeAndEvaluationResults"])) {
+       
+            if (count($this->_propDict['assignmentFilterTypeAndEvaluationResults']) > 0 && is_a($this->_propDict['assignmentFilterTypeAndEvaluationResults'][0], 'AssignmentFilterTypeAndEvaluationResult')) {
+               return $this->_propDict['assignmentFilterTypeAndEvaluationResults'];
             }
-        }
+            $assignmentFilterTypeAndEvaluationResults = [];
+            foreach ($this->_propDict['assignmentFilterTypeAndEvaluationResults'] as $singleValue) {
+               $assignmentFilterTypeAndEvaluationResults []= new AssignmentFilterTypeAndEvaluationResult($singleValue);
+            }
+            $this->_propDict['assignmentFilterTypeAndEvaluationResults'] = $assignmentFilterTypeAndEvaluationResults;
+            return $this->_propDict['assignmentFilterTypeAndEvaluationResults'];
+            }
         return null;
     }
 
@@ -202,7 +209,7 @@ class AssignmentFilterEvaluationSummary extends Entity
     * Sets the assignmentFilterTypeAndEvaluationResults
     * A collection of filter types and their corresponding evaluation results.
     *
-    * @param AssignmentFilterTypeAndEvaluationResult $val The value to assign to the assignmentFilterTypeAndEvaluationResults
+    * @param AssignmentFilterTypeAndEvaluationResult[] $val The value to assign to the assignmentFilterTypeAndEvaluationResults
     *
     * @return AssignmentFilterEvaluationSummary The AssignmentFilterEvaluationSummary
     */
@@ -220,8 +227,9 @@ class AssignmentFilterEvaluationSummary extends Entity
     */
     public function getEvaluationDateTime()
     {
-        if (array_key_exists("evaluationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["evaluationDateTime"], "\DateTime") || is_null($this->_propDict["evaluationDateTime"])) {
+        if (array_key_exists("evaluationDateTime", $this->_propDict) && !is_null($this->_propDict["evaluationDateTime"])) {
+     
+            if (is_a($this->_propDict["evaluationDateTime"], "\DateTime")) {
                 return $this->_propDict["evaluationDateTime"];
             } else {
                 $this->_propDict["evaluationDateTime"] = new \DateTime($this->_propDict["evaluationDateTime"]);
@@ -253,8 +261,9 @@ class AssignmentFilterEvaluationSummary extends Entity
     */
     public function getEvaluationResult()
     {
-        if (array_key_exists("evaluationResult", $this->_propDict)) {
-            if (is_a($this->_propDict["evaluationResult"], "\Beta\Microsoft\Graph\Model\AssignmentFilterEvaluationResult") || is_null($this->_propDict["evaluationResult"])) {
+        if (array_key_exists("evaluationResult", $this->_propDict) && !is_null($this->_propDict["evaluationResult"])) {
+     
+            if (is_a($this->_propDict["evaluationResult"], "\Beta\Microsoft\Graph\Model\AssignmentFilterEvaluationResult")) {
                 return $this->_propDict["evaluationResult"];
             } else {
                 $this->_propDict["evaluationResult"] = new AssignmentFilterEvaluationResult($this->_propDict["evaluationResult"]);

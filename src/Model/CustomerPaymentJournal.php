@@ -139,8 +139,8 @@ class CustomerPaymentJournal extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -170,8 +170,8 @@ class CustomerPaymentJournal extends Entity
     */
     public function getAccount()
     {
-        if (array_key_exists("account", $this->_propDict)) {
-            if (is_a($this->_propDict["account"], "\Beta\Microsoft\Graph\Model\Account") || is_null($this->_propDict["account"])) {
+        if (array_key_exists("account", $this->_propDict) && !is_null($this->_propDict["account"])) {
+            if (is_a($this->_propDict["account"], "\Beta\Microsoft\Graph\Model\Account")) {
                 return $this->_propDict["account"];
             } else {
                 $this->_propDict["account"] = new Account($this->_propDict["account"]);
@@ -198,21 +198,28 @@ class CustomerPaymentJournal extends Entity
      /** 
      * Gets the customerPayments
      *
-     * @return array|null The customerPayments
+     * @return CustomerPayment[]|null The customerPayments
      */
     public function getCustomerPayments()
     {
-        if (array_key_exists("customerPayments", $this->_propDict)) {
-           return $this->_propDict["customerPayments"];
-        } else {
-            return null;
+        if (array_key_exists('customerPayments', $this->_propDict) && !is_null($this->_propDict['customerPayments'])) {
+            $customerPayments = [];
+            if (count($this->_propDict['customerPayments']) > 0 && is_a($this->_propDict['customerPayments'][0], 'CustomerPayment')) {
+                return $this->_propDict['customerPayments'];
+            }
+            foreach ($this->_propDict['customerPayments'] as $singleValue) {
+                $customerPayments []= new CustomerPayment($singleValue);
+            }
+            $this->_propDict['customerPayments'] = $customerPayments;
+            return $this->_propDict['customerPayments'];
         }
+        return null;
     }
     
     /** 
     * Sets the customerPayments
     *
-    * @param CustomerPayment $val The customerPayments
+    * @param CustomerPayment[] $val The customerPayments
     *
     * @return CustomerPaymentJournal
     */

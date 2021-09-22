@@ -119,8 +119,8 @@ class AuthorizationPolicy extends PolicyBase
     */
     public function getAllowInvitesFrom()
     {
-        if (array_key_exists("allowInvitesFrom", $this->_propDict)) {
-            if (is_a($this->_propDict["allowInvitesFrom"], "\Beta\Microsoft\Graph\Model\AllowInvitesFrom") || is_null($this->_propDict["allowInvitesFrom"])) {
+        if (array_key_exists("allowInvitesFrom", $this->_propDict) && !is_null($this->_propDict["allowInvitesFrom"])) {
+            if (is_a($this->_propDict["allowInvitesFrom"], "\Beta\Microsoft\Graph\Model\AllowInvitesFrom")) {
                 return $this->_propDict["allowInvitesFrom"];
             } else {
                 $this->_propDict["allowInvitesFrom"] = new AllowInvitesFrom($this->_propDict["allowInvitesFrom"]);
@@ -181,8 +181,8 @@ class AuthorizationPolicy extends PolicyBase
     */
     public function getDefaultUserRolePermissions()
     {
-        if (array_key_exists("defaultUserRolePermissions", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultUserRolePermissions"], "\Beta\Microsoft\Graph\Model\DefaultUserRolePermissions") || is_null($this->_propDict["defaultUserRolePermissions"])) {
+        if (array_key_exists("defaultUserRolePermissions", $this->_propDict) && !is_null($this->_propDict["defaultUserRolePermissions"])) {
+            if (is_a($this->_propDict["defaultUserRolePermissions"], "\Beta\Microsoft\Graph\Model\DefaultUserRolePermissions")) {
                 return $this->_propDict["defaultUserRolePermissions"];
             } else {
                 $this->_propDict["defaultUserRolePermissions"] = new DefaultUserRolePermissions($this->_propDict["defaultUserRolePermissions"]);
@@ -237,7 +237,7 @@ class AuthorizationPolicy extends PolicyBase
     
     /**
     * Gets the guestUserRoleId
-    * Represents role templateId for the role that should be granted to guest user. Refer to List unifiedRoleDefinitions to find the list of available role templates. Currently following roles are supported:  User (a0b1b346-4d3e-4e8b-98f8-753987be4970), Guest User (10dae51f-b6af-4016-8d66-8c2a99b929b3), and Restricted Guest User (2af84b1e-32c8-42b7-82bc-daa82404023b).
+    * Represents role templateId for the role that should be granted to guest user. Currently following roles are supported:  User (a0b1b346-4d3e-4e8b-98f8-753987be4970), Guest User (10dae51f-b6af-4016-8d66-8c2a99b929b3), and Restricted Guest User (2af84b1e-32c8-42b7-82bc-daa82404023b).
     *
     * @return string|null The guestUserRoleId
     */
@@ -252,7 +252,7 @@ class AuthorizationPolicy extends PolicyBase
     
     /**
     * Sets the guestUserRoleId
-    * Represents role templateId for the role that should be granted to guest user. Refer to List unifiedRoleDefinitions to find the list of available role templates. Currently following roles are supported:  User (a0b1b346-4d3e-4e8b-98f8-753987be4970), Guest User (10dae51f-b6af-4016-8d66-8c2a99b929b3), and Restricted Guest User (2af84b1e-32c8-42b7-82bc-daa82404023b).
+    * Represents role templateId for the role that should be granted to guest user. Currently following roles are supported:  User (a0b1b346-4d3e-4e8b-98f8-753987be4970), Guest User (10dae51f-b6af-4016-8d66-8c2a99b929b3), and Restricted Guest User (2af84b1e-32c8-42b7-82bc-daa82404023b).
     *
     * @param string $val The guestUserRoleId
     *
@@ -290,6 +290,41 @@ class AuthorizationPolicy extends PolicyBase
     public function setPermissionGrantPolicyIdsAssignedToDefaultUserRole($val)
     {
         $this->_propDict["permissionGrantPolicyIdsAssignedToDefaultUserRole"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the defaultUserRoleOverrides
+     *
+     * @return DefaultUserRoleOverride[]|null The defaultUserRoleOverrides
+     */
+    public function getDefaultUserRoleOverrides()
+    {
+        if (array_key_exists('defaultUserRoleOverrides', $this->_propDict) && !is_null($this->_propDict['defaultUserRoleOverrides'])) {
+            $defaultUserRoleOverrides = [];
+            if (count($this->_propDict['defaultUserRoleOverrides']) > 0 && is_a($this->_propDict['defaultUserRoleOverrides'][0], 'DefaultUserRoleOverride')) {
+                return $this->_propDict['defaultUserRoleOverrides'];
+            }
+            foreach ($this->_propDict['defaultUserRoleOverrides'] as $singleValue) {
+                $defaultUserRoleOverrides []= new DefaultUserRoleOverride($singleValue);
+            }
+            $this->_propDict['defaultUserRoleOverrides'] = $defaultUserRoleOverrides;
+            return $this->_propDict['defaultUserRoleOverrides'];
+        }
+        return null;
+    }
+    
+    /** 
+    * Sets the defaultUserRoleOverrides
+    *
+    * @param DefaultUserRoleOverride[] $val The defaultUserRoleOverrides
+    *
+    * @return AuthorizationPolicy
+    */
+    public function setDefaultUserRoleOverrides($val)
+    {
+        $this->_propDict["defaultUserRoleOverrides"] = $val;
         return $this;
     }
     

@@ -56,18 +56,22 @@ class UserRegistrationMethodSummary extends Entity
     * Gets the userRegistrationMethodCounts
     * Number of users registered for each authentication method.
     *
-    * @return UserRegistrationMethodCount|null The userRegistrationMethodCounts
+    * @return UserRegistrationMethodCount[]|null The userRegistrationMethodCounts
     */
     public function getUserRegistrationMethodCounts()
     {
-        if (array_key_exists("userRegistrationMethodCounts", $this->_propDict)) {
-            if (is_a($this->_propDict["userRegistrationMethodCounts"], "\Beta\Microsoft\Graph\Model\UserRegistrationMethodCount") || is_null($this->_propDict["userRegistrationMethodCounts"])) {
-                return $this->_propDict["userRegistrationMethodCounts"];
-            } else {
-                $this->_propDict["userRegistrationMethodCounts"] = new UserRegistrationMethodCount($this->_propDict["userRegistrationMethodCounts"]);
-                return $this->_propDict["userRegistrationMethodCounts"];
+        if (array_key_exists("userRegistrationMethodCounts", $this->_propDict) && !is_null($this->_propDict["userRegistrationMethodCounts"])) {
+       
+            if (count($this->_propDict['userRegistrationMethodCounts']) > 0 && is_a($this->_propDict['userRegistrationMethodCounts'][0], 'UserRegistrationMethodCount')) {
+               return $this->_propDict['userRegistrationMethodCounts'];
             }
-        }
+            $userRegistrationMethodCounts = [];
+            foreach ($this->_propDict['userRegistrationMethodCounts'] as $singleValue) {
+               $userRegistrationMethodCounts []= new UserRegistrationMethodCount($singleValue);
+            }
+            $this->_propDict['userRegistrationMethodCounts'] = $userRegistrationMethodCounts;
+            return $this->_propDict['userRegistrationMethodCounts'];
+            }
         return null;
     }
 
@@ -75,7 +79,7 @@ class UserRegistrationMethodSummary extends Entity
     * Sets the userRegistrationMethodCounts
     * Number of users registered for each authentication method.
     *
-    * @param UserRegistrationMethodCount $val The value to assign to the userRegistrationMethodCounts
+    * @param UserRegistrationMethodCount[] $val The value to assign to the userRegistrationMethodCounts
     *
     * @return UserRegistrationMethodSummary The UserRegistrationMethodSummary
     */
@@ -93,8 +97,9 @@ class UserRegistrationMethodSummary extends Entity
     */
     public function getUserRoles()
     {
-        if (array_key_exists("userRoles", $this->_propDict)) {
-            if (is_a($this->_propDict["userRoles"], "\Beta\Microsoft\Graph\Model\IncludedUserRoles") || is_null($this->_propDict["userRoles"])) {
+        if (array_key_exists("userRoles", $this->_propDict) && !is_null($this->_propDict["userRoles"])) {
+     
+            if (is_a($this->_propDict["userRoles"], "\Beta\Microsoft\Graph\Model\IncludedUserRoles")) {
                 return $this->_propDict["userRoles"];
             } else {
                 $this->_propDict["userRoles"] = new IncludedUserRoles($this->_propDict["userRoles"]);
@@ -126,8 +131,9 @@ class UserRegistrationMethodSummary extends Entity
     */
     public function getUserTypes()
     {
-        if (array_key_exists("userTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["userTypes"], "\Beta\Microsoft\Graph\Model\IncludedUserTypes") || is_null($this->_propDict["userTypes"])) {
+        if (array_key_exists("userTypes", $this->_propDict) && !is_null($this->_propDict["userTypes"])) {
+     
+            if (is_a($this->_propDict["userTypes"], "\Beta\Microsoft\Graph\Model\IncludedUserTypes")) {
                 return $this->_propDict["userTypes"];
             } else {
                 $this->_propDict["userTypes"] = new IncludedUserTypes($this->_propDict["userTypes"]);

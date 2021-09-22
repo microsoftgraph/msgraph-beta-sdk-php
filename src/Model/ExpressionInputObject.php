@@ -32,8 +32,9 @@ class ExpressionInputObject extends Entity
     */
     public function getDefinition()
     {
-        if (array_key_exists("definition", $this->_propDict)) {
-            if (is_a($this->_propDict["definition"], "\Beta\Microsoft\Graph\Model\ObjectDefinition") || is_null($this->_propDict["definition"])) {
+        if (array_key_exists("definition", $this->_propDict) && !is_null($this->_propDict["definition"])) {
+     
+            if (is_a($this->_propDict["definition"], "\Beta\Microsoft\Graph\Model\ObjectDefinition")) {
                 return $this->_propDict["definition"];
             } else {
                 $this->_propDict["definition"] = new ObjectDefinition($this->_propDict["definition"]);
@@ -61,18 +62,22 @@ class ExpressionInputObject extends Entity
     * Gets the expressionInputObjectProperties
     * Property values of the test object.
     *
-    * @return StringKeyObjectValuePair|null The expressionInputObjectProperties
+    * @return StringKeyObjectValuePair[]|null The expressionInputObjectProperties
     */
     public function getExpressionInputObjectProperties()
     {
-        if (array_key_exists("properties", $this->_propDict)) {
-            if (is_a($this->_propDict["properties"], "\Beta\Microsoft\Graph\Model\StringKeyObjectValuePair") || is_null($this->_propDict["properties"])) {
-                return $this->_propDict["properties"];
-            } else {
-                $this->_propDict["properties"] = new StringKeyObjectValuePair($this->_propDict["properties"]);
-                return $this->_propDict["properties"];
+        if (array_key_exists("properties", $this->_propDict) && !is_null($this->_propDict["properties"])) {
+       
+            if (count($this->_propDict['properties']) > 0 && is_a($this->_propDict['properties'][0], 'StringKeyObjectValuePair')) {
+               return $this->_propDict['properties'];
             }
-        }
+            $properties = [];
+            foreach ($this->_propDict['properties'] as $singleValue) {
+               $properties []= new StringKeyObjectValuePair($singleValue);
+            }
+            $this->_propDict['properties'] = $properties;
+            return $this->_propDict['properties'];
+            }
         return null;
     }
 
@@ -80,7 +85,7 @@ class ExpressionInputObject extends Entity
     * Sets the expressionInputObjectProperties
     * Property values of the test object.
     *
-    * @param StringKeyObjectValuePair $val The value to assign to the properties
+    * @param StringKeyObjectValuePair[] $val The value to assign to the properties
     *
     * @return ExpressionInputObject The ExpressionInputObject
     */

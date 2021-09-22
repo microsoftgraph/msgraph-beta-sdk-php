@@ -61,8 +61,8 @@ class PublishedResource extends Entity
     */
     public function getPublishingType()
     {
-        if (array_key_exists("publishingType", $this->_propDict)) {
-            if (is_a($this->_propDict["publishingType"], "\Beta\Microsoft\Graph\Model\OnPremisesPublishingType") || is_null($this->_propDict["publishingType"])) {
+        if (array_key_exists("publishingType", $this->_propDict) && !is_null($this->_propDict["publishingType"])) {
+            if (is_a($this->_propDict["publishingType"], "\Beta\Microsoft\Graph\Model\OnPremisesPublishingType")) {
                 return $this->_propDict["publishingType"];
             } else {
                 $this->_propDict["publishingType"] = new OnPremisesPublishingType($this->_propDict["publishingType"]);
@@ -120,22 +120,29 @@ class PublishedResource extends Entity
      * Gets the agentGroups
     * List of onPremisesAgentGroups that a publishedResource is assigned to. Read-only. Nullable.
      *
-     * @return array|null The agentGroups
+     * @return OnPremisesAgentGroup[]|null The agentGroups
      */
     public function getAgentGroups()
     {
-        if (array_key_exists("agentGroups", $this->_propDict)) {
-           return $this->_propDict["agentGroups"];
-        } else {
-            return null;
+        if (array_key_exists('agentGroups', $this->_propDict) && !is_null($this->_propDict['agentGroups'])) {
+            $agentGroups = [];
+            if (count($this->_propDict['agentGroups']) > 0 && is_a($this->_propDict['agentGroups'][0], 'OnPremisesAgentGroup')) {
+                return $this->_propDict['agentGroups'];
+            }
+            foreach ($this->_propDict['agentGroups'] as $singleValue) {
+                $agentGroups []= new OnPremisesAgentGroup($singleValue);
+            }
+            $this->_propDict['agentGroups'] = $agentGroups;
+            return $this->_propDict['agentGroups'];
         }
+        return null;
     }
     
     /** 
     * Sets the agentGroups
     * List of onPremisesAgentGroups that a publishedResource is assigned to. Read-only. Nullable.
     *
-    * @param OnPremisesAgentGroup $val The agentGroups
+    * @param OnPremisesAgentGroup[] $val The agentGroups
     *
     * @return PublishedResource
     */

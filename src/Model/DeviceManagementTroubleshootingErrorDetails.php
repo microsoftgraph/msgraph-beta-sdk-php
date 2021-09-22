@@ -140,18 +140,22 @@ class DeviceManagementTroubleshootingErrorDetails extends Entity
     * Gets the resources
     * Links to helpful documentation about this failure.
     *
-    * @return DeviceManagementTroubleshootingErrorResource|null The resources
+    * @return DeviceManagementTroubleshootingErrorResource[]|null The resources
     */
     public function getResources()
     {
-        if (array_key_exists("resources", $this->_propDict)) {
-            if (is_a($this->_propDict["resources"], "\Beta\Microsoft\Graph\Model\DeviceManagementTroubleshootingErrorResource") || is_null($this->_propDict["resources"])) {
-                return $this->_propDict["resources"];
-            } else {
-                $this->_propDict["resources"] = new DeviceManagementTroubleshootingErrorResource($this->_propDict["resources"]);
-                return $this->_propDict["resources"];
+        if (array_key_exists("resources", $this->_propDict) && !is_null($this->_propDict["resources"])) {
+       
+            if (count($this->_propDict['resources']) > 0 && is_a($this->_propDict['resources'][0], 'DeviceManagementTroubleshootingErrorResource')) {
+               return $this->_propDict['resources'];
             }
-        }
+            $resources = [];
+            foreach ($this->_propDict['resources'] as $singleValue) {
+               $resources []= new DeviceManagementTroubleshootingErrorResource($singleValue);
+            }
+            $this->_propDict['resources'] = $resources;
+            return $this->_propDict['resources'];
+            }
         return null;
     }
 
@@ -159,7 +163,7 @@ class DeviceManagementTroubleshootingErrorDetails extends Entity
     * Sets the resources
     * Links to helpful documentation about this failure.
     *
-    * @param DeviceManagementTroubleshootingErrorResource $val The value to assign to the resources
+    * @param DeviceManagementTroubleshootingErrorResource[] $val The value to assign to the resources
     *
     * @return DeviceManagementTroubleshootingErrorDetails The DeviceManagementTroubleshootingErrorDetails
     */

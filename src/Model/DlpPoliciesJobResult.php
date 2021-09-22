@@ -27,25 +27,29 @@ class DlpPoliciesJobResult extends Entity
     /**
     * Gets the matchingRules
     *
-    * @return MatchingDlpRule|null The matchingRules
+    * @return MatchingDlpRule[]|null The matchingRules
     */
     public function getMatchingRules()
     {
-        if (array_key_exists("matchingRules", $this->_propDict)) {
-            if (is_a($this->_propDict["matchingRules"], "\Beta\Microsoft\Graph\Model\MatchingDlpRule") || is_null($this->_propDict["matchingRules"])) {
-                return $this->_propDict["matchingRules"];
-            } else {
-                $this->_propDict["matchingRules"] = new MatchingDlpRule($this->_propDict["matchingRules"]);
-                return $this->_propDict["matchingRules"];
+        if (array_key_exists("matchingRules", $this->_propDict) && !is_null($this->_propDict["matchingRules"])) {
+       
+            if (count($this->_propDict['matchingRules']) > 0 && is_a($this->_propDict['matchingRules'][0], 'MatchingDlpRule')) {
+               return $this->_propDict['matchingRules'];
             }
-        }
+            $matchingRules = [];
+            foreach ($this->_propDict['matchingRules'] as $singleValue) {
+               $matchingRules []= new MatchingDlpRule($singleValue);
+            }
+            $this->_propDict['matchingRules'] = $matchingRules;
+            return $this->_propDict['matchingRules'];
+            }
         return null;
     }
 
     /**
     * Sets the matchingRules
     *
-    * @param MatchingDlpRule $val The value to assign to the matchingRules
+    * @param MatchingDlpRule[] $val The value to assign to the matchingRules
     *
     * @return DlpPoliciesJobResult The DlpPoliciesJobResult
     */

@@ -25,6 +25,7 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the displayName
+    * The display name for the workload. Required. Read-only.
     *
     * @return string|null The displayName
     */
@@ -39,6 +40,7 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the displayName
+    * The display name for the workload. Required. Read-only.
     *
     * @param string $val The value of the displayName
     *
@@ -52,13 +54,15 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the offboardedDateTime
+    * The date and time the workload was offboarded. Optional. Read-only.
     *
     * @return \DateTime|null The offboardedDateTime
     */
     public function getOffboardedDateTime()
     {
-        if (array_key_exists("offboardedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["offboardedDateTime"], "\DateTime") || is_null($this->_propDict["offboardedDateTime"])) {
+        if (array_key_exists("offboardedDateTime", $this->_propDict) && !is_null($this->_propDict["offboardedDateTime"])) {
+     
+            if (is_a($this->_propDict["offboardedDateTime"], "\DateTime")) {
                 return $this->_propDict["offboardedDateTime"];
             } else {
                 $this->_propDict["offboardedDateTime"] = new \DateTime($this->_propDict["offboardedDateTime"]);
@@ -70,6 +74,7 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the offboardedDateTime
+    * The date and time the workload was offboarded. Optional. Read-only.
     *
     * @param \DateTime $val The value to assign to the offboardedDateTime
     *
@@ -83,13 +88,15 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the onboardedDateTime
+    * The date and time the workload was onboarded. Optional. Read-only.
     *
     * @return \DateTime|null The onboardedDateTime
     */
     public function getOnboardedDateTime()
     {
-        if (array_key_exists("onboardedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["onboardedDateTime"], "\DateTime") || is_null($this->_propDict["onboardedDateTime"])) {
+        if (array_key_exists("onboardedDateTime", $this->_propDict) && !is_null($this->_propDict["onboardedDateTime"])) {
+     
+            if (is_a($this->_propDict["onboardedDateTime"], "\DateTime")) {
                 return $this->_propDict["onboardedDateTime"];
             } else {
                 $this->_propDict["onboardedDateTime"] = new \DateTime($this->_propDict["onboardedDateTime"]);
@@ -101,6 +108,7 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the onboardedDateTime
+    * The date and time the workload was onboarded. Optional. Read-only.
     *
     * @param \DateTime $val The value to assign to the onboardedDateTime
     *
@@ -114,13 +122,15 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the onboardingStatus
+    * The onboarding status for the workload. Possible values are: notOnboarded, onboarded, unknownFutureValue. Optional. Read-only.
     *
     * @return WorkloadOnboardingStatus|null The onboardingStatus
     */
     public function getOnboardingStatus()
     {
-        if (array_key_exists("onboardingStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["onboardingStatus"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadOnboardingStatus") || is_null($this->_propDict["onboardingStatus"])) {
+        if (array_key_exists("onboardingStatus", $this->_propDict) && !is_null($this->_propDict["onboardingStatus"])) {
+     
+            if (is_a($this->_propDict["onboardingStatus"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadOnboardingStatus")) {
                 return $this->_propDict["onboardingStatus"];
             } else {
                 $this->_propDict["onboardingStatus"] = new WorkloadOnboardingStatus($this->_propDict["onboardingStatus"]);
@@ -132,6 +142,7 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the onboardingStatus
+    * The onboarding status for the workload. Possible values are: notOnboarded, onboarded, unknownFutureValue. Optional. Read-only.
     *
     * @param WorkloadOnboardingStatus $val The value to assign to the onboardingStatus
     *

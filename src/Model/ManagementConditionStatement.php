@@ -29,22 +29,29 @@ class ManagementConditionStatement extends Entity
      * Gets the applicablePlatforms
     * This is calculated from looking the management conditions associated to the management condition statement and finding the intersection of applicable platforms.
      *
-     * @return array|null The applicablePlatforms
+     * @return DevicePlatformType[]|null The applicablePlatforms
      */
     public function getApplicablePlatforms()
     {
-        if (array_key_exists("applicablePlatforms", $this->_propDict)) {
-           return $this->_propDict["applicablePlatforms"];
-        } else {
-            return null;
+        if (array_key_exists('applicablePlatforms', $this->_propDict) && !is_null($this->_propDict['applicablePlatforms'])) {
+            $applicablePlatforms = [];
+            if (count($this->_propDict['applicablePlatforms']) > 0 && is_a($this->_propDict['applicablePlatforms'][0], 'DevicePlatformType')) {
+                return $this->_propDict['applicablePlatforms'];
+            }
+            foreach ($this->_propDict['applicablePlatforms'] as $singleValue) {
+                $applicablePlatforms []= new DevicePlatformType($singleValue);
+            }
+            $this->_propDict['applicablePlatforms'] = $applicablePlatforms;
+            return $this->_propDict['applicablePlatforms'];
         }
+        return null;
     }
     
     /** 
     * Sets the applicablePlatforms
     * This is calculated from looking the management conditions associated to the management condition statement and finding the intersection of applicable platforms.
     *
-    * @param DevicePlatformType $val The applicablePlatforms
+    * @param DevicePlatformType[] $val The applicablePlatforms
     *
     * @return ManagementConditionStatement
     */
@@ -62,8 +69,8 @@ class ManagementConditionStatement extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -182,8 +189,8 @@ class ManagementConditionStatement extends Entity
     */
     public function getExpression()
     {
-        if (array_key_exists("expression", $this->_propDict)) {
-            if (is_a($this->_propDict["expression"], "\Beta\Microsoft\Graph\Model\ManagementConditionExpression") || is_null($this->_propDict["expression"])) {
+        if (array_key_exists("expression", $this->_propDict) && !is_null($this->_propDict["expression"])) {
+            if (is_a($this->_propDict["expression"], "\Beta\Microsoft\Graph\Model\ManagementConditionExpression")) {
                 return $this->_propDict["expression"];
             } else {
                 $this->_propDict["expression"] = new ManagementConditionExpression($this->_propDict["expression"]);
@@ -215,8 +222,8 @@ class ManagementConditionStatement extends Entity
     */
     public function getModifiedDateTime()
     {
-        if (array_key_exists("modifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
+        if (array_key_exists("modifiedDateTime", $this->_propDict) && !is_null($this->_propDict["modifiedDateTime"])) {
+            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["modifiedDateTime"];
             } else {
                 $this->_propDict["modifiedDateTime"] = new \DateTime($this->_propDict["modifiedDateTime"]);
@@ -245,22 +252,29 @@ class ManagementConditionStatement extends Entity
      * Gets the managementConditions
     * The management conditions associated to the management condition statement.
      *
-     * @return array|null The managementConditions
+     * @return ManagementCondition[]|null The managementConditions
      */
     public function getManagementConditions()
     {
-        if (array_key_exists("managementConditions", $this->_propDict)) {
-           return $this->_propDict["managementConditions"];
-        } else {
-            return null;
+        if (array_key_exists('managementConditions', $this->_propDict) && !is_null($this->_propDict['managementConditions'])) {
+            $managementConditions = [];
+            if (count($this->_propDict['managementConditions']) > 0 && is_a($this->_propDict['managementConditions'][0], 'ManagementCondition')) {
+                return $this->_propDict['managementConditions'];
+            }
+            foreach ($this->_propDict['managementConditions'] as $singleValue) {
+                $managementConditions []= new ManagementCondition($singleValue);
+            }
+            $this->_propDict['managementConditions'] = $managementConditions;
+            return $this->_propDict['managementConditions'];
         }
+        return null;
     }
     
     /** 
     * Sets the managementConditions
     * The management conditions associated to the management condition statement.
     *
-    * @param ManagementCondition $val The managementConditions
+    * @param ManagementCondition[] $val The managementConditions
     *
     * @return ManagementConditionStatement
     */

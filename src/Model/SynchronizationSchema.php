@@ -29,22 +29,29 @@ class SynchronizationSchema extends Entity
      * Gets the synchronizationRules
     * A collection of synchronization rules configured for the synchronizationJob or synchronizationTemplate.
      *
-     * @return array|null The synchronizationRules
+     * @return SynchronizationRule[]|null The synchronizationRules
      */
     public function getSynchronizationRules()
     {
-        if (array_key_exists("synchronizationRules", $this->_propDict)) {
-           return $this->_propDict["synchronizationRules"];
-        } else {
-            return null;
+        if (array_key_exists('synchronizationRules', $this->_propDict) && !is_null($this->_propDict['synchronizationRules'])) {
+            $synchronizationRules = [];
+            if (count($this->_propDict['synchronizationRules']) > 0 && is_a($this->_propDict['synchronizationRules'][0], 'SynchronizationRule')) {
+                return $this->_propDict['synchronizationRules'];
+            }
+            foreach ($this->_propDict['synchronizationRules'] as $singleValue) {
+                $synchronizationRules []= new SynchronizationRule($singleValue);
+            }
+            $this->_propDict['synchronizationRules'] = $synchronizationRules;
+            return $this->_propDict['synchronizationRules'];
         }
+        return null;
     }
     
     /** 
     * Sets the synchronizationRules
     * A collection of synchronization rules configured for the synchronizationJob or synchronizationTemplate.
     *
-    * @param SynchronizationRule $val The synchronizationRules
+    * @param SynchronizationRule[] $val The synchronizationRules
     *
     * @return SynchronizationSchema
     */
@@ -88,22 +95,29 @@ class SynchronizationSchema extends Entity
      * Gets the directories
     * Contains the collection of directories and all of their objects.
      *
-     * @return array|null The directories
+     * @return DirectoryDefinition[]|null The directories
      */
     public function getDirectories()
     {
-        if (array_key_exists("directories", $this->_propDict)) {
-           return $this->_propDict["directories"];
-        } else {
-            return null;
+        if (array_key_exists('directories', $this->_propDict) && !is_null($this->_propDict['directories'])) {
+            $directories = [];
+            if (count($this->_propDict['directories']) > 0 && is_a($this->_propDict['directories'][0], 'DirectoryDefinition')) {
+                return $this->_propDict['directories'];
+            }
+            foreach ($this->_propDict['directories'] as $singleValue) {
+                $directories []= new DirectoryDefinition($singleValue);
+            }
+            $this->_propDict['directories'] = $directories;
+            return $this->_propDict['directories'];
         }
+        return null;
     }
     
     /** 
     * Sets the directories
     * Contains the collection of directories and all of their objects.
     *
-    * @param DirectoryDefinition $val The directories
+    * @param DirectoryDefinition[] $val The directories
     *
     * @return SynchronizationSchema
     */

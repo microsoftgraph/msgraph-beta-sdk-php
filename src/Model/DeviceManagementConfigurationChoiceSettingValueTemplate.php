@@ -32,8 +32,9 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate extends Entity
     */
     public function getDefaultValue()
     {
-        if (array_key_exists("defaultValue", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationChoiceSettingValueDefaultTemplate") || is_null($this->_propDict["defaultValue"])) {
+        if (array_key_exists("defaultValue", $this->_propDict) && !is_null($this->_propDict["defaultValue"])) {
+     
+            if (is_a($this->_propDict["defaultValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationChoiceSettingValueDefaultTemplate")) {
                 return $this->_propDict["defaultValue"];
             } else {
                 $this->_propDict["defaultValue"] = new DeviceManagementConfigurationChoiceSettingValueDefaultTemplate($this->_propDict["defaultValue"]);
@@ -65,8 +66,9 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate extends Entity
     */
     public function getRecommendedValueDefinition()
     {
-        if (array_key_exists("recommendedValueDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["recommendedValueDefinition"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate") || is_null($this->_propDict["recommendedValueDefinition"])) {
+        if (array_key_exists("recommendedValueDefinition", $this->_propDict) && !is_null($this->_propDict["recommendedValueDefinition"])) {
+     
+            if (is_a($this->_propDict["recommendedValueDefinition"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate")) {
                 return $this->_propDict["recommendedValueDefinition"];
             } else {
                 $this->_propDict["recommendedValueDefinition"] = new DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate($this->_propDict["recommendedValueDefinition"]);
@@ -98,8 +100,9 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate extends Entity
     */
     public function getRequiredValueDefinition()
     {
-        if (array_key_exists("requiredValueDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["requiredValueDefinition"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate") || is_null($this->_propDict["requiredValueDefinition"])) {
+        if (array_key_exists("requiredValueDefinition", $this->_propDict) && !is_null($this->_propDict["requiredValueDefinition"])) {
+     
+            if (is_a($this->_propDict["requiredValueDefinition"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate")) {
                 return $this->_propDict["requiredValueDefinition"];
             } else {
                 $this->_propDict["requiredValueDefinition"] = new DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate($this->_propDict["requiredValueDefinition"]);

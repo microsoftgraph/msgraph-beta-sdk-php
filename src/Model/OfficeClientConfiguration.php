@@ -29,22 +29,29 @@ class OfficeClientConfiguration extends Entity
      * Gets the checkinStatuses
     * List of office Client check-in status.
      *
-     * @return array|null The checkinStatuses
+     * @return OfficeClientCheckinStatus[]|null The checkinStatuses
      */
     public function getCheckinStatuses()
     {
-        if (array_key_exists("checkinStatuses", $this->_propDict)) {
-           return $this->_propDict["checkinStatuses"];
-        } else {
-            return null;
+        if (array_key_exists('checkinStatuses', $this->_propDict) && !is_null($this->_propDict['checkinStatuses'])) {
+            $checkinStatuses = [];
+            if (count($this->_propDict['checkinStatuses']) > 0 && is_a($this->_propDict['checkinStatuses'][0], 'OfficeClientCheckinStatus')) {
+                return $this->_propDict['checkinStatuses'];
+            }
+            foreach ($this->_propDict['checkinStatuses'] as $singleValue) {
+                $checkinStatuses []= new OfficeClientCheckinStatus($singleValue);
+            }
+            $this->_propDict['checkinStatuses'] = $checkinStatuses;
+            return $this->_propDict['checkinStatuses'];
         }
+        return null;
     }
     
     /** 
     * Sets the checkinStatuses
     * List of office Client check-in status.
     *
-    * @param OfficeClientCheckinStatus $val The checkinStatuses
+    * @param OfficeClientCheckinStatus[] $val The checkinStatuses
     *
     * @return OfficeClientConfiguration
     */
@@ -120,11 +127,11 @@ class OfficeClientConfiguration extends Entity
     */
     public function getPolicyPayload()
     {
-        if (array_key_exists("policyPayload", $this->_propDict)) {
-            if (is_a($this->_propDict["policyPayload"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["policyPayload"])) {
+        if (array_key_exists("policyPayload", $this->_propDict) && !is_null($this->_propDict["policyPayload"])) {
+            if (is_a($this->_propDict["policyPayload"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["policyPayload"];
             } else {
-                $this->_propDict["policyPayload"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["policyPayload"]);
+                $this->_propDict["policyPayload"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["policyPayload"]);
                 return $this->_propDict["policyPayload"];
             }
         }
@@ -182,8 +189,8 @@ class OfficeClientConfiguration extends Entity
     */
     public function getUserCheckinSummary()
     {
-        if (array_key_exists("userCheckinSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["userCheckinSummary"], "\Beta\Microsoft\Graph\Model\OfficeUserCheckinSummary") || is_null($this->_propDict["userCheckinSummary"])) {
+        if (array_key_exists("userCheckinSummary", $this->_propDict) && !is_null($this->_propDict["userCheckinSummary"])) {
+            if (is_a($this->_propDict["userCheckinSummary"], "\Beta\Microsoft\Graph\Model\OfficeUserCheckinSummary")) {
                 return $this->_propDict["userCheckinSummary"];
             } else {
                 $this->_propDict["userCheckinSummary"] = new OfficeUserCheckinSummary($this->_propDict["userCheckinSummary"]);
@@ -215,11 +222,11 @@ class OfficeClientConfiguration extends Entity
     */
     public function getUserPreferencePayload()
     {
-        if (array_key_exists("userPreferencePayload", $this->_propDict)) {
-            if (is_a($this->_propDict["userPreferencePayload"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["userPreferencePayload"])) {
+        if (array_key_exists("userPreferencePayload", $this->_propDict) && !is_null($this->_propDict["userPreferencePayload"])) {
+            if (is_a($this->_propDict["userPreferencePayload"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["userPreferencePayload"];
             } else {
-                $this->_propDict["userPreferencePayload"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["userPreferencePayload"]);
+                $this->_propDict["userPreferencePayload"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["userPreferencePayload"]);
                 return $this->_propDict["userPreferencePayload"];
             }
         }
@@ -245,22 +252,29 @@ class OfficeClientConfiguration extends Entity
      * Gets the assignments
     * The list of group assignments for the policy.
      *
-     * @return array|null The assignments
+     * @return OfficeClientConfigurationAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'OfficeClientConfigurationAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new OfficeClientConfigurationAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * The list of group assignments for the policy.
     *
-    * @param OfficeClientConfigurationAssignment $val The assignments
+    * @param OfficeClientConfigurationAssignment[] $val The assignments
     *
     * @return OfficeClientConfiguration
     */

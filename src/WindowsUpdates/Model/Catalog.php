@@ -29,22 +29,29 @@ class Catalog extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the entries
     * Lists the content that you can approve for deployment. Read-only.
      *
-     * @return array|null The entries
+     * @return CatalogEntry[]|null The entries
      */
     public function getEntries()
     {
-        if (array_key_exists("entries", $this->_propDict)) {
-           return $this->_propDict["entries"];
-        } else {
-            return null;
+        if (array_key_exists('entries', $this->_propDict) && !is_null($this->_propDict['entries'])) {
+            $entries = [];
+            if (count($this->_propDict['entries']) > 0 && is_a($this->_propDict['entries'][0], 'CatalogEntry')) {
+                return $this->_propDict['entries'];
+            }
+            foreach ($this->_propDict['entries'] as $singleValue) {
+                $entries []= new CatalogEntry($singleValue);
+            }
+            $this->_propDict['entries'] = $entries;
+            return $this->_propDict['entries'];
         }
+        return null;
     }
     
     /** 
     * Sets the entries
     * Lists the content that you can approve for deployment. Read-only.
     *
-    * @param CatalogEntry $val The entries
+    * @param CatalogEntry[] $val The entries
     *
     * @return Catalog
     */

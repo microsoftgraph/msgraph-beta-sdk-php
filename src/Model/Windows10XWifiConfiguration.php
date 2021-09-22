@@ -61,11 +61,11 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
     */
     public function getCustomXml()
     {
-        if (array_key_exists("customXml", $this->_propDict)) {
-            if (is_a($this->_propDict["customXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["customXml"])) {
+        if (array_key_exists("customXml", $this->_propDict) && !is_null($this->_propDict["customXml"])) {
+            if (is_a($this->_propDict["customXml"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["customXml"];
             } else {
-                $this->_propDict["customXml"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["customXml"]);
+                $this->_propDict["customXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["customXml"]);
                 return $this->_propDict["customXml"];
             }
         }

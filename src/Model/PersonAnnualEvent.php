@@ -31,8 +31,8 @@ class PersonAnnualEvent extends ItemFacet
     */
     public function getDate()
     {
-        if (array_key_exists("date", $this->_propDict)) {
-            if (is_a($this->_propDict["date"], "\DateTime") || is_null($this->_propDict["date"])) {
+        if (array_key_exists("date", $this->_propDict) && !is_null($this->_propDict["date"])) {
+            if (is_a($this->_propDict["date"], "\DateTime")) {
                 return $this->_propDict["date"];
             } else {
                 $this->_propDict["date"] = new \DateTime($this->_propDict["date"]);
@@ -89,8 +89,8 @@ class PersonAnnualEvent extends ItemFacet
     */
     public function getType()
     {
-        if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PersonAnnualEventType") || is_null($this->_propDict["type"])) {
+        if (array_key_exists("type", $this->_propDict) && !is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PersonAnnualEventType")) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new PersonAnnualEventType($this->_propDict["type"]);

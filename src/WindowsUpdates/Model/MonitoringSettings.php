@@ -28,18 +28,22 @@ class MonitoringSettings extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the monitoringRules
     * Specifies the rules through which monitoring signals can trigger actions on the deployment. Rules are combined using 'or'.
     *
-    * @return MonitoringRule|null The monitoringRules
+    * @return MonitoringRule[]|null The monitoringRules
     */
     public function getMonitoringRules()
     {
-        if (array_key_exists("monitoringRules", $this->_propDict)) {
-            if (is_a($this->_propDict["monitoringRules"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\MonitoringRule") || is_null($this->_propDict["monitoringRules"])) {
-                return $this->_propDict["monitoringRules"];
-            } else {
-                $this->_propDict["monitoringRules"] = new MonitoringRule($this->_propDict["monitoringRules"]);
-                return $this->_propDict["monitoringRules"];
+        if (array_key_exists("monitoringRules", $this->_propDict) && !is_null($this->_propDict["monitoringRules"])) {
+       
+            if (count($this->_propDict['monitoringRules']) > 0 && is_a($this->_propDict['monitoringRules'][0], 'MonitoringRule')) {
+               return $this->_propDict['monitoringRules'];
             }
-        }
+            $monitoringRules = [];
+            foreach ($this->_propDict['monitoringRules'] as $singleValue) {
+               $monitoringRules []= new MonitoringRule($singleValue);
+            }
+            $this->_propDict['monitoringRules'] = $monitoringRules;
+            return $this->_propDict['monitoringRules'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class MonitoringSettings extends \Beta\Microsoft\Graph\Model\Entity
     * Sets the monitoringRules
     * Specifies the rules through which monitoring signals can trigger actions on the deployment. Rules are combined using 'or'.
     *
-    * @param MonitoringRule $val The value to assign to the monitoringRules
+    * @param MonitoringRule[] $val The value to assign to the monitoringRules
     *
     * @return MonitoringSettings The MonitoringSettings
     */

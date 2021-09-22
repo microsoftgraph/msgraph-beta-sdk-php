@@ -85,8 +85,8 @@ class YammerActivityUserDetail extends Entity
     */
     public function getLastActivityDate()
     {
-        if (array_key_exists("lastActivityDate", $this->_propDict)) {
-            if (is_a($this->_propDict["lastActivityDate"], "\DateTime") || is_null($this->_propDict["lastActivityDate"])) {
+        if (array_key_exists("lastActivityDate", $this->_propDict) && !is_null($this->_propDict["lastActivityDate"])) {
+            if (is_a($this->_propDict["lastActivityDate"], "\DateTime")) {
                 return $this->_propDict["lastActivityDate"];
             } else {
                 $this->_propDict["lastActivityDate"] = new \DateTime($this->_propDict["lastActivityDate"]);
@@ -224,8 +224,8 @@ class YammerActivityUserDetail extends Entity
     */
     public function getReportRefreshDate()
     {
-        if (array_key_exists("reportRefreshDate", $this->_propDict)) {
-            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime") || is_null($this->_propDict["reportRefreshDate"])) {
+        if (array_key_exists("reportRefreshDate", $this->_propDict) && !is_null($this->_propDict["reportRefreshDate"])) {
+            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime")) {
                 return $this->_propDict["reportRefreshDate"];
             } else {
                 $this->_propDict["reportRefreshDate"] = new \DateTime($this->_propDict["reportRefreshDate"]);
@@ -255,8 +255,8 @@ class YammerActivityUserDetail extends Entity
     */
     public function getStateChangeDate()
     {
-        if (array_key_exists("stateChangeDate", $this->_propDict)) {
-            if (is_a($this->_propDict["stateChangeDate"], "\DateTime") || is_null($this->_propDict["stateChangeDate"])) {
+        if (array_key_exists("stateChangeDate", $this->_propDict) && !is_null($this->_propDict["stateChangeDate"])) {
+            if (is_a($this->_propDict["stateChangeDate"], "\DateTime")) {
                 return $this->_propDict["stateChangeDate"];
             } else {
                 $this->_propDict["stateChangeDate"] = new \DateTime($this->_propDict["stateChangeDate"]);

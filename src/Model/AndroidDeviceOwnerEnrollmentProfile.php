@@ -61,8 +61,8 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -181,8 +181,8 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity
     */
     public function getEnrollmentMode()
     {
-        if (array_key_exists("enrollmentMode", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentMode"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerEnrollmentMode") || is_null($this->_propDict["enrollmentMode"])) {
+        if (array_key_exists("enrollmentMode", $this->_propDict) && !is_null($this->_propDict["enrollmentMode"])) {
+            if (is_a($this->_propDict["enrollmentMode"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerEnrollmentMode")) {
                 return $this->_propDict["enrollmentMode"];
             } else {
                 $this->_propDict["enrollmentMode"] = new AndroidDeviceOwnerEnrollmentMode($this->_propDict["enrollmentMode"]);
@@ -214,8 +214,8 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity
     */
     public function getEnrollmentTokenType()
     {
-        if (array_key_exists("enrollmentTokenType", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentTokenType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerEnrollmentTokenType") || is_null($this->_propDict["enrollmentTokenType"])) {
+        if (array_key_exists("enrollmentTokenType", $this->_propDict) && !is_null($this->_propDict["enrollmentTokenType"])) {
+            if (is_a($this->_propDict["enrollmentTokenType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerEnrollmentTokenType")) {
                 return $this->_propDict["enrollmentTokenType"];
             } else {
                 $this->_propDict["enrollmentTokenType"] = new AndroidDeviceOwnerEnrollmentTokenType($this->_propDict["enrollmentTokenType"]);
@@ -247,8 +247,8 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -309,8 +309,8 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity
     */
     public function getQrCodeImage()
     {
-        if (array_key_exists("qrCodeImage", $this->_propDict)) {
-            if (is_a($this->_propDict["qrCodeImage"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["qrCodeImage"])) {
+        if (array_key_exists("qrCodeImage", $this->_propDict) && !is_null($this->_propDict["qrCodeImage"])) {
+            if (is_a($this->_propDict["qrCodeImage"], "\Beta\Microsoft\Graph\Model\MimeContent")) {
                 return $this->_propDict["qrCodeImage"];
             } else {
                 $this->_propDict["qrCodeImage"] = new MimeContent($this->_propDict["qrCodeImage"]);
@@ -371,8 +371,8 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity
     */
     public function getTokenCreationDateTime()
     {
-        if (array_key_exists("tokenCreationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["tokenCreationDateTime"], "\DateTime") || is_null($this->_propDict["tokenCreationDateTime"])) {
+        if (array_key_exists("tokenCreationDateTime", $this->_propDict) && !is_null($this->_propDict["tokenCreationDateTime"])) {
+            if (is_a($this->_propDict["tokenCreationDateTime"], "\DateTime")) {
                 return $this->_propDict["tokenCreationDateTime"];
             } else {
                 $this->_propDict["tokenCreationDateTime"] = new \DateTime($this->_propDict["tokenCreationDateTime"]);
@@ -404,8 +404,8 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity
     */
     public function getTokenExpirationDateTime()
     {
-        if (array_key_exists("tokenExpirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["tokenExpirationDateTime"], "\DateTime") || is_null($this->_propDict["tokenExpirationDateTime"])) {
+        if (array_key_exists("tokenExpirationDateTime", $this->_propDict) && !is_null($this->_propDict["tokenExpirationDateTime"])) {
+            if (is_a($this->_propDict["tokenExpirationDateTime"], "\DateTime")) {
                 return $this->_propDict["tokenExpirationDateTime"];
             } else {
                 $this->_propDict["tokenExpirationDateTime"] = new \DateTime($this->_propDict["tokenExpirationDateTime"]);

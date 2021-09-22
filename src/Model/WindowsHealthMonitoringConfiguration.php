@@ -32,8 +32,8 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration
     */
     public function getAllowDeviceHealthMonitoring()
     {
-        if (array_key_exists("allowDeviceHealthMonitoring", $this->_propDict)) {
-            if (is_a($this->_propDict["allowDeviceHealthMonitoring"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["allowDeviceHealthMonitoring"])) {
+        if (array_key_exists("allowDeviceHealthMonitoring", $this->_propDict) && !is_null($this->_propDict["allowDeviceHealthMonitoring"])) {
+            if (is_a($this->_propDict["allowDeviceHealthMonitoring"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["allowDeviceHealthMonitoring"];
             } else {
                 $this->_propDict["allowDeviceHealthMonitoring"] = new Enablement($this->_propDict["allowDeviceHealthMonitoring"]);
@@ -94,8 +94,8 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration
     */
     public function getConfigDeviceHealthMonitoringScope()
     {
-        if (array_key_exists("configDeviceHealthMonitoringScope", $this->_propDict)) {
-            if (is_a($this->_propDict["configDeviceHealthMonitoringScope"], "\Beta\Microsoft\Graph\Model\WindowsHealthMonitoringScope") || is_null($this->_propDict["configDeviceHealthMonitoringScope"])) {
+        if (array_key_exists("configDeviceHealthMonitoringScope", $this->_propDict) && !is_null($this->_propDict["configDeviceHealthMonitoringScope"])) {
+            if (is_a($this->_propDict["configDeviceHealthMonitoringScope"], "\Beta\Microsoft\Graph\Model\WindowsHealthMonitoringScope")) {
                 return $this->_propDict["configDeviceHealthMonitoringScope"];
             } else {
                 $this->_propDict["configDeviceHealthMonitoringScope"] = new WindowsHealthMonitoringScope($this->_propDict["configDeviceHealthMonitoringScope"]);

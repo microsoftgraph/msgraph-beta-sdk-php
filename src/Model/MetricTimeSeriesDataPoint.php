@@ -32,8 +32,9 @@ class MetricTimeSeriesDataPoint extends Entity
     */
     public function getDateTime()
     {
-        if (array_key_exists("dateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["dateTime"], "\DateTime") || is_null($this->_propDict["dateTime"])) {
+        if (array_key_exists("dateTime", $this->_propDict) && !is_null($this->_propDict["dateTime"])) {
+     
+            if (is_a($this->_propDict["dateTime"], "\DateTime")) {
                 return $this->_propDict["dateTime"];
             } else {
                 $this->_propDict["dateTime"] = new \DateTime($this->_propDict["dateTime"]);

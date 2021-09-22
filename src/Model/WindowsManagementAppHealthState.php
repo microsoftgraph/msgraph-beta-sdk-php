@@ -90,8 +90,8 @@ class WindowsManagementAppHealthState extends Entity
     */
     public function getHealthState()
     {
-        if (array_key_exists("healthState", $this->_propDict)) {
-            if (is_a($this->_propDict["healthState"], "\Beta\Microsoft\Graph\Model\HealthState") || is_null($this->_propDict["healthState"])) {
+        if (array_key_exists("healthState", $this->_propDict) && !is_null($this->_propDict["healthState"])) {
+            if (is_a($this->_propDict["healthState"], "\Beta\Microsoft\Graph\Model\HealthState")) {
                 return $this->_propDict["healthState"];
             } else {
                 $this->_propDict["healthState"] = new HealthState($this->_propDict["healthState"]);
@@ -152,8 +152,8 @@ class WindowsManagementAppHealthState extends Entity
     */
     public function getLastCheckInDateTime()
     {
-        if (array_key_exists("lastCheckInDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastCheckInDateTime"], "\DateTime") || is_null($this->_propDict["lastCheckInDateTime"])) {
+        if (array_key_exists("lastCheckInDateTime", $this->_propDict) && !is_null($this->_propDict["lastCheckInDateTime"])) {
+            if (is_a($this->_propDict["lastCheckInDateTime"], "\DateTime")) {
                 return $this->_propDict["lastCheckInDateTime"];
             } else {
                 $this->_propDict["lastCheckInDateTime"] = new \DateTime($this->_propDict["lastCheckInDateTime"]);

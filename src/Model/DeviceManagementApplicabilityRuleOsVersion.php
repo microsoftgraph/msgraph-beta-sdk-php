@@ -116,8 +116,9 @@ class DeviceManagementApplicabilityRuleOsVersion extends Entity
     */
     public function getRuleType()
     {
-        if (array_key_exists("ruleType", $this->_propDict)) {
-            if (is_a($this->_propDict["ruleType"], "\Beta\Microsoft\Graph\Model\DeviceManagementApplicabilityRuleType") || is_null($this->_propDict["ruleType"])) {
+        if (array_key_exists("ruleType", $this->_propDict) && !is_null($this->_propDict["ruleType"])) {
+     
+            if (is_a($this->_propDict["ruleType"], "\Beta\Microsoft\Graph\Model\DeviceManagementApplicabilityRuleType")) {
                 return $this->_propDict["ruleType"];
             } else {
                 $this->_propDict["ruleType"] = new DeviceManagementApplicabilityRuleType($this->_propDict["ruleType"]);

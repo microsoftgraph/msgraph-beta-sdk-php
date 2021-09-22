@@ -29,22 +29,29 @@ class DeploymentAudience extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the exclusions
     * Specifies the assets to exclude from the audience.
      *
-     * @return array|null The exclusions
+     * @return UpdatableAsset[]|null The exclusions
      */
     public function getExclusions()
     {
-        if (array_key_exists("exclusions", $this->_propDict)) {
-           return $this->_propDict["exclusions"];
-        } else {
-            return null;
+        if (array_key_exists('exclusions', $this->_propDict) && !is_null($this->_propDict['exclusions'])) {
+            $exclusions = [];
+            if (count($this->_propDict['exclusions']) > 0 && is_a($this->_propDict['exclusions'][0], 'UpdatableAsset')) {
+                return $this->_propDict['exclusions'];
+            }
+            foreach ($this->_propDict['exclusions'] as $singleValue) {
+                $exclusions []= new UpdatableAsset($singleValue);
+            }
+            $this->_propDict['exclusions'] = $exclusions;
+            return $this->_propDict['exclusions'];
         }
+        return null;
     }
     
     /** 
     * Sets the exclusions
     * Specifies the assets to exclude from the audience.
     *
-    * @param UpdatableAsset $val The exclusions
+    * @param UpdatableAsset[] $val The exclusions
     *
     * @return DeploymentAudience
     */
@@ -59,22 +66,29 @@ class DeploymentAudience extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the members
     * Specifies the assets to include in the audience.
      *
-     * @return array|null The members
+     * @return UpdatableAsset[]|null The members
      */
     public function getMembers()
     {
-        if (array_key_exists("members", $this->_propDict)) {
-           return $this->_propDict["members"];
-        } else {
-            return null;
+        if (array_key_exists('members', $this->_propDict) && !is_null($this->_propDict['members'])) {
+            $members = [];
+            if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'UpdatableAsset')) {
+                return $this->_propDict['members'];
+            }
+            foreach ($this->_propDict['members'] as $singleValue) {
+                $members []= new UpdatableAsset($singleValue);
+            }
+            $this->_propDict['members'] = $members;
+            return $this->_propDict['members'];
         }
+        return null;
     }
     
     /** 
     * Sets the members
     * Specifies the assets to include in the audience.
     *
-    * @param UpdatableAsset $val The members
+    * @param UpdatableAsset[] $val The members
     *
     * @return DeploymentAudience
     */

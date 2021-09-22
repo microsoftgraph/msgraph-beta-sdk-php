@@ -29,22 +29,29 @@ class DeviceManagementReports extends Entity
      * Gets the cachedReportConfigurations
     * Entity representing the configuration of a cached report
      *
-     * @return array|null The cachedReportConfigurations
+     * @return DeviceManagementCachedReportConfiguration[]|null The cachedReportConfigurations
      */
     public function getCachedReportConfigurations()
     {
-        if (array_key_exists("cachedReportConfigurations", $this->_propDict)) {
-           return $this->_propDict["cachedReportConfigurations"];
-        } else {
-            return null;
+        if (array_key_exists('cachedReportConfigurations', $this->_propDict) && !is_null($this->_propDict['cachedReportConfigurations'])) {
+            $cachedReportConfigurations = [];
+            if (count($this->_propDict['cachedReportConfigurations']) > 0 && is_a($this->_propDict['cachedReportConfigurations'][0], 'DeviceManagementCachedReportConfiguration')) {
+                return $this->_propDict['cachedReportConfigurations'];
+            }
+            foreach ($this->_propDict['cachedReportConfigurations'] as $singleValue) {
+                $cachedReportConfigurations []= new DeviceManagementCachedReportConfiguration($singleValue);
+            }
+            $this->_propDict['cachedReportConfigurations'] = $cachedReportConfigurations;
+            return $this->_propDict['cachedReportConfigurations'];
         }
+        return null;
     }
     
     /** 
     * Sets the cachedReportConfigurations
     * Entity representing the configuration of a cached report
     *
-    * @param DeviceManagementCachedReportConfiguration $val The cachedReportConfigurations
+    * @param DeviceManagementCachedReportConfiguration[] $val The cachedReportConfigurations
     *
     * @return DeviceManagementReports
     */
@@ -59,22 +66,29 @@ class DeviceManagementReports extends Entity
      * Gets the exportJobs
     * Entity representing a job to export a report
      *
-     * @return array|null The exportJobs
+     * @return DeviceManagementExportJob[]|null The exportJobs
      */
     public function getExportJobs()
     {
-        if (array_key_exists("exportJobs", $this->_propDict)) {
-           return $this->_propDict["exportJobs"];
-        } else {
-            return null;
+        if (array_key_exists('exportJobs', $this->_propDict) && !is_null($this->_propDict['exportJobs'])) {
+            $exportJobs = [];
+            if (count($this->_propDict['exportJobs']) > 0 && is_a($this->_propDict['exportJobs'][0], 'DeviceManagementExportJob')) {
+                return $this->_propDict['exportJobs'];
+            }
+            foreach ($this->_propDict['exportJobs'] as $singleValue) {
+                $exportJobs []= new DeviceManagementExportJob($singleValue);
+            }
+            $this->_propDict['exportJobs'] = $exportJobs;
+            return $this->_propDict['exportJobs'];
         }
+        return null;
     }
     
     /** 
     * Sets the exportJobs
     * Entity representing a job to export a report
     *
-    * @param DeviceManagementExportJob $val The exportJobs
+    * @param DeviceManagementExportJob[] $val The exportJobs
     *
     * @return DeviceManagementReports
     */
@@ -89,22 +103,29 @@ class DeviceManagementReports extends Entity
      * Gets the reportSchedules
     * Entity representing a schedule for which reports are delivered
      *
-     * @return array|null The reportSchedules
+     * @return DeviceManagementReportSchedule[]|null The reportSchedules
      */
     public function getReportSchedules()
     {
-        if (array_key_exists("reportSchedules", $this->_propDict)) {
-           return $this->_propDict["reportSchedules"];
-        } else {
-            return null;
+        if (array_key_exists('reportSchedules', $this->_propDict) && !is_null($this->_propDict['reportSchedules'])) {
+            $reportSchedules = [];
+            if (count($this->_propDict['reportSchedules']) > 0 && is_a($this->_propDict['reportSchedules'][0], 'DeviceManagementReportSchedule')) {
+                return $this->_propDict['reportSchedules'];
+            }
+            foreach ($this->_propDict['reportSchedules'] as $singleValue) {
+                $reportSchedules []= new DeviceManagementReportSchedule($singleValue);
+            }
+            $this->_propDict['reportSchedules'] = $reportSchedules;
+            return $this->_propDict['reportSchedules'];
         }
+        return null;
     }
     
     /** 
     * Sets the reportSchedules
     * Entity representing a schedule for which reports are delivered
     *
-    * @param DeviceManagementReportSchedule $val The reportSchedules
+    * @param DeviceManagementReportSchedule[] $val The reportSchedules
     *
     * @return DeviceManagementReports
     */

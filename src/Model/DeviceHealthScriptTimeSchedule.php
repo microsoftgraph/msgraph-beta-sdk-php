@@ -32,8 +32,9 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule
     */
     public function getTime()
     {
-        if (array_key_exists("time", $this->_propDict)) {
-            if (is_a($this->_propDict["time"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["time"])) {
+        if (array_key_exists("time", $this->_propDict) && !is_null($this->_propDict["time"])) {
+     
+            if (is_a($this->_propDict["time"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
                 return $this->_propDict["time"];
             } else {
                 $this->_propDict["time"] = new TimeOfDay($this->_propDict["time"]);

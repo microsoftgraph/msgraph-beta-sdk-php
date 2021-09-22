@@ -322,8 +322,8 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity
     */
     public function getRestartCategory()
     {
-        if (array_key_exists("restartCategory", $this->_propDict)) {
-            if (is_a($this->_propDict["restartCategory"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsOperatingSystemRestartCategory") || is_null($this->_propDict["restartCategory"])) {
+        if (array_key_exists("restartCategory", $this->_propDict) && !is_null($this->_propDict["restartCategory"])) {
+            if (is_a($this->_propDict["restartCategory"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsOperatingSystemRestartCategory")) {
                 return $this->_propDict["restartCategory"];
             } else {
                 $this->_propDict["restartCategory"] = new UserExperienceAnalyticsOperatingSystemRestartCategory($this->_propDict["restartCategory"]);
@@ -413,8 +413,8 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity
     */
     public function getStartTime()
     {
-        if (array_key_exists("startTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startTime"], "\DateTime") || is_null($this->_propDict["startTime"])) {
+        if (array_key_exists("startTime", $this->_propDict) && !is_null($this->_propDict["startTime"])) {
+            if (is_a($this->_propDict["startTime"], "\DateTime")) {
                 return $this->_propDict["startTime"];
             } else {
                 $this->_propDict["startTime"] = new \DateTime($this->_propDict["startTime"]);

@@ -88,8 +88,9 @@ class OcrSettings extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getTimeout()
     {
-        if (array_key_exists("timeout", $this->_propDict)) {
-            if (is_a($this->_propDict["timeout"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["timeout"])) {
+        if (array_key_exists("timeout", $this->_propDict) && !is_null($this->_propDict["timeout"])) {
+     
+            if (is_a($this->_propDict["timeout"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["timeout"];
             } else {
                 $this->_propDict["timeout"] = new \Beta\Microsoft\Graph\Model\Duration($this->_propDict["timeout"]);

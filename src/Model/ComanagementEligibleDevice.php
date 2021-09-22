@@ -32,8 +32,8 @@ class ComanagementEligibleDevice extends Entity
     */
     public function getClientRegistrationStatus()
     {
-        if (array_key_exists("clientRegistrationStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["clientRegistrationStatus"], "\Beta\Microsoft\Graph\Model\DeviceRegistrationState") || is_null($this->_propDict["clientRegistrationStatus"])) {
+        if (array_key_exists("clientRegistrationStatus", $this->_propDict) && !is_null($this->_propDict["clientRegistrationStatus"])) {
+            if (is_a($this->_propDict["clientRegistrationStatus"], "\Beta\Microsoft\Graph\Model\DeviceRegistrationState")) {
                 return $this->_propDict["clientRegistrationStatus"];
             } else {
                 $this->_propDict["clientRegistrationStatus"] = new DeviceRegistrationState($this->_propDict["clientRegistrationStatus"]);
@@ -94,8 +94,8 @@ class ComanagementEligibleDevice extends Entity
     */
     public function getDeviceType()
     {
-        if (array_key_exists("deviceType", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceType"], "\Beta\Microsoft\Graph\Model\DeviceType") || is_null($this->_propDict["deviceType"])) {
+        if (array_key_exists("deviceType", $this->_propDict) && !is_null($this->_propDict["deviceType"])) {
+            if (is_a($this->_propDict["deviceType"], "\Beta\Microsoft\Graph\Model\DeviceType")) {
                 return $this->_propDict["deviceType"];
             } else {
                 $this->_propDict["deviceType"] = new DeviceType($this->_propDict["deviceType"]);
@@ -156,8 +156,8 @@ class ComanagementEligibleDevice extends Entity
     */
     public function getManagementAgents()
     {
-        if (array_key_exists("managementAgents", $this->_propDict)) {
-            if (is_a($this->_propDict["managementAgents"], "\Beta\Microsoft\Graph\Model\ManagementAgentType") || is_null($this->_propDict["managementAgents"])) {
+        if (array_key_exists("managementAgents", $this->_propDict) && !is_null($this->_propDict["managementAgents"])) {
+            if (is_a($this->_propDict["managementAgents"], "\Beta\Microsoft\Graph\Model\ManagementAgentType")) {
                 return $this->_propDict["managementAgents"];
             } else {
                 $this->_propDict["managementAgents"] = new ManagementAgentType($this->_propDict["managementAgents"]);
@@ -189,8 +189,8 @@ class ComanagementEligibleDevice extends Entity
     */
     public function getManagementState()
     {
-        if (array_key_exists("managementState", $this->_propDict)) {
-            if (is_a($this->_propDict["managementState"], "\Beta\Microsoft\Graph\Model\ManagementState") || is_null($this->_propDict["managementState"])) {
+        if (array_key_exists("managementState", $this->_propDict) && !is_null($this->_propDict["managementState"])) {
+            if (is_a($this->_propDict["managementState"], "\Beta\Microsoft\Graph\Model\ManagementState")) {
                 return $this->_propDict["managementState"];
             } else {
                 $this->_propDict["managementState"] = new ManagementState($this->_propDict["managementState"]);
@@ -367,8 +367,8 @@ class ComanagementEligibleDevice extends Entity
     */
     public function getOwnerType()
     {
-        if (array_key_exists("ownerType", $this->_propDict)) {
-            if (is_a($this->_propDict["ownerType"], "\Beta\Microsoft\Graph\Model\OwnerType") || is_null($this->_propDict["ownerType"])) {
+        if (array_key_exists("ownerType", $this->_propDict) && !is_null($this->_propDict["ownerType"])) {
+            if (is_a($this->_propDict["ownerType"], "\Beta\Microsoft\Graph\Model\OwnerType")) {
                 return $this->_propDict["ownerType"];
             } else {
                 $this->_propDict["ownerType"] = new OwnerType($this->_propDict["ownerType"]);
@@ -458,8 +458,8 @@ class ComanagementEligibleDevice extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\ComanagementEligibleType") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\ComanagementEligibleType")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ComanagementEligibleType($this->_propDict["status"]);

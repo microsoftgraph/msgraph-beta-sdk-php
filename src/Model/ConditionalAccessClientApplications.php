@@ -40,7 +40,7 @@ class ConditionalAccessClientApplications extends Entity
     /**
     * Sets the excludeServicePrincipals
     *
-    * @param string $val The value of the excludeServicePrincipals
+    * @param string[] $val The value of the excludeServicePrincipals
     *
     * @return ConditionalAccessClientApplications
     */
@@ -66,7 +66,7 @@ class ConditionalAccessClientApplications extends Entity
     /**
     * Sets the includeServicePrincipals
     *
-    * @param string $val The value of the includeServicePrincipals
+    * @param string[] $val The value of the includeServicePrincipals
     *
     * @return ConditionalAccessClientApplications
     */

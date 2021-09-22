@@ -32,8 +32,8 @@ class FilterOperatorSchema extends Entity
     */
     public function getArity()
     {
-        if (array_key_exists("arity", $this->_propDict)) {
-            if (is_a($this->_propDict["arity"], "\Beta\Microsoft\Graph\Model\ScopeOperatorType") || is_null($this->_propDict["arity"])) {
+        if (array_key_exists("arity", $this->_propDict) && !is_null($this->_propDict["arity"])) {
+            if (is_a($this->_propDict["arity"], "\Beta\Microsoft\Graph\Model\ScopeOperatorType")) {
                 return $this->_propDict["arity"];
             } else {
                 $this->_propDict["arity"] = new ScopeOperatorType($this->_propDict["arity"]);
@@ -65,8 +65,8 @@ class FilterOperatorSchema extends Entity
     */
     public function getMultivaluedComparisonType()
     {
-        if (array_key_exists("multivaluedComparisonType", $this->_propDict)) {
-            if (is_a($this->_propDict["multivaluedComparisonType"], "\Beta\Microsoft\Graph\Model\ScopeOperatorMultiValuedComparisonType") || is_null($this->_propDict["multivaluedComparisonType"])) {
+        if (array_key_exists("multivaluedComparisonType", $this->_propDict) && !is_null($this->_propDict["multivaluedComparisonType"])) {
+            if (is_a($this->_propDict["multivaluedComparisonType"], "\Beta\Microsoft\Graph\Model\ScopeOperatorMultiValuedComparisonType")) {
                 return $this->_propDict["multivaluedComparisonType"];
             } else {
                 $this->_propDict["multivaluedComparisonType"] = new ScopeOperatorMultiValuedComparisonType($this->_propDict["multivaluedComparisonType"]);
@@ -95,22 +95,29 @@ class FilterOperatorSchema extends Entity
      * Gets the supportedAttributeTypes
     * Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String.
      *
-     * @return array|null The supportedAttributeTypes
+     * @return AttributeType[]|null The supportedAttributeTypes
      */
     public function getSupportedAttributeTypes()
     {
-        if (array_key_exists("supportedAttributeTypes", $this->_propDict)) {
-           return $this->_propDict["supportedAttributeTypes"];
-        } else {
-            return null;
+        if (array_key_exists('supportedAttributeTypes', $this->_propDict) && !is_null($this->_propDict['supportedAttributeTypes'])) {
+            $supportedAttributeTypes = [];
+            if (count($this->_propDict['supportedAttributeTypes']) > 0 && is_a($this->_propDict['supportedAttributeTypes'][0], 'AttributeType')) {
+                return $this->_propDict['supportedAttributeTypes'];
+            }
+            foreach ($this->_propDict['supportedAttributeTypes'] as $singleValue) {
+                $supportedAttributeTypes []= new AttributeType($singleValue);
+            }
+            $this->_propDict['supportedAttributeTypes'] = $supportedAttributeTypes;
+            return $this->_propDict['supportedAttributeTypes'];
         }
+        return null;
     }
     
     /** 
     * Sets the supportedAttributeTypes
     * Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String.
     *
-    * @param AttributeType $val The supportedAttributeTypes
+    * @param AttributeType[] $val The supportedAttributeTypes
     *
     * @return FilterOperatorSchema
     */

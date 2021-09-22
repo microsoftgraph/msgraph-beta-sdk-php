@@ -88,8 +88,9 @@ class CloudPcOnPremisesConnectionHealthCheck extends Entity
     */
     public function getEndDateTime()
     {
-        if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
+        if (array_key_exists("endDateTime", $this->_propDict) && !is_null($this->_propDict["endDateTime"])) {
+     
+            if (is_a($this->_propDict["endDateTime"], "\DateTime")) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -121,8 +122,9 @@ class CloudPcOnPremisesConnectionHealthCheck extends Entity
     */
     public function getErrorType()
     {
-        if (array_key_exists("errorType", $this->_propDict)) {
-            if (is_a($this->_propDict["errorType"], "\Beta\Microsoft\Graph\Model\CloudPcOnPremisesConnectionHealthCheckErrorType") || is_null($this->_propDict["errorType"])) {
+        if (array_key_exists("errorType", $this->_propDict) && !is_null($this->_propDict["errorType"])) {
+     
+            if (is_a($this->_propDict["errorType"], "\Beta\Microsoft\Graph\Model\CloudPcOnPremisesConnectionHealthCheckErrorType")) {
                 return $this->_propDict["errorType"];
             } else {
                 $this->_propDict["errorType"] = new CloudPcOnPremisesConnectionHealthCheckErrorType($this->_propDict["errorType"]);
@@ -182,8 +184,9 @@ class CloudPcOnPremisesConnectionHealthCheck extends Entity
     */
     public function getStartDateTime()
     {
-        if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+        if (array_key_exists("startDateTime", $this->_propDict) && !is_null($this->_propDict["startDateTime"])) {
+     
+            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -215,8 +218,9 @@ class CloudPcOnPremisesConnectionHealthCheck extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\CloudPcOnPremisesConnectionStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+     
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\CloudPcOnPremisesConnectionStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new CloudPcOnPremisesConnectionStatus($this->_propDict["status"]);

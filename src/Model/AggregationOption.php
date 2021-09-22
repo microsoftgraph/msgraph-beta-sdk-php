@@ -32,8 +32,9 @@ class AggregationOption extends Entity
     */
     public function getBucketDefinition()
     {
-        if (array_key_exists("bucketDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["bucketDefinition"], "\Beta\Microsoft\Graph\Model\BucketAggregationDefinition") || is_null($this->_propDict["bucketDefinition"])) {
+        if (array_key_exists("bucketDefinition", $this->_propDict) && !is_null($this->_propDict["bucketDefinition"])) {
+     
+            if (is_a($this->_propDict["bucketDefinition"], "\Beta\Microsoft\Graph\Model\BucketAggregationDefinition")) {
                 return $this->_propDict["bucketDefinition"];
             } else {
                 $this->_propDict["bucketDefinition"] = new BucketAggregationDefinition($this->_propDict["bucketDefinition"]);
@@ -58,7 +59,7 @@ class AggregationOption extends Entity
     }
     /**
     * Gets the field
-    * Specifies the field in the schema of the specified entity type that aggregation should be computed on. Required.
+    * Computes aggregation on the field while the field exists in current entity type. Required.
     *
     * @return string|null The field
     */
@@ -73,7 +74,7 @@ class AggregationOption extends Entity
 
     /**
     * Sets the field
-    * Specifies the field in the schema of the specified entity type that aggregation should be computed on. Required.
+    * Computes aggregation on the field while the field exists in current entity type. Required.
     *
     * @param string $val The value of the field
     *

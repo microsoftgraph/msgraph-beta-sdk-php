@@ -31,8 +31,8 @@ class SensitivityLabel extends Entity
     */
     public function getApplicableTo()
     {
-        if (array_key_exists("applicableTo", $this->_propDict)) {
-            if (is_a($this->_propDict["applicableTo"], "\Beta\Microsoft\Graph\Model\SensitivityLabelTarget") || is_null($this->_propDict["applicableTo"])) {
+        if (array_key_exists("applicableTo", $this->_propDict) && !is_null($this->_propDict["applicableTo"])) {
+            if (is_a($this->_propDict["applicableTo"], "\Beta\Microsoft\Graph\Model\SensitivityLabelTarget")) {
                 return $this->_propDict["applicableTo"];
             } else {
                 $this->_propDict["applicableTo"] = new SensitivityLabelTarget($this->_propDict["applicableTo"]);
@@ -62,8 +62,8 @@ class SensitivityLabel extends Entity
     */
     public function getApplicationMode()
     {
-        if (array_key_exists("applicationMode", $this->_propDict)) {
-            if (is_a($this->_propDict["applicationMode"], "\Beta\Microsoft\Graph\Model\ApplicationMode") || is_null($this->_propDict["applicationMode"])) {
+        if (array_key_exists("applicationMode", $this->_propDict) && !is_null($this->_propDict["applicationMode"])) {
+            if (is_a($this->_propDict["applicationMode"], "\Beta\Microsoft\Graph\Model\ApplicationMode")) {
                 return $this->_propDict["applicationMode"];
             } else {
                 $this->_propDict["applicationMode"] = new ApplicationMode($this->_propDict["applicationMode"]);
@@ -90,21 +90,28 @@ class SensitivityLabel extends Entity
      /** 
      * Gets the assignedPolicies
      *
-     * @return array|null The assignedPolicies
+     * @return LabelPolicy[]|null The assignedPolicies
      */
     public function getAssignedPolicies()
     {
-        if (array_key_exists("assignedPolicies", $this->_propDict)) {
-           return $this->_propDict["assignedPolicies"];
-        } else {
-            return null;
+        if (array_key_exists('assignedPolicies', $this->_propDict) && !is_null($this->_propDict['assignedPolicies'])) {
+            $assignedPolicies = [];
+            if (count($this->_propDict['assignedPolicies']) > 0 && is_a($this->_propDict['assignedPolicies'][0], 'LabelPolicy')) {
+                return $this->_propDict['assignedPolicies'];
+            }
+            foreach ($this->_propDict['assignedPolicies'] as $singleValue) {
+                $assignedPolicies []= new LabelPolicy($singleValue);
+            }
+            $this->_propDict['assignedPolicies'] = $assignedPolicies;
+            return $this->_propDict['assignedPolicies'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignedPolicies
     *
-    * @param LabelPolicy $val The assignedPolicies
+    * @param LabelPolicy[] $val The assignedPolicies
     *
     * @return SensitivityLabel
     */
@@ -121,8 +128,8 @@ class SensitivityLabel extends Entity
     */
     public function getAutoLabeling()
     {
-        if (array_key_exists("autoLabeling", $this->_propDict)) {
-            if (is_a($this->_propDict["autoLabeling"], "\Beta\Microsoft\Graph\Model\AutoLabeling") || is_null($this->_propDict["autoLabeling"])) {
+        if (array_key_exists("autoLabeling", $this->_propDict) && !is_null($this->_propDict["autoLabeling"])) {
+            if (is_a($this->_propDict["autoLabeling"], "\Beta\Microsoft\Graph\Model\AutoLabeling")) {
                 return $this->_propDict["autoLabeling"];
             } else {
                 $this->_propDict["autoLabeling"] = new AutoLabeling($this->_propDict["autoLabeling"]);
@@ -257,21 +264,28 @@ class SensitivityLabel extends Entity
      /** 
      * Gets the labelActions
      *
-     * @return array|null The labelActions
+     * @return LabelActionBase[]|null The labelActions
      */
     public function getLabelActions()
     {
-        if (array_key_exists("labelActions", $this->_propDict)) {
-           return $this->_propDict["labelActions"];
-        } else {
-            return null;
+        if (array_key_exists('labelActions', $this->_propDict) && !is_null($this->_propDict['labelActions'])) {
+            $labelActions = [];
+            if (count($this->_propDict['labelActions']) > 0 && is_a($this->_propDict['labelActions'][0], 'LabelActionBase')) {
+                return $this->_propDict['labelActions'];
+            }
+            foreach ($this->_propDict['labelActions'] as $singleValue) {
+                $labelActions []= new LabelActionBase($singleValue);
+            }
+            $this->_propDict['labelActions'] = $labelActions;
+            return $this->_propDict['labelActions'];
         }
+        return null;
     }
     
     /** 
     * Sets the labelActions
     *
-    * @param LabelActionBase $val The labelActions
+    * @param LabelActionBase[] $val The labelActions
     *
     * @return SensitivityLabel
     */
@@ -366,21 +380,28 @@ class SensitivityLabel extends Entity
      /** 
      * Gets the sublabels
      *
-     * @return array|null The sublabels
+     * @return SensitivityLabel[]|null The sublabels
      */
     public function getSublabels()
     {
-        if (array_key_exists("sublabels", $this->_propDict)) {
-           return $this->_propDict["sublabels"];
-        } else {
-            return null;
+        if (array_key_exists('sublabels', $this->_propDict) && !is_null($this->_propDict['sublabels'])) {
+            $sublabels = [];
+            if (count($this->_propDict['sublabels']) > 0 && is_a($this->_propDict['sublabels'][0], 'SensitivityLabel')) {
+                return $this->_propDict['sublabels'];
+            }
+            foreach ($this->_propDict['sublabels'] as $singleValue) {
+                $sublabels []= new SensitivityLabel($singleValue);
+            }
+            $this->_propDict['sublabels'] = $sublabels;
+            return $this->_propDict['sublabels'];
         }
+        return null;
     }
     
     /** 
     * Sets the sublabels
     *
-    * @param SensitivityLabel $val The sublabels
+    * @param SensitivityLabel[] $val The sublabels
     *
     * @return SensitivityLabel
     */

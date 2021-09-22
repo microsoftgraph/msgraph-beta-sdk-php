@@ -32,8 +32,8 @@ class TeamsAppDefinition extends Entity
     */
     public function getAllowedInstallationScopes()
     {
-        if (array_key_exists("allowedInstallationScopes", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedInstallationScopes"], "\Beta\Microsoft\Graph\Model\TeamsAppInstallationScopes") || is_null($this->_propDict["allowedInstallationScopes"])) {
+        if (array_key_exists("allowedInstallationScopes", $this->_propDict) && !is_null($this->_propDict["allowedInstallationScopes"])) {
+            if (is_a($this->_propDict["allowedInstallationScopes"], "\Beta\Microsoft\Graph\Model\TeamsAppInstallationScopes")) {
                 return $this->_propDict["allowedInstallationScopes"];
             } else {
                 $this->_propDict["allowedInstallationScopes"] = new TeamsAppInstallationScopes($this->_propDict["allowedInstallationScopes"]);
@@ -93,8 +93,8 @@ class TeamsAppDefinition extends Entity
     */
     public function getCreatedBy()
     {
-        if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
+        if (array_key_exists("createdBy", $this->_propDict) && !is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new IdentitySet($this->_propDict["createdBy"]);
@@ -182,8 +182,8 @@ class TeamsAppDefinition extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -214,8 +214,8 @@ class TeamsAppDefinition extends Entity
     */
     public function getPublishingState()
     {
-        if (array_key_exists("publishingState", $this->_propDict)) {
-            if (is_a($this->_propDict["publishingState"], "\Beta\Microsoft\Graph\Model\TeamsAppPublishingState") || is_null($this->_propDict["publishingState"])) {
+        if (array_key_exists("publishingState", $this->_propDict) && !is_null($this->_propDict["publishingState"])) {
+            if (is_a($this->_propDict["publishingState"], "\Beta\Microsoft\Graph\Model\TeamsAppPublishingState")) {
                 return $this->_propDict["publishingState"];
             } else {
                 $this->_propDict["publishingState"] = new TeamsAppPublishingState($this->_propDict["publishingState"]);
@@ -332,8 +332,8 @@ class TeamsAppDefinition extends Entity
     */
     public function getBot()
     {
-        if (array_key_exists("bot", $this->_propDict)) {
-            if (is_a($this->_propDict["bot"], "\Beta\Microsoft\Graph\Model\TeamworkBot") || is_null($this->_propDict["bot"])) {
+        if (array_key_exists("bot", $this->_propDict) && !is_null($this->_propDict["bot"])) {
+            if (is_a($this->_propDict["bot"], "\Beta\Microsoft\Graph\Model\TeamworkBot")) {
                 return $this->_propDict["bot"];
             } else {
                 $this->_propDict["bot"] = new TeamworkBot($this->_propDict["bot"]);
@@ -365,8 +365,8 @@ class TeamsAppDefinition extends Entity
     */
     public function getColorIcon()
     {
-        if (array_key_exists("colorIcon", $this->_propDict)) {
-            if (is_a($this->_propDict["colorIcon"], "\Beta\Microsoft\Graph\Model\TeamsAppIcon") || is_null($this->_propDict["colorIcon"])) {
+        if (array_key_exists("colorIcon", $this->_propDict) && !is_null($this->_propDict["colorIcon"])) {
+            if (is_a($this->_propDict["colorIcon"], "\Beta\Microsoft\Graph\Model\TeamsAppIcon")) {
                 return $this->_propDict["colorIcon"];
             } else {
                 $this->_propDict["colorIcon"] = new TeamsAppIcon($this->_propDict["colorIcon"]);
@@ -398,8 +398,8 @@ class TeamsAppDefinition extends Entity
     */
     public function getOutlineIcon()
     {
-        if (array_key_exists("outlineIcon", $this->_propDict)) {
-            if (is_a($this->_propDict["outlineIcon"], "\Beta\Microsoft\Graph\Model\TeamsAppIcon") || is_null($this->_propDict["outlineIcon"])) {
+        if (array_key_exists("outlineIcon", $this->_propDict) && !is_null($this->_propDict["outlineIcon"])) {
+            if (is_a($this->_propDict["outlineIcon"], "\Beta\Microsoft\Graph\Model\TeamsAppIcon")) {
                 return $this->_propDict["outlineIcon"];
             } else {
                 $this->_propDict["outlineIcon"] = new TeamsAppIcon($this->_propDict["outlineIcon"]);

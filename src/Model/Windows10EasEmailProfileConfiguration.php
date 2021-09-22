@@ -61,8 +61,8 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
     */
     public function getDurationOfEmailToSync()
     {
-        if (array_key_exists("durationOfEmailToSync", $this->_propDict)) {
-            if (is_a($this->_propDict["durationOfEmailToSync"], "\Beta\Microsoft\Graph\Model\EmailSyncDuration") || is_null($this->_propDict["durationOfEmailToSync"])) {
+        if (array_key_exists("durationOfEmailToSync", $this->_propDict) && !is_null($this->_propDict["durationOfEmailToSync"])) {
+            if (is_a($this->_propDict["durationOfEmailToSync"], "\Beta\Microsoft\Graph\Model\EmailSyncDuration")) {
                 return $this->_propDict["durationOfEmailToSync"];
             } else {
                 $this->_propDict["durationOfEmailToSync"] = new EmailSyncDuration($this->_propDict["durationOfEmailToSync"]);
@@ -94,8 +94,8 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
     */
     public function getEmailAddressSource()
     {
-        if (array_key_exists("emailAddressSource", $this->_propDict)) {
-            if (is_a($this->_propDict["emailAddressSource"], "\Beta\Microsoft\Graph\Model\UserEmailSource") || is_null($this->_propDict["emailAddressSource"])) {
+        if (array_key_exists("emailAddressSource", $this->_propDict) && !is_null($this->_propDict["emailAddressSource"])) {
+            if (is_a($this->_propDict["emailAddressSource"], "\Beta\Microsoft\Graph\Model\UserEmailSource")) {
                 return $this->_propDict["emailAddressSource"];
             } else {
                 $this->_propDict["emailAddressSource"] = new UserEmailSource($this->_propDict["emailAddressSource"]);
@@ -127,8 +127,8 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
     */
     public function getEmailSyncSchedule()
     {
-        if (array_key_exists("emailSyncSchedule", $this->_propDict)) {
-            if (is_a($this->_propDict["emailSyncSchedule"], "\Beta\Microsoft\Graph\Model\EmailSyncSchedule") || is_null($this->_propDict["emailSyncSchedule"])) {
+        if (array_key_exists("emailSyncSchedule", $this->_propDict) && !is_null($this->_propDict["emailSyncSchedule"])) {
+            if (is_a($this->_propDict["emailSyncSchedule"], "\Beta\Microsoft\Graph\Model\EmailSyncSchedule")) {
                 return $this->_propDict["emailSyncSchedule"];
             } else {
                 $this->_propDict["emailSyncSchedule"] = new EmailSyncSchedule($this->_propDict["emailSyncSchedule"]);

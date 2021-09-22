@@ -61,8 +61,8 @@ class DeviceManagementDomainJoinConnector extends Entity
     */
     public function getLastConnectionDateTime()
     {
-        if (array_key_exists("lastConnectionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastConnectionDateTime"], "\DateTime") || is_null($this->_propDict["lastConnectionDateTime"])) {
+        if (array_key_exists("lastConnectionDateTime", $this->_propDict) && !is_null($this->_propDict["lastConnectionDateTime"])) {
+            if (is_a($this->_propDict["lastConnectionDateTime"], "\DateTime")) {
                 return $this->_propDict["lastConnectionDateTime"];
             } else {
                 $this->_propDict["lastConnectionDateTime"] = new \DateTime($this->_propDict["lastConnectionDateTime"]);
@@ -94,8 +94,8 @@ class DeviceManagementDomainJoinConnector extends Entity
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\DeviceManagementDomainJoinConnectorState") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\DeviceManagementDomainJoinConnectorState")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new DeviceManagementDomainJoinConnectorState($this->_propDict["state"]);

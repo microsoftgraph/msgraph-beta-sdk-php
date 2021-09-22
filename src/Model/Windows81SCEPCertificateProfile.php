@@ -32,8 +32,8 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase
     */
     public function getCertificateStore()
     {
-        if (array_key_exists("certificateStore", $this->_propDict)) {
-            if (is_a($this->_propDict["certificateStore"], "\Beta\Microsoft\Graph\Model\CertificateStore") || is_null($this->_propDict["certificateStore"])) {
+        if (array_key_exists("certificateStore", $this->_propDict) && !is_null($this->_propDict["certificateStore"])) {
+            if (is_a($this->_propDict["certificateStore"], "\Beta\Microsoft\Graph\Model\CertificateStore")) {
                 return $this->_propDict["certificateStore"];
             } else {
                 $this->_propDict["certificateStore"] = new CertificateStore($this->_propDict["certificateStore"]);
@@ -65,8 +65,8 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase
     */
     public function getHashAlgorithm()
     {
-        if (array_key_exists("hashAlgorithm", $this->_propDict)) {
-            if (is_a($this->_propDict["hashAlgorithm"], "\Beta\Microsoft\Graph\Model\HashAlgorithms") || is_null($this->_propDict["hashAlgorithm"])) {
+        if (array_key_exists("hashAlgorithm", $this->_propDict) && !is_null($this->_propDict["hashAlgorithm"])) {
+            if (is_a($this->_propDict["hashAlgorithm"], "\Beta\Microsoft\Graph\Model\HashAlgorithms")) {
                 return $this->_propDict["hashAlgorithm"];
             } else {
                 $this->_propDict["hashAlgorithm"] = new HashAlgorithms($this->_propDict["hashAlgorithm"]);
@@ -98,8 +98,8 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase
     */
     public function getKeySize()
     {
-        if (array_key_exists("keySize", $this->_propDict)) {
-            if (is_a($this->_propDict["keySize"], "\Beta\Microsoft\Graph\Model\KeySize") || is_null($this->_propDict["keySize"])) {
+        if (array_key_exists("keySize", $this->_propDict) && !is_null($this->_propDict["keySize"])) {
+            if (is_a($this->_propDict["keySize"], "\Beta\Microsoft\Graph\Model\KeySize")) {
                 return $this->_propDict["keySize"];
             } else {
                 $this->_propDict["keySize"] = new KeySize($this->_propDict["keySize"]);
@@ -131,8 +131,8 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase
     */
     public function getKeyUsage()
     {
-        if (array_key_exists("keyUsage", $this->_propDict)) {
-            if (is_a($this->_propDict["keyUsage"], "\Beta\Microsoft\Graph\Model\KeyUsages") || is_null($this->_propDict["keyUsage"])) {
+        if (array_key_exists("keyUsage", $this->_propDict) && !is_null($this->_propDict["keyUsage"])) {
+            if (is_a($this->_propDict["keyUsage"], "\Beta\Microsoft\Graph\Model\KeyUsages")) {
                 return $this->_propDict["keyUsage"];
             } else {
                 $this->_propDict["keyUsage"] = new KeyUsages($this->_propDict["keyUsage"]);
@@ -248,22 +248,29 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase
      * Gets the managedDeviceCertificateStates
     * Certificate state for devices
      *
-     * @return array|null The managedDeviceCertificateStates
+     * @return ManagedDeviceCertificateState[]|null The managedDeviceCertificateStates
      */
     public function getManagedDeviceCertificateStates()
     {
-        if (array_key_exists("managedDeviceCertificateStates", $this->_propDict)) {
-           return $this->_propDict["managedDeviceCertificateStates"];
-        } else {
-            return null;
+        if (array_key_exists('managedDeviceCertificateStates', $this->_propDict) && !is_null($this->_propDict['managedDeviceCertificateStates'])) {
+            $managedDeviceCertificateStates = [];
+            if (count($this->_propDict['managedDeviceCertificateStates']) > 0 && is_a($this->_propDict['managedDeviceCertificateStates'][0], 'ManagedDeviceCertificateState')) {
+                return $this->_propDict['managedDeviceCertificateStates'];
+            }
+            foreach ($this->_propDict['managedDeviceCertificateStates'] as $singleValue) {
+                $managedDeviceCertificateStates []= new ManagedDeviceCertificateState($singleValue);
+            }
+            $this->_propDict['managedDeviceCertificateStates'] = $managedDeviceCertificateStates;
+            return $this->_propDict['managedDeviceCertificateStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the managedDeviceCertificateStates
     * Certificate state for devices
     *
-    * @param ManagedDeviceCertificateState $val The managedDeviceCertificateStates
+    * @param ManagedDeviceCertificateState[] $val The managedDeviceCertificateStates
     *
     * @return Windows81SCEPCertificateProfile
     */
@@ -281,8 +288,8 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase
     */
     public function getRootCertificate()
     {
-        if (array_key_exists("rootCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["rootCertificate"], "\Beta\Microsoft\Graph\Model\Windows81TrustedRootCertificate") || is_null($this->_propDict["rootCertificate"])) {
+        if (array_key_exists("rootCertificate", $this->_propDict) && !is_null($this->_propDict["rootCertificate"])) {
+            if (is_a($this->_propDict["rootCertificate"], "\Beta\Microsoft\Graph\Model\Windows81TrustedRootCertificate")) {
                 return $this->_propDict["rootCertificate"];
             } else {
                 $this->_propDict["rootCertificate"] = new Windows81TrustedRootCertificate($this->_propDict["rootCertificate"]);

@@ -61,8 +61,8 @@ class LegalHold extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getCreatedBy()
     {
-        if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
+        if (array_key_exists("createdBy", $this->_propDict) && !is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new \Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["createdBy"]);
@@ -94,8 +94,8 @@ class LegalHold extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -243,8 +243,8 @@ class LegalHold extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastModifiedBy()
     {
-        if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
+        if (array_key_exists("lastModifiedBy", $this->_propDict) && !is_null($this->_propDict["lastModifiedBy"])) {
+            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["lastModifiedBy"];
             } else {
                 $this->_propDict["lastModifiedBy"] = new \Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["lastModifiedBy"]);
@@ -276,8 +276,8 @@ class LegalHold extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -309,8 +309,8 @@ class LegalHold extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Ediscovery\Model\LegalHoldStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Ediscovery\Model\LegalHoldStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new LegalHoldStatus($this->_propDict["status"]);
@@ -339,22 +339,29 @@ class LegalHold extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the siteSources
     * Data source entity for SharePoint sites associated with the legal hold.
      *
-     * @return array|null The siteSources
+     * @return SiteSource[]|null The siteSources
      */
     public function getSiteSources()
     {
-        if (array_key_exists("siteSources", $this->_propDict)) {
-           return $this->_propDict["siteSources"];
-        } else {
-            return null;
+        if (array_key_exists('siteSources', $this->_propDict) && !is_null($this->_propDict['siteSources'])) {
+            $siteSources = [];
+            if (count($this->_propDict['siteSources']) > 0 && is_a($this->_propDict['siteSources'][0], 'SiteSource')) {
+                return $this->_propDict['siteSources'];
+            }
+            foreach ($this->_propDict['siteSources'] as $singleValue) {
+                $siteSources []= new SiteSource($singleValue);
+            }
+            $this->_propDict['siteSources'] = $siteSources;
+            return $this->_propDict['siteSources'];
         }
+        return null;
     }
     
     /** 
     * Sets the siteSources
     * Data source entity for SharePoint sites associated with the legal hold.
     *
-    * @param SiteSource $val The siteSources
+    * @param SiteSource[] $val The siteSources
     *
     * @return LegalHold
     */
@@ -368,21 +375,28 @@ class LegalHold extends \Beta\Microsoft\Graph\Model\Entity
      /** 
      * Gets the unifiedGroupSources
      *
-     * @return array|null The unifiedGroupSources
+     * @return UnifiedGroupSource[]|null The unifiedGroupSources
      */
     public function getUnifiedGroupSources()
     {
-        if (array_key_exists("unifiedGroupSources", $this->_propDict)) {
-           return $this->_propDict["unifiedGroupSources"];
-        } else {
-            return null;
+        if (array_key_exists('unifiedGroupSources', $this->_propDict) && !is_null($this->_propDict['unifiedGroupSources'])) {
+            $unifiedGroupSources = [];
+            if (count($this->_propDict['unifiedGroupSources']) > 0 && is_a($this->_propDict['unifiedGroupSources'][0], 'UnifiedGroupSource')) {
+                return $this->_propDict['unifiedGroupSources'];
+            }
+            foreach ($this->_propDict['unifiedGroupSources'] as $singleValue) {
+                $unifiedGroupSources []= new UnifiedGroupSource($singleValue);
+            }
+            $this->_propDict['unifiedGroupSources'] = $unifiedGroupSources;
+            return $this->_propDict['unifiedGroupSources'];
         }
+        return null;
     }
     
     /** 
     * Sets the unifiedGroupSources
     *
-    * @param UnifiedGroupSource $val The unifiedGroupSources
+    * @param UnifiedGroupSource[] $val The unifiedGroupSources
     *
     * @return LegalHold
     */
@@ -397,22 +411,29 @@ class LegalHold extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the userSources
     * Data source entity for a the legal hold. This is the container for a mailbox and OneDrive for Business site.
      *
-     * @return array|null The userSources
+     * @return UserSource[]|null The userSources
      */
     public function getUserSources()
     {
-        if (array_key_exists("userSources", $this->_propDict)) {
-           return $this->_propDict["userSources"];
-        } else {
-            return null;
+        if (array_key_exists('userSources', $this->_propDict) && !is_null($this->_propDict['userSources'])) {
+            $userSources = [];
+            if (count($this->_propDict['userSources']) > 0 && is_a($this->_propDict['userSources'][0], 'UserSource')) {
+                return $this->_propDict['userSources'];
+            }
+            foreach ($this->_propDict['userSources'] as $singleValue) {
+                $userSources []= new UserSource($singleValue);
+            }
+            $this->_propDict['userSources'] = $userSources;
+            return $this->_propDict['userSources'];
         }
+        return null;
     }
     
     /** 
     * Sets the userSources
     * Data source entity for a the legal hold. This is the container for a mailbox and OneDrive for Business site.
     *
-    * @param UserSource $val The userSources
+    * @param UserSource[] $val The userSources
     *
     * @return LegalHold
     */

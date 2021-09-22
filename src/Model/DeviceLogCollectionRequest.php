@@ -60,8 +60,9 @@ class DeviceLogCollectionRequest extends Entity
     */
     public function getTemplateType()
     {
-        if (array_key_exists("templateType", $this->_propDict)) {
-            if (is_a($this->_propDict["templateType"], "\Beta\Microsoft\Graph\Model\DeviceLogCollectionTemplateType") || is_null($this->_propDict["templateType"])) {
+        if (array_key_exists("templateType", $this->_propDict) && !is_null($this->_propDict["templateType"])) {
+     
+            if (is_a($this->_propDict["templateType"], "\Beta\Microsoft\Graph\Model\DeviceLogCollectionTemplateType")) {
                 return $this->_propDict["templateType"];
             } else {
                 $this->_propDict["templateType"] = new DeviceLogCollectionTemplateType($this->_propDict["templateType"]);

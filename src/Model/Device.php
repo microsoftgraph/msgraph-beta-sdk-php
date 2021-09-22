@@ -26,7 +26,7 @@ class Device extends DirectoryObject
 {
     /**
     * Gets the accountEnabled
-    * true if the account is enabled; otherwise, false. default is true.
+    * true if the account is enabled; otherwise, false. Required. Default is true. Supports $filter (eq, ne, NOT, in).
     *
     * @return bool|null The accountEnabled
     */
@@ -41,7 +41,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the accountEnabled
-    * true if the account is enabled; otherwise, false. default is true.
+    * true if the account is enabled; otherwise, false. Required. Default is true. Supports $filter (eq, ne, NOT, in).
     *
     * @param bool $val The accountEnabled
     *
@@ -56,24 +56,31 @@ class Device extends DirectoryObject
 
      /** 
      * Gets the alternativeSecurityIds
-    * For internal use only. Not nullable.
+    * For internal use only. Not nullable. Supports $filter (eq, NOT, ge, le).
      *
-     * @return array|null The alternativeSecurityIds
+     * @return AlternativeSecurityId[]|null The alternativeSecurityIds
      */
     public function getAlternativeSecurityIds()
     {
-        if (array_key_exists("alternativeSecurityIds", $this->_propDict)) {
-           return $this->_propDict["alternativeSecurityIds"];
-        } else {
-            return null;
+        if (array_key_exists('alternativeSecurityIds', $this->_propDict) && !is_null($this->_propDict['alternativeSecurityIds'])) {
+            $alternativeSecurityIds = [];
+            if (count($this->_propDict['alternativeSecurityIds']) > 0 && is_a($this->_propDict['alternativeSecurityIds'][0], 'AlternativeSecurityId')) {
+                return $this->_propDict['alternativeSecurityIds'];
+            }
+            foreach ($this->_propDict['alternativeSecurityIds'] as $singleValue) {
+                $alternativeSecurityIds []= new AlternativeSecurityId($singleValue);
+            }
+            $this->_propDict['alternativeSecurityIds'] = $alternativeSecurityIds;
+            return $this->_propDict['alternativeSecurityIds'];
         }
+        return null;
     }
     
     /** 
     * Sets the alternativeSecurityIds
-    * For internal use only. Not nullable.
+    * For internal use only. Not nullable. Supports $filter (eq, NOT, ge, le).
     *
-    * @param AlternativeSecurityId $val The alternativeSecurityIds
+    * @param AlternativeSecurityId[] $val The alternativeSecurityIds
     *
     * @return Device
     */
@@ -85,14 +92,14 @@ class Device extends DirectoryObject
     
     /**
     * Gets the approximateLastSignInDateTime
-    * The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    * The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, NOT, ge, le) and $orderBy.
     *
     * @return \DateTime|null The approximateLastSignInDateTime
     */
     public function getApproximateLastSignInDateTime()
     {
-        if (array_key_exists("approximateLastSignInDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["approximateLastSignInDateTime"], "\DateTime") || is_null($this->_propDict["approximateLastSignInDateTime"])) {
+        if (array_key_exists("approximateLastSignInDateTime", $this->_propDict) && !is_null($this->_propDict["approximateLastSignInDateTime"])) {
+            if (is_a($this->_propDict["approximateLastSignInDateTime"], "\DateTime")) {
                 return $this->_propDict["approximateLastSignInDateTime"];
             } else {
                 $this->_propDict["approximateLastSignInDateTime"] = new \DateTime($this->_propDict["approximateLastSignInDateTime"]);
@@ -104,7 +111,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the approximateLastSignInDateTime
-    * The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    * The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, NOT, ge, le) and $orderBy.
     *
     * @param \DateTime $val The approximateLastSignInDateTime
     *
@@ -124,8 +131,8 @@ class Device extends DirectoryObject
     */
     public function getComplianceExpirationDateTime()
     {
-        if (array_key_exists("complianceExpirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["complianceExpirationDateTime"], "\DateTime") || is_null($this->_propDict["complianceExpirationDateTime"])) {
+        if (array_key_exists("complianceExpirationDateTime", $this->_propDict) && !is_null($this->_propDict["complianceExpirationDateTime"])) {
+            if (is_a($this->_propDict["complianceExpirationDateTime"], "\DateTime")) {
                 return $this->_propDict["complianceExpirationDateTime"];
             } else {
                 $this->_propDict["complianceExpirationDateTime"] = new \DateTime($this->_propDict["complianceExpirationDateTime"]);
@@ -180,7 +187,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the deviceId
-    * Identifier set by Azure Device Registration Service at the time of registration.
+    * Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, NOT, startsWith).
     *
     * @return string|null The deviceId
     */
@@ -195,7 +202,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the deviceId
-    * Identifier set by Azure Device Registration Service at the time of registration.
+    * Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, NOT, startsWith).
     *
     * @param string $val The deviceId
     *
@@ -296,7 +303,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the displayName
-    * The display name for the device. Required.
+    * The display name for the device. Required. Supports $filter (eq, ne, NOT, ge, le, in, startsWith), $search, and $orderBy.
     *
     * @return string|null The displayName
     */
@@ -311,7 +318,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the displayName
-    * The display name for the device. Required.
+    * The display name for the device. Required. Supports $filter (eq, ne, NOT, ge, le, in, startsWith), $search, and $orderBy.
     *
     * @param string $val The displayName
     *
@@ -417,8 +424,8 @@ class Device extends DirectoryObject
     */
     public function getExtensionAttributes()
     {
-        if (array_key_exists("extensionAttributes", $this->_propDict)) {
-            if (is_a($this->_propDict["extensionAttributes"], "\Beta\Microsoft\Graph\Model\OnPremisesExtensionAttributes") || is_null($this->_propDict["extensionAttributes"])) {
+        if (array_key_exists("extensionAttributes", $this->_propDict) && !is_null($this->_propDict["extensionAttributes"])) {
+            if (is_a($this->_propDict["extensionAttributes"], "\Beta\Microsoft\Graph\Model\OnPremisesExtensionAttributes")) {
                 return $this->_propDict["extensionAttributes"];
             } else {
                 $this->_propDict["extensionAttributes"] = new OnPremisesExtensionAttributes($this->_propDict["extensionAttributes"]);
@@ -472,7 +479,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the isCompliant
-    * true if the device complies with Mobile Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices.
+    * true if the device complies with Mobile Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, NOT).
     *
     * @return bool|null The isCompliant
     */
@@ -487,7 +494,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the isCompliant
-    * true if the device complies with Mobile Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices.
+    * true if the device complies with Mobile Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, NOT).
     *
     * @param bool $val The isCompliant
     *
@@ -501,7 +508,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the isManaged
-    * true if the device is managed by a Mobile Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices.
+    * true if the device is managed by a Mobile Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, NOT).
     *
     * @return bool|null The isManaged
     */
@@ -516,7 +523,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the isManaged
-    * true if the device is managed by a Mobile Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices.
+    * true if the device is managed by a Mobile Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, NOT).
     *
     * @param bool $val The isManaged
     *
@@ -588,14 +595,14 @@ class Device extends DirectoryObject
     
     /**
     * Gets the onPremisesLastSyncDateTime
-    * The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Read-only.
+    * The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Read-only. Supports $filter (eq, ne, NOT, ge, le, in).
     *
     * @return \DateTime|null The onPremisesLastSyncDateTime
     */
     public function getOnPremisesLastSyncDateTime()
     {
-        if (array_key_exists("onPremisesLastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["onPremisesLastSyncDateTime"], "\DateTime") || is_null($this->_propDict["onPremisesLastSyncDateTime"])) {
+        if (array_key_exists("onPremisesLastSyncDateTime", $this->_propDict) && !is_null($this->_propDict["onPremisesLastSyncDateTime"])) {
+            if (is_a($this->_propDict["onPremisesLastSyncDateTime"], "\DateTime")) {
                 return $this->_propDict["onPremisesLastSyncDateTime"];
             } else {
                 $this->_propDict["onPremisesLastSyncDateTime"] = new \DateTime($this->_propDict["onPremisesLastSyncDateTime"]);
@@ -607,7 +614,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the onPremisesLastSyncDateTime
-    * The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Read-only.
+    * The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Read-only. Supports $filter (eq, ne, NOT, ge, le, in).
     *
     * @param \DateTime $val The onPremisesLastSyncDateTime
     *
@@ -621,7 +628,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the onPremisesSyncEnabled
-    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only.
+    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, NOT, in).
     *
     * @return bool|null The onPremisesSyncEnabled
     */
@@ -636,7 +643,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the onPremisesSyncEnabled
-    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only.
+    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, NOT, in).
     *
     * @param bool $val The onPremisesSyncEnabled
     *
@@ -650,7 +657,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the operatingSystem
-    * The type of operating system on the device. Required.
+    * The type of operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith).
     *
     * @return string|null The operatingSystem
     */
@@ -665,7 +672,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the operatingSystem
-    * The type of operating system on the device. Required.
+    * The type of operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith).
     *
     * @param string $val The operatingSystem
     *
@@ -679,7 +686,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the operatingSystemVersion
-    * Operating system version of the device. Required.
+    * The version of the operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith).
     *
     * @return string|null The operatingSystemVersion
     */
@@ -694,7 +701,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the operatingSystemVersion
-    * Operating system version of the device. Required.
+    * The version of the operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith).
     *
     * @param string $val The operatingSystemVersion
     *
@@ -708,7 +715,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the physicalIds
-    * For internal use only. Not nullable.
+    * For internal use only. Not nullable. Supports $filter (eq, NOT, ge, le, startsWith).
     *
     * @return string|null The physicalIds
     */
@@ -723,7 +730,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the physicalIds
-    * For internal use only. Not nullable.
+    * For internal use only. Not nullable. Supports $filter (eq, NOT, ge, le, startsWith).
     *
     * @param string $val The physicalIds
     *
@@ -772,8 +779,8 @@ class Device extends DirectoryObject
     */
     public function getRegistrationDateTime()
     {
-        if (array_key_exists("registrationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["registrationDateTime"], "\DateTime") || is_null($this->_propDict["registrationDateTime"])) {
+        if (array_key_exists("registrationDateTime", $this->_propDict) && !is_null($this->_propDict["registrationDateTime"])) {
+            if (is_a($this->_propDict["registrationDateTime"], "\DateTime")) {
                 return $this->_propDict["registrationDateTime"];
             } else {
                 $this->_propDict["registrationDateTime"] = new \DateTime($this->_propDict["registrationDateTime"]);
@@ -828,7 +835,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the trustType
-    * Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
+    * Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
     *
     * @return string|null The trustType
     */
@@ -843,7 +850,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the trustType
-    * Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
+    * Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
     *
     * @param string $val The trustType
     *
@@ -1034,22 +1041,29 @@ class Device extends DirectoryObject
      * Gets the usageRights
     * Represents the usage rights a device has been granted.
      *
-     * @return array|null The usageRights
+     * @return UsageRight[]|null The usageRights
      */
     public function getUsageRights()
     {
-        if (array_key_exists("usageRights", $this->_propDict)) {
-           return $this->_propDict["usageRights"];
-        } else {
-            return null;
+        if (array_key_exists('usageRights', $this->_propDict) && !is_null($this->_propDict['usageRights'])) {
+            $usageRights = [];
+            if (count($this->_propDict['usageRights']) > 0 && is_a($this->_propDict['usageRights'][0], 'UsageRight')) {
+                return $this->_propDict['usageRights'];
+            }
+            foreach ($this->_propDict['usageRights'] as $singleValue) {
+                $usageRights []= new UsageRight($singleValue);
+            }
+            $this->_propDict['usageRights'] = $usageRights;
+            return $this->_propDict['usageRights'];
         }
+        return null;
     }
     
     /** 
     * Sets the usageRights
     * Represents the usage rights a device has been granted.
     *
-    * @param UsageRight $val The usageRights
+    * @param UsageRight[] $val The usageRights
     *
     * @return Device
     */
@@ -1062,24 +1076,31 @@ class Device extends DirectoryObject
 
      /** 
      * Gets the memberOf
-    * Groups that this device is a member of. Read-only. Nullable.
+    * Groups that this device is a member of. Read-only. Nullable. Supports $expand.
      *
-     * @return array|null The memberOf
+     * @return DirectoryObject[]|null The memberOf
      */
     public function getMemberOf()
     {
-        if (array_key_exists("memberOf", $this->_propDict)) {
-           return $this->_propDict["memberOf"];
-        } else {
-            return null;
+        if (array_key_exists('memberOf', $this->_propDict) && !is_null($this->_propDict['memberOf'])) {
+            $memberOf = [];
+            if (count($this->_propDict['memberOf']) > 0 && is_a($this->_propDict['memberOf'][0], 'DirectoryObject')) {
+                return $this->_propDict['memberOf'];
+            }
+            foreach ($this->_propDict['memberOf'] as $singleValue) {
+                $memberOf []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['memberOf'] = $memberOf;
+            return $this->_propDict['memberOf'];
         }
+        return null;
     }
     
     /** 
     * Sets the memberOf
-    * Groups that this device is a member of. Read-only. Nullable.
+    * Groups that this device is a member of. Read-only. Nullable. Supports $expand.
     *
-    * @param DirectoryObject $val The memberOf
+    * @param DirectoryObject[] $val The memberOf
     *
     * @return Device
     */
@@ -1092,24 +1113,31 @@ class Device extends DirectoryObject
 
      /** 
      * Gets the registeredOwners
-    * The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable.
+    * The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand.
      *
-     * @return array|null The registeredOwners
+     * @return DirectoryObject[]|null The registeredOwners
      */
     public function getRegisteredOwners()
     {
-        if (array_key_exists("registeredOwners", $this->_propDict)) {
-           return $this->_propDict["registeredOwners"];
-        } else {
-            return null;
+        if (array_key_exists('registeredOwners', $this->_propDict) && !is_null($this->_propDict['registeredOwners'])) {
+            $registeredOwners = [];
+            if (count($this->_propDict['registeredOwners']) > 0 && is_a($this->_propDict['registeredOwners'][0], 'DirectoryObject')) {
+                return $this->_propDict['registeredOwners'];
+            }
+            foreach ($this->_propDict['registeredOwners'] as $singleValue) {
+                $registeredOwners []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['registeredOwners'] = $registeredOwners;
+            return $this->_propDict['registeredOwners'];
         }
+        return null;
     }
     
     /** 
     * Sets the registeredOwners
-    * The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable.
+    * The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand.
     *
-    * @param DirectoryObject $val The registeredOwners
+    * @param DirectoryObject[] $val The registeredOwners
     *
     * @return Device
     */
@@ -1122,24 +1150,31 @@ class Device extends DirectoryObject
 
      /** 
      * Gets the registeredUsers
-    * Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable.
+    * Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand.
      *
-     * @return array|null The registeredUsers
+     * @return DirectoryObject[]|null The registeredUsers
      */
     public function getRegisteredUsers()
     {
-        if (array_key_exists("registeredUsers", $this->_propDict)) {
-           return $this->_propDict["registeredUsers"];
-        } else {
-            return null;
+        if (array_key_exists('registeredUsers', $this->_propDict) && !is_null($this->_propDict['registeredUsers'])) {
+            $registeredUsers = [];
+            if (count($this->_propDict['registeredUsers']) > 0 && is_a($this->_propDict['registeredUsers'][0], 'DirectoryObject')) {
+                return $this->_propDict['registeredUsers'];
+            }
+            foreach ($this->_propDict['registeredUsers'] as $singleValue) {
+                $registeredUsers []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['registeredUsers'] = $registeredUsers;
+            return $this->_propDict['registeredUsers'];
         }
+        return null;
     }
     
     /** 
     * Sets the registeredUsers
-    * Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable.
+    * Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand.
     *
-    * @param DirectoryObject $val The registeredUsers
+    * @param DirectoryObject[] $val The registeredUsers
     *
     * @return Device
     */
@@ -1152,24 +1187,31 @@ class Device extends DirectoryObject
 
      /** 
      * Gets the transitiveMemberOf
-    * Groups that this device is a member of. This operation is transitive.
+    * Groups that the device is a member of. This operation is transitive. Supports $expand.
      *
-     * @return array|null The transitiveMemberOf
+     * @return DirectoryObject[]|null The transitiveMemberOf
      */
     public function getTransitiveMemberOf()
     {
-        if (array_key_exists("transitiveMemberOf", $this->_propDict)) {
-           return $this->_propDict["transitiveMemberOf"];
-        } else {
-            return null;
+        if (array_key_exists('transitiveMemberOf', $this->_propDict) && !is_null($this->_propDict['transitiveMemberOf'])) {
+            $transitiveMemberOf = [];
+            if (count($this->_propDict['transitiveMemberOf']) > 0 && is_a($this->_propDict['transitiveMemberOf'][0], 'DirectoryObject')) {
+                return $this->_propDict['transitiveMemberOf'];
+            }
+            foreach ($this->_propDict['transitiveMemberOf'] as $singleValue) {
+                $transitiveMemberOf []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['transitiveMemberOf'] = $transitiveMemberOf;
+            return $this->_propDict['transitiveMemberOf'];
         }
+        return null;
     }
     
     /** 
     * Sets the transitiveMemberOf
-    * Groups that this device is a member of. This operation is transitive.
+    * Groups that the device is a member of. This operation is transitive. Supports $expand.
     *
-    * @param DirectoryObject $val The transitiveMemberOf
+    * @param DirectoryObject[] $val The transitiveMemberOf
     *
     * @return Device
     */
@@ -1184,22 +1226,29 @@ class Device extends DirectoryObject
      * Gets the extensions
     * The collection of open extensions defined for the device. Read-only. Nullable.
      *
-     * @return array|null The extensions
+     * @return Extension[]|null The extensions
      */
     public function getExtensions()
     {
-        if (array_key_exists("extensions", $this->_propDict)) {
-           return $this->_propDict["extensions"];
-        } else {
-            return null;
+        if (array_key_exists('extensions', $this->_propDict) && !is_null($this->_propDict['extensions'])) {
+            $extensions = [];
+            if (count($this->_propDict['extensions']) > 0 && is_a($this->_propDict['extensions'][0], 'Extension')) {
+                return $this->_propDict['extensions'];
+            }
+            foreach ($this->_propDict['extensions'] as $singleValue) {
+                $extensions []= new Extension($singleValue);
+            }
+            $this->_propDict['extensions'] = $extensions;
+            return $this->_propDict['extensions'];
         }
+        return null;
     }
     
     /** 
     * Sets the extensions
     * The collection of open extensions defined for the device. Read-only. Nullable.
     *
-    * @param Extension $val The extensions
+    * @param Extension[] $val The extensions
     *
     * @return Device
     */
@@ -1214,22 +1263,29 @@ class Device extends DirectoryObject
      * Gets the commands
     * Set of commands sent to this device.
      *
-     * @return array|null The commands
+     * @return Command[]|null The commands
      */
     public function getCommands()
     {
-        if (array_key_exists("commands", $this->_propDict)) {
-           return $this->_propDict["commands"];
-        } else {
-            return null;
+        if (array_key_exists('commands', $this->_propDict) && !is_null($this->_propDict['commands'])) {
+            $commands = [];
+            if (count($this->_propDict['commands']) > 0 && is_a($this->_propDict['commands'][0], 'Command')) {
+                return $this->_propDict['commands'];
+            }
+            foreach ($this->_propDict['commands'] as $singleValue) {
+                $commands []= new Command($singleValue);
+            }
+            $this->_propDict['commands'] = $commands;
+            return $this->_propDict['commands'];
         }
+        return null;
     }
     
     /** 
     * Sets the commands
     * Set of commands sent to this device.
     *
-    * @param Command $val The commands
+    * @param Command[] $val The commands
     *
     * @return Device
     */

@@ -26,14 +26,15 @@ class AutomaticRepliesSetting extends Entity
 
     /**
     * Gets the externalAudience
-    * The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all.
+    * The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. The possible values are: none, contactsOnly, all.
     *
     * @return ExternalAudienceScope|null The externalAudience
     */
     public function getExternalAudience()
     {
-        if (array_key_exists("externalAudience", $this->_propDict)) {
-            if (is_a($this->_propDict["externalAudience"], "\Beta\Microsoft\Graph\Model\ExternalAudienceScope") || is_null($this->_propDict["externalAudience"])) {
+        if (array_key_exists("externalAudience", $this->_propDict) && !is_null($this->_propDict["externalAudience"])) {
+     
+            if (is_a($this->_propDict["externalAudience"], "\Beta\Microsoft\Graph\Model\ExternalAudienceScope")) {
                 return $this->_propDict["externalAudience"];
             } else {
                 $this->_propDict["externalAudience"] = new ExternalAudienceScope($this->_propDict["externalAudience"]);
@@ -45,7 +46,7 @@ class AutomaticRepliesSetting extends Entity
 
     /**
     * Sets the externalAudience
-    * The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all.
+    * The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. The possible values are: none, contactsOnly, all.
     *
     * @param ExternalAudienceScope $val The value to assign to the externalAudience
     *
@@ -121,8 +122,9 @@ class AutomaticRepliesSetting extends Entity
     */
     public function getScheduledEndDateTime()
     {
-        if (array_key_exists("scheduledEndDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["scheduledEndDateTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["scheduledEndDateTime"])) {
+        if (array_key_exists("scheduledEndDateTime", $this->_propDict) && !is_null($this->_propDict["scheduledEndDateTime"])) {
+     
+            if (is_a($this->_propDict["scheduledEndDateTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone")) {
                 return $this->_propDict["scheduledEndDateTime"];
             } else {
                 $this->_propDict["scheduledEndDateTime"] = new DateTimeTimeZone($this->_propDict["scheduledEndDateTime"]);
@@ -154,8 +156,9 @@ class AutomaticRepliesSetting extends Entity
     */
     public function getScheduledStartDateTime()
     {
-        if (array_key_exists("scheduledStartDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["scheduledStartDateTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["scheduledStartDateTime"])) {
+        if (array_key_exists("scheduledStartDateTime", $this->_propDict) && !is_null($this->_propDict["scheduledStartDateTime"])) {
+     
+            if (is_a($this->_propDict["scheduledStartDateTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone")) {
                 return $this->_propDict["scheduledStartDateTime"];
             } else {
                 $this->_propDict["scheduledStartDateTime"] = new DateTimeTimeZone($this->_propDict["scheduledStartDateTime"]);
@@ -181,14 +184,15 @@ class AutomaticRepliesSetting extends Entity
 
     /**
     * Gets the status
-    * Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled.
+    * Configurations status for automatic replies. The possible values are: disabled, alwaysEnabled, scheduled.
     *
     * @return AutomaticRepliesStatus|null The status
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\AutomaticRepliesStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+     
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\AutomaticRepliesStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new AutomaticRepliesStatus($this->_propDict["status"]);
@@ -200,7 +204,7 @@ class AutomaticRepliesSetting extends Entity
 
     /**
     * Sets the status
-    * Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled.
+    * Configurations status for automatic replies. The possible values are: disabled, alwaysEnabled, scheduled.
     *
     * @param AutomaticRepliesStatus $val The value to assign to the status
     *

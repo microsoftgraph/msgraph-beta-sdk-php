@@ -61,8 +61,8 @@ class AccessPackageResource extends Entity
     */
     public function getAddedOn()
     {
-        if (array_key_exists("addedOn", $this->_propDict)) {
-            if (is_a($this->_propDict["addedOn"], "\DateTime") || is_null($this->_propDict["addedOn"])) {
+        if (array_key_exists("addedOn", $this->_propDict) && !is_null($this->_propDict["addedOn"])) {
+            if (is_a($this->_propDict["addedOn"], "\DateTime")) {
                 return $this->_propDict["addedOn"];
             } else {
                 $this->_propDict["addedOn"] = new \DateTime($this->_propDict["addedOn"]);
@@ -90,21 +90,28 @@ class AccessPackageResource extends Entity
      /** 
      * Gets the attributes
      *
-     * @return array|null The attributes
+     * @return AccessPackageResourceAttribute[]|null The attributes
      */
     public function getAttributes()
     {
-        if (array_key_exists("attributes", $this->_propDict)) {
-           return $this->_propDict["attributes"];
-        } else {
-            return null;
+        if (array_key_exists('attributes', $this->_propDict) && !is_null($this->_propDict['attributes'])) {
+            $attributes = [];
+            if (count($this->_propDict['attributes']) > 0 && is_a($this->_propDict['attributes'][0], 'AccessPackageResourceAttribute')) {
+                return $this->_propDict['attributes'];
+            }
+            foreach ($this->_propDict['attributes'] as $singleValue) {
+                $attributes []= new AccessPackageResourceAttribute($singleValue);
+            }
+            $this->_propDict['attributes'] = $attributes;
+            return $this->_propDict['attributes'];
         }
+        return null;
     }
     
     /** 
     * Sets the attributes
     *
-    * @param AccessPackageResourceAttribute $val The attributes
+    * @param AccessPackageResourceAttribute[] $val The attributes
     *
     * @return AccessPackageResource
     */
@@ -325,8 +332,8 @@ class AccessPackageResource extends Entity
     */
     public function getAccessPackageResourceEnvironment()
     {
-        if (array_key_exists("accessPackageResourceEnvironment", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageResourceEnvironment"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceEnvironment") || is_null($this->_propDict["accessPackageResourceEnvironment"])) {
+        if (array_key_exists("accessPackageResourceEnvironment", $this->_propDict) && !is_null($this->_propDict["accessPackageResourceEnvironment"])) {
+            if (is_a($this->_propDict["accessPackageResourceEnvironment"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceEnvironment")) {
                 return $this->_propDict["accessPackageResourceEnvironment"];
             } else {
                 $this->_propDict["accessPackageResourceEnvironment"] = new AccessPackageResourceEnvironment($this->_propDict["accessPackageResourceEnvironment"]);
@@ -353,24 +360,31 @@ class AccessPackageResource extends Entity
 
      /** 
      * Gets the accessPackageResourceRoles
-    * Read-only. Nullable.
+    * Read-only. Nullable. Supports $expand.
      *
-     * @return array|null The accessPackageResourceRoles
+     * @return AccessPackageResourceRole[]|null The accessPackageResourceRoles
      */
     public function getAccessPackageResourceRoles()
     {
-        if (array_key_exists("accessPackageResourceRoles", $this->_propDict)) {
-           return $this->_propDict["accessPackageResourceRoles"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackageResourceRoles', $this->_propDict) && !is_null($this->_propDict['accessPackageResourceRoles'])) {
+            $accessPackageResourceRoles = [];
+            if (count($this->_propDict['accessPackageResourceRoles']) > 0 && is_a($this->_propDict['accessPackageResourceRoles'][0], 'AccessPackageResourceRole')) {
+                return $this->_propDict['accessPackageResourceRoles'];
+            }
+            foreach ($this->_propDict['accessPackageResourceRoles'] as $singleValue) {
+                $accessPackageResourceRoles []= new AccessPackageResourceRole($singleValue);
+            }
+            $this->_propDict['accessPackageResourceRoles'] = $accessPackageResourceRoles;
+            return $this->_propDict['accessPackageResourceRoles'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackageResourceRoles
-    * Read-only. Nullable.
+    * Read-only. Nullable. Supports $expand.
     *
-    * @param AccessPackageResourceRole $val The accessPackageResourceRoles
+    * @param AccessPackageResourceRole[] $val The accessPackageResourceRoles
     *
     * @return AccessPackageResource
     */
@@ -383,24 +397,31 @@ class AccessPackageResource extends Entity
 
      /** 
      * Gets the accessPackageResourceScopes
-    * Read-only. Nullable.
+    * Read-only. Nullable. Supports $expand.
      *
-     * @return array|null The accessPackageResourceScopes
+     * @return AccessPackageResourceScope[]|null The accessPackageResourceScopes
      */
     public function getAccessPackageResourceScopes()
     {
-        if (array_key_exists("accessPackageResourceScopes", $this->_propDict)) {
-           return $this->_propDict["accessPackageResourceScopes"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackageResourceScopes', $this->_propDict) && !is_null($this->_propDict['accessPackageResourceScopes'])) {
+            $accessPackageResourceScopes = [];
+            if (count($this->_propDict['accessPackageResourceScopes']) > 0 && is_a($this->_propDict['accessPackageResourceScopes'][0], 'AccessPackageResourceScope')) {
+                return $this->_propDict['accessPackageResourceScopes'];
+            }
+            foreach ($this->_propDict['accessPackageResourceScopes'] as $singleValue) {
+                $accessPackageResourceScopes []= new AccessPackageResourceScope($singleValue);
+            }
+            $this->_propDict['accessPackageResourceScopes'] = $accessPackageResourceScopes;
+            return $this->_propDict['accessPackageResourceScopes'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackageResourceScopes
-    * Read-only. Nullable.
+    * Read-only. Nullable. Supports $expand.
     *
-    * @param AccessPackageResourceScope $val The accessPackageResourceScopes
+    * @param AccessPackageResourceScope[] $val The accessPackageResourceScopes
     *
     * @return AccessPackageResource
     */

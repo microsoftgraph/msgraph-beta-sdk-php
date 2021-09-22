@@ -90,8 +90,8 @@ class Attachment extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -117,7 +117,7 @@ class Attachment extends Entity
     
     /**
     * Gets the name
-    * The display name of the attachment. This does not need to be the actual file name.
+    * The attachment's file name.
     *
     * @return string|null The name
     */
@@ -132,7 +132,7 @@ class Attachment extends Entity
     
     /**
     * Sets the name
-    * The display name of the attachment. This does not need to be the actual file name.
+    * The attachment's file name.
     *
     * @param string $val The name
     *

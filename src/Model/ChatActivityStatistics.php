@@ -32,8 +32,8 @@ class ChatActivityStatistics extends ActivityStatistics
     */
     public function getAfterHours()
     {
-        if (array_key_exists("afterHours", $this->_propDict)) {
-            if (is_a($this->_propDict["afterHours"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["afterHours"])) {
+        if (array_key_exists("afterHours", $this->_propDict) && !is_null($this->_propDict["afterHours"])) {
+            if (is_a($this->_propDict["afterHours"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["afterHours"];
             } else {
                 $this->_propDict["afterHours"] = new Duration($this->_propDict["afterHours"]);

@@ -32,8 +32,9 @@ class CertificateConnectorSetting extends Entity
     */
     public function getCertExpiryTime()
     {
-        if (array_key_exists("certExpiryTime", $this->_propDict)) {
-            if (is_a($this->_propDict["certExpiryTime"], "\DateTime") || is_null($this->_propDict["certExpiryTime"])) {
+        if (array_key_exists("certExpiryTime", $this->_propDict) && !is_null($this->_propDict["certExpiryTime"])) {
+     
+            if (is_a($this->_propDict["certExpiryTime"], "\DateTime")) {
                 return $this->_propDict["certExpiryTime"];
             } else {
                 $this->_propDict["certExpiryTime"] = new \DateTime($this->_propDict["certExpiryTime"]);
@@ -121,8 +122,9 @@ class CertificateConnectorSetting extends Entity
     */
     public function getLastConnectorConnectionTime()
     {
-        if (array_key_exists("lastConnectorConnectionTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastConnectorConnectionTime"], "\DateTime") || is_null($this->_propDict["lastConnectorConnectionTime"])) {
+        if (array_key_exists("lastConnectorConnectionTime", $this->_propDict) && !is_null($this->_propDict["lastConnectorConnectionTime"])) {
+     
+            if (is_a($this->_propDict["lastConnectorConnectionTime"], "\DateTime")) {
                 return $this->_propDict["lastConnectorConnectionTime"];
             } else {
                 $this->_propDict["lastConnectorConnectionTime"] = new \DateTime($this->_propDict["lastConnectorConnectionTime"]);

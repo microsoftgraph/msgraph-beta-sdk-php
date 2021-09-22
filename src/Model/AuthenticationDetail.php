@@ -88,8 +88,9 @@ class AuthenticationDetail extends Entity
     */
     public function getAuthenticationStepDateTime()
     {
-        if (array_key_exists("authenticationStepDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationStepDateTime"], "\DateTime") || is_null($this->_propDict["authenticationStepDateTime"])) {
+        if (array_key_exists("authenticationStepDateTime", $this->_propDict) && !is_null($this->_propDict["authenticationStepDateTime"])) {
+     
+            if (is_a($this->_propDict["authenticationStepDateTime"], "\DateTime")) {
                 return $this->_propDict["authenticationStepDateTime"];
             } else {
                 $this->_propDict["authenticationStepDateTime"] = new \DateTime($this->_propDict["authenticationStepDateTime"]);

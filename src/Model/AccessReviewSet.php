@@ -28,21 +28,28 @@ class AccessReviewSet extends Entity
      /** 
      * Gets the definitions
      *
-     * @return array|null The definitions
+     * @return AccessReviewScheduleDefinition[]|null The definitions
      */
     public function getDefinitions()
     {
-        if (array_key_exists("definitions", $this->_propDict)) {
-           return $this->_propDict["definitions"];
-        } else {
-            return null;
+        if (array_key_exists('definitions', $this->_propDict) && !is_null($this->_propDict['definitions'])) {
+            $definitions = [];
+            if (count($this->_propDict['definitions']) > 0 && is_a($this->_propDict['definitions'][0], 'AccessReviewScheduleDefinition')) {
+                return $this->_propDict['definitions'];
+            }
+            foreach ($this->_propDict['definitions'] as $singleValue) {
+                $definitions []= new AccessReviewScheduleDefinition($singleValue);
+            }
+            $this->_propDict['definitions'] = $definitions;
+            return $this->_propDict['definitions'];
         }
+        return null;
     }
     
     /** 
     * Sets the definitions
     *
-    * @param AccessReviewScheduleDefinition $val The definitions
+    * @param AccessReviewScheduleDefinition[] $val The definitions
     *
     * @return AccessReviewSet
     */
@@ -56,21 +63,28 @@ class AccessReviewSet extends Entity
      /** 
      * Gets the historyDefinitions
      *
-     * @return array|null The historyDefinitions
+     * @return AccessReviewHistoryDefinition[]|null The historyDefinitions
      */
     public function getHistoryDefinitions()
     {
-        if (array_key_exists("historyDefinitions", $this->_propDict)) {
-           return $this->_propDict["historyDefinitions"];
-        } else {
-            return null;
+        if (array_key_exists('historyDefinitions', $this->_propDict) && !is_null($this->_propDict['historyDefinitions'])) {
+            $historyDefinitions = [];
+            if (count($this->_propDict['historyDefinitions']) > 0 && is_a($this->_propDict['historyDefinitions'][0], 'AccessReviewHistoryDefinition')) {
+                return $this->_propDict['historyDefinitions'];
+            }
+            foreach ($this->_propDict['historyDefinitions'] as $singleValue) {
+                $historyDefinitions []= new AccessReviewHistoryDefinition($singleValue);
+            }
+            $this->_propDict['historyDefinitions'] = $historyDefinitions;
+            return $this->_propDict['historyDefinitions'];
         }
+        return null;
     }
     
     /** 
     * Sets the historyDefinitions
     *
-    * @param AccessReviewHistoryDefinition $val The historyDefinitions
+    * @param AccessReviewHistoryDefinition[] $val The historyDefinitions
     *
     * @return AccessReviewSet
     */
@@ -87,8 +101,8 @@ class AccessReviewSet extends Entity
     */
     public function getPolicy()
     {
-        if (array_key_exists("policy", $this->_propDict)) {
-            if (is_a($this->_propDict["policy"], "\Beta\Microsoft\Graph\Model\AccessReviewPolicy") || is_null($this->_propDict["policy"])) {
+        if (array_key_exists("policy", $this->_propDict) && !is_null($this->_propDict["policy"])) {
+            if (is_a($this->_propDict["policy"], "\Beta\Microsoft\Graph\Model\AccessReviewPolicy")) {
                 return $this->_propDict["policy"];
             } else {
                 $this->_propDict["policy"] = new AccessReviewPolicy($this->_propDict["policy"]);

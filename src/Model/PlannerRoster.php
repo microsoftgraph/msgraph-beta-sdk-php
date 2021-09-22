@@ -29,22 +29,29 @@ class PlannerRoster extends Entity
      * Gets the members
     * Retrieves the members of the plannerRoster.
      *
-     * @return array|null The members
+     * @return PlannerRosterMember[]|null The members
      */
     public function getMembers()
     {
-        if (array_key_exists("members", $this->_propDict)) {
-           return $this->_propDict["members"];
-        } else {
-            return null;
+        if (array_key_exists('members', $this->_propDict) && !is_null($this->_propDict['members'])) {
+            $members = [];
+            if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'PlannerRosterMember')) {
+                return $this->_propDict['members'];
+            }
+            foreach ($this->_propDict['members'] as $singleValue) {
+                $members []= new PlannerRosterMember($singleValue);
+            }
+            $this->_propDict['members'] = $members;
+            return $this->_propDict['members'];
         }
+        return null;
     }
     
     /** 
     * Sets the members
     * Retrieves the members of the plannerRoster.
     *
-    * @param PlannerRosterMember $val The members
+    * @param PlannerRosterMember[] $val The members
     *
     * @return PlannerRoster
     */
@@ -59,22 +66,29 @@ class PlannerRoster extends Entity
      * Gets the plans
     * Retrieves the plans contained by the plannerRoster.
      *
-     * @return array|null The plans
+     * @return PlannerPlan[]|null The plans
      */
     public function getPlans()
     {
-        if (array_key_exists("plans", $this->_propDict)) {
-           return $this->_propDict["plans"];
-        } else {
-            return null;
+        if (array_key_exists('plans', $this->_propDict) && !is_null($this->_propDict['plans'])) {
+            $plans = [];
+            if (count($this->_propDict['plans']) > 0 && is_a($this->_propDict['plans'][0], 'PlannerPlan')) {
+                return $this->_propDict['plans'];
+            }
+            foreach ($this->_propDict['plans'] as $singleValue) {
+                $plans []= new PlannerPlan($singleValue);
+            }
+            $this->_propDict['plans'] = $plans;
+            return $this->_propDict['plans'];
         }
+        return null;
     }
     
     /** 
     * Sets the plans
     * Retrieves the plans contained by the plannerRoster.
     *
-    * @param PlannerPlan $val The plans
+    * @param PlannerPlan[] $val The plans
     *
     * @return PlannerRoster
     */

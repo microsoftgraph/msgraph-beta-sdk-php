@@ -31,8 +31,8 @@ class PrivilegedApproval extends Entity
     */
     public function getApprovalDuration()
     {
-        if (array_key_exists("approvalDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["approvalDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["approvalDuration"])) {
+        if (array_key_exists("approvalDuration", $this->_propDict) && !is_null($this->_propDict["approvalDuration"])) {
+            if (is_a($this->_propDict["approvalDuration"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["approvalDuration"];
             } else {
                 $this->_propDict["approvalDuration"] = new Duration($this->_propDict["approvalDuration"]);
@@ -63,8 +63,8 @@ class PrivilegedApproval extends Entity
     */
     public function getApprovalState()
     {
-        if (array_key_exists("approvalState", $this->_propDict)) {
-            if (is_a($this->_propDict["approvalState"], "\Beta\Microsoft\Graph\Model\ApprovalState") || is_null($this->_propDict["approvalState"])) {
+        if (array_key_exists("approvalState", $this->_propDict) && !is_null($this->_propDict["approvalState"])) {
+            if (is_a($this->_propDict["approvalState"], "\Beta\Microsoft\Graph\Model\ApprovalState")) {
                 return $this->_propDict["approvalState"];
             } else {
                 $this->_propDict["approvalState"] = new ApprovalState($this->_propDict["approvalState"]);
@@ -150,8 +150,8 @@ class PrivilegedApproval extends Entity
     */
     public function getEndDateTime()
     {
-        if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
+        if (array_key_exists("endDateTime", $this->_propDict) && !is_null($this->_propDict["endDateTime"])) {
+            if (is_a($this->_propDict["endDateTime"], "\DateTime")) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -237,8 +237,8 @@ class PrivilegedApproval extends Entity
     */
     public function getStartDateTime()
     {
-        if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+        if (array_key_exists("startDateTime", $this->_propDict) && !is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -297,8 +297,8 @@ class PrivilegedApproval extends Entity
     */
     public function getRequest()
     {
-        if (array_key_exists("request", $this->_propDict)) {
-            if (is_a($this->_propDict["request"], "\Beta\Microsoft\Graph\Model\PrivilegedRoleAssignmentRequest") || is_null($this->_propDict["request"])) {
+        if (array_key_exists("request", $this->_propDict) && !is_null($this->_propDict["request"])) {
+            if (is_a($this->_propDict["request"], "\Beta\Microsoft\Graph\Model\PrivilegedRoleAssignmentRequest")) {
                 return $this->_propDict["request"];
             } else {
                 $this->_propDict["request"] = new PrivilegedRoleAssignmentRequest($this->_propDict["request"]);
@@ -330,8 +330,8 @@ class PrivilegedApproval extends Entity
     */
     public function getRoleInfo()
     {
-        if (array_key_exists("roleInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["roleInfo"], "\Beta\Microsoft\Graph\Model\PrivilegedRole") || is_null($this->_propDict["roleInfo"])) {
+        if (array_key_exists("roleInfo", $this->_propDict) && !is_null($this->_propDict["roleInfo"])) {
+            if (is_a($this->_propDict["roleInfo"], "\Beta\Microsoft\Graph\Model\PrivilegedRole")) {
                 return $this->_propDict["roleInfo"];
             } else {
                 $this->_propDict["roleInfo"] = new PrivilegedRole($this->_propDict["roleInfo"]);

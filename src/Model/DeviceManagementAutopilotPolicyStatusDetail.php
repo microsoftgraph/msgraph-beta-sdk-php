@@ -32,8 +32,8 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
     */
     public function getComplianceStatus()
     {
-        if (array_key_exists("complianceStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["complianceStatus"], "\Beta\Microsoft\Graph\Model\DeviceManagementAutopilotPolicyComplianceStatus") || is_null($this->_propDict["complianceStatus"])) {
+        if (array_key_exists("complianceStatus", $this->_propDict) && !is_null($this->_propDict["complianceStatus"])) {
+            if (is_a($this->_propDict["complianceStatus"], "\Beta\Microsoft\Graph\Model\DeviceManagementAutopilotPolicyComplianceStatus")) {
                 return $this->_propDict["complianceStatus"];
             } else {
                 $this->_propDict["complianceStatus"] = new DeviceManagementAutopilotPolicyComplianceStatus($this->_propDict["complianceStatus"]);
@@ -123,8 +123,8 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
     */
     public function getLastReportedDateTime()
     {
-        if (array_key_exists("lastReportedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime") || is_null($this->_propDict["lastReportedDateTime"])) {
+        if (array_key_exists("lastReportedDateTime", $this->_propDict) && !is_null($this->_propDict["lastReportedDateTime"])) {
+            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastReportedDateTime"];
             } else {
                 $this->_propDict["lastReportedDateTime"] = new \DateTime($this->_propDict["lastReportedDateTime"]);
@@ -156,8 +156,8 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
     */
     public function getPolicyType()
     {
-        if (array_key_exists("policyType", $this->_propDict)) {
-            if (is_a($this->_propDict["policyType"], "\Beta\Microsoft\Graph\Model\DeviceManagementAutopilotPolicyType") || is_null($this->_propDict["policyType"])) {
+        if (array_key_exists("policyType", $this->_propDict) && !is_null($this->_propDict["policyType"])) {
+            if (is_a($this->_propDict["policyType"], "\Beta\Microsoft\Graph\Model\DeviceManagementAutopilotPolicyType")) {
                 return $this->_propDict["policyType"];
             } else {
                 $this->_propDict["policyType"] = new DeviceManagementAutopilotPolicyType($this->_propDict["policyType"]);

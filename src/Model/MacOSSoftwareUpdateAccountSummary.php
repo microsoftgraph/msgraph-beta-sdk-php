@@ -148,8 +148,8 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
     */
     public function getLastUpdatedDateTime()
     {
-        if (array_key_exists("lastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
+        if (array_key_exists("lastUpdatedDateTime", $this->_propDict) && !is_null($this->_propDict["lastUpdatedDateTime"])) {
+            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastUpdatedDateTime"];
             } else {
                 $this->_propDict["lastUpdatedDateTime"] = new \DateTime($this->_propDict["lastUpdatedDateTime"]);
@@ -323,22 +323,29 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
      * Gets the categorySummaries
     * Summary of the updates by category.
      *
-     * @return array|null The categorySummaries
+     * @return MacOSSoftwareUpdateCategorySummary[]|null The categorySummaries
      */
     public function getCategorySummaries()
     {
-        if (array_key_exists("categorySummaries", $this->_propDict)) {
-           return $this->_propDict["categorySummaries"];
-        } else {
-            return null;
+        if (array_key_exists('categorySummaries', $this->_propDict) && !is_null($this->_propDict['categorySummaries'])) {
+            $categorySummaries = [];
+            if (count($this->_propDict['categorySummaries']) > 0 && is_a($this->_propDict['categorySummaries'][0], 'MacOSSoftwareUpdateCategorySummary')) {
+                return $this->_propDict['categorySummaries'];
+            }
+            foreach ($this->_propDict['categorySummaries'] as $singleValue) {
+                $categorySummaries []= new MacOSSoftwareUpdateCategorySummary($singleValue);
+            }
+            $this->_propDict['categorySummaries'] = $categorySummaries;
+            return $this->_propDict['categorySummaries'];
         }
+        return null;
     }
     
     /** 
     * Sets the categorySummaries
     * Summary of the updates by category.
     *
-    * @param MacOSSoftwareUpdateCategorySummary $val The categorySummaries
+    * @param MacOSSoftwareUpdateCategorySummary[] $val The categorySummaries
     *
     * @return MacOSSoftwareUpdateAccountSummary
     */

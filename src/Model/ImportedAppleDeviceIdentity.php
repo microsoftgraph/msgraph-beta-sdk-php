@@ -32,8 +32,8 @@ class ImportedAppleDeviceIdentity extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -94,8 +94,8 @@ class ImportedAppleDeviceIdentity extends Entity
     */
     public function getDiscoverySource()
     {
-        if (array_key_exists("discoverySource", $this->_propDict)) {
-            if (is_a($this->_propDict["discoverySource"], "\Beta\Microsoft\Graph\Model\DiscoverySource") || is_null($this->_propDict["discoverySource"])) {
+        if (array_key_exists("discoverySource", $this->_propDict) && !is_null($this->_propDict["discoverySource"])) {
+            if (is_a($this->_propDict["discoverySource"], "\Beta\Microsoft\Graph\Model\DiscoverySource")) {
                 return $this->_propDict["discoverySource"];
             } else {
                 $this->_propDict["discoverySource"] = new DiscoverySource($this->_propDict["discoverySource"]);
@@ -127,8 +127,8 @@ class ImportedAppleDeviceIdentity extends Entity
     */
     public function getEnrollmentState()
     {
-        if (array_key_exists("enrollmentState", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentState"], "\Beta\Microsoft\Graph\Model\EnrollmentState") || is_null($this->_propDict["enrollmentState"])) {
+        if (array_key_exists("enrollmentState", $this->_propDict) && !is_null($this->_propDict["enrollmentState"])) {
+            if (is_a($this->_propDict["enrollmentState"], "\Beta\Microsoft\Graph\Model\EnrollmentState")) {
                 return $this->_propDict["enrollmentState"];
             } else {
                 $this->_propDict["enrollmentState"] = new EnrollmentState($this->_propDict["enrollmentState"]);
@@ -218,8 +218,8 @@ class ImportedAppleDeviceIdentity extends Entity
     */
     public function getLastContactedDateTime()
     {
-        if (array_key_exists("lastContactedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastContactedDateTime"], "\DateTime") || is_null($this->_propDict["lastContactedDateTime"])) {
+        if (array_key_exists("lastContactedDateTime", $this->_propDict) && !is_null($this->_propDict["lastContactedDateTime"])) {
+            if (is_a($this->_propDict["lastContactedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastContactedDateTime"];
             } else {
                 $this->_propDict["lastContactedDateTime"] = new \DateTime($this->_propDict["lastContactedDateTime"]);
@@ -251,8 +251,8 @@ class ImportedAppleDeviceIdentity extends Entity
     */
     public function getPlatform()
     {
-        if (array_key_exists("platform", $this->_propDict)) {
-            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\Platform") || is_null($this->_propDict["platform"])) {
+        if (array_key_exists("platform", $this->_propDict) && !is_null($this->_propDict["platform"])) {
+            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\Platform")) {
                 return $this->_propDict["platform"];
             } else {
                 $this->_propDict["platform"] = new Platform($this->_propDict["platform"]);
@@ -284,8 +284,8 @@ class ImportedAppleDeviceIdentity extends Entity
     */
     public function getRequestedEnrollmentProfileAssignmentDateTime()
     {
-        if (array_key_exists("requestedEnrollmentProfileAssignmentDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["requestedEnrollmentProfileAssignmentDateTime"], "\DateTime") || is_null($this->_propDict["requestedEnrollmentProfileAssignmentDateTime"])) {
+        if (array_key_exists("requestedEnrollmentProfileAssignmentDateTime", $this->_propDict) && !is_null($this->_propDict["requestedEnrollmentProfileAssignmentDateTime"])) {
+            if (is_a($this->_propDict["requestedEnrollmentProfileAssignmentDateTime"], "\DateTime")) {
                 return $this->_propDict["requestedEnrollmentProfileAssignmentDateTime"];
             } else {
                 $this->_propDict["requestedEnrollmentProfileAssignmentDateTime"] = new \DateTime($this->_propDict["requestedEnrollmentProfileAssignmentDateTime"]);

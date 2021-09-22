@@ -112,18 +112,22 @@ class AssignmentReviewSettings extends Entity
     * Gets the reviewers
     * If the reviewerType is Reviewers, this collection specifies the users who will be reviewers, either by ID or as members of a group, using a collection of singleUser and groupMembers.
     *
-    * @return UserSet|null The reviewers
+    * @return UserSet[]|null The reviewers
     */
     public function getReviewers()
     {
-        if (array_key_exists("reviewers", $this->_propDict)) {
-            if (is_a($this->_propDict["reviewers"], "\Beta\Microsoft\Graph\Model\UserSet") || is_null($this->_propDict["reviewers"])) {
-                return $this->_propDict["reviewers"];
-            } else {
-                $this->_propDict["reviewers"] = new UserSet($this->_propDict["reviewers"]);
-                return $this->_propDict["reviewers"];
+        if (array_key_exists("reviewers", $this->_propDict) && !is_null($this->_propDict["reviewers"])) {
+       
+            if (count($this->_propDict['reviewers']) > 0 && is_a($this->_propDict['reviewers'][0], 'UserSet')) {
+               return $this->_propDict['reviewers'];
             }
-        }
+            $reviewers = [];
+            foreach ($this->_propDict['reviewers'] as $singleValue) {
+               $reviewers []= new UserSet($singleValue);
+            }
+            $this->_propDict['reviewers'] = $reviewers;
+            return $this->_propDict['reviewers'];
+            }
         return null;
     }
 
@@ -131,7 +135,7 @@ class AssignmentReviewSettings extends Entity
     * Sets the reviewers
     * If the reviewerType is Reviewers, this collection specifies the users who will be reviewers, either by ID or as members of a group, using a collection of singleUser and groupMembers.
     *
-    * @param UserSet $val The value to assign to the reviewers
+    * @param UserSet[] $val The value to assign to the reviewers
     *
     * @return AssignmentReviewSettings The AssignmentReviewSettings
     */
@@ -177,8 +181,9 @@ class AssignmentReviewSettings extends Entity
     */
     public function getStartDateTime()
     {
-        if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+        if (array_key_exists("startDateTime", $this->_propDict) && !is_null($this->_propDict["startDateTime"])) {
+     
+            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);

@@ -32,8 +32,9 @@ class AppliedConditionalAccessPolicy extends Entity
     */
     public function getConditionsNotSatisfied()
     {
-        if (array_key_exists("conditionsNotSatisfied", $this->_propDict)) {
-            if (is_a($this->_propDict["conditionsNotSatisfied"], "\Beta\Microsoft\Graph\Model\ConditionalAccessConditions") || is_null($this->_propDict["conditionsNotSatisfied"])) {
+        if (array_key_exists("conditionsNotSatisfied", $this->_propDict) && !is_null($this->_propDict["conditionsNotSatisfied"])) {
+     
+            if (is_a($this->_propDict["conditionsNotSatisfied"], "\Beta\Microsoft\Graph\Model\ConditionalAccessConditions")) {
                 return $this->_propDict["conditionsNotSatisfied"];
             } else {
                 $this->_propDict["conditionsNotSatisfied"] = new ConditionalAccessConditions($this->_propDict["conditionsNotSatisfied"]);
@@ -65,8 +66,9 @@ class AppliedConditionalAccessPolicy extends Entity
     */
     public function getConditionsSatisfied()
     {
-        if (array_key_exists("conditionsSatisfied", $this->_propDict)) {
-            if (is_a($this->_propDict["conditionsSatisfied"], "\Beta\Microsoft\Graph\Model\ConditionalAccessConditions") || is_null($this->_propDict["conditionsSatisfied"])) {
+        if (array_key_exists("conditionsSatisfied", $this->_propDict) && !is_null($this->_propDict["conditionsSatisfied"])) {
+     
+            if (is_a($this->_propDict["conditionsSatisfied"], "\Beta\Microsoft\Graph\Model\ConditionalAccessConditions")) {
                 return $this->_propDict["conditionsSatisfied"];
             } else {
                 $this->_propDict["conditionsSatisfied"] = new ConditionalAccessConditions($this->_propDict["conditionsSatisfied"]);
@@ -136,7 +138,7 @@ class AppliedConditionalAccessPolicy extends Entity
     * Sets the enforcedGrantControls
     * Refers to the grant controls enforced by the conditional access policy (example: 'Require multi-factor authentication').
     *
-    * @param string $val The value of the enforcedGrantControls
+    * @param string[] $val The value of the enforcedGrantControls
     *
     * @return AppliedConditionalAccessPolicy
     */
@@ -164,7 +166,7 @@ class AppliedConditionalAccessPolicy extends Entity
     * Sets the enforcedSessionControls
     * Refers to the session controls enforced by the conditional access policy (example: 'Require app enforced controls').
     *
-    * @param string $val The value of the enforcedSessionControls
+    * @param string[] $val The value of the enforcedSessionControls
     *
     * @return AppliedConditionalAccessPolicy
     */
@@ -177,25 +179,29 @@ class AppliedConditionalAccessPolicy extends Entity
     /**
     * Gets the excludeRulesSatisfied
     *
-    * @return ConditionalAccessRuleSatisfied|null The excludeRulesSatisfied
+    * @return ConditionalAccessRuleSatisfied[]|null The excludeRulesSatisfied
     */
     public function getExcludeRulesSatisfied()
     {
-        if (array_key_exists("excludeRulesSatisfied", $this->_propDict)) {
-            if (is_a($this->_propDict["excludeRulesSatisfied"], "\Beta\Microsoft\Graph\Model\ConditionalAccessRuleSatisfied") || is_null($this->_propDict["excludeRulesSatisfied"])) {
-                return $this->_propDict["excludeRulesSatisfied"];
-            } else {
-                $this->_propDict["excludeRulesSatisfied"] = new ConditionalAccessRuleSatisfied($this->_propDict["excludeRulesSatisfied"]);
-                return $this->_propDict["excludeRulesSatisfied"];
+        if (array_key_exists("excludeRulesSatisfied", $this->_propDict) && !is_null($this->_propDict["excludeRulesSatisfied"])) {
+       
+            if (count($this->_propDict['excludeRulesSatisfied']) > 0 && is_a($this->_propDict['excludeRulesSatisfied'][0], 'ConditionalAccessRuleSatisfied')) {
+               return $this->_propDict['excludeRulesSatisfied'];
             }
-        }
+            $excludeRulesSatisfied = [];
+            foreach ($this->_propDict['excludeRulesSatisfied'] as $singleValue) {
+               $excludeRulesSatisfied []= new ConditionalAccessRuleSatisfied($singleValue);
+            }
+            $this->_propDict['excludeRulesSatisfied'] = $excludeRulesSatisfied;
+            return $this->_propDict['excludeRulesSatisfied'];
+            }
         return null;
     }
 
     /**
     * Sets the excludeRulesSatisfied
     *
-    * @param ConditionalAccessRuleSatisfied $val The value to assign to the excludeRulesSatisfied
+    * @param ConditionalAccessRuleSatisfied[] $val The value to assign to the excludeRulesSatisfied
     *
     * @return AppliedConditionalAccessPolicy The AppliedConditionalAccessPolicy
     */
@@ -206,7 +212,7 @@ class AppliedConditionalAccessPolicy extends Entity
     }
     /**
     * Gets the id
-    * Identifier of the conditional access policy.
+    * An identifier of the conditional access policy.
     *
     * @return string|null The id
     */
@@ -221,7 +227,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Sets the id
-    * Identifier of the conditional access policy.
+    * An identifier of the conditional access policy.
     *
     * @param string $val The value of the id
     *
@@ -236,25 +242,29 @@ class AppliedConditionalAccessPolicy extends Entity
     /**
     * Gets the includeRulesSatisfied
     *
-    * @return ConditionalAccessRuleSatisfied|null The includeRulesSatisfied
+    * @return ConditionalAccessRuleSatisfied[]|null The includeRulesSatisfied
     */
     public function getIncludeRulesSatisfied()
     {
-        if (array_key_exists("includeRulesSatisfied", $this->_propDict)) {
-            if (is_a($this->_propDict["includeRulesSatisfied"], "\Beta\Microsoft\Graph\Model\ConditionalAccessRuleSatisfied") || is_null($this->_propDict["includeRulesSatisfied"])) {
-                return $this->_propDict["includeRulesSatisfied"];
-            } else {
-                $this->_propDict["includeRulesSatisfied"] = new ConditionalAccessRuleSatisfied($this->_propDict["includeRulesSatisfied"]);
-                return $this->_propDict["includeRulesSatisfied"];
+        if (array_key_exists("includeRulesSatisfied", $this->_propDict) && !is_null($this->_propDict["includeRulesSatisfied"])) {
+       
+            if (count($this->_propDict['includeRulesSatisfied']) > 0 && is_a($this->_propDict['includeRulesSatisfied'][0], 'ConditionalAccessRuleSatisfied')) {
+               return $this->_propDict['includeRulesSatisfied'];
             }
-        }
+            $includeRulesSatisfied = [];
+            foreach ($this->_propDict['includeRulesSatisfied'] as $singleValue) {
+               $includeRulesSatisfied []= new ConditionalAccessRuleSatisfied($singleValue);
+            }
+            $this->_propDict['includeRulesSatisfied'] = $includeRulesSatisfied;
+            return $this->_propDict['includeRulesSatisfied'];
+            }
         return null;
     }
 
     /**
     * Sets the includeRulesSatisfied
     *
-    * @param ConditionalAccessRuleSatisfied $val The value to assign to the includeRulesSatisfied
+    * @param ConditionalAccessRuleSatisfied[] $val The value to assign to the includeRulesSatisfied
     *
     * @return AppliedConditionalAccessPolicy The AppliedConditionalAccessPolicy
     */
@@ -266,14 +276,15 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Gets the result
-    * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted
+    * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.
     *
     * @return AppliedConditionalAccessPolicyResult|null The result
     */
     public function getResult()
     {
-        if (array_key_exists("result", $this->_propDict)) {
-            if (is_a($this->_propDict["result"], "\Beta\Microsoft\Graph\Model\AppliedConditionalAccessPolicyResult") || is_null($this->_propDict["result"])) {
+        if (array_key_exists("result", $this->_propDict) && !is_null($this->_propDict["result"])) {
+     
+            if (is_a($this->_propDict["result"], "\Beta\Microsoft\Graph\Model\AppliedConditionalAccessPolicyResult")) {
                 return $this->_propDict["result"];
             } else {
                 $this->_propDict["result"] = new AppliedConditionalAccessPolicyResult($this->_propDict["result"]);
@@ -285,7 +296,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Sets the result
-    * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted
+    * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.
     *
     * @param AppliedConditionalAccessPolicyResult $val The value to assign to the result
     *

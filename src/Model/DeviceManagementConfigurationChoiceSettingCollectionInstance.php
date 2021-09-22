@@ -26,9 +26,11 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstance extends Devic
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionInstance");
     }
 
@@ -37,18 +39,22 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstance extends Devic
     * Gets the choiceSettingCollectionValue
     * Choice setting collection value
     *
-    * @return DeviceManagementConfigurationChoiceSettingValue|null The choiceSettingCollectionValue
+    * @return DeviceManagementConfigurationChoiceSettingValue[]|null The choiceSettingCollectionValue
     */
     public function getChoiceSettingCollectionValue()
     {
-        if (array_key_exists("choiceSettingCollectionValue", $this->_propDict)) {
-            if (is_a($this->_propDict["choiceSettingCollectionValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationChoiceSettingValue") || is_null($this->_propDict["choiceSettingCollectionValue"])) {
-                return $this->_propDict["choiceSettingCollectionValue"];
-            } else {
-                $this->_propDict["choiceSettingCollectionValue"] = new DeviceManagementConfigurationChoiceSettingValue($this->_propDict["choiceSettingCollectionValue"]);
-                return $this->_propDict["choiceSettingCollectionValue"];
+        if (array_key_exists("choiceSettingCollectionValue", $this->_propDict) && !is_null($this->_propDict["choiceSettingCollectionValue"])) {
+       
+            if (count($this->_propDict['choiceSettingCollectionValue']) > 0 && is_a($this->_propDict['choiceSettingCollectionValue'][0], 'DeviceManagementConfigurationChoiceSettingValue')) {
+               return $this->_propDict['choiceSettingCollectionValue'];
             }
-        }
+            $choiceSettingCollectionValue = [];
+            foreach ($this->_propDict['choiceSettingCollectionValue'] as $singleValue) {
+               $choiceSettingCollectionValue []= new DeviceManagementConfigurationChoiceSettingValue($singleValue);
+            }
+            $this->_propDict['choiceSettingCollectionValue'] = $choiceSettingCollectionValue;
+            return $this->_propDict['choiceSettingCollectionValue'];
+            }
         return null;
     }
 
@@ -56,7 +62,7 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstance extends Devic
     * Sets the choiceSettingCollectionValue
     * Choice setting collection value
     *
-    * @param DeviceManagementConfigurationChoiceSettingValue $val The value to assign to the choiceSettingCollectionValue
+    * @param DeviceManagementConfigurationChoiceSettingValue[] $val The value to assign to the choiceSettingCollectionValue
     *
     * @return DeviceManagementConfigurationChoiceSettingCollectionInstance The DeviceManagementConfigurationChoiceSettingCollectionInstance
     */

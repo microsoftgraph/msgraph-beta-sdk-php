@@ -26,9 +26,11 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.win32LobAppPowerShellScriptRequirement");
     }
 
@@ -41,8 +43,9 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement
     */
     public function getDetectionType()
     {
-        if (array_key_exists("detectionType", $this->_propDict)) {
-            if (is_a($this->_propDict["detectionType"], "\Beta\Microsoft\Graph\Model\Win32LobAppPowerShellScriptDetectionType") || is_null($this->_propDict["detectionType"])) {
+        if (array_key_exists("detectionType", $this->_propDict) && !is_null($this->_propDict["detectionType"])) {
+     
+            if (is_a($this->_propDict["detectionType"], "\Beta\Microsoft\Graph\Model\Win32LobAppPowerShellScriptDetectionType")) {
                 return $this->_propDict["detectionType"];
             } else {
                 $this->_propDict["detectionType"] = new Win32LobAppPowerShellScriptDetectionType($this->_propDict["detectionType"]);
@@ -158,8 +161,9 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement
     */
     public function getRunAsAccount()
     {
-        if (array_key_exists("runAsAccount", $this->_propDict)) {
-            if (is_a($this->_propDict["runAsAccount"], "\Beta\Microsoft\Graph\Model\RunAsAccountType") || is_null($this->_propDict["runAsAccount"])) {
+        if (array_key_exists("runAsAccount", $this->_propDict) && !is_null($this->_propDict["runAsAccount"])) {
+     
+            if (is_a($this->_propDict["runAsAccount"], "\Beta\Microsoft\Graph\Model\RunAsAccountType")) {
                 return $this->_propDict["runAsAccount"];
             } else {
                 $this->_propDict["runAsAccount"] = new RunAsAccountType($this->_propDict["runAsAccount"]);

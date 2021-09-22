@@ -32,8 +32,8 @@ class ManagedAllDeviceCertificateState extends Entity
     */
     public function getCertificateExpirationDateTime()
     {
-        if (array_key_exists("certificateExpirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["certificateExpirationDateTime"], "\DateTime") || is_null($this->_propDict["certificateExpirationDateTime"])) {
+        if (array_key_exists("certificateExpirationDateTime", $this->_propDict) && !is_null($this->_propDict["certificateExpirationDateTime"])) {
+            if (is_a($this->_propDict["certificateExpirationDateTime"], "\DateTime")) {
                 return $this->_propDict["certificateExpirationDateTime"];
             } else {
                 $this->_propDict["certificateExpirationDateTime"] = new \DateTime($this->_propDict["certificateExpirationDateTime"]);
@@ -94,8 +94,8 @@ class ManagedAllDeviceCertificateState extends Entity
     */
     public function getCertificateIssuanceDateTime()
     {
-        if (array_key_exists("certificateIssuanceDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["certificateIssuanceDateTime"], "\DateTime") || is_null($this->_propDict["certificateIssuanceDateTime"])) {
+        if (array_key_exists("certificateIssuanceDateTime", $this->_propDict) && !is_null($this->_propDict["certificateIssuanceDateTime"])) {
+            if (is_a($this->_propDict["certificateIssuanceDateTime"], "\DateTime")) {
                 return $this->_propDict["certificateIssuanceDateTime"];
             } else {
                 $this->_propDict["certificateIssuanceDateTime"] = new \DateTime($this->_propDict["certificateIssuanceDateTime"]);
@@ -185,8 +185,8 @@ class ManagedAllDeviceCertificateState extends Entity
     */
     public function getCertificateRevokeStatus()
     {
-        if (array_key_exists("certificateRevokeStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["certificateRevokeStatus"], "\Beta\Microsoft\Graph\Model\CertificateRevocationStatus") || is_null($this->_propDict["certificateRevokeStatus"])) {
+        if (array_key_exists("certificateRevokeStatus", $this->_propDict) && !is_null($this->_propDict["certificateRevokeStatus"])) {
+            if (is_a($this->_propDict["certificateRevokeStatus"], "\Beta\Microsoft\Graph\Model\CertificateRevocationStatus")) {
                 return $this->_propDict["certificateRevokeStatus"];
             } else {
                 $this->_propDict["certificateRevokeStatus"] = new CertificateRevocationStatus($this->_propDict["certificateRevokeStatus"]);
@@ -218,8 +218,8 @@ class ManagedAllDeviceCertificateState extends Entity
     */
     public function getCertificateRevokeStatusLastChangeDateTime()
     {
-        if (array_key_exists("certificateRevokeStatusLastChangeDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["certificateRevokeStatusLastChangeDateTime"], "\DateTime") || is_null($this->_propDict["certificateRevokeStatusLastChangeDateTime"])) {
+        if (array_key_exists("certificateRevokeStatusLastChangeDateTime", $this->_propDict) && !is_null($this->_propDict["certificateRevokeStatusLastChangeDateTime"])) {
+            if (is_a($this->_propDict["certificateRevokeStatusLastChangeDateTime"], "\DateTime")) {
                 return $this->_propDict["certificateRevokeStatusLastChangeDateTime"];
             } else {
                 $this->_propDict["certificateRevokeStatusLastChangeDateTime"] = new \DateTime($this->_propDict["certificateRevokeStatusLastChangeDateTime"]);

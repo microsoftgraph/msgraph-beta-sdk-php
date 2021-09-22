@@ -26,7 +26,7 @@ class AuthenticationMethodsPolicy extends Entity
 {
     /**
     * Gets the description
-    * A description of the policy.
+    * A description of the policy. Read-only.
     *
     * @return string|null The description
     */
@@ -41,7 +41,7 @@ class AuthenticationMethodsPolicy extends Entity
     
     /**
     * Sets the description
-    * A description of the policy.
+    * A description of the policy. Read-only.
     *
     * @param string $val The description
     *
@@ -55,7 +55,7 @@ class AuthenticationMethodsPolicy extends Entity
     
     /**
     * Gets the displayName
-    * The name of the policy.
+    * The name of the policy. Read-only.
     *
     * @return string|null The displayName
     */
@@ -70,7 +70,7 @@ class AuthenticationMethodsPolicy extends Entity
     
     /**
     * Sets the displayName
-    * The name of the policy.
+    * The name of the policy. Read-only.
     *
     * @param string $val The displayName
     *
@@ -84,14 +84,14 @@ class AuthenticationMethodsPolicy extends Entity
     
     /**
     * Gets the lastModifiedDateTime
-    * The date and time of the last update to the policy.
+    * The date and time of the last update to the policy. Read-only.
     *
     * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -103,7 +103,7 @@ class AuthenticationMethodsPolicy extends Entity
     
     /**
     * Sets the lastModifiedDateTime
-    * The date and time of the last update to the policy.
+    * The date and time of the last update to the policy. Read-only.
     *
     * @param \DateTime $val The lastModifiedDateTime
     *
@@ -117,7 +117,7 @@ class AuthenticationMethodsPolicy extends Entity
     
     /**
     * Gets the policyVersion
-    * The version of the policy in use.
+    * The version of the policy in use. Read-only.
     *
     * @return string|null The policyVersion
     */
@@ -132,7 +132,7 @@ class AuthenticationMethodsPolicy extends Entity
     
     /**
     * Sets the policyVersion
-    * The version of the policy in use.
+    * The version of the policy in use. Read-only.
     *
     * @param string $val The policyVersion
     *
@@ -179,8 +179,8 @@ class AuthenticationMethodsPolicy extends Entity
     */
     public function getRegistrationEnforcement()
     {
-        if (array_key_exists("registrationEnforcement", $this->_propDict)) {
-            if (is_a($this->_propDict["registrationEnforcement"], "\Beta\Microsoft\Graph\Model\RegistrationEnforcement") || is_null($this->_propDict["registrationEnforcement"])) {
+        if (array_key_exists("registrationEnforcement", $this->_propDict) && !is_null($this->_propDict["registrationEnforcement"])) {
+            if (is_a($this->_propDict["registrationEnforcement"], "\Beta\Microsoft\Graph\Model\RegistrationEnforcement")) {
                 return $this->_propDict["registrationEnforcement"];
             } else {
                 $this->_propDict["registrationEnforcement"] = new RegistrationEnforcement($this->_propDict["registrationEnforcement"]);
@@ -209,22 +209,29 @@ class AuthenticationMethodsPolicy extends Entity
      * Gets the authenticationMethodConfigurations
     * Represents the settings for each authentication method.
      *
-     * @return array|null The authenticationMethodConfigurations
+     * @return AuthenticationMethodConfiguration[]|null The authenticationMethodConfigurations
      */
     public function getAuthenticationMethodConfigurations()
     {
-        if (array_key_exists("authenticationMethodConfigurations", $this->_propDict)) {
-           return $this->_propDict["authenticationMethodConfigurations"];
-        } else {
-            return null;
+        if (array_key_exists('authenticationMethodConfigurations', $this->_propDict) && !is_null($this->_propDict['authenticationMethodConfigurations'])) {
+            $authenticationMethodConfigurations = [];
+            if (count($this->_propDict['authenticationMethodConfigurations']) > 0 && is_a($this->_propDict['authenticationMethodConfigurations'][0], 'AuthenticationMethodConfiguration')) {
+                return $this->_propDict['authenticationMethodConfigurations'];
+            }
+            foreach ($this->_propDict['authenticationMethodConfigurations'] as $singleValue) {
+                $authenticationMethodConfigurations []= new AuthenticationMethodConfiguration($singleValue);
+            }
+            $this->_propDict['authenticationMethodConfigurations'] = $authenticationMethodConfigurations;
+            return $this->_propDict['authenticationMethodConfigurations'];
         }
+        return null;
     }
     
     /** 
     * Sets the authenticationMethodConfigurations
     * Represents the settings for each authentication method.
     *
-    * @param AuthenticationMethodConfiguration $val The authenticationMethodConfigurations
+    * @param AuthenticationMethodConfiguration[] $val The authenticationMethodConfigurations
     *
     * @return AuthenticationMethodsPolicy
     */

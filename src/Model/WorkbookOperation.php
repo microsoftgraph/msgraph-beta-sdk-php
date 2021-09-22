@@ -32,8 +32,8 @@ class WorkbookOperation extends Entity
     */
     public function getError()
     {
-        if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\WorkbookOperationError") || is_null($this->_propDict["error"])) {
+        if (array_key_exists("error", $this->_propDict) && !is_null($this->_propDict["error"])) {
+            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\WorkbookOperationError")) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new WorkbookOperationError($this->_propDict["error"]);
@@ -88,14 +88,14 @@ class WorkbookOperation extends Entity
     
     /**
     * Gets the status
-    * The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
+    * The current status of the operation. Possible values are: NotStarted, Running, Completed, Failed.
     *
     * @return WorkbookOperationStatus|null The status
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\WorkbookOperationStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\WorkbookOperationStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new WorkbookOperationStatus($this->_propDict["status"]);
@@ -107,7 +107,7 @@ class WorkbookOperation extends Entity
     
     /**
     * Sets the status
-    * The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
+    * The current status of the operation. Possible values are: NotStarted, Running, Completed, Failed.
     *
     * @param WorkbookOperationStatus $val The status
     *

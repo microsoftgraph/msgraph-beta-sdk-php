@@ -31,8 +31,8 @@ class CustomerPayment extends Entity
     */
     public function getAmount()
     {
-        if (array_key_exists("amount", $this->_propDict)) {
-            if (is_a($this->_propDict["amount"], "\Beta\Microsoft\Graph\Model\Decimal") || is_null($this->_propDict["amount"])) {
+        if (array_key_exists("amount", $this->_propDict) && !is_null($this->_propDict["amount"])) {
+            if (is_a($this->_propDict["amount"], "\Beta\Microsoft\Graph\Model\Decimal")) {
                 return $this->_propDict["amount"];
             } else {
                 $this->_propDict["amount"] = new Decimal($this->_propDict["amount"]);
@@ -332,8 +332,8 @@ class CustomerPayment extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -390,8 +390,8 @@ class CustomerPayment extends Entity
     */
     public function getPostingDate()
     {
-        if (array_key_exists("postingDate", $this->_propDict)) {
-            if (is_a($this->_propDict["postingDate"], "\DateTime") || is_null($this->_propDict["postingDate"])) {
+        if (array_key_exists("postingDate", $this->_propDict) && !is_null($this->_propDict["postingDate"])) {
+            if (is_a($this->_propDict["postingDate"], "\DateTime")) {
                 return $this->_propDict["postingDate"];
             } else {
                 $this->_propDict["postingDate"] = new \DateTime($this->_propDict["postingDate"]);
@@ -421,8 +421,8 @@ class CustomerPayment extends Entity
     */
     public function getCustomer()
     {
-        if (array_key_exists("customer", $this->_propDict)) {
-            if (is_a($this->_propDict["customer"], "\Beta\Microsoft\Graph\Model\Customer") || is_null($this->_propDict["customer"])) {
+        if (array_key_exists("customer", $this->_propDict) && !is_null($this->_propDict["customer"])) {
+            if (is_a($this->_propDict["customer"], "\Beta\Microsoft\Graph\Model\Customer")) {
                 return $this->_propDict["customer"];
             } else {
                 $this->_propDict["customer"] = new Customer($this->_propDict["customer"]);

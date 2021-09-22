@@ -26,9 +26,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.macOSKerberosSingleSignOnExtension");
     }
 
@@ -163,7 +165,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Sets the credentialBundleIdAccessControlList
     * Gets or sets a list of app Bundle IDs allowed to access the Kerberos Ticket Granting Ticket.
     *
-    * @param string $val The value of the credentialBundleIdAccessControlList
+    * @param string[] $val The value of the credentialBundleIdAccessControlList
     *
     * @return MacOSKerberosSingleSignOnExtension
     */
@@ -191,7 +193,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Sets the domainRealms
     * Gets or sets a list of realms for custom domain-realm mapping. Realms are case sensitive.
     *
-    * @param string $val The value of the domainRealms
+    * @param string[] $val The value of the domainRealms
     *
     * @return MacOSKerberosSingleSignOnExtension
     */
@@ -219,7 +221,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Sets the domains
     * Gets or sets a list of hosts or domain names for which the app extension performs SSO.
     *
-    * @param string $val The value of the domains
+    * @param string[] $val The value of the domains
     *
     * @return MacOSKerberosSingleSignOnExtension
     */

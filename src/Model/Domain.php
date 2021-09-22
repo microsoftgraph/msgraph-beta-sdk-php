@@ -293,8 +293,8 @@ class Domain extends Entity
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\DomainState") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\DomainState")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new DomainState($this->_propDict["state"]);
@@ -320,7 +320,7 @@ class Domain extends Entity
     
     /**
     * Gets the supportedServices
-    * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable
+    * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable
     *
     * @return string|null The supportedServices
     */
@@ -335,7 +335,7 @@ class Domain extends Entity
     
     /**
     * Sets the supportedServices
-    * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable
+    * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable
     *
     * @param string $val The supportedServices
     *
@@ -352,22 +352,29 @@ class Domain extends Entity
      * Gets the domainNameReferences
     * Read-only, Nullable
      *
-     * @return array|null The domainNameReferences
+     * @return DirectoryObject[]|null The domainNameReferences
      */
     public function getDomainNameReferences()
     {
-        if (array_key_exists("domainNameReferences", $this->_propDict)) {
-           return $this->_propDict["domainNameReferences"];
-        } else {
-            return null;
+        if (array_key_exists('domainNameReferences', $this->_propDict) && !is_null($this->_propDict['domainNameReferences'])) {
+            $domainNameReferences = [];
+            if (count($this->_propDict['domainNameReferences']) > 0 && is_a($this->_propDict['domainNameReferences'][0], 'DirectoryObject')) {
+                return $this->_propDict['domainNameReferences'];
+            }
+            foreach ($this->_propDict['domainNameReferences'] as $singleValue) {
+                $domainNameReferences []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['domainNameReferences'] = $domainNameReferences;
+            return $this->_propDict['domainNameReferences'];
         }
+        return null;
     }
     
     /** 
     * Sets the domainNameReferences
     * Read-only, Nullable
     *
-    * @param DirectoryObject $val The domainNameReferences
+    * @param DirectoryObject[] $val The domainNameReferences
     *
     * @return Domain
     */
@@ -382,22 +389,29 @@ class Domain extends Entity
      * Gets the serviceConfigurationRecords
     * DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable
      *
-     * @return array|null The serviceConfigurationRecords
+     * @return DomainDnsRecord[]|null The serviceConfigurationRecords
      */
     public function getServiceConfigurationRecords()
     {
-        if (array_key_exists("serviceConfigurationRecords", $this->_propDict)) {
-           return $this->_propDict["serviceConfigurationRecords"];
-        } else {
-            return null;
+        if (array_key_exists('serviceConfigurationRecords', $this->_propDict) && !is_null($this->_propDict['serviceConfigurationRecords'])) {
+            $serviceConfigurationRecords = [];
+            if (count($this->_propDict['serviceConfigurationRecords']) > 0 && is_a($this->_propDict['serviceConfigurationRecords'][0], 'DomainDnsRecord')) {
+                return $this->_propDict['serviceConfigurationRecords'];
+            }
+            foreach ($this->_propDict['serviceConfigurationRecords'] as $singleValue) {
+                $serviceConfigurationRecords []= new DomainDnsRecord($singleValue);
+            }
+            $this->_propDict['serviceConfigurationRecords'] = $serviceConfigurationRecords;
+            return $this->_propDict['serviceConfigurationRecords'];
         }
+        return null;
     }
     
     /** 
     * Sets the serviceConfigurationRecords
     * DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable
     *
-    * @param DomainDnsRecord $val The serviceConfigurationRecords
+    * @param DomainDnsRecord[] $val The serviceConfigurationRecords
     *
     * @return Domain
     */
@@ -411,21 +425,28 @@ class Domain extends Entity
      /** 
      * Gets the sharedEmailDomainInvitations
      *
-     * @return array|null The sharedEmailDomainInvitations
+     * @return SharedEmailDomainInvitation[]|null The sharedEmailDomainInvitations
      */
     public function getSharedEmailDomainInvitations()
     {
-        if (array_key_exists("sharedEmailDomainInvitations", $this->_propDict)) {
-           return $this->_propDict["sharedEmailDomainInvitations"];
-        } else {
-            return null;
+        if (array_key_exists('sharedEmailDomainInvitations', $this->_propDict) && !is_null($this->_propDict['sharedEmailDomainInvitations'])) {
+            $sharedEmailDomainInvitations = [];
+            if (count($this->_propDict['sharedEmailDomainInvitations']) > 0 && is_a($this->_propDict['sharedEmailDomainInvitations'][0], 'SharedEmailDomainInvitation')) {
+                return $this->_propDict['sharedEmailDomainInvitations'];
+            }
+            foreach ($this->_propDict['sharedEmailDomainInvitations'] as $singleValue) {
+                $sharedEmailDomainInvitations []= new SharedEmailDomainInvitation($singleValue);
+            }
+            $this->_propDict['sharedEmailDomainInvitations'] = $sharedEmailDomainInvitations;
+            return $this->_propDict['sharedEmailDomainInvitations'];
         }
+        return null;
     }
     
     /** 
     * Sets the sharedEmailDomainInvitations
     *
-    * @param SharedEmailDomainInvitation $val The sharedEmailDomainInvitations
+    * @param SharedEmailDomainInvitation[] $val The sharedEmailDomainInvitations
     *
     * @return Domain
     */
@@ -440,22 +461,29 @@ class Domain extends Entity
      * Gets the verificationDnsRecords
     * DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable
      *
-     * @return array|null The verificationDnsRecords
+     * @return DomainDnsRecord[]|null The verificationDnsRecords
      */
     public function getVerificationDnsRecords()
     {
-        if (array_key_exists("verificationDnsRecords", $this->_propDict)) {
-           return $this->_propDict["verificationDnsRecords"];
-        } else {
-            return null;
+        if (array_key_exists('verificationDnsRecords', $this->_propDict) && !is_null($this->_propDict['verificationDnsRecords'])) {
+            $verificationDnsRecords = [];
+            if (count($this->_propDict['verificationDnsRecords']) > 0 && is_a($this->_propDict['verificationDnsRecords'][0], 'DomainDnsRecord')) {
+                return $this->_propDict['verificationDnsRecords'];
+            }
+            foreach ($this->_propDict['verificationDnsRecords'] as $singleValue) {
+                $verificationDnsRecords []= new DomainDnsRecord($singleValue);
+            }
+            $this->_propDict['verificationDnsRecords'] = $verificationDnsRecords;
+            return $this->_propDict['verificationDnsRecords'];
         }
+        return null;
     }
     
     /** 
     * Sets the verificationDnsRecords
     * DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable
     *
-    * @param DomainDnsRecord $val The verificationDnsRecords
+    * @param DomainDnsRecord[] $val The verificationDnsRecords
     *
     * @return Domain
     */

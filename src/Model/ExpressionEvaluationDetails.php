@@ -56,18 +56,22 @@ class ExpressionEvaluationDetails extends Entity
     * Gets the expressionEvaluationDetails
     * Represents the details of the evaluation of the expression.
     *
-    * @return ExpressionEvaluationDetails|null The expressionEvaluationDetails
+    * @return ExpressionEvaluationDetails[]|null The expressionEvaluationDetails
     */
     public function getExpressionEvaluationDetails()
     {
-        if (array_key_exists("expressionEvaluationDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["expressionEvaluationDetails"], "\Beta\Microsoft\Graph\Model\ExpressionEvaluationDetails") || is_null($this->_propDict["expressionEvaluationDetails"])) {
-                return $this->_propDict["expressionEvaluationDetails"];
-            } else {
-                $this->_propDict["expressionEvaluationDetails"] = new ExpressionEvaluationDetails($this->_propDict["expressionEvaluationDetails"]);
-                return $this->_propDict["expressionEvaluationDetails"];
+        if (array_key_exists("expressionEvaluationDetails", $this->_propDict) && !is_null($this->_propDict["expressionEvaluationDetails"])) {
+       
+            if (count($this->_propDict['expressionEvaluationDetails']) > 0 && is_a($this->_propDict['expressionEvaluationDetails'][0], 'ExpressionEvaluationDetails')) {
+               return $this->_propDict['expressionEvaluationDetails'];
             }
-        }
+            $expressionEvaluationDetails = [];
+            foreach ($this->_propDict['expressionEvaluationDetails'] as $singleValue) {
+               $expressionEvaluationDetails []= new ExpressionEvaluationDetails($singleValue);
+            }
+            $this->_propDict['expressionEvaluationDetails'] = $expressionEvaluationDetails;
+            return $this->_propDict['expressionEvaluationDetails'];
+            }
         return null;
     }
 
@@ -75,7 +79,7 @@ class ExpressionEvaluationDetails extends Entity
     * Sets the expressionEvaluationDetails
     * Represents the details of the evaluation of the expression.
     *
-    * @param ExpressionEvaluationDetails $val The value to assign to the expressionEvaluationDetails
+    * @param ExpressionEvaluationDetails[] $val The value to assign to the expressionEvaluationDetails
     *
     * @return ExpressionEvaluationDetails The ExpressionEvaluationDetails
     */
@@ -121,8 +125,9 @@ class ExpressionEvaluationDetails extends Entity
     */
     public function getPropertyToEvaluate()
     {
-        if (array_key_exists("propertyToEvaluate", $this->_propDict)) {
-            if (is_a($this->_propDict["propertyToEvaluate"], "\Beta\Microsoft\Graph\Model\PropertyToEvaluate") || is_null($this->_propDict["propertyToEvaluate"])) {
+        if (array_key_exists("propertyToEvaluate", $this->_propDict) && !is_null($this->_propDict["propertyToEvaluate"])) {
+     
+            if (is_a($this->_propDict["propertyToEvaluate"], "\Beta\Microsoft\Graph\Model\PropertyToEvaluate")) {
                 return $this->_propDict["propertyToEvaluate"];
             } else {
                 $this->_propDict["propertyToEvaluate"] = new PropertyToEvaluate($this->_propDict["propertyToEvaluate"]);

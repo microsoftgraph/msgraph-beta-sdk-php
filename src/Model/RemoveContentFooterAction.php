@@ -42,7 +42,7 @@ class RemoveContentFooterAction extends InformationProtectionAction
     * Sets the uiElementNames
     * The name of the UI element of the footer to be removed.
     *
-    * @param string $val The value of the uiElementNames
+    * @param string[] $val The value of the uiElementNames
     *
     * @return RemoveContentFooterAction
     */

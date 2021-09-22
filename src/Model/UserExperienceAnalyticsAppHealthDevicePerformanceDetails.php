@@ -54,6 +54,64 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
     }
     
     /**
+    * Gets the appPublisher
+    * The publisher of the application.
+    *
+    * @return string|null The appPublisher
+    */
+    public function getAppPublisher()
+    {
+        if (array_key_exists("appPublisher", $this->_propDict)) {
+            return $this->_propDict["appPublisher"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the appPublisher
+    * The publisher of the application.
+    *
+    * @param string $val The appPublisher
+    *
+    * @return UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+    */
+    public function setAppPublisher($val)
+    {
+        $this->_propDict["appPublisher"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the appVersion
+    * The version of the application.
+    *
+    * @return string|null The appVersion
+    */
+    public function getAppVersion()
+    {
+        if (array_key_exists("appVersion", $this->_propDict)) {
+            return $this->_propDict["appVersion"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the appVersion
+    * The version of the application.
+    *
+    * @param string $val The appVersion
+    *
+    * @return UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+    */
+    public function setAppVersion($val)
+    {
+        $this->_propDict["appVersion"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the deviceDisplayName
     * The name of the device.
     *
@@ -119,8 +177,8 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
     */
     public function getEventDateTime()
     {
-        if (array_key_exists("eventDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["eventDateTime"], "\DateTime") || is_null($this->_propDict["eventDateTime"])) {
+        if (array_key_exists("eventDateTime", $this->_propDict) && !is_null($this->_propDict["eventDateTime"])) {
+            if (is_a($this->_propDict["eventDateTime"], "\DateTime")) {
                 return $this->_propDict["eventDateTime"];
             } else {
                 $this->_propDict["eventDateTime"] = new \DateTime($this->_propDict["eventDateTime"]);

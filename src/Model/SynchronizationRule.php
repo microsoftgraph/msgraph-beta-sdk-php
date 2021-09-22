@@ -84,18 +84,22 @@ class SynchronizationRule extends Entity
     * Gets the metadata
     * Additional extension properties. Unless instructed explicitly by the support team, metadata values should not be changed.
     *
-    * @return StringKeyStringValuePair|null The metadata
+    * @return StringKeyStringValuePair[]|null The metadata
     */
     public function getMetadata()
     {
-        if (array_key_exists("metadata", $this->_propDict)) {
-            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\StringKeyStringValuePair") || is_null($this->_propDict["metadata"])) {
-                return $this->_propDict["metadata"];
-            } else {
-                $this->_propDict["metadata"] = new StringKeyStringValuePair($this->_propDict["metadata"]);
-                return $this->_propDict["metadata"];
+        if (array_key_exists("metadata", $this->_propDict) && !is_null($this->_propDict["metadata"])) {
+       
+            if (count($this->_propDict['metadata']) > 0 && is_a($this->_propDict['metadata'][0], 'StringKeyStringValuePair')) {
+               return $this->_propDict['metadata'];
             }
-        }
+            $metadata = [];
+            foreach ($this->_propDict['metadata'] as $singleValue) {
+               $metadata []= new StringKeyStringValuePair($singleValue);
+            }
+            $this->_propDict['metadata'] = $metadata;
+            return $this->_propDict['metadata'];
+            }
         return null;
     }
 
@@ -103,7 +107,7 @@ class SynchronizationRule extends Entity
     * Sets the metadata
     * Additional extension properties. Unless instructed explicitly by the support team, metadata values should not be changed.
     *
-    * @param StringKeyStringValuePair $val The value to assign to the metadata
+    * @param StringKeyStringValuePair[] $val The value to assign to the metadata
     *
     * @return SynchronizationRule The SynchronizationRule
     */
@@ -145,18 +149,22 @@ class SynchronizationRule extends Entity
     * Gets the objectMappings
     * Collection of object mappings supported by the rule. Tells the synchronization engine which objects should be synchronized.
     *
-    * @return ObjectMapping|null The objectMappings
+    * @return ObjectMapping[]|null The objectMappings
     */
     public function getObjectMappings()
     {
-        if (array_key_exists("objectMappings", $this->_propDict)) {
-            if (is_a($this->_propDict["objectMappings"], "\Beta\Microsoft\Graph\Model\ObjectMapping") || is_null($this->_propDict["objectMappings"])) {
-                return $this->_propDict["objectMappings"];
-            } else {
-                $this->_propDict["objectMappings"] = new ObjectMapping($this->_propDict["objectMappings"]);
-                return $this->_propDict["objectMappings"];
+        if (array_key_exists("objectMappings", $this->_propDict) && !is_null($this->_propDict["objectMappings"])) {
+       
+            if (count($this->_propDict['objectMappings']) > 0 && is_a($this->_propDict['objectMappings'][0], 'ObjectMapping')) {
+               return $this->_propDict['objectMappings'];
             }
-        }
+            $objectMappings = [];
+            foreach ($this->_propDict['objectMappings'] as $singleValue) {
+               $objectMappings []= new ObjectMapping($singleValue);
+            }
+            $this->_propDict['objectMappings'] = $objectMappings;
+            return $this->_propDict['objectMappings'];
+            }
         return null;
     }
 
@@ -164,7 +172,7 @@ class SynchronizationRule extends Entity
     * Sets the objectMappings
     * Collection of object mappings supported by the rule. Tells the synchronization engine which objects should be synchronized.
     *
-    * @param ObjectMapping $val The value to assign to the objectMappings
+    * @param ObjectMapping[] $val The value to assign to the objectMappings
     *
     * @return SynchronizationRule The SynchronizationRule
     */

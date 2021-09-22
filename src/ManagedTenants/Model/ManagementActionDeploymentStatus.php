@@ -25,6 +25,7 @@ class ManagementActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entit
 {
     /**
     * Gets the managementActionId
+    * The identifier for the management action. Required. Read-only.
     *
     * @return string|null The managementActionId
     */
@@ -39,6 +40,7 @@ class ManagementActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entit
 
     /**
     * Sets the managementActionId
+    * The identifier for the management action. Required. Read-only.
     *
     * @param string $val The value of the managementActionId
     *
@@ -51,6 +53,7 @@ class ManagementActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entit
     }
     /**
     * Gets the managementTemplateId
+    * The management template identifier that was used to generate the management action. Required. Read-only.
     *
     * @return string|null The managementTemplateId
     */
@@ -65,6 +68,7 @@ class ManagementActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entit
 
     /**
     * Sets the managementTemplateId
+    * The management template identifier that was used to generate the management action. Required. Read-only.
     *
     * @param string $val The value of the managementTemplateId
     *
@@ -78,13 +82,15 @@ class ManagementActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entit
 
     /**
     * Gets the status
+    * The status of the management action. Possible values are: toAddress, completed, error, timeOut, inProgress, planned, resolvedBy3rdParty, resolvedThroughAlternateMitigation, riskAccepted, unknownFutureValue. Required.
     *
     * @return ManagementActionStatus|null The status
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagementActionStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+     
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagementActionStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ManagementActionStatus($this->_propDict["status"]);
@@ -96,6 +102,7 @@ class ManagementActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entit
 
     /**
     * Sets the status
+    * The status of the management action. Possible values are: toAddress, completed, error, timeOut, inProgress, planned, resolvedBy3rdParty, resolvedThroughAlternateMitigation, riskAccepted, unknownFutureValue. Required.
     *
     * @param ManagementActionStatus $val The value to assign to the status
     *
@@ -109,26 +116,32 @@ class ManagementActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entit
 
     /**
     * Gets the workloadActionDeploymentStatuses
+    * The collection of workload action deployment statues for the given management action. Optional.
     *
-    * @return WorkloadActionDeploymentStatus|null The workloadActionDeploymentStatuses
+    * @return WorkloadActionDeploymentStatus[]|null The workloadActionDeploymentStatuses
     */
     public function getWorkloadActionDeploymentStatuses()
     {
-        if (array_key_exists("workloadActionDeploymentStatuses", $this->_propDict)) {
-            if (is_a($this->_propDict["workloadActionDeploymentStatuses"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadActionDeploymentStatus") || is_null($this->_propDict["workloadActionDeploymentStatuses"])) {
-                return $this->_propDict["workloadActionDeploymentStatuses"];
-            } else {
-                $this->_propDict["workloadActionDeploymentStatuses"] = new WorkloadActionDeploymentStatus($this->_propDict["workloadActionDeploymentStatuses"]);
-                return $this->_propDict["workloadActionDeploymentStatuses"];
+        if (array_key_exists("workloadActionDeploymentStatuses", $this->_propDict) && !is_null($this->_propDict["workloadActionDeploymentStatuses"])) {
+       
+            if (count($this->_propDict['workloadActionDeploymentStatuses']) > 0 && is_a($this->_propDict['workloadActionDeploymentStatuses'][0], 'WorkloadActionDeploymentStatus')) {
+               return $this->_propDict['workloadActionDeploymentStatuses'];
             }
-        }
+            $workloadActionDeploymentStatuses = [];
+            foreach ($this->_propDict['workloadActionDeploymentStatuses'] as $singleValue) {
+               $workloadActionDeploymentStatuses []= new WorkloadActionDeploymentStatus($singleValue);
+            }
+            $this->_propDict['workloadActionDeploymentStatuses'] = $workloadActionDeploymentStatuses;
+            return $this->_propDict['workloadActionDeploymentStatuses'];
+            }
         return null;
     }
 
     /**
     * Sets the workloadActionDeploymentStatuses
+    * The collection of workload action deployment statues for the given management action. Optional.
     *
-    * @param WorkloadActionDeploymentStatus $val The value to assign to the workloadActionDeploymentStatuses
+    * @param WorkloadActionDeploymentStatus[] $val The value to assign to the workloadActionDeploymentStatuses
     *
     * @return ManagementActionDeploymentStatus The ManagementActionDeploymentStatus
     */

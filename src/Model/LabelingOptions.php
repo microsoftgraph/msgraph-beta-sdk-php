@@ -32,8 +32,9 @@ class LabelingOptions extends Entity
     */
     public function getAssignmentMethod()
     {
-        if (array_key_exists("assignmentMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["assignmentMethod"], "\Beta\Microsoft\Graph\Model\AssignmentMethod") || is_null($this->_propDict["assignmentMethod"])) {
+        if (array_key_exists("assignmentMethod", $this->_propDict) && !is_null($this->_propDict["assignmentMethod"])) {
+     
+            if (is_a($this->_propDict["assignmentMethod"], "\Beta\Microsoft\Graph\Model\AssignmentMethod")) {
                 return $this->_propDict["assignmentMethod"];
             } else {
                 $this->_propDict["assignmentMethod"] = new AssignmentMethod($this->_propDict["assignmentMethod"]);
@@ -65,8 +66,9 @@ class LabelingOptions extends Entity
     */
     public function getDowngradeJustification()
     {
-        if (array_key_exists("downgradeJustification", $this->_propDict)) {
-            if (is_a($this->_propDict["downgradeJustification"], "\Beta\Microsoft\Graph\Model\DowngradeJustification") || is_null($this->_propDict["downgradeJustification"])) {
+        if (array_key_exists("downgradeJustification", $this->_propDict) && !is_null($this->_propDict["downgradeJustification"])) {
+     
+            if (is_a($this->_propDict["downgradeJustification"], "\Beta\Microsoft\Graph\Model\DowngradeJustification")) {
                 return $this->_propDict["downgradeJustification"];
             } else {
                 $this->_propDict["downgradeJustification"] = new DowngradeJustification($this->_propDict["downgradeJustification"]);
@@ -94,18 +96,22 @@ class LabelingOptions extends Entity
     * Gets the extendedProperties
     * Extended properties will be parsed and returned in the standard MIP labeled metadata format as part of the label information.
     *
-    * @return KeyValuePair|null The extendedProperties
+    * @return KeyValuePair[]|null The extendedProperties
     */
     public function getExtendedProperties()
     {
-        if (array_key_exists("extendedProperties", $this->_propDict)) {
-            if (is_a($this->_propDict["extendedProperties"], "\Beta\Microsoft\Graph\Model\KeyValuePair") || is_null($this->_propDict["extendedProperties"])) {
-                return $this->_propDict["extendedProperties"];
-            } else {
-                $this->_propDict["extendedProperties"] = new KeyValuePair($this->_propDict["extendedProperties"]);
-                return $this->_propDict["extendedProperties"];
+        if (array_key_exists("extendedProperties", $this->_propDict) && !is_null($this->_propDict["extendedProperties"])) {
+       
+            if (count($this->_propDict['extendedProperties']) > 0 && is_a($this->_propDict['extendedProperties'][0], 'KeyValuePair')) {
+               return $this->_propDict['extendedProperties'];
             }
-        }
+            $extendedProperties = [];
+            foreach ($this->_propDict['extendedProperties'] as $singleValue) {
+               $extendedProperties []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['extendedProperties'] = $extendedProperties;
+            return $this->_propDict['extendedProperties'];
+            }
         return null;
     }
 
@@ -113,7 +119,7 @@ class LabelingOptions extends Entity
     * Sets the extendedProperties
     * Extended properties will be parsed and returned in the standard MIP labeled metadata format as part of the label information.
     *
-    * @param KeyValuePair $val The value to assign to the extendedProperties
+    * @param KeyValuePair[] $val The value to assign to the extendedProperties
     *
     * @return LabelingOptions The LabelingOptions
     */

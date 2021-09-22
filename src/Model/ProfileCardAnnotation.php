@@ -56,18 +56,22 @@ class ProfileCardAnnotation extends Entity
     * Gets the localizations
     * Each resource in this collection represents the localized value of the attribute name for a given language, used as the default label for that locale. For example, a user with a no-NB client gets 'Kostnads Senter' as the attribute label, rather than 'Cost Center.'
     *
-    * @return DisplayNameLocalization|null The localizations
+    * @return DisplayNameLocalization[]|null The localizations
     */
     public function getLocalizations()
     {
-        if (array_key_exists("localizations", $this->_propDict)) {
-            if (is_a($this->_propDict["localizations"], "\Beta\Microsoft\Graph\Model\DisplayNameLocalization") || is_null($this->_propDict["localizations"])) {
-                return $this->_propDict["localizations"];
-            } else {
-                $this->_propDict["localizations"] = new DisplayNameLocalization($this->_propDict["localizations"]);
-                return $this->_propDict["localizations"];
+        if (array_key_exists("localizations", $this->_propDict) && !is_null($this->_propDict["localizations"])) {
+       
+            if (count($this->_propDict['localizations']) > 0 && is_a($this->_propDict['localizations'][0], 'DisplayNameLocalization')) {
+               return $this->_propDict['localizations'];
             }
-        }
+            $localizations = [];
+            foreach ($this->_propDict['localizations'] as $singleValue) {
+               $localizations []= new DisplayNameLocalization($singleValue);
+            }
+            $this->_propDict['localizations'] = $localizations;
+            return $this->_propDict['localizations'];
+            }
         return null;
     }
 
@@ -75,7 +79,7 @@ class ProfileCardAnnotation extends Entity
     * Sets the localizations
     * Each resource in this collection represents the localized value of the attribute name for a given language, used as the default label for that locale. For example, a user with a no-NB client gets 'Kostnads Senter' as the attribute label, rather than 'Cost Center.'
     *
-    * @param DisplayNameLocalization $val The value to assign to the localizations
+    * @param DisplayNameLocalization[] $val The value to assign to the localizations
     *
     * @return ProfileCardAnnotation The ProfileCardAnnotation
     */

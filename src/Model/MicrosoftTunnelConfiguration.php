@@ -29,22 +29,29 @@ class MicrosoftTunnelConfiguration extends Entity
      * Gets the advancedSettings
     * Additional settings that may be applied to the server
      *
-     * @return array|null The advancedSettings
+     * @return KeyValuePair[]|null The advancedSettings
      */
     public function getAdvancedSettings()
     {
-        if (array_key_exists("advancedSettings", $this->_propDict)) {
-           return $this->_propDict["advancedSettings"];
-        } else {
-            return null;
+        if (array_key_exists('advancedSettings', $this->_propDict) && !is_null($this->_propDict['advancedSettings'])) {
+            $advancedSettings = [];
+            if (count($this->_propDict['advancedSettings']) > 0 && is_a($this->_propDict['advancedSettings'][0], 'KeyValuePair')) {
+                return $this->_propDict['advancedSettings'];
+            }
+            foreach ($this->_propDict['advancedSettings'] as $singleValue) {
+                $advancedSettings []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['advancedSettings'] = $advancedSettings;
+            return $this->_propDict['advancedSettings'];
         }
+        return null;
     }
     
     /** 
     * Sets the advancedSettings
     * Additional settings that may be applied to the server
     *
-    * @param KeyValuePair $val The advancedSettings
+    * @param KeyValuePair[] $val The advancedSettings
     *
     * @return MicrosoftTunnelConfiguration
     */
@@ -178,8 +185,8 @@ class MicrosoftTunnelConfiguration extends Entity
     */
     public function getLastUpdateDateTime()
     {
-        if (array_key_exists("lastUpdateDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdateDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdateDateTime"])) {
+        if (array_key_exists("lastUpdateDateTime", $this->_propDict) && !is_null($this->_propDict["lastUpdateDateTime"])) {
+            if (is_a($this->_propDict["lastUpdateDateTime"], "\DateTime")) {
                 return $this->_propDict["lastUpdateDateTime"];
             } else {
                 $this->_propDict["lastUpdateDateTime"] = new \DateTime($this->_propDict["lastUpdateDateTime"]);

@@ -26,13 +26,14 @@ class ConnectionOperation extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the error
+    * If status is failed, provides more information about the error that caused the failure.
     *
     * @return \Beta\Microsoft\Graph\Model\PublicError|null The error
     */
     public function getError()
     {
-        if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\PublicError") || is_null($this->_propDict["error"])) {
+        if (array_key_exists("error", $this->_propDict) && !is_null($this->_propDict["error"])) {
+            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\PublicError")) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new \Beta\Microsoft\Graph\Model\PublicError($this->_propDict["error"]);
@@ -44,6 +45,7 @@ class ConnectionOperation extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the error
+    * If status is failed, provides more information about the error that caused the failure.
     *
     * @param \Beta\Microsoft\Graph\Model\PublicError $val The error
     *
@@ -57,13 +59,14 @@ class ConnectionOperation extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the status
+    * Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed, unknownFutureValue.
     *
     * @return ConnectionOperationStatus|null The status
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\ExternalConnectors\Model\ConnectionOperationStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\ExternalConnectors\Model\ConnectionOperationStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ConnectionOperationStatus($this->_propDict["status"]);
@@ -75,6 +78,7 @@ class ConnectionOperation extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the status
+    * Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed, unknownFutureValue.
     *
     * @param ConnectionOperationStatus $val The status
     *

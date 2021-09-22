@@ -26,13 +26,15 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the delegatedPrivilegeStatus
+    * The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue. Optional. Read-only.
     *
     * @return DelegatedPrivilegeStatus|null The delegatedPrivilegeStatus
     */
     public function getDelegatedPrivilegeStatus()
     {
-        if (array_key_exists("delegatedPrivilegeStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["delegatedPrivilegeStatus"], "\Beta\Microsoft\Graph\ManagedTenants\Model\DelegatedPrivilegeStatus") || is_null($this->_propDict["delegatedPrivilegeStatus"])) {
+        if (array_key_exists("delegatedPrivilegeStatus", $this->_propDict) && !is_null($this->_propDict["delegatedPrivilegeStatus"])) {
+     
+            if (is_a($this->_propDict["delegatedPrivilegeStatus"], "\Beta\Microsoft\Graph\ManagedTenants\Model\DelegatedPrivilegeStatus")) {
                 return $this->_propDict["delegatedPrivilegeStatus"];
             } else {
                 $this->_propDict["delegatedPrivilegeStatus"] = new DelegatedPrivilegeStatus($this->_propDict["delegatedPrivilegeStatus"]);
@@ -44,6 +46,7 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the delegatedPrivilegeStatus
+    * The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue. Optional. Read-only.
     *
     * @param DelegatedPrivilegeStatus $val The value to assign to the delegatedPrivilegeStatus
     *
@@ -57,13 +60,15 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the lastDelegatedPrivilegeRefreshDateTime
+    * The date and time the delegated admin privileges status was updated. Optional. Read-only.
     *
     * @return \DateTime|null The lastDelegatedPrivilegeRefreshDateTime
     */
     public function getLastDelegatedPrivilegeRefreshDateTime()
     {
-        if (array_key_exists("lastDelegatedPrivilegeRefreshDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastDelegatedPrivilegeRefreshDateTime"], "\DateTime") || is_null($this->_propDict["lastDelegatedPrivilegeRefreshDateTime"])) {
+        if (array_key_exists("lastDelegatedPrivilegeRefreshDateTime", $this->_propDict) && !is_null($this->_propDict["lastDelegatedPrivilegeRefreshDateTime"])) {
+     
+            if (is_a($this->_propDict["lastDelegatedPrivilegeRefreshDateTime"], "\DateTime")) {
                 return $this->_propDict["lastDelegatedPrivilegeRefreshDateTime"];
             } else {
                 $this->_propDict["lastDelegatedPrivilegeRefreshDateTime"] = new \DateTime($this->_propDict["lastDelegatedPrivilegeRefreshDateTime"]);
@@ -75,6 +80,7 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the lastDelegatedPrivilegeRefreshDateTime
+    * The date and time the delegated admin privileges status was updated. Optional. Read-only.
     *
     * @param \DateTime $val The value to assign to the lastDelegatedPrivilegeRefreshDateTime
     *
@@ -87,6 +93,7 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the offboardedByUserId
+    * The identifier for the account that offboarded the managed tenant. Optional. Read-only.
     *
     * @return string|null The offboardedByUserId
     */
@@ -101,6 +108,7 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the offboardedByUserId
+    * The identifier for the account that offboarded the managed tenant. Optional. Read-only.
     *
     * @param string $val The value of the offboardedByUserId
     *
@@ -114,13 +122,15 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the offboardedDateTime
+    * The date and time when the managed tenant was offboarded. Optional. Read-only.
     *
     * @return \DateTime|null The offboardedDateTime
     */
     public function getOffboardedDateTime()
     {
-        if (array_key_exists("offboardedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["offboardedDateTime"], "\DateTime") || is_null($this->_propDict["offboardedDateTime"])) {
+        if (array_key_exists("offboardedDateTime", $this->_propDict) && !is_null($this->_propDict["offboardedDateTime"])) {
+     
+            if (is_a($this->_propDict["offboardedDateTime"], "\DateTime")) {
                 return $this->_propDict["offboardedDateTime"];
             } else {
                 $this->_propDict["offboardedDateTime"] = new \DateTime($this->_propDict["offboardedDateTime"]);
@@ -132,6 +142,7 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the offboardedDateTime
+    * The date and time when the managed tenant was offboarded. Optional. Read-only.
     *
     * @param \DateTime $val The value to assign to the offboardedDateTime
     *
@@ -144,6 +155,7 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the onboardedByUserId
+    * The identifier for the account that onboarded the managed tenant. Optional. Read-only.
     *
     * @return string|null The onboardedByUserId
     */
@@ -158,6 +170,7 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the onboardedByUserId
+    * The identifier for the account that onboarded the managed tenant. Optional. Read-only.
     *
     * @param string $val The value of the onboardedByUserId
     *
@@ -171,13 +184,15 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the onboardedDateTime
+    * The date and time when the managed tenant was onboarded. Optional. Read-only.
     *
     * @return \DateTime|null The onboardedDateTime
     */
     public function getOnboardedDateTime()
     {
-        if (array_key_exists("onboardedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["onboardedDateTime"], "\DateTime") || is_null($this->_propDict["onboardedDateTime"])) {
+        if (array_key_exists("onboardedDateTime", $this->_propDict) && !is_null($this->_propDict["onboardedDateTime"])) {
+     
+            if (is_a($this->_propDict["onboardedDateTime"], "\DateTime")) {
                 return $this->_propDict["onboardedDateTime"];
             } else {
                 $this->_propDict["onboardedDateTime"] = new \DateTime($this->_propDict["onboardedDateTime"]);
@@ -189,6 +204,7 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the onboardedDateTime
+    * The date and time when the managed tenant was onboarded. Optional. Read-only.
     *
     * @param \DateTime $val The value to assign to the onboardedDateTime
     *
@@ -202,13 +218,15 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the onboardingStatus
+    * The onboarding status for the managed tenant.. Possible values are: ineligible, inProcess, active, inactive, unknownFutureValue. Optional. Read-only.
     *
     * @return TenantOnboardingStatus|null The onboardingStatus
     */
     public function getOnboardingStatus()
     {
-        if (array_key_exists("onboardingStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["onboardingStatus"], "\Beta\Microsoft\Graph\ManagedTenants\Model\TenantOnboardingStatus") || is_null($this->_propDict["onboardingStatus"])) {
+        if (array_key_exists("onboardingStatus", $this->_propDict) && !is_null($this->_propDict["onboardingStatus"])) {
+     
+            if (is_a($this->_propDict["onboardingStatus"], "\Beta\Microsoft\Graph\ManagedTenants\Model\TenantOnboardingStatus")) {
                 return $this->_propDict["onboardingStatus"];
             } else {
                 $this->_propDict["onboardingStatus"] = new TenantOnboardingStatus($this->_propDict["onboardingStatus"]);
@@ -220,6 +238,7 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the onboardingStatus
+    * The onboarding status for the managed tenant.. Possible values are: ineligible, inProcess, active, inactive, unknownFutureValue. Optional. Read-only.
     *
     * @param TenantOnboardingStatus $val The value to assign to the onboardingStatus
     *
@@ -233,26 +252,32 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the workloadStatuses
+    * The collection of workload statues for the managed tenant. Optional. Read-only.
     *
-    * @return WorkloadStatus|null The workloadStatuses
+    * @return WorkloadStatus[]|null The workloadStatuses
     */
     public function getWorkloadStatuses()
     {
-        if (array_key_exists("workloadStatuses", $this->_propDict)) {
-            if (is_a($this->_propDict["workloadStatuses"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadStatus") || is_null($this->_propDict["workloadStatuses"])) {
-                return $this->_propDict["workloadStatuses"];
-            } else {
-                $this->_propDict["workloadStatuses"] = new WorkloadStatus($this->_propDict["workloadStatuses"]);
-                return $this->_propDict["workloadStatuses"];
+        if (array_key_exists("workloadStatuses", $this->_propDict) && !is_null($this->_propDict["workloadStatuses"])) {
+       
+            if (count($this->_propDict['workloadStatuses']) > 0 && is_a($this->_propDict['workloadStatuses'][0], 'WorkloadStatus')) {
+               return $this->_propDict['workloadStatuses'];
             }
-        }
+            $workloadStatuses = [];
+            foreach ($this->_propDict['workloadStatuses'] as $singleValue) {
+               $workloadStatuses []= new WorkloadStatus($singleValue);
+            }
+            $this->_propDict['workloadStatuses'] = $workloadStatuses;
+            return $this->_propDict['workloadStatuses'];
+            }
         return null;
     }
 
     /**
     * Sets the workloadStatuses
+    * The collection of workload statues for the managed tenant. Optional. Read-only.
     *
-    * @param WorkloadStatus $val The value to assign to the workloadStatuses
+    * @param WorkloadStatus[] $val The value to assign to the workloadStatuses
     *
     * @return TenantStatusInformation The TenantStatusInformation
     */

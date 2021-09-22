@@ -84,7 +84,7 @@ class RoleScopeTag extends Entity
     
     /**
     * Gets the isBuiltIn
-    * Description of the Role Scope Tag.
+    * Description of the Role Scope Tag. This property is read-only.
     *
     * @return bool|null The isBuiltIn
     */
@@ -99,7 +99,7 @@ class RoleScopeTag extends Entity
     
     /**
     * Sets the isBuiltIn
-    * Description of the Role Scope Tag.
+    * Description of the Role Scope Tag. This property is read-only.
     *
     * @param bool $val The isBuiltIn
     *
@@ -116,22 +116,29 @@ class RoleScopeTag extends Entity
      * Gets the assignments
     * The list of assignments for this Role Scope Tag.
      *
-     * @return array|null The assignments
+     * @return RoleScopeTagAutoAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'RoleScopeTagAutoAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new RoleScopeTagAutoAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * The list of assignments for this Role Scope Tag.
     *
-    * @param RoleScopeTagAutoAssignment $val The assignments
+    * @param RoleScopeTagAutoAssignment[] $val The assignments
     *
     * @return RoleScopeTag
     */

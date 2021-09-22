@@ -32,8 +32,9 @@ class SynchronizationQuarantine extends Entity
     */
     public function getCurrentBegan()
     {
-        if (array_key_exists("currentBegan", $this->_propDict)) {
-            if (is_a($this->_propDict["currentBegan"], "\DateTime") || is_null($this->_propDict["currentBegan"])) {
+        if (array_key_exists("currentBegan", $this->_propDict) && !is_null($this->_propDict["currentBegan"])) {
+     
+            if (is_a($this->_propDict["currentBegan"], "\DateTime")) {
                 return $this->_propDict["currentBegan"];
             } else {
                 $this->_propDict["currentBegan"] = new \DateTime($this->_propDict["currentBegan"]);
@@ -65,8 +66,9 @@ class SynchronizationQuarantine extends Entity
     */
     public function getError()
     {
-        if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\SynchronizationError") || is_null($this->_propDict["error"])) {
+        if (array_key_exists("error", $this->_propDict) && !is_null($this->_propDict["error"])) {
+     
+            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\SynchronizationError")) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new SynchronizationError($this->_propDict["error"]);
@@ -98,8 +100,9 @@ class SynchronizationQuarantine extends Entity
     */
     public function getNextAttempt()
     {
-        if (array_key_exists("nextAttempt", $this->_propDict)) {
-            if (is_a($this->_propDict["nextAttempt"], "\DateTime") || is_null($this->_propDict["nextAttempt"])) {
+        if (array_key_exists("nextAttempt", $this->_propDict) && !is_null($this->_propDict["nextAttempt"])) {
+     
+            if (is_a($this->_propDict["nextAttempt"], "\DateTime")) {
                 return $this->_propDict["nextAttempt"];
             } else {
                 $this->_propDict["nextAttempt"] = new \DateTime($this->_propDict["nextAttempt"]);
@@ -131,8 +134,9 @@ class SynchronizationQuarantine extends Entity
     */
     public function getReason()
     {
-        if (array_key_exists("reason", $this->_propDict)) {
-            if (is_a($this->_propDict["reason"], "\Beta\Microsoft\Graph\Model\QuarantineReason") || is_null($this->_propDict["reason"])) {
+        if (array_key_exists("reason", $this->_propDict) && !is_null($this->_propDict["reason"])) {
+     
+            if (is_a($this->_propDict["reason"], "\Beta\Microsoft\Graph\Model\QuarantineReason")) {
                 return $this->_propDict["reason"];
             } else {
                 $this->_propDict["reason"] = new QuarantineReason($this->_propDict["reason"]);
@@ -164,8 +168,9 @@ class SynchronizationQuarantine extends Entity
     */
     public function getSeriesBegan()
     {
-        if (array_key_exists("seriesBegan", $this->_propDict)) {
-            if (is_a($this->_propDict["seriesBegan"], "\DateTime") || is_null($this->_propDict["seriesBegan"])) {
+        if (array_key_exists("seriesBegan", $this->_propDict) && !is_null($this->_propDict["seriesBegan"])) {
+     
+            if (is_a($this->_propDict["seriesBegan"], "\DateTime")) {
                 return $this->_propDict["seriesBegan"];
             } else {
                 $this->_propDict["seriesBegan"] = new \DateTime($this->_propDict["seriesBegan"]);

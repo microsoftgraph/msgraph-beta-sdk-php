@@ -32,8 +32,8 @@ class VpnConfiguration extends DeviceConfiguration
     */
     public function getAuthenticationMethod()
     {
-        if (array_key_exists("authenticationMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\VpnAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
+        if (array_key_exists("authenticationMethod", $this->_propDict) && !is_null($this->_propDict["authenticationMethod"])) {
+            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\VpnAuthenticationMethod")) {
                 return $this->_propDict["authenticationMethod"];
             } else {
                 $this->_propDict["authenticationMethod"] = new VpnAuthenticationMethod($this->_propDict["authenticationMethod"]);
@@ -149,22 +149,29 @@ class VpnConfiguration extends DeviceConfiguration
      * Gets the servers
     * List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The servers
+     * @return VpnServer[]|null The servers
      */
     public function getServers()
     {
-        if (array_key_exists("servers", $this->_propDict)) {
-           return $this->_propDict["servers"];
-        } else {
-            return null;
+        if (array_key_exists('servers', $this->_propDict) && !is_null($this->_propDict['servers'])) {
+            $servers = [];
+            if (count($this->_propDict['servers']) > 0 && is_a($this->_propDict['servers'][0], 'VpnServer')) {
+                return $this->_propDict['servers'];
+            }
+            foreach ($this->_propDict['servers'] as $singleValue) {
+                $servers []= new VpnServer($singleValue);
+            }
+            $this->_propDict['servers'] = $servers;
+            return $this->_propDict['servers'];
         }
+        return null;
     }
     
     /** 
     * Sets the servers
     * List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
     *
-    * @param VpnServer $val The servers
+    * @param VpnServer[] $val The servers
     *
     * @return VpnConfiguration
     */

@@ -59,21 +59,28 @@ class TrustFramework implements \JsonSerializable
      /** 
      * Gets the keySets
      *
-     * @return array|null The keySets
+     * @return TrustFrameworkKeySet[]|null The keySets
      */
     public function getKeySets()
     {
-        if (array_key_exists("keySets", $this->_propDict)) {
-           return $this->_propDict["keySets"];
-        } else {
-            return null;
+        if (array_key_exists('keySets', $this->_propDict) && !is_null($this->_propDict['keySets'])) {
+            $keySets = [];
+            if (count($this->_propDict['keySets']) > 0 && is_a($this->_propDict['keySets'][0], 'TrustFrameworkKeySet')) {
+                return $this->_propDict['keySets'];
+            }
+            foreach ($this->_propDict['keySets'] as $singleValue) {
+                $keySets []= new TrustFrameworkKeySet($singleValue);
+            }
+            $this->_propDict['keySets'] = $keySets;
+            return $this->_propDict['keySets'];
         }
+        return null;
     }
     
     /** 
     * Sets the keySets
     *
-    * @param TrustFrameworkKeySet $val The keySets
+    * @param TrustFrameworkKeySet[] $val The keySets
     *
     * @return TrustFramework
     */
@@ -87,21 +94,28 @@ class TrustFramework implements \JsonSerializable
      /** 
      * Gets the policies
      *
-     * @return array|null The policies
+     * @return TrustFrameworkPolicy[]|null The policies
      */
     public function getPolicies()
     {
-        if (array_key_exists("policies", $this->_propDict)) {
-           return $this->_propDict["policies"];
-        } else {
-            return null;
+        if (array_key_exists('policies', $this->_propDict) && !is_null($this->_propDict['policies'])) {
+            $policies = [];
+            if (count($this->_propDict['policies']) > 0 && is_a($this->_propDict['policies'][0], 'TrustFrameworkPolicy')) {
+                return $this->_propDict['policies'];
+            }
+            foreach ($this->_propDict['policies'] as $singleValue) {
+                $policies []= new TrustFrameworkPolicy($singleValue);
+            }
+            $this->_propDict['policies'] = $policies;
+            return $this->_propDict['policies'];
         }
+        return null;
     }
     
     /** 
     * Sets the policies
     *
-    * @param TrustFrameworkPolicy $val The policies
+    * @param TrustFrameworkPolicy[] $val The policies
     *
     * @return TrustFramework
     */
@@ -114,11 +128,14 @@ class TrustFramework implements \JsonSerializable
     /**
     * Gets the ODataType
     *
-    * @return string The ODataType
+    * @return string|null The ODataType
     */
     public function getODataType()
     {
-        return $this->_propDict["@odata.type"];
+        if (array_key_exists('@odata.type', $this->_propDict)) {
+            return $this->_propDict["@odata.type"];
+        }
+        return null;
     }
     
     /**
@@ -144,10 +161,22 @@ class TrustFramework implements \JsonSerializable
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
-                $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            if (is_a($val, '\DateTime')) {
+                $serializableProperties[$property] = $val->format(\DateTimeInterface::RFC3339);
+            } else if (is_a($val, '\Microsoft\Graph\Core\Enum')) {
                 $serializableProperties[$property] = $val->value();
+            } else if (is_array($val)) {
+                $values = [];
+                if (count($val) > 0 && is_a($val[0], '\DateTime')) {
+                   foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->format(\DateTimeInterface::RFC3339);
+                   }
+                } else if(count > 0 && is_a($val[0], '\Microsoft\Graph\Core\Enum')) {
+                    foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->value();
+                   }
+                }
+                $serializableProperties[$property] = $values;
             }
         }
         return $serializableProperties;

@@ -26,13 +26,15 @@ class DriveItemSource extends Entity
 
     /**
     * Gets the application
+    * Enumeration value that indicates the source application where the file was created.
     *
     * @return DriveItemSourceApplication|null The application
     */
     public function getApplication()
     {
-        if (array_key_exists("application", $this->_propDict)) {
-            if (is_a($this->_propDict["application"], "\Beta\Microsoft\Graph\Model\DriveItemSourceApplication") || is_null($this->_propDict["application"])) {
+        if (array_key_exists("application", $this->_propDict) && !is_null($this->_propDict["application"])) {
+     
+            if (is_a($this->_propDict["application"], "\Beta\Microsoft\Graph\Model\DriveItemSourceApplication")) {
                 return $this->_propDict["application"];
             } else {
                 $this->_propDict["application"] = new DriveItemSourceApplication($this->_propDict["application"]);
@@ -44,6 +46,7 @@ class DriveItemSource extends Entity
 
     /**
     * Sets the application
+    * Enumeration value that indicates the source application where the file was created.
     *
     * @param DriveItemSourceApplication $val The value to assign to the application
     *
@@ -56,6 +59,7 @@ class DriveItemSource extends Entity
     }
     /**
     * Gets the externalId
+    * The external identifier for the drive item from the source.
     *
     * @return string|null The externalId
     */
@@ -70,6 +74,7 @@ class DriveItemSource extends Entity
 
     /**
     * Sets the externalId
+    * The external identifier for the drive item from the source.
     *
     * @param string $val The value of the externalId
     *

@@ -61,8 +61,8 @@ class Office365ActivationsUserDetail extends Entity
     */
     public function getReportRefreshDate()
     {
-        if (array_key_exists("reportRefreshDate", $this->_propDict)) {
-            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime") || is_null($this->_propDict["reportRefreshDate"])) {
+        if (array_key_exists("reportRefreshDate", $this->_propDict) && !is_null($this->_propDict["reportRefreshDate"])) {
+            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime")) {
                 return $this->_propDict["reportRefreshDate"];
             } else {
                 $this->_propDict["reportRefreshDate"] = new \DateTime($this->_propDict["reportRefreshDate"]);
@@ -91,22 +91,29 @@ class Office365ActivationsUserDetail extends Entity
      * Gets the userActivationCounts
     * The user's latest product activation counts on all the platforms for all the assigned product types.
      *
-     * @return array|null The userActivationCounts
+     * @return UserActivationCounts[]|null The userActivationCounts
      */
     public function getUserActivationCounts()
     {
-        if (array_key_exists("userActivationCounts", $this->_propDict)) {
-           return $this->_propDict["userActivationCounts"];
-        } else {
-            return null;
+        if (array_key_exists('userActivationCounts', $this->_propDict) && !is_null($this->_propDict['userActivationCounts'])) {
+            $userActivationCounts = [];
+            if (count($this->_propDict['userActivationCounts']) > 0 && is_a($this->_propDict['userActivationCounts'][0], 'UserActivationCounts')) {
+                return $this->_propDict['userActivationCounts'];
+            }
+            foreach ($this->_propDict['userActivationCounts'] as $singleValue) {
+                $userActivationCounts []= new UserActivationCounts($singleValue);
+            }
+            $this->_propDict['userActivationCounts'] = $userActivationCounts;
+            return $this->_propDict['userActivationCounts'];
         }
+        return null;
     }
     
     /** 
     * Sets the userActivationCounts
     * The user's latest product activation counts on all the platforms for all the assigned product types.
     *
-    * @param UserActivationCounts $val The userActivationCounts
+    * @param UserActivationCounts[] $val The userActivationCounts
     *
     * @return Office365ActivationsUserDetail
     */

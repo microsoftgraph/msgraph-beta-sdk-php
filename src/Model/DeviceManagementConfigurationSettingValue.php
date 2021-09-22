@@ -32,8 +32,9 @@ class DeviceManagementConfigurationSettingValue extends Entity
     */
     public function getSettingValueTemplateReference()
     {
-        if (array_key_exists("settingValueTemplateReference", $this->_propDict)) {
-            if (is_a($this->_propDict["settingValueTemplateReference"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingValueTemplateReference") || is_null($this->_propDict["settingValueTemplateReference"])) {
+        if (array_key_exists("settingValueTemplateReference", $this->_propDict) && !is_null($this->_propDict["settingValueTemplateReference"])) {
+     
+            if (is_a($this->_propDict["settingValueTemplateReference"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingValueTemplateReference")) {
                 return $this->_propDict["settingValueTemplateReference"];
             } else {
                 $this->_propDict["settingValueTemplateReference"] = new DeviceManagementConfigurationSettingValueTemplateReference($this->_propDict["settingValueTemplateReference"]);

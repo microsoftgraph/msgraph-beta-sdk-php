@@ -88,8 +88,9 @@ class FilterClause extends Entity
     */
     public function getTargetOperand()
     {
-        if (array_key_exists("targetOperand", $this->_propDict)) {
-            if (is_a($this->_propDict["targetOperand"], "\Beta\Microsoft\Graph\Model\FilterOperand") || is_null($this->_propDict["targetOperand"])) {
+        if (array_key_exists("targetOperand", $this->_propDict) && !is_null($this->_propDict["targetOperand"])) {
+     
+            if (is_a($this->_propDict["targetOperand"], "\Beta\Microsoft\Graph\Model\FilterOperand")) {
                 return $this->_propDict["targetOperand"];
             } else {
                 $this->_propDict["targetOperand"] = new FilterOperand($this->_propDict["targetOperand"]);

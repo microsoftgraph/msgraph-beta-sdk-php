@@ -58,22 +58,29 @@ class EmbeddedSIMActivationCodePool extends Entity
      * Gets the activationCodes
     * The activation codes which belong to this pool. This navigation property is used to post activation codes to Intune but cannot be used to read activation codes from Intune.
      *
-     * @return array|null The activationCodes
+     * @return EmbeddedSIMActivationCode[]|null The activationCodes
      */
     public function getActivationCodes()
     {
-        if (array_key_exists("activationCodes", $this->_propDict)) {
-           return $this->_propDict["activationCodes"];
-        } else {
-            return null;
+        if (array_key_exists('activationCodes', $this->_propDict) && !is_null($this->_propDict['activationCodes'])) {
+            $activationCodes = [];
+            if (count($this->_propDict['activationCodes']) > 0 && is_a($this->_propDict['activationCodes'][0], 'EmbeddedSIMActivationCode')) {
+                return $this->_propDict['activationCodes'];
+            }
+            foreach ($this->_propDict['activationCodes'] as $singleValue) {
+                $activationCodes []= new EmbeddedSIMActivationCode($singleValue);
+            }
+            $this->_propDict['activationCodes'] = $activationCodes;
+            return $this->_propDict['activationCodes'];
         }
+        return null;
     }
     
     /** 
     * Sets the activationCodes
     * The activation codes which belong to this pool. This navigation property is used to post activation codes to Intune but cannot be used to read activation codes from Intune.
     *
-    * @param EmbeddedSIMActivationCode $val The activationCodes
+    * @param EmbeddedSIMActivationCode[] $val The activationCodes
     *
     * @return EmbeddedSIMActivationCodePool
     */
@@ -91,8 +98,8 @@ class EmbeddedSIMActivationCodePool extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -153,8 +160,8 @@ class EmbeddedSIMActivationCodePool extends Entity
     */
     public function getModifiedDateTime()
     {
-        if (array_key_exists("modifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
+        if (array_key_exists("modifiedDateTime", $this->_propDict) && !is_null($this->_propDict["modifiedDateTime"])) {
+            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["modifiedDateTime"];
             } else {
                 $this->_propDict["modifiedDateTime"] = new \DateTime($this->_propDict["modifiedDateTime"]);
@@ -183,22 +190,29 @@ class EmbeddedSIMActivationCodePool extends Entity
      * Gets the assignments
     * Navigational property to a list of targets to which this pool is assigned.
      *
-     * @return array|null The assignments
+     * @return EmbeddedSIMActivationCodePoolAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'EmbeddedSIMActivationCodePoolAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new EmbeddedSIMActivationCodePoolAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * Navigational property to a list of targets to which this pool is assigned.
     *
-    * @param EmbeddedSIMActivationCodePoolAssignment $val The assignments
+    * @param EmbeddedSIMActivationCodePoolAssignment[] $val The assignments
     *
     * @return EmbeddedSIMActivationCodePool
     */
@@ -213,22 +227,29 @@ class EmbeddedSIMActivationCodePool extends Entity
      * Gets the deviceStates
     * Navigational property to a list of device states for this pool.
      *
-     * @return array|null The deviceStates
+     * @return EmbeddedSIMDeviceState[]|null The deviceStates
      */
     public function getDeviceStates()
     {
-        if (array_key_exists("deviceStates", $this->_propDict)) {
-           return $this->_propDict["deviceStates"];
-        } else {
-            return null;
+        if (array_key_exists('deviceStates', $this->_propDict) && !is_null($this->_propDict['deviceStates'])) {
+            $deviceStates = [];
+            if (count($this->_propDict['deviceStates']) > 0 && is_a($this->_propDict['deviceStates'][0], 'EmbeddedSIMDeviceState')) {
+                return $this->_propDict['deviceStates'];
+            }
+            foreach ($this->_propDict['deviceStates'] as $singleValue) {
+                $deviceStates []= new EmbeddedSIMDeviceState($singleValue);
+            }
+            $this->_propDict['deviceStates'] = $deviceStates;
+            return $this->_propDict['deviceStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the deviceStates
     * Navigational property to a list of device states for this pool.
     *
-    * @param EmbeddedSIMDeviceState $val The deviceStates
+    * @param EmbeddedSIMDeviceState[] $val The deviceStates
     *
     * @return EmbeddedSIMActivationCodePool
     */

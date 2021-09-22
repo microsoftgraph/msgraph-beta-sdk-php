@@ -85,8 +85,8 @@ class Dimension extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -113,21 +113,28 @@ class Dimension extends Entity
      /** 
      * Gets the dimensionValues
      *
-     * @return array|null The dimensionValues
+     * @return DimensionValue[]|null The dimensionValues
      */
     public function getDimensionValues()
     {
-        if (array_key_exists("dimensionValues", $this->_propDict)) {
-           return $this->_propDict["dimensionValues"];
-        } else {
-            return null;
+        if (array_key_exists('dimensionValues', $this->_propDict) && !is_null($this->_propDict['dimensionValues'])) {
+            $dimensionValues = [];
+            if (count($this->_propDict['dimensionValues']) > 0 && is_a($this->_propDict['dimensionValues'][0], 'DimensionValue')) {
+                return $this->_propDict['dimensionValues'];
+            }
+            foreach ($this->_propDict['dimensionValues'] as $singleValue) {
+                $dimensionValues []= new DimensionValue($singleValue);
+            }
+            $this->_propDict['dimensionValues'] = $dimensionValues;
+            return $this->_propDict['dimensionValues'];
         }
+        return null;
     }
     
     /** 
     * Sets the dimensionValues
     *
-    * @param DimensionValue $val The dimensionValues
+    * @param DimensionValue[] $val The dimensionValues
     *
     * @return Dimension
     */

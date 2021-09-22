@@ -116,22 +116,29 @@ class AccessPackageAssignmentResourceRole extends Entity
      * Gets the accessPackageAssignments
     * The access package assignments resulting in this role assignment. Read-only. Nullable.
      *
-     * @return array|null The accessPackageAssignments
+     * @return AccessPackageAssignment[]|null The accessPackageAssignments
      */
     public function getAccessPackageAssignments()
     {
-        if (array_key_exists("accessPackageAssignments", $this->_propDict)) {
-           return $this->_propDict["accessPackageAssignments"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackageAssignments', $this->_propDict) && !is_null($this->_propDict['accessPackageAssignments'])) {
+            $accessPackageAssignments = [];
+            if (count($this->_propDict['accessPackageAssignments']) > 0 && is_a($this->_propDict['accessPackageAssignments'][0], 'AccessPackageAssignment')) {
+                return $this->_propDict['accessPackageAssignments'];
+            }
+            foreach ($this->_propDict['accessPackageAssignments'] as $singleValue) {
+                $accessPackageAssignments []= new AccessPackageAssignment($singleValue);
+            }
+            $this->_propDict['accessPackageAssignments'] = $accessPackageAssignments;
+            return $this->_propDict['accessPackageAssignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackageAssignments
     * The access package assignments resulting in this role assignment. Read-only. Nullable.
     *
-    * @param AccessPackageAssignment $val The accessPackageAssignments
+    * @param AccessPackageAssignment[] $val The accessPackageAssignments
     *
     * @return AccessPackageAssignmentResourceRole
     */
@@ -149,8 +156,8 @@ class AccessPackageAssignmentResourceRole extends Entity
     */
     public function getAccessPackageResourceRole()
     {
-        if (array_key_exists("accessPackageResourceRole", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageResourceRole"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceRole") || is_null($this->_propDict["accessPackageResourceRole"])) {
+        if (array_key_exists("accessPackageResourceRole", $this->_propDict) && !is_null($this->_propDict["accessPackageResourceRole"])) {
+            if (is_a($this->_propDict["accessPackageResourceRole"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceRole")) {
                 return $this->_propDict["accessPackageResourceRole"];
             } else {
                 $this->_propDict["accessPackageResourceRole"] = new AccessPackageResourceRole($this->_propDict["accessPackageResourceRole"]);
@@ -182,8 +189,8 @@ class AccessPackageAssignmentResourceRole extends Entity
     */
     public function getAccessPackageResourceScope()
     {
-        if (array_key_exists("accessPackageResourceScope", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageResourceScope"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceScope") || is_null($this->_propDict["accessPackageResourceScope"])) {
+        if (array_key_exists("accessPackageResourceScope", $this->_propDict) && !is_null($this->_propDict["accessPackageResourceScope"])) {
+            if (is_a($this->_propDict["accessPackageResourceScope"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceScope")) {
                 return $this->_propDict["accessPackageResourceScope"];
             } else {
                 $this->_propDict["accessPackageResourceScope"] = new AccessPackageResourceScope($this->_propDict["accessPackageResourceScope"]);
@@ -215,8 +222,8 @@ class AccessPackageAssignmentResourceRole extends Entity
     */
     public function getAccessPackageSubject()
     {
-        if (array_key_exists("accessPackageSubject", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageSubject"], "\Beta\Microsoft\Graph\Model\AccessPackageSubject") || is_null($this->_propDict["accessPackageSubject"])) {
+        if (array_key_exists("accessPackageSubject", $this->_propDict) && !is_null($this->_propDict["accessPackageSubject"])) {
+            if (is_a($this->_propDict["accessPackageSubject"], "\Beta\Microsoft\Graph\Model\AccessPackageSubject")) {
                 return $this->_propDict["accessPackageSubject"];
             } else {
                 $this->_propDict["accessPackageSubject"] = new AccessPackageSubject($this->_propDict["accessPackageSubject"]);

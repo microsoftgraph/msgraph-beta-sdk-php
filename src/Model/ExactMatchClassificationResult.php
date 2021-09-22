@@ -27,25 +27,29 @@ class ExactMatchClassificationResult extends Entity
     /**
     * Gets the classification
     *
-    * @return ExactMatchDetectedSensitiveContent|null The classification
+    * @return ExactMatchDetectedSensitiveContent[]|null The classification
     */
     public function getClassification()
     {
-        if (array_key_exists("classification", $this->_propDict)) {
-            if (is_a($this->_propDict["classification"], "\Beta\Microsoft\Graph\Model\ExactMatchDetectedSensitiveContent") || is_null($this->_propDict["classification"])) {
-                return $this->_propDict["classification"];
-            } else {
-                $this->_propDict["classification"] = new ExactMatchDetectedSensitiveContent($this->_propDict["classification"]);
-                return $this->_propDict["classification"];
+        if (array_key_exists("classification", $this->_propDict) && !is_null($this->_propDict["classification"])) {
+       
+            if (count($this->_propDict['classification']) > 0 && is_a($this->_propDict['classification'][0], 'ExactMatchDetectedSensitiveContent')) {
+               return $this->_propDict['classification'];
             }
-        }
+            $classification = [];
+            foreach ($this->_propDict['classification'] as $singleValue) {
+               $classification []= new ExactMatchDetectedSensitiveContent($singleValue);
+            }
+            $this->_propDict['classification'] = $classification;
+            return $this->_propDict['classification'];
+            }
         return null;
     }
 
     /**
     * Sets the classification
     *
-    * @param ExactMatchDetectedSensitiveContent $val The value to assign to the classification
+    * @param ExactMatchDetectedSensitiveContent[] $val The value to assign to the classification
     *
     * @return ExactMatchClassificationResult The ExactMatchClassificationResult
     */
@@ -58,25 +62,29 @@ class ExactMatchClassificationResult extends Entity
     /**
     * Gets the errors
     *
-    * @return ClassificationError|null The errors
+    * @return ClassificationError[]|null The errors
     */
     public function getErrors()
     {
-        if (array_key_exists("errors", $this->_propDict)) {
-            if (is_a($this->_propDict["errors"], "\Beta\Microsoft\Graph\Model\ClassificationError") || is_null($this->_propDict["errors"])) {
-                return $this->_propDict["errors"];
-            } else {
-                $this->_propDict["errors"] = new ClassificationError($this->_propDict["errors"]);
-                return $this->_propDict["errors"];
+        if (array_key_exists("errors", $this->_propDict) && !is_null($this->_propDict["errors"])) {
+       
+            if (count($this->_propDict['errors']) > 0 && is_a($this->_propDict['errors'][0], 'ClassificationError')) {
+               return $this->_propDict['errors'];
             }
-        }
+            $errors = [];
+            foreach ($this->_propDict['errors'] as $singleValue) {
+               $errors []= new ClassificationError($singleValue);
+            }
+            $this->_propDict['errors'] = $errors;
+            return $this->_propDict['errors'];
+            }
         return null;
     }
 
     /**
     * Sets the errors
     *
-    * @param ClassificationError $val The value to assign to the errors
+    * @param ClassificationError[] $val The value to assign to the errors
     *
     * @return ExactMatchClassificationResult The ExactMatchClassificationResult
     */

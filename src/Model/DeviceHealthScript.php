@@ -32,8 +32,8 @@ class DeviceHealthScript extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -94,11 +94,11 @@ class DeviceHealthScript extends Entity
     */
     public function getDetectionScriptContent()
     {
-        if (array_key_exists("detectionScriptContent", $this->_propDict)) {
-            if (is_a($this->_propDict["detectionScriptContent"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["detectionScriptContent"])) {
+        if (array_key_exists("detectionScriptContent", $this->_propDict) && !is_null($this->_propDict["detectionScriptContent"])) {
+            if (is_a($this->_propDict["detectionScriptContent"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["detectionScriptContent"];
             } else {
-                $this->_propDict["detectionScriptContent"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["detectionScriptContent"]);
+                $this->_propDict["detectionScriptContent"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["detectionScriptContent"]);
                 return $this->_propDict["detectionScriptContent"];
             }
         }
@@ -124,22 +124,29 @@ class DeviceHealthScript extends Entity
      * Gets the detectionScriptParameters
     * List of ComplexType DetectionScriptParameters objects.
      *
-     * @return array|null The detectionScriptParameters
+     * @return DeviceHealthScriptParameter[]|null The detectionScriptParameters
      */
     public function getDetectionScriptParameters()
     {
-        if (array_key_exists("detectionScriptParameters", $this->_propDict)) {
-           return $this->_propDict["detectionScriptParameters"];
-        } else {
-            return null;
+        if (array_key_exists('detectionScriptParameters', $this->_propDict) && !is_null($this->_propDict['detectionScriptParameters'])) {
+            $detectionScriptParameters = [];
+            if (count($this->_propDict['detectionScriptParameters']) > 0 && is_a($this->_propDict['detectionScriptParameters'][0], 'DeviceHealthScriptParameter')) {
+                return $this->_propDict['detectionScriptParameters'];
+            }
+            foreach ($this->_propDict['detectionScriptParameters'] as $singleValue) {
+                $detectionScriptParameters []= new DeviceHealthScriptParameter($singleValue);
+            }
+            $this->_propDict['detectionScriptParameters'] = $detectionScriptParameters;
+            return $this->_propDict['detectionScriptParameters'];
         }
+        return null;
     }
     
     /** 
     * Sets the detectionScriptParameters
     * List of ComplexType DetectionScriptParameters objects.
     *
-    * @param DeviceHealthScriptParameter $val The detectionScriptParameters
+    * @param DeviceHealthScriptParameter[] $val The detectionScriptParameters
     *
     * @return DeviceHealthScript
     */
@@ -273,8 +280,8 @@ class DeviceHealthScript extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -335,11 +342,11 @@ class DeviceHealthScript extends Entity
     */
     public function getRemediationScriptContent()
     {
-        if (array_key_exists("remediationScriptContent", $this->_propDict)) {
-            if (is_a($this->_propDict["remediationScriptContent"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["remediationScriptContent"])) {
+        if (array_key_exists("remediationScriptContent", $this->_propDict) && !is_null($this->_propDict["remediationScriptContent"])) {
+            if (is_a($this->_propDict["remediationScriptContent"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["remediationScriptContent"];
             } else {
-                $this->_propDict["remediationScriptContent"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["remediationScriptContent"]);
+                $this->_propDict["remediationScriptContent"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["remediationScriptContent"]);
                 return $this->_propDict["remediationScriptContent"];
             }
         }
@@ -365,22 +372,29 @@ class DeviceHealthScript extends Entity
      * Gets the remediationScriptParameters
     * List of ComplexType RemediationScriptParameters objects.
      *
-     * @return array|null The remediationScriptParameters
+     * @return DeviceHealthScriptParameter[]|null The remediationScriptParameters
      */
     public function getRemediationScriptParameters()
     {
-        if (array_key_exists("remediationScriptParameters", $this->_propDict)) {
-           return $this->_propDict["remediationScriptParameters"];
-        } else {
-            return null;
+        if (array_key_exists('remediationScriptParameters', $this->_propDict) && !is_null($this->_propDict['remediationScriptParameters'])) {
+            $remediationScriptParameters = [];
+            if (count($this->_propDict['remediationScriptParameters']) > 0 && is_a($this->_propDict['remediationScriptParameters'][0], 'DeviceHealthScriptParameter')) {
+                return $this->_propDict['remediationScriptParameters'];
+            }
+            foreach ($this->_propDict['remediationScriptParameters'] as $singleValue) {
+                $remediationScriptParameters []= new DeviceHealthScriptParameter($singleValue);
+            }
+            $this->_propDict['remediationScriptParameters'] = $remediationScriptParameters;
+            return $this->_propDict['remediationScriptParameters'];
         }
+        return null;
     }
     
     /** 
     * Sets the remediationScriptParameters
     * List of ComplexType RemediationScriptParameters objects.
     *
-    * @param DeviceHealthScriptParameter $val The remediationScriptParameters
+    * @param DeviceHealthScriptParameter[] $val The remediationScriptParameters
     *
     * @return DeviceHealthScript
     */
@@ -456,8 +470,8 @@ class DeviceHealthScript extends Entity
     */
     public function getRunAsAccount()
     {
-        if (array_key_exists("runAsAccount", $this->_propDict)) {
-            if (is_a($this->_propDict["runAsAccount"], "\Beta\Microsoft\Graph\Model\RunAsAccountType") || is_null($this->_propDict["runAsAccount"])) {
+        if (array_key_exists("runAsAccount", $this->_propDict) && !is_null($this->_propDict["runAsAccount"])) {
+            if (is_a($this->_propDict["runAsAccount"], "\Beta\Microsoft\Graph\Model\RunAsAccountType")) {
                 return $this->_propDict["runAsAccount"];
             } else {
                 $this->_propDict["runAsAccount"] = new RunAsAccountType($this->_propDict["runAsAccount"]);
@@ -515,22 +529,29 @@ class DeviceHealthScript extends Entity
      * Gets the assignments
     * The list of group assignments for the device health script
      *
-     * @return array|null The assignments
+     * @return DeviceHealthScriptAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'DeviceHealthScriptAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new DeviceHealthScriptAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * The list of group assignments for the device health script
     *
-    * @param DeviceHealthScriptAssignment $val The assignments
+    * @param DeviceHealthScriptAssignment[] $val The assignments
     *
     * @return DeviceHealthScript
     */
@@ -545,22 +566,29 @@ class DeviceHealthScript extends Entity
      * Gets the deviceRunStates
     * List of run states for the device health script across all devices
      *
-     * @return array|null The deviceRunStates
+     * @return DeviceHealthScriptDeviceState[]|null The deviceRunStates
      */
     public function getDeviceRunStates()
     {
-        if (array_key_exists("deviceRunStates", $this->_propDict)) {
-           return $this->_propDict["deviceRunStates"];
-        } else {
-            return null;
+        if (array_key_exists('deviceRunStates', $this->_propDict) && !is_null($this->_propDict['deviceRunStates'])) {
+            $deviceRunStates = [];
+            if (count($this->_propDict['deviceRunStates']) > 0 && is_a($this->_propDict['deviceRunStates'][0], 'DeviceHealthScriptDeviceState')) {
+                return $this->_propDict['deviceRunStates'];
+            }
+            foreach ($this->_propDict['deviceRunStates'] as $singleValue) {
+                $deviceRunStates []= new DeviceHealthScriptDeviceState($singleValue);
+            }
+            $this->_propDict['deviceRunStates'] = $deviceRunStates;
+            return $this->_propDict['deviceRunStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the deviceRunStates
     * List of run states for the device health script across all devices
     *
-    * @param DeviceHealthScriptDeviceState $val The deviceRunStates
+    * @param DeviceHealthScriptDeviceState[] $val The deviceRunStates
     *
     * @return DeviceHealthScript
     */
@@ -578,8 +606,8 @@ class DeviceHealthScript extends Entity
     */
     public function getRunSummary()
     {
-        if (array_key_exists("runSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["runSummary"], "\Beta\Microsoft\Graph\Model\DeviceHealthScriptRunSummary") || is_null($this->_propDict["runSummary"])) {
+        if (array_key_exists("runSummary", $this->_propDict) && !is_null($this->_propDict["runSummary"])) {
+            if (is_a($this->_propDict["runSummary"], "\Beta\Microsoft\Graph\Model\DeviceHealthScriptRunSummary")) {
                 return $this->_propDict["runSummary"];
             } else {
                 $this->_propDict["runSummary"] = new DeviceHealthScriptRunSummary($this->_propDict["runSummary"]);

@@ -25,7 +25,7 @@ class IncomingContext extends Entity
 {
     /**
     * Gets the observedParticipantId
-    * The id of the participant that is under observation. Read-only.
+    * The ID of the participant that is under observation. Read-only.
     *
     * @return string|null The observedParticipantId
     */
@@ -40,7 +40,7 @@ class IncomingContext extends Entity
 
     /**
     * Sets the observedParticipantId
-    * The id of the participant that is under observation. Read-only.
+    * The ID of the participant that is under observation. Read-only.
     *
     * @param string $val The value of the observedParticipantId
     *
@@ -60,8 +60,9 @@ class IncomingContext extends Entity
     */
     public function getOnBehalfOf()
     {
-        if (array_key_exists("onBehalfOf", $this->_propDict)) {
-            if (is_a($this->_propDict["onBehalfOf"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["onBehalfOf"])) {
+        if (array_key_exists("onBehalfOf", $this->_propDict) && !is_null($this->_propDict["onBehalfOf"])) {
+     
+            if (is_a($this->_propDict["onBehalfOf"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["onBehalfOf"];
             } else {
                 $this->_propDict["onBehalfOf"] = new IdentitySet($this->_propDict["onBehalfOf"]);
@@ -86,7 +87,7 @@ class IncomingContext extends Entity
     }
     /**
     * Gets the sourceParticipantId
-    * The id of the participant that triggered the incoming call. Read-only.
+    * The ID of the participant that triggered the incoming call. Read-only.
     *
     * @return string|null The sourceParticipantId
     */
@@ -101,7 +102,7 @@ class IncomingContext extends Entity
 
     /**
     * Sets the sourceParticipantId
-    * The id of the participant that triggered the incoming call. Read-only.
+    * The ID of the participant that triggered the incoming call. Read-only.
     *
     * @param string $val The value of the sourceParticipantId
     *
@@ -121,8 +122,9 @@ class IncomingContext extends Entity
     */
     public function getTransferor()
     {
-        if (array_key_exists("transferor", $this->_propDict)) {
-            if (is_a($this->_propDict["transferor"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["transferor"])) {
+        if (array_key_exists("transferor", $this->_propDict) && !is_null($this->_propDict["transferor"])) {
+     
+            if (is_a($this->_propDict["transferor"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["transferor"];
             } else {
                 $this->_propDict["transferor"] = new IdentitySet($this->_propDict["transferor"]);

@@ -112,6 +112,39 @@ class UserExperienceAnalyticsDeviceScores extends Entity
     }
     
     /**
+    * Gets the healthStatus
+    * The health state of the user experience analytics device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+    *
+    * @return UserExperienceAnalyticsHealthState|null The healthStatus
+    */
+    public function getHealthStatus()
+    {
+        if (array_key_exists("healthStatus", $this->_propDict) && !is_null($this->_propDict["healthStatus"])) {
+            if (is_a($this->_propDict["healthStatus"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsHealthState")) {
+                return $this->_propDict["healthStatus"];
+            } else {
+                $this->_propDict["healthStatus"] = new UserExperienceAnalyticsHealthState($this->_propDict["healthStatus"]);
+                return $this->_propDict["healthStatus"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the healthStatus
+    * The health state of the user experience analytics device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+    *
+    * @param UserExperienceAnalyticsHealthState $val The healthStatus
+    *
+    * @return UserExperienceAnalyticsDeviceScores
+    */
+    public function setHealthStatus($val)
+    {
+        $this->_propDict["healthStatus"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the manufacturer
     * The user experience analytics device manufacturer.
     *
@@ -195,6 +228,35 @@ class UserExperienceAnalyticsDeviceScores extends Entity
     public function setStartupPerformanceScore($val)
     {
         $this->_propDict["startupPerformanceScore"] = floatval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the workFromAnywhereScore
+    * The user experience analytics device work From anywhere score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+    *
+    * @return float|null The workFromAnywhereScore
+    */
+    public function getWorkFromAnywhereScore()
+    {
+        if (array_key_exists("workFromAnywhereScore", $this->_propDict)) {
+            return $this->_propDict["workFromAnywhereScore"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the workFromAnywhereScore
+    * The user experience analytics device work From anywhere score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+    *
+    * @param float $val The workFromAnywhereScore
+    *
+    * @return UserExperienceAnalyticsDeviceScores
+    */
+    public function setWorkFromAnywhereScore($val)
+    {
+        $this->_propDict["workFromAnywhereScore"] = floatval($val);
         return $this;
     }
     

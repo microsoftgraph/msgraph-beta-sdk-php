@@ -25,6 +25,7 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the actionId
+    * The unique identifier for the workload action. Required. Read-only.
     *
     * @return string|null The actionId
     */
@@ -39,6 +40,7 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the actionId
+    * The unique identifier for the workload action. Required. Read-only.
     *
     * @param string $val The value of the actionId
     *
@@ -52,13 +54,15 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the category
+    * The category for the workload action. Possible values are: automated, manual, unknownFutureValue. Optional. Read-only.
     *
     * @return WorkloadActionCategory|null The category
     */
     public function getCategory()
     {
-        if (array_key_exists("category", $this->_propDict)) {
-            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadActionCategory") || is_null($this->_propDict["category"])) {
+        if (array_key_exists("category", $this->_propDict) && !is_null($this->_propDict["category"])) {
+     
+            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadActionCategory")) {
                 return $this->_propDict["category"];
             } else {
                 $this->_propDict["category"] = new WorkloadActionCategory($this->_propDict["category"]);
@@ -70,6 +74,7 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the category
+    * The category for the workload action. Possible values are: automated, manual, unknownFutureValue. Optional. Read-only.
     *
     * @param WorkloadActionCategory $val The value to assign to the category
     *
@@ -82,6 +87,7 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the description
+    * The description for the workload action. Optional. Read-only.
     *
     * @return string|null The description
     */
@@ -96,6 +102,7 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the description
+    * The description for the workload action. Optional. Read-only.
     *
     * @param string $val The value of the description
     *
@@ -108,6 +115,7 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the displayName
+    * The display name for the workload action. Optional. Read-only.
     *
     * @return string|null The displayName
     */
@@ -122,6 +130,7 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the displayName
+    * The display name for the workload action. Optional. Read-only.
     *
     * @param string $val The value of the displayName
     *
@@ -134,6 +143,7 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the service
+    * The service associated with workload action. Optional. Read-only.
     *
     * @return string|null The service
     */
@@ -148,6 +158,7 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the service
+    * The service associated with workload action. Optional. Read-only.
     *
     * @param string $val The value of the service
     *
@@ -161,26 +172,32 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the settings
+    * The collection of settings associated with the workload action. Optional. Read-only.
     *
-    * @return Setting|null The settings
+    * @return Setting[]|null The settings
     */
     public function getSettings()
     {
-        if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\ManagedTenants\Model\Setting") || is_null($this->_propDict["settings"])) {
-                return $this->_propDict["settings"];
-            } else {
-                $this->_propDict["settings"] = new Setting($this->_propDict["settings"]);
-                return $this->_propDict["settings"];
+        if (array_key_exists("settings", $this->_propDict) && !is_null($this->_propDict["settings"])) {
+       
+            if (count($this->_propDict['settings']) > 0 && is_a($this->_propDict['settings'][0], 'Setting')) {
+               return $this->_propDict['settings'];
             }
-        }
+            $settings = [];
+            foreach ($this->_propDict['settings'] as $singleValue) {
+               $settings []= new Setting($singleValue);
+            }
+            $this->_propDict['settings'] = $settings;
+            return $this->_propDict['settings'];
+            }
         return null;
     }
 
     /**
     * Sets the settings
+    * The collection of settings associated with the workload action. Optional. Read-only.
     *
-    * @param Setting $val The value to assign to the settings
+    * @param Setting[] $val The value to assign to the settings
     *
     * @return WorkloadAction The WorkloadAction
     */

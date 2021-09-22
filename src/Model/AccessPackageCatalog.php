@@ -119,8 +119,8 @@ class AccessPackageCatalog extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -268,8 +268,8 @@ class AccessPackageCatalog extends Entity
     */
     public function getModifiedDateTime()
     {
-        if (array_key_exists("modifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
+        if (array_key_exists("modifiedDateTime", $this->_propDict) && !is_null($this->_propDict["modifiedDateTime"])) {
+            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["modifiedDateTime"];
             } else {
                 $this->_propDict["modifiedDateTime"] = new \DateTime($this->_propDict["modifiedDateTime"]);
@@ -297,21 +297,28 @@ class AccessPackageCatalog extends Entity
      /** 
      * Gets the accessPackageResourceRoles
      *
-     * @return array|null The accessPackageResourceRoles
+     * @return AccessPackageResourceRole[]|null The accessPackageResourceRoles
      */
     public function getAccessPackageResourceRoles()
     {
-        if (array_key_exists("accessPackageResourceRoles", $this->_propDict)) {
-           return $this->_propDict["accessPackageResourceRoles"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackageResourceRoles', $this->_propDict) && !is_null($this->_propDict['accessPackageResourceRoles'])) {
+            $accessPackageResourceRoles = [];
+            if (count($this->_propDict['accessPackageResourceRoles']) > 0 && is_a($this->_propDict['accessPackageResourceRoles'][0], 'AccessPackageResourceRole')) {
+                return $this->_propDict['accessPackageResourceRoles'];
+            }
+            foreach ($this->_propDict['accessPackageResourceRoles'] as $singleValue) {
+                $accessPackageResourceRoles []= new AccessPackageResourceRole($singleValue);
+            }
+            $this->_propDict['accessPackageResourceRoles'] = $accessPackageResourceRoles;
+            return $this->_propDict['accessPackageResourceRoles'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackageResourceRoles
     *
-    * @param AccessPackageResourceRole $val The accessPackageResourceRoles
+    * @param AccessPackageResourceRole[] $val The accessPackageResourceRoles
     *
     * @return AccessPackageCatalog
     */
@@ -326,22 +333,29 @@ class AccessPackageCatalog extends Entity
      * Gets the accessPackageResources
     * Read-only. Nullable.
      *
-     * @return array|null The accessPackageResources
+     * @return AccessPackageResource[]|null The accessPackageResources
      */
     public function getAccessPackageResources()
     {
-        if (array_key_exists("accessPackageResources", $this->_propDict)) {
-           return $this->_propDict["accessPackageResources"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackageResources', $this->_propDict) && !is_null($this->_propDict['accessPackageResources'])) {
+            $accessPackageResources = [];
+            if (count($this->_propDict['accessPackageResources']) > 0 && is_a($this->_propDict['accessPackageResources'][0], 'AccessPackageResource')) {
+                return $this->_propDict['accessPackageResources'];
+            }
+            foreach ($this->_propDict['accessPackageResources'] as $singleValue) {
+                $accessPackageResources []= new AccessPackageResource($singleValue);
+            }
+            $this->_propDict['accessPackageResources'] = $accessPackageResources;
+            return $this->_propDict['accessPackageResources'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackageResources
     * Read-only. Nullable.
     *
-    * @param AccessPackageResource $val The accessPackageResources
+    * @param AccessPackageResource[] $val The accessPackageResources
     *
     * @return AccessPackageCatalog
     */
@@ -355,21 +369,28 @@ class AccessPackageCatalog extends Entity
      /** 
      * Gets the accessPackageResourceScopes
      *
-     * @return array|null The accessPackageResourceScopes
+     * @return AccessPackageResourceScope[]|null The accessPackageResourceScopes
      */
     public function getAccessPackageResourceScopes()
     {
-        if (array_key_exists("accessPackageResourceScopes", $this->_propDict)) {
-           return $this->_propDict["accessPackageResourceScopes"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackageResourceScopes', $this->_propDict) && !is_null($this->_propDict['accessPackageResourceScopes'])) {
+            $accessPackageResourceScopes = [];
+            if (count($this->_propDict['accessPackageResourceScopes']) > 0 && is_a($this->_propDict['accessPackageResourceScopes'][0], 'AccessPackageResourceScope')) {
+                return $this->_propDict['accessPackageResourceScopes'];
+            }
+            foreach ($this->_propDict['accessPackageResourceScopes'] as $singleValue) {
+                $accessPackageResourceScopes []= new AccessPackageResourceScope($singleValue);
+            }
+            $this->_propDict['accessPackageResourceScopes'] = $accessPackageResourceScopes;
+            return $this->_propDict['accessPackageResourceScopes'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackageResourceScopes
     *
-    * @param AccessPackageResourceScope $val The accessPackageResourceScopes
+    * @param AccessPackageResourceScope[] $val The accessPackageResourceScopes
     *
     * @return AccessPackageCatalog
     */
@@ -384,22 +405,29 @@ class AccessPackageCatalog extends Entity
      * Gets the accessPackages
     * The access packages in this catalog. Read-only. Nullable.
      *
-     * @return array|null The accessPackages
+     * @return AccessPackage[]|null The accessPackages
      */
     public function getAccessPackages()
     {
-        if (array_key_exists("accessPackages", $this->_propDict)) {
-           return $this->_propDict["accessPackages"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackages', $this->_propDict) && !is_null($this->_propDict['accessPackages'])) {
+            $accessPackages = [];
+            if (count($this->_propDict['accessPackages']) > 0 && is_a($this->_propDict['accessPackages'][0], 'AccessPackage')) {
+                return $this->_propDict['accessPackages'];
+            }
+            foreach ($this->_propDict['accessPackages'] as $singleValue) {
+                $accessPackages []= new AccessPackage($singleValue);
+            }
+            $this->_propDict['accessPackages'] = $accessPackages;
+            return $this->_propDict['accessPackages'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackages
     * The access packages in this catalog. Read-only. Nullable.
     *
-    * @param AccessPackage $val The accessPackages
+    * @param AccessPackage[] $val The accessPackages
     *
     * @return AccessPackageCatalog
     */

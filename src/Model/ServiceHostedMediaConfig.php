@@ -26,9 +26,11 @@ class ServiceHostedMediaConfig extends MediaConfig
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.serviceHostedMediaConfig");
     }
 
@@ -37,18 +39,22 @@ class ServiceHostedMediaConfig extends MediaConfig
     * Gets the preFetchMedia
     * The list of media to pre-fetch.
     *
-    * @return MediaInfo|null The preFetchMedia
+    * @return MediaInfo[]|null The preFetchMedia
     */
     public function getPreFetchMedia()
     {
-        if (array_key_exists("preFetchMedia", $this->_propDict)) {
-            if (is_a($this->_propDict["preFetchMedia"], "\Beta\Microsoft\Graph\Model\MediaInfo") || is_null($this->_propDict["preFetchMedia"])) {
-                return $this->_propDict["preFetchMedia"];
-            } else {
-                $this->_propDict["preFetchMedia"] = new MediaInfo($this->_propDict["preFetchMedia"]);
-                return $this->_propDict["preFetchMedia"];
+        if (array_key_exists("preFetchMedia", $this->_propDict) && !is_null($this->_propDict["preFetchMedia"])) {
+       
+            if (count($this->_propDict['preFetchMedia']) > 0 && is_a($this->_propDict['preFetchMedia'][0], 'MediaInfo')) {
+               return $this->_propDict['preFetchMedia'];
             }
-        }
+            $preFetchMedia = [];
+            foreach ($this->_propDict['preFetchMedia'] as $singleValue) {
+               $preFetchMedia []= new MediaInfo($singleValue);
+            }
+            $this->_propDict['preFetchMedia'] = $preFetchMedia;
+            return $this->_propDict['preFetchMedia'];
+            }
         return null;
     }
 
@@ -56,7 +62,7 @@ class ServiceHostedMediaConfig extends MediaConfig
     * Sets the preFetchMedia
     * The list of media to pre-fetch.
     *
-    * @param MediaInfo $val The value to assign to the preFetchMedia
+    * @param MediaInfo[] $val The value to assign to the preFetchMedia
     *
     * @return ServiceHostedMediaConfig The ServiceHostedMediaConfig
     */

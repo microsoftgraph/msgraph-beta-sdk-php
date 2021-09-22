@@ -32,8 +32,8 @@ class SiteSource extends DataSource
     */
     public function getSite()
     {
-        if (array_key_exists("site", $this->_propDict)) {
-            if (is_a($this->_propDict["site"], "\Beta\Microsoft\Graph\Model\Site") || is_null($this->_propDict["site"])) {
+        if (array_key_exists("site", $this->_propDict) && !is_null($this->_propDict["site"])) {
+            if (is_a($this->_propDict["site"], "\Beta\Microsoft\Graph\Model\Site")) {
                 return $this->_propDict["site"];
             } else {
                 $this->_propDict["site"] = new \Beta\Microsoft\Graph\Model\Site($this->_propDict["site"]);

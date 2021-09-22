@@ -82,18 +82,22 @@ class PrintJobStatus extends Entity
     * Gets the details
     * Additional details for print job state. Valid values are described in the following table. Read-only.
     *
-    * @return PrintJobStateDetail|null The details
+    * @return PrintJobStateDetail[]|null The details
     */
     public function getDetails()
     {
-        if (array_key_exists("details", $this->_propDict)) {
-            if (is_a($this->_propDict["details"], "\Beta\Microsoft\Graph\Model\PrintJobStateDetail") || is_null($this->_propDict["details"])) {
-                return $this->_propDict["details"];
-            } else {
-                $this->_propDict["details"] = new PrintJobStateDetail($this->_propDict["details"]);
-                return $this->_propDict["details"];
+        if (array_key_exists("details", $this->_propDict) && !is_null($this->_propDict["details"])) {
+       
+            if (count($this->_propDict['details']) > 0 && is_a($this->_propDict['details'][0], 'PrintJobStateDetail')) {
+               return $this->_propDict['details'];
             }
-        }
+            $details = [];
+            foreach ($this->_propDict['details'] as $singleValue) {
+               $details []= new PrintJobStateDetail($singleValue);
+            }
+            $this->_propDict['details'] = $details;
+            return $this->_propDict['details'];
+            }
         return null;
     }
 
@@ -101,7 +105,7 @@ class PrintJobStatus extends Entity
     * Sets the details
     * Additional details for print job state. Valid values are described in the following table. Read-only.
     *
-    * @param PrintJobStateDetail $val The value to assign to the details
+    * @param PrintJobStateDetail[] $val The value to assign to the details
     *
     * @return PrintJobStatus The PrintJobStatus
     */
@@ -146,8 +150,9 @@ class PrintJobStatus extends Entity
     */
     public function getProcessingState()
     {
-        if (array_key_exists("processingState", $this->_propDict)) {
-            if (is_a($this->_propDict["processingState"], "\Beta\Microsoft\Graph\Model\PrintJobProcessingState") || is_null($this->_propDict["processingState"])) {
+        if (array_key_exists("processingState", $this->_propDict) && !is_null($this->_propDict["processingState"])) {
+     
+            if (is_a($this->_propDict["processingState"], "\Beta\Microsoft\Graph\Model\PrintJobProcessingState")) {
                 return $this->_propDict["processingState"];
             } else {
                 $this->_propDict["processingState"] = new PrintJobProcessingState($this->_propDict["processingState"]);
@@ -204,8 +209,9 @@ class PrintJobStatus extends Entity
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\PrintJobProcessingState") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+     
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\PrintJobProcessingState")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new PrintJobProcessingState($this->_propDict["state"]);

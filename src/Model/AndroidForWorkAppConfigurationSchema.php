@@ -32,11 +32,11 @@ class AndroidForWorkAppConfigurationSchema extends Entity
     */
     public function getExampleJson()
     {
-        if (array_key_exists("exampleJson", $this->_propDict)) {
-            if (is_a($this->_propDict["exampleJson"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["exampleJson"])) {
+        if (array_key_exists("exampleJson", $this->_propDict) && !is_null($this->_propDict["exampleJson"])) {
+            if (is_a($this->_propDict["exampleJson"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["exampleJson"];
             } else {
-                $this->_propDict["exampleJson"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["exampleJson"]);
+                $this->_propDict["exampleJson"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["exampleJson"]);
                 return $this->_propDict["exampleJson"];
             }
         }
@@ -62,22 +62,29 @@ class AndroidForWorkAppConfigurationSchema extends Entity
      * Gets the schemaItems
     * Collection of items each representing a named configuration option in the schema
      *
-     * @return array|null The schemaItems
+     * @return AndroidForWorkAppConfigurationSchemaItem[]|null The schemaItems
      */
     public function getSchemaItems()
     {
-        if (array_key_exists("schemaItems", $this->_propDict)) {
-           return $this->_propDict["schemaItems"];
-        } else {
-            return null;
+        if (array_key_exists('schemaItems', $this->_propDict) && !is_null($this->_propDict['schemaItems'])) {
+            $schemaItems = [];
+            if (count($this->_propDict['schemaItems']) > 0 && is_a($this->_propDict['schemaItems'][0], 'AndroidForWorkAppConfigurationSchemaItem')) {
+                return $this->_propDict['schemaItems'];
+            }
+            foreach ($this->_propDict['schemaItems'] as $singleValue) {
+                $schemaItems []= new AndroidForWorkAppConfigurationSchemaItem($singleValue);
+            }
+            $this->_propDict['schemaItems'] = $schemaItems;
+            return $this->_propDict['schemaItems'];
         }
+        return null;
     }
     
     /** 
     * Sets the schemaItems
     * Collection of items each representing a named configuration option in the schema
     *
-    * @param AndroidForWorkAppConfigurationSchemaItem $val The schemaItems
+    * @param AndroidForWorkAppConfigurationSchemaItem[] $val The schemaItems
     *
     * @return AndroidForWorkAppConfigurationSchema
     */

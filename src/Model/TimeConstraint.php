@@ -26,14 +26,15 @@ class TimeConstraint extends Entity
 
     /**
     * Gets the activityDomain
-    * The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
+    * The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
     *
     * @return ActivityDomain|null The activityDomain
     */
     public function getActivityDomain()
     {
-        if (array_key_exists("activityDomain", $this->_propDict)) {
-            if (is_a($this->_propDict["activityDomain"], "\Beta\Microsoft\Graph\Model\ActivityDomain") || is_null($this->_propDict["activityDomain"])) {
+        if (array_key_exists("activityDomain", $this->_propDict) && !is_null($this->_propDict["activityDomain"])) {
+     
+            if (is_a($this->_propDict["activityDomain"], "\Beta\Microsoft\Graph\Model\ActivityDomain")) {
                 return $this->_propDict["activityDomain"];
             } else {
                 $this->_propDict["activityDomain"] = new ActivityDomain($this->_propDict["activityDomain"]);
@@ -45,7 +46,7 @@ class TimeConstraint extends Entity
 
     /**
     * Sets the activityDomain
-    * The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
+    * The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
     *
     * @param ActivityDomain $val The value to assign to the activityDomain
     *
@@ -60,25 +61,29 @@ class TimeConstraint extends Entity
     /**
     * Gets the timeSlots
     *
-    * @return TimeSlot|null The timeSlots
+    * @return TimeSlot[]|null The timeSlots
     */
     public function getTimeSlots()
     {
-        if (array_key_exists("timeSlots", $this->_propDict)) {
-            if (is_a($this->_propDict["timeSlots"], "\Beta\Microsoft\Graph\Model\TimeSlot") || is_null($this->_propDict["timeSlots"])) {
-                return $this->_propDict["timeSlots"];
-            } else {
-                $this->_propDict["timeSlots"] = new TimeSlot($this->_propDict["timeSlots"]);
-                return $this->_propDict["timeSlots"];
+        if (array_key_exists("timeSlots", $this->_propDict) && !is_null($this->_propDict["timeSlots"])) {
+       
+            if (count($this->_propDict['timeSlots']) > 0 && is_a($this->_propDict['timeSlots'][0], 'TimeSlot')) {
+               return $this->_propDict['timeSlots'];
             }
-        }
+            $timeSlots = [];
+            foreach ($this->_propDict['timeSlots'] as $singleValue) {
+               $timeSlots []= new TimeSlot($singleValue);
+            }
+            $this->_propDict['timeSlots'] = $timeSlots;
+            return $this->_propDict['timeSlots'];
+            }
         return null;
     }
 
     /**
     * Sets the timeSlots
     *
-    * @param TimeSlot $val The value to assign to the timeSlots
+    * @param TimeSlot[] $val The value to assign to the timeSlots
     *
     * @return TimeConstraint The TimeConstraint
     */

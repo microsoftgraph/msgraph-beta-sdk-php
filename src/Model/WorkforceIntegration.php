@@ -89,8 +89,8 @@ class WorkforceIntegration extends ChangeTrackedEntity
     */
     public function getEligibilityFilteringEnabledEntities()
     {
-        if (array_key_exists("eligibilityFilteringEnabledEntities", $this->_propDict)) {
-            if (is_a($this->_propDict["eligibilityFilteringEnabledEntities"], "\Beta\Microsoft\Graph\Model\EligibilityFilteringEnabledEntities") || is_null($this->_propDict["eligibilityFilteringEnabledEntities"])) {
+        if (array_key_exists("eligibilityFilteringEnabledEntities", $this->_propDict) && !is_null($this->_propDict["eligibilityFilteringEnabledEntities"])) {
+            if (is_a($this->_propDict["eligibilityFilteringEnabledEntities"], "\Beta\Microsoft\Graph\Model\EligibilityFilteringEnabledEntities")) {
                 return $this->_propDict["eligibilityFilteringEnabledEntities"];
             } else {
                 $this->_propDict["eligibilityFilteringEnabledEntities"] = new EligibilityFilteringEnabledEntities($this->_propDict["eligibilityFilteringEnabledEntities"]);
@@ -121,8 +121,8 @@ class WorkforceIntegration extends ChangeTrackedEntity
     */
     public function getEncryption()
     {
-        if (array_key_exists("encryption", $this->_propDict)) {
-            if (is_a($this->_propDict["encryption"], "\Beta\Microsoft\Graph\Model\WorkforceIntegrationEncryption") || is_null($this->_propDict["encryption"])) {
+        if (array_key_exists("encryption", $this->_propDict) && !is_null($this->_propDict["encryption"])) {
+            if (is_a($this->_propDict["encryption"], "\Beta\Microsoft\Graph\Model\WorkforceIntegrationEncryption")) {
                 return $this->_propDict["encryption"];
             } else {
                 $this->_propDict["encryption"] = new WorkforceIntegrationEncryption($this->_propDict["encryption"]);
@@ -177,14 +177,14 @@ class WorkforceIntegration extends ChangeTrackedEntity
     
     /**
     * Gets the supportedEntities
-    * This property will replace supports in v1.0. We recommend that you use this property instead of supports. The supports property will still be supported in beta for the time being. Possible values are none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, timeCard, timeOffReason, timeOff, timeOffRequest and unknownFutureValue. If selecting more than one value, all values must start with the first letter in uppercase.
+    * The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. Possible values are: none, shift, swapRequest, userShiftPreferences, openshift, openShiftRequest, offerShiftRequest, unknownFutureValue.
     *
     * @return WorkforceIntegrationSupportedEntities|null The supportedEntities
     */
     public function getSupportedEntities()
     {
-        if (array_key_exists("supportedEntities", $this->_propDict)) {
-            if (is_a($this->_propDict["supportedEntities"], "\Beta\Microsoft\Graph\Model\WorkforceIntegrationSupportedEntities") || is_null($this->_propDict["supportedEntities"])) {
+        if (array_key_exists("supportedEntities", $this->_propDict) && !is_null($this->_propDict["supportedEntities"])) {
+            if (is_a($this->_propDict["supportedEntities"], "\Beta\Microsoft\Graph\Model\WorkforceIntegrationSupportedEntities")) {
                 return $this->_propDict["supportedEntities"];
             } else {
                 $this->_propDict["supportedEntities"] = new WorkforceIntegrationSupportedEntities($this->_propDict["supportedEntities"]);
@@ -196,7 +196,7 @@ class WorkforceIntegration extends ChangeTrackedEntity
     
     /**
     * Sets the supportedEntities
-    * This property will replace supports in v1.0. We recommend that you use this property instead of supports. The supports property will still be supported in beta for the time being. Possible values are none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, timeCard, timeOffReason, timeOff, timeOffRequest and unknownFutureValue. If selecting more than one value, all values must start with the first letter in uppercase.
+    * The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. Possible values are: none, shift, swapRequest, userShiftPreferences, openshift, openShiftRequest, offerShiftRequest, unknownFutureValue.
     *
     * @param WorkforceIntegrationSupportedEntities $val The supportedEntities
     *
@@ -210,14 +210,14 @@ class WorkforceIntegration extends ChangeTrackedEntity
     
     /**
     * Gets the supports
-    * The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. Possible values are none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, timeCard, timeOffReason, timeOff, timeOffRequest and unknownFutureValue. If selecting more than one value, all values must start with the first letter in uppercase.
+    * The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
     *
     * @return WorkforceIntegrationSupportedEntities|null The supports
     */
     public function getSupports()
     {
-        if (array_key_exists("supports", $this->_propDict)) {
-            if (is_a($this->_propDict["supports"], "\Beta\Microsoft\Graph\Model\WorkforceIntegrationSupportedEntities") || is_null($this->_propDict["supports"])) {
+        if (array_key_exists("supports", $this->_propDict) && !is_null($this->_propDict["supports"])) {
+            if (is_a($this->_propDict["supports"], "\Beta\Microsoft\Graph\Model\WorkforceIntegrationSupportedEntities")) {
                 return $this->_propDict["supports"];
             } else {
                 $this->_propDict["supports"] = new WorkforceIntegrationSupportedEntities($this->_propDict["supports"]);
@@ -229,7 +229,7 @@ class WorkforceIntegration extends ChangeTrackedEntity
     
     /**
     * Sets the supports
-    * The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. Possible values are none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, timeCard, timeOffReason, timeOff, timeOffRequest and unknownFutureValue. If selecting more than one value, all values must start with the first letter in uppercase.
+    * The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
     *
     * @param WorkforceIntegrationSupportedEntities $val The supports
     *

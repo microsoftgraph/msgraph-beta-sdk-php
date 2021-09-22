@@ -28,18 +28,22 @@ class ObjectMapping extends Entity
     * Gets the attributeMappings
     * Attribute mappings define which attributes to map from the source object into the target object and how they should flow. A number of functions are available to support the transformation of the original source values.
     *
-    * @return AttributeMapping|null The attributeMappings
+    * @return AttributeMapping[]|null The attributeMappings
     */
     public function getAttributeMappings()
     {
-        if (array_key_exists("attributeMappings", $this->_propDict)) {
-            if (is_a($this->_propDict["attributeMappings"], "\Beta\Microsoft\Graph\Model\AttributeMapping") || is_null($this->_propDict["attributeMappings"])) {
-                return $this->_propDict["attributeMappings"];
-            } else {
-                $this->_propDict["attributeMappings"] = new AttributeMapping($this->_propDict["attributeMappings"]);
-                return $this->_propDict["attributeMappings"];
+        if (array_key_exists("attributeMappings", $this->_propDict) && !is_null($this->_propDict["attributeMappings"])) {
+       
+            if (count($this->_propDict['attributeMappings']) > 0 && is_a($this->_propDict['attributeMappings'][0], 'AttributeMapping')) {
+               return $this->_propDict['attributeMappings'];
             }
-        }
+            $attributeMappings = [];
+            foreach ($this->_propDict['attributeMappings'] as $singleValue) {
+               $attributeMappings []= new AttributeMapping($singleValue);
+            }
+            $this->_propDict['attributeMappings'] = $attributeMappings;
+            return $this->_propDict['attributeMappings'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class ObjectMapping extends Entity
     * Sets the attributeMappings
     * Attribute mappings define which attributes to map from the source object into the target object and how they should flow. A number of functions are available to support the transformation of the original source values.
     *
-    * @param AttributeMapping $val The value to assign to the attributeMappings
+    * @param AttributeMapping[] $val The value to assign to the attributeMappings
     *
     * @return ObjectMapping The ObjectMapping
     */
@@ -93,8 +97,9 @@ class ObjectMapping extends Entity
     */
     public function getFlowTypes()
     {
-        if (array_key_exists("flowTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["flowTypes"], "\Beta\Microsoft\Graph\Model\ObjectFlowTypes") || is_null($this->_propDict["flowTypes"])) {
+        if (array_key_exists("flowTypes", $this->_propDict) && !is_null($this->_propDict["flowTypes"])) {
+     
+            if (is_a($this->_propDict["flowTypes"], "\Beta\Microsoft\Graph\Model\ObjectFlowTypes")) {
                 return $this->_propDict["flowTypes"];
             } else {
                 $this->_propDict["flowTypes"] = new ObjectFlowTypes($this->_propDict["flowTypes"]);
@@ -122,18 +127,22 @@ class ObjectMapping extends Entity
     * Gets the metadata
     * Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
     *
-    * @return MetadataEntry|null The metadata
+    * @return MetadataEntry[]|null The metadata
     */
     public function getMetadata()
     {
-        if (array_key_exists("metadata", $this->_propDict)) {
-            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\MetadataEntry") || is_null($this->_propDict["metadata"])) {
-                return $this->_propDict["metadata"];
-            } else {
-                $this->_propDict["metadata"] = new MetadataEntry($this->_propDict["metadata"]);
-                return $this->_propDict["metadata"];
+        if (array_key_exists("metadata", $this->_propDict) && !is_null($this->_propDict["metadata"])) {
+       
+            if (count($this->_propDict['metadata']) > 0 && is_a($this->_propDict['metadata'][0], 'MetadataEntry')) {
+               return $this->_propDict['metadata'];
             }
-        }
+            $metadata = [];
+            foreach ($this->_propDict['metadata'] as $singleValue) {
+               $metadata []= new MetadataEntry($singleValue);
+            }
+            $this->_propDict['metadata'] = $metadata;
+            return $this->_propDict['metadata'];
+            }
         return null;
     }
 
@@ -141,7 +150,7 @@ class ObjectMapping extends Entity
     * Sets the metadata
     * Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
     *
-    * @param MetadataEntry $val The value to assign to the metadata
+    * @param MetadataEntry[] $val The value to assign to the metadata
     *
     * @return ObjectMapping The ObjectMapping
     */
@@ -187,8 +196,9 @@ class ObjectMapping extends Entity
     */
     public function getScope()
     {
-        if (array_key_exists("scope", $this->_propDict)) {
-            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\Filter") || is_null($this->_propDict["scope"])) {
+        if (array_key_exists("scope", $this->_propDict) && !is_null($this->_propDict["scope"])) {
+     
+            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\Filter")) {
                 return $this->_propDict["scope"];
             } else {
                 $this->_propDict["scope"] = new Filter($this->_propDict["scope"]);

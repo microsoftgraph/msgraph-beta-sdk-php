@@ -27,24 +27,31 @@ class ChatMessage extends Entity
 
      /** 
      * Gets the attachments
-    * Attached files. Attachments are currently read-only – sending attachments is not supported.
+    * References to attached objects like files, tabs, meetings etc.
      *
-     * @return array|null The attachments
+     * @return ChatMessageAttachment[]|null The attachments
      */
     public function getAttachments()
     {
-        if (array_key_exists("attachments", $this->_propDict)) {
-           return $this->_propDict["attachments"];
-        } else {
-            return null;
+        if (array_key_exists('attachments', $this->_propDict) && !is_null($this->_propDict['attachments'])) {
+            $attachments = [];
+            if (count($this->_propDict['attachments']) > 0 && is_a($this->_propDict['attachments'][0], 'ChatMessageAttachment')) {
+                return $this->_propDict['attachments'];
+            }
+            foreach ($this->_propDict['attachments'] as $singleValue) {
+                $attachments []= new ChatMessageAttachment($singleValue);
+            }
+            $this->_propDict['attachments'] = $attachments;
+            return $this->_propDict['attachments'];
         }
+        return null;
     }
     
     /** 
     * Sets the attachments
-    * Attached files. Attachments are currently read-only – sending attachments is not supported.
+    * References to attached objects like files, tabs, meetings etc.
     *
-    * @param ChatMessageAttachment $val The attachments
+    * @param ChatMessageAttachment[] $val The attachments
     *
     * @return ChatMessage
     */
@@ -62,8 +69,8 @@ class ChatMessage extends Entity
     */
     public function getBody()
     {
-        if (array_key_exists("body", $this->_propDict)) {
-            if (is_a($this->_propDict["body"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["body"])) {
+        if (array_key_exists("body", $this->_propDict) && !is_null($this->_propDict["body"])) {
+            if (is_a($this->_propDict["body"], "\Beta\Microsoft\Graph\Model\ItemBody")) {
                 return $this->_propDict["body"];
             } else {
                 $this->_propDict["body"] = new ItemBody($this->_propDict["body"]);
@@ -95,8 +102,8 @@ class ChatMessage extends Entity
     */
     public function getChannelIdentity()
     {
-        if (array_key_exists("channelIdentity", $this->_propDict)) {
-            if (is_a($this->_propDict["channelIdentity"], "\Beta\Microsoft\Graph\Model\ChannelIdentity") || is_null($this->_propDict["channelIdentity"])) {
+        if (array_key_exists("channelIdentity", $this->_propDict) && !is_null($this->_propDict["channelIdentity"])) {
+            if (is_a($this->_propDict["channelIdentity"], "\Beta\Microsoft\Graph\Model\ChannelIdentity")) {
                 return $this->_propDict["channelIdentity"];
             } else {
                 $this->_propDict["channelIdentity"] = new ChannelIdentity($this->_propDict["channelIdentity"]);
@@ -157,8 +164,8 @@ class ChatMessage extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -190,8 +197,8 @@ class ChatMessage extends Entity
     */
     public function getDeletedDateTime()
     {
-        if (array_key_exists("deletedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["deletedDateTime"], "\DateTime") || is_null($this->_propDict["deletedDateTime"])) {
+        if (array_key_exists("deletedDateTime", $this->_propDict) && !is_null($this->_propDict["deletedDateTime"])) {
+            if (is_a($this->_propDict["deletedDateTime"], "\DateTime")) {
                 return $this->_propDict["deletedDateTime"];
             } else {
                 $this->_propDict["deletedDateTime"] = new \DateTime($this->_propDict["deletedDateTime"]);
@@ -246,13 +253,14 @@ class ChatMessage extends Entity
     
     /**
     * Gets the eventDetail
+    * Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, members were added, and so on. For event messages, the messageType property will be set to systemEventMessage.
     *
     * @return EventMessageDetail|null The eventDetail
     */
     public function getEventDetail()
     {
-        if (array_key_exists("eventDetail", $this->_propDict)) {
-            if (is_a($this->_propDict["eventDetail"], "\Beta\Microsoft\Graph\Model\EventMessageDetail") || is_null($this->_propDict["eventDetail"])) {
+        if (array_key_exists("eventDetail", $this->_propDict) && !is_null($this->_propDict["eventDetail"])) {
+            if (is_a($this->_propDict["eventDetail"], "\Beta\Microsoft\Graph\Model\EventMessageDetail")) {
                 return $this->_propDict["eventDetail"];
             } else {
                 $this->_propDict["eventDetail"] = new EventMessageDetail($this->_propDict["eventDetail"]);
@@ -264,6 +272,7 @@ class ChatMessage extends Entity
     
     /**
     * Sets the eventDetail
+    * Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, members were added, and so on. For event messages, the messageType property will be set to systemEventMessage.
     *
     * @param EventMessageDetail $val The eventDetail
     *
@@ -277,17 +286,17 @@ class ChatMessage extends Entity
     
     /**
     * Gets the from
-    * Read only. Details of the sender of the chat message.
+    * Details of the sender of the chat message. Can only be set during migration.
     *
-    * @return IdentitySet|null The from
+    * @return ChatMessageFromIdentitySet|null The from
     */
     public function getFrom()
     {
-        if (array_key_exists("from", $this->_propDict)) {
-            if (is_a($this->_propDict["from"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["from"])) {
+        if (array_key_exists("from", $this->_propDict) && !is_null($this->_propDict["from"])) {
+            if (is_a($this->_propDict["from"], "\Beta\Microsoft\Graph\Model\ChatMessageFromIdentitySet")) {
                 return $this->_propDict["from"];
             } else {
-                $this->_propDict["from"] = new IdentitySet($this->_propDict["from"]);
+                $this->_propDict["from"] = new ChatMessageFromIdentitySet($this->_propDict["from"]);
                 return $this->_propDict["from"];
             }
         }
@@ -296,9 +305,9 @@ class ChatMessage extends Entity
     
     /**
     * Sets the from
-    * Read only. Details of the sender of the chat message.
+    * Details of the sender of the chat message. Can only be set during migration.
     *
-    * @param IdentitySet $val The from
+    * @param ChatMessageFromIdentitySet $val The from
     *
     * @return ChatMessage
     */
@@ -316,8 +325,8 @@ class ChatMessage extends Entity
     */
     public function getImportance()
     {
-        if (array_key_exists("importance", $this->_propDict)) {
-            if (is_a($this->_propDict["importance"], "\Beta\Microsoft\Graph\Model\ChatMessageImportance") || is_null($this->_propDict["importance"])) {
+        if (array_key_exists("importance", $this->_propDict) && !is_null($this->_propDict["importance"])) {
+            if (is_a($this->_propDict["importance"], "\Beta\Microsoft\Graph\Model\ChatMessageImportance")) {
                 return $this->_propDict["importance"];
             } else {
                 $this->_propDict["importance"] = new ChatMessageImportance($this->_propDict["importance"]);
@@ -349,8 +358,8 @@ class ChatMessage extends Entity
     */
     public function getLastEditedDateTime()
     {
-        if (array_key_exists("lastEditedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastEditedDateTime"], "\DateTime") || is_null($this->_propDict["lastEditedDateTime"])) {
+        if (array_key_exists("lastEditedDateTime", $this->_propDict) && !is_null($this->_propDict["lastEditedDateTime"])) {
+            if (is_a($this->_propDict["lastEditedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastEditedDateTime"];
             } else {
                 $this->_propDict["lastEditedDateTime"] = new \DateTime($this->_propDict["lastEditedDateTime"]);
@@ -382,8 +391,8 @@ class ChatMessage extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -439,24 +448,31 @@ class ChatMessage extends Entity
 
      /** 
      * Gets the mentions
-    * List of entities mentioned in the chat message. Currently supports user, bot, team, channel.
+    * List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel.
      *
-     * @return array|null The mentions
+     * @return ChatMessageMention[]|null The mentions
      */
     public function getMentions()
     {
-        if (array_key_exists("mentions", $this->_propDict)) {
-           return $this->_propDict["mentions"];
-        } else {
-            return null;
+        if (array_key_exists('mentions', $this->_propDict) && !is_null($this->_propDict['mentions'])) {
+            $mentions = [];
+            if (count($this->_propDict['mentions']) > 0 && is_a($this->_propDict['mentions'][0], 'ChatMessageMention')) {
+                return $this->_propDict['mentions'];
+            }
+            foreach ($this->_propDict['mentions'] as $singleValue) {
+                $mentions []= new ChatMessageMention($singleValue);
+            }
+            $this->_propDict['mentions'] = $mentions;
+            return $this->_propDict['mentions'];
         }
+        return null;
     }
     
     /** 
     * Sets the mentions
-    * List of entities mentioned in the chat message. Currently supports user, bot, team, channel.
+    * List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel.
     *
-    * @param ChatMessageMention $val The mentions
+    * @param ChatMessageMention[] $val The mentions
     *
     * @return ChatMessage
     */
@@ -468,14 +484,14 @@ class ChatMessage extends Entity
     
     /**
     * Gets the messageType
-    * The type of chat message. The possible value is: message.
+    * The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.
     *
     * @return ChatMessageType|null The messageType
     */
     public function getMessageType()
     {
-        if (array_key_exists("messageType", $this->_propDict)) {
-            if (is_a($this->_propDict["messageType"], "\Beta\Microsoft\Graph\Model\ChatMessageType") || is_null($this->_propDict["messageType"])) {
+        if (array_key_exists("messageType", $this->_propDict) && !is_null($this->_propDict["messageType"])) {
+            if (is_a($this->_propDict["messageType"], "\Beta\Microsoft\Graph\Model\ChatMessageType")) {
                 return $this->_propDict["messageType"];
             } else {
                 $this->_propDict["messageType"] = new ChatMessageType($this->_propDict["messageType"]);
@@ -487,7 +503,7 @@ class ChatMessage extends Entity
     
     /**
     * Sets the messageType
-    * The type of chat message. The possible value is: message.
+    * The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.
     *
     * @param ChatMessageType $val The messageType
     *
@@ -507,8 +523,8 @@ class ChatMessage extends Entity
     */
     public function getPolicyViolation()
     {
-        if (array_key_exists("policyViolation", $this->_propDict)) {
-            if (is_a($this->_propDict["policyViolation"], "\Beta\Microsoft\Graph\Model\ChatMessagePolicyViolation") || is_null($this->_propDict["policyViolation"])) {
+        if (array_key_exists("policyViolation", $this->_propDict) && !is_null($this->_propDict["policyViolation"])) {
+            if (is_a($this->_propDict["policyViolation"], "\Beta\Microsoft\Graph\Model\ChatMessagePolicyViolation")) {
                 return $this->_propDict["policyViolation"];
             } else {
                 $this->_propDict["policyViolation"] = new ChatMessagePolicyViolation($this->_propDict["policyViolation"]);
@@ -537,22 +553,29 @@ class ChatMessage extends Entity
      * Gets the reactions
     * Reactions for this chat message (for example, Like).
      *
-     * @return array|null The reactions
+     * @return ChatMessageReaction[]|null The reactions
      */
     public function getReactions()
     {
-        if (array_key_exists("reactions", $this->_propDict)) {
-           return $this->_propDict["reactions"];
-        } else {
-            return null;
+        if (array_key_exists('reactions', $this->_propDict) && !is_null($this->_propDict['reactions'])) {
+            $reactions = [];
+            if (count($this->_propDict['reactions']) > 0 && is_a($this->_propDict['reactions'][0], 'ChatMessageReaction')) {
+                return $this->_propDict['reactions'];
+            }
+            foreach ($this->_propDict['reactions'] as $singleValue) {
+                $reactions []= new ChatMessageReaction($singleValue);
+            }
+            $this->_propDict['reactions'] = $reactions;
+            return $this->_propDict['reactions'];
         }
+        return null;
     }
     
     /** 
     * Sets the reactions
     * Reactions for this chat message (for example, Like).
     *
-    * @param ChatMessageReaction $val The reactions
+    * @param ChatMessageReaction[] $val The reactions
     *
     * @return ChatMessage
     */
@@ -683,22 +706,29 @@ class ChatMessage extends Entity
      * Gets the hostedContents
     * Content in a message hosted by Microsoft Teams - for example, images or code snippets.
      *
-     * @return array|null The hostedContents
+     * @return ChatMessageHostedContent[]|null The hostedContents
      */
     public function getHostedContents()
     {
-        if (array_key_exists("hostedContents", $this->_propDict)) {
-           return $this->_propDict["hostedContents"];
-        } else {
-            return null;
+        if (array_key_exists('hostedContents', $this->_propDict) && !is_null($this->_propDict['hostedContents'])) {
+            $hostedContents = [];
+            if (count($this->_propDict['hostedContents']) > 0 && is_a($this->_propDict['hostedContents'][0], 'ChatMessageHostedContent')) {
+                return $this->_propDict['hostedContents'];
+            }
+            foreach ($this->_propDict['hostedContents'] as $singleValue) {
+                $hostedContents []= new ChatMessageHostedContent($singleValue);
+            }
+            $this->_propDict['hostedContents'] = $hostedContents;
+            return $this->_propDict['hostedContents'];
         }
+        return null;
     }
     
     /** 
     * Sets the hostedContents
     * Content in a message hosted by Microsoft Teams - for example, images or code snippets.
     *
-    * @param ChatMessageHostedContent $val The hostedContents
+    * @param ChatMessageHostedContent[] $val The hostedContents
     *
     * @return ChatMessage
     */
@@ -713,22 +743,29 @@ class ChatMessage extends Entity
      * Gets the replies
     * Replies for a specified message.
      *
-     * @return array|null The replies
+     * @return ChatMessage[]|null The replies
      */
     public function getReplies()
     {
-        if (array_key_exists("replies", $this->_propDict)) {
-           return $this->_propDict["replies"];
-        } else {
-            return null;
+        if (array_key_exists('replies', $this->_propDict) && !is_null($this->_propDict['replies'])) {
+            $replies = [];
+            if (count($this->_propDict['replies']) > 0 && is_a($this->_propDict['replies'][0], 'ChatMessage')) {
+                return $this->_propDict['replies'];
+            }
+            foreach ($this->_propDict['replies'] as $singleValue) {
+                $replies []= new ChatMessage($singleValue);
+            }
+            $this->_propDict['replies'] = $replies;
+            return $this->_propDict['replies'];
         }
+        return null;
     }
     
     /** 
     * Sets the replies
     * Replies for a specified message.
     *
-    * @param ChatMessage $val The replies
+    * @param ChatMessage[] $val The replies
     *
     * @return ChatMessage
     */

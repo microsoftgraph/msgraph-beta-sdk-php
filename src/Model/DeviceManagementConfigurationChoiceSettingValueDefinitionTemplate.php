@@ -28,18 +28,22 @@ class DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate extends 
     * Gets the allowedOptions
     * Choice Setting Allowed Options
     *
-    * @return DeviceManagementConfigurationOptionDefinitionTemplate|null The allowedOptions
+    * @return DeviceManagementConfigurationOptionDefinitionTemplate[]|null The allowedOptions
     */
     public function getAllowedOptions()
     {
-        if (array_key_exists("allowedOptions", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedOptions"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationOptionDefinitionTemplate") || is_null($this->_propDict["allowedOptions"])) {
-                return $this->_propDict["allowedOptions"];
-            } else {
-                $this->_propDict["allowedOptions"] = new DeviceManagementConfigurationOptionDefinitionTemplate($this->_propDict["allowedOptions"]);
-                return $this->_propDict["allowedOptions"];
+        if (array_key_exists("allowedOptions", $this->_propDict) && !is_null($this->_propDict["allowedOptions"])) {
+       
+            if (count($this->_propDict['allowedOptions']) > 0 && is_a($this->_propDict['allowedOptions'][0], 'DeviceManagementConfigurationOptionDefinitionTemplate')) {
+               return $this->_propDict['allowedOptions'];
             }
-        }
+            $allowedOptions = [];
+            foreach ($this->_propDict['allowedOptions'] as $singleValue) {
+               $allowedOptions []= new DeviceManagementConfigurationOptionDefinitionTemplate($singleValue);
+            }
+            $this->_propDict['allowedOptions'] = $allowedOptions;
+            return $this->_propDict['allowedOptions'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate extends 
     * Sets the allowedOptions
     * Choice Setting Allowed Options
     *
-    * @param DeviceManagementConfigurationOptionDefinitionTemplate $val The value to assign to the allowedOptions
+    * @param DeviceManagementConfigurationOptionDefinitionTemplate[] $val The value to assign to the allowedOptions
     *
     * @return DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate The DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate
     */
