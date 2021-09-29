@@ -90,8 +90,8 @@ class GovernanceResource extends Entity
     */
     public function getRegisteredDateTime()
     {
-        if (array_key_exists("registeredDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["registeredDateTime"], "\DateTime") || is_null($this->_propDict["registeredDateTime"])) {
+        if (array_key_exists("registeredDateTime", $this->_propDict) && !is_null($this->_propDict["registeredDateTime"])) {
+            if (is_a($this->_propDict["registeredDateTime"], "\DateTime")) {
                 return $this->_propDict["registeredDateTime"];
             } else {
                 $this->_propDict["registeredDateTime"] = new \DateTime($this->_propDict["registeredDateTime"]);
@@ -210,8 +210,8 @@ class GovernanceResource extends Entity
     */
     public function getParent()
     {
-        if (array_key_exists("parent", $this->_propDict)) {
-            if (is_a($this->_propDict["parent"], "\Beta\Microsoft\Graph\Model\GovernanceResource") || is_null($this->_propDict["parent"])) {
+        if (array_key_exists("parent", $this->_propDict) && !is_null($this->_propDict["parent"])) {
+            if (is_a($this->_propDict["parent"], "\Beta\Microsoft\Graph\Model\GovernanceResource")) {
                 return $this->_propDict["parent"];
             } else {
                 $this->_propDict["parent"] = new GovernanceResource($this->_propDict["parent"]);
@@ -240,22 +240,29 @@ class GovernanceResource extends Entity
      * Gets the roleAssignmentRequests
     * The collection of role assignment requests for the resource.
      *
-     * @return array|null The roleAssignmentRequests
+     * @return GovernanceRoleAssignmentRequest[]|null The roleAssignmentRequests
      */
     public function getRoleAssignmentRequests()
     {
-        if (array_key_exists("roleAssignmentRequests", $this->_propDict)) {
-           return $this->_propDict["roleAssignmentRequests"];
-        } else {
-            return null;
+        if (array_key_exists('roleAssignmentRequests', $this->_propDict) && !is_null($this->_propDict['roleAssignmentRequests'])) {
+            $roleAssignmentRequests = [];
+            if (count($this->_propDict['roleAssignmentRequests']) > 0 && is_a($this->_propDict['roleAssignmentRequests'][0], 'GovernanceRoleAssignmentRequest')) {
+                return $this->_propDict['roleAssignmentRequests'];
+            }
+            foreach ($this->_propDict['roleAssignmentRequests'] as $singleValue) {
+                $roleAssignmentRequests []= new GovernanceRoleAssignmentRequest($singleValue);
+            }
+            $this->_propDict['roleAssignmentRequests'] = $roleAssignmentRequests;
+            return $this->_propDict['roleAssignmentRequests'];
         }
+        return null;
     }
     
     /** 
     * Sets the roleAssignmentRequests
     * The collection of role assignment requests for the resource.
     *
-    * @param GovernanceRoleAssignmentRequest $val The roleAssignmentRequests
+    * @param GovernanceRoleAssignmentRequest[] $val The roleAssignmentRequests
     *
     * @return GovernanceResource
     */
@@ -270,22 +277,29 @@ class GovernanceResource extends Entity
      * Gets the roleAssignments
     * The collection of role assignments for the resource.
      *
-     * @return array|null The roleAssignments
+     * @return GovernanceRoleAssignment[]|null The roleAssignments
      */
     public function getRoleAssignments()
     {
-        if (array_key_exists("roleAssignments", $this->_propDict)) {
-           return $this->_propDict["roleAssignments"];
-        } else {
-            return null;
+        if (array_key_exists('roleAssignments', $this->_propDict) && !is_null($this->_propDict['roleAssignments'])) {
+            $roleAssignments = [];
+            if (count($this->_propDict['roleAssignments']) > 0 && is_a($this->_propDict['roleAssignments'][0], 'GovernanceRoleAssignment')) {
+                return $this->_propDict['roleAssignments'];
+            }
+            foreach ($this->_propDict['roleAssignments'] as $singleValue) {
+                $roleAssignments []= new GovernanceRoleAssignment($singleValue);
+            }
+            $this->_propDict['roleAssignments'] = $roleAssignments;
+            return $this->_propDict['roleAssignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the roleAssignments
     * The collection of role assignments for the resource.
     *
-    * @param GovernanceRoleAssignment $val The roleAssignments
+    * @param GovernanceRoleAssignment[] $val The roleAssignments
     *
     * @return GovernanceResource
     */
@@ -300,22 +314,29 @@ class GovernanceResource extends Entity
      * Gets the roleDefinitions
     * The collection of role defintions for the resource.
      *
-     * @return array|null The roleDefinitions
+     * @return GovernanceRoleDefinition[]|null The roleDefinitions
      */
     public function getRoleDefinitions()
     {
-        if (array_key_exists("roleDefinitions", $this->_propDict)) {
-           return $this->_propDict["roleDefinitions"];
-        } else {
-            return null;
+        if (array_key_exists('roleDefinitions', $this->_propDict) && !is_null($this->_propDict['roleDefinitions'])) {
+            $roleDefinitions = [];
+            if (count($this->_propDict['roleDefinitions']) > 0 && is_a($this->_propDict['roleDefinitions'][0], 'GovernanceRoleDefinition')) {
+                return $this->_propDict['roleDefinitions'];
+            }
+            foreach ($this->_propDict['roleDefinitions'] as $singleValue) {
+                $roleDefinitions []= new GovernanceRoleDefinition($singleValue);
+            }
+            $this->_propDict['roleDefinitions'] = $roleDefinitions;
+            return $this->_propDict['roleDefinitions'];
         }
+        return null;
     }
     
     /** 
     * Sets the roleDefinitions
     * The collection of role defintions for the resource.
     *
-    * @param GovernanceRoleDefinition $val The roleDefinitions
+    * @param GovernanceRoleDefinition[] $val The roleDefinitions
     *
     * @return GovernanceResource
     */
@@ -330,22 +351,29 @@ class GovernanceResource extends Entity
      * Gets the roleSettings
     * The collection of role settings for the resource.
      *
-     * @return array|null The roleSettings
+     * @return GovernanceRoleSetting[]|null The roleSettings
      */
     public function getRoleSettings()
     {
-        if (array_key_exists("roleSettings", $this->_propDict)) {
-           return $this->_propDict["roleSettings"];
-        } else {
-            return null;
+        if (array_key_exists('roleSettings', $this->_propDict) && !is_null($this->_propDict['roleSettings'])) {
+            $roleSettings = [];
+            if (count($this->_propDict['roleSettings']) > 0 && is_a($this->_propDict['roleSettings'][0], 'GovernanceRoleSetting')) {
+                return $this->_propDict['roleSettings'];
+            }
+            foreach ($this->_propDict['roleSettings'] as $singleValue) {
+                $roleSettings []= new GovernanceRoleSetting($singleValue);
+            }
+            $this->_propDict['roleSettings'] = $roleSettings;
+            return $this->_propDict['roleSettings'];
         }
+        return null;
     }
     
     /** 
     * Sets the roleSettings
     * The collection of role settings for the resource.
     *
-    * @param GovernanceRoleSetting $val The roleSettings
+    * @param GovernanceRoleSetting[] $val The roleSettings
     *
     * @return GovernanceResource
     */

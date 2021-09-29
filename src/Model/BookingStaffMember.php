@@ -90,8 +90,8 @@ class BookingStaffMember extends BookingPerson
     */
     public function getRole()
     {
-        if (array_key_exists("role", $this->_propDict)) {
-            if (is_a($this->_propDict["role"], "\Beta\Microsoft\Graph\Model\BookingStaffRole") || is_null($this->_propDict["role"])) {
+        if (array_key_exists("role", $this->_propDict) && !is_null($this->_propDict["role"])) {
+            if (is_a($this->_propDict["role"], "\Beta\Microsoft\Graph\Model\BookingStaffRole")) {
                 return $this->_propDict["role"];
             } else {
                 $this->_propDict["role"] = new BookingStaffRole($this->_propDict["role"]);
@@ -149,22 +149,29 @@ class BookingStaffMember extends BookingPerson
      * Gets the workingHours
     * The range of hours each day of the week that the staff member is available for booking. By default, they are initialized to be the same as the businessHours property of the business.
      *
-     * @return array|null The workingHours
+     * @return BookingWorkHours[]|null The workingHours
      */
     public function getWorkingHours()
     {
-        if (array_key_exists("workingHours", $this->_propDict)) {
-           return $this->_propDict["workingHours"];
-        } else {
-            return null;
+        if (array_key_exists('workingHours', $this->_propDict) && !is_null($this->_propDict['workingHours'])) {
+            $workingHours = [];
+            if (count($this->_propDict['workingHours']) > 0 && is_a($this->_propDict['workingHours'][0], 'BookingWorkHours')) {
+                return $this->_propDict['workingHours'];
+            }
+            foreach ($this->_propDict['workingHours'] as $singleValue) {
+                $workingHours []= new BookingWorkHours($singleValue);
+            }
+            $this->_propDict['workingHours'] = $workingHours;
+            return $this->_propDict['workingHours'];
         }
+        return null;
     }
     
     /** 
     * Sets the workingHours
     * The range of hours each day of the week that the staff member is available for booking. By default, they are initialized to be the same as the businessHours property of the business.
     *
-    * @param BookingWorkHours $val The workingHours
+    * @param BookingWorkHours[] $val The workingHours
     *
     * @return BookingStaffMember
     */

@@ -29,22 +29,29 @@ class TimeCard extends ChangeTrackedEntity
      * Gets the breaks
     * The list of breaks associated with the timeCard.
      *
-     * @return array|null The breaks
+     * @return TimeCardBreak[]|null The breaks
      */
     public function getBreaks()
     {
-        if (array_key_exists("breaks", $this->_propDict)) {
-           return $this->_propDict["breaks"];
-        } else {
-            return null;
+        if (array_key_exists('breaks', $this->_propDict) && !is_null($this->_propDict['breaks'])) {
+            $breaks = [];
+            if (count($this->_propDict['breaks']) > 0 && is_a($this->_propDict['breaks'][0], 'TimeCardBreak')) {
+                return $this->_propDict['breaks'];
+            }
+            foreach ($this->_propDict['breaks'] as $singleValue) {
+                $breaks []= new TimeCardBreak($singleValue);
+            }
+            $this->_propDict['breaks'] = $breaks;
+            return $this->_propDict['breaks'];
         }
+        return null;
     }
     
     /** 
     * Sets the breaks
     * The list of breaks associated with the timeCard.
     *
-    * @param TimeCardBreak $val The breaks
+    * @param TimeCardBreak[] $val The breaks
     *
     * @return TimeCard
     */
@@ -62,8 +69,8 @@ class TimeCard extends ChangeTrackedEntity
     */
     public function getClockInEvent()
     {
-        if (array_key_exists("clockInEvent", $this->_propDict)) {
-            if (is_a($this->_propDict["clockInEvent"], "\Beta\Microsoft\Graph\Model\TimeCardEvent") || is_null($this->_propDict["clockInEvent"])) {
+        if (array_key_exists("clockInEvent", $this->_propDict) && !is_null($this->_propDict["clockInEvent"])) {
+            if (is_a($this->_propDict["clockInEvent"], "\Beta\Microsoft\Graph\Model\TimeCardEvent")) {
                 return $this->_propDict["clockInEvent"];
             } else {
                 $this->_propDict["clockInEvent"] = new TimeCardEvent($this->_propDict["clockInEvent"]);
@@ -95,8 +102,8 @@ class TimeCard extends ChangeTrackedEntity
     */
     public function getClockOutEvent()
     {
-        if (array_key_exists("clockOutEvent", $this->_propDict)) {
-            if (is_a($this->_propDict["clockOutEvent"], "\Beta\Microsoft\Graph\Model\TimeCardEvent") || is_null($this->_propDict["clockOutEvent"])) {
+        if (array_key_exists("clockOutEvent", $this->_propDict) && !is_null($this->_propDict["clockOutEvent"])) {
+            if (is_a($this->_propDict["clockOutEvent"], "\Beta\Microsoft\Graph\Model\TimeCardEvent")) {
                 return $this->_propDict["clockOutEvent"];
             } else {
                 $this->_propDict["clockOutEvent"] = new TimeCardEvent($this->_propDict["clockOutEvent"]);
@@ -128,8 +135,8 @@ class TimeCard extends ChangeTrackedEntity
     */
     public function getConfirmedBy()
     {
-        if (array_key_exists("confirmedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["confirmedBy"], "\Beta\Microsoft\Graph\Model\ConfirmedBy") || is_null($this->_propDict["confirmedBy"])) {
+        if (array_key_exists("confirmedBy", $this->_propDict) && !is_null($this->_propDict["confirmedBy"])) {
+            if (is_a($this->_propDict["confirmedBy"], "\Beta\Microsoft\Graph\Model\ConfirmedBy")) {
                 return $this->_propDict["confirmedBy"];
             } else {
                 $this->_propDict["confirmedBy"] = new ConfirmedBy($this->_propDict["confirmedBy"]);
@@ -161,8 +168,8 @@ class TimeCard extends ChangeTrackedEntity
     */
     public function getNotes()
     {
-        if (array_key_exists("notes", $this->_propDict)) {
-            if (is_a($this->_propDict["notes"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["notes"])) {
+        if (array_key_exists("notes", $this->_propDict) && !is_null($this->_propDict["notes"])) {
+            if (is_a($this->_propDict["notes"], "\Beta\Microsoft\Graph\Model\ItemBody")) {
                 return $this->_propDict["notes"];
             } else {
                 $this->_propDict["notes"] = new ItemBody($this->_propDict["notes"]);
@@ -194,8 +201,8 @@ class TimeCard extends ChangeTrackedEntity
     */
     public function getOriginalEntry()
     {
-        if (array_key_exists("originalEntry", $this->_propDict)) {
-            if (is_a($this->_propDict["originalEntry"], "\Beta\Microsoft\Graph\Model\TimeCardEntry") || is_null($this->_propDict["originalEntry"])) {
+        if (array_key_exists("originalEntry", $this->_propDict) && !is_null($this->_propDict["originalEntry"])) {
+            if (is_a($this->_propDict["originalEntry"], "\Beta\Microsoft\Graph\Model\TimeCardEntry")) {
                 return $this->_propDict["originalEntry"];
             } else {
                 $this->_propDict["originalEntry"] = new TimeCardEntry($this->_propDict["originalEntry"]);
@@ -227,8 +234,8 @@ class TimeCard extends ChangeTrackedEntity
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\TimeCardState") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\TimeCardState")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new TimeCardState($this->_propDict["state"]);

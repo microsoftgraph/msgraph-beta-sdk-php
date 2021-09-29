@@ -29,22 +29,29 @@ class ManagedAppProtection extends ManagedAppPolicy
      * Gets the allowedDataIngestionLocations
     * Data storage locations where a user may store managed data.
      *
-     * @return array|null The allowedDataIngestionLocations
+     * @return ManagedAppDataIngestionLocation[]|null The allowedDataIngestionLocations
      */
     public function getAllowedDataIngestionLocations()
     {
-        if (array_key_exists("allowedDataIngestionLocations", $this->_propDict)) {
-           return $this->_propDict["allowedDataIngestionLocations"];
-        } else {
-            return null;
+        if (array_key_exists('allowedDataIngestionLocations', $this->_propDict) && !is_null($this->_propDict['allowedDataIngestionLocations'])) {
+            $allowedDataIngestionLocations = [];
+            if (count($this->_propDict['allowedDataIngestionLocations']) > 0 && is_a($this->_propDict['allowedDataIngestionLocations'][0], 'ManagedAppDataIngestionLocation')) {
+                return $this->_propDict['allowedDataIngestionLocations'];
+            }
+            foreach ($this->_propDict['allowedDataIngestionLocations'] as $singleValue) {
+                $allowedDataIngestionLocations []= new ManagedAppDataIngestionLocation($singleValue);
+            }
+            $this->_propDict['allowedDataIngestionLocations'] = $allowedDataIngestionLocations;
+            return $this->_propDict['allowedDataIngestionLocations'];
         }
+        return null;
     }
     
     /** 
     * Sets the allowedDataIngestionLocations
     * Data storage locations where a user may store managed data.
     *
-    * @param ManagedAppDataIngestionLocation $val The allowedDataIngestionLocations
+    * @param ManagedAppDataIngestionLocation[] $val The allowedDataIngestionLocations
     *
     * @return ManagedAppProtection
     */
@@ -59,22 +66,29 @@ class ManagedAppProtection extends ManagedAppPolicy
      * Gets the allowedDataStorageLocations
     * Data storage locations where a user may store managed data.
      *
-     * @return array|null The allowedDataStorageLocations
+     * @return ManagedAppDataStorageLocation[]|null The allowedDataStorageLocations
      */
     public function getAllowedDataStorageLocations()
     {
-        if (array_key_exists("allowedDataStorageLocations", $this->_propDict)) {
-           return $this->_propDict["allowedDataStorageLocations"];
-        } else {
-            return null;
+        if (array_key_exists('allowedDataStorageLocations', $this->_propDict) && !is_null($this->_propDict['allowedDataStorageLocations'])) {
+            $allowedDataStorageLocations = [];
+            if (count($this->_propDict['allowedDataStorageLocations']) > 0 && is_a($this->_propDict['allowedDataStorageLocations'][0], 'ManagedAppDataStorageLocation')) {
+                return $this->_propDict['allowedDataStorageLocations'];
+            }
+            foreach ($this->_propDict['allowedDataStorageLocations'] as $singleValue) {
+                $allowedDataStorageLocations []= new ManagedAppDataStorageLocation($singleValue);
+            }
+            $this->_propDict['allowedDataStorageLocations'] = $allowedDataStorageLocations;
+            return $this->_propDict['allowedDataStorageLocations'];
         }
+        return null;
     }
     
     /** 
     * Sets the allowedDataStorageLocations
     * Data storage locations where a user may store managed data.
     *
-    * @param ManagedAppDataStorageLocation $val The allowedDataStorageLocations
+    * @param ManagedAppDataStorageLocation[] $val The allowedDataStorageLocations
     *
     * @return ManagedAppProtection
     */
@@ -92,8 +106,8 @@ class ManagedAppProtection extends ManagedAppPolicy
     */
     public function getAllowedInboundDataTransferSources()
     {
-        if (array_key_exists("allowedInboundDataTransferSources", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedInboundDataTransferSources"], "\Beta\Microsoft\Graph\Model\ManagedAppDataTransferLevel") || is_null($this->_propDict["allowedInboundDataTransferSources"])) {
+        if (array_key_exists("allowedInboundDataTransferSources", $this->_propDict) && !is_null($this->_propDict["allowedInboundDataTransferSources"])) {
+            if (is_a($this->_propDict["allowedInboundDataTransferSources"], "\Beta\Microsoft\Graph\Model\ManagedAppDataTransferLevel")) {
                 return $this->_propDict["allowedInboundDataTransferSources"];
             } else {
                 $this->_propDict["allowedInboundDataTransferSources"] = new ManagedAppDataTransferLevel($this->_propDict["allowedInboundDataTransferSources"]);
@@ -154,8 +168,8 @@ class ManagedAppProtection extends ManagedAppPolicy
     */
     public function getAllowedOutboundClipboardSharingLevel()
     {
-        if (array_key_exists("allowedOutboundClipboardSharingLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedOutboundClipboardSharingLevel"], "\Beta\Microsoft\Graph\Model\ManagedAppClipboardSharingLevel") || is_null($this->_propDict["allowedOutboundClipboardSharingLevel"])) {
+        if (array_key_exists("allowedOutboundClipboardSharingLevel", $this->_propDict) && !is_null($this->_propDict["allowedOutboundClipboardSharingLevel"])) {
+            if (is_a($this->_propDict["allowedOutboundClipboardSharingLevel"], "\Beta\Microsoft\Graph\Model\ManagedAppClipboardSharingLevel")) {
                 return $this->_propDict["allowedOutboundClipboardSharingLevel"];
             } else {
                 $this->_propDict["allowedOutboundClipboardSharingLevel"] = new ManagedAppClipboardSharingLevel($this->_propDict["allowedOutboundClipboardSharingLevel"]);
@@ -187,8 +201,8 @@ class ManagedAppProtection extends ManagedAppPolicy
     */
     public function getAllowedOutboundDataTransferDestinations()
     {
-        if (array_key_exists("allowedOutboundDataTransferDestinations", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedOutboundDataTransferDestinations"], "\Beta\Microsoft\Graph\Model\ManagedAppDataTransferLevel") || is_null($this->_propDict["allowedOutboundDataTransferDestinations"])) {
+        if (array_key_exists("allowedOutboundDataTransferDestinations", $this->_propDict) && !is_null($this->_propDict["allowedOutboundDataTransferDestinations"])) {
+            if (is_a($this->_propDict["allowedOutboundDataTransferDestinations"], "\Beta\Microsoft\Graph\Model\ManagedAppDataTransferLevel")) {
                 return $this->_propDict["allowedOutboundDataTransferDestinations"];
             } else {
                 $this->_propDict["allowedOutboundDataTransferDestinations"] = new ManagedAppDataTransferLevel($this->_propDict["allowedOutboundDataTransferDestinations"]);
@@ -220,8 +234,8 @@ class ManagedAppProtection extends ManagedAppPolicy
     */
     public function getAppActionIfDeviceComplianceRequired()
     {
-        if (array_key_exists("appActionIfDeviceComplianceRequired", $this->_propDict)) {
-            if (is_a($this->_propDict["appActionIfDeviceComplianceRequired"], "\Beta\Microsoft\Graph\Model\ManagedAppRemediationAction") || is_null($this->_propDict["appActionIfDeviceComplianceRequired"])) {
+        if (array_key_exists("appActionIfDeviceComplianceRequired", $this->_propDict) && !is_null($this->_propDict["appActionIfDeviceComplianceRequired"])) {
+            if (is_a($this->_propDict["appActionIfDeviceComplianceRequired"], "\Beta\Microsoft\Graph\Model\ManagedAppRemediationAction")) {
                 return $this->_propDict["appActionIfDeviceComplianceRequired"];
             } else {
                 $this->_propDict["appActionIfDeviceComplianceRequired"] = new ManagedAppRemediationAction($this->_propDict["appActionIfDeviceComplianceRequired"]);
@@ -253,8 +267,8 @@ class ManagedAppProtection extends ManagedAppPolicy
     */
     public function getAppActionIfMaximumPinRetriesExceeded()
     {
-        if (array_key_exists("appActionIfMaximumPinRetriesExceeded", $this->_propDict)) {
-            if (is_a($this->_propDict["appActionIfMaximumPinRetriesExceeded"], "\Beta\Microsoft\Graph\Model\ManagedAppRemediationAction") || is_null($this->_propDict["appActionIfMaximumPinRetriesExceeded"])) {
+        if (array_key_exists("appActionIfMaximumPinRetriesExceeded", $this->_propDict) && !is_null($this->_propDict["appActionIfMaximumPinRetriesExceeded"])) {
+            if (is_a($this->_propDict["appActionIfMaximumPinRetriesExceeded"], "\Beta\Microsoft\Graph\Model\ManagedAppRemediationAction")) {
                 return $this->_propDict["appActionIfMaximumPinRetriesExceeded"];
             } else {
                 $this->_propDict["appActionIfMaximumPinRetriesExceeded"] = new ManagedAppRemediationAction($this->_propDict["appActionIfMaximumPinRetriesExceeded"]);
@@ -286,8 +300,8 @@ class ManagedAppProtection extends ManagedAppPolicy
     */
     public function getAppActionIfUnableToAuthenticateUser()
     {
-        if (array_key_exists("appActionIfUnableToAuthenticateUser", $this->_propDict)) {
-            if (is_a($this->_propDict["appActionIfUnableToAuthenticateUser"], "\Beta\Microsoft\Graph\Model\ManagedAppRemediationAction") || is_null($this->_propDict["appActionIfUnableToAuthenticateUser"])) {
+        if (array_key_exists("appActionIfUnableToAuthenticateUser", $this->_propDict) && !is_null($this->_propDict["appActionIfUnableToAuthenticateUser"])) {
+            if (is_a($this->_propDict["appActionIfUnableToAuthenticateUser"], "\Beta\Microsoft\Graph\Model\ManagedAppRemediationAction")) {
                 return $this->_propDict["appActionIfUnableToAuthenticateUser"];
             } else {
                 $this->_propDict["appActionIfUnableToAuthenticateUser"] = new ManagedAppRemediationAction($this->_propDict["appActionIfUnableToAuthenticateUser"]);
@@ -435,8 +449,8 @@ class ManagedAppProtection extends ManagedAppPolicy
     */
     public function getDialerRestrictionLevel()
     {
-        if (array_key_exists("dialerRestrictionLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["dialerRestrictionLevel"], "\Beta\Microsoft\Graph\Model\ManagedAppPhoneNumberRedirectLevel") || is_null($this->_propDict["dialerRestrictionLevel"])) {
+        if (array_key_exists("dialerRestrictionLevel", $this->_propDict) && !is_null($this->_propDict["dialerRestrictionLevel"])) {
+            if (is_a($this->_propDict["dialerRestrictionLevel"], "\Beta\Microsoft\Graph\Model\ManagedAppPhoneNumberRedirectLevel")) {
                 return $this->_propDict["dialerRestrictionLevel"];
             } else {
                 $this->_propDict["dialerRestrictionLevel"] = new ManagedAppPhoneNumberRedirectLevel($this->_propDict["dialerRestrictionLevel"]);
@@ -526,8 +540,8 @@ class ManagedAppProtection extends ManagedAppPolicy
     */
     public function getManagedBrowser()
     {
-        if (array_key_exists("managedBrowser", $this->_propDict)) {
-            if (is_a($this->_propDict["managedBrowser"], "\Beta\Microsoft\Graph\Model\ManagedBrowserType") || is_null($this->_propDict["managedBrowser"])) {
+        if (array_key_exists("managedBrowser", $this->_propDict) && !is_null($this->_propDict["managedBrowser"])) {
+            if (is_a($this->_propDict["managedBrowser"], "\Beta\Microsoft\Graph\Model\ManagedBrowserType")) {
                 return $this->_propDict["managedBrowser"];
             } else {
                 $this->_propDict["managedBrowser"] = new ManagedBrowserType($this->_propDict["managedBrowser"]);
@@ -588,8 +602,8 @@ class ManagedAppProtection extends ManagedAppPolicy
     */
     public function getMaximumAllowedDeviceThreatLevel()
     {
-        if (array_key_exists("maximumAllowedDeviceThreatLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["maximumAllowedDeviceThreatLevel"], "\Beta\Microsoft\Graph\Model\ManagedAppDeviceThreatLevel") || is_null($this->_propDict["maximumAllowedDeviceThreatLevel"])) {
+        if (array_key_exists("maximumAllowedDeviceThreatLevel", $this->_propDict) && !is_null($this->_propDict["maximumAllowedDeviceThreatLevel"])) {
+            if (is_a($this->_propDict["maximumAllowedDeviceThreatLevel"], "\Beta\Microsoft\Graph\Model\ManagedAppDeviceThreatLevel")) {
                 return $this->_propDict["maximumAllowedDeviceThreatLevel"];
             } else {
                 $this->_propDict["maximumAllowedDeviceThreatLevel"] = new ManagedAppDeviceThreatLevel($this->_propDict["maximumAllowedDeviceThreatLevel"]);
@@ -940,8 +954,8 @@ class ManagedAppProtection extends ManagedAppPolicy
     */
     public function getMobileThreatDefenseRemediationAction()
     {
-        if (array_key_exists("mobileThreatDefenseRemediationAction", $this->_propDict)) {
-            if (is_a($this->_propDict["mobileThreatDefenseRemediationAction"], "\Beta\Microsoft\Graph\Model\ManagedAppRemediationAction") || is_null($this->_propDict["mobileThreatDefenseRemediationAction"])) {
+        if (array_key_exists("mobileThreatDefenseRemediationAction", $this->_propDict) && !is_null($this->_propDict["mobileThreatDefenseRemediationAction"])) {
+            if (is_a($this->_propDict["mobileThreatDefenseRemediationAction"], "\Beta\Microsoft\Graph\Model\ManagedAppRemediationAction")) {
                 return $this->_propDict["mobileThreatDefenseRemediationAction"];
             } else {
                 $this->_propDict["mobileThreatDefenseRemediationAction"] = new ManagedAppRemediationAction($this->_propDict["mobileThreatDefenseRemediationAction"]);
@@ -973,8 +987,8 @@ class ManagedAppProtection extends ManagedAppPolicy
     */
     public function getNotificationRestriction()
     {
-        if (array_key_exists("notificationRestriction", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationRestriction"], "\Beta\Microsoft\Graph\Model\ManagedAppNotificationRestriction") || is_null($this->_propDict["notificationRestriction"])) {
+        if (array_key_exists("notificationRestriction", $this->_propDict) && !is_null($this->_propDict["notificationRestriction"])) {
+            if (is_a($this->_propDict["notificationRestriction"], "\Beta\Microsoft\Graph\Model\ManagedAppNotificationRestriction")) {
                 return $this->_propDict["notificationRestriction"];
             } else {
                 $this->_propDict["notificationRestriction"] = new ManagedAppNotificationRestriction($this->_propDict["notificationRestriction"]);
@@ -1031,15 +1045,15 @@ class ManagedAppProtection extends ManagedAppPolicy
     * Gets the periodBeforePinReset
     * TimePeriod before the all-level pin must be reset if PinRequired is set to True.
     *
-    * @return Duration|null The periodBeforePinReset
+    * @return \DateInterval|null The periodBeforePinReset
     */
     public function getPeriodBeforePinReset()
     {
-        if (array_key_exists("periodBeforePinReset", $this->_propDict)) {
-            if (is_a($this->_propDict["periodBeforePinReset"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["periodBeforePinReset"])) {
+        if (array_key_exists("periodBeforePinReset", $this->_propDict) && !is_null($this->_propDict["periodBeforePinReset"])) {
+            if (is_a($this->_propDict["periodBeforePinReset"], "\DateInterval")) {
                 return $this->_propDict["periodBeforePinReset"];
             } else {
-                $this->_propDict["periodBeforePinReset"] = new Duration($this->_propDict["periodBeforePinReset"]);
+                $this->_propDict["periodBeforePinReset"] = new \DateInterval($this->_propDict["periodBeforePinReset"]);
                 return $this->_propDict["periodBeforePinReset"];
             }
         }
@@ -1050,7 +1064,7 @@ class ManagedAppProtection extends ManagedAppPolicy
     * Sets the periodBeforePinReset
     * TimePeriod before the all-level pin must be reset if PinRequired is set to True.
     *
-    * @param Duration $val The periodBeforePinReset
+    * @param \DateInterval $val The periodBeforePinReset
     *
     * @return ManagedAppProtection
     */
@@ -1064,15 +1078,15 @@ class ManagedAppProtection extends ManagedAppPolicy
     * Gets the periodOfflineBeforeAccessCheck
     * The period after which access is checked when the device is not connected to the internet.
     *
-    * @return Duration|null The periodOfflineBeforeAccessCheck
+    * @return \DateInterval|null The periodOfflineBeforeAccessCheck
     */
     public function getPeriodOfflineBeforeAccessCheck()
     {
-        if (array_key_exists("periodOfflineBeforeAccessCheck", $this->_propDict)) {
-            if (is_a($this->_propDict["periodOfflineBeforeAccessCheck"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["periodOfflineBeforeAccessCheck"])) {
+        if (array_key_exists("periodOfflineBeforeAccessCheck", $this->_propDict) && !is_null($this->_propDict["periodOfflineBeforeAccessCheck"])) {
+            if (is_a($this->_propDict["periodOfflineBeforeAccessCheck"], "\DateInterval")) {
                 return $this->_propDict["periodOfflineBeforeAccessCheck"];
             } else {
-                $this->_propDict["periodOfflineBeforeAccessCheck"] = new Duration($this->_propDict["periodOfflineBeforeAccessCheck"]);
+                $this->_propDict["periodOfflineBeforeAccessCheck"] = new \DateInterval($this->_propDict["periodOfflineBeforeAccessCheck"]);
                 return $this->_propDict["periodOfflineBeforeAccessCheck"];
             }
         }
@@ -1083,7 +1097,7 @@ class ManagedAppProtection extends ManagedAppPolicy
     * Sets the periodOfflineBeforeAccessCheck
     * The period after which access is checked when the device is not connected to the internet.
     *
-    * @param Duration $val The periodOfflineBeforeAccessCheck
+    * @param \DateInterval $val The periodOfflineBeforeAccessCheck
     *
     * @return ManagedAppProtection
     */
@@ -1097,15 +1111,15 @@ class ManagedAppProtection extends ManagedAppPolicy
     * Gets the periodOfflineBeforeWipeIsEnforced
     * The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped.
     *
-    * @return Duration|null The periodOfflineBeforeWipeIsEnforced
+    * @return \DateInterval|null The periodOfflineBeforeWipeIsEnforced
     */
     public function getPeriodOfflineBeforeWipeIsEnforced()
     {
-        if (array_key_exists("periodOfflineBeforeWipeIsEnforced", $this->_propDict)) {
-            if (is_a($this->_propDict["periodOfflineBeforeWipeIsEnforced"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["periodOfflineBeforeWipeIsEnforced"])) {
+        if (array_key_exists("periodOfflineBeforeWipeIsEnforced", $this->_propDict) && !is_null($this->_propDict["periodOfflineBeforeWipeIsEnforced"])) {
+            if (is_a($this->_propDict["periodOfflineBeforeWipeIsEnforced"], "\DateInterval")) {
                 return $this->_propDict["periodOfflineBeforeWipeIsEnforced"];
             } else {
-                $this->_propDict["periodOfflineBeforeWipeIsEnforced"] = new Duration($this->_propDict["periodOfflineBeforeWipeIsEnforced"]);
+                $this->_propDict["periodOfflineBeforeWipeIsEnforced"] = new \DateInterval($this->_propDict["periodOfflineBeforeWipeIsEnforced"]);
                 return $this->_propDict["periodOfflineBeforeWipeIsEnforced"];
             }
         }
@@ -1116,7 +1130,7 @@ class ManagedAppProtection extends ManagedAppPolicy
     * Sets the periodOfflineBeforeWipeIsEnforced
     * The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped.
     *
-    * @param Duration $val The periodOfflineBeforeWipeIsEnforced
+    * @param \DateInterval $val The periodOfflineBeforeWipeIsEnforced
     *
     * @return ManagedAppProtection
     */
@@ -1130,15 +1144,15 @@ class ManagedAppProtection extends ManagedAppPolicy
     * Gets the periodOnlineBeforeAccessCheck
     * The period after which access is checked when the device is connected to the internet.
     *
-    * @return Duration|null The periodOnlineBeforeAccessCheck
+    * @return \DateInterval|null The periodOnlineBeforeAccessCheck
     */
     public function getPeriodOnlineBeforeAccessCheck()
     {
-        if (array_key_exists("periodOnlineBeforeAccessCheck", $this->_propDict)) {
-            if (is_a($this->_propDict["periodOnlineBeforeAccessCheck"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["periodOnlineBeforeAccessCheck"])) {
+        if (array_key_exists("periodOnlineBeforeAccessCheck", $this->_propDict) && !is_null($this->_propDict["periodOnlineBeforeAccessCheck"])) {
+            if (is_a($this->_propDict["periodOnlineBeforeAccessCheck"], "\DateInterval")) {
                 return $this->_propDict["periodOnlineBeforeAccessCheck"];
             } else {
-                $this->_propDict["periodOnlineBeforeAccessCheck"] = new Duration($this->_propDict["periodOnlineBeforeAccessCheck"]);
+                $this->_propDict["periodOnlineBeforeAccessCheck"] = new \DateInterval($this->_propDict["periodOnlineBeforeAccessCheck"]);
                 return $this->_propDict["periodOnlineBeforeAccessCheck"];
             }
         }
@@ -1149,7 +1163,7 @@ class ManagedAppProtection extends ManagedAppPolicy
     * Sets the periodOnlineBeforeAccessCheck
     * The period after which access is checked when the device is connected to the internet.
     *
-    * @param Duration $val The periodOnlineBeforeAccessCheck
+    * @param \DateInterval $val The periodOnlineBeforeAccessCheck
     *
     * @return ManagedAppProtection
     */
@@ -1167,8 +1181,8 @@ class ManagedAppProtection extends ManagedAppPolicy
     */
     public function getPinCharacterSet()
     {
-        if (array_key_exists("pinCharacterSet", $this->_propDict)) {
-            if (is_a($this->_propDict["pinCharacterSet"], "\Beta\Microsoft\Graph\Model\ManagedAppPinCharacterSet") || is_null($this->_propDict["pinCharacterSet"])) {
+        if (array_key_exists("pinCharacterSet", $this->_propDict) && !is_null($this->_propDict["pinCharacterSet"])) {
+            if (is_a($this->_propDict["pinCharacterSet"], "\Beta\Microsoft\Graph\Model\ManagedAppPinCharacterSet")) {
                 return $this->_propDict["pinCharacterSet"];
             } else {
                 $this->_propDict["pinCharacterSet"] = new ManagedAppPinCharacterSet($this->_propDict["pinCharacterSet"]);
@@ -1225,15 +1239,15 @@ class ManagedAppProtection extends ManagedAppPolicy
     * Gets the pinRequiredInsteadOfBiometricTimeout
     * Timeout in minutes for an app pin instead of non biometrics passcode
     *
-    * @return Duration|null The pinRequiredInsteadOfBiometricTimeout
+    * @return \DateInterval|null The pinRequiredInsteadOfBiometricTimeout
     */
     public function getPinRequiredInsteadOfBiometricTimeout()
     {
-        if (array_key_exists("pinRequiredInsteadOfBiometricTimeout", $this->_propDict)) {
-            if (is_a($this->_propDict["pinRequiredInsteadOfBiometricTimeout"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["pinRequiredInsteadOfBiometricTimeout"])) {
+        if (array_key_exists("pinRequiredInsteadOfBiometricTimeout", $this->_propDict) && !is_null($this->_propDict["pinRequiredInsteadOfBiometricTimeout"])) {
+            if (is_a($this->_propDict["pinRequiredInsteadOfBiometricTimeout"], "\DateInterval")) {
                 return $this->_propDict["pinRequiredInsteadOfBiometricTimeout"];
             } else {
-                $this->_propDict["pinRequiredInsteadOfBiometricTimeout"] = new Duration($this->_propDict["pinRequiredInsteadOfBiometricTimeout"]);
+                $this->_propDict["pinRequiredInsteadOfBiometricTimeout"] = new \DateInterval($this->_propDict["pinRequiredInsteadOfBiometricTimeout"]);
                 return $this->_propDict["pinRequiredInsteadOfBiometricTimeout"];
             }
         }
@@ -1244,7 +1258,7 @@ class ManagedAppProtection extends ManagedAppPolicy
     * Sets the pinRequiredInsteadOfBiometricTimeout
     * Timeout in minutes for an app pin instead of non biometrics passcode
     *
-    * @param Duration $val The pinRequiredInsteadOfBiometricTimeout
+    * @param \DateInterval $val The pinRequiredInsteadOfBiometricTimeout
     *
     * @return ManagedAppProtection
     */

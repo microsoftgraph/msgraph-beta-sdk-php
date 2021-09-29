@@ -32,8 +32,9 @@ class DeviceHealth extends Entity
     */
     public function getLastConnectionTime()
     {
-        if (array_key_exists("lastConnectionTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastConnectionTime"], "\DateTime") || is_null($this->_propDict["lastConnectionTime"])) {
+        if (array_key_exists("lastConnectionTime", $this->_propDict) && !is_null($this->_propDict["lastConnectionTime"])) {
+     
+            if (is_a($this->_propDict["lastConnectionTime"], "\DateTime")) {
                 return $this->_propDict["lastConnectionTime"];
             } else {
                 $this->_propDict["lastConnectionTime"] = new \DateTime($this->_propDict["lastConnectionTime"]);

@@ -42,7 +42,7 @@ class NetworkLocationDetail extends Entity
     * Sets the networkNames
     * Provides the name of the network used when signing in.
     *
-    * @param string $val The value of the networkNames
+    * @param string[] $val The value of the networkNames
     *
     * @return NetworkLocationDetail
     */
@@ -60,8 +60,9 @@ class NetworkLocationDetail extends Entity
     */
     public function getNetworkType()
     {
-        if (array_key_exists("networkType", $this->_propDict)) {
-            if (is_a($this->_propDict["networkType"], "\Beta\Microsoft\Graph\Model\NetworkType") || is_null($this->_propDict["networkType"])) {
+        if (array_key_exists("networkType", $this->_propDict) && !is_null($this->_propDict["networkType"])) {
+     
+            if (is_a($this->_propDict["networkType"], "\Beta\Microsoft\Graph\Model\NetworkType")) {
                 return $this->_propDict["networkType"];
             } else {
                 $this->_propDict["networkType"] = new NetworkType($this->_propDict["networkType"]);

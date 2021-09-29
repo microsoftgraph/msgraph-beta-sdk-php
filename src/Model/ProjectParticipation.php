@@ -61,8 +61,8 @@ class ProjectParticipation extends ItemFacet
     */
     public function getClient()
     {
-        if (array_key_exists("client", $this->_propDict)) {
-            if (is_a($this->_propDict["client"], "\Beta\Microsoft\Graph\Model\CompanyDetail") || is_null($this->_propDict["client"])) {
+        if (array_key_exists("client", $this->_propDict) && !is_null($this->_propDict["client"])) {
+            if (is_a($this->_propDict["client"], "\Beta\Microsoft\Graph\Model\CompanyDetail")) {
                 return $this->_propDict["client"];
             } else {
                 $this->_propDict["client"] = new CompanyDetail($this->_propDict["client"]);
@@ -120,22 +120,29 @@ class ProjectParticipation extends ItemFacet
      * Gets the colleagues
     * Lists people that also worked on the project.
      *
-     * @return array|null The colleagues
+     * @return RelatedPerson[]|null The colleagues
      */
     public function getColleagues()
     {
-        if (array_key_exists("colleagues", $this->_propDict)) {
-           return $this->_propDict["colleagues"];
-        } else {
-            return null;
+        if (array_key_exists('colleagues', $this->_propDict) && !is_null($this->_propDict['colleagues'])) {
+            $colleagues = [];
+            if (count($this->_propDict['colleagues']) > 0 && is_a($this->_propDict['colleagues'][0], 'RelatedPerson')) {
+                return $this->_propDict['colleagues'];
+            }
+            foreach ($this->_propDict['colleagues'] as $singleValue) {
+                $colleagues []= new RelatedPerson($singleValue);
+            }
+            $this->_propDict['colleagues'] = $colleagues;
+            return $this->_propDict['colleagues'];
         }
+        return null;
     }
     
     /** 
     * Sets the colleagues
     * Lists people that also worked on the project.
     *
-    * @param RelatedPerson $val The colleagues
+    * @param RelatedPerson[] $val The colleagues
     *
     * @return ProjectParticipation
     */
@@ -153,8 +160,8 @@ class ProjectParticipation extends ItemFacet
     */
     public function getDetail()
     {
-        if (array_key_exists("detail", $this->_propDict)) {
-            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\PositionDetail") || is_null($this->_propDict["detail"])) {
+        if (array_key_exists("detail", $this->_propDict) && !is_null($this->_propDict["detail"])) {
+            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\PositionDetail")) {
                 return $this->_propDict["detail"];
             } else {
                 $this->_propDict["detail"] = new PositionDetail($this->_propDict["detail"]);
@@ -212,22 +219,29 @@ class ProjectParticipation extends ItemFacet
      * Gets the sponsors
     * The Person or people who sponsored the project.
      *
-     * @return array|null The sponsors
+     * @return RelatedPerson[]|null The sponsors
      */
     public function getSponsors()
     {
-        if (array_key_exists("sponsors", $this->_propDict)) {
-           return $this->_propDict["sponsors"];
-        } else {
-            return null;
+        if (array_key_exists('sponsors', $this->_propDict) && !is_null($this->_propDict['sponsors'])) {
+            $sponsors = [];
+            if (count($this->_propDict['sponsors']) > 0 && is_a($this->_propDict['sponsors'][0], 'RelatedPerson')) {
+                return $this->_propDict['sponsors'];
+            }
+            foreach ($this->_propDict['sponsors'] as $singleValue) {
+                $sponsors []= new RelatedPerson($singleValue);
+            }
+            $this->_propDict['sponsors'] = $sponsors;
+            return $this->_propDict['sponsors'];
         }
+        return null;
     }
     
     /** 
     * Sets the sponsors
     * The Person or people who sponsored the project.
     *
-    * @param RelatedPerson $val The sponsors
+    * @param RelatedPerson[] $val The sponsors
     *
     * @return ProjectParticipation
     */

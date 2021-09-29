@@ -58,8 +58,8 @@ class SkypeForBusinessActivityUserDetail extends Entity
     */
     public function getDeletedDate()
     {
-        if (array_key_exists("deletedDate", $this->_propDict)) {
-            if (is_a($this->_propDict["deletedDate"], "\DateTime") || is_null($this->_propDict["deletedDate"])) {
+        if (array_key_exists("deletedDate", $this->_propDict) && !is_null($this->_propDict["deletedDate"])) {
+            if (is_a($this->_propDict["deletedDate"], "\DateTime")) {
                 return $this->_propDict["deletedDate"];
             } else {
                 $this->_propDict["deletedDate"] = new \DateTime($this->_propDict["deletedDate"]);
@@ -116,8 +116,8 @@ class SkypeForBusinessActivityUserDetail extends Entity
     */
     public function getLastActivityDate()
     {
-        if (array_key_exists("lastActivityDate", $this->_propDict)) {
-            if (is_a($this->_propDict["lastActivityDate"], "\DateTime") || is_null($this->_propDict["lastActivityDate"])) {
+        if (array_key_exists("lastActivityDate", $this->_propDict) && !is_null($this->_propDict["lastActivityDate"])) {
+            if (is_a($this->_propDict["lastActivityDate"], "\DateTime")) {
                 return $this->_propDict["lastActivityDate"];
             } else {
                 $this->_propDict["lastActivityDate"] = new \DateTime($this->_propDict["lastActivityDate"]);
@@ -363,8 +363,8 @@ class SkypeForBusinessActivityUserDetail extends Entity
     */
     public function getOrganizedConferenceLastActivityDate()
     {
-        if (array_key_exists("organizedConferenceLastActivityDate", $this->_propDict)) {
-            if (is_a($this->_propDict["organizedConferenceLastActivityDate"], "\DateTime") || is_null($this->_propDict["organizedConferenceLastActivityDate"])) {
+        if (array_key_exists("organizedConferenceLastActivityDate", $this->_propDict) && !is_null($this->_propDict["organizedConferenceLastActivityDate"])) {
+            if (is_a($this->_propDict["organizedConferenceLastActivityDate"], "\DateTime")) {
                 return $this->_propDict["organizedConferenceLastActivityDate"];
             } else {
                 $this->_propDict["organizedConferenceLastActivityDate"] = new \DateTime($this->_propDict["organizedConferenceLastActivityDate"]);
@@ -556,8 +556,8 @@ class SkypeForBusinessActivityUserDetail extends Entity
     */
     public function getParticipatedConferenceLastActivityDate()
     {
-        if (array_key_exists("participatedConferenceLastActivityDate", $this->_propDict)) {
-            if (is_a($this->_propDict["participatedConferenceLastActivityDate"], "\DateTime") || is_null($this->_propDict["participatedConferenceLastActivityDate"])) {
+        if (array_key_exists("participatedConferenceLastActivityDate", $this->_propDict) && !is_null($this->_propDict["participatedConferenceLastActivityDate"])) {
+            if (is_a($this->_propDict["participatedConferenceLastActivityDate"], "\DateTime")) {
                 return $this->_propDict["participatedConferenceLastActivityDate"];
             } else {
                 $this->_propDict["participatedConferenceLastActivityDate"] = new \DateTime($this->_propDict["participatedConferenceLastActivityDate"]);
@@ -749,8 +749,8 @@ class SkypeForBusinessActivityUserDetail extends Entity
     */
     public function getPeerToPeerLastActivityDate()
     {
-        if (array_key_exists("peerToPeerLastActivityDate", $this->_propDict)) {
-            if (is_a($this->_propDict["peerToPeerLastActivityDate"], "\DateTime") || is_null($this->_propDict["peerToPeerLastActivityDate"])) {
+        if (array_key_exists("peerToPeerLastActivityDate", $this->_propDict) && !is_null($this->_propDict["peerToPeerLastActivityDate"])) {
+            if (is_a($this->_propDict["peerToPeerLastActivityDate"], "\DateTime")) {
                 return $this->_propDict["peerToPeerLastActivityDate"];
             } else {
                 $this->_propDict["peerToPeerLastActivityDate"] = new \DateTime($this->_propDict["peerToPeerLastActivityDate"]);
@@ -861,8 +861,8 @@ class SkypeForBusinessActivityUserDetail extends Entity
     */
     public function getReportRefreshDate()
     {
-        if (array_key_exists("reportRefreshDate", $this->_propDict)) {
-            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime") || is_null($this->_propDict["reportRefreshDate"])) {
+        if (array_key_exists("reportRefreshDate", $this->_propDict) && !is_null($this->_propDict["reportRefreshDate"])) {
+            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime")) {
                 return $this->_propDict["reportRefreshDate"];
             } else {
                 $this->_propDict["reportRefreshDate"] = new \DateTime($this->_propDict["reportRefreshDate"]);

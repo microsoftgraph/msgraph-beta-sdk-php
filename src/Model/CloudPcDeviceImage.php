@@ -61,8 +61,8 @@ class CloudPcDeviceImage extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -175,14 +175,14 @@ class CloudPcDeviceImage extends Entity
     
     /**
     * Gets the status
-    * The status of the image on cloud PC. Possible values are: pending, ready, failed.
+    * The status of the image on Cloud PC. Possible values are: pending, ready, failed.
     *
     * @return CloudPcDeviceImageStatus|null The status
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\CloudPcDeviceImageStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\CloudPcDeviceImageStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new CloudPcDeviceImageStatus($this->_propDict["status"]);
@@ -194,7 +194,7 @@ class CloudPcDeviceImage extends Entity
     
     /**
     * Sets the status
-    * The status of the image on cloud PC. Possible values are: pending, ready, failed.
+    * The status of the image on Cloud PC. Possible values are: pending, ready, failed.
     *
     * @param CloudPcDeviceImageStatus $val The status
     *
@@ -214,8 +214,8 @@ class CloudPcDeviceImage extends Entity
     */
     public function getStatusDetails()
     {
-        if (array_key_exists("statusDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["statusDetails"], "\Beta\Microsoft\Graph\Model\CloudPcDeviceImageStatusDetails") || is_null($this->_propDict["statusDetails"])) {
+        if (array_key_exists("statusDetails", $this->_propDict) && !is_null($this->_propDict["statusDetails"])) {
+            if (is_a($this->_propDict["statusDetails"], "\Beta\Microsoft\Graph\Model\CloudPcDeviceImageStatusDetails")) {
                 return $this->_propDict["statusDetails"];
             } else {
                 $this->_propDict["statusDetails"] = new CloudPcDeviceImageStatusDetails($this->_propDict["statusDetails"]);

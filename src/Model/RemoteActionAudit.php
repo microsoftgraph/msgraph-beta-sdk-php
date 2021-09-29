@@ -32,8 +32,8 @@ class RemoteActionAudit extends Entity
     */
     public function getAction()
     {
-        if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\RemoteAction") || is_null($this->_propDict["action"])) {
+        if (array_key_exists("action", $this->_propDict) && !is_null($this->_propDict["action"])) {
+            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\RemoteAction")) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new RemoteAction($this->_propDict["action"]);
@@ -65,8 +65,8 @@ class RemoteActionAudit extends Entity
     */
     public function getActionState()
     {
-        if (array_key_exists("actionState", $this->_propDict)) {
-            if (is_a($this->_propDict["actionState"], "\Beta\Microsoft\Graph\Model\ActionState") || is_null($this->_propDict["actionState"])) {
+        if (array_key_exists("actionState", $this->_propDict) && !is_null($this->_propDict["actionState"])) {
+            if (is_a($this->_propDict["actionState"], "\Beta\Microsoft\Graph\Model\ActionState")) {
                 return $this->_propDict["actionState"];
             } else {
                 $this->_propDict["actionState"] = new ActionState($this->_propDict["actionState"]);
@@ -243,8 +243,8 @@ class RemoteActionAudit extends Entity
     */
     public function getRequestDateTime()
     {
-        if (array_key_exists("requestDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["requestDateTime"], "\DateTime") || is_null($this->_propDict["requestDateTime"])) {
+        if (array_key_exists("requestDateTime", $this->_propDict) && !is_null($this->_propDict["requestDateTime"])) {
+            if (is_a($this->_propDict["requestDateTime"], "\DateTime")) {
                 return $this->_propDict["requestDateTime"];
             } else {
                 $this->_propDict["requestDateTime"] = new \DateTime($this->_propDict["requestDateTime"]);

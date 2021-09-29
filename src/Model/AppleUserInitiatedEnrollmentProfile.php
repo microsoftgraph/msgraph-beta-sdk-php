@@ -29,22 +29,29 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
      * Gets the availableEnrollmentTypeOptions
     * List of available enrollment type options
      *
-     * @return array|null The availableEnrollmentTypeOptions
+     * @return AppleOwnerTypeEnrollmentType[]|null The availableEnrollmentTypeOptions
      */
     public function getAvailableEnrollmentTypeOptions()
     {
-        if (array_key_exists("availableEnrollmentTypeOptions", $this->_propDict)) {
-           return $this->_propDict["availableEnrollmentTypeOptions"];
-        } else {
-            return null;
+        if (array_key_exists('availableEnrollmentTypeOptions', $this->_propDict) && !is_null($this->_propDict['availableEnrollmentTypeOptions'])) {
+            $availableEnrollmentTypeOptions = [];
+            if (count($this->_propDict['availableEnrollmentTypeOptions']) > 0 && is_a($this->_propDict['availableEnrollmentTypeOptions'][0], 'AppleOwnerTypeEnrollmentType')) {
+                return $this->_propDict['availableEnrollmentTypeOptions'];
+            }
+            foreach ($this->_propDict['availableEnrollmentTypeOptions'] as $singleValue) {
+                $availableEnrollmentTypeOptions []= new AppleOwnerTypeEnrollmentType($singleValue);
+            }
+            $this->_propDict['availableEnrollmentTypeOptions'] = $availableEnrollmentTypeOptions;
+            return $this->_propDict['availableEnrollmentTypeOptions'];
         }
+        return null;
     }
     
     /** 
     * Sets the availableEnrollmentTypeOptions
     * List of available enrollment type options
     *
-    * @param AppleOwnerTypeEnrollmentType $val The availableEnrollmentTypeOptions
+    * @param AppleOwnerTypeEnrollmentType[] $val The availableEnrollmentTypeOptions
     *
     * @return AppleUserInitiatedEnrollmentProfile
     */
@@ -62,8 +69,8 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -95,8 +102,8 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
     */
     public function getDefaultEnrollmentType()
     {
-        if (array_key_exists("defaultEnrollmentType", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultEnrollmentType"], "\Beta\Microsoft\Graph\Model\AppleUserInitiatedEnrollmentType") || is_null($this->_propDict["defaultEnrollmentType"])) {
+        if (array_key_exists("defaultEnrollmentType", $this->_propDict) && !is_null($this->_propDict["defaultEnrollmentType"])) {
+            if (is_a($this->_propDict["defaultEnrollmentType"], "\Beta\Microsoft\Graph\Model\AppleUserInitiatedEnrollmentType")) {
                 return $this->_propDict["defaultEnrollmentType"];
             } else {
                 $this->_propDict["defaultEnrollmentType"] = new AppleUserInitiatedEnrollmentType($this->_propDict["defaultEnrollmentType"]);
@@ -186,8 +193,8 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -219,8 +226,8 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
     */
     public function getPlatform()
     {
-        if (array_key_exists("platform", $this->_propDict)) {
-            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\DevicePlatformType") || is_null($this->_propDict["platform"])) {
+        if (array_key_exists("platform", $this->_propDict) && !is_null($this->_propDict["platform"])) {
+            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\DevicePlatformType")) {
                 return $this->_propDict["platform"];
             } else {
                 $this->_propDict["platform"] = new DevicePlatformType($this->_propDict["platform"]);
@@ -278,22 +285,29 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
      * Gets the assignments
     * The list of assignments for this profile.
      *
-     * @return array|null The assignments
+     * @return AppleEnrollmentProfileAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'AppleEnrollmentProfileAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new AppleEnrollmentProfileAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * The list of assignments for this profile.
     *
-    * @param AppleEnrollmentProfileAssignment $val The assignments
+    * @param AppleEnrollmentProfileAssignment[] $val The assignments
     *
     * @return AppleUserInitiatedEnrollmentProfile
     */

@@ -26,6 +26,7 @@ class TeamworkTag extends Entity
 {
     /**
     * Gets the description
+    * Tag description as it will appear to the user in Microsoft Teams.
     *
     * @return string|null The description
     */
@@ -40,6 +41,7 @@ class TeamworkTag extends Entity
     
     /**
     * Sets the description
+    * Tag description as it will appear to the user in Microsoft Teams.
     *
     * @param string $val The description
     *
@@ -53,6 +55,7 @@ class TeamworkTag extends Entity
     
     /**
     * Gets the displayName
+    * Tag name as it will appear to the user in Microsoft Teams.
     *
     * @return string|null The displayName
     */
@@ -67,6 +70,7 @@ class TeamworkTag extends Entity
     
     /**
     * Sets the displayName
+    * Tag name as it will appear to the user in Microsoft Teams.
     *
     * @param string $val The displayName
     *
@@ -80,6 +84,7 @@ class TeamworkTag extends Entity
     
     /**
     * Gets the memberCount
+    * The number of users assigned to the tag.
     *
     * @return int|null The memberCount
     */
@@ -94,6 +99,7 @@ class TeamworkTag extends Entity
     
     /**
     * Sets the memberCount
+    * The number of users assigned to the tag.
     *
     * @param int $val The memberCount
     *
@@ -107,13 +113,14 @@ class TeamworkTag extends Entity
     
     /**
     * Gets the tagType
+    * The type of tag. Default is standard.
     *
     * @return TeamworkTagType|null The tagType
     */
     public function getTagType()
     {
-        if (array_key_exists("tagType", $this->_propDict)) {
-            if (is_a($this->_propDict["tagType"], "\Beta\Microsoft\Graph\Model\TeamworkTagType") || is_null($this->_propDict["tagType"])) {
+        if (array_key_exists("tagType", $this->_propDict) && !is_null($this->_propDict["tagType"])) {
+            if (is_a($this->_propDict["tagType"], "\Beta\Microsoft\Graph\Model\TeamworkTagType")) {
                 return $this->_propDict["tagType"];
             } else {
                 $this->_propDict["tagType"] = new TeamworkTagType($this->_propDict["tagType"]);
@@ -125,6 +132,7 @@ class TeamworkTag extends Entity
     
     /**
     * Sets the tagType
+    * The type of tag. Default is standard.
     *
     * @param TeamworkTagType $val The tagType
     *
@@ -138,6 +146,7 @@ class TeamworkTag extends Entity
     
     /**
     * Gets the teamId
+    * ID of the team in which the tag is defined.
     *
     * @return string|null The teamId
     */
@@ -152,6 +161,7 @@ class TeamworkTag extends Entity
     
     /**
     * Sets the teamId
+    * ID of the team in which the tag is defined.
     *
     * @param string $val The teamId
     *
@@ -166,22 +176,31 @@ class TeamworkTag extends Entity
 
      /** 
      * Gets the members
+    * Users assigned to the tag.
      *
-     * @return array|null The members
+     * @return TeamworkTagMember[]|null The members
      */
     public function getMembers()
     {
-        if (array_key_exists("members", $this->_propDict)) {
-           return $this->_propDict["members"];
-        } else {
-            return null;
+        if (array_key_exists('members', $this->_propDict) && !is_null($this->_propDict['members'])) {
+            $members = [];
+            if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'TeamworkTagMember')) {
+                return $this->_propDict['members'];
+            }
+            foreach ($this->_propDict['members'] as $singleValue) {
+                $members []= new TeamworkTagMember($singleValue);
+            }
+            $this->_propDict['members'] = $members;
+            return $this->_propDict['members'];
         }
+        return null;
     }
     
     /** 
     * Sets the members
+    * Users assigned to the tag.
     *
-    * @param TeamworkTagMember $val The members
+    * @param TeamworkTagMember[] $val The members
     *
     * @return TeamworkTag
     */

@@ -26,6 +26,7 @@ class ServiceHealth extends Entity
 {
     /**
     * Gets the service
+    * The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant.
     *
     * @return string|null The service
     */
@@ -40,6 +41,7 @@ class ServiceHealth extends Entity
     
     /**
     * Sets the service
+    * The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant.
     *
     * @param string $val The service
     *
@@ -53,13 +55,14 @@ class ServiceHealth extends Entity
     
     /**
     * Gets the status
+    * Show the overral service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue.
     *
     * @return ServiceHealthStatus|null The status
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\ServiceHealthStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\ServiceHealthStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ServiceHealthStatus($this->_propDict["status"]);
@@ -71,6 +74,7 @@ class ServiceHealth extends Entity
     
     /**
     * Sets the status
+    * Show the overral service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue.
     *
     * @param ServiceHealthStatus $val The status
     *
@@ -85,22 +89,31 @@ class ServiceHealth extends Entity
 
      /** 
      * Gets the issues
+    * A collection of issues happened on the service, with detailed information for each issue.
      *
-     * @return array|null The issues
+     * @return ServiceHealthIssue[]|null The issues
      */
     public function getIssues()
     {
-        if (array_key_exists("issues", $this->_propDict)) {
-           return $this->_propDict["issues"];
-        } else {
-            return null;
+        if (array_key_exists('issues', $this->_propDict) && !is_null($this->_propDict['issues'])) {
+            $issues = [];
+            if (count($this->_propDict['issues']) > 0 && is_a($this->_propDict['issues'][0], 'ServiceHealthIssue')) {
+                return $this->_propDict['issues'];
+            }
+            foreach ($this->_propDict['issues'] as $singleValue) {
+                $issues []= new ServiceHealthIssue($singleValue);
+            }
+            $this->_propDict['issues'] = $issues;
+            return $this->_propDict['issues'];
         }
+        return null;
     }
     
     /** 
     * Sets the issues
+    * A collection of issues happened on the service, with detailed information for each issue.
     *
-    * @param ServiceHealthIssue $val The issues
+    * @param ServiceHealthIssue[] $val The issues
     *
     * @return ServiceHealth
     */

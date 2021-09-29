@@ -56,18 +56,22 @@ class RequestorSettings extends Entity
     * Gets the allowedRequestors
     * The users who are allowed to request on this policy, which can be singleUser, groupMembers, and connectedOrganizationMembers.
     *
-    * @return UserSet|null The allowedRequestors
+    * @return UserSet[]|null The allowedRequestors
     */
     public function getAllowedRequestors()
     {
-        if (array_key_exists("allowedRequestors", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedRequestors"], "\Beta\Microsoft\Graph\Model\UserSet") || is_null($this->_propDict["allowedRequestors"])) {
-                return $this->_propDict["allowedRequestors"];
-            } else {
-                $this->_propDict["allowedRequestors"] = new UserSet($this->_propDict["allowedRequestors"]);
-                return $this->_propDict["allowedRequestors"];
+        if (array_key_exists("allowedRequestors", $this->_propDict) && !is_null($this->_propDict["allowedRequestors"])) {
+       
+            if (count($this->_propDict['allowedRequestors']) > 0 && is_a($this->_propDict['allowedRequestors'][0], 'UserSet')) {
+               return $this->_propDict['allowedRequestors'];
             }
-        }
+            $allowedRequestors = [];
+            foreach ($this->_propDict['allowedRequestors'] as $singleValue) {
+               $allowedRequestors []= new UserSet($singleValue);
+            }
+            $this->_propDict['allowedRequestors'] = $allowedRequestors;
+            return $this->_propDict['allowedRequestors'];
+            }
         return null;
     }
 
@@ -75,7 +79,7 @@ class RequestorSettings extends Entity
     * Sets the allowedRequestors
     * The users who are allowed to request on this policy, which can be singleUser, groupMembers, and connectedOrganizationMembers.
     *
-    * @param UserSet $val The value to assign to the allowedRequestors
+    * @param UserSet[] $val The value to assign to the allowedRequestors
     *
     * @return RequestorSettings The RequestorSettings
     */

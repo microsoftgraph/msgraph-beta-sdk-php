@@ -28,18 +28,22 @@ class DeviceHealthScriptRemediationHistory extends Entity
     * Gets the historyData
     * The number of devices remediated by the device health script on the given date.
     *
-    * @return DeviceHealthScriptRemediationHistoryData|null The historyData
+    * @return DeviceHealthScriptRemediationHistoryData[]|null The historyData
     */
     public function getHistoryData()
     {
-        if (array_key_exists("historyData", $this->_propDict)) {
-            if (is_a($this->_propDict["historyData"], "\Beta\Microsoft\Graph\Model\DeviceHealthScriptRemediationHistoryData") || is_null($this->_propDict["historyData"])) {
-                return $this->_propDict["historyData"];
-            } else {
-                $this->_propDict["historyData"] = new DeviceHealthScriptRemediationHistoryData($this->_propDict["historyData"]);
-                return $this->_propDict["historyData"];
+        if (array_key_exists("historyData", $this->_propDict) && !is_null($this->_propDict["historyData"])) {
+       
+            if (count($this->_propDict['historyData']) > 0 && is_a($this->_propDict['historyData'][0], 'DeviceHealthScriptRemediationHistoryData')) {
+               return $this->_propDict['historyData'];
             }
-        }
+            $historyData = [];
+            foreach ($this->_propDict['historyData'] as $singleValue) {
+               $historyData []= new DeviceHealthScriptRemediationHistoryData($singleValue);
+            }
+            $this->_propDict['historyData'] = $historyData;
+            return $this->_propDict['historyData'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class DeviceHealthScriptRemediationHistory extends Entity
     * Sets the historyData
     * The number of devices remediated by the device health script on the given date.
     *
-    * @param DeviceHealthScriptRemediationHistoryData $val The value to assign to the historyData
+    * @param DeviceHealthScriptRemediationHistoryData[] $val The value to assign to the historyData
     *
     * @return DeviceHealthScriptRemediationHistory The DeviceHealthScriptRemediationHistory
     */
@@ -65,8 +69,9 @@ class DeviceHealthScriptRemediationHistory extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+     
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);

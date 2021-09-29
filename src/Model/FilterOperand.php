@@ -42,7 +42,7 @@ class FilterOperand extends Entity
     * Sets the values
     * Collection of values.
     *
-    * @param string $val The value of the values
+    * @param string[] $val The value of the values
     *
     * @return FilterOperand
     */

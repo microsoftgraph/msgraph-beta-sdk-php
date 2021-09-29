@@ -61,8 +61,8 @@ class AccessReview extends Entity
     */
     public function getCreatedBy()
     {
-        if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\UserIdentity") || is_null($this->_propDict["createdBy"])) {
+        if (array_key_exists("createdBy", $this->_propDict) && !is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\UserIdentity")) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new UserIdentity($this->_propDict["createdBy"]);
@@ -152,8 +152,8 @@ class AccessReview extends Entity
     */
     public function getEndDateTime()
     {
-        if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
+        if (array_key_exists("endDateTime", $this->_propDict) && !is_null($this->_propDict["endDateTime"])) {
+            if (is_a($this->_propDict["endDateTime"], "\DateTime")) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -185,8 +185,8 @@ class AccessReview extends Entity
     */
     public function getReviewedEntity()
     {
-        if (array_key_exists("reviewedEntity", $this->_propDict)) {
-            if (is_a($this->_propDict["reviewedEntity"], "\Beta\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["reviewedEntity"])) {
+        if (array_key_exists("reviewedEntity", $this->_propDict) && !is_null($this->_propDict["reviewedEntity"])) {
+            if (is_a($this->_propDict["reviewedEntity"], "\Beta\Microsoft\Graph\Model\Identity")) {
                 return $this->_propDict["reviewedEntity"];
             } else {
                 $this->_propDict["reviewedEntity"] = new Identity($this->_propDict["reviewedEntity"]);
@@ -247,8 +247,8 @@ class AccessReview extends Entity
     */
     public function getSettings()
     {
-        if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\AccessReviewSettings") || is_null($this->_propDict["settings"])) {
+        if (array_key_exists("settings", $this->_propDict) && !is_null($this->_propDict["settings"])) {
+            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\AccessReviewSettings")) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new AccessReviewSettings($this->_propDict["settings"]);
@@ -280,8 +280,8 @@ class AccessReview extends Entity
     */
     public function getStartDateTime()
     {
-        if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+        if (array_key_exists("startDateTime", $this->_propDict) && !is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -339,22 +339,29 @@ class AccessReview extends Entity
      * Gets the decisions
     * The collection of decisions for this access review.
      *
-     * @return array|null The decisions
+     * @return AccessReviewDecision[]|null The decisions
      */
     public function getDecisions()
     {
-        if (array_key_exists("decisions", $this->_propDict)) {
-           return $this->_propDict["decisions"];
-        } else {
-            return null;
+        if (array_key_exists('decisions', $this->_propDict) && !is_null($this->_propDict['decisions'])) {
+            $decisions = [];
+            if (count($this->_propDict['decisions']) > 0 && is_a($this->_propDict['decisions'][0], 'AccessReviewDecision')) {
+                return $this->_propDict['decisions'];
+            }
+            foreach ($this->_propDict['decisions'] as $singleValue) {
+                $decisions []= new AccessReviewDecision($singleValue);
+            }
+            $this->_propDict['decisions'] = $decisions;
+            return $this->_propDict['decisions'];
         }
+        return null;
     }
     
     /** 
     * Sets the decisions
     * The collection of decisions for this access review.
     *
-    * @param AccessReviewDecision $val The decisions
+    * @param AccessReviewDecision[] $val The decisions
     *
     * @return AccessReview
     */
@@ -369,22 +376,29 @@ class AccessReview extends Entity
      * Gets the instances
     * The collection of access reviews instances past, present and future, if this object is a recurring access review.
      *
-     * @return array|null The instances
+     * @return AccessReview[]|null The instances
      */
     public function getInstances()
     {
-        if (array_key_exists("instances", $this->_propDict)) {
-           return $this->_propDict["instances"];
-        } else {
-            return null;
+        if (array_key_exists('instances', $this->_propDict) && !is_null($this->_propDict['instances'])) {
+            $instances = [];
+            if (count($this->_propDict['instances']) > 0 && is_a($this->_propDict['instances'][0], 'AccessReview')) {
+                return $this->_propDict['instances'];
+            }
+            foreach ($this->_propDict['instances'] as $singleValue) {
+                $instances []= new AccessReview($singleValue);
+            }
+            $this->_propDict['instances'] = $instances;
+            return $this->_propDict['instances'];
         }
+        return null;
     }
     
     /** 
     * Sets the instances
     * The collection of access reviews instances past, present and future, if this object is a recurring access review.
     *
-    * @param AccessReview $val The instances
+    * @param AccessReview[] $val The instances
     *
     * @return AccessReview
     */
@@ -399,22 +413,29 @@ class AccessReview extends Entity
      * Gets the myDecisions
     * The collection of decisions for the caller, if the caller is a reviewer.
      *
-     * @return array|null The myDecisions
+     * @return AccessReviewDecision[]|null The myDecisions
      */
     public function getMyDecisions()
     {
-        if (array_key_exists("myDecisions", $this->_propDict)) {
-           return $this->_propDict["myDecisions"];
-        } else {
-            return null;
+        if (array_key_exists('myDecisions', $this->_propDict) && !is_null($this->_propDict['myDecisions'])) {
+            $myDecisions = [];
+            if (count($this->_propDict['myDecisions']) > 0 && is_a($this->_propDict['myDecisions'][0], 'AccessReviewDecision')) {
+                return $this->_propDict['myDecisions'];
+            }
+            foreach ($this->_propDict['myDecisions'] as $singleValue) {
+                $myDecisions []= new AccessReviewDecision($singleValue);
+            }
+            $this->_propDict['myDecisions'] = $myDecisions;
+            return $this->_propDict['myDecisions'];
         }
+        return null;
     }
     
     /** 
     * Sets the myDecisions
     * The collection of decisions for the caller, if the caller is a reviewer.
     *
-    * @param AccessReviewDecision $val The myDecisions
+    * @param AccessReviewDecision[] $val The myDecisions
     *
     * @return AccessReview
     */
@@ -429,22 +450,29 @@ class AccessReview extends Entity
      * Gets the reviewers
     * The collection of reviewers for an access review, if access review reviewerType is of type delegated.
      *
-     * @return array|null The reviewers
+     * @return AccessReviewReviewer[]|null The reviewers
      */
     public function getReviewers()
     {
-        if (array_key_exists("reviewers", $this->_propDict)) {
-           return $this->_propDict["reviewers"];
-        } else {
-            return null;
+        if (array_key_exists('reviewers', $this->_propDict) && !is_null($this->_propDict['reviewers'])) {
+            $reviewers = [];
+            if (count($this->_propDict['reviewers']) > 0 && is_a($this->_propDict['reviewers'][0], 'AccessReviewReviewer')) {
+                return $this->_propDict['reviewers'];
+            }
+            foreach ($this->_propDict['reviewers'] as $singleValue) {
+                $reviewers []= new AccessReviewReviewer($singleValue);
+            }
+            $this->_propDict['reviewers'] = $reviewers;
+            return $this->_propDict['reviewers'];
         }
+        return null;
     }
     
     /** 
     * Sets the reviewers
     * The collection of reviewers for an access review, if access review reviewerType is of type delegated.
     *
-    * @param AccessReviewReviewer $val The reviewers
+    * @param AccessReviewReviewer[] $val The reviewers
     *
     * @return AccessReview
     */

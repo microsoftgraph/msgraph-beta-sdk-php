@@ -32,8 +32,8 @@ class PersonAnnotation extends ItemFacet
     */
     public function getDetail()
     {
-        if (array_key_exists("detail", $this->_propDict)) {
-            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["detail"])) {
+        if (array_key_exists("detail", $this->_propDict) && !is_null($this->_propDict["detail"])) {
+            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\ItemBody")) {
                 return $this->_propDict["detail"];
             } else {
                 $this->_propDict["detail"] = new ItemBody($this->_propDict["detail"]);

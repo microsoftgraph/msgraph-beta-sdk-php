@@ -32,8 +32,8 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile
     */
     public function getCertificateStore()
     {
-        if (array_key_exists("certificateStore", $this->_propDict)) {
-            if (is_a($this->_propDict["certificateStore"], "\Beta\Microsoft\Graph\Model\CertificateStore") || is_null($this->_propDict["certificateStore"])) {
+        if (array_key_exists("certificateStore", $this->_propDict) && !is_null($this->_propDict["certificateStore"])) {
+            if (is_a($this->_propDict["certificateStore"], "\Beta\Microsoft\Graph\Model\CertificateStore")) {
                 return $this->_propDict["certificateStore"];
             } else {
                 $this->_propDict["certificateStore"] = new CertificateStore($this->_propDict["certificateStore"]);
@@ -65,8 +65,8 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile
     */
     public function getCertificateValidityPeriodScale()
     {
-        if (array_key_exists("certificateValidityPeriodScale", $this->_propDict)) {
-            if (is_a($this->_propDict["certificateValidityPeriodScale"], "\Beta\Microsoft\Graph\Model\CertificateValidityPeriodScale") || is_null($this->_propDict["certificateValidityPeriodScale"])) {
+        if (array_key_exists("certificateValidityPeriodScale", $this->_propDict) && !is_null($this->_propDict["certificateValidityPeriodScale"])) {
+            if (is_a($this->_propDict["certificateValidityPeriodScale"], "\Beta\Microsoft\Graph\Model\CertificateValidityPeriodScale")) {
                 return $this->_propDict["certificateValidityPeriodScale"];
             } else {
                 $this->_propDict["certificateValidityPeriodScale"] = new CertificateValidityPeriodScale($this->_propDict["certificateValidityPeriodScale"]);
@@ -124,22 +124,29 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile
      * Gets the extendedKeyUsages
     * Extended Key Usage (EKU) settings.
      *
-     * @return array|null The extendedKeyUsages
+     * @return ExtendedKeyUsage[]|null The extendedKeyUsages
      */
     public function getExtendedKeyUsages()
     {
-        if (array_key_exists("extendedKeyUsages", $this->_propDict)) {
-           return $this->_propDict["extendedKeyUsages"];
-        } else {
-            return null;
+        if (array_key_exists('extendedKeyUsages', $this->_propDict) && !is_null($this->_propDict['extendedKeyUsages'])) {
+            $extendedKeyUsages = [];
+            if (count($this->_propDict['extendedKeyUsages']) > 0 && is_a($this->_propDict['extendedKeyUsages'][0], 'ExtendedKeyUsage')) {
+                return $this->_propDict['extendedKeyUsages'];
+            }
+            foreach ($this->_propDict['extendedKeyUsages'] as $singleValue) {
+                $extendedKeyUsages []= new ExtendedKeyUsage($singleValue);
+            }
+            $this->_propDict['extendedKeyUsages'] = $extendedKeyUsages;
+            return $this->_propDict['extendedKeyUsages'];
         }
+        return null;
     }
     
     /** 
     * Sets the extendedKeyUsages
     * Extended Key Usage (EKU) settings.
     *
-    * @param ExtendedKeyUsage $val The extendedKeyUsages
+    * @param ExtendedKeyUsage[] $val The extendedKeyUsages
     *
     * @return Windows10XSCEPCertificateProfile
     */
@@ -154,22 +161,29 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile
      * Gets the hashAlgorithm
     * SCEP Hash Algorithm.
      *
-     * @return array|null The hashAlgorithm
+     * @return HashAlgorithms[]|null The hashAlgorithm
      */
     public function getHashAlgorithm()
     {
-        if (array_key_exists("hashAlgorithm", $this->_propDict)) {
-           return $this->_propDict["hashAlgorithm"];
-        } else {
-            return null;
+        if (array_key_exists('hashAlgorithm', $this->_propDict) && !is_null($this->_propDict['hashAlgorithm'])) {
+            $hashAlgorithm = [];
+            if (count($this->_propDict['hashAlgorithm']) > 0 && is_a($this->_propDict['hashAlgorithm'][0], 'HashAlgorithms')) {
+                return $this->_propDict['hashAlgorithm'];
+            }
+            foreach ($this->_propDict['hashAlgorithm'] as $singleValue) {
+                $hashAlgorithm []= new HashAlgorithms($singleValue);
+            }
+            $this->_propDict['hashAlgorithm'] = $hashAlgorithm;
+            return $this->_propDict['hashAlgorithm'];
         }
+        return null;
     }
     
     /** 
     * Sets the hashAlgorithm
     * SCEP Hash Algorithm.
     *
-    * @param HashAlgorithms $val The hashAlgorithm
+    * @param HashAlgorithms[] $val The hashAlgorithm
     *
     * @return Windows10XSCEPCertificateProfile
     */
@@ -187,8 +201,8 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile
     */
     public function getKeySize()
     {
-        if (array_key_exists("keySize", $this->_propDict)) {
-            if (is_a($this->_propDict["keySize"], "\Beta\Microsoft\Graph\Model\KeySize") || is_null($this->_propDict["keySize"])) {
+        if (array_key_exists("keySize", $this->_propDict) && !is_null($this->_propDict["keySize"])) {
+            if (is_a($this->_propDict["keySize"], "\Beta\Microsoft\Graph\Model\KeySize")) {
                 return $this->_propDict["keySize"];
             } else {
                 $this->_propDict["keySize"] = new KeySize($this->_propDict["keySize"]);
@@ -220,8 +234,8 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile
     */
     public function getKeyStorageProvider()
     {
-        if (array_key_exists("keyStorageProvider", $this->_propDict)) {
-            if (is_a($this->_propDict["keyStorageProvider"], "\Beta\Microsoft\Graph\Model\KeyStorageProviderOption") || is_null($this->_propDict["keyStorageProvider"])) {
+        if (array_key_exists("keyStorageProvider", $this->_propDict) && !is_null($this->_propDict["keyStorageProvider"])) {
+            if (is_a($this->_propDict["keyStorageProvider"], "\Beta\Microsoft\Graph\Model\KeyStorageProviderOption")) {
                 return $this->_propDict["keyStorageProvider"];
             } else {
                 $this->_propDict["keyStorageProvider"] = new KeyStorageProviderOption($this->_propDict["keyStorageProvider"]);
@@ -253,8 +267,8 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile
     */
     public function getKeyUsage()
     {
-        if (array_key_exists("keyUsage", $this->_propDict)) {
-            if (is_a($this->_propDict["keyUsage"], "\Beta\Microsoft\Graph\Model\KeyUsages") || is_null($this->_propDict["keyUsage"])) {
+        if (array_key_exists("keyUsage", $this->_propDict) && !is_null($this->_propDict["keyUsage"])) {
+            if (is_a($this->_propDict["keyUsage"], "\Beta\Microsoft\Graph\Model\KeyUsages")) {
                 return $this->_propDict["keyUsage"];
             } else {
                 $this->_propDict["keyUsage"] = new KeyUsages($this->_propDict["keyUsage"]);
@@ -370,22 +384,29 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile
      * Gets the subjectAlternativeNameFormats
     * Custom AAD Attributes.
      *
-     * @return array|null The subjectAlternativeNameFormats
+     * @return Windows10XCustomSubjectAlternativeName[]|null The subjectAlternativeNameFormats
      */
     public function getSubjectAlternativeNameFormats()
     {
-        if (array_key_exists("subjectAlternativeNameFormats", $this->_propDict)) {
-           return $this->_propDict["subjectAlternativeNameFormats"];
-        } else {
-            return null;
+        if (array_key_exists('subjectAlternativeNameFormats', $this->_propDict) && !is_null($this->_propDict['subjectAlternativeNameFormats'])) {
+            $subjectAlternativeNameFormats = [];
+            if (count($this->_propDict['subjectAlternativeNameFormats']) > 0 && is_a($this->_propDict['subjectAlternativeNameFormats'][0], 'Windows10XCustomSubjectAlternativeName')) {
+                return $this->_propDict['subjectAlternativeNameFormats'];
+            }
+            foreach ($this->_propDict['subjectAlternativeNameFormats'] as $singleValue) {
+                $subjectAlternativeNameFormats []= new Windows10XCustomSubjectAlternativeName($singleValue);
+            }
+            $this->_propDict['subjectAlternativeNameFormats'] = $subjectAlternativeNameFormats;
+            return $this->_propDict['subjectAlternativeNameFormats'];
         }
+        return null;
     }
     
     /** 
     * Sets the subjectAlternativeNameFormats
     * Custom AAD Attributes.
     *
-    * @param Windows10XCustomSubjectAlternativeName $val The subjectAlternativeNameFormats
+    * @param Windows10XCustomSubjectAlternativeName[] $val The subjectAlternativeNameFormats
     *
     * @return Windows10XSCEPCertificateProfile
     */

@@ -154,7 +154,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Sets the credentialBundleIdAccessControlList
     * Gets or sets a list of app Bundle IDs allowed to access the Kerberos Ticket Granting Ticket.
     *
-    * @param string $val The value of the credentialBundleIdAccessControlList
+    * @param string[] $val The value of the credentialBundleIdAccessControlList
     *
     * @return KerberosSingleSignOnExtension
     */
@@ -182,7 +182,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Sets the domainRealms
     * Gets or sets a list of realms for custom domain-realm mapping. Realms are case sensitive.
     *
-    * @param string $val The value of the domainRealms
+    * @param string[] $val The value of the domainRealms
     *
     * @return KerberosSingleSignOnExtension
     */
@@ -210,7 +210,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Sets the domains
     * Gets or sets a list of hosts or domain names for which the app extension performs SSO.
     *
-    * @param string $val The value of the domains
+    * @param string[] $val The value of the domains
     *
     * @return KerberosSingleSignOnExtension
     */

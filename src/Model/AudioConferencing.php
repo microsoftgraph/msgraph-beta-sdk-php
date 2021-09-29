@@ -126,7 +126,7 @@ class AudioConferencing extends Entity
     * Sets the tollFreeNumbers
     * List of toll-free numbers that are displayed in the meeting invite.
     *
-    * @param string $val The value of the tollFreeNumbers
+    * @param string[] $val The value of the tollFreeNumbers
     *
     * @return AudioConferencing
     */
@@ -182,7 +182,7 @@ class AudioConferencing extends Entity
     * Sets the tollNumbers
     * List of toll numbers that are displayed in the meeting invite.
     *
-    * @param string $val The value of the tollNumbers
+    * @param string[] $val The value of the tollNumbers
     *
     * @return AudioConferencing
     */

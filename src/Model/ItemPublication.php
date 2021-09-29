@@ -90,8 +90,8 @@ class ItemPublication extends ItemFacet
     */
     public function getPublishedDate()
     {
-        if (array_key_exists("publishedDate", $this->_propDict)) {
-            if (is_a($this->_propDict["publishedDate"], "\DateTime") || is_null($this->_propDict["publishedDate"])) {
+        if (array_key_exists("publishedDate", $this->_propDict) && !is_null($this->_propDict["publishedDate"])) {
+            if (is_a($this->_propDict["publishedDate"], "\DateTime")) {
                 return $this->_propDict["publishedDate"];
             } else {
                 $this->_propDict["publishedDate"] = new \DateTime($this->_propDict["publishedDate"]);

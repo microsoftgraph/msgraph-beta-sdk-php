@@ -206,8 +206,8 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy
     */
     public function getPasswordRequiredType()
     {
-        if (array_key_exists("passwordRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerRequiredPasswordType") || is_null($this->_propDict["passwordRequiredType"])) {
+        if (array_key_exists("passwordRequiredType", $this->_propDict) && !is_null($this->_propDict["passwordRequiredType"])) {
+            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerRequiredPasswordType")) {
                 return $this->_propDict["passwordRequiredType"];
             } else {
                 $this->_propDict["passwordRequiredType"] = new AndroidDeviceOwnerRequiredPasswordType($this->_propDict["passwordRequiredType"]);
@@ -228,6 +228,35 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy
     public function setPasswordRequiredType($val)
     {
         $this->_propDict["passwordRequiredType"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the securityBlockJailbrokenDevices
+    * Devices must not be jailbroken or rooted.
+    *
+    * @return bool|null The securityBlockJailbrokenDevices
+    */
+    public function getSecurityBlockJailbrokenDevices()
+    {
+        if (array_key_exists("securityBlockJailbrokenDevices", $this->_propDict)) {
+            return $this->_propDict["securityBlockJailbrokenDevices"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the securityBlockJailbrokenDevices
+    * Devices must not be jailbroken or rooted.
+    *
+    * @param bool $val The securityBlockJailbrokenDevices
+    *
+    * @return AospDeviceOwnerCompliancePolicy
+    */
+    public function setSecurityBlockJailbrokenDevices($val)
+    {
+        $this->_propDict["securityBlockJailbrokenDevices"] = boolval($val);
         return $this;
     }
     

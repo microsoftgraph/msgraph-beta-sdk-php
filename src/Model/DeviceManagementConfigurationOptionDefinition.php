@@ -28,18 +28,22 @@ class DeviceManagementConfigurationOptionDefinition extends Entity
     * Gets the dependedOnBy
     * List of Settings that depends on this option
     *
-    * @return DeviceManagementConfigurationSettingDependedOnBy|null The dependedOnBy
+    * @return DeviceManagementConfigurationSettingDependedOnBy[]|null The dependedOnBy
     */
     public function getDependedOnBy()
     {
-        if (array_key_exists("dependedOnBy", $this->_propDict)) {
-            if (is_a($this->_propDict["dependedOnBy"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingDependedOnBy") || is_null($this->_propDict["dependedOnBy"])) {
-                return $this->_propDict["dependedOnBy"];
-            } else {
-                $this->_propDict["dependedOnBy"] = new DeviceManagementConfigurationSettingDependedOnBy($this->_propDict["dependedOnBy"]);
-                return $this->_propDict["dependedOnBy"];
+        if (array_key_exists("dependedOnBy", $this->_propDict) && !is_null($this->_propDict["dependedOnBy"])) {
+       
+            if (count($this->_propDict['dependedOnBy']) > 0 && is_a($this->_propDict['dependedOnBy'][0], 'DeviceManagementConfigurationSettingDependedOnBy')) {
+               return $this->_propDict['dependedOnBy'];
             }
-        }
+            $dependedOnBy = [];
+            foreach ($this->_propDict['dependedOnBy'] as $singleValue) {
+               $dependedOnBy []= new DeviceManagementConfigurationSettingDependedOnBy($singleValue);
+            }
+            $this->_propDict['dependedOnBy'] = $dependedOnBy;
+            return $this->_propDict['dependedOnBy'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class DeviceManagementConfigurationOptionDefinition extends Entity
     * Sets the dependedOnBy
     * List of Settings that depends on this option
     *
-    * @param DeviceManagementConfigurationSettingDependedOnBy $val The value to assign to the dependedOnBy
+    * @param DeviceManagementConfigurationSettingDependedOnBy[] $val The value to assign to the dependedOnBy
     *
     * @return DeviceManagementConfigurationOptionDefinition The DeviceManagementConfigurationOptionDefinition
     */
@@ -61,18 +65,22 @@ class DeviceManagementConfigurationOptionDefinition extends Entity
     * Gets the dependentOn
     * List of dependent settings for this option
     *
-    * @return DeviceManagementConfigurationDependentOn|null The dependentOn
+    * @return DeviceManagementConfigurationDependentOn[]|null The dependentOn
     */
     public function getDependentOn()
     {
-        if (array_key_exists("dependentOn", $this->_propDict)) {
-            if (is_a($this->_propDict["dependentOn"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationDependentOn") || is_null($this->_propDict["dependentOn"])) {
-                return $this->_propDict["dependentOn"];
-            } else {
-                $this->_propDict["dependentOn"] = new DeviceManagementConfigurationDependentOn($this->_propDict["dependentOn"]);
-                return $this->_propDict["dependentOn"];
+        if (array_key_exists("dependentOn", $this->_propDict) && !is_null($this->_propDict["dependentOn"])) {
+       
+            if (count($this->_propDict['dependentOn']) > 0 && is_a($this->_propDict['dependentOn'][0], 'DeviceManagementConfigurationDependentOn')) {
+               return $this->_propDict['dependentOn'];
             }
-        }
+            $dependentOn = [];
+            foreach ($this->_propDict['dependentOn'] as $singleValue) {
+               $dependentOn []= new DeviceManagementConfigurationDependentOn($singleValue);
+            }
+            $this->_propDict['dependentOn'] = $dependentOn;
+            return $this->_propDict['dependentOn'];
+            }
         return null;
     }
 
@@ -80,7 +88,7 @@ class DeviceManagementConfigurationOptionDefinition extends Entity
     * Sets the dependentOn
     * List of dependent settings for this option
     *
-    * @param DeviceManagementConfigurationDependentOn $val The value to assign to the dependentOn
+    * @param DeviceManagementConfigurationDependentOn[] $val The value to assign to the dependentOn
     *
     * @return DeviceManagementConfigurationOptionDefinition The DeviceManagementConfigurationOptionDefinition
     */
@@ -238,8 +246,9 @@ class DeviceManagementConfigurationOptionDefinition extends Entity
     */
     public function getOptionValue()
     {
-        if (array_key_exists("optionValue", $this->_propDict)) {
-            if (is_a($this->_propDict["optionValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingValue") || is_null($this->_propDict["optionValue"])) {
+        if (array_key_exists("optionValue", $this->_propDict) && !is_null($this->_propDict["optionValue"])) {
+     
+            if (is_a($this->_propDict["optionValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingValue")) {
                 return $this->_propDict["optionValue"];
             } else {
                 $this->_propDict["optionValue"] = new DeviceManagementConfigurationSettingValue($this->_propDict["optionValue"]);

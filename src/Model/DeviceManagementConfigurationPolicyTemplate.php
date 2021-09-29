@@ -177,8 +177,8 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity
     */
     public function getLifecycleState()
     {
-        if (array_key_exists("lifecycleState", $this->_propDict)) {
-            if (is_a($this->_propDict["lifecycleState"], "\Beta\Microsoft\Graph\Model\DeviceManagementTemplateLifecycleState") || is_null($this->_propDict["lifecycleState"])) {
+        if (array_key_exists("lifecycleState", $this->_propDict) && !is_null($this->_propDict["lifecycleState"])) {
+            if (is_a($this->_propDict["lifecycleState"], "\Beta\Microsoft\Graph\Model\DeviceManagementTemplateLifecycleState")) {
                 return $this->_propDict["lifecycleState"];
             } else {
                 $this->_propDict["lifecycleState"] = new DeviceManagementTemplateLifecycleState($this->_propDict["lifecycleState"]);
@@ -210,8 +210,8 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity
     */
     public function getPlatforms()
     {
-        if (array_key_exists("platforms", $this->_propDict)) {
-            if (is_a($this->_propDict["platforms"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationPlatforms") || is_null($this->_propDict["platforms"])) {
+        if (array_key_exists("platforms", $this->_propDict) && !is_null($this->_propDict["platforms"])) {
+            if (is_a($this->_propDict["platforms"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationPlatforms")) {
                 return $this->_propDict["platforms"];
             } else {
                 $this->_propDict["platforms"] = new DeviceManagementConfigurationPlatforms($this->_propDict["platforms"]);
@@ -266,14 +266,14 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity
     
     /**
     * Gets the technologies
-    * Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense.
+    * Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline.
     *
     * @return DeviceManagementConfigurationTechnologies|null The technologies
     */
     public function getTechnologies()
     {
-        if (array_key_exists("technologies", $this->_propDict)) {
-            if (is_a($this->_propDict["technologies"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationTechnologies") || is_null($this->_propDict["technologies"])) {
+        if (array_key_exists("technologies", $this->_propDict) && !is_null($this->_propDict["technologies"])) {
+            if (is_a($this->_propDict["technologies"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationTechnologies")) {
                 return $this->_propDict["technologies"];
             } else {
                 $this->_propDict["technologies"] = new DeviceManagementConfigurationTechnologies($this->_propDict["technologies"]);
@@ -285,7 +285,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity
     
     /**
     * Sets the technologies
-    * Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense.
+    * Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline.
     *
     * @param DeviceManagementConfigurationTechnologies $val The technologies
     *
@@ -305,8 +305,8 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity
     */
     public function getTemplateFamily()
     {
-        if (array_key_exists("templateFamily", $this->_propDict)) {
-            if (is_a($this->_propDict["templateFamily"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationTemplateFamily") || is_null($this->_propDict["templateFamily"])) {
+        if (array_key_exists("templateFamily", $this->_propDict) && !is_null($this->_propDict["templateFamily"])) {
+            if (is_a($this->_propDict["templateFamily"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationTemplateFamily")) {
                 return $this->_propDict["templateFamily"];
             } else {
                 $this->_propDict["templateFamily"] = new DeviceManagementConfigurationTemplateFamily($this->_propDict["templateFamily"]);
@@ -364,22 +364,29 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity
      * Gets the settingTemplates
     * Setting templates
      *
-     * @return array|null The settingTemplates
+     * @return DeviceManagementConfigurationSettingTemplate[]|null The settingTemplates
      */
     public function getSettingTemplates()
     {
-        if (array_key_exists("settingTemplates", $this->_propDict)) {
-           return $this->_propDict["settingTemplates"];
-        } else {
-            return null;
+        if (array_key_exists('settingTemplates', $this->_propDict) && !is_null($this->_propDict['settingTemplates'])) {
+            $settingTemplates = [];
+            if (count($this->_propDict['settingTemplates']) > 0 && is_a($this->_propDict['settingTemplates'][0], 'DeviceManagementConfigurationSettingTemplate')) {
+                return $this->_propDict['settingTemplates'];
+            }
+            foreach ($this->_propDict['settingTemplates'] as $singleValue) {
+                $settingTemplates []= new DeviceManagementConfigurationSettingTemplate($singleValue);
+            }
+            $this->_propDict['settingTemplates'] = $settingTemplates;
+            return $this->_propDict['settingTemplates'];
         }
+        return null;
     }
     
     /** 
     * Sets the settingTemplates
     * Setting templates
     *
-    * @param DeviceManagementConfigurationSettingTemplate $val The settingTemplates
+    * @param DeviceManagementConfigurationSettingTemplate[] $val The settingTemplates
     *
     * @return DeviceManagementConfigurationPolicyTemplate
     */

@@ -28,18 +28,22 @@ class AttendanceRecord extends Entity
     * Gets the attendanceIntervals
     * List of time periods between joining and leaving.
     *
-    * @return AttendanceInterval|null The attendanceIntervals
+    * @return AttendanceInterval[]|null The attendanceIntervals
     */
     public function getAttendanceIntervals()
     {
-        if (array_key_exists("attendanceIntervals", $this->_propDict)) {
-            if (is_a($this->_propDict["attendanceIntervals"], "\Beta\Microsoft\Graph\Model\AttendanceInterval") || is_null($this->_propDict["attendanceIntervals"])) {
-                return $this->_propDict["attendanceIntervals"];
-            } else {
-                $this->_propDict["attendanceIntervals"] = new AttendanceInterval($this->_propDict["attendanceIntervals"]);
-                return $this->_propDict["attendanceIntervals"];
+        if (array_key_exists("attendanceIntervals", $this->_propDict) && !is_null($this->_propDict["attendanceIntervals"])) {
+       
+            if (count($this->_propDict['attendanceIntervals']) > 0 && is_a($this->_propDict['attendanceIntervals'][0], 'AttendanceInterval')) {
+               return $this->_propDict['attendanceIntervals'];
             }
-        }
+            $attendanceIntervals = [];
+            foreach ($this->_propDict['attendanceIntervals'] as $singleValue) {
+               $attendanceIntervals []= new AttendanceInterval($singleValue);
+            }
+            $this->_propDict['attendanceIntervals'] = $attendanceIntervals;
+            return $this->_propDict['attendanceIntervals'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class AttendanceRecord extends Entity
     * Sets the attendanceIntervals
     * List of time periods between joining and leaving.
     *
-    * @param AttendanceInterval $val The value to assign to the attendanceIntervals
+    * @param AttendanceInterval[] $val The value to assign to the attendanceIntervals
     *
     * @return AttendanceRecord The AttendanceRecord
     */
@@ -93,8 +97,9 @@ class AttendanceRecord extends Entity
     */
     public function getIdentity()
     {
-        if (array_key_exists("identity", $this->_propDict)) {
-            if (is_a($this->_propDict["identity"], "\Beta\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["identity"])) {
+        if (array_key_exists("identity", $this->_propDict) && !is_null($this->_propDict["identity"])) {
+     
+            if (is_a($this->_propDict["identity"], "\Beta\Microsoft\Graph\Model\Identity")) {
                 return $this->_propDict["identity"];
             } else {
                 $this->_propDict["identity"] = new Identity($this->_propDict["identity"]);

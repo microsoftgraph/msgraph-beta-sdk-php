@@ -29,22 +29,29 @@ class OrgContact extends DirectoryObject
      * Gets the addresses
     * Postal addresses for this organizational contact. For now a contact can only have one physical address.
      *
-     * @return array|null The addresses
+     * @return PhysicalOfficeAddress[]|null The addresses
      */
     public function getAddresses()
     {
-        if (array_key_exists("addresses", $this->_propDict)) {
-           return $this->_propDict["addresses"];
-        } else {
-            return null;
+        if (array_key_exists('addresses', $this->_propDict) && !is_null($this->_propDict['addresses'])) {
+            $addresses = [];
+            if (count($this->_propDict['addresses']) > 0 && is_a($this->_propDict['addresses'][0], 'PhysicalOfficeAddress')) {
+                return $this->_propDict['addresses'];
+            }
+            foreach ($this->_propDict['addresses'] as $singleValue) {
+                $addresses []= new PhysicalOfficeAddress($singleValue);
+            }
+            $this->_propDict['addresses'] = $addresses;
+            return $this->_propDict['addresses'];
         }
+        return null;
     }
     
     /** 
     * Sets the addresses
     * Postal addresses for this organizational contact. For now a contact can only have one physical address.
     *
-    * @param PhysicalOfficeAddress $val The addresses
+    * @param PhysicalOfficeAddress[] $val The addresses
     *
     * @return OrgContact
     */
@@ -56,7 +63,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Gets the companyName
-    * Name of the company that this organizational contact belong to.
+    * Name of the company that this organizational contact belong to. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
     *
     * @return string|null The companyName
     */
@@ -71,7 +78,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Sets the companyName
-    * Name of the company that this organizational contact belong to.
+    * Name of the company that this organizational contact belong to. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
     *
     * @param string $val The companyName
     *
@@ -85,7 +92,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Gets the department
-    * The name for the department in which the contact works.
+    * The name for the department in which the contact works. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
     *
     * @return string|null The department
     */
@@ -100,7 +107,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Sets the department
-    * The name for the department in which the contact works.
+    * The name for the department in which the contact works. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
     *
     * @param string $val The department
     *
@@ -114,7 +121,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Gets the displayName
-    * Display name for this organizational contact.
+    * Display name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith), $search, and $orderBy.
     *
     * @return string|null The displayName
     */
@@ -129,7 +136,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Sets the displayName
-    * Display name for this organizational contact.
+    * Display name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith), $search, and $orderBy.
     *
     * @param string $val The displayName
     *
@@ -143,7 +150,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Gets the givenName
-    * First name for this organizational contact.
+    * First name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
     *
     * @return string|null The givenName
     */
@@ -158,7 +165,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Sets the givenName
-    * First name for this organizational contact.
+    * First name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
     *
     * @param string $val The givenName
     *
@@ -172,7 +179,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Gets the jobTitle
-    * Job title for this organizational contact.
+    * Job title for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
     *
     * @return string|null The jobTitle
     */
@@ -187,7 +194,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Sets the jobTitle
-    * Job title for this organizational contact.
+    * Job title for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
     *
     * @param string $val The jobTitle
     *
@@ -201,7 +208,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Gets the mail
-    * The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'.
+    * The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
     *
     * @return string|null The mail
     */
@@ -216,7 +223,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Sets the mail
-    * The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'.
+    * The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
     *
     * @param string $val The mail
     *
@@ -230,7 +237,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Gets the mailNickname
-    * Email alias (portion of email address pre-pending the @ symbol) for this organizational contact.
+    * Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
     *
     * @return string|null The mailNickname
     */
@@ -245,7 +252,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Sets the mailNickname
-    * Email alias (portion of email address pre-pending the @ symbol) for this organizational contact.
+    * Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
     *
     * @param string $val The mailNickname
     *
@@ -259,14 +266,14 @@ class OrgContact extends DirectoryObject
     
     /**
     * Gets the onPremisesLastSyncDateTime
-    * Date and time when this organizational contact was last synchronized from on-premises AD. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    * Date and time when this organizational contact was last synchronized from on-premises AD. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, NOT, ge, le, in).
     *
     * @return \DateTime|null The onPremisesLastSyncDateTime
     */
     public function getOnPremisesLastSyncDateTime()
     {
-        if (array_key_exists("onPremisesLastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["onPremisesLastSyncDateTime"], "\DateTime") || is_null($this->_propDict["onPremisesLastSyncDateTime"])) {
+        if (array_key_exists("onPremisesLastSyncDateTime", $this->_propDict) && !is_null($this->_propDict["onPremisesLastSyncDateTime"])) {
+            if (is_a($this->_propDict["onPremisesLastSyncDateTime"], "\DateTime")) {
                 return $this->_propDict["onPremisesLastSyncDateTime"];
             } else {
                 $this->_propDict["onPremisesLastSyncDateTime"] = new \DateTime($this->_propDict["onPremisesLastSyncDateTime"]);
@@ -278,7 +285,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Sets the onPremisesLastSyncDateTime
-    * Date and time when this organizational contact was last synchronized from on-premises AD. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    * Date and time when this organizational contact was last synchronized from on-premises AD. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, NOT, ge, le, in).
     *
     * @param \DateTime $val The onPremisesLastSyncDateTime
     *
@@ -293,24 +300,31 @@ class OrgContact extends DirectoryObject
 
      /** 
      * Gets the onPremisesProvisioningErrors
-    * List of any synchronization provisioning errors for this organizational contact.
+    * List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, NOT).
      *
-     * @return array|null The onPremisesProvisioningErrors
+     * @return OnPremisesProvisioningError[]|null The onPremisesProvisioningErrors
      */
     public function getOnPremisesProvisioningErrors()
     {
-        if (array_key_exists("onPremisesProvisioningErrors", $this->_propDict)) {
-           return $this->_propDict["onPremisesProvisioningErrors"];
-        } else {
-            return null;
+        if (array_key_exists('onPremisesProvisioningErrors', $this->_propDict) && !is_null($this->_propDict['onPremisesProvisioningErrors'])) {
+            $onPremisesProvisioningErrors = [];
+            if (count($this->_propDict['onPremisesProvisioningErrors']) > 0 && is_a($this->_propDict['onPremisesProvisioningErrors'][0], 'OnPremisesProvisioningError')) {
+                return $this->_propDict['onPremisesProvisioningErrors'];
+            }
+            foreach ($this->_propDict['onPremisesProvisioningErrors'] as $singleValue) {
+                $onPremisesProvisioningErrors []= new OnPremisesProvisioningError($singleValue);
+            }
+            $this->_propDict['onPremisesProvisioningErrors'] = $onPremisesProvisioningErrors;
+            return $this->_propDict['onPremisesProvisioningErrors'];
         }
+        return null;
     }
     
     /** 
     * Sets the onPremisesProvisioningErrors
-    * List of any synchronization provisioning errors for this organizational contact.
+    * List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, NOT).
     *
-    * @param OnPremisesProvisioningError $val The onPremisesProvisioningErrors
+    * @param OnPremisesProvisioningError[] $val The onPremisesProvisioningErrors
     *
     * @return OrgContact
     */
@@ -352,24 +366,31 @@ class OrgContact extends DirectoryObject
 
      /** 
      * Gets the phones
-    * List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection.
+    * List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, NOT, in).
      *
-     * @return array|null The phones
+     * @return Phone[]|null The phones
      */
     public function getPhones()
     {
-        if (array_key_exists("phones", $this->_propDict)) {
-           return $this->_propDict["phones"];
-        } else {
-            return null;
+        if (array_key_exists('phones', $this->_propDict) && !is_null($this->_propDict['phones'])) {
+            $phones = [];
+            if (count($this->_propDict['phones']) > 0 && is_a($this->_propDict['phones'][0], 'Phone')) {
+                return $this->_propDict['phones'];
+            }
+            foreach ($this->_propDict['phones'] as $singleValue) {
+                $phones []= new Phone($singleValue);
+            }
+            $this->_propDict['phones'] = $phones;
+            return $this->_propDict['phones'];
         }
+        return null;
     }
     
     /** 
     * Sets the phones
-    * List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection.
+    * List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, NOT, in).
     *
-    * @param Phone $val The phones
+    * @param Phone[] $val The phones
     *
     * @return OrgContact
     */
@@ -381,7 +402,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Gets the proxyAddresses
-    * For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter.
+    * For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, NOT, ge, le, startsWith).
     *
     * @return string|null The proxyAddresses
     */
@@ -396,7 +417,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Sets the proxyAddresses
-    * For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter.
+    * For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, NOT, ge, le, startsWith).
     *
     * @param string $val The proxyAddresses
     *
@@ -410,7 +431,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Gets the surname
-    * Last name for this organizational contact.
+    * Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith)
     *
     * @return string|null The surname
     */
@@ -425,7 +446,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Sets the surname
-    * Last name for this organizational contact.
+    * Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith)
     *
     * @param string $val The surname
     *
@@ -440,24 +461,31 @@ class OrgContact extends DirectoryObject
 
      /** 
      * Gets the directReports
-    * The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable.
+    * The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand.
      *
-     * @return array|null The directReports
+     * @return DirectoryObject[]|null The directReports
      */
     public function getDirectReports()
     {
-        if (array_key_exists("directReports", $this->_propDict)) {
-           return $this->_propDict["directReports"];
-        } else {
-            return null;
+        if (array_key_exists('directReports', $this->_propDict) && !is_null($this->_propDict['directReports'])) {
+            $directReports = [];
+            if (count($this->_propDict['directReports']) > 0 && is_a($this->_propDict['directReports'][0], 'DirectoryObject')) {
+                return $this->_propDict['directReports'];
+            }
+            foreach ($this->_propDict['directReports'] as $singleValue) {
+                $directReports []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['directReports'] = $directReports;
+            return $this->_propDict['directReports'];
         }
+        return null;
     }
     
     /** 
     * Sets the directReports
-    * The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable.
+    * The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand.
     *
-    * @param DirectoryObject $val The directReports
+    * @param DirectoryObject[] $val The directReports
     *
     * @return OrgContact
     */
@@ -469,14 +497,14 @@ class OrgContact extends DirectoryObject
     
     /**
     * Gets the manager
-    * The user or contact that is this contact's manager. Read-only.
+    * The user or contact that is this contact's manager. Read-only. Supports $expand.
     *
     * @return DirectoryObject|null The manager
     */
     public function getManager()
     {
-        if (array_key_exists("manager", $this->_propDict)) {
-            if (is_a($this->_propDict["manager"], "\Beta\Microsoft\Graph\Model\DirectoryObject") || is_null($this->_propDict["manager"])) {
+        if (array_key_exists("manager", $this->_propDict) && !is_null($this->_propDict["manager"])) {
+            if (is_a($this->_propDict["manager"], "\Beta\Microsoft\Graph\Model\DirectoryObject")) {
                 return $this->_propDict["manager"];
             } else {
                 $this->_propDict["manager"] = new DirectoryObject($this->_propDict["manager"]);
@@ -488,7 +516,7 @@ class OrgContact extends DirectoryObject
     
     /**
     * Sets the manager
-    * The user or contact that is this contact's manager. Read-only.
+    * The user or contact that is this contact's manager. Read-only. Supports $expand.
     *
     * @param DirectoryObject $val The manager
     *
@@ -503,24 +531,31 @@ class OrgContact extends DirectoryObject
 
      /** 
      * Gets the memberOf
-    * Groups that this contact is a member of. Read-only. Nullable.
+    * Groups that this contact is a member of. Read-only. Nullable. Supports $expand.
      *
-     * @return array|null The memberOf
+     * @return DirectoryObject[]|null The memberOf
      */
     public function getMemberOf()
     {
-        if (array_key_exists("memberOf", $this->_propDict)) {
-           return $this->_propDict["memberOf"];
-        } else {
-            return null;
+        if (array_key_exists('memberOf', $this->_propDict) && !is_null($this->_propDict['memberOf'])) {
+            $memberOf = [];
+            if (count($this->_propDict['memberOf']) > 0 && is_a($this->_propDict['memberOf'][0], 'DirectoryObject')) {
+                return $this->_propDict['memberOf'];
+            }
+            foreach ($this->_propDict['memberOf'] as $singleValue) {
+                $memberOf []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['memberOf'] = $memberOf;
+            return $this->_propDict['memberOf'];
         }
+        return null;
     }
     
     /** 
     * Sets the memberOf
-    * Groups that this contact is a member of. Read-only. Nullable.
+    * Groups that this contact is a member of. Read-only. Nullable. Supports $expand.
     *
-    * @param DirectoryObject $val The memberOf
+    * @param DirectoryObject[] $val The memberOf
     *
     * @return OrgContact
     */
@@ -534,21 +569,28 @@ class OrgContact extends DirectoryObject
      /** 
      * Gets the transitiveMemberOf
      *
-     * @return array|null The transitiveMemberOf
+     * @return DirectoryObject[]|null The transitiveMemberOf
      */
     public function getTransitiveMemberOf()
     {
-        if (array_key_exists("transitiveMemberOf", $this->_propDict)) {
-           return $this->_propDict["transitiveMemberOf"];
-        } else {
-            return null;
+        if (array_key_exists('transitiveMemberOf', $this->_propDict) && !is_null($this->_propDict['transitiveMemberOf'])) {
+            $transitiveMemberOf = [];
+            if (count($this->_propDict['transitiveMemberOf']) > 0 && is_a($this->_propDict['transitiveMemberOf'][0], 'DirectoryObject')) {
+                return $this->_propDict['transitiveMemberOf'];
+            }
+            foreach ($this->_propDict['transitiveMemberOf'] as $singleValue) {
+                $transitiveMemberOf []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['transitiveMemberOf'] = $transitiveMemberOf;
+            return $this->_propDict['transitiveMemberOf'];
         }
+        return null;
     }
     
     /** 
     * Sets the transitiveMemberOf
     *
-    * @param DirectoryObject $val The transitiveMemberOf
+    * @param DirectoryObject[] $val The transitiveMemberOf
     *
     * @return OrgContact
     */
@@ -561,22 +603,31 @@ class OrgContact extends DirectoryObject
 
      /** 
      * Gets the transitiveReports
+    * The transitive reports for a contact. Read-only.
      *
-     * @return array|null The transitiveReports
+     * @return DirectoryObject[]|null The transitiveReports
      */
     public function getTransitiveReports()
     {
-        if (array_key_exists("transitiveReports", $this->_propDict)) {
-           return $this->_propDict["transitiveReports"];
-        } else {
-            return null;
+        if (array_key_exists('transitiveReports', $this->_propDict) && !is_null($this->_propDict['transitiveReports'])) {
+            $transitiveReports = [];
+            if (count($this->_propDict['transitiveReports']) > 0 && is_a($this->_propDict['transitiveReports'][0], 'DirectoryObject')) {
+                return $this->_propDict['transitiveReports'];
+            }
+            foreach ($this->_propDict['transitiveReports'] as $singleValue) {
+                $transitiveReports []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['transitiveReports'] = $transitiveReports;
+            return $this->_propDict['transitiveReports'];
         }
+        return null;
     }
     
     /** 
     * Sets the transitiveReports
+    * The transitive reports for a contact. Read-only.
     *
-    * @param DirectoryObject $val The transitiveReports
+    * @param DirectoryObject[] $val The transitiveReports
     *
     * @return OrgContact
     */

@@ -59,21 +59,28 @@ class CommsApplication implements \JsonSerializable
      /** 
      * Gets the calls
      *
-     * @return array|null The calls
+     * @return Call[]|null The calls
      */
     public function getCalls()
     {
-        if (array_key_exists("calls", $this->_propDict)) {
-           return $this->_propDict["calls"];
-        } else {
-            return null;
+        if (array_key_exists('calls', $this->_propDict) && !is_null($this->_propDict['calls'])) {
+            $calls = [];
+            if (count($this->_propDict['calls']) > 0 && is_a($this->_propDict['calls'][0], 'Call')) {
+                return $this->_propDict['calls'];
+            }
+            foreach ($this->_propDict['calls'] as $singleValue) {
+                $calls []= new Call($singleValue);
+            }
+            $this->_propDict['calls'] = $calls;
+            return $this->_propDict['calls'];
         }
+        return null;
     }
     
     /** 
     * Sets the calls
     *
-    * @param Call $val The calls
+    * @param Call[] $val The calls
     *
     * @return CommsApplication
     */
@@ -87,21 +94,28 @@ class CommsApplication implements \JsonSerializable
      /** 
      * Gets the onlineMeetings
      *
-     * @return array|null The onlineMeetings
+     * @return OnlineMeeting[]|null The onlineMeetings
      */
     public function getOnlineMeetings()
     {
-        if (array_key_exists("onlineMeetings", $this->_propDict)) {
-           return $this->_propDict["onlineMeetings"];
-        } else {
-            return null;
+        if (array_key_exists('onlineMeetings', $this->_propDict) && !is_null($this->_propDict['onlineMeetings'])) {
+            $onlineMeetings = [];
+            if (count($this->_propDict['onlineMeetings']) > 0 && is_a($this->_propDict['onlineMeetings'][0], 'OnlineMeeting')) {
+                return $this->_propDict['onlineMeetings'];
+            }
+            foreach ($this->_propDict['onlineMeetings'] as $singleValue) {
+                $onlineMeetings []= new OnlineMeeting($singleValue);
+            }
+            $this->_propDict['onlineMeetings'] = $onlineMeetings;
+            return $this->_propDict['onlineMeetings'];
         }
+        return null;
     }
     
     /** 
     * Sets the onlineMeetings
     *
-    * @param OnlineMeeting $val The onlineMeetings
+    * @param OnlineMeeting[] $val The onlineMeetings
     *
     * @return CommsApplication
     */
@@ -114,11 +128,14 @@ class CommsApplication implements \JsonSerializable
     /**
     * Gets the ODataType
     *
-    * @return string The ODataType
+    * @return string|null The ODataType
     */
     public function getODataType()
     {
-        return $this->_propDict["@odata.type"];
+        if (array_key_exists('@odata.type', $this->_propDict)) {
+            return $this->_propDict["@odata.type"];
+        }
+        return null;
     }
     
     /**
@@ -144,10 +161,22 @@ class CommsApplication implements \JsonSerializable
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
-                $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            if (is_a($val, '\DateTime')) {
+                $serializableProperties[$property] = $val->format(\DateTimeInterface::RFC3339);
+            } else if (is_a($val, '\Microsoft\Graph\Core\Enum')) {
                 $serializableProperties[$property] = $val->value();
+            } else if (is_array($val)) {
+                $values = [];
+                if (count($val) > 0 && is_a($val[0], '\DateTime')) {
+                   foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->format(\DateTimeInterface::RFC3339);
+                   }
+                } else if(count($val) > 0 && is_a($val[0], '\Microsoft\Graph\Core\Enum')) {
+                    foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->value();
+                   }
+                }
+                $serializableProperties[$property] = $values;
             }
         }
         return $serializableProperties;

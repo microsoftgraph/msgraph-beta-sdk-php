@@ -2,7 +2,7 @@
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
-* ConversationIdentityType File
+* AssignmentFilterOperator File
 * PHP version 7
 *
 * @category  Library
@@ -16,7 +16,7 @@ namespace Beta\Microsoft\Graph\Model;
 use Microsoft\Graph\Core\Enum;
 
 /**
-* ConversationIdentityType class
+* AssignmentFilterOperator class
 *
 * @category  Model
 * @package   Microsoft.Graph
@@ -24,11 +24,20 @@ use Microsoft\Graph\Core\Enum;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class ConversationIdentityType extends Enum
+class AssignmentFilterOperator extends Enum
 {
     /**
-    * The Enum ConversationIdentityType
+    * The Enum AssignmentFilterOperator
     */
-    const TEAM = "team";
-    const CHANNEL = "channel";
+    const NOT_SET = "notSet";
+    const EQUALS = "equals";
+    const NOT_EQUALS = "notEquals";
+    const STARTS_WITH = "startsWith";
+    const NOT_STARTS_WITH = "notStartsWith";
+    const CONTAINS = "contains";
+    const NOT_CONTAINS = "notContains";
+    const IN = "in";
+    const NOT_IN = "notIn";
+    const ENDS_WITH = "endsWith";
+    const NOT_ENDS_WITH = "notEndsWith";
 }

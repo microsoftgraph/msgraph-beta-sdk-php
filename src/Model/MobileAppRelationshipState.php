@@ -88,8 +88,9 @@ class MobileAppRelationshipState extends Entity
     */
     public function getInstallState()
     {
-        if (array_key_exists("installState", $this->_propDict)) {
-            if (is_a($this->_propDict["installState"], "\Beta\Microsoft\Graph\Model\ResultantAppState") || is_null($this->_propDict["installState"])) {
+        if (array_key_exists("installState", $this->_propDict) && !is_null($this->_propDict["installState"])) {
+     
+            if (is_a($this->_propDict["installState"], "\Beta\Microsoft\Graph\Model\ResultantAppState")) {
                 return $this->_propDict["installState"];
             } else {
                 $this->_propDict["installState"] = new ResultantAppState($this->_propDict["installState"]);
@@ -115,14 +116,15 @@ class MobileAppRelationshipState extends Entity
 
     /**
     * Gets the installStateDetail
-    * The install state detail of the app. Possible values are: noAdditionalDetails, dependencyFailedToInstall, dependencyWithRequirementsNotMet, dependencyPendingReboot, dependencyWithAutoInstallDisabled, iosAppStoreUpdateFailedToInstall, vppAppHasUpdateAvailable, userRejectedUpdate, seeInstallErrorCode, autoInstallDisabled, managedAppNoLongerPresent, userRejectedInstall, userIsNotLoggedIntoAppStore, seeUninstallErrorCode, pendingReboot, installingDependencies, contentDownloaded, powerShellScriptRequirementNotMet, registryRequirementNotMet, fileSystemRequirementNotMet, platformNotApplicable, minimumCpuSpeedNotMet, minimumLogicalProcessorCountNotMet, minimumPhysicalMemoryNotMet, minimumOsVersionNotMet, minimumDiskSpaceNotMet, processorArchitectureNotApplicable.
+    * The install state detail of the app. Possible values are: noAdditionalDetails, dependencyFailedToInstall, dependencyWithRequirementsNotMet, dependencyPendingReboot, dependencyWithAutoInstallDisabled, supersededAppUninstallFailed, supersededAppUninstallPendingReboot, removingSupersededApps, iosAppStoreUpdateFailedToInstall, vppAppHasUpdateAvailable, userRejectedUpdate, uninstallPendingReboot, supersedingAppsDetected, supersededAppsDetected, seeInstallErrorCode, autoInstallDisabled, managedAppNoLongerPresent, userRejectedInstall, userIsNotLoggedIntoAppStore, untargetedSupersedingAppsDetected, appRemovedBySupersedence, seeUninstallErrorCode, pendingReboot, installingDependencies, contentDownloaded, supersedingAppsNotApplicable, powerShellScriptRequirementNotMet, registryRequirementNotMet, fileSystemRequirementNotMet, platformNotApplicable, minimumCpuSpeedNotMet, minimumLogicalProcessorCountNotMet, minimumPhysicalMemoryNotMet, minimumOsVersionNotMet, minimumDiskSpaceNotMet, processorArchitectureNotApplicable.
     *
     * @return ResultantAppStateDetail|null The installStateDetail
     */
     public function getInstallStateDetail()
     {
-        if (array_key_exists("installStateDetail", $this->_propDict)) {
-            if (is_a($this->_propDict["installStateDetail"], "\Beta\Microsoft\Graph\Model\ResultantAppStateDetail") || is_null($this->_propDict["installStateDetail"])) {
+        if (array_key_exists("installStateDetail", $this->_propDict) && !is_null($this->_propDict["installStateDetail"])) {
+     
+            if (is_a($this->_propDict["installStateDetail"], "\Beta\Microsoft\Graph\Model\ResultantAppStateDetail")) {
                 return $this->_propDict["installStateDetail"];
             } else {
                 $this->_propDict["installStateDetail"] = new ResultantAppStateDetail($this->_propDict["installStateDetail"]);
@@ -134,7 +136,7 @@ class MobileAppRelationshipState extends Entity
 
     /**
     * Sets the installStateDetail
-    * The install state detail of the app. Possible values are: noAdditionalDetails, dependencyFailedToInstall, dependencyWithRequirementsNotMet, dependencyPendingReboot, dependencyWithAutoInstallDisabled, iosAppStoreUpdateFailedToInstall, vppAppHasUpdateAvailable, userRejectedUpdate, seeInstallErrorCode, autoInstallDisabled, managedAppNoLongerPresent, userRejectedInstall, userIsNotLoggedIntoAppStore, seeUninstallErrorCode, pendingReboot, installingDependencies, contentDownloaded, powerShellScriptRequirementNotMet, registryRequirementNotMet, fileSystemRequirementNotMet, platformNotApplicable, minimumCpuSpeedNotMet, minimumLogicalProcessorCountNotMet, minimumPhysicalMemoryNotMet, minimumOsVersionNotMet, minimumDiskSpaceNotMet, processorArchitectureNotApplicable.
+    * The install state detail of the app. Possible values are: noAdditionalDetails, dependencyFailedToInstall, dependencyWithRequirementsNotMet, dependencyPendingReboot, dependencyWithAutoInstallDisabled, supersededAppUninstallFailed, supersededAppUninstallPendingReboot, removingSupersededApps, iosAppStoreUpdateFailedToInstall, vppAppHasUpdateAvailable, userRejectedUpdate, uninstallPendingReboot, supersedingAppsDetected, supersededAppsDetected, seeInstallErrorCode, autoInstallDisabled, managedAppNoLongerPresent, userRejectedInstall, userIsNotLoggedIntoAppStore, untargetedSupersedingAppsDetected, appRemovedBySupersedence, seeUninstallErrorCode, pendingReboot, installingDependencies, contentDownloaded, supersedingAppsNotApplicable, powerShellScriptRequirementNotMet, registryRequirementNotMet, fileSystemRequirementNotMet, platformNotApplicable, minimumCpuSpeedNotMet, minimumLogicalProcessorCountNotMet, minimumPhysicalMemoryNotMet, minimumOsVersionNotMet, minimumDiskSpaceNotMet, processorArchitectureNotApplicable.
     *
     * @param ResultantAppStateDetail $val The value to assign to the installStateDetail
     *
@@ -164,7 +166,7 @@ class MobileAppRelationshipState extends Entity
     * Sets the sourceIds
     * The collection of source mobile app's ids.
     *
-    * @param string $val The value of the sourceIds
+    * @param string[] $val The value of the sourceIds
     *
     * @return MobileAppRelationshipState
     */
@@ -238,8 +240,9 @@ class MobileAppRelationshipState extends Entity
     */
     public function getTargetLastSyncDateTime()
     {
-        if (array_key_exists("targetLastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["targetLastSyncDateTime"], "\DateTime") || is_null($this->_propDict["targetLastSyncDateTime"])) {
+        if (array_key_exists("targetLastSyncDateTime", $this->_propDict) && !is_null($this->_propDict["targetLastSyncDateTime"])) {
+     
+            if (is_a($this->_propDict["targetLastSyncDateTime"], "\DateTime")) {
                 return $this->_propDict["targetLastSyncDateTime"];
             } else {
                 $this->_propDict["targetLastSyncDateTime"] = new \DateTime($this->_propDict["targetLastSyncDateTime"]);

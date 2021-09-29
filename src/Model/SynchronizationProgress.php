@@ -60,8 +60,9 @@ class SynchronizationProgress extends Entity
     */
     public function getProgressObservationDateTime()
     {
-        if (array_key_exists("progressObservationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["progressObservationDateTime"], "\DateTime") || is_null($this->_propDict["progressObservationDateTime"])) {
+        if (array_key_exists("progressObservationDateTime", $this->_propDict) && !is_null($this->_propDict["progressObservationDateTime"])) {
+     
+            if (is_a($this->_propDict["progressObservationDateTime"], "\DateTime")) {
                 return $this->_propDict["progressObservationDateTime"];
             } else {
                 $this->_propDict["progressObservationDateTime"] = new \DateTime($this->_propDict["progressObservationDateTime"]);

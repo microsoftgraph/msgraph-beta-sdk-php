@@ -145,22 +145,29 @@ class AndroidForWorkPkcsCertificateProfile extends AndroidForWorkCertificateProf
      * Gets the managedDeviceCertificateStates
     * Certificate state for devices
      *
-     * @return array|null The managedDeviceCertificateStates
+     * @return ManagedDeviceCertificateState[]|null The managedDeviceCertificateStates
      */
     public function getManagedDeviceCertificateStates()
     {
-        if (array_key_exists("managedDeviceCertificateStates", $this->_propDict)) {
-           return $this->_propDict["managedDeviceCertificateStates"];
-        } else {
-            return null;
+        if (array_key_exists('managedDeviceCertificateStates', $this->_propDict) && !is_null($this->_propDict['managedDeviceCertificateStates'])) {
+            $managedDeviceCertificateStates = [];
+            if (count($this->_propDict['managedDeviceCertificateStates']) > 0 && is_a($this->_propDict['managedDeviceCertificateStates'][0], 'ManagedDeviceCertificateState')) {
+                return $this->_propDict['managedDeviceCertificateStates'];
+            }
+            foreach ($this->_propDict['managedDeviceCertificateStates'] as $singleValue) {
+                $managedDeviceCertificateStates []= new ManagedDeviceCertificateState($singleValue);
+            }
+            $this->_propDict['managedDeviceCertificateStates'] = $managedDeviceCertificateStates;
+            return $this->_propDict['managedDeviceCertificateStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the managedDeviceCertificateStates
     * Certificate state for devices
     *
-    * @param ManagedDeviceCertificateState $val The managedDeviceCertificateStates
+    * @param ManagedDeviceCertificateState[] $val The managedDeviceCertificateStates
     *
     * @return AndroidForWorkPkcsCertificateProfile
     */

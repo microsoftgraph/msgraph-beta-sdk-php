@@ -31,8 +31,9 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent
     */
     public function getMatchTolerance()
     {
-        if (array_key_exists("matchTolerance", $this->_propDict)) {
-            if (is_a($this->_propDict["matchTolerance"], "\Beta\Microsoft\Graph\Model\MlClassificationMatchTolerance") || is_null($this->_propDict["matchTolerance"])) {
+        if (array_key_exists("matchTolerance", $this->_propDict) && !is_null($this->_propDict["matchTolerance"])) {
+     
+            if (is_a($this->_propDict["matchTolerance"], "\Beta\Microsoft\Graph\Model\MlClassificationMatchTolerance")) {
                 return $this->_propDict["matchTolerance"];
             } else {
                 $this->_propDict["matchTolerance"] = new MlClassificationMatchTolerance($this->_propDict["matchTolerance"]);

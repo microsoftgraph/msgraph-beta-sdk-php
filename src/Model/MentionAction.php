@@ -28,18 +28,22 @@ class MentionAction extends Entity
     * Gets the mentionees
     * The identities of the users mentioned in this action.
     *
-    * @return IdentitySet|null The mentionees
+    * @return IdentitySet[]|null The mentionees
     */
     public function getMentionees()
     {
-        if (array_key_exists("mentionees", $this->_propDict)) {
-            if (is_a($this->_propDict["mentionees"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["mentionees"])) {
-                return $this->_propDict["mentionees"];
-            } else {
-                $this->_propDict["mentionees"] = new IdentitySet($this->_propDict["mentionees"]);
-                return $this->_propDict["mentionees"];
+        if (array_key_exists("mentionees", $this->_propDict) && !is_null($this->_propDict["mentionees"])) {
+       
+            if (count($this->_propDict['mentionees']) > 0 && is_a($this->_propDict['mentionees'][0], 'IdentitySet')) {
+               return $this->_propDict['mentionees'];
             }
-        }
+            $mentionees = [];
+            foreach ($this->_propDict['mentionees'] as $singleValue) {
+               $mentionees []= new IdentitySet($singleValue);
+            }
+            $this->_propDict['mentionees'] = $mentionees;
+            return $this->_propDict['mentionees'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class MentionAction extends Entity
     * Sets the mentionees
     * The identities of the users mentioned in this action.
     *
-    * @param IdentitySet $val The value to assign to the mentionees
+    * @param IdentitySet[] $val The value to assign to the mentionees
     *
     * @return MentionAction The MentionAction
     */

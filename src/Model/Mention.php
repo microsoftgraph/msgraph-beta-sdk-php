@@ -90,8 +90,8 @@ class Mention extends Entity
     */
     public function getCreatedBy()
     {
-        if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\EmailAddress") || is_null($this->_propDict["createdBy"])) {
+        if (array_key_exists("createdBy", $this->_propDict) && !is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\EmailAddress")) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new EmailAddress($this->_propDict["createdBy"]);
@@ -123,8 +123,8 @@ class Mention extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -185,8 +185,8 @@ class Mention extends Entity
     */
     public function getMentioned()
     {
-        if (array_key_exists("mentioned", $this->_propDict)) {
-            if (is_a($this->_propDict["mentioned"], "\Beta\Microsoft\Graph\Model\EmailAddress") || is_null($this->_propDict["mentioned"])) {
+        if (array_key_exists("mentioned", $this->_propDict) && !is_null($this->_propDict["mentioned"])) {
+            if (is_a($this->_propDict["mentioned"], "\Beta\Microsoft\Graph\Model\EmailAddress")) {
                 return $this->_propDict["mentioned"];
             } else {
                 $this->_propDict["mentioned"] = new EmailAddress($this->_propDict["mentioned"]);
@@ -247,8 +247,8 @@ class Mention extends Entity
     */
     public function getServerCreatedDateTime()
     {
-        if (array_key_exists("serverCreatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["serverCreatedDateTime"], "\DateTime") || is_null($this->_propDict["serverCreatedDateTime"])) {
+        if (array_key_exists("serverCreatedDateTime", $this->_propDict) && !is_null($this->_propDict["serverCreatedDateTime"])) {
+            if (is_a($this->_propDict["serverCreatedDateTime"], "\DateTime")) {
                 return $this->_propDict["serverCreatedDateTime"];
             } else {
                 $this->_propDict["serverCreatedDateTime"] = new \DateTime($this->_propDict["serverCreatedDateTime"]);

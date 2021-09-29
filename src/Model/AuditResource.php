@@ -56,18 +56,22 @@ class AuditResource extends Entity
     * Gets the modifiedProperties
     * List of modified properties.
     *
-    * @return AuditProperty|null The modifiedProperties
+    * @return AuditProperty[]|null The modifiedProperties
     */
     public function getModifiedProperties()
     {
-        if (array_key_exists("modifiedProperties", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedProperties"], "\Beta\Microsoft\Graph\Model\AuditProperty") || is_null($this->_propDict["modifiedProperties"])) {
-                return $this->_propDict["modifiedProperties"];
-            } else {
-                $this->_propDict["modifiedProperties"] = new AuditProperty($this->_propDict["modifiedProperties"]);
-                return $this->_propDict["modifiedProperties"];
+        if (array_key_exists("modifiedProperties", $this->_propDict) && !is_null($this->_propDict["modifiedProperties"])) {
+       
+            if (count($this->_propDict['modifiedProperties']) > 0 && is_a($this->_propDict['modifiedProperties'][0], 'AuditProperty')) {
+               return $this->_propDict['modifiedProperties'];
             }
-        }
+            $modifiedProperties = [];
+            foreach ($this->_propDict['modifiedProperties'] as $singleValue) {
+               $modifiedProperties []= new AuditProperty($singleValue);
+            }
+            $this->_propDict['modifiedProperties'] = $modifiedProperties;
+            return $this->_propDict['modifiedProperties'];
+            }
         return null;
     }
 
@@ -75,7 +79,7 @@ class AuditResource extends Entity
     * Sets the modifiedProperties
     * List of modified properties.
     *
-    * @param AuditProperty $val The value to assign to the modifiedProperties
+    * @param AuditProperty[] $val The value to assign to the modifiedProperties
     *
     * @return AuditResource The AuditResource
     */

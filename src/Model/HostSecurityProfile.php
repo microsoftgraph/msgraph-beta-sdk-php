@@ -85,8 +85,8 @@ class HostSecurityProfile extends Entity
     */
     public function getFirstSeenDateTime()
     {
-        if (array_key_exists("firstSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["firstSeenDateTime"], "\DateTime") || is_null($this->_propDict["firstSeenDateTime"])) {
+        if (array_key_exists("firstSeenDateTime", $this->_propDict) && !is_null($this->_propDict["firstSeenDateTime"])) {
+            if (is_a($this->_propDict["firstSeenDateTime"], "\DateTime")) {
                 return $this->_propDict["firstSeenDateTime"];
             } else {
                 $this->_propDict["firstSeenDateTime"] = new \DateTime($this->_propDict["firstSeenDateTime"]);
@@ -224,8 +224,8 @@ class HostSecurityProfile extends Entity
     */
     public function getLastSeenDateTime()
     {
-        if (array_key_exists("lastSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime") || is_null($this->_propDict["lastSeenDateTime"])) {
+        if (array_key_exists("lastSeenDateTime", $this->_propDict) && !is_null($this->_propDict["lastSeenDateTime"])) {
+            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSeenDateTime"];
             } else {
                 $this->_propDict["lastSeenDateTime"] = new \DateTime($this->_propDict["lastSeenDateTime"]);
@@ -252,21 +252,28 @@ class HostSecurityProfile extends Entity
      /** 
      * Gets the logonUsers
      *
-     * @return array|null The logonUsers
+     * @return LogonUser[]|null The logonUsers
      */
     public function getLogonUsers()
     {
-        if (array_key_exists("logonUsers", $this->_propDict)) {
-           return $this->_propDict["logonUsers"];
-        } else {
-            return null;
+        if (array_key_exists('logonUsers', $this->_propDict) && !is_null($this->_propDict['logonUsers'])) {
+            $logonUsers = [];
+            if (count($this->_propDict['logonUsers']) > 0 && is_a($this->_propDict['logonUsers'][0], 'LogonUser')) {
+                return $this->_propDict['logonUsers'];
+            }
+            foreach ($this->_propDict['logonUsers'] as $singleValue) {
+                $logonUsers []= new LogonUser($singleValue);
+            }
+            $this->_propDict['logonUsers'] = $logonUsers;
+            return $this->_propDict['logonUsers'];
         }
+        return null;
     }
     
     /** 
     * Sets the logonUsers
     *
-    * @param LogonUser $val The logonUsers
+    * @param LogonUser[] $val The logonUsers
     *
     * @return HostSecurityProfile
     */
@@ -307,21 +314,28 @@ class HostSecurityProfile extends Entity
      /** 
      * Gets the networkInterfaces
      *
-     * @return array|null The networkInterfaces
+     * @return NetworkInterface[]|null The networkInterfaces
      */
     public function getNetworkInterfaces()
     {
-        if (array_key_exists("networkInterfaces", $this->_propDict)) {
-           return $this->_propDict["networkInterfaces"];
-        } else {
-            return null;
+        if (array_key_exists('networkInterfaces', $this->_propDict) && !is_null($this->_propDict['networkInterfaces'])) {
+            $networkInterfaces = [];
+            if (count($this->_propDict['networkInterfaces']) > 0 && is_a($this->_propDict['networkInterfaces'][0], 'NetworkInterface')) {
+                return $this->_propDict['networkInterfaces'];
+            }
+            foreach ($this->_propDict['networkInterfaces'] as $singleValue) {
+                $networkInterfaces []= new NetworkInterface($singleValue);
+            }
+            $this->_propDict['networkInterfaces'] = $networkInterfaces;
+            return $this->_propDict['networkInterfaces'];
         }
+        return null;
     }
     
     /** 
     * Sets the networkInterfaces
     *
-    * @param NetworkInterface $val The networkInterfaces
+    * @param NetworkInterface[] $val The networkInterfaces
     *
     * @return HostSecurityProfile
     */
@@ -500,8 +514,8 @@ class HostSecurityProfile extends Entity
     */
     public function getVendorInformation()
     {
-        if (array_key_exists("vendorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
+        if (array_key_exists("vendorInformation", $this->_propDict) && !is_null($this->_propDict["vendorInformation"])) {
+            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation")) {
                 return $this->_propDict["vendorInformation"];
             } else {
                 $this->_propDict["vendorInformation"] = new SecurityVendorInformation($this->_propDict["vendorInformation"]);

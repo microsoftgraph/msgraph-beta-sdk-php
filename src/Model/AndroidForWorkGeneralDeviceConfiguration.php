@@ -264,8 +264,8 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getPasswordRequiredType()
     {
-        if (array_key_exists("passwordRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidForWorkRequiredPasswordType") || is_null($this->_propDict["passwordRequiredType"])) {
+        if (array_key_exists("passwordRequiredType", $this->_propDict) && !is_null($this->_propDict["passwordRequiredType"])) {
+            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidForWorkRequiredPasswordType")) {
                 return $this->_propDict["passwordRequiredType"];
             } else {
                 $this->_propDict["passwordRequiredType"] = new AndroidForWorkRequiredPasswordType($this->_propDict["passwordRequiredType"]);
@@ -703,8 +703,8 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getWorkProfileDataSharingType()
     {
-        if (array_key_exists("workProfileDataSharingType", $this->_propDict)) {
-            if (is_a($this->_propDict["workProfileDataSharingType"], "\Beta\Microsoft\Graph\Model\AndroidForWorkCrossProfileDataSharingType") || is_null($this->_propDict["workProfileDataSharingType"])) {
+        if (array_key_exists("workProfileDataSharingType", $this->_propDict) && !is_null($this->_propDict["workProfileDataSharingType"])) {
+            if (is_a($this->_propDict["workProfileDataSharingType"], "\Beta\Microsoft\Graph\Model\AndroidForWorkCrossProfileDataSharingType")) {
                 return $this->_propDict["workProfileDataSharingType"];
             } else {
                 $this->_propDict["workProfileDataSharingType"] = new AndroidForWorkCrossProfileDataSharingType($this->_propDict["workProfileDataSharingType"]);
@@ -736,8 +736,8 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getWorkProfileDefaultAppPermissionPolicy()
     {
-        if (array_key_exists("workProfileDefaultAppPermissionPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["workProfileDefaultAppPermissionPolicy"], "\Beta\Microsoft\Graph\Model\AndroidForWorkDefaultAppPermissionPolicyType") || is_null($this->_propDict["workProfileDefaultAppPermissionPolicy"])) {
+        if (array_key_exists("workProfileDefaultAppPermissionPolicy", $this->_propDict) && !is_null($this->_propDict["workProfileDefaultAppPermissionPolicy"])) {
+            if (is_a($this->_propDict["workProfileDefaultAppPermissionPolicy"], "\Beta\Microsoft\Graph\Model\AndroidForWorkDefaultAppPermissionPolicyType")) {
                 return $this->_propDict["workProfileDefaultAppPermissionPolicy"];
             } else {
                 $this->_propDict["workProfileDefaultAppPermissionPolicy"] = new AndroidForWorkDefaultAppPermissionPolicyType($this->_propDict["workProfileDefaultAppPermissionPolicy"]);
@@ -1175,8 +1175,8 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getWorkProfilePasswordRequiredType()
     {
-        if (array_key_exists("workProfilePasswordRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["workProfilePasswordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidForWorkRequiredPasswordType") || is_null($this->_propDict["workProfilePasswordRequiredType"])) {
+        if (array_key_exists("workProfilePasswordRequiredType", $this->_propDict) && !is_null($this->_propDict["workProfilePasswordRequiredType"])) {
+            if (is_a($this->_propDict["workProfilePasswordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidForWorkRequiredPasswordType")) {
                 return $this->_propDict["workProfilePasswordRequiredType"];
             } else {
                 $this->_propDict["workProfilePasswordRequiredType"] = new AndroidForWorkRequiredPasswordType($this->_propDict["workProfilePasswordRequiredType"]);

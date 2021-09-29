@@ -61,8 +61,8 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
     */
     public function getAuthenticationMethod()
     {
-        if (array_key_exists("authenticationMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\EasAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
+        if (array_key_exists("authenticationMethod", $this->_propDict) && !is_null($this->_propDict["authenticationMethod"])) {
+            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\EasAuthenticationMethod")) {
                 return $this->_propDict["authenticationMethod"];
             } else {
                 $this->_propDict["authenticationMethod"] = new EasAuthenticationMethod($this->_propDict["authenticationMethod"]);
@@ -181,8 +181,8 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
     */
     public function getDurationOfEmailToSync()
     {
-        if (array_key_exists("durationOfEmailToSync", $this->_propDict)) {
-            if (is_a($this->_propDict["durationOfEmailToSync"], "\Beta\Microsoft\Graph\Model\EmailSyncDuration") || is_null($this->_propDict["durationOfEmailToSync"])) {
+        if (array_key_exists("durationOfEmailToSync", $this->_propDict) && !is_null($this->_propDict["durationOfEmailToSync"])) {
+            if (is_a($this->_propDict["durationOfEmailToSync"], "\Beta\Microsoft\Graph\Model\EmailSyncDuration")) {
                 return $this->_propDict["durationOfEmailToSync"];
             } else {
                 $this->_propDict["durationOfEmailToSync"] = new EmailSyncDuration($this->_propDict["durationOfEmailToSync"]);
@@ -214,8 +214,8 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
     */
     public function getEasServices()
     {
-        if (array_key_exists("easServices", $this->_propDict)) {
-            if (is_a($this->_propDict["easServices"], "\Beta\Microsoft\Graph\Model\EasServices") || is_null($this->_propDict["easServices"])) {
+        if (array_key_exists("easServices", $this->_propDict) && !is_null($this->_propDict["easServices"])) {
+            if (is_a($this->_propDict["easServices"], "\Beta\Microsoft\Graph\Model\EasServices")) {
                 return $this->_propDict["easServices"];
             } else {
                 $this->_propDict["easServices"] = new EasServices($this->_propDict["easServices"]);
@@ -276,8 +276,8 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
     */
     public function getEmailAddressSource()
     {
-        if (array_key_exists("emailAddressSource", $this->_propDict)) {
-            if (is_a($this->_propDict["emailAddressSource"], "\Beta\Microsoft\Graph\Model\UserEmailSource") || is_null($this->_propDict["emailAddressSource"])) {
+        if (array_key_exists("emailAddressSource", $this->_propDict) && !is_null($this->_propDict["emailAddressSource"])) {
+            if (is_a($this->_propDict["emailAddressSource"], "\Beta\Microsoft\Graph\Model\UserEmailSource")) {
                 return $this->_propDict["emailAddressSource"];
             } else {
                 $this->_propDict["emailAddressSource"] = new UserEmailSource($this->_propDict["emailAddressSource"]);
@@ -309,8 +309,8 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
     */
     public function getEncryptionCertificateType()
     {
-        if (array_key_exists("encryptionCertificateType", $this->_propDict)) {
-            if (is_a($this->_propDict["encryptionCertificateType"], "\Beta\Microsoft\Graph\Model\EmailCertificateType") || is_null($this->_propDict["encryptionCertificateType"])) {
+        if (array_key_exists("encryptionCertificateType", $this->_propDict) && !is_null($this->_propDict["encryptionCertificateType"])) {
+            if (is_a($this->_propDict["encryptionCertificateType"], "\Beta\Microsoft\Graph\Model\EmailCertificateType")) {
                 return $this->_propDict["encryptionCertificateType"];
             } else {
                 $this->_propDict["encryptionCertificateType"] = new EmailCertificateType($this->_propDict["encryptionCertificateType"]);
@@ -458,8 +458,8 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
     */
     public function getSigningCertificateType()
     {
-        if (array_key_exists("signingCertificateType", $this->_propDict)) {
-            if (is_a($this->_propDict["signingCertificateType"], "\Beta\Microsoft\Graph\Model\EmailCertificateType") || is_null($this->_propDict["signingCertificateType"])) {
+        if (array_key_exists("signingCertificateType", $this->_propDict) && !is_null($this->_propDict["signingCertificateType"])) {
+            if (is_a($this->_propDict["signingCertificateType"], "\Beta\Microsoft\Graph\Model\EmailCertificateType")) {
                 return $this->_propDict["signingCertificateType"];
             } else {
                 $this->_propDict["signingCertificateType"] = new EmailCertificateType($this->_propDict["signingCertificateType"]);
@@ -723,8 +723,8 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
     */
     public function getDerivedCredentialSettings()
     {
-        if (array_key_exists("derivedCredentialSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["derivedCredentialSettings"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialSettings") || is_null($this->_propDict["derivedCredentialSettings"])) {
+        if (array_key_exists("derivedCredentialSettings", $this->_propDict) && !is_null($this->_propDict["derivedCredentialSettings"])) {
+            if (is_a($this->_propDict["derivedCredentialSettings"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialSettings")) {
                 return $this->_propDict["derivedCredentialSettings"];
             } else {
                 $this->_propDict["derivedCredentialSettings"] = new DeviceManagementDerivedCredentialSettings($this->_propDict["derivedCredentialSettings"]);
@@ -756,8 +756,8 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
     */
     public function getIdentityCertificate()
     {
-        if (array_key_exists("identityCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfileBase") || is_null($this->_propDict["identityCertificate"])) {
+        if (array_key_exists("identityCertificate", $this->_propDict) && !is_null($this->_propDict["identityCertificate"])) {
+            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfileBase")) {
                 return $this->_propDict["identityCertificate"];
             } else {
                 $this->_propDict["identityCertificate"] = new IosCertificateProfileBase($this->_propDict["identityCertificate"]);
@@ -789,8 +789,8 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
     */
     public function getSmimeEncryptionCertificate()
     {
-        if (array_key_exists("smimeEncryptionCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["smimeEncryptionCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfile") || is_null($this->_propDict["smimeEncryptionCertificate"])) {
+        if (array_key_exists("smimeEncryptionCertificate", $this->_propDict) && !is_null($this->_propDict["smimeEncryptionCertificate"])) {
+            if (is_a($this->_propDict["smimeEncryptionCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfile")) {
                 return $this->_propDict["smimeEncryptionCertificate"];
             } else {
                 $this->_propDict["smimeEncryptionCertificate"] = new IosCertificateProfile($this->_propDict["smimeEncryptionCertificate"]);
@@ -822,8 +822,8 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
     */
     public function getSmimeSigningCertificate()
     {
-        if (array_key_exists("smimeSigningCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["smimeSigningCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfile") || is_null($this->_propDict["smimeSigningCertificate"])) {
+        if (array_key_exists("smimeSigningCertificate", $this->_propDict) && !is_null($this->_propDict["smimeSigningCertificate"])) {
+            if (is_a($this->_propDict["smimeSigningCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfile")) {
                 return $this->_propDict["smimeSigningCertificate"];
             } else {
                 $this->_propDict["smimeSigningCertificate"] = new IosCertificateProfile($this->_propDict["smimeSigningCertificate"]);

@@ -42,7 +42,7 @@ class BulkManagedDeviceActionResult extends Entity
     * Sets the failedDeviceIds
     * Failed devices
     *
-    * @param string $val The value of the failedDeviceIds
+    * @param string[] $val The value of the failedDeviceIds
     *
     * @return BulkManagedDeviceActionResult
     */
@@ -70,7 +70,7 @@ class BulkManagedDeviceActionResult extends Entity
     * Sets the notFoundDeviceIds
     * Not found devices
     *
-    * @param string $val The value of the notFoundDeviceIds
+    * @param string[] $val The value of the notFoundDeviceIds
     *
     * @return BulkManagedDeviceActionResult
     */
@@ -98,7 +98,7 @@ class BulkManagedDeviceActionResult extends Entity
     * Sets the notSupportedDeviceIds
     * Not supported devices
     *
-    * @param string $val The value of the notSupportedDeviceIds
+    * @param string[] $val The value of the notSupportedDeviceIds
     *
     * @return BulkManagedDeviceActionResult
     */
@@ -126,7 +126,7 @@ class BulkManagedDeviceActionResult extends Entity
     * Sets the successfulDeviceIds
     * Successful devices
     *
-    * @param string $val The value of the successfulDeviceIds
+    * @param string[] $val The value of the successfulDeviceIds
     *
     * @return BulkManagedDeviceActionResult
     */

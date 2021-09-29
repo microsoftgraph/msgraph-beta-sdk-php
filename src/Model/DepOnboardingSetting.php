@@ -90,8 +90,8 @@ class DepOnboardingSetting extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -123,8 +123,8 @@ class DepOnboardingSetting extends Entity
     */
     public function getLastSuccessfulSyncDateTime()
     {
-        if (array_key_exists("lastSuccessfulSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSuccessfulSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSuccessfulSyncDateTime"])) {
+        if (array_key_exists("lastSuccessfulSyncDateTime", $this->_propDict) && !is_null($this->_propDict["lastSuccessfulSyncDateTime"])) {
+            if (is_a($this->_propDict["lastSuccessfulSyncDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSuccessfulSyncDateTime"];
             } else {
                 $this->_propDict["lastSuccessfulSyncDateTime"] = new \DateTime($this->_propDict["lastSuccessfulSyncDateTime"]);
@@ -185,8 +185,8 @@ class DepOnboardingSetting extends Entity
     */
     public function getLastSyncTriggeredDateTime()
     {
-        if (array_key_exists("lastSyncTriggeredDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncTriggeredDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncTriggeredDateTime"])) {
+        if (array_key_exists("lastSyncTriggeredDateTime", $this->_propDict) && !is_null($this->_propDict["lastSyncTriggeredDateTime"])) {
+            if (is_a($this->_propDict["lastSyncTriggeredDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSyncTriggeredDateTime"];
             } else {
                 $this->_propDict["lastSyncTriggeredDateTime"] = new \DateTime($this->_propDict["lastSyncTriggeredDateTime"]);
@@ -305,8 +305,8 @@ class DepOnboardingSetting extends Entity
     */
     public function getTokenExpirationDateTime()
     {
-        if (array_key_exists("tokenExpirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["tokenExpirationDateTime"], "\DateTime") || is_null($this->_propDict["tokenExpirationDateTime"])) {
+        if (array_key_exists("tokenExpirationDateTime", $this->_propDict) && !is_null($this->_propDict["tokenExpirationDateTime"])) {
+            if (is_a($this->_propDict["tokenExpirationDateTime"], "\DateTime")) {
                 return $this->_propDict["tokenExpirationDateTime"];
             } else {
                 $this->_propDict["tokenExpirationDateTime"] = new \DateTime($this->_propDict["tokenExpirationDateTime"]);
@@ -367,8 +367,8 @@ class DepOnboardingSetting extends Entity
     */
     public function getTokenType()
     {
-        if (array_key_exists("tokenType", $this->_propDict)) {
-            if (is_a($this->_propDict["tokenType"], "\Beta\Microsoft\Graph\Model\DepTokenType") || is_null($this->_propDict["tokenType"])) {
+        if (array_key_exists("tokenType", $this->_propDict) && !is_null($this->_propDict["tokenType"])) {
+            if (is_a($this->_propDict["tokenType"], "\Beta\Microsoft\Graph\Model\DepTokenType")) {
                 return $this->_propDict["tokenType"];
             } else {
                 $this->_propDict["tokenType"] = new DepTokenType($this->_propDict["tokenType"]);
@@ -400,8 +400,8 @@ class DepOnboardingSetting extends Entity
     */
     public function getDefaultIosEnrollmentProfile()
     {
-        if (array_key_exists("defaultIosEnrollmentProfile", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultIosEnrollmentProfile"], "\Beta\Microsoft\Graph\Model\DepIOSEnrollmentProfile") || is_null($this->_propDict["defaultIosEnrollmentProfile"])) {
+        if (array_key_exists("defaultIosEnrollmentProfile", $this->_propDict) && !is_null($this->_propDict["defaultIosEnrollmentProfile"])) {
+            if (is_a($this->_propDict["defaultIosEnrollmentProfile"], "\Beta\Microsoft\Graph\Model\DepIOSEnrollmentProfile")) {
                 return $this->_propDict["defaultIosEnrollmentProfile"];
             } else {
                 $this->_propDict["defaultIosEnrollmentProfile"] = new DepIOSEnrollmentProfile($this->_propDict["defaultIosEnrollmentProfile"]);
@@ -433,8 +433,8 @@ class DepOnboardingSetting extends Entity
     */
     public function getDefaultMacOsEnrollmentProfile()
     {
-        if (array_key_exists("defaultMacOsEnrollmentProfile", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultMacOsEnrollmentProfile"], "\Beta\Microsoft\Graph\Model\DepMacOSEnrollmentProfile") || is_null($this->_propDict["defaultMacOsEnrollmentProfile"])) {
+        if (array_key_exists("defaultMacOsEnrollmentProfile", $this->_propDict) && !is_null($this->_propDict["defaultMacOsEnrollmentProfile"])) {
+            if (is_a($this->_propDict["defaultMacOsEnrollmentProfile"], "\Beta\Microsoft\Graph\Model\DepMacOSEnrollmentProfile")) {
                 return $this->_propDict["defaultMacOsEnrollmentProfile"];
             } else {
                 $this->_propDict["defaultMacOsEnrollmentProfile"] = new DepMacOSEnrollmentProfile($this->_propDict["defaultMacOsEnrollmentProfile"]);
@@ -463,22 +463,29 @@ class DepOnboardingSetting extends Entity
      * Gets the enrollmentProfiles
     * The enrollment profiles.
      *
-     * @return array|null The enrollmentProfiles
+     * @return EnrollmentProfile[]|null The enrollmentProfiles
      */
     public function getEnrollmentProfiles()
     {
-        if (array_key_exists("enrollmentProfiles", $this->_propDict)) {
-           return $this->_propDict["enrollmentProfiles"];
-        } else {
-            return null;
+        if (array_key_exists('enrollmentProfiles', $this->_propDict) && !is_null($this->_propDict['enrollmentProfiles'])) {
+            $enrollmentProfiles = [];
+            if (count($this->_propDict['enrollmentProfiles']) > 0 && is_a($this->_propDict['enrollmentProfiles'][0], 'EnrollmentProfile')) {
+                return $this->_propDict['enrollmentProfiles'];
+            }
+            foreach ($this->_propDict['enrollmentProfiles'] as $singleValue) {
+                $enrollmentProfiles []= new EnrollmentProfile($singleValue);
+            }
+            $this->_propDict['enrollmentProfiles'] = $enrollmentProfiles;
+            return $this->_propDict['enrollmentProfiles'];
         }
+        return null;
     }
     
     /** 
     * Sets the enrollmentProfiles
     * The enrollment profiles.
     *
-    * @param EnrollmentProfile $val The enrollmentProfiles
+    * @param EnrollmentProfile[] $val The enrollmentProfiles
     *
     * @return DepOnboardingSetting
     */
@@ -493,22 +500,29 @@ class DepOnboardingSetting extends Entity
      * Gets the importedAppleDeviceIdentities
     * The imported Apple device identities.
      *
-     * @return array|null The importedAppleDeviceIdentities
+     * @return ImportedAppleDeviceIdentity[]|null The importedAppleDeviceIdentities
      */
     public function getImportedAppleDeviceIdentities()
     {
-        if (array_key_exists("importedAppleDeviceIdentities", $this->_propDict)) {
-           return $this->_propDict["importedAppleDeviceIdentities"];
-        } else {
-            return null;
+        if (array_key_exists('importedAppleDeviceIdentities', $this->_propDict) && !is_null($this->_propDict['importedAppleDeviceIdentities'])) {
+            $importedAppleDeviceIdentities = [];
+            if (count($this->_propDict['importedAppleDeviceIdentities']) > 0 && is_a($this->_propDict['importedAppleDeviceIdentities'][0], 'ImportedAppleDeviceIdentity')) {
+                return $this->_propDict['importedAppleDeviceIdentities'];
+            }
+            foreach ($this->_propDict['importedAppleDeviceIdentities'] as $singleValue) {
+                $importedAppleDeviceIdentities []= new ImportedAppleDeviceIdentity($singleValue);
+            }
+            $this->_propDict['importedAppleDeviceIdentities'] = $importedAppleDeviceIdentities;
+            return $this->_propDict['importedAppleDeviceIdentities'];
         }
+        return null;
     }
     
     /** 
     * Sets the importedAppleDeviceIdentities
     * The imported Apple device identities.
     *
-    * @param ImportedAppleDeviceIdentity $val The importedAppleDeviceIdentities
+    * @param ImportedAppleDeviceIdentity[] $val The importedAppleDeviceIdentities
     *
     * @return DepOnboardingSetting
     */

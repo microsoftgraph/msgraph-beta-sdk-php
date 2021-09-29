@@ -146,8 +146,8 @@ class SecurityAction extends Entity
     */
     public function getCompletedDateTime()
     {
-        if (array_key_exists("completedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["completedDateTime"], "\DateTime") || is_null($this->_propDict["completedDateTime"])) {
+        if (array_key_exists("completedDateTime", $this->_propDict) && !is_null($this->_propDict["completedDateTime"])) {
+            if (is_a($this->_propDict["completedDateTime"], "\DateTime")) {
                 return $this->_propDict["completedDateTime"];
             } else {
                 $this->_propDict["completedDateTime"] = new \DateTime($this->_propDict["completedDateTime"]);
@@ -179,8 +179,8 @@ class SecurityAction extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -212,8 +212,8 @@ class SecurityAction extends Entity
     */
     public function getErrorInfo()
     {
-        if (array_key_exists("errorInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["errorInfo"], "\Beta\Microsoft\Graph\Model\ResultInfo") || is_null($this->_propDict["errorInfo"])) {
+        if (array_key_exists("errorInfo", $this->_propDict) && !is_null($this->_propDict["errorInfo"])) {
+            if (is_a($this->_propDict["errorInfo"], "\Beta\Microsoft\Graph\Model\ResultInfo")) {
                 return $this->_propDict["errorInfo"];
             } else {
                 $this->_propDict["errorInfo"] = new ResultInfo($this->_propDict["errorInfo"]);
@@ -245,8 +245,8 @@ class SecurityAction extends Entity
     */
     public function getLastActionDateTime()
     {
-        if (array_key_exists("lastActionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastActionDateTime"], "\DateTime") || is_null($this->_propDict["lastActionDateTime"])) {
+        if (array_key_exists("lastActionDateTime", $this->_propDict) && !is_null($this->_propDict["lastActionDateTime"])) {
+            if (is_a($this->_propDict["lastActionDateTime"], "\DateTime")) {
                 return $this->_propDict["lastActionDateTime"];
             } else {
                 $this->_propDict["lastActionDateTime"] = new \DateTime($this->_propDict["lastActionDateTime"]);
@@ -304,22 +304,29 @@ class SecurityAction extends Entity
      * Gets the parameters
     * Collection of parameters (key-value pairs) necessary to invoke the action, e.g. URL or fileHash to block, etc.). Required
      *
-     * @return array|null The parameters
+     * @return KeyValuePair[]|null The parameters
      */
     public function getParameters()
     {
-        if (array_key_exists("parameters", $this->_propDict)) {
-           return $this->_propDict["parameters"];
-        } else {
-            return null;
+        if (array_key_exists('parameters', $this->_propDict) && !is_null($this->_propDict['parameters'])) {
+            $parameters = [];
+            if (count($this->_propDict['parameters']) > 0 && is_a($this->_propDict['parameters'][0], 'KeyValuePair')) {
+                return $this->_propDict['parameters'];
+            }
+            foreach ($this->_propDict['parameters'] as $singleValue) {
+                $parameters []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['parameters'] = $parameters;
+            return $this->_propDict['parameters'];
         }
+        return null;
     }
     
     /** 
     * Sets the parameters
     * Collection of parameters (key-value pairs) necessary to invoke the action, e.g. URL or fileHash to block, etc.). Required
     *
-    * @param KeyValuePair $val The parameters
+    * @param KeyValuePair[] $val The parameters
     *
     * @return SecurityAction
     */
@@ -334,22 +341,29 @@ class SecurityAction extends Entity
      * Gets the states
     * Collection of securityActionState to keep the history of an action.
      *
-     * @return array|null The states
+     * @return SecurityActionState[]|null The states
      */
     public function getStates()
     {
-        if (array_key_exists("states", $this->_propDict)) {
-           return $this->_propDict["states"];
-        } else {
-            return null;
+        if (array_key_exists('states', $this->_propDict) && !is_null($this->_propDict['states'])) {
+            $states = [];
+            if (count($this->_propDict['states']) > 0 && is_a($this->_propDict['states'][0], 'SecurityActionState')) {
+                return $this->_propDict['states'];
+            }
+            foreach ($this->_propDict['states'] as $singleValue) {
+                $states []= new SecurityActionState($singleValue);
+            }
+            $this->_propDict['states'] = $states;
+            return $this->_propDict['states'];
         }
+        return null;
     }
     
     /** 
     * Sets the states
     * Collection of securityActionState to keep the history of an action.
     *
-    * @param SecurityActionState $val The states
+    * @param SecurityActionState[] $val The states
     *
     * @return SecurityAction
     */
@@ -367,8 +381,8 @@ class SecurityAction extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\OperationStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\OperationStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new OperationStatus($this->_propDict["status"]);
@@ -429,8 +443,8 @@ class SecurityAction extends Entity
     */
     public function getVendorInformation()
     {
-        if (array_key_exists("vendorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
+        if (array_key_exists("vendorInformation", $this->_propDict) && !is_null($this->_propDict["vendorInformation"])) {
+            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation")) {
                 return $this->_propDict["vendorInformation"];
             } else {
                 $this->_propDict["vendorInformation"] = new SecurityVendorInformation($this->_propDict["vendorInformation"]);

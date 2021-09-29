@@ -235,8 +235,8 @@ class DepEnrollmentProfile extends EnrollmentProfile
     */
     public function getITunesPairingMode()
     {
-        if (array_key_exists("iTunesPairingMode", $this->_propDict)) {
-            if (is_a($this->_propDict["iTunesPairingMode"], "\Beta\Microsoft\Graph\Model\ITunesPairingMode") || is_null($this->_propDict["iTunesPairingMode"])) {
+        if (array_key_exists("iTunesPairingMode", $this->_propDict) && !is_null($this->_propDict["iTunesPairingMode"])) {
+            if (is_a($this->_propDict["iTunesPairingMode"], "\Beta\Microsoft\Graph\Model\ITunesPairingMode")) {
                 return $this->_propDict["iTunesPairingMode"];
             } else {
                 $this->_propDict["iTunesPairingMode"] = new ITunesPairingMode($this->_propDict["iTunesPairingMode"]);
@@ -352,22 +352,29 @@ class DepEnrollmentProfile extends EnrollmentProfile
      * Gets the managementCertificates
     * Management certificates for Apple Configurator
      *
-     * @return array|null The managementCertificates
+     * @return ManagementCertificateWithThumbprint[]|null The managementCertificates
      */
     public function getManagementCertificates()
     {
-        if (array_key_exists("managementCertificates", $this->_propDict)) {
-           return $this->_propDict["managementCertificates"];
-        } else {
-            return null;
+        if (array_key_exists('managementCertificates', $this->_propDict) && !is_null($this->_propDict['managementCertificates'])) {
+            $managementCertificates = [];
+            if (count($this->_propDict['managementCertificates']) > 0 && is_a($this->_propDict['managementCertificates'][0], 'ManagementCertificateWithThumbprint')) {
+                return $this->_propDict['managementCertificates'];
+            }
+            foreach ($this->_propDict['managementCertificates'] as $singleValue) {
+                $managementCertificates []= new ManagementCertificateWithThumbprint($singleValue);
+            }
+            $this->_propDict['managementCertificates'] = $managementCertificates;
+            return $this->_propDict['managementCertificates'];
         }
+        return null;
     }
     
     /** 
     * Sets the managementCertificates
     * Management certificates for Apple Configurator
     *
-    * @param ManagementCertificateWithThumbprint $val The managementCertificates
+    * @param ManagementCertificateWithThumbprint[] $val The managementCertificates
     *
     * @return DepEnrollmentProfile
     */
@@ -553,7 +560,7 @@ class DepEnrollmentProfile extends EnrollmentProfile
     
     /**
     * Gets the supervisedModeEnabled
-    * Supervised mode, True to enable, false otherwise. See https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
+    * Supervised mode, True to enable, false otherwise. See https://docs.microsoft.com/en-us/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
     *
     * @return bool|null The supervisedModeEnabled
     */
@@ -568,7 +575,7 @@ class DepEnrollmentProfile extends EnrollmentProfile
     
     /**
     * Sets the supervisedModeEnabled
-    * Supervised mode, True to enable, false otherwise. See https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
+    * Supervised mode, True to enable, false otherwise. See https://docs.microsoft.com/en-us/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
     *
     * @param bool $val The supervisedModeEnabled
     *

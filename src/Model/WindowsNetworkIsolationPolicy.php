@@ -28,18 +28,22 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Gets the enterpriseCloudResources
     * Contains a list of enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy. This collection can contain a maximum of 500 elements.
     *
-    * @return ProxiedDomain|null The enterpriseCloudResources
+    * @return ProxiedDomain[]|null The enterpriseCloudResources
     */
     public function getEnterpriseCloudResources()
     {
-        if (array_key_exists("enterpriseCloudResources", $this->_propDict)) {
-            if (is_a($this->_propDict["enterpriseCloudResources"], "\Beta\Microsoft\Graph\Model\ProxiedDomain") || is_null($this->_propDict["enterpriseCloudResources"])) {
-                return $this->_propDict["enterpriseCloudResources"];
-            } else {
-                $this->_propDict["enterpriseCloudResources"] = new ProxiedDomain($this->_propDict["enterpriseCloudResources"]);
-                return $this->_propDict["enterpriseCloudResources"];
+        if (array_key_exists("enterpriseCloudResources", $this->_propDict) && !is_null($this->_propDict["enterpriseCloudResources"])) {
+       
+            if (count($this->_propDict['enterpriseCloudResources']) > 0 && is_a($this->_propDict['enterpriseCloudResources'][0], 'ProxiedDomain')) {
+               return $this->_propDict['enterpriseCloudResources'];
             }
-        }
+            $enterpriseCloudResources = [];
+            foreach ($this->_propDict['enterpriseCloudResources'] as $singleValue) {
+               $enterpriseCloudResources []= new ProxiedDomain($singleValue);
+            }
+            $this->_propDict['enterpriseCloudResources'] = $enterpriseCloudResources;
+            return $this->_propDict['enterpriseCloudResources'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Sets the enterpriseCloudResources
     * Contains a list of enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy. This collection can contain a maximum of 500 elements.
     *
-    * @param ProxiedDomain $val The value to assign to the enterpriseCloudResources
+    * @param ProxiedDomain[] $val The value to assign to the enterpriseCloudResources
     *
     * @return WindowsNetworkIsolationPolicy The WindowsNetworkIsolationPolicy
     */
@@ -75,7 +79,7 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Sets the enterpriseInternalProxyServers
     * This is the comma-separated list of internal proxy servers. For example, '157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59'. These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseCloudResources policy to force traffic to the matched cloud resources through these proxies.
     *
-    * @param string $val The value of the enterpriseInternalProxyServers
+    * @param string[] $val The value of the enterpriseInternalProxyServers
     *
     * @return WindowsNetworkIsolationPolicy
     */
@@ -89,18 +93,22 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Gets the enterpriseIPRanges
     * Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to. This collection can contain a maximum of 500 elements.
     *
-    * @return IpRange|null The enterpriseIPRanges
+    * @return IpRange[]|null The enterpriseIPRanges
     */
     public function getEnterpriseIPRanges()
     {
-        if (array_key_exists("enterpriseIPRanges", $this->_propDict)) {
-            if (is_a($this->_propDict["enterpriseIPRanges"], "\Beta\Microsoft\Graph\Model\IpRange") || is_null($this->_propDict["enterpriseIPRanges"])) {
-                return $this->_propDict["enterpriseIPRanges"];
-            } else {
-                $this->_propDict["enterpriseIPRanges"] = new IpRange($this->_propDict["enterpriseIPRanges"]);
-                return $this->_propDict["enterpriseIPRanges"];
+        if (array_key_exists("enterpriseIPRanges", $this->_propDict) && !is_null($this->_propDict["enterpriseIPRanges"])) {
+       
+            if (count($this->_propDict['enterpriseIPRanges']) > 0 && is_a($this->_propDict['enterpriseIPRanges'][0], 'IpRange')) {
+               return $this->_propDict['enterpriseIPRanges'];
             }
-        }
+            $enterpriseIPRanges = [];
+            foreach ($this->_propDict['enterpriseIPRanges'] as $singleValue) {
+               $enterpriseIPRanges []= new IpRange($singleValue);
+            }
+            $this->_propDict['enterpriseIPRanges'] = $enterpriseIPRanges;
+            return $this->_propDict['enterpriseIPRanges'];
+            }
         return null;
     }
 
@@ -108,7 +116,7 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Sets the enterpriseIPRanges
     * Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to. This collection can contain a maximum of 500 elements.
     *
-    * @param IpRange $val The value to assign to the enterpriseIPRanges
+    * @param IpRange[] $val The value to assign to the enterpriseIPRanges
     *
     * @return WindowsNetworkIsolationPolicy The WindowsNetworkIsolationPolicy
     */
@@ -164,7 +172,7 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Sets the enterpriseNetworkDomainNames
     * This is the list of domains that comprise the boundaries of the enterprise. Data from one of these domains that is sent to a device will be considered enterprise data and protected. These locations will be considered a safe destination for enterprise data to be shared to.
     *
-    * @param string $val The value of the enterpriseNetworkDomainNames
+    * @param string[] $val The value of the enterpriseNetworkDomainNames
     *
     * @return WindowsNetworkIsolationPolicy
     */
@@ -192,7 +200,7 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Sets the enterpriseProxyServers
     * This is a list of proxy servers. Any server not on this list is considered non-enterprise.
     *
-    * @param string $val The value of the enterpriseProxyServers
+    * @param string[] $val The value of the enterpriseProxyServers
     *
     * @return WindowsNetworkIsolationPolicy
     */
@@ -248,7 +256,7 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Sets the neutralDomainResources
     * List of domain names that can used for work or personal resource.
     *
-    * @param string $val The value of the neutralDomainResources
+    * @param string[] $val The value of the neutralDomainResources
     *
     * @return WindowsNetworkIsolationPolicy
     */

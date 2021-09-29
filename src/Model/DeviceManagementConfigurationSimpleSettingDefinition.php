@@ -32,8 +32,8 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     */
     public function getDefaultValue()
     {
-        if (array_key_exists("defaultValue", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingValue") || is_null($this->_propDict["defaultValue"])) {
+        if (array_key_exists("defaultValue", $this->_propDict) && !is_null($this->_propDict["defaultValue"])) {
+            if (is_a($this->_propDict["defaultValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingValue")) {
                 return $this->_propDict["defaultValue"];
             } else {
                 $this->_propDict["defaultValue"] = new DeviceManagementConfigurationSettingValue($this->_propDict["defaultValue"]);
@@ -62,22 +62,29 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
      * Gets the dependedOnBy
     * list of child settings that depend on this setting
      *
-     * @return array|null The dependedOnBy
+     * @return DeviceManagementConfigurationSettingDependedOnBy[]|null The dependedOnBy
      */
     public function getDependedOnBy()
     {
-        if (array_key_exists("dependedOnBy", $this->_propDict)) {
-           return $this->_propDict["dependedOnBy"];
-        } else {
-            return null;
+        if (array_key_exists('dependedOnBy', $this->_propDict) && !is_null($this->_propDict['dependedOnBy'])) {
+            $dependedOnBy = [];
+            if (count($this->_propDict['dependedOnBy']) > 0 && is_a($this->_propDict['dependedOnBy'][0], 'DeviceManagementConfigurationSettingDependedOnBy')) {
+                return $this->_propDict['dependedOnBy'];
+            }
+            foreach ($this->_propDict['dependedOnBy'] as $singleValue) {
+                $dependedOnBy []= new DeviceManagementConfigurationSettingDependedOnBy($singleValue);
+            }
+            $this->_propDict['dependedOnBy'] = $dependedOnBy;
+            return $this->_propDict['dependedOnBy'];
         }
+        return null;
     }
     
     /** 
     * Sets the dependedOnBy
     * list of child settings that depend on this setting
     *
-    * @param DeviceManagementConfigurationSettingDependedOnBy $val The dependedOnBy
+    * @param DeviceManagementConfigurationSettingDependedOnBy[] $val The dependedOnBy
     *
     * @return DeviceManagementConfigurationSimpleSettingDefinition
     */
@@ -92,22 +99,29 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
      * Gets the dependentOn
     * list of parent settings this setting is dependent on
      *
-     * @return array|null The dependentOn
+     * @return DeviceManagementConfigurationDependentOn[]|null The dependentOn
      */
     public function getDependentOn()
     {
-        if (array_key_exists("dependentOn", $this->_propDict)) {
-           return $this->_propDict["dependentOn"];
-        } else {
-            return null;
+        if (array_key_exists('dependentOn', $this->_propDict) && !is_null($this->_propDict['dependentOn'])) {
+            $dependentOn = [];
+            if (count($this->_propDict['dependentOn']) > 0 && is_a($this->_propDict['dependentOn'][0], 'DeviceManagementConfigurationDependentOn')) {
+                return $this->_propDict['dependentOn'];
+            }
+            foreach ($this->_propDict['dependentOn'] as $singleValue) {
+                $dependentOn []= new DeviceManagementConfigurationDependentOn($singleValue);
+            }
+            $this->_propDict['dependentOn'] = $dependentOn;
+            return $this->_propDict['dependentOn'];
         }
+        return null;
     }
     
     /** 
     * Sets the dependentOn
     * list of parent settings this setting is dependent on
     *
-    * @param DeviceManagementConfigurationDependentOn $val The dependentOn
+    * @param DeviceManagementConfigurationDependentOn[] $val The dependentOn
     *
     * @return DeviceManagementConfigurationSimpleSettingDefinition
     */
@@ -125,8 +139,8 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     */
     public function getValueDefinition()
     {
-        if (array_key_exists("valueDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["valueDefinition"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingValueDefinition") || is_null($this->_propDict["valueDefinition"])) {
+        if (array_key_exists("valueDefinition", $this->_propDict) && !is_null($this->_propDict["valueDefinition"])) {
+            if (is_a($this->_propDict["valueDefinition"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingValueDefinition")) {
                 return $this->_propDict["valueDefinition"];
             } else {
                 $this->_propDict["valueDefinition"] = new DeviceManagementConfigurationSettingValueDefinition($this->_propDict["valueDefinition"]);

@@ -187,8 +187,9 @@ class PrinterUsageSummary extends Entity
     */
     public function getPrinter()
     {
-        if (array_key_exists("printer", $this->_propDict)) {
-            if (is_a($this->_propDict["printer"], "\Beta\Microsoft\Graph\Model\DirectoryObject") || is_null($this->_propDict["printer"])) {
+        if (array_key_exists("printer", $this->_propDict) && !is_null($this->_propDict["printer"])) {
+     
+            if (is_a($this->_propDict["printer"], "\Beta\Microsoft\Graph\Model\DirectoryObject")) {
                 return $this->_propDict["printer"];
             } else {
                 $this->_propDict["printer"] = new DirectoryObject($this->_propDict["printer"]);

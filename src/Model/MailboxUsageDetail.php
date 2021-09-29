@@ -31,8 +31,8 @@ class MailboxUsageDetail extends Entity
     */
     public function getCreatedDate()
     {
-        if (array_key_exists("createdDate", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDate"], "\DateTime") || is_null($this->_propDict["createdDate"])) {
+        if (array_key_exists("createdDate", $this->_propDict) && !is_null($this->_propDict["createdDate"])) {
+            if (is_a($this->_propDict["createdDate"], "\DateTime")) {
                 return $this->_propDict["createdDate"];
             } else {
                 $this->_propDict["createdDate"] = new \DateTime($this->_propDict["createdDate"]);
@@ -62,8 +62,8 @@ class MailboxUsageDetail extends Entity
     */
     public function getDeletedDate()
     {
-        if (array_key_exists("deletedDate", $this->_propDict)) {
-            if (is_a($this->_propDict["deletedDate"], "\DateTime") || is_null($this->_propDict["deletedDate"])) {
+        if (array_key_exists("deletedDate", $this->_propDict) && !is_null($this->_propDict["deletedDate"])) {
+            if (is_a($this->_propDict["deletedDate"], "\DateTime")) {
                 return $this->_propDict["deletedDate"];
             } else {
                 $this->_propDict["deletedDate"] = new \DateTime($this->_propDict["deletedDate"]);
@@ -255,8 +255,8 @@ class MailboxUsageDetail extends Entity
     */
     public function getLastActivityDate()
     {
-        if (array_key_exists("lastActivityDate", $this->_propDict)) {
-            if (is_a($this->_propDict["lastActivityDate"], "\DateTime") || is_null($this->_propDict["lastActivityDate"])) {
+        if (array_key_exists("lastActivityDate", $this->_propDict) && !is_null($this->_propDict["lastActivityDate"])) {
+            if (is_a($this->_propDict["lastActivityDate"], "\DateTime")) {
                 return $this->_propDict["lastActivityDate"];
             } else {
                 $this->_propDict["lastActivityDate"] = new \DateTime($this->_propDict["lastActivityDate"]);
@@ -367,8 +367,8 @@ class MailboxUsageDetail extends Entity
     */
     public function getReportRefreshDate()
     {
-        if (array_key_exists("reportRefreshDate", $this->_propDict)) {
-            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime") || is_null($this->_propDict["reportRefreshDate"])) {
+        if (array_key_exists("reportRefreshDate", $this->_propDict) && !is_null($this->_propDict["reportRefreshDate"])) {
+            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime")) {
                 return $this->_propDict["reportRefreshDate"];
             } else {
                 $this->_propDict["reportRefreshDate"] = new \DateTime($this->_propDict["reportRefreshDate"]);

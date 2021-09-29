@@ -29,22 +29,29 @@ class DeviceManagementComplexSettingInstance extends DeviceManagementSettingInst
      * Gets the value
     * The values that make up the complex setting
      *
-     * @return array|null The value
+     * @return DeviceManagementSettingInstance[]|null The value
      */
     public function getValue()
     {
-        if (array_key_exists("value", $this->_propDict)) {
-           return $this->_propDict["value"];
-        } else {
-            return null;
+        if (array_key_exists('value', $this->_propDict) && !is_null($this->_propDict['value'])) {
+            $value = [];
+            if (count($this->_propDict['value']) > 0 && is_a($this->_propDict['value'][0], 'DeviceManagementSettingInstance')) {
+                return $this->_propDict['value'];
+            }
+            foreach ($this->_propDict['value'] as $singleValue) {
+                $value []= new DeviceManagementSettingInstance($singleValue);
+            }
+            $this->_propDict['value'] = $value;
+            return $this->_propDict['value'];
         }
+        return null;
     }
     
     /** 
     * Sets the value
     * The values that make up the complex setting
     *
-    * @param DeviceManagementSettingInstance $val The value
+    * @param DeviceManagementSettingInstance[] $val The value
     *
     * @return DeviceManagementComplexSettingInstance
     */

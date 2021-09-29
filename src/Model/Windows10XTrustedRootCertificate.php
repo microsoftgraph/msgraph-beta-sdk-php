@@ -61,8 +61,8 @@ class Windows10XTrustedRootCertificate extends DeviceManagementResourceAccessPro
     */
     public function getDestinationStore()
     {
-        if (array_key_exists("destinationStore", $this->_propDict)) {
-            if (is_a($this->_propDict["destinationStore"], "\Beta\Microsoft\Graph\Model\CertificateDestinationStore") || is_null($this->_propDict["destinationStore"])) {
+        if (array_key_exists("destinationStore", $this->_propDict) && !is_null($this->_propDict["destinationStore"])) {
+            if (is_a($this->_propDict["destinationStore"], "\Beta\Microsoft\Graph\Model\CertificateDestinationStore")) {
                 return $this->_propDict["destinationStore"];
             } else {
                 $this->_propDict["destinationStore"] = new CertificateDestinationStore($this->_propDict["destinationStore"]);
@@ -94,11 +94,11 @@ class Windows10XTrustedRootCertificate extends DeviceManagementResourceAccessPro
     */
     public function getTrustedRootCertificate()
     {
-        if (array_key_exists("trustedRootCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["trustedRootCertificate"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["trustedRootCertificate"])) {
+        if (array_key_exists("trustedRootCertificate", $this->_propDict) && !is_null($this->_propDict["trustedRootCertificate"])) {
+            if (is_a($this->_propDict["trustedRootCertificate"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["trustedRootCertificate"];
             } else {
-                $this->_propDict["trustedRootCertificate"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["trustedRootCertificate"]);
+                $this->_propDict["trustedRootCertificate"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["trustedRootCertificate"]);
                 return $this->_propDict["trustedRootCertificate"];
             }
         }

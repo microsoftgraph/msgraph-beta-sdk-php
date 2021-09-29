@@ -88,8 +88,9 @@ class DeviceManagementConfigurationPolicyTemplateReference extends Entity
     */
     public function getTemplateFamily()
     {
-        if (array_key_exists("templateFamily", $this->_propDict)) {
-            if (is_a($this->_propDict["templateFamily"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationTemplateFamily") || is_null($this->_propDict["templateFamily"])) {
+        if (array_key_exists("templateFamily", $this->_propDict) && !is_null($this->_propDict["templateFamily"])) {
+     
+            if (is_a($this->_propDict["templateFamily"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationTemplateFamily")) {
                 return $this->_propDict["templateFamily"];
             } else {
                 $this->_propDict["templateFamily"] = new DeviceManagementConfigurationTemplateFamily($this->_propDict["templateFamily"]);

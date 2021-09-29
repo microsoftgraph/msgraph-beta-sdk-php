@@ -206,8 +206,8 @@ class VppToken extends Entity
     */
     public function getExpirationDateTime()
     {
-        if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+        if (array_key_exists("expirationDateTime", $this->_propDict) && !is_null($this->_propDict["expirationDateTime"])) {
+            if (is_a($this->_propDict["expirationDateTime"], "\DateTime")) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -239,8 +239,8 @@ class VppToken extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -272,8 +272,8 @@ class VppToken extends Entity
     */
     public function getLastSyncDateTime()
     {
-        if (array_key_exists("lastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
+        if (array_key_exists("lastSyncDateTime", $this->_propDict) && !is_null($this->_propDict["lastSyncDateTime"])) {
+            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSyncDateTime"];
             } else {
                 $this->_propDict["lastSyncDateTime"] = new \DateTime($this->_propDict["lastSyncDateTime"]);
@@ -305,8 +305,8 @@ class VppToken extends Entity
     */
     public function getLastSyncStatus()
     {
-        if (array_key_exists("lastSyncStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncStatus"], "\Beta\Microsoft\Graph\Model\VppTokenSyncStatus") || is_null($this->_propDict["lastSyncStatus"])) {
+        if (array_key_exists("lastSyncStatus", $this->_propDict) && !is_null($this->_propDict["lastSyncStatus"])) {
+            if (is_a($this->_propDict["lastSyncStatus"], "\Beta\Microsoft\Graph\Model\VppTokenSyncStatus")) {
                 return $this->_propDict["lastSyncStatus"];
             } else {
                 $this->_propDict["lastSyncStatus"] = new VppTokenSyncStatus($this->_propDict["lastSyncStatus"]);
@@ -419,14 +419,14 @@ class VppToken extends Entity
     
     /**
     * Gets the state
-    * Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM, duplicateLocationId.
+    * Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM.
     *
     * @return VppTokenState|null The state
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\VppTokenState") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\VppTokenState")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new VppTokenState($this->_propDict["state"]);
@@ -438,7 +438,7 @@ class VppToken extends Entity
     
     /**
     * Sets the state
-    * Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM, duplicateLocationId.
+    * Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM.
     *
     * @param VppTokenState $val The state
     *
@@ -484,22 +484,29 @@ class VppToken extends Entity
      * Gets the tokenActionResults
     * The collection of statuses of the actions performed on the Apple Volume Purchase Program Token.
      *
-     * @return array|null The tokenActionResults
+     * @return VppTokenActionResult[]|null The tokenActionResults
      */
     public function getTokenActionResults()
     {
-        if (array_key_exists("tokenActionResults", $this->_propDict)) {
-           return $this->_propDict["tokenActionResults"];
-        } else {
-            return null;
+        if (array_key_exists('tokenActionResults', $this->_propDict) && !is_null($this->_propDict['tokenActionResults'])) {
+            $tokenActionResults = [];
+            if (count($this->_propDict['tokenActionResults']) > 0 && is_a($this->_propDict['tokenActionResults'][0], 'VppTokenActionResult')) {
+                return $this->_propDict['tokenActionResults'];
+            }
+            foreach ($this->_propDict['tokenActionResults'] as $singleValue) {
+                $tokenActionResults []= new VppTokenActionResult($singleValue);
+            }
+            $this->_propDict['tokenActionResults'] = $tokenActionResults;
+            return $this->_propDict['tokenActionResults'];
         }
+        return null;
     }
     
     /** 
     * Sets the tokenActionResults
     * The collection of statuses of the actions performed on the Apple Volume Purchase Program Token.
     *
-    * @param VppTokenActionResult $val The tokenActionResults
+    * @param VppTokenActionResult[] $val The tokenActionResults
     *
     * @return VppToken
     */
@@ -517,8 +524,8 @@ class VppToken extends Entity
     */
     public function getVppTokenAccountType()
     {
-        if (array_key_exists("vppTokenAccountType", $this->_propDict)) {
-            if (is_a($this->_propDict["vppTokenAccountType"], "\Beta\Microsoft\Graph\Model\VppTokenAccountType") || is_null($this->_propDict["vppTokenAccountType"])) {
+        if (array_key_exists("vppTokenAccountType", $this->_propDict) && !is_null($this->_propDict["vppTokenAccountType"])) {
+            if (is_a($this->_propDict["vppTokenAccountType"], "\Beta\Microsoft\Graph\Model\VppTokenAccountType")) {
                 return $this->_propDict["vppTokenAccountType"];
             } else {
                 $this->_propDict["vppTokenAccountType"] = new VppTokenAccountType($this->_propDict["vppTokenAccountType"]);

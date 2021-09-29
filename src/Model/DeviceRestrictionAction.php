@@ -57,8 +57,9 @@ class DeviceRestrictionAction extends DlpActionInfo
     */
     public function getRestrictionAction()
     {
-        if (array_key_exists("restrictionAction", $this->_propDict)) {
-            if (is_a($this->_propDict["restrictionAction"], "\Beta\Microsoft\Graph\Model\RestrictionAction") || is_null($this->_propDict["restrictionAction"])) {
+        if (array_key_exists("restrictionAction", $this->_propDict) && !is_null($this->_propDict["restrictionAction"])) {
+     
+            if (is_a($this->_propDict["restrictionAction"], "\Beta\Microsoft\Graph\Model\RestrictionAction")) {
                 return $this->_propDict["restrictionAction"];
             } else {
                 $this->_propDict["restrictionAction"] = new RestrictionAction($this->_propDict["restrictionAction"]);
@@ -84,25 +85,29 @@ class DeviceRestrictionAction extends DlpActionInfo
     /**
     * Gets the triggers
     *
-    * @return RestrictionTrigger|null The triggers
+    * @return RestrictionTrigger[]|null The triggers
     */
     public function getTriggers()
     {
-        if (array_key_exists("triggers", $this->_propDict)) {
-            if (is_a($this->_propDict["triggers"], "\Beta\Microsoft\Graph\Model\RestrictionTrigger") || is_null($this->_propDict["triggers"])) {
-                return $this->_propDict["triggers"];
-            } else {
-                $this->_propDict["triggers"] = new RestrictionTrigger($this->_propDict["triggers"]);
-                return $this->_propDict["triggers"];
+        if (array_key_exists("triggers", $this->_propDict) && !is_null($this->_propDict["triggers"])) {
+       
+            if (count($this->_propDict['triggers']) > 0 && is_a($this->_propDict['triggers'][0], 'RestrictionTrigger')) {
+               return $this->_propDict['triggers'];
             }
-        }
+            $triggers = [];
+            foreach ($this->_propDict['triggers'] as $singleValue) {
+               $triggers []= new RestrictionTrigger($singleValue);
+            }
+            $this->_propDict['triggers'] = $triggers;
+            return $this->_propDict['triggers'];
+            }
         return null;
     }
 
     /**
     * Sets the triggers
     *
-    * @param RestrictionTrigger $val The value to assign to the triggers
+    * @param RestrictionTrigger[] $val The value to assign to the triggers
     *
     * @return DeviceRestrictionAction The DeviceRestrictionAction
     */

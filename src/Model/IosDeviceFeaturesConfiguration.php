@@ -61,8 +61,8 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     */
     public function getContentFilterSettings()
     {
-        if (array_key_exists("contentFilterSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["contentFilterSettings"], "\Beta\Microsoft\Graph\Model\IosWebContentFilterBase") || is_null($this->_propDict["contentFilterSettings"])) {
+        if (array_key_exists("contentFilterSettings", $this->_propDict) && !is_null($this->_propDict["contentFilterSettings"])) {
+            if (is_a($this->_propDict["contentFilterSettings"], "\Beta\Microsoft\Graph\Model\IosWebContentFilterBase")) {
                 return $this->_propDict["contentFilterSettings"];
             } else {
                 $this->_propDict["contentFilterSettings"] = new IosWebContentFilterBase($this->_propDict["contentFilterSettings"]);
@@ -91,22 +91,29 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * Gets the homeScreenDockIcons
     * A list of app and folders to appear on the Home Screen Dock. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The homeScreenDockIcons
+     * @return IosHomeScreenItem[]|null The homeScreenDockIcons
      */
     public function getHomeScreenDockIcons()
     {
-        if (array_key_exists("homeScreenDockIcons", $this->_propDict)) {
-           return $this->_propDict["homeScreenDockIcons"];
-        } else {
-            return null;
+        if (array_key_exists('homeScreenDockIcons', $this->_propDict) && !is_null($this->_propDict['homeScreenDockIcons'])) {
+            $homeScreenDockIcons = [];
+            if (count($this->_propDict['homeScreenDockIcons']) > 0 && is_a($this->_propDict['homeScreenDockIcons'][0], 'IosHomeScreenItem')) {
+                return $this->_propDict['homeScreenDockIcons'];
+            }
+            foreach ($this->_propDict['homeScreenDockIcons'] as $singleValue) {
+                $homeScreenDockIcons []= new IosHomeScreenItem($singleValue);
+            }
+            $this->_propDict['homeScreenDockIcons'] = $homeScreenDockIcons;
+            return $this->_propDict['homeScreenDockIcons'];
         }
+        return null;
     }
     
     /** 
     * Sets the homeScreenDockIcons
     * A list of app and folders to appear on the Home Screen Dock. This collection can contain a maximum of 500 elements.
     *
-    * @param IosHomeScreenItem $val The homeScreenDockIcons
+    * @param IosHomeScreenItem[] $val The homeScreenDockIcons
     *
     * @return IosDeviceFeaturesConfiguration
     */
@@ -116,27 +123,92 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
         return $this;
     }
     
+    /**
+    * Gets the homeScreenGridHeight
+    * Gets or sets the number of rows to render when configuring iOS home screen layout settings. If this value is configured, homeScreenGridWidth must be configured as well.
+    *
+    * @return int|null The homeScreenGridHeight
+    */
+    public function getHomeScreenGridHeight()
+    {
+        if (array_key_exists("homeScreenGridHeight", $this->_propDict)) {
+            return $this->_propDict["homeScreenGridHeight"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the homeScreenGridHeight
+    * Gets or sets the number of rows to render when configuring iOS home screen layout settings. If this value is configured, homeScreenGridWidth must be configured as well.
+    *
+    * @param int $val The homeScreenGridHeight
+    *
+    * @return IosDeviceFeaturesConfiguration
+    */
+    public function setHomeScreenGridHeight($val)
+    {
+        $this->_propDict["homeScreenGridHeight"] = intval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the homeScreenGridWidth
+    * Gets or sets the number of columns to render when configuring iOS home screen layout settings. If this value is configured, homeScreenGridHeight must be configured as well.
+    *
+    * @return int|null The homeScreenGridWidth
+    */
+    public function getHomeScreenGridWidth()
+    {
+        if (array_key_exists("homeScreenGridWidth", $this->_propDict)) {
+            return $this->_propDict["homeScreenGridWidth"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the homeScreenGridWidth
+    * Gets or sets the number of columns to render when configuring iOS home screen layout settings. If this value is configured, homeScreenGridHeight must be configured as well.
+    *
+    * @param int $val The homeScreenGridWidth
+    *
+    * @return IosDeviceFeaturesConfiguration
+    */
+    public function setHomeScreenGridWidth($val)
+    {
+        $this->_propDict["homeScreenGridWidth"] = intval($val);
+        return $this;
+    }
+    
 
      /** 
      * Gets the homeScreenPages
     * A list of pages on the Home Screen. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The homeScreenPages
+     * @return IosHomeScreenPage[]|null The homeScreenPages
      */
     public function getHomeScreenPages()
     {
-        if (array_key_exists("homeScreenPages", $this->_propDict)) {
-           return $this->_propDict["homeScreenPages"];
-        } else {
-            return null;
+        if (array_key_exists('homeScreenPages', $this->_propDict) && !is_null($this->_propDict['homeScreenPages'])) {
+            $homeScreenPages = [];
+            if (count($this->_propDict['homeScreenPages']) > 0 && is_a($this->_propDict['homeScreenPages'][0], 'IosHomeScreenPage')) {
+                return $this->_propDict['homeScreenPages'];
+            }
+            foreach ($this->_propDict['homeScreenPages'] as $singleValue) {
+                $homeScreenPages []= new IosHomeScreenPage($singleValue);
+            }
+            $this->_propDict['homeScreenPages'] = $homeScreenPages;
+            return $this->_propDict['homeScreenPages'];
         }
+        return null;
     }
     
     /** 
     * Sets the homeScreenPages
     * A list of pages on the Home Screen. This collection can contain a maximum of 500 elements.
     *
-    * @param IosHomeScreenPage $val The homeScreenPages
+    * @param IosHomeScreenPage[] $val The homeScreenPages
     *
     * @return IosDeviceFeaturesConfiguration
     */
@@ -154,8 +226,8 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     */
     public function getIosSingleSignOnExtension()
     {
-        if (array_key_exists("iosSingleSignOnExtension", $this->_propDict)) {
-            if (is_a($this->_propDict["iosSingleSignOnExtension"], "\Beta\Microsoft\Graph\Model\IosSingleSignOnExtension") || is_null($this->_propDict["iosSingleSignOnExtension"])) {
+        if (array_key_exists("iosSingleSignOnExtension", $this->_propDict) && !is_null($this->_propDict["iosSingleSignOnExtension"])) {
+            if (is_a($this->_propDict["iosSingleSignOnExtension"], "\Beta\Microsoft\Graph\Model\IosSingleSignOnExtension")) {
                 return $this->_propDict["iosSingleSignOnExtension"];
             } else {
                 $this->_propDict["iosSingleSignOnExtension"] = new IosSingleSignOnExtension($this->_propDict["iosSingleSignOnExtension"]);
@@ -213,22 +285,29 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * Gets the notificationSettings
     * Notification settings for each bundle id. Applicable to devices in supervised mode only (iOS 9.3 and later). This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The notificationSettings
+     * @return IosNotificationSettings[]|null The notificationSettings
      */
     public function getNotificationSettings()
     {
-        if (array_key_exists("notificationSettings", $this->_propDict)) {
-           return $this->_propDict["notificationSettings"];
-        } else {
-            return null;
+        if (array_key_exists('notificationSettings', $this->_propDict) && !is_null($this->_propDict['notificationSettings'])) {
+            $notificationSettings = [];
+            if (count($this->_propDict['notificationSettings']) > 0 && is_a($this->_propDict['notificationSettings'][0], 'IosNotificationSettings')) {
+                return $this->_propDict['notificationSettings'];
+            }
+            foreach ($this->_propDict['notificationSettings'] as $singleValue) {
+                $notificationSettings []= new IosNotificationSettings($singleValue);
+            }
+            $this->_propDict['notificationSettings'] = $notificationSettings;
+            return $this->_propDict['notificationSettings'];
         }
+        return null;
     }
     
     /** 
     * Sets the notificationSettings
     * Notification settings for each bundle id. Applicable to devices in supervised mode only (iOS 9.3 and later). This collection can contain a maximum of 500 elements.
     *
-    * @param IosNotificationSettings $val The notificationSettings
+    * @param IosNotificationSettings[] $val The notificationSettings
     *
     * @return IosDeviceFeaturesConfiguration
     */
@@ -246,8 +325,8 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     */
     public function getSingleSignOnExtension()
     {
-        if (array_key_exists("singleSignOnExtension", $this->_propDict)) {
-            if (is_a($this->_propDict["singleSignOnExtension"], "\Beta\Microsoft\Graph\Model\SingleSignOnExtension") || is_null($this->_propDict["singleSignOnExtension"])) {
+        if (array_key_exists("singleSignOnExtension", $this->_propDict) && !is_null($this->_propDict["singleSignOnExtension"])) {
+            if (is_a($this->_propDict["singleSignOnExtension"], "\Beta\Microsoft\Graph\Model\SingleSignOnExtension")) {
                 return $this->_propDict["singleSignOnExtension"];
             } else {
                 $this->_propDict["singleSignOnExtension"] = new SingleSignOnExtension($this->_propDict["singleSignOnExtension"]);
@@ -279,8 +358,8 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     */
     public function getSingleSignOnSettings()
     {
-        if (array_key_exists("singleSignOnSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["singleSignOnSettings"], "\Beta\Microsoft\Graph\Model\IosSingleSignOnSettings") || is_null($this->_propDict["singleSignOnSettings"])) {
+        if (array_key_exists("singleSignOnSettings", $this->_propDict) && !is_null($this->_propDict["singleSignOnSettings"])) {
+            if (is_a($this->_propDict["singleSignOnSettings"], "\Beta\Microsoft\Graph\Model\IosSingleSignOnSettings")) {
                 return $this->_propDict["singleSignOnSettings"];
             } else {
                 $this->_propDict["singleSignOnSettings"] = new IosSingleSignOnSettings($this->_propDict["singleSignOnSettings"]);
@@ -312,8 +391,8 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     */
     public function getWallpaperDisplayLocation()
     {
-        if (array_key_exists("wallpaperDisplayLocation", $this->_propDict)) {
-            if (is_a($this->_propDict["wallpaperDisplayLocation"], "\Beta\Microsoft\Graph\Model\IosWallpaperDisplayLocation") || is_null($this->_propDict["wallpaperDisplayLocation"])) {
+        if (array_key_exists("wallpaperDisplayLocation", $this->_propDict) && !is_null($this->_propDict["wallpaperDisplayLocation"])) {
+            if (is_a($this->_propDict["wallpaperDisplayLocation"], "\Beta\Microsoft\Graph\Model\IosWallpaperDisplayLocation")) {
                 return $this->_propDict["wallpaperDisplayLocation"];
             } else {
                 $this->_propDict["wallpaperDisplayLocation"] = new IosWallpaperDisplayLocation($this->_propDict["wallpaperDisplayLocation"]);
@@ -345,8 +424,8 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     */
     public function getWallpaperImage()
     {
-        if (array_key_exists("wallpaperImage", $this->_propDict)) {
-            if (is_a($this->_propDict["wallpaperImage"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["wallpaperImage"])) {
+        if (array_key_exists("wallpaperImage", $this->_propDict) && !is_null($this->_propDict["wallpaperImage"])) {
+            if (is_a($this->_propDict["wallpaperImage"], "\Beta\Microsoft\Graph\Model\MimeContent")) {
                 return $this->_propDict["wallpaperImage"];
             } else {
                 $this->_propDict["wallpaperImage"] = new MimeContent($this->_propDict["wallpaperImage"]);
@@ -378,8 +457,8 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     */
     public function getIdentityCertificateForClientAuthentication()
     {
-        if (array_key_exists("identityCertificateForClientAuthentication", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificateForClientAuthentication"], "\Beta\Microsoft\Graph\Model\IosCertificateProfileBase") || is_null($this->_propDict["identityCertificateForClientAuthentication"])) {
+        if (array_key_exists("identityCertificateForClientAuthentication", $this->_propDict) && !is_null($this->_propDict["identityCertificateForClientAuthentication"])) {
+            if (is_a($this->_propDict["identityCertificateForClientAuthentication"], "\Beta\Microsoft\Graph\Model\IosCertificateProfileBase")) {
                 return $this->_propDict["identityCertificateForClientAuthentication"];
             } else {
                 $this->_propDict["identityCertificateForClientAuthentication"] = new IosCertificateProfileBase($this->_propDict["identityCertificateForClientAuthentication"]);
@@ -411,8 +490,8 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     */
     public function getSingleSignOnExtensionPkinitCertificate()
     {
-        if (array_key_exists("singleSignOnExtensionPkinitCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["singleSignOnExtensionPkinitCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfileBase") || is_null($this->_propDict["singleSignOnExtensionPkinitCertificate"])) {
+        if (array_key_exists("singleSignOnExtensionPkinitCertificate", $this->_propDict) && !is_null($this->_propDict["singleSignOnExtensionPkinitCertificate"])) {
+            if (is_a($this->_propDict["singleSignOnExtensionPkinitCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfileBase")) {
                 return $this->_propDict["singleSignOnExtensionPkinitCertificate"];
             } else {
                 $this->_propDict["singleSignOnExtensionPkinitCertificate"] = new IosCertificateProfileBase($this->_propDict["singleSignOnExtensionPkinitCertificate"]);

@@ -28,18 +28,22 @@ class AccessReviewScheduleSettings extends Entity
     * Gets the applyActions
     * Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction. See accessReviewApplyAction.
     *
-    * @return AccessReviewApplyAction|null The applyActions
+    * @return AccessReviewApplyAction[]|null The applyActions
     */
     public function getApplyActions()
     {
-        if (array_key_exists("applyActions", $this->_propDict)) {
-            if (is_a($this->_propDict["applyActions"], "\Beta\Microsoft\Graph\Model\AccessReviewApplyAction") || is_null($this->_propDict["applyActions"])) {
-                return $this->_propDict["applyActions"];
-            } else {
-                $this->_propDict["applyActions"] = new AccessReviewApplyAction($this->_propDict["applyActions"]);
-                return $this->_propDict["applyActions"];
+        if (array_key_exists("applyActions", $this->_propDict) && !is_null($this->_propDict["applyActions"])) {
+       
+            if (count($this->_propDict['applyActions']) > 0 && is_a($this->_propDict['applyActions'][0], 'AccessReviewApplyAction')) {
+               return $this->_propDict['applyActions'];
             }
-        }
+            $applyActions = [];
+            foreach ($this->_propDict['applyActions'] as $singleValue) {
+               $applyActions []= new AccessReviewApplyAction($singleValue);
+            }
+            $this->_propDict['applyActions'] = $applyActions;
+            return $this->_propDict['applyActions'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class AccessReviewScheduleSettings extends Entity
     * Sets the applyActions
     * Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction. See accessReviewApplyAction.
     *
-    * @param AccessReviewApplyAction $val The value to assign to the applyActions
+    * @param AccessReviewApplyAction[] $val The value to assign to the applyActions
     *
     * @return AccessReviewScheduleSettings The AccessReviewScheduleSettings
     */
@@ -86,7 +90,7 @@ class AccessReviewScheduleSettings extends Entity
     }
     /**
     * Gets the defaultDecision
-    * Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
+    * Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, or Recommendation.
     *
     * @return string|null The defaultDecision
     */
@@ -101,7 +105,7 @@ class AccessReviewScheduleSettings extends Entity
 
     /**
     * Sets the defaultDecision
-    * Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
+    * Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, or Recommendation.
     *
     * @param string $val The value of the defaultDecision
     *
@@ -227,16 +231,18 @@ class AccessReviewScheduleSettings extends Entity
 
     /**
     * Gets the recommendationLookBackDuration
+    * Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. If not specified, the duration is 30 days.
     *
-    * @return Duration|null The recommendationLookBackDuration
+    * @return \DateInterval|null The recommendationLookBackDuration
     */
     public function getRecommendationLookBackDuration()
     {
-        if (array_key_exists("recommendationLookBackDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["recommendationLookBackDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["recommendationLookBackDuration"])) {
+        if (array_key_exists("recommendationLookBackDuration", $this->_propDict) && !is_null($this->_propDict["recommendationLookBackDuration"])) {
+     
+            if (is_a($this->_propDict["recommendationLookBackDuration"], "\DateInterval")) {
                 return $this->_propDict["recommendationLookBackDuration"];
             } else {
-                $this->_propDict["recommendationLookBackDuration"] = new Duration($this->_propDict["recommendationLookBackDuration"]);
+                $this->_propDict["recommendationLookBackDuration"] = new \DateInterval($this->_propDict["recommendationLookBackDuration"]);
                 return $this->_propDict["recommendationLookBackDuration"];
             }
         }
@@ -245,8 +251,9 @@ class AccessReviewScheduleSettings extends Entity
 
     /**
     * Sets the recommendationLookBackDuration
+    * Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. If not specified, the duration is 30 days.
     *
-    * @param Duration $val The value to assign to the recommendationLookBackDuration
+    * @param \DateInterval $val The value to assign to the recommendationLookBackDuration
     *
     * @return AccessReviewScheduleSettings The AccessReviewScheduleSettings
     */
@@ -257,7 +264,7 @@ class AccessReviewScheduleSettings extends Entity
     }
     /**
     * Gets the recommendationsEnabled
-    * Indicates whether decision recommendations are enabled/disabled.
+    * Indicates whether decision recommendations are enabled or disabled.
     *
     * @return bool|null The recommendationsEnabled
     */
@@ -272,7 +279,7 @@ class AccessReviewScheduleSettings extends Entity
 
     /**
     * Sets the recommendationsEnabled
-    * Indicates whether decision recommendations are enabled/disabled.
+    * Indicates whether decision recommendations are enabled or disabled.
     *
     * @param bool $val The value of the recommendationsEnabled
     *
@@ -292,8 +299,9 @@ class AccessReviewScheduleSettings extends Entity
     */
     public function getRecurrence()
     {
-        if (array_key_exists("recurrence", $this->_propDict)) {
-            if (is_a($this->_propDict["recurrence"], "\Beta\Microsoft\Graph\Model\PatternedRecurrence") || is_null($this->_propDict["recurrence"])) {
+        if (array_key_exists("recurrence", $this->_propDict) && !is_null($this->_propDict["recurrence"])) {
+     
+            if (is_a($this->_propDict["recurrence"], "\Beta\Microsoft\Graph\Model\PatternedRecurrence")) {
                 return $this->_propDict["recurrence"];
             } else {
                 $this->_propDict["recurrence"] = new PatternedRecurrence($this->_propDict["recurrence"]);

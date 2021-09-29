@@ -61,8 +61,8 @@ class Contact extends OutlookItem
     */
     public function getBirthday()
     {
-        if (array_key_exists("birthday", $this->_propDict)) {
-            if (is_a($this->_propDict["birthday"], "\DateTime") || is_null($this->_propDict["birthday"])) {
+        if (array_key_exists("birthday", $this->_propDict) && !is_null($this->_propDict["birthday"])) {
+            if (is_a($this->_propDict["birthday"], "\DateTime")) {
                 return $this->_propDict["birthday"];
             } else {
                 $this->_propDict["birthday"] = new \DateTime($this->_propDict["birthday"]);
@@ -207,22 +207,29 @@ class Contact extends OutlookItem
      * Gets the emailAddresses
     * The contact's email addresses.
      *
-     * @return array|null The emailAddresses
+     * @return TypedEmailAddress[]|null The emailAddresses
      */
     public function getEmailAddresses()
     {
-        if (array_key_exists("emailAddresses", $this->_propDict)) {
-           return $this->_propDict["emailAddresses"];
-        } else {
-            return null;
+        if (array_key_exists('emailAddresses', $this->_propDict) && !is_null($this->_propDict['emailAddresses'])) {
+            $emailAddresses = [];
+            if (count($this->_propDict['emailAddresses']) > 0 && is_a($this->_propDict['emailAddresses'][0], 'TypedEmailAddress')) {
+                return $this->_propDict['emailAddresses'];
+            }
+            foreach ($this->_propDict['emailAddresses'] as $singleValue) {
+                $emailAddresses []= new TypedEmailAddress($singleValue);
+            }
+            $this->_propDict['emailAddresses'] = $emailAddresses;
+            return $this->_propDict['emailAddresses'];
         }
+        return null;
     }
     
     /** 
     * Sets the emailAddresses
     * The contact's email addresses.
     *
-    * @param TypedEmailAddress $val The emailAddresses
+    * @param TypedEmailAddress[] $val The emailAddresses
     *
     * @return Contact
     */
@@ -269,8 +276,8 @@ class Contact extends OutlookItem
     */
     public function getFlag()
     {
-        if (array_key_exists("flag", $this->_propDict)) {
-            if (is_a($this->_propDict["flag"], "\Beta\Microsoft\Graph\Model\FollowupFlag") || is_null($this->_propDict["flag"])) {
+        if (array_key_exists("flag", $this->_propDict) && !is_null($this->_propDict["flag"])) {
+            if (is_a($this->_propDict["flag"], "\Beta\Microsoft\Graph\Model\FollowupFlag")) {
                 return $this->_propDict["flag"];
             } else {
                 $this->_propDict["flag"] = new FollowupFlag($this->_propDict["flag"]);
@@ -383,7 +390,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the imAddresses
-    * The contact's instant messaging (IM) addresses.
     *
     * @return string|null The imAddresses
     */
@@ -398,7 +404,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the imAddresses
-    * The contact's instant messaging (IM) addresses.
     *
     * @param string $val The imAddresses
     *
@@ -412,7 +417,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the initials
-    * The contact's initials.
     *
     * @return string|null The initials
     */
@@ -427,7 +431,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the initials
-    * The contact's initials.
     *
     * @param string $val The initials
     *
@@ -468,7 +471,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the jobTitle
-    * The contact’s job title.
     *
     * @return string|null The jobTitle
     */
@@ -483,7 +485,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the jobTitle
-    * The contact’s job title.
     *
     * @param string $val The jobTitle
     *
@@ -497,7 +498,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the manager
-    * The name of the contact's manager.
     *
     * @return string|null The manager
     */
@@ -512,7 +512,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the manager
-    * The name of the contact's manager.
     *
     * @param string $val The manager
     *
@@ -526,7 +525,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the middleName
-    * The contact's middle name.
     *
     * @return string|null The middleName
     */
@@ -541,7 +539,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the middleName
-    * The contact's middle name.
     *
     * @param string $val The middleName
     *
@@ -555,7 +552,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the nickName
-    * The contact's nickname.
     *
     * @return string|null The nickName
     */
@@ -570,7 +566,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the nickName
-    * The contact's nickname.
     *
     * @param string $val The nickName
     *
@@ -584,7 +579,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the officeLocation
-    * The location of the contact's office.
     *
     * @return string|null The officeLocation
     */
@@ -599,7 +593,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the officeLocation
-    * The location of the contact's office.
     *
     * @param string $val The officeLocation
     *
@@ -613,7 +606,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the parentFolderId
-    * The ID of the contact's parent folder.
     *
     * @return string|null The parentFolderId
     */
@@ -628,7 +620,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the parentFolderId
-    * The ID of the contact's parent folder.
     *
     * @param string $val The parentFolderId
     *
@@ -642,7 +633,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the personalNotes
-    * The user's notes about the contact.
     *
     * @return string|null The personalNotes
     */
@@ -657,7 +647,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the personalNotes
-    * The user's notes about the contact.
     *
     * @param string $val The personalNotes
     *
@@ -673,21 +662,28 @@ class Contact extends OutlookItem
      /** 
      * Gets the phones
      *
-     * @return array|null The phones
+     * @return Phone[]|null The phones
      */
     public function getPhones()
     {
-        if (array_key_exists("phones", $this->_propDict)) {
-           return $this->_propDict["phones"];
-        } else {
-            return null;
+        if (array_key_exists('phones', $this->_propDict) && !is_null($this->_propDict['phones'])) {
+            $phones = [];
+            if (count($this->_propDict['phones']) > 0 && is_a($this->_propDict['phones'][0], 'Phone')) {
+                return $this->_propDict['phones'];
+            }
+            foreach ($this->_propDict['phones'] as $singleValue) {
+                $phones []= new Phone($singleValue);
+            }
+            $this->_propDict['phones'] = $phones;
+            return $this->_propDict['phones'];
         }
+        return null;
     }
     
     /** 
     * Sets the phones
     *
-    * @param Phone $val The phones
+    * @param Phone[] $val The phones
     *
     * @return Contact
     */
@@ -701,21 +697,28 @@ class Contact extends OutlookItem
      /** 
      * Gets the postalAddresses
      *
-     * @return array|null The postalAddresses
+     * @return PhysicalAddress[]|null The postalAddresses
      */
     public function getPostalAddresses()
     {
-        if (array_key_exists("postalAddresses", $this->_propDict)) {
-           return $this->_propDict["postalAddresses"];
-        } else {
-            return null;
+        if (array_key_exists('postalAddresses', $this->_propDict) && !is_null($this->_propDict['postalAddresses'])) {
+            $postalAddresses = [];
+            if (count($this->_propDict['postalAddresses']) > 0 && is_a($this->_propDict['postalAddresses'][0], 'PhysicalAddress')) {
+                return $this->_propDict['postalAddresses'];
+            }
+            foreach ($this->_propDict['postalAddresses'] as $singleValue) {
+                $postalAddresses []= new PhysicalAddress($singleValue);
+            }
+            $this->_propDict['postalAddresses'] = $postalAddresses;
+            return $this->_propDict['postalAddresses'];
         }
+        return null;
     }
     
     /** 
     * Sets the postalAddresses
     *
-    * @param PhysicalAddress $val The postalAddresses
+    * @param PhysicalAddress[] $val The postalAddresses
     *
     * @return Contact
     */
@@ -727,7 +730,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the profession
-    * The contact's profession.
     *
     * @return string|null The profession
     */
@@ -742,7 +744,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the profession
-    * The contact's profession.
     *
     * @param string $val The profession
     *
@@ -756,7 +757,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the spouseName
-    * The name of the contact's spouse/partner.
     *
     * @return string|null The spouseName
     */
@@ -771,7 +771,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the spouseName
-    * The name of the contact's spouse/partner.
     *
     * @param string $val The spouseName
     *
@@ -785,7 +784,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the surname
-    * The contact's surname.
     *
     * @return string|null The surname
     */
@@ -800,7 +798,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the surname
-    * The contact's surname.
     *
     * @param string $val The surname
     *
@@ -814,7 +811,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the title
-    * The contact's title.
     *
     * @return string|null The title
     */
@@ -829,7 +825,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the title
-    * The contact's title.
     *
     * @param string $val The title
     *
@@ -845,21 +840,28 @@ class Contact extends OutlookItem
      /** 
      * Gets the websites
      *
-     * @return array|null The websites
+     * @return Website[]|null The websites
      */
     public function getWebsites()
     {
-        if (array_key_exists("websites", $this->_propDict)) {
-           return $this->_propDict["websites"];
-        } else {
-            return null;
+        if (array_key_exists('websites', $this->_propDict) && !is_null($this->_propDict['websites'])) {
+            $websites = [];
+            if (count($this->_propDict['websites']) > 0 && is_a($this->_propDict['websites'][0], 'Website')) {
+                return $this->_propDict['websites'];
+            }
+            foreach ($this->_propDict['websites'] as $singleValue) {
+                $websites []= new Website($singleValue);
+            }
+            $this->_propDict['websites'] = $websites;
+            return $this->_propDict['websites'];
         }
+        return null;
     }
     
     /** 
     * Sets the websites
     *
-    * @param Website $val The websites
+    * @param Website[] $val The websites
     *
     * @return Contact
     */
@@ -876,8 +878,8 @@ class Contact extends OutlookItem
     */
     public function getWeddingAnniversary()
     {
-        if (array_key_exists("weddingAnniversary", $this->_propDict)) {
-            if (is_a($this->_propDict["weddingAnniversary"], "\DateTime") || is_null($this->_propDict["weddingAnniversary"])) {
+        if (array_key_exists("weddingAnniversary", $this->_propDict) && !is_null($this->_propDict["weddingAnniversary"])) {
+            if (is_a($this->_propDict["weddingAnniversary"], "\DateTime")) {
                 return $this->_propDict["weddingAnniversary"];
             } else {
                 $this->_propDict["weddingAnniversary"] = new \DateTime($this->_propDict["weddingAnniversary"]);
@@ -902,7 +904,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the yomiCompanyName
-    * The phonetic Japanese company name of the contact.
     *
     * @return string|null The yomiCompanyName
     */
@@ -917,7 +918,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the yomiCompanyName
-    * The phonetic Japanese company name of the contact.
     *
     * @param string $val The yomiCompanyName
     *
@@ -931,7 +931,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the yomiGivenName
-    * The phonetic Japanese given name (first name) of the contact.
     *
     * @return string|null The yomiGivenName
     */
@@ -946,7 +945,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the yomiGivenName
-    * The phonetic Japanese given name (first name) of the contact.
     *
     * @param string $val The yomiGivenName
     *
@@ -960,7 +958,6 @@ class Contact extends OutlookItem
     
     /**
     * Gets the yomiSurname
-    * The phonetic Japanese surname (last name)  of the contact.
     *
     * @return string|null The yomiSurname
     */
@@ -975,7 +972,6 @@ class Contact extends OutlookItem
     
     /**
     * Sets the yomiSurname
-    * The phonetic Japanese surname (last name)  of the contact.
     *
     * @param string $val The yomiSurname
     *
@@ -990,24 +986,31 @@ class Contact extends OutlookItem
 
      /** 
      * Gets the extensions
-    * The collection of open extensions defined for the contact. Nullable.
+    * The collection of open extensions defined for the contact. Read-only. Nullable.
      *
-     * @return array|null The extensions
+     * @return Extension[]|null The extensions
      */
     public function getExtensions()
     {
-        if (array_key_exists("extensions", $this->_propDict)) {
-           return $this->_propDict["extensions"];
-        } else {
-            return null;
+        if (array_key_exists('extensions', $this->_propDict) && !is_null($this->_propDict['extensions'])) {
+            $extensions = [];
+            if (count($this->_propDict['extensions']) > 0 && is_a($this->_propDict['extensions'][0], 'Extension')) {
+                return $this->_propDict['extensions'];
+            }
+            foreach ($this->_propDict['extensions'] as $singleValue) {
+                $extensions []= new Extension($singleValue);
+            }
+            $this->_propDict['extensions'] = $extensions;
+            return $this->_propDict['extensions'];
         }
+        return null;
     }
     
     /** 
     * Sets the extensions
-    * The collection of open extensions defined for the contact. Nullable.
+    * The collection of open extensions defined for the contact. Read-only. Nullable.
     *
-    * @param Extension $val The extensions
+    * @param Extension[] $val The extensions
     *
     * @return Contact
     */
@@ -1022,22 +1025,29 @@ class Contact extends OutlookItem
      * Gets the multiValueExtendedProperties
     * The collection of multi-value extended properties defined for the contact. Read-only. Nullable.
      *
-     * @return array|null The multiValueExtendedProperties
+     * @return MultiValueLegacyExtendedProperty[]|null The multiValueExtendedProperties
      */
     public function getMultiValueExtendedProperties()
     {
-        if (array_key_exists("multiValueExtendedProperties", $this->_propDict)) {
-           return $this->_propDict["multiValueExtendedProperties"];
-        } else {
-            return null;
+        if (array_key_exists('multiValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['multiValueExtendedProperties'])) {
+            $multiValueExtendedProperties = [];
+            if (count($this->_propDict['multiValueExtendedProperties']) > 0 && is_a($this->_propDict['multiValueExtendedProperties'][0], 'MultiValueLegacyExtendedProperty')) {
+                return $this->_propDict['multiValueExtendedProperties'];
+            }
+            foreach ($this->_propDict['multiValueExtendedProperties'] as $singleValue) {
+                $multiValueExtendedProperties []= new MultiValueLegacyExtendedProperty($singleValue);
+            }
+            $this->_propDict['multiValueExtendedProperties'] = $multiValueExtendedProperties;
+            return $this->_propDict['multiValueExtendedProperties'];
         }
+        return null;
     }
     
     /** 
     * Sets the multiValueExtendedProperties
     * The collection of multi-value extended properties defined for the contact. Read-only. Nullable.
     *
-    * @param MultiValueLegacyExtendedProperty $val The multiValueExtendedProperties
+    * @param MultiValueLegacyExtendedProperty[] $val The multiValueExtendedProperties
     *
     * @return Contact
     */
@@ -1055,8 +1065,8 @@ class Contact extends OutlookItem
     */
     public function getPhoto()
     {
-        if (array_key_exists("photo", $this->_propDict)) {
-            if (is_a($this->_propDict["photo"], "\Beta\Microsoft\Graph\Model\ProfilePhoto") || is_null($this->_propDict["photo"])) {
+        if (array_key_exists("photo", $this->_propDict) && !is_null($this->_propDict["photo"])) {
+            if (is_a($this->_propDict["photo"], "\Beta\Microsoft\Graph\Model\ProfilePhoto")) {
                 return $this->_propDict["photo"];
             } else {
                 $this->_propDict["photo"] = new ProfilePhoto($this->_propDict["photo"]);
@@ -1085,22 +1095,29 @@ class Contact extends OutlookItem
      * Gets the singleValueExtendedProperties
     * The collection of single-value extended properties defined for the contact. Read-only. Nullable.
      *
-     * @return array|null The singleValueExtendedProperties
+     * @return SingleValueLegacyExtendedProperty[]|null The singleValueExtendedProperties
      */
     public function getSingleValueExtendedProperties()
     {
-        if (array_key_exists("singleValueExtendedProperties", $this->_propDict)) {
-           return $this->_propDict["singleValueExtendedProperties"];
-        } else {
-            return null;
+        if (array_key_exists('singleValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['singleValueExtendedProperties'])) {
+            $singleValueExtendedProperties = [];
+            if (count($this->_propDict['singleValueExtendedProperties']) > 0 && is_a($this->_propDict['singleValueExtendedProperties'][0], 'SingleValueLegacyExtendedProperty')) {
+                return $this->_propDict['singleValueExtendedProperties'];
+            }
+            foreach ($this->_propDict['singleValueExtendedProperties'] as $singleValue) {
+                $singleValueExtendedProperties []= new SingleValueLegacyExtendedProperty($singleValue);
+            }
+            $this->_propDict['singleValueExtendedProperties'] = $singleValueExtendedProperties;
+            return $this->_propDict['singleValueExtendedProperties'];
         }
+        return null;
     }
     
     /** 
     * Sets the singleValueExtendedProperties
     * The collection of single-value extended properties defined for the contact. Read-only. Nullable.
     *
-    * @param SingleValueLegacyExtendedProperty $val The singleValueExtendedProperties
+    * @param SingleValueLegacyExtendedProperty[] $val The singleValueExtendedProperties
     *
     * @return Contact
     */

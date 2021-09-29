@@ -31,8 +31,8 @@ class SensitivityPolicySettings extends Entity
     */
     public function getApplicableTo()
     {
-        if (array_key_exists("applicableTo", $this->_propDict)) {
-            if (is_a($this->_propDict["applicableTo"], "\Beta\Microsoft\Graph\Model\SensitivityLabelTarget") || is_null($this->_propDict["applicableTo"])) {
+        if (array_key_exists("applicableTo", $this->_propDict) && !is_null($this->_propDict["applicableTo"])) {
+            if (is_a($this->_propDict["applicableTo"], "\Beta\Microsoft\Graph\Model\SensitivityLabelTarget")) {
                 return $this->_propDict["applicableTo"];
             } else {
                 $this->_propDict["applicableTo"] = new SensitivityLabelTarget($this->_propDict["applicableTo"]);

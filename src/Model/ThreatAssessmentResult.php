@@ -32,8 +32,8 @@ class ThreatAssessmentResult extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -88,14 +88,14 @@ class ThreatAssessmentResult extends Entity
     
     /**
     * Gets the resultType
-    * The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan.
+    * The threat assessment result type. Possible values are: checkPolicy, rescan.
     *
     * @return ThreatAssessmentResultType|null The resultType
     */
     public function getResultType()
     {
-        if (array_key_exists("resultType", $this->_propDict)) {
-            if (is_a($this->_propDict["resultType"], "\Beta\Microsoft\Graph\Model\ThreatAssessmentResultType") || is_null($this->_propDict["resultType"])) {
+        if (array_key_exists("resultType", $this->_propDict) && !is_null($this->_propDict["resultType"])) {
+            if (is_a($this->_propDict["resultType"], "\Beta\Microsoft\Graph\Model\ThreatAssessmentResultType")) {
                 return $this->_propDict["resultType"];
             } else {
                 $this->_propDict["resultType"] = new ThreatAssessmentResultType($this->_propDict["resultType"]);
@@ -107,7 +107,7 @@ class ThreatAssessmentResult extends Entity
     
     /**
     * Sets the resultType
-    * The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan.
+    * The threat assessment result type. Possible values are: checkPolicy, rescan.
     *
     * @param ThreatAssessmentResultType $val The resultType
     *

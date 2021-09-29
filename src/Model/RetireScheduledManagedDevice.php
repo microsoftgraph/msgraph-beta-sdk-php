@@ -32,8 +32,9 @@ class RetireScheduledManagedDevice extends Entity
     */
     public function getComplianceState()
     {
-        if (array_key_exists("complianceState", $this->_propDict)) {
-            if (is_a($this->_propDict["complianceState"], "\Beta\Microsoft\Graph\Model\ComplianceStatus") || is_null($this->_propDict["complianceState"])) {
+        if (array_key_exists("complianceState", $this->_propDict) && !is_null($this->_propDict["complianceState"])) {
+     
+            if (is_a($this->_propDict["complianceState"], "\Beta\Microsoft\Graph\Model\ComplianceStatus")) {
                 return $this->_propDict["complianceState"];
             } else {
                 $this->_propDict["complianceState"] = new ComplianceStatus($this->_propDict["complianceState"]);
@@ -121,8 +122,9 @@ class RetireScheduledManagedDevice extends Entity
     */
     public function getDeviceType()
     {
-        if (array_key_exists("deviceType", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceType"], "\Beta\Microsoft\Graph\Model\DeviceType") || is_null($this->_propDict["deviceType"])) {
+        if (array_key_exists("deviceType", $this->_propDict) && !is_null($this->_propDict["deviceType"])) {
+     
+            if (is_a($this->_propDict["deviceType"], "\Beta\Microsoft\Graph\Model\DeviceType")) {
                 return $this->_propDict["deviceType"];
             } else {
                 $this->_propDict["deviceType"] = new DeviceType($this->_propDict["deviceType"]);
@@ -238,8 +240,9 @@ class RetireScheduledManagedDevice extends Entity
     */
     public function getManagementAgent()
     {
-        if (array_key_exists("managementAgent", $this->_propDict)) {
-            if (is_a($this->_propDict["managementAgent"], "\Beta\Microsoft\Graph\Model\ManagementAgentType") || is_null($this->_propDict["managementAgent"])) {
+        if (array_key_exists("managementAgent", $this->_propDict) && !is_null($this->_propDict["managementAgent"])) {
+     
+            if (is_a($this->_propDict["managementAgent"], "\Beta\Microsoft\Graph\Model\ManagementAgentType")) {
                 return $this->_propDict["managementAgent"];
             } else {
                 $this->_propDict["managementAgent"] = new ManagementAgentType($this->_propDict["managementAgent"]);
@@ -271,8 +274,9 @@ class RetireScheduledManagedDevice extends Entity
     */
     public function getOwnerType()
     {
-        if (array_key_exists("ownerType", $this->_propDict)) {
-            if (is_a($this->_propDict["ownerType"], "\Beta\Microsoft\Graph\Model\ManagedDeviceOwnerType") || is_null($this->_propDict["ownerType"])) {
+        if (array_key_exists("ownerType", $this->_propDict) && !is_null($this->_propDict["ownerType"])) {
+     
+            if (is_a($this->_propDict["ownerType"], "\Beta\Microsoft\Graph\Model\ManagedDeviceOwnerType")) {
                 return $this->_propDict["ownerType"];
             } else {
                 $this->_propDict["ownerType"] = new ManagedDeviceOwnerType($this->_propDict["ownerType"]);
@@ -304,8 +308,9 @@ class RetireScheduledManagedDevice extends Entity
     */
     public function getRetireAfterDateTime()
     {
-        if (array_key_exists("retireAfterDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["retireAfterDateTime"], "\DateTime") || is_null($this->_propDict["retireAfterDateTime"])) {
+        if (array_key_exists("retireAfterDateTime", $this->_propDict) && !is_null($this->_propDict["retireAfterDateTime"])) {
+     
+            if (is_a($this->_propDict["retireAfterDateTime"], "\DateTime")) {
                 return $this->_propDict["retireAfterDateTime"];
             } else {
                 $this->_propDict["retireAfterDateTime"] = new \DateTime($this->_propDict["retireAfterDateTime"]);
@@ -347,7 +352,7 @@ class RetireScheduledManagedDevice extends Entity
     * Sets the roleScopeTagIds
     * List of Scope Tags for this Entity instance.
     *
-    * @param string $val The value of the roleScopeTagIds
+    * @param string[] $val The value of the roleScopeTagIds
     *
     * @return RetireScheduledManagedDevice
     */

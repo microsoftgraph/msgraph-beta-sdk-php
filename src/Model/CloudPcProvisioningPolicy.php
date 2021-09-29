@@ -113,7 +113,7 @@ class CloudPcProvisioningPolicy extends Entity
     
     /**
     * Gets the imageId
-    * The ID of the OS image you want to provision on cloud PCs. The format for a gallery type image is: {publisher_offer_sku}.
+    * The ID of the OS image you want to provision on Cloud PCs. The format for a gallery type image is: {publisher_offer_sku}. Supported values for each of the parameters are as follows:publisher: Microsoftwindowsdesktop. offer: windows-ent-cpc. sku: 21h1-ent-cpc-m365, 21h1-ent-cpc-os, 20h2-ent-cpc-m365, 20h2-ent-cpc-os, 20h1-ent-cpc-m365, 20h1-ent-cpc-os, 19h2-ent-cpc-m365 and 19h2-ent-cpc-os.
     *
     * @return string|null The imageId
     */
@@ -128,7 +128,7 @@ class CloudPcProvisioningPolicy extends Entity
     
     /**
     * Sets the imageId
-    * The ID of the OS image you want to provision on cloud PCs. The format for a gallery type image is: {publisher_offer_sku}.
+    * The ID of the OS image you want to provision on Cloud PCs. The format for a gallery type image is: {publisher_offer_sku}. Supported values for each of the parameters are as follows:publisher: Microsoftwindowsdesktop. offer: windows-ent-cpc. sku: 21h1-ent-cpc-m365, 21h1-ent-cpc-os, 20h2-ent-cpc-m365, 20h2-ent-cpc-os, 20h1-ent-cpc-m365, 20h1-ent-cpc-os, 19h2-ent-cpc-m365 and 19h2-ent-cpc-os.
     *
     * @param string $val The imageId
     *
@@ -142,14 +142,14 @@ class CloudPcProvisioningPolicy extends Entity
     
     /**
     * Gets the imageType
-    * The type of OS image (custom or gallery) you want to provision on cloud PCs. Possible values are: gallery, custom.
+    * The type of OS image (custom or gallery) you want to provision on Cloud PCs. Possible values are: gallery, custom.
     *
     * @return CloudPcProvisioningPolicyImageType|null The imageType
     */
     public function getImageType()
     {
-        if (array_key_exists("imageType", $this->_propDict)) {
-            if (is_a($this->_propDict["imageType"], "\Beta\Microsoft\Graph\Model\CloudPcProvisioningPolicyImageType") || is_null($this->_propDict["imageType"])) {
+        if (array_key_exists("imageType", $this->_propDict) && !is_null($this->_propDict["imageType"])) {
+            if (is_a($this->_propDict["imageType"], "\Beta\Microsoft\Graph\Model\CloudPcProvisioningPolicyImageType")) {
                 return $this->_propDict["imageType"];
             } else {
                 $this->_propDict["imageType"] = new CloudPcProvisioningPolicyImageType($this->_propDict["imageType"]);
@@ -161,7 +161,7 @@ class CloudPcProvisioningPolicy extends Entity
     
     /**
     * Sets the imageType
-    * The type of OS image (custom or gallery) you want to provision on cloud PCs. Possible values are: gallery, custom.
+    * The type of OS image (custom or gallery) you want to provision on Cloud PCs. Possible values are: gallery, custom.
     *
     * @param CloudPcProvisioningPolicyImageType $val The imageType
     *
@@ -175,7 +175,7 @@ class CloudPcProvisioningPolicy extends Entity
     
     /**
     * Gets the onPremisesConnectionId
-    * The ID of the cloudPcOnPremisesConnection. To ensure that cloud PCs have network connectivity and that they domain join, choose a connection with a virtual network that’s validated by the cloud PC service.
+    * The ID of the cloudPcOnPremisesConnection. To ensure that Cloud PCs have network connectivity and that they domain join, choose a connection with a virtual network that’s validated by the Cloud PC service.
     *
     * @return string|null The onPremisesConnectionId
     */
@@ -190,7 +190,7 @@ class CloudPcProvisioningPolicy extends Entity
     
     /**
     * Sets the onPremisesConnectionId
-    * The ID of the cloudPcOnPremisesConnection. To ensure that cloud PCs have network connectivity and that they domain join, choose a connection with a virtual network that’s validated by the cloud PC service.
+    * The ID of the cloudPcOnPremisesConnection. To ensure that Cloud PCs have network connectivity and that they domain join, choose a connection with a virtual network that’s validated by the Cloud PC service.
     *
     * @param string $val The onPremisesConnectionId
     *
@@ -205,24 +205,31 @@ class CloudPcProvisioningPolicy extends Entity
 
      /** 
      * Gets the assignments
-    * A defined collection of provisioning policy assignments. Returned only on $expand. See an example of getting the assignments relationship.
+    * A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Azure AD that have provisioning policy assigned. Returned only on $expand. See an example of getting the assignments relationship.
      *
-     * @return array|null The assignments
+     * @return CloudPcProvisioningPolicyAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'CloudPcProvisioningPolicyAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new CloudPcProvisioningPolicyAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
-    * A defined collection of provisioning policy assignments. Returned only on $expand. See an example of getting the assignments relationship.
+    * A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Azure AD that have provisioning policy assigned. Returned only on $expand. See an example of getting the assignments relationship.
     *
-    * @param CloudPcProvisioningPolicyAssignment $val The assignments
+    * @param CloudPcProvisioningPolicyAssignment[] $val The assignments
     *
     * @return CloudPcProvisioningPolicy
     */

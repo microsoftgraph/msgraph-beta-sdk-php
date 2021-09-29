@@ -55,7 +55,7 @@ class Agreement extends Entity
     
     /**
     * Gets the isPerDeviceAcceptanceRequired
-    * This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven't already done so.
+    * Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Azure AD, if they haven't already done so.
     *
     * @return bool|null The isPerDeviceAcceptanceRequired
     */
@@ -70,7 +70,7 @@ class Agreement extends Entity
     
     /**
     * Sets the isPerDeviceAcceptanceRequired
-    * This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven't already done so.
+    * Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Azure AD, if they haven't already done so.
     *
     * @param bool $val The isPerDeviceAcceptanceRequired
     *
@@ -119,8 +119,8 @@ class Agreement extends Entity
     */
     public function getTermsExpiration()
     {
-        if (array_key_exists("termsExpiration", $this->_propDict)) {
-            if (is_a($this->_propDict["termsExpiration"], "\Beta\Microsoft\Graph\Model\TermsExpiration") || is_null($this->_propDict["termsExpiration"])) {
+        if (array_key_exists("termsExpiration", $this->_propDict) && !is_null($this->_propDict["termsExpiration"])) {
+            if (is_a($this->_propDict["termsExpiration"], "\Beta\Microsoft\Graph\Model\TermsExpiration")) {
                 return $this->_propDict["termsExpiration"];
             } else {
                 $this->_propDict["termsExpiration"] = new TermsExpiration($this->_propDict["termsExpiration"]);
@@ -148,15 +148,15 @@ class Agreement extends Entity
     * Gets the userReacceptRequiredFrequency
     * The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations.
     *
-    * @return Duration|null The userReacceptRequiredFrequency
+    * @return \DateInterval|null The userReacceptRequiredFrequency
     */
     public function getUserReacceptRequiredFrequency()
     {
-        if (array_key_exists("userReacceptRequiredFrequency", $this->_propDict)) {
-            if (is_a($this->_propDict["userReacceptRequiredFrequency"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["userReacceptRequiredFrequency"])) {
+        if (array_key_exists("userReacceptRequiredFrequency", $this->_propDict) && !is_null($this->_propDict["userReacceptRequiredFrequency"])) {
+            if (is_a($this->_propDict["userReacceptRequiredFrequency"], "\DateInterval")) {
                 return $this->_propDict["userReacceptRequiredFrequency"];
             } else {
-                $this->_propDict["userReacceptRequiredFrequency"] = new Duration($this->_propDict["userReacceptRequiredFrequency"]);
+                $this->_propDict["userReacceptRequiredFrequency"] = new \DateInterval($this->_propDict["userReacceptRequiredFrequency"]);
                 return $this->_propDict["userReacceptRequiredFrequency"];
             }
         }
@@ -167,7 +167,7 @@ class Agreement extends Entity
     * Sets the userReacceptRequiredFrequency
     * The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations.
     *
-    * @param Duration $val The userReacceptRequiredFrequency
+    * @param \DateInterval $val The userReacceptRequiredFrequency
     *
     * @return Agreement
     */
@@ -182,22 +182,29 @@ class Agreement extends Entity
      * Gets the acceptances
     * Read-only. Information about acceptances of this agreement.
      *
-     * @return array|null The acceptances
+     * @return AgreementAcceptance[]|null The acceptances
      */
     public function getAcceptances()
     {
-        if (array_key_exists("acceptances", $this->_propDict)) {
-           return $this->_propDict["acceptances"];
-        } else {
-            return null;
+        if (array_key_exists('acceptances', $this->_propDict) && !is_null($this->_propDict['acceptances'])) {
+            $acceptances = [];
+            if (count($this->_propDict['acceptances']) > 0 && is_a($this->_propDict['acceptances'][0], 'AgreementAcceptance')) {
+                return $this->_propDict['acceptances'];
+            }
+            foreach ($this->_propDict['acceptances'] as $singleValue) {
+                $acceptances []= new AgreementAcceptance($singleValue);
+            }
+            $this->_propDict['acceptances'] = $acceptances;
+            return $this->_propDict['acceptances'];
         }
+        return null;
     }
     
     /** 
     * Sets the acceptances
     * Read-only. Information about acceptances of this agreement.
     *
-    * @param AgreementAcceptance $val The acceptances
+    * @param AgreementAcceptance[] $val The acceptances
     *
     * @return Agreement
     */
@@ -215,8 +222,8 @@ class Agreement extends Entity
     */
     public function getFile()
     {
-        if (array_key_exists("file", $this->_propDict)) {
-            if (is_a($this->_propDict["file"], "\Beta\Microsoft\Graph\Model\AgreementFile") || is_null($this->_propDict["file"])) {
+        if (array_key_exists("file", $this->_propDict) && !is_null($this->_propDict["file"])) {
+            if (is_a($this->_propDict["file"], "\Beta\Microsoft\Graph\Model\AgreementFile")) {
                 return $this->_propDict["file"];
             } else {
                 $this->_propDict["file"] = new AgreementFile($this->_propDict["file"]);
@@ -243,24 +250,31 @@ class Agreement extends Entity
 
      /** 
      * Gets the files
-    * PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+    * PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
      *
-     * @return array|null The files
+     * @return AgreementFileLocalization[]|null The files
      */
     public function getFiles()
     {
-        if (array_key_exists("files", $this->_propDict)) {
-           return $this->_propDict["files"];
-        } else {
-            return null;
+        if (array_key_exists('files', $this->_propDict) && !is_null($this->_propDict['files'])) {
+            $files = [];
+            if (count($this->_propDict['files']) > 0 && is_a($this->_propDict['files'][0], 'AgreementFileLocalization')) {
+                return $this->_propDict['files'];
+            }
+            foreach ($this->_propDict['files'] as $singleValue) {
+                $files []= new AgreementFileLocalization($singleValue);
+            }
+            $this->_propDict['files'] = $files;
+            return $this->_propDict['files'];
         }
+        return null;
     }
     
     /** 
     * Sets the files
-    * PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+    * PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
     *
-    * @param AgreementFileLocalization $val The files
+    * @param AgreementFileLocalization[] $val The files
     *
     * @return Agreement
     */

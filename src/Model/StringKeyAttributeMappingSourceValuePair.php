@@ -60,8 +60,9 @@ class StringKeyAttributeMappingSourceValuePair extends Entity
     */
     public function getValue()
     {
-        if (array_key_exists("value", $this->_propDict)) {
-            if (is_a($this->_propDict["value"], "\Beta\Microsoft\Graph\Model\AttributeMappingSource") || is_null($this->_propDict["value"])) {
+        if (array_key_exists("value", $this->_propDict) && !is_null($this->_propDict["value"])) {
+     
+            if (is_a($this->_propDict["value"], "\Beta\Microsoft\Graph\Model\AttributeMappingSource")) {
                 return $this->_propDict["value"];
             } else {
                 $this->_propDict["value"] = new AttributeMappingSource($this->_propDict["value"]);

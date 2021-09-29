@@ -32,8 +32,8 @@ class ManagedDeviceEncryptionState extends Entity
     */
     public function getAdvancedBitLockerStates()
     {
-        if (array_key_exists("advancedBitLockerStates", $this->_propDict)) {
-            if (is_a($this->_propDict["advancedBitLockerStates"], "\Beta\Microsoft\Graph\Model\AdvancedBitLockerState") || is_null($this->_propDict["advancedBitLockerStates"])) {
+        if (array_key_exists("advancedBitLockerStates", $this->_propDict) && !is_null($this->_propDict["advancedBitLockerStates"])) {
+            if (is_a($this->_propDict["advancedBitLockerStates"], "\Beta\Microsoft\Graph\Model\AdvancedBitLockerState")) {
                 return $this->_propDict["advancedBitLockerStates"];
             } else {
                 $this->_propDict["advancedBitLockerStates"] = new AdvancedBitLockerState($this->_propDict["advancedBitLockerStates"]);
@@ -94,8 +94,8 @@ class ManagedDeviceEncryptionState extends Entity
     */
     public function getDeviceType()
     {
-        if (array_key_exists("deviceType", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceType"], "\Beta\Microsoft\Graph\Model\DeviceTypes") || is_null($this->_propDict["deviceType"])) {
+        if (array_key_exists("deviceType", $this->_propDict) && !is_null($this->_propDict["deviceType"])) {
+            if (is_a($this->_propDict["deviceType"], "\Beta\Microsoft\Graph\Model\DeviceTypes")) {
                 return $this->_propDict["deviceType"];
             } else {
                 $this->_propDict["deviceType"] = new DeviceTypes($this->_propDict["deviceType"]);
@@ -127,8 +127,8 @@ class ManagedDeviceEncryptionState extends Entity
     */
     public function getEncryptionPolicySettingState()
     {
-        if (array_key_exists("encryptionPolicySettingState", $this->_propDict)) {
-            if (is_a($this->_propDict["encryptionPolicySettingState"], "\Beta\Microsoft\Graph\Model\ComplianceStatus") || is_null($this->_propDict["encryptionPolicySettingState"])) {
+        if (array_key_exists("encryptionPolicySettingState", $this->_propDict) && !is_null($this->_propDict["encryptionPolicySettingState"])) {
+            if (is_a($this->_propDict["encryptionPolicySettingState"], "\Beta\Microsoft\Graph\Model\ComplianceStatus")) {
                 return $this->_propDict["encryptionPolicySettingState"];
             } else {
                 $this->_propDict["encryptionPolicySettingState"] = new ComplianceStatus($this->_propDict["encryptionPolicySettingState"]);
@@ -160,8 +160,8 @@ class ManagedDeviceEncryptionState extends Entity
     */
     public function getEncryptionReadinessState()
     {
-        if (array_key_exists("encryptionReadinessState", $this->_propDict)) {
-            if (is_a($this->_propDict["encryptionReadinessState"], "\Beta\Microsoft\Graph\Model\EncryptionReadinessState") || is_null($this->_propDict["encryptionReadinessState"])) {
+        if (array_key_exists("encryptionReadinessState", $this->_propDict) && !is_null($this->_propDict["encryptionReadinessState"])) {
+            if (is_a($this->_propDict["encryptionReadinessState"], "\Beta\Microsoft\Graph\Model\EncryptionReadinessState")) {
                 return $this->_propDict["encryptionReadinessState"];
             } else {
                 $this->_propDict["encryptionReadinessState"] = new EncryptionReadinessState($this->_propDict["encryptionReadinessState"]);
@@ -193,8 +193,8 @@ class ManagedDeviceEncryptionState extends Entity
     */
     public function getEncryptionState()
     {
-        if (array_key_exists("encryptionState", $this->_propDict)) {
-            if (is_a($this->_propDict["encryptionState"], "\Beta\Microsoft\Graph\Model\EncryptionState") || is_null($this->_propDict["encryptionState"])) {
+        if (array_key_exists("encryptionState", $this->_propDict) && !is_null($this->_propDict["encryptionState"])) {
+            if (is_a($this->_propDict["encryptionState"], "\Beta\Microsoft\Graph\Model\EncryptionState")) {
                 return $this->_propDict["encryptionState"];
             } else {
                 $this->_propDict["encryptionState"] = new EncryptionState($this->_propDict["encryptionState"]);
@@ -226,8 +226,8 @@ class ManagedDeviceEncryptionState extends Entity
     */
     public function getFileVaultStates()
     {
-        if (array_key_exists("fileVaultStates", $this->_propDict)) {
-            if (is_a($this->_propDict["fileVaultStates"], "\Beta\Microsoft\Graph\Model\FileVaultState") || is_null($this->_propDict["fileVaultStates"])) {
+        if (array_key_exists("fileVaultStates", $this->_propDict) && !is_null($this->_propDict["fileVaultStates"])) {
+            if (is_a($this->_propDict["fileVaultStates"], "\Beta\Microsoft\Graph\Model\FileVaultState")) {
                 return $this->_propDict["fileVaultStates"];
             } else {
                 $this->_propDict["fileVaultStates"] = new FileVaultState($this->_propDict["fileVaultStates"]);
@@ -285,22 +285,29 @@ class ManagedDeviceEncryptionState extends Entity
      * Gets the policyDetails
     * Policy Details
      *
-     * @return array|null The policyDetails
+     * @return EncryptionReportPolicyDetails[]|null The policyDetails
      */
     public function getPolicyDetails()
     {
-        if (array_key_exists("policyDetails", $this->_propDict)) {
-           return $this->_propDict["policyDetails"];
-        } else {
-            return null;
+        if (array_key_exists('policyDetails', $this->_propDict) && !is_null($this->_propDict['policyDetails'])) {
+            $policyDetails = [];
+            if (count($this->_propDict['policyDetails']) > 0 && is_a($this->_propDict['policyDetails'][0], 'EncryptionReportPolicyDetails')) {
+                return $this->_propDict['policyDetails'];
+            }
+            foreach ($this->_propDict['policyDetails'] as $singleValue) {
+                $policyDetails []= new EncryptionReportPolicyDetails($singleValue);
+            }
+            $this->_propDict['policyDetails'] = $policyDetails;
+            return $this->_propDict['policyDetails'];
         }
+        return null;
     }
     
     /** 
     * Sets the policyDetails
     * Policy Details
     *
-    * @param EncryptionReportPolicyDetails $val The policyDetails
+    * @param EncryptionReportPolicyDetails[] $val The policyDetails
     *
     * @return ManagedDeviceEncryptionState
     */

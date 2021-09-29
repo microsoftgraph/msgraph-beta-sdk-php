@@ -61,8 +61,8 @@ class ReferenceAttachment extends Attachment
     */
     public function getPermission()
     {
-        if (array_key_exists("permission", $this->_propDict)) {
-            if (is_a($this->_propDict["permission"], "\Beta\Microsoft\Graph\Model\ReferenceAttachmentPermission") || is_null($this->_propDict["permission"])) {
+        if (array_key_exists("permission", $this->_propDict) && !is_null($this->_propDict["permission"])) {
+            if (is_a($this->_propDict["permission"], "\Beta\Microsoft\Graph\Model\ReferenceAttachmentPermission")) {
                 return $this->_propDict["permission"];
             } else {
                 $this->_propDict["permission"] = new ReferenceAttachmentPermission($this->_propDict["permission"]);
@@ -123,8 +123,8 @@ class ReferenceAttachment extends Attachment
     */
     public function getProviderType()
     {
-        if (array_key_exists("providerType", $this->_propDict)) {
-            if (is_a($this->_propDict["providerType"], "\Beta\Microsoft\Graph\Model\ReferenceAttachmentProvider") || is_null($this->_propDict["providerType"])) {
+        if (array_key_exists("providerType", $this->_propDict) && !is_null($this->_propDict["providerType"])) {
+            if (is_a($this->_propDict["providerType"], "\Beta\Microsoft\Graph\Model\ReferenceAttachmentProvider")) {
                 return $this->_propDict["providerType"];
             } else {
                 $this->_propDict["providerType"] = new ReferenceAttachmentProvider($this->_propDict["providerType"]);

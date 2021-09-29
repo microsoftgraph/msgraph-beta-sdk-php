@@ -55,15 +55,15 @@ class BookingService extends BookingNamedEntity
     * Gets the defaultDuration
     * The default length of the service, represented in numbers of days, hours, minutes, and seconds. For example, P11D23H59M59.999999999999S.
     *
-    * @return Duration|null The defaultDuration
+    * @return \DateInterval|null The defaultDuration
     */
     public function getDefaultDuration()
     {
-        if (array_key_exists("defaultDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["defaultDuration"])) {
+        if (array_key_exists("defaultDuration", $this->_propDict) && !is_null($this->_propDict["defaultDuration"])) {
+            if (is_a($this->_propDict["defaultDuration"], "\DateInterval")) {
                 return $this->_propDict["defaultDuration"];
             } else {
-                $this->_propDict["defaultDuration"] = new Duration($this->_propDict["defaultDuration"]);
+                $this->_propDict["defaultDuration"] = new \DateInterval($this->_propDict["defaultDuration"]);
                 return $this->_propDict["defaultDuration"];
             }
         }
@@ -74,7 +74,7 @@ class BookingService extends BookingNamedEntity
     * Sets the defaultDuration
     * The default length of the service, represented in numbers of days, hours, minutes, and seconds. For example, P11D23H59M59.999999999999S.
     *
-    * @param Duration $val The defaultDuration
+    * @param \DateInterval $val The defaultDuration
     *
     * @return BookingService
     */
@@ -92,8 +92,8 @@ class BookingService extends BookingNamedEntity
     */
     public function getDefaultLocation()
     {
-        if (array_key_exists("defaultLocation", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultLocation"], "\Beta\Microsoft\Graph\Model\Location") || is_null($this->_propDict["defaultLocation"])) {
+        if (array_key_exists("defaultLocation", $this->_propDict) && !is_null($this->_propDict["defaultLocation"])) {
+            if (is_a($this->_propDict["defaultLocation"], "\Beta\Microsoft\Graph\Model\Location")) {
                 return $this->_propDict["defaultLocation"];
             } else {
                 $this->_propDict["defaultLocation"] = new Location($this->_propDict["defaultLocation"]);
@@ -154,8 +154,8 @@ class BookingService extends BookingNamedEntity
     */
     public function getDefaultPriceType()
     {
-        if (array_key_exists("defaultPriceType", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultPriceType"], "\Beta\Microsoft\Graph\Model\BookingPriceType") || is_null($this->_propDict["defaultPriceType"])) {
+        if (array_key_exists("defaultPriceType", $this->_propDict) && !is_null($this->_propDict["defaultPriceType"])) {
+            if (is_a($this->_propDict["defaultPriceType"], "\Beta\Microsoft\Graph\Model\BookingPriceType")) {
                 return $this->_propDict["defaultPriceType"];
             } else {
                 $this->_propDict["defaultPriceType"] = new BookingPriceType($this->_propDict["defaultPriceType"]);
@@ -184,22 +184,29 @@ class BookingService extends BookingNamedEntity
      * Gets the defaultReminders
     * The value of this property is only available when reading an individual booking service by id.
      *
-     * @return array|null The defaultReminders
+     * @return BookingReminder[]|null The defaultReminders
      */
     public function getDefaultReminders()
     {
-        if (array_key_exists("defaultReminders", $this->_propDict)) {
-           return $this->_propDict["defaultReminders"];
-        } else {
-            return null;
+        if (array_key_exists('defaultReminders', $this->_propDict) && !is_null($this->_propDict['defaultReminders'])) {
+            $defaultReminders = [];
+            if (count($this->_propDict['defaultReminders']) > 0 && is_a($this->_propDict['defaultReminders'][0], 'BookingReminder')) {
+                return $this->_propDict['defaultReminders'];
+            }
+            foreach ($this->_propDict['defaultReminders'] as $singleValue) {
+                $defaultReminders []= new BookingReminder($singleValue);
+            }
+            $this->_propDict['defaultReminders'] = $defaultReminders;
+            return $this->_propDict['defaultReminders'];
         }
+        return null;
     }
     
     /** 
     * Sets the defaultReminders
     * The value of this property is only available when reading an individual booking service by id.
     *
-    * @param BookingReminder $val The defaultReminders
+    * @param BookingReminder[] $val The defaultReminders
     *
     * @return BookingService
     */
@@ -327,15 +334,15 @@ class BookingService extends BookingNamedEntity
     * Gets the postBuffer
     * The time to buffer after an appointment for this service ends, and before the next customer appointment can be booked.
     *
-    * @return Duration|null The postBuffer
+    * @return \DateInterval|null The postBuffer
     */
     public function getPostBuffer()
     {
-        if (array_key_exists("postBuffer", $this->_propDict)) {
-            if (is_a($this->_propDict["postBuffer"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["postBuffer"])) {
+        if (array_key_exists("postBuffer", $this->_propDict) && !is_null($this->_propDict["postBuffer"])) {
+            if (is_a($this->_propDict["postBuffer"], "\DateInterval")) {
                 return $this->_propDict["postBuffer"];
             } else {
-                $this->_propDict["postBuffer"] = new Duration($this->_propDict["postBuffer"]);
+                $this->_propDict["postBuffer"] = new \DateInterval($this->_propDict["postBuffer"]);
                 return $this->_propDict["postBuffer"];
             }
         }
@@ -346,7 +353,7 @@ class BookingService extends BookingNamedEntity
     * Sets the postBuffer
     * The time to buffer after an appointment for this service ends, and before the next customer appointment can be booked.
     *
-    * @param Duration $val The postBuffer
+    * @param \DateInterval $val The postBuffer
     *
     * @return BookingService
     */
@@ -360,15 +367,15 @@ class BookingService extends BookingNamedEntity
     * Gets the preBuffer
     * The time to buffer before an appointment for this service can start.
     *
-    * @return Duration|null The preBuffer
+    * @return \DateInterval|null The preBuffer
     */
     public function getPreBuffer()
     {
-        if (array_key_exists("preBuffer", $this->_propDict)) {
-            if (is_a($this->_propDict["preBuffer"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["preBuffer"])) {
+        if (array_key_exists("preBuffer", $this->_propDict) && !is_null($this->_propDict["preBuffer"])) {
+            if (is_a($this->_propDict["preBuffer"], "\DateInterval")) {
                 return $this->_propDict["preBuffer"];
             } else {
-                $this->_propDict["preBuffer"] = new Duration($this->_propDict["preBuffer"]);
+                $this->_propDict["preBuffer"] = new \DateInterval($this->_propDict["preBuffer"]);
                 return $this->_propDict["preBuffer"];
             }
         }
@@ -379,7 +386,7 @@ class BookingService extends BookingNamedEntity
     * Sets the preBuffer
     * The time to buffer before an appointment for this service can start.
     *
-    * @param Duration $val The preBuffer
+    * @param \DateInterval $val The preBuffer
     *
     * @return BookingService
     */
@@ -397,8 +404,8 @@ class BookingService extends BookingNamedEntity
     */
     public function getSchedulingPolicy()
     {
-        if (array_key_exists("schedulingPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["schedulingPolicy"], "\Beta\Microsoft\Graph\Model\BookingSchedulingPolicy") || is_null($this->_propDict["schedulingPolicy"])) {
+        if (array_key_exists("schedulingPolicy", $this->_propDict) && !is_null($this->_propDict["schedulingPolicy"])) {
+            if (is_a($this->_propDict["schedulingPolicy"], "\Beta\Microsoft\Graph\Model\BookingSchedulingPolicy")) {
                 return $this->_propDict["schedulingPolicy"];
             } else {
                 $this->_propDict["schedulingPolicy"] = new BookingSchedulingPolicy($this->_propDict["schedulingPolicy"]);

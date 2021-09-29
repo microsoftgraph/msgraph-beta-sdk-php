@@ -27,25 +27,29 @@ class ObjectDefinition extends Entity
     /**
     * Gets the attributes
     *
-    * @return AttributeDefinition|null The attributes
+    * @return AttributeDefinition[]|null The attributes
     */
     public function getAttributes()
     {
-        if (array_key_exists("attributes", $this->_propDict)) {
-            if (is_a($this->_propDict["attributes"], "\Beta\Microsoft\Graph\Model\AttributeDefinition") || is_null($this->_propDict["attributes"])) {
-                return $this->_propDict["attributes"];
-            } else {
-                $this->_propDict["attributes"] = new AttributeDefinition($this->_propDict["attributes"]);
-                return $this->_propDict["attributes"];
+        if (array_key_exists("attributes", $this->_propDict) && !is_null($this->_propDict["attributes"])) {
+       
+            if (count($this->_propDict['attributes']) > 0 && is_a($this->_propDict['attributes'][0], 'AttributeDefinition')) {
+               return $this->_propDict['attributes'];
             }
-        }
+            $attributes = [];
+            foreach ($this->_propDict['attributes'] as $singleValue) {
+               $attributes []= new AttributeDefinition($singleValue);
+            }
+            $this->_propDict['attributes'] = $attributes;
+            return $this->_propDict['attributes'];
+            }
         return null;
     }
 
     /**
     * Sets the attributes
     *
-    * @param AttributeDefinition $val The value to assign to the attributes
+    * @param AttributeDefinition[] $val The value to assign to the attributes
     *
     * @return ObjectDefinition The ObjectDefinition
     */
@@ -58,25 +62,29 @@ class ObjectDefinition extends Entity
     /**
     * Gets the metadata
     *
-    * @return MetadataEntry|null The metadata
+    * @return MetadataEntry[]|null The metadata
     */
     public function getMetadata()
     {
-        if (array_key_exists("metadata", $this->_propDict)) {
-            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\MetadataEntry") || is_null($this->_propDict["metadata"])) {
-                return $this->_propDict["metadata"];
-            } else {
-                $this->_propDict["metadata"] = new MetadataEntry($this->_propDict["metadata"]);
-                return $this->_propDict["metadata"];
+        if (array_key_exists("metadata", $this->_propDict) && !is_null($this->_propDict["metadata"])) {
+       
+            if (count($this->_propDict['metadata']) > 0 && is_a($this->_propDict['metadata'][0], 'MetadataEntry')) {
+               return $this->_propDict['metadata'];
             }
-        }
+            $metadata = [];
+            foreach ($this->_propDict['metadata'] as $singleValue) {
+               $metadata []= new MetadataEntry($singleValue);
+            }
+            $this->_propDict['metadata'] = $metadata;
+            return $this->_propDict['metadata'];
+            }
         return null;
     }
 
     /**
     * Sets the metadata
     *
-    * @param MetadataEntry $val The value to assign to the metadata
+    * @param MetadataEntry[] $val The value to assign to the metadata
     *
     * @return ObjectDefinition The ObjectDefinition
     */
@@ -128,7 +136,7 @@ class ObjectDefinition extends Entity
     /**
     * Sets the supportedApis
     *
-    * @param string $val The value of the supportedApis
+    * @param string[] $val The value of the supportedApis
     *
     * @return ObjectDefinition
     */

@@ -25,6 +25,7 @@ class TemplateParameter extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the description
+    * The description for the template parameter. Optional. Read-only.
     *
     * @return string|null The description
     */
@@ -39,6 +40,7 @@ class TemplateParameter extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the description
+    * The description for the template parameter. Optional. Read-only.
     *
     * @param string $val The value of the description
     *
@@ -51,6 +53,7 @@ class TemplateParameter extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the displayName
+    * The display name for the template parameter. Required. Read-only.
     *
     * @return string|null The displayName
     */
@@ -65,6 +68,7 @@ class TemplateParameter extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the displayName
+    * The display name for the template parameter. Required. Read-only.
     *
     * @param string $val The value of the displayName
     *
@@ -77,6 +81,7 @@ class TemplateParameter extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the jsonAllowedValues
+    * The allowed values for the template parameter represented by a serialized string of JSON. Optional. Read-only.
     *
     * @return string|null The jsonAllowedValues
     */
@@ -91,6 +96,7 @@ class TemplateParameter extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the jsonAllowedValues
+    * The allowed values for the template parameter represented by a serialized string of JSON. Optional. Read-only.
     *
     * @param string $val The value of the jsonAllowedValues
     *
@@ -103,6 +109,7 @@ class TemplateParameter extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the jsonDefaultValue
+    * The default value for the template parameter represented by a serialized string of JSON. Required. Read-only.
     *
     * @return string|null The jsonDefaultValue
     */
@@ -117,6 +124,7 @@ class TemplateParameter extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the jsonDefaultValue
+    * The default value for the template parameter represented by a serialized string of JSON. Required. Read-only.
     *
     * @param string $val The value of the jsonDefaultValue
     *
@@ -130,13 +138,15 @@ class TemplateParameter extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the valueType
+    * The data type for the template parameter.. Possible values are: string, integer, boolean, guid, stringCollection, integerCollection, booleanCollection, guidCollection, unknownFutureValue. Required. Read-only.
     *
     * @return ManagementParameterValueType|null The valueType
     */
     public function getValueType()
     {
-        if (array_key_exists("valueType", $this->_propDict)) {
-            if (is_a($this->_propDict["valueType"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagementParameterValueType") || is_null($this->_propDict["valueType"])) {
+        if (array_key_exists("valueType", $this->_propDict) && !is_null($this->_propDict["valueType"])) {
+     
+            if (is_a($this->_propDict["valueType"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagementParameterValueType")) {
                 return $this->_propDict["valueType"];
             } else {
                 $this->_propDict["valueType"] = new ManagementParameterValueType($this->_propDict["valueType"]);
@@ -148,6 +158,7 @@ class TemplateParameter extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the valueType
+    * The data type for the template parameter.. Possible values are: string, integer, boolean, guid, stringCollection, integerCollection, booleanCollection, guidCollection, unknownFutureValue. Required. Read-only.
     *
     * @param ManagementParameterValueType $val The value to assign to the valueType
     *

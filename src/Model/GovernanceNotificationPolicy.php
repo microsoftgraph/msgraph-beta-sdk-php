@@ -40,7 +40,7 @@ class GovernanceNotificationPolicy extends Entity
     /**
     * Sets the enabledTemplateTypes
     *
-    * @param string $val The value of the enabledTemplateTypes
+    * @param string[] $val The value of the enabledTemplateTypes
     *
     * @return GovernanceNotificationPolicy
     */
@@ -53,25 +53,29 @@ class GovernanceNotificationPolicy extends Entity
     /**
     * Gets the notificationTemplates
     *
-    * @return GovernanceNotificationTemplate|null The notificationTemplates
+    * @return GovernanceNotificationTemplate[]|null The notificationTemplates
     */
     public function getNotificationTemplates()
     {
-        if (array_key_exists("notificationTemplates", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationTemplates"], "\Beta\Microsoft\Graph\Model\GovernanceNotificationTemplate") || is_null($this->_propDict["notificationTemplates"])) {
-                return $this->_propDict["notificationTemplates"];
-            } else {
-                $this->_propDict["notificationTemplates"] = new GovernanceNotificationTemplate($this->_propDict["notificationTemplates"]);
-                return $this->_propDict["notificationTemplates"];
+        if (array_key_exists("notificationTemplates", $this->_propDict) && !is_null($this->_propDict["notificationTemplates"])) {
+       
+            if (count($this->_propDict['notificationTemplates']) > 0 && is_a($this->_propDict['notificationTemplates'][0], 'GovernanceNotificationTemplate')) {
+               return $this->_propDict['notificationTemplates'];
             }
-        }
+            $notificationTemplates = [];
+            foreach ($this->_propDict['notificationTemplates'] as $singleValue) {
+               $notificationTemplates []= new GovernanceNotificationTemplate($singleValue);
+            }
+            $this->_propDict['notificationTemplates'] = $notificationTemplates;
+            return $this->_propDict['notificationTemplates'];
+            }
         return null;
     }
 
     /**
     * Sets the notificationTemplates
     *
-    * @param GovernanceNotificationTemplate $val The value to assign to the notificationTemplates
+    * @param GovernanceNotificationTemplate[] $val The value to assign to the notificationTemplates
     *
     * @return GovernanceNotificationPolicy The GovernanceNotificationPolicy
     */

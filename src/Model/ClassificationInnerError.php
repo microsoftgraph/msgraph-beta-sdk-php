@@ -109,8 +109,9 @@ class ClassificationInnerError extends Entity
     */
     public function getErrorDateTime()
     {
-        if (array_key_exists("errorDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["errorDateTime"], "\DateTime") || is_null($this->_propDict["errorDateTime"])) {
+        if (array_key_exists("errorDateTime", $this->_propDict) && !is_null($this->_propDict["errorDateTime"])) {
+     
+            if (is_a($this->_propDict["errorDateTime"], "\DateTime")) {
                 return $this->_propDict["errorDateTime"];
             } else {
                 $this->_propDict["errorDateTime"] = new \DateTime($this->_propDict["errorDateTime"]);

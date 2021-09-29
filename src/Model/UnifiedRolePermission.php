@@ -25,7 +25,7 @@ class UnifiedRolePermission extends Entity
 {
     /**
     * Gets the allowedResourceActions
-    * Set of tasks that can be performed on a resource.
+    * Set of tasks that can be performed on a resource. Required.
     *
     * @return string|null The allowedResourceActions
     */
@@ -40,9 +40,9 @@ class UnifiedRolePermission extends Entity
 
     /**
     * Sets the allowedResourceActions
-    * Set of tasks that can be performed on a resource.
+    * Set of tasks that can be performed on a resource. Required.
     *
-    * @param string $val The value of the allowedResourceActions
+    * @param string[] $val The value of the allowedResourceActions
     *
     * @return UnifiedRolePermission
     */
@@ -81,6 +81,7 @@ class UnifiedRolePermission extends Entity
     }
     /**
     * Gets the excludedResourceActions
+    * Set of tasks that may not be performed on a resource. Not yet supported.
     *
     * @return string|null The excludedResourceActions
     */
@@ -95,8 +96,9 @@ class UnifiedRolePermission extends Entity
 
     /**
     * Sets the excludedResourceActions
+    * Set of tasks that may not be performed on a resource. Not yet supported.
     *
-    * @param string $val The value of the excludedResourceActions
+    * @param string[] $val The value of the excludedResourceActions
     *
     * @return UnifiedRolePermission
     */

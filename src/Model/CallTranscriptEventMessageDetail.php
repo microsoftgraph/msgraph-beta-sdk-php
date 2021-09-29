@@ -26,14 +26,17 @@ class CallTranscriptEventMessageDetail extends EventMessageDetail
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.callTranscriptEventMessageDetail");
     }
 
     /**
     * Gets the callId
+    * Unique identifier of the call.
     *
     * @return string|null The callId
     */
@@ -48,6 +51,7 @@ class CallTranscriptEventMessageDetail extends EventMessageDetail
 
     /**
     * Sets the callId
+    * Unique identifier of the call.
     *
     * @param string $val The value of the callId
     *
@@ -60,6 +64,7 @@ class CallTranscriptEventMessageDetail extends EventMessageDetail
     }
     /**
     * Gets the callTranscriptICalUid
+    * Unique identifier for a call transcript.
     *
     * @return string|null The callTranscriptICalUid
     */
@@ -74,6 +79,7 @@ class CallTranscriptEventMessageDetail extends EventMessageDetail
 
     /**
     * Sets the callTranscriptICalUid
+    * Unique identifier for a call transcript.
     *
     * @param string $val The value of the callTranscriptICalUid
     *
@@ -87,13 +93,15 @@ class CallTranscriptEventMessageDetail extends EventMessageDetail
 
     /**
     * Gets the meetingOrganizer
+    * The organizer of the meeting.
     *
     * @return IdentitySet|null The meetingOrganizer
     */
     public function getMeetingOrganizer()
     {
-        if (array_key_exists("meetingOrganizer", $this->_propDict)) {
-            if (is_a($this->_propDict["meetingOrganizer"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["meetingOrganizer"])) {
+        if (array_key_exists("meetingOrganizer", $this->_propDict) && !is_null($this->_propDict["meetingOrganizer"])) {
+     
+            if (is_a($this->_propDict["meetingOrganizer"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["meetingOrganizer"];
             } else {
                 $this->_propDict["meetingOrganizer"] = new IdentitySet($this->_propDict["meetingOrganizer"]);
@@ -105,6 +113,7 @@ class CallTranscriptEventMessageDetail extends EventMessageDetail
 
     /**
     * Sets the meetingOrganizer
+    * The organizer of the meeting.
     *
     * @param IdentitySet $val The value to assign to the meetingOrganizer
     *

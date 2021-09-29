@@ -119,8 +119,8 @@ class SkillProficiency extends ItemFacet
     */
     public function getProficiency()
     {
-        if (array_key_exists("proficiency", $this->_propDict)) {
-            if (is_a($this->_propDict["proficiency"], "\Beta\Microsoft\Graph\Model\SkillProficiencyLevel") || is_null($this->_propDict["proficiency"])) {
+        if (array_key_exists("proficiency", $this->_propDict) && !is_null($this->_propDict["proficiency"])) {
+            if (is_a($this->_propDict["proficiency"], "\Beta\Microsoft\Graph\Model\SkillProficiencyLevel")) {
                 return $this->_propDict["proficiency"];
             } else {
                 $this->_propDict["proficiency"] = new SkillProficiencyLevel($this->_propDict["proficiency"]);

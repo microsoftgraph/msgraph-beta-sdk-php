@@ -32,8 +32,9 @@ class VerifiedCustomDomainCertificatesMetadata extends Entity
     */
     public function getExpiryDate()
     {
-        if (array_key_exists("expiryDate", $this->_propDict)) {
-            if (is_a($this->_propDict["expiryDate"], "\DateTime") || is_null($this->_propDict["expiryDate"])) {
+        if (array_key_exists("expiryDate", $this->_propDict) && !is_null($this->_propDict["expiryDate"])) {
+     
+            if (is_a($this->_propDict["expiryDate"], "\DateTime")) {
                 return $this->_propDict["expiryDate"];
             } else {
                 $this->_propDict["expiryDate"] = new \DateTime($this->_propDict["expiryDate"]);
@@ -65,8 +66,9 @@ class VerifiedCustomDomainCertificatesMetadata extends Entity
     */
     public function getIssueDate()
     {
-        if (array_key_exists("issueDate", $this->_propDict)) {
-            if (is_a($this->_propDict["issueDate"], "\DateTime") || is_null($this->_propDict["issueDate"])) {
+        if (array_key_exists("issueDate", $this->_propDict) && !is_null($this->_propDict["issueDate"])) {
+     
+            if (is_a($this->_propDict["issueDate"], "\DateTime")) {
                 return $this->_propDict["issueDate"];
             } else {
                 $this->_propDict["issueDate"] = new \DateTime($this->_propDict["issueDate"]);

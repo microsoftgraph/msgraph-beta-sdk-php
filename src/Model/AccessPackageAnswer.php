@@ -32,8 +32,9 @@ class AccessPackageAnswer extends Entity
     */
     public function getAnsweredQuestion()
     {
-        if (array_key_exists("answeredQuestion", $this->_propDict)) {
-            if (is_a($this->_propDict["answeredQuestion"], "\Beta\Microsoft\Graph\Model\AccessPackageQuestion") || is_null($this->_propDict["answeredQuestion"])) {
+        if (array_key_exists("answeredQuestion", $this->_propDict) && !is_null($this->_propDict["answeredQuestion"])) {
+     
+            if (is_a($this->_propDict["answeredQuestion"], "\Beta\Microsoft\Graph\Model\AccessPackageQuestion")) {
                 return $this->_propDict["answeredQuestion"];
             } else {
                 $this->_propDict["answeredQuestion"] = new AccessPackageQuestion($this->_propDict["answeredQuestion"]);

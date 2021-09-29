@@ -26,9 +26,11 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deliveryOptimizationGroupIdSourceOptions");
     }
 
@@ -41,8 +43,9 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
     */
     public function getGroupIdSourceOption()
     {
-        if (array_key_exists("groupIdSourceOption", $this->_propDict)) {
-            if (is_a($this->_propDict["groupIdSourceOption"], "\Beta\Microsoft\Graph\Model\DeliveryOptimizationGroupIdOptionsType") || is_null($this->_propDict["groupIdSourceOption"])) {
+        if (array_key_exists("groupIdSourceOption", $this->_propDict) && !is_null($this->_propDict["groupIdSourceOption"])) {
+     
+            if (is_a($this->_propDict["groupIdSourceOption"], "\Beta\Microsoft\Graph\Model\DeliveryOptimizationGroupIdOptionsType")) {
                 return $this->_propDict["groupIdSourceOption"];
             } else {
                 $this->_propDict["groupIdSourceOption"] = new DeliveryOptimizationGroupIdOptionsType($this->_propDict["groupIdSourceOption"]);

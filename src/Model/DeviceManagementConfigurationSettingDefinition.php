@@ -32,8 +32,8 @@ class DeviceManagementConfigurationSettingDefinition extends Entity
     */
     public function getAccessTypes()
     {
-        if (array_key_exists("accessTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["accessTypes"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingAccessTypes") || is_null($this->_propDict["accessTypes"])) {
+        if (array_key_exists("accessTypes", $this->_propDict) && !is_null($this->_propDict["accessTypes"])) {
+            if (is_a($this->_propDict["accessTypes"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingAccessTypes")) {
                 return $this->_propDict["accessTypes"];
             } else {
                 $this->_propDict["accessTypes"] = new DeviceManagementConfigurationSettingAccessTypes($this->_propDict["accessTypes"]);
@@ -65,8 +65,8 @@ class DeviceManagementConfigurationSettingDefinition extends Entity
     */
     public function getApplicability()
     {
-        if (array_key_exists("applicability", $this->_propDict)) {
-            if (is_a($this->_propDict["applicability"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingApplicability") || is_null($this->_propDict["applicability"])) {
+        if (array_key_exists("applicability", $this->_propDict) && !is_null($this->_propDict["applicability"])) {
+            if (is_a($this->_propDict["applicability"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingApplicability")) {
                 return $this->_propDict["applicability"];
             } else {
                 $this->_propDict["applicability"] = new DeviceManagementConfigurationSettingApplicability($this->_propDict["applicability"]);
@@ -330,8 +330,8 @@ class DeviceManagementConfigurationSettingDefinition extends Entity
     */
     public function getOccurrence()
     {
-        if (array_key_exists("occurrence", $this->_propDict)) {
-            if (is_a($this->_propDict["occurrence"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingOccurrence") || is_null($this->_propDict["occurrence"])) {
+        if (array_key_exists("occurrence", $this->_propDict) && !is_null($this->_propDict["occurrence"])) {
+            if (is_a($this->_propDict["occurrence"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingOccurrence")) {
                 return $this->_propDict["occurrence"];
             } else {
                 $this->_propDict["occurrence"] = new DeviceManagementConfigurationSettingOccurrence($this->_propDict["occurrence"]);
@@ -389,22 +389,29 @@ class DeviceManagementConfigurationSettingDefinition extends Entity
      * Gets the referredSettingInformationList
     * List of referred setting information.
      *
-     * @return array|null The referredSettingInformationList
+     * @return DeviceManagementConfigurationReferredSettingInformation[]|null The referredSettingInformationList
      */
     public function getReferredSettingInformationList()
     {
-        if (array_key_exists("referredSettingInformationList", $this->_propDict)) {
-           return $this->_propDict["referredSettingInformationList"];
-        } else {
-            return null;
+        if (array_key_exists('referredSettingInformationList', $this->_propDict) && !is_null($this->_propDict['referredSettingInformationList'])) {
+            $referredSettingInformationList = [];
+            if (count($this->_propDict['referredSettingInformationList']) > 0 && is_a($this->_propDict['referredSettingInformationList'][0], 'DeviceManagementConfigurationReferredSettingInformation')) {
+                return $this->_propDict['referredSettingInformationList'];
+            }
+            foreach ($this->_propDict['referredSettingInformationList'] as $singleValue) {
+                $referredSettingInformationList []= new DeviceManagementConfigurationReferredSettingInformation($singleValue);
+            }
+            $this->_propDict['referredSettingInformationList'] = $referredSettingInformationList;
+            return $this->_propDict['referredSettingInformationList'];
         }
+        return null;
     }
     
     /** 
     * Sets the referredSettingInformationList
     * List of referred setting information.
     *
-    * @param DeviceManagementConfigurationReferredSettingInformation $val The referredSettingInformationList
+    * @param DeviceManagementConfigurationReferredSettingInformation[] $val The referredSettingInformationList
     *
     * @return DeviceManagementConfigurationSettingDefinition
     */
@@ -451,8 +458,8 @@ class DeviceManagementConfigurationSettingDefinition extends Entity
     */
     public function getSettingUsage()
     {
-        if (array_key_exists("settingUsage", $this->_propDict)) {
-            if (is_a($this->_propDict["settingUsage"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingUsage") || is_null($this->_propDict["settingUsage"])) {
+        if (array_key_exists("settingUsage", $this->_propDict) && !is_null($this->_propDict["settingUsage"])) {
+            if (is_a($this->_propDict["settingUsage"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingUsage")) {
                 return $this->_propDict["settingUsage"];
             } else {
                 $this->_propDict["settingUsage"] = new DeviceManagementConfigurationSettingUsage($this->_propDict["settingUsage"]);
@@ -484,8 +491,8 @@ class DeviceManagementConfigurationSettingDefinition extends Entity
     */
     public function getUxBehavior()
     {
-        if (array_key_exists("uxBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["uxBehavior"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationControlType") || is_null($this->_propDict["uxBehavior"])) {
+        if (array_key_exists("uxBehavior", $this->_propDict) && !is_null($this->_propDict["uxBehavior"])) {
+            if (is_a($this->_propDict["uxBehavior"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationControlType")) {
                 return $this->_propDict["uxBehavior"];
             } else {
                 $this->_propDict["uxBehavior"] = new DeviceManagementConfigurationControlType($this->_propDict["uxBehavior"]);
@@ -546,8 +553,8 @@ class DeviceManagementConfigurationSettingDefinition extends Entity
     */
     public function getVisibility()
     {
-        if (array_key_exists("visibility", $this->_propDict)) {
-            if (is_a($this->_propDict["visibility"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingVisibility") || is_null($this->_propDict["visibility"])) {
+        if (array_key_exists("visibility", $this->_propDict) && !is_null($this->_propDict["visibility"])) {
+            if (is_a($this->_propDict["visibility"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingVisibility")) {
                 return $this->_propDict["visibility"];
             } else {
                 $this->_propDict["visibility"] = new DeviceManagementConfigurationSettingVisibility($this->_propDict["visibility"]);

@@ -90,8 +90,8 @@ class UserAccountInformation extends ItemFacet
     */
     public function getPreferredLanguageTag()
     {
-        if (array_key_exists("preferredLanguageTag", $this->_propDict)) {
-            if (is_a($this->_propDict["preferredLanguageTag"], "\Beta\Microsoft\Graph\Model\LocaleInfo") || is_null($this->_propDict["preferredLanguageTag"])) {
+        if (array_key_exists("preferredLanguageTag", $this->_propDict) && !is_null($this->_propDict["preferredLanguageTag"])) {
+            if (is_a($this->_propDict["preferredLanguageTag"], "\Beta\Microsoft\Graph\Model\LocaleInfo")) {
                 return $this->_propDict["preferredLanguageTag"];
             } else {
                 $this->_propDict["preferredLanguageTag"] = new LocaleInfo($this->_propDict["preferredLanguageTag"]);

@@ -90,11 +90,11 @@ class ImportedWindowsAutopilotDeviceIdentity extends Entity
     */
     public function getHardwareIdentifier()
     {
-        if (array_key_exists("hardwareIdentifier", $this->_propDict)) {
-            if (is_a($this->_propDict["hardwareIdentifier"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["hardwareIdentifier"])) {
+        if (array_key_exists("hardwareIdentifier", $this->_propDict) && !is_null($this->_propDict["hardwareIdentifier"])) {
+            if (is_a($this->_propDict["hardwareIdentifier"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["hardwareIdentifier"];
             } else {
-                $this->_propDict["hardwareIdentifier"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["hardwareIdentifier"]);
+                $this->_propDict["hardwareIdentifier"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["hardwareIdentifier"]);
                 return $this->_propDict["hardwareIdentifier"];
             }
         }
@@ -210,8 +210,8 @@ class ImportedWindowsAutopilotDeviceIdentity extends Entity
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ImportedWindowsAutopilotDeviceIdentityState") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ImportedWindowsAutopilotDeviceIdentityState")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new ImportedWindowsAutopilotDeviceIdentityState($this->_propDict["state"]);

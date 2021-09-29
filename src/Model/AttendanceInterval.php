@@ -60,8 +60,9 @@ class AttendanceInterval extends Entity
     */
     public function getJoinDateTime()
     {
-        if (array_key_exists("joinDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["joinDateTime"], "\DateTime") || is_null($this->_propDict["joinDateTime"])) {
+        if (array_key_exists("joinDateTime", $this->_propDict) && !is_null($this->_propDict["joinDateTime"])) {
+     
+            if (is_a($this->_propDict["joinDateTime"], "\DateTime")) {
                 return $this->_propDict["joinDateTime"];
             } else {
                 $this->_propDict["joinDateTime"] = new \DateTime($this->_propDict["joinDateTime"]);
@@ -93,8 +94,9 @@ class AttendanceInterval extends Entity
     */
     public function getLeaveDateTime()
     {
-        if (array_key_exists("leaveDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["leaveDateTime"], "\DateTime") || is_null($this->_propDict["leaveDateTime"])) {
+        if (array_key_exists("leaveDateTime", $this->_propDict) && !is_null($this->_propDict["leaveDateTime"])) {
+     
+            if (is_a($this->_propDict["leaveDateTime"], "\DateTime")) {
                 return $this->_propDict["leaveDateTime"];
             } else {
                 $this->_propDict["leaveDateTime"] = new \DateTime($this->_propDict["leaveDateTime"]);

@@ -32,8 +32,8 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
     */
     public function getApplicablePlatform()
     {
-        if (array_key_exists("applicablePlatform", $this->_propDict)) {
-            if (is_a($this->_propDict["applicablePlatform"], "\Beta\Microsoft\Graph\Model\EndpointSecurityConfigurationApplicablePlatform") || is_null($this->_propDict["applicablePlatform"])) {
+        if (array_key_exists("applicablePlatform", $this->_propDict) && !is_null($this->_propDict["applicablePlatform"])) {
+            if (is_a($this->_propDict["applicablePlatform"], "\Beta\Microsoft\Graph\Model\EndpointSecurityConfigurationApplicablePlatform")) {
                 return $this->_propDict["applicablePlatform"];
             } else {
                 $this->_propDict["applicablePlatform"] = new EndpointSecurityConfigurationApplicablePlatform($this->_propDict["applicablePlatform"]);
@@ -65,8 +65,8 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
     */
     public function getEndpointSecurityPolicy()
     {
-        if (array_key_exists("endpointSecurityPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["endpointSecurityPolicy"], "\Beta\Microsoft\Graph\Model\EndpointSecurityConfigurationType") || is_null($this->_propDict["endpointSecurityPolicy"])) {
+        if (array_key_exists("endpointSecurityPolicy", $this->_propDict) && !is_null($this->_propDict["endpointSecurityPolicy"])) {
+            if (is_a($this->_propDict["endpointSecurityPolicy"], "\Beta\Microsoft\Graph\Model\EndpointSecurityConfigurationType")) {
                 return $this->_propDict["endpointSecurityPolicy"];
             } else {
                 $this->_propDict["endpointSecurityPolicy"] = new EndpointSecurityConfigurationType($this->_propDict["endpointSecurityPolicy"]);
@@ -98,8 +98,8 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
     */
     public function getEndpointSecurityPolicyProfile()
     {
-        if (array_key_exists("endpointSecurityPolicyProfile", $this->_propDict)) {
-            if (is_a($this->_propDict["endpointSecurityPolicyProfile"], "\Beta\Microsoft\Graph\Model\EndpointSecurityConfigurationProfileType") || is_null($this->_propDict["endpointSecurityPolicyProfile"])) {
+        if (array_key_exists("endpointSecurityPolicyProfile", $this->_propDict) && !is_null($this->_propDict["endpointSecurityPolicyProfile"])) {
+            if (is_a($this->_propDict["endpointSecurityPolicyProfile"], "\Beta\Microsoft\Graph\Model\EndpointSecurityConfigurationProfileType")) {
                 return $this->_propDict["endpointSecurityPolicyProfile"];
             } else {
                 $this->_propDict["endpointSecurityPolicyProfile"] = new EndpointSecurityConfigurationProfileType($this->_propDict["endpointSecurityPolicyProfile"]);
@@ -157,22 +157,29 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
      * Gets the intendedSettings
     * The intended settings and their values.
      *
-     * @return array|null The intendedSettings
+     * @return KeyValuePair[]|null The intendedSettings
      */
     public function getIntendedSettings()
     {
-        if (array_key_exists("intendedSettings", $this->_propDict)) {
-           return $this->_propDict["intendedSettings"];
-        } else {
-            return null;
+        if (array_key_exists('intendedSettings', $this->_propDict) && !is_null($this->_propDict['intendedSettings'])) {
+            $intendedSettings = [];
+            if (count($this->_propDict['intendedSettings']) > 0 && is_a($this->_propDict['intendedSettings'][0], 'KeyValuePair')) {
+                return $this->_propDict['intendedSettings'];
+            }
+            foreach ($this->_propDict['intendedSettings'] as $singleValue) {
+                $intendedSettings []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['intendedSettings'] = $intendedSettings;
+            return $this->_propDict['intendedSettings'];
         }
+        return null;
     }
     
     /** 
     * Sets the intendedSettings
     * The intended settings and their values.
     *
-    * @param KeyValuePair $val The intendedSettings
+    * @param KeyValuePair[] $val The intendedSettings
     *
     * @return SecurityConfigurationTask
     */
@@ -216,22 +223,29 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
      * Gets the managedDevices
     * The vulnerable managed devices.
      *
-     * @return array|null The managedDevices
+     * @return VulnerableManagedDevice[]|null The managedDevices
      */
     public function getManagedDevices()
     {
-        if (array_key_exists("managedDevices", $this->_propDict)) {
-           return $this->_propDict["managedDevices"];
-        } else {
-            return null;
+        if (array_key_exists('managedDevices', $this->_propDict) && !is_null($this->_propDict['managedDevices'])) {
+            $managedDevices = [];
+            if (count($this->_propDict['managedDevices']) > 0 && is_a($this->_propDict['managedDevices'][0], 'VulnerableManagedDevice')) {
+                return $this->_propDict['managedDevices'];
+            }
+            foreach ($this->_propDict['managedDevices'] as $singleValue) {
+                $managedDevices []= new VulnerableManagedDevice($singleValue);
+            }
+            $this->_propDict['managedDevices'] = $managedDevices;
+            return $this->_propDict['managedDevices'];
         }
+        return null;
     }
     
     /** 
     * Sets the managedDevices
     * The vulnerable managed devices.
     *
-    * @param VulnerableManagedDevice $val The managedDevices
+    * @param VulnerableManagedDevice[] $val The managedDevices
     *
     * @return SecurityConfigurationTask
     */

@@ -32,8 +32,8 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase
     */
     public function getClaimsMapping()
     {
-        if (array_key_exists("claimsMapping", $this->_propDict)) {
-            if (is_a($this->_propDict["claimsMapping"], "\Beta\Microsoft\Graph\Model\ClaimsMapping") || is_null($this->_propDict["claimsMapping"])) {
+        if (array_key_exists("claimsMapping", $this->_propDict) && !is_null($this->_propDict["claimsMapping"])) {
+            if (is_a($this->_propDict["claimsMapping"], "\Beta\Microsoft\Graph\Model\ClaimsMapping")) {
                 return $this->_propDict["claimsMapping"];
             } else {
                 $this->_propDict["claimsMapping"] = new ClaimsMapping($this->_propDict["claimsMapping"]);
@@ -59,7 +59,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase
     
     /**
     * Gets the clientId
-    * The client ID for the application obtained when registering the application with the identity provider. Required.
+    * The client identifier for the application obtained when registering the application with the identity provider. Required.
     *
     * @return string|null The clientId
     */
@@ -74,7 +74,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase
     
     /**
     * Sets the clientId
-    * The client ID for the application obtained when registering the application with the identity provider. Required.
+    * The client identifier for the application obtained when registering the application with the identity provider. Required.
     *
     * @param string $val The clientId
     *
@@ -88,7 +88,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase
     
     /**
     * Gets the clientSecret
-    * The client secret for the application obtained when registering the application with the identity provider. The clientSecret has a dependency on responseType. When responseType is code, a secret is required for the auth code exchange.When responseType is id_token the secret is not required because there is no code exchange. The id_token is returned directly from the authorization response. This is write-only. A read operation returns '****'.
+    * The client secret for the application obtained when registering the application with the identity provider. The clientSecret has a dependency on responseType. When responseType is code, a secret is required for the auth code exchange.When responseType is id_token the secret is not required because there is no code exchange. The id_token is returned directly from the authorization response. This is write-only. A read operation returns ****.
     *
     * @return string|null The clientSecret
     */
@@ -103,7 +103,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase
     
     /**
     * Sets the clientSecret
-    * The client secret for the application obtained when registering the application with the identity provider. The clientSecret has a dependency on responseType. When responseType is code, a secret is required for the auth code exchange.When responseType is id_token the secret is not required because there is no code exchange. The id_token is returned directly from the authorization response. This is write-only. A read operation returns '****'.
+    * The client secret for the application obtained when registering the application with the identity provider. The clientSecret has a dependency on responseType. When responseType is code, a secret is required for the auth code exchange.When responseType is id_token the secret is not required because there is no code exchange. The id_token is returned directly from the authorization response. This is write-only. A read operation returns ****.
     *
     * @param string $val The clientSecret
     *
@@ -181,8 +181,8 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase
     */
     public function getResponseMode()
     {
-        if (array_key_exists("responseMode", $this->_propDict)) {
-            if (is_a($this->_propDict["responseMode"], "\Beta\Microsoft\Graph\Model\OpenIdConnectResponseMode") || is_null($this->_propDict["responseMode"])) {
+        if (array_key_exists("responseMode", $this->_propDict) && !is_null($this->_propDict["responseMode"])) {
+            if (is_a($this->_propDict["responseMode"], "\Beta\Microsoft\Graph\Model\OpenIdConnectResponseMode")) {
                 return $this->_propDict["responseMode"];
             } else {
                 $this->_propDict["responseMode"] = new OpenIdConnectResponseMode($this->_propDict["responseMode"]);
@@ -214,8 +214,8 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase
     */
     public function getResponseType()
     {
-        if (array_key_exists("responseType", $this->_propDict)) {
-            if (is_a($this->_propDict["responseType"], "\Beta\Microsoft\Graph\Model\OpenIdConnectResponseTypes") || is_null($this->_propDict["responseType"])) {
+        if (array_key_exists("responseType", $this->_propDict) && !is_null($this->_propDict["responseType"])) {
+            if (is_a($this->_propDict["responseType"], "\Beta\Microsoft\Graph\Model\OpenIdConnectResponseTypes")) {
                 return $this->_propDict["responseType"];
             } else {
                 $this->_propDict["responseType"] = new OpenIdConnectResponseTypes($this->_propDict["responseType"]);

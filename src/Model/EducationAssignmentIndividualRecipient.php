@@ -26,15 +26,17 @@ class EducationAssignmentIndividualRecipient extends EducationAssignmentRecipien
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.educationAssignmentIndividualRecipient");
     }
 
     /**
     * Gets the recipients
-    * A collection of ids of the recipients.
+    * A collection of IDs of the recipients.
     *
     * @return string|null The recipients
     */
@@ -49,9 +51,9 @@ class EducationAssignmentIndividualRecipient extends EducationAssignmentRecipien
 
     /**
     * Sets the recipients
-    * A collection of ids of the recipients.
+    * A collection of IDs of the recipients.
     *
-    * @param string $val The value of the recipients
+    * @param string[] $val The value of the recipients
     *
     * @return EducationAssignmentIndividualRecipient
     */

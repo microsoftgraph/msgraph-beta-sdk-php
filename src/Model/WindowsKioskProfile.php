@@ -32,8 +32,9 @@ class WindowsKioskProfile extends Entity
     */
     public function getAppConfiguration()
     {
-        if (array_key_exists("appConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["appConfiguration"], "\Beta\Microsoft\Graph\Model\WindowsKioskAppConfiguration") || is_null($this->_propDict["appConfiguration"])) {
+        if (array_key_exists("appConfiguration", $this->_propDict) && !is_null($this->_propDict["appConfiguration"])) {
+     
+            if (is_a($this->_propDict["appConfiguration"], "\Beta\Microsoft\Graph\Model\WindowsKioskAppConfiguration")) {
                 return $this->_propDict["appConfiguration"];
             } else {
                 $this->_propDict["appConfiguration"] = new WindowsKioskAppConfiguration($this->_propDict["appConfiguration"]);
@@ -117,18 +118,22 @@ class WindowsKioskProfile extends Entity
     * Gets the userAccountsConfiguration
     * The user accounts that will be locked to this kiosk configuration. This collection can contain a maximum of 100 elements.
     *
-    * @return WindowsKioskUser|null The userAccountsConfiguration
+    * @return WindowsKioskUser[]|null The userAccountsConfiguration
     */
     public function getUserAccountsConfiguration()
     {
-        if (array_key_exists("userAccountsConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["userAccountsConfiguration"], "\Beta\Microsoft\Graph\Model\WindowsKioskUser") || is_null($this->_propDict["userAccountsConfiguration"])) {
-                return $this->_propDict["userAccountsConfiguration"];
-            } else {
-                $this->_propDict["userAccountsConfiguration"] = new WindowsKioskUser($this->_propDict["userAccountsConfiguration"]);
-                return $this->_propDict["userAccountsConfiguration"];
+        if (array_key_exists("userAccountsConfiguration", $this->_propDict) && !is_null($this->_propDict["userAccountsConfiguration"])) {
+       
+            if (count($this->_propDict['userAccountsConfiguration']) > 0 && is_a($this->_propDict['userAccountsConfiguration'][0], 'WindowsKioskUser')) {
+               return $this->_propDict['userAccountsConfiguration'];
             }
-        }
+            $userAccountsConfiguration = [];
+            foreach ($this->_propDict['userAccountsConfiguration'] as $singleValue) {
+               $userAccountsConfiguration []= new WindowsKioskUser($singleValue);
+            }
+            $this->_propDict['userAccountsConfiguration'] = $userAccountsConfiguration;
+            return $this->_propDict['userAccountsConfiguration'];
+            }
         return null;
     }
 
@@ -136,7 +141,7 @@ class WindowsKioskProfile extends Entity
     * Sets the userAccountsConfiguration
     * The user accounts that will be locked to this kiosk configuration. This collection can contain a maximum of 100 elements.
     *
-    * @param WindowsKioskUser $val The value to assign to the userAccountsConfiguration
+    * @param WindowsKioskUser[] $val The value to assign to the userAccountsConfiguration
     *
     * @return WindowsKioskProfile The WindowsKioskProfile
     */

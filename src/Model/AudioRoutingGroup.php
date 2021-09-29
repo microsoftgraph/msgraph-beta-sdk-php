@@ -61,8 +61,8 @@ class AudioRoutingGroup extends Entity
     */
     public function getRoutingMode()
     {
-        if (array_key_exists("routingMode", $this->_propDict)) {
-            if (is_a($this->_propDict["routingMode"], "\Beta\Microsoft\Graph\Model\RoutingMode") || is_null($this->_propDict["routingMode"])) {
+        if (array_key_exists("routingMode", $this->_propDict) && !is_null($this->_propDict["routingMode"])) {
+            if (is_a($this->_propDict["routingMode"], "\Beta\Microsoft\Graph\Model\RoutingMode")) {
                 return $this->_propDict["routingMode"];
             } else {
                 $this->_propDict["routingMode"] = new RoutingMode($this->_propDict["routingMode"]);

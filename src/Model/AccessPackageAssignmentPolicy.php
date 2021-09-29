@@ -61,8 +61,8 @@ class AccessPackageAssignmentPolicy extends Entity
     */
     public function getAccessReviewSettings()
     {
-        if (array_key_exists("accessReviewSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["accessReviewSettings"], "\Beta\Microsoft\Graph\Model\AssignmentReviewSettings") || is_null($this->_propDict["accessReviewSettings"])) {
+        if (array_key_exists("accessReviewSettings", $this->_propDict) && !is_null($this->_propDict["accessReviewSettings"])) {
+            if (is_a($this->_propDict["accessReviewSettings"], "\Beta\Microsoft\Graph\Model\AssignmentReviewSettings")) {
                 return $this->_propDict["accessReviewSettings"];
             } else {
                 $this->_propDict["accessReviewSettings"] = new AssignmentReviewSettings($this->_propDict["accessReviewSettings"]);
@@ -152,8 +152,8 @@ class AccessPackageAssignmentPolicy extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -272,8 +272,8 @@ class AccessPackageAssignmentPolicy extends Entity
     */
     public function getExpirationDateTime()
     {
-        if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+        if (array_key_exists("expirationDateTime", $this->_propDict) && !is_null($this->_propDict["expirationDateTime"])) {
+            if (is_a($this->_propDict["expirationDateTime"], "\DateTime")) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -334,8 +334,8 @@ class AccessPackageAssignmentPolicy extends Entity
     */
     public function getModifiedDateTime()
     {
-        if (array_key_exists("modifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
+        if (array_key_exists("modifiedDateTime", $this->_propDict) && !is_null($this->_propDict["modifiedDateTime"])) {
+            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["modifiedDateTime"];
             } else {
                 $this->_propDict["modifiedDateTime"] = new \DateTime($this->_propDict["modifiedDateTime"]);
@@ -364,22 +364,29 @@ class AccessPackageAssignmentPolicy extends Entity
      * Gets the questions
     * Questions that are posed to the  requestor.
      *
-     * @return array|null The questions
+     * @return AccessPackageQuestion[]|null The questions
      */
     public function getQuestions()
     {
-        if (array_key_exists("questions", $this->_propDict)) {
-           return $this->_propDict["questions"];
-        } else {
-            return null;
+        if (array_key_exists('questions', $this->_propDict) && !is_null($this->_propDict['questions'])) {
+            $questions = [];
+            if (count($this->_propDict['questions']) > 0 && is_a($this->_propDict['questions'][0], 'AccessPackageQuestion')) {
+                return $this->_propDict['questions'];
+            }
+            foreach ($this->_propDict['questions'] as $singleValue) {
+                $questions []= new AccessPackageQuestion($singleValue);
+            }
+            $this->_propDict['questions'] = $questions;
+            return $this->_propDict['questions'];
         }
+        return null;
     }
     
     /** 
     * Sets the questions
     * Questions that are posed to the  requestor.
     *
-    * @param AccessPackageQuestion $val The questions
+    * @param AccessPackageQuestion[] $val The questions
     *
     * @return AccessPackageAssignmentPolicy
     */
@@ -397,8 +404,8 @@ class AccessPackageAssignmentPolicy extends Entity
     */
     public function getRequestApprovalSettings()
     {
-        if (array_key_exists("requestApprovalSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["requestApprovalSettings"], "\Beta\Microsoft\Graph\Model\ApprovalSettings") || is_null($this->_propDict["requestApprovalSettings"])) {
+        if (array_key_exists("requestApprovalSettings", $this->_propDict) && !is_null($this->_propDict["requestApprovalSettings"])) {
+            if (is_a($this->_propDict["requestApprovalSettings"], "\Beta\Microsoft\Graph\Model\ApprovalSettings")) {
                 return $this->_propDict["requestApprovalSettings"];
             } else {
                 $this->_propDict["requestApprovalSettings"] = new ApprovalSettings($this->_propDict["requestApprovalSettings"]);
@@ -430,8 +437,8 @@ class AccessPackageAssignmentPolicy extends Entity
     */
     public function getRequestorSettings()
     {
-        if (array_key_exists("requestorSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["requestorSettings"], "\Beta\Microsoft\Graph\Model\RequestorSettings") || is_null($this->_propDict["requestorSettings"])) {
+        if (array_key_exists("requestorSettings", $this->_propDict) && !is_null($this->_propDict["requestorSettings"])) {
+            if (is_a($this->_propDict["requestorSettings"], "\Beta\Microsoft\Graph\Model\RequestorSettings")) {
                 return $this->_propDict["requestorSettings"];
             } else {
                 $this->_propDict["requestorSettings"] = new RequestorSettings($this->_propDict["requestorSettings"]);
@@ -463,8 +470,8 @@ class AccessPackageAssignmentPolicy extends Entity
     */
     public function getAccessPackage()
     {
-        if (array_key_exists("accessPackage", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackage"], "\Beta\Microsoft\Graph\Model\AccessPackage") || is_null($this->_propDict["accessPackage"])) {
+        if (array_key_exists("accessPackage", $this->_propDict) && !is_null($this->_propDict["accessPackage"])) {
+            if (is_a($this->_propDict["accessPackage"], "\Beta\Microsoft\Graph\Model\AccessPackage")) {
                 return $this->_propDict["accessPackage"];
             } else {
                 $this->_propDict["accessPackage"] = new AccessPackage($this->_propDict["accessPackage"]);
@@ -495,8 +502,8 @@ class AccessPackageAssignmentPolicy extends Entity
     */
     public function getAccessPackageCatalog()
     {
-        if (array_key_exists("accessPackageCatalog", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageCatalog"], "\Beta\Microsoft\Graph\Model\AccessPackageCatalog") || is_null($this->_propDict["accessPackageCatalog"])) {
+        if (array_key_exists("accessPackageCatalog", $this->_propDict) && !is_null($this->_propDict["accessPackageCatalog"])) {
+            if (is_a($this->_propDict["accessPackageCatalog"], "\Beta\Microsoft\Graph\Model\AccessPackageCatalog")) {
                 return $this->_propDict["accessPackageCatalog"];
             } else {
                 $this->_propDict["accessPackageCatalog"] = new AccessPackageCatalog($this->_propDict["accessPackageCatalog"]);

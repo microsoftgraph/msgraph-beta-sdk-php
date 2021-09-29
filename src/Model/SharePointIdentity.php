@@ -2,7 +2,7 @@
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
-* UserIdentityType File
+* SharePointIdentity File
 * PHP version 7
 *
 * @category  Library
@@ -12,11 +12,8 @@
 * @link      https://graph.microsoft.com
 */
 namespace Beta\Microsoft\Graph\Model;
-
-use Microsoft\Graph\Core\Enum;
-
 /**
-* UserIdentityType class
+* SharePointIdentity class
 *
 * @category  Model
 * @package   Microsoft.Graph
@@ -24,15 +21,32 @@ use Microsoft\Graph\Core\Enum;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class UserIdentityType extends Enum
+class SharePointIdentity extends Identity
 {
     /**
-    * The Enum UserIdentityType
+    * Gets the loginName
+    *
+    * @return string|null The loginName
     */
-    const AAD_USER = "aadUser";
-    const ON_PREMISE_AAD_USER = "onPremiseAadUser";
-    const ANONYMOUS_GUEST = "anonymousGuest";
-    const FEDERATED_USER = "federatedUser";
-    const PERSONAL_MICROSOFT_ACCOUNT_USER = "personalMicrosoftAccountUser";
-    const SKYPE_USER = "skypeUser";
+    public function getLoginName()
+    {
+        if (array_key_exists("loginName", $this->_propDict)) {
+            return $this->_propDict["loginName"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the loginName
+    *
+    * @param string $val The value of the loginName
+    *
+    * @return SharePointIdentity
+    */
+    public function setLoginName($val)
+    {
+        $this->_propDict["loginName"] = $val;
+        return $this;
+    }
 }

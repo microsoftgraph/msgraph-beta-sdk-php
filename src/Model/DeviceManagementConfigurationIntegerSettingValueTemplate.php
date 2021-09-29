@@ -32,8 +32,9 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
     */
     public function getDefaultValue()
     {
-        if (array_key_exists("defaultValue", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationIntegerSettingValueDefaultTemplate") || is_null($this->_propDict["defaultValue"])) {
+        if (array_key_exists("defaultValue", $this->_propDict) && !is_null($this->_propDict["defaultValue"])) {
+     
+            if (is_a($this->_propDict["defaultValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationIntegerSettingValueDefaultTemplate")) {
                 return $this->_propDict["defaultValue"];
             } else {
                 $this->_propDict["defaultValue"] = new DeviceManagementConfigurationIntegerSettingValueDefaultTemplate($this->_propDict["defaultValue"]);
@@ -65,8 +66,9 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
     */
     public function getRecommendedValueDefinition()
     {
-        if (array_key_exists("recommendedValueDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["recommendedValueDefinition"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate") || is_null($this->_propDict["recommendedValueDefinition"])) {
+        if (array_key_exists("recommendedValueDefinition", $this->_propDict) && !is_null($this->_propDict["recommendedValueDefinition"])) {
+     
+            if (is_a($this->_propDict["recommendedValueDefinition"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate")) {
                 return $this->_propDict["recommendedValueDefinition"];
             } else {
                 $this->_propDict["recommendedValueDefinition"] = new DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate($this->_propDict["recommendedValueDefinition"]);
@@ -98,8 +100,9 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
     */
     public function getRequiredValueDefinition()
     {
-        if (array_key_exists("requiredValueDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["requiredValueDefinition"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate") || is_null($this->_propDict["requiredValueDefinition"])) {
+        if (array_key_exists("requiredValueDefinition", $this->_propDict) && !is_null($this->_propDict["requiredValueDefinition"])) {
+     
+            if (is_a($this->_propDict["requiredValueDefinition"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate")) {
                 return $this->_propDict["requiredValueDefinition"];
             } else {
                 $this->_propDict["requiredValueDefinition"] = new DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate($this->_propDict["requiredValueDefinition"]);

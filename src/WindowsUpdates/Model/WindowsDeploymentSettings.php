@@ -32,8 +32,9 @@ class WindowsDeploymentSettings extends DeploymentSettings
     */
     public function getUserExperience()
     {
-        if (array_key_exists("userExperience", $this->_propDict)) {
-            if (is_a($this->_propDict["userExperience"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\UserExperienceSettings") || is_null($this->_propDict["userExperience"])) {
+        if (array_key_exists("userExperience", $this->_propDict) && !is_null($this->_propDict["userExperience"])) {
+     
+            if (is_a($this->_propDict["userExperience"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\UserExperienceSettings")) {
                 return $this->_propDict["userExperience"];
             } else {
                 $this->_propDict["userExperience"] = new UserExperienceSettings($this->_propDict["userExperience"]);

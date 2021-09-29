@@ -84,18 +84,22 @@ class AndroidDeviceOwnerKioskModeManagedFolder extends Entity
     * Gets the items
     * Items to be added to managed folder. This collection can contain a maximum of 500 elements.
     *
-    * @return AndroidDeviceOwnerKioskModeFolderItem|null The items
+    * @return AndroidDeviceOwnerKioskModeFolderItem[]|null The items
     */
     public function getItems()
     {
-        if (array_key_exists("items", $this->_propDict)) {
-            if (is_a($this->_propDict["items"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskModeFolderItem") || is_null($this->_propDict["items"])) {
-                return $this->_propDict["items"];
-            } else {
-                $this->_propDict["items"] = new AndroidDeviceOwnerKioskModeFolderItem($this->_propDict["items"]);
-                return $this->_propDict["items"];
+        if (array_key_exists("items", $this->_propDict) && !is_null($this->_propDict["items"])) {
+       
+            if (count($this->_propDict['items']) > 0 && is_a($this->_propDict['items'][0], 'AndroidDeviceOwnerKioskModeFolderItem')) {
+               return $this->_propDict['items'];
             }
-        }
+            $items = [];
+            foreach ($this->_propDict['items'] as $singleValue) {
+               $items []= new AndroidDeviceOwnerKioskModeFolderItem($singleValue);
+            }
+            $this->_propDict['items'] = $items;
+            return $this->_propDict['items'];
+            }
         return null;
     }
 
@@ -103,7 +107,7 @@ class AndroidDeviceOwnerKioskModeManagedFolder extends Entity
     * Sets the items
     * Items to be added to managed folder. This collection can contain a maximum of 500 elements.
     *
-    * @param AndroidDeviceOwnerKioskModeFolderItem $val The value to assign to the items
+    * @param AndroidDeviceOwnerKioskModeFolderItem[] $val The value to assign to the items
     *
     * @return AndroidDeviceOwnerKioskModeManagedFolder The AndroidDeviceOwnerKioskModeManagedFolder
     */

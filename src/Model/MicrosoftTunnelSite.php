@@ -83,6 +83,35 @@ class MicrosoftTunnelSite extends Entity
     }
     
     /**
+    * Gets the internalNetworkProbeUrl
+    * The MicrosoftTunnelSite's Internal Network Access Probe URL
+    *
+    * @return string|null The internalNetworkProbeUrl
+    */
+    public function getInternalNetworkProbeUrl()
+    {
+        if (array_key_exists("internalNetworkProbeUrl", $this->_propDict)) {
+            return $this->_propDict["internalNetworkProbeUrl"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the internalNetworkProbeUrl
+    * The MicrosoftTunnelSite's Internal Network Access Probe URL
+    *
+    * @param string $val The internalNetworkProbeUrl
+    *
+    * @return MicrosoftTunnelSite
+    */
+    public function setInternalNetworkProbeUrl($val)
+    {
+        $this->_propDict["internalNetworkProbeUrl"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the publicAddress
     * The MicrosoftTunnelSite's public domain name or IP address
     *
@@ -206,8 +235,8 @@ class MicrosoftTunnelSite extends Entity
     */
     public function getUpgradeWindowEndTime()
     {
-        if (array_key_exists("upgradeWindowEndTime", $this->_propDict)) {
-            if (is_a($this->_propDict["upgradeWindowEndTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["upgradeWindowEndTime"])) {
+        if (array_key_exists("upgradeWindowEndTime", $this->_propDict) && !is_null($this->_propDict["upgradeWindowEndTime"])) {
+            if (is_a($this->_propDict["upgradeWindowEndTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
                 return $this->_propDict["upgradeWindowEndTime"];
             } else {
                 $this->_propDict["upgradeWindowEndTime"] = new TimeOfDay($this->_propDict["upgradeWindowEndTime"]);
@@ -239,8 +268,8 @@ class MicrosoftTunnelSite extends Entity
     */
     public function getUpgradeWindowStartTime()
     {
-        if (array_key_exists("upgradeWindowStartTime", $this->_propDict)) {
-            if (is_a($this->_propDict["upgradeWindowStartTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["upgradeWindowStartTime"])) {
+        if (array_key_exists("upgradeWindowStartTime", $this->_propDict) && !is_null($this->_propDict["upgradeWindowStartTime"])) {
+            if (is_a($this->_propDict["upgradeWindowStartTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
                 return $this->_propDict["upgradeWindowStartTime"];
             } else {
                 $this->_propDict["upgradeWindowStartTime"] = new TimeOfDay($this->_propDict["upgradeWindowStartTime"]);
@@ -301,8 +330,8 @@ class MicrosoftTunnelSite extends Entity
     */
     public function getMicrosoftTunnelConfiguration()
     {
-        if (array_key_exists("microsoftTunnelConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["microsoftTunnelConfiguration"], "\Beta\Microsoft\Graph\Model\MicrosoftTunnelConfiguration") || is_null($this->_propDict["microsoftTunnelConfiguration"])) {
+        if (array_key_exists("microsoftTunnelConfiguration", $this->_propDict) && !is_null($this->_propDict["microsoftTunnelConfiguration"])) {
+            if (is_a($this->_propDict["microsoftTunnelConfiguration"], "\Beta\Microsoft\Graph\Model\MicrosoftTunnelConfiguration")) {
                 return $this->_propDict["microsoftTunnelConfiguration"];
             } else {
                 $this->_propDict["microsoftTunnelConfiguration"] = new MicrosoftTunnelConfiguration($this->_propDict["microsoftTunnelConfiguration"]);
@@ -331,22 +360,29 @@ class MicrosoftTunnelSite extends Entity
      * Gets the microsoftTunnelServers
     * A list of MicrosoftTunnelServers that are registered to this MicrosoftTunnelSite
      *
-     * @return array|null The microsoftTunnelServers
+     * @return MicrosoftTunnelServer[]|null The microsoftTunnelServers
      */
     public function getMicrosoftTunnelServers()
     {
-        if (array_key_exists("microsoftTunnelServers", $this->_propDict)) {
-           return $this->_propDict["microsoftTunnelServers"];
-        } else {
-            return null;
+        if (array_key_exists('microsoftTunnelServers', $this->_propDict) && !is_null($this->_propDict['microsoftTunnelServers'])) {
+            $microsoftTunnelServers = [];
+            if (count($this->_propDict['microsoftTunnelServers']) > 0 && is_a($this->_propDict['microsoftTunnelServers'][0], 'MicrosoftTunnelServer')) {
+                return $this->_propDict['microsoftTunnelServers'];
+            }
+            foreach ($this->_propDict['microsoftTunnelServers'] as $singleValue) {
+                $microsoftTunnelServers []= new MicrosoftTunnelServer($singleValue);
+            }
+            $this->_propDict['microsoftTunnelServers'] = $microsoftTunnelServers;
+            return $this->_propDict['microsoftTunnelServers'];
         }
+        return null;
     }
     
     /** 
     * Sets the microsoftTunnelServers
     * A list of MicrosoftTunnelServers that are registered to this MicrosoftTunnelSite
     *
-    * @param MicrosoftTunnelServer $val The microsoftTunnelServers
+    * @param MicrosoftTunnelServer[] $val The microsoftTunnelServers
     *
     * @return MicrosoftTunnelSite
     */

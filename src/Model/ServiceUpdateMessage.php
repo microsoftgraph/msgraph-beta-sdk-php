@@ -26,13 +26,14 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
 {
     /**
     * Gets the actionRequiredByDateTime
+    * The expected deadline of the action for the message.
     *
     * @return \DateTime|null The actionRequiredByDateTime
     */
     public function getActionRequiredByDateTime()
     {
-        if (array_key_exists("actionRequiredByDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["actionRequiredByDateTime"], "\DateTime") || is_null($this->_propDict["actionRequiredByDateTime"])) {
+        if (array_key_exists("actionRequiredByDateTime", $this->_propDict) && !is_null($this->_propDict["actionRequiredByDateTime"])) {
+            if (is_a($this->_propDict["actionRequiredByDateTime"], "\DateTime")) {
                 return $this->_propDict["actionRequiredByDateTime"];
             } else {
                 $this->_propDict["actionRequiredByDateTime"] = new \DateTime($this->_propDict["actionRequiredByDateTime"]);
@@ -44,6 +45,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Sets the actionRequiredByDateTime
+    * The expected deadline of the action for the message.
     *
     * @param \DateTime $val The actionRequiredByDateTime
     *
@@ -57,13 +59,14 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Gets the body
+    * The content type and content of the service message body.
     *
     * @return ItemBody|null The body
     */
     public function getBody()
     {
-        if (array_key_exists("body", $this->_propDict)) {
-            if (is_a($this->_propDict["body"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["body"])) {
+        if (array_key_exists("body", $this->_propDict) && !is_null($this->_propDict["body"])) {
+            if (is_a($this->_propDict["body"], "\Beta\Microsoft\Graph\Model\ItemBody")) {
                 return $this->_propDict["body"];
             } else {
                 $this->_propDict["body"] = new ItemBody($this->_propDict["body"]);
@@ -75,6 +78,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Sets the body
+    * The content type and content of the service message body.
     *
     * @param ItemBody $val The body
     *
@@ -88,13 +92,14 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Gets the category
+    * The service message category. Possible values are: preventOrFixIssue, planForChange, stayInformed, unknownFutureValue.
     *
     * @return ServiceUpdateCategory|null The category
     */
     public function getCategory()
     {
-        if (array_key_exists("category", $this->_propDict)) {
-            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\Model\ServiceUpdateCategory") || is_null($this->_propDict["category"])) {
+        if (array_key_exists("category", $this->_propDict) && !is_null($this->_propDict["category"])) {
+            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\Model\ServiceUpdateCategory")) {
                 return $this->_propDict["category"];
             } else {
                 $this->_propDict["category"] = new ServiceUpdateCategory($this->_propDict["category"]);
@@ -106,6 +111,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Sets the category
+    * The service message category. Possible values are: preventOrFixIssue, planForChange, stayInformed, unknownFutureValue.
     *
     * @param ServiceUpdateCategory $val The category
     *
@@ -119,6 +125,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Gets the isMajorChange
+    * Indicates whether the message describes a major update for the service.
     *
     * @return bool|null The isMajorChange
     */
@@ -133,6 +140,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Sets the isMajorChange
+    * Indicates whether the message describes a major update for the service.
     *
     * @param bool $val The isMajorChange
     *
@@ -146,6 +154,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Gets the services
+    * The affected services by the service message.
     *
     * @return string|null The services
     */
@@ -160,6 +169,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Sets the services
+    * The affected services by the service message.
     *
     * @param string $val The services
     *
@@ -173,13 +183,14 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Gets the severity
+    * The severity of the service message. Possible values are: normal, high, critical, unknownFutureValue.
     *
     * @return ServiceUpdateSeverity|null The severity
     */
     public function getSeverity()
     {
-        if (array_key_exists("severity", $this->_propDict)) {
-            if (is_a($this->_propDict["severity"], "\Beta\Microsoft\Graph\Model\ServiceUpdateSeverity") || is_null($this->_propDict["severity"])) {
+        if (array_key_exists("severity", $this->_propDict) && !is_null($this->_propDict["severity"])) {
+            if (is_a($this->_propDict["severity"], "\Beta\Microsoft\Graph\Model\ServiceUpdateSeverity")) {
                 return $this->_propDict["severity"];
             } else {
                 $this->_propDict["severity"] = new ServiceUpdateSeverity($this->_propDict["severity"]);
@@ -191,6 +202,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Sets the severity
+    * The severity of the service message. Possible values are: normal, high, critical, unknownFutureValue.
     *
     * @param ServiceUpdateSeverity $val The severity
     *
@@ -204,6 +216,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Gets the tags
+    * A collection of tags for the service message.
     *
     * @return string|null The tags
     */
@@ -218,6 +231,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Sets the tags
+    * A collection of tags for the service message.
     *
     * @param string $val The tags
     *
@@ -231,13 +245,14 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Gets the viewPoint
+    * Represents user view points data of the service message. This data includes message status such as whether the user has archived, read, or marked the message as favorite. This property is null when accessed with application permissions.
     *
     * @return ServiceUpdateMessageViewpoint|null The viewPoint
     */
     public function getViewPoint()
     {
-        if (array_key_exists("viewPoint", $this->_propDict)) {
-            if (is_a($this->_propDict["viewPoint"], "\Beta\Microsoft\Graph\Model\ServiceUpdateMessageViewpoint") || is_null($this->_propDict["viewPoint"])) {
+        if (array_key_exists("viewPoint", $this->_propDict) && !is_null($this->_propDict["viewPoint"])) {
+            if (is_a($this->_propDict["viewPoint"], "\Beta\Microsoft\Graph\Model\ServiceUpdateMessageViewpoint")) {
                 return $this->_propDict["viewPoint"];
             } else {
                 $this->_propDict["viewPoint"] = new ServiceUpdateMessageViewpoint($this->_propDict["viewPoint"]);
@@ -249,6 +264,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
     
     /**
     * Sets the viewPoint
+    * Represents user view points data of the service message. This data includes message status such as whether the user has archived, read, or marked the message as favorite. This property is null when accessed with application permissions.
     *
     * @param ServiceUpdateMessageViewpoint $val The viewPoint
     *

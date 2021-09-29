@@ -26,9 +26,11 @@ class Win32LobAppRegistryRule extends Win32LobAppRule
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.win32LobAppRegistryRule");
     }
 
@@ -125,8 +127,9 @@ class Win32LobAppRegistryRule extends Win32LobAppRule
     */
     public function getOperationType()
     {
-        if (array_key_exists("operationType", $this->_propDict)) {
-            if (is_a($this->_propDict["operationType"], "\Beta\Microsoft\Graph\Model\Win32LobAppRegistryRuleOperationType") || is_null($this->_propDict["operationType"])) {
+        if (array_key_exists("operationType", $this->_propDict) && !is_null($this->_propDict["operationType"])) {
+     
+            if (is_a($this->_propDict["operationType"], "\Beta\Microsoft\Graph\Model\Win32LobAppRegistryRuleOperationType")) {
                 return $this->_propDict["operationType"];
             } else {
                 $this->_propDict["operationType"] = new Win32LobAppRegistryRuleOperationType($this->_propDict["operationType"]);
@@ -158,8 +161,9 @@ class Win32LobAppRegistryRule extends Win32LobAppRule
     */
     public function getOperator()
     {
-        if (array_key_exists("operator", $this->_propDict)) {
-            if (is_a($this->_propDict["operator"], "\Beta\Microsoft\Graph\Model\Win32LobAppRuleOperator") || is_null($this->_propDict["operator"])) {
+        if (array_key_exists("operator", $this->_propDict) && !is_null($this->_propDict["operator"])) {
+     
+            if (is_a($this->_propDict["operator"], "\Beta\Microsoft\Graph\Model\Win32LobAppRuleOperator")) {
                 return $this->_propDict["operator"];
             } else {
                 $this->_propDict["operator"] = new Win32LobAppRuleOperator($this->_propDict["operator"]);

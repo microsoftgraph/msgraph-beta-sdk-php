@@ -26,6 +26,7 @@ class TenantGroup extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the allTenantsIncluded
+    * A flag indicating whether all managed tenant are included in the tenant group. Required. Read-only.
     *
     * @return bool|null The allTenantsIncluded
     */
@@ -40,6 +41,7 @@ class TenantGroup extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the allTenantsIncluded
+    * A flag indicating whether all managed tenant are included in the tenant group. Required. Read-only.
     *
     * @param bool $val The allTenantsIncluded
     *
@@ -53,6 +55,7 @@ class TenantGroup extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the displayName
+    * The display name for the tenant group. Optional. Read-only.
     *
     * @return string|null The displayName
     */
@@ -67,6 +70,7 @@ class TenantGroup extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the displayName
+    * The display name for the tenant group. Optional. Read-only.
     *
     * @param string $val The displayName
     *
@@ -81,22 +85,31 @@ class TenantGroup extends \Beta\Microsoft\Graph\Model\Entity
 
      /** 
      * Gets the managementActions
+    * The collection of management action associated with the tenant group. Optional. Read-only.
      *
-     * @return array|null The managementActions
+     * @return ManagementActionInfo[]|null The managementActions
      */
     public function getManagementActions()
     {
-        if (array_key_exists("managementActions", $this->_propDict)) {
-           return $this->_propDict["managementActions"];
-        } else {
-            return null;
+        if (array_key_exists('managementActions', $this->_propDict) && !is_null($this->_propDict['managementActions'])) {
+            $managementActions = [];
+            if (count($this->_propDict['managementActions']) > 0 && is_a($this->_propDict['managementActions'][0], 'ManagementActionInfo')) {
+                return $this->_propDict['managementActions'];
+            }
+            foreach ($this->_propDict['managementActions'] as $singleValue) {
+                $managementActions []= new ManagementActionInfo($singleValue);
+            }
+            $this->_propDict['managementActions'] = $managementActions;
+            return $this->_propDict['managementActions'];
         }
+        return null;
     }
     
     /** 
     * Sets the managementActions
+    * The collection of management action associated with the tenant group. Optional. Read-only.
     *
-    * @param ManagementActionInfo $val The managementActions
+    * @param ManagementActionInfo[] $val The managementActions
     *
     * @return TenantGroup
     */
@@ -109,22 +122,31 @@ class TenantGroup extends \Beta\Microsoft\Graph\Model\Entity
 
      /** 
      * Gets the managementIntents
+    * The collection of management intents associated with the tenant group. Optional. Read-only.
      *
-     * @return array|null The managementIntents
+     * @return ManagementIntentInfo[]|null The managementIntents
      */
     public function getManagementIntents()
     {
-        if (array_key_exists("managementIntents", $this->_propDict)) {
-           return $this->_propDict["managementIntents"];
-        } else {
-            return null;
+        if (array_key_exists('managementIntents', $this->_propDict) && !is_null($this->_propDict['managementIntents'])) {
+            $managementIntents = [];
+            if (count($this->_propDict['managementIntents']) > 0 && is_a($this->_propDict['managementIntents'][0], 'ManagementIntentInfo')) {
+                return $this->_propDict['managementIntents'];
+            }
+            foreach ($this->_propDict['managementIntents'] as $singleValue) {
+                $managementIntents []= new ManagementIntentInfo($singleValue);
+            }
+            $this->_propDict['managementIntents'] = $managementIntents;
+            return $this->_propDict['managementIntents'];
         }
+        return null;
     }
     
     /** 
     * Sets the managementIntents
+    * The collection of management intents associated with the tenant group. Optional. Read-only.
     *
-    * @param ManagementIntentInfo $val The managementIntents
+    * @param ManagementIntentInfo[] $val The managementIntents
     *
     * @return TenantGroup
     */
@@ -136,6 +158,7 @@ class TenantGroup extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the tenantIds
+    * The collection of managed tenant identifiers include in the tenant group. Optional. Read-only.
     *
     * @return string|null The tenantIds
     */
@@ -150,6 +173,7 @@ class TenantGroup extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the tenantIds
+    * The collection of managed tenant identifiers include in the tenant group. Optional. Read-only.
     *
     * @param string $val The tenantIds
     *

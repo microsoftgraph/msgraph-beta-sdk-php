@@ -32,8 +32,9 @@ class AppleVpnAlwaysOnConfiguration extends Entity
     */
     public function getAirPrintExceptionAction()
     {
-        if (array_key_exists("airPrintExceptionAction", $this->_propDict)) {
-            if (is_a($this->_propDict["airPrintExceptionAction"], "\Beta\Microsoft\Graph\Model\VpnServiceExceptionAction") || is_null($this->_propDict["airPrintExceptionAction"])) {
+        if (array_key_exists("airPrintExceptionAction", $this->_propDict) && !is_null($this->_propDict["airPrintExceptionAction"])) {
+     
+            if (is_a($this->_propDict["airPrintExceptionAction"], "\Beta\Microsoft\Graph\Model\VpnServiceExceptionAction")) {
                 return $this->_propDict["airPrintExceptionAction"];
             } else {
                 $this->_propDict["airPrintExceptionAction"] = new VpnServiceExceptionAction($this->_propDict["airPrintExceptionAction"]);
@@ -121,8 +122,9 @@ class AppleVpnAlwaysOnConfiguration extends Entity
     */
     public function getAllowedCaptiveNetworkPlugins()
     {
-        if (array_key_exists("allowedCaptiveNetworkPlugins", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedCaptiveNetworkPlugins"], "\Beta\Microsoft\Graph\Model\SpecifiedCaptiveNetworkPlugins") || is_null($this->_propDict["allowedCaptiveNetworkPlugins"])) {
+        if (array_key_exists("allowedCaptiveNetworkPlugins", $this->_propDict) && !is_null($this->_propDict["allowedCaptiveNetworkPlugins"])) {
+     
+            if (is_a($this->_propDict["allowedCaptiveNetworkPlugins"], "\Beta\Microsoft\Graph\Model\SpecifiedCaptiveNetworkPlugins")) {
                 return $this->_propDict["allowedCaptiveNetworkPlugins"];
             } else {
                 $this->_propDict["allowedCaptiveNetworkPlugins"] = new SpecifiedCaptiveNetworkPlugins($this->_propDict["allowedCaptiveNetworkPlugins"]);
@@ -154,8 +156,9 @@ class AppleVpnAlwaysOnConfiguration extends Entity
     */
     public function getCellularExceptionAction()
     {
-        if (array_key_exists("cellularExceptionAction", $this->_propDict)) {
-            if (is_a($this->_propDict["cellularExceptionAction"], "\Beta\Microsoft\Graph\Model\VpnServiceExceptionAction") || is_null($this->_propDict["cellularExceptionAction"])) {
+        if (array_key_exists("cellularExceptionAction", $this->_propDict) && !is_null($this->_propDict["cellularExceptionAction"])) {
+     
+            if (is_a($this->_propDict["cellularExceptionAction"], "\Beta\Microsoft\Graph\Model\VpnServiceExceptionAction")) {
                 return $this->_propDict["cellularExceptionAction"];
             } else {
                 $this->_propDict["cellularExceptionAction"] = new VpnServiceExceptionAction($this->_propDict["cellularExceptionAction"]);
@@ -243,8 +246,9 @@ class AppleVpnAlwaysOnConfiguration extends Entity
     */
     public function getTunnelConfiguration()
     {
-        if (array_key_exists("tunnelConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["tunnelConfiguration"], "\Beta\Microsoft\Graph\Model\VpnTunnelConfigurationType") || is_null($this->_propDict["tunnelConfiguration"])) {
+        if (array_key_exists("tunnelConfiguration", $this->_propDict) && !is_null($this->_propDict["tunnelConfiguration"])) {
+     
+            if (is_a($this->_propDict["tunnelConfiguration"], "\Beta\Microsoft\Graph\Model\VpnTunnelConfigurationType")) {
                 return $this->_propDict["tunnelConfiguration"];
             } else {
                 $this->_propDict["tunnelConfiguration"] = new VpnTunnelConfigurationType($this->_propDict["tunnelConfiguration"]);
@@ -304,8 +308,9 @@ class AppleVpnAlwaysOnConfiguration extends Entity
     */
     public function getVoicemailExceptionAction()
     {
-        if (array_key_exists("voicemailExceptionAction", $this->_propDict)) {
-            if (is_a($this->_propDict["voicemailExceptionAction"], "\Beta\Microsoft\Graph\Model\VpnServiceExceptionAction") || is_null($this->_propDict["voicemailExceptionAction"])) {
+        if (array_key_exists("voicemailExceptionAction", $this->_propDict) && !is_null($this->_propDict["voicemailExceptionAction"])) {
+     
+            if (is_a($this->_propDict["voicemailExceptionAction"], "\Beta\Microsoft\Graph\Model\VpnServiceExceptionAction")) {
                 return $this->_propDict["voicemailExceptionAction"];
             } else {
                 $this->_propDict["voicemailExceptionAction"] = new VpnServiceExceptionAction($this->_propDict["voicemailExceptionAction"]);

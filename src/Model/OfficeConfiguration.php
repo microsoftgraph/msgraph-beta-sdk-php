@@ -60,22 +60,29 @@ class OfficeConfiguration implements \JsonSerializable
      * Gets the tenantCheckinStatuses
     * List of office Client check-in status.
      *
-     * @return array|null The tenantCheckinStatuses
+     * @return OfficeClientCheckinStatus[]|null The tenantCheckinStatuses
      */
     public function getTenantCheckinStatuses()
     {
-        if (array_key_exists("tenantCheckinStatuses", $this->_propDict)) {
-           return $this->_propDict["tenantCheckinStatuses"];
-        } else {
-            return null;
+        if (array_key_exists('tenantCheckinStatuses', $this->_propDict) && !is_null($this->_propDict['tenantCheckinStatuses'])) {
+            $tenantCheckinStatuses = [];
+            if (count($this->_propDict['tenantCheckinStatuses']) > 0 && is_a($this->_propDict['tenantCheckinStatuses'][0], 'OfficeClientCheckinStatus')) {
+                return $this->_propDict['tenantCheckinStatuses'];
+            }
+            foreach ($this->_propDict['tenantCheckinStatuses'] as $singleValue) {
+                $tenantCheckinStatuses []= new OfficeClientCheckinStatus($singleValue);
+            }
+            $this->_propDict['tenantCheckinStatuses'] = $tenantCheckinStatuses;
+            return $this->_propDict['tenantCheckinStatuses'];
         }
+        return null;
     }
     
     /** 
     * Sets the tenantCheckinStatuses
     * List of office Client check-in status.
     *
-    * @param OfficeClientCheckinStatus $val The tenantCheckinStatuses
+    * @param OfficeClientCheckinStatus[] $val The tenantCheckinStatuses
     *
     * @return OfficeConfiguration
     */
@@ -93,8 +100,8 @@ class OfficeConfiguration implements \JsonSerializable
     */
     public function getTenantUserCheckinSummary()
     {
-        if (array_key_exists("tenantUserCheckinSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["tenantUserCheckinSummary"], "\Beta\Microsoft\Graph\Model\OfficeUserCheckinSummary") || is_null($this->_propDict["tenantUserCheckinSummary"])) {
+        if (array_key_exists("tenantUserCheckinSummary", $this->_propDict) && !is_null($this->_propDict["tenantUserCheckinSummary"])) {
+            if (is_a($this->_propDict["tenantUserCheckinSummary"], "\Beta\Microsoft\Graph\Model\OfficeUserCheckinSummary")) {
                 return $this->_propDict["tenantUserCheckinSummary"];
             } else {
                 $this->_propDict["tenantUserCheckinSummary"] = new OfficeUserCheckinSummary($this->_propDict["tenantUserCheckinSummary"]);
@@ -123,22 +130,29 @@ class OfficeConfiguration implements \JsonSerializable
      * Gets the clientConfigurations
     * List of office Client configuration.
      *
-     * @return array|null The clientConfigurations
+     * @return OfficeClientConfiguration[]|null The clientConfigurations
      */
     public function getClientConfigurations()
     {
-        if (array_key_exists("clientConfigurations", $this->_propDict)) {
-           return $this->_propDict["clientConfigurations"];
-        } else {
-            return null;
+        if (array_key_exists('clientConfigurations', $this->_propDict) && !is_null($this->_propDict['clientConfigurations'])) {
+            $clientConfigurations = [];
+            if (count($this->_propDict['clientConfigurations']) > 0 && is_a($this->_propDict['clientConfigurations'][0], 'OfficeClientConfiguration')) {
+                return $this->_propDict['clientConfigurations'];
+            }
+            foreach ($this->_propDict['clientConfigurations'] as $singleValue) {
+                $clientConfigurations []= new OfficeClientConfiguration($singleValue);
+            }
+            $this->_propDict['clientConfigurations'] = $clientConfigurations;
+            return $this->_propDict['clientConfigurations'];
         }
+        return null;
     }
     
     /** 
     * Sets the clientConfigurations
     * List of office Client configuration.
     *
-    * @param OfficeClientConfiguration $val The clientConfigurations
+    * @param OfficeClientConfiguration[] $val The clientConfigurations
     *
     * @return OfficeConfiguration
     */
@@ -151,11 +165,14 @@ class OfficeConfiguration implements \JsonSerializable
     /**
     * Gets the ODataType
     *
-    * @return string The ODataType
+    * @return string|null The ODataType
     */
     public function getODataType()
     {
-        return $this->_propDict["@odata.type"];
+        if (array_key_exists('@odata.type', $this->_propDict)) {
+            return $this->_propDict["@odata.type"];
+        }
+        return null;
     }
     
     /**
@@ -181,10 +198,22 @@ class OfficeConfiguration implements \JsonSerializable
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
-                $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            if (is_a($val, '\DateTime')) {
+                $serializableProperties[$property] = $val->format(\DateTimeInterface::RFC3339);
+            } else if (is_a($val, '\Microsoft\Graph\Core\Enum')) {
                 $serializableProperties[$property] = $val->value();
+            } else if (is_array($val)) {
+                $values = [];
+                if (count($val) > 0 && is_a($val[0], '\DateTime')) {
+                   foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->format(\DateTimeInterface::RFC3339);
+                   }
+                } else if(count($val) > 0 && is_a($val[0], '\Microsoft\Graph\Core\Enum')) {
+                    foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->value();
+                   }
+                }
+                $serializableProperties[$property] = $values;
             }
         }
         return $serializableProperties;

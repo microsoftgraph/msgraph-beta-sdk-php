@@ -56,18 +56,22 @@ class ColumnValidation extends Entity
     * Gets the descriptions
     * Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails.
     *
-    * @return DisplayNameLocalization|null The descriptions
+    * @return DisplayNameLocalization[]|null The descriptions
     */
     public function getDescriptions()
     {
-        if (array_key_exists("descriptions", $this->_propDict)) {
-            if (is_a($this->_propDict["descriptions"], "\Beta\Microsoft\Graph\Model\DisplayNameLocalization") || is_null($this->_propDict["descriptions"])) {
-                return $this->_propDict["descriptions"];
-            } else {
-                $this->_propDict["descriptions"] = new DisplayNameLocalization($this->_propDict["descriptions"]);
-                return $this->_propDict["descriptions"];
+        if (array_key_exists("descriptions", $this->_propDict) && !is_null($this->_propDict["descriptions"])) {
+       
+            if (count($this->_propDict['descriptions']) > 0 && is_a($this->_propDict['descriptions'][0], 'DisplayNameLocalization')) {
+               return $this->_propDict['descriptions'];
             }
-        }
+            $descriptions = [];
+            foreach ($this->_propDict['descriptions'] as $singleValue) {
+               $descriptions []= new DisplayNameLocalization($singleValue);
+            }
+            $this->_propDict['descriptions'] = $descriptions;
+            return $this->_propDict['descriptions'];
+            }
         return null;
     }
 
@@ -75,7 +79,7 @@ class ColumnValidation extends Entity
     * Sets the descriptions
     * Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails.
     *
-    * @param DisplayNameLocalization $val The value to assign to the descriptions
+    * @param DisplayNameLocalization[] $val The value to assign to the descriptions
     *
     * @return ColumnValidation The ColumnValidation
     */
@@ -86,7 +90,7 @@ class ColumnValidation extends Entity
     }
     /**
     * Gets the formula
-    * The formula to validate column value. For examples, see Examples of common formulas in lists
+    * The formula to validate column value. For examples, see Examples of common formulas in lists.
     *
     * @return string|null The formula
     */
@@ -101,7 +105,7 @@ class ColumnValidation extends Entity
 
     /**
     * Sets the formula
-    * The formula to validate column value. For examples, see Examples of common formulas in lists
+    * The formula to validate column value. For examples, see Examples of common formulas in lists.
     *
     * @param string $val The value of the formula
     *

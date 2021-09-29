@@ -32,8 +32,8 @@ class Windows10PkcsCertificateProfile extends Windows10CertificateProfileBase
     */
     public function getCertificateStore()
     {
-        if (array_key_exists("certificateStore", $this->_propDict)) {
-            if (is_a($this->_propDict["certificateStore"], "\Beta\Microsoft\Graph\Model\CertificateStore") || is_null($this->_propDict["certificateStore"])) {
+        if (array_key_exists("certificateStore", $this->_propDict) && !is_null($this->_propDict["certificateStore"])) {
+            if (is_a($this->_propDict["certificateStore"], "\Beta\Microsoft\Graph\Model\CertificateStore")) {
                 return $this->_propDict["certificateStore"];
             } else {
                 $this->_propDict["certificateStore"] = new CertificateStore($this->_propDict["certificateStore"]);
@@ -149,22 +149,29 @@ class Windows10PkcsCertificateProfile extends Windows10CertificateProfileBase
      * Gets the customSubjectAlternativeNames
     * Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The customSubjectAlternativeNames
+     * @return CustomSubjectAlternativeName[]|null The customSubjectAlternativeNames
      */
     public function getCustomSubjectAlternativeNames()
     {
-        if (array_key_exists("customSubjectAlternativeNames", $this->_propDict)) {
-           return $this->_propDict["customSubjectAlternativeNames"];
-        } else {
-            return null;
+        if (array_key_exists('customSubjectAlternativeNames', $this->_propDict) && !is_null($this->_propDict['customSubjectAlternativeNames'])) {
+            $customSubjectAlternativeNames = [];
+            if (count($this->_propDict['customSubjectAlternativeNames']) > 0 && is_a($this->_propDict['customSubjectAlternativeNames'][0], 'CustomSubjectAlternativeName')) {
+                return $this->_propDict['customSubjectAlternativeNames'];
+            }
+            foreach ($this->_propDict['customSubjectAlternativeNames'] as $singleValue) {
+                $customSubjectAlternativeNames []= new CustomSubjectAlternativeName($singleValue);
+            }
+            $this->_propDict['customSubjectAlternativeNames'] = $customSubjectAlternativeNames;
+            return $this->_propDict['customSubjectAlternativeNames'];
         }
+        return null;
     }
     
     /** 
     * Sets the customSubjectAlternativeNames
     * Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
     *
-    * @param CustomSubjectAlternativeName $val The customSubjectAlternativeNames
+    * @param CustomSubjectAlternativeName[] $val The customSubjectAlternativeNames
     *
     * @return Windows10PkcsCertificateProfile
     */
@@ -179,22 +186,29 @@ class Windows10PkcsCertificateProfile extends Windows10CertificateProfileBase
      * Gets the extendedKeyUsages
     * Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The extendedKeyUsages
+     * @return ExtendedKeyUsage[]|null The extendedKeyUsages
      */
     public function getExtendedKeyUsages()
     {
-        if (array_key_exists("extendedKeyUsages", $this->_propDict)) {
-           return $this->_propDict["extendedKeyUsages"];
-        } else {
-            return null;
+        if (array_key_exists('extendedKeyUsages', $this->_propDict) && !is_null($this->_propDict['extendedKeyUsages'])) {
+            $extendedKeyUsages = [];
+            if (count($this->_propDict['extendedKeyUsages']) > 0 && is_a($this->_propDict['extendedKeyUsages'][0], 'ExtendedKeyUsage')) {
+                return $this->_propDict['extendedKeyUsages'];
+            }
+            foreach ($this->_propDict['extendedKeyUsages'] as $singleValue) {
+                $extendedKeyUsages []= new ExtendedKeyUsage($singleValue);
+            }
+            $this->_propDict['extendedKeyUsages'] = $extendedKeyUsages;
+            return $this->_propDict['extendedKeyUsages'];
         }
+        return null;
     }
     
     /** 
     * Sets the extendedKeyUsages
     * Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
     *
-    * @param ExtendedKeyUsage $val The extendedKeyUsages
+    * @param ExtendedKeyUsage[] $val The extendedKeyUsages
     *
     * @return Windows10PkcsCertificateProfile
     */
@@ -267,22 +281,29 @@ class Windows10PkcsCertificateProfile extends Windows10CertificateProfileBase
      * Gets the managedDeviceCertificateStates
     * Certificate state for devices
      *
-     * @return array|null The managedDeviceCertificateStates
+     * @return ManagedDeviceCertificateState[]|null The managedDeviceCertificateStates
      */
     public function getManagedDeviceCertificateStates()
     {
-        if (array_key_exists("managedDeviceCertificateStates", $this->_propDict)) {
-           return $this->_propDict["managedDeviceCertificateStates"];
-        } else {
-            return null;
+        if (array_key_exists('managedDeviceCertificateStates', $this->_propDict) && !is_null($this->_propDict['managedDeviceCertificateStates'])) {
+            $managedDeviceCertificateStates = [];
+            if (count($this->_propDict['managedDeviceCertificateStates']) > 0 && is_a($this->_propDict['managedDeviceCertificateStates'][0], 'ManagedDeviceCertificateState')) {
+                return $this->_propDict['managedDeviceCertificateStates'];
+            }
+            foreach ($this->_propDict['managedDeviceCertificateStates'] as $singleValue) {
+                $managedDeviceCertificateStates []= new ManagedDeviceCertificateState($singleValue);
+            }
+            $this->_propDict['managedDeviceCertificateStates'] = $managedDeviceCertificateStates;
+            return $this->_propDict['managedDeviceCertificateStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the managedDeviceCertificateStates
     * Certificate state for devices
     *
-    * @param ManagedDeviceCertificateState $val The managedDeviceCertificateStates
+    * @param ManagedDeviceCertificateState[] $val The managedDeviceCertificateStates
     *
     * @return Windows10PkcsCertificateProfile
     */

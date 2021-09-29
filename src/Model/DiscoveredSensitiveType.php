@@ -27,25 +27,29 @@ class DiscoveredSensitiveType extends Entity
     /**
     * Gets the classificationAttributes
     *
-    * @return ClassificationAttribute|null The classificationAttributes
+    * @return ClassificationAttribute[]|null The classificationAttributes
     */
     public function getClassificationAttributes()
     {
-        if (array_key_exists("classificationAttributes", $this->_propDict)) {
-            if (is_a($this->_propDict["classificationAttributes"], "\Beta\Microsoft\Graph\Model\ClassificationAttribute") || is_null($this->_propDict["classificationAttributes"])) {
-                return $this->_propDict["classificationAttributes"];
-            } else {
-                $this->_propDict["classificationAttributes"] = new ClassificationAttribute($this->_propDict["classificationAttributes"]);
-                return $this->_propDict["classificationAttributes"];
+        if (array_key_exists("classificationAttributes", $this->_propDict) && !is_null($this->_propDict["classificationAttributes"])) {
+       
+            if (count($this->_propDict['classificationAttributes']) > 0 && is_a($this->_propDict['classificationAttributes'][0], 'ClassificationAttribute')) {
+               return $this->_propDict['classificationAttributes'];
             }
-        }
+            $classificationAttributes = [];
+            foreach ($this->_propDict['classificationAttributes'] as $singleValue) {
+               $classificationAttributes []= new ClassificationAttribute($singleValue);
+            }
+            $this->_propDict['classificationAttributes'] = $classificationAttributes;
+            return $this->_propDict['classificationAttributes'];
+            }
         return null;
     }
 
     /**
     * Sets the classificationAttributes
     *
-    * @param ClassificationAttribute $val The value to assign to the classificationAttributes
+    * @param ClassificationAttribute[] $val The value to assign to the classificationAttributes
     *
     * @return DiscoveredSensitiveType The DiscoveredSensitiveType
     */

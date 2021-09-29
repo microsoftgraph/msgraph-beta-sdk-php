@@ -29,22 +29,29 @@ class ProfileCardProperty extends Entity
      * Gets the annotations
     * Allows an administrator to set a custom display label for the directory property and localize it for the users in their tenant.
      *
-     * @return array|null The annotations
+     * @return ProfileCardAnnotation[]|null The annotations
      */
     public function getAnnotations()
     {
-        if (array_key_exists("annotations", $this->_propDict)) {
-           return $this->_propDict["annotations"];
-        } else {
-            return null;
+        if (array_key_exists('annotations', $this->_propDict) && !is_null($this->_propDict['annotations'])) {
+            $annotations = [];
+            if (count($this->_propDict['annotations']) > 0 && is_a($this->_propDict['annotations'][0], 'ProfileCardAnnotation')) {
+                return $this->_propDict['annotations'];
+            }
+            foreach ($this->_propDict['annotations'] as $singleValue) {
+                $annotations []= new ProfileCardAnnotation($singleValue);
+            }
+            $this->_propDict['annotations'] = $annotations;
+            return $this->_propDict['annotations'];
         }
+        return null;
     }
     
     /** 
     * Sets the annotations
     * Allows an administrator to set a custom display label for the directory property and localize it for the users in their tenant.
     *
-    * @param ProfileCardAnnotation $val The annotations
+    * @param ProfileCardAnnotation[] $val The annotations
     *
     * @return ProfileCardProperty
     */

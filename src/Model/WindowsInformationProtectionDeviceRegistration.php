@@ -148,8 +148,8 @@ class WindowsInformationProtectionDeviceRegistration extends Entity
     */
     public function getLastCheckInDateTime()
     {
-        if (array_key_exists("lastCheckInDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastCheckInDateTime"], "\DateTime") || is_null($this->_propDict["lastCheckInDateTime"])) {
+        if (array_key_exists("lastCheckInDateTime", $this->_propDict) && !is_null($this->_propDict["lastCheckInDateTime"])) {
+            if (is_a($this->_propDict["lastCheckInDateTime"], "\DateTime")) {
                 return $this->_propDict["lastCheckInDateTime"];
             } else {
                 $this->_propDict["lastCheckInDateTime"] = new \DateTime($this->_propDict["lastCheckInDateTime"]);

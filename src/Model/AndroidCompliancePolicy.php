@@ -32,8 +32,8 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy
     */
     public function getAdvancedThreatProtectionRequiredSecurityLevel()
     {
-        if (array_key_exists("advancedThreatProtectionRequiredSecurityLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"], "\Beta\Microsoft\Graph\Model\DeviceThreatProtectionLevel") || is_null($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"])) {
+        if (array_key_exists("advancedThreatProtectionRequiredSecurityLevel", $this->_propDict) && !is_null($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"])) {
+            if (is_a($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"], "\Beta\Microsoft\Graph\Model\DeviceThreatProtectionLevel")) {
                 return $this->_propDict["advancedThreatProtectionRequiredSecurityLevel"];
             } else {
                 $this->_propDict["advancedThreatProtectionRequiredSecurityLevel"] = new DeviceThreatProtectionLevel($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"]);
@@ -123,8 +123,8 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy
     */
     public function getDeviceThreatProtectionRequiredSecurityLevel()
     {
-        if (array_key_exists("deviceThreatProtectionRequiredSecurityLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"], "\Beta\Microsoft\Graph\Model\DeviceThreatProtectionLevel") || is_null($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"])) {
+        if (array_key_exists("deviceThreatProtectionRequiredSecurityLevel", $this->_propDict) && !is_null($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"])) {
+            if (is_a($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"], "\Beta\Microsoft\Graph\Model\DeviceThreatProtectionLevel")) {
                 return $this->_propDict["deviceThreatProtectionRequiredSecurityLevel"];
             } else {
                 $this->_propDict["deviceThreatProtectionRequiredSecurityLevel"] = new DeviceThreatProtectionLevel($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"]);
@@ -388,8 +388,8 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy
     */
     public function getPasswordRequiredType()
     {
-        if (array_key_exists("passwordRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidRequiredPasswordType") || is_null($this->_propDict["passwordRequiredType"])) {
+        if (array_key_exists("passwordRequiredType", $this->_propDict) && !is_null($this->_propDict["passwordRequiredType"])) {
+            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidRequiredPasswordType")) {
                 return $this->_propDict["passwordRequiredType"];
             } else {
                 $this->_propDict["passwordRequiredType"] = new AndroidRequiredPasswordType($this->_propDict["passwordRequiredType"]);
@@ -450,8 +450,8 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy
     */
     public function getRequiredPasswordComplexity()
     {
-        if (array_key_exists("requiredPasswordComplexity", $this->_propDict)) {
-            if (is_a($this->_propDict["requiredPasswordComplexity"], "\Beta\Microsoft\Graph\Model\AndroidRequiredPasswordComplexity") || is_null($this->_propDict["requiredPasswordComplexity"])) {
+        if (array_key_exists("requiredPasswordComplexity", $this->_propDict) && !is_null($this->_propDict["requiredPasswordComplexity"])) {
+            if (is_a($this->_propDict["requiredPasswordComplexity"], "\Beta\Microsoft\Graph\Model\AndroidRequiredPasswordComplexity")) {
                 return $this->_propDict["requiredPasswordComplexity"];
             } else {
                 $this->_propDict["requiredPasswordComplexity"] = new AndroidRequiredPasswordComplexity($this->_propDict["requiredPasswordComplexity"]);
@@ -480,22 +480,29 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy
      * Gets the restrictedApps
     * Require the device to not have the specified apps installed. This collection can contain a maximum of 100 elements.
      *
-     * @return array|null The restrictedApps
+     * @return AppListItem[]|null The restrictedApps
      */
     public function getRestrictedApps()
     {
-        if (array_key_exists("restrictedApps", $this->_propDict)) {
-           return $this->_propDict["restrictedApps"];
-        } else {
-            return null;
+        if (array_key_exists('restrictedApps', $this->_propDict) && !is_null($this->_propDict['restrictedApps'])) {
+            $restrictedApps = [];
+            if (count($this->_propDict['restrictedApps']) > 0 && is_a($this->_propDict['restrictedApps'][0], 'AppListItem')) {
+                return $this->_propDict['restrictedApps'];
+            }
+            foreach ($this->_propDict['restrictedApps'] as $singleValue) {
+                $restrictedApps []= new AppListItem($singleValue);
+            }
+            $this->_propDict['restrictedApps'] = $restrictedApps;
+            return $this->_propDict['restrictedApps'];
         }
+        return null;
     }
     
     /** 
     * Sets the restrictedApps
     * Require the device to not have the specified apps installed. This collection can contain a maximum of 100 elements.
     *
-    * @param AppListItem $val The restrictedApps
+    * @param AppListItem[] $val The restrictedApps
     *
     * @return AndroidCompliancePolicy
     */

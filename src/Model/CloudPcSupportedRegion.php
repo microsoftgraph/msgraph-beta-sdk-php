@@ -2,7 +2,7 @@
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
-* AuthenticatorAppFeatureSettings File
+* CloudPcSupportedRegion File
 * PHP version 7
 *
 * @category  Library
@@ -13,10 +13,8 @@
 */
 namespace Beta\Microsoft\Graph\Model;
 
-use Microsoft\Graph\Core\Enum;
-
 /**
-* AuthenticatorAppFeatureSettings class
+* CloudPcSupportedRegion class
 *
 * @category  Model
 * @package   Microsoft.Graph
@@ -24,10 +22,33 @@ use Microsoft\Graph\Core\Enum;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class AuthenticatorAppFeatureSettings extends Enum
+class CloudPcSupportedRegion extends Entity
 {
     /**
-    * The Enum AuthenticatorAppFeatureSettings
+    * Gets the displayName
+    *
+    * @return string|null The displayName
     */
-    const REQUIRE_NUMBER_MATCHING = "requireNumberMatching";
+    public function getDisplayName()
+    {
+        if (array_key_exists("displayName", $this->_propDict)) {
+            return $this->_propDict["displayName"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the displayName
+    *
+    * @param string $val The displayName
+    *
+    * @return CloudPcSupportedRegion
+    */
+    public function setDisplayName($val)
+    {
+        $this->_propDict["displayName"] = $val;
+        return $this;
+    }
+    
 }

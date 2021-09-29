@@ -31,8 +31,8 @@ class InformationProtection extends Entity
     */
     public function getBitlocker()
     {
-        if (array_key_exists("bitlocker", $this->_propDict)) {
-            if (is_a($this->_propDict["bitlocker"], "\Beta\Microsoft\Graph\Model\Bitlocker") || is_null($this->_propDict["bitlocker"])) {
+        if (array_key_exists("bitlocker", $this->_propDict) && !is_null($this->_propDict["bitlocker"])) {
+            if (is_a($this->_propDict["bitlocker"], "\Beta\Microsoft\Graph\Model\Bitlocker")) {
                 return $this->_propDict["bitlocker"];
             } else {
                 $this->_propDict["bitlocker"] = new Bitlocker($this->_propDict["bitlocker"]);
@@ -59,21 +59,28 @@ class InformationProtection extends Entity
      /** 
      * Gets the dataLossPreventionPolicies
      *
-     * @return array|null The dataLossPreventionPolicies
+     * @return DataLossPreventionPolicy[]|null The dataLossPreventionPolicies
      */
     public function getDataLossPreventionPolicies()
     {
-        if (array_key_exists("dataLossPreventionPolicies", $this->_propDict)) {
-           return $this->_propDict["dataLossPreventionPolicies"];
-        } else {
-            return null;
+        if (array_key_exists('dataLossPreventionPolicies', $this->_propDict) && !is_null($this->_propDict['dataLossPreventionPolicies'])) {
+            $dataLossPreventionPolicies = [];
+            if (count($this->_propDict['dataLossPreventionPolicies']) > 0 && is_a($this->_propDict['dataLossPreventionPolicies'][0], 'DataLossPreventionPolicy')) {
+                return $this->_propDict['dataLossPreventionPolicies'];
+            }
+            foreach ($this->_propDict['dataLossPreventionPolicies'] as $singleValue) {
+                $dataLossPreventionPolicies []= new DataLossPreventionPolicy($singleValue);
+            }
+            $this->_propDict['dataLossPreventionPolicies'] = $dataLossPreventionPolicies;
+            return $this->_propDict['dataLossPreventionPolicies'];
         }
+        return null;
     }
     
     /** 
     * Sets the dataLossPreventionPolicies
     *
-    * @param DataLossPreventionPolicy $val The dataLossPreventionPolicies
+    * @param DataLossPreventionPolicy[] $val The dataLossPreventionPolicies
     *
     * @return InformationProtection
     */
@@ -87,21 +94,28 @@ class InformationProtection extends Entity
      /** 
      * Gets the sensitivityLabels
      *
-     * @return array|null The sensitivityLabels
+     * @return SensitivityLabel[]|null The sensitivityLabels
      */
     public function getSensitivityLabels()
     {
-        if (array_key_exists("sensitivityLabels", $this->_propDict)) {
-           return $this->_propDict["sensitivityLabels"];
-        } else {
-            return null;
+        if (array_key_exists('sensitivityLabels', $this->_propDict) && !is_null($this->_propDict['sensitivityLabels'])) {
+            $sensitivityLabels = [];
+            if (count($this->_propDict['sensitivityLabels']) > 0 && is_a($this->_propDict['sensitivityLabels'][0], 'SensitivityLabel')) {
+                return $this->_propDict['sensitivityLabels'];
+            }
+            foreach ($this->_propDict['sensitivityLabels'] as $singleValue) {
+                $sensitivityLabels []= new SensitivityLabel($singleValue);
+            }
+            $this->_propDict['sensitivityLabels'] = $sensitivityLabels;
+            return $this->_propDict['sensitivityLabels'];
         }
+        return null;
     }
     
     /** 
     * Sets the sensitivityLabels
     *
-    * @param SensitivityLabel $val The sensitivityLabels
+    * @param SensitivityLabel[] $val The sensitivityLabels
     *
     * @return InformationProtection
     */
@@ -118,8 +132,8 @@ class InformationProtection extends Entity
     */
     public function getSensitivityPolicySettings()
     {
-        if (array_key_exists("sensitivityPolicySettings", $this->_propDict)) {
-            if (is_a($this->_propDict["sensitivityPolicySettings"], "\Beta\Microsoft\Graph\Model\SensitivityPolicySettings") || is_null($this->_propDict["sensitivityPolicySettings"])) {
+        if (array_key_exists("sensitivityPolicySettings", $this->_propDict) && !is_null($this->_propDict["sensitivityPolicySettings"])) {
+            if (is_a($this->_propDict["sensitivityPolicySettings"], "\Beta\Microsoft\Graph\Model\SensitivityPolicySettings")) {
                 return $this->_propDict["sensitivityPolicySettings"];
             } else {
                 $this->_propDict["sensitivityPolicySettings"] = new SensitivityPolicySettings($this->_propDict["sensitivityPolicySettings"]);
@@ -149,8 +163,8 @@ class InformationProtection extends Entity
     */
     public function getPolicy()
     {
-        if (array_key_exists("policy", $this->_propDict)) {
-            if (is_a($this->_propDict["policy"], "\Beta\Microsoft\Graph\Model\InformationProtectionPolicy") || is_null($this->_propDict["policy"])) {
+        if (array_key_exists("policy", $this->_propDict) && !is_null($this->_propDict["policy"])) {
+            if (is_a($this->_propDict["policy"], "\Beta\Microsoft\Graph\Model\InformationProtectionPolicy")) {
                 return $this->_propDict["policy"];
             } else {
                 $this->_propDict["policy"] = new InformationProtectionPolicy($this->_propDict["policy"]);
@@ -177,21 +191,28 @@ class InformationProtection extends Entity
      /** 
      * Gets the threatAssessmentRequests
      *
-     * @return array|null The threatAssessmentRequests
+     * @return ThreatAssessmentRequest[]|null The threatAssessmentRequests
      */
     public function getThreatAssessmentRequests()
     {
-        if (array_key_exists("threatAssessmentRequests", $this->_propDict)) {
-           return $this->_propDict["threatAssessmentRequests"];
-        } else {
-            return null;
+        if (array_key_exists('threatAssessmentRequests', $this->_propDict) && !is_null($this->_propDict['threatAssessmentRequests'])) {
+            $threatAssessmentRequests = [];
+            if (count($this->_propDict['threatAssessmentRequests']) > 0 && is_a($this->_propDict['threatAssessmentRequests'][0], 'ThreatAssessmentRequest')) {
+                return $this->_propDict['threatAssessmentRequests'];
+            }
+            foreach ($this->_propDict['threatAssessmentRequests'] as $singleValue) {
+                $threatAssessmentRequests []= new ThreatAssessmentRequest($singleValue);
+            }
+            $this->_propDict['threatAssessmentRequests'] = $threatAssessmentRequests;
+            return $this->_propDict['threatAssessmentRequests'];
         }
+        return null;
     }
     
     /** 
     * Sets the threatAssessmentRequests
     *
-    * @param ThreatAssessmentRequest $val The threatAssessmentRequests
+    * @param ThreatAssessmentRequest[] $val The threatAssessmentRequests
     *
     * @return InformationProtection
     */

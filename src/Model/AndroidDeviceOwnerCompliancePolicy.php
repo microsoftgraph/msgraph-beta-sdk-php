@@ -32,8 +32,8 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy
     */
     public function getAdvancedThreatProtectionRequiredSecurityLevel()
     {
-        if (array_key_exists("advancedThreatProtectionRequiredSecurityLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"], "\Beta\Microsoft\Graph\Model\DeviceThreatProtectionLevel") || is_null($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"])) {
+        if (array_key_exists("advancedThreatProtectionRequiredSecurityLevel", $this->_propDict) && !is_null($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"])) {
+            if (is_a($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"], "\Beta\Microsoft\Graph\Model\DeviceThreatProtectionLevel")) {
                 return $this->_propDict["advancedThreatProtectionRequiredSecurityLevel"];
             } else {
                 $this->_propDict["advancedThreatProtectionRequiredSecurityLevel"] = new DeviceThreatProtectionLevel($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"]);
@@ -94,8 +94,8 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy
     */
     public function getDeviceThreatProtectionRequiredSecurityLevel()
     {
-        if (array_key_exists("deviceThreatProtectionRequiredSecurityLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"], "\Beta\Microsoft\Graph\Model\DeviceThreatProtectionLevel") || is_null($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"])) {
+        if (array_key_exists("deviceThreatProtectionRequiredSecurityLevel", $this->_propDict) && !is_null($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"])) {
+            if (is_a($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"], "\Beta\Microsoft\Graph\Model\DeviceThreatProtectionLevel")) {
                 return $this->_propDict["deviceThreatProtectionRequiredSecurityLevel"];
             } else {
                 $this->_propDict["deviceThreatProtectionRequiredSecurityLevel"] = new DeviceThreatProtectionLevel($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"]);
@@ -533,8 +533,8 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy
     */
     public function getPasswordRequiredType()
     {
-        if (array_key_exists("passwordRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerRequiredPasswordType") || is_null($this->_propDict["passwordRequiredType"])) {
+        if (array_key_exists("passwordRequiredType", $this->_propDict) && !is_null($this->_propDict["passwordRequiredType"])) {
+            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerRequiredPasswordType")) {
                 return $this->_propDict["passwordRequiredType"];
             } else {
                 $this->_propDict["passwordRequiredType"] = new AndroidDeviceOwnerRequiredPasswordType($this->_propDict["passwordRequiredType"]);
@@ -555,6 +555,35 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy
     public function setPasswordRequiredType($val)
     {
         $this->_propDict["passwordRequiredType"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the securityRequireIntuneAppIntegrity
+    * If setting is set to true, checks that the Intune app installed on fully managed, dedicated, or corporate-owned work profile Android Enterprise enrolled devices, is the one provided by Microsoft from the Managed Google Playstore. If the check fails, the device will be reported as non-compliant.
+    *
+    * @return bool|null The securityRequireIntuneAppIntegrity
+    */
+    public function getSecurityRequireIntuneAppIntegrity()
+    {
+        if (array_key_exists("securityRequireIntuneAppIntegrity", $this->_propDict)) {
+            return $this->_propDict["securityRequireIntuneAppIntegrity"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the securityRequireIntuneAppIntegrity
+    * If setting is set to true, checks that the Intune app installed on fully managed, dedicated, or corporate-owned work profile Android Enterprise enrolled devices, is the one provided by Microsoft from the Managed Google Playstore. If the check fails, the device will be reported as non-compliant.
+    *
+    * @param bool $val The securityRequireIntuneAppIntegrity
+    *
+    * @return AndroidDeviceOwnerCompliancePolicy
+    */
+    public function setSecurityRequireIntuneAppIntegrity($val)
+    {
+        $this->_propDict["securityRequireIntuneAppIntegrity"] = boolval($val);
         return $this;
     }
     

@@ -90,8 +90,8 @@ class DeviceConfigurationGroupAssignment extends Entity
     */
     public function getDeviceConfiguration()
     {
-        if (array_key_exists("deviceConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceConfiguration"], "\Beta\Microsoft\Graph\Model\DeviceConfiguration") || is_null($this->_propDict["deviceConfiguration"])) {
+        if (array_key_exists("deviceConfiguration", $this->_propDict) && !is_null($this->_propDict["deviceConfiguration"])) {
+            if (is_a($this->_propDict["deviceConfiguration"], "\Beta\Microsoft\Graph\Model\DeviceConfiguration")) {
                 return $this->_propDict["deviceConfiguration"];
             } else {
                 $this->_propDict["deviceConfiguration"] = new DeviceConfiguration($this->_propDict["deviceConfiguration"]);

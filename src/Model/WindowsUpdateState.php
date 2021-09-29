@@ -119,8 +119,8 @@ class WindowsUpdateState extends Entity
     */
     public function getLastScanDateTime()
     {
-        if (array_key_exists("lastScanDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastScanDateTime"], "\DateTime") || is_null($this->_propDict["lastScanDateTime"])) {
+        if (array_key_exists("lastScanDateTime", $this->_propDict) && !is_null($this->_propDict["lastScanDateTime"])) {
+            if (is_a($this->_propDict["lastScanDateTime"], "\DateTime")) {
                 return $this->_propDict["lastScanDateTime"];
             } else {
                 $this->_propDict["lastScanDateTime"] = new \DateTime($this->_propDict["lastScanDateTime"]);
@@ -152,8 +152,8 @@ class WindowsUpdateState extends Entity
     */
     public function getLastSyncDateTime()
     {
-        if (array_key_exists("lastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
+        if (array_key_exists("lastSyncDateTime", $this->_propDict) && !is_null($this->_propDict["lastSyncDateTime"])) {
+            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSyncDateTime"];
             } else {
                 $this->_propDict["lastSyncDateTime"] = new \DateTime($this->_propDict["lastSyncDateTime"]);
@@ -214,8 +214,8 @@ class WindowsUpdateState extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\WindowsUpdateStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\WindowsUpdateStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new WindowsUpdateStatus($this->_propDict["status"]);
