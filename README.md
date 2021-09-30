@@ -60,7 +60,7 @@ class UsageExample
                       ->setReturnType(BetaModel\User::class)
                       ->execute();
 
-        echo "Hello, I am $user->getGivenName() ";
+        echo "Hello, I am {$user->getGivenName()}";
     }
 }
 ```
