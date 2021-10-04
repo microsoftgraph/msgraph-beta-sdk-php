@@ -9,7 +9,9 @@
 namespace Beta\Microsoft\Graph;
 
 
+use Microsoft\Graph\Core\NationalCloud;
 use Microsoft\Graph\Http\AbstractGraphClient;
+use Microsoft\Graph\Http\HttpClientInterface;
 
 /**
  * Class Graph
@@ -20,6 +22,18 @@ use Microsoft\Graph\Http\AbstractGraphClient;
  */
 class Graph extends AbstractGraphClient
 {
+
+    /**
+     * Graph client constructor.
+     *
+     * @param string|null $nationalCloud if null, defaults to "https://graph.microsoft.com"
+     * @param HttpClientInterface|null $httpClient if null, creates default Guzzle client
+     * @throws \InvalidArgumentException if an invalid national cloud endpoint is passed
+     */
+    public function __construct(?string $nationalCloud = NationalCloud::GLOBAL, ?HttpClientInterface $httpClient = null)
+    {
+        parent::__construct($nationalCloud, $httpClient);
+    }
 
     /**
      * @inheritDoc
