@@ -23,7 +23,9 @@ The Microsoft Graph Beta SDK for PHP does not include any default authentication
 
 For an integrated example on how to use Oauth2 in a Laravel application and use the Graph, see the [PHP Tutorial](https://docs.microsoft.com/en-us/graph/tutorials/php).
 
-To authenticate as an application you can use the [Guzzle HTTP client](http://docs.guzzlephp.org/en/stable/), which comes preinstalled with this library, for example like this:
+To authenticate as an application you can use the [Guzzle HTTP client](http://docs.guzzlephp.org/en/stable/), which comes preinstalled with this library.
+
+This code sample gets an access token without a signed-in user. See [Get access without a user](https://docs.microsoft.com/en-us/graph/auth-v2-service?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) for more.
 ```php
 $guzzle = new \GuzzleHttp\Client();
 $url = 'https://login.microsoftonline.com/' . $tenantId . '/oauth2/token?api-version=beta';
