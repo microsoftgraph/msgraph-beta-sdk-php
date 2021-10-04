@@ -1,12 +1,9 @@
-# Get started with the Microsoft Graph SDK for PHP
+# Get started with the Microsoft Graph Beta SDK for PHP
 
 [![Latest Stable Version](https://poser.pugx.org/microsoft/microsoft-graph-beta/version)](https://packagist.org/packages/microsoft/microsoft-graph)
 
-## Get started with the PHP Connect Sample
-If you want to play around with the PHP library, you can get up and running quickly with the [PHP Connect Sample](https://github.com/microsoftgraph/php-connect-sample). This sample will start you with a little Laravel project that helps you with registration, authentication, and making a simple call to the service.
-
 ## Install the SDK
-You can install the PHP SDK with Composer, either run `composer require microsoft/microsoft-graph-beta`, or edit your `composer.json` file:
+You can install the Beta PHP SDK with Composer, either run `composer require microsoft/microsoft-graph-beta`, or edit your `composer.json` file:
 ```
 {
     "require": {
@@ -16,15 +13,19 @@ You can install the PHP SDK with Composer, either run `composer require microsof
 ```
 ## Get started with Microsoft Graph
 
-### Register your application
+### 1. Register your application
 
-Register your application to use the Microsoft Graph API using [Microsoft Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in your tenant's Active Directory to support work or school users for your tenant, or multiple tenants.
+Register your application to use the Microsoft Graph API by following the steps at [Register an an application with the Microsoft Identity platform](https://docs.microsoft.com/en-us/graph/auth-register-app-v2).
 
-### Authenticate with the Microsoft Graph service
+### 2. Authenticate with the Microsoft Graph service
 
-The Microsoft Graph SDK for PHP does not include any default authentication implementations. The [`thephpleague/oauth2-client`](https://github.com/thephpleague/oauth2-client) library will handle the OAuth2 flow for you and provide a usable token for querying the Graph.
+The Microsoft Graph Beta SDK for PHP does not include any default authentication implementations. The [`thephpleague/oauth2-client`](https://github.com/thephpleague/oauth2-client) library will handle the OAuth2 flow for you and provide a usable token for querying the Graph.
 
-To authenticate as an application you can use the [Guzzle HTTP client](http://docs.guzzlephp.org/en/stable/), which comes preinstalled with this library, for example like this:
+For an integrated example on how to use Oauth2 in a Laravel application and use the Graph, see the [PHP Tutorial](https://docs.microsoft.com/en-us/graph/tutorials/php).
+
+To authenticate as an application you can use the [Guzzle HTTP client](http://docs.guzzlephp.org/en/stable/), which comes preinstalled with this library.
+
+This code sample gets an access token without a signed-in user. See [Get access without a user](https://docs.microsoft.com/en-us/graph/auth-v2-service?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) for more.
 ```php
 $guzzle = new \GuzzleHttp\Client();
 $url = 'https://login.microsoftonline.com/' . $tenantId . '/oauth2/token?api-version=beta';
@@ -38,10 +39,9 @@ $token = json_decode($guzzle->post($url, [
 ])->getBody()->getContents());
 $accessToken = $token->access_token;
 ```
-For an integrated example on how to use Oauth2 in a Laravel application and use the Graph, see the [PHP Connect Sample](https://github.com/microsoftgraph/php-connect-sample).
 
 
-### Call Microsoft Graph using the beta endpoint and models
+### 3. Call Microsoft Graph using the beta endpoint and models
 
 The following is an example that shows how to call Microsoft Graph.
 
@@ -58,26 +58,51 @@ class UsageExample
         $graph = new Graph();
         $graph->setAccessToken($accessToken);
 
-        $user = $graph->setApiVersion("beta")
-                      ->createRequest("GET", "/me")
+        $user = $graph->createRequest("GET", "/me")
                       ->setReturnType(BetaModel\User::class)
                       ->execute();
 
-        echo "Hello, I am $user->getGivenName() ";
+        echo "Hello, I am {$user->getGivenName()}";
     }
 }
 ```
+Please note that calling the `/me` endpoint requires a signed-in user and therefore a delegated permission. Application
+permissions are not supported when using the `/me` endpoint. For more on permissions, see [Microsoft Graph Permissions](https://docs.microsoft.com/en-us/graph/auth/auth-concepts#microsoft-graph-permissions).
+
+If you have not set up delegated permissions, call the `/users/{userPrincipalName}`. See [the docs](https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http) for more detail on getting a user.
+
+## Sample Applications
+If you want to play around with the PHP library, you can get up and running quickly with the [PHP Tutorial](https://docs.microsoft.com/en-us/graph/tutorials/php).
+
+This sample will start you with a little Laravel project that helps you with registration, authentication, and making a simple call to the service.
+
+## Documentation and resources
+
+* [Documentation](https://github.com/microsoftgraph/msgraph-beta-sdk-php/blob/master/docs/index.html)
+
+* [Wiki](https://github.com/microsoftgraph/msgraph-sdk-php/wiki)
+
+* [Examples](https://github.com/microsoftgraph/msgraph-sdk-php/wiki/Example-calls)
+
+* [Microsoft Graph website](https://developer.microsoft.com/en-us/graph/)
+
 
 ## Develop
 
 ### Debug
 You can use the library with a proxy such as [Fiddler](http://www.telerik.com/fiddler) or [Charles Proxy](https://www.charlesproxy.com/) to debug requests and responses as they come across the wire. Set the proxy port on the Graph object like this:
 ```php
-$graph->setProxyPort("localhost:8888");
+use Microsoft\Graph\Http\HttpClientFactory;
+use Microsoft\Graph\Core\NationalCloud;
+use Microsoft\Graph\Graph;
+
+$guzzleConfig = [
+    "proxy" => "localhost:8888"
+];
+$httpClient = HttpClientFactory::setClientConfig($guzzleConfig)::createAdapter();
+$graphClient = new Graph(NationalCloud::GLOBAL, $httpClient);
 ```
 Then, open your proxy client to view the requests & responses sent using the library.
-
-![Screenshot of Fiddler /me/sendmail request and response](https://github.com/microsoftgraph/msgraph-sdk-php/blob/master/docs/images/Fiddler.PNG)
 
 This is especially helpful when the library does not return the results you expected to determine whether there are bugs in the API or this SDK. Therefore, you may be asked to provide this information when attempting to triage an issue you file.
 
@@ -113,16 +138,6 @@ Now you can hit a Visual Studio Code breakpoint in a test. Try this:
 1. Add a breakpoint to `testGetCalendarView` in *.\tests\Functional\EventTest.php*.
 2. Run the **Listen for XDebug** configuration in VS Code.
 3. Run `.\vendor\bin\phpunit --filter testGetCalendarView` from the PowerShell terminal to run the test and hit the breakpoint.
-
-## Documentation and resources
-
-* [Documentation](https://github.com/microsoftgraph/msgraph-beta-sdk-php/blob/master/docs/index.html)
-
-* [Wiki](https://github.com/microsoftgraph/msgraph-beta-sdk-php/wiki)
-
-* [Examples](https://github.com/microsoftgraph/msgraph-beta-sdk-php/wiki/Example-calls)
-
-* [Microsoft Graph website](https://developer.microsoft.com/en-us/graph/)
 
 ## Issues
 
