@@ -116,8 +116,9 @@ class Setting extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getValueType()
     {
-        if (array_key_exists("valueType", $this->_propDict)) {
-            if (is_a($this->_propDict["valueType"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagementParameterValueType") || is_null($this->_propDict["valueType"])) {
+        if (array_key_exists("valueType", $this->_propDict) && !is_null($this->_propDict["valueType"])) {
+     
+            if (is_a($this->_propDict["valueType"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagementParameterValueType")) {
                 return $this->_propDict["valueType"];
             } else {
                 $this->_propDict["valueType"] = new ManagementParameterValueType($this->_propDict["valueType"]);

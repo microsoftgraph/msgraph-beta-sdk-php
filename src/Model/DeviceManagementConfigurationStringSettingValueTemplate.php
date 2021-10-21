@@ -32,8 +32,9 @@ class DeviceManagementConfigurationStringSettingValueTemplate extends DeviceMana
     */
     public function getDefaultValue()
     {
-        if (array_key_exists("defaultValue", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationStringSettingValueDefaultTemplate") || is_null($this->_propDict["defaultValue"])) {
+        if (array_key_exists("defaultValue", $this->_propDict) && !is_null($this->_propDict["defaultValue"])) {
+     
+            if (is_a($this->_propDict["defaultValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationStringSettingValueDefaultTemplate")) {
                 return $this->_propDict["defaultValue"];
             } else {
                 $this->_propDict["defaultValue"] = new DeviceManagementConfigurationStringSettingValueDefaultTemplate($this->_propDict["defaultValue"]);

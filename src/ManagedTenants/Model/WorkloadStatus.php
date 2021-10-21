@@ -60,8 +60,9 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getOffboardedDateTime()
     {
-        if (array_key_exists("offboardedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["offboardedDateTime"], "\DateTime") || is_null($this->_propDict["offboardedDateTime"])) {
+        if (array_key_exists("offboardedDateTime", $this->_propDict) && !is_null($this->_propDict["offboardedDateTime"])) {
+     
+            if (is_a($this->_propDict["offboardedDateTime"], "\DateTime")) {
                 return $this->_propDict["offboardedDateTime"];
             } else {
                 $this->_propDict["offboardedDateTime"] = new \DateTime($this->_propDict["offboardedDateTime"]);
@@ -93,8 +94,9 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getOnboardedDateTime()
     {
-        if (array_key_exists("onboardedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["onboardedDateTime"], "\DateTime") || is_null($this->_propDict["onboardedDateTime"])) {
+        if (array_key_exists("onboardedDateTime", $this->_propDict) && !is_null($this->_propDict["onboardedDateTime"])) {
+     
+            if (is_a($this->_propDict["onboardedDateTime"], "\DateTime")) {
                 return $this->_propDict["onboardedDateTime"];
             } else {
                 $this->_propDict["onboardedDateTime"] = new \DateTime($this->_propDict["onboardedDateTime"]);
@@ -126,8 +128,9 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getOnboardingStatus()
     {
-        if (array_key_exists("onboardingStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["onboardingStatus"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadOnboardingStatus") || is_null($this->_propDict["onboardingStatus"])) {
+        if (array_key_exists("onboardingStatus", $this->_propDict) && !is_null($this->_propDict["onboardingStatus"])) {
+     
+            if (is_a($this->_propDict["onboardingStatus"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadOnboardingStatus")) {
                 return $this->_propDict["onboardingStatus"];
             } else {
                 $this->_propDict["onboardingStatus"] = new WorkloadOnboardingStatus($this->_propDict["onboardingStatus"]);

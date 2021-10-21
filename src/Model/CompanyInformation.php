@@ -31,8 +31,8 @@ class CompanyInformation extends Entity
     */
     public function getAddress()
     {
-        if (array_key_exists("address", $this->_propDict)) {
-            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PostalAddressType") || is_null($this->_propDict["address"])) {
+        if (array_key_exists("address", $this->_propDict) && !is_null($this->_propDict["address"])) {
+            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PostalAddressType")) {
                 return $this->_propDict["address"];
             } else {
                 $this->_propDict["address"] = new PostalAddressType($this->_propDict["address"]);
@@ -89,8 +89,8 @@ class CompanyInformation extends Entity
     */
     public function getCurrentFiscalYearStartDate()
     {
-        if (array_key_exists("currentFiscalYearStartDate", $this->_propDict)) {
-            if (is_a($this->_propDict["currentFiscalYearStartDate"], "\DateTime") || is_null($this->_propDict["currentFiscalYearStartDate"])) {
+        if (array_key_exists("currentFiscalYearStartDate", $this->_propDict) && !is_null($this->_propDict["currentFiscalYearStartDate"])) {
+            if (is_a($this->_propDict["currentFiscalYearStartDate"], "\DateTime")) {
                 return $this->_propDict["currentFiscalYearStartDate"];
             } else {
                 $this->_propDict["currentFiscalYearStartDate"] = new \DateTime($this->_propDict["currentFiscalYearStartDate"]);
@@ -228,8 +228,8 @@ class CompanyInformation extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -286,8 +286,8 @@ class CompanyInformation extends Entity
     */
     public function getPicture()
     {
-        if (array_key_exists("picture", $this->_propDict)) {
-            if (is_a($this->_propDict["picture"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["picture"])) {
+        if (array_key_exists("picture", $this->_propDict) && !is_null($this->_propDict["picture"])) {
+            if (is_a($this->_propDict["picture"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["picture"];
             } else {
                 $this->_propDict["picture"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["picture"]);

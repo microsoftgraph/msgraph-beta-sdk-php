@@ -29,22 +29,29 @@ class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity
      * Gets the metricDevices
     * The work from anywhere metric devices.
      *
-     * @return array|null The metricDevices
+     * @return UserExperienceAnalyticsWorkFromAnywhereDevice[]|null The metricDevices
      */
     public function getMetricDevices()
     {
-        if (array_key_exists("metricDevices", $this->_propDict)) {
-           return $this->_propDict["metricDevices"];
-        } else {
-            return null;
+        if (array_key_exists('metricDevices', $this->_propDict) && !is_null($this->_propDict['metricDevices'])) {
+            $metricDevices = [];
+            if (count($this->_propDict['metricDevices']) > 0 && is_a($this->_propDict['metricDevices'][0], 'UserExperienceAnalyticsWorkFromAnywhereDevice')) {
+                return $this->_propDict['metricDevices'];
+            }
+            foreach ($this->_propDict['metricDevices'] as $singleValue) {
+                $metricDevices []= new UserExperienceAnalyticsWorkFromAnywhereDevice($singleValue);
+            }
+            $this->_propDict['metricDevices'] = $metricDevices;
+            return $this->_propDict['metricDevices'];
         }
+        return null;
     }
     
     /** 
     * Sets the metricDevices
     * The work from anywhere metric devices.
     *
-    * @param UserExperienceAnalyticsWorkFromAnywhereDevice $val The metricDevices
+    * @param UserExperienceAnalyticsWorkFromAnywhereDevice[] $val The metricDevices
     *
     * @return UserExperienceAnalyticsWorkFromAnywhereMetric
     */

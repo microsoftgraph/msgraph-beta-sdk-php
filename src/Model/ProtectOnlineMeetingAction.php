@@ -42,8 +42,9 @@ class ProtectOnlineMeetingAction extends LabelActionBase
     */
     public function getAllowedForwarders()
     {
-        if (array_key_exists("allowedForwarders", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedForwarders"], "\Beta\Microsoft\Graph\Model\OnlineMeetingForwarders") || is_null($this->_propDict["allowedForwarders"])) {
+        if (array_key_exists("allowedForwarders", $this->_propDict) && !is_null($this->_propDict["allowedForwarders"])) {
+     
+            if (is_a($this->_propDict["allowedForwarders"], "\Beta\Microsoft\Graph\Model\OnlineMeetingForwarders")) {
                 return $this->_propDict["allowedForwarders"];
             } else {
                 $this->_propDict["allowedForwarders"] = new OnlineMeetingForwarders($this->_propDict["allowedForwarders"]);
@@ -73,8 +74,9 @@ class ProtectOnlineMeetingAction extends LabelActionBase
     */
     public function getAllowedPresenters()
     {
-        if (array_key_exists("allowedPresenters", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedPresenters"], "\Beta\Microsoft\Graph\Model\OnlineMeetingPresenters") || is_null($this->_propDict["allowedPresenters"])) {
+        if (array_key_exists("allowedPresenters", $this->_propDict) && !is_null($this->_propDict["allowedPresenters"])) {
+     
+            if (is_a($this->_propDict["allowedPresenters"], "\Beta\Microsoft\Graph\Model\OnlineMeetingPresenters")) {
                 return $this->_propDict["allowedPresenters"];
             } else {
                 $this->_propDict["allowedPresenters"] = new OnlineMeetingPresenters($this->_propDict["allowedPresenters"]);
@@ -156,8 +158,9 @@ class ProtectOnlineMeetingAction extends LabelActionBase
     */
     public function getLobbyBypassSettings()
     {
-        if (array_key_exists("lobbyBypassSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["lobbyBypassSettings"], "\Beta\Microsoft\Graph\Model\LobbyBypassSettings") || is_null($this->_propDict["lobbyBypassSettings"])) {
+        if (array_key_exists("lobbyBypassSettings", $this->_propDict) && !is_null($this->_propDict["lobbyBypassSettings"])) {
+     
+            if (is_a($this->_propDict["lobbyBypassSettings"], "\Beta\Microsoft\Graph\Model\LobbyBypassSettings")) {
                 return $this->_propDict["lobbyBypassSettings"];
             } else {
                 $this->_propDict["lobbyBypassSettings"] = new LobbyBypassSettings($this->_propDict["lobbyBypassSettings"]);

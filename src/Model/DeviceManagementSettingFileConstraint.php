@@ -53,7 +53,7 @@ class DeviceManagementSettingFileConstraint extends DeviceManagementConstraint
     * Sets the supportedExtensions
     * Acceptable file extensions to upload for this setting
     *
-    * @param string $val The value of the supportedExtensions
+    * @param string[] $val The value of the supportedExtensions
     *
     * @return DeviceManagementSettingFileConstraint
     */

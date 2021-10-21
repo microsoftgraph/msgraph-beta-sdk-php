@@ -53,7 +53,7 @@ class DeviceManagementSettingAppConstraint extends DeviceManagementConstraint
     * Sets the supportedTypes
     * Acceptable app types to allow for this setting
     *
-    * @param string $val The value of the supportedTypes
+    * @param string[] $val The value of the supportedTypes
     *
     * @return DeviceManagementSettingAppConstraint
     */

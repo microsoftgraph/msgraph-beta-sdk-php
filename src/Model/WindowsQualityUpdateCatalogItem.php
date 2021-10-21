@@ -32,8 +32,8 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem
     */
     public function getClassification()
     {
-        if (array_key_exists("classification", $this->_propDict)) {
-            if (is_a($this->_propDict["classification"], "\Beta\Microsoft\Graph\Model\WindowsQualityUpdateClassification") || is_null($this->_propDict["classification"])) {
+        if (array_key_exists("classification", $this->_propDict) && !is_null($this->_propDict["classification"])) {
+            if (is_a($this->_propDict["classification"], "\Beta\Microsoft\Graph\Model\WindowsQualityUpdateClassification")) {
                 return $this->_propDict["classification"];
             } else {
                 $this->_propDict["classification"] = new WindowsQualityUpdateClassification($this->_propDict["classification"]);

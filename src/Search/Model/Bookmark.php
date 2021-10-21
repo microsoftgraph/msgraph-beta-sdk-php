@@ -31,8 +31,8 @@ class Bookmark extends SearchAnswer
     */
     public function getAvailabilityEndDateTime()
     {
-        if (array_key_exists("availabilityEndDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["availabilityEndDateTime"], "\DateTime") || is_null($this->_propDict["availabilityEndDateTime"])) {
+        if (array_key_exists("availabilityEndDateTime", $this->_propDict) && !is_null($this->_propDict["availabilityEndDateTime"])) {
+            if (is_a($this->_propDict["availabilityEndDateTime"], "\DateTime")) {
                 return $this->_propDict["availabilityEndDateTime"];
             } else {
                 $this->_propDict["availabilityEndDateTime"] = new \DateTime($this->_propDict["availabilityEndDateTime"]);
@@ -62,8 +62,8 @@ class Bookmark extends SearchAnswer
     */
     public function getAvailabilityStartDateTime()
     {
-        if (array_key_exists("availabilityStartDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["availabilityStartDateTime"], "\DateTime") || is_null($this->_propDict["availabilityStartDateTime"])) {
+        if (array_key_exists("availabilityStartDateTime", $this->_propDict) && !is_null($this->_propDict["availabilityStartDateTime"])) {
+            if (is_a($this->_propDict["availabilityStartDateTime"], "\DateTime")) {
                 return $this->_propDict["availabilityStartDateTime"];
             } else {
                 $this->_propDict["availabilityStartDateTime"] = new \DateTime($this->_propDict["availabilityStartDateTime"]);
@@ -174,8 +174,8 @@ class Bookmark extends SearchAnswer
     */
     public function getKeywords()
     {
-        if (array_key_exists("keywords", $this->_propDict)) {
-            if (is_a($this->_propDict["keywords"], "\Beta\Microsoft\Graph\Search\Model\AnswerKeyword") || is_null($this->_propDict["keywords"])) {
+        if (array_key_exists("keywords", $this->_propDict) && !is_null($this->_propDict["keywords"])) {
+            if (is_a($this->_propDict["keywords"], "\Beta\Microsoft\Graph\Search\Model\AnswerKeyword")) {
                 return $this->_propDict["keywords"];
             } else {
                 $this->_propDict["keywords"] = new AnswerKeyword($this->_propDict["keywords"]);
@@ -229,21 +229,28 @@ class Bookmark extends SearchAnswer
      /** 
      * Gets the platforms
      *
-     * @return array|null The platforms
+     * @return \Beta\Microsoft\Graph\Model\DevicePlatformType[]|null The platforms
      */
     public function getPlatforms()
     {
-        if (array_key_exists("platforms", $this->_propDict)) {
-           return $this->_propDict["platforms"];
-        } else {
-            return null;
+        if (array_key_exists('platforms', $this->_propDict) && !is_null($this->_propDict['platforms'])) {
+            $platforms = [];
+            if (count($this->_propDict['platforms']) > 0 && is_a($this->_propDict['platforms'][0], '\Beta\Microsoft\Graph\Model\DevicePlatformType')) {
+                return $this->_propDict['platforms'];
+            }
+            foreach ($this->_propDict['platforms'] as $singleValue) {
+                $platforms []= new \Beta\Microsoft\Graph\Model\DevicePlatformType($singleValue);
+            }
+            $this->_propDict['platforms'] = $platforms;
+            return $this->_propDict['platforms'];
         }
+        return null;
     }
     
     /** 
     * Sets the platforms
     *
-    * @param \Beta\Microsoft\Graph\Model\DevicePlatformType $val The platforms
+    * @param \Beta\Microsoft\Graph\Model\DevicePlatformType[] $val The platforms
     *
     * @return Bookmark
     */
@@ -287,8 +294,8 @@ class Bookmark extends SearchAnswer
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Search\Model\AnswerState") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Search\Model\AnswerState")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new AnswerState($this->_propDict["state"]);
@@ -315,21 +322,28 @@ class Bookmark extends SearchAnswer
      /** 
      * Gets the targetedVariations
      *
-     * @return array|null The targetedVariations
+     * @return AnswerVariant[]|null The targetedVariations
      */
     public function getTargetedVariations()
     {
-        if (array_key_exists("targetedVariations", $this->_propDict)) {
-           return $this->_propDict["targetedVariations"];
-        } else {
-            return null;
+        if (array_key_exists('targetedVariations', $this->_propDict) && !is_null($this->_propDict['targetedVariations'])) {
+            $targetedVariations = [];
+            if (count($this->_propDict['targetedVariations']) > 0 && is_a($this->_propDict['targetedVariations'][0], 'AnswerVariant')) {
+                return $this->_propDict['targetedVariations'];
+            }
+            foreach ($this->_propDict['targetedVariations'] as $singleValue) {
+                $targetedVariations []= new AnswerVariant($singleValue);
+            }
+            $this->_propDict['targetedVariations'] = $targetedVariations;
+            return $this->_propDict['targetedVariations'];
         }
+        return null;
     }
     
     /** 
     * Sets the targetedVariations
     *
-    * @param AnswerVariant $val The targetedVariations
+    * @param AnswerVariant[] $val The targetedVariations
     *
     * @return Bookmark
     */

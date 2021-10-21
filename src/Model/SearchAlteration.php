@@ -84,18 +84,22 @@ class SearchAlteration extends Entity
     * Gets the alteredQueryTokens
     * Represents changed segments with respect to original query.
     *
-    * @return AlteredQueryToken|null The alteredQueryTokens
+    * @return AlteredQueryToken[]|null The alteredQueryTokens
     */
     public function getAlteredQueryTokens()
     {
-        if (array_key_exists("alteredQueryTokens", $this->_propDict)) {
-            if (is_a($this->_propDict["alteredQueryTokens"], "\Beta\Microsoft\Graph\Model\AlteredQueryToken") || is_null($this->_propDict["alteredQueryTokens"])) {
-                return $this->_propDict["alteredQueryTokens"];
-            } else {
-                $this->_propDict["alteredQueryTokens"] = new AlteredQueryToken($this->_propDict["alteredQueryTokens"]);
-                return $this->_propDict["alteredQueryTokens"];
+        if (array_key_exists("alteredQueryTokens", $this->_propDict) && !is_null($this->_propDict["alteredQueryTokens"])) {
+       
+            if (count($this->_propDict['alteredQueryTokens']) > 0 && is_a($this->_propDict['alteredQueryTokens'][0], 'AlteredQueryToken')) {
+               return $this->_propDict['alteredQueryTokens'];
             }
-        }
+            $alteredQueryTokens = [];
+            foreach ($this->_propDict['alteredQueryTokens'] as $singleValue) {
+               $alteredQueryTokens []= new AlteredQueryToken($singleValue);
+            }
+            $this->_propDict['alteredQueryTokens'] = $alteredQueryTokens;
+            return $this->_propDict['alteredQueryTokens'];
+            }
         return null;
     }
 
@@ -103,7 +107,7 @@ class SearchAlteration extends Entity
     * Sets the alteredQueryTokens
     * Represents changed segments with respect to original query.
     *
-    * @param AlteredQueryToken $val The value to assign to the alteredQueryTokens
+    * @param AlteredQueryToken[] $val The value to assign to the alteredQueryTokens
     *
     * @return SearchAlteration The SearchAlteration
     */

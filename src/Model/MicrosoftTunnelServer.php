@@ -90,8 +90,8 @@ class MicrosoftTunnelServer extends Entity
     */
     public function getLastCheckinDateTime()
     {
-        if (array_key_exists("lastCheckinDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastCheckinDateTime"], "\DateTime") || is_null($this->_propDict["lastCheckinDateTime"])) {
+        if (array_key_exists("lastCheckinDateTime", $this->_propDict) && !is_null($this->_propDict["lastCheckinDateTime"])) {
+            if (is_a($this->_propDict["lastCheckinDateTime"], "\DateTime")) {
                 return $this->_propDict["lastCheckinDateTime"];
             } else {
                 $this->_propDict["lastCheckinDateTime"] = new \DateTime($this->_propDict["lastCheckinDateTime"]);
@@ -152,8 +152,8 @@ class MicrosoftTunnelServer extends Entity
     */
     public function getTunnelServerHealthStatus()
     {
-        if (array_key_exists("tunnelServerHealthStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["tunnelServerHealthStatus"], "\Beta\Microsoft\Graph\Model\MicrosoftTunnelServerHealthStatus") || is_null($this->_propDict["tunnelServerHealthStatus"])) {
+        if (array_key_exists("tunnelServerHealthStatus", $this->_propDict) && !is_null($this->_propDict["tunnelServerHealthStatus"])) {
+            if (is_a($this->_propDict["tunnelServerHealthStatus"], "\Beta\Microsoft\Graph\Model\MicrosoftTunnelServerHealthStatus")) {
                 return $this->_propDict["tunnelServerHealthStatus"];
             } else {
                 $this->_propDict["tunnelServerHealthStatus"] = new MicrosoftTunnelServerHealthStatus($this->_propDict["tunnelServerHealthStatus"]);

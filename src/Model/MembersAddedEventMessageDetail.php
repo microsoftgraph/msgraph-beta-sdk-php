@@ -43,8 +43,9 @@ class MembersAddedEventMessageDetail extends EventMessageDetail
     */
     public function getInitiator()
     {
-        if (array_key_exists("initiator", $this->_propDict)) {
-            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["initiator"])) {
+        if (array_key_exists("initiator", $this->_propDict) && !is_null($this->_propDict["initiator"])) {
+     
+            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["initiator"];
             } else {
                 $this->_propDict["initiator"] = new IdentitySet($this->_propDict["initiator"]);
@@ -72,18 +73,22 @@ class MembersAddedEventMessageDetail extends EventMessageDetail
     * Gets the members
     * List of members added.
     *
-    * @return TeamworkUserIdentity|null The members
+    * @return TeamworkUserIdentity[]|null The members
     */
     public function getMembers()
     {
-        if (array_key_exists("members", $this->_propDict)) {
-            if (is_a($this->_propDict["members"], "\Beta\Microsoft\Graph\Model\TeamworkUserIdentity") || is_null($this->_propDict["members"])) {
-                return $this->_propDict["members"];
-            } else {
-                $this->_propDict["members"] = new TeamworkUserIdentity($this->_propDict["members"]);
-                return $this->_propDict["members"];
+        if (array_key_exists("members", $this->_propDict) && !is_null($this->_propDict["members"])) {
+       
+            if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'TeamworkUserIdentity')) {
+               return $this->_propDict['members'];
             }
-        }
+            $members = [];
+            foreach ($this->_propDict['members'] as $singleValue) {
+               $members []= new TeamworkUserIdentity($singleValue);
+            }
+            $this->_propDict['members'] = $members;
+            return $this->_propDict['members'];
+            }
         return null;
     }
 
@@ -91,7 +96,7 @@ class MembersAddedEventMessageDetail extends EventMessageDetail
     * Sets the members
     * List of members added.
     *
-    * @param TeamworkUserIdentity $val The value to assign to the members
+    * @param TeamworkUserIdentity[] $val The value to assign to the members
     *
     * @return MembersAddedEventMessageDetail The MembersAddedEventMessageDetail
     */
@@ -109,8 +114,9 @@ class MembersAddedEventMessageDetail extends EventMessageDetail
     */
     public function getVisibleHistoryStartDateTime()
     {
-        if (array_key_exists("visibleHistoryStartDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["visibleHistoryStartDateTime"], "\DateTime") || is_null($this->_propDict["visibleHistoryStartDateTime"])) {
+        if (array_key_exists("visibleHistoryStartDateTime", $this->_propDict) && !is_null($this->_propDict["visibleHistoryStartDateTime"])) {
+     
+            if (is_a($this->_propDict["visibleHistoryStartDateTime"], "\DateTime")) {
                 return $this->_propDict["visibleHistoryStartDateTime"];
             } else {
                 $this->_propDict["visibleHistoryStartDateTime"] = new \DateTime($this->_propDict["visibleHistoryStartDateTime"]);

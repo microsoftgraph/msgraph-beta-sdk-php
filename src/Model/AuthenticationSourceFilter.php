@@ -42,7 +42,7 @@ class AuthenticationSourceFilter extends Entity
     * Sets the includeApplications
     * Applications to include for evaluation of the authenticationListener. These applications trigger the associated action when used as the client application in the authentication flow. The application identifer is the application's client id.
     *
-    * @param string $val The value of the includeApplications
+    * @param string[] $val The value of the includeApplications
     *
     * @return AuthenticationSourceFilter
     */

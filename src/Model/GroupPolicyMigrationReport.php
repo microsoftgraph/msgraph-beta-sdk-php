@@ -32,8 +32,8 @@ class GroupPolicyMigrationReport extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -94,8 +94,8 @@ class GroupPolicyMigrationReport extends Entity
     */
     public function getGroupPolicyCreatedDateTime()
     {
-        if (array_key_exists("groupPolicyCreatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["groupPolicyCreatedDateTime"], "\DateTime") || is_null($this->_propDict["groupPolicyCreatedDateTime"])) {
+        if (array_key_exists("groupPolicyCreatedDateTime", $this->_propDict) && !is_null($this->_propDict["groupPolicyCreatedDateTime"])) {
+            if (is_a($this->_propDict["groupPolicyCreatedDateTime"], "\DateTime")) {
                 return $this->_propDict["groupPolicyCreatedDateTime"];
             } else {
                 $this->_propDict["groupPolicyCreatedDateTime"] = new \DateTime($this->_propDict["groupPolicyCreatedDateTime"]);
@@ -127,8 +127,8 @@ class GroupPolicyMigrationReport extends Entity
     */
     public function getGroupPolicyLastModifiedDateTime()
     {
-        if (array_key_exists("groupPolicyLastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["groupPolicyLastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["groupPolicyLastModifiedDateTime"])) {
+        if (array_key_exists("groupPolicyLastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["groupPolicyLastModifiedDateTime"])) {
+            if (is_a($this->_propDict["groupPolicyLastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["groupPolicyLastModifiedDateTime"];
             } else {
                 $this->_propDict["groupPolicyLastModifiedDateTime"] = new \DateTime($this->_propDict["groupPolicyLastModifiedDateTime"]);
@@ -189,8 +189,8 @@ class GroupPolicyMigrationReport extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -222,8 +222,8 @@ class GroupPolicyMigrationReport extends Entity
     */
     public function getMigrationReadiness()
     {
-        if (array_key_exists("migrationReadiness", $this->_propDict)) {
-            if (is_a($this->_propDict["migrationReadiness"], "\Beta\Microsoft\Graph\Model\GroupPolicyMigrationReadiness") || is_null($this->_propDict["migrationReadiness"])) {
+        if (array_key_exists("migrationReadiness", $this->_propDict) && !is_null($this->_propDict["migrationReadiness"])) {
+            if (is_a($this->_propDict["migrationReadiness"], "\Beta\Microsoft\Graph\Model\GroupPolicyMigrationReadiness")) {
                 return $this->_propDict["migrationReadiness"];
             } else {
                 $this->_propDict["migrationReadiness"] = new GroupPolicyMigrationReadiness($this->_propDict["migrationReadiness"]);
@@ -397,22 +397,29 @@ class GroupPolicyMigrationReport extends Entity
      * Gets the groupPolicySettingMappings
     * A list of group policy settings to MDM/Intune mappings.
      *
-     * @return array|null The groupPolicySettingMappings
+     * @return GroupPolicySettingMapping[]|null The groupPolicySettingMappings
      */
     public function getGroupPolicySettingMappings()
     {
-        if (array_key_exists("groupPolicySettingMappings", $this->_propDict)) {
-           return $this->_propDict["groupPolicySettingMappings"];
-        } else {
-            return null;
+        if (array_key_exists('groupPolicySettingMappings', $this->_propDict) && !is_null($this->_propDict['groupPolicySettingMappings'])) {
+            $groupPolicySettingMappings = [];
+            if (count($this->_propDict['groupPolicySettingMappings']) > 0 && is_a($this->_propDict['groupPolicySettingMappings'][0], 'GroupPolicySettingMapping')) {
+                return $this->_propDict['groupPolicySettingMappings'];
+            }
+            foreach ($this->_propDict['groupPolicySettingMappings'] as $singleValue) {
+                $groupPolicySettingMappings []= new GroupPolicySettingMapping($singleValue);
+            }
+            $this->_propDict['groupPolicySettingMappings'] = $groupPolicySettingMappings;
+            return $this->_propDict['groupPolicySettingMappings'];
         }
+        return null;
     }
     
     /** 
     * Sets the groupPolicySettingMappings
     * A list of group policy settings to MDM/Intune mappings.
     *
-    * @param GroupPolicySettingMapping $val The groupPolicySettingMappings
+    * @param GroupPolicySettingMapping[] $val The groupPolicySettingMappings
     *
     * @return GroupPolicyMigrationReport
     */
@@ -427,22 +434,29 @@ class GroupPolicyMigrationReport extends Entity
      * Gets the unsupportedGroupPolicyExtensions
     * A list of unsupported group policy extensions inside the Group Policy Object.
      *
-     * @return array|null The unsupportedGroupPolicyExtensions
+     * @return UnsupportedGroupPolicyExtension[]|null The unsupportedGroupPolicyExtensions
      */
     public function getUnsupportedGroupPolicyExtensions()
     {
-        if (array_key_exists("unsupportedGroupPolicyExtensions", $this->_propDict)) {
-           return $this->_propDict["unsupportedGroupPolicyExtensions"];
-        } else {
-            return null;
+        if (array_key_exists('unsupportedGroupPolicyExtensions', $this->_propDict) && !is_null($this->_propDict['unsupportedGroupPolicyExtensions'])) {
+            $unsupportedGroupPolicyExtensions = [];
+            if (count($this->_propDict['unsupportedGroupPolicyExtensions']) > 0 && is_a($this->_propDict['unsupportedGroupPolicyExtensions'][0], 'UnsupportedGroupPolicyExtension')) {
+                return $this->_propDict['unsupportedGroupPolicyExtensions'];
+            }
+            foreach ($this->_propDict['unsupportedGroupPolicyExtensions'] as $singleValue) {
+                $unsupportedGroupPolicyExtensions []= new UnsupportedGroupPolicyExtension($singleValue);
+            }
+            $this->_propDict['unsupportedGroupPolicyExtensions'] = $unsupportedGroupPolicyExtensions;
+            return $this->_propDict['unsupportedGroupPolicyExtensions'];
         }
+        return null;
     }
     
     /** 
     * Sets the unsupportedGroupPolicyExtensions
     * A list of unsupported group policy extensions inside the Group Policy Object.
     *
-    * @param UnsupportedGroupPolicyExtension $val The unsupportedGroupPolicyExtensions
+    * @param UnsupportedGroupPolicyExtension[] $val The unsupportedGroupPolicyExtensions
     *
     * @return GroupPolicyMigrationReport
     */

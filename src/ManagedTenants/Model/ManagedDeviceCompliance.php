@@ -90,8 +90,8 @@ class ManagedDeviceCompliance extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getInGracePeriodUntilDateTime()
     {
-        if (array_key_exists("inGracePeriodUntilDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["inGracePeriodUntilDateTime"], "\DateTime") || is_null($this->_propDict["inGracePeriodUntilDateTime"])) {
+        if (array_key_exists("inGracePeriodUntilDateTime", $this->_propDict) && !is_null($this->_propDict["inGracePeriodUntilDateTime"])) {
+            if (is_a($this->_propDict["inGracePeriodUntilDateTime"], "\DateTime")) {
                 return $this->_propDict["inGracePeriodUntilDateTime"];
             } else {
                 $this->_propDict["inGracePeriodUntilDateTime"] = new \DateTime($this->_propDict["inGracePeriodUntilDateTime"]);
@@ -123,8 +123,8 @@ class ManagedDeviceCompliance extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastRefreshedDateTime()
     {
-        if (array_key_exists("lastRefreshedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastRefreshedDateTime"], "\DateTime") || is_null($this->_propDict["lastRefreshedDateTime"])) {
+        if (array_key_exists("lastRefreshedDateTime", $this->_propDict) && !is_null($this->_propDict["lastRefreshedDateTime"])) {
+            if (is_a($this->_propDict["lastRefreshedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastRefreshedDateTime"];
             } else {
                 $this->_propDict["lastRefreshedDateTime"] = new \DateTime($this->_propDict["lastRefreshedDateTime"]);
@@ -156,8 +156,8 @@ class ManagedDeviceCompliance extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastSyncDateTime()
     {
-        if (array_key_exists("lastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
+        if (array_key_exists("lastSyncDateTime", $this->_propDict) && !is_null($this->_propDict["lastSyncDateTime"])) {
+            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSyncDateTime"];
             } else {
                 $this->_propDict["lastSyncDateTime"] = new \DateTime($this->_propDict["lastSyncDateTime"]);

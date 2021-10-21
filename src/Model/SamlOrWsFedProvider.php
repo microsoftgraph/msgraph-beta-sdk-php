@@ -119,8 +119,8 @@ class SamlOrWsFedProvider extends IdentityProviderBase
     */
     public function getPreferredAuthenticationProtocol()
     {
-        if (array_key_exists("preferredAuthenticationProtocol", $this->_propDict)) {
-            if (is_a($this->_propDict["preferredAuthenticationProtocol"], "\Beta\Microsoft\Graph\Model\AuthenticationProtocol") || is_null($this->_propDict["preferredAuthenticationProtocol"])) {
+        if (array_key_exists("preferredAuthenticationProtocol", $this->_propDict) && !is_null($this->_propDict["preferredAuthenticationProtocol"])) {
+            if (is_a($this->_propDict["preferredAuthenticationProtocol"], "\Beta\Microsoft\Graph\Model\AuthenticationProtocol")) {
                 return $this->_propDict["preferredAuthenticationProtocol"];
             } else {
                 $this->_propDict["preferredAuthenticationProtocol"] = new AuthenticationProtocol($this->_propDict["preferredAuthenticationProtocol"]);

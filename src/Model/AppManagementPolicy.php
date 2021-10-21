@@ -61,8 +61,8 @@ class AppManagementPolicy extends PolicyBase
     */
     public function getRestrictions()
     {
-        if (array_key_exists("restrictions", $this->_propDict)) {
-            if (is_a($this->_propDict["restrictions"], "\Beta\Microsoft\Graph\Model\AppManagementConfiguration") || is_null($this->_propDict["restrictions"])) {
+        if (array_key_exists("restrictions", $this->_propDict) && !is_null($this->_propDict["restrictions"])) {
+            if (is_a($this->_propDict["restrictions"], "\Beta\Microsoft\Graph\Model\AppManagementConfiguration")) {
                 return $this->_propDict["restrictions"];
             } else {
                 $this->_propDict["restrictions"] = new AppManagementConfiguration($this->_propDict["restrictions"]);
@@ -91,22 +91,29 @@ class AppManagementPolicy extends PolicyBase
      * Gets the appliesTo
     * Collection of application and service principals to which a policy is applied.
      *
-     * @return array|null The appliesTo
+     * @return DirectoryObject[]|null The appliesTo
      */
     public function getAppliesTo()
     {
-        if (array_key_exists("appliesTo", $this->_propDict)) {
-           return $this->_propDict["appliesTo"];
-        } else {
-            return null;
+        if (array_key_exists('appliesTo', $this->_propDict) && !is_null($this->_propDict['appliesTo'])) {
+            $appliesTo = [];
+            if (count($this->_propDict['appliesTo']) > 0 && is_a($this->_propDict['appliesTo'][0], 'DirectoryObject')) {
+                return $this->_propDict['appliesTo'];
+            }
+            foreach ($this->_propDict['appliesTo'] as $singleValue) {
+                $appliesTo []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['appliesTo'] = $appliesTo;
+            return $this->_propDict['appliesTo'];
         }
+        return null;
     }
     
     /** 
     * Sets the appliesTo
     * Collection of application and service principals to which a policy is applied.
     *
-    * @param DirectoryObject $val The appliesTo
+    * @param DirectoryObject[] $val The appliesTo
     *
     * @return AppManagementPolicy
     */

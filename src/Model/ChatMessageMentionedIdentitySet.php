@@ -32,8 +32,9 @@ class ChatMessageMentionedIdentitySet extends IdentitySet
     */
     public function getConversation()
     {
-        if (array_key_exists("conversation", $this->_propDict)) {
-            if (is_a($this->_propDict["conversation"], "\Beta\Microsoft\Graph\Model\TeamworkConversationIdentity") || is_null($this->_propDict["conversation"])) {
+        if (array_key_exists("conversation", $this->_propDict) && !is_null($this->_propDict["conversation"])) {
+     
+            if (is_a($this->_propDict["conversation"], "\Beta\Microsoft\Graph\Model\TeamworkConversationIdentity")) {
                 return $this->_propDict["conversation"];
             } else {
                 $this->_propDict["conversation"] = new TeamworkConversationIdentity($this->_propDict["conversation"]);
@@ -65,8 +66,9 @@ class ChatMessageMentionedIdentitySet extends IdentitySet
     */
     public function getTag()
     {
-        if (array_key_exists("tag", $this->_propDict)) {
-            if (is_a($this->_propDict["tag"], "\Beta\Microsoft\Graph\Model\TeamworkTagIdentity") || is_null($this->_propDict["tag"])) {
+        if (array_key_exists("tag", $this->_propDict) && !is_null($this->_propDict["tag"])) {
+     
+            if (is_a($this->_propDict["tag"], "\Beta\Microsoft\Graph\Model\TeamworkTagIdentity")) {
                 return $this->_propDict["tag"];
             } else {
                 $this->_propDict["tag"] = new TeamworkTagIdentity($this->_propDict["tag"]);

@@ -90,8 +90,8 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration
     */
     public function getPinLowercaseCharactersUsage()
     {
-        if (array_key_exists("pinLowercaseCharactersUsage", $this->_propDict)) {
-            if (is_a($this->_propDict["pinLowercaseCharactersUsage"], "\Beta\Microsoft\Graph\Model\ConfigurationUsage") || is_null($this->_propDict["pinLowercaseCharactersUsage"])) {
+        if (array_key_exists("pinLowercaseCharactersUsage", $this->_propDict) && !is_null($this->_propDict["pinLowercaseCharactersUsage"])) {
+            if (is_a($this->_propDict["pinLowercaseCharactersUsage"], "\Beta\Microsoft\Graph\Model\ConfigurationUsage")) {
                 return $this->_propDict["pinLowercaseCharactersUsage"];
             } else {
                 $this->_propDict["pinLowercaseCharactersUsage"] = new ConfigurationUsage($this->_propDict["pinLowercaseCharactersUsage"]);
@@ -239,8 +239,8 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration
     */
     public function getPinSpecialCharactersUsage()
     {
-        if (array_key_exists("pinSpecialCharactersUsage", $this->_propDict)) {
-            if (is_a($this->_propDict["pinSpecialCharactersUsage"], "\Beta\Microsoft\Graph\Model\ConfigurationUsage") || is_null($this->_propDict["pinSpecialCharactersUsage"])) {
+        if (array_key_exists("pinSpecialCharactersUsage", $this->_propDict) && !is_null($this->_propDict["pinSpecialCharactersUsage"])) {
+            if (is_a($this->_propDict["pinSpecialCharactersUsage"], "\Beta\Microsoft\Graph\Model\ConfigurationUsage")) {
                 return $this->_propDict["pinSpecialCharactersUsage"];
             } else {
                 $this->_propDict["pinSpecialCharactersUsage"] = new ConfigurationUsage($this->_propDict["pinSpecialCharactersUsage"]);
@@ -272,8 +272,8 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration
     */
     public function getPinUppercaseCharactersUsage()
     {
-        if (array_key_exists("pinUppercaseCharactersUsage", $this->_propDict)) {
-            if (is_a($this->_propDict["pinUppercaseCharactersUsage"], "\Beta\Microsoft\Graph\Model\ConfigurationUsage") || is_null($this->_propDict["pinUppercaseCharactersUsage"])) {
+        if (array_key_exists("pinUppercaseCharactersUsage", $this->_propDict) && !is_null($this->_propDict["pinUppercaseCharactersUsage"])) {
+            if (is_a($this->_propDict["pinUppercaseCharactersUsage"], "\Beta\Microsoft\Graph\Model\ConfigurationUsage")) {
                 return $this->_propDict["pinUppercaseCharactersUsage"];
             } else {
                 $this->_propDict["pinUppercaseCharactersUsage"] = new ConfigurationUsage($this->_propDict["pinUppercaseCharactersUsage"]);

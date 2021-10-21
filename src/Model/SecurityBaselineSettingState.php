@@ -29,22 +29,29 @@ class SecurityBaselineSettingState extends Entity
      * Gets the contributingPolicies
     * The policies that contribute to this setting instance
      *
-     * @return array|null The contributingPolicies
+     * @return SecurityBaselineContributingPolicy[]|null The contributingPolicies
      */
     public function getContributingPolicies()
     {
-        if (array_key_exists("contributingPolicies", $this->_propDict)) {
-           return $this->_propDict["contributingPolicies"];
-        } else {
-            return null;
+        if (array_key_exists('contributingPolicies', $this->_propDict) && !is_null($this->_propDict['contributingPolicies'])) {
+            $contributingPolicies = [];
+            if (count($this->_propDict['contributingPolicies']) > 0 && is_a($this->_propDict['contributingPolicies'][0], 'SecurityBaselineContributingPolicy')) {
+                return $this->_propDict['contributingPolicies'];
+            }
+            foreach ($this->_propDict['contributingPolicies'] as $singleValue) {
+                $contributingPolicies []= new SecurityBaselineContributingPolicy($singleValue);
+            }
+            $this->_propDict['contributingPolicies'] = $contributingPolicies;
+            return $this->_propDict['contributingPolicies'];
         }
+        return null;
     }
     
     /** 
     * Sets the contributingPolicies
     * The policies that contribute to this setting instance
     *
-    * @param SecurityBaselineContributingPolicy $val The contributingPolicies
+    * @param SecurityBaselineContributingPolicy[] $val The contributingPolicies
     *
     * @return SecurityBaselineSettingState
     */
@@ -204,22 +211,29 @@ class SecurityBaselineSettingState extends Entity
      * Gets the sourcePolicies
     * The policies that contribute to this setting instance
      *
-     * @return array|null The sourcePolicies
+     * @return SettingSource[]|null The sourcePolicies
      */
     public function getSourcePolicies()
     {
-        if (array_key_exists("sourcePolicies", $this->_propDict)) {
-           return $this->_propDict["sourcePolicies"];
-        } else {
-            return null;
+        if (array_key_exists('sourcePolicies', $this->_propDict) && !is_null($this->_propDict['sourcePolicies'])) {
+            $sourcePolicies = [];
+            if (count($this->_propDict['sourcePolicies']) > 0 && is_a($this->_propDict['sourcePolicies'][0], 'SettingSource')) {
+                return $this->_propDict['sourcePolicies'];
+            }
+            foreach ($this->_propDict['sourcePolicies'] as $singleValue) {
+                $sourcePolicies []= new SettingSource($singleValue);
+            }
+            $this->_propDict['sourcePolicies'] = $sourcePolicies;
+            return $this->_propDict['sourcePolicies'];
         }
+        return null;
     }
     
     /** 
     * Sets the sourcePolicies
     * The policies that contribute to this setting instance
     *
-    * @param SettingSource $val The sourcePolicies
+    * @param SettingSource[] $val The sourcePolicies
     *
     * @return SecurityBaselineSettingState
     */
@@ -237,8 +251,8 @@ class SecurityBaselineSettingState extends Entity
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\SecurityBaselineComplianceState") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\SecurityBaselineComplianceState")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new SecurityBaselineComplianceState($this->_propDict["state"]);

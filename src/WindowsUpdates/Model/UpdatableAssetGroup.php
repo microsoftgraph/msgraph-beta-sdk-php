@@ -29,22 +29,29 @@ class UpdatableAssetGroup extends UpdatableAsset
      * Gets the members
     * Members of the group. Read-only.
      *
-     * @return array|null The members
+     * @return UpdatableAsset[]|null The members
      */
     public function getMembers()
     {
-        if (array_key_exists("members", $this->_propDict)) {
-           return $this->_propDict["members"];
-        } else {
-            return null;
+        if (array_key_exists('members', $this->_propDict) && !is_null($this->_propDict['members'])) {
+            $members = [];
+            if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'UpdatableAsset')) {
+                return $this->_propDict['members'];
+            }
+            foreach ($this->_propDict['members'] as $singleValue) {
+                $members []= new UpdatableAsset($singleValue);
+            }
+            $this->_propDict['members'] = $members;
+            return $this->_propDict['members'];
         }
+        return null;
     }
     
     /** 
     * Sets the members
     * Members of the group. Read-only.
     *
-    * @param UpdatableAsset $val The members
+    * @param UpdatableAsset[] $val The members
     *
     * @return UpdatableAssetGroup
     */

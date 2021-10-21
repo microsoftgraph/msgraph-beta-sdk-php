@@ -32,8 +32,9 @@ class DeploymentSettings extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getMonitoring()
     {
-        if (array_key_exists("monitoring", $this->_propDict)) {
-            if (is_a($this->_propDict["monitoring"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\MonitoringSettings") || is_null($this->_propDict["monitoring"])) {
+        if (array_key_exists("monitoring", $this->_propDict) && !is_null($this->_propDict["monitoring"])) {
+     
+            if (is_a($this->_propDict["monitoring"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\MonitoringSettings")) {
                 return $this->_propDict["monitoring"];
             } else {
                 $this->_propDict["monitoring"] = new MonitoringSettings($this->_propDict["monitoring"]);
@@ -65,8 +66,9 @@ class DeploymentSettings extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getRollout()
     {
-        if (array_key_exists("rollout", $this->_propDict)) {
-            if (is_a($this->_propDict["rollout"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\RolloutSettings") || is_null($this->_propDict["rollout"])) {
+        if (array_key_exists("rollout", $this->_propDict) && !is_null($this->_propDict["rollout"])) {
+     
+            if (is_a($this->_propDict["rollout"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\RolloutSettings")) {
                 return $this->_propDict["rollout"];
             } else {
                 $this->_propDict["rollout"] = new RolloutSettings($this->_propDict["rollout"]);
@@ -87,6 +89,38 @@ class DeploymentSettings extends \Beta\Microsoft\Graph\Model\Entity
     public function setRollout($val)
     {
         $this->_propDict["rollout"] = $val;
+         return $this;
+    }
+
+    /**
+    * Gets the safeguard
+    *
+    * @return SafeguardSettings|null The safeguard
+    */
+    public function getSafeguard()
+    {
+        if (array_key_exists("safeguard", $this->_propDict) && !is_null($this->_propDict["safeguard"])) {
+     
+            if (is_a($this->_propDict["safeguard"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\SafeguardSettings")) {
+                return $this->_propDict["safeguard"];
+            } else {
+                $this->_propDict["safeguard"] = new SafeguardSettings($this->_propDict["safeguard"]);
+                return $this->_propDict["safeguard"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the safeguard
+    *
+    * @param SafeguardSettings $val The value to assign to the safeguard
+    *
+    * @return DeploymentSettings The DeploymentSettings
+    */
+    public function setSafeguard($val)
+    {
+        $this->_propDict["safeguard"] = $val;
          return $this;
     }
 }

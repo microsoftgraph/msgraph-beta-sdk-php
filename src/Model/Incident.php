@@ -58,8 +58,8 @@ class Incident extends Entity
     */
     public function getClassification()
     {
-        if (array_key_exists("classification", $this->_propDict)) {
-            if (is_a($this->_propDict["classification"], "\Beta\Microsoft\Graph\Model\M365AlertClassification") || is_null($this->_propDict["classification"])) {
+        if (array_key_exists("classification", $this->_propDict) && !is_null($this->_propDict["classification"])) {
+            if (is_a($this->_propDict["classification"], "\Beta\Microsoft\Graph\Model\M365AlertClassification")) {
                 return $this->_propDict["classification"];
             } else {
                 $this->_propDict["classification"] = new M365AlertClassification($this->_propDict["classification"]);
@@ -86,21 +86,28 @@ class Incident extends Entity
      /** 
      * Gets the comments
      *
-     * @return array|null The comments
+     * @return M365AlertComment[]|null The comments
      */
     public function getComments()
     {
-        if (array_key_exists("comments", $this->_propDict)) {
-           return $this->_propDict["comments"];
-        } else {
-            return null;
+        if (array_key_exists('comments', $this->_propDict) && !is_null($this->_propDict['comments'])) {
+            $comments = [];
+            if (count($this->_propDict['comments']) > 0 && is_a($this->_propDict['comments'][0], 'M365AlertComment')) {
+                return $this->_propDict['comments'];
+            }
+            foreach ($this->_propDict['comments'] as $singleValue) {
+                $comments []= new M365AlertComment($singleValue);
+            }
+            $this->_propDict['comments'] = $comments;
+            return $this->_propDict['comments'];
         }
+        return null;
     }
     
     /** 
     * Sets the comments
     *
-    * @param M365AlertComment $val The comments
+    * @param M365AlertComment[] $val The comments
     *
     * @return Incident
     */
@@ -117,8 +124,8 @@ class Incident extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -148,8 +155,8 @@ class Incident extends Entity
     */
     public function getDetermination()
     {
-        if (array_key_exists("determination", $this->_propDict)) {
-            if (is_a($this->_propDict["determination"], "\Beta\Microsoft\Graph\Model\M365AlertDetermination") || is_null($this->_propDict["determination"])) {
+        if (array_key_exists("determination", $this->_propDict) && !is_null($this->_propDict["determination"])) {
+            if (is_a($this->_propDict["determination"], "\Beta\Microsoft\Graph\Model\M365AlertDetermination")) {
                 return $this->_propDict["determination"];
             } else {
                 $this->_propDict["determination"] = new M365AlertDetermination($this->_propDict["determination"]);
@@ -233,8 +240,8 @@ class Incident extends Entity
     */
     public function getLastUpdateDateTime()
     {
-        if (array_key_exists("lastUpdateDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdateDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdateDateTime"])) {
+        if (array_key_exists("lastUpdateDateTime", $this->_propDict) && !is_null($this->_propDict["lastUpdateDateTime"])) {
+            if (is_a($this->_propDict["lastUpdateDateTime"], "\DateTime")) {
                 return $this->_propDict["lastUpdateDateTime"];
             } else {
                 $this->_propDict["lastUpdateDateTime"] = new \DateTime($this->_propDict["lastUpdateDateTime"]);
@@ -291,8 +298,8 @@ class Incident extends Entity
     */
     public function getSeverity()
     {
-        if (array_key_exists("severity", $this->_propDict)) {
-            if (is_a($this->_propDict["severity"], "\Beta\Microsoft\Graph\Model\M365AlertSeverity") || is_null($this->_propDict["severity"])) {
+        if (array_key_exists("severity", $this->_propDict) && !is_null($this->_propDict["severity"])) {
+            if (is_a($this->_propDict["severity"], "\Beta\Microsoft\Graph\Model\M365AlertSeverity")) {
                 return $this->_propDict["severity"];
             } else {
                 $this->_propDict["severity"] = new M365AlertSeverity($this->_propDict["severity"]);
@@ -322,8 +329,8 @@ class Incident extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\IncidentStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\IncidentStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new IncidentStatus($this->_propDict["status"]);

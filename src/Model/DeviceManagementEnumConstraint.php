@@ -39,18 +39,22 @@ class DeviceManagementEnumConstraint extends DeviceManagementConstraint
     * Gets the values
     * List of valid values for this string
     *
-    * @return DeviceManagementEnumValue|null The values
+    * @return DeviceManagementEnumValue[]|null The values
     */
     public function getValues()
     {
-        if (array_key_exists("values", $this->_propDict)) {
-            if (is_a($this->_propDict["values"], "\Beta\Microsoft\Graph\Model\DeviceManagementEnumValue") || is_null($this->_propDict["values"])) {
-                return $this->_propDict["values"];
-            } else {
-                $this->_propDict["values"] = new DeviceManagementEnumValue($this->_propDict["values"]);
-                return $this->_propDict["values"];
+        if (array_key_exists("values", $this->_propDict) && !is_null($this->_propDict["values"])) {
+       
+            if (count($this->_propDict['values']) > 0 && is_a($this->_propDict['values'][0], 'DeviceManagementEnumValue')) {
+               return $this->_propDict['values'];
             }
-        }
+            $values = [];
+            foreach ($this->_propDict['values'] as $singleValue) {
+               $values []= new DeviceManagementEnumValue($singleValue);
+            }
+            $this->_propDict['values'] = $values;
+            return $this->_propDict['values'];
+            }
         return null;
     }
 
@@ -58,7 +62,7 @@ class DeviceManagementEnumConstraint extends DeviceManagementConstraint
     * Sets the values
     * List of valid values for this string
     *
-    * @param DeviceManagementEnumValue $val The value to assign to the values
+    * @param DeviceManagementEnumValue[] $val The value to assign to the values
     *
     * @return DeviceManagementEnumConstraint The DeviceManagementEnumConstraint
     */

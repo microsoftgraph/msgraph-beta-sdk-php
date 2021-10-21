@@ -26,13 +26,14 @@ class Simulation extends Entity
 {
     /**
     * Gets the attackTechnique
+    * The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue. For more information on the types of social engineering attack techniques, see simulations.
     *
     * @return SimulationAttackTechnique|null The attackTechnique
     */
     public function getAttackTechnique()
     {
-        if (array_key_exists("attackTechnique", $this->_propDict)) {
-            if (is_a($this->_propDict["attackTechnique"], "\Beta\Microsoft\Graph\Model\SimulationAttackTechnique") || is_null($this->_propDict["attackTechnique"])) {
+        if (array_key_exists("attackTechnique", $this->_propDict) && !is_null($this->_propDict["attackTechnique"])) {
+            if (is_a($this->_propDict["attackTechnique"], "\Beta\Microsoft\Graph\Model\SimulationAttackTechnique")) {
                 return $this->_propDict["attackTechnique"];
             } else {
                 $this->_propDict["attackTechnique"] = new SimulationAttackTechnique($this->_propDict["attackTechnique"]);
@@ -44,6 +45,7 @@ class Simulation extends Entity
     
     /**
     * Sets the attackTechnique
+    * The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue. For more information on the types of social engineering attack techniques, see simulations.
     *
     * @param SimulationAttackTechnique $val The attackTechnique
     *
@@ -57,13 +59,14 @@ class Simulation extends Entity
     
     /**
     * Gets the attackType
+    * Attack type of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, social, cloud, endpoint, unknownFutureValue.
     *
     * @return SimulationAttackType|null The attackType
     */
     public function getAttackType()
     {
-        if (array_key_exists("attackType", $this->_propDict)) {
-            if (is_a($this->_propDict["attackType"], "\Beta\Microsoft\Graph\Model\SimulationAttackType") || is_null($this->_propDict["attackType"])) {
+        if (array_key_exists("attackType", $this->_propDict) && !is_null($this->_propDict["attackType"])) {
+            if (is_a($this->_propDict["attackType"], "\Beta\Microsoft\Graph\Model\SimulationAttackType")) {
                 return $this->_propDict["attackType"];
             } else {
                 $this->_propDict["attackType"] = new SimulationAttackType($this->_propDict["attackType"]);
@@ -75,6 +78,7 @@ class Simulation extends Entity
     
     /**
     * Sets the attackType
+    * Attack type of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, social, cloud, endpoint, unknownFutureValue.
     *
     * @param SimulationAttackType $val The attackType
     *
@@ -88,6 +92,7 @@ class Simulation extends Entity
     
     /**
     * Gets the cleanupArtifacts
+    * Flag representing if artifacts were cleaned up in the attack simulation and training campaign.
     *
     * @return bool|null The cleanupArtifacts
     */
@@ -102,6 +107,7 @@ class Simulation extends Entity
     
     /**
     * Sets the cleanupArtifacts
+    * Flag representing if artifacts were cleaned up in the attack simulation and training campaign.
     *
     * @param bool $val The cleanupArtifacts
     *
@@ -115,13 +121,14 @@ class Simulation extends Entity
     
     /**
     * Gets the completionDateTime
+    * Date and time of completion of the attack simulation and training campaign. Supports $filter and $orderby.
     *
     * @return \DateTime|null The completionDateTime
     */
     public function getCompletionDateTime()
     {
-        if (array_key_exists("completionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["completionDateTime"], "\DateTime") || is_null($this->_propDict["completionDateTime"])) {
+        if (array_key_exists("completionDateTime", $this->_propDict) && !is_null($this->_propDict["completionDateTime"])) {
+            if (is_a($this->_propDict["completionDateTime"], "\DateTime")) {
                 return $this->_propDict["completionDateTime"];
             } else {
                 $this->_propDict["completionDateTime"] = new \DateTime($this->_propDict["completionDateTime"]);
@@ -133,6 +140,7 @@ class Simulation extends Entity
     
     /**
     * Sets the completionDateTime
+    * Date and time of completion of the attack simulation and training campaign. Supports $filter and $orderby.
     *
     * @param \DateTime $val The completionDateTime
     *
@@ -146,13 +154,14 @@ class Simulation extends Entity
     
     /**
     * Gets the createdBy
+    * Identity of the user who created the attack simulation and training campaign.
     *
     * @return EmailIdentity|null The createdBy
     */
     public function getCreatedBy()
     {
-        if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\EmailIdentity") || is_null($this->_propDict["createdBy"])) {
+        if (array_key_exists("createdBy", $this->_propDict) && !is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\EmailIdentity")) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new EmailIdentity($this->_propDict["createdBy"]);
@@ -164,6 +173,7 @@ class Simulation extends Entity
     
     /**
     * Sets the createdBy
+    * Identity of the user who created the attack simulation and training campaign.
     *
     * @param EmailIdentity $val The createdBy
     *
@@ -177,13 +187,14 @@ class Simulation extends Entity
     
     /**
     * Gets the createdDateTime
+    * Date and time of creation of the attack simulation and training campaign.
     *
     * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -195,6 +206,7 @@ class Simulation extends Entity
     
     /**
     * Sets the createdDateTime
+    * Date and time of creation of the attack simulation and training campaign.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -208,6 +220,7 @@ class Simulation extends Entity
     
     /**
     * Gets the description
+    * Description of the attack simulation and training campaign.
     *
     * @return string|null The description
     */
@@ -222,6 +235,7 @@ class Simulation extends Entity
     
     /**
     * Sets the description
+    * Description of the attack simulation and training campaign.
     *
     * @param string $val The description
     *
@@ -235,6 +249,7 @@ class Simulation extends Entity
     
     /**
     * Gets the displayName
+    * Display name of the attack simulation and training campaign. Supports $filter and $orderby.
     *
     * @return string|null The displayName
     */
@@ -249,6 +264,7 @@ class Simulation extends Entity
     
     /**
     * Sets the displayName
+    * Display name of the attack simulation and training campaign. Supports $filter and $orderby.
     *
     * @param string $val The displayName
     *
@@ -262,6 +278,7 @@ class Simulation extends Entity
     
     /**
     * Gets the enableRegionTimezoneDelivery
+    * Flag representing whether to enable or disable timezone-aware delivery of phishing payload in the attack simulation and training campaign.
     *
     * @return bool|null The enableRegionTimezoneDelivery
     */
@@ -276,6 +293,7 @@ class Simulation extends Entity
     
     /**
     * Sets the enableRegionTimezoneDelivery
+    * Flag representing whether to enable or disable timezone-aware delivery of phishing payload in the attack simulation and training campaign.
     *
     * @param bool $val The enableRegionTimezoneDelivery
     *
@@ -289,6 +307,7 @@ class Simulation extends Entity
     
     /**
     * Gets the includeAllAccountTargets
+    * Flag representing inclusion of all the users of a tenant in the attack simulation and training campaign.
     *
     * @return bool|null The includeAllAccountTargets
     */
@@ -303,6 +322,7 @@ class Simulation extends Entity
     
     /**
     * Sets the includeAllAccountTargets
+    * Flag representing inclusion of all the users of a tenant in the attack simulation and training campaign.
     *
     * @param bool $val The includeAllAccountTargets
     *
@@ -316,6 +336,7 @@ class Simulation extends Entity
     
     /**
     * Gets the isAutomated
+    * Flag representing if the attack simulation and training campaign was created from a simulation automation flow. Supports $filter and $orderby.
     *
     * @return bool|null The isAutomated
     */
@@ -330,6 +351,7 @@ class Simulation extends Entity
     
     /**
     * Sets the isAutomated
+    * Flag representing if the attack simulation and training campaign was created from a simulation automation flow. Supports $filter and $orderby.
     *
     * @param bool $val The isAutomated
     *
@@ -343,13 +365,14 @@ class Simulation extends Entity
     
     /**
     * Gets the lastModifiedBy
+    * Identity of the user who most recently modified the attack simulation and training campaign.
     *
     * @return EmailIdentity|null The lastModifiedBy
     */
     public function getLastModifiedBy()
     {
-        if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\EmailIdentity") || is_null($this->_propDict["lastModifiedBy"])) {
+        if (array_key_exists("lastModifiedBy", $this->_propDict) && !is_null($this->_propDict["lastModifiedBy"])) {
+            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\EmailIdentity")) {
                 return $this->_propDict["lastModifiedBy"];
             } else {
                 $this->_propDict["lastModifiedBy"] = new EmailIdentity($this->_propDict["lastModifiedBy"]);
@@ -361,6 +384,7 @@ class Simulation extends Entity
     
     /**
     * Sets the lastModifiedBy
+    * Identity of the user who most recently modified the attack simulation and training campaign.
     *
     * @param EmailIdentity $val The lastModifiedBy
     *
@@ -374,13 +398,14 @@ class Simulation extends Entity
     
     /**
     * Gets the lastModifiedDateTime
+    * Date and time of the most recent modification of the attack simulation and training campaign.
     *
     * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -392,6 +417,7 @@ class Simulation extends Entity
     
     /**
     * Sets the lastModifiedDateTime
+    * Date and time of the most recent modification of the attack simulation and training campaign.
     *
     * @param \DateTime $val The lastModifiedDateTime
     *
@@ -405,13 +431,14 @@ class Simulation extends Entity
     
     /**
     * Gets the launchDateTime
+    * Date and time of the launch/start of the attack simulation and training campaign. Supports $filter and $orderby.
     *
     * @return \DateTime|null The launchDateTime
     */
     public function getLaunchDateTime()
     {
-        if (array_key_exists("launchDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["launchDateTime"], "\DateTime") || is_null($this->_propDict["launchDateTime"])) {
+        if (array_key_exists("launchDateTime", $this->_propDict) && !is_null($this->_propDict["launchDateTime"])) {
+            if (is_a($this->_propDict["launchDateTime"], "\DateTime")) {
                 return $this->_propDict["launchDateTime"];
             } else {
                 $this->_propDict["launchDateTime"] = new \DateTime($this->_propDict["launchDateTime"]);
@@ -423,6 +450,7 @@ class Simulation extends Entity
     
     /**
     * Sets the launchDateTime
+    * Date and time of the launch/start of the attack simulation and training campaign. Supports $filter and $orderby.
     *
     * @param \DateTime $val The launchDateTime
     *
@@ -436,13 +464,14 @@ class Simulation extends Entity
     
     /**
     * Gets the mode
+    * Mode of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: real, preview, unknownFutureValue.
     *
     * @return SimulationMode|null The mode
     */
     public function getMode()
     {
-        if (array_key_exists("mode", $this->_propDict)) {
-            if (is_a($this->_propDict["mode"], "\Beta\Microsoft\Graph\Model\SimulationMode") || is_null($this->_propDict["mode"])) {
+        if (array_key_exists("mode", $this->_propDict) && !is_null($this->_propDict["mode"])) {
+            if (is_a($this->_propDict["mode"], "\Beta\Microsoft\Graph\Model\SimulationMode")) {
                 return $this->_propDict["mode"];
             } else {
                 $this->_propDict["mode"] = new SimulationMode($this->_propDict["mode"]);
@@ -454,6 +483,7 @@ class Simulation extends Entity
     
     /**
     * Sets the mode
+    * Mode of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: real, preview, unknownFutureValue.
     *
     * @param SimulationMode $val The mode
     *
@@ -467,13 +497,14 @@ class Simulation extends Entity
     
     /**
     * Gets the payloadDeliveryPlatform
+    * Method of delivery of the phishing payload used in the attack simulation and training campaign. Possible values are: unknown, sms, email, teams, unknownFutureValue.
     *
     * @return PayloadDeliveryPlatform|null The payloadDeliveryPlatform
     */
     public function getPayloadDeliveryPlatform()
     {
-        if (array_key_exists("payloadDeliveryPlatform", $this->_propDict)) {
-            if (is_a($this->_propDict["payloadDeliveryPlatform"], "\Beta\Microsoft\Graph\Model\PayloadDeliveryPlatform") || is_null($this->_propDict["payloadDeliveryPlatform"])) {
+        if (array_key_exists("payloadDeliveryPlatform", $this->_propDict) && !is_null($this->_propDict["payloadDeliveryPlatform"])) {
+            if (is_a($this->_propDict["payloadDeliveryPlatform"], "\Beta\Microsoft\Graph\Model\PayloadDeliveryPlatform")) {
                 return $this->_propDict["payloadDeliveryPlatform"];
             } else {
                 $this->_propDict["payloadDeliveryPlatform"] = new PayloadDeliveryPlatform($this->_propDict["payloadDeliveryPlatform"]);
@@ -485,6 +516,7 @@ class Simulation extends Entity
     
     /**
     * Sets the payloadDeliveryPlatform
+    * Method of delivery of the phishing payload used in the attack simulation and training campaign. Possible values are: unknown, sms, email, teams, unknownFutureValue.
     *
     * @param PayloadDeliveryPlatform $val The payloadDeliveryPlatform
     *
@@ -498,13 +530,14 @@ class Simulation extends Entity
     
     /**
     * Gets the payloadSource
+    * Source of phishing payload in the attack simulation and training campaign. Possible values are: unknown, global, tenant, unknownFutureValue.
     *
     * @return PayloadSource|null The payloadSource
     */
     public function getPayloadSource()
     {
-        if (array_key_exists("payloadSource", $this->_propDict)) {
-            if (is_a($this->_propDict["payloadSource"], "\Beta\Microsoft\Graph\Model\PayloadSource") || is_null($this->_propDict["payloadSource"])) {
+        if (array_key_exists("payloadSource", $this->_propDict) && !is_null($this->_propDict["payloadSource"])) {
+            if (is_a($this->_propDict["payloadSource"], "\Beta\Microsoft\Graph\Model\PayloadSource")) {
                 return $this->_propDict["payloadSource"];
             } else {
                 $this->_propDict["payloadSource"] = new PayloadSource($this->_propDict["payloadSource"]);
@@ -516,6 +549,7 @@ class Simulation extends Entity
     
     /**
     * Sets the payloadSource
+    * Source of phishing payload in the attack simulation and training campaign. Possible values are: unknown, global, tenant, unknownFutureValue.
     *
     * @param PayloadSource $val The payloadSource
     *
@@ -529,13 +563,14 @@ class Simulation extends Entity
     
     /**
     * Gets the report
+    * Report of the attack simulation and training campaign.
     *
     * @return SimulationReport|null The report
     */
     public function getReport()
     {
-        if (array_key_exists("report", $this->_propDict)) {
-            if (is_a($this->_propDict["report"], "\Beta\Microsoft\Graph\Model\SimulationReport") || is_null($this->_propDict["report"])) {
+        if (array_key_exists("report", $this->_propDict) && !is_null($this->_propDict["report"])) {
+            if (is_a($this->_propDict["report"], "\Beta\Microsoft\Graph\Model\SimulationReport")) {
                 return $this->_propDict["report"];
             } else {
                 $this->_propDict["report"] = new SimulationReport($this->_propDict["report"]);
@@ -547,6 +582,7 @@ class Simulation extends Entity
     
     /**
     * Sets the report
+    * Report of the attack simulation and training campaign.
     *
     * @param SimulationReport $val The report
     *
@@ -560,13 +596,14 @@ class Simulation extends Entity
     
     /**
     * Gets the status
+    * Status of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, draft, inProgress, scheduled, completed, partiallyCompleted, failed, cancelled, excluded, deleted, included, unknownFutureValue.
     *
     * @return SimulationStatus|null The status
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\SimulationStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\SimulationStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new SimulationStatus($this->_propDict["status"]);
@@ -578,6 +615,7 @@ class Simulation extends Entity
     
     /**
     * Sets the status
+    * Status of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, draft, inProgress, scheduled, completed, partiallyCompleted, failed, cancelled, excluded, deleted, included, unknownFutureValue.
     *
     * @param SimulationStatus $val The status
     *
@@ -591,13 +629,14 @@ class Simulation extends Entity
     
     /**
     * Gets the trainingAssignmentPreference
+    * Preference of the tenant admin to assign training to users in the attack simulation and training campaign. Possible values are: unknown, auto, manual, unknownFutureValue.
     *
     * @return TrainingAssignmentPreference|null The trainingAssignmentPreference
     */
     public function getTrainingAssignmentPreference()
     {
-        if (array_key_exists("trainingAssignmentPreference", $this->_propDict)) {
-            if (is_a($this->_propDict["trainingAssignmentPreference"], "\Beta\Microsoft\Graph\Model\TrainingAssignmentPreference") || is_null($this->_propDict["trainingAssignmentPreference"])) {
+        if (array_key_exists("trainingAssignmentPreference", $this->_propDict) && !is_null($this->_propDict["trainingAssignmentPreference"])) {
+            if (is_a($this->_propDict["trainingAssignmentPreference"], "\Beta\Microsoft\Graph\Model\TrainingAssignmentPreference")) {
                 return $this->_propDict["trainingAssignmentPreference"];
             } else {
                 $this->_propDict["trainingAssignmentPreference"] = new TrainingAssignmentPreference($this->_propDict["trainingAssignmentPreference"]);
@@ -609,6 +648,7 @@ class Simulation extends Entity
     
     /**
     * Sets the trainingAssignmentPreference
+    * Preference of the tenant admin to assign training to users in the attack simulation and training campaign. Possible values are: unknown, auto, manual, unknownFutureValue.
     *
     * @param TrainingAssignmentPreference $val The trainingAssignmentPreference
     *
@@ -622,13 +662,14 @@ class Simulation extends Entity
     
     /**
     * Gets the trainingContentPreference
+    * Preference of the tenant admin for the source of training content to assign to users in the attack simulation and training campaign. Possible values are: unknown, microsoft, custom, noTraining, unknownFutureValue.
     *
     * @return TrainingContentPreference|null The trainingContentPreference
     */
     public function getTrainingContentPreference()
     {
-        if (array_key_exists("trainingContentPreference", $this->_propDict)) {
-            if (is_a($this->_propDict["trainingContentPreference"], "\Beta\Microsoft\Graph\Model\TrainingContentPreference") || is_null($this->_propDict["trainingContentPreference"])) {
+        if (array_key_exists("trainingContentPreference", $this->_propDict) && !is_null($this->_propDict["trainingContentPreference"])) {
+            if (is_a($this->_propDict["trainingContentPreference"], "\Beta\Microsoft\Graph\Model\TrainingContentPreference")) {
                 return $this->_propDict["trainingContentPreference"];
             } else {
                 $this->_propDict["trainingContentPreference"] = new TrainingContentPreference($this->_propDict["trainingContentPreference"]);
@@ -640,6 +681,7 @@ class Simulation extends Entity
     
     /**
     * Sets the trainingContentPreference
+    * Preference of the tenant admin for the source of training content to assign to users in the attack simulation and training campaign. Possible values are: unknown, microsoft, custom, noTraining, unknownFutureValue.
     *
     * @param TrainingContentPreference $val The trainingContentPreference
     *
@@ -653,13 +695,14 @@ class Simulation extends Entity
     
     /**
     * Gets the trainingDueDateTime
+    * Date and time before which the trainings need to be completed by users in the attack simulation and training campaign.
     *
     * @return \DateTime|null The trainingDueDateTime
     */
     public function getTrainingDueDateTime()
     {
-        if (array_key_exists("trainingDueDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["trainingDueDateTime"], "\DateTime") || is_null($this->_propDict["trainingDueDateTime"])) {
+        if (array_key_exists("trainingDueDateTime", $this->_propDict) && !is_null($this->_propDict["trainingDueDateTime"])) {
+            if (is_a($this->_propDict["trainingDueDateTime"], "\DateTime")) {
                 return $this->_propDict["trainingDueDateTime"];
             } else {
                 $this->_propDict["trainingDueDateTime"] = new \DateTime($this->_propDict["trainingDueDateTime"]);
@@ -671,6 +714,7 @@ class Simulation extends Entity
     
     /**
     * Sets the trainingDueDateTime
+    * Date and time before which the trainings need to be completed by users in the attack simulation and training campaign.
     *
     * @param \DateTime $val The trainingDueDateTime
     *

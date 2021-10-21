@@ -67,18 +67,22 @@ class DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate extend
     * Gets the groupSettingCollectionValueTemplate
     * Group Setting Collection Value Template
     *
-    * @return DeviceManagementConfigurationGroupSettingValueTemplate|null The groupSettingCollectionValueTemplate
+    * @return DeviceManagementConfigurationGroupSettingValueTemplate[]|null The groupSettingCollectionValueTemplate
     */
     public function getGroupSettingCollectionValueTemplate()
     {
-        if (array_key_exists("groupSettingCollectionValueTemplate", $this->_propDict)) {
-            if (is_a($this->_propDict["groupSettingCollectionValueTemplate"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationGroupSettingValueTemplate") || is_null($this->_propDict["groupSettingCollectionValueTemplate"])) {
-                return $this->_propDict["groupSettingCollectionValueTemplate"];
-            } else {
-                $this->_propDict["groupSettingCollectionValueTemplate"] = new DeviceManagementConfigurationGroupSettingValueTemplate($this->_propDict["groupSettingCollectionValueTemplate"]);
-                return $this->_propDict["groupSettingCollectionValueTemplate"];
+        if (array_key_exists("groupSettingCollectionValueTemplate", $this->_propDict) && !is_null($this->_propDict["groupSettingCollectionValueTemplate"])) {
+       
+            if (count($this->_propDict['groupSettingCollectionValueTemplate']) > 0 && is_a($this->_propDict['groupSettingCollectionValueTemplate'][0], 'DeviceManagementConfigurationGroupSettingValueTemplate')) {
+               return $this->_propDict['groupSettingCollectionValueTemplate'];
             }
-        }
+            $groupSettingCollectionValueTemplate = [];
+            foreach ($this->_propDict['groupSettingCollectionValueTemplate'] as $singleValue) {
+               $groupSettingCollectionValueTemplate []= new DeviceManagementConfigurationGroupSettingValueTemplate($singleValue);
+            }
+            $this->_propDict['groupSettingCollectionValueTemplate'] = $groupSettingCollectionValueTemplate;
+            return $this->_propDict['groupSettingCollectionValueTemplate'];
+            }
         return null;
     }
 
@@ -86,7 +90,7 @@ class DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate extend
     * Sets the groupSettingCollectionValueTemplate
     * Group Setting Collection Value Template
     *
-    * @param DeviceManagementConfigurationGroupSettingValueTemplate $val The value to assign to the groupSettingCollectionValueTemplate
+    * @param DeviceManagementConfigurationGroupSettingValueTemplate[] $val The value to assign to the groupSettingCollectionValueTemplate
     *
     * @return DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate The DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate
     */

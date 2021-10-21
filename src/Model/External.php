@@ -28,21 +28,28 @@ class External extends Entity
      /** 
      * Gets the connections
      *
-     * @return array|null The connections
+     * @return ExternalConnection[]|null The connections
      */
     public function getConnections()
     {
-        if (array_key_exists("connections", $this->_propDict)) {
-           return $this->_propDict["connections"];
-        } else {
-            return null;
+        if (array_key_exists('connections', $this->_propDict) && !is_null($this->_propDict['connections'])) {
+            $connections = [];
+            if (count($this->_propDict['connections']) > 0 && is_a($this->_propDict['connections'][0], 'ExternalConnection')) {
+                return $this->_propDict['connections'];
+            }
+            foreach ($this->_propDict['connections'] as $singleValue) {
+                $connections []= new ExternalConnection($singleValue);
+            }
+            $this->_propDict['connections'] = $connections;
+            return $this->_propDict['connections'];
         }
+        return null;
     }
     
     /** 
     * Sets the connections
     *
-    * @param ExternalConnection $val The connections
+    * @param ExternalConnection[] $val The connections
     *
     * @return External
     */

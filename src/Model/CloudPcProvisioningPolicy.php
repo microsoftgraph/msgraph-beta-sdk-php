@@ -83,6 +83,37 @@ class CloudPcProvisioningPolicy extends Entity
     }
     
     /**
+    * Gets the domainJoinConfiguration
+    *
+    * @return CloudPcDomainJoinConfiguration|null The domainJoinConfiguration
+    */
+    public function getDomainJoinConfiguration()
+    {
+        if (array_key_exists("domainJoinConfiguration", $this->_propDict) && !is_null($this->_propDict["domainJoinConfiguration"])) {
+            if (is_a($this->_propDict["domainJoinConfiguration"], "\Beta\Microsoft\Graph\Model\CloudPcDomainJoinConfiguration")) {
+                return $this->_propDict["domainJoinConfiguration"];
+            } else {
+                $this->_propDict["domainJoinConfiguration"] = new CloudPcDomainJoinConfiguration($this->_propDict["domainJoinConfiguration"]);
+                return $this->_propDict["domainJoinConfiguration"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the domainJoinConfiguration
+    *
+    * @param CloudPcDomainJoinConfiguration $val The domainJoinConfiguration
+    *
+    * @return CloudPcProvisioningPolicy
+    */
+    public function setDomainJoinConfiguration($val)
+    {
+        $this->_propDict["domainJoinConfiguration"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the imageDisplayName
     * The display name for the OS image you’re provisioning.
     *
@@ -148,8 +179,8 @@ class CloudPcProvisioningPolicy extends Entity
     */
     public function getImageType()
     {
-        if (array_key_exists("imageType", $this->_propDict)) {
-            if (is_a($this->_propDict["imageType"], "\Beta\Microsoft\Graph\Model\CloudPcProvisioningPolicyImageType") || is_null($this->_propDict["imageType"])) {
+        if (array_key_exists("imageType", $this->_propDict) && !is_null($this->_propDict["imageType"])) {
+            if (is_a($this->_propDict["imageType"], "\Beta\Microsoft\Graph\Model\CloudPcProvisioningPolicyImageType")) {
                 return $this->_propDict["imageType"];
             } else {
                 $this->_propDict["imageType"] = new CloudPcProvisioningPolicyImageType($this->_propDict["imageType"]);
@@ -170,6 +201,37 @@ class CloudPcProvisioningPolicy extends Entity
     public function setImageType($val)
     {
         $this->_propDict["imageType"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the microsoftManagedDesktop
+    *
+    * @return MicrosoftManagedDesktop|null The microsoftManagedDesktop
+    */
+    public function getMicrosoftManagedDesktop()
+    {
+        if (array_key_exists("microsoftManagedDesktop", $this->_propDict) && !is_null($this->_propDict["microsoftManagedDesktop"])) {
+            if (is_a($this->_propDict["microsoftManagedDesktop"], "\Beta\Microsoft\Graph\Model\MicrosoftManagedDesktop")) {
+                return $this->_propDict["microsoftManagedDesktop"];
+            } else {
+                $this->_propDict["microsoftManagedDesktop"] = new MicrosoftManagedDesktop($this->_propDict["microsoftManagedDesktop"]);
+                return $this->_propDict["microsoftManagedDesktop"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the microsoftManagedDesktop
+    *
+    * @param MicrosoftManagedDesktop $val The microsoftManagedDesktop
+    *
+    * @return CloudPcProvisioningPolicy
+    */
+    public function setMicrosoftManagedDesktop($val)
+    {
+        $this->_propDict["microsoftManagedDesktop"] = $val;
         return $this;
     }
     
@@ -207,22 +269,29 @@ class CloudPcProvisioningPolicy extends Entity
      * Gets the assignments
     * A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Azure AD that have provisioning policy assigned. Returned only on $expand. See an example of getting the assignments relationship.
      *
-     * @return array|null The assignments
+     * @return CloudPcProvisioningPolicyAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'CloudPcProvisioningPolicyAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new CloudPcProvisioningPolicyAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Azure AD that have provisioning policy assigned. Returned only on $expand. See an example of getting the assignments relationship.
     *
-    * @param CloudPcProvisioningPolicyAssignment $val The assignments
+    * @param CloudPcProvisioningPolicyAssignment[] $val The assignments
     *
     * @return CloudPcProvisioningPolicy
     */

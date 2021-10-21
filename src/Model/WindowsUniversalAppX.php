@@ -32,8 +32,8 @@ class WindowsUniversalAppX extends MobileLobApp
     */
     public function getApplicableArchitectures()
     {
-        if (array_key_exists("applicableArchitectures", $this->_propDict)) {
-            if (is_a($this->_propDict["applicableArchitectures"], "\Beta\Microsoft\Graph\Model\WindowsArchitecture") || is_null($this->_propDict["applicableArchitectures"])) {
+        if (array_key_exists("applicableArchitectures", $this->_propDict) && !is_null($this->_propDict["applicableArchitectures"])) {
+            if (is_a($this->_propDict["applicableArchitectures"], "\Beta\Microsoft\Graph\Model\WindowsArchitecture")) {
                 return $this->_propDict["applicableArchitectures"];
             } else {
                 $this->_propDict["applicableArchitectures"] = new WindowsArchitecture($this->_propDict["applicableArchitectures"]);
@@ -65,8 +65,8 @@ class WindowsUniversalAppX extends MobileLobApp
     */
     public function getApplicableDeviceTypes()
     {
-        if (array_key_exists("applicableDeviceTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["applicableDeviceTypes"], "\Beta\Microsoft\Graph\Model\WindowsDeviceType") || is_null($this->_propDict["applicableDeviceTypes"])) {
+        if (array_key_exists("applicableDeviceTypes", $this->_propDict) && !is_null($this->_propDict["applicableDeviceTypes"])) {
+            if (is_a($this->_propDict["applicableDeviceTypes"], "\Beta\Microsoft\Graph\Model\WindowsDeviceType")) {
                 return $this->_propDict["applicableDeviceTypes"];
             } else {
                 $this->_propDict["applicableDeviceTypes"] = new WindowsDeviceType($this->_propDict["applicableDeviceTypes"]);
@@ -243,8 +243,8 @@ class WindowsUniversalAppX extends MobileLobApp
     */
     public function getMinimumSupportedOperatingSystem()
     {
-        if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\WindowsMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
+        if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict) && !is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
+            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\WindowsMinimumOperatingSystem")) {
                 return $this->_propDict["minimumSupportedOperatingSystem"];
             } else {
                 $this->_propDict["minimumSupportedOperatingSystem"] = new WindowsMinimumOperatingSystem($this->_propDict["minimumSupportedOperatingSystem"]);
@@ -273,22 +273,29 @@ class WindowsUniversalAppX extends MobileLobApp
      * Gets the committedContainedApps
     * The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.
      *
-     * @return array|null The committedContainedApps
+     * @return MobileContainedApp[]|null The committedContainedApps
      */
     public function getCommittedContainedApps()
     {
-        if (array_key_exists("committedContainedApps", $this->_propDict)) {
-           return $this->_propDict["committedContainedApps"];
-        } else {
-            return null;
+        if (array_key_exists('committedContainedApps', $this->_propDict) && !is_null($this->_propDict['committedContainedApps'])) {
+            $committedContainedApps = [];
+            if (count($this->_propDict['committedContainedApps']) > 0 && is_a($this->_propDict['committedContainedApps'][0], 'MobileContainedApp')) {
+                return $this->_propDict['committedContainedApps'];
+            }
+            foreach ($this->_propDict['committedContainedApps'] as $singleValue) {
+                $committedContainedApps []= new MobileContainedApp($singleValue);
+            }
+            $this->_propDict['committedContainedApps'] = $committedContainedApps;
+            return $this->_propDict['committedContainedApps'];
         }
+        return null;
     }
     
     /** 
     * Sets the committedContainedApps
     * The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.
     *
-    * @param MobileContainedApp $val The committedContainedApps
+    * @param MobileContainedApp[] $val The committedContainedApps
     *
     * @return WindowsUniversalAppX
     */

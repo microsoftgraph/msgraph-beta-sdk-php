@@ -32,8 +32,8 @@ class OnPremisesPublishingProfile extends Entity
     */
     public function getHybridAgentUpdaterConfiguration()
     {
-        if (array_key_exists("hybridAgentUpdaterConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["hybridAgentUpdaterConfiguration"], "\Beta\Microsoft\Graph\Model\HybridAgentUpdaterConfiguration") || is_null($this->_propDict["hybridAgentUpdaterConfiguration"])) {
+        if (array_key_exists("hybridAgentUpdaterConfiguration", $this->_propDict) && !is_null($this->_propDict["hybridAgentUpdaterConfiguration"])) {
+            if (is_a($this->_propDict["hybridAgentUpdaterConfiguration"], "\Beta\Microsoft\Graph\Model\HybridAgentUpdaterConfiguration")) {
                 return $this->_propDict["hybridAgentUpdaterConfiguration"];
             } else {
                 $this->_propDict["hybridAgentUpdaterConfiguration"] = new HybridAgentUpdaterConfiguration($this->_propDict["hybridAgentUpdaterConfiguration"]);
@@ -91,22 +91,29 @@ class OnPremisesPublishingProfile extends Entity
      * Gets the agentGroups
     * List of existing onPremisesAgentGroup objects. Read-only. Nullable.
      *
-     * @return array|null The agentGroups
+     * @return OnPremisesAgentGroup[]|null The agentGroups
      */
     public function getAgentGroups()
     {
-        if (array_key_exists("agentGroups", $this->_propDict)) {
-           return $this->_propDict["agentGroups"];
-        } else {
-            return null;
+        if (array_key_exists('agentGroups', $this->_propDict) && !is_null($this->_propDict['agentGroups'])) {
+            $agentGroups = [];
+            if (count($this->_propDict['agentGroups']) > 0 && is_a($this->_propDict['agentGroups'][0], 'OnPremisesAgentGroup')) {
+                return $this->_propDict['agentGroups'];
+            }
+            foreach ($this->_propDict['agentGroups'] as $singleValue) {
+                $agentGroups []= new OnPremisesAgentGroup($singleValue);
+            }
+            $this->_propDict['agentGroups'] = $agentGroups;
+            return $this->_propDict['agentGroups'];
         }
+        return null;
     }
     
     /** 
     * Sets the agentGroups
     * List of existing onPremisesAgentGroup objects. Read-only. Nullable.
     *
-    * @param OnPremisesAgentGroup $val The agentGroups
+    * @param OnPremisesAgentGroup[] $val The agentGroups
     *
     * @return OnPremisesPublishingProfile
     */
@@ -121,22 +128,29 @@ class OnPremisesPublishingProfile extends Entity
      * Gets the agents
     * List of existing onPremisesAgent objects. Read-only. Nullable.
      *
-     * @return array|null The agents
+     * @return OnPremisesAgent[]|null The agents
      */
     public function getAgents()
     {
-        if (array_key_exists("agents", $this->_propDict)) {
-           return $this->_propDict["agents"];
-        } else {
-            return null;
+        if (array_key_exists('agents', $this->_propDict) && !is_null($this->_propDict['agents'])) {
+            $agents = [];
+            if (count($this->_propDict['agents']) > 0 && is_a($this->_propDict['agents'][0], 'OnPremisesAgent')) {
+                return $this->_propDict['agents'];
+            }
+            foreach ($this->_propDict['agents'] as $singleValue) {
+                $agents []= new OnPremisesAgent($singleValue);
+            }
+            $this->_propDict['agents'] = $agents;
+            return $this->_propDict['agents'];
         }
+        return null;
     }
     
     /** 
     * Sets the agents
     * List of existing onPremisesAgent objects. Read-only. Nullable.
     *
-    * @param OnPremisesAgent $val The agents
+    * @param OnPremisesAgent[] $val The agents
     *
     * @return OnPremisesPublishingProfile
     */
@@ -151,22 +165,29 @@ class OnPremisesPublishingProfile extends Entity
      * Gets the connectorGroups
     * List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
      *
-     * @return array|null The connectorGroups
+     * @return ConnectorGroup[]|null The connectorGroups
      */
     public function getConnectorGroups()
     {
-        if (array_key_exists("connectorGroups", $this->_propDict)) {
-           return $this->_propDict["connectorGroups"];
-        } else {
-            return null;
+        if (array_key_exists('connectorGroups', $this->_propDict) && !is_null($this->_propDict['connectorGroups'])) {
+            $connectorGroups = [];
+            if (count($this->_propDict['connectorGroups']) > 0 && is_a($this->_propDict['connectorGroups'][0], 'ConnectorGroup')) {
+                return $this->_propDict['connectorGroups'];
+            }
+            foreach ($this->_propDict['connectorGroups'] as $singleValue) {
+                $connectorGroups []= new ConnectorGroup($singleValue);
+            }
+            $this->_propDict['connectorGroups'] = $connectorGroups;
+            return $this->_propDict['connectorGroups'];
         }
+        return null;
     }
     
     /** 
     * Sets the connectorGroups
     * List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
     *
-    * @param ConnectorGroup $val The connectorGroups
+    * @param ConnectorGroup[] $val The connectorGroups
     *
     * @return OnPremisesPublishingProfile
     */
@@ -181,22 +202,29 @@ class OnPremisesPublishingProfile extends Entity
      * Gets the connectors
     * List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.
      *
-     * @return array|null The connectors
+     * @return Connector[]|null The connectors
      */
     public function getConnectors()
     {
-        if (array_key_exists("connectors", $this->_propDict)) {
-           return $this->_propDict["connectors"];
-        } else {
-            return null;
+        if (array_key_exists('connectors', $this->_propDict) && !is_null($this->_propDict['connectors'])) {
+            $connectors = [];
+            if (count($this->_propDict['connectors']) > 0 && is_a($this->_propDict['connectors'][0], 'Connector')) {
+                return $this->_propDict['connectors'];
+            }
+            foreach ($this->_propDict['connectors'] as $singleValue) {
+                $connectors []= new Connector($singleValue);
+            }
+            $this->_propDict['connectors'] = $connectors;
+            return $this->_propDict['connectors'];
         }
+        return null;
     }
     
     /** 
     * Sets the connectors
     * List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.
     *
-    * @param Connector $val The connectors
+    * @param Connector[] $val The connectors
     *
     * @return OnPremisesPublishingProfile
     */
@@ -211,22 +239,29 @@ class OnPremisesPublishingProfile extends Entity
      * Gets the publishedResources
     * List of existing publishedResource objects. Read-only. Nullable.
      *
-     * @return array|null The publishedResources
+     * @return PublishedResource[]|null The publishedResources
      */
     public function getPublishedResources()
     {
-        if (array_key_exists("publishedResources", $this->_propDict)) {
-           return $this->_propDict["publishedResources"];
-        } else {
-            return null;
+        if (array_key_exists('publishedResources', $this->_propDict) && !is_null($this->_propDict['publishedResources'])) {
+            $publishedResources = [];
+            if (count($this->_propDict['publishedResources']) > 0 && is_a($this->_propDict['publishedResources'][0], 'PublishedResource')) {
+                return $this->_propDict['publishedResources'];
+            }
+            foreach ($this->_propDict['publishedResources'] as $singleValue) {
+                $publishedResources []= new PublishedResource($singleValue);
+            }
+            $this->_propDict['publishedResources'] = $publishedResources;
+            return $this->_propDict['publishedResources'];
         }
+        return null;
     }
     
     /** 
     * Sets the publishedResources
     * List of existing publishedResource objects. Read-only. Nullable.
     *
-    * @param PublishedResource $val The publishedResources
+    * @param PublishedResource[] $val The publishedResources
     *
     * @return OnPremisesPublishingProfile
     */

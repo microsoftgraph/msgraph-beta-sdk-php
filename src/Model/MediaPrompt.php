@@ -58,8 +58,9 @@ class MediaPrompt extends Prompt
     */
     public function getMediaInfo()
     {
-        if (array_key_exists("mediaInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaInfo"], "\Beta\Microsoft\Graph\Model\MediaInfo") || is_null($this->_propDict["mediaInfo"])) {
+        if (array_key_exists("mediaInfo", $this->_propDict) && !is_null($this->_propDict["mediaInfo"])) {
+     
+            if (is_a($this->_propDict["mediaInfo"], "\Beta\Microsoft\Graph\Model\MediaInfo")) {
                 return $this->_propDict["mediaInfo"];
             } else {
                 $this->_propDict["mediaInfo"] = new MediaInfo($this->_propDict["mediaInfo"]);

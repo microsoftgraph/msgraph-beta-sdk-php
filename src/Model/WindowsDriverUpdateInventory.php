@@ -61,8 +61,8 @@ class WindowsDriverUpdateInventory extends Entity
     */
     public function getApprovalStatus()
     {
-        if (array_key_exists("approvalStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["approvalStatus"], "\Beta\Microsoft\Graph\Model\DriverApprovalStatus") || is_null($this->_propDict["approvalStatus"])) {
+        if (array_key_exists("approvalStatus", $this->_propDict) && !is_null($this->_propDict["approvalStatus"])) {
+            if (is_a($this->_propDict["approvalStatus"], "\Beta\Microsoft\Graph\Model\DriverApprovalStatus")) {
                 return $this->_propDict["approvalStatus"];
             } else {
                 $this->_propDict["approvalStatus"] = new DriverApprovalStatus($this->_propDict["approvalStatus"]);
@@ -94,8 +94,8 @@ class WindowsDriverUpdateInventory extends Entity
     */
     public function getCategory()
     {
-        if (array_key_exists("category", $this->_propDict)) {
-            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\Model\DriverCategory") || is_null($this->_propDict["category"])) {
+        if (array_key_exists("category", $this->_propDict) && !is_null($this->_propDict["category"])) {
+            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\Model\DriverCategory")) {
                 return $this->_propDict["category"];
             } else {
                 $this->_propDict["category"] = new DriverCategory($this->_propDict["category"]);
@@ -127,8 +127,8 @@ class WindowsDriverUpdateInventory extends Entity
     */
     public function getDeployDateTime()
     {
-        if (array_key_exists("deployDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["deployDateTime"], "\DateTime") || is_null($this->_propDict["deployDateTime"])) {
+        if (array_key_exists("deployDateTime", $this->_propDict) && !is_null($this->_propDict["deployDateTime"])) {
+            if (is_a($this->_propDict["deployDateTime"], "\DateTime")) {
                 return $this->_propDict["deployDateTime"];
             } else {
                 $this->_propDict["deployDateTime"] = new \DateTime($this->_propDict["deployDateTime"]);
@@ -247,8 +247,8 @@ class WindowsDriverUpdateInventory extends Entity
     */
     public function getReleaseDateTime()
     {
-        if (array_key_exists("releaseDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["releaseDateTime"], "\DateTime") || is_null($this->_propDict["releaseDateTime"])) {
+        if (array_key_exists("releaseDateTime", $this->_propDict) && !is_null($this->_propDict["releaseDateTime"])) {
+            if (is_a($this->_propDict["releaseDateTime"], "\DateTime")) {
                 return $this->_propDict["releaseDateTime"];
             } else {
                 $this->_propDict["releaseDateTime"] = new \DateTime($this->_propDict["releaseDateTime"]);

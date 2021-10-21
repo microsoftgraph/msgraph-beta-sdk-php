@@ -61,8 +61,8 @@ class GroupPolicyPresentation extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -94,8 +94,8 @@ class GroupPolicyPresentation extends Entity
     */
     public function getDefinition()
     {
-        if (array_key_exists("definition", $this->_propDict)) {
-            if (is_a($this->_propDict["definition"], "\Beta\Microsoft\Graph\Model\GroupPolicyDefinition") || is_null($this->_propDict["definition"])) {
+        if (array_key_exists("definition", $this->_propDict) && !is_null($this->_propDict["definition"])) {
+            if (is_a($this->_propDict["definition"], "\Beta\Microsoft\Graph\Model\GroupPolicyDefinition")) {
                 return $this->_propDict["definition"];
             } else {
                 $this->_propDict["definition"] = new GroupPolicyDefinition($this->_propDict["definition"]);

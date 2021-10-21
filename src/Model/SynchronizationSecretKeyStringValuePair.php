@@ -32,8 +32,9 @@ class SynchronizationSecretKeyStringValuePair extends Entity
     */
     public function getKey()
     {
-        if (array_key_exists("key", $this->_propDict)) {
-            if (is_a($this->_propDict["key"], "\Beta\Microsoft\Graph\Model\SynchronizationSecret") || is_null($this->_propDict["key"])) {
+        if (array_key_exists("key", $this->_propDict) && !is_null($this->_propDict["key"])) {
+     
+            if (is_a($this->_propDict["key"], "\Beta\Microsoft\Graph\Model\SynchronizationSecret")) {
                 return $this->_propDict["key"];
             } else {
                 $this->_propDict["key"] = new SynchronizationSecret($this->_propDict["key"]);

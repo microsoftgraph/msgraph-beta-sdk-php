@@ -28,18 +28,22 @@ class AccessPackageAssignmentRequestRequirements extends Entity
     * Gets the existingAnswers
     * Answers that have already been provided.
     *
-    * @return AccessPackageAnswer|null The existingAnswers
+    * @return AccessPackageAnswer[]|null The existingAnswers
     */
     public function getExistingAnswers()
     {
-        if (array_key_exists("existingAnswers", $this->_propDict)) {
-            if (is_a($this->_propDict["existingAnswers"], "\Beta\Microsoft\Graph\Model\AccessPackageAnswer") || is_null($this->_propDict["existingAnswers"])) {
-                return $this->_propDict["existingAnswers"];
-            } else {
-                $this->_propDict["existingAnswers"] = new AccessPackageAnswer($this->_propDict["existingAnswers"]);
-                return $this->_propDict["existingAnswers"];
+        if (array_key_exists("existingAnswers", $this->_propDict) && !is_null($this->_propDict["existingAnswers"])) {
+       
+            if (count($this->_propDict['existingAnswers']) > 0 && is_a($this->_propDict['existingAnswers'][0], 'AccessPackageAnswer')) {
+               return $this->_propDict['existingAnswers'];
             }
-        }
+            $existingAnswers = [];
+            foreach ($this->_propDict['existingAnswers'] as $singleValue) {
+               $existingAnswers []= new AccessPackageAnswer($singleValue);
+            }
+            $this->_propDict['existingAnswers'] = $existingAnswers;
+            return $this->_propDict['existingAnswers'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class AccessPackageAssignmentRequestRequirements extends Entity
     * Sets the existingAnswers
     * Answers that have already been provided.
     *
-    * @param AccessPackageAnswer $val The value to assign to the existingAnswers
+    * @param AccessPackageAnswer[] $val The value to assign to the existingAnswers
     *
     * @return AccessPackageAssignmentRequestRequirements The AccessPackageAssignmentRequestRequirements
     */
@@ -257,18 +261,22 @@ class AccessPackageAssignmentRequestRequirements extends Entity
     * Gets the questions
     * Questions that are configured on the policy. The questions can be required or optional; callers can determine whether a question is required or optional based on the isRequired property on accessPackageQuestion.
     *
-    * @return AccessPackageQuestion|null The questions
+    * @return AccessPackageQuestion[]|null The questions
     */
     public function getQuestions()
     {
-        if (array_key_exists("questions", $this->_propDict)) {
-            if (is_a($this->_propDict["questions"], "\Beta\Microsoft\Graph\Model\AccessPackageQuestion") || is_null($this->_propDict["questions"])) {
-                return $this->_propDict["questions"];
-            } else {
-                $this->_propDict["questions"] = new AccessPackageQuestion($this->_propDict["questions"]);
-                return $this->_propDict["questions"];
+        if (array_key_exists("questions", $this->_propDict) && !is_null($this->_propDict["questions"])) {
+       
+            if (count($this->_propDict['questions']) > 0 && is_a($this->_propDict['questions'][0], 'AccessPackageQuestion')) {
+               return $this->_propDict['questions'];
             }
-        }
+            $questions = [];
+            foreach ($this->_propDict['questions'] as $singleValue) {
+               $questions []= new AccessPackageQuestion($singleValue);
+            }
+            $this->_propDict['questions'] = $questions;
+            return $this->_propDict['questions'];
+            }
         return null;
     }
 
@@ -276,7 +284,7 @@ class AccessPackageAssignmentRequestRequirements extends Entity
     * Sets the questions
     * Questions that are configured on the policy. The questions can be required or optional; callers can determine whether a question is required or optional based on the isRequired property on accessPackageQuestion.
     *
-    * @param AccessPackageQuestion $val The value to assign to the questions
+    * @param AccessPackageQuestion[] $val The value to assign to the questions
     *
     * @return AccessPackageAssignmentRequestRequirements The AccessPackageAssignmentRequestRequirements
     */
@@ -294,8 +302,9 @@ class AccessPackageAssignmentRequestRequirements extends Entity
     */
     public function getSchedule()
     {
-        if (array_key_exists("schedule", $this->_propDict)) {
-            if (is_a($this->_propDict["schedule"], "\Beta\Microsoft\Graph\Model\RequestSchedule") || is_null($this->_propDict["schedule"])) {
+        if (array_key_exists("schedule", $this->_propDict) && !is_null($this->_propDict["schedule"])) {
+     
+            if (is_a($this->_propDict["schedule"], "\Beta\Microsoft\Graph\Model\RequestSchedule")) {
                 return $this->_propDict["schedule"];
             } else {
                 $this->_propDict["schedule"] = new RequestSchedule($this->_propDict["schedule"]);

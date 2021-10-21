@@ -40,7 +40,7 @@ class Property extends Entity
     /**
     * Sets the aliases
     *
-    * @param string $val The value of the aliases
+    * @param string[] $val The value of the aliases
     *
     * @return Property
     */
@@ -157,25 +157,29 @@ class Property extends Entity
     /**
     * Gets the labels
     *
-    * @return Label|null The labels
+    * @return Label[]|null The labels
     */
     public function getLabels()
     {
-        if (array_key_exists("labels", $this->_propDict)) {
-            if (is_a($this->_propDict["labels"], "\Beta\Microsoft\Graph\Model\Label") || is_null($this->_propDict["labels"])) {
-                return $this->_propDict["labels"];
-            } else {
-                $this->_propDict["labels"] = new Label($this->_propDict["labels"]);
-                return $this->_propDict["labels"];
+        if (array_key_exists("labels", $this->_propDict) && !is_null($this->_propDict["labels"])) {
+       
+            if (count($this->_propDict['labels']) > 0 && is_a($this->_propDict['labels'][0], 'Label')) {
+               return $this->_propDict['labels'];
             }
-        }
+            $labels = [];
+            foreach ($this->_propDict['labels'] as $singleValue) {
+               $labels []= new Label($singleValue);
+            }
+            $this->_propDict['labels'] = $labels;
+            return $this->_propDict['labels'];
+            }
         return null;
     }
 
     /**
     * Sets the labels
     *
-    * @param Label $val The value to assign to the labels
+    * @param Label[] $val The value to assign to the labels
     *
     * @return Property The Property
     */
@@ -218,8 +222,9 @@ class Property extends Entity
     */
     public function getType()
     {
-        if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PropertyType") || is_null($this->_propDict["type"])) {
+        if (array_key_exists("type", $this->_propDict) && !is_null($this->_propDict["type"])) {
+     
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PropertyType")) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new PropertyType($this->_propDict["type"]);

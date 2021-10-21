@@ -55,21 +55,28 @@ class UnifiedRbacResourceNamespace extends Entity
      /** 
      * Gets the resourceActions
      *
-     * @return array|null The resourceActions
+     * @return UnifiedRbacResourceAction[]|null The resourceActions
      */
     public function getResourceActions()
     {
-        if (array_key_exists("resourceActions", $this->_propDict)) {
-           return $this->_propDict["resourceActions"];
-        } else {
-            return null;
+        if (array_key_exists('resourceActions', $this->_propDict) && !is_null($this->_propDict['resourceActions'])) {
+            $resourceActions = [];
+            if (count($this->_propDict['resourceActions']) > 0 && is_a($this->_propDict['resourceActions'][0], 'UnifiedRbacResourceAction')) {
+                return $this->_propDict['resourceActions'];
+            }
+            foreach ($this->_propDict['resourceActions'] as $singleValue) {
+                $resourceActions []= new UnifiedRbacResourceAction($singleValue);
+            }
+            $this->_propDict['resourceActions'] = $resourceActions;
+            return $this->_propDict['resourceActions'];
         }
+        return null;
     }
     
     /** 
     * Sets the resourceActions
     *
-    * @param UnifiedRbacResourceAction $val The resourceActions
+    * @param UnifiedRbacResourceAction[] $val The resourceActions
     *
     * @return UnifiedRbacResourceNamespace
     */

@@ -32,8 +32,8 @@ class TenantAppManagementPolicy extends PolicyBase
     */
     public function getApplicationRestrictions()
     {
-        if (array_key_exists("applicationRestrictions", $this->_propDict)) {
-            if (is_a($this->_propDict["applicationRestrictions"], "\Beta\Microsoft\Graph\Model\AppManagementConfiguration") || is_null($this->_propDict["applicationRestrictions"])) {
+        if (array_key_exists("applicationRestrictions", $this->_propDict) && !is_null($this->_propDict["applicationRestrictions"])) {
+            if (is_a($this->_propDict["applicationRestrictions"], "\Beta\Microsoft\Graph\Model\AppManagementConfiguration")) {
                 return $this->_propDict["applicationRestrictions"];
             } else {
                 $this->_propDict["applicationRestrictions"] = new AppManagementConfiguration($this->_propDict["applicationRestrictions"]);
@@ -94,8 +94,8 @@ class TenantAppManagementPolicy extends PolicyBase
     */
     public function getServicePrincipalRestrictions()
     {
-        if (array_key_exists("servicePrincipalRestrictions", $this->_propDict)) {
-            if (is_a($this->_propDict["servicePrincipalRestrictions"], "\Beta\Microsoft\Graph\Model\AppManagementConfiguration") || is_null($this->_propDict["servicePrincipalRestrictions"])) {
+        if (array_key_exists("servicePrincipalRestrictions", $this->_propDict) && !is_null($this->_propDict["servicePrincipalRestrictions"])) {
+            if (is_a($this->_propDict["servicePrincipalRestrictions"], "\Beta\Microsoft\Graph\Model\AppManagementConfiguration")) {
                 return $this->_propDict["servicePrincipalRestrictions"];
             } else {
                 $this->_propDict["servicePrincipalRestrictions"] = new AppManagementConfiguration($this->_propDict["servicePrincipalRestrictions"]);

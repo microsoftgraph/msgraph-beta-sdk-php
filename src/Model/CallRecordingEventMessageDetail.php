@@ -95,15 +95,16 @@ class CallRecordingEventMessageDetail extends EventMessageDetail
     * Gets the callRecordingDuration
     * Duration of the call recording.
     *
-    * @return Duration|null The callRecordingDuration
+    * @return \DateInterval|null The callRecordingDuration
     */
     public function getCallRecordingDuration()
     {
-        if (array_key_exists("callRecordingDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["callRecordingDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["callRecordingDuration"])) {
+        if (array_key_exists("callRecordingDuration", $this->_propDict) && !is_null($this->_propDict["callRecordingDuration"])) {
+     
+            if (is_a($this->_propDict["callRecordingDuration"], "\DateInterval")) {
                 return $this->_propDict["callRecordingDuration"];
             } else {
-                $this->_propDict["callRecordingDuration"] = new Duration($this->_propDict["callRecordingDuration"]);
+                $this->_propDict["callRecordingDuration"] = new \DateInterval($this->_propDict["callRecordingDuration"]);
                 return $this->_propDict["callRecordingDuration"];
             }
         }
@@ -114,7 +115,7 @@ class CallRecordingEventMessageDetail extends EventMessageDetail
     * Sets the callRecordingDuration
     * Duration of the call recording.
     *
-    * @param Duration $val The value to assign to the callRecordingDuration
+    * @param \DateInterval $val The value to assign to the callRecordingDuration
     *
     * @return CallRecordingEventMessageDetail The CallRecordingEventMessageDetail
     */
@@ -132,8 +133,9 @@ class CallRecordingEventMessageDetail extends EventMessageDetail
     */
     public function getCallRecordingStatus()
     {
-        if (array_key_exists("callRecordingStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["callRecordingStatus"], "\Beta\Microsoft\Graph\Model\CallRecordingStatus") || is_null($this->_propDict["callRecordingStatus"])) {
+        if (array_key_exists("callRecordingStatus", $this->_propDict) && !is_null($this->_propDict["callRecordingStatus"])) {
+     
+            if (is_a($this->_propDict["callRecordingStatus"], "\Beta\Microsoft\Graph\Model\CallRecordingStatus")) {
                 return $this->_propDict["callRecordingStatus"];
             } else {
                 $this->_propDict["callRecordingStatus"] = new CallRecordingStatus($this->_propDict["callRecordingStatus"]);
@@ -193,8 +195,9 @@ class CallRecordingEventMessageDetail extends EventMessageDetail
     */
     public function getInitiator()
     {
-        if (array_key_exists("initiator", $this->_propDict)) {
-            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["initiator"])) {
+        if (array_key_exists("initiator", $this->_propDict) && !is_null($this->_propDict["initiator"])) {
+     
+            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["initiator"];
             } else {
                 $this->_propDict["initiator"] = new IdentitySet($this->_propDict["initiator"]);
@@ -226,8 +229,9 @@ class CallRecordingEventMessageDetail extends EventMessageDetail
     */
     public function getMeetingOrganizer()
     {
-        if (array_key_exists("meetingOrganizer", $this->_propDict)) {
-            if (is_a($this->_propDict["meetingOrganizer"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["meetingOrganizer"])) {
+        if (array_key_exists("meetingOrganizer", $this->_propDict) && !is_null($this->_propDict["meetingOrganizer"])) {
+     
+            if (is_a($this->_propDict["meetingOrganizer"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["meetingOrganizer"];
             } else {
                 $this->_propDict["meetingOrganizer"] = new IdentitySet($this->_propDict["meetingOrganizer"]);

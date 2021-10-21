@@ -61,8 +61,8 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
     */
     public function getAppActionIfIosDeviceModelNotAllowed()
     {
-        if (array_key_exists("appActionIfIosDeviceModelNotAllowed", $this->_propDict)) {
-            if (is_a($this->_propDict["appActionIfIosDeviceModelNotAllowed"], "\Beta\Microsoft\Graph\Model\ManagedAppRemediationAction") || is_null($this->_propDict["appActionIfIosDeviceModelNotAllowed"])) {
+        if (array_key_exists("appActionIfIosDeviceModelNotAllowed", $this->_propDict) && !is_null($this->_propDict["appActionIfIosDeviceModelNotAllowed"])) {
+            if (is_a($this->_propDict["appActionIfIosDeviceModelNotAllowed"], "\Beta\Microsoft\Graph\Model\ManagedAppRemediationAction")) {
                 return $this->_propDict["appActionIfIosDeviceModelNotAllowed"];
             } else {
                 $this->_propDict["appActionIfIosDeviceModelNotAllowed"] = new ManagedAppRemediationAction($this->_propDict["appActionIfIosDeviceModelNotAllowed"]);
@@ -94,8 +94,8 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
     */
     public function getAppDataEncryptionType()
     {
-        if (array_key_exists("appDataEncryptionType", $this->_propDict)) {
-            if (is_a($this->_propDict["appDataEncryptionType"], "\Beta\Microsoft\Graph\Model\ManagedAppDataEncryptionType") || is_null($this->_propDict["appDataEncryptionType"])) {
+        if (array_key_exists("appDataEncryptionType", $this->_propDict) && !is_null($this->_propDict["appDataEncryptionType"])) {
+            if (is_a($this->_propDict["appDataEncryptionType"], "\Beta\Microsoft\Graph\Model\ManagedAppDataEncryptionType")) {
                 return $this->_propDict["appDataEncryptionType"];
             } else {
                 $this->_propDict["appDataEncryptionType"] = new ManagedAppDataEncryptionType($this->_propDict["appDataEncryptionType"]);
@@ -240,22 +240,29 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
      * Gets the exemptedAppProtocols
     * Apps in this list will be exempt from the policy and will be able to receive data from managed apps.
      *
-     * @return array|null The exemptedAppProtocols
+     * @return KeyValuePair[]|null The exemptedAppProtocols
      */
     public function getExemptedAppProtocols()
     {
-        if (array_key_exists("exemptedAppProtocols", $this->_propDict)) {
-           return $this->_propDict["exemptedAppProtocols"];
-        } else {
-            return null;
+        if (array_key_exists('exemptedAppProtocols', $this->_propDict) && !is_null($this->_propDict['exemptedAppProtocols'])) {
+            $exemptedAppProtocols = [];
+            if (count($this->_propDict['exemptedAppProtocols']) > 0 && is_a($this->_propDict['exemptedAppProtocols'][0], 'KeyValuePair')) {
+                return $this->_propDict['exemptedAppProtocols'];
+            }
+            foreach ($this->_propDict['exemptedAppProtocols'] as $singleValue) {
+                $exemptedAppProtocols []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['exemptedAppProtocols'] = $exemptedAppProtocols;
+            return $this->_propDict['exemptedAppProtocols'];
         }
+        return null;
     }
     
     /** 
     * Sets the exemptedAppProtocols
     * Apps in this list will be exempt from the policy and will be able to receive data from managed apps.
     *
-    * @param KeyValuePair $val The exemptedAppProtocols
+    * @param KeyValuePair[] $val The exemptedAppProtocols
     *
     * @return IosManagedAppProtection
     */
@@ -444,22 +451,29 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
      * Gets the apps
     * List of apps to which the policy is deployed.
      *
-     * @return array|null The apps
+     * @return ManagedMobileApp[]|null The apps
      */
     public function getApps()
     {
-        if (array_key_exists("apps", $this->_propDict)) {
-           return $this->_propDict["apps"];
-        } else {
-            return null;
+        if (array_key_exists('apps', $this->_propDict) && !is_null($this->_propDict['apps'])) {
+            $apps = [];
+            if (count($this->_propDict['apps']) > 0 && is_a($this->_propDict['apps'][0], 'ManagedMobileApp')) {
+                return $this->_propDict['apps'];
+            }
+            foreach ($this->_propDict['apps'] as $singleValue) {
+                $apps []= new ManagedMobileApp($singleValue);
+            }
+            $this->_propDict['apps'] = $apps;
+            return $this->_propDict['apps'];
         }
+        return null;
     }
     
     /** 
     * Sets the apps
     * List of apps to which the policy is deployed.
     *
-    * @param ManagedMobileApp $val The apps
+    * @param ManagedMobileApp[] $val The apps
     *
     * @return IosManagedAppProtection
     */
@@ -477,8 +491,8 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
     */
     public function getDeploymentSummary()
     {
-        if (array_key_exists("deploymentSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["deploymentSummary"], "\Beta\Microsoft\Graph\Model\ManagedAppPolicyDeploymentSummary") || is_null($this->_propDict["deploymentSummary"])) {
+        if (array_key_exists("deploymentSummary", $this->_propDict) && !is_null($this->_propDict["deploymentSummary"])) {
+            if (is_a($this->_propDict["deploymentSummary"], "\Beta\Microsoft\Graph\Model\ManagedAppPolicyDeploymentSummary")) {
                 return $this->_propDict["deploymentSummary"];
             } else {
                 $this->_propDict["deploymentSummary"] = new ManagedAppPolicyDeploymentSummary($this->_propDict["deploymentSummary"]);

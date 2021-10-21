@@ -29,22 +29,29 @@ class DeviceManagementSettingDefinition extends Entity
      * Gets the constraints
     * Collection of constraints for the setting value
      *
-     * @return array|null The constraints
+     * @return DeviceManagementConstraint[]|null The constraints
      */
     public function getConstraints()
     {
-        if (array_key_exists("constraints", $this->_propDict)) {
-           return $this->_propDict["constraints"];
-        } else {
-            return null;
+        if (array_key_exists('constraints', $this->_propDict) && !is_null($this->_propDict['constraints'])) {
+            $constraints = [];
+            if (count($this->_propDict['constraints']) > 0 && is_a($this->_propDict['constraints'][0], 'DeviceManagementConstraint')) {
+                return $this->_propDict['constraints'];
+            }
+            foreach ($this->_propDict['constraints'] as $singleValue) {
+                $constraints []= new DeviceManagementConstraint($singleValue);
+            }
+            $this->_propDict['constraints'] = $constraints;
+            return $this->_propDict['constraints'];
         }
+        return null;
     }
     
     /** 
     * Sets the constraints
     * Collection of constraints for the setting value
     *
-    * @param DeviceManagementConstraint $val The constraints
+    * @param DeviceManagementConstraint[] $val The constraints
     *
     * @return DeviceManagementSettingDefinition
     */
@@ -59,22 +66,29 @@ class DeviceManagementSettingDefinition extends Entity
      * Gets the dependencies
     * Collection of dependencies on other settings
      *
-     * @return array|null The dependencies
+     * @return DeviceManagementSettingDependency[]|null The dependencies
      */
     public function getDependencies()
     {
-        if (array_key_exists("dependencies", $this->_propDict)) {
-           return $this->_propDict["dependencies"];
-        } else {
-            return null;
+        if (array_key_exists('dependencies', $this->_propDict) && !is_null($this->_propDict['dependencies'])) {
+            $dependencies = [];
+            if (count($this->_propDict['dependencies']) > 0 && is_a($this->_propDict['dependencies'][0], 'DeviceManagementSettingDependency')) {
+                return $this->_propDict['dependencies'];
+            }
+            foreach ($this->_propDict['dependencies'] as $singleValue) {
+                $dependencies []= new DeviceManagementSettingDependency($singleValue);
+            }
+            $this->_propDict['dependencies'] = $dependencies;
+            return $this->_propDict['dependencies'];
         }
+        return null;
     }
     
     /** 
     * Sets the dependencies
     * Collection of dependencies on other settings
     *
-    * @param DeviceManagementSettingDependency $val The dependencies
+    * @param DeviceManagementSettingDependency[] $val The dependencies
     *
     * @return DeviceManagementSettingDefinition
     */
@@ -324,8 +338,8 @@ class DeviceManagementSettingDefinition extends Entity
     */
     public function getValueType()
     {
-        if (array_key_exists("valueType", $this->_propDict)) {
-            if (is_a($this->_propDict["valueType"], "\Beta\Microsoft\Graph\Model\DeviceManangementIntentValueType") || is_null($this->_propDict["valueType"])) {
+        if (array_key_exists("valueType", $this->_propDict) && !is_null($this->_propDict["valueType"])) {
+            if (is_a($this->_propDict["valueType"], "\Beta\Microsoft\Graph\Model\DeviceManangementIntentValueType")) {
                 return $this->_propDict["valueType"];
             } else {
                 $this->_propDict["valueType"] = new DeviceManangementIntentValueType($this->_propDict["valueType"]);

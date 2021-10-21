@@ -119,8 +119,8 @@ class UnifiedRoleManagementPolicy extends Entity
     */
     public function getLastModifiedBy()
     {
-        if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["lastModifiedBy"])) {
+        if (array_key_exists("lastModifiedBy", $this->_propDict) && !is_null($this->_propDict["lastModifiedBy"])) {
+            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\Identity")) {
                 return $this->_propDict["lastModifiedBy"];
             } else {
                 $this->_propDict["lastModifiedBy"] = new Identity($this->_propDict["lastModifiedBy"]);
@@ -152,8 +152,8 @@ class UnifiedRoleManagementPolicy extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -240,22 +240,29 @@ class UnifiedRoleManagementPolicy extends Entity
      * Gets the effectiveRules
     * The list of effective rules like approval rule, expiration rule, etc. evaluated based on inherited referenced rules. E.g. If there is a tenant wide policy to enforce enabling approval rule, the effective rule will be to enable approval even if the polcy has a rule to disable approval.
      *
-     * @return array|null The effectiveRules
+     * @return UnifiedRoleManagementPolicyRule[]|null The effectiveRules
      */
     public function getEffectiveRules()
     {
-        if (array_key_exists("effectiveRules", $this->_propDict)) {
-           return $this->_propDict["effectiveRules"];
-        } else {
-            return null;
+        if (array_key_exists('effectiveRules', $this->_propDict) && !is_null($this->_propDict['effectiveRules'])) {
+            $effectiveRules = [];
+            if (count($this->_propDict['effectiveRules']) > 0 && is_a($this->_propDict['effectiveRules'][0], 'UnifiedRoleManagementPolicyRule')) {
+                return $this->_propDict['effectiveRules'];
+            }
+            foreach ($this->_propDict['effectiveRules'] as $singleValue) {
+                $effectiveRules []= new UnifiedRoleManagementPolicyRule($singleValue);
+            }
+            $this->_propDict['effectiveRules'] = $effectiveRules;
+            return $this->_propDict['effectiveRules'];
         }
+        return null;
     }
     
     /** 
     * Sets the effectiveRules
     * The list of effective rules like approval rule, expiration rule, etc. evaluated based on inherited referenced rules. E.g. If there is a tenant wide policy to enforce enabling approval rule, the effective rule will be to enable approval even if the polcy has a rule to disable approval.
     *
-    * @param UnifiedRoleManagementPolicyRule $val The effectiveRules
+    * @param UnifiedRoleManagementPolicyRule[] $val The effectiveRules
     *
     * @return UnifiedRoleManagementPolicy
     */
@@ -270,22 +277,29 @@ class UnifiedRoleManagementPolicy extends Entity
      * Gets the rules
     * The collection of rules like approval rule, expiration rule, etc.
      *
-     * @return array|null The rules
+     * @return UnifiedRoleManagementPolicyRule[]|null The rules
      */
     public function getRules()
     {
-        if (array_key_exists("rules", $this->_propDict)) {
-           return $this->_propDict["rules"];
-        } else {
-            return null;
+        if (array_key_exists('rules', $this->_propDict) && !is_null($this->_propDict['rules'])) {
+            $rules = [];
+            if (count($this->_propDict['rules']) > 0 && is_a($this->_propDict['rules'][0], 'UnifiedRoleManagementPolicyRule')) {
+                return $this->_propDict['rules'];
+            }
+            foreach ($this->_propDict['rules'] as $singleValue) {
+                $rules []= new UnifiedRoleManagementPolicyRule($singleValue);
+            }
+            $this->_propDict['rules'] = $rules;
+            return $this->_propDict['rules'];
         }
+        return null;
     }
     
     /** 
     * Sets the rules
     * The collection of rules like approval rule, expiration rule, etc.
     *
-    * @param UnifiedRoleManagementPolicyRule $val The rules
+    * @param UnifiedRoleManagementPolicyRule[] $val The rules
     *
     * @return UnifiedRoleManagementPolicy
     */

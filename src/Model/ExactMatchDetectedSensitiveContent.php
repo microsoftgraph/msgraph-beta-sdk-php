@@ -27,25 +27,29 @@ class ExactMatchDetectedSensitiveContent extends DetectedSensitiveContentBase
     /**
     * Gets the matches
     *
-    * @return SensitiveContentLocation|null The matches
+    * @return SensitiveContentLocation[]|null The matches
     */
     public function getMatches()
     {
-        if (array_key_exists("matches", $this->_propDict)) {
-            if (is_a($this->_propDict["matches"], "\Beta\Microsoft\Graph\Model\SensitiveContentLocation") || is_null($this->_propDict["matches"])) {
-                return $this->_propDict["matches"];
-            } else {
-                $this->_propDict["matches"] = new SensitiveContentLocation($this->_propDict["matches"]);
-                return $this->_propDict["matches"];
+        if (array_key_exists("matches", $this->_propDict) && !is_null($this->_propDict["matches"])) {
+       
+            if (count($this->_propDict['matches']) > 0 && is_a($this->_propDict['matches'][0], 'SensitiveContentLocation')) {
+               return $this->_propDict['matches'];
             }
-        }
+            $matches = [];
+            foreach ($this->_propDict['matches'] as $singleValue) {
+               $matches []= new SensitiveContentLocation($singleValue);
+            }
+            $this->_propDict['matches'] = $matches;
+            return $this->_propDict['matches'];
+            }
         return null;
     }
 
     /**
     * Sets the matches
     *
-    * @param SensitiveContentLocation $val The value to assign to the matches
+    * @param SensitiveContentLocation[] $val The value to assign to the matches
     *
     * @return ExactMatchDetectedSensitiveContent The ExactMatchDetectedSensitiveContent
     */

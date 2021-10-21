@@ -32,8 +32,8 @@ class BookingBusiness extends BookingNamedEntity
     */
     public function getAddress()
     {
-        if (array_key_exists("address", $this->_propDict)) {
-            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PhysicalAddress") || is_null($this->_propDict["address"])) {
+        if (array_key_exists("address", $this->_propDict) && !is_null($this->_propDict["address"])) {
+            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PhysicalAddress")) {
                 return $this->_propDict["address"];
             } else {
                 $this->_propDict["address"] = new PhysicalAddress($this->_propDict["address"]);
@@ -62,22 +62,29 @@ class BookingBusiness extends BookingNamedEntity
      * Gets the businessHours
     * The hours of operation for the business.
      *
-     * @return array|null The businessHours
+     * @return BookingWorkHours[]|null The businessHours
      */
     public function getBusinessHours()
     {
-        if (array_key_exists("businessHours", $this->_propDict)) {
-           return $this->_propDict["businessHours"];
-        } else {
-            return null;
+        if (array_key_exists('businessHours', $this->_propDict) && !is_null($this->_propDict['businessHours'])) {
+            $businessHours = [];
+            if (count($this->_propDict['businessHours']) > 0 && is_a($this->_propDict['businessHours'][0], 'BookingWorkHours')) {
+                return $this->_propDict['businessHours'];
+            }
+            foreach ($this->_propDict['businessHours'] as $singleValue) {
+                $businessHours []= new BookingWorkHours($singleValue);
+            }
+            $this->_propDict['businessHours'] = $businessHours;
+            return $this->_propDict['businessHours'];
         }
+        return null;
     }
     
     /** 
     * Sets the businessHours
     * The hours of operation for the business.
     *
-    * @param BookingWorkHours $val The businessHours
+    * @param BookingWorkHours[] $val The businessHours
     *
     * @return BookingBusiness
     */
@@ -269,8 +276,8 @@ class BookingBusiness extends BookingNamedEntity
     */
     public function getSchedulingPolicy()
     {
-        if (array_key_exists("schedulingPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["schedulingPolicy"], "\Beta\Microsoft\Graph\Model\BookingSchedulingPolicy") || is_null($this->_propDict["schedulingPolicy"])) {
+        if (array_key_exists("schedulingPolicy", $this->_propDict) && !is_null($this->_propDict["schedulingPolicy"])) {
+            if (is_a($this->_propDict["schedulingPolicy"], "\Beta\Microsoft\Graph\Model\BookingSchedulingPolicy")) {
                 return $this->_propDict["schedulingPolicy"];
             } else {
                 $this->_propDict["schedulingPolicy"] = new BookingSchedulingPolicy($this->_propDict["schedulingPolicy"]);
@@ -328,22 +335,29 @@ class BookingBusiness extends BookingNamedEntity
      * Gets the appointments
     * All the appointments of this business. Read-only. Nullable.
      *
-     * @return array|null The appointments
+     * @return BookingAppointment[]|null The appointments
      */
     public function getAppointments()
     {
-        if (array_key_exists("appointments", $this->_propDict)) {
-           return $this->_propDict["appointments"];
-        } else {
-            return null;
+        if (array_key_exists('appointments', $this->_propDict) && !is_null($this->_propDict['appointments'])) {
+            $appointments = [];
+            if (count($this->_propDict['appointments']) > 0 && is_a($this->_propDict['appointments'][0], 'BookingAppointment')) {
+                return $this->_propDict['appointments'];
+            }
+            foreach ($this->_propDict['appointments'] as $singleValue) {
+                $appointments []= new BookingAppointment($singleValue);
+            }
+            $this->_propDict['appointments'] = $appointments;
+            return $this->_propDict['appointments'];
         }
+        return null;
     }
     
     /** 
     * Sets the appointments
     * All the appointments of this business. Read-only. Nullable.
     *
-    * @param BookingAppointment $val The appointments
+    * @param BookingAppointment[] $val The appointments
     *
     * @return BookingBusiness
     */
@@ -358,22 +372,29 @@ class BookingBusiness extends BookingNamedEntity
      * Gets the calendarView
     * The set of appointments of this business in a specified date range. Read-only. Nullable.
      *
-     * @return array|null The calendarView
+     * @return BookingAppointment[]|null The calendarView
      */
     public function getCalendarView()
     {
-        if (array_key_exists("calendarView", $this->_propDict)) {
-           return $this->_propDict["calendarView"];
-        } else {
-            return null;
+        if (array_key_exists('calendarView', $this->_propDict) && !is_null($this->_propDict['calendarView'])) {
+            $calendarView = [];
+            if (count($this->_propDict['calendarView']) > 0 && is_a($this->_propDict['calendarView'][0], 'BookingAppointment')) {
+                return $this->_propDict['calendarView'];
+            }
+            foreach ($this->_propDict['calendarView'] as $singleValue) {
+                $calendarView []= new BookingAppointment($singleValue);
+            }
+            $this->_propDict['calendarView'] = $calendarView;
+            return $this->_propDict['calendarView'];
         }
+        return null;
     }
     
     /** 
     * Sets the calendarView
     * The set of appointments of this business in a specified date range. Read-only. Nullable.
     *
-    * @param BookingAppointment $val The calendarView
+    * @param BookingAppointment[] $val The calendarView
     *
     * @return BookingBusiness
     */
@@ -388,22 +409,29 @@ class BookingBusiness extends BookingNamedEntity
      * Gets the customers
     * All the customers of this business. Read-only. Nullable.
      *
-     * @return array|null The customers
+     * @return BookingCustomer[]|null The customers
      */
     public function getCustomers()
     {
-        if (array_key_exists("customers", $this->_propDict)) {
-           return $this->_propDict["customers"];
-        } else {
-            return null;
+        if (array_key_exists('customers', $this->_propDict) && !is_null($this->_propDict['customers'])) {
+            $customers = [];
+            if (count($this->_propDict['customers']) > 0 && is_a($this->_propDict['customers'][0], 'BookingCustomer')) {
+                return $this->_propDict['customers'];
+            }
+            foreach ($this->_propDict['customers'] as $singleValue) {
+                $customers []= new BookingCustomer($singleValue);
+            }
+            $this->_propDict['customers'] = $customers;
+            return $this->_propDict['customers'];
         }
+        return null;
     }
     
     /** 
     * Sets the customers
     * All the customers of this business. Read-only. Nullable.
     *
-    * @param BookingCustomer $val The customers
+    * @param BookingCustomer[] $val The customers
     *
     * @return BookingBusiness
     */
@@ -418,22 +446,29 @@ class BookingBusiness extends BookingNamedEntity
      * Gets the services
     * All the services offered by this business. Read-only. Nullable.
      *
-     * @return array|null The services
+     * @return BookingService[]|null The services
      */
     public function getServices()
     {
-        if (array_key_exists("services", $this->_propDict)) {
-           return $this->_propDict["services"];
-        } else {
-            return null;
+        if (array_key_exists('services', $this->_propDict) && !is_null($this->_propDict['services'])) {
+            $services = [];
+            if (count($this->_propDict['services']) > 0 && is_a($this->_propDict['services'][0], 'BookingService')) {
+                return $this->_propDict['services'];
+            }
+            foreach ($this->_propDict['services'] as $singleValue) {
+                $services []= new BookingService($singleValue);
+            }
+            $this->_propDict['services'] = $services;
+            return $this->_propDict['services'];
         }
+        return null;
     }
     
     /** 
     * Sets the services
     * All the services offered by this business. Read-only. Nullable.
     *
-    * @param BookingService $val The services
+    * @param BookingService[] $val The services
     *
     * @return BookingBusiness
     */
@@ -448,22 +483,29 @@ class BookingBusiness extends BookingNamedEntity
      * Gets the staffMembers
     * All the staff members that provide services in this business. Read-only. Nullable.
      *
-     * @return array|null The staffMembers
+     * @return BookingStaffMember[]|null The staffMembers
      */
     public function getStaffMembers()
     {
-        if (array_key_exists("staffMembers", $this->_propDict)) {
-           return $this->_propDict["staffMembers"];
-        } else {
-            return null;
+        if (array_key_exists('staffMembers', $this->_propDict) && !is_null($this->_propDict['staffMembers'])) {
+            $staffMembers = [];
+            if (count($this->_propDict['staffMembers']) > 0 && is_a($this->_propDict['staffMembers'][0], 'BookingStaffMember')) {
+                return $this->_propDict['staffMembers'];
+            }
+            foreach ($this->_propDict['staffMembers'] as $singleValue) {
+                $staffMembers []= new BookingStaffMember($singleValue);
+            }
+            $this->_propDict['staffMembers'] = $staffMembers;
+            return $this->_propDict['staffMembers'];
         }
+        return null;
     }
     
     /** 
     * Sets the staffMembers
     * All the staff members that provide services in this business. Read-only. Nullable.
     *
-    * @param BookingStaffMember $val The staffMembers
+    * @param BookingStaffMember[] $val The staffMembers
     *
     * @return BookingBusiness
     */

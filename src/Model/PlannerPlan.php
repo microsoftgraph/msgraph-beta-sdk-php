@@ -32,8 +32,8 @@ class PlannerPlan extends PlannerDelta
     */
     public function getContainer()
     {
-        if (array_key_exists("container", $this->_propDict)) {
-            if (is_a($this->_propDict["container"], "\Beta\Microsoft\Graph\Model\PlannerPlanContainer") || is_null($this->_propDict["container"])) {
+        if (array_key_exists("container", $this->_propDict) && !is_null($this->_propDict["container"])) {
+            if (is_a($this->_propDict["container"], "\Beta\Microsoft\Graph\Model\PlannerPlanContainer")) {
                 return $this->_propDict["container"];
             } else {
                 $this->_propDict["container"] = new PlannerPlanContainer($this->_propDict["container"]);
@@ -65,8 +65,8 @@ class PlannerPlan extends PlannerDelta
     */
     public function getContexts()
     {
-        if (array_key_exists("contexts", $this->_propDict)) {
-            if (is_a($this->_propDict["contexts"], "\Beta\Microsoft\Graph\Model\PlannerPlanContextCollection") || is_null($this->_propDict["contexts"])) {
+        if (array_key_exists("contexts", $this->_propDict) && !is_null($this->_propDict["contexts"])) {
+            if (is_a($this->_propDict["contexts"], "\Beta\Microsoft\Graph\Model\PlannerPlanContextCollection")) {
                 return $this->_propDict["contexts"];
             } else {
                 $this->_propDict["contexts"] = new PlannerPlanContextCollection($this->_propDict["contexts"]);
@@ -98,8 +98,8 @@ class PlannerPlan extends PlannerDelta
     */
     public function getCreatedBy()
     {
-        if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
+        if (array_key_exists("createdBy", $this->_propDict) && !is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new IdentitySet($this->_propDict["createdBy"]);
@@ -131,8 +131,8 @@ class PlannerPlan extends PlannerDelta
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -219,22 +219,29 @@ class PlannerPlan extends PlannerDelta
      * Gets the buckets
     * Read-only. Nullable. Collection of buckets in the plan.
      *
-     * @return array|null The buckets
+     * @return PlannerBucket[]|null The buckets
      */
     public function getBuckets()
     {
-        if (array_key_exists("buckets", $this->_propDict)) {
-           return $this->_propDict["buckets"];
-        } else {
-            return null;
+        if (array_key_exists('buckets', $this->_propDict) && !is_null($this->_propDict['buckets'])) {
+            $buckets = [];
+            if (count($this->_propDict['buckets']) > 0 && is_a($this->_propDict['buckets'][0], 'PlannerBucket')) {
+                return $this->_propDict['buckets'];
+            }
+            foreach ($this->_propDict['buckets'] as $singleValue) {
+                $buckets []= new PlannerBucket($singleValue);
+            }
+            $this->_propDict['buckets'] = $buckets;
+            return $this->_propDict['buckets'];
         }
+        return null;
     }
     
     /** 
     * Sets the buckets
     * Read-only. Nullable. Collection of buckets in the plan.
     *
-    * @param PlannerBucket $val The buckets
+    * @param PlannerBucket[] $val The buckets
     *
     * @return PlannerPlan
     */
@@ -252,8 +259,8 @@ class PlannerPlan extends PlannerDelta
     */
     public function getDetails()
     {
-        if (array_key_exists("details", $this->_propDict)) {
-            if (is_a($this->_propDict["details"], "\Beta\Microsoft\Graph\Model\PlannerPlanDetails") || is_null($this->_propDict["details"])) {
+        if (array_key_exists("details", $this->_propDict) && !is_null($this->_propDict["details"])) {
+            if (is_a($this->_propDict["details"], "\Beta\Microsoft\Graph\Model\PlannerPlanDetails")) {
                 return $this->_propDict["details"];
             } else {
                 $this->_propDict["details"] = new PlannerPlanDetails($this->_propDict["details"]);
@@ -282,22 +289,29 @@ class PlannerPlan extends PlannerDelta
      * Gets the tasks
     * Read-only. Nullable. Collection of tasks in the plan.
      *
-     * @return array|null The tasks
+     * @return PlannerTask[]|null The tasks
      */
     public function getTasks()
     {
-        if (array_key_exists("tasks", $this->_propDict)) {
-           return $this->_propDict["tasks"];
-        } else {
-            return null;
+        if (array_key_exists('tasks', $this->_propDict) && !is_null($this->_propDict['tasks'])) {
+            $tasks = [];
+            if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'PlannerTask')) {
+                return $this->_propDict['tasks'];
+            }
+            foreach ($this->_propDict['tasks'] as $singleValue) {
+                $tasks []= new PlannerTask($singleValue);
+            }
+            $this->_propDict['tasks'] = $tasks;
+            return $this->_propDict['tasks'];
         }
+        return null;
     }
     
     /** 
     * Sets the tasks
     * Read-only. Nullable. Collection of tasks in the plan.
     *
-    * @param PlannerTask $val The tasks
+    * @param PlannerTask[] $val The tasks
     *
     * @return PlannerPlan
     */

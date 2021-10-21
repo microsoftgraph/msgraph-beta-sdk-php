@@ -148,8 +148,8 @@ class MobileAppRelationship extends Entity
     */
     public function getTargetType()
     {
-        if (array_key_exists("targetType", $this->_propDict)) {
-            if (is_a($this->_propDict["targetType"], "\Beta\Microsoft\Graph\Model\MobileAppRelationshipType") || is_null($this->_propDict["targetType"])) {
+        if (array_key_exists("targetType", $this->_propDict) && !is_null($this->_propDict["targetType"])) {
+            if (is_a($this->_propDict["targetType"], "\Beta\Microsoft\Graph\Model\MobileAppRelationshipType")) {
                 return $this->_propDict["targetType"];
             } else {
                 $this->_propDict["targetType"] = new MobileAppRelationshipType($this->_propDict["targetType"]);

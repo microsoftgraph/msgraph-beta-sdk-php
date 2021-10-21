@@ -26,13 +26,15 @@ class AttackSimulationRepeatOffender extends Entity
 
     /**
     * Gets the attackSimulationUser
+    * User in an attack simulation and training campaign.
     *
     * @return AttackSimulationUser|null The attackSimulationUser
     */
     public function getAttackSimulationUser()
     {
-        if (array_key_exists("attackSimulationUser", $this->_propDict)) {
-            if (is_a($this->_propDict["attackSimulationUser"], "\Beta\Microsoft\Graph\Model\AttackSimulationUser") || is_null($this->_propDict["attackSimulationUser"])) {
+        if (array_key_exists("attackSimulationUser", $this->_propDict) && !is_null($this->_propDict["attackSimulationUser"])) {
+     
+            if (is_a($this->_propDict["attackSimulationUser"], "\Beta\Microsoft\Graph\Model\AttackSimulationUser")) {
                 return $this->_propDict["attackSimulationUser"];
             } else {
                 $this->_propDict["attackSimulationUser"] = new AttackSimulationUser($this->_propDict["attackSimulationUser"]);
@@ -44,6 +46,7 @@ class AttackSimulationRepeatOffender extends Entity
 
     /**
     * Sets the attackSimulationUser
+    * User in an attack simulation and training campaign.
     *
     * @param AttackSimulationUser $val The value to assign to the attackSimulationUser
     *
@@ -56,6 +59,7 @@ class AttackSimulationRepeatOffender extends Entity
     }
     /**
     * Gets the repeatOffenceCount
+    * Number of repeat offences of the user in attack simulation and training campaigns.
     *
     * @return int|null The repeatOffenceCount
     */
@@ -70,6 +74,7 @@ class AttackSimulationRepeatOffender extends Entity
 
     /**
     * Sets the repeatOffenceCount
+    * Number of repeat offences of the user in attack simulation and training campaigns.
     *
     * @param int $val The value of the repeatOffenceCount
     *

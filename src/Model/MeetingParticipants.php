@@ -28,18 +28,22 @@ class MeetingParticipants extends Entity
     * Gets the attendees
     * Information of the meeting attendees.
     *
-    * @return MeetingParticipantInfo|null The attendees
+    * @return MeetingParticipantInfo[]|null The attendees
     */
     public function getAttendees()
     {
-        if (array_key_exists("attendees", $this->_propDict)) {
-            if (is_a($this->_propDict["attendees"], "\Beta\Microsoft\Graph\Model\MeetingParticipantInfo") || is_null($this->_propDict["attendees"])) {
-                return $this->_propDict["attendees"];
-            } else {
-                $this->_propDict["attendees"] = new MeetingParticipantInfo($this->_propDict["attendees"]);
-                return $this->_propDict["attendees"];
+        if (array_key_exists("attendees", $this->_propDict) && !is_null($this->_propDict["attendees"])) {
+       
+            if (count($this->_propDict['attendees']) > 0 && is_a($this->_propDict['attendees'][0], 'MeetingParticipantInfo')) {
+               return $this->_propDict['attendees'];
             }
-        }
+            $attendees = [];
+            foreach ($this->_propDict['attendees'] as $singleValue) {
+               $attendees []= new MeetingParticipantInfo($singleValue);
+            }
+            $this->_propDict['attendees'] = $attendees;
+            return $this->_propDict['attendees'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class MeetingParticipants extends Entity
     * Sets the attendees
     * Information of the meeting attendees.
     *
-    * @param MeetingParticipantInfo $val The value to assign to the attendees
+    * @param MeetingParticipantInfo[] $val The value to assign to the attendees
     *
     * @return MeetingParticipants The MeetingParticipants
     */
@@ -60,25 +64,29 @@ class MeetingParticipants extends Entity
     /**
     * Gets the contributors
     *
-    * @return MeetingParticipantInfo|null The contributors
+    * @return MeetingParticipantInfo[]|null The contributors
     */
     public function getContributors()
     {
-        if (array_key_exists("contributors", $this->_propDict)) {
-            if (is_a($this->_propDict["contributors"], "\Beta\Microsoft\Graph\Model\MeetingParticipantInfo") || is_null($this->_propDict["contributors"])) {
-                return $this->_propDict["contributors"];
-            } else {
-                $this->_propDict["contributors"] = new MeetingParticipantInfo($this->_propDict["contributors"]);
-                return $this->_propDict["contributors"];
+        if (array_key_exists("contributors", $this->_propDict) && !is_null($this->_propDict["contributors"])) {
+       
+            if (count($this->_propDict['contributors']) > 0 && is_a($this->_propDict['contributors'][0], 'MeetingParticipantInfo')) {
+               return $this->_propDict['contributors'];
             }
-        }
+            $contributors = [];
+            foreach ($this->_propDict['contributors'] as $singleValue) {
+               $contributors []= new MeetingParticipantInfo($singleValue);
+            }
+            $this->_propDict['contributors'] = $contributors;
+            return $this->_propDict['contributors'];
+            }
         return null;
     }
 
     /**
     * Sets the contributors
     *
-    * @param MeetingParticipantInfo $val The value to assign to the contributors
+    * @param MeetingParticipantInfo[] $val The value to assign to the contributors
     *
     * @return MeetingParticipants The MeetingParticipants
     */
@@ -96,8 +104,9 @@ class MeetingParticipants extends Entity
     */
     public function getOrganizer()
     {
-        if (array_key_exists("organizer", $this->_propDict)) {
-            if (is_a($this->_propDict["organizer"], "\Beta\Microsoft\Graph\Model\MeetingParticipantInfo") || is_null($this->_propDict["organizer"])) {
+        if (array_key_exists("organizer", $this->_propDict) && !is_null($this->_propDict["organizer"])) {
+     
+            if (is_a($this->_propDict["organizer"], "\Beta\Microsoft\Graph\Model\MeetingParticipantInfo")) {
                 return $this->_propDict["organizer"];
             } else {
                 $this->_propDict["organizer"] = new MeetingParticipantInfo($this->_propDict["organizer"]);
@@ -124,25 +133,29 @@ class MeetingParticipants extends Entity
     /**
     * Gets the producers
     *
-    * @return MeetingParticipantInfo|null The producers
+    * @return MeetingParticipantInfo[]|null The producers
     */
     public function getProducers()
     {
-        if (array_key_exists("producers", $this->_propDict)) {
-            if (is_a($this->_propDict["producers"], "\Beta\Microsoft\Graph\Model\MeetingParticipantInfo") || is_null($this->_propDict["producers"])) {
-                return $this->_propDict["producers"];
-            } else {
-                $this->_propDict["producers"] = new MeetingParticipantInfo($this->_propDict["producers"]);
-                return $this->_propDict["producers"];
+        if (array_key_exists("producers", $this->_propDict) && !is_null($this->_propDict["producers"])) {
+       
+            if (count($this->_propDict['producers']) > 0 && is_a($this->_propDict['producers'][0], 'MeetingParticipantInfo')) {
+               return $this->_propDict['producers'];
             }
-        }
+            $producers = [];
+            foreach ($this->_propDict['producers'] as $singleValue) {
+               $producers []= new MeetingParticipantInfo($singleValue);
+            }
+            $this->_propDict['producers'] = $producers;
+            return $this->_propDict['producers'];
+            }
         return null;
     }
 
     /**
     * Sets the producers
     *
-    * @param MeetingParticipantInfo $val The value to assign to the producers
+    * @param MeetingParticipantInfo[] $val The value to assign to the producers
     *
     * @return MeetingParticipants The MeetingParticipants
     */

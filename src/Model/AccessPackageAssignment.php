@@ -177,8 +177,8 @@ class AccessPackageAssignment extends Entity
     */
     public function getExpiredDateTime()
     {
-        if (array_key_exists("expiredDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expiredDateTime"], "\DateTime") || is_null($this->_propDict["expiredDateTime"])) {
+        if (array_key_exists("expiredDateTime", $this->_propDict) && !is_null($this->_propDict["expiredDateTime"])) {
+            if (is_a($this->_propDict["expiredDateTime"], "\DateTime")) {
                 return $this->_propDict["expiredDateTime"];
             } else {
                 $this->_propDict["expiredDateTime"] = new \DateTime($this->_propDict["expiredDateTime"]);
@@ -239,8 +239,8 @@ class AccessPackageAssignment extends Entity
     */
     public function getSchedule()
     {
-        if (array_key_exists("schedule", $this->_propDict)) {
-            if (is_a($this->_propDict["schedule"], "\Beta\Microsoft\Graph\Model\RequestSchedule") || is_null($this->_propDict["schedule"])) {
+        if (array_key_exists("schedule", $this->_propDict) && !is_null($this->_propDict["schedule"])) {
+            if (is_a($this->_propDict["schedule"], "\Beta\Microsoft\Graph\Model\RequestSchedule")) {
                 return $this->_propDict["schedule"];
             } else {
                 $this->_propDict["schedule"] = new RequestSchedule($this->_propDict["schedule"]);
@@ -301,8 +301,8 @@ class AccessPackageAssignment extends Entity
     */
     public function getAccessPackage()
     {
-        if (array_key_exists("accessPackage", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackage"], "\Beta\Microsoft\Graph\Model\AccessPackage") || is_null($this->_propDict["accessPackage"])) {
+        if (array_key_exists("accessPackage", $this->_propDict) && !is_null($this->_propDict["accessPackage"])) {
+            if (is_a($this->_propDict["accessPackage"], "\Beta\Microsoft\Graph\Model\AccessPackage")) {
                 return $this->_propDict["accessPackage"];
             } else {
                 $this->_propDict["accessPackage"] = new AccessPackage($this->_propDict["accessPackage"]);
@@ -334,8 +334,8 @@ class AccessPackageAssignment extends Entity
     */
     public function getAccessPackageAssignmentPolicy()
     {
-        if (array_key_exists("accessPackageAssignmentPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageAssignmentPolicy"], "\Beta\Microsoft\Graph\Model\AccessPackageAssignmentPolicy") || is_null($this->_propDict["accessPackageAssignmentPolicy"])) {
+        if (array_key_exists("accessPackageAssignmentPolicy", $this->_propDict) && !is_null($this->_propDict["accessPackageAssignmentPolicy"])) {
+            if (is_a($this->_propDict["accessPackageAssignmentPolicy"], "\Beta\Microsoft\Graph\Model\AccessPackageAssignmentPolicy")) {
                 return $this->_propDict["accessPackageAssignmentPolicy"];
             } else {
                 $this->_propDict["accessPackageAssignmentPolicy"] = new AccessPackageAssignmentPolicy($this->_propDict["accessPackageAssignmentPolicy"]);
@@ -363,21 +363,28 @@ class AccessPackageAssignment extends Entity
      /** 
      * Gets the accessPackageAssignmentRequests
      *
-     * @return array|null The accessPackageAssignmentRequests
+     * @return AccessPackageAssignmentRequest[]|null The accessPackageAssignmentRequests
      */
     public function getAccessPackageAssignmentRequests()
     {
-        if (array_key_exists("accessPackageAssignmentRequests", $this->_propDict)) {
-           return $this->_propDict["accessPackageAssignmentRequests"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackageAssignmentRequests', $this->_propDict) && !is_null($this->_propDict['accessPackageAssignmentRequests'])) {
+            $accessPackageAssignmentRequests = [];
+            if (count($this->_propDict['accessPackageAssignmentRequests']) > 0 && is_a($this->_propDict['accessPackageAssignmentRequests'][0], 'AccessPackageAssignmentRequest')) {
+                return $this->_propDict['accessPackageAssignmentRequests'];
+            }
+            foreach ($this->_propDict['accessPackageAssignmentRequests'] as $singleValue) {
+                $accessPackageAssignmentRequests []= new AccessPackageAssignmentRequest($singleValue);
+            }
+            $this->_propDict['accessPackageAssignmentRequests'] = $accessPackageAssignmentRequests;
+            return $this->_propDict['accessPackageAssignmentRequests'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackageAssignmentRequests
     *
-    * @param AccessPackageAssignmentRequest $val The accessPackageAssignmentRequests
+    * @param AccessPackageAssignmentRequest[] $val The accessPackageAssignmentRequests
     *
     * @return AccessPackageAssignment
     */
@@ -392,22 +399,29 @@ class AccessPackageAssignment extends Entity
      * Gets the accessPackageAssignmentResourceRoles
     * The resource roles delivered to the target user for this assignment. Read-only. Nullable.
      *
-     * @return array|null The accessPackageAssignmentResourceRoles
+     * @return AccessPackageAssignmentResourceRole[]|null The accessPackageAssignmentResourceRoles
      */
     public function getAccessPackageAssignmentResourceRoles()
     {
-        if (array_key_exists("accessPackageAssignmentResourceRoles", $this->_propDict)) {
-           return $this->_propDict["accessPackageAssignmentResourceRoles"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackageAssignmentResourceRoles', $this->_propDict) && !is_null($this->_propDict['accessPackageAssignmentResourceRoles'])) {
+            $accessPackageAssignmentResourceRoles = [];
+            if (count($this->_propDict['accessPackageAssignmentResourceRoles']) > 0 && is_a($this->_propDict['accessPackageAssignmentResourceRoles'][0], 'AccessPackageAssignmentResourceRole')) {
+                return $this->_propDict['accessPackageAssignmentResourceRoles'];
+            }
+            foreach ($this->_propDict['accessPackageAssignmentResourceRoles'] as $singleValue) {
+                $accessPackageAssignmentResourceRoles []= new AccessPackageAssignmentResourceRole($singleValue);
+            }
+            $this->_propDict['accessPackageAssignmentResourceRoles'] = $accessPackageAssignmentResourceRoles;
+            return $this->_propDict['accessPackageAssignmentResourceRoles'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackageAssignmentResourceRoles
     * The resource roles delivered to the target user for this assignment. Read-only. Nullable.
     *
-    * @param AccessPackageAssignmentResourceRole $val The accessPackageAssignmentResourceRoles
+    * @param AccessPackageAssignmentResourceRole[] $val The accessPackageAssignmentResourceRoles
     *
     * @return AccessPackageAssignment
     */
@@ -425,8 +439,8 @@ class AccessPackageAssignment extends Entity
     */
     public function getTarget()
     {
-        if (array_key_exists("target", $this->_propDict)) {
-            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\AccessPackageSubject") || is_null($this->_propDict["target"])) {
+        if (array_key_exists("target", $this->_propDict) && !is_null($this->_propDict["target"])) {
+            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\AccessPackageSubject")) {
                 return $this->_propDict["target"];
             } else {
                 $this->_propDict["target"] = new AccessPackageSubject($this->_propDict["target"]);

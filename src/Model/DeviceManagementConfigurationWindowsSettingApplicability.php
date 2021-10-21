@@ -116,8 +116,9 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     */
     public function getRequiredAzureAdTrustType()
     {
-        if (array_key_exists("requiredAzureAdTrustType", $this->_propDict)) {
-            if (is_a($this->_propDict["requiredAzureAdTrustType"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationAzureAdTrustType") || is_null($this->_propDict["requiredAzureAdTrustType"])) {
+        if (array_key_exists("requiredAzureAdTrustType", $this->_propDict) && !is_null($this->_propDict["requiredAzureAdTrustType"])) {
+     
+            if (is_a($this->_propDict["requiredAzureAdTrustType"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationAzureAdTrustType")) {
                 return $this->_propDict["requiredAzureAdTrustType"];
             } else {
                 $this->_propDict["requiredAzureAdTrustType"] = new DeviceManagementConfigurationAzureAdTrustType($this->_propDict["requiredAzureAdTrustType"]);
@@ -173,18 +174,22 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     * Gets the windowsSkus
     * List of Windows SKUs that the setting is applicable for
     *
-    * @return DeviceManagementConfigurationWindowsSkus|null The windowsSkus
+    * @return DeviceManagementConfigurationWindowsSkus[]|null The windowsSkus
     */
     public function getWindowsSkus()
     {
-        if (array_key_exists("windowsSkus", $this->_propDict)) {
-            if (is_a($this->_propDict["windowsSkus"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSkus") || is_null($this->_propDict["windowsSkus"])) {
-                return $this->_propDict["windowsSkus"];
-            } else {
-                $this->_propDict["windowsSkus"] = new DeviceManagementConfigurationWindowsSkus($this->_propDict["windowsSkus"]);
-                return $this->_propDict["windowsSkus"];
+        if (array_key_exists("windowsSkus", $this->_propDict) && !is_null($this->_propDict["windowsSkus"])) {
+       
+            if (count($this->_propDict['windowsSkus']) > 0 && is_a($this->_propDict['windowsSkus'][0], 'DeviceManagementConfigurationWindowsSkus')) {
+               return $this->_propDict['windowsSkus'];
             }
-        }
+            $windowsSkus = [];
+            foreach ($this->_propDict['windowsSkus'] as $singleValue) {
+               $windowsSkus []= new DeviceManagementConfigurationWindowsSkus($singleValue);
+            }
+            $this->_propDict['windowsSkus'] = $windowsSkus;
+            return $this->_propDict['windowsSkus'];
+            }
         return null;
     }
 
@@ -192,7 +197,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     * Sets the windowsSkus
     * List of Windows SKUs that the setting is applicable for
     *
-    * @param DeviceManagementConfigurationWindowsSkus $val The value to assign to the windowsSkus
+    * @param DeviceManagementConfigurationWindowsSkus[] $val The value to assign to the windowsSkus
     *
     * @return DeviceManagementConfigurationWindowsSettingApplicability The DeviceManagementConfigurationWindowsSettingApplicability
     */

@@ -29,22 +29,29 @@ class AccessPackageAssignmentRequest extends Entity
      * Gets the answers
     * Answers provided by the requestor to accessPackageQuestions asked of them at the time of request.
      *
-     * @return array|null The answers
+     * @return AccessPackageAnswer[]|null The answers
      */
     public function getAnswers()
     {
-        if (array_key_exists("answers", $this->_propDict)) {
-           return $this->_propDict["answers"];
-        } else {
-            return null;
+        if (array_key_exists('answers', $this->_propDict) && !is_null($this->_propDict['answers'])) {
+            $answers = [];
+            if (count($this->_propDict['answers']) > 0 && is_a($this->_propDict['answers'][0], 'AccessPackageAnswer')) {
+                return $this->_propDict['answers'];
+            }
+            foreach ($this->_propDict['answers'] as $singleValue) {
+                $answers []= new AccessPackageAnswer($singleValue);
+            }
+            $this->_propDict['answers'] = $answers;
+            return $this->_propDict['answers'];
         }
+        return null;
     }
     
     /** 
     * Sets the answers
     * Answers provided by the requestor to accessPackageQuestions asked of them at the time of request.
     *
-    * @param AccessPackageAnswer $val The answers
+    * @param AccessPackageAnswer[] $val The answers
     *
     * @return AccessPackageAssignmentRequest
     */
@@ -62,8 +69,8 @@ class AccessPackageAssignmentRequest extends Entity
     */
     public function getCompletedDate()
     {
-        if (array_key_exists("completedDate", $this->_propDict)) {
-            if (is_a($this->_propDict["completedDate"], "\DateTime") || is_null($this->_propDict["completedDate"])) {
+        if (array_key_exists("completedDate", $this->_propDict) && !is_null($this->_propDict["completedDate"])) {
+            if (is_a($this->_propDict["completedDate"], "\DateTime")) {
                 return $this->_propDict["completedDate"];
             } else {
                 $this->_propDict["completedDate"] = new \DateTime($this->_propDict["completedDate"]);
@@ -95,8 +102,8 @@ class AccessPackageAssignmentRequest extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -127,8 +134,8 @@ class AccessPackageAssignmentRequest extends Entity
     */
     public function getExpirationDateTime()
     {
-        if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+        if (array_key_exists("expirationDateTime", $this->_propDict) && !is_null($this->_propDict["expirationDateTime"])) {
+            if (is_a($this->_propDict["expirationDateTime"], "\DateTime")) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -304,8 +311,8 @@ class AccessPackageAssignmentRequest extends Entity
     */
     public function getSchedule()
     {
-        if (array_key_exists("schedule", $this->_propDict)) {
-            if (is_a($this->_propDict["schedule"], "\Beta\Microsoft\Graph\Model\RequestSchedule") || is_null($this->_propDict["schedule"])) {
+        if (array_key_exists("schedule", $this->_propDict) && !is_null($this->_propDict["schedule"])) {
+            if (is_a($this->_propDict["schedule"], "\Beta\Microsoft\Graph\Model\RequestSchedule")) {
                 return $this->_propDict["schedule"];
             } else {
                 $this->_propDict["schedule"] = new RequestSchedule($this->_propDict["schedule"]);
@@ -337,8 +344,8 @@ class AccessPackageAssignmentRequest extends Entity
     */
     public function getAccessPackage()
     {
-        if (array_key_exists("accessPackage", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackage"], "\Beta\Microsoft\Graph\Model\AccessPackage") || is_null($this->_propDict["accessPackage"])) {
+        if (array_key_exists("accessPackage", $this->_propDict) && !is_null($this->_propDict["accessPackage"])) {
+            if (is_a($this->_propDict["accessPackage"], "\Beta\Microsoft\Graph\Model\AccessPackage")) {
                 return $this->_propDict["accessPackage"];
             } else {
                 $this->_propDict["accessPackage"] = new AccessPackage($this->_propDict["accessPackage"]);
@@ -370,8 +377,8 @@ class AccessPackageAssignmentRequest extends Entity
     */
     public function getAccessPackageAssignment()
     {
-        if (array_key_exists("accessPackageAssignment", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageAssignment"], "\Beta\Microsoft\Graph\Model\AccessPackageAssignment") || is_null($this->_propDict["accessPackageAssignment"])) {
+        if (array_key_exists("accessPackageAssignment", $this->_propDict) && !is_null($this->_propDict["accessPackageAssignment"])) {
+            if (is_a($this->_propDict["accessPackageAssignment"], "\Beta\Microsoft\Graph\Model\AccessPackageAssignment")) {
                 return $this->_propDict["accessPackageAssignment"];
             } else {
                 $this->_propDict["accessPackageAssignment"] = new AccessPackageAssignment($this->_propDict["accessPackageAssignment"]);
@@ -403,8 +410,8 @@ class AccessPackageAssignmentRequest extends Entity
     */
     public function getRequestor()
     {
-        if (array_key_exists("requestor", $this->_propDict)) {
-            if (is_a($this->_propDict["requestor"], "\Beta\Microsoft\Graph\Model\AccessPackageSubject") || is_null($this->_propDict["requestor"])) {
+        if (array_key_exists("requestor", $this->_propDict) && !is_null($this->_propDict["requestor"])) {
+            if (is_a($this->_propDict["requestor"], "\Beta\Microsoft\Graph\Model\AccessPackageSubject")) {
                 return $this->_propDict["requestor"];
             } else {
                 $this->_propDict["requestor"] = new AccessPackageSubject($this->_propDict["requestor"]);

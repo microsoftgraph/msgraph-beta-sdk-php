@@ -32,8 +32,8 @@ class WindowsFeatureUpdateProfile extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -152,8 +152,8 @@ class WindowsFeatureUpdateProfile extends Entity
     */
     public function getEndOfSupportDate()
     {
-        if (array_key_exists("endOfSupportDate", $this->_propDict)) {
-            if (is_a($this->_propDict["endOfSupportDate"], "\DateTime") || is_null($this->_propDict["endOfSupportDate"])) {
+        if (array_key_exists("endOfSupportDate", $this->_propDict) && !is_null($this->_propDict["endOfSupportDate"])) {
+            if (is_a($this->_propDict["endOfSupportDate"], "\DateTime")) {
                 return $this->_propDict["endOfSupportDate"];
             } else {
                 $this->_propDict["endOfSupportDate"] = new \DateTime($this->_propDict["endOfSupportDate"]);
@@ -214,8 +214,8 @@ class WindowsFeatureUpdateProfile extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -273,22 +273,29 @@ class WindowsFeatureUpdateProfile extends Entity
      * Gets the assignments
     * The list of group assignments of the profile.
      *
-     * @return array|null The assignments
+     * @return WindowsFeatureUpdateProfileAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'WindowsFeatureUpdateProfileAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new WindowsFeatureUpdateProfileAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * The list of group assignments of the profile.
     *
-    * @param WindowsFeatureUpdateProfileAssignment $val The assignments
+    * @param WindowsFeatureUpdateProfileAssignment[] $val The assignments
     *
     * @return WindowsFeatureUpdateProfile
     */

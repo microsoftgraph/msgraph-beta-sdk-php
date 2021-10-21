@@ -32,8 +32,8 @@ class MacOSVpnConfiguration extends AppleVpnConfiguration
     */
     public function getIdentityCertificate()
     {
-        if (array_key_exists("identityCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\MacOSCertificateProfileBase") || is_null($this->_propDict["identityCertificate"])) {
+        if (array_key_exists("identityCertificate", $this->_propDict) && !is_null($this->_propDict["identityCertificate"])) {
+            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\MacOSCertificateProfileBase")) {
                 return $this->_propDict["identityCertificate"];
             } else {
                 $this->_propDict["identityCertificate"] = new MacOSCertificateProfileBase($this->_propDict["identityCertificate"]);

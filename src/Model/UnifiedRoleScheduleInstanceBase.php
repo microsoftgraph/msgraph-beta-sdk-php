@@ -148,8 +148,8 @@ class UnifiedRoleScheduleInstanceBase extends Entity
     */
     public function getAppScope()
     {
-        if (array_key_exists("appScope", $this->_propDict)) {
-            if (is_a($this->_propDict["appScope"], "\Beta\Microsoft\Graph\Model\AppScope") || is_null($this->_propDict["appScope"])) {
+        if (array_key_exists("appScope", $this->_propDict) && !is_null($this->_propDict["appScope"])) {
+            if (is_a($this->_propDict["appScope"], "\Beta\Microsoft\Graph\Model\AppScope")) {
                 return $this->_propDict["appScope"];
             } else {
                 $this->_propDict["appScope"] = new AppScope($this->_propDict["appScope"]);
@@ -181,8 +181,8 @@ class UnifiedRoleScheduleInstanceBase extends Entity
     */
     public function getDirectoryScope()
     {
-        if (array_key_exists("directoryScope", $this->_propDict)) {
-            if (is_a($this->_propDict["directoryScope"], "\Beta\Microsoft\Graph\Model\DirectoryObject") || is_null($this->_propDict["directoryScope"])) {
+        if (array_key_exists("directoryScope", $this->_propDict) && !is_null($this->_propDict["directoryScope"])) {
+            if (is_a($this->_propDict["directoryScope"], "\Beta\Microsoft\Graph\Model\DirectoryObject")) {
                 return $this->_propDict["directoryScope"];
             } else {
                 $this->_propDict["directoryScope"] = new DirectoryObject($this->_propDict["directoryScope"]);
@@ -214,8 +214,8 @@ class UnifiedRoleScheduleInstanceBase extends Entity
     */
     public function getPrincipal()
     {
-        if (array_key_exists("principal", $this->_propDict)) {
-            if (is_a($this->_propDict["principal"], "\Beta\Microsoft\Graph\Model\DirectoryObject") || is_null($this->_propDict["principal"])) {
+        if (array_key_exists("principal", $this->_propDict) && !is_null($this->_propDict["principal"])) {
+            if (is_a($this->_propDict["principal"], "\Beta\Microsoft\Graph\Model\DirectoryObject")) {
                 return $this->_propDict["principal"];
             } else {
                 $this->_propDict["principal"] = new DirectoryObject($this->_propDict["principal"]);
@@ -247,8 +247,8 @@ class UnifiedRoleScheduleInstanceBase extends Entity
     */
     public function getRoleDefinition()
     {
-        if (array_key_exists("roleDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["roleDefinition"], "\Beta\Microsoft\Graph\Model\UnifiedRoleDefinition") || is_null($this->_propDict["roleDefinition"])) {
+        if (array_key_exists("roleDefinition", $this->_propDict) && !is_null($this->_propDict["roleDefinition"])) {
+            if (is_a($this->_propDict["roleDefinition"], "\Beta\Microsoft\Graph\Model\UnifiedRoleDefinition")) {
                 return $this->_propDict["roleDefinition"];
             } else {
                 $this->_propDict["roleDefinition"] = new UnifiedRoleDefinition($this->_propDict["roleDefinition"]);

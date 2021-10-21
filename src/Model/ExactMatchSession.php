@@ -220,8 +220,8 @@ class ExactMatchSession extends ExactMatchSessionBase
     */
     public function getUploadAgent()
     {
-        if (array_key_exists("uploadAgent", $this->_propDict)) {
-            if (is_a($this->_propDict["uploadAgent"], "\Beta\Microsoft\Graph\Model\ExactMatchUploadAgent") || is_null($this->_propDict["uploadAgent"])) {
+        if (array_key_exists("uploadAgent", $this->_propDict) && !is_null($this->_propDict["uploadAgent"])) {
+            if (is_a($this->_propDict["uploadAgent"], "\Beta\Microsoft\Graph\Model\ExactMatchUploadAgent")) {
                 return $this->_propDict["uploadAgent"];
             } else {
                 $this->_propDict["uploadAgent"] = new ExactMatchUploadAgent($this->_propDict["uploadAgent"]);

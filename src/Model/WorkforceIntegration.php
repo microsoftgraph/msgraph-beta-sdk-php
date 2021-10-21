@@ -89,8 +89,8 @@ class WorkforceIntegration extends ChangeTrackedEntity
     */
     public function getEligibilityFilteringEnabledEntities()
     {
-        if (array_key_exists("eligibilityFilteringEnabledEntities", $this->_propDict)) {
-            if (is_a($this->_propDict["eligibilityFilteringEnabledEntities"], "\Beta\Microsoft\Graph\Model\EligibilityFilteringEnabledEntities") || is_null($this->_propDict["eligibilityFilteringEnabledEntities"])) {
+        if (array_key_exists("eligibilityFilteringEnabledEntities", $this->_propDict) && !is_null($this->_propDict["eligibilityFilteringEnabledEntities"])) {
+            if (is_a($this->_propDict["eligibilityFilteringEnabledEntities"], "\Beta\Microsoft\Graph\Model\EligibilityFilteringEnabledEntities")) {
                 return $this->_propDict["eligibilityFilteringEnabledEntities"];
             } else {
                 $this->_propDict["eligibilityFilteringEnabledEntities"] = new EligibilityFilteringEnabledEntities($this->_propDict["eligibilityFilteringEnabledEntities"]);
@@ -121,8 +121,8 @@ class WorkforceIntegration extends ChangeTrackedEntity
     */
     public function getEncryption()
     {
-        if (array_key_exists("encryption", $this->_propDict)) {
-            if (is_a($this->_propDict["encryption"], "\Beta\Microsoft\Graph\Model\WorkforceIntegrationEncryption") || is_null($this->_propDict["encryption"])) {
+        if (array_key_exists("encryption", $this->_propDict) && !is_null($this->_propDict["encryption"])) {
+            if (is_a($this->_propDict["encryption"], "\Beta\Microsoft\Graph\Model\WorkforceIntegrationEncryption")) {
                 return $this->_propDict["encryption"];
             } else {
                 $this->_propDict["encryption"] = new WorkforceIntegrationEncryption($this->_propDict["encryption"]);
@@ -183,8 +183,8 @@ class WorkforceIntegration extends ChangeTrackedEntity
     */
     public function getSupportedEntities()
     {
-        if (array_key_exists("supportedEntities", $this->_propDict)) {
-            if (is_a($this->_propDict["supportedEntities"], "\Beta\Microsoft\Graph\Model\WorkforceIntegrationSupportedEntities") || is_null($this->_propDict["supportedEntities"])) {
+        if (array_key_exists("supportedEntities", $this->_propDict) && !is_null($this->_propDict["supportedEntities"])) {
+            if (is_a($this->_propDict["supportedEntities"], "\Beta\Microsoft\Graph\Model\WorkforceIntegrationSupportedEntities")) {
                 return $this->_propDict["supportedEntities"];
             } else {
                 $this->_propDict["supportedEntities"] = new WorkforceIntegrationSupportedEntities($this->_propDict["supportedEntities"]);
@@ -216,8 +216,8 @@ class WorkforceIntegration extends ChangeTrackedEntity
     */
     public function getSupports()
     {
-        if (array_key_exists("supports", $this->_propDict)) {
-            if (is_a($this->_propDict["supports"], "\Beta\Microsoft\Graph\Model\WorkforceIntegrationSupportedEntities") || is_null($this->_propDict["supports"])) {
+        if (array_key_exists("supports", $this->_propDict) && !is_null($this->_propDict["supports"])) {
+            if (is_a($this->_propDict["supports"], "\Beta\Microsoft\Graph\Model\WorkforceIntegrationSupportedEntities")) {
                 return $this->_propDict["supports"];
             } else {
                 $this->_propDict["supports"] = new WorkforceIntegrationSupportedEntities($this->_propDict["supports"]);

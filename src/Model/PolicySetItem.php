@@ -32,8 +32,8 @@ class PolicySetItem extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -94,8 +94,8 @@ class PolicySetItem extends Entity
     */
     public function getErrorCode()
     {
-        if (array_key_exists("errorCode", $this->_propDict)) {
-            if (is_a($this->_propDict["errorCode"], "\Beta\Microsoft\Graph\Model\ErrorCode") || is_null($this->_propDict["errorCode"])) {
+        if (array_key_exists("errorCode", $this->_propDict) && !is_null($this->_propDict["errorCode"])) {
+            if (is_a($this->_propDict["errorCode"], "\Beta\Microsoft\Graph\Model\ErrorCode")) {
                 return $this->_propDict["errorCode"];
             } else {
                 $this->_propDict["errorCode"] = new ErrorCode($this->_propDict["errorCode"]);
@@ -185,8 +185,8 @@ class PolicySetItem extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -247,8 +247,8 @@ class PolicySetItem extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\PolicySetStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\PolicySetStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new PolicySetStatus($this->_propDict["status"]);

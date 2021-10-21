@@ -145,22 +145,29 @@ class OutlookTaskFolder extends Entity
      * Gets the multiValueExtendedProperties
     * The collection of multi-value extended properties defined for the task folder. Read-only. Nullable.
      *
-     * @return array|null The multiValueExtendedProperties
+     * @return MultiValueLegacyExtendedProperty[]|null The multiValueExtendedProperties
      */
     public function getMultiValueExtendedProperties()
     {
-        if (array_key_exists("multiValueExtendedProperties", $this->_propDict)) {
-           return $this->_propDict["multiValueExtendedProperties"];
-        } else {
-            return null;
+        if (array_key_exists('multiValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['multiValueExtendedProperties'])) {
+            $multiValueExtendedProperties = [];
+            if (count($this->_propDict['multiValueExtendedProperties']) > 0 && is_a($this->_propDict['multiValueExtendedProperties'][0], 'MultiValueLegacyExtendedProperty')) {
+                return $this->_propDict['multiValueExtendedProperties'];
+            }
+            foreach ($this->_propDict['multiValueExtendedProperties'] as $singleValue) {
+                $multiValueExtendedProperties []= new MultiValueLegacyExtendedProperty($singleValue);
+            }
+            $this->_propDict['multiValueExtendedProperties'] = $multiValueExtendedProperties;
+            return $this->_propDict['multiValueExtendedProperties'];
         }
+        return null;
     }
     
     /** 
     * Sets the multiValueExtendedProperties
     * The collection of multi-value extended properties defined for the task folder. Read-only. Nullable.
     *
-    * @param MultiValueLegacyExtendedProperty $val The multiValueExtendedProperties
+    * @param MultiValueLegacyExtendedProperty[] $val The multiValueExtendedProperties
     *
     * @return OutlookTaskFolder
     */
@@ -175,22 +182,29 @@ class OutlookTaskFolder extends Entity
      * Gets the singleValueExtendedProperties
     * The collection of single-value extended properties defined for the task folder. Read-only. Nullable.
      *
-     * @return array|null The singleValueExtendedProperties
+     * @return SingleValueLegacyExtendedProperty[]|null The singleValueExtendedProperties
      */
     public function getSingleValueExtendedProperties()
     {
-        if (array_key_exists("singleValueExtendedProperties", $this->_propDict)) {
-           return $this->_propDict["singleValueExtendedProperties"];
-        } else {
-            return null;
+        if (array_key_exists('singleValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['singleValueExtendedProperties'])) {
+            $singleValueExtendedProperties = [];
+            if (count($this->_propDict['singleValueExtendedProperties']) > 0 && is_a($this->_propDict['singleValueExtendedProperties'][0], 'SingleValueLegacyExtendedProperty')) {
+                return $this->_propDict['singleValueExtendedProperties'];
+            }
+            foreach ($this->_propDict['singleValueExtendedProperties'] as $singleValue) {
+                $singleValueExtendedProperties []= new SingleValueLegacyExtendedProperty($singleValue);
+            }
+            $this->_propDict['singleValueExtendedProperties'] = $singleValueExtendedProperties;
+            return $this->_propDict['singleValueExtendedProperties'];
         }
+        return null;
     }
     
     /** 
     * Sets the singleValueExtendedProperties
     * The collection of single-value extended properties defined for the task folder. Read-only. Nullable.
     *
-    * @param SingleValueLegacyExtendedProperty $val The singleValueExtendedProperties
+    * @param SingleValueLegacyExtendedProperty[] $val The singleValueExtendedProperties
     *
     * @return OutlookTaskFolder
     */
@@ -205,22 +219,29 @@ class OutlookTaskFolder extends Entity
      * Gets the tasks
     * The tasks in this task folder. Read-only. Nullable.
      *
-     * @return array|null The tasks
+     * @return OutlookTask[]|null The tasks
      */
     public function getTasks()
     {
-        if (array_key_exists("tasks", $this->_propDict)) {
-           return $this->_propDict["tasks"];
-        } else {
-            return null;
+        if (array_key_exists('tasks', $this->_propDict) && !is_null($this->_propDict['tasks'])) {
+            $tasks = [];
+            if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'OutlookTask')) {
+                return $this->_propDict['tasks'];
+            }
+            foreach ($this->_propDict['tasks'] as $singleValue) {
+                $tasks []= new OutlookTask($singleValue);
+            }
+            $this->_propDict['tasks'] = $tasks;
+            return $this->_propDict['tasks'];
         }
+        return null;
     }
     
     /** 
     * Sets the tasks
     * The tasks in this task folder. Read-only. Nullable.
     *
-    * @param OutlookTask $val The tasks
+    * @param OutlookTask[] $val The tasks
     *
     * @return OutlookTaskFolder
     */

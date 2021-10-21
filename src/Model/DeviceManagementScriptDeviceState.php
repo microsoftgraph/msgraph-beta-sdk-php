@@ -90,8 +90,8 @@ class DeviceManagementScriptDeviceState extends Entity
     */
     public function getLastStateUpdateDateTime()
     {
-        if (array_key_exists("lastStateUpdateDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastStateUpdateDateTime"], "\DateTime") || is_null($this->_propDict["lastStateUpdateDateTime"])) {
+        if (array_key_exists("lastStateUpdateDateTime", $this->_propDict) && !is_null($this->_propDict["lastStateUpdateDateTime"])) {
+            if (is_a($this->_propDict["lastStateUpdateDateTime"], "\DateTime")) {
                 return $this->_propDict["lastStateUpdateDateTime"];
             } else {
                 $this->_propDict["lastStateUpdateDateTime"] = new \DateTime($this->_propDict["lastStateUpdateDateTime"]);
@@ -152,8 +152,8 @@ class DeviceManagementScriptDeviceState extends Entity
     */
     public function getRunState()
     {
-        if (array_key_exists("runState", $this->_propDict)) {
-            if (is_a($this->_propDict["runState"], "\Beta\Microsoft\Graph\Model\RunState") || is_null($this->_propDict["runState"])) {
+        if (array_key_exists("runState", $this->_propDict) && !is_null($this->_propDict["runState"])) {
+            if (is_a($this->_propDict["runState"], "\Beta\Microsoft\Graph\Model\RunState")) {
                 return $this->_propDict["runState"];
             } else {
                 $this->_propDict["runState"] = new RunState($this->_propDict["runState"]);
@@ -185,8 +185,8 @@ class DeviceManagementScriptDeviceState extends Entity
     */
     public function getManagedDevice()
     {
-        if (array_key_exists("managedDevice", $this->_propDict)) {
-            if (is_a($this->_propDict["managedDevice"], "\Beta\Microsoft\Graph\Model\ManagedDevice") || is_null($this->_propDict["managedDevice"])) {
+        if (array_key_exists("managedDevice", $this->_propDict) && !is_null($this->_propDict["managedDevice"])) {
+            if (is_a($this->_propDict["managedDevice"], "\Beta\Microsoft\Graph\Model\ManagedDevice")) {
                 return $this->_propDict["managedDevice"];
             } else {
                 $this->_propDict["managedDevice"] = new ManagedDevice($this->_propDict["managedDevice"]);

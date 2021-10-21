@@ -261,22 +261,29 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
      * Gets the advancedThreatProtectionOnboardingDeviceSettingStates
     * Not yet documented
      *
-     * @return array|null The advancedThreatProtectionOnboardingDeviceSettingStates
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingState[]|null The advancedThreatProtectionOnboardingDeviceSettingStates
      */
     public function getAdvancedThreatProtectionOnboardingDeviceSettingStates()
     {
-        if (array_key_exists("advancedThreatProtectionOnboardingDeviceSettingStates", $this->_propDict)) {
-           return $this->_propDict["advancedThreatProtectionOnboardingDeviceSettingStates"];
-        } else {
-            return null;
+        if (array_key_exists('advancedThreatProtectionOnboardingDeviceSettingStates', $this->_propDict) && !is_null($this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'])) {
+            $advancedThreatProtectionOnboardingDeviceSettingStates = [];
+            if (count($this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates']) > 0 && is_a($this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'][0], 'AdvancedThreatProtectionOnboardingDeviceSettingState')) {
+                return $this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'];
+            }
+            foreach ($this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'] as $singleValue) {
+                $advancedThreatProtectionOnboardingDeviceSettingStates []= new AdvancedThreatProtectionOnboardingDeviceSettingState($singleValue);
+            }
+            $this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'] = $advancedThreatProtectionOnboardingDeviceSettingStates;
+            return $this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the advancedThreatProtectionOnboardingDeviceSettingStates
     * Not yet documented
     *
-    * @param AdvancedThreatProtectionOnboardingDeviceSettingState $val The advancedThreatProtectionOnboardingDeviceSettingStates
+    * @param AdvancedThreatProtectionOnboardingDeviceSettingState[] $val The advancedThreatProtectionOnboardingDeviceSettingStates
     *
     * @return AdvancedThreatProtectionOnboardingStateSummary
     */

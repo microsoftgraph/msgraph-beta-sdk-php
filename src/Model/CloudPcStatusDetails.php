@@ -28,18 +28,22 @@ class CloudPcStatusDetails extends Entity
     * Gets the additionalInformation
     * Any additional information about the cloud PC status.
     *
-    * @return KeyValuePair|null The additionalInformation
+    * @return KeyValuePair[]|null The additionalInformation
     */
     public function getAdditionalInformation()
     {
-        if (array_key_exists("additionalInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["additionalInformation"], "\Beta\Microsoft\Graph\Model\KeyValuePair") || is_null($this->_propDict["additionalInformation"])) {
-                return $this->_propDict["additionalInformation"];
-            } else {
-                $this->_propDict["additionalInformation"] = new KeyValuePair($this->_propDict["additionalInformation"]);
-                return $this->_propDict["additionalInformation"];
+        if (array_key_exists("additionalInformation", $this->_propDict) && !is_null($this->_propDict["additionalInformation"])) {
+       
+            if (count($this->_propDict['additionalInformation']) > 0 && is_a($this->_propDict['additionalInformation'][0], 'KeyValuePair')) {
+               return $this->_propDict['additionalInformation'];
             }
-        }
+            $additionalInformation = [];
+            foreach ($this->_propDict['additionalInformation'] as $singleValue) {
+               $additionalInformation []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['additionalInformation'] = $additionalInformation;
+            return $this->_propDict['additionalInformation'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class CloudPcStatusDetails extends Entity
     * Sets the additionalInformation
     * Any additional information about the cloud PC status.
     *
-    * @param KeyValuePair $val The value to assign to the additionalInformation
+    * @param KeyValuePair[] $val The value to assign to the additionalInformation
     *
     * @return CloudPcStatusDetails The CloudPcStatusDetails
     */

@@ -148,8 +148,8 @@ class CloudPcOnPremisesConnection extends Entity
     */
     public function getHealthCheckStatus()
     {
-        if (array_key_exists("healthCheckStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["healthCheckStatus"], "\Beta\Microsoft\Graph\Model\CloudPcOnPremisesConnectionStatus") || is_null($this->_propDict["healthCheckStatus"])) {
+        if (array_key_exists("healthCheckStatus", $this->_propDict) && !is_null($this->_propDict["healthCheckStatus"])) {
+            if (is_a($this->_propDict["healthCheckStatus"], "\Beta\Microsoft\Graph\Model\CloudPcOnPremisesConnectionStatus")) {
                 return $this->_propDict["healthCheckStatus"];
             } else {
                 $this->_propDict["healthCheckStatus"] = new CloudPcOnPremisesConnectionStatus($this->_propDict["healthCheckStatus"]);
@@ -181,8 +181,8 @@ class CloudPcOnPremisesConnection extends Entity
     */
     public function getHealthCheckStatusDetails()
     {
-        if (array_key_exists("healthCheckStatusDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["healthCheckStatusDetails"], "\Beta\Microsoft\Graph\Model\CloudPcOnPremisesConnectionStatusDetails") || is_null($this->_propDict["healthCheckStatusDetails"])) {
+        if (array_key_exists("healthCheckStatusDetails", $this->_propDict) && !is_null($this->_propDict["healthCheckStatusDetails"])) {
+            if (is_a($this->_propDict["healthCheckStatusDetails"], "\Beta\Microsoft\Graph\Model\CloudPcOnPremisesConnectionStatusDetails")) {
                 return $this->_propDict["healthCheckStatusDetails"];
             } else {
                 $this->_propDict["healthCheckStatusDetails"] = new CloudPcOnPremisesConnectionStatusDetails($this->_propDict["healthCheckStatusDetails"]);
@@ -377,6 +377,37 @@ class CloudPcOnPremisesConnection extends Entity
     public function setSubscriptionName($val)
     {
         $this->_propDict["subscriptionName"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the type
+    *
+    * @return CloudPcOnPremisesConnectionType|null The type
+    */
+    public function getType()
+    {
+        if (array_key_exists("type", $this->_propDict) && !is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\CloudPcOnPremisesConnectionType")) {
+                return $this->_propDict["type"];
+            } else {
+                $this->_propDict["type"] = new CloudPcOnPremisesConnectionType($this->_propDict["type"]);
+                return $this->_propDict["type"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the type
+    *
+    * @param CloudPcOnPremisesConnectionType $val The type
+    *
+    * @return CloudPcOnPremisesConnection
+    */
+    public function setType($val)
+    {
+        $this->_propDict["type"] = $val;
         return $this;
     }
     

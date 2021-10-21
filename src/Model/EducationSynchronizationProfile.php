@@ -32,8 +32,8 @@ class EducationSynchronizationProfile extends Entity
     */
     public function getDataProvider()
     {
-        if (array_key_exists("dataProvider", $this->_propDict)) {
-            if (is_a($this->_propDict["dataProvider"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationDataProvider") || is_null($this->_propDict["dataProvider"])) {
+        if (array_key_exists("dataProvider", $this->_propDict) && !is_null($this->_propDict["dataProvider"])) {
+            if (is_a($this->_propDict["dataProvider"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationDataProvider")) {
                 return $this->_propDict["dataProvider"];
             } else {
                 $this->_propDict["dataProvider"] = new EducationSynchronizationDataProvider($this->_propDict["dataProvider"]);
@@ -94,8 +94,8 @@ class EducationSynchronizationProfile extends Entity
     */
     public function getExpirationDate()
     {
-        if (array_key_exists("expirationDate", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDate"], "\DateTime") || is_null($this->_propDict["expirationDate"])) {
+        if (array_key_exists("expirationDate", $this->_propDict) && !is_null($this->_propDict["expirationDate"])) {
+            if (is_a($this->_propDict["expirationDate"], "\DateTime")) {
                 return $this->_propDict["expirationDate"];
             } else {
                 $this->_propDict["expirationDate"] = new \DateTime($this->_propDict["expirationDate"]);
@@ -156,8 +156,8 @@ class EducationSynchronizationProfile extends Entity
     */
     public function getIdentitySynchronizationConfiguration()
     {
-        if (array_key_exists("identitySynchronizationConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["identitySynchronizationConfiguration"], "\Beta\Microsoft\Graph\Model\EducationIdentitySynchronizationConfiguration") || is_null($this->_propDict["identitySynchronizationConfiguration"])) {
+        if (array_key_exists("identitySynchronizationConfiguration", $this->_propDict) && !is_null($this->_propDict["identitySynchronizationConfiguration"])) {
+            if (is_a($this->_propDict["identitySynchronizationConfiguration"], "\Beta\Microsoft\Graph\Model\EducationIdentitySynchronizationConfiguration")) {
                 return $this->_propDict["identitySynchronizationConfiguration"];
             } else {
                 $this->_propDict["identitySynchronizationConfiguration"] = new EducationIdentitySynchronizationConfiguration($this->_propDict["identitySynchronizationConfiguration"]);
@@ -186,22 +186,29 @@ class EducationSynchronizationProfile extends Entity
      * Gets the licensesToAssign
     * License setup configuration.
      *
-     * @return array|null The licensesToAssign
+     * @return EducationSynchronizationLicenseAssignment[]|null The licensesToAssign
      */
     public function getLicensesToAssign()
     {
-        if (array_key_exists("licensesToAssign", $this->_propDict)) {
-           return $this->_propDict["licensesToAssign"];
-        } else {
-            return null;
+        if (array_key_exists('licensesToAssign', $this->_propDict) && !is_null($this->_propDict['licensesToAssign'])) {
+            $licensesToAssign = [];
+            if (count($this->_propDict['licensesToAssign']) > 0 && is_a($this->_propDict['licensesToAssign'][0], 'EducationSynchronizationLicenseAssignment')) {
+                return $this->_propDict['licensesToAssign'];
+            }
+            foreach ($this->_propDict['licensesToAssign'] as $singleValue) {
+                $licensesToAssign []= new EducationSynchronizationLicenseAssignment($singleValue);
+            }
+            $this->_propDict['licensesToAssign'] = $licensesToAssign;
+            return $this->_propDict['licensesToAssign'];
         }
+        return null;
     }
     
     /** 
     * Sets the licensesToAssign
     * License setup configuration.
     *
-    * @param EducationSynchronizationLicenseAssignment $val The licensesToAssign
+    * @param EducationSynchronizationLicenseAssignment[] $val The licensesToAssign
     *
     * @return EducationSynchronizationProfile
     */
@@ -219,8 +226,8 @@ class EducationSynchronizationProfile extends Entity
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationProfileState") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationProfileState")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new EducationSynchronizationProfileState($this->_propDict["state"]);
@@ -249,22 +256,29 @@ class EducationSynchronizationProfile extends Entity
      * Gets the errors
     * All errors associated with this synchronization profile.
      *
-     * @return array|null The errors
+     * @return EducationSynchronizationError[]|null The errors
      */
     public function getErrors()
     {
-        if (array_key_exists("errors", $this->_propDict)) {
-           return $this->_propDict["errors"];
-        } else {
-            return null;
+        if (array_key_exists('errors', $this->_propDict) && !is_null($this->_propDict['errors'])) {
+            $errors = [];
+            if (count($this->_propDict['errors']) > 0 && is_a($this->_propDict['errors'][0], 'EducationSynchronizationError')) {
+                return $this->_propDict['errors'];
+            }
+            foreach ($this->_propDict['errors'] as $singleValue) {
+                $errors []= new EducationSynchronizationError($singleValue);
+            }
+            $this->_propDict['errors'] = $errors;
+            return $this->_propDict['errors'];
         }
+        return null;
     }
     
     /** 
     * Sets the errors
     * All errors associated with this synchronization profile.
     *
-    * @param EducationSynchronizationError $val The errors
+    * @param EducationSynchronizationError[] $val The errors
     *
     * @return EducationSynchronizationProfile
     */
@@ -282,8 +296,8 @@ class EducationSynchronizationProfile extends Entity
     */
     public function getProfileStatus()
     {
-        if (array_key_exists("profileStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["profileStatus"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationProfileStatus") || is_null($this->_propDict["profileStatus"])) {
+        if (array_key_exists("profileStatus", $this->_propDict) && !is_null($this->_propDict["profileStatus"])) {
+            if (is_a($this->_propDict["profileStatus"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationProfileStatus")) {
                 return $this->_propDict["profileStatus"];
             } else {
                 $this->_propDict["profileStatus"] = new EducationSynchronizationProfileStatus($this->_propDict["profileStatus"]);

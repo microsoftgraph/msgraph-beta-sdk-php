@@ -53,7 +53,7 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
     * Sets the androidManagedStoreAppTrackIds
     * The track IDs to enable for this app assignment.
     *
-    * @param string $val The value of the androidManagedStoreAppTrackIds
+    * @param string[] $val The value of the androidManagedStoreAppTrackIds
     *
     * @return AndroidManagedStoreAppAssignmentSettings
     */

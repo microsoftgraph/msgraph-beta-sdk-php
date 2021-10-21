@@ -58,8 +58,8 @@ class Currency extends Entity
     */
     public function getAmountRoundingPrecision()
     {
-        if (array_key_exists("amountRoundingPrecision", $this->_propDict)) {
-            if (is_a($this->_propDict["amountRoundingPrecision"], "\Beta\Microsoft\Graph\Model\Decimal") || is_null($this->_propDict["amountRoundingPrecision"])) {
+        if (array_key_exists("amountRoundingPrecision", $this->_propDict) && !is_null($this->_propDict["amountRoundingPrecision"])) {
+            if (is_a($this->_propDict["amountRoundingPrecision"], "\Beta\Microsoft\Graph\Model\Decimal")) {
                 return $this->_propDict["amountRoundingPrecision"];
             } else {
                 $this->_propDict["amountRoundingPrecision"] = new Decimal($this->_propDict["amountRoundingPrecision"]);
@@ -143,8 +143,8 @@ class Currency extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);

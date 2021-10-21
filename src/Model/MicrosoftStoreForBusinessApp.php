@@ -32,8 +32,8 @@ class MicrosoftStoreForBusinessApp extends MobileApp
     */
     public function getLicenseType()
     {
-        if (array_key_exists("licenseType", $this->_propDict)) {
-            if (is_a($this->_propDict["licenseType"], "\Beta\Microsoft\Graph\Model\MicrosoftStoreForBusinessLicenseType") || is_null($this->_propDict["licenseType"])) {
+        if (array_key_exists("licenseType", $this->_propDict) && !is_null($this->_propDict["licenseType"])) {
+            if (is_a($this->_propDict["licenseType"], "\Beta\Microsoft\Graph\Model\MicrosoftStoreForBusinessLicenseType")) {
                 return $this->_propDict["licenseType"];
             } else {
                 $this->_propDict["licenseType"] = new MicrosoftStoreForBusinessLicenseType($this->_propDict["licenseType"]);
@@ -65,8 +65,8 @@ class MicrosoftStoreForBusinessApp extends MobileApp
     */
     public function getLicensingType()
     {
-        if (array_key_exists("licensingType", $this->_propDict)) {
-            if (is_a($this->_propDict["licensingType"], "\Beta\Microsoft\Graph\Model\VppLicensingType") || is_null($this->_propDict["licensingType"])) {
+        if (array_key_exists("licensingType", $this->_propDict) && !is_null($this->_propDict["licensingType"])) {
+            if (is_a($this->_propDict["licensingType"], "\Beta\Microsoft\Graph\Model\VppLicensingType")) {
                 return $this->_propDict["licensingType"];
             } else {
                 $this->_propDict["licensingType"] = new VppLicensingType($this->_propDict["licensingType"]);
@@ -211,22 +211,29 @@ class MicrosoftStoreForBusinessApp extends MobileApp
      * Gets the containedApps
     * The collection of contained apps in a mobileApp acting as a package.
      *
-     * @return array|null The containedApps
+     * @return MobileContainedApp[]|null The containedApps
      */
     public function getContainedApps()
     {
-        if (array_key_exists("containedApps", $this->_propDict)) {
-           return $this->_propDict["containedApps"];
-        } else {
-            return null;
+        if (array_key_exists('containedApps', $this->_propDict) && !is_null($this->_propDict['containedApps'])) {
+            $containedApps = [];
+            if (count($this->_propDict['containedApps']) > 0 && is_a($this->_propDict['containedApps'][0], 'MobileContainedApp')) {
+                return $this->_propDict['containedApps'];
+            }
+            foreach ($this->_propDict['containedApps'] as $singleValue) {
+                $containedApps []= new MobileContainedApp($singleValue);
+            }
+            $this->_propDict['containedApps'] = $containedApps;
+            return $this->_propDict['containedApps'];
         }
+        return null;
     }
     
     /** 
     * Sets the containedApps
     * The collection of contained apps in a mobileApp acting as a package.
     *
-    * @param MobileContainedApp $val The containedApps
+    * @param MobileContainedApp[] $val The containedApps
     *
     * @return MicrosoftStoreForBusinessApp
     */

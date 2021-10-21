@@ -32,8 +32,9 @@ class RecordingInfo extends Entity
     */
     public function getInitiatedBy()
     {
-        if (array_key_exists("initiatedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["initiatedBy"], "\Beta\Microsoft\Graph\Model\ParticipantInfo") || is_null($this->_propDict["initiatedBy"])) {
+        if (array_key_exists("initiatedBy", $this->_propDict) && !is_null($this->_propDict["initiatedBy"])) {
+     
+            if (is_a($this->_propDict["initiatedBy"], "\Beta\Microsoft\Graph\Model\ParticipantInfo")) {
                 return $this->_propDict["initiatedBy"];
             } else {
                 $this->_propDict["initiatedBy"] = new ParticipantInfo($this->_propDict["initiatedBy"]);
@@ -65,8 +66,9 @@ class RecordingInfo extends Entity
     */
     public function getInitiator()
     {
-        if (array_key_exists("initiator", $this->_propDict)) {
-            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["initiator"])) {
+        if (array_key_exists("initiator", $this->_propDict) && !is_null($this->_propDict["initiator"])) {
+     
+            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["initiator"];
             } else {
                 $this->_propDict["initiator"] = new IdentitySet($this->_propDict["initiator"]);
@@ -98,8 +100,9 @@ class RecordingInfo extends Entity
     */
     public function getRecordingStatus()
     {
-        if (array_key_exists("recordingStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["recordingStatus"], "\Beta\Microsoft\Graph\Model\RecordingStatus") || is_null($this->_propDict["recordingStatus"])) {
+        if (array_key_exists("recordingStatus", $this->_propDict) && !is_null($this->_propDict["recordingStatus"])) {
+     
+            if (is_a($this->_propDict["recordingStatus"], "\Beta\Microsoft\Graph\Model\RecordingStatus")) {
                 return $this->_propDict["recordingStatus"];
             } else {
                 $this->_propDict["recordingStatus"] = new RecordingStatus($this->_propDict["recordingStatus"]);

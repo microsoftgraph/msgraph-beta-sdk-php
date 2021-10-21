@@ -28,21 +28,28 @@ class Approval extends Entity
      /** 
      * Gets the steps
      *
-     * @return array|null The steps
+     * @return ApprovalStep[]|null The steps
      */
     public function getSteps()
     {
-        if (array_key_exists("steps", $this->_propDict)) {
-           return $this->_propDict["steps"];
-        } else {
-            return null;
+        if (array_key_exists('steps', $this->_propDict) && !is_null($this->_propDict['steps'])) {
+            $steps = [];
+            if (count($this->_propDict['steps']) > 0 && is_a($this->_propDict['steps'][0], 'ApprovalStep')) {
+                return $this->_propDict['steps'];
+            }
+            foreach ($this->_propDict['steps'] as $singleValue) {
+                $steps []= new ApprovalStep($singleValue);
+            }
+            $this->_propDict['steps'] = $steps;
+            return $this->_propDict['steps'];
         }
+        return null;
     }
     
     /** 
     * Sets the steps
     *
-    * @param ApprovalStep $val The steps
+    * @param ApprovalStep[] $val The steps
     *
     * @return Approval
     */

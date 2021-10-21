@@ -61,8 +61,8 @@ class ConnectedOrganization extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -148,21 +148,28 @@ class ConnectedOrganization extends Entity
      /** 
      * Gets the identitySources
      *
-     * @return array|null The identitySources
+     * @return IdentitySource[]|null The identitySources
      */
     public function getIdentitySources()
     {
-        if (array_key_exists("identitySources", $this->_propDict)) {
-           return $this->_propDict["identitySources"];
-        } else {
-            return null;
+        if (array_key_exists('identitySources', $this->_propDict) && !is_null($this->_propDict['identitySources'])) {
+            $identitySources = [];
+            if (count($this->_propDict['identitySources']) > 0 && is_a($this->_propDict['identitySources'][0], 'IdentitySource')) {
+                return $this->_propDict['identitySources'];
+            }
+            foreach ($this->_propDict['identitySources'] as $singleValue) {
+                $identitySources []= new IdentitySource($singleValue);
+            }
+            $this->_propDict['identitySources'] = $identitySources;
+            return $this->_propDict['identitySources'];
         }
+        return null;
     }
     
     /** 
     * Sets the identitySources
     *
-    * @param IdentitySource $val The identitySources
+    * @param IdentitySource[] $val The identitySources
     *
     * @return ConnectedOrganization
     */
@@ -209,8 +216,8 @@ class ConnectedOrganization extends Entity
     */
     public function getModifiedDateTime()
     {
-        if (array_key_exists("modifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
+        if (array_key_exists("modifiedDateTime", $this->_propDict) && !is_null($this->_propDict["modifiedDateTime"])) {
+            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["modifiedDateTime"];
             } else {
                 $this->_propDict["modifiedDateTime"] = new \DateTime($this->_propDict["modifiedDateTime"]);
@@ -242,8 +249,8 @@ class ConnectedOrganization extends Entity
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ConnectedOrganizationState") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ConnectedOrganizationState")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new ConnectedOrganizationState($this->_propDict["state"]);
@@ -272,22 +279,29 @@ class ConnectedOrganization extends Entity
      * Gets the externalSponsors
     * Nullable.
      *
-     * @return array|null The externalSponsors
+     * @return DirectoryObject[]|null The externalSponsors
      */
     public function getExternalSponsors()
     {
-        if (array_key_exists("externalSponsors", $this->_propDict)) {
-           return $this->_propDict["externalSponsors"];
-        } else {
-            return null;
+        if (array_key_exists('externalSponsors', $this->_propDict) && !is_null($this->_propDict['externalSponsors'])) {
+            $externalSponsors = [];
+            if (count($this->_propDict['externalSponsors']) > 0 && is_a($this->_propDict['externalSponsors'][0], 'DirectoryObject')) {
+                return $this->_propDict['externalSponsors'];
+            }
+            foreach ($this->_propDict['externalSponsors'] as $singleValue) {
+                $externalSponsors []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['externalSponsors'] = $externalSponsors;
+            return $this->_propDict['externalSponsors'];
         }
+        return null;
     }
     
     /** 
     * Sets the externalSponsors
     * Nullable.
     *
-    * @param DirectoryObject $val The externalSponsors
+    * @param DirectoryObject[] $val The externalSponsors
     *
     * @return ConnectedOrganization
     */
@@ -302,22 +316,29 @@ class ConnectedOrganization extends Entity
      * Gets the internalSponsors
     * Nullable.
      *
-     * @return array|null The internalSponsors
+     * @return DirectoryObject[]|null The internalSponsors
      */
     public function getInternalSponsors()
     {
-        if (array_key_exists("internalSponsors", $this->_propDict)) {
-           return $this->_propDict["internalSponsors"];
-        } else {
-            return null;
+        if (array_key_exists('internalSponsors', $this->_propDict) && !is_null($this->_propDict['internalSponsors'])) {
+            $internalSponsors = [];
+            if (count($this->_propDict['internalSponsors']) > 0 && is_a($this->_propDict['internalSponsors'][0], 'DirectoryObject')) {
+                return $this->_propDict['internalSponsors'];
+            }
+            foreach ($this->_propDict['internalSponsors'] as $singleValue) {
+                $internalSponsors []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['internalSponsors'] = $internalSponsors;
+            return $this->_propDict['internalSponsors'];
         }
+        return null;
     }
     
     /** 
     * Sets the internalSponsors
     * Nullable.
     *
-    * @param DirectoryObject $val The internalSponsors
+    * @param DirectoryObject[] $val The internalSponsors
     *
     * @return ConnectedOrganization
     */

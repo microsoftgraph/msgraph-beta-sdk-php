@@ -32,8 +32,9 @@ class SignInActivity extends Entity
     */
     public function getLastNonInteractiveSignInDateTime()
     {
-        if (array_key_exists("lastNonInteractiveSignInDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastNonInteractiveSignInDateTime"], "\DateTime") || is_null($this->_propDict["lastNonInteractiveSignInDateTime"])) {
+        if (array_key_exists("lastNonInteractiveSignInDateTime", $this->_propDict) && !is_null($this->_propDict["lastNonInteractiveSignInDateTime"])) {
+     
+            if (is_a($this->_propDict["lastNonInteractiveSignInDateTime"], "\DateTime")) {
                 return $this->_propDict["lastNonInteractiveSignInDateTime"];
             } else {
                 $this->_propDict["lastNonInteractiveSignInDateTime"] = new \DateTime($this->_propDict["lastNonInteractiveSignInDateTime"]);
@@ -93,8 +94,9 @@ class SignInActivity extends Entity
     */
     public function getLastSignInDateTime()
     {
-        if (array_key_exists("lastSignInDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSignInDateTime"], "\DateTime") || is_null($this->_propDict["lastSignInDateTime"])) {
+        if (array_key_exists("lastSignInDateTime", $this->_propDict) && !is_null($this->_propDict["lastSignInDateTime"])) {
+     
+            if (is_a($this->_propDict["lastSignInDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSignInDateTime"];
             } else {
                 $this->_propDict["lastSignInDateTime"] = new \DateTime($this->_propDict["lastSignInDateTime"]);

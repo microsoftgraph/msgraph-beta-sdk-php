@@ -61,8 +61,8 @@ class GovernanceRoleAssignment extends Entity
     */
     public function getEndDateTime()
     {
-        if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
+        if (array_key_exists("endDateTime", $this->_propDict) && !is_null($this->_propDict["endDateTime"])) {
+            if (is_a($this->_propDict["endDateTime"], "\DateTime")) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -239,8 +239,8 @@ class GovernanceRoleAssignment extends Entity
     */
     public function getStartDateTime()
     {
-        if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+        if (array_key_exists("startDateTime", $this->_propDict) && !is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -328,8 +328,8 @@ class GovernanceRoleAssignment extends Entity
     */
     public function getLinkedEligibleRoleAssignment()
     {
-        if (array_key_exists("linkedEligibleRoleAssignment", $this->_propDict)) {
-            if (is_a($this->_propDict["linkedEligibleRoleAssignment"], "\Beta\Microsoft\Graph\Model\GovernanceRoleAssignment") || is_null($this->_propDict["linkedEligibleRoleAssignment"])) {
+        if (array_key_exists("linkedEligibleRoleAssignment", $this->_propDict) && !is_null($this->_propDict["linkedEligibleRoleAssignment"])) {
+            if (is_a($this->_propDict["linkedEligibleRoleAssignment"], "\Beta\Microsoft\Graph\Model\GovernanceRoleAssignment")) {
                 return $this->_propDict["linkedEligibleRoleAssignment"];
             } else {
                 $this->_propDict["linkedEligibleRoleAssignment"] = new GovernanceRoleAssignment($this->_propDict["linkedEligibleRoleAssignment"]);
@@ -361,8 +361,8 @@ class GovernanceRoleAssignment extends Entity
     */
     public function getResource()
     {
-        if (array_key_exists("resource", $this->_propDict)) {
-            if (is_a($this->_propDict["resource"], "\Beta\Microsoft\Graph\Model\GovernanceResource") || is_null($this->_propDict["resource"])) {
+        if (array_key_exists("resource", $this->_propDict) && !is_null($this->_propDict["resource"])) {
+            if (is_a($this->_propDict["resource"], "\Beta\Microsoft\Graph\Model\GovernanceResource")) {
                 return $this->_propDict["resource"];
             } else {
                 $this->_propDict["resource"] = new GovernanceResource($this->_propDict["resource"]);
@@ -394,8 +394,8 @@ class GovernanceRoleAssignment extends Entity
     */
     public function getRoleDefinition()
     {
-        if (array_key_exists("roleDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["roleDefinition"], "\Beta\Microsoft\Graph\Model\GovernanceRoleDefinition") || is_null($this->_propDict["roleDefinition"])) {
+        if (array_key_exists("roleDefinition", $this->_propDict) && !is_null($this->_propDict["roleDefinition"])) {
+            if (is_a($this->_propDict["roleDefinition"], "\Beta\Microsoft\Graph\Model\GovernanceRoleDefinition")) {
                 return $this->_propDict["roleDefinition"];
             } else {
                 $this->_propDict["roleDefinition"] = new GovernanceRoleDefinition($this->_propDict["roleDefinition"]);
@@ -427,8 +427,8 @@ class GovernanceRoleAssignment extends Entity
     */
     public function getSubject()
     {
-        if (array_key_exists("subject", $this->_propDict)) {
-            if (is_a($this->_propDict["subject"], "\Beta\Microsoft\Graph\Model\GovernanceSubject") || is_null($this->_propDict["subject"])) {
+        if (array_key_exists("subject", $this->_propDict) && !is_null($this->_propDict["subject"])) {
+            if (is_a($this->_propDict["subject"], "\Beta\Microsoft\Graph\Model\GovernanceSubject")) {
                 return $this->_propDict["subject"];
             } else {
                 $this->_propDict["subject"] = new GovernanceSubject($this->_propDict["subject"]);

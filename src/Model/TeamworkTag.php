@@ -119,8 +119,8 @@ class TeamworkTag extends Entity
     */
     public function getTagType()
     {
-        if (array_key_exists("tagType", $this->_propDict)) {
-            if (is_a($this->_propDict["tagType"], "\Beta\Microsoft\Graph\Model\TeamworkTagType") || is_null($this->_propDict["tagType"])) {
+        if (array_key_exists("tagType", $this->_propDict) && !is_null($this->_propDict["tagType"])) {
+            if (is_a($this->_propDict["tagType"], "\Beta\Microsoft\Graph\Model\TeamworkTagType")) {
                 return $this->_propDict["tagType"];
             } else {
                 $this->_propDict["tagType"] = new TeamworkTagType($this->_propDict["tagType"]);
@@ -178,22 +178,29 @@ class TeamworkTag extends Entity
      * Gets the members
     * Users assigned to the tag.
      *
-     * @return array|null The members
+     * @return TeamworkTagMember[]|null The members
      */
     public function getMembers()
     {
-        if (array_key_exists("members", $this->_propDict)) {
-           return $this->_propDict["members"];
-        } else {
-            return null;
+        if (array_key_exists('members', $this->_propDict) && !is_null($this->_propDict['members'])) {
+            $members = [];
+            if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'TeamworkTagMember')) {
+                return $this->_propDict['members'];
+            }
+            foreach ($this->_propDict['members'] as $singleValue) {
+                $members []= new TeamworkTagMember($singleValue);
+            }
+            $this->_propDict['members'] = $members;
+            return $this->_propDict['members'];
         }
+        return null;
     }
     
     /** 
     * Sets the members
     * Users assigned to the tag.
     *
-    * @param TeamworkTagMember $val The members
+    * @param TeamworkTagMember[] $val The members
     *
     * @return TeamworkTag
     */

@@ -119,8 +119,8 @@ class AuthorizationPolicy extends PolicyBase
     */
     public function getAllowInvitesFrom()
     {
-        if (array_key_exists("allowInvitesFrom", $this->_propDict)) {
-            if (is_a($this->_propDict["allowInvitesFrom"], "\Beta\Microsoft\Graph\Model\AllowInvitesFrom") || is_null($this->_propDict["allowInvitesFrom"])) {
+        if (array_key_exists("allowInvitesFrom", $this->_propDict) && !is_null($this->_propDict["allowInvitesFrom"])) {
+            if (is_a($this->_propDict["allowInvitesFrom"], "\Beta\Microsoft\Graph\Model\AllowInvitesFrom")) {
                 return $this->_propDict["allowInvitesFrom"];
             } else {
                 $this->_propDict["allowInvitesFrom"] = new AllowInvitesFrom($this->_propDict["allowInvitesFrom"]);
@@ -181,8 +181,8 @@ class AuthorizationPolicy extends PolicyBase
     */
     public function getDefaultUserRolePermissions()
     {
-        if (array_key_exists("defaultUserRolePermissions", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultUserRolePermissions"], "\Beta\Microsoft\Graph\Model\DefaultUserRolePermissions") || is_null($this->_propDict["defaultUserRolePermissions"])) {
+        if (array_key_exists("defaultUserRolePermissions", $this->_propDict) && !is_null($this->_propDict["defaultUserRolePermissions"])) {
+            if (is_a($this->_propDict["defaultUserRolePermissions"], "\Beta\Microsoft\Graph\Model\DefaultUserRolePermissions")) {
                 return $this->_propDict["defaultUserRolePermissions"];
             } else {
                 $this->_propDict["defaultUserRolePermissions"] = new DefaultUserRolePermissions($this->_propDict["defaultUserRolePermissions"]);
@@ -297,21 +297,28 @@ class AuthorizationPolicy extends PolicyBase
      /** 
      * Gets the defaultUserRoleOverrides
      *
-     * @return array|null The defaultUserRoleOverrides
+     * @return DefaultUserRoleOverride[]|null The defaultUserRoleOverrides
      */
     public function getDefaultUserRoleOverrides()
     {
-        if (array_key_exists("defaultUserRoleOverrides", $this->_propDict)) {
-           return $this->_propDict["defaultUserRoleOverrides"];
-        } else {
-            return null;
+        if (array_key_exists('defaultUserRoleOverrides', $this->_propDict) && !is_null($this->_propDict['defaultUserRoleOverrides'])) {
+            $defaultUserRoleOverrides = [];
+            if (count($this->_propDict['defaultUserRoleOverrides']) > 0 && is_a($this->_propDict['defaultUserRoleOverrides'][0], 'DefaultUserRoleOverride')) {
+                return $this->_propDict['defaultUserRoleOverrides'];
+            }
+            foreach ($this->_propDict['defaultUserRoleOverrides'] as $singleValue) {
+                $defaultUserRoleOverrides []= new DefaultUserRoleOverride($singleValue);
+            }
+            $this->_propDict['defaultUserRoleOverrides'] = $defaultUserRoleOverrides;
+            return $this->_propDict['defaultUserRoleOverrides'];
         }
+        return null;
     }
     
     /** 
     * Sets the defaultUserRoleOverrides
     *
-    * @param DefaultUserRoleOverride $val The defaultUserRoleOverrides
+    * @param DefaultUserRoleOverride[] $val The defaultUserRoleOverrides
     *
     * @return AuthorizationPolicy
     */

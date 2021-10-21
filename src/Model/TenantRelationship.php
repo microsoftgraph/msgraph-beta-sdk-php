@@ -63,8 +63,8 @@ class TenantRelationship implements \JsonSerializable
     */
     public function getManagedTenants()
     {
-        if (array_key_exists("managedTenants", $this->_propDict)) {
-            if (is_a($this->_propDict["managedTenants"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagedTenant") || is_null($this->_propDict["managedTenants"])) {
+        if (array_key_exists("managedTenants", $this->_propDict) && !is_null($this->_propDict["managedTenants"])) {
+            if (is_a($this->_propDict["managedTenants"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagedTenant")) {
                 return $this->_propDict["managedTenants"];
             } else {
                 $this->_propDict["managedTenants"] = new \Beta\Microsoft\Graph\ManagedTenants\Model\ManagedTenant($this->_propDict["managedTenants"]);
@@ -124,10 +124,22 @@ class TenantRelationship implements \JsonSerializable
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
-                $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            if (is_a($val, '\DateTime')) {
+                $serializableProperties[$property] = $val->format(\DateTimeInterface::RFC3339);
+            } else if (is_a($val, '\Microsoft\Graph\Core\Enum')) {
                 $serializableProperties[$property] = $val->value();
+            } else if (is_array($val)) {
+                $values = [];
+                if (count($val) > 0 && is_a($val[0], '\DateTime')) {
+                   foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->format(\DateTimeInterface::RFC3339);
+                   }
+                } else if(count($val) > 0 && is_a($val[0], '\Microsoft\Graph\Core\Enum')) {
+                    foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->value();
+                   }
+                }
+                $serializableProperties[$property] = $values;
             }
         }
         return $serializableProperties;

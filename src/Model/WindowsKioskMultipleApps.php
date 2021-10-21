@@ -56,18 +56,22 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration
     * Gets the apps
     * These are the only Windows Store Apps that will be available to launch from the Start menu. This collection can contain a maximum of 128 elements.
     *
-    * @return WindowsKioskAppBase|null The apps
+    * @return WindowsKioskAppBase[]|null The apps
     */
     public function getApps()
     {
-        if (array_key_exists("apps", $this->_propDict)) {
-            if (is_a($this->_propDict["apps"], "\Beta\Microsoft\Graph\Model\WindowsKioskAppBase") || is_null($this->_propDict["apps"])) {
-                return $this->_propDict["apps"];
-            } else {
-                $this->_propDict["apps"] = new WindowsKioskAppBase($this->_propDict["apps"]);
-                return $this->_propDict["apps"];
+        if (array_key_exists("apps", $this->_propDict) && !is_null($this->_propDict["apps"])) {
+       
+            if (count($this->_propDict['apps']) > 0 && is_a($this->_propDict['apps'][0], 'WindowsKioskAppBase')) {
+               return $this->_propDict['apps'];
             }
-        }
+            $apps = [];
+            foreach ($this->_propDict['apps'] as $singleValue) {
+               $apps []= new WindowsKioskAppBase($singleValue);
+            }
+            $this->_propDict['apps'] = $apps;
+            return $this->_propDict['apps'];
+            }
         return null;
     }
 
@@ -75,7 +79,7 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration
     * Sets the apps
     * These are the only Windows Store Apps that will be available to launch from the Start menu. This collection can contain a maximum of 128 elements.
     *
-    * @param WindowsKioskAppBase $val The value to assign to the apps
+    * @param WindowsKioskAppBase[] $val The value to assign to the apps
     *
     * @return WindowsKioskMultipleApps The WindowsKioskMultipleApps
     */
@@ -149,8 +153,9 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration
     */
     public function getStartMenuLayoutXml()
     {
-        if (array_key_exists("startMenuLayoutXml", $this->_propDict)) {
-            if (is_a($this->_propDict["startMenuLayoutXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["startMenuLayoutXml"])) {
+        if (array_key_exists("startMenuLayoutXml", $this->_propDict) && !is_null($this->_propDict["startMenuLayoutXml"])) {
+     
+            if (is_a($this->_propDict["startMenuLayoutXml"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["startMenuLayoutXml"];
             } else {
                 $this->_propDict["startMenuLayoutXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["startMenuLayoutXml"]);

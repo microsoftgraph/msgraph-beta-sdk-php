@@ -163,21 +163,28 @@ class DomainSecurityProfile extends Entity
      /** 
      * Gets the domainCategories
      *
-     * @return array|null The domainCategories
+     * @return ReputationCategory[]|null The domainCategories
      */
     public function getDomainCategories()
     {
-        if (array_key_exists("domainCategories", $this->_propDict)) {
-           return $this->_propDict["domainCategories"];
-        } else {
-            return null;
+        if (array_key_exists('domainCategories', $this->_propDict) && !is_null($this->_propDict['domainCategories'])) {
+            $domainCategories = [];
+            if (count($this->_propDict['domainCategories']) > 0 && is_a($this->_propDict['domainCategories'][0], 'ReputationCategory')) {
+                return $this->_propDict['domainCategories'];
+            }
+            foreach ($this->_propDict['domainCategories'] as $singleValue) {
+                $domainCategories []= new ReputationCategory($singleValue);
+            }
+            $this->_propDict['domainCategories'] = $domainCategories;
+            return $this->_propDict['domainCategories'];
         }
+        return null;
     }
     
     /** 
     * Sets the domainCategories
     *
-    * @param ReputationCategory $val The domainCategories
+    * @param ReputationCategory[] $val The domainCategories
     *
     * @return DomainSecurityProfile
     */
@@ -194,8 +201,8 @@ class DomainSecurityProfile extends Entity
     */
     public function getDomainRegisteredDateTime()
     {
-        if (array_key_exists("domainRegisteredDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["domainRegisteredDateTime"], "\DateTime") || is_null($this->_propDict["domainRegisteredDateTime"])) {
+        if (array_key_exists("domainRegisteredDateTime", $this->_propDict) && !is_null($this->_propDict["domainRegisteredDateTime"])) {
+            if (is_a($this->_propDict["domainRegisteredDateTime"], "\DateTime")) {
                 return $this->_propDict["domainRegisteredDateTime"];
             } else {
                 $this->_propDict["domainRegisteredDateTime"] = new \DateTime($this->_propDict["domainRegisteredDateTime"]);
@@ -225,8 +232,8 @@ class DomainSecurityProfile extends Entity
     */
     public function getFirstSeenDateTime()
     {
-        if (array_key_exists("firstSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["firstSeenDateTime"], "\DateTime") || is_null($this->_propDict["firstSeenDateTime"])) {
+        if (array_key_exists("firstSeenDateTime", $this->_propDict) && !is_null($this->_propDict["firstSeenDateTime"])) {
+            if (is_a($this->_propDict["firstSeenDateTime"], "\DateTime")) {
                 return $this->_propDict["firstSeenDateTime"];
             } else {
                 $this->_propDict["firstSeenDateTime"] = new \DateTime($this->_propDict["firstSeenDateTime"]);
@@ -256,8 +263,8 @@ class DomainSecurityProfile extends Entity
     */
     public function getLastSeenDateTime()
     {
-        if (array_key_exists("lastSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime") || is_null($this->_propDict["lastSeenDateTime"])) {
+        if (array_key_exists("lastSeenDateTime", $this->_propDict) && !is_null($this->_propDict["lastSeenDateTime"])) {
+            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSeenDateTime"];
             } else {
                 $this->_propDict["lastSeenDateTime"] = new \DateTime($this->_propDict["lastSeenDateTime"]);
@@ -314,8 +321,8 @@ class DomainSecurityProfile extends Entity
     */
     public function getRegistrant()
     {
-        if (array_key_exists("registrant", $this->_propDict)) {
-            if (is_a($this->_propDict["registrant"], "\Beta\Microsoft\Graph\Model\DomainRegistrant") || is_null($this->_propDict["registrant"])) {
+        if (array_key_exists("registrant", $this->_propDict) && !is_null($this->_propDict["registrant"])) {
+            if (is_a($this->_propDict["registrant"], "\Beta\Microsoft\Graph\Model\DomainRegistrant")) {
                 return $this->_propDict["registrant"];
             } else {
                 $this->_propDict["registrant"] = new DomainRegistrant($this->_propDict["registrant"]);
@@ -399,8 +406,8 @@ class DomainSecurityProfile extends Entity
     */
     public function getVendorInformation()
     {
-        if (array_key_exists("vendorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
+        if (array_key_exists("vendorInformation", $this->_propDict) && !is_null($this->_propDict["vendorInformation"])) {
+            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation")) {
                 return $this->_propDict["vendorInformation"];
             } else {
                 $this->_propDict["vendorInformation"] = new SecurityVendorInformation($this->_propDict["vendorInformation"]);

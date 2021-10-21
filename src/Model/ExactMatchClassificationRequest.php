@@ -27,25 +27,29 @@ class ExactMatchClassificationRequest extends Entity
     /**
     * Gets the contentClassifications
     *
-    * @return ContentClassification|null The contentClassifications
+    * @return ContentClassification[]|null The contentClassifications
     */
     public function getContentClassifications()
     {
-        if (array_key_exists("contentClassifications", $this->_propDict)) {
-            if (is_a($this->_propDict["contentClassifications"], "\Beta\Microsoft\Graph\Model\ContentClassification") || is_null($this->_propDict["contentClassifications"])) {
-                return $this->_propDict["contentClassifications"];
-            } else {
-                $this->_propDict["contentClassifications"] = new ContentClassification($this->_propDict["contentClassifications"]);
-                return $this->_propDict["contentClassifications"];
+        if (array_key_exists("contentClassifications", $this->_propDict) && !is_null($this->_propDict["contentClassifications"])) {
+       
+            if (count($this->_propDict['contentClassifications']) > 0 && is_a($this->_propDict['contentClassifications'][0], 'ContentClassification')) {
+               return $this->_propDict['contentClassifications'];
             }
-        }
+            $contentClassifications = [];
+            foreach ($this->_propDict['contentClassifications'] as $singleValue) {
+               $contentClassifications []= new ContentClassification($singleValue);
+            }
+            $this->_propDict['contentClassifications'] = $contentClassifications;
+            return $this->_propDict['contentClassifications'];
+            }
         return null;
     }
 
     /**
     * Sets the contentClassifications
     *
-    * @param ContentClassification $val The value to assign to the contentClassifications
+    * @param ContentClassification[] $val The value to assign to the contentClassifications
     *
     * @return ExactMatchClassificationRequest The ExactMatchClassificationRequest
     */
@@ -71,7 +75,7 @@ class ExactMatchClassificationRequest extends Entity
     /**
     * Sets the sensitiveTypeIds
     *
-    * @param string $val The value of the sensitiveTypeIds
+    * @param string[] $val The value of the sensitiveTypeIds
     *
     * @return ExactMatchClassificationRequest
     */

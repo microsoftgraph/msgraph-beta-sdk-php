@@ -28,21 +28,28 @@ class UserSecurityProfile extends Entity
      /** 
      * Gets the accounts
      *
-     * @return array|null The accounts
+     * @return UserAccount[]|null The accounts
      */
     public function getAccounts()
     {
-        if (array_key_exists("accounts", $this->_propDict)) {
-           return $this->_propDict["accounts"];
-        } else {
-            return null;
+        if (array_key_exists('accounts', $this->_propDict) && !is_null($this->_propDict['accounts'])) {
+            $accounts = [];
+            if (count($this->_propDict['accounts']) > 0 && is_a($this->_propDict['accounts'][0], 'UserAccount')) {
+                return $this->_propDict['accounts'];
+            }
+            foreach ($this->_propDict['accounts'] as $singleValue) {
+                $accounts []= new UserAccount($singleValue);
+            }
+            $this->_propDict['accounts'] = $accounts;
+            return $this->_propDict['accounts'];
         }
+        return null;
     }
     
     /** 
     * Sets the accounts
     *
-    * @param UserAccount $val The accounts
+    * @param UserAccount[] $val The accounts
     *
     * @return UserSecurityProfile
     */
@@ -113,8 +120,8 @@ class UserSecurityProfile extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -171,8 +178,8 @@ class UserSecurityProfile extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -283,8 +290,8 @@ class UserSecurityProfile extends Entity
     */
     public function getVendorInformation()
     {
-        if (array_key_exists("vendorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
+        if (array_key_exists("vendorInformation", $this->_propDict) && !is_null($this->_propDict["vendorInformation"])) {
+            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation")) {
                 return $this->_propDict["vendorInformation"];
             } else {
                 $this->_propDict["vendorInformation"] = new SecurityVendorInformation($this->_propDict["vendorInformation"]);

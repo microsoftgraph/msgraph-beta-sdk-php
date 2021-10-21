@@ -26,13 +26,15 @@ class UserTrainingStatusInfo extends Entity
 
     /**
     * Gets the assignedDateTime
+    * Date and time of assignment of the training to the user.
     *
     * @return \DateTime|null The assignedDateTime
     */
     public function getAssignedDateTime()
     {
-        if (array_key_exists("assignedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["assignedDateTime"], "\DateTime") || is_null($this->_propDict["assignedDateTime"])) {
+        if (array_key_exists("assignedDateTime", $this->_propDict) && !is_null($this->_propDict["assignedDateTime"])) {
+     
+            if (is_a($this->_propDict["assignedDateTime"], "\DateTime")) {
                 return $this->_propDict["assignedDateTime"];
             } else {
                 $this->_propDict["assignedDateTime"] = new \DateTime($this->_propDict["assignedDateTime"]);
@@ -44,6 +46,7 @@ class UserTrainingStatusInfo extends Entity
 
     /**
     * Sets the assignedDateTime
+    * Date and time of assignment of the training to the user.
     *
     * @param \DateTime $val The value to assign to the assignedDateTime
     *
@@ -57,13 +60,15 @@ class UserTrainingStatusInfo extends Entity
 
     /**
     * Gets the completionDateTime
+    * Date and time of completion of the training by the user.
     *
     * @return \DateTime|null The completionDateTime
     */
     public function getCompletionDateTime()
     {
-        if (array_key_exists("completionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["completionDateTime"], "\DateTime") || is_null($this->_propDict["completionDateTime"])) {
+        if (array_key_exists("completionDateTime", $this->_propDict) && !is_null($this->_propDict["completionDateTime"])) {
+     
+            if (is_a($this->_propDict["completionDateTime"], "\DateTime")) {
                 return $this->_propDict["completionDateTime"];
             } else {
                 $this->_propDict["completionDateTime"] = new \DateTime($this->_propDict["completionDateTime"]);
@@ -75,6 +80,7 @@ class UserTrainingStatusInfo extends Entity
 
     /**
     * Sets the completionDateTime
+    * Date and time of completion of the training by the user.
     *
     * @param \DateTime $val The value to assign to the completionDateTime
     *
@@ -87,6 +93,7 @@ class UserTrainingStatusInfo extends Entity
     }
     /**
     * Gets the displayName
+    * Display name of the assigned training.
     *
     * @return string|null The displayName
     */
@@ -101,6 +108,7 @@ class UserTrainingStatusInfo extends Entity
 
     /**
     * Sets the displayName
+    * Display name of the assigned training.
     *
     * @param string $val The value of the displayName
     *
@@ -114,13 +122,15 @@ class UserTrainingStatusInfo extends Entity
 
     /**
     * Gets the trainingStatus
+    * Status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, notCompleted, unknownFutureValue.
     *
     * @return TrainingStatus|null The trainingStatus
     */
     public function getTrainingStatus()
     {
-        if (array_key_exists("trainingStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["trainingStatus"], "\Beta\Microsoft\Graph\Model\TrainingStatus") || is_null($this->_propDict["trainingStatus"])) {
+        if (array_key_exists("trainingStatus", $this->_propDict) && !is_null($this->_propDict["trainingStatus"])) {
+     
+            if (is_a($this->_propDict["trainingStatus"], "\Beta\Microsoft\Graph\Model\TrainingStatus")) {
                 return $this->_propDict["trainingStatus"];
             } else {
                 $this->_propDict["trainingStatus"] = new TrainingStatus($this->_propDict["trainingStatus"]);
@@ -132,6 +142,7 @@ class UserTrainingStatusInfo extends Entity
 
     /**
     * Sets the trainingStatus
+    * Status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, notCompleted, unknownFutureValue.
     *
     * @param TrainingStatus $val The value to assign to the trainingStatus
     *

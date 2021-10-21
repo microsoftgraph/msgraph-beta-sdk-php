@@ -28,21 +28,28 @@ class Ediscoveryroot extends \Beta\Microsoft\Graph\Model\Entity
      /** 
      * Gets the cases
      *
-     * @return array|null The cases
+     * @return GraphCase[]|null The cases
      */
     public function getCases()
     {
-        if (array_key_exists("cases", $this->_propDict)) {
-           return $this->_propDict["cases"];
-        } else {
-            return null;
+        if (array_key_exists('cases', $this->_propDict) && !is_null($this->_propDict['cases'])) {
+            $cases = [];
+            if (count($this->_propDict['cases']) > 0 && is_a($this->_propDict['cases'][0], 'GraphCase')) {
+                return $this->_propDict['cases'];
+            }
+            foreach ($this->_propDict['cases'] as $singleValue) {
+                $cases []= new GraphCase($singleValue);
+            }
+            $this->_propDict['cases'] = $cases;
+            return $this->_propDict['cases'];
         }
+        return null;
     }
     
     /** 
     * Sets the cases
     *
-    * @param GraphCase $val The cases
+    * @param GraphCase[] $val The cases
     *
     * @return Ediscoveryroot
     */

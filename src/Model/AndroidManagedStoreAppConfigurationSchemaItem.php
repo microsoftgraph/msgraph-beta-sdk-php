@@ -32,8 +32,9 @@ class AndroidManagedStoreAppConfigurationSchemaItem extends Entity
     */
     public function getDataType()
     {
-        if (array_key_exists("dataType", $this->_propDict)) {
-            if (is_a($this->_propDict["dataType"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAppConfigurationSchemaItemDataType") || is_null($this->_propDict["dataType"])) {
+        if (array_key_exists("dataType", $this->_propDict) && !is_null($this->_propDict["dataType"])) {
+     
+            if (is_a($this->_propDict["dataType"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAppConfigurationSchemaItemDataType")) {
                 return $this->_propDict["dataType"];
             } else {
                 $this->_propDict["dataType"] = new AndroidManagedStoreAppConfigurationSchemaItemDataType($this->_propDict["dataType"]);
@@ -131,7 +132,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem extends Entity
     * Sets the defaultStringArrayValue
     * Default value for string array type items, if specified by the app developer
     *
-    * @param string $val The value of the defaultStringArrayValue
+    * @param string[] $val The value of the defaultStringArrayValue
     *
     * @return AndroidManagedStoreAppConfigurationSchemaItem
     */
@@ -313,18 +314,22 @@ class AndroidManagedStoreAppConfigurationSchemaItem extends Entity
     * Gets the selections
     * List of human readable name/value pairs for the valid values that can be set for this item (Choice and Multiselect items only)
     *
-    * @return KeyValuePair|null The selections
+    * @return KeyValuePair[]|null The selections
     */
     public function getSelections()
     {
-        if (array_key_exists("selections", $this->_propDict)) {
-            if (is_a($this->_propDict["selections"], "\Beta\Microsoft\Graph\Model\KeyValuePair") || is_null($this->_propDict["selections"])) {
-                return $this->_propDict["selections"];
-            } else {
-                $this->_propDict["selections"] = new KeyValuePair($this->_propDict["selections"]);
-                return $this->_propDict["selections"];
+        if (array_key_exists("selections", $this->_propDict) && !is_null($this->_propDict["selections"])) {
+       
+            if (count($this->_propDict['selections']) > 0 && is_a($this->_propDict['selections'][0], 'KeyValuePair')) {
+               return $this->_propDict['selections'];
             }
-        }
+            $selections = [];
+            foreach ($this->_propDict['selections'] as $singleValue) {
+               $selections []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['selections'] = $selections;
+            return $this->_propDict['selections'];
+            }
         return null;
     }
 
@@ -332,7 +337,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem extends Entity
     * Sets the selections
     * List of human readable name/value pairs for the valid values that can be set for this item (Choice and Multiselect items only)
     *
-    * @param KeyValuePair $val The value to assign to the selections
+    * @param KeyValuePair[] $val The value to assign to the selections
     *
     * @return AndroidManagedStoreAppConfigurationSchemaItem The AndroidManagedStoreAppConfigurationSchemaItem
     */

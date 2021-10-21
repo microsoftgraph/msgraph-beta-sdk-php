@@ -56,18 +56,22 @@ class ApprovalSettings extends Entity
     * Gets the approvalStages
     * If approval is required, the one or two elements of this collection define each of the stages of approval. An empty array if no approval is required.
     *
-    * @return ApprovalStage|null The approvalStages
+    * @return ApprovalStage[]|null The approvalStages
     */
     public function getApprovalStages()
     {
-        if (array_key_exists("approvalStages", $this->_propDict)) {
-            if (is_a($this->_propDict["approvalStages"], "\Beta\Microsoft\Graph\Model\ApprovalStage") || is_null($this->_propDict["approvalStages"])) {
-                return $this->_propDict["approvalStages"];
-            } else {
-                $this->_propDict["approvalStages"] = new ApprovalStage($this->_propDict["approvalStages"]);
-                return $this->_propDict["approvalStages"];
+        if (array_key_exists("approvalStages", $this->_propDict) && !is_null($this->_propDict["approvalStages"])) {
+       
+            if (count($this->_propDict['approvalStages']) > 0 && is_a($this->_propDict['approvalStages'][0], 'ApprovalStage')) {
+               return $this->_propDict['approvalStages'];
             }
-        }
+            $approvalStages = [];
+            foreach ($this->_propDict['approvalStages'] as $singleValue) {
+               $approvalStages []= new ApprovalStage($singleValue);
+            }
+            $this->_propDict['approvalStages'] = $approvalStages;
+            return $this->_propDict['approvalStages'];
+            }
         return null;
     }
 
@@ -75,7 +79,7 @@ class ApprovalSettings extends Entity
     * Sets the approvalStages
     * If approval is required, the one or two elements of this collection define each of the stages of approval. An empty array if no approval is required.
     *
-    * @param ApprovalStage $val The value to assign to the approvalStages
+    * @param ApprovalStage[] $val The value to assign to the approvalStages
     *
     * @return ApprovalSettings The ApprovalSettings
     */

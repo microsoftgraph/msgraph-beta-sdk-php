@@ -28,18 +28,22 @@ class IntuneBrand extends Entity
     * Gets the companyPortalBlockedActions
     * Collection of blocked actions on the company portal as per platform and device ownership types.
     *
-    * @return CompanyPortalBlockedAction|null The companyPortalBlockedActions
+    * @return CompanyPortalBlockedAction[]|null The companyPortalBlockedActions
     */
     public function getCompanyPortalBlockedActions()
     {
-        if (array_key_exists("companyPortalBlockedActions", $this->_propDict)) {
-            if (is_a($this->_propDict["companyPortalBlockedActions"], "\Beta\Microsoft\Graph\Model\CompanyPortalBlockedAction") || is_null($this->_propDict["companyPortalBlockedActions"])) {
-                return $this->_propDict["companyPortalBlockedActions"];
-            } else {
-                $this->_propDict["companyPortalBlockedActions"] = new CompanyPortalBlockedAction($this->_propDict["companyPortalBlockedActions"]);
-                return $this->_propDict["companyPortalBlockedActions"];
+        if (array_key_exists("companyPortalBlockedActions", $this->_propDict) && !is_null($this->_propDict["companyPortalBlockedActions"])) {
+       
+            if (count($this->_propDict['companyPortalBlockedActions']) > 0 && is_a($this->_propDict['companyPortalBlockedActions'][0], 'CompanyPortalBlockedAction')) {
+               return $this->_propDict['companyPortalBlockedActions'];
             }
-        }
+            $companyPortalBlockedActions = [];
+            foreach ($this->_propDict['companyPortalBlockedActions'] as $singleValue) {
+               $companyPortalBlockedActions []= new CompanyPortalBlockedAction($singleValue);
+            }
+            $this->_propDict['companyPortalBlockedActions'] = $companyPortalBlockedActions;
+            return $this->_propDict['companyPortalBlockedActions'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class IntuneBrand extends Entity
     * Sets the companyPortalBlockedActions
     * Collection of blocked actions on the company portal as per platform and device ownership types.
     *
-    * @param CompanyPortalBlockedAction $val The value to assign to the companyPortalBlockedActions
+    * @param CompanyPortalBlockedAction[] $val The value to assign to the companyPortalBlockedActions
     *
     * @return IntuneBrand The IntuneBrand
     */
@@ -261,8 +265,9 @@ class IntuneBrand extends Entity
     */
     public function getDarkBackgroundLogo()
     {
-        if (array_key_exists("darkBackgroundLogo", $this->_propDict)) {
-            if (is_a($this->_propDict["darkBackgroundLogo"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["darkBackgroundLogo"])) {
+        if (array_key_exists("darkBackgroundLogo", $this->_propDict) && !is_null($this->_propDict["darkBackgroundLogo"])) {
+     
+            if (is_a($this->_propDict["darkBackgroundLogo"], "\Beta\Microsoft\Graph\Model\MimeContent")) {
                 return $this->_propDict["darkBackgroundLogo"];
             } else {
                 $this->_propDict["darkBackgroundLogo"] = new MimeContent($this->_propDict["darkBackgroundLogo"]);
@@ -350,8 +355,9 @@ class IntuneBrand extends Entity
     */
     public function getEnrollmentAvailability()
     {
-        if (array_key_exists("enrollmentAvailability", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentAvailability"], "\Beta\Microsoft\Graph\Model\EnrollmentAvailabilityOptions") || is_null($this->_propDict["enrollmentAvailability"])) {
+        if (array_key_exists("enrollmentAvailability", $this->_propDict) && !is_null($this->_propDict["enrollmentAvailability"])) {
+     
+            if (is_a($this->_propDict["enrollmentAvailability"], "\Beta\Microsoft\Graph\Model\EnrollmentAvailabilityOptions")) {
                 return $this->_propDict["enrollmentAvailability"];
             } else {
                 $this->_propDict["enrollmentAvailability"] = new EnrollmentAvailabilityOptions($this->_propDict["enrollmentAvailability"]);
@@ -439,8 +445,9 @@ class IntuneBrand extends Entity
     */
     public function getLandingPageCustomizedImage()
     {
-        if (array_key_exists("landingPageCustomizedImage", $this->_propDict)) {
-            if (is_a($this->_propDict["landingPageCustomizedImage"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["landingPageCustomizedImage"])) {
+        if (array_key_exists("landingPageCustomizedImage", $this->_propDict) && !is_null($this->_propDict["landingPageCustomizedImage"])) {
+     
+            if (is_a($this->_propDict["landingPageCustomizedImage"], "\Beta\Microsoft\Graph\Model\MimeContent")) {
                 return $this->_propDict["landingPageCustomizedImage"];
             } else {
                 $this->_propDict["landingPageCustomizedImage"] = new MimeContent($this->_propDict["landingPageCustomizedImage"]);
@@ -472,8 +479,9 @@ class IntuneBrand extends Entity
     */
     public function getLightBackgroundLogo()
     {
-        if (array_key_exists("lightBackgroundLogo", $this->_propDict)) {
-            if (is_a($this->_propDict["lightBackgroundLogo"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["lightBackgroundLogo"])) {
+        if (array_key_exists("lightBackgroundLogo", $this->_propDict) && !is_null($this->_propDict["lightBackgroundLogo"])) {
+     
+            if (is_a($this->_propDict["lightBackgroundLogo"], "\Beta\Microsoft\Graph\Model\MimeContent")) {
                 return $this->_propDict["lightBackgroundLogo"];
             } else {
                 $this->_propDict["lightBackgroundLogo"] = new MimeContent($this->_propDict["lightBackgroundLogo"]);
@@ -599,7 +607,7 @@ class IntuneBrand extends Entity
     * Sets the roleScopeTagIds
     * List of scope tags assigned to the default branding profile
     *
-    * @param string $val The value of the roleScopeTagIds
+    * @param string[] $val The value of the roleScopeTagIds
     *
     * @return IntuneBrand
     */
@@ -785,8 +793,9 @@ class IntuneBrand extends Entity
     */
     public function getThemeColor()
     {
-        if (array_key_exists("themeColor", $this->_propDict)) {
-            if (is_a($this->_propDict["themeColor"], "\Beta\Microsoft\Graph\Model\RgbColor") || is_null($this->_propDict["themeColor"])) {
+        if (array_key_exists("themeColor", $this->_propDict) && !is_null($this->_propDict["themeColor"])) {
+     
+            if (is_a($this->_propDict["themeColor"], "\Beta\Microsoft\Graph\Model\RgbColor")) {
                 return $this->_propDict["themeColor"];
             } else {
                 $this->_propDict["themeColor"] = new RgbColor($this->_propDict["themeColor"]);

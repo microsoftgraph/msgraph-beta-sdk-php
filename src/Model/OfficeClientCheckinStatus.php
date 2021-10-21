@@ -42,7 +42,7 @@ class OfficeClientCheckinStatus extends Entity
     * Sets the appliedPolicies
     * List of policies delivered to the device as last checkin.
     *
-    * @param string $val The value of the appliedPolicies
+    * @param string[] $val The value of the appliedPolicies
     *
     * @return OfficeClientCheckinStatus
     */
@@ -60,8 +60,9 @@ class OfficeClientCheckinStatus extends Entity
     */
     public function getCheckinDateTime()
     {
-        if (array_key_exists("checkinDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["checkinDateTime"], "\DateTime") || is_null($this->_propDict["checkinDateTime"])) {
+        if (array_key_exists("checkinDateTime", $this->_propDict) && !is_null($this->_propDict["checkinDateTime"])) {
+     
+            if (is_a($this->_propDict["checkinDateTime"], "\DateTime")) {
                 return $this->_propDict["checkinDateTime"];
             } else {
                 $this->_propDict["checkinDateTime"] = new \DateTime($this->_propDict["checkinDateTime"]);

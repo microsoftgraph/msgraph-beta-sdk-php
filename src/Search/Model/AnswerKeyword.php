@@ -40,7 +40,7 @@ class AnswerKeyword extends \Beta\Microsoft\Graph\Model\Entity
     /**
     * Sets the keywords
     *
-    * @param string $val The value of the keywords
+    * @param string[] $val The value of the keywords
     *
     * @return AnswerKeyword
     */
@@ -92,7 +92,7 @@ class AnswerKeyword extends \Beta\Microsoft\Graph\Model\Entity
     /**
     * Sets the reservedKeywords
     *
-    * @param string $val The value of the reservedKeywords
+    * @param string[] $val The value of the reservedKeywords
     *
     * @return AnswerKeyword
     */

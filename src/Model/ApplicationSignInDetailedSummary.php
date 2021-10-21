@@ -32,8 +32,8 @@ class ApplicationSignInDetailedSummary extends Entity
     */
     public function getAggregatedEventDateTime()
     {
-        if (array_key_exists("aggregatedEventDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["aggregatedEventDateTime"], "\DateTime") || is_null($this->_propDict["aggregatedEventDateTime"])) {
+        if (array_key_exists("aggregatedEventDateTime", $this->_propDict) && !is_null($this->_propDict["aggregatedEventDateTime"])) {
+            if (is_a($this->_propDict["aggregatedEventDateTime"], "\DateTime")) {
                 return $this->_propDict["aggregatedEventDateTime"];
             } else {
                 $this->_propDict["aggregatedEventDateTime"] = new \DateTime($this->_propDict["aggregatedEventDateTime"]);
@@ -152,8 +152,8 @@ class ApplicationSignInDetailedSummary extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\SignInStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\SignInStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new SignInStatus($this->_propDict["status"]);

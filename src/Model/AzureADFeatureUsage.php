@@ -58,8 +58,8 @@ class AzureADFeatureUsage extends Entity
     */
     public function getSnapshotDateTime()
     {
-        if (array_key_exists("snapshotDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["snapshotDateTime"], "\DateTime") || is_null($this->_propDict["snapshotDateTime"])) {
+        if (array_key_exists("snapshotDateTime", $this->_propDict) && !is_null($this->_propDict["snapshotDateTime"])) {
+            if (is_a($this->_propDict["snapshotDateTime"], "\DateTime")) {
                 return $this->_propDict["snapshotDateTime"];
             } else {
                 $this->_propDict["snapshotDateTime"] = new \DateTime($this->_propDict["snapshotDateTime"]);

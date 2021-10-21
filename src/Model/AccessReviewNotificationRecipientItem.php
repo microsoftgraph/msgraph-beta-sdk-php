@@ -32,8 +32,9 @@ class AccessReviewNotificationRecipientItem extends Entity
     */
     public function getNotificationRecipientScope()
     {
-        if (array_key_exists("notificationRecipientScope", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationRecipientScope"], "\Beta\Microsoft\Graph\Model\AccessReviewNotificationRecipientScope") || is_null($this->_propDict["notificationRecipientScope"])) {
+        if (array_key_exists("notificationRecipientScope", $this->_propDict) && !is_null($this->_propDict["notificationRecipientScope"])) {
+     
+            if (is_a($this->_propDict["notificationRecipientScope"], "\Beta\Microsoft\Graph\Model\AccessReviewNotificationRecipientScope")) {
                 return $this->_propDict["notificationRecipientScope"];
             } else {
                 $this->_propDict["notificationRecipientScope"] = new AccessReviewNotificationRecipientScope($this->_propDict["notificationRecipientScope"]);

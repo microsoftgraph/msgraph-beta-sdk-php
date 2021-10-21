@@ -32,8 +32,8 @@ class CloudPcProvisioningPolicyAssignment extends Entity
     */
     public function getTarget()
     {
-        if (array_key_exists("target", $this->_propDict)) {
-            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\CloudPcManagementAssignmentTarget") || is_null($this->_propDict["target"])) {
+        if (array_key_exists("target", $this->_propDict) && !is_null($this->_propDict["target"])) {
+            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\CloudPcManagementAssignmentTarget")) {
                 return $this->_propDict["target"];
             } else {
                 $this->_propDict["target"] = new CloudPcManagementAssignmentTarget($this->_propDict["target"]);

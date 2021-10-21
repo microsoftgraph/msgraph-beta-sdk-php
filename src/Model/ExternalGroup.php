@@ -82,21 +82,28 @@ class ExternalGroup extends Entity
      /** 
      * Gets the members
      *
-     * @return array|null The members
+     * @return ExternalGroupMember[]|null The members
      */
     public function getMembers()
     {
-        if (array_key_exists("members", $this->_propDict)) {
-           return $this->_propDict["members"];
-        } else {
-            return null;
+        if (array_key_exists('members', $this->_propDict) && !is_null($this->_propDict['members'])) {
+            $members = [];
+            if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'ExternalGroupMember')) {
+                return $this->_propDict['members'];
+            }
+            foreach ($this->_propDict['members'] as $singleValue) {
+                $members []= new ExternalGroupMember($singleValue);
+            }
+            $this->_propDict['members'] = $members;
+            return $this->_propDict['members'];
         }
+        return null;
     }
     
     /** 
     * Sets the members
     *
-    * @param ExternalGroupMember $val The members
+    * @param ExternalGroupMember[] $val The members
     *
     * @return ExternalGroup
     */

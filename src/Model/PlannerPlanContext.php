@@ -60,8 +60,9 @@ class PlannerPlanContext extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+     
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -103,7 +104,7 @@ class PlannerPlanContext extends Entity
     * Sets the displayNameSegments
     * The segments of the name of the external experience. Segments represent a hierarchical structure that allows other apps to display the relationship.
     *
-    * @param string $val The value of the displayNameSegments
+    * @param string[] $val The value of the displayNameSegments
     *
     * @return PlannerPlanContext
     */

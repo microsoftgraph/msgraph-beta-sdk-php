@@ -60,8 +60,9 @@ class KerberosSignOnSettings extends Entity
     */
     public function getKerberosSignOnMappingAttributeType()
     {
-        if (array_key_exists("kerberosSignOnMappingAttributeType", $this->_propDict)) {
-            if (is_a($this->_propDict["kerberosSignOnMappingAttributeType"], "\Beta\Microsoft\Graph\Model\KerberosSignOnMappingAttributeType") || is_null($this->_propDict["kerberosSignOnMappingAttributeType"])) {
+        if (array_key_exists("kerberosSignOnMappingAttributeType", $this->_propDict) && !is_null($this->_propDict["kerberosSignOnMappingAttributeType"])) {
+     
+            if (is_a($this->_propDict["kerberosSignOnMappingAttributeType"], "\Beta\Microsoft\Graph\Model\KerberosSignOnMappingAttributeType")) {
                 return $this->_propDict["kerberosSignOnMappingAttributeType"];
             } else {
                 $this->_propDict["kerberosSignOnMappingAttributeType"] = new KerberosSignOnMappingAttributeType($this->_propDict["kerberosSignOnMappingAttributeType"]);

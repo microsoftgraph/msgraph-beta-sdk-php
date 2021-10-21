@@ -28,21 +28,28 @@ class InformationProtectionPolicy extends Entity
      /** 
      * Gets the labels
      *
-     * @return array|null The labels
+     * @return InformationProtectionLabel[]|null The labels
      */
     public function getLabels()
     {
-        if (array_key_exists("labels", $this->_propDict)) {
-           return $this->_propDict["labels"];
-        } else {
-            return null;
+        if (array_key_exists('labels', $this->_propDict) && !is_null($this->_propDict['labels'])) {
+            $labels = [];
+            if (count($this->_propDict['labels']) > 0 && is_a($this->_propDict['labels'][0], 'InformationProtectionLabel')) {
+                return $this->_propDict['labels'];
+            }
+            foreach ($this->_propDict['labels'] as $singleValue) {
+                $labels []= new InformationProtectionLabel($singleValue);
+            }
+            $this->_propDict['labels'] = $labels;
+            return $this->_propDict['labels'];
         }
+        return null;
     }
     
     /** 
     * Sets the labels
     *
-    * @param InformationProtectionLabel $val The labels
+    * @param InformationProtectionLabel[] $val The labels
     *
     * @return InformationProtectionPolicy
     */

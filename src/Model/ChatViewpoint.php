@@ -58,8 +58,9 @@ class ChatViewpoint extends Entity
     */
     public function getLastMessageReadDateTime()
     {
-        if (array_key_exists("lastMessageReadDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastMessageReadDateTime"], "\DateTime") || is_null($this->_propDict["lastMessageReadDateTime"])) {
+        if (array_key_exists("lastMessageReadDateTime", $this->_propDict) && !is_null($this->_propDict["lastMessageReadDateTime"])) {
+     
+            if (is_a($this->_propDict["lastMessageReadDateTime"], "\DateTime")) {
                 return $this->_propDict["lastMessageReadDateTime"];
             } else {
                 $this->_propDict["lastMessageReadDateTime"] = new \DateTime($this->_propDict["lastMessageReadDateTime"]);

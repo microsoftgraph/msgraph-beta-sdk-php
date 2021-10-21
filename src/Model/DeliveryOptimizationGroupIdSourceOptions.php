@@ -43,8 +43,9 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
     */
     public function getGroupIdSourceOption()
     {
-        if (array_key_exists("groupIdSourceOption", $this->_propDict)) {
-            if (is_a($this->_propDict["groupIdSourceOption"], "\Beta\Microsoft\Graph\Model\DeliveryOptimizationGroupIdOptionsType") || is_null($this->_propDict["groupIdSourceOption"])) {
+        if (array_key_exists("groupIdSourceOption", $this->_propDict) && !is_null($this->_propDict["groupIdSourceOption"])) {
+     
+            if (is_a($this->_propDict["groupIdSourceOption"], "\Beta\Microsoft\Graph\Model\DeliveryOptimizationGroupIdOptionsType")) {
                 return $this->_propDict["groupIdSourceOption"];
             } else {
                 $this->_propDict["groupIdSourceOption"] = new DeliveryOptimizationGroupIdOptionsType($this->_propDict["groupIdSourceOption"]);

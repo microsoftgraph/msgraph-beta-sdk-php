@@ -32,8 +32,9 @@ class MonitoringRule extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getAction()
     {
-        if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\MonitoringAction") || is_null($this->_propDict["action"])) {
+        if (array_key_exists("action", $this->_propDict) && !is_null($this->_propDict["action"])) {
+     
+            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\MonitoringAction")) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new MonitoringAction($this->_propDict["action"]);
@@ -65,8 +66,9 @@ class MonitoringRule extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getSignal()
     {
-        if (array_key_exists("signal", $this->_propDict)) {
-            if (is_a($this->_propDict["signal"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\MonitoringSignal") || is_null($this->_propDict["signal"])) {
+        if (array_key_exists("signal", $this->_propDict) && !is_null($this->_propDict["signal"])) {
+     
+            if (is_a($this->_propDict["signal"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\MonitoringSignal")) {
                 return $this->_propDict["signal"];
             } else {
                 $this->_propDict["signal"] = new MonitoringSignal($this->_propDict["signal"]);

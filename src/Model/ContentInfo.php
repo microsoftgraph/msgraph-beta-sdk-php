@@ -32,8 +32,9 @@ class ContentInfo extends Entity
     */
     public function getFormat()
     {
-        if (array_key_exists("format", $this->_propDict)) {
-            if (is_a($this->_propDict["format"], "\Beta\Microsoft\Graph\Model\ContentFormat") || is_null($this->_propDict["format"])) {
+        if (array_key_exists("format", $this->_propDict) && !is_null($this->_propDict["format"])) {
+     
+            if (is_a($this->_propDict["format"], "\Beta\Microsoft\Graph\Model\ContentFormat")) {
                 return $this->_propDict["format"];
             } else {
                 $this->_propDict["format"] = new ContentFormat($this->_propDict["format"]);
@@ -89,18 +90,22 @@ class ContentInfo extends Entity
     * Gets the metadata
     * Existing Microsoft Information Protection metadata is passed as key/value pairs, where the key is the MSIP_Label_GUID_PropName.
     *
-    * @return KeyValuePair|null The metadata
+    * @return KeyValuePair[]|null The metadata
     */
     public function getMetadata()
     {
-        if (array_key_exists("metadata", $this->_propDict)) {
-            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\KeyValuePair") || is_null($this->_propDict["metadata"])) {
-                return $this->_propDict["metadata"];
-            } else {
-                $this->_propDict["metadata"] = new KeyValuePair($this->_propDict["metadata"]);
-                return $this->_propDict["metadata"];
+        if (array_key_exists("metadata", $this->_propDict) && !is_null($this->_propDict["metadata"])) {
+       
+            if (count($this->_propDict['metadata']) > 0 && is_a($this->_propDict['metadata'][0], 'KeyValuePair')) {
+               return $this->_propDict['metadata'];
             }
-        }
+            $metadata = [];
+            foreach ($this->_propDict['metadata'] as $singleValue) {
+               $metadata []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['metadata'] = $metadata;
+            return $this->_propDict['metadata'];
+            }
         return null;
     }
 
@@ -108,7 +113,7 @@ class ContentInfo extends Entity
     * Sets the metadata
     * Existing Microsoft Information Protection metadata is passed as key/value pairs, where the key is the MSIP_Label_GUID_PropName.
     *
-    * @param KeyValuePair $val The value to assign to the metadata
+    * @param KeyValuePair[] $val The value to assign to the metadata
     *
     * @return ContentInfo The ContentInfo
     */
@@ -126,8 +131,9 @@ class ContentInfo extends Entity
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ContentState") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+     
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ContentState")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new ContentState($this->_propDict["state"]);

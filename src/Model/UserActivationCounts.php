@@ -116,8 +116,9 @@ class UserActivationCounts extends Entity
     */
     public function getLastActivatedDate()
     {
-        if (array_key_exists("lastActivatedDate", $this->_propDict)) {
-            if (is_a($this->_propDict["lastActivatedDate"], "\DateTime") || is_null($this->_propDict["lastActivatedDate"])) {
+        if (array_key_exists("lastActivatedDate", $this->_propDict) && !is_null($this->_propDict["lastActivatedDate"])) {
+     
+            if (is_a($this->_propDict["lastActivatedDate"], "\DateTime")) {
                 return $this->_propDict["lastActivatedDate"];
             } else {
                 $this->_propDict["lastActivatedDate"] = new \DateTime($this->_propDict["lastActivatedDate"]);

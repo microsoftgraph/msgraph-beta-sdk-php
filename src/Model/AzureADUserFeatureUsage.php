@@ -28,21 +28,28 @@ class AzureADUserFeatureUsage extends Entity
      /** 
      * Gets the featureUsageDetails
      *
-     * @return array|null The featureUsageDetails
+     * @return FeatureUsageDetail[]|null The featureUsageDetails
      */
     public function getFeatureUsageDetails()
     {
-        if (array_key_exists("featureUsageDetails", $this->_propDict)) {
-           return $this->_propDict["featureUsageDetails"];
-        } else {
-            return null;
+        if (array_key_exists('featureUsageDetails', $this->_propDict) && !is_null($this->_propDict['featureUsageDetails'])) {
+            $featureUsageDetails = [];
+            if (count($this->_propDict['featureUsageDetails']) > 0 && is_a($this->_propDict['featureUsageDetails'][0], 'FeatureUsageDetail')) {
+                return $this->_propDict['featureUsageDetails'];
+            }
+            foreach ($this->_propDict['featureUsageDetails'] as $singleValue) {
+                $featureUsageDetails []= new FeatureUsageDetail($singleValue);
+            }
+            $this->_propDict['featureUsageDetails'] = $featureUsageDetails;
+            return $this->_propDict['featureUsageDetails'];
         }
+        return null;
     }
     
     /** 
     * Sets the featureUsageDetails
     *
-    * @param FeatureUsageDetail $val The featureUsageDetails
+    * @param FeatureUsageDetail[] $val The featureUsageDetails
     *
     * @return AzureADUserFeatureUsage
     */
@@ -59,8 +66,8 @@ class AzureADUserFeatureUsage extends Entity
     */
     public function getLastUpdatedDateTime()
     {
-        if (array_key_exists("lastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
+        if (array_key_exists("lastUpdatedDateTime", $this->_propDict) && !is_null($this->_propDict["lastUpdatedDateTime"])) {
+            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastUpdatedDateTime"];
             } else {
                 $this->_propDict["lastUpdatedDateTime"] = new \DateTime($this->_propDict["lastUpdatedDateTime"]);
@@ -90,8 +97,8 @@ class AzureADUserFeatureUsage extends Entity
     */
     public function getLicenseAssigned()
     {
-        if (array_key_exists("licenseAssigned", $this->_propDict)) {
-            if (is_a($this->_propDict["licenseAssigned"], "\Beta\Microsoft\Graph\Model\AzureADLicenseType") || is_null($this->_propDict["licenseAssigned"])) {
+        if (array_key_exists("licenseAssigned", $this->_propDict) && !is_null($this->_propDict["licenseAssigned"])) {
+            if (is_a($this->_propDict["licenseAssigned"], "\Beta\Microsoft\Graph\Model\AzureADLicenseType")) {
                 return $this->_propDict["licenseAssigned"];
             } else {
                 $this->_propDict["licenseAssigned"] = new AzureADLicenseType($this->_propDict["licenseAssigned"]);
@@ -121,8 +128,8 @@ class AzureADUserFeatureUsage extends Entity
     */
     public function getLicenseRecommended()
     {
-        if (array_key_exists("licenseRecommended", $this->_propDict)) {
-            if (is_a($this->_propDict["licenseRecommended"], "\Beta\Microsoft\Graph\Model\AzureADLicenseType") || is_null($this->_propDict["licenseRecommended"])) {
+        if (array_key_exists("licenseRecommended", $this->_propDict) && !is_null($this->_propDict["licenseRecommended"])) {
+            if (is_a($this->_propDict["licenseRecommended"], "\Beta\Microsoft\Graph\Model\AzureADLicenseType")) {
                 return $this->_propDict["licenseRecommended"];
             } else {
                 $this->_propDict["licenseRecommended"] = new AzureADLicenseType($this->_propDict["licenseRecommended"]);

@@ -28,21 +28,28 @@ class ExactMatchDataStoreBase extends Entity
      /** 
      * Gets the columns
      *
-     * @return array|null The columns
+     * @return ExactDataMatchStoreColumn[]|null The columns
      */
     public function getColumns()
     {
-        if (array_key_exists("columns", $this->_propDict)) {
-           return $this->_propDict["columns"];
-        } else {
-            return null;
+        if (array_key_exists('columns', $this->_propDict) && !is_null($this->_propDict['columns'])) {
+            $columns = [];
+            if (count($this->_propDict['columns']) > 0 && is_a($this->_propDict['columns'][0], 'ExactDataMatchStoreColumn')) {
+                return $this->_propDict['columns'];
+            }
+            foreach ($this->_propDict['columns'] as $singleValue) {
+                $columns []= new ExactDataMatchStoreColumn($singleValue);
+            }
+            $this->_propDict['columns'] = $columns;
+            return $this->_propDict['columns'];
         }
+        return null;
     }
     
     /** 
     * Sets the columns
     *
-    * @param ExactDataMatchStoreColumn $val The columns
+    * @param ExactDataMatchStoreColumn[] $val The columns
     *
     * @return ExactMatchDataStoreBase
     */
@@ -59,8 +66,8 @@ class ExactMatchDataStoreBase extends Entity
     */
     public function getDataLastUpdatedDateTime()
     {
-        if (array_key_exists("dataLastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["dataLastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["dataLastUpdatedDateTime"])) {
+        if (array_key_exists("dataLastUpdatedDateTime", $this->_propDict) && !is_null($this->_propDict["dataLastUpdatedDateTime"])) {
+            if (is_a($this->_propDict["dataLastUpdatedDateTime"], "\DateTime")) {
                 return $this->_propDict["dataLastUpdatedDateTime"];
             } else {
                 $this->_propDict["dataLastUpdatedDateTime"] = new \DateTime($this->_propDict["dataLastUpdatedDateTime"]);

@@ -61,8 +61,8 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration
     */
     public function getConfigurationXml()
     {
-        if (array_key_exists("configurationXml", $this->_propDict)) {
-            if (is_a($this->_propDict["configurationXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["configurationXml"])) {
+        if (array_key_exists("configurationXml", $this->_propDict) && !is_null($this->_propDict["configurationXml"])) {
+            if (is_a($this->_propDict["configurationXml"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["configurationXml"];
             } else {
                 $this->_propDict["configurationXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["configurationXml"]);

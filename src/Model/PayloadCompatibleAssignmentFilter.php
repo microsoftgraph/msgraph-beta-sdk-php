@@ -32,8 +32,8 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
     */
     public function getPayloadType()
     {
-        if (array_key_exists("payloadType", $this->_propDict)) {
-            if (is_a($this->_propDict["payloadType"], "\Beta\Microsoft\Graph\Model\AssignmentFilterPayloadType") || is_null($this->_propDict["payloadType"])) {
+        if (array_key_exists("payloadType", $this->_propDict) && !is_null($this->_propDict["payloadType"])) {
+            if (is_a($this->_propDict["payloadType"], "\Beta\Microsoft\Graph\Model\AssignmentFilterPayloadType")) {
                 return $this->_propDict["payloadType"];
             } else {
                 $this->_propDict["payloadType"] = new AssignmentFilterPayloadType($this->_propDict["payloadType"]);

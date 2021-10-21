@@ -174,22 +174,29 @@ class SynchronizationTemplate extends Entity
      * Gets the metadata
     * Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
      *
-     * @return array|null The metadata
+     * @return MetadataEntry[]|null The metadata
      */
     public function getMetadata()
     {
-        if (array_key_exists("metadata", $this->_propDict)) {
-           return $this->_propDict["metadata"];
-        } else {
-            return null;
+        if (array_key_exists('metadata', $this->_propDict) && !is_null($this->_propDict['metadata'])) {
+            $metadata = [];
+            if (count($this->_propDict['metadata']) > 0 && is_a($this->_propDict['metadata'][0], 'MetadataEntry')) {
+                return $this->_propDict['metadata'];
+            }
+            foreach ($this->_propDict['metadata'] as $singleValue) {
+                $metadata []= new MetadataEntry($singleValue);
+            }
+            $this->_propDict['metadata'] = $metadata;
+            return $this->_propDict['metadata'];
         }
+        return null;
     }
     
     /** 
     * Sets the metadata
     * Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
     *
-    * @param MetadataEntry $val The metadata
+    * @param MetadataEntry[] $val The metadata
     *
     * @return SynchronizationTemplate
     */
@@ -207,8 +214,8 @@ class SynchronizationTemplate extends Entity
     */
     public function getSchema()
     {
-        if (array_key_exists("schema", $this->_propDict)) {
-            if (is_a($this->_propDict["schema"], "\Beta\Microsoft\Graph\Model\SynchronizationSchema") || is_null($this->_propDict["schema"])) {
+        if (array_key_exists("schema", $this->_propDict) && !is_null($this->_propDict["schema"])) {
+            if (is_a($this->_propDict["schema"], "\Beta\Microsoft\Graph\Model\SynchronizationSchema")) {
                 return $this->_propDict["schema"];
             } else {
                 $this->_propDict["schema"] = new SynchronizationSchema($this->_propDict["schema"]);

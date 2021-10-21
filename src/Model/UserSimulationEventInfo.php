@@ -25,6 +25,7 @@ class UserSimulationEventInfo extends Entity
 {
     /**
     * Gets the browser
+    * Browser information from where the simulation event was initiated by a user in an attack simulation and training campaign.
     *
     * @return string|null The browser
     */
@@ -39,6 +40,7 @@ class UserSimulationEventInfo extends Entity
 
     /**
     * Sets the browser
+    * Browser information from where the simulation event was initiated by a user in an attack simulation and training campaign.
     *
     * @param string $val The value of the browser
     *
@@ -52,13 +54,15 @@ class UserSimulationEventInfo extends Entity
 
     /**
     * Gets the eventDateTime
+    * Date and time of the simulation event by a user in an attack simulation and training campaign.
     *
     * @return \DateTime|null The eventDateTime
     */
     public function getEventDateTime()
     {
-        if (array_key_exists("eventDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["eventDateTime"], "\DateTime") || is_null($this->_propDict["eventDateTime"])) {
+        if (array_key_exists("eventDateTime", $this->_propDict) && !is_null($this->_propDict["eventDateTime"])) {
+     
+            if (is_a($this->_propDict["eventDateTime"], "\DateTime")) {
                 return $this->_propDict["eventDateTime"];
             } else {
                 $this->_propDict["eventDateTime"] = new \DateTime($this->_propDict["eventDateTime"]);
@@ -70,6 +74,7 @@ class UserSimulationEventInfo extends Entity
 
     /**
     * Sets the eventDateTime
+    * Date and time of the simulation event by a user in an attack simulation and training campaign.
     *
     * @param \DateTime $val The value to assign to the eventDateTime
     *
@@ -82,6 +87,7 @@ class UserSimulationEventInfo extends Entity
     }
     /**
     * Gets the eventName
+    * Name of the simulation event by a user in an attack simulation and training campaign.
     *
     * @return string|null The eventName
     */
@@ -96,6 +102,7 @@ class UserSimulationEventInfo extends Entity
 
     /**
     * Sets the eventName
+    * Name of the simulation event by a user in an attack simulation and training campaign.
     *
     * @param string $val The value of the eventName
     *
@@ -108,6 +115,7 @@ class UserSimulationEventInfo extends Entity
     }
     /**
     * Gets the ipAddress
+    * IP address from where the simulation event was initiated by a user in an attack simulation and training campaign.
     *
     * @return string|null The ipAddress
     */
@@ -122,6 +130,7 @@ class UserSimulationEventInfo extends Entity
 
     /**
     * Sets the ipAddress
+    * IP address from where the simulation event was initiated by a user in an attack simulation and training campaign.
     *
     * @param string $val The value of the ipAddress
     *
@@ -134,6 +143,7 @@ class UserSimulationEventInfo extends Entity
     }
     /**
     * Gets the osPlatformDeviceDetails
+    * The operating system, platform, and device details from where the simulation event was initiated by a user in an attack simulation and training campaign.
     *
     * @return string|null The osPlatformDeviceDetails
     */
@@ -148,6 +158,7 @@ class UserSimulationEventInfo extends Entity
 
     /**
     * Sets the osPlatformDeviceDetails
+    * The operating system, platform, and device details from where the simulation event was initiated by a user in an attack simulation and training campaign.
     *
     * @param string $val The value of the osPlatformDeviceDetails
     *

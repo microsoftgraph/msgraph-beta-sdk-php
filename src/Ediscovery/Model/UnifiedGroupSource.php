@@ -32,8 +32,8 @@ class UnifiedGroupSource extends DataSource
     */
     public function getIncludedSources()
     {
-        if (array_key_exists("includedSources", $this->_propDict)) {
-            if (is_a($this->_propDict["includedSources"], "\Beta\Microsoft\Graph\Ediscovery\Model\SourceType") || is_null($this->_propDict["includedSources"])) {
+        if (array_key_exists("includedSources", $this->_propDict) && !is_null($this->_propDict["includedSources"])) {
+            if (is_a($this->_propDict["includedSources"], "\Beta\Microsoft\Graph\Ediscovery\Model\SourceType")) {
                 return $this->_propDict["includedSources"];
             } else {
                 $this->_propDict["includedSources"] = new SourceType($this->_propDict["includedSources"]);
@@ -65,8 +65,8 @@ class UnifiedGroupSource extends DataSource
     */
     public function getGroup()
     {
-        if (array_key_exists("group", $this->_propDict)) {
-            if (is_a($this->_propDict["group"], "\Beta\Microsoft\Graph\Model\Group") || is_null($this->_propDict["group"])) {
+        if (array_key_exists("group", $this->_propDict) && !is_null($this->_propDict["group"])) {
+            if (is_a($this->_propDict["group"], "\Beta\Microsoft\Graph\Model\Group")) {
                 return $this->_propDict["group"];
             } else {
                 $this->_propDict["group"] = new \Beta\Microsoft\Graph\Model\Group($this->_propDict["group"]);

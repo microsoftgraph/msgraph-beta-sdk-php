@@ -70,7 +70,7 @@ class PreAuthorizedApplication extends Entity
     * Sets the permissionIds
     * The unique identifier for the oauth2PermissionScopes the application requires.
     *
-    * @param string $val The value of the permissionIds
+    * @param string[] $val The value of the permissionIds
     *
     * @return PreAuthorizedApplication
     */

@@ -85,8 +85,8 @@ class CloudAppSecurityProfile extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -197,8 +197,8 @@ class CloudAppSecurityProfile extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -282,8 +282,8 @@ class CloudAppSecurityProfile extends Entity
     */
     public function getPermissionsRequired()
     {
-        if (array_key_exists("permissionsRequired", $this->_propDict)) {
-            if (is_a($this->_propDict["permissionsRequired"], "\Beta\Microsoft\Graph\Model\ApplicationPermissionsRequired") || is_null($this->_propDict["permissionsRequired"])) {
+        if (array_key_exists("permissionsRequired", $this->_propDict) && !is_null($this->_propDict["permissionsRequired"])) {
+            if (is_a($this->_propDict["permissionsRequired"], "\Beta\Microsoft\Graph\Model\ApplicationPermissionsRequired")) {
                 return $this->_propDict["permissionsRequired"];
             } else {
                 $this->_propDict["permissionsRequired"] = new ApplicationPermissionsRequired($this->_propDict["permissionsRequired"]);
@@ -475,8 +475,8 @@ class CloudAppSecurityProfile extends Entity
     */
     public function getVendorInformation()
     {
-        if (array_key_exists("vendorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
+        if (array_key_exists("vendorInformation", $this->_propDict) && !is_null($this->_propDict["vendorInformation"])) {
+            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation")) {
                 return $this->_propDict["vendorInformation"];
             } else {
                 $this->_propDict["vendorInformation"] = new SecurityVendorInformation($this->_propDict["vendorInformation"]);

@@ -39,18 +39,22 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstance extends Devic
     * Gets the simpleSettingCollectionValue
     * Simple setting collection instance value
     *
-    * @return DeviceManagementConfigurationSimpleSettingValue|null The simpleSettingCollectionValue
+    * @return DeviceManagementConfigurationSimpleSettingValue[]|null The simpleSettingCollectionValue
     */
     public function getSimpleSettingCollectionValue()
     {
-        if (array_key_exists("simpleSettingCollectionValue", $this->_propDict)) {
-            if (is_a($this->_propDict["simpleSettingCollectionValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSimpleSettingValue") || is_null($this->_propDict["simpleSettingCollectionValue"])) {
-                return $this->_propDict["simpleSettingCollectionValue"];
-            } else {
-                $this->_propDict["simpleSettingCollectionValue"] = new DeviceManagementConfigurationSimpleSettingValue($this->_propDict["simpleSettingCollectionValue"]);
-                return $this->_propDict["simpleSettingCollectionValue"];
+        if (array_key_exists("simpleSettingCollectionValue", $this->_propDict) && !is_null($this->_propDict["simpleSettingCollectionValue"])) {
+       
+            if (count($this->_propDict['simpleSettingCollectionValue']) > 0 && is_a($this->_propDict['simpleSettingCollectionValue'][0], 'DeviceManagementConfigurationSimpleSettingValue')) {
+               return $this->_propDict['simpleSettingCollectionValue'];
             }
-        }
+            $simpleSettingCollectionValue = [];
+            foreach ($this->_propDict['simpleSettingCollectionValue'] as $singleValue) {
+               $simpleSettingCollectionValue []= new DeviceManagementConfigurationSimpleSettingValue($singleValue);
+            }
+            $this->_propDict['simpleSettingCollectionValue'] = $simpleSettingCollectionValue;
+            return $this->_propDict['simpleSettingCollectionValue'];
+            }
         return null;
     }
 
@@ -58,7 +62,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstance extends Devic
     * Sets the simpleSettingCollectionValue
     * Simple setting collection instance value
     *
-    * @param DeviceManagementConfigurationSimpleSettingValue $val The value to assign to the simpleSettingCollectionValue
+    * @param DeviceManagementConfigurationSimpleSettingValue[] $val The value to assign to the simpleSettingCollectionValue
     *
     * @return DeviceManagementConfigurationSimpleSettingCollectionInstance The DeviceManagementConfigurationSimpleSettingCollectionInstance
     */
