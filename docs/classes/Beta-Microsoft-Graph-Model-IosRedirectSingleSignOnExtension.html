@@ -192,7 +192,7 @@ type that is referenced as the type in an entity.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-IosRedirectSingleSignOnExtension.html#method_getConfigurations">getConfigurations()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-KeyTypedValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyTypedValuePair">KeyTypedValuePair</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyTypedValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyTypedValuePair">KeyTypedValuePair</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the configurations
 Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.</dd>
@@ -418,7 +418,7 @@ Gets or sets a list of typed key-value pairs used to configure Credential-type p
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getConfigurations</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-KeyTypedValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyTypedValuePair">KeyTypedValuePair</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getConfigurations</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyTypedValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyTypedValuePair">KeyTypedValuePair</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -426,7 +426,7 @@ Gets or sets a list of typed key-value pairs used to configure Credential-type p
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-KeyTypedValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyTypedValuePair">KeyTypedValuePair</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyTypedValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyTypedValuePair">KeyTypedValuePair</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The configurations</p>
 </section>
@@ -446,7 +446,7 @@ Gets or sets a list of typed key-value pairs used to configure Credential-type p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosRedirectSingleSignOnExtension.php"><a href="files/src-model-iosredirectsinglesignonextension.html"><abbr title="src/Model/IosRedirectSingleSignOnExtension.php">IosRedirectSingleSignOnExtension.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">76</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the extensionIdentifier
@@ -588,7 +588,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosRedirectSingleSignOnExtension.php"><a href="files/src-model-iosredirectsinglesignonextension.html"><abbr title="src/Model/IosRedirectSingleSignOnExtension.php">IosRedirectSingleSignOnExtension.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">108</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the teamIdentifier
@@ -624,7 +624,7 @@ Gets or sets the team ID of the app extension that performs SSO for the specifie
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosRedirectSingleSignOnExtension.php"><a href="files/src-model-iosredirectsinglesignonextension.html"><abbr title="src/Model/IosRedirectSingleSignOnExtension.php">IosRedirectSingleSignOnExtension.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">132</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the urlPrefixes
@@ -696,7 +696,7 @@ Manually serialize DateTime into RFC3339 format</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosRedirectSingleSignOnExtension.php"><a href="files/src-model-iosredirectsinglesignonextension.html"><abbr title="src/Model/IosRedirectSingleSignOnExtension.php">IosRedirectSingleSignOnExtension.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the configurations
@@ -704,7 +704,7 @@ Gets or sets a list of typed key-value pairs used to configure Credential-type p
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setConfigurations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-KeyTypedValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyTypedValuePair">KeyTypedValuePair</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-IosRedirectSingleSignOnExtension.html"><abbr title="\Beta\Microsoft\Graph\Model\IosRedirectSingleSignOnExtension">IosRedirectSingleSignOnExtension</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setConfigurations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyTypedValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyTypedValuePair">KeyTypedValuePair</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-IosRedirectSingleSignOnExtension.html"><abbr title="\Beta\Microsoft\Graph\Model\IosRedirectSingleSignOnExtension">IosRedirectSingleSignOnExtension</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -712,7 +712,7 @@ Gets or sets a list of typed key-value pairs used to configure Credential-type p
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-KeyTypedValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyTypedValuePair">KeyTypedValuePair</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyTypedValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyTypedValuePair">KeyTypedValuePair</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the configurations</p>
@@ -744,7 +744,7 @@ Gets or sets a list of typed key-value pairs used to configure Credential-type p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosRedirectSingleSignOnExtension.php"><a href="files/src-model-iosredirectsinglesignonextension.html"><abbr title="src/Model/IosRedirectSingleSignOnExtension.php">IosRedirectSingleSignOnExtension.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the extensionIdentifier
@@ -884,7 +884,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosRedirectSingleSignOnExtension.php"><a href="files/src-model-iosredirectsinglesignonextension.html"><abbr title="src/Model/IosRedirectSingleSignOnExtension.php">IosRedirectSingleSignOnExtension.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the teamIdentifier
@@ -931,7 +931,7 @@ Gets or sets the team ID of the app extension that performs SSO for the specifie
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosRedirectSingleSignOnExtension.php"><a href="files/src-model-iosredirectsinglesignonextension.html"><abbr title="src/Model/IosRedirectSingleSignOnExtension.php">IosRedirectSingleSignOnExtension.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the urlPrefixes
@@ -939,7 +939,7 @@ One or more URL prefixes of identity providers on whose behalf the app extension
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setUrlPrefixes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-IosRedirectSingleSignOnExtension.html"><abbr title="\Beta\Microsoft\Graph\Model\IosRedirectSingleSignOnExtension">IosRedirectSingleSignOnExtension</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setUrlPrefixes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-IosRedirectSingleSignOnExtension.html"><abbr title="\Beta\Microsoft\Graph\Model\IosRedirectSingleSignOnExtension">IosRedirectSingleSignOnExtension</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -947,7 +947,7 @@ One or more URL prefixes of identity providers on whose behalf the app extension
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the urlPrefixes</p>

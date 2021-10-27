@@ -191,7 +191,7 @@ to the model</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-IosSingleSignOnSettings.html#method_getAllowedAppsList">getAllowedAppsList()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the allowedAppsList
 List of app identifiers that are allowed to use this login. If this field is omitted, the login applies to all applications on the device. This collection can contain a maximum of 500 elements.</dd>
@@ -432,7 +432,7 @@ List of app identifiers that are allowed to use this login. If this field is omi
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getAllowedAppsList</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getAllowedAppsList</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -440,7 +440,7 @@ List of app identifiers that are allowed to use this login. If this field is omi
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The allowedAppsList</p>
 </section>
@@ -460,7 +460,7 @@ List of app identifiers that are allowed to use this login. If this field is omi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosSingleSignOnSettings.php"><a href="files/src-model-iossinglesignonsettings.html"><abbr title="src/Model/IosSingleSignOnSettings.php">IosSingleSignOnSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the allowedUrls
@@ -496,7 +496,7 @@ List of HTTP URLs that must be matched in order to use this login. With iOS 9.0 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosSingleSignOnSettings.php"><a href="files/src-model-iossinglesignonsettings.html"><abbr title="src/Model/IosSingleSignOnSettings.php">IosSingleSignOnSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the displayName
@@ -568,7 +568,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosSingleSignOnSettings.php"><a href="files/src-model-iossinglesignonsettings.html"><abbr title="src/Model/IosSingleSignOnSettings.php">IosSingleSignOnSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the kerberosPrincipalName
@@ -604,7 +604,7 @@ A Kerberos principal name. If not provided, the user is prompted for one during 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosSingleSignOnSettings.php"><a href="files/src-model-iossinglesignonsettings.html"><abbr title="src/Model/IosSingleSignOnSettings.php">IosSingleSignOnSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the kerberosRealm
@@ -746,7 +746,7 @@ Manually serialize DateTime into RFC3339 format</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosSingleSignOnSettings.php"><a href="files/src-model-iossinglesignonsettings.html"><abbr title="src/Model/IosSingleSignOnSettings.php">IosSingleSignOnSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the allowedAppsList
@@ -754,7 +754,7 @@ List of app identifiers that are allowed to use this login. If this field is omi
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAllowedAppsList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-IosSingleSignOnSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\IosSingleSignOnSettings">IosSingleSignOnSettings</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setAllowedAppsList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-IosSingleSignOnSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\IosSingleSignOnSettings">IosSingleSignOnSettings</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -762,7 +762,7 @@ List of app identifiers that are allowed to use this login. If this field is omi
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the allowedAppsList</p>
@@ -794,7 +794,7 @@ List of app identifiers that are allowed to use this login. If this field is omi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosSingleSignOnSettings.php"><a href="files/src-model-iossinglesignonsettings.html"><abbr title="src/Model/IosSingleSignOnSettings.php">IosSingleSignOnSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the allowedUrls
@@ -802,7 +802,7 @@ List of HTTP URLs that must be matched in order to use this login. With iOS 9.0 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAllowedUrls</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-IosSingleSignOnSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\IosSingleSignOnSettings">IosSingleSignOnSettings</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setAllowedUrls</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-IosSingleSignOnSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\IosSingleSignOnSettings">IosSingleSignOnSettings</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -810,7 +810,7 @@ List of HTTP URLs that must be matched in order to use this login. With iOS 9.0 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the allowedUrls</p>
@@ -841,7 +841,7 @@ List of HTTP URLs that must be matched in order to use this login. With iOS 9.0 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosSingleSignOnSettings.php"><a href="files/src-model-iossinglesignonsettings.html"><abbr title="src/Model/IosSingleSignOnSettings.php">IosSingleSignOnSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the displayName
@@ -935,7 +935,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosSingleSignOnSettings.php"><a href="files/src-model-iossinglesignonsettings.html"><abbr title="src/Model/IosSingleSignOnSettings.php">IosSingleSignOnSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the kerberosPrincipalName
@@ -982,7 +982,7 @@ A Kerberos principal name. If not provided, the user is prompted for one during 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosSingleSignOnSettings.php"><a href="files/src-model-iossinglesignonsettings.html"><abbr title="src/Model/IosSingleSignOnSettings.php">IosSingleSignOnSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">170</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the kerberosRealm

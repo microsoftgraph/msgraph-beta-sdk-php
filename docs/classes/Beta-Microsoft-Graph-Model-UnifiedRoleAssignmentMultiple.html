@@ -199,7 +199,7 @@ Ids of the app specific scopes when the assignment scopes are app specific. The 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleAssignmentMultiple.html#method_getAppScopes">getAppScopes()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AppScope">AppScope</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the appScopes
 Read-only collection with details of the app specific scopes when the assignment scopes are app specific. Containment entity. Read-only.</dd>
@@ -230,7 +230,7 @@ Ids of the directory objects representing the scopes of the assignment. The scop
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleAssignmentMultiple.html#method_getDirectoryScopes">getDirectoryScopes()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the directoryScopes
 Read-only collection referencing the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.</dd>
@@ -269,7 +269,7 @@ Identifiers of the principals to which the assignment is granted.  Supports $fil
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleAssignmentMultiple.html#method_getPrincipals">getPrincipals()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the principals
 Read-only collection referencing the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.</dd>
@@ -562,7 +562,7 @@ Read-only collection with details of the app specific scopes when the assignment
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getAppScopes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getAppScopes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AppScope">AppScope</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -570,7 +570,7 @@ Read-only collection with details of the app specific scopes when the assignment
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AppScope">AppScope</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The appScopes</p>
 </section>
@@ -697,7 +697,7 @@ Ids of the directory objects representing the scopes of the assignment. The scop
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/UnifiedRoleAssignmentMultiple.php"><a href="files/src-model-unifiedroleassignmentmultiple.html"><abbr title="src/Model/UnifiedRoleAssignmentMultiple.php">UnifiedRoleAssignmentMultiple.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">265</span>
+    <span class="phpdocumentor-element-found-in__line">272</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the directoryScopes
@@ -705,7 +705,7 @@ Read-only collection referencing the directory objects that are scope of the ass
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getDirectoryScopes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getDirectoryScopes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -713,7 +713,7 @@ Read-only collection referencing the directory objects that are scope of the ass
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The directoryScopes</p>
 </section>
@@ -876,7 +876,7 @@ Identifiers of the principals to which the assignment is granted.  Supports $fil
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/UnifiedRoleAssignmentMultiple.php"><a href="files/src-model-unifiedroleassignmentmultiple.html"><abbr title="src/Model/UnifiedRoleAssignmentMultiple.php">UnifiedRoleAssignmentMultiple.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">295</span>
+    <span class="phpdocumentor-element-found-in__line">309</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the principals
@@ -884,7 +884,7 @@ Read-only collection referencing the assigned principals. Provided so that calle
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getPrincipals</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getPrincipals</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -892,7 +892,7 @@ Read-only collection referencing the assigned principals. Provided so that calle
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The principals</p>
 </section>
@@ -947,7 +947,7 @@ Read-only collection referencing the assigned principals. Provided so that calle
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/UnifiedRoleAssignmentMultiple.php"><a href="files/src-model-unifiedroleassignmentmultiple.html"><abbr title="src/Model/UnifiedRoleAssignmentMultiple.php">UnifiedRoleAssignmentMultiple.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">324</span>
+    <span class="phpdocumentor-element-found-in__line">345</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the roleDefinition
@@ -1102,7 +1102,7 @@ Ids of the app specific scopes when the assignment scopes are app specific. The 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/UnifiedRoleAssignmentMultiple.php"><a href="files/src-model-unifiedroleassignmentmultiple.html"><abbr title="src/Model/UnifiedRoleAssignmentMultiple.php">UnifiedRoleAssignmentMultiple.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">252</span>
+    <span class="phpdocumentor-element-found-in__line">259</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the appScopes
@@ -1110,7 +1110,7 @@ Read-only collection with details of the app specific scopes when the assignment
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAppScopes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AppScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AppScope">AppScope</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleAssignmentMultiple.html"><abbr title="\Beta\Microsoft\Graph\Model\UnifiedRoleAssignmentMultiple">UnifiedRoleAssignmentMultiple</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setAppScopes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AppScope">AppScope</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleAssignmentMultiple.html"><abbr title="\Beta\Microsoft\Graph\Model\UnifiedRoleAssignmentMultiple">UnifiedRoleAssignmentMultiple</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1118,7 +1118,7 @@ Read-only collection with details of the app specific scopes when the assignment
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AppScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AppScope">AppScope</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AppScope">AppScope</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The appScopes</p>
@@ -1289,7 +1289,7 @@ Ids of the directory objects representing the scopes of the assignment. The scop
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/UnifiedRoleAssignmentMultiple.php"><a href="files/src-model-unifiedroleassignmentmultiple.html"><abbr title="src/Model/UnifiedRoleAssignmentMultiple.php">UnifiedRoleAssignmentMultiple.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">282</span>
+    <span class="phpdocumentor-element-found-in__line">296</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the directoryScopes
@@ -1297,7 +1297,7 @@ Read-only collection referencing the directory objects that are scope of the ass
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setDirectoryScopes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleAssignmentMultiple.html"><abbr title="\Beta\Microsoft\Graph\Model\UnifiedRoleAssignmentMultiple">UnifiedRoleAssignmentMultiple</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setDirectoryScopes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleAssignmentMultiple.html"><abbr title="\Beta\Microsoft\Graph\Model\UnifiedRoleAssignmentMultiple">UnifiedRoleAssignmentMultiple</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1305,7 +1305,7 @@ Read-only collection referencing the directory objects that are scope of the ass
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The directoryScopes</p>
@@ -1523,7 +1523,7 @@ Identifiers of the principals to which the assignment is granted.  Supports $fil
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/UnifiedRoleAssignmentMultiple.php"><a href="files/src-model-unifiedroleassignmentmultiple.html"><abbr title="src/Model/UnifiedRoleAssignmentMultiple.php">UnifiedRoleAssignmentMultiple.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">312</span>
+    <span class="phpdocumentor-element-found-in__line">333</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the principals
@@ -1531,7 +1531,7 @@ Read-only collection referencing the assigned principals. Provided so that calle
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setPrincipals</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleAssignmentMultiple.html"><abbr title="\Beta\Microsoft\Graph\Model\UnifiedRoleAssignmentMultiple">UnifiedRoleAssignmentMultiple</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setPrincipals</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleAssignmentMultiple.html"><abbr title="\Beta\Microsoft\Graph\Model\UnifiedRoleAssignmentMultiple">UnifiedRoleAssignmentMultiple</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1539,7 +1539,7 @@ Read-only collection referencing the assigned principals. Provided so that calle
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The principals</p>
@@ -1570,7 +1570,7 @@ Read-only collection referencing the assigned principals. Provided so that calle
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/UnifiedRoleAssignmentMultiple.php"><a href="files/src-model-unifiedroleassignmentmultiple.html"><abbr title="src/Model/UnifiedRoleAssignmentMultiple.php">UnifiedRoleAssignmentMultiple.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">345</span>
+    <span class="phpdocumentor-element-found-in__line">366</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the roleDefinition

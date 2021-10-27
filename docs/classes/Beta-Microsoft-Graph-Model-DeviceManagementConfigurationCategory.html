@@ -189,6 +189,14 @@ to the model</dd>
 <dd>Construct a new Entity</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html#method_getCategoryDescription">getCategoryDescription()</a>
+    <span>
+                        &nbsp;: string|null    </span>
+</dt>
+<dd>Gets the categoryDescription
+Description of the category header</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html#method_getChildCategoryIds">getChildCategoryIds()</a>
     <span>
                         &nbsp;: string|null    </span>
@@ -257,7 +265,7 @@ Parent id of the category.</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationPlatforms.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationPlatforms">DeviceManagementConfigurationPlatforms</abbr></a>|null    </span>
 </dt>
 <dd>Gets the platforms
-Platforms types, which settings in the category have. Possible values are: none, macOS, windows10X, windows10.</dd>
+Platforms types, which settings in the category have. Possible values are: none, android, iOS, macOS, windows10X, windows10.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_getProperties">getProperties()</a>
@@ -280,7 +288,7 @@ Root id of the category.</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationSettingUsage.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingUsage">DeviceManagementConfigurationSettingUsage</abbr></a>|null    </span>
 </dt>
 <dd>Gets the settingUsage
-Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration.</dd>
+Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration, compliance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html#method_getTechnologies">getTechnologies()</a>
@@ -288,7 +296,7 @@ Indicates that the category contains settings that are used for Compliance or Co
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationTechnologies.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationTechnologies">DeviceManagementConfigurationTechnologies</abbr></a>|null    </span>
 </dt>
 <dd>Gets the technologies
-Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline.</dd>
+Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_jsonSerialize">jsonSerialize()</a>
@@ -297,6 +305,14 @@ Technologies types, which settings in the category have. Possible values are: no
 </dt>
 <dd>Serializes the object by property array
 Manually serialize DateTime into RFC3339 format</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html#method_setCategoryDescription">setCategoryDescription()</a>
+    <span>
+                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationCategory">DeviceManagementConfigurationCategory</abbr></a>    </span>
+</dt>
+<dd>Sets the categoryDescription
+Description of the category header</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html#method_setChildCategoryIds">setChildCategoryIds()</a>
@@ -367,7 +383,7 @@ Parent id of the category.</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationCategory">DeviceManagementConfigurationCategory</abbr></a>    </span>
 </dt>
 <dd>Sets the platforms
-Platforms types, which settings in the category have. Possible values are: none, macOS, windows10X, windows10.</dd>
+Platforms types, which settings in the category have. Possible values are: none, android, iOS, macOS, windows10X, windows10.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html#method_setRootCategoryId">setRootCategoryId()</a>
@@ -383,7 +399,7 @@ Root id of the category.</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationCategory">DeviceManagementConfigurationCategory</abbr></a>    </span>
 </dt>
 <dd>Sets the settingUsage
-Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration.</dd>
+Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration, compliance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html#method_setTechnologies">setTechnologies()</a>
@@ -391,7 +407,7 @@ Indicates that the category contains settings that are used for Compliance or Co
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationCategory">DeviceManagementConfigurationCategory</abbr></a>    </span>
 </dt>
 <dd>Sets the technologies
-Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline.</dd>
+Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.</dd>
 
         </dl>
 
@@ -497,6 +513,42 @@ to the model</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getCategoryDescription">
+        getCategoryDescription()
+        <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html#method_getCategoryDescription" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">33</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Gets the categoryDescription
+Description of the category header</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getCategoryDescription</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The categoryDescription</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getChildCategoryIds">
         getChildCategoryIds()
         <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html#method_getChildCategoryIds" class="headerlink"><i class="fas fa-link"></i></a>
@@ -504,7 +556,7 @@ to the model</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the childCategoryIds
@@ -540,7 +592,7 @@ List of child ids of the category.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the description
@@ -576,7 +628,7 @@ Description of the item</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">120</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the displayName
@@ -612,7 +664,7 @@ Display name of the item</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">120</span>
+    <span class="phpdocumentor-element-found-in__line">149</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the helpText
@@ -684,7 +736,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">178</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the name
@@ -755,7 +807,7 @@ Name of the item</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">178</span>
+    <span class="phpdocumentor-element-found-in__line">207</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the parentCategoryId
@@ -791,11 +843,11 @@ Parent id of the category.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">207</span>
+    <span class="phpdocumentor-element-found-in__line">236</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the platforms
-Platforms types, which settings in the category have. Possible values are: none, macOS, windows10X, windows10.</p>
+Platforms types, which settings in the category have. Possible values are: none, android, iOS, macOS, windows10X, windows10.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -862,7 +914,7 @@ Platforms types, which settings in the category have. Possible values are: none,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">240</span>
+    <span class="phpdocumentor-element-found-in__line">269</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the rootCategoryId
@@ -898,11 +950,11 @@ Root id of the category.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">269</span>
+    <span class="phpdocumentor-element-found-in__line">298</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the settingUsage
-Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration.</p>
+Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration, compliance.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -934,11 +986,11 @@ Indicates that the category contains settings that are used for Compliance or Co
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">302</span>
+    <span class="phpdocumentor-element-found-in__line">331</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the technologies
-Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline.</p>
+Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -999,6 +1051,53 @@ Manually serialize DateTime into RFC3339 format</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_setCategoryDescription">
+        setCategoryDescription()
+        <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html#method_setCategoryDescription" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">50</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Sets the categoryDescription
+Description of the category header</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setCategoryDescription</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationCategory">DeviceManagementConfigurationCategory</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$val</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The categoryDescription</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationCategory">DeviceManagementConfigurationCategory</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_setChildCategoryIds">
         setChildCategoryIds()
         <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationCategory.html#method_setChildCategoryIds" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1006,7 +1105,7 @@ Manually serialize DateTime into RFC3339 format</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">79</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the childCategoryIds
@@ -1053,7 +1152,7 @@ List of child ids of the category.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">79</span>
+    <span class="phpdocumentor-element-found-in__line">108</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the description
@@ -1100,7 +1199,7 @@ Description of the item</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">137</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the displayName
@@ -1147,7 +1246,7 @@ Display name of the item</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">137</span>
+    <span class="phpdocumentor-element-found-in__line">166</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the helpText
@@ -1241,7 +1340,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">195</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the name
@@ -1334,7 +1433,7 @@ Name of the item</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">195</span>
+    <span class="phpdocumentor-element-found-in__line">224</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the parentCategoryId
@@ -1381,11 +1480,11 @@ Parent id of the category.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">228</span>
+    <span class="phpdocumentor-element-found-in__line">257</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the platforms
-Platforms types, which settings in the category have. Possible values are: none, macOS, windows10X, windows10.</p>
+Platforms types, which settings in the category have. Possible values are: none, android, iOS, macOS, windows10X, windows10.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1428,7 +1527,7 @@ Platforms types, which settings in the category have. Possible values are: none,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">257</span>
+    <span class="phpdocumentor-element-found-in__line">286</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the rootCategoryId
@@ -1475,11 +1574,11 @@ Root id of the category.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">290</span>
+    <span class="phpdocumentor-element-found-in__line">319</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the settingUsage
-Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration.</p>
+Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration, compliance.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1522,11 +1621,11 @@ Indicates that the category contains settings that are used for Compliance or Co
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationCategory.php"><a href="files/src-model-devicemanagementconfigurationcategory.html"><abbr title="src/Model/DeviceManagementConfigurationCategory.php">DeviceManagementConfigurationCategory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">323</span>
+    <span class="phpdocumentor-element-found-in__line">352</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the technologies
-Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline.</p>
+Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>

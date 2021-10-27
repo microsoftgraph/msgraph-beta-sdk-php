@@ -215,7 +215,7 @@ Represents the categories that an incoming message should be labeled with in ord
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html#method_getFromAddresses">getFromAddresses()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the fromAddresses
 Represents the specific sender email addresses of an incoming message in order for the condition or exception to apply.</dd>
@@ -413,7 +413,7 @@ Indicates whether the owner of the mailbox must be the only recipient in an inco
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html#method_getSentToAddresses">getSentToAddresses()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the sentToAddresses
 Represents the email addresses that an incoming message must have been sent to in order for the condition or exception to apply.</dd>
@@ -940,7 +940,7 @@ Represents the specific sender email addresses of an incoming message in order f
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getFromAddresses</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getFromAddresses</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -948,7 +948,7 @@ Represents the specific sender email addresses of an incoming message in order f
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The fromAddresses</p>
 </section>
@@ -968,7 +968,7 @@ Represents the specific sender email addresses of an incoming message in order f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the hasAttachments
@@ -1004,7 +1004,7 @@ Indicates whether an incoming message must have attachments in order for the con
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">177</span>
+    <span class="phpdocumentor-element-found-in__line">181</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the headerContains
@@ -1076,7 +1076,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">206</span>
+    <span class="phpdocumentor-element-found-in__line">210</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the importance
@@ -1112,7 +1112,7 @@ The importance that is stamped on an incoming message in order for the condition
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">238</span>
+    <span class="phpdocumentor-element-found-in__line">243</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isApprovalRequest
@@ -1148,7 +1148,7 @@ Indicates whether an incoming message must be an approval request in order for t
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">266</span>
+    <span class="phpdocumentor-element-found-in__line">271</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isAutomaticForward
@@ -1184,7 +1184,7 @@ Indicates whether an incoming message must be automatically forwarded in order f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">294</span>
+    <span class="phpdocumentor-element-found-in__line">299</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isAutomaticReply
@@ -1220,7 +1220,7 @@ Indicates whether an incoming message must be an auto reply in order for the con
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">322</span>
+    <span class="phpdocumentor-element-found-in__line">327</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isEncrypted
@@ -1256,7 +1256,7 @@ Indicates whether an incoming message must be encrypted in order for the conditi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">350</span>
+    <span class="phpdocumentor-element-found-in__line">355</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isMeetingRequest
@@ -1292,7 +1292,7 @@ Indicates whether an incoming message must be a meeting request in order for the
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">378</span>
+    <span class="phpdocumentor-element-found-in__line">383</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isMeetingResponse
@@ -1328,7 +1328,7 @@ Indicates whether an incoming message must be a meeting response in order for th
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">406</span>
+    <span class="phpdocumentor-element-found-in__line">411</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isNonDeliveryReport
@@ -1364,7 +1364,7 @@ Indicates whether an incoming message must be a non-delivery report in order for
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">434</span>
+    <span class="phpdocumentor-element-found-in__line">439</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isPermissionControlled
@@ -1400,7 +1400,7 @@ Indicates whether an incoming message must be permission controlled (RMS-protect
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">462</span>
+    <span class="phpdocumentor-element-found-in__line">467</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isReadReceipt
@@ -1436,7 +1436,7 @@ Indicates whether an incoming message must be a read receipt in order for the co
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">490</span>
+    <span class="phpdocumentor-element-found-in__line">495</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isSigned
@@ -1472,7 +1472,7 @@ Indicates whether an incoming message must be S/MIME-signed in order for the con
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">518</span>
+    <span class="phpdocumentor-element-found-in__line">523</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isVoicemail
@@ -1508,7 +1508,7 @@ Indicates whether an incoming message must be a voice mail in order for the cond
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">547</span>
+    <span class="phpdocumentor-element-found-in__line">552</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the messageActionFlag
@@ -1544,7 +1544,7 @@ Represents the flag-for-action value that appears on an incoming message in orde
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">579</span>
+    <span class="phpdocumentor-element-found-in__line">585</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the notSentToMe
@@ -1650,7 +1650,7 @@ Indicates whether the owner of the mailbox must not be a recipient of an incomin
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">607</span>
+    <span class="phpdocumentor-element-found-in__line">613</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the recipientContains
@@ -1686,7 +1686,7 @@ Represents the strings that appear in either the toRecipients or ccRecipients pr
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">635</span>
+    <span class="phpdocumentor-element-found-in__line">641</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the senderContains
@@ -1722,7 +1722,7 @@ Represents the strings that appear in the from property of an incoming message i
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">664</span>
+    <span class="phpdocumentor-element-found-in__line">670</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the sensitivity
@@ -1758,7 +1758,7 @@ Represents the sensitivity level that must be stamped on an incoming message in 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">696</span>
+    <span class="phpdocumentor-element-found-in__line">703</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the sentCcMe
@@ -1794,7 +1794,7 @@ Indicates whether the owner of the mailbox must be in the ccRecipients property 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">724</span>
+    <span class="phpdocumentor-element-found-in__line">731</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the sentOnlyToMe
@@ -1830,7 +1830,7 @@ Indicates whether the owner of the mailbox must be the only recipient in an inco
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">753</span>
+    <span class="phpdocumentor-element-found-in__line">760</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the sentToAddresses
@@ -1838,7 +1838,7 @@ Represents the email addresses that an incoming message must have been sent to i
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getSentToAddresses</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getSentToAddresses</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1846,7 +1846,7 @@ Represents the email addresses that an incoming message must have been sent to i
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The sentToAddresses</p>
 </section>
@@ -1866,7 +1866,7 @@ Represents the email addresses that an incoming message must have been sent to i
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">785</span>
+    <span class="phpdocumentor-element-found-in__line">796</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the sentToMe
@@ -1902,7 +1902,7 @@ Indicates whether the owner of the mailbox must be in the toRecipients property 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">813</span>
+    <span class="phpdocumentor-element-found-in__line">824</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the sentToOrCcMe
@@ -1938,7 +1938,7 @@ Indicates whether the owner of the mailbox must be in either a toRecipients or c
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">841</span>
+    <span class="phpdocumentor-element-found-in__line">852</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the subjectContains
@@ -1974,7 +1974,7 @@ Represents the strings that appear in the subject of an incoming message in orde
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">870</span>
+    <span class="phpdocumentor-element-found-in__line">881</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the withinSizeRange
@@ -2054,7 +2054,7 @@ Represents the strings that should appear in the body of an incoming message in 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setBodyContains</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setBodyContains</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2062,7 +2062,7 @@ Represents the strings that should appear in the body of an incoming message in 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the bodyContains</p>
@@ -2101,7 +2101,7 @@ Represents the strings that should appear in the body or subject of an incoming 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setBodyOrSubjectContains</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setBodyOrSubjectContains</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2109,7 +2109,7 @@ Represents the strings that should appear in the body or subject of an incoming 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the bodyOrSubjectContains</p>
@@ -2148,7 +2148,7 @@ Represents the categories that an incoming message should be labeled with in ord
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setCategories</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setCategories</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2156,7 +2156,7 @@ Represents the categories that an incoming message should be labeled with in ord
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the categories</p>
@@ -2187,7 +2187,7 @@ Represents the categories that an incoming message should be labeled with in ord
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the fromAddresses
@@ -2195,7 +2195,7 @@ Represents the specific sender email addresses of an incoming message in order f
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setFromAddresses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setFromAddresses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2203,7 +2203,7 @@ Represents the specific sender email addresses of an incoming message in order f
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the fromAddresses</p>
@@ -2235,7 +2235,7 @@ Represents the specific sender email addresses of an incoming message in order f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">170</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the hasAttachments
@@ -2282,7 +2282,7 @@ Indicates whether an incoming message must have attachments in order for the con
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">194</span>
+    <span class="phpdocumentor-element-found-in__line">198</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the headerContains
@@ -2290,7 +2290,7 @@ Represents the strings that appear in the headers of an incoming message in orde
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setHeaderContains</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setHeaderContains</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2298,7 +2298,7 @@ Represents the strings that appear in the headers of an incoming message in orde
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the headerContains</p>
@@ -2376,7 +2376,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">227</span>
+    <span class="phpdocumentor-element-found-in__line">232</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the importance
@@ -2424,7 +2424,7 @@ The importance that is stamped on an incoming message in order for the condition
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">255</span>
+    <span class="phpdocumentor-element-found-in__line">260</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isApprovalRequest
@@ -2471,7 +2471,7 @@ Indicates whether an incoming message must be an approval request in order for t
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">283</span>
+    <span class="phpdocumentor-element-found-in__line">288</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isAutomaticForward
@@ -2518,7 +2518,7 @@ Indicates whether an incoming message must be automatically forwarded in order f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">311</span>
+    <span class="phpdocumentor-element-found-in__line">316</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isAutomaticReply
@@ -2565,7 +2565,7 @@ Indicates whether an incoming message must be an auto reply in order for the con
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">339</span>
+    <span class="phpdocumentor-element-found-in__line">344</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isEncrypted
@@ -2612,7 +2612,7 @@ Indicates whether an incoming message must be encrypted in order for the conditi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">367</span>
+    <span class="phpdocumentor-element-found-in__line">372</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isMeetingRequest
@@ -2659,7 +2659,7 @@ Indicates whether an incoming message must be a meeting request in order for the
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">395</span>
+    <span class="phpdocumentor-element-found-in__line">400</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isMeetingResponse
@@ -2706,7 +2706,7 @@ Indicates whether an incoming message must be a meeting response in order for th
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">423</span>
+    <span class="phpdocumentor-element-found-in__line">428</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isNonDeliveryReport
@@ -2753,7 +2753,7 @@ Indicates whether an incoming message must be a non-delivery report in order for
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">451</span>
+    <span class="phpdocumentor-element-found-in__line">456</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isPermissionControlled
@@ -2800,7 +2800,7 @@ Indicates whether an incoming message must be permission controlled (RMS-protect
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">479</span>
+    <span class="phpdocumentor-element-found-in__line">484</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isReadReceipt
@@ -2847,7 +2847,7 @@ Indicates whether an incoming message must be a read receipt in order for the co
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">507</span>
+    <span class="phpdocumentor-element-found-in__line">512</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isSigned
@@ -2894,7 +2894,7 @@ Indicates whether an incoming message must be S/MIME-signed in order for the con
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">535</span>
+    <span class="phpdocumentor-element-found-in__line">540</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isVoicemail
@@ -2941,7 +2941,7 @@ Indicates whether an incoming message must be a voice mail in order for the cond
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">568</span>
+    <span class="phpdocumentor-element-found-in__line">574</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the messageActionFlag
@@ -2989,7 +2989,7 @@ Represents the flag-for-action value that appears on an incoming message in orde
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">596</span>
+    <span class="phpdocumentor-element-found-in__line">602</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the notSentToMe
@@ -3082,7 +3082,7 @@ Indicates whether the owner of the mailbox must not be a recipient of an incomin
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">624</span>
+    <span class="phpdocumentor-element-found-in__line">630</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the recipientContains
@@ -3090,7 +3090,7 @@ Represents the strings that appear in either the toRecipients or ccRecipients pr
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setRecipientContains</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setRecipientContains</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3098,7 +3098,7 @@ Represents the strings that appear in either the toRecipients or ccRecipients pr
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the recipientContains</p>
@@ -3129,7 +3129,7 @@ Represents the strings that appear in either the toRecipients or ccRecipients pr
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">652</span>
+    <span class="phpdocumentor-element-found-in__line">658</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the senderContains
@@ -3137,7 +3137,7 @@ Represents the strings that appear in the from property of an incoming message i
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setSenderContains</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setSenderContains</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3145,7 +3145,7 @@ Represents the strings that appear in the from property of an incoming message i
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the senderContains</p>
@@ -3176,7 +3176,7 @@ Represents the strings that appear in the from property of an incoming message i
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">685</span>
+    <span class="phpdocumentor-element-found-in__line">692</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the sensitivity
@@ -3224,7 +3224,7 @@ Represents the sensitivity level that must be stamped on an incoming message in 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">713</span>
+    <span class="phpdocumentor-element-found-in__line">720</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the sentCcMe
@@ -3271,7 +3271,7 @@ Indicates whether the owner of the mailbox must be in the ccRecipients property 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">741</span>
+    <span class="phpdocumentor-element-found-in__line">748</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the sentOnlyToMe
@@ -3318,7 +3318,7 @@ Indicates whether the owner of the mailbox must be the only recipient in an inco
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">774</span>
+    <span class="phpdocumentor-element-found-in__line">785</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the sentToAddresses
@@ -3326,7 +3326,7 @@ Represents the email addresses that an incoming message must have been sent to i
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setSentToAddresses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setSentToAddresses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3334,7 +3334,7 @@ Represents the email addresses that an incoming message must have been sent to i
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the sentToAddresses</p>
@@ -3366,7 +3366,7 @@ Represents the email addresses that an incoming message must have been sent to i
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">802</span>
+    <span class="phpdocumentor-element-found-in__line">813</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the sentToMe
@@ -3413,7 +3413,7 @@ Indicates whether the owner of the mailbox must be in the toRecipients property 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">830</span>
+    <span class="phpdocumentor-element-found-in__line">841</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the sentToOrCcMe
@@ -3460,7 +3460,7 @@ Indicates whether the owner of the mailbox must be in either a toRecipients or c
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">858</span>
+    <span class="phpdocumentor-element-found-in__line">869</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the subjectContains
@@ -3468,7 +3468,7 @@ Represents the strings that appear in the subject of an incoming message in orde
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setSubjectContains</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setSubjectContains</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MessageRulePredicates.html"><abbr title="\Beta\Microsoft\Graph\Model\MessageRulePredicates">MessageRulePredicates</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3476,7 +3476,7 @@ Represents the strings that appear in the subject of an incoming message in orde
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the subjectContains</p>
@@ -3507,7 +3507,7 @@ Represents the strings that appear in the subject of an incoming message in orde
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/MessageRulePredicates.php"><a href="files/src-model-messagerulepredicates.html"><abbr title="src/Model/MessageRulePredicates.php">MessageRulePredicates.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">891</span>
+    <span class="phpdocumentor-element-found-in__line">903</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the withinSizeRange

@@ -191,7 +191,7 @@ to the model</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-WindowsNetworkIsolationPolicy.html#method_getEnterpriseCloudResources">getEnterpriseCloudResources()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-ProxiedDomain.html"><abbr title="\Beta\Microsoft\Graph\Model\ProxiedDomain">ProxiedDomain</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ProxiedDomain.html"><abbr title="\Beta\Microsoft\Graph\Model\ProxiedDomain">ProxiedDomain</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the enterpriseCloudResources
 Contains a list of enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy. This collection can contain a maximum of 500 elements.</dd>
@@ -207,7 +207,7 @@ This is the comma-separated list of internal proxy servers. For example, &#039;1
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-WindowsNetworkIsolationPolicy.html#method_getEnterpriseIPRanges">getEnterpriseIPRanges()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-IpRange.html"><abbr title="\Beta\Microsoft\Graph\Model\IpRange">IpRange</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-IpRange.html"><abbr title="\Beta\Microsoft\Graph\Model\IpRange">IpRange</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the enterpriseIPRanges
 Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to. This collection can contain a maximum of 500 elements.</dd>
@@ -480,7 +480,7 @@ Contains a list of enterprise resource domains hosted in the cloud that need to 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getEnterpriseCloudResources</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ProxiedDomain.html"><abbr title="\Beta\Microsoft\Graph\Model\ProxiedDomain">ProxiedDomain</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getEnterpriseCloudResources</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ProxiedDomain.html"><abbr title="\Beta\Microsoft\Graph\Model\ProxiedDomain">ProxiedDomain</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -488,7 +488,7 @@ Contains a list of enterprise resource domains hosted in the cloud that need to 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ProxiedDomain.html"><abbr title="\Beta\Microsoft\Graph\Model\ProxiedDomain">ProxiedDomain</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ProxiedDomain.html"><abbr title="\Beta\Microsoft\Graph\Model\ProxiedDomain">ProxiedDomain</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The enterpriseCloudResources</p>
 </section>
@@ -508,7 +508,7 @@ Contains a list of enterprise resource domains hosted in the cloud that need to 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the enterpriseInternalProxyServers
@@ -544,7 +544,7 @@ This is the comma-separated list of internal proxy servers. For example, &#039;1
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">98</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the enterpriseIPRanges
@@ -552,7 +552,7 @@ Sets the enterprise IP ranges that define the computers in the enterprise networ
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getEnterpriseIPRanges</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-IpRange.html"><abbr title="\Beta\Microsoft\Graph\Model\IpRange">IpRange</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getEnterpriseIPRanges</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-IpRange.html"><abbr title="\Beta\Microsoft\Graph\Model\IpRange">IpRange</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -560,7 +560,7 @@ Sets the enterprise IP ranges that define the computers in the enterprise networ
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-IpRange.html"><abbr title="\Beta\Microsoft\Graph\Model\IpRange">IpRange</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-IpRange.html"><abbr title="\Beta\Microsoft\Graph\Model\IpRange">IpRange</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The enterpriseIPRanges</p>
 </section>
@@ -580,7 +580,7 @@ Sets the enterprise IP ranges that define the computers in the enterprise networ
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">126</span>
+    <span class="phpdocumentor-element-found-in__line">134</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the enterpriseIPRangesAreAuthoritative
@@ -616,7 +616,7 @@ Boolean value that tells the client to accept the configured list and not to use
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">154</span>
+    <span class="phpdocumentor-element-found-in__line">162</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the enterpriseNetworkDomainNames
@@ -652,7 +652,7 @@ This is the list of domains that comprise the boundaries of the enterprise. Data
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">182</span>
+    <span class="phpdocumentor-element-found-in__line">190</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the enterpriseProxyServers
@@ -688,7 +688,7 @@ This is a list of proxy servers. Any server not on this list is considered non-e
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">210</span>
+    <span class="phpdocumentor-element-found-in__line">218</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the enterpriseProxyServersAreAuthoritative
@@ -760,7 +760,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">238</span>
+    <span class="phpdocumentor-element-found-in__line">246</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the neutralDomainResources
@@ -902,7 +902,7 @@ Manually serialize DateTime into RFC3339 format</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the enterpriseCloudResources
@@ -910,7 +910,7 @@ Contains a list of enterprise resource domains hosted in the cloud that need to 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setEnterpriseCloudResources</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ProxiedDomain.html"><abbr title="\Beta\Microsoft\Graph\Model\ProxiedDomain">ProxiedDomain</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WindowsNetworkIsolationPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\WindowsNetworkIsolationPolicy">WindowsNetworkIsolationPolicy</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setEnterpriseCloudResources</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ProxiedDomain.html"><abbr title="\Beta\Microsoft\Graph\Model\ProxiedDomain">ProxiedDomain</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WindowsNetworkIsolationPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\WindowsNetworkIsolationPolicy">WindowsNetworkIsolationPolicy</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -918,7 +918,7 @@ Contains a list of enterprise resource domains hosted in the cloud that need to 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ProxiedDomain.html"><abbr title="\Beta\Microsoft\Graph\Model\ProxiedDomain">ProxiedDomain</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ProxiedDomain.html"><abbr title="\Beta\Microsoft\Graph\Model\ProxiedDomain">ProxiedDomain</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the enterpriseCloudResources</p>
@@ -950,7 +950,7 @@ Contains a list of enterprise resource domains hosted in the cloud that need to 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the enterpriseInternalProxyServers
@@ -958,7 +958,7 @@ This is the comma-separated list of internal proxy servers. For example, &#039;1
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setEnterpriseInternalProxyServers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WindowsNetworkIsolationPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\WindowsNetworkIsolationPolicy">WindowsNetworkIsolationPolicy</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setEnterpriseInternalProxyServers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WindowsNetworkIsolationPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\WindowsNetworkIsolationPolicy">WindowsNetworkIsolationPolicy</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -966,7 +966,7 @@ This is the comma-separated list of internal proxy servers. For example, &#039;1
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the enterpriseInternalProxyServers</p>
@@ -997,7 +997,7 @@ This is the comma-separated list of internal proxy servers. For example, &#039;1
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">123</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the enterpriseIPRanges
@@ -1005,7 +1005,7 @@ Sets the enterprise IP ranges that define the computers in the enterprise networ
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setEnterpriseIPRanges</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-IpRange.html"><abbr title="\Beta\Microsoft\Graph\Model\IpRange">IpRange</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WindowsNetworkIsolationPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\WindowsNetworkIsolationPolicy">WindowsNetworkIsolationPolicy</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setEnterpriseIPRanges</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-IpRange.html"><abbr title="\Beta\Microsoft\Graph\Model\IpRange">IpRange</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WindowsNetworkIsolationPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\WindowsNetworkIsolationPolicy">WindowsNetworkIsolationPolicy</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1013,7 +1013,7 @@ Sets the enterprise IP ranges that define the computers in the enterprise networ
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-IpRange.html"><abbr title="\Beta\Microsoft\Graph\Model\IpRange">IpRange</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-IpRange.html"><abbr title="\Beta\Microsoft\Graph\Model\IpRange">IpRange</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the enterpriseIPRanges</p>
@@ -1045,7 +1045,7 @@ Sets the enterprise IP ranges that define the computers in the enterprise networ
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">151</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the enterpriseIPRangesAreAuthoritative
@@ -1092,7 +1092,7 @@ Boolean value that tells the client to accept the configured list and not to use
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">171</span>
+    <span class="phpdocumentor-element-found-in__line">179</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the enterpriseNetworkDomainNames
@@ -1100,7 +1100,7 @@ This is the list of domains that comprise the boundaries of the enterprise. Data
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setEnterpriseNetworkDomainNames</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WindowsNetworkIsolationPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\WindowsNetworkIsolationPolicy">WindowsNetworkIsolationPolicy</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setEnterpriseNetworkDomainNames</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WindowsNetworkIsolationPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\WindowsNetworkIsolationPolicy">WindowsNetworkIsolationPolicy</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1108,7 +1108,7 @@ This is the list of domains that comprise the boundaries of the enterprise. Data
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the enterpriseNetworkDomainNames</p>
@@ -1139,7 +1139,7 @@ This is the list of domains that comprise the boundaries of the enterprise. Data
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">199</span>
+    <span class="phpdocumentor-element-found-in__line">207</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the enterpriseProxyServers
@@ -1147,7 +1147,7 @@ This is a list of proxy servers. Any server not on this list is considered non-e
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setEnterpriseProxyServers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WindowsNetworkIsolationPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\WindowsNetworkIsolationPolicy">WindowsNetworkIsolationPolicy</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setEnterpriseProxyServers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WindowsNetworkIsolationPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\WindowsNetworkIsolationPolicy">WindowsNetworkIsolationPolicy</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1155,7 +1155,7 @@ This is a list of proxy servers. Any server not on this list is considered non-e
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the enterpriseProxyServers</p>
@@ -1186,7 +1186,7 @@ This is a list of proxy servers. Any server not on this list is considered non-e
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">227</span>
+    <span class="phpdocumentor-element-found-in__line">235</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the enterpriseProxyServersAreAuthoritative
@@ -1280,7 +1280,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WindowsNetworkIsolationPolicy.php"><a href="files/src-model-windowsnetworkisolationpolicy.html"><abbr title="src/Model/WindowsNetworkIsolationPolicy.php">WindowsNetworkIsolationPolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">255</span>
+    <span class="phpdocumentor-element-found-in__line">263</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the neutralDomainResources
@@ -1288,7 +1288,7 @@ List of domain names that can used for work or personal resource.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setNeutralDomainResources</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WindowsNetworkIsolationPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\WindowsNetworkIsolationPolicy">WindowsNetworkIsolationPolicy</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setNeutralDomainResources</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WindowsNetworkIsolationPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\WindowsNetworkIsolationPolicy">WindowsNetworkIsolationPolicy</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1296,7 +1296,7 @@ List of domain names that can used for work or personal resource.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the neutralDomainResources</p>

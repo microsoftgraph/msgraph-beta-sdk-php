@@ -199,7 +199,7 @@ If true, all users and groups will be granted access to this printer share. This
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-PrinterShare.html#method_getAllowedGroups">getAllowedGroups()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Group.html"><abbr title="\Beta\Microsoft\Graph\Model\Group">Group</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the allowedGroups
 The groups whose users have access to print using the printer.</dd>
@@ -207,7 +207,7 @@ The groups whose users have access to print using the printer.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-PrinterShare.html#method_getAllowedUsers">getAllowedUsers()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-User.html"><abbr title="\Beta\Microsoft\Graph\Model\User">User</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the allowedUsers
 The users who have access to print using the printer.</dd>
@@ -263,7 +263,7 @@ Whether the printer/printerShare is currently accepting new print jobs.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-PrinterBase.html#method_getJobs">getJobs()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PrintJob.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJob">PrintJob</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the jobs
 The list of jobs that are queued for printing by the printer/printerShare.</dd>
@@ -626,7 +626,7 @@ The groups whose users have access to print using the printer.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getAllowedGroups</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getAllowedGroups</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Group.html"><abbr title="\Beta\Microsoft\Graph\Model\Group">Group</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -634,7 +634,7 @@ The groups whose users have access to print using the printer.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Group.html"><abbr title="\Beta\Microsoft\Graph\Model\Group">Group</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The allowedGroups</p>
 </section>
@@ -654,7 +654,7 @@ The groups whose users have access to print using the printer.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrinterShare.php"><a href="files/src-model-printershare.html"><abbr title="src/Model/PrinterShare.php">PrinterShare.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">126</span>
+    <span class="phpdocumentor-element-found-in__line">133</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the allowedUsers
@@ -662,7 +662,7 @@ The users who have access to print using the printer.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getAllowedUsers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getAllowedUsers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-User.html"><abbr title="\Beta\Microsoft\Graph\Model\User">User</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -670,7 +670,7 @@ The users who have access to print using the printer.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-User.html"><abbr title="\Beta\Microsoft\Graph\Model\User">User</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The allowedUsers</p>
 </section>
@@ -914,7 +914,7 @@ The list of jobs that are queued for printing by the printer/printerShare.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getJobs</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getJobs</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PrintJob.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJob">PrintJob</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -922,7 +922,7 @@ The list of jobs that are queued for printing by the printer/printerShare.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PrintJob.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJob">PrintJob</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The jobs</p>
 </section>
@@ -1120,7 +1120,7 @@ The model name of the printer/printerShare.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrinterShare.php"><a href="files/src-model-printershare.html"><abbr title="src/Model/PrinterShare.php">PrinterShare.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">155</span>
+    <span class="phpdocumentor-element-found-in__line">169</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the printer
@@ -1310,7 +1310,7 @@ If true, all users and groups will be granted access to this printer share. This
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrinterShare.php"><a href="files/src-model-printershare.html"><abbr title="src/Model/PrinterShare.php">PrinterShare.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">113</span>
+    <span class="phpdocumentor-element-found-in__line">120</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the allowedGroups
@@ -1318,7 +1318,7 @@ The groups whose users have access to print using the printer.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAllowedGroups</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Group.html"><abbr title="\Beta\Microsoft\Graph\Model\Group">Group</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-PrinterShare.html"><abbr title="\Beta\Microsoft\Graph\Model\PrinterShare">PrinterShare</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setAllowedGroups</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Group.html"><abbr title="\Beta\Microsoft\Graph\Model\Group">Group</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-PrinterShare.html"><abbr title="\Beta\Microsoft\Graph\Model\PrinterShare">PrinterShare</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1326,7 +1326,7 @@ The groups whose users have access to print using the printer.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Group.html"><abbr title="\Beta\Microsoft\Graph\Model\Group">Group</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Group.html"><abbr title="\Beta\Microsoft\Graph\Model\Group">Group</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The allowedGroups</p>
@@ -1357,7 +1357,7 @@ The groups whose users have access to print using the printer.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrinterShare.php"><a href="files/src-model-printershare.html"><abbr title="src/Model/PrinterShare.php">PrinterShare.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">157</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the allowedUsers
@@ -1365,7 +1365,7 @@ The users who have access to print using the printer.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAllowedUsers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-User.html"><abbr title="\Beta\Microsoft\Graph\Model\User">User</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-PrinterShare.html"><abbr title="\Beta\Microsoft\Graph\Model\PrinterShare">PrinterShare</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setAllowedUsers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-User.html"><abbr title="\Beta\Microsoft\Graph\Model\User">User</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-PrinterShare.html"><abbr title="\Beta\Microsoft\Graph\Model\PrinterShare">PrinterShare</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1373,7 +1373,7 @@ The users who have access to print using the printer.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-User.html"><abbr title="\Beta\Microsoft\Graph\Model\User">User</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-User.html"><abbr title="\Beta\Microsoft\Graph\Model\User">User</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The allowedUsers</p>
@@ -1686,7 +1686,7 @@ Whether the printer/printerShare is currently accepting new print jobs.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrinterBase.php"><a href="files/src-model-printerbase.html"><abbr title="src/Model/PrinterBase.php">PrinterBase.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">326</span>
+    <span class="phpdocumentor-element-found-in__line">333</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the jobs
@@ -1694,7 +1694,7 @@ The list of jobs that are queued for printing by the printer/printerShare.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setJobs</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-PrintJob.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJob">PrintJob</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-PrinterBase.html"><abbr title="\Beta\Microsoft\Graph\Model\PrinterBase">PrinterBase</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setJobs</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PrintJob.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJob">PrintJob</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-PrinterBase.html"><abbr title="\Beta\Microsoft\Graph\Model\PrinterBase">PrinterBase</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1702,7 +1702,7 @@ The list of jobs that are queued for printing by the printer/printerShare.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-PrintJob.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJob">PrintJob</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PrintJob.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJob">PrintJob</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The jobs</p>
@@ -1966,7 +1966,7 @@ The model name of the printer/printerShare.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrinterShare.php"><a href="files/src-model-printershare.html"><abbr title="src/Model/PrinterShare.php">PrinterShare.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">176</span>
+    <span class="phpdocumentor-element-found-in__line">190</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the printer

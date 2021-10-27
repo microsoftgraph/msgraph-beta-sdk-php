@@ -206,7 +206,7 @@ Applications and user actions included in and excluded from the policy. Required
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessConditionSet.html#method_getClientAppTypes">getClientAppTypes()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessClientApp.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessClientApp">ConditionalAccessClientApp</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessClientApp.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessClientApp">ConditionalAccessClientApp</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the clientAppTypes
 Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.</dd>
@@ -268,7 +268,7 @@ Platforms included in and excluded from the policy.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessConditionSet.html#method_getSignInRiskLevels">getSignInRiskLevels()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the signInRiskLevels
 Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.</dd>
@@ -276,7 +276,7 @@ Sign-in risk levels included in the policy. Possible values are: low, medium, hi
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessConditionSet.html#method_getUserRiskLevels">getUserRiskLevels()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the userRiskLevels
 User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.</dd>
@@ -538,7 +538,7 @@ Applications and user actions included in and excluded from the policy. Required
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the clientApplications</p>
@@ -573,7 +573,7 @@ Applications and user actions included in and excluded from the policy. Required
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">97</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the clientAppTypes
@@ -581,7 +581,7 @@ Client application types included in the policy. Possible values are: all, brows
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getClientAppTypes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessClientApp.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessClientApp">ConditionalAccessClientApp</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getClientAppTypes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessClientApp.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessClientApp">ConditionalAccessClientApp</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -589,7 +589,7 @@ Client application types included in the policy. Possible values are: all, brows
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessClientApp.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessClientApp">ConditionalAccessClientApp</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessClientApp.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessClientApp">ConditionalAccessClientApp</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The clientAppTypes</p>
 </section>
@@ -609,7 +609,7 @@ Client application types included in the policy. Possible values are: all, brows
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">130</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the devices
@@ -645,7 +645,7 @@ Devices in the policy.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">163</span>
+    <span class="phpdocumentor-element-found-in__line">170</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the deviceStates
@@ -717,7 +717,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">196</span>
+    <span class="phpdocumentor-element-found-in__line">204</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the locations
@@ -788,7 +788,7 @@ Locations included in and excluded from the policy.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">229</span>
+    <span class="phpdocumentor-element-found-in__line">238</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the platforms
@@ -859,7 +859,7 @@ Platforms included in and excluded from the policy.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">262</span>
+    <span class="phpdocumentor-element-found-in__line">272</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the signInRiskLevels
@@ -867,7 +867,7 @@ Sign-in risk levels included in the policy. Possible values are: low, medium, hi
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getSignInRiskLevels</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getSignInRiskLevels</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -875,7 +875,7 @@ Sign-in risk levels included in the policy. Possible values are: low, medium, hi
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The signInRiskLevels</p>
 </section>
@@ -895,7 +895,7 @@ Sign-in risk levels included in the policy. Possible values are: low, medium, hi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">295</span>
+    <span class="phpdocumentor-element-found-in__line">309</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the userRiskLevels
@@ -903,7 +903,7 @@ User risk levels included in the policy. Possible values are: low, medium, high,
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getUserRiskLevels</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getUserRiskLevels</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -911,7 +911,7 @@ User risk levels included in the policy. Possible values are: low, medium, high,
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The userRiskLevels</p>
 </section>
@@ -931,7 +931,7 @@ User risk levels included in the policy. Possible values are: low, medium, high,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">328</span>
+    <span class="phpdocumentor-element-found-in__line">346</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the users
@@ -1003,7 +1003,7 @@ Manually serialize DateTime into RFC3339 format</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the applications
@@ -1051,7 +1051,7 @@ Applications and user actions included in and excluded from the policy. Required
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">87</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the clientApplications</p>
@@ -1098,7 +1098,7 @@ Applications and user actions included in and excluded from the policy. Required
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">124</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the clientAppTypes
@@ -1106,7 +1106,7 @@ Client application types included in the policy. Possible values are: all, brows
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setClientAppTypes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessClientApp.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessClientApp">ConditionalAccessClientApp</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessConditionSet.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessConditionSet">ConditionalAccessConditionSet</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setClientAppTypes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessClientApp.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessClientApp">ConditionalAccessClientApp</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessConditionSet.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessConditionSet">ConditionalAccessConditionSet</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1114,7 +1114,7 @@ Client application types included in the policy. Possible values are: all, brows
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessClientApp.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessClientApp">ConditionalAccessClientApp</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessClientApp.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessClientApp">ConditionalAccessClientApp</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the clientAppTypes</p>
@@ -1146,7 +1146,7 @@ Client application types included in the policy. Possible values are: all, brows
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">151</span>
+    <span class="phpdocumentor-element-found-in__line">158</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the devices
@@ -1194,7 +1194,7 @@ Devices in the policy.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">184</span>
+    <span class="phpdocumentor-element-found-in__line">192</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the deviceStates
@@ -1289,7 +1289,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">217</span>
+    <span class="phpdocumentor-element-found-in__line">226</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the locations
@@ -1383,7 +1383,7 @@ Locations included in and excluded from the policy.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">250</span>
+    <span class="phpdocumentor-element-found-in__line">260</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the platforms
@@ -1431,7 +1431,7 @@ Platforms included in and excluded from the policy.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">283</span>
+    <span class="phpdocumentor-element-found-in__line">297</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the signInRiskLevels
@@ -1439,7 +1439,7 @@ Sign-in risk levels included in the policy. Possible values are: low, medium, hi
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setSignInRiskLevels</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessConditionSet.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessConditionSet">ConditionalAccessConditionSet</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setSignInRiskLevels</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessConditionSet.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessConditionSet">ConditionalAccessConditionSet</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1447,7 +1447,7 @@ Sign-in risk levels included in the policy. Possible values are: low, medium, hi
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the signInRiskLevels</p>
@@ -1479,7 +1479,7 @@ Sign-in risk levels included in the policy. Possible values are: low, medium, hi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">316</span>
+    <span class="phpdocumentor-element-found-in__line">334</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the userRiskLevels
@@ -1487,7 +1487,7 @@ User risk levels included in the policy. Possible values are: low, medium, high,
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setUserRiskLevels</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessConditionSet.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessConditionSet">ConditionalAccessConditionSet</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setUserRiskLevels</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ConditionalAccessConditionSet.html"><abbr title="\Beta\Microsoft\Graph\Model\ConditionalAccessConditionSet">ConditionalAccessConditionSet</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1495,7 +1495,7 @@ User risk levels included in the policy. Possible values are: low, medium, high,
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RiskLevel.html"><abbr title="\Beta\Microsoft\Graph\Model\RiskLevel">RiskLevel</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the userRiskLevels</p>
@@ -1527,7 +1527,7 @@ User risk levels included in the policy. Possible values are: low, medium, high,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ConditionalAccessConditionSet.php"><a href="files/src-model-conditionalaccessconditionset.html"><abbr title="src/Model/ConditionalAccessConditionSet.php">ConditionalAccessConditionSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">349</span>
+    <span class="phpdocumentor-element-found-in__line">368</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the users

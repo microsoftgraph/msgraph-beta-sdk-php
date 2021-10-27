@@ -199,7 +199,7 @@ Contains one or more filters to obtain search results aggregated and filtered to
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html#method_getAggregations">getAggregations()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-AggregationOption.html"><abbr title="\Beta\Microsoft\Graph\Model\AggregationOption">AggregationOption</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AggregationOption.html"><abbr title="\Beta\Microsoft\Graph\Model\AggregationOption">AggregationOption</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the aggregations
 Specifies aggregations (also known as refiners) to be returned alongside search results. Optional.</dd>
@@ -223,7 +223,7 @@ This triggers hybrid sort for messages: the first 3 messages are the most releva
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html#method_getEntityTypes">getEntityTypes()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-EntityType.html"><abbr title="\Beta\Microsoft\Graph\Model\EntityType">EntityType</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-EntityType.html"><abbr title="\Beta\Microsoft\Graph\Model\EntityType">EntityType</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the entityTypes
 One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.</dd>
@@ -293,7 +293,7 @@ The size of the page to be retrieved. Optional.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html#method_getSortProperties">getSortProperties()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-SortProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SortProperty">SortProperty</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SortProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SortProperty">SortProperty</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the sortProperties
 Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional.</dd>
@@ -578,7 +578,7 @@ Specifies aggregations (also known as refiners) to be returned alongside search 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getAggregations</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AggregationOption.html"><abbr title="\Beta\Microsoft\Graph\Model\AggregationOption">AggregationOption</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getAggregations</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AggregationOption.html"><abbr title="\Beta\Microsoft\Graph\Model\AggregationOption">AggregationOption</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -586,7 +586,7 @@ Specifies aggregations (also known as refiners) to be returned alongside search 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AggregationOption.html"><abbr title="\Beta\Microsoft\Graph\Model\AggregationOption">AggregationOption</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AggregationOption.html"><abbr title="\Beta\Microsoft\Graph\Model\AggregationOption">AggregationOption</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The aggregations</p>
 </section>
@@ -606,7 +606,7 @@ Specifies aggregations (also known as refiners) to be returned alongside search 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the contentSources
@@ -642,7 +642,7 @@ Contains the connection to be targeted. Respects the following format : /externa
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the enableTopResults
@@ -678,7 +678,7 @@ This triggers hybrid sort for messages: the first 3 messages are the most releva
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">154</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the entityTypes
@@ -686,7 +686,7 @@ One or more types of resources expected in the response. Possible values are: li
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getEntityTypes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-EntityType.html"><abbr title="\Beta\Microsoft\Graph\Model\EntityType">EntityType</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getEntityTypes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-EntityType.html"><abbr title="\Beta\Microsoft\Graph\Model\EntityType">EntityType</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -694,7 +694,7 @@ One or more types of resources expected in the response. Possible values are: li
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-EntityType.html"><abbr title="\Beta\Microsoft\Graph\Model\EntityType">EntityType</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-EntityType.html"><abbr title="\Beta\Microsoft\Graph\Model\EntityType">EntityType</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The entityTypes</p>
 </section>
@@ -714,7 +714,7 @@ One or more types of resources expected in the response. Possible values are: li
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">182</span>
+    <span class="phpdocumentor-element-found-in__line">190</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the fields
@@ -750,7 +750,7 @@ Contains the fields to be returned for each resource object specified in entityT
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">210</span>
+    <span class="phpdocumentor-element-found-in__line">218</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the from
@@ -892,7 +892,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">239</span>
+    <span class="phpdocumentor-element-found-in__line">247</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the query
@@ -928,7 +928,7 @@ Contains the query terms. Required.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">272</span>
+    <span class="phpdocumentor-element-found-in__line">281</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the resultTemplateOptions
@@ -964,7 +964,7 @@ Provides the search result templates options for rendering connectors search res
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">304</span>
+    <span class="phpdocumentor-element-found-in__line">314</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the size
@@ -1000,7 +1000,7 @@ The size of the page to be retrieved. Optional.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">333</span>
+    <span class="phpdocumentor-element-found-in__line">343</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the sortProperties
@@ -1008,7 +1008,7 @@ Contains the ordered collection of fields and direction to sort results. There c
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getSortProperties</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SortProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SortProperty">SortProperty</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getSortProperties</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SortProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SortProperty">SortProperty</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1016,7 +1016,7 @@ Contains the ordered collection of fields and direction to sort results. There c
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SortProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SortProperty">SortProperty</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SortProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SortProperty">SortProperty</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The sortProperties</p>
 </section>
@@ -1036,7 +1036,7 @@ Contains the ordered collection of fields and direction to sort results. There c
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">364</span>
+    <span class="phpdocumentor-element-found-in__line">378</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the stored_fields</p>
@@ -1115,7 +1115,7 @@ Contains one or more filters to obtain search results aggregated and filtered to
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAggregationFilters</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html"><abbr title="\Beta\Microsoft\Graph\Model\SearchRequest">SearchRequest</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setAggregationFilters</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html"><abbr title="\Beta\Microsoft\Graph\Model\SearchRequest">SearchRequest</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1123,7 +1123,7 @@ Contains one or more filters to obtain search results aggregated and filtered to
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the aggregationFilters</p>
@@ -1154,7 +1154,7 @@ Contains one or more filters to obtain search results aggregated and filtered to
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the aggregations
@@ -1162,7 +1162,7 @@ Specifies aggregations (also known as refiners) to be returned alongside search 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAggregations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AggregationOption.html"><abbr title="\Beta\Microsoft\Graph\Model\AggregationOption">AggregationOption</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html"><abbr title="\Beta\Microsoft\Graph\Model\SearchRequest">SearchRequest</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setAggregations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AggregationOption.html"><abbr title="\Beta\Microsoft\Graph\Model\AggregationOption">AggregationOption</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html"><abbr title="\Beta\Microsoft\Graph\Model\SearchRequest">SearchRequest</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1170,7 +1170,7 @@ Specifies aggregations (also known as refiners) to be returned alongside search 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AggregationOption.html"><abbr title="\Beta\Microsoft\Graph\Model\AggregationOption">AggregationOption</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AggregationOption.html"><abbr title="\Beta\Microsoft\Graph\Model\AggregationOption">AggregationOption</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the aggregations</p>
@@ -1202,7 +1202,7 @@ Specifies aggregations (also known as refiners) to be returned alongside search 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the contentSources
@@ -1210,7 +1210,7 @@ Contains the connection to be targeted. Respects the following format : /externa
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setContentSources</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html"><abbr title="\Beta\Microsoft\Graph\Model\SearchRequest">SearchRequest</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setContentSources</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html"><abbr title="\Beta\Microsoft\Graph\Model\SearchRequest">SearchRequest</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1218,7 +1218,7 @@ Contains the connection to be targeted. Respects the following format : /externa
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the contentSources</p>
@@ -1249,7 +1249,7 @@ Contains the connection to be targeted. Respects the following format : /externa
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the enableTopResults
@@ -1296,7 +1296,7 @@ This triggers hybrid sort for messages: the first 3 messages are the most releva
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">171</span>
+    <span class="phpdocumentor-element-found-in__line">179</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the entityTypes
@@ -1304,7 +1304,7 @@ One or more types of resources expected in the response. Possible values are: li
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setEntityTypes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-EntityType.html"><abbr title="\Beta\Microsoft\Graph\Model\EntityType">EntityType</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html"><abbr title="\Beta\Microsoft\Graph\Model\SearchRequest">SearchRequest</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setEntityTypes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-EntityType.html"><abbr title="\Beta\Microsoft\Graph\Model\EntityType">EntityType</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html"><abbr title="\Beta\Microsoft\Graph\Model\SearchRequest">SearchRequest</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1312,7 +1312,7 @@ One or more types of resources expected in the response. Possible values are: li
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-EntityType.html"><abbr title="\Beta\Microsoft\Graph\Model\EntityType">EntityType</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-EntityType.html"><abbr title="\Beta\Microsoft\Graph\Model\EntityType">EntityType</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the entityTypes</p>
@@ -1344,7 +1344,7 @@ One or more types of resources expected in the response. Possible values are: li
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">199</span>
+    <span class="phpdocumentor-element-found-in__line">207</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the fields
@@ -1352,7 +1352,7 @@ Contains the fields to be returned for each resource object specified in entityT
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setFields</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html"><abbr title="\Beta\Microsoft\Graph\Model\SearchRequest">SearchRequest</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setFields</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html"><abbr title="\Beta\Microsoft\Graph\Model\SearchRequest">SearchRequest</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1360,7 +1360,7 @@ Contains the fields to be returned for each resource object specified in entityT
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the fields</p>
@@ -1391,7 +1391,7 @@ Contains the fields to be returned for each resource object specified in entityT
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">227</span>
+    <span class="phpdocumentor-element-found-in__line">235</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the from
@@ -1531,7 +1531,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">260</span>
+    <span class="phpdocumentor-element-found-in__line">269</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the query
@@ -1579,7 +1579,7 @@ Contains the query terms. Required.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">293</span>
+    <span class="phpdocumentor-element-found-in__line">303</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the resultTemplateOptions
@@ -1627,7 +1627,7 @@ Provides the search result templates options for rendering connectors search res
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">321</span>
+    <span class="phpdocumentor-element-found-in__line">331</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the size
@@ -1674,7 +1674,7 @@ The size of the page to be retrieved. Optional.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">354</span>
+    <span class="phpdocumentor-element-found-in__line">368</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the sortProperties
@@ -1682,7 +1682,7 @@ Contains the ordered collection of fields and direction to sort results. There c
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setSortProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-SortProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SortProperty">SortProperty</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html"><abbr title="\Beta\Microsoft\Graph\Model\SearchRequest">SearchRequest</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setSortProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SortProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SortProperty">SortProperty</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html"><abbr title="\Beta\Microsoft\Graph\Model\SearchRequest">SearchRequest</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1690,7 +1690,7 @@ Contains the ordered collection of fields and direction to sort results. There c
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-SortProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SortProperty">SortProperty</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SortProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SortProperty">SortProperty</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the sortProperties</p>
@@ -1722,14 +1722,14 @@ Contains the ordered collection of fields and direction to sort results. There c
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/SearchRequest.php"><a href="files/src-model-searchrequest.html"><abbr title="src/Model/SearchRequest.php">SearchRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">380</span>
+    <span class="phpdocumentor-element-found-in__line">394</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the stored_fields</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setStored_fields</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html"><abbr title="\Beta\Microsoft\Graph\Model\SearchRequest">SearchRequest</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setStored_fields</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-SearchRequest.html"><abbr title="\Beta\Microsoft\Graph\Model\SearchRequest">SearchRequest</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1737,7 +1737,7 @@ Contains the ordered collection of fields and direction to sort results. There c
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the stored_fields</p>

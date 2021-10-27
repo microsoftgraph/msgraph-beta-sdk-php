@@ -191,7 +191,7 @@ to the model</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html#method_getAddresses">getAddresses()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PhysicalOfficeAddress.html"><abbr title="\Beta\Microsoft\Graph\Model\PhysicalOfficeAddress">PhysicalOfficeAddress</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the addresses
 Postal addresses for this organizational contact. For now a contact can only have one physical address.</dd>
@@ -222,7 +222,7 @@ The name for the department in which the contact works. Supports $filter (eq, ne
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html#method_getDirectReports">getDirectReports()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the directReports
 The contact&#039;s direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand.</dd>
@@ -286,7 +286,7 @@ The user or contact that is this contact&#039;s manager. Read-only. Supports $ex
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html#method_getMemberOf">getMemberOf()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the memberOf
 Groups that this contact is a member of. Read-only. Nullable. Supports $expand.</dd>
@@ -309,7 +309,7 @@ Date and time when this organizational contact was last synchronized from on-pre
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html#method_getOnPremisesProvisioningErrors">getOnPremisesProvisioningErrors()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-OnPremisesProvisioningError.html"><abbr title="\Beta\Microsoft\Graph\Model\OnPremisesProvisioningError">OnPremisesProvisioningError</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the onPremisesProvisioningErrors
 List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, NOT).</dd>
@@ -325,7 +325,7 @@ true if this object is synced from an on-premises directory; false if this objec
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html#method_getPhones">getPhones()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Phone.html"><abbr title="\Beta\Microsoft\Graph\Model\Phone">Phone</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the phones
 List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, NOT, in).</dd>
@@ -356,14 +356,14 @@ Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html#method_getTransitiveMemberOf">getTransitiveMemberOf()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the transitiveMemberOf</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html#method_getTransitiveReports">getTransitiveReports()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the transitiveReports
 The transitive reports for a contact. Read-only.</dd>
@@ -668,7 +668,7 @@ Postal addresses for this organizational contact. For now a contact can only hav
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getAddresses</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getAddresses</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PhysicalOfficeAddress.html"><abbr title="\Beta\Microsoft\Graph\Model\PhysicalOfficeAddress">PhysicalOfficeAddress</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -676,7 +676,7 @@ Postal addresses for this organizational contact. For now a contact can only hav
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PhysicalOfficeAddress.html"><abbr title="\Beta\Microsoft\Graph\Model\PhysicalOfficeAddress">PhysicalOfficeAddress</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The addresses</p>
 </section>
@@ -696,7 +696,7 @@ Postal addresses for this organizational contact. For now a contact can only hav
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the companyName
@@ -767,7 +767,7 @@ Name of the company that this organizational contact belong to. Supports $filter
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the department
@@ -803,7 +803,7 @@ The name for the department in which the contact works. Supports $filter (eq, ne
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">447</span>
+    <span class="phpdocumentor-element-found-in__line">468</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the directReports
@@ -811,7 +811,7 @@ The contact&#039;s direct reports. (The users and contacts that have their manag
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getDirectReports</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getDirectReports</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -819,7 +819,7 @@ The contact&#039;s direct reports. (The users and contacts that have their manag
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The directReports</p>
 </section>
@@ -839,7 +839,7 @@ The contact&#039;s direct reports. (The users and contacts that have their manag
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">128</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the displayName
@@ -875,7 +875,7 @@ Display name for this organizational contact. Supports $filter (eq, ne, NOT, ge,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">157</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the givenName
@@ -947,7 +947,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">179</span>
+    <span class="phpdocumentor-element-found-in__line">186</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the jobTitle
@@ -983,7 +983,7 @@ Job title for this organizational contact. Supports $filter (eq, ne, NOT, ge, le
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">208</span>
+    <span class="phpdocumentor-element-found-in__line">215</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the mail
@@ -1019,7 +1019,7 @@ The SMTP address for the contact, for example, &#039;jeff@contoso.onmicrosoft.co
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">237</span>
+    <span class="phpdocumentor-element-found-in__line">244</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the mailNickname
@@ -1055,7 +1055,7 @@ Email alias (portion of email address pre-pending the @ symbol) for this organiz
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">476</span>
+    <span class="phpdocumentor-element-found-in__line">504</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the manager
@@ -1091,7 +1091,7 @@ The user or contact that is this contact&#039;s manager. Read-only. Supports $ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">510</span>
+    <span class="phpdocumentor-element-found-in__line">538</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the memberOf
@@ -1099,7 +1099,7 @@ Groups that this contact is a member of. Read-only. Nullable. Supports $expand.<
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getMemberOf</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getMemberOf</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1107,7 +1107,7 @@ Groups that this contact is a member of. Read-only. Nullable. Supports $expand.<
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The memberOf</p>
 </section>
@@ -1162,7 +1162,7 @@ Groups that this contact is a member of. Read-only. Nullable. Supports $expand.<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">266</span>
+    <span class="phpdocumentor-element-found-in__line">273</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the onPremisesLastSyncDateTime
@@ -1198,7 +1198,7 @@ Date and time when this organizational contact was last synchronized from on-pre
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">300</span>
+    <span class="phpdocumentor-element-found-in__line">307</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the onPremisesProvisioningErrors
@@ -1206,7 +1206,7 @@ List of any synchronization provisioning errors for this organizational contact.
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getOnPremisesProvisioningErrors</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getOnPremisesProvisioningErrors</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-OnPremisesProvisioningError.html"><abbr title="\Beta\Microsoft\Graph\Model\OnPremisesProvisioningError">OnPremisesProvisioningError</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1214,7 +1214,7 @@ List of any synchronization provisioning errors for this organizational contact.
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-OnPremisesProvisioningError.html"><abbr title="\Beta\Microsoft\Graph\Model\OnPremisesProvisioningError">OnPremisesProvisioningError</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The onPremisesProvisioningErrors</p>
 </section>
@@ -1234,7 +1234,7 @@ List of any synchronization provisioning errors for this organizational contact.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">329</span>
+    <span class="phpdocumentor-element-found-in__line">343</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the onPremisesSyncEnabled
@@ -1270,7 +1270,7 @@ true if this object is synced from an on-premises directory; false if this objec
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">359</span>
+    <span class="phpdocumentor-element-found-in__line">373</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the phones
@@ -1278,7 +1278,7 @@ List of phones for this organizational contact. Phone types can be mobile, busin
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getPhones</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getPhones</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Phone.html"><abbr title="\Beta\Microsoft\Graph\Model\Phone">Phone</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1286,7 +1286,7 @@ List of phones for this organizational contact. Phone types can be mobile, busin
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Phone.html"><abbr title="\Beta\Microsoft\Graph\Model\Phone">Phone</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The phones</p>
 </section>
@@ -1341,7 +1341,7 @@ List of phones for this organizational contact. Phone types can be mobile, busin
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">388</span>
+    <span class="phpdocumentor-element-found-in__line">409</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the proxyAddresses
@@ -1377,7 +1377,7 @@ For example: &#039;SMTP: bob@contoso.com&#039;, &#039;smtp: bob@sales.contoso.co
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">417</span>
+    <span class="phpdocumentor-element-found-in__line">438</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the surname
@@ -1413,14 +1413,14 @@ Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">539</span>
+    <span class="phpdocumentor-element-found-in__line">574</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the transitiveMemberOf</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getTransitiveMemberOf</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getTransitiveMemberOf</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1428,7 +1428,7 @@ Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The transitiveMemberOf</p>
 </section>
@@ -1448,7 +1448,7 @@ Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">568</span>
+    <span class="phpdocumentor-element-found-in__line">610</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the transitiveReports
@@ -1456,7 +1456,7 @@ The transitive reports for a contact. Read-only.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getTransitiveReports</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getTransitiveReports</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1464,7 +1464,7 @@ The transitive reports for a contact. Read-only.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The transitiveReports</p>
 </section>
@@ -1520,7 +1520,7 @@ Manually serialize DateTime into RFC3339 format</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the addresses
@@ -1528,7 +1528,7 @@ Postal addresses for this organizational contact. For now a contact can only hav
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAddresses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-PhysicalOfficeAddress.html"><abbr title="\Beta\Microsoft\Graph\Model\PhysicalOfficeAddress">PhysicalOfficeAddress</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html"><abbr title="\Beta\Microsoft\Graph\Model\OrgContact">OrgContact</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setAddresses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PhysicalOfficeAddress.html"><abbr title="\Beta\Microsoft\Graph\Model\PhysicalOfficeAddress">PhysicalOfficeAddress</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html"><abbr title="\Beta\Microsoft\Graph\Model\OrgContact">OrgContact</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1536,7 +1536,7 @@ Postal addresses for this organizational contact. For now a contact can only hav
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-PhysicalOfficeAddress.html"><abbr title="\Beta\Microsoft\Graph\Model\PhysicalOfficeAddress">PhysicalOfficeAddress</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PhysicalOfficeAddress.html"><abbr title="\Beta\Microsoft\Graph\Model\PhysicalOfficeAddress">PhysicalOfficeAddress</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The addresses</p>
@@ -1567,7 +1567,7 @@ Postal addresses for this organizational contact. For now a contact can only hav
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">87</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the companyName
@@ -1660,7 +1660,7 @@ Name of the company that this organizational contact belong to. Supports $filter
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the department
@@ -1707,7 +1707,7 @@ The name for the department in which the contact works. Supports $filter (eq, ne
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">464</span>
+    <span class="phpdocumentor-element-found-in__line">492</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the directReports
@@ -1715,7 +1715,7 @@ The contact&#039;s direct reports. (The users and contacts that have their manag
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setDirectReports</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html"><abbr title="\Beta\Microsoft\Graph\Model\OrgContact">OrgContact</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setDirectReports</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html"><abbr title="\Beta\Microsoft\Graph\Model\OrgContact">OrgContact</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1723,7 +1723,7 @@ The contact&#039;s direct reports. (The users and contacts that have their manag
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The directReports</p>
@@ -1754,7 +1754,7 @@ The contact&#039;s direct reports. (The users and contacts that have their manag
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">145</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the displayName
@@ -1801,7 +1801,7 @@ Display name for this organizational contact. Supports $filter (eq, ne, NOT, ge,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">167</span>
+    <span class="phpdocumentor-element-found-in__line">174</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the givenName
@@ -1895,7 +1895,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">196</span>
+    <span class="phpdocumentor-element-found-in__line">203</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the jobTitle
@@ -1942,7 +1942,7 @@ Job title for this organizational contact. Supports $filter (eq, ne, NOT, ge, le
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">225</span>
+    <span class="phpdocumentor-element-found-in__line">232</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the mail
@@ -1989,7 +1989,7 @@ The SMTP address for the contact, for example, &#039;jeff@contoso.onmicrosoft.co
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">254</span>
+    <span class="phpdocumentor-element-found-in__line">261</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the mailNickname
@@ -2036,7 +2036,7 @@ Email alias (portion of email address pre-pending the @ symbol) for this organiz
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">497</span>
+    <span class="phpdocumentor-element-found-in__line">525</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the manager
@@ -2083,7 +2083,7 @@ The user or contact that is this contact&#039;s manager. Read-only. Supports $ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">527</span>
+    <span class="phpdocumentor-element-found-in__line">562</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the memberOf
@@ -2091,7 +2091,7 @@ Groups that this contact is a member of. Read-only. Nullable. Supports $expand.<
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setMemberOf</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html"><abbr title="\Beta\Microsoft\Graph\Model\OrgContact">OrgContact</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setMemberOf</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html"><abbr title="\Beta\Microsoft\Graph\Model\OrgContact">OrgContact</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2099,7 +2099,7 @@ Groups that this contact is a member of. Read-only. Nullable. Supports $expand.<
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The memberOf</p>
@@ -2176,7 +2176,7 @@ Groups that this contact is a member of. Read-only. Nullable. Supports $expand.<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">287</span>
+    <span class="phpdocumentor-element-found-in__line">294</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the onPremisesLastSyncDateTime
@@ -2223,7 +2223,7 @@ Date and time when this organizational contact was last synchronized from on-pre
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">317</span>
+    <span class="phpdocumentor-element-found-in__line">331</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the onPremisesProvisioningErrors
@@ -2231,7 +2231,7 @@ List of any synchronization provisioning errors for this organizational contact.
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setOnPremisesProvisioningErrors</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-OnPremisesProvisioningError.html"><abbr title="\Beta\Microsoft\Graph\Model\OnPremisesProvisioningError">OnPremisesProvisioningError</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html"><abbr title="\Beta\Microsoft\Graph\Model\OrgContact">OrgContact</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setOnPremisesProvisioningErrors</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-OnPremisesProvisioningError.html"><abbr title="\Beta\Microsoft\Graph\Model\OnPremisesProvisioningError">OnPremisesProvisioningError</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html"><abbr title="\Beta\Microsoft\Graph\Model\OrgContact">OrgContact</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2239,7 +2239,7 @@ List of any synchronization provisioning errors for this organizational contact.
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-OnPremisesProvisioningError.html"><abbr title="\Beta\Microsoft\Graph\Model\OnPremisesProvisioningError">OnPremisesProvisioningError</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-OnPremisesProvisioningError.html"><abbr title="\Beta\Microsoft\Graph\Model\OnPremisesProvisioningError">OnPremisesProvisioningError</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The onPremisesProvisioningErrors</p>
@@ -2270,7 +2270,7 @@ List of any synchronization provisioning errors for this organizational contact.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">346</span>
+    <span class="phpdocumentor-element-found-in__line">360</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the onPremisesSyncEnabled
@@ -2317,7 +2317,7 @@ true if this object is synced from an on-premises directory; false if this objec
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">376</span>
+    <span class="phpdocumentor-element-found-in__line">397</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the phones
@@ -2325,7 +2325,7 @@ List of phones for this organizational contact. Phone types can be mobile, busin
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setPhones</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Phone.html"><abbr title="\Beta\Microsoft\Graph\Model\Phone">Phone</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html"><abbr title="\Beta\Microsoft\Graph\Model\OrgContact">OrgContact</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setPhones</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Phone.html"><abbr title="\Beta\Microsoft\Graph\Model\Phone">Phone</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html"><abbr title="\Beta\Microsoft\Graph\Model\OrgContact">OrgContact</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2333,7 +2333,7 @@ List of phones for this organizational contact. Phone types can be mobile, busin
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Phone.html"><abbr title="\Beta\Microsoft\Graph\Model\Phone">Phone</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Phone.html"><abbr title="\Beta\Microsoft\Graph\Model\Phone">Phone</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The phones</p>
@@ -2364,7 +2364,7 @@ List of phones for this organizational contact. Phone types can be mobile, busin
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">405</span>
+    <span class="phpdocumentor-element-found-in__line">426</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the proxyAddresses
@@ -2411,7 +2411,7 @@ For example: &#039;SMTP: bob@contoso.com&#039;, &#039;smtp: bob@sales.contoso.co
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">434</span>
+    <span class="phpdocumentor-element-found-in__line">455</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the surname
@@ -2458,14 +2458,14 @@ Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">555</span>
+    <span class="phpdocumentor-element-found-in__line">597</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the transitiveMemberOf</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setTransitiveMemberOf</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html"><abbr title="\Beta\Microsoft\Graph\Model\OrgContact">OrgContact</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setTransitiveMemberOf</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html"><abbr title="\Beta\Microsoft\Graph\Model\OrgContact">OrgContact</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2473,7 +2473,7 @@ Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The transitiveMemberOf</p>
@@ -2504,7 +2504,7 @@ Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/OrgContact.php"><a href="files/src-model-orgcontact.html"><abbr title="src/Model/OrgContact.php">OrgContact.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">585</span>
+    <span class="phpdocumentor-element-found-in__line">634</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the transitiveReports
@@ -2512,7 +2512,7 @@ The transitive reports for a contact. Read-only.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setTransitiveReports</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html"><abbr title="\Beta\Microsoft\Graph\Model\OrgContact">OrgContact</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setTransitiveReports</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-OrgContact.html"><abbr title="\Beta\Microsoft\Graph\Model\OrgContact">OrgContact</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2520,7 +2520,7 @@ The transitive reports for a contact. Read-only.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The transitiveReports</p>

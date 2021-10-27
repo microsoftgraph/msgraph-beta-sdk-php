@@ -240,7 +240,7 @@ Specifies if the property is searchable. Only properties of type String or Strin
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Property.html#method_getLabels">getLabels()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Label.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\Label">Label</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Label.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\Label">Label</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the labels
 Specifies one or more well-known tags added against a property. Labels help Microsoft Search understand the semantics of the data in the connection. Adding appropriate labels would result in an enhanced search experience (e.g. better relevance). The possible values are: title, url, createdBy, lastModifiedBy, authors, createdDateTime, lastModifiedDateTime, fileName, fileExtension, unknownFutureValue. Optional.</dd>
@@ -697,7 +697,7 @@ Specifies one or more well-known tags added against a property. Labels help Micr
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getLabels</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Label.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\Label">Label</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getLabels</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Label.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\Label">Label</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -705,7 +705,7 @@ Specifies one or more well-known tags added against a property. Labels help Micr
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Label.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\Label">Label</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Label.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\Label">Label</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The labels</p>
 </section>
@@ -725,7 +725,7 @@ Specifies one or more well-known tags added against a property. Labels help Micr
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/ExternalConnectors/Model/Property.php"><a href="files/src-externalconnectors-model-property.html"><abbr title="src/ExternalConnectors/Model/Property.php">Property.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">205</span>
+    <span class="phpdocumentor-element-found-in__line">209</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the name
@@ -831,7 +831,7 @@ The name of the property. Maximum 32 characters. Only alphanumeric characters al
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/ExternalConnectors/Model/Property.php"><a href="files/src-externalconnectors-model-property.html"><abbr title="src/ExternalConnectors/Model/Property.php">Property.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">234</span>
+    <span class="phpdocumentor-element-found-in__line">238</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the type
@@ -911,7 +911,7 @@ A set of aliases or a friendly names for the property. Maximum 32 characters. On
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAliases</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Property.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\Property">Property</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setAliases</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Property.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\Property">Property</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -919,7 +919,7 @@ A set of aliases or a friendly names for the property. Maximum 32 characters. On
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the aliases</p>
@@ -1185,7 +1185,7 @@ Specifies if the property is searchable. Only properties of type String or Strin
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/ExternalConnectors/Model/Property.php"><a href="files/src-externalconnectors-model-property.html"><abbr title="src/ExternalConnectors/Model/Property.php">Property.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">194</span>
+    <span class="phpdocumentor-element-found-in__line">198</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the labels
@@ -1193,7 +1193,7 @@ Specifies one or more well-known tags added against a property. Labels help Micr
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setLabels</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Label.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\Label">Label</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Property.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\Property">Property</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setLabels</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Label.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\Label">Label</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Property.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\Property">Property</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1201,7 +1201,7 @@ Specifies one or more well-known tags added against a property. Labels help Micr
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Label.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\Label">Label</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-Label.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\Label">Label</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the labels</p>
@@ -1233,7 +1233,7 @@ Specifies one or more well-known tags added against a property. Labels help Micr
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/ExternalConnectors/Model/Property.php"><a href="files/src-externalconnectors-model-property.html"><abbr title="src/ExternalConnectors/Model/Property.php">Property.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">222</span>
+    <span class="phpdocumentor-element-found-in__line">226</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the name
@@ -1326,7 +1326,7 @@ The name of the property. Maximum 32 characters. Only alphanumeric characters al
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/ExternalConnectors/Model/Property.php"><a href="files/src-externalconnectors-model-property.html"><abbr title="src/ExternalConnectors/Model/Property.php">Property.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">255</span>
+    <span class="phpdocumentor-element-found-in__line">260</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the type

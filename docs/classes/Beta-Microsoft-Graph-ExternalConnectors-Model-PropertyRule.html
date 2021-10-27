@@ -209,7 +209,8 @@ Read-only.</dd>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-RuleOperation.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\RuleOperation">RuleOperation</abbr></a>|null    </span>
 </dt>
-<dd>Gets the operation</dd>
+<dd>Gets the operation
+Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith, unknownFutureValue. Required.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_getProperties">getProperties()</a>
@@ -223,21 +224,24 @@ Read-only.</dd>
     <span>
                         &nbsp;: string|null    </span>
 </dt>
-<dd>Gets the property</dd>
+<dd>Gets the property
+The property from the externalItem schema. Required.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-PropertyRule.html#method_getValues">getValues()</a>
     <span>
                         &nbsp;: string|null    </span>
 </dt>
-<dd>Gets the values</dd>
+<dd>Gets the values
+A collection with one or many strings. The specified string(s) will be matched with the specified property using the specified operation. Required.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-PropertyRule.html#method_getValuesJoinedBy">getValuesJoinedBy()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-BinaryOperator.html"><abbr title="\Beta\Microsoft\Graph\Model\BinaryOperator">BinaryOperator</abbr></a>|null    </span>
 </dt>
-<dd>Gets the valuesJoinedBy</dd>
+<dd>Gets the valuesJoinedBy
+The join operator for evaluating multiple propertyRules. For example, if and is specified, then all propertyRules must be true for the propertyRule to be true. Possible values are: or, and. Required.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_jsonSerialize">jsonSerialize()</a>
@@ -267,28 +271,32 @@ Read-only.</dd>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-PropertyRule.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\PropertyRule">PropertyRule</abbr></a>    </span>
 </dt>
-<dd>Sets the operation</dd>
+<dd>Sets the operation
+Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith, unknownFutureValue. Required.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-PropertyRule.html#method_setProperty">setProperty()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-PropertyRule.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\PropertyRule">PropertyRule</abbr></a>    </span>
 </dt>
-<dd>Sets the property</dd>
+<dd>Sets the property
+The property from the externalItem schema. Required.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-PropertyRule.html#method_setValues">setValues()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-PropertyRule.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\PropertyRule">PropertyRule</abbr></a>    </span>
 </dt>
-<dd>Sets the values</dd>
+<dd>Sets the values
+A collection with one or many strings. The specified string(s) will be matched with the specified property using the specified operation. Required.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-PropertyRule.html#method_setValuesJoinedBy">setValuesJoinedBy()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-PropertyRule.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\PropertyRule">PropertyRule</abbr></a>    </span>
 </dt>
-<dd>Sets the valuesJoinedBy</dd>
+<dd>Sets the valuesJoinedBy
+The join operator for evaluating multiple propertyRules. For example, if and is specified, then all propertyRules must be true for the propertyRule to be true. Possible values are: or, and. Required.</dd>
 
         </dl>
 
@@ -472,10 +480,11 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/ExternalConnectors/Model/PropertyRule.php"><a href="files/src-externalconnectors-model-propertyrule.html"><abbr title="src/ExternalConnectors/Model/PropertyRule.php">PropertyRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the operation</p>
+        <p class="phpdocumentor-summary">Gets the operation
+Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith, unknownFutureValue. Required.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -542,10 +551,11 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/ExternalConnectors/Model/PropertyRule.php"><a href="files/src-externalconnectors-model-propertyrule.html"><abbr title="src/ExternalConnectors/Model/PropertyRule.php">PropertyRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the property</p>
+        <p class="phpdocumentor-summary">Gets the property
+The property from the externalItem schema. Required.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -577,10 +587,11 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/ExternalConnectors/Model/PropertyRule.php"><a href="files/src-externalconnectors-model-propertyrule.html"><abbr title="src/ExternalConnectors/Model/PropertyRule.php">PropertyRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">88</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the values</p>
+        <p class="phpdocumentor-summary">Gets the values
+A collection with one or many strings. The specified string(s) will be matched with the specified property using the specified operation. Required.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -612,10 +623,11 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/ExternalConnectors/Model/PropertyRule.php"><a href="files/src-externalconnectors-model-propertyrule.html"><abbr title="src/ExternalConnectors/Model/PropertyRule.php">PropertyRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">123</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the valuesJoinedBy</p>
+        <p class="phpdocumentor-summary">Gets the valuesJoinedBy
+The join operator for evaluating multiple propertyRules. For example, if and is specified, then all propertyRules must be true for the propertyRule to be true. Possible values are: or, and. Required.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -776,10 +788,11 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/ExternalConnectors/Model/PropertyRule.php"><a href="files/src-externalconnectors-model-propertyrule.html"><abbr title="src/ExternalConnectors/Model/PropertyRule.php">PropertyRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the operation</p>
+        <p class="phpdocumentor-summary">Sets the operation
+Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith, unknownFutureValue. Required.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -823,10 +836,11 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/ExternalConnectors/Model/PropertyRule.php"><a href="files/src-externalconnectors-model-propertyrule.html"><abbr title="src/ExternalConnectors/Model/PropertyRule.php">PropertyRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">78</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the property</p>
+        <p class="phpdocumentor-summary">Sets the property
+The property from the externalItem schema. Required.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -869,14 +883,15 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/ExternalConnectors/Model/PropertyRule.php"><a href="files/src-externalconnectors-model-propertyrule.html"><abbr title="src/ExternalConnectors/Model/PropertyRule.php">PropertyRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the values</p>
+        <p class="phpdocumentor-summary">Sets the values
+A collection with one or many strings. The specified string(s) will be matched with the specified property using the specified operation. Required.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setValues</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-PropertyRule.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\PropertyRule">PropertyRule</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setValues</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-ExternalConnectors-Model-PropertyRule.html"><abbr title="\Beta\Microsoft\Graph\ExternalConnectors\Model\PropertyRule">PropertyRule</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -884,7 +899,7 @@ Read-only.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the values</p>
@@ -915,10 +930,11 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/ExternalConnectors/Model/PropertyRule.php"><a href="files/src-externalconnectors-model-propertyrule.html"><abbr title="src/ExternalConnectors/Model/PropertyRule.php">PropertyRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">135</span>
+    <span class="phpdocumentor-element-found-in__line">145</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the valuesJoinedBy</p>
+        <p class="phpdocumentor-summary">Sets the valuesJoinedBy
+The join operator for evaluating multiple propertyRules. For example, if and is specified, then all propertyRules must be true for the propertyRule to be true. Possible values are: or, and. Required.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>

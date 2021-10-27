@@ -206,7 +206,7 @@ A human-readable description of the print job&#039;s current processing state. R
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-PrintJobStatus.html#method_getDetails">getDetails()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-PrintJobStateDetail.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJobStateDetail">PrintJobStateDetail</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PrintJobStateDetail.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJobStateDetail">PrintJobStateDetail</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the details
 Additional details for print job state. Valid values are described in the following table. Read-only.</dd>
@@ -529,7 +529,7 @@ Additional details for print job state. Valid values are described in the follow
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getDetails</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-PrintJobStateDetail.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJobStateDetail">PrintJobStateDetail</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getDetails</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PrintJobStateDetail.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJobStateDetail">PrintJobStateDetail</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -537,7 +537,7 @@ Additional details for print job state. Valid values are described in the follow
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-PrintJobStateDetail.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJobStateDetail">PrintJobStateDetail</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PrintJobStateDetail.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJobStateDetail">PrintJobStateDetail</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The details</p>
 </section>
@@ -593,7 +593,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrintJobStatus.php"><a href="files/src-model-printjobstatus.html"><abbr title="src/Model/PrintJobStatus.php">PrintJobStatus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">119</span>
+    <span class="phpdocumentor-element-found-in__line">123</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isAcquiredByPrinter
@@ -664,7 +664,7 @@ True if the job was acknowledged by a printer; false otherwise. Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrintJobStatus.php"><a href="files/src-model-printjobstatus.html"><abbr title="src/Model/PrintJobStatus.php">PrintJobStatus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">147</span>
+    <span class="phpdocumentor-element-found-in__line">151</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the processingState</p>
@@ -699,7 +699,7 @@ True if the job was acknowledged by a printer; false otherwise. Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrintJobStatus.php"><a href="files/src-model-printjobstatus.html"><abbr title="src/Model/PrintJobStatus.php">PrintJobStatus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">177</span>
+    <span class="phpdocumentor-element-found-in__line">182</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the processingStateDescription</p>
@@ -769,7 +769,7 @@ True if the job was acknowledged by a printer; false otherwise. Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrintJobStatus.php"><a href="files/src-model-printjobstatus.html"><abbr title="src/Model/PrintJobStatus.php">PrintJobStatus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">205</span>
+    <span class="phpdocumentor-element-found-in__line">210</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the state
@@ -934,7 +934,7 @@ A human-readable description of the print job&#039;s current processing state. R
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrintJobStatus.php"><a href="files/src-model-printjobstatus.html"><abbr title="src/Model/PrintJobStatus.php">PrintJobStatus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">112</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the details
@@ -942,7 +942,7 @@ Additional details for print job state. Valid values are described in the follow
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setDetails</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-PrintJobStateDetail.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJobStateDetail">PrintJobStateDetail</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-PrintJobStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJobStatus">PrintJobStatus</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setDetails</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PrintJobStateDetail.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJobStateDetail">PrintJobStateDetail</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-PrintJobStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJobStatus">PrintJobStatus</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -950,7 +950,7 @@ Additional details for print job state. Valid values are described in the follow
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-PrintJobStateDetail.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJobStateDetail">PrintJobStateDetail</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PrintJobStateDetail.html"><abbr title="\Beta\Microsoft\Graph\Model\PrintJobStateDetail">PrintJobStateDetail</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the details</p>
@@ -1029,7 +1029,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrintJobStatus.php"><a href="files/src-model-printjobstatus.html"><abbr title="src/Model/PrintJobStatus.php">PrintJobStatus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">136</span>
+    <span class="phpdocumentor-element-found-in__line">140</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isAcquiredByPrinter
@@ -1122,7 +1122,7 @@ True if the job was acknowledged by a printer; false otherwise. Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrintJobStatus.php"><a href="files/src-model-printjobstatus.html"><abbr title="src/Model/PrintJobStatus.php">PrintJobStatus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">167</span>
+    <span class="phpdocumentor-element-found-in__line">172</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the processingState</p>
@@ -1169,7 +1169,7 @@ True if the job was acknowledged by a printer; false otherwise. Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrintJobStatus.php"><a href="files/src-model-printjobstatus.html"><abbr title="src/Model/PrintJobStatus.php">PrintJobStatus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">193</span>
+    <span class="phpdocumentor-element-found-in__line">198</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the processingStateDescription</p>
@@ -1215,7 +1215,7 @@ True if the job was acknowledged by a printer; false otherwise. Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/PrintJobStatus.php"><a href="files/src-model-printjobstatus.html"><abbr title="src/Model/PrintJobStatus.php">PrintJobStatus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">226</span>
+    <span class="phpdocumentor-element-found-in__line">232</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the state

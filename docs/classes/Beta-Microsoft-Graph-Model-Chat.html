@@ -194,7 +194,7 @@ to the model</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-ChatType.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatType">ChatType</abbr></a>|null    </span>
 </dt>
 <dd>Gets the chatType
-Specifies the type of chat. Possible values are:group, oneOnOne and meeting.</dd>
+Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Chat.html#method_getCreatedDateTime">getCreatedDateTime()</a>
@@ -215,7 +215,7 @@ Read-only.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Chat.html#method_getInstalledApps">getInstalledApps()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsAppInstallation.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsAppInstallation">TeamsAppInstallation</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the installedApps
 A collection of all the apps in the chat. Nullable.</dd>
@@ -239,7 +239,7 @@ Date and time at which the chat was renamed or list of members were last changed
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Chat.html#method_getMembers">getMembers()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ConversationMember.html"><abbr title="\Beta\Microsoft\Graph\Model\ConversationMember">ConversationMember</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the members
 A collection of all the members in the chat. Nullable.</dd>
@@ -247,7 +247,7 @@ A collection of all the members in the chat. Nullable.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Chat.html#method_getMessages">getMessages()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the messages
 A collection of all the messages in the chat. Nullable.</dd>
@@ -270,7 +270,7 @@ Represents details about an online meeting. If the chat isn&#039;t associated wi
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Chat.html#method_getOperations">getOperations()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsAsyncOperation.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsAsyncOperation">TeamsAsyncOperation</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the operations
 A collection of all the Teams async operations that ran or are running on the chat. Nullable.</dd>
@@ -278,7 +278,7 @@ A collection of all the Teams async operations that ran or are running on the ch
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Chat.html#method_getPermissionGrants">getPermissionGrants()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ResourceSpecificPermissionGrant.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceSpecificPermissionGrant">ResourceSpecificPermissionGrant</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the permissionGrants
 A collection of permissions granted to apps for the chat.</dd>
@@ -293,7 +293,7 @@ A collection of permissions granted to apps for the chat.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Chat.html#method_getTabs">getTabs()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsTab.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsTab">TeamsTab</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the tabs</dd>
 
@@ -343,7 +343,7 @@ Manually serialize DateTime into RFC3339 format</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Chat.html"><abbr title="\Beta\Microsoft\Graph\Model\Chat">Chat</abbr></a>    </span>
 </dt>
 <dd>Sets the chatType
-Specifies the type of chat. Possible values are:group, oneOnOne and meeting.</dd>
+Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Chat.html#method_setCreatedDateTime">setCreatedDateTime()</a>
@@ -586,7 +586,7 @@ to the model</p>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the chatType
-Specifies the type of chat. Possible values are:group, oneOnOne and meeting.</p>
+Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -698,7 +698,7 @@ A collection of all the apps in the chat. Nullable.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getInstalledApps</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getInstalledApps</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsAppInstallation.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsAppInstallation">TeamsAppInstallation</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -706,7 +706,7 @@ A collection of all the apps in the chat. Nullable.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsAppInstallation.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsAppInstallation">TeamsAppInstallation</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The installedApps</p>
 </section>
@@ -726,7 +726,7 @@ A collection of all the apps in the chat. Nullable.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Chat.php"><a href="files/src-model-chat.html"><abbr title="src/Model/Chat.php">Chat.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">315</span>
+    <span class="phpdocumentor-element-found-in__line">322</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the lastMessagePreview
@@ -798,7 +798,7 @@ Date and time at which the chat was renamed or list of members were last changed
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Chat.php"><a href="files/src-model-chat.html"><abbr title="src/Model/Chat.php">Chat.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">349</span>
+    <span class="phpdocumentor-element-found-in__line">356</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the members
@@ -806,7 +806,7 @@ A collection of all the members in the chat. Nullable.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getMembers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getMembers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ConversationMember.html"><abbr title="\Beta\Microsoft\Graph\Model\ConversationMember">ConversationMember</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -814,7 +814,7 @@ A collection of all the members in the chat. Nullable.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ConversationMember.html"><abbr title="\Beta\Microsoft\Graph\Model\ConversationMember">ConversationMember</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The members</p>
 </section>
@@ -834,7 +834,7 @@ A collection of all the members in the chat. Nullable.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Chat.php"><a href="files/src-model-chat.html"><abbr title="src/Model/Chat.php">Chat.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">379</span>
+    <span class="phpdocumentor-element-found-in__line">393</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the messages
@@ -842,7 +842,7 @@ A collection of all the messages in the chat. Nullable.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getMessages</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getMessages</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -850,7 +850,7 @@ A collection of all the messages in the chat. Nullable.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The messages</p>
 </section>
@@ -941,7 +941,7 @@ Represents details about an online meeting. If the chat isn&#039;t associated wi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Chat.php"><a href="files/src-model-chat.html"><abbr title="src/Model/Chat.php">Chat.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">409</span>
+    <span class="phpdocumentor-element-found-in__line">430</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the operations
@@ -949,7 +949,7 @@ A collection of all the Teams async operations that ran or are running on the ch
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getOperations</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getOperations</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsAsyncOperation.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsAsyncOperation">TeamsAsyncOperation</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -957,7 +957,7 @@ A collection of all the Teams async operations that ran or are running on the ch
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsAsyncOperation.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsAsyncOperation">TeamsAsyncOperation</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The operations</p>
 </section>
@@ -977,7 +977,7 @@ A collection of all the Teams async operations that ran or are running on the ch
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Chat.php"><a href="files/src-model-chat.html"><abbr title="src/Model/Chat.php">Chat.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">439</span>
+    <span class="phpdocumentor-element-found-in__line">467</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the permissionGrants
@@ -985,7 +985,7 @@ A collection of permissions granted to apps for the chat.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getPermissionGrants</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getPermissionGrants</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ResourceSpecificPermissionGrant.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceSpecificPermissionGrant">ResourceSpecificPermissionGrant</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -993,7 +993,7 @@ A collection of permissions granted to apps for the chat.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ResourceSpecificPermissionGrant.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceSpecificPermissionGrant">ResourceSpecificPermissionGrant</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The permissionGrants</p>
 </section>
@@ -1048,14 +1048,14 @@ A collection of permissions granted to apps for the chat.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Chat.php"><a href="files/src-model-chat.html"><abbr title="src/Model/Chat.php">Chat.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">468</span>
+    <span class="phpdocumentor-element-found-in__line">503</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the tabs</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getTabs</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getTabs</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsTab.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsTab">TeamsTab</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1063,7 +1063,7 @@ A collection of permissions granted to apps for the chat.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsTab.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsTab">TeamsTab</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The tabs</p>
 </section>
@@ -1267,7 +1267,7 @@ Manually serialize DateTime into RFC3339 format</p>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the chatType
-Specifies the type of chat. Possible values are:group, oneOnOne and meeting.</p>
+Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1404,7 +1404,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Chat.php"><a href="files/src-model-chat.html"><abbr title="src/Model/Chat.php">Chat.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">303</span>
+    <span class="phpdocumentor-element-found-in__line">310</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the installedApps
@@ -1412,7 +1412,7 @@ A collection of all the apps in the chat. Nullable.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setInstalledApps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-TeamsAppInstallation.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsAppInstallation">TeamsAppInstallation</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Chat.html"><abbr title="\Beta\Microsoft\Graph\Model\Chat">Chat</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setInstalledApps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsAppInstallation.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsAppInstallation">TeamsAppInstallation</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Chat.html"><abbr title="\Beta\Microsoft\Graph\Model\Chat">Chat</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1420,7 +1420,7 @@ A collection of all the apps in the chat. Nullable.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-TeamsAppInstallation.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsAppInstallation">TeamsAppInstallation</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsAppInstallation.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsAppInstallation">TeamsAppInstallation</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The installedApps</p>
@@ -1451,7 +1451,7 @@ A collection of all the apps in the chat. Nullable.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Chat.php"><a href="files/src-model-chat.html"><abbr title="src/Model/Chat.php">Chat.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">336</span>
+    <span class="phpdocumentor-element-found-in__line">343</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the lastMessagePreview
@@ -1545,7 +1545,7 @@ Date and time at which the chat was renamed or list of members were last changed
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Chat.php"><a href="files/src-model-chat.html"><abbr title="src/Model/Chat.php">Chat.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">366</span>
+    <span class="phpdocumentor-element-found-in__line">380</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the members
@@ -1553,7 +1553,7 @@ A collection of all the members in the chat. Nullable.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setMembers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ConversationMember.html"><abbr title="\Beta\Microsoft\Graph\Model\ConversationMember">ConversationMember</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Chat.html"><abbr title="\Beta\Microsoft\Graph\Model\Chat">Chat</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setMembers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ConversationMember.html"><abbr title="\Beta\Microsoft\Graph\Model\ConversationMember">ConversationMember</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Chat.html"><abbr title="\Beta\Microsoft\Graph\Model\Chat">Chat</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1561,7 +1561,7 @@ A collection of all the members in the chat. Nullable.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ConversationMember.html"><abbr title="\Beta\Microsoft\Graph\Model\ConversationMember">ConversationMember</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ConversationMember.html"><abbr title="\Beta\Microsoft\Graph\Model\ConversationMember">ConversationMember</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The members</p>
@@ -1592,7 +1592,7 @@ A collection of all the members in the chat. Nullable.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Chat.php"><a href="files/src-model-chat.html"><abbr title="src/Model/Chat.php">Chat.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">396</span>
+    <span class="phpdocumentor-element-found-in__line">417</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the messages
@@ -1600,7 +1600,7 @@ A collection of all the messages in the chat. Nullable.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setMessages</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Chat.html"><abbr title="\Beta\Microsoft\Graph\Model\Chat">Chat</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setMessages</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Chat.html"><abbr title="\Beta\Microsoft\Graph\Model\Chat">Chat</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1608,7 +1608,7 @@ A collection of all the messages in the chat. Nullable.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The messages</p>
@@ -1732,7 +1732,7 @@ Represents details about an online meeting. If the chat isn&#039;t associated wi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Chat.php"><a href="files/src-model-chat.html"><abbr title="src/Model/Chat.php">Chat.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">426</span>
+    <span class="phpdocumentor-element-found-in__line">454</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the operations
@@ -1740,7 +1740,7 @@ A collection of all the Teams async operations that ran or are running on the ch
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setOperations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-TeamsAsyncOperation.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsAsyncOperation">TeamsAsyncOperation</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Chat.html"><abbr title="\Beta\Microsoft\Graph\Model\Chat">Chat</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setOperations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsAsyncOperation.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsAsyncOperation">TeamsAsyncOperation</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Chat.html"><abbr title="\Beta\Microsoft\Graph\Model\Chat">Chat</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1748,7 +1748,7 @@ A collection of all the Teams async operations that ran or are running on the ch
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-TeamsAsyncOperation.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsAsyncOperation">TeamsAsyncOperation</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsAsyncOperation.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsAsyncOperation">TeamsAsyncOperation</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The operations</p>
@@ -1779,7 +1779,7 @@ A collection of all the Teams async operations that ran or are running on the ch
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Chat.php"><a href="files/src-model-chat.html"><abbr title="src/Model/Chat.php">Chat.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">456</span>
+    <span class="phpdocumentor-element-found-in__line">491</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the permissionGrants
@@ -1787,7 +1787,7 @@ A collection of permissions granted to apps for the chat.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setPermissionGrants</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ResourceSpecificPermissionGrant.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceSpecificPermissionGrant">ResourceSpecificPermissionGrant</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Chat.html"><abbr title="\Beta\Microsoft\Graph\Model\Chat">Chat</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setPermissionGrants</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ResourceSpecificPermissionGrant.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceSpecificPermissionGrant">ResourceSpecificPermissionGrant</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Chat.html"><abbr title="\Beta\Microsoft\Graph\Model\Chat">Chat</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1795,7 +1795,7 @@ A collection of permissions granted to apps for the chat.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ResourceSpecificPermissionGrant.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceSpecificPermissionGrant">ResourceSpecificPermissionGrant</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ResourceSpecificPermissionGrant.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceSpecificPermissionGrant">ResourceSpecificPermissionGrant</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The permissionGrants</p>
@@ -1826,14 +1826,14 @@ A collection of permissions granted to apps for the chat.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Chat.php"><a href="files/src-model-chat.html"><abbr title="src/Model/Chat.php">Chat.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">484</span>
+    <span class="phpdocumentor-element-found-in__line">526</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the tabs</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setTabs</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-TeamsTab.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsTab">TeamsTab</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Chat.html"><abbr title="\Beta\Microsoft\Graph\Model\Chat">Chat</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setTabs</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsTab.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsTab">TeamsTab</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Chat.html"><abbr title="\Beta\Microsoft\Graph\Model\Chat">Chat</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1841,7 +1841,7 @@ A collection of permissions granted to apps for the chat.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-TeamsTab.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsTab">TeamsTab</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TeamsTab.html"><abbr title="\Beta\Microsoft\Graph\Model\TeamsTab">TeamsTab</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The tabs</p>

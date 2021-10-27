@@ -192,7 +192,7 @@ type that is referenced as the type in an entity.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-CallEndedEventMessageDetail.html#method_getCallDuration">getCallDuration()</a>
     <span>
-                        &nbsp;: <abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null    </span>
+                        &nbsp;: <abbr title="\DateInterval">DateInterval</abbr>|null    </span>
 </dt>
 <dd>Gets the callDuration
 Duration of the call.</dd>
@@ -216,7 +216,7 @@ Unique identifier of the call.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-CallEndedEventMessageDetail.html#method_getCallParticipants">getCallParticipants()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-CallParticipantInfo.html"><abbr title="\Beta\Microsoft\Graph\Model\CallParticipantInfo">CallParticipantInfo</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-CallParticipantInfo.html"><abbr title="\Beta\Microsoft\Graph\Model\CallParticipantInfo">CallParticipantInfo</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the callParticipants
 List of call participants.</dd>
@@ -434,7 +434,7 @@ Duration of the call.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getCallDuration</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null</span></code>
+                <span class="phpdocumentor-signature__name">getCallDuration</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\DateInterval">DateInterval</abbr>|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -442,7 +442,7 @@ Duration of the call.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\DateInterval">DateInterval</abbr>|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The callDuration</p>
 </section>
@@ -462,7 +462,7 @@ Duration of the call.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/CallEndedEventMessageDetail.php"><a href="files/src-model-callendedeventmessagedetail.html"><abbr title="src/Model/CallEndedEventMessageDetail.php">CallEndedEventMessageDetail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the callEventType
@@ -498,7 +498,7 @@ Represents the call event type. Possible values are: call, meeting, screenShare,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/CallEndedEventMessageDetail.php"><a href="files/src-model-callendedeventmessagedetail.html"><abbr title="src/Model/CallEndedEventMessageDetail.php">CallEndedEventMessageDetail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the callId
@@ -534,7 +534,7 @@ Unique identifier of the call.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/CallEndedEventMessageDetail.php"><a href="files/src-model-callendedeventmessagedetail.html"><abbr title="src/Model/CallEndedEventMessageDetail.php">CallEndedEventMessageDetail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">140</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the callParticipants
@@ -542,7 +542,7 @@ List of call participants.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getCallParticipants</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-CallParticipantInfo.html"><abbr title="\Beta\Microsoft\Graph\Model\CallParticipantInfo">CallParticipantInfo</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getCallParticipants</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-CallParticipantInfo.html"><abbr title="\Beta\Microsoft\Graph\Model\CallParticipantInfo">CallParticipantInfo</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -550,7 +550,7 @@ List of call participants.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-CallParticipantInfo.html"><abbr title="\Beta\Microsoft\Graph\Model\CallParticipantInfo">CallParticipantInfo</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-CallParticipantInfo.html"><abbr title="\Beta\Microsoft\Graph\Model\CallParticipantInfo">CallParticipantInfo</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The callParticipants</p>
 </section>
@@ -606,7 +606,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/CallEndedEventMessageDetail.php"><a href="files/src-model-callendedeventmessagedetail.html"><abbr title="src/Model/CallEndedEventMessageDetail.php">CallEndedEventMessageDetail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">171</span>
+    <span class="phpdocumentor-element-found-in__line">177</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the initiator
@@ -748,7 +748,7 @@ Manually serialize DateTime into RFC3339 format</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/CallEndedEventMessageDetail.php"><a href="files/src-model-callendedeventmessagedetail.html"><abbr title="src/Model/CallEndedEventMessageDetail.php">CallEndedEventMessageDetail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the callDuration
@@ -756,7 +756,7 @@ Duration of the call.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setCallDuration</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-CallEndedEventMessageDetail.html"><abbr title="\Beta\Microsoft\Graph\Model\CallEndedEventMessageDetail">CallEndedEventMessageDetail</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setCallDuration</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateInterval">DateInterval</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-CallEndedEventMessageDetail.html"><abbr title="\Beta\Microsoft\Graph\Model\CallEndedEventMessageDetail">CallEndedEventMessageDetail</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -764,7 +764,7 @@ Duration of the call.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateInterval">DateInterval</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the callDuration</p>
@@ -796,7 +796,7 @@ Duration of the call.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/CallEndedEventMessageDetail.php"><a href="files/src-model-callendedeventmessagedetail.html"><abbr title="src/Model/CallEndedEventMessageDetail.php">CallEndedEventMessageDetail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">98</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the callEventType
@@ -844,7 +844,7 @@ Represents the call event type. Possible values are: call, meeting, screenShare,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/CallEndedEventMessageDetail.php"><a href="files/src-model-callendedeventmessagedetail.html"><abbr title="src/Model/CallEndedEventMessageDetail.php">CallEndedEventMessageDetail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">126</span>
+    <span class="phpdocumentor-element-found-in__line">128</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the callId
@@ -891,7 +891,7 @@ Unique identifier of the call.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/CallEndedEventMessageDetail.php"><a href="files/src-model-callendedeventmessagedetail.html"><abbr title="src/Model/CallEndedEventMessageDetail.php">CallEndedEventMessageDetail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">159</span>
+    <span class="phpdocumentor-element-found-in__line">165</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the callParticipants
@@ -899,7 +899,7 @@ List of call participants.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setCallParticipants</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-CallParticipantInfo.html"><abbr title="\Beta\Microsoft\Graph\Model\CallParticipantInfo">CallParticipantInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-CallEndedEventMessageDetail.html"><abbr title="\Beta\Microsoft\Graph\Model\CallEndedEventMessageDetail">CallEndedEventMessageDetail</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setCallParticipants</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-CallParticipantInfo.html"><abbr title="\Beta\Microsoft\Graph\Model\CallParticipantInfo">CallParticipantInfo</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-CallEndedEventMessageDetail.html"><abbr title="\Beta\Microsoft\Graph\Model\CallEndedEventMessageDetail">CallEndedEventMessageDetail</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -907,7 +907,7 @@ List of call participants.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-CallParticipantInfo.html"><abbr title="\Beta\Microsoft\Graph\Model\CallParticipantInfo">CallParticipantInfo</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-CallParticipantInfo.html"><abbr title="\Beta\Microsoft\Graph\Model\CallParticipantInfo">CallParticipantInfo</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the callParticipants</p>
@@ -986,7 +986,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/CallEndedEventMessageDetail.php"><a href="files/src-model-callendedeventmessagedetail.html"><abbr title="src/Model/CallEndedEventMessageDetail.php">CallEndedEventMessageDetail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">192</span>
+    <span class="phpdocumentor-element-found-in__line">199</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the initiator

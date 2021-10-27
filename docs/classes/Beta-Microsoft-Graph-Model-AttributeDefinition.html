@@ -199,7 +199,7 @@ true if the attribute should be used as the anchor for the object. Anchor attrib
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AttributeDefinition.html#method_getApiExpressions">getApiExpressions()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-StringKeyStringValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\StringKeyStringValuePair">StringKeyStringValuePair</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-StringKeyStringValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\StringKeyStringValuePair">StringKeyStringValuePair</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the apiExpressions</dd>
 
@@ -237,7 +237,7 @@ Read-only.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AttributeDefinition.html#method_getMetadata">getMetadata()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-MetadataEntry.html"><abbr title="\Beta\Microsoft\Graph\Model\MetadataEntry">MetadataEntry</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-MetadataEntry.html"><abbr title="\Beta\Microsoft\Graph\Model\MetadataEntry">MetadataEntry</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the metadata
 Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.</dd>
@@ -283,7 +283,7 @@ Name of the attribute. Must be unique within the object definition. Not nullable
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AttributeDefinition.html#method_getReferencedObjects">getReferencedObjects()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-ReferencedObject.html"><abbr title="\Beta\Microsoft\Graph\Model\ReferencedObject">ReferencedObject</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ReferencedObject.html"><abbr title="\Beta\Microsoft\Graph\Model\ReferencedObject">ReferencedObject</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the referencedObjects
 For attributes with reference type, lists referenced objects (for example, the manager attribute would list User as the referenced object).</dd>
@@ -575,7 +575,7 @@ true if the attribute should be used as the anchor for the object. Anchor attrib
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getApiExpressions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-StringKeyStringValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\StringKeyStringValuePair">StringKeyStringValuePair</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getApiExpressions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-StringKeyStringValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\StringKeyStringValuePair">StringKeyStringValuePair</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -583,7 +583,7 @@ true if the attribute should be used as the anchor for the object. Anchor attrib
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-StringKeyStringValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\StringKeyStringValuePair">StringKeyStringValuePair</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-StringKeyStringValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\StringKeyStringValuePair">StringKeyStringValuePair</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The apiExpressions</p>
 </section>
@@ -603,7 +603,7 @@ true if the attribute should be used as the anchor for the object. Anchor attrib
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">95</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the caseExact
@@ -639,7 +639,7 @@ true if value of this attribute should be treated as case-sensitive. This settin
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">122</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the defaultValue</p>
@@ -674,7 +674,7 @@ true if value of this attribute should be treated as case-sensitive. This settin
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">145</span>
+    <span class="phpdocumentor-element-found-in__line">149</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the flowNullValues
@@ -746,7 +746,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">174</span>
+    <span class="phpdocumentor-element-found-in__line">178</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the metadata
@@ -754,7 +754,7 @@ Additional extension properties. Unless mentioned explicitly, metadata values sh
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getMetadata</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MetadataEntry.html"><abbr title="\Beta\Microsoft\Graph\Model\MetadataEntry">MetadataEntry</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getMetadata</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-MetadataEntry.html"><abbr title="\Beta\Microsoft\Graph\Model\MetadataEntry">MetadataEntry</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -762,7 +762,7 @@ Additional extension properties. Unless mentioned explicitly, metadata values sh
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-MetadataEntry.html"><abbr title="\Beta\Microsoft\Graph\Model\MetadataEntry">MetadataEntry</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-MetadataEntry.html"><abbr title="\Beta\Microsoft\Graph\Model\MetadataEntry">MetadataEntry</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The metadata</p>
 </section>
@@ -782,7 +782,7 @@ Additional extension properties. Unless mentioned explicitly, metadata values sh
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">206</span>
+    <span class="phpdocumentor-element-found-in__line">214</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the multivalued
@@ -818,7 +818,7 @@ true if an attribute can have multiple values. Default is false.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">235</span>
+    <span class="phpdocumentor-element-found-in__line">243</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the mutability
@@ -854,7 +854,7 @@ An attribute&#039;s mutability. Possible values are:  ReadWrite, ReadOnly, Immut
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">267</span>
+    <span class="phpdocumentor-element-found-in__line">276</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the name
@@ -960,7 +960,7 @@ Name of the attribute. Must be unique within the object definition. Not nullable
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">296</span>
+    <span class="phpdocumentor-element-found-in__line">305</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the referencedObjects
@@ -968,7 +968,7 @@ For attributes with reference type, lists referenced objects (for example, the m
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getReferencedObjects</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ReferencedObject.html"><abbr title="\Beta\Microsoft\Graph\Model\ReferencedObject">ReferencedObject</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getReferencedObjects</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ReferencedObject.html"><abbr title="\Beta\Microsoft\Graph\Model\ReferencedObject">ReferencedObject</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -976,7 +976,7 @@ For attributes with reference type, lists referenced objects (for example, the m
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ReferencedObject.html"><abbr title="\Beta\Microsoft\Graph\Model\ReferencedObject">ReferencedObject</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ReferencedObject.html"><abbr title="\Beta\Microsoft\Graph\Model\ReferencedObject">ReferencedObject</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The referencedObjects</p>
 </section>
@@ -996,7 +996,7 @@ For attributes with reference type, lists referenced objects (for example, the m
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">328</span>
+    <span class="phpdocumentor-element-found-in__line">341</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the required
@@ -1032,7 +1032,7 @@ true if attribute is required. Object can not be created if any of the required 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">357</span>
+    <span class="phpdocumentor-element-found-in__line">370</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the type
@@ -1151,14 +1151,14 @@ true if the attribute should be used as the anchor for the object. Anchor attrib
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the apiExpressions</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setApiExpressions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-StringKeyStringValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\StringKeyStringValuePair">StringKeyStringValuePair</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AttributeDefinition.html"><abbr title="\Beta\Microsoft\Graph\Model\AttributeDefinition">AttributeDefinition</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setApiExpressions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-StringKeyStringValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\StringKeyStringValuePair">StringKeyStringValuePair</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AttributeDefinition.html"><abbr title="\Beta\Microsoft\Graph\Model\AttributeDefinition">AttributeDefinition</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1166,7 +1166,7 @@ true if the attribute should be used as the anchor for the object. Anchor attrib
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-StringKeyStringValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\StringKeyStringValuePair">StringKeyStringValuePair</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-StringKeyStringValuePair.html"><abbr title="\Beta\Microsoft\Graph\Model\StringKeyStringValuePair">StringKeyStringValuePair</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the apiExpressions</p>
@@ -1198,7 +1198,7 @@ true if the attribute should be used as the anchor for the object. Anchor attrib
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">112</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the caseExact
@@ -1245,7 +1245,7 @@ true if value of this attribute should be treated as case-sensitive. This settin
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">134</span>
+    <span class="phpdocumentor-element-found-in__line">138</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the defaultValue</p>
@@ -1291,7 +1291,7 @@ true if value of this attribute should be treated as case-sensitive. This settin
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">162</span>
+    <span class="phpdocumentor-element-found-in__line">166</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the flowNullValues
@@ -1385,7 +1385,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">195</span>
+    <span class="phpdocumentor-element-found-in__line">203</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the metadata
@@ -1393,7 +1393,7 @@ Additional extension properties. Unless mentioned explicitly, metadata values sh
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setMetadata</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-MetadataEntry.html"><abbr title="\Beta\Microsoft\Graph\Model\MetadataEntry">MetadataEntry</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AttributeDefinition.html"><abbr title="\Beta\Microsoft\Graph\Model\AttributeDefinition">AttributeDefinition</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setMetadata</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-MetadataEntry.html"><abbr title="\Beta\Microsoft\Graph\Model\MetadataEntry">MetadataEntry</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AttributeDefinition.html"><abbr title="\Beta\Microsoft\Graph\Model\AttributeDefinition">AttributeDefinition</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1401,7 +1401,7 @@ Additional extension properties. Unless mentioned explicitly, metadata values sh
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-MetadataEntry.html"><abbr title="\Beta\Microsoft\Graph\Model\MetadataEntry">MetadataEntry</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-MetadataEntry.html"><abbr title="\Beta\Microsoft\Graph\Model\MetadataEntry">MetadataEntry</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the metadata</p>
@@ -1433,7 +1433,7 @@ Additional extension properties. Unless mentioned explicitly, metadata values sh
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">223</span>
+    <span class="phpdocumentor-element-found-in__line">231</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the multivalued
@@ -1480,7 +1480,7 @@ true if an attribute can have multiple values. Default is false.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">256</span>
+    <span class="phpdocumentor-element-found-in__line">265</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the mutability
@@ -1528,7 +1528,7 @@ An attribute&#039;s mutability. Possible values are:  ReadWrite, ReadOnly, Immut
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">284</span>
+    <span class="phpdocumentor-element-found-in__line">293</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the name
@@ -1621,7 +1621,7 @@ Name of the attribute. Must be unique within the object definition. Not nullable
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">317</span>
+    <span class="phpdocumentor-element-found-in__line">330</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the referencedObjects
@@ -1629,7 +1629,7 @@ For attributes with reference type, lists referenced objects (for example, the m
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setReferencedObjects</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ReferencedObject.html"><abbr title="\Beta\Microsoft\Graph\Model\ReferencedObject">ReferencedObject</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AttributeDefinition.html"><abbr title="\Beta\Microsoft\Graph\Model\AttributeDefinition">AttributeDefinition</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setReferencedObjects</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ReferencedObject.html"><abbr title="\Beta\Microsoft\Graph\Model\ReferencedObject">ReferencedObject</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AttributeDefinition.html"><abbr title="\Beta\Microsoft\Graph\Model\AttributeDefinition">AttributeDefinition</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1637,7 +1637,7 @@ For attributes with reference type, lists referenced objects (for example, the m
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ReferencedObject.html"><abbr title="\Beta\Microsoft\Graph\Model\ReferencedObject">ReferencedObject</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ReferencedObject.html"><abbr title="\Beta\Microsoft\Graph\Model\ReferencedObject">ReferencedObject</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the referencedObjects</p>
@@ -1669,7 +1669,7 @@ For attributes with reference type, lists referenced objects (for example, the m
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">345</span>
+    <span class="phpdocumentor-element-found-in__line">358</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the required
@@ -1716,7 +1716,7 @@ true if attribute is required. Object can not be created if any of the required 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AttributeDefinition.php"><a href="files/src-model-attributedefinition.html"><abbr title="src/Model/AttributeDefinition.php">AttributeDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">378</span>
+    <span class="phpdocumentor-element-found-in__line">392</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the type

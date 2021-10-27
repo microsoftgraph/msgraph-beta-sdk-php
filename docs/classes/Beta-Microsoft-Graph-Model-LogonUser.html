@@ -247,7 +247,7 @@ User logon ID.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-LogonUser.html#method_getLogonTypes">getLogonTypes()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-LogonType.html"><abbr title="\Beta\Microsoft\Graph\Model\LogonType">LogonType</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-LogonType.html"><abbr title="\Beta\Microsoft\Graph\Model\LogonType">LogonType</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the logonTypes
 Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.</dd>
@@ -564,7 +564,7 @@ User Account type, per Windows definition. Possible values are: unknown, standar
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/LogonUser.php"><a href="files/src-model-logonuser.html"><abbr title="src/Model/LogonUser.php">LogonUser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">122</span>
+    <span class="phpdocumentor-element-found-in__line">123</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the firstSeenDateTime
@@ -636,7 +636,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/LogonUser.php"><a href="files/src-model-logonuser.html"><abbr title="src/Model/LogonUser.php">LogonUser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">155</span>
+    <span class="phpdocumentor-element-found-in__line">157</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the lastSeenDateTime
@@ -672,7 +672,7 @@ DateTime at which the latest logon by this user account occurred. The Timestamp 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/LogonUser.php"><a href="files/src-model-logonuser.html"><abbr title="src/Model/LogonUser.php">LogonUser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">187</span>
+    <span class="phpdocumentor-element-found-in__line">190</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the logonId
@@ -708,7 +708,7 @@ User logon ID.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/LogonUser.php"><a href="files/src-model-logonuser.html"><abbr title="src/Model/LogonUser.php">LogonUser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">216</span>
+    <span class="phpdocumentor-element-found-in__line">219</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the logonTypes
@@ -716,7 +716,7 @@ Collection of the logon types observed for the logged on user from when first to
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getLogonTypes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-LogonType.html"><abbr title="\Beta\Microsoft\Graph\Model\LogonType">LogonType</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getLogonTypes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-LogonType.html"><abbr title="\Beta\Microsoft\Graph\Model\LogonType">LogonType</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -724,7 +724,7 @@ Collection of the logon types observed for the logged on user from when first to
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-LogonType.html"><abbr title="\Beta\Microsoft\Graph\Model\LogonType">LogonType</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-LogonType.html"><abbr title="\Beta\Microsoft\Graph\Model\LogonType">LogonType</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The logonTypes</p>
 </section>
@@ -944,7 +944,7 @@ Account name of user account used to logon.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/LogonUser.php"><a href="files/src-model-logonuser.html"><abbr title="src/Model/LogonUser.php">LogonUser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the accountType
@@ -992,7 +992,7 @@ User Account type, per Windows definition. Possible values are: unknown, standar
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/LogonUser.php"><a href="files/src-model-logonuser.html"><abbr title="src/Model/LogonUser.php">LogonUser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">145</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the firstSeenDateTime
@@ -1087,7 +1087,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/LogonUser.php"><a href="files/src-model-logonuser.html"><abbr title="src/Model/LogonUser.php">LogonUser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">176</span>
+    <span class="phpdocumentor-element-found-in__line">179</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the lastSeenDateTime
@@ -1135,7 +1135,7 @@ DateTime at which the latest logon by this user account occurred. The Timestamp 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/LogonUser.php"><a href="files/src-model-logonuser.html"><abbr title="src/Model/LogonUser.php">LogonUser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">204</span>
+    <span class="phpdocumentor-element-found-in__line">207</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the logonId
@@ -1182,7 +1182,7 @@ User logon ID.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/LogonUser.php"><a href="files/src-model-logonuser.html"><abbr title="src/Model/LogonUser.php">LogonUser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">237</span>
+    <span class="phpdocumentor-element-found-in__line">244</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the logonTypes
@@ -1190,7 +1190,7 @@ Collection of the logon types observed for the logged on user from when first to
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setLogonTypes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-LogonType.html"><abbr title="\Beta\Microsoft\Graph\Model\LogonType">LogonType</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-LogonUser.html"><abbr title="\Beta\Microsoft\Graph\Model\LogonUser">LogonUser</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setLogonTypes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-LogonType.html"><abbr title="\Beta\Microsoft\Graph\Model\LogonType">LogonType</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-LogonUser.html"><abbr title="\Beta\Microsoft\Graph\Model\LogonUser">LogonUser</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1198,7 +1198,7 @@ Collection of the logon types observed for the logged on user from when first to
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-LogonType.html"><abbr title="\Beta\Microsoft\Graph\Model\LogonType">LogonType</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-LogonType.html"><abbr title="\Beta\Microsoft\Graph\Model\LogonType">LogonType</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the logonTypes</p>

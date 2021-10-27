@@ -191,7 +191,7 @@ to the model</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Filter.html#method_getCategoryFilterGroups">getCategoryFilterGroups()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the categoryFilterGroups
 *Experimental* Filter group set used to decide whether given object belongs and should be processed as part of this object mapping. An object is considered in scope if ANY of the groups in the collection is evaluated to true.</dd>
@@ -199,7 +199,7 @@ to the model</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Filter.html#method_getGroups">getGroups()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the groups
 Filter group set used to decide whether given object is in scope for provisioning. This is the filter which should be used in most cases. If an object used to satisfy this filter at a given moment, and then the object or the filter was changed so that filter is not satisfied any longer, such object will get de-provisioned&#039;. An object is considered in scope if ANY of the groups in the collection is evaluated to true.</dd>
@@ -215,7 +215,7 @@ Read-only.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Filter.html#method_getInputFilterGroups">getInputFilterGroups()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the inputFilterGroups
 *Experimental* Filter group set used to filter out objects at the early stage of reading them from the directory. If an object doesn&#039;t satisfy this filter it will not be processed further. Important to understand is that if an object used to satisfy this filter at a given moment, and then the object or the filter was changed so that filter is no longer satisfied, such object will NOT get de-provisioned. An object is considered in scope if ANY of the groups in the collection is evaluated to true.</dd>
@@ -400,7 +400,7 @@ to the model</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getCategoryFilterGroups</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getCategoryFilterGroups</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -408,7 +408,7 @@ to the model</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The categoryFilterGroups</p>
 </section>
@@ -428,7 +428,7 @@ to the model</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Filter.php"><a href="files/src-model-filter.html"><abbr title="src/Model/Filter.php">Filter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the groups
@@ -436,7 +436,7 @@ Filter group set used to decide whether given object is in scope for provisionin
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getGroups</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getGroups</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -444,7 +444,7 @@ Filter group set used to decide whether given object is in scope for provisionin
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The groups</p>
 </section>
@@ -500,7 +500,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Filter.php"><a href="files/src-model-filter.html"><abbr title="src/Model/Filter.php">Filter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">99</span>
+    <span class="phpdocumentor-element-found-in__line">107</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the inputFilterGroups
@@ -508,7 +508,7 @@ Read-only.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getInputFilterGroups</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getInputFilterGroups</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -516,7 +516,7 @@ Read-only.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The inputFilterGroups</p>
 </section>
@@ -642,7 +642,7 @@ Manually serialize DateTime into RFC3339 format</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Filter.php"><a href="files/src-model-filter.html"><abbr title="src/Model/Filter.php">Filter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the categoryFilterGroups
@@ -650,7 +650,7 @@ Manually serialize DateTime into RFC3339 format</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setCategoryFilterGroups</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Filter.html"><abbr title="\Beta\Microsoft\Graph\Model\Filter">Filter</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setCategoryFilterGroups</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Filter.html"><abbr title="\Beta\Microsoft\Graph\Model\Filter">Filter</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -658,7 +658,7 @@ Manually serialize DateTime into RFC3339 format</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the categoryFilterGroups</p>
@@ -690,7 +690,7 @@ Manually serialize DateTime into RFC3339 format</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Filter.php"><a href="files/src-model-filter.html"><abbr title="src/Model/Filter.php">Filter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">87</span>
+    <span class="phpdocumentor-element-found-in__line">95</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the groups
@@ -698,7 +698,7 @@ Filter group set used to decide whether given object is in scope for provisionin
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setGroups</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Filter.html"><abbr title="\Beta\Microsoft\Graph\Model\Filter">Filter</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setGroups</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Filter.html"><abbr title="\Beta\Microsoft\Graph\Model\Filter">Filter</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -706,7 +706,7 @@ Filter group set used to decide whether given object is in scope for provisionin
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the groups</p>
@@ -785,7 +785,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Filter.php"><a href="files/src-model-filter.html"><abbr title="src/Model/Filter.php">Filter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">120</span>
+    <span class="phpdocumentor-element-found-in__line">132</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the inputFilterGroups
@@ -793,7 +793,7 @@ Read-only.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setInputFilterGroups</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Filter.html"><abbr title="\Beta\Microsoft\Graph\Model\Filter">Filter</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setInputFilterGroups</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Filter.html"><abbr title="\Beta\Microsoft\Graph\Model\Filter">Filter</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -801,7 +801,7 @@ Read-only.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FilterGroup.html"><abbr title="\Beta\Microsoft\Graph\Model\FilterGroup">FilterGroup</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the inputFilterGroups</p>

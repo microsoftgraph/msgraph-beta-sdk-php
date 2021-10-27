@@ -191,10 +191,10 @@ to the model</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html#method_getApplyActions">getApplyActions()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewApplyAction.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewApplyAction">AccessReviewApplyAction</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewApplyAction.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewApplyAction">AccessReviewApplyAction</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the applyActions
-Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction. See accessReviewApplyAction.</dd>
+Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html#method_getAutoApplyDecisionsEnabled">getAutoApplyDecisionsEnabled()</a>
@@ -202,7 +202,7 @@ Optional field. Describes the  actions to take once a review is complete. There 
                         &nbsp;: bool|null    </span>
 </dt>
 <dd>Gets the autoApplyDecisionsEnabled
-Indicates whether decisions are automatically applied. When set to false, a user must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.</dd>
+Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html#method_getDefaultDecision">getDefaultDecision()</a>
@@ -269,10 +269,10 @@ Indicates whether emails are enabled or disabled. Default value is false.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html#method_getRecommendationLookBackDuration">getRecommendationLookBackDuration()</a>
     <span>
-                        &nbsp;: <abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null    </span>
+                        &nbsp;: <abbr title="\DateInterval">DateInterval</abbr>|null    </span>
 </dt>
 <dd>Gets the recommendationLookBackDuration
-Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. If not specified, the duration is 30 days.</dd>
+Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. For reviews of groups and Azure AD roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html#method_getRecommendationsEnabled">getRecommendationsEnabled()</a>
@@ -312,7 +312,7 @@ Manually serialize DateTime into RFC3339 format</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewScheduleSettings">AccessReviewScheduleSettings</abbr></a>    </span>
 </dt>
 <dd>Sets the applyActions
-Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction. See accessReviewApplyAction.</dd>
+Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html#method_setAutoApplyDecisionsEnabled">setAutoApplyDecisionsEnabled()</a>
@@ -320,7 +320,7 @@ Optional field. Describes the  actions to take once a review is complete. There 
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewScheduleSettings">AccessReviewScheduleSettings</abbr></a>    </span>
 </dt>
 <dd>Sets the autoApplyDecisionsEnabled
-Indicates whether decisions are automatically applied. When set to false, a user must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.</dd>
+Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html#method_setDefaultDecision">setDefaultDecision()</a>
@@ -383,7 +383,7 @@ Indicates whether emails are enabled or disabled. Default value is false.</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewScheduleSettings">AccessReviewScheduleSettings</abbr></a>    </span>
 </dt>
 <dd>Sets the recommendationLookBackDuration
-Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. If not specified, the duration is 30 days.</dd>
+Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. For reviews of groups and Azure AD roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html#method_setRecommendationsEnabled">setRecommendationsEnabled()</a>
@@ -524,11 +524,11 @@ to the model</p>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the applyActions
-Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction. See accessReviewApplyAction.</p>
+Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getApplyActions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewApplyAction.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewApplyAction">AccessReviewApplyAction</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getApplyActions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewApplyAction.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewApplyAction">AccessReviewApplyAction</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -536,7 +536,7 @@ Optional field. Describes the  actions to take once a review is complete. There 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewApplyAction.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewApplyAction">AccessReviewApplyAction</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewApplyAction.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewApplyAction">AccessReviewApplyAction</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The applyActions</p>
 </section>
@@ -556,11 +556,11 @@ Optional field. Describes the  actions to take once a review is complete. There 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the autoApplyDecisionsEnabled
-Indicates whether decisions are automatically applied. When set to false, a user must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.</p>
+Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -592,7 +592,7 @@ Indicates whether decisions are automatically applied. When set to false, a user
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the defaultDecision
@@ -628,7 +628,7 @@ Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the defaultDecisionEnabled
@@ -700,7 +700,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the instanceDurationInDays
@@ -736,7 +736,7 @@ Duration of each recurrence of review (accessReviewInstance) in number of days.<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">177</span>
+    <span class="phpdocumentor-element-found-in__line">181</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the justificationRequiredOnApproval
@@ -772,7 +772,7 @@ Indicates whether reviewers are required to provide justification with their dec
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">205</span>
+    <span class="phpdocumentor-element-found-in__line">209</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the mailNotificationsEnabled
@@ -878,15 +878,15 @@ Indicates whether emails are enabled or disabled. Default value is false.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">234</span>
+    <span class="phpdocumentor-element-found-in__line">238</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the recommendationLookBackDuration
-Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. If not specified, the duration is 30 days.</p>
+Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. For reviews of groups and Azure AD roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getRecommendationLookBackDuration</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null</span></code>
+                <span class="phpdocumentor-signature__name">getRecommendationLookBackDuration</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\DateInterval">DateInterval</abbr>|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -894,7 +894,7 @@ Optional field. Indicates the time period of inactivity (with respect to the sta
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\DateInterval">DateInterval</abbr>|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The recommendationLookBackDuration</p>
 </section>
@@ -914,7 +914,7 @@ Optional field. Indicates the time period of inactivity (with respect to the sta
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">266</span>
+    <span class="phpdocumentor-element-found-in__line">271</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the recommendationsEnabled
@@ -950,7 +950,7 @@ Indicates whether decision recommendations are enabled or disabled.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">295</span>
+    <span class="phpdocumentor-element-found-in__line">300</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the recurrence
@@ -986,7 +986,7 @@ Detailed settings for recurrence using the standard Outlook recurrence object. O
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">327</span>
+    <span class="phpdocumentor-element-found-in__line">333</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the reminderNotificationsEnabled
@@ -1058,15 +1058,15 @@ Manually serialize DateTime into RFC3339 format</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the applyActions
-Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction. See accessReviewApplyAction.</p>
+Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setApplyActions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewApplyAction.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewApplyAction">AccessReviewApplyAction</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewScheduleSettings">AccessReviewScheduleSettings</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setApplyActions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewApplyAction.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewApplyAction">AccessReviewApplyAction</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewScheduleSettings">AccessReviewScheduleSettings</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1074,7 +1074,7 @@ Optional field. Describes the  actions to take once a review is complete. There 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewApplyAction.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewApplyAction">AccessReviewApplyAction</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewApplyAction.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewApplyAction">AccessReviewApplyAction</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the applyActions</p>
@@ -1106,11 +1106,11 @@ Optional field. Describes the  actions to take once a review is complete. There 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the autoApplyDecisionsEnabled
-Indicates whether decisions are automatically applied. When set to false, a user must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.</p>
+Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1153,7 +1153,7 @@ Indicates whether decisions are automatically applied. When set to false, a user
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the defaultDecision
@@ -1200,7 +1200,7 @@ Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the defaultDecisionEnabled
@@ -1294,7 +1294,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">170</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the instanceDurationInDays
@@ -1341,7 +1341,7 @@ Duration of each recurrence of review (accessReviewInstance) in number of days.<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">194</span>
+    <span class="phpdocumentor-element-found-in__line">198</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the justificationRequiredOnApproval
@@ -1388,7 +1388,7 @@ Indicates whether reviewers are required to provide justification with their dec
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">222</span>
+    <span class="phpdocumentor-element-found-in__line">226</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the mailNotificationsEnabled
@@ -1481,15 +1481,15 @@ Indicates whether emails are enabled or disabled. Default value is false.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">255</span>
+    <span class="phpdocumentor-element-found-in__line">260</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the recommendationLookBackDuration
-Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. If not specified, the duration is 30 days.</p>
+Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. For reviews of groups and Azure AD roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setRecommendationLookBackDuration</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewScheduleSettings">AccessReviewScheduleSettings</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setRecommendationLookBackDuration</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateInterval">DateInterval</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScheduleSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewScheduleSettings">AccessReviewScheduleSettings</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1497,7 +1497,7 @@ Optional field. Indicates the time period of inactivity (with respect to the sta
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateInterval">DateInterval</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the recommendationLookBackDuration</p>
@@ -1529,7 +1529,7 @@ Optional field. Indicates the time period of inactivity (with respect to the sta
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">283</span>
+    <span class="phpdocumentor-element-found-in__line">288</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the recommendationsEnabled
@@ -1576,7 +1576,7 @@ Indicates whether decision recommendations are enabled or disabled.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">316</span>
+    <span class="phpdocumentor-element-found-in__line">322</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the recurrence
@@ -1624,7 +1624,7 @@ Detailed settings for recurrence using the standard Outlook recurrence object. O
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewScheduleSettings.php"><a href="files/src-model-accessreviewschedulesettings.html"><abbr title="src/Model/AccessReviewScheduleSettings.php">AccessReviewScheduleSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">344</span>
+    <span class="phpdocumentor-element-found-in__line">350</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the reminderNotificationsEnabled

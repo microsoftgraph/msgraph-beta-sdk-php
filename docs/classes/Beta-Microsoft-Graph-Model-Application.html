@@ -207,7 +207,7 @@ The unique identifier for the application that is assigned to an application by 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_getAppManagementPolicies">getAppManagementPolicies()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppManagementPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\AppManagementPolicy">AppManagementPolicy</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the appManagementPolicies
 The appManagementPolicy applied to this application.</dd>
@@ -215,7 +215,7 @@ The appManagementPolicy applied to this application.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_getAppRoles">getAppRoles()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppRole.html"><abbr title="\Beta\Microsoft\Graph\Model\AppRole">AppRole</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the appRoles
 The collection of roles assigned to the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.</dd>
@@ -249,7 +249,8 @@ Read-only.</dd>
     <span>
                         &nbsp;: string|null    </span>
 </dt>
-<dd>Gets the defaultRedirectUri</dd>
+<dd>Gets the defaultRedirectUri
+The default redirect URI. If specified and there is no explicit redirect URI in the sign-in request for SAML and OIDC flows, Azure AD sends the token to this redirect URI. Azure AD also sends the token to this default URI in SAML IdP-initiated single sign-on. The value must match one of the configured redirect URIs for the application.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html#method_getDeletedDateTime">getDeletedDateTime()</a>
@@ -285,10 +286,18 @@ The display name for the application. Supports $filter (eq, ne, NOT, ge, le, in,
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_getExtensionProperties">getExtensionProperties()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ExtensionProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\ExtensionProperty">ExtensionProperty</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the extensionProperties
 Read-only. Nullable.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_getFederatedIdentityCredentials">getFederatedIdentityCredentials()</a>
+    <span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FederatedIdentityCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\FederatedIdentityCredential">FederatedIdentityCredential</abbr></a>&gt;|null    </span>
+</dt>
+<dd>Gets the federatedIdentityCredentials
+Federated identities for applications. This object can only be retrieved on a single GET request (GET /applications/{id}/federatedIdentityCredentials).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_getGroupMembershipClaims">getGroupMembershipClaims()</a>
@@ -301,7 +310,7 @@ Configures the groups claim issued in a user or OAuth 2.0 access token that the 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_getHomeRealmDiscoveryPolicies">getHomeRealmDiscoveryPolicies()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-HomeRealmDiscoveryPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\HomeRealmDiscoveryPolicy">HomeRealmDiscoveryPolicy</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the homeRealmDiscoveryPolicies</dd>
 
@@ -348,7 +357,7 @@ Specifies the fallback application type as public client, such as an installed a
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_getKeyCredentials">getKeyCredentials()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyCredential">KeyCredential</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the keyCredentials
 The collection of key credentials associated with the application. Not nullable. Supports $filter (eq, NOT, ge, le).</dd>
@@ -395,7 +404,7 @@ Application developers can configure optional claims in their Azure AD applicati
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_getOwners">getOwners()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the owners
 Directory objects that are owners of the application. Read-only. Nullable. Supports $expand.</dd>
@@ -411,7 +420,7 @@ Specifies parental control settings for an application.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_getPasswordCredentials">getPasswordCredentials()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PasswordCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredential">PasswordCredential</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the passwordCredentials
 The collection of password credentials associated with the application. Not nullable.</dd>
@@ -442,10 +451,10 @@ The verified publisher domain for the application. Read-only. For more informati
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_getRequiredResourceAccess">getRequiredResourceAccess()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RequiredResourceAccess.html"><abbr title="\Beta\Microsoft\Graph\Model\RequiredResourceAccess">RequiredResourceAccess</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the requiredResourceAccess
-Specifies the resources that the application needs to access. This property also specifies the set of OAuth permission scopes and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. Not nullable. Supports $filter (eq, NOT, ge, le).</dd>
+Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, NOT, ge, le).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_getSignInAudience">getSignInAudience()</a>
@@ -489,14 +498,14 @@ Specifies the keyId of a public key from the keyCredentials collection. When con
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_getTokenIssuancePolicies">getTokenIssuancePolicies()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TokenIssuancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\TokenIssuancePolicy">TokenIssuancePolicy</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the tokenIssuancePolicies</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_getTokenLifetimePolicies">getTokenLifetimePolicies()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TokenLifetimePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\TokenLifetimePolicy">TokenLifetimePolicy</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the tokenLifetimePolicies
 The tokenLifetimePolicies assigned to this application. Supports $expand.</dd>
@@ -594,7 +603,8 @@ Read-only.</dd>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a>    </span>
 </dt>
-<dd>Sets the defaultRedirectUri</dd>
+<dd>Sets the defaultRedirectUri
+The default redirect URI. If specified and there is no explicit redirect URI in the sign-in request for SAML and OIDC flows, Azure AD sends the token to this redirect URI. Azure AD also sends the token to this default URI in SAML IdP-initiated single sign-on. The value must match one of the configured redirect URIs for the application.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html#method_setDeletedDateTime">setDeletedDateTime()</a>
@@ -634,6 +644,14 @@ The display name for the application. Supports $filter (eq, ne, NOT, ge, le, in,
 </dt>
 <dd>Sets the extensionProperties
 Read-only. Nullable.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_setFederatedIdentityCredentials">setFederatedIdentityCredentials()</a>
+    <span>
+                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a>    </span>
+</dt>
+<dd>Sets the federatedIdentityCredentials
+Federated identities for applications. This object can only be retrieved on a single GET request (GET /applications/{id}/federatedIdentityCredentials).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_setGroupMembershipClaims">setGroupMembershipClaims()</a>
@@ -783,7 +801,7 @@ The verified publisher domain for the application. Read-only. For more informati
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a>    </span>
 </dt>
 <dd>Sets the requiredResourceAccess
-Specifies the resources that the application needs to access. This property also specifies the set of OAuth permission scopes and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. Not nullable. Supports $filter (eq, NOT, ge, le).</dd>
+Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, NOT, ge, le).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_setSignInAudience">setSignInAudience()</a>
@@ -1046,7 +1064,7 @@ The unique identifier for the application that is assigned to an application by 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">950</span>
+    <span class="phpdocumentor-element-found-in__line">980</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the appManagementPolicies
@@ -1054,7 +1072,7 @@ The appManagementPolicy applied to this application.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getAppManagementPolicies</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getAppManagementPolicies</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppManagementPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\AppManagementPolicy">AppManagementPolicy</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1062,7 +1080,7 @@ The appManagementPolicy applied to this application.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppManagementPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\AppManagementPolicy">AppManagementPolicy</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The appManagementPolicies</p>
 </section>
@@ -1090,7 +1108,7 @@ The collection of roles assigned to the application. With app role assignments, 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getAppRoles</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getAppRoles</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppRole.html"><abbr title="\Beta\Microsoft\Graph\Model\AppRole">AppRole</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1098,7 +1116,7 @@ The collection of roles assigned to the application. With app role assignments, 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppRole.html"><abbr title="\Beta\Microsoft\Graph\Model\AppRole">AppRole</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The appRoles</p>
 </section>
@@ -1118,7 +1136,7 @@ The collection of roles assigned to the application. With app role assignments, 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1158</span>
+    <span class="phpdocumentor-element-found-in__line">1267</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the connectorGroup
@@ -1154,7 +1172,7 @@ The connectorGroup the application is using with Azure AD Application Proxy. Nul
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">125</span>
+    <span class="phpdocumentor-element-found-in__line">132</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the createdDateTime
@@ -1190,7 +1208,7 @@ The date and time the application was registered. The DateTimeOffset type repres
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">979</span>
+    <span class="phpdocumentor-element-found-in__line">1016</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the createdOnBehalfOf
@@ -1226,10 +1244,11 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">157</span>
+    <span class="phpdocumentor-element-found-in__line">165</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the defaultRedirectUri</p>
+        <p class="phpdocumentor-summary">Gets the defaultRedirectUri
+The default redirect URI. If specified and there is no explicit redirect URI in the sign-in request for SAML and OIDC flows, Azure AD sends the token to this redirect URI. Azure AD also sends the token to this default URI in SAML IdP-initiated single sign-on. The value must match one of the configured redirect URIs for the application.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1296,7 +1315,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">185</span>
+    <span class="phpdocumentor-element-found-in__line">194</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the description
@@ -1332,7 +1351,7 @@ An optional description of the application. Supports $filter (eq, ne, NOT, ge, l
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">214</span>
+    <span class="phpdocumentor-element-found-in__line">223</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the disabledByMicrosoftStatus
@@ -1368,7 +1387,7 @@ Specifies whether Microsoft has disabled the registered application. Possible va
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">243</span>
+    <span class="phpdocumentor-element-found-in__line">252</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the displayName
@@ -1404,7 +1423,7 @@ The display name for the application. Supports $filter (eq, ne, NOT, ge, le, in,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1013</span>
+    <span class="phpdocumentor-element-found-in__line">1050</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the extensionProperties
@@ -1412,7 +1431,7 @@ Read-only. Nullable.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getExtensionProperties</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getExtensionProperties</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ExtensionProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\ExtensionProperty">ExtensionProperty</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1420,9 +1439,45 @@ Read-only. Nullable.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ExtensionProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\ExtensionProperty">ExtensionProperty</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The extensionProperties</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getFederatedIdentityCredentials">
+        getFederatedIdentityCredentials()
+        <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_getFederatedIdentityCredentials" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1087</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Gets the federatedIdentityCredentials
+Federated identities for applications. This object can only be retrieved on a single GET request (GET /applications/{id}/federatedIdentityCredentials).</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getFederatedIdentityCredentials</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FederatedIdentityCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\FederatedIdentityCredential">FederatedIdentityCredential</abbr></a>&gt;|null</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FederatedIdentityCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\FederatedIdentityCredential">FederatedIdentityCredential</abbr></a>&gt;|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The federatedIdentityCredentials</p>
 </section>
 
     
@@ -1440,7 +1495,7 @@ Read-only. Nullable.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">272</span>
+    <span class="phpdocumentor-element-found-in__line">281</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the groupMembershipClaims
@@ -1476,14 +1531,14 @@ Configures the groups claim issued in a user or OAuth 2.0 access token that the 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1042</span>
+    <span class="phpdocumentor-element-found-in__line">1123</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the homeRealmDiscoveryPolicies</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getHomeRealmDiscoveryPolicies</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getHomeRealmDiscoveryPolicies</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-HomeRealmDiscoveryPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\HomeRealmDiscoveryPolicy">HomeRealmDiscoveryPolicy</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1491,7 +1546,7 @@ Configures the groups claim issued in a user or OAuth 2.0 access token that the 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-HomeRealmDiscoveryPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\HomeRealmDiscoveryPolicy">HomeRealmDiscoveryPolicy</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The homeRealmDiscoveryPolicies</p>
 </section>
@@ -1547,7 +1602,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">301</span>
+    <span class="phpdocumentor-element-found-in__line">310</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the identifierUris
@@ -1583,7 +1638,7 @@ The URIs that identify the application within its Azure AD tenant, or within a v
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">330</span>
+    <span class="phpdocumentor-element-found-in__line">339</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the info
@@ -1619,7 +1674,7 @@ Basic profile information of the application such as  app&#039;s marketing, supp
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">363</span>
+    <span class="phpdocumentor-element-found-in__line">372</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isDeviceOnlyAuthSupported
@@ -1655,7 +1710,7 @@ Specifies whether this application supports device authentication without a user
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">392</span>
+    <span class="phpdocumentor-element-found-in__line">401</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isFallbackPublicClient
@@ -1691,7 +1746,7 @@ Specifies the fallback application type as public client, such as an installed a
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">422</span>
+    <span class="phpdocumentor-element-found-in__line">431</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the keyCredentials
@@ -1699,7 +1754,7 @@ The collection of key credentials associated with the application. Not nullable.
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getKeyCredentials</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getKeyCredentials</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyCredential">KeyCredential</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1707,7 +1762,7 @@ The collection of key credentials associated with the application. Not nullable.
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyCredential">KeyCredential</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The keyCredentials</p>
 </section>
@@ -1727,7 +1782,7 @@ The collection of key credentials associated with the application. Not nullable.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">451</span>
+    <span class="phpdocumentor-element-found-in__line">467</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the logo
@@ -1763,7 +1818,7 @@ The main logo for the application. Not nullable.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">484</span>
+    <span class="phpdocumentor-element-found-in__line">500</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the notes
@@ -1834,7 +1889,7 @@ Notes relevant for the management of the application.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">916</span>
+    <span class="phpdocumentor-element-found-in__line">946</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the onPremisesPublishing
@@ -1870,7 +1925,7 @@ Represents the set of properties required for configuring Application Proxy for 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">513</span>
+    <span class="phpdocumentor-element-found-in__line">529</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the optionalClaims
@@ -1906,7 +1961,7 @@ Application developers can configure optional claims in their Azure AD applicati
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1071</span>
+    <span class="phpdocumentor-element-found-in__line">1159</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the owners
@@ -1914,7 +1969,7 @@ Directory objects that are owners of the application. Read-only. Nullable. Suppo
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getOwners</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getOwners</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1922,7 +1977,7 @@ Directory objects that are owners of the application. Read-only. Nullable. Suppo
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The owners</p>
 </section>
@@ -1942,7 +1997,7 @@ Directory objects that are owners of the application. Read-only. Nullable. Suppo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">546</span>
+    <span class="phpdocumentor-element-found-in__line">562</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the parentalControlSettings
@@ -1978,7 +2033,7 @@ Specifies parental control settings for an application.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">580</span>
+    <span class="phpdocumentor-element-found-in__line">596</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the passwordCredentials
@@ -1986,7 +2041,7 @@ The collection of password credentials associated with the application. Not null
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getPasswordCredentials</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getPasswordCredentials</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PasswordCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredential">PasswordCredential</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1994,7 +2049,7 @@ The collection of password credentials associated with the application. Not null
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PasswordCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredential">PasswordCredential</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The passwordCredentials</p>
 </section>
@@ -2049,7 +2104,7 @@ The collection of password credentials associated with the application. Not null
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">609</span>
+    <span class="phpdocumentor-element-found-in__line">632</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the publicClient
@@ -2085,7 +2140,7 @@ Specifies settings for installed clients such as desktop or mobile devices.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">642</span>
+    <span class="phpdocumentor-element-found-in__line">665</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the publisherDomain
@@ -2121,15 +2176,15 @@ The verified publisher domain for the application. Read-only. For more informati
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">672</span>
+    <span class="phpdocumentor-element-found-in__line">695</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the requiredResourceAccess
-Specifies the resources that the application needs to access. This property also specifies the set of OAuth permission scopes and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. Not nullable. Supports $filter (eq, NOT, ge, le).</p>
+Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, NOT, ge, le).</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getRequiredResourceAccess</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getRequiredResourceAccess</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RequiredResourceAccess.html"><abbr title="\Beta\Microsoft\Graph\Model\RequiredResourceAccess">RequiredResourceAccess</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2137,7 +2192,7 @@ Specifies the resources that the application needs to access. This property also
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RequiredResourceAccess.html"><abbr title="\Beta\Microsoft\Graph\Model\RequiredResourceAccess">RequiredResourceAccess</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The requiredResourceAccess</p>
 </section>
@@ -2157,7 +2212,7 @@ Specifies the resources that the application needs to access. This property also
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">701</span>
+    <span class="phpdocumentor-element-found-in__line">731</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the signInAudience
@@ -2193,7 +2248,7 @@ Specifies the Microsoft accounts that are supported for the current application.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">730</span>
+    <span class="phpdocumentor-element-found-in__line">760</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the spa
@@ -2229,7 +2284,7 @@ Specifies settings for a single-page application, including sign out URLs and re
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1190</span>
+    <span class="phpdocumentor-element-found-in__line">1299</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the synchronization</p>
@@ -2264,7 +2319,7 @@ Specifies settings for a single-page application, including sign out URLs and re
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">763</span>
+    <span class="phpdocumentor-element-found-in__line">793</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the tags
@@ -2300,7 +2355,7 @@ Custom strings that can be used to categorize and identify the application. Not 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">792</span>
+    <span class="phpdocumentor-element-found-in__line">822</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the tokenEncryptionKeyId
@@ -2336,14 +2391,14 @@ Specifies the keyId of a public key from the keyCredentials collection. When con
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1100</span>
+    <span class="phpdocumentor-element-found-in__line">1195</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the tokenIssuancePolicies</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getTokenIssuancePolicies</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getTokenIssuancePolicies</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TokenIssuancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\TokenIssuancePolicy">TokenIssuancePolicy</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2351,7 +2406,7 @@ Specifies the keyId of a public key from the keyCredentials collection. When con
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TokenIssuancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\TokenIssuancePolicy">TokenIssuancePolicy</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The tokenIssuancePolicies</p>
 </section>
@@ -2371,7 +2426,7 @@ Specifies the keyId of a public key from the keyCredentials collection. When con
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1129</span>
+    <span class="phpdocumentor-element-found-in__line">1231</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the tokenLifetimePolicies
@@ -2379,7 +2434,7 @@ The tokenLifetimePolicies assigned to this application. Supports $expand.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getTokenLifetimePolicies</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getTokenLifetimePolicies</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TokenLifetimePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\TokenLifetimePolicy">TokenLifetimePolicy</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2387,7 +2442,7 @@ The tokenLifetimePolicies assigned to this application. Supports $expand.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TokenLifetimePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\TokenLifetimePolicy">TokenLifetimePolicy</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The tokenLifetimePolicies</p>
 </section>
@@ -2407,7 +2462,7 @@ The tokenLifetimePolicies assigned to this application. Supports $expand.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">821</span>
+    <span class="phpdocumentor-element-found-in__line">851</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the uniqueName
@@ -2443,7 +2498,7 @@ The unique identifier that can be assigned to an application as an alternative i
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">850</span>
+    <span class="phpdocumentor-element-found-in__line">880</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the verifiedPublisher
@@ -2479,7 +2534,7 @@ Specifies the verified publisher of the application.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">883</span>
+    <span class="phpdocumentor-element-found-in__line">913</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the web
@@ -2645,7 +2700,7 @@ The unique identifier for the application that is assigned to an application by 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">967</span>
+    <span class="phpdocumentor-element-found-in__line">1004</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the appManagementPolicies
@@ -2653,7 +2708,7 @@ The appManagementPolicy applied to this application.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAppManagementPolicies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AppManagementPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\AppManagementPolicy">AppManagementPolicy</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setAppManagementPolicies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppManagementPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\AppManagementPolicy">AppManagementPolicy</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2661,7 +2716,7 @@ The appManagementPolicy applied to this application.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AppManagementPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\AppManagementPolicy">AppManagementPolicy</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppManagementPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\AppManagementPolicy">AppManagementPolicy</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The appManagementPolicies</p>
@@ -2692,7 +2747,7 @@ The appManagementPolicy applied to this application.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">113</span>
+    <span class="phpdocumentor-element-found-in__line">120</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the appRoles
@@ -2700,7 +2755,7 @@ The collection of roles assigned to the application. With app role assignments, 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAppRoles</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AppRole.html"><abbr title="\Beta\Microsoft\Graph\Model\AppRole">AppRole</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setAppRoles</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppRole.html"><abbr title="\Beta\Microsoft\Graph\Model\AppRole">AppRole</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2708,7 +2763,7 @@ The collection of roles assigned to the application. With app role assignments, 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AppRole.html"><abbr title="\Beta\Microsoft\Graph\Model\AppRole">AppRole</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppRole.html"><abbr title="\Beta\Microsoft\Graph\Model\AppRole">AppRole</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The appRoles</p>
@@ -2739,7 +2794,7 @@ The collection of roles assigned to the application. With app role assignments, 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1179</span>
+    <span class="phpdocumentor-element-found-in__line">1288</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the connectorGroup
@@ -2786,7 +2841,7 @@ The connectorGroup the application is using with Azure AD Application Proxy. Nul
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">146</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the createdDateTime
@@ -2833,7 +2888,7 @@ The date and time the application was registered. The DateTimeOffset type repres
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1000</span>
+    <span class="phpdocumentor-element-found-in__line">1037</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the createdOnBehalfOf
@@ -2880,10 +2935,11 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">173</span>
+    <span class="phpdocumentor-element-found-in__line">182</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the defaultRedirectUri</p>
+        <p class="phpdocumentor-summary">Sets the defaultRedirectUri
+The default redirect URI. If specified and there is no explicit redirect URI in the sign-in request for SAML and OIDC flows, Azure AD sends the token to this redirect URI. Azure AD also sends the token to this default URI in SAML IdP-initiated single sign-on. The value must match one of the configured redirect URIs for the application.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -2972,7 +3028,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">202</span>
+    <span class="phpdocumentor-element-found-in__line">211</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the description
@@ -3019,7 +3075,7 @@ An optional description of the application. Supports $filter (eq, ne, NOT, ge, l
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">231</span>
+    <span class="phpdocumentor-element-found-in__line">240</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the disabledByMicrosoftStatus
@@ -3066,7 +3122,7 @@ Specifies whether Microsoft has disabled the registered application. Possible va
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">260</span>
+    <span class="phpdocumentor-element-found-in__line">269</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the displayName
@@ -3113,7 +3169,7 @@ The display name for the application. Supports $filter (eq, ne, NOT, ge, le, in,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1030</span>
+    <span class="phpdocumentor-element-found-in__line">1074</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the extensionProperties
@@ -3121,7 +3177,7 @@ Read-only. Nullable.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setExtensionProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ExtensionProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\ExtensionProperty">ExtensionProperty</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setExtensionProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ExtensionProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\ExtensionProperty">ExtensionProperty</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3129,10 +3185,57 @@ Read-only. Nullable.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ExtensionProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\ExtensionProperty">ExtensionProperty</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ExtensionProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\ExtensionProperty">ExtensionProperty</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The extensionProperties</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setFederatedIdentityCredentials">
+        setFederatedIdentityCredentials()
+        <a href="classes/Beta-Microsoft-Graph-Model-Application.html#method_setFederatedIdentityCredentials" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1111</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Sets the federatedIdentityCredentials
+Federated identities for applications. This object can only be retrieved on a single GET request (GET /applications/{id}/federatedIdentityCredentials).</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setFederatedIdentityCredentials</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FederatedIdentityCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\FederatedIdentityCredential">FederatedIdentityCredential</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$val</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-FederatedIdentityCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\FederatedIdentityCredential">FederatedIdentityCredential</abbr></a>&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The federatedIdentityCredentials</p>
 </section>
 
             </dd>
@@ -3160,7 +3263,7 @@ Read-only. Nullable.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">289</span>
+    <span class="phpdocumentor-element-found-in__line">298</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the groupMembershipClaims
@@ -3207,14 +3310,14 @@ Configures the groups claim issued in a user or OAuth 2.0 access token that the 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1058</span>
+    <span class="phpdocumentor-element-found-in__line">1146</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the homeRealmDiscoveryPolicies</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setHomeRealmDiscoveryPolicies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-HomeRealmDiscoveryPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\HomeRealmDiscoveryPolicy">HomeRealmDiscoveryPolicy</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setHomeRealmDiscoveryPolicies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-HomeRealmDiscoveryPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\HomeRealmDiscoveryPolicy">HomeRealmDiscoveryPolicy</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3222,7 +3325,7 @@ Configures the groups claim issued in a user or OAuth 2.0 access token that the 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-HomeRealmDiscoveryPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\HomeRealmDiscoveryPolicy">HomeRealmDiscoveryPolicy</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-HomeRealmDiscoveryPolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\HomeRealmDiscoveryPolicy">HomeRealmDiscoveryPolicy</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The homeRealmDiscoveryPolicies</p>
@@ -3300,7 +3403,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">318</span>
+    <span class="phpdocumentor-element-found-in__line">327</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the identifierUris
@@ -3347,7 +3450,7 @@ The URIs that identify the application within its Azure AD tenant, or within a v
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">351</span>
+    <span class="phpdocumentor-element-found-in__line">360</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the info
@@ -3394,7 +3497,7 @@ Basic profile information of the application such as  app&#039;s marketing, supp
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">380</span>
+    <span class="phpdocumentor-element-found-in__line">389</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isDeviceOnlyAuthSupported
@@ -3441,7 +3544,7 @@ Specifies whether this application supports device authentication without a user
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">409</span>
+    <span class="phpdocumentor-element-found-in__line">418</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isFallbackPublicClient
@@ -3488,7 +3591,7 @@ Specifies the fallback application type as public client, such as an installed a
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">439</span>
+    <span class="phpdocumentor-element-found-in__line">455</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the keyCredentials
@@ -3496,7 +3599,7 @@ The collection of key credentials associated with the application. Not nullable.
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setKeyCredentials</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-KeyCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyCredential">KeyCredential</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setKeyCredentials</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyCredential">KeyCredential</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3504,7 +3607,7 @@ The collection of key credentials associated with the application. Not nullable.
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-KeyCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyCredential">KeyCredential</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyCredential">KeyCredential</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The keyCredentials</p>
@@ -3535,7 +3638,7 @@ The collection of key credentials associated with the application. Not nullable.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">472</span>
+    <span class="phpdocumentor-element-found-in__line">488</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the logo
@@ -3582,7 +3685,7 @@ The main logo for the application. Not nullable.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">501</span>
+    <span class="phpdocumentor-element-found-in__line">517</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the notes
@@ -3675,7 +3778,7 @@ Notes relevant for the management of the application.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">937</span>
+    <span class="phpdocumentor-element-found-in__line">967</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the onPremisesPublishing
@@ -3722,7 +3825,7 @@ Represents the set of properties required for configuring Application Proxy for 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">534</span>
+    <span class="phpdocumentor-element-found-in__line">550</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the optionalClaims
@@ -3769,7 +3872,7 @@ Application developers can configure optional claims in their Azure AD applicati
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1088</span>
+    <span class="phpdocumentor-element-found-in__line">1183</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the owners
@@ -3777,7 +3880,7 @@ Directory objects that are owners of the application. Read-only. Nullable. Suppo
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setOwners</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setOwners</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3785,7 +3888,7 @@ Directory objects that are owners of the application. Read-only. Nullable. Suppo
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The owners</p>
@@ -3816,7 +3919,7 @@ Directory objects that are owners of the application. Read-only. Nullable. Suppo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">567</span>
+    <span class="phpdocumentor-element-found-in__line">583</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the parentalControlSettings
@@ -3863,7 +3966,7 @@ Specifies parental control settings for an application.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">597</span>
+    <span class="phpdocumentor-element-found-in__line">620</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the passwordCredentials
@@ -3871,7 +3974,7 @@ The collection of password credentials associated with the application. Not null
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setPasswordCredentials</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-PasswordCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredential">PasswordCredential</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setPasswordCredentials</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PasswordCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredential">PasswordCredential</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3879,7 +3982,7 @@ The collection of password credentials associated with the application. Not null
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-PasswordCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredential">PasswordCredential</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PasswordCredential.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredential">PasswordCredential</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The passwordCredentials</p>
@@ -3910,7 +4013,7 @@ The collection of password credentials associated with the application. Not null
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">630</span>
+    <span class="phpdocumentor-element-found-in__line">653</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the publicClient
@@ -3957,7 +4060,7 @@ Specifies settings for installed clients such as desktop or mobile devices.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">659</span>
+    <span class="phpdocumentor-element-found-in__line">682</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the publisherDomain
@@ -4004,15 +4107,15 @@ The verified publisher domain for the application. Read-only. For more informati
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">689</span>
+    <span class="phpdocumentor-element-found-in__line">719</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the requiredResourceAccess
-Specifies the resources that the application needs to access. This property also specifies the set of OAuth permission scopes and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. Not nullable. Supports $filter (eq, NOT, ge, le).</p>
+Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, NOT, ge, le).</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setRequiredResourceAccess</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-RequiredResourceAccess.html"><abbr title="\Beta\Microsoft\Graph\Model\RequiredResourceAccess">RequiredResourceAccess</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setRequiredResourceAccess</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RequiredResourceAccess.html"><abbr title="\Beta\Microsoft\Graph\Model\RequiredResourceAccess">RequiredResourceAccess</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -4020,7 +4123,7 @@ Specifies the resources that the application needs to access. This property also
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-RequiredResourceAccess.html"><abbr title="\Beta\Microsoft\Graph\Model\RequiredResourceAccess">RequiredResourceAccess</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RequiredResourceAccess.html"><abbr title="\Beta\Microsoft\Graph\Model\RequiredResourceAccess">RequiredResourceAccess</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The requiredResourceAccess</p>
@@ -4051,7 +4154,7 @@ Specifies the resources that the application needs to access. This property also
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">718</span>
+    <span class="phpdocumentor-element-found-in__line">748</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the signInAudience
@@ -4098,7 +4201,7 @@ Specifies the Microsoft accounts that are supported for the current application.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">751</span>
+    <span class="phpdocumentor-element-found-in__line">781</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the spa
@@ -4145,7 +4248,7 @@ Specifies settings for a single-page application, including sign out URLs and re
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1210</span>
+    <span class="phpdocumentor-element-found-in__line">1319</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the synchronization</p>
@@ -4191,7 +4294,7 @@ Specifies settings for a single-page application, including sign out URLs and re
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">780</span>
+    <span class="phpdocumentor-element-found-in__line">810</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the tags
@@ -4238,7 +4341,7 @@ Custom strings that can be used to categorize and identify the application. Not 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">809</span>
+    <span class="phpdocumentor-element-found-in__line">839</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the tokenEncryptionKeyId
@@ -4285,14 +4388,14 @@ Specifies the keyId of a public key from the keyCredentials collection. When con
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1116</span>
+    <span class="phpdocumentor-element-found-in__line">1218</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the tokenIssuancePolicies</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setTokenIssuancePolicies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-TokenIssuancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\TokenIssuancePolicy">TokenIssuancePolicy</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setTokenIssuancePolicies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TokenIssuancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\TokenIssuancePolicy">TokenIssuancePolicy</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -4300,7 +4403,7 @@ Specifies the keyId of a public key from the keyCredentials collection. When con
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-TokenIssuancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\TokenIssuancePolicy">TokenIssuancePolicy</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TokenIssuancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\TokenIssuancePolicy">TokenIssuancePolicy</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The tokenIssuancePolicies</p>
@@ -4331,7 +4434,7 @@ Specifies the keyId of a public key from the keyCredentials collection. When con
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1146</span>
+    <span class="phpdocumentor-element-found-in__line">1255</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the tokenLifetimePolicies
@@ -4339,7 +4442,7 @@ The tokenLifetimePolicies assigned to this application. Supports $expand.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setTokenLifetimePolicies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-TokenLifetimePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\TokenLifetimePolicy">TokenLifetimePolicy</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setTokenLifetimePolicies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TokenLifetimePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\TokenLifetimePolicy">TokenLifetimePolicy</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Application.html"><abbr title="\Beta\Microsoft\Graph\Model\Application">Application</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -4347,7 +4450,7 @@ The tokenLifetimePolicies assigned to this application. Supports $expand.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-TokenLifetimePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\TokenLifetimePolicy">TokenLifetimePolicy</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-TokenLifetimePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\TokenLifetimePolicy">TokenLifetimePolicy</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The tokenLifetimePolicies</p>
@@ -4378,7 +4481,7 @@ The tokenLifetimePolicies assigned to this application. Supports $expand.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">838</span>
+    <span class="phpdocumentor-element-found-in__line">868</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the uniqueName
@@ -4425,7 +4528,7 @@ The unique identifier that can be assigned to an application as an alternative i
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">871</span>
+    <span class="phpdocumentor-element-found-in__line">901</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the verifiedPublisher
@@ -4472,7 +4575,7 @@ Specifies the verified publisher of the application.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Application.php"><a href="files/src-model-application.html"><abbr title="src/Model/Application.php">Application.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">904</span>
+    <span class="phpdocumentor-element-found-in__line">934</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the web

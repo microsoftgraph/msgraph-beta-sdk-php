@@ -257,7 +257,7 @@ Indicate current lifecycle state of template. Possible values are: invalid, draf
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationPlatforms.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationPlatforms">DeviceManagementConfigurationPlatforms</abbr></a>|null    </span>
 </dt>
 <dd>Gets the platforms
-Platforms for this template. Possible values are: none, macOS, windows10X, windows10.</dd>
+Platforms for this template. Possible values are: none, android, iOS, macOS, windows10X, windows10.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_getProperties">getProperties()</a>
@@ -277,7 +277,7 @@ Number of setting templates. Valid values 0 to 2147483647. This property is read
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationPolicyTemplate.html#method_getSettingTemplates">getSettingTemplates()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationSettingTemplate.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingTemplate">DeviceManagementConfigurationSettingTemplate</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the settingTemplates
 Setting templates</dd>
@@ -288,7 +288,7 @@ Setting templates</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationTechnologies.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationTechnologies">DeviceManagementConfigurationTechnologies</abbr></a>|null    </span>
 </dt>
 <dd>Gets the technologies
-Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline.</dd>
+Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationPolicyTemplate.html#method_getTemplateFamily">getTemplateFamily()</a>
@@ -296,7 +296,7 @@ Technologies for this template. Possible values are: none, mdm, windows10XManage
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationTemplateFamily.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationTemplateFamily">DeviceManagementConfigurationTemplateFamily</abbr></a>|null    </span>
 </dt>
 <dd>Gets the templateFamily
-TemplateFamily for this template. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl.</dd>
+TemplateFamily for this template. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationPolicyTemplate.html#method_getVersion">getVersion()</a>
@@ -383,7 +383,7 @@ Indicate current lifecycle state of template. Possible values are: invalid, draf
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationPolicyTemplate.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationPolicyTemplate">DeviceManagementConfigurationPolicyTemplate</abbr></a>    </span>
 </dt>
 <dd>Sets the platforms
-Platforms for this template. Possible values are: none, macOS, windows10X, windows10.</dd>
+Platforms for this template. Possible values are: none, android, iOS, macOS, windows10X, windows10.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationPolicyTemplate.html#method_setSettingTemplateCount">setSettingTemplateCount()</a>
@@ -407,7 +407,7 @@ Setting templates</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationPolicyTemplate.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationPolicyTemplate">DeviceManagementConfigurationPolicyTemplate</abbr></a>    </span>
 </dt>
 <dd>Sets the technologies
-Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline.</dd>
+Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationPolicyTemplate.html#method_setTemplateFamily">setTemplateFamily()</a>
@@ -415,7 +415,7 @@ Technologies for this template. Possible values are: none, mdm, windows10XManage
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationPolicyTemplate.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationPolicyTemplate">DeviceManagementConfigurationPolicyTemplate</abbr></a>    </span>
 </dt>
 <dd>Sets the templateFamily
-TemplateFamily for this template. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl.</dd>
+TemplateFamily for this template. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationPolicyTemplate.html#method_setVersion">setVersion()</a>
@@ -827,7 +827,7 @@ Indicate current lifecycle state of template. Possible values are: invalid, draf
 </aside>
 
         <p class="phpdocumentor-summary">Gets the platforms
-Platforms for this template. Possible values are: none, macOS, windows10X, windows10.</p>
+Platforms for this template. Possible values are: none, android, iOS, macOS, windows10X, windows10.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -938,7 +938,7 @@ Setting templates</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getSettingTemplates</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getSettingTemplates</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationSettingTemplate.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingTemplate">DeviceManagementConfigurationSettingTemplate</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -946,7 +946,7 @@ Setting templates</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationSettingTemplate.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingTemplate">DeviceManagementConfigurationSettingTemplate</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The settingTemplates</p>
 </section>
@@ -970,7 +970,7 @@ Setting templates</p>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the technologies
-Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline.</p>
+Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1006,7 +1006,7 @@ Technologies for this template. Possible values are: none, mdm, windows10XManage
 </aside>
 
         <p class="phpdocumentor-summary">Gets the templateFamily
-TemplateFamily for this template. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl.</p>
+TemplateFamily for this template. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1489,7 +1489,7 @@ Indicate current lifecycle state of template. Possible values are: invalid, draf
 </aside>
 
         <p class="phpdocumentor-summary">Sets the platforms
-Platforms for this template. Possible values are: none, macOS, windows10X, windows10.</p>
+Platforms for this template. Possible values are: none, android, iOS, macOS, windows10X, windows10.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1579,7 +1579,7 @@ Number of setting templates. Valid values 0 to 2147483647. This property is read
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationPolicyTemplate.php"><a href="files/src-model-devicemanagementconfigurationpolicytemplate.html"><abbr title="src/Model/DeviceManagementConfigurationPolicyTemplate.php">DeviceManagementConfigurationPolicyTemplate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">386</span>
+    <span class="phpdocumentor-element-found-in__line">393</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the settingTemplates
@@ -1587,7 +1587,7 @@ Setting templates</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setSettingTemplates</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationSettingTemplate.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingTemplate">DeviceManagementConfigurationSettingTemplate</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationPolicyTemplate.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationPolicyTemplate">DeviceManagementConfigurationPolicyTemplate</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setSettingTemplates</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationSettingTemplate.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingTemplate">DeviceManagementConfigurationSettingTemplate</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationPolicyTemplate.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationPolicyTemplate">DeviceManagementConfigurationPolicyTemplate</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1595,7 +1595,7 @@ Setting templates</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationSettingTemplate.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingTemplate">DeviceManagementConfigurationSettingTemplate</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationSettingTemplate.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingTemplate">DeviceManagementConfigurationSettingTemplate</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The settingTemplates</p>
@@ -1630,7 +1630,7 @@ Setting templates</p>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the technologies
-Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline.</p>
+Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1677,7 +1677,7 @@ Technologies for this template. Possible values are: none, mdm, windows10XManage
 </aside>
 
         <p class="phpdocumentor-summary">Sets the templateFamily
-TemplateFamily for this template. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl.</p>
+TemplateFamily for this template. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
