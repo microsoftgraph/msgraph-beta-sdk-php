@@ -7,7 +7,7 @@ You can install the Beta PHP SDK with Composer, either run `composer require mic
 ```
 {
     "require": {
-        "microsoft/microsoft-graph-beta": "^2.0.0-preview"
+        "microsoft/microsoft-graph-beta": "^2.0.0-RC1"
     }
 }
 ```
