@@ -191,7 +191,7 @@ to the model</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAssignmentRequestRequirements.html#method_getExistingAnswers">getExistingAnswers()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAnswer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageAnswer">AccessPackageAnswer</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAnswer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageAnswer">AccessPackageAnswer</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the existingAnswers
 Answers that have already been provided.</dd>
@@ -277,7 +277,7 @@ The identifier of the policy that these requirements are associated with. This i
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAssignmentRequestRequirements.html#method_getQuestions">getQuestions()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-AccessPackageQuestion.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageQuestion">AccessPackageQuestion</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessPackageQuestion.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageQuestion">AccessPackageQuestion</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the questions
 Questions that are configured on the policy. The questions can be required or optional; callers can determine whether a question is required or optional based on the isRequired property on accessPackageQuestion.</dd>
@@ -512,7 +512,7 @@ Answers that have already been provided.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getExistingAnswers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAnswer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageAnswer">AccessPackageAnswer</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getExistingAnswers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAnswer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageAnswer">AccessPackageAnswer</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -520,7 +520,7 @@ Answers that have already been provided.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAnswer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageAnswer">AccessPackageAnswer</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAnswer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageAnswer">AccessPackageAnswer</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The existingAnswers</p>
 </section>
@@ -576,7 +576,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isApprovalRequired
@@ -612,7 +612,7 @@ Indicates whether a request must be approved by an approver.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isApprovalRequiredForExtension
@@ -648,7 +648,7 @@ Indicates whether approval is required when a user tries to extend their access.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isCustomAssignmentScheduleAllowed
@@ -684,7 +684,7 @@ Indicates whether the requestor is allowed to set a custom schedule.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isRequestorJustificationRequired
@@ -755,7 +755,7 @@ Indicates whether a requestor must supply justification when submitting an assig
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">177</span>
+    <span class="phpdocumentor-element-found-in__line">181</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the policyDescription
@@ -791,7 +791,7 @@ The description of the policy that the user is trying to request access using.</
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">205</span>
+    <span class="phpdocumentor-element-found-in__line">209</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the policyDisplayName
@@ -827,7 +827,7 @@ The display name of the policy that the user is trying to request access using.<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">233</span>
+    <span class="phpdocumentor-element-found-in__line">237</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the policyId
@@ -898,7 +898,7 @@ The identifier of the policy that these requirements are associated with. This i
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">262</span>
+    <span class="phpdocumentor-element-found-in__line">266</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the questions
@@ -906,7 +906,7 @@ Questions that are configured on the policy. The questions can be required or op
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getQuestions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessPackageQuestion.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageQuestion">AccessPackageQuestion</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getQuestions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessPackageQuestion.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageQuestion">AccessPackageQuestion</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -914,7 +914,7 @@ Questions that are configured on the policy. The questions can be required or op
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessPackageQuestion.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageQuestion">AccessPackageQuestion</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessPackageQuestion.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageQuestion">AccessPackageQuestion</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The questions</p>
 </section>
@@ -934,7 +934,7 @@ Questions that are configured on the policy. The questions can be required or op
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">295</span>
+    <span class="phpdocumentor-element-found-in__line">303</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the schedule
@@ -1006,7 +1006,7 @@ Manually serialize DateTime into RFC3339 format</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the existingAnswers
@@ -1014,7 +1014,7 @@ Answers that have already been provided.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setExistingAnswers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAnswer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageAnswer">AccessPackageAnswer</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAssignmentRequestRequirements.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageAssignmentRequestRequirements">AccessPackageAssignmentRequestRequirements</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setExistingAnswers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAnswer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageAnswer">AccessPackageAnswer</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAssignmentRequestRequirements.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageAssignmentRequestRequirements">AccessPackageAssignmentRequestRequirements</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1022,7 +1022,7 @@ Answers that have already been provided.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAnswer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageAnswer">AccessPackageAnswer</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAnswer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageAnswer">AccessPackageAnswer</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the existingAnswers</p>
@@ -1101,7 +1101,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isApprovalRequired
@@ -1148,7 +1148,7 @@ Indicates whether a request must be approved by an approver.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isApprovalRequiredForExtension
@@ -1195,7 +1195,7 @@ Indicates whether approval is required when a user tries to extend their access.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isCustomAssignmentScheduleAllowed
@@ -1242,7 +1242,7 @@ Indicates whether the requestor is allowed to set a custom schedule.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">170</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isRequestorJustificationRequired
@@ -1335,7 +1335,7 @@ Indicates whether a requestor must supply justification when submitting an assig
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">194</span>
+    <span class="phpdocumentor-element-found-in__line">198</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the policyDescription
@@ -1382,7 +1382,7 @@ The description of the policy that the user is trying to request access using.</
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">222</span>
+    <span class="phpdocumentor-element-found-in__line">226</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the policyDisplayName
@@ -1429,7 +1429,7 @@ The display name of the policy that the user is trying to request access using.<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">250</span>
+    <span class="phpdocumentor-element-found-in__line">254</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the policyId
@@ -1476,7 +1476,7 @@ The identifier of the policy that these requirements are associated with. This i
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">283</span>
+    <span class="phpdocumentor-element-found-in__line">291</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the questions
@@ -1484,7 +1484,7 @@ Questions that are configured on the policy. The questions can be required or op
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setQuestions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessPackageQuestion.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageQuestion">AccessPackageQuestion</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAssignmentRequestRequirements.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageAssignmentRequestRequirements">AccessPackageAssignmentRequestRequirements</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setQuestions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessPackageQuestion.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageQuestion">AccessPackageQuestion</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessPackageAssignmentRequestRequirements.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageAssignmentRequestRequirements">AccessPackageAssignmentRequestRequirements</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1492,7 +1492,7 @@ Questions that are configured on the policy. The questions can be required or op
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessPackageQuestion.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageQuestion">AccessPackageQuestion</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessPackageQuestion.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessPackageQuestion">AccessPackageQuestion</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the questions</p>
@@ -1524,7 +1524,7 @@ Questions that are configured on the policy. The questions can be required or op
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessPackageAssignmentRequestRequirements.php"><a href="files/src-model-accesspackageassignmentrequestrequirements.html"><abbr title="src/Model/AccessPackageAssignmentRequestRequirements.php">AccessPackageAssignmentRequestRequirements.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">316</span>
+    <span class="phpdocumentor-element-found-in__line">325</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the schedule

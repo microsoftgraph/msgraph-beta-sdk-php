@@ -199,7 +199,7 @@ One of NoApproval, SingleStage or Serial. The NoApproval is used when isApproval
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-ApprovalSettings.html#method_getApprovalStages">getApprovalStages()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalStage">ApprovalStage</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalStage">ApprovalStage</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the approvalStages
 If approval is required, the one or two elements of this collection define each of the stages of approval. An empty array if no approval is required.</dd>
@@ -468,7 +468,7 @@ If approval is required, the one or two elements of this collection define each 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getApprovalStages</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalStage">ApprovalStage</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getApprovalStages</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalStage">ApprovalStage</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -476,7 +476,7 @@ If approval is required, the one or two elements of this collection define each 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalStage">ApprovalStage</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalStage">ApprovalStage</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The approvalStages</p>
 </section>
@@ -532,7 +532,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalSettings.php"><a href="files/src-model-approvalsettings.html"><abbr title="src/Model/ApprovalSettings.php">ApprovalSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isApprovalRequired
@@ -568,7 +568,7 @@ If false, then approval is not required for requests in this policy.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalSettings.php"><a href="files/src-model-approvalsettings.html"><abbr title="src/Model/ApprovalSettings.php">ApprovalSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isApprovalRequiredForExtension
@@ -604,7 +604,7 @@ If false, then approval is not required for a user who already has an assignment
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalSettings.php"><a href="files/src-model-approvalsettings.html"><abbr title="src/Model/ApprovalSettings.php">ApprovalSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isRequestorJustificationRequired
@@ -793,7 +793,7 @@ One of NoApproval, SingleStage or Serial. The NoApproval is used when isApproval
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalSettings.php"><a href="files/src-model-approvalsettings.html"><abbr title="src/Model/ApprovalSettings.php">ApprovalSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the approvalStages
@@ -801,7 +801,7 @@ If approval is required, the one or two elements of this collection define each 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setApprovalStages</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalStage">ApprovalStage</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ApprovalSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalSettings">ApprovalSettings</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setApprovalStages</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalStage">ApprovalStage</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ApprovalSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalSettings">ApprovalSettings</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -809,7 +809,7 @@ If approval is required, the one or two elements of this collection define each 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalStage">ApprovalStage</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalStage">ApprovalStage</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the approvalStages</p>
@@ -888,7 +888,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalSettings.php"><a href="files/src-model-approvalsettings.html"><abbr title="src/Model/ApprovalSettings.php">ApprovalSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isApprovalRequired
@@ -935,7 +935,7 @@ If false, then approval is not required for requests in this policy.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalSettings.php"><a href="files/src-model-approvalsettings.html"><abbr title="src/Model/ApprovalSettings.php">ApprovalSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isApprovalRequiredForExtension
@@ -982,7 +982,7 @@ If false, then approval is not required for a user who already has an assignment
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalSettings.php"><a href="files/src-model-approvalsettings.html"><abbr title="src/Model/ApprovalSettings.php">ApprovalSettings.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">170</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isRequestorJustificationRequired

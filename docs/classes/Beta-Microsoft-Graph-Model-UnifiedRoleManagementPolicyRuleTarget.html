@@ -253,7 +253,7 @@ The operations for policy rule target. Allowed values are: All, Activate, Deacti
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleManagementPolicyRuleTarget.html#method_getTargetObjects">getTargetObjects()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the targetObjects</dd>
 
@@ -731,7 +731,7 @@ The operations for policy rule target. Allowed values are: All, Activate, Deacti
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getTargetObjects</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getTargetObjects</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -739,7 +739,7 @@ The operations for policy rule target. Allowed values are: All, Activate, Deacti
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The targetObjects</p>
 </section>
@@ -850,7 +850,7 @@ The list of settings which are enforced and cannot be overridden by child scopes
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setEnforcedSettings</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleManagementPolicyRuleTarget.html"><abbr title="\Beta\Microsoft\Graph\Model\UnifiedRoleManagementPolicyRuleTarget">UnifiedRoleManagementPolicyRuleTarget</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setEnforcedSettings</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleManagementPolicyRuleTarget.html"><abbr title="\Beta\Microsoft\Graph\Model\UnifiedRoleManagementPolicyRuleTarget">UnifiedRoleManagementPolicyRuleTarget</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -858,7 +858,7 @@ The list of settings which are enforced and cannot be overridden by child scopes
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the enforcedSettings</p>
@@ -944,7 +944,7 @@ The list of settings which can be inherited by child scopes. Use All for all set
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setInheritableSettings</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleManagementPolicyRuleTarget.html"><abbr title="\Beta\Microsoft\Graph\Model\UnifiedRoleManagementPolicyRuleTarget">UnifiedRoleManagementPolicyRuleTarget</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setInheritableSettings</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleManagementPolicyRuleTarget.html"><abbr title="\Beta\Microsoft\Graph\Model\UnifiedRoleManagementPolicyRuleTarget">UnifiedRoleManagementPolicyRuleTarget</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -952,7 +952,7 @@ The list of settings which can be inherited by child scopes. Use All for all set
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the inheritableSettings</p>
@@ -1084,7 +1084,7 @@ The operations for policy rule target. Allowed values are: All, Activate, Deacti
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setOperations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleManagementPolicyRuleTarget.html"><abbr title="\Beta\Microsoft\Graph\Model\UnifiedRoleManagementPolicyRuleTarget">UnifiedRoleManagementPolicyRuleTarget</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setOperations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleManagementPolicyRuleTarget.html"><abbr title="\Beta\Microsoft\Graph\Model\UnifiedRoleManagementPolicyRuleTarget">UnifiedRoleManagementPolicyRuleTarget</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1092,7 +1092,7 @@ The operations for policy rule target. Allowed values are: All, Activate, Deacti
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the operations</p>
@@ -1123,14 +1123,14 @@ The operations for policy rule target. Allowed values are: All, Activate, Deacti
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/UnifiedRoleManagementPolicyRuleTarget.php"><a href="files/src-model-unifiedrolemanagementpolicyruletarget.html"><abbr title="src/Model/UnifiedRoleManagementPolicyRuleTarget.php">UnifiedRoleManagementPolicyRuleTarget.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">192</span>
+    <span class="phpdocumentor-element-found-in__line">196</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the targetObjects</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setTargetObjects</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleManagementPolicyRuleTarget.html"><abbr title="\Beta\Microsoft\Graph\Model\UnifiedRoleManagementPolicyRuleTarget">UnifiedRoleManagementPolicyRuleTarget</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setTargetObjects</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UnifiedRoleManagementPolicyRuleTarget.html"><abbr title="\Beta\Microsoft\Graph\Model\UnifiedRoleManagementPolicyRuleTarget">UnifiedRoleManagementPolicyRuleTarget</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1138,7 +1138,7 @@ The operations for policy rule target. Allowed values are: All, Activate, Deacti
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DirectoryObject.html"><abbr title="\Beta\Microsoft\Graph\Model\DirectoryObject">DirectoryObject</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the targetObjects</p>

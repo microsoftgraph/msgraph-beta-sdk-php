@@ -249,7 +249,7 @@ Minimum supported version of Windows</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationPlatforms.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationPlatforms">DeviceManagementConfigurationPlatforms</abbr></a>|null    </span>
 </dt>
 <dd>Gets the platform
-Platform setting can be applied on. Possible values are: none, macOS, windows10X, windows10.</dd>
+Platform setting can be applied on. Possible values are: none, android, iOS, macOS, windows10X, windows10.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_getProperties">getProperties()</a>
@@ -280,12 +280,12 @@ AzureAD setting requirement</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationTechnologies.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationTechnologies">DeviceManagementConfigurationTechnologies</abbr></a>|null    </span>
 </dt>
 <dd>Gets the technologies
-Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline.</dd>
+Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSettingApplicability.html#method_getWindowsSkus">getWindowsSkus()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSkus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSkus">DeviceManagementConfigurationWindowsSkus</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSkus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSkus">DeviceManagementConfigurationWindowsSkus</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the windowsSkus
 List of Windows SKUs that the setting is applicable for</dd>
@@ -359,7 +359,7 @@ Minimum supported version of Windows</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationSettingApplicability.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingApplicability">DeviceManagementConfigurationSettingApplicability</abbr></a>    </span>
 </dt>
 <dd>Sets the platform
-Platform setting can be applied on. Possible values are: none, macOS, windows10X, windows10.</dd>
+Platform setting can be applied on. Possible values are: none, android, iOS, macOS, windows10X, windows10.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSettingApplicability.html#method_setRequiredAzureAdTrustType">setRequiredAzureAdTrustType()</a>
@@ -383,7 +383,7 @@ AzureAD setting requirement</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationSettingApplicability.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingApplicability">DeviceManagementConfigurationSettingApplicability</abbr></a>    </span>
 </dt>
 <dd>Sets the technologies
-Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline.</dd>
+Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSettingApplicability.html#method_setWindowsSkus">setWindowsSkus()</a>
@@ -755,11 +755,11 @@ Minimum supported version of Windows</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationSettingApplicability.php"><a href="files/src-model-devicemanagementconfigurationsettingapplicability.html"><abbr title="src/Model/DeviceManagementConfigurationSettingApplicability.php">DeviceManagementConfigurationSettingApplicability.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">95</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the platform
-Platform setting can be applied on. Possible values are: none, macOS, windows10X, windows10.</p>
+Platform setting can be applied on. Possible values are: none, android, iOS, macOS, windows10X, windows10.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -862,7 +862,7 @@ Required AzureAD trust type. Possible values are: none, azureAdJoined, addWorkAc
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationWindowsSettingApplicability.php"><a href="files/src-model-devicemanagementconfigurationwindowssettingapplicability.html"><abbr title="src/Model/DeviceManagementConfigurationWindowsSettingApplicability.php">DeviceManagementConfigurationWindowsSettingApplicability.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">150</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the requiresAzureAd
@@ -898,11 +898,11 @@ AzureAD setting requirement</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationSettingApplicability.php"><a href="files/src-model-devicemanagementconfigurationsettingapplicability.html"><abbr title="src/Model/DeviceManagementConfigurationSettingApplicability.php">DeviceManagementConfigurationSettingApplicability.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">127</span>
+    <span class="phpdocumentor-element-found-in__line">129</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the technologies
-Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline.</p>
+Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -934,7 +934,7 @@ Which technology channels this setting can be deployed through. Possible values 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationWindowsSettingApplicability.php"><a href="files/src-model-devicemanagementconfigurationwindowssettingapplicability.html"><abbr title="src/Model/DeviceManagementConfigurationWindowsSettingApplicability.php">DeviceManagementConfigurationWindowsSettingApplicability.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">178</span>
+    <span class="phpdocumentor-element-found-in__line">179</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the windowsSkus
@@ -942,7 +942,7 @@ List of Windows SKUs that the setting is applicable for</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getWindowsSkus</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSkus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSkus">DeviceManagementConfigurationWindowsSkus</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getWindowsSkus</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSkus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSkus">DeviceManagementConfigurationWindowsSkus</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -950,7 +950,7 @@ List of Windows SKUs that the setting is applicable for</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSkus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSkus">DeviceManagementConfigurationWindowsSkus</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSkus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSkus">DeviceManagementConfigurationWindowsSkus</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The windowsSkus</p>
 </section>
@@ -1100,7 +1100,7 @@ description of the setting</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationSettingApplicability.php"><a href="files/src-model-devicemanagementconfigurationsettingapplicability.html"><abbr title="src/Model/DeviceManagementConfigurationSettingApplicability.php">DeviceManagementConfigurationSettingApplicability.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the deviceMode
@@ -1335,11 +1335,11 @@ Minimum supported version of Windows</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationSettingApplicability.php"><a href="files/src-model-devicemanagementconfigurationsettingapplicability.html"><abbr title="src/Model/DeviceManagementConfigurationSettingApplicability.php">DeviceManagementConfigurationSettingApplicability.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">117</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the platform
-Platform setting can be applied on. Possible values are: none, macOS, windows10X, windows10.</p>
+Platform setting can be applied on. Possible values are: none, android, iOS, macOS, windows10X, windows10.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1383,7 +1383,7 @@ Platform setting can be applied on. Possible values are: none, macOS, windows10X
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationWindowsSettingApplicability.php"><a href="files/src-model-devicemanagementconfigurationwindowssettingapplicability.html"><abbr title="src/Model/DeviceManagementConfigurationWindowsSettingApplicability.php">DeviceManagementConfigurationWindowsSettingApplicability.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">139</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the requiredAzureAdTrustType
@@ -1431,7 +1431,7 @@ Required AzureAD trust type. Possible values are: none, azureAdJoined, addWorkAc
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationWindowsSettingApplicability.php"><a href="files/src-model-devicemanagementconfigurationwindowssettingapplicability.html"><abbr title="src/Model/DeviceManagementConfigurationWindowsSettingApplicability.php">DeviceManagementConfigurationWindowsSettingApplicability.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">167</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the requiresAzureAd
@@ -1478,11 +1478,11 @@ AzureAD setting requirement</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationSettingApplicability.php"><a href="files/src-model-devicemanagementconfigurationsettingapplicability.html"><abbr title="src/Model/DeviceManagementConfigurationSettingApplicability.php">DeviceManagementConfigurationSettingApplicability.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">148</span>
+    <span class="phpdocumentor-element-found-in__line">151</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the technologies
-Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline.</p>
+Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1526,7 +1526,7 @@ Which technology channels this setting can be deployed through. Possible values 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceManagementConfigurationWindowsSettingApplicability.php"><a href="files/src-model-devicemanagementconfigurationwindowssettingapplicability.html"><abbr title="src/Model/DeviceManagementConfigurationWindowsSettingApplicability.php">DeviceManagementConfigurationWindowsSettingApplicability.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">199</span>
+    <span class="phpdocumentor-element-found-in__line">204</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the windowsSkus
@@ -1534,7 +1534,7 @@ List of Windows SKUs that the setting is applicable for</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setWindowsSkus</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSkus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSkus">DeviceManagementConfigurationWindowsSkus</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSettingApplicability.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSettingApplicability">DeviceManagementConfigurationWindowsSettingApplicability</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setWindowsSkus</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSkus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSkus">DeviceManagementConfigurationWindowsSkus</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSettingApplicability.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSettingApplicability">DeviceManagementConfigurationWindowsSettingApplicability</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1542,7 +1542,7 @@ List of Windows SKUs that the setting is applicable for</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSkus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSkus">DeviceManagementConfigurationWindowsSkus</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceManagementConfigurationWindowsSkus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSkus">DeviceManagementConfigurationWindowsSkus</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the windowsSkus</p>

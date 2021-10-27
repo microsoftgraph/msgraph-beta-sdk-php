@@ -244,9 +244,16 @@ The value of this property is only available when reading an individual booking 
 The customer&#039;s phone number.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_getCustomerTimeZone">getCustomerTimeZone()</a>
+    <span>
+                        &nbsp;: string|null    </span>
+</dt>
+<dd>Gets the customerTimeZone</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_getDuration">getDuration()</a>
     <span>
-                        &nbsp;: <abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null    </span>
+                        &nbsp;: <abbr title="\DateInterval">DateInterval</abbr>|null    </span>
 </dt>
 <dd>Gets the duration
 The length of the appointment, denoted in ISO8601 format.</dd>
@@ -315,6 +322,13 @@ The URL of the invoice in Microsoft Bookings.</dd>
 <dd>Gets the isLocationOnline</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_getJoinWebUrl">getJoinWebUrl()</a>
+    <span>
+                        &nbsp;: string|null    </span>
+</dt>
+<dd>Gets the joinWebUrl</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_getODataType">getODataType()</a>
     <span>
                         &nbsp;: string|null    </span>
@@ -339,7 +353,7 @@ True indicates that the bookingCustomer for this appointment does not wish to re
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_getPostBuffer">getPostBuffer()</a>
     <span>
-                        &nbsp;: <abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null    </span>
+                        &nbsp;: <abbr title="\DateInterval">DateInterval</abbr>|null    </span>
 </dt>
 <dd>Gets the postBuffer
 The amount of time to reserve after the appointment ends, for cleaning up, as an example. The value is expressed in ISO8601 format.</dd>
@@ -347,7 +361,7 @@ The amount of time to reserve after the appointment ends, for cleaning up, as an
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_getPreBuffer">getPreBuffer()</a>
     <span>
-                        &nbsp;: <abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null    </span>
+                        &nbsp;: <abbr title="\DateInterval">DateInterval</abbr>|null    </span>
 </dt>
 <dd>Gets the preBuffer
 The amount of time to reserve before the appointment begins, for preparation, as an example. The value is expressed in ISO8601 format.</dd>
@@ -378,7 +392,7 @@ A setting to provide flexibility for the pricing structure of services. Possible
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_getReminders">getReminders()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-BookingReminder.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingReminder">BookingReminder</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the reminders
 The value of this property is only available when reading an individual booking appointment by id.</dd>
@@ -422,6 +436,13 @@ This property is optional when creating a new appointment. If not specified, it 
 </dt>
 <dd>Gets the serviceNotes
 The value of this property is only available when reading an individual booking appointment by id.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_getSmsNotificationsEnabled">getSmsNotificationsEnabled()</a>
+    <span>
+                        &nbsp;: bool|null    </span>
+</dt>
+<dd>Gets the smsNotificationsEnabled</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_getStaffMemberIds">getStaffMemberIds()</a>
@@ -503,6 +524,13 @@ The value of this property is only available when reading an individual booking 
 The customer&#039;s phone number.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_setCustomerTimeZone">setCustomerTimeZone()</a>
+    <span>
+                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a>    </span>
+</dt>
+<dd>Sets the customerTimeZone</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_setDuration">setDuration()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a>    </span>
@@ -572,6 +600,13 @@ The URL of the invoice in Microsoft Bookings.</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a>    </span>
 </dt>
 <dd>Sets the isLocationOnline</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_setJoinWebUrl">setJoinWebUrl()</a>
+    <span>
+                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a>    </span>
+</dt>
+<dd>Sets the joinWebUrl</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_setODataType">setODataType()</a>
@@ -674,6 +709,13 @@ This property is optional when creating a new appointment. If not specified, it 
 </dt>
 <dd>Sets the serviceNotes
 The value of this property is only available when reading an individual booking appointment by id.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_setSmsNotificationsEnabled">setSmsNotificationsEnabled()</a>
+    <span>
+                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a>    </span>
+</dt>
+<dd>Sets the smsNotificationsEnabled</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_setStaffMemberIds">setStaffMemberIds()</a>
@@ -1046,22 +1088,21 @@ The customer&#039;s phone number.</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getDuration">
-        getDuration()
-        <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_getDuration" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getCustomerTimeZone">
+        getCustomerTimeZone()
+        <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_getCustomerTimeZone" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">238</span>
+    <span class="phpdocumentor-element-found-in__line">237</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the duration
-The length of the appointment, denoted in ISO8601 format.</p>
+        <p class="phpdocumentor-summary">Gets the customerTimeZone</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getDuration</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null</span></code>
+                <span class="phpdocumentor-signature__name">getCustomerTimeZone</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1069,7 +1110,43 @@ The length of the appointment, denoted in ISO8601 format.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null</span>
+    <span class="phpdocumentor-signature__response_type">string|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The customerTimeZone</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getDuration">
+        getDuration()
+        <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_getDuration" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">265</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Gets the duration
+The length of the appointment, denoted in ISO8601 format.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getDuration</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\DateInterval">DateInterval</abbr>|null</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\DateInterval">DateInterval</abbr>|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The duration</p>
 </section>
@@ -1089,7 +1166,7 @@ The length of the appointment, denoted in ISO8601 format.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">271</span>
+    <span class="phpdocumentor-element-found-in__line">298</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the end
@@ -1161,7 +1238,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">304</span>
+    <span class="phpdocumentor-element-found-in__line">331</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the invoiceAmount
@@ -1197,7 +1274,7 @@ The billed amount on the invoice.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">333</span>
+    <span class="phpdocumentor-element-found-in__line">360</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the invoiceDate
@@ -1233,7 +1310,7 @@ The date, time, and time zone of the invoice for this appointment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">366</span>
+    <span class="phpdocumentor-element-found-in__line">393</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the invoiceId
@@ -1269,7 +1346,7 @@ The ID of the invoice.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">395</span>
+    <span class="phpdocumentor-element-found-in__line">422</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the invoiceStatus
@@ -1305,7 +1382,7 @@ The status of the invoice. Possible values are: draft, reviewing, open, canceled
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">428</span>
+    <span class="phpdocumentor-element-found-in__line">455</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the invoiceUrl
@@ -1341,7 +1418,7 @@ The URL of the invoice in Microsoft Bookings.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">456</span>
+    <span class="phpdocumentor-element-found-in__line">483</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isLocationOnline</p>
@@ -1359,6 +1436,41 @@ The URL of the invoice in Microsoft Bookings.</p>
     <span class="phpdocumentor-signature__response_type">bool|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The isLocationOnline</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getJoinWebUrl">
+        getJoinWebUrl()
+        <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_getJoinWebUrl" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">510</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Gets the joinWebUrl</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getJoinWebUrl</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The joinWebUrl</p>
 </section>
 
     
@@ -1411,7 +1523,7 @@ The URL of the invoice in Microsoft Bookings.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">483</span>
+    <span class="phpdocumentor-element-found-in__line">537</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the onlineMeetingUrl</p>
@@ -1446,7 +1558,7 @@ The URL of the invoice in Microsoft Bookings.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">511</span>
+    <span class="phpdocumentor-element-found-in__line">565</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the optOutOfCustomerEmail
@@ -1482,7 +1594,7 @@ True indicates that the bookingCustomer for this appointment does not wish to re
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">540</span>
+    <span class="phpdocumentor-element-found-in__line">594</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the postBuffer
@@ -1490,7 +1602,7 @@ The amount of time to reserve after the appointment ends, for cleaning up, as an
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getPostBuffer</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null</span></code>
+                <span class="phpdocumentor-signature__name">getPostBuffer</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\DateInterval">DateInterval</abbr>|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1498,7 +1610,7 @@ The amount of time to reserve after the appointment ends, for cleaning up, as an
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\DateInterval">DateInterval</abbr>|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The postBuffer</p>
 </section>
@@ -1518,7 +1630,7 @@ The amount of time to reserve after the appointment ends, for cleaning up, as an
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">573</span>
+    <span class="phpdocumentor-element-found-in__line">627</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the preBuffer
@@ -1526,7 +1638,7 @@ The amount of time to reserve before the appointment begins, for preparation, as
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getPreBuffer</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null</span></code>
+                <span class="phpdocumentor-signature__name">getPreBuffer</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\DateInterval">DateInterval</abbr>|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1534,7 +1646,7 @@ The amount of time to reserve before the appointment begins, for preparation, as
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>|null</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\DateInterval">DateInterval</abbr>|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The preBuffer</p>
 </section>
@@ -1554,7 +1666,7 @@ The amount of time to reserve before the appointment begins, for preparation, as
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">606</span>
+    <span class="phpdocumentor-element-found-in__line">660</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the price
@@ -1590,7 +1702,7 @@ The regular price for an appointment for the specified bookingService.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">635</span>
+    <span class="phpdocumentor-element-found-in__line">689</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the priceType
@@ -1661,7 +1773,7 @@ A setting to provide flexibility for the pricing structure of services. Possible
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">669</span>
+    <span class="phpdocumentor-element-found-in__line">723</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the reminders
@@ -1669,7 +1781,7 @@ The value of this property is only available when reading an individual booking 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getReminders</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getReminders</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-BookingReminder.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingReminder">BookingReminder</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1677,7 +1789,7 @@ The value of this property is only available when reading an individual booking 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-BookingReminder.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingReminder">BookingReminder</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The reminders</p>
 </section>
@@ -1697,7 +1809,7 @@ The value of this property is only available when reading an individual booking 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">698</span>
+    <span class="phpdocumentor-element-found-in__line">759</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the selfServiceAppointmentId
@@ -1733,7 +1845,7 @@ An additional tracking ID for the appointment, if the appointment has been creat
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">727</span>
+    <span class="phpdocumentor-element-found-in__line">788</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the serviceId
@@ -1769,7 +1881,7 @@ The ID of the bookingService associated with this appointment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">756</span>
+    <span class="phpdocumentor-element-found-in__line">817</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the serviceLocation
@@ -1805,7 +1917,7 @@ The location where the service is delivered.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">789</span>
+    <span class="phpdocumentor-element-found-in__line">850</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the serviceName
@@ -1841,7 +1953,7 @@ This property is optional when creating a new appointment. If not specified, it 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">818</span>
+    <span class="phpdocumentor-element-found-in__line">879</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the serviceNotes
@@ -1870,6 +1982,41 @@ The value of this property is only available when reading an individual booking 
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getSmsNotificationsEnabled">
+        getSmsNotificationsEnabled()
+        <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_getSmsNotificationsEnabled" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">907</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Gets the smsNotificationsEnabled</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getSmsNotificationsEnabled</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|null</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The smsNotificationsEnabled</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getStaffMemberIds">
         getStaffMemberIds()
         <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_getStaffMemberIds" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1877,7 +2024,7 @@ The value of this property is only available when reading an individual booking 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">847</span>
+    <span class="phpdocumentor-element-found-in__line">935</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the staffMemberIds
@@ -1913,7 +2060,7 @@ The ID of each bookingStaffMember who is scheduled in this appointment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">876</span>
+    <span class="phpdocumentor-element-found-in__line">964</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the start
@@ -2306,22 +2453,21 @@ The customer&#039;s phone number.</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_setDuration">
-        setDuration()
-        <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_setDuration" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_setCustomerTimeZone">
+        setCustomerTimeZone()
+        <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_setCustomerTimeZone" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">259</span>
+    <span class="phpdocumentor-element-found-in__line">253</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the duration
-The length of the appointment, denoted in ISO8601 format.</p>
+        <p class="phpdocumentor-summary">Sets the customerTimeZone</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setDuration</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setCustomerTimeZone</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2329,7 +2475,54 @@ The length of the appointment, denoted in ISO8601 format.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The customerTimeZone</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setDuration">
+        setDuration()
+        <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_setDuration" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">286</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Sets the duration
+The length of the appointment, denoted in ISO8601 format.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setDuration</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateInterval">DateInterval</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$val</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateInterval">DateInterval</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The duration</p>
@@ -2360,7 +2553,7 @@ The length of the appointment, denoted in ISO8601 format.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">292</span>
+    <span class="phpdocumentor-element-found-in__line">319</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the end
@@ -2454,7 +2647,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">321</span>
+    <span class="phpdocumentor-element-found-in__line">348</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the invoiceAmount
@@ -2501,7 +2694,7 @@ The billed amount on the invoice.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">354</span>
+    <span class="phpdocumentor-element-found-in__line">381</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the invoiceDate
@@ -2548,7 +2741,7 @@ The date, time, and time zone of the invoice for this appointment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">383</span>
+    <span class="phpdocumentor-element-found-in__line">410</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the invoiceId
@@ -2595,7 +2788,7 @@ The ID of the invoice.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">416</span>
+    <span class="phpdocumentor-element-found-in__line">443</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the invoiceStatus
@@ -2642,7 +2835,7 @@ The status of the invoice. Possible values are: draft, reviewing, open, canceled
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">445</span>
+    <span class="phpdocumentor-element-found-in__line">472</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the invoiceUrl
@@ -2689,7 +2882,7 @@ The URL of the invoice in Microsoft Bookings.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">472</span>
+    <span class="phpdocumentor-element-found-in__line">499</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isLocationOnline</p>
@@ -2708,6 +2901,52 @@ The URL of the invoice in Microsoft Bookings.</p>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The isLocationOnline</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setJoinWebUrl">
+        setJoinWebUrl()
+        <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_setJoinWebUrl" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">526</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Sets the joinWebUrl</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setJoinWebUrl</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$val</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The joinWebUrl</p>
 </section>
 
             </dd>
@@ -2781,7 +3020,7 @@ The URL of the invoice in Microsoft Bookings.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">499</span>
+    <span class="phpdocumentor-element-found-in__line">553</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the onlineMeetingUrl</p>
@@ -2827,7 +3066,7 @@ The URL of the invoice in Microsoft Bookings.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">528</span>
+    <span class="phpdocumentor-element-found-in__line">582</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the optOutOfCustomerEmail
@@ -2874,7 +3113,7 @@ True indicates that the bookingCustomer for this appointment does not wish to re
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">561</span>
+    <span class="phpdocumentor-element-found-in__line">615</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the postBuffer
@@ -2882,7 +3121,7 @@ The amount of time to reserve after the appointment ends, for cleaning up, as an
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setPostBuffer</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setPostBuffer</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateInterval">DateInterval</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2890,7 +3129,7 @@ The amount of time to reserve after the appointment ends, for cleaning up, as an
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateInterval">DateInterval</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The postBuffer</p>
@@ -2921,7 +3160,7 @@ The amount of time to reserve after the appointment ends, for cleaning up, as an
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">594</span>
+    <span class="phpdocumentor-element-found-in__line">648</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the preBuffer
@@ -2929,7 +3168,7 @@ The amount of time to reserve before the appointment begins, for preparation, as
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setPreBuffer</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setPreBuffer</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateInterval">DateInterval</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2937,7 +3176,7 @@ The amount of time to reserve before the appointment begins, for preparation, as
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Beta\Microsoft\Graph\Model\Duration">Duration</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateInterval">DateInterval</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The preBuffer</p>
@@ -2968,7 +3207,7 @@ The amount of time to reserve before the appointment begins, for preparation, as
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">623</span>
+    <span class="phpdocumentor-element-found-in__line">677</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the price
@@ -3015,7 +3254,7 @@ The regular price for an appointment for the specified bookingService.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">656</span>
+    <span class="phpdocumentor-element-found-in__line">710</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the priceType
@@ -3062,7 +3301,7 @@ A setting to provide flexibility for the pricing structure of services. Possible
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">686</span>
+    <span class="phpdocumentor-element-found-in__line">747</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the reminders
@@ -3070,7 +3309,7 @@ The value of this property is only available when reading an individual booking 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setReminders</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-BookingReminder.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingReminder">BookingReminder</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setReminders</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-BookingReminder.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingReminder">BookingReminder</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3078,7 +3317,7 @@ The value of this property is only available when reading an individual booking 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-BookingReminder.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingReminder">BookingReminder</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-BookingReminder.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingReminder">BookingReminder</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The reminders</p>
@@ -3109,7 +3348,7 @@ The value of this property is only available when reading an individual booking 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">715</span>
+    <span class="phpdocumentor-element-found-in__line">776</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the selfServiceAppointmentId
@@ -3156,7 +3395,7 @@ An additional tracking ID for the appointment, if the appointment has been creat
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">744</span>
+    <span class="phpdocumentor-element-found-in__line">805</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the serviceId
@@ -3203,7 +3442,7 @@ The ID of the bookingService associated with this appointment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">777</span>
+    <span class="phpdocumentor-element-found-in__line">838</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the serviceLocation
@@ -3250,7 +3489,7 @@ The location where the service is delivered.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">806</span>
+    <span class="phpdocumentor-element-found-in__line">867</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the serviceName
@@ -3297,7 +3536,7 @@ This property is optional when creating a new appointment. If not specified, it 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">835</span>
+    <span class="phpdocumentor-element-found-in__line">896</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the serviceNotes
@@ -3337,6 +3576,52 @@ The value of this property is only available when reading an individual booking 
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_setSmsNotificationsEnabled">
+        setSmsNotificationsEnabled()
+        <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_setSmsNotificationsEnabled" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">923</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Sets the smsNotificationsEnabled</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setSmsNotificationsEnabled</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$val</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The smsNotificationsEnabled</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html"><abbr title="\Beta\Microsoft\Graph\Model\BookingAppointment">BookingAppointment</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_setStaffMemberIds">
         setStaffMemberIds()
         <a href="classes/Beta-Microsoft-Graph-Model-BookingAppointment.html#method_setStaffMemberIds" class="headerlink"><i class="fas fa-link"></i></a>
@@ -3344,7 +3629,7 @@ The value of this property is only available when reading an individual booking 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">864</span>
+    <span class="phpdocumentor-element-found-in__line">952</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the staffMemberIds
@@ -3391,7 +3676,7 @@ The ID of each bookingStaffMember who is scheduled in this appointment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/BookingAppointment.php"><a href="files/src-model-bookingappointment.html"><abbr title="src/Model/BookingAppointment.php">BookingAppointment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">897</span>
+    <span class="phpdocumentor-element-found-in__line">985</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the start

@@ -199,7 +199,7 @@ The day of the month on which the event occurs. Required if type is absoluteMont
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-RecurrencePattern.html#method_getDaysOfWeek">getDaysOfWeek()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DayOfWeek.html"><abbr title="\Beta\Microsoft\Graph\Model\DayOfWeek">DayOfWeek</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DayOfWeek.html"><abbr title="\Beta\Microsoft\Graph\Model\DayOfWeek">DayOfWeek</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the daysOfWeek
 A collection of the days of the week on which the event occurs. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type is weekly, relativeMonthly, or relativeYearly.</dd>
@@ -500,7 +500,7 @@ A collection of the days of the week on which the event occurs. The possible val
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getDaysOfWeek</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DayOfWeek.html"><abbr title="\Beta\Microsoft\Graph\Model\DayOfWeek">DayOfWeek</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getDaysOfWeek</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DayOfWeek.html"><abbr title="\Beta\Microsoft\Graph\Model\DayOfWeek">DayOfWeek</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -508,7 +508,7 @@ A collection of the days of the week on which the event occurs. The possible val
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DayOfWeek.html"><abbr title="\Beta\Microsoft\Graph\Model\DayOfWeek">DayOfWeek</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DayOfWeek.html"><abbr title="\Beta\Microsoft\Graph\Model\DayOfWeek">DayOfWeek</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The daysOfWeek</p>
 </section>
@@ -528,7 +528,7 @@ A collection of the days of the week on which the event occurs. The possible val
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/RecurrencePattern.php"><a href="files/src-model-recurrencepattern.html"><abbr title="src/Model/RecurrencePattern.php">RecurrencePattern.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">98</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the firstDayOfWeek
@@ -600,7 +600,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/RecurrencePattern.php"><a href="files/src-model-recurrencepattern.html"><abbr title="src/Model/RecurrencePattern.php">RecurrencePattern.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">127</span>
+    <span class="phpdocumentor-element-found-in__line">132</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the index
@@ -636,7 +636,7 @@ Specifies on which instance of the allowed days specified in daysOfWeek the even
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/RecurrencePattern.php"><a href="files/src-model-recurrencepattern.html"><abbr title="src/Model/RecurrencePattern.php">RecurrencePattern.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">159</span>
+    <span class="phpdocumentor-element-found-in__line">165</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the interval
@@ -672,7 +672,7 @@ The number of units between occurrences, where units can be in days, weeks, mont
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/RecurrencePattern.php"><a href="files/src-model-recurrencepattern.html"><abbr title="src/Model/RecurrencePattern.php">RecurrencePattern.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">187</span>
+    <span class="phpdocumentor-element-found-in__line">193</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the month
@@ -778,7 +778,7 @@ The month in which the event occurs.  This is a number from 1 to 12.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/RecurrencePattern.php"><a href="files/src-model-recurrencepattern.html"><abbr title="src/Model/RecurrencePattern.php">RecurrencePattern.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">216</span>
+    <span class="phpdocumentor-element-found-in__line">222</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the type
@@ -897,7 +897,7 @@ The day of the month on which the event occurs. Required if type is absoluteMont
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/RecurrencePattern.php"><a href="files/src-model-recurrencepattern.html"><abbr title="src/Model/RecurrencePattern.php">RecurrencePattern.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the daysOfWeek
@@ -905,7 +905,7 @@ A collection of the days of the week on which the event occurs. The possible val
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setDaysOfWeek</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DayOfWeek.html"><abbr title="\Beta\Microsoft\Graph\Model\DayOfWeek">DayOfWeek</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-RecurrencePattern.html"><abbr title="\Beta\Microsoft\Graph\Model\RecurrencePattern">RecurrencePattern</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setDaysOfWeek</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DayOfWeek.html"><abbr title="\Beta\Microsoft\Graph\Model\DayOfWeek">DayOfWeek</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-RecurrencePattern.html"><abbr title="\Beta\Microsoft\Graph\Model\RecurrencePattern">RecurrencePattern</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -913,7 +913,7 @@ A collection of the days of the week on which the event occurs. The possible val
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DayOfWeek.html"><abbr title="\Beta\Microsoft\Graph\Model\DayOfWeek">DayOfWeek</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DayOfWeek.html"><abbr title="\Beta\Microsoft\Graph\Model\DayOfWeek">DayOfWeek</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the daysOfWeek</p>
@@ -945,7 +945,7 @@ A collection of the days of the week on which the event occurs. The possible val
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/RecurrencePattern.php"><a href="files/src-model-recurrencepattern.html"><abbr title="src/Model/RecurrencePattern.php">RecurrencePattern.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">120</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the firstDayOfWeek
@@ -1040,7 +1040,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/RecurrencePattern.php"><a href="files/src-model-recurrencepattern.html"><abbr title="src/Model/RecurrencePattern.php">RecurrencePattern.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">148</span>
+    <span class="phpdocumentor-element-found-in__line">154</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the index
@@ -1088,7 +1088,7 @@ Specifies on which instance of the allowed days specified in daysOfWeek the even
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/RecurrencePattern.php"><a href="files/src-model-recurrencepattern.html"><abbr title="src/Model/RecurrencePattern.php">RecurrencePattern.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">176</span>
+    <span class="phpdocumentor-element-found-in__line">182</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the interval
@@ -1135,7 +1135,7 @@ The number of units between occurrences, where units can be in days, weeks, mont
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/RecurrencePattern.php"><a href="files/src-model-recurrencepattern.html"><abbr title="src/Model/RecurrencePattern.php">RecurrencePattern.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">204</span>
+    <span class="phpdocumentor-element-found-in__line">210</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the month
@@ -1228,7 +1228,7 @@ The month in which the event occurs.  This is a number from 1 to 12.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/RecurrencePattern.php"><a href="files/src-model-recurrencepattern.html"><abbr title="src/Model/RecurrencePattern.php">RecurrencePattern.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">237</span>
+    <span class="phpdocumentor-element-found-in__line">244</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the type

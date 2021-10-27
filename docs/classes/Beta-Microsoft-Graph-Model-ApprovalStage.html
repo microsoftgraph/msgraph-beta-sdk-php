@@ -199,7 +199,7 @@ The number of days that a request can be pending a response before it is automat
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html#method_getEscalationApprovers">getEscalationApprovers()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the escalationApprovers
 If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. This can be a collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.</dd>
@@ -246,7 +246,7 @@ If true, then one or more escalation approvers are configured in this approval s
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html#method_getPrimaryApprovers">getPrimaryApprovers()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the primaryApprovers
 The users who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.</dd>
@@ -484,7 +484,7 @@ If escalation is enabled and the primary approvers do not respond before the esc
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getEscalationApprovers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getEscalationApprovers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -492,7 +492,7 @@ If escalation is enabled and the primary approvers do not respond before the esc
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The escalationApprovers</p>
 </section>
@@ -512,7 +512,7 @@ If escalation is enabled and the primary approvers do not respond before the esc
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalStage.php"><a href="files/src-model-approvalstage.html"><abbr title="src/Model/ApprovalStage.php">ApprovalStage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the escalationTimeInMinutes
@@ -584,7 +584,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalStage.php"><a href="files/src-model-approvalstage.html"><abbr title="src/Model/ApprovalStage.php">ApprovalStage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isApproverJustificationRequired
@@ -620,7 +620,7 @@ Indicates whether the approver is required to provide a justification for approv
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalStage.php"><a href="files/src-model-approvalstage.html"><abbr title="src/Model/ApprovalStage.php">ApprovalStage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the isEscalationEnabled
@@ -691,7 +691,7 @@ If true, then one or more escalation approvers are configured in this approval s
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalStage.php"><a href="files/src-model-approvalstage.html"><abbr title="src/Model/ApprovalStage.php">ApprovalStage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">178</span>
+    <span class="phpdocumentor-element-found-in__line">182</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the primaryApprovers
@@ -699,7 +699,7 @@ The users who will be asked to approve requests. A collection of singleUser, gro
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getPrimaryApprovers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getPrimaryApprovers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -707,7 +707,7 @@ The users who will be asked to approve requests. A collection of singleUser, gro
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The primaryApprovers</p>
 </section>
@@ -845,7 +845,7 @@ The number of days that a request can be pending a response before it is automat
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalStage.php"><a href="files/src-model-approvalstage.html"><abbr title="src/Model/ApprovalStage.php">ApprovalStage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the escalationApprovers
@@ -853,7 +853,7 @@ If escalation is enabled and the primary approvers do not respond before the esc
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setEscalationApprovers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalStage">ApprovalStage</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setEscalationApprovers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalStage">ApprovalStage</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -861,7 +861,7 @@ If escalation is enabled and the primary approvers do not respond before the esc
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the escalationApprovers</p>
@@ -893,7 +893,7 @@ If escalation is enabled and the primary approvers do not respond before the esc
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalStage.php"><a href="files/src-model-approvalstage.html"><abbr title="src/Model/ApprovalStage.php">ApprovalStage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the escalationTimeInMinutes
@@ -987,7 +987,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalStage.php"><a href="files/src-model-approvalstage.html"><abbr title="src/Model/ApprovalStage.php">ApprovalStage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isApproverJustificationRequired
@@ -1034,7 +1034,7 @@ Indicates whether the approver is required to provide a justification for approv
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalStage.php"><a href="files/src-model-approvalstage.html"><abbr title="src/Model/ApprovalStage.php">ApprovalStage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">170</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the isEscalationEnabled
@@ -1127,7 +1127,7 @@ If true, then one or more escalation approvers are configured in this approval s
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ApprovalStage.php"><a href="files/src-model-approvalstage.html"><abbr title="src/Model/ApprovalStage.php">ApprovalStage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">199</span>
+    <span class="phpdocumentor-element-found-in__line">207</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the primaryApprovers
@@ -1135,7 +1135,7 @@ The users who will be asked to approve requests. A collection of singleUser, gro
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setPrimaryApprovers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalStage">ApprovalStage</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setPrimaryApprovers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ApprovalStage.html"><abbr title="\Beta\Microsoft\Graph\Model\ApprovalStage">ApprovalStage</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1143,7 +1143,7 @@ The users who will be asked to approve requests. A collection of singleUser, gro
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-UserSet.html"><abbr title="\Beta\Microsoft\Graph\Model\UserSet">UserSet</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the primaryApprovers</p>

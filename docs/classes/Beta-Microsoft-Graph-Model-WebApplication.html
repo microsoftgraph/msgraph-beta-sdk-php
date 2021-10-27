@@ -252,9 +252,10 @@ Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-WebApplication.html#method_getRedirectUriSettings">getRedirectUriSettings()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-RedirectUriSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\RedirectUriSettings">RedirectUriSettings</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RedirectUriSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\RedirectUriSettings">RedirectUriSettings</abbr></a>&gt;|null    </span>
 </dt>
-<dd>Gets the redirectUriSettings</dd>
+<dd>Gets the redirectUriSettings
+Specifies the index of the URLs where user tokens are sent for sign-in. This is only valid for applications using SAML.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_jsonSerialize">jsonSerialize()</a>
@@ -323,7 +324,8 @@ Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs 
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-WebApplication.html"><abbr title="\Beta\Microsoft\Graph\Model\WebApplication">WebApplication</abbr></a>    </span>
 </dt>
-<dd>Sets the redirectUriSettings</dd>
+<dd>Sets the redirectUriSettings
+Specifies the index of the URLs where user tokens are sent for sign-in. This is only valid for applications using SAML.</dd>
 
         </dl>
 
@@ -544,7 +546,7 @@ Specifies whether this web application can request tokens using the OAuth 2.0 im
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WebApplication.php"><a href="files/src-model-webapplication.html"><abbr title="src/Model/WebApplication.php">WebApplication.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the logoutUrl
@@ -580,7 +582,7 @@ Specifies the URL that will be used by Microsoft&#039;s authorization service to
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WebApplication.php"><a href="files/src-model-webapplication.html"><abbr title="src/Model/WebApplication.php">WebApplication.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">120</span>
+    <span class="phpdocumentor-element-found-in__line">121</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the oauth2AllowImplicitFlow</p>
@@ -685,7 +687,7 @@ Specifies the URL that will be used by Microsoft&#039;s authorization service to
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WebApplication.php"><a href="files/src-model-webapplication.html"><abbr title="src/Model/WebApplication.php">WebApplication.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">147</span>
+    <span class="phpdocumentor-element-found-in__line">148</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the redirectUris
@@ -721,14 +723,15 @@ Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WebApplication.php"><a href="files/src-model-webapplication.html"><abbr title="src/Model/WebApplication.php">WebApplication.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">175</span>
+    <span class="phpdocumentor-element-found-in__line">177</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the redirectUriSettings</p>
+        <p class="phpdocumentor-summary">Gets the redirectUriSettings
+Specifies the index of the URLs where user tokens are sent for sign-in. This is only valid for applications using SAML.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getRedirectUriSettings</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-RedirectUriSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\RedirectUriSettings">RedirectUriSettings</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getRedirectUriSettings</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RedirectUriSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\RedirectUriSettings">RedirectUriSettings</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -736,7 +739,7 @@ Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-RedirectUriSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\RedirectUriSettings">RedirectUriSettings</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RedirectUriSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\RedirectUriSettings">RedirectUriSettings</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The redirectUriSettings</p>
 </section>
@@ -886,7 +889,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WebApplication.php"><a href="files/src-model-webapplication.html"><abbr title="src/Model/WebApplication.php">WebApplication.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the implicitGrantSettings
@@ -934,7 +937,7 @@ Specifies whether this web application can request tokens using the OAuth 2.0 im
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WebApplication.php"><a href="files/src-model-webapplication.html"><abbr title="src/Model/WebApplication.php">WebApplication.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the logoutUrl
@@ -981,7 +984,7 @@ Specifies the URL that will be used by Microsoft&#039;s authorization service to
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WebApplication.php"><a href="files/src-model-webapplication.html"><abbr title="src/Model/WebApplication.php">WebApplication.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">136</span>
+    <span class="phpdocumentor-element-found-in__line">137</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the oauth2AllowImplicitFlow</p>
@@ -1073,7 +1076,7 @@ Specifies the URL that will be used by Microsoft&#039;s authorization service to
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WebApplication.php"><a href="files/src-model-webapplication.html"><abbr title="src/Model/WebApplication.php">WebApplication.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">164</span>
+    <span class="phpdocumentor-element-found-in__line">165</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the redirectUris
@@ -1081,7 +1084,7 @@ Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setRedirectUris</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WebApplication.html"><abbr title="\Beta\Microsoft\Graph\Model\WebApplication">WebApplication</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setRedirectUris</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WebApplication.html"><abbr title="\Beta\Microsoft\Graph\Model\WebApplication">WebApplication</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1089,7 +1092,7 @@ Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the redirectUris</p>
@@ -1120,14 +1123,15 @@ Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/WebApplication.php"><a href="files/src-model-webapplication.html"><abbr title="src/Model/WebApplication.php">WebApplication.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">195</span>
+    <span class="phpdocumentor-element-found-in__line">202</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the redirectUriSettings</p>
+        <p class="phpdocumentor-summary">Sets the redirectUriSettings
+Specifies the index of the URLs where user tokens are sent for sign-in. This is only valid for applications using SAML.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setRedirectUriSettings</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-RedirectUriSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\RedirectUriSettings">RedirectUriSettings</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WebApplication.html"><abbr title="\Beta\Microsoft\Graph\Model\WebApplication">WebApplication</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setRedirectUriSettings</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RedirectUriSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\RedirectUriSettings">RedirectUriSettings</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-WebApplication.html"><abbr title="\Beta\Microsoft\Graph\Model\WebApplication">WebApplication</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1135,7 +1139,7 @@ Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-RedirectUriSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\RedirectUriSettings">RedirectUriSettings</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-RedirectUriSettings.html"><abbr title="\Beta\Microsoft\Graph\Model\RedirectUriSettings">RedirectUriSettings</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the redirectUriSettings</p>

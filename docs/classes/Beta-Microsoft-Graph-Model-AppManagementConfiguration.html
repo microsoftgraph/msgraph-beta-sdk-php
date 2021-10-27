@@ -197,6 +197,14 @@ to the model</dd>
 Read-only.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Beta-Microsoft-Graph-Model-AppManagementConfiguration.html#method_getKeyCredentials">getKeyCredentials()</a>
+    <span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyCredentialConfiguration">KeyCredentialConfiguration</abbr></a>&gt;|null    </span>
+</dt>
+<dd>Gets the keyCredentials
+Collection of keyCredential restrictions settings to be applied to an application or service principal.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_getODataType">getODataType()</a>
     <span>
                         &nbsp;: string|null    </span>
@@ -206,10 +214,10 @@ Read-only.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AppManagementConfiguration.html#method_getPasswordCredentials">getPasswordCredentials()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-PasswordCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredentialConfiguration">PasswordCredentialConfiguration</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PasswordCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredentialConfiguration">PasswordCredentialConfiguration</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the passwordCredentials
-Collection of password restrictions settings to be applied to an application or service principal</dd>
+Collection of password restrictions settings to be applied to an application or service principal.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_getProperties">getProperties()</a>
@@ -235,6 +243,14 @@ Manually serialize DateTime into RFC3339 format</dd>
 Read-only.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Beta-Microsoft-Graph-Model-AppManagementConfiguration.html#method_setKeyCredentials">setKeyCredentials()</a>
+    <span>
+                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-AppManagementConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\AppManagementConfiguration">AppManagementConfiguration</abbr></a>    </span>
+</dt>
+<dd>Sets the keyCredentials
+Collection of keyCredential restrictions settings to be applied to an application or service principal.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_setODataType">setODataType()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Entity.html"><abbr title="\Beta\Microsoft\Graph\Model\Entity">Entity</abbr></a>    </span>
@@ -247,7 +263,7 @@ Read-only.</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-AppManagementConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\AppManagementConfiguration">AppManagementConfiguration</abbr></a>    </span>
 </dt>
 <dd>Sets the passwordCredentials
-Collection of password restrictions settings to be applied to an application or service principal</dd>
+Collection of password restrictions settings to be applied to an application or service principal.</dd>
 
         </dl>
 
@@ -389,6 +405,42 @@ Read-only.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getKeyCredentials">
+        getKeyCredentials()
+        <a href="classes/Beta-Microsoft-Graph-Model-AppManagementConfiguration.html#method_getKeyCredentials" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AppManagementConfiguration.php"><a href="files/src-model-appmanagementconfiguration.html"><abbr title="src/Model/AppManagementConfiguration.php">AppManagementConfiguration.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">33</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Gets the keyCredentials
+Collection of keyCredential restrictions settings to be applied to an application or service principal.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getKeyCredentials</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyCredentialConfiguration">KeyCredentialConfiguration</abbr></a>&gt;|null</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyCredentialConfiguration">KeyCredentialConfiguration</abbr></a>&gt;|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The keyCredentials</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getODataType">
         getODataType()
         <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_getODataType" class="headerlink"><i class="fas fa-link"></i></a>
@@ -431,15 +483,15 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AppManagementConfiguration.php"><a href="files/src-model-appmanagementconfiguration.html"><abbr title="src/Model/AppManagementConfiguration.php">AppManagementConfiguration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the passwordCredentials
-Collection of password restrictions settings to be applied to an application or service principal</p>
+Collection of password restrictions settings to be applied to an application or service principal.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getPasswordCredentials</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-PasswordCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredentialConfiguration">PasswordCredentialConfiguration</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getPasswordCredentials</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PasswordCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredentialConfiguration">PasswordCredentialConfiguration</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -447,7 +499,7 @@ Collection of password restrictions settings to be applied to an application or 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-PasswordCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredentialConfiguration">PasswordCredentialConfiguration</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PasswordCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredentialConfiguration">PasswordCredentialConfiguration</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The passwordCredentials</p>
 </section>
@@ -578,6 +630,54 @@ Read-only.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_setKeyCredentials">
+        setKeyCredentials()
+        <a href="classes/Beta-Microsoft-Graph-Model-AppManagementConfiguration.html#method_setKeyCredentials" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AppManagementConfiguration.php"><a href="files/src-model-appmanagementconfiguration.html"><abbr title="src/Model/AppManagementConfiguration.php">AppManagementConfiguration.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">58</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Sets the keyCredentials
+Collection of keyCredential restrictions settings to be applied to an application or service principal.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setKeyCredentials</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyCredentialConfiguration">KeyCredentialConfiguration</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AppManagementConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\AppManagementConfiguration">AppManagementConfiguration</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$val</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-KeyCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\KeyCredentialConfiguration">KeyCredentialConfiguration</abbr></a>&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The value to assign to the keyCredentials</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AppManagementConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\AppManagementConfiguration">AppManagementConfiguration</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The AppManagementConfiguration</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_setODataType">
         setODataType()
         <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_setODataType" class="headerlink"><i class="fas fa-link"></i></a>
@@ -631,15 +731,15 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AppManagementConfiguration.php"><a href="files/src-model-appmanagementconfiguration.html"><abbr title="src/Model/AppManagementConfiguration.php">AppManagementConfiguration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">95</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the passwordCredentials
-Collection of password restrictions settings to be applied to an application or service principal</p>
+Collection of password restrictions settings to be applied to an application or service principal.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setPasswordCredentials</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-PasswordCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredentialConfiguration">PasswordCredentialConfiguration</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AppManagementConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\AppManagementConfiguration">AppManagementConfiguration</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setPasswordCredentials</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PasswordCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredentialConfiguration">PasswordCredentialConfiguration</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AppManagementConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\AppManagementConfiguration">AppManagementConfiguration</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -647,7 +747,7 @@ Collection of password restrictions settings to be applied to an application or 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-PasswordCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredentialConfiguration">PasswordCredentialConfiguration</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-PasswordCredentialConfiguration.html"><abbr title="\Beta\Microsoft\Graph\Model\PasswordCredentialConfiguration">PasswordCredentialConfiguration</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the passwordCredentials</p>

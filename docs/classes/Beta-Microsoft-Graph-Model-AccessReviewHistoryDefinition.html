@@ -207,7 +207,7 @@ Timestamp when the access review definition was created.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewHistoryDefinition.html#method_getDecisions">getDecisions()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewHistoryDecisionFilter.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewHistoryDecisionFilter">AccessReviewHistoryDecisionFilter</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the decisions
 Determines which review decisions will be included in the fetched review history data if specified. Optional on create. All decisions will be included by default if no decisions are provided on create. Possible values are: approve, deny, dontKnow, notReviewed, and notNotified.</dd>
@@ -277,7 +277,7 @@ Timestamp, reviews starting on or before this date will be included in the fetch
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewHistoryDefinition.html#method_getScopes">getScopes()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewScope">AccessReviewScope</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the scopes
 Used to scope what reviews are included in the fetched history data. Fetches reviews whose scope matches with this provided scope. See accessreviewqueryscope. Required.</dd>
@@ -584,7 +584,7 @@ Determines which review decisions will be included in the fetched review history
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getDecisions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getDecisions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewHistoryDecisionFilter.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewHistoryDecisionFilter">AccessReviewHistoryDecisionFilter</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -592,7 +592,7 @@ Determines which review decisions will be included in the fetched review history
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewHistoryDecisionFilter.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewHistoryDecisionFilter">AccessReviewHistoryDecisionFilter</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The decisions</p>
 </section>
@@ -612,7 +612,7 @@ Determines which review decisions will be included in the fetched review history
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">129</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the displayName
@@ -648,7 +648,7 @@ Name for the access review history data collection. Required.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">158</span>
+    <span class="phpdocumentor-element-found-in__line">165</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the downloadUri
@@ -684,7 +684,7 @@ Uri which can be used to retrieve review history data. This URI will be active f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">187</span>
+    <span class="phpdocumentor-element-found-in__line">194</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the fulfilledDateTime
@@ -826,7 +826,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">220</span>
+    <span class="phpdocumentor-element-found-in__line">227</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the reviewHistoryPeriodEndDateTime
@@ -862,7 +862,7 @@ Timestamp, reviews starting on or after this date will be included in the fetche
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">253</span>
+    <span class="phpdocumentor-element-found-in__line">260</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the reviewHistoryPeriodStartDateTime
@@ -898,7 +898,7 @@ Timestamp, reviews starting on or before this date will be included in the fetch
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">287</span>
+    <span class="phpdocumentor-element-found-in__line">294</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the scopes
@@ -906,7 +906,7 @@ Used to scope what reviews are included in the fetched history data. Fetches rev
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getScopes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getScopes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewScope">AccessReviewScope</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -914,7 +914,7 @@ Used to scope what reviews are included in the fetched history data. Fetches rev
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewScope">AccessReviewScope</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The scopes</p>
 </section>
@@ -934,7 +934,7 @@ Used to scope what reviews are included in the fetched history data. Fetches rev
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">316</span>
+    <span class="phpdocumentor-element-found-in__line">330</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the status
@@ -1100,7 +1100,7 @@ Timestamp when the access review definition was created.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">124</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the decisions
@@ -1108,7 +1108,7 @@ Determines which review decisions will be included in the fetched review history
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setDecisions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewHistoryDecisionFilter.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewHistoryDecisionFilter">AccessReviewHistoryDecisionFilter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewHistoryDefinition.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewHistoryDefinition">AccessReviewHistoryDefinition</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setDecisions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewHistoryDecisionFilter.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewHistoryDecisionFilter">AccessReviewHistoryDecisionFilter</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewHistoryDefinition.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewHistoryDefinition">AccessReviewHistoryDefinition</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1116,7 +1116,7 @@ Determines which review decisions will be included in the fetched review history
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewHistoryDecisionFilter.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewHistoryDecisionFilter">AccessReviewHistoryDecisionFilter</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewHistoryDecisionFilter.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewHistoryDecisionFilter">AccessReviewHistoryDecisionFilter</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The decisions</p>
@@ -1147,7 +1147,7 @@ Determines which review decisions will be included in the fetched review history
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">146</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the displayName
@@ -1194,7 +1194,7 @@ Name for the access review history data collection. Required.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">175</span>
+    <span class="phpdocumentor-element-found-in__line">182</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the downloadUri
@@ -1241,7 +1241,7 @@ Uri which can be used to retrieve review history data. This URI will be active f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">208</span>
+    <span class="phpdocumentor-element-found-in__line">215</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the fulfilledDateTime
@@ -1381,7 +1381,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">241</span>
+    <span class="phpdocumentor-element-found-in__line">248</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the reviewHistoryPeriodEndDateTime
@@ -1428,7 +1428,7 @@ Timestamp, reviews starting on or after this date will be included in the fetche
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">274</span>
+    <span class="phpdocumentor-element-found-in__line">281</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the reviewHistoryPeriodStartDateTime
@@ -1475,7 +1475,7 @@ Timestamp, reviews starting on or before this date will be included in the fetch
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">304</span>
+    <span class="phpdocumentor-element-found-in__line">318</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the scopes
@@ -1483,7 +1483,7 @@ Used to scope what reviews are included in the fetched history data. Fetches rev
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setScopes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewScope">AccessReviewScope</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewHistoryDefinition.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewHistoryDefinition">AccessReviewHistoryDefinition</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setScopes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewScope">AccessReviewScope</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewHistoryDefinition.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewHistoryDefinition">AccessReviewHistoryDefinition</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1491,7 +1491,7 @@ Used to scope what reviews are included in the fetched history data. Fetches rev
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewScope">AccessReviewScope</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewScope">AccessReviewScope</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The scopes</p>
@@ -1522,7 +1522,7 @@ Used to scope what reviews are included in the fetched history data. Fetches rev
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewHistoryDefinition.php"><a href="files/src-model-accessreviewhistorydefinition.html"><abbr title="src/Model/AccessReviewHistoryDefinition.php">AccessReviewHistoryDefinition.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">337</span>
+    <span class="phpdocumentor-element-found-in__line">351</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the status

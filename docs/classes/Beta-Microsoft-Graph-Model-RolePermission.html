@@ -221,7 +221,7 @@ Read-only.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-RolePermission.html#method_getResourceActions">getResourceActions()</a>
     <span>
-                        &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-ResourceAction.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceAction">ResourceAction</abbr></a>|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ResourceAction.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceAction">ResourceAction</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the resourceActions
 Resource Actions each containing a set of allowed and not allowed permissions.</dd>
@@ -526,7 +526,7 @@ Resource Actions each containing a set of allowed and not allowed permissions.</
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getResourceActions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ResourceAction.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceAction">ResourceAction</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">getResourceActions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ResourceAction.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceAction">ResourceAction</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -534,7 +534,7 @@ Resource Actions each containing a set of allowed and not allowed permissions.</
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ResourceAction.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceAction">ResourceAction</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ResourceAction.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceAction">ResourceAction</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The resourceActions</p>
 </section>
@@ -598,7 +598,7 @@ Allowed Actions - Deprecated</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setActions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-RolePermission.html"><abbr title="\Beta\Microsoft\Graph\Model\RolePermission">RolePermission</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setActions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-RolePermission.html"><abbr title="\Beta\Microsoft\Graph\Model\RolePermission">RolePermission</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -606,7 +606,7 @@ Allowed Actions - Deprecated</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value of the actions</p>
@@ -730,7 +730,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/RolePermission.php"><a href="files/src-model-rolepermission.html"><abbr title="src/Model/RolePermission.php">RolePermission.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the resourceActions
@@ -738,7 +738,7 @@ Resource Actions each containing a set of allowed and not allowed permissions.</
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setResourceActions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ResourceAction.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceAction">ResourceAction</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-RolePermission.html"><abbr title="\Beta\Microsoft\Graph\Model\RolePermission">RolePermission</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setResourceActions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ResourceAction.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceAction">ResourceAction</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-RolePermission.html"><abbr title="\Beta\Microsoft\Graph\Model\RolePermission">RolePermission</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -746,7 +746,7 @@ Resource Actions each containing a set of allowed and not allowed permissions.</
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ResourceAction.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceAction">ResourceAction</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ResourceAction.html"><abbr title="\Beta\Microsoft\Graph\Model\ResourceAction">ResourceAction</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to assign to the resourceActions</p>

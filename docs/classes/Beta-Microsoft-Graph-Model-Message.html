@@ -191,7 +191,7 @@ to the model</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getAttachments">getAttachments()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Attachment.html"><abbr title="\Beta\Microsoft\Graph\Model\Attachment">Attachment</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the attachments
 The fileAttachment and itemAttachment attachments for the message.</dd>
@@ -199,7 +199,7 @@ The fileAttachment and itemAttachment attachments for the message.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getBccRecipients">getBccRecipients()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the bccRecipients
 The Bcc: recipients for the message.</dd>
@@ -231,7 +231,7 @@ The categories associated with the item</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getCcRecipients">getCcRecipients()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the ccRecipients
 The Cc: recipients for the message.</dd>
@@ -271,7 +271,7 @@ The Timestamp type represents date and time information using ISO 8601 format an
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getExtensions">getExtensions()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Extension.html"><abbr title="\Beta\Microsoft\Graph\Model\Extension">Extension</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the extensions
 The collection of open extensions defined for the message. Nullable.</dd>
@@ -313,64 +313,56 @@ Read-only.</dd>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Importance.html"><abbr title="\Beta\Microsoft\Graph\Model\Importance">Importance</abbr></a>|null    </span>
 </dt>
-<dd>Gets the importance
-The importance of the message. The possible values are: low, normal, and high.</dd>
+<dd>Gets the importance</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getInferenceClassification">getInferenceClassification()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-InferenceClassificationType.html"><abbr title="\Beta\Microsoft\Graph\Model\InferenceClassificationType">InferenceClassificationType</abbr></a>|null    </span>
 </dt>
-<dd>Gets the inferenceClassification
-The classification of the message for the user, based on inferred relevance or importance, or on an explicit override. The possible values are: focused or other.</dd>
+<dd>Gets the inferenceClassification</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getInternetMessageHeaders">getInternetMessageHeaders()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-InternetMessageHeader.html"><abbr title="\Beta\Microsoft\Graph\Model\InternetMessageHeader">InternetMessageHeader</abbr></a>&gt;|null    </span>
 </dt>
-<dd>Gets the internetMessageHeaders
-A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.</dd>
+<dd>Gets the internetMessageHeaders</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getInternetMessageId">getInternetMessageId()</a>
     <span>
                         &nbsp;: string|null    </span>
 </dt>
-<dd>Gets the internetMessageId
-The message ID in the format specified by RFC2822.</dd>
+<dd>Gets the internetMessageId</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getIsDeliveryReceiptRequested">getIsDeliveryReceiptRequested()</a>
     <span>
                         &nbsp;: bool|null    </span>
 </dt>
-<dd>Gets the isDeliveryReceiptRequested
-Indicates whether a read receipt is requested for the message.</dd>
+<dd>Gets the isDeliveryReceiptRequested</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getIsDraft">getIsDraft()</a>
     <span>
                         &nbsp;: bool|null    </span>
 </dt>
-<dd>Gets the isDraft
-Indicates whether the message is a draft. A message is a draft if it hasn&#039;t been sent yet.</dd>
+<dd>Gets the isDraft</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getIsRead">getIsRead()</a>
     <span>
                         &nbsp;: bool|null    </span>
 </dt>
-<dd>Gets the isRead
-Indicates whether the message has been read.</dd>
+<dd>Gets the isRead</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getIsReadReceiptRequested">getIsReadReceiptRequested()</a>
     <span>
                         &nbsp;: bool|null    </span>
 </dt>
-<dd>Gets the isReadReceiptRequested
-Indicates whether a read receipt is requested for the message.</dd>
+<dd>Gets the isReadReceiptRequested</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-OutlookItem.html#method_getLastModifiedDateTime">getLastModifiedDateTime()</a>
@@ -383,7 +375,7 @@ The Timestamp type represents date and time information using ISO 8601 format an
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getMentions">getMentions()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Mention.html"><abbr title="\Beta\Microsoft\Graph\Model\Mention">Mention</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the mentions
 A collection of mentions in the message, ordered by the createdDateTime from the newest to the oldest. By default, a GET /messages does not return this property unless you apply $expand on the property.</dd>
@@ -398,7 +390,7 @@ A collection of mentions in the message, ordered by the createdDateTime from the
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getMultiValueExtendedProperties">getMultiValueExtendedProperties()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-MultiValueLegacyExtendedProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\MultiValueLegacyExtendedProperty">MultiValueLegacyExtendedProperty</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the multiValueExtendedProperties
 The collection of multi-value extended properties defined for the message. Nullable.</dd>
@@ -415,8 +407,7 @@ The collection of multi-value extended properties defined for the message. Nulla
     <span>
                         &nbsp;: string|null    </span>
 </dt>
-<dd>Gets the parentFolderId
-The unique identifier for the message&#039;s parent mailFolder.</dd>
+<dd>Gets the parentFolderId</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_getProperties">getProperties()</a>
@@ -430,37 +421,33 @@ The unique identifier for the message&#039;s parent mailFolder.</dd>
     <span>
                         &nbsp;: <abbr title="\DateTime">DateTime</abbr>|null    </span>
 </dt>
-<dd>Gets the receivedDateTime
-The date and time the message was received.  The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</dd>
+<dd>Gets the receivedDateTime</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getReplyTo">getReplyTo()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null    </span>
 </dt>
-<dd>Gets the replyTo
-The email addresses to use when replying.</dd>
+<dd>Gets the replyTo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getSender">getSender()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>|null    </span>
 </dt>
-<dd>Gets the sender
-The account that is actually used to generate the message. In most cases, this value is the same as the from property. You can set this property to a different value when sending a message from a shared mailbox, for a shared calendar, or as a delegate. In any case, the value must correspond to the actual mailbox used. Find out more about setting the from and sender properties of a message.</dd>
+<dd>Gets the sender</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getSentDateTime">getSentDateTime()</a>
     <span>
                         &nbsp;: <abbr title="\DateTime">DateTime</abbr>|null    </span>
 </dt>
-<dd>Gets the sentDateTime
-The date and time the message was sent.  The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</dd>
+<dd>Gets the sentDateTime</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getSingleValueExtendedProperties">getSingleValueExtendedProperties()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SingleValueLegacyExtendedProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SingleValueLegacyExtendedProperty">SingleValueLegacyExtendedProperty</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the singleValueExtendedProperties
 The collection of single-value extended properties defined for the message. Nullable.</dd>
@@ -470,24 +457,21 @@ The collection of single-value extended properties defined for the message. Null
     <span>
                         &nbsp;: string|null    </span>
 </dt>
-<dd>Gets the subject
-The subject of the message.</dd>
+<dd>Gets the subject</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getToRecipients">getToRecipients()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null    </span>
 </dt>
-<dd>Gets the toRecipients
-The To: recipients for the message.</dd>
+<dd>Gets the toRecipients</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getUniqueBody">getUniqueBody()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-ItemBody.html"><abbr title="\Beta\Microsoft\Graph\Model\ItemBody">ItemBody</abbr></a>|null    </span>
 </dt>
-<dd>Gets the uniqueBody
-The part of the body of the message that is unique to the current message. uniqueBody is not returned by default but can be retrieved for a given message by use of the ?$select=uniqueBody query. It can be in HTML or text format.</dd>
+<dd>Gets the uniqueBody</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_getUnsubscribeData">getUnsubscribeData()</a>
@@ -508,8 +492,7 @@ The part of the body of the message that is unique to the current message. uniqu
     <span>
                         &nbsp;: string|null    </span>
 </dt>
-<dd>Gets the webLink
-The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook on the web review pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.</dd>
+<dd>Gets the webLink</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Entity.html#method_jsonSerialize">jsonSerialize()</a>
@@ -644,64 +627,56 @@ Read-only.</dd>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the importance
-The importance of the message. The possible values are: low, normal, and high.</dd>
+<dd>Sets the importance</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setInferenceClassification">setInferenceClassification()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the inferenceClassification
-The classification of the message for the user, based on inferred relevance or importance, or on an explicit override. The possible values are: focused or other.</dd>
+<dd>Sets the inferenceClassification</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setInternetMessageHeaders">setInternetMessageHeaders()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the internetMessageHeaders
-A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.</dd>
+<dd>Sets the internetMessageHeaders</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setInternetMessageId">setInternetMessageId()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the internetMessageId
-The message ID in the format specified by RFC2822.</dd>
+<dd>Sets the internetMessageId</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setIsDeliveryReceiptRequested">setIsDeliveryReceiptRequested()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the isDeliveryReceiptRequested
-Indicates whether a read receipt is requested for the message.</dd>
+<dd>Sets the isDeliveryReceiptRequested</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setIsDraft">setIsDraft()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the isDraft
-Indicates whether the message is a draft. A message is a draft if it hasn&#039;t been sent yet.</dd>
+<dd>Sets the isDraft</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setIsRead">setIsRead()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the isRead
-Indicates whether the message has been read.</dd>
+<dd>Sets the isRead</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setIsReadReceiptRequested">setIsReadReceiptRequested()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the isReadReceiptRequested
-Indicates whether a read receipt is requested for the message.</dd>
+<dd>Sets the isReadReceiptRequested</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-OutlookItem.html#method_setLastModifiedDateTime">setLastModifiedDateTime()</a>
@@ -746,40 +721,35 @@ The collection of multi-value extended properties defined for the message. Nulla
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the parentFolderId
-The unique identifier for the message&#039;s parent mailFolder.</dd>
+<dd>Sets the parentFolderId</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setReceivedDateTime">setReceivedDateTime()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the receivedDateTime
-The date and time the message was received.  The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</dd>
+<dd>Sets the receivedDateTime</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setReplyTo">setReplyTo()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the replyTo
-The email addresses to use when replying.</dd>
+<dd>Sets the replyTo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setSender">setSender()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the sender
-The account that is actually used to generate the message. In most cases, this value is the same as the from property. You can set this property to a different value when sending a message from a shared mailbox, for a shared calendar, or as a delegate. In any case, the value must correspond to the actual mailbox used. Find out more about setting the from and sender properties of a message.</dd>
+<dd>Sets the sender</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setSentDateTime">setSentDateTime()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the sentDateTime
-The date and time the message was sent.  The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</dd>
+<dd>Sets the sentDateTime</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setSingleValueExtendedProperties">setSingleValueExtendedProperties()</a>
@@ -794,24 +764,21 @@ The collection of single-value extended properties defined for the message. Null
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the subject
-The subject of the message.</dd>
+<dd>Sets the subject</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setToRecipients">setToRecipients()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the toRecipients
-The To: recipients for the message.</dd>
+<dd>Sets the toRecipients</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setUniqueBody">setUniqueBody()</a>
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the uniqueBody
-The part of the body of the message that is unique to the current message. uniqueBody is not returned by default but can be retrieved for a given message by use of the ?$select=uniqueBody query. It can be in HTML or text format.</dd>
+<dd>Sets the uniqueBody</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-Message.html#method_setUnsubscribeData">setUnsubscribeData()</a>
@@ -832,8 +799,7 @@ The part of the body of the message that is unique to the current message. uniqu
     <span>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a>    </span>
 </dt>
-<dd>Sets the webLink
-The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook on the web review pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.</dd>
+<dd>Sets the webLink</dd>
 
         </dl>
 
@@ -946,7 +912,7 @@ to the model</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">918</span>
+    <span class="phpdocumentor-element-found-in__line">919</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the attachments
@@ -954,7 +920,7 @@ The fileAttachment and itemAttachment attachments for the message.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getAttachments</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getAttachments</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Attachment.html"><abbr title="\Beta\Microsoft\Graph\Model\Attachment">Attachment</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -962,7 +928,7 @@ The fileAttachment and itemAttachment attachments for the message.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Attachment.html"><abbr title="\Beta\Microsoft\Graph\Model\Attachment">Attachment</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The attachments</p>
 </section>
@@ -990,7 +956,7 @@ The Bcc: recipients for the message.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getBccRecipients</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getBccRecipients</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -998,7 +964,7 @@ The Bcc: recipients for the message.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The bccRecipients</p>
 </section>
@@ -1018,7 +984,7 @@ The Bcc: recipients for the message.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the body
@@ -1054,7 +1020,7 @@ The body of the message. It can be in HTML or text format. Find out about safe H
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">96</span>
+    <span class="phpdocumentor-element-found-in__line">103</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the bodyPreview
@@ -1126,7 +1092,7 @@ The categories associated with the item</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">126</span>
+    <span class="phpdocumentor-element-found-in__line">133</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the ccRecipients
@@ -1134,7 +1100,7 @@ The Cc: recipients for the message.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getCcRecipients</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getCcRecipients</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1142,7 +1108,7 @@ The Cc: recipients for the message.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The ccRecipients</p>
 </section>
@@ -1198,7 +1164,7 @@ Identifies the version of the item. Every time the item is changed, changeKey ch
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">155</span>
+    <span class="phpdocumentor-element-found-in__line">169</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the conversationId
@@ -1234,7 +1200,7 @@ The ID of the conversation the email belongs to.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">184</span>
+    <span class="phpdocumentor-element-found-in__line">198</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the conversationIndex
@@ -1306,7 +1272,7 @@ The Timestamp type represents date and time information using ISO 8601 format an
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">948</span>
+    <span class="phpdocumentor-element-found-in__line">956</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the extensions
@@ -1314,7 +1280,7 @@ The collection of open extensions defined for the message. Nullable.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getExtensions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getExtensions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Extension.html"><abbr title="\Beta\Microsoft\Graph\Model\Extension">Extension</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1322,7 +1288,7 @@ The collection of open extensions defined for the message. Nullable.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Extension.html"><abbr title="\Beta\Microsoft\Graph\Model\Extension">Extension</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The extensions</p>
 </section>
@@ -1342,7 +1308,7 @@ The collection of open extensions defined for the message. Nullable.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">217</span>
+    <span class="phpdocumentor-element-found-in__line">231</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the flag
@@ -1378,7 +1344,7 @@ The flag value that indicates the status, start date, due date, or completion da
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">250</span>
+    <span class="phpdocumentor-element-found-in__line">264</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the from
@@ -1414,7 +1380,7 @@ The owner of the mailbox from which the message is sent. In most cases, this val
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">283</span>
+    <span class="phpdocumentor-element-found-in__line">297</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the hasAttachments
@@ -1486,11 +1452,10 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">312</span>
+    <span class="phpdocumentor-element-found-in__line">325</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the importance
-The importance of the message. The possible values are: low, normal, and high.</p>
+        <p class="phpdocumentor-summary">Gets the importance</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1522,11 +1487,10 @@ The importance of the message. The possible values are: low, normal, and high.</
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">345</span>
+    <span class="phpdocumentor-element-found-in__line">356</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the inferenceClassification
-The classification of the message for the user, based on inferred relevance or importance, or on an explicit override. The possible values are: focused or other.</p>
+        <p class="phpdocumentor-summary">Gets the inferenceClassification</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1558,15 +1522,14 @@ The classification of the message for the user, based on inferred relevance or i
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">379</span>
+    <span class="phpdocumentor-element-found-in__line">388</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the internetMessageHeaders
-A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.</p>
+        <p class="phpdocumentor-summary">Gets the internetMessageHeaders</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getInternetMessageHeaders</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getInternetMessageHeaders</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-InternetMessageHeader.html"><abbr title="\Beta\Microsoft\Graph\Model\InternetMessageHeader">InternetMessageHeader</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1574,7 +1537,7 @@ A collection of message headers defined by RFC5322. The set includes message hea
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-InternetMessageHeader.html"><abbr title="\Beta\Microsoft\Graph\Model\InternetMessageHeader">InternetMessageHeader</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The internetMessageHeaders</p>
 </section>
@@ -1594,11 +1557,10 @@ A collection of message headers defined by RFC5322. The set includes message hea
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">408</span>
+    <span class="phpdocumentor-element-found-in__line">422</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the internetMessageId
-The message ID in the format specified by RFC2822.</p>
+        <p class="phpdocumentor-summary">Gets the internetMessageId</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1630,11 +1592,10 @@ The message ID in the format specified by RFC2822.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">437</span>
+    <span class="phpdocumentor-element-found-in__line">449</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the isDeliveryReceiptRequested
-Indicates whether a read receipt is requested for the message.</p>
+        <p class="phpdocumentor-summary">Gets the isDeliveryReceiptRequested</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1666,11 +1627,10 @@ Indicates whether a read receipt is requested for the message.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">466</span>
+    <span class="phpdocumentor-element-found-in__line">476</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the isDraft
-Indicates whether the message is a draft. A message is a draft if it hasn&#039;t been sent yet.</p>
+        <p class="phpdocumentor-summary">Gets the isDraft</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1702,11 +1662,10 @@ Indicates whether the message is a draft. A message is a draft if it hasn&#039;t
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">495</span>
+    <span class="phpdocumentor-element-found-in__line">503</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the isRead
-Indicates whether the message has been read.</p>
+        <p class="phpdocumentor-summary">Gets the isRead</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1738,11 +1697,10 @@ Indicates whether the message has been read.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">524</span>
+    <span class="phpdocumentor-element-found-in__line">530</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the isReadReceiptRequested
-Indicates whether a read receipt is requested for the message.</p>
+        <p class="phpdocumentor-summary">Gets the isReadReceiptRequested</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1810,7 +1768,7 @@ The Timestamp type represents date and time information using ISO 8601 format an
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">978</span>
+    <span class="phpdocumentor-element-found-in__line">993</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the mentions
@@ -1818,7 +1776,7 @@ A collection of mentions in the message, ordered by the createdDateTime from the
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getMentions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getMentions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Mention.html"><abbr title="\Beta\Microsoft\Graph\Model\Mention">Mention</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1826,7 +1784,7 @@ A collection of mentions in the message, ordered by the createdDateTime from the
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Mention.html"><abbr title="\Beta\Microsoft\Graph\Model\Mention">Mention</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The mentions</p>
 </section>
@@ -1846,7 +1804,7 @@ A collection of mentions in the message, ordered by the createdDateTime from the
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">552</span>
+    <span class="phpdocumentor-element-found-in__line">557</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the mentionsPreview</p>
@@ -1881,7 +1839,7 @@ A collection of mentions in the message, ordered by the createdDateTime from the
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1008</span>
+    <span class="phpdocumentor-element-found-in__line">1030</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the multiValueExtendedProperties
@@ -1889,7 +1847,7 @@ The collection of multi-value extended properties defined for the message. Nulla
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getMultiValueExtendedProperties</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getMultiValueExtendedProperties</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-MultiValueLegacyExtendedProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\MultiValueLegacyExtendedProperty">MultiValueLegacyExtendedProperty</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1897,7 +1855,7 @@ The collection of multi-value extended properties defined for the message. Nulla
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-MultiValueLegacyExtendedProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\MultiValueLegacyExtendedProperty">MultiValueLegacyExtendedProperty</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The multiValueExtendedProperties</p>
 </section>
@@ -1952,11 +1910,10 @@ The collection of multi-value extended properties defined for the message. Nulla
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">584</span>
+    <span class="phpdocumentor-element-found-in__line">588</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the parentFolderId
-The unique identifier for the message&#039;s parent mailFolder.</p>
+        <p class="phpdocumentor-summary">Gets the parentFolderId</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -2023,11 +1980,10 @@ The unique identifier for the message&#039;s parent mailFolder.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">613</span>
+    <span class="phpdocumentor-element-found-in__line">615</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the receivedDateTime
-The date and time the message was received.  The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</p>
+        <p class="phpdocumentor-summary">Gets the receivedDateTime</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -2062,12 +2018,11 @@ The date and time the message was received.  The date and time information uses 
     <span class="phpdocumentor-element-found-in__line">647</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the replyTo
-The email addresses to use when replying.</p>
+        <p class="phpdocumentor-summary">Gets the replyTo</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getReplyTo</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getReplyTo</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2075,7 +2030,7 @@ The email addresses to use when replying.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The replyTo</p>
 </section>
@@ -2095,11 +2050,10 @@ The email addresses to use when replying.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">676</span>
+    <span class="phpdocumentor-element-found-in__line">681</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the sender
-The account that is actually used to generate the message. In most cases, this value is the same as the from property. You can set this property to a different value when sending a message from a shared mailbox, for a shared calendar, or as a delegate. In any case, the value must correspond to the actual mailbox used. Find out more about setting the from and sender properties of a message.</p>
+        <p class="phpdocumentor-summary">Gets the sender</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -2131,11 +2085,10 @@ The account that is actually used to generate the message. In most cases, this v
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">709</span>
+    <span class="phpdocumentor-element-found-in__line">712</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the sentDateTime
-The date and time the message was sent.  The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</p>
+        <p class="phpdocumentor-summary">Gets the sentDateTime</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -2167,7 +2120,7 @@ The date and time the message was sent.  The date and time information uses ISO 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1038</span>
+    <span class="phpdocumentor-element-found-in__line">1067</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the singleValueExtendedProperties
@@ -2175,7 +2128,7 @@ The collection of single-value extended properties defined for the message. Null
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getSingleValueExtendedProperties</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getSingleValueExtendedProperties</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SingleValueLegacyExtendedProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SingleValueLegacyExtendedProperty">SingleValueLegacyExtendedProperty</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2183,7 +2136,7 @@ The collection of single-value extended properties defined for the message. Null
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SingleValueLegacyExtendedProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SingleValueLegacyExtendedProperty">SingleValueLegacyExtendedProperty</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The singleValueExtendedProperties</p>
 </section>
@@ -2203,11 +2156,10 @@ The collection of single-value extended properties defined for the message. Null
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">742</span>
+    <span class="phpdocumentor-element-found-in__line">743</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the subject
-The subject of the message.</p>
+        <p class="phpdocumentor-summary">Gets the subject</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -2239,15 +2191,14 @@ The subject of the message.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">772</span>
+    <span class="phpdocumentor-element-found-in__line">771</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the toRecipients
-The To: recipients for the message.</p>
+        <p class="phpdocumentor-summary">Gets the toRecipients</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getToRecipients</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getToRecipients</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2255,7 +2206,7 @@ The To: recipients for the message.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The toRecipients</p>
 </section>
@@ -2275,11 +2226,10 @@ The To: recipients for the message.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">801</span>
+    <span class="phpdocumentor-element-found-in__line">805</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the uniqueBody
-The part of the body of the message that is unique to the current message. uniqueBody is not returned by default but can be retrieved for a given message by use of the ?$select=uniqueBody query. It can be in HTML or text format.</p>
+        <p class="phpdocumentor-summary">Gets the uniqueBody</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -2311,7 +2261,7 @@ The part of the body of the message that is unique to the current message. uniqu
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">833</span>
+    <span class="phpdocumentor-element-found-in__line">836</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the unsubscribeData</p>
@@ -2346,7 +2296,7 @@ The part of the body of the message that is unique to the current message. uniqu
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">860</span>
+    <span class="phpdocumentor-element-found-in__line">863</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the unsubscribeEnabled</p>
@@ -2381,11 +2331,10 @@ The part of the body of the message that is unique to the current message. uniqu
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">888</span>
+    <span class="phpdocumentor-element-found-in__line">890</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Gets the webLink
-The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook on the web review pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.</p>
+        <p class="phpdocumentor-summary">Gets the webLink</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -2453,7 +2402,7 @@ Manually serialize DateTime into RFC3339 format</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">935</span>
+    <span class="phpdocumentor-element-found-in__line">943</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the attachments
@@ -2461,7 +2410,7 @@ The fileAttachment and itemAttachment attachments for the message.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAttachments</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Attachment.html"><abbr title="\Beta\Microsoft\Graph\Model\Attachment">Attachment</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setAttachments</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Attachment.html"><abbr title="\Beta\Microsoft\Graph\Model\Attachment">Attachment</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2469,7 +2418,7 @@ The fileAttachment and itemAttachment attachments for the message.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Attachment.html"><abbr title="\Beta\Microsoft\Graph\Model\Attachment">Attachment</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Attachment.html"><abbr title="\Beta\Microsoft\Graph\Model\Attachment">Attachment</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The attachments</p>
@@ -2500,7 +2449,7 @@ The fileAttachment and itemAttachment attachments for the message.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the bccRecipients
@@ -2508,7 +2457,7 @@ The Bcc: recipients for the message.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setBccRecipients</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setBccRecipients</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2516,7 +2465,7 @@ The Bcc: recipients for the message.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The bccRecipients</p>
@@ -2547,7 +2496,7 @@ The Bcc: recipients for the message.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">84</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the body
@@ -2594,7 +2543,7 @@ The body of the message. It can be in HTML or text format. Find out about safe H
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">113</span>
+    <span class="phpdocumentor-element-found-in__line">120</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the bodyPreview
@@ -2688,7 +2637,7 @@ The categories associated with the item</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">157</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the ccRecipients
@@ -2696,7 +2645,7 @@ The Cc: recipients for the message.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setCcRecipients</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setCcRecipients</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2704,7 +2653,7 @@ The Cc: recipients for the message.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The ccRecipients</p>
@@ -2782,7 +2731,7 @@ Identifies the version of the item. Every time the item is changed, changeKey ch
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">172</span>
+    <span class="phpdocumentor-element-found-in__line">186</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the conversationId
@@ -2829,7 +2778,7 @@ The ID of the conversation the email belongs to.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">205</span>
+    <span class="phpdocumentor-element-found-in__line">219</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the conversationIndex
@@ -2923,7 +2872,7 @@ The Timestamp type represents date and time information using ISO 8601 format an
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">965</span>
+    <span class="phpdocumentor-element-found-in__line">980</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the extensions
@@ -2931,7 +2880,7 @@ The collection of open extensions defined for the message. Nullable.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setExtensions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Extension.html"><abbr title="\Beta\Microsoft\Graph\Model\Extension">Extension</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setExtensions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Extension.html"><abbr title="\Beta\Microsoft\Graph\Model\Extension">Extension</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2939,7 +2888,7 @@ The collection of open extensions defined for the message. Nullable.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Extension.html"><abbr title="\Beta\Microsoft\Graph\Model\Extension">Extension</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Extension.html"><abbr title="\Beta\Microsoft\Graph\Model\Extension">Extension</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The extensions</p>
@@ -2970,7 +2919,7 @@ The collection of open extensions defined for the message. Nullable.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">238</span>
+    <span class="phpdocumentor-element-found-in__line">252</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the flag
@@ -3017,7 +2966,7 @@ The flag value that indicates the status, start date, due date, or completion da
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">271</span>
+    <span class="phpdocumentor-element-found-in__line">285</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the from
@@ -3064,7 +3013,7 @@ The owner of the mailbox from which the message is sent. In most cases, this val
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">300</span>
+    <span class="phpdocumentor-element-found-in__line">314</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the hasAttachments
@@ -3158,11 +3107,10 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">333</span>
+    <span class="phpdocumentor-element-found-in__line">345</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the importance
-The importance of the message. The possible values are: low, normal, and high.</p>
+        <p class="phpdocumentor-summary">Sets the importance</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -3205,11 +3153,10 @@ The importance of the message. The possible values are: low, normal, and high.</
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">366</span>
+    <span class="phpdocumentor-element-found-in__line">376</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the inferenceClassification
-The classification of the message for the user, based on inferred relevance or importance, or on an explicit override. The possible values are: focused or other.</p>
+        <p class="phpdocumentor-summary">Sets the inferenceClassification</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -3252,15 +3199,14 @@ The classification of the message for the user, based on inferred relevance or i
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">396</span>
+    <span class="phpdocumentor-element-found-in__line">411</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the internetMessageHeaders
-A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.</p>
+        <p class="phpdocumentor-summary">Sets the internetMessageHeaders</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setInternetMessageHeaders</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-InternetMessageHeader.html"><abbr title="\Beta\Microsoft\Graph\Model\InternetMessageHeader">InternetMessageHeader</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setInternetMessageHeaders</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-InternetMessageHeader.html"><abbr title="\Beta\Microsoft\Graph\Model\InternetMessageHeader">InternetMessageHeader</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3268,7 +3214,7 @@ A collection of message headers defined by RFC5322. The set includes message hea
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-InternetMessageHeader.html"><abbr title="\Beta\Microsoft\Graph\Model\InternetMessageHeader">InternetMessageHeader</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-InternetMessageHeader.html"><abbr title="\Beta\Microsoft\Graph\Model\InternetMessageHeader">InternetMessageHeader</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The internetMessageHeaders</p>
@@ -3299,11 +3245,10 @@ A collection of message headers defined by RFC5322. The set includes message hea
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">425</span>
+    <span class="phpdocumentor-element-found-in__line">438</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the internetMessageId
-The message ID in the format specified by RFC2822.</p>
+        <p class="phpdocumentor-summary">Sets the internetMessageId</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -3346,11 +3291,10 @@ The message ID in the format specified by RFC2822.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">454</span>
+    <span class="phpdocumentor-element-found-in__line">465</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the isDeliveryReceiptRequested
-Indicates whether a read receipt is requested for the message.</p>
+        <p class="phpdocumentor-summary">Sets the isDeliveryReceiptRequested</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -3393,11 +3337,10 @@ Indicates whether a read receipt is requested for the message.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">483</span>
+    <span class="phpdocumentor-element-found-in__line">492</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the isDraft
-Indicates whether the message is a draft. A message is a draft if it hasn&#039;t been sent yet.</p>
+        <p class="phpdocumentor-summary">Sets the isDraft</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -3440,11 +3383,10 @@ Indicates whether the message is a draft. A message is a draft if it hasn&#039;t
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">512</span>
+    <span class="phpdocumentor-element-found-in__line">519</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the isRead
-Indicates whether the message has been read.</p>
+        <p class="phpdocumentor-summary">Sets the isRead</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -3487,11 +3429,10 @@ Indicates whether the message has been read.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">541</span>
+    <span class="phpdocumentor-element-found-in__line">546</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the isReadReceiptRequested
-Indicates whether a read receipt is requested for the message.</p>
+        <p class="phpdocumentor-summary">Sets the isReadReceiptRequested</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -3581,7 +3522,7 @@ The Timestamp type represents date and time information using ISO 8601 format an
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">995</span>
+    <span class="phpdocumentor-element-found-in__line">1017</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the mentions
@@ -3589,7 +3530,7 @@ A collection of mentions in the message, ordered by the createdDateTime from the
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setMentions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Mention.html"><abbr title="\Beta\Microsoft\Graph\Model\Mention">Mention</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setMentions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Mention.html"><abbr title="\Beta\Microsoft\Graph\Model\Mention">Mention</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3597,7 +3538,7 @@ A collection of mentions in the message, ordered by the createdDateTime from the
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Mention.html"><abbr title="\Beta\Microsoft\Graph\Model\Mention">Mention</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Mention.html"><abbr title="\Beta\Microsoft\Graph\Model\Mention">Mention</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The mentions</p>
@@ -3628,7 +3569,7 @@ A collection of mentions in the message, ordered by the createdDateTime from the
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">572</span>
+    <span class="phpdocumentor-element-found-in__line">577</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the mentionsPreview</p>
@@ -3674,7 +3615,7 @@ A collection of mentions in the message, ordered by the createdDateTime from the
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1025</span>
+    <span class="phpdocumentor-element-found-in__line">1054</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the multiValueExtendedProperties
@@ -3682,7 +3623,7 @@ The collection of multi-value extended properties defined for the message. Nulla
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setMultiValueExtendedProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-MultiValueLegacyExtendedProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\MultiValueLegacyExtendedProperty">MultiValueLegacyExtendedProperty</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setMultiValueExtendedProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-MultiValueLegacyExtendedProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\MultiValueLegacyExtendedProperty">MultiValueLegacyExtendedProperty</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3690,7 +3631,7 @@ The collection of multi-value extended properties defined for the message. Nulla
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-MultiValueLegacyExtendedProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\MultiValueLegacyExtendedProperty">MultiValueLegacyExtendedProperty</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-MultiValueLegacyExtendedProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\MultiValueLegacyExtendedProperty">MultiValueLegacyExtendedProperty</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The multiValueExtendedProperties</p>
@@ -3767,11 +3708,10 @@ The collection of multi-value extended properties defined for the message. Nulla
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">601</span>
+    <span class="phpdocumentor-element-found-in__line">604</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the parentFolderId
-The unique identifier for the message&#039;s parent mailFolder.</p>
+        <p class="phpdocumentor-summary">Sets the parentFolderId</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -3814,11 +3754,10 @@ The unique identifier for the message&#039;s parent mailFolder.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">634</span>
+    <span class="phpdocumentor-element-found-in__line">635</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the receivedDateTime
-The date and time the message was received.  The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</p>
+        <p class="phpdocumentor-summary">Sets the receivedDateTime</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -3861,15 +3800,14 @@ The date and time the message was received.  The date and time information uses 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">664</span>
+    <span class="phpdocumentor-element-found-in__line">670</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the replyTo
-The email addresses to use when replying.</p>
+        <p class="phpdocumentor-summary">Sets the replyTo</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setReplyTo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setReplyTo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3877,7 +3815,7 @@ The email addresses to use when replying.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The replyTo</p>
@@ -3908,11 +3846,10 @@ The email addresses to use when replying.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">697</span>
+    <span class="phpdocumentor-element-found-in__line">701</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the sender
-The account that is actually used to generate the message. In most cases, this value is the same as the from property. You can set this property to a different value when sending a message from a shared mailbox, for a shared calendar, or as a delegate. In any case, the value must correspond to the actual mailbox used. Find out more about setting the from and sender properties of a message.</p>
+        <p class="phpdocumentor-summary">Sets the sender</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -3955,11 +3892,10 @@ The account that is actually used to generate the message. In most cases, this v
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">730</span>
+    <span class="phpdocumentor-element-found-in__line">732</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the sentDateTime
-The date and time the message was sent.  The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</p>
+        <p class="phpdocumentor-summary">Sets the sentDateTime</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -4002,7 +3938,7 @@ The date and time the message was sent.  The date and time information uses ISO 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1055</span>
+    <span class="phpdocumentor-element-found-in__line">1091</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the singleValueExtendedProperties
@@ -4010,7 +3946,7 @@ The collection of single-value extended properties defined for the message. Null
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setSingleValueExtendedProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-SingleValueLegacyExtendedProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SingleValueLegacyExtendedProperty">SingleValueLegacyExtendedProperty</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setSingleValueExtendedProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SingleValueLegacyExtendedProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SingleValueLegacyExtendedProperty">SingleValueLegacyExtendedProperty</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -4018,7 +3954,7 @@ The collection of single-value extended properties defined for the message. Null
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-SingleValueLegacyExtendedProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SingleValueLegacyExtendedProperty">SingleValueLegacyExtendedProperty</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SingleValueLegacyExtendedProperty.html"><abbr title="\Beta\Microsoft\Graph\Model\SingleValueLegacyExtendedProperty">SingleValueLegacyExtendedProperty</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The singleValueExtendedProperties</p>
@@ -4052,8 +3988,7 @@ The collection of single-value extended properties defined for the message. Null
     <span class="phpdocumentor-element-found-in__line">759</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the subject
-The subject of the message.</p>
+        <p class="phpdocumentor-summary">Sets the subject</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -4096,15 +4031,14 @@ The subject of the message.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">789</span>
+    <span class="phpdocumentor-element-found-in__line">794</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the toRecipients
-The To: recipients for the message.</p>
+        <p class="phpdocumentor-summary">Sets the toRecipients</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setToRecipients</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setToRecipients</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-Message.html"><abbr title="\Beta\Microsoft\Graph\Model\Message">Message</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -4112,7 +4046,7 @@ The To: recipients for the message.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-Recipient.html"><abbr title="\Beta\Microsoft\Graph\Model\Recipient">Recipient</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The toRecipients</p>
@@ -4143,11 +4077,10 @@ The To: recipients for the message.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">822</span>
+    <span class="phpdocumentor-element-found-in__line">825</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the uniqueBody
-The part of the body of the message that is unique to the current message. uniqueBody is not returned by default but can be retrieved for a given message by use of the ?$select=uniqueBody query. It can be in HTML or text format.</p>
+        <p class="phpdocumentor-summary">Sets the uniqueBody</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -4190,7 +4123,7 @@ The part of the body of the message that is unique to the current message. uniqu
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">849</span>
+    <span class="phpdocumentor-element-found-in__line">852</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the unsubscribeData</p>
@@ -4236,7 +4169,7 @@ The part of the body of the message that is unique to the current message. uniqu
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">876</span>
+    <span class="phpdocumentor-element-found-in__line">879</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the unsubscribeEnabled</p>
@@ -4282,11 +4215,10 @@ The part of the body of the message that is unique to the current message. uniqu
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/Message.php"><a href="files/src-model-message.html"><abbr title="src/Model/Message.php">Message.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">905</span>
+    <span class="phpdocumentor-element-found-in__line">906</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Sets the webLink
-The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook on the web review pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.</p>
+        <p class="phpdocumentor-summary">Sets the webLink</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>

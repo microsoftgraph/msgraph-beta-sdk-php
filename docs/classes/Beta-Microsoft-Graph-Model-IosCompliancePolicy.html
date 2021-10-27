@@ -199,7 +199,7 @@ MDATP Require Mobile Threat Protection minimum risk level to report noncomplianc
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html#method_getAssignments">getAssignments()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicyAssignment.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicyAssignment">DeviceCompliancePolicyAssignment</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the assignments
 The collection of assignments for this compliance policy.</dd>
@@ -223,7 +223,7 @@ Admin provided description of the Device Configuration.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html#method_getDeviceSettingStateSummaries">getDeviceSettingStateSummaries()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SettingStateDeviceSummary.html"><abbr title="\Beta\Microsoft\Graph\Model\SettingStateDeviceSummary">SettingStateDeviceSummary</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the deviceSettingStateSummaries
 Compliance Setting State Device Summary</dd>
@@ -231,7 +231,7 @@ Compliance Setting State Device Summary</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html#method_getDeviceStatuses">getDeviceStatuses()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceDeviceStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceDeviceStatus">DeviceComplianceDeviceStatus</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the deviceStatuses
 List of DeviceComplianceDeviceStatus.</dd>
@@ -413,7 +413,7 @@ The required passcode type. Possible values are: deviceDefault, alphanumeric, nu
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-IosCompliancePolicy.html#method_getRestrictedApps">getRestrictedApps()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the restrictedApps
 Require the device to not have the specified apps installed. This collection can contain a maximum of 100 elements.</dd>
@@ -429,10 +429,10 @@ List of Scope Tags for this Entity instance.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html#method_getScheduledActionsForRule">getScheduledActionsForRule()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceScheduledActionForRule.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceScheduledActionForRule">DeviceComplianceScheduledActionForRule</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the scheduledActionsForRule
-The list of scheduled action for this rule</dd>
+The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-IosCompliancePolicy.html#method_getSecurityBlockJailbrokenDevices">getSecurityBlockJailbrokenDevices()</a>
@@ -445,7 +445,7 @@ Devices must not be jailbroken or rooted.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html#method_getUserStatuses">getUserStatuses()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceUserStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceUserStatus">DeviceComplianceUserStatus</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the userStatuses
 List of DeviceComplianceUserStatus.</dd>
@@ -711,7 +711,7 @@ List of Scope Tags for this Entity instance.</dd>
                         &nbsp;: <a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicy">DeviceCompliancePolicy</abbr></a>    </span>
 </dt>
 <dd>Sets the scheduledActionsForRule
-The list of scheduled action for this rule</dd>
+The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-IosCompliancePolicy.html#method_setSecurityBlockJailbrokenDevices">setSecurityBlockJailbrokenDevices()</a>
@@ -900,7 +900,7 @@ The collection of assignments for this compliance policy.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getAssignments</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getAssignments</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicyAssignment.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicyAssignment">DeviceCompliancePolicyAssignment</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -908,7 +908,7 @@ The collection of assignments for this compliance policy.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicyAssignment.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicyAssignment">DeviceCompliancePolicyAssignment</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The assignments</p>
 </section>
@@ -1000,7 +1000,7 @@ Admin provided description of the Device Configuration.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceCompliancePolicy.php"><a href="files/src-model-devicecompliancepolicy.html"><abbr title="src/Model/DeviceCompliancePolicy.php">DeviceCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">246</span>
+    <span class="phpdocumentor-element-found-in__line">253</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the deviceSettingStateSummaries
@@ -1008,7 +1008,7 @@ Compliance Setting State Device Summary</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getDeviceSettingStateSummaries</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getDeviceSettingStateSummaries</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SettingStateDeviceSummary.html"><abbr title="\Beta\Microsoft\Graph\Model\SettingStateDeviceSummary">SettingStateDeviceSummary</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1016,7 +1016,7 @@ Compliance Setting State Device Summary</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SettingStateDeviceSummary.html"><abbr title="\Beta\Microsoft\Graph\Model\SettingStateDeviceSummary">SettingStateDeviceSummary</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The deviceSettingStateSummaries</p>
 </section>
@@ -1036,7 +1036,7 @@ Compliance Setting State Device Summary</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceCompliancePolicy.php"><a href="files/src-model-devicecompliancepolicy.html"><abbr title="src/Model/DeviceCompliancePolicy.php">DeviceCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">276</span>
+    <span class="phpdocumentor-element-found-in__line">290</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the deviceStatuses
@@ -1044,7 +1044,7 @@ List of DeviceComplianceDeviceStatus.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getDeviceStatuses</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getDeviceStatuses</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceDeviceStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceDeviceStatus">DeviceComplianceDeviceStatus</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1052,7 +1052,7 @@ List of DeviceComplianceDeviceStatus.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceDeviceStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceDeviceStatus">DeviceComplianceDeviceStatus</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The deviceStatuses</p>
 </section>
@@ -1072,7 +1072,7 @@ List of DeviceComplianceDeviceStatus.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceCompliancePolicy.php"><a href="files/src-model-devicecompliancepolicy.html"><abbr title="src/Model/DeviceCompliancePolicy.php">DeviceCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">305</span>
+    <span class="phpdocumentor-element-found-in__line">326</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the deviceStatusOverview
@@ -1870,7 +1870,7 @@ Require the device to not have the specified apps installed. This collection can
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getRestrictedApps</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getRestrictedApps</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1878,7 +1878,7 @@ Require the device to not have the specified apps installed. This collection can
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The restrictedApps</p>
 </section>
@@ -1934,15 +1934,15 @@ List of Scope Tags for this Entity instance.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceCompliancePolicy.php"><a href="files/src-model-devicecompliancepolicy.html"><abbr title="src/Model/DeviceCompliancePolicy.php">DeviceCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">339</span>
+    <span class="phpdocumentor-element-found-in__line">360</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the scheduledActionsForRule
-The list of scheduled action for this rule</p>
+The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getScheduledActionsForRule</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getScheduledActionsForRule</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceScheduledActionForRule.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceScheduledActionForRule">DeviceComplianceScheduledActionForRule</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1950,7 +1950,7 @@ The list of scheduled action for this rule</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceScheduledActionForRule.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceScheduledActionForRule">DeviceComplianceScheduledActionForRule</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The scheduledActionsForRule</p>
 </section>
@@ -1970,7 +1970,7 @@ The list of scheduled action for this rule</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosCompliancePolicy.php"><a href="files/src-model-ioscompliancepolicy.html"><abbr title="src/Model/IosCompliancePolicy.php">IosCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">568</span>
+    <span class="phpdocumentor-element-found-in__line">575</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the securityBlockJailbrokenDevices
@@ -2006,7 +2006,7 @@ Devices must not be jailbroken or rooted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceCompliancePolicy.php"><a href="files/src-model-devicecompliancepolicy.html"><abbr title="src/Model/DeviceCompliancePolicy.php">DeviceCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">369</span>
+    <span class="phpdocumentor-element-found-in__line">397</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the userStatuses
@@ -2014,7 +2014,7 @@ List of DeviceComplianceUserStatus.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getUserStatuses</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getUserStatuses</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceUserStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceUserStatus">DeviceComplianceUserStatus</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2022,7 +2022,7 @@ List of DeviceComplianceUserStatus.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceUserStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceUserStatus">DeviceComplianceUserStatus</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The userStatuses</p>
 </section>
@@ -2042,7 +2042,7 @@ List of DeviceComplianceUserStatus.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceCompliancePolicy.php"><a href="files/src-model-devicecompliancepolicy.html"><abbr title="src/Model/DeviceCompliancePolicy.php">DeviceCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">398</span>
+    <span class="phpdocumentor-element-found-in__line">433</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the userStatusOverview
@@ -2197,7 +2197,7 @@ MDATP Require Mobile Threat Protection minimum risk level to report noncomplianc
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceCompliancePolicy.php"><a href="files/src-model-devicecompliancepolicy.html"><abbr title="src/Model/DeviceCompliancePolicy.php">DeviceCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">233</span>
+    <span class="phpdocumentor-element-found-in__line">240</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the assignments
@@ -2205,7 +2205,7 @@ The collection of assignments for this compliance policy.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAssignments</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicyAssignment.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicyAssignment">DeviceCompliancePolicyAssignment</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicy">DeviceCompliancePolicy</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setAssignments</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicyAssignment.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicyAssignment">DeviceCompliancePolicyAssignment</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicy">DeviceCompliancePolicy</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2213,7 +2213,7 @@ The collection of assignments for this compliance policy.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicyAssignment.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicyAssignment">DeviceCompliancePolicyAssignment</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicyAssignment.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicyAssignment">DeviceCompliancePolicyAssignment</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The assignments</p>
@@ -2338,7 +2338,7 @@ Admin provided description of the Device Configuration.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceCompliancePolicy.php"><a href="files/src-model-devicecompliancepolicy.html"><abbr title="src/Model/DeviceCompliancePolicy.php">DeviceCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">263</span>
+    <span class="phpdocumentor-element-found-in__line">277</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the deviceSettingStateSummaries
@@ -2346,7 +2346,7 @@ Compliance Setting State Device Summary</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setDeviceSettingStateSummaries</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-SettingStateDeviceSummary.html"><abbr title="\Beta\Microsoft\Graph\Model\SettingStateDeviceSummary">SettingStateDeviceSummary</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicy">DeviceCompliancePolicy</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setDeviceSettingStateSummaries</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SettingStateDeviceSummary.html"><abbr title="\Beta\Microsoft\Graph\Model\SettingStateDeviceSummary">SettingStateDeviceSummary</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicy">DeviceCompliancePolicy</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2354,7 +2354,7 @@ Compliance Setting State Device Summary</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-SettingStateDeviceSummary.html"><abbr title="\Beta\Microsoft\Graph\Model\SettingStateDeviceSummary">SettingStateDeviceSummary</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-SettingStateDeviceSummary.html"><abbr title="\Beta\Microsoft\Graph\Model\SettingStateDeviceSummary">SettingStateDeviceSummary</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The deviceSettingStateSummaries</p>
@@ -2385,7 +2385,7 @@ Compliance Setting State Device Summary</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceCompliancePolicy.php"><a href="files/src-model-devicecompliancepolicy.html"><abbr title="src/Model/DeviceCompliancePolicy.php">DeviceCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">293</span>
+    <span class="phpdocumentor-element-found-in__line">314</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the deviceStatuses
@@ -2393,7 +2393,7 @@ List of DeviceComplianceDeviceStatus.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setDeviceStatuses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceDeviceStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceDeviceStatus">DeviceComplianceDeviceStatus</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicy">DeviceCompliancePolicy</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setDeviceStatuses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceDeviceStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceDeviceStatus">DeviceComplianceDeviceStatus</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicy">DeviceCompliancePolicy</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2401,7 +2401,7 @@ List of DeviceComplianceDeviceStatus.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceDeviceStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceDeviceStatus">DeviceComplianceDeviceStatus</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceDeviceStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceDeviceStatus">DeviceComplianceDeviceStatus</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The deviceStatuses</p>
@@ -2432,7 +2432,7 @@ List of DeviceComplianceDeviceStatus.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceCompliancePolicy.php"><a href="files/src-model-devicecompliancepolicy.html"><abbr title="src/Model/DeviceCompliancePolicy.php">DeviceCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">326</span>
+    <span class="phpdocumentor-element-found-in__line">347</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the deviceStatusOverview
@@ -3418,7 +3418,7 @@ The required passcode type. Possible values are: deviceDefault, alphanumeric, nu
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosCompliancePolicy.php"><a href="files/src-model-ioscompliancepolicy.html"><abbr title="src/Model/IosCompliancePolicy.php">IosCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">556</span>
+    <span class="phpdocumentor-element-found-in__line">563</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the restrictedApps
@@ -3426,7 +3426,7 @@ Require the device to not have the specified apps installed. This collection can
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setRestrictedApps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-IosCompliancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\IosCompliancePolicy">IosCompliancePolicy</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setRestrictedApps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-IosCompliancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\IosCompliancePolicy">IosCompliancePolicy</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3434,7 +3434,7 @@ Require the device to not have the specified apps installed. This collection can
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AppListItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AppListItem">AppListItem</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The restrictedApps</p>
@@ -3512,15 +3512,15 @@ List of Scope Tags for this Entity instance.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceCompliancePolicy.php"><a href="files/src-model-devicecompliancepolicy.html"><abbr title="src/Model/DeviceCompliancePolicy.php">DeviceCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">356</span>
+    <span class="phpdocumentor-element-found-in__line">384</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the scheduledActionsForRule
-The list of scheduled action for this rule</p>
+The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setScheduledActionsForRule</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceScheduledActionForRule.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceScheduledActionForRule">DeviceComplianceScheduledActionForRule</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicy">DeviceCompliancePolicy</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setScheduledActionsForRule</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceScheduledActionForRule.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceScheduledActionForRule">DeviceComplianceScheduledActionForRule</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicy">DeviceCompliancePolicy</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3528,7 +3528,7 @@ The list of scheduled action for this rule</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceScheduledActionForRule.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceScheduledActionForRule">DeviceComplianceScheduledActionForRule</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceScheduledActionForRule.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceScheduledActionForRule">DeviceComplianceScheduledActionForRule</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The scheduledActionsForRule</p>
@@ -3559,7 +3559,7 @@ The list of scheduled action for this rule</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/IosCompliancePolicy.php"><a href="files/src-model-ioscompliancepolicy.html"><abbr title="src/Model/IosCompliancePolicy.php">IosCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">585</span>
+    <span class="phpdocumentor-element-found-in__line">592</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the securityBlockJailbrokenDevices
@@ -3606,7 +3606,7 @@ Devices must not be jailbroken or rooted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceCompliancePolicy.php"><a href="files/src-model-devicecompliancepolicy.html"><abbr title="src/Model/DeviceCompliancePolicy.php">DeviceCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">386</span>
+    <span class="phpdocumentor-element-found-in__line">421</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the userStatuses
@@ -3614,7 +3614,7 @@ List of DeviceComplianceUserStatus.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setUserStatuses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceUserStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceUserStatus">DeviceComplianceUserStatus</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicy">DeviceCompliancePolicy</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setUserStatuses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceUserStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceUserStatus">DeviceComplianceUserStatus</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceCompliancePolicy.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceCompliancePolicy">DeviceCompliancePolicy</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -3622,7 +3622,7 @@ List of DeviceComplianceUserStatus.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceUserStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceUserStatus">DeviceComplianceUserStatus</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-DeviceComplianceUserStatus.html"><abbr title="\Beta\Microsoft\Graph\Model\DeviceComplianceUserStatus">DeviceComplianceUserStatus</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The userStatuses</p>
@@ -3653,7 +3653,7 @@ List of DeviceComplianceUserStatus.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/DeviceCompliancePolicy.php"><a href="files/src-model-devicecompliancepolicy.html"><abbr title="src/Model/DeviceCompliancePolicy.php">DeviceCompliancePolicy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">419</span>
+    <span class="phpdocumentor-element-found-in__line">454</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the userStatusOverview

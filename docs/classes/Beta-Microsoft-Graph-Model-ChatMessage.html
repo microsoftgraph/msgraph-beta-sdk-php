@@ -191,7 +191,7 @@ to the model</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html#method_getAttachments">getAttachments()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageAttachment.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageAttachment">ChatMessageAttachment</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the attachments
 References to attached objects like files, tabs, meetings etc.</dd>
@@ -263,7 +263,7 @@ Details of the sender of the chat message. Can only be set during migration.</dd
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html#method_getHostedContents">getHostedContents()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageHostedContent.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageHostedContent">ChatMessageHostedContent</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the hostedContents
 Content in a message hosted by Microsoft Teams - for example, images or code snippets.</dd>
@@ -311,7 +311,7 @@ Locale of the chat message set by the client. Always set to en-us.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html#method_getMentions">getMentions()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageMention.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageMention">ChatMessageMention</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the mentions
 List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel.</dd>
@@ -349,7 +349,7 @@ Defines the properties of a policy violation set by a data loss prevention (DLP)
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html#method_getReactions">getReactions()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageReaction.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageReaction">ChatMessageReaction</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the reactions
 Reactions for this chat message (for example, Like).</dd>
@@ -357,7 +357,7 @@ Reactions for this chat message (for example, Like).</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html#method_getReplies">getReplies()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the replies
 Replies for a specified message.</dd>
@@ -720,7 +720,7 @@ References to attached objects like files, tabs, meetings etc.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getAttachments</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getAttachments</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageAttachment.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageAttachment">ChatMessageAttachment</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -728,7 +728,7 @@ References to attached objects like files, tabs, meetings etc.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageAttachment.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageAttachment">ChatMessageAttachment</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The attachments</p>
 </section>
@@ -748,7 +748,7 @@ References to attached objects like files, tabs, meetings etc.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the body
@@ -784,7 +784,7 @@ Plaintext/HTML representation of the content of the chat message. Representation
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">96</span>
+    <span class="phpdocumentor-element-found-in__line">103</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the channelIdentity
@@ -820,7 +820,7 @@ If the message was sent in a channel, represents identity of the channel.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">129</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the chatId
@@ -856,7 +856,7 @@ If the message was sent in a chat, represents the identity of the chat.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">158</span>
+    <span class="phpdocumentor-element-found-in__line">165</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the createdDateTime
@@ -892,7 +892,7 @@ Timestamp of when the chat message was created.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">191</span>
+    <span class="phpdocumentor-element-found-in__line">198</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the deletedDateTime
@@ -928,7 +928,7 @@ Read only. Timestamp at which the chat message was deleted, or null if not delet
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">224</span>
+    <span class="phpdocumentor-element-found-in__line">231</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the etag
@@ -964,7 +964,7 @@ Read-only. Version number of the chat message.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">253</span>
+    <span class="phpdocumentor-element-found-in__line">260</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the eventDetail
@@ -1000,7 +1000,7 @@ Read-only.  If present, represents details of an event that happened in a chat, 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">286</span>
+    <span class="phpdocumentor-element-found-in__line">293</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the from
@@ -1036,7 +1036,7 @@ Details of the sender of the chat message. Can only be set during migration.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">690</span>
+    <span class="phpdocumentor-element-found-in__line">711</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the hostedContents
@@ -1044,7 +1044,7 @@ Content in a message hosted by Microsoft Teams - for example, images or code sni
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getHostedContents</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getHostedContents</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageHostedContent.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageHostedContent">ChatMessageHostedContent</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1052,7 +1052,7 @@ Content in a message hosted by Microsoft Teams - for example, images or code sni
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageHostedContent.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageHostedContent">ChatMessageHostedContent</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The hostedContents</p>
 </section>
@@ -1108,7 +1108,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">319</span>
+    <span class="phpdocumentor-element-found-in__line">326</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the importance
@@ -1144,7 +1144,7 @@ The importance of the chat message. The possible values are: normal, high, urgen
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">352</span>
+    <span class="phpdocumentor-element-found-in__line">359</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the lastEditedDateTime
@@ -1180,7 +1180,7 @@ Read only. Timestamp when edits to the chat message were made. Triggers an &#039
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">385</span>
+    <span class="phpdocumentor-element-found-in__line">392</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the lastModifiedDateTime
@@ -1216,7 +1216,7 @@ Read only. Timestamp when the chat message is created (initial setting) or modif
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">418</span>
+    <span class="phpdocumentor-element-found-in__line">425</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the locale
@@ -1252,7 +1252,7 @@ Locale of the chat message set by the client. Always set to en-us.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">448</span>
+    <span class="phpdocumentor-element-found-in__line">455</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the mentions
@@ -1260,7 +1260,7 @@ List of entities mentioned in the chat message. Supported entities are: user, bo
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getMentions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getMentions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageMention.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageMention">ChatMessageMention</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1268,7 +1268,7 @@ List of entities mentioned in the chat message. Supported entities are: user, bo
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageMention.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageMention">ChatMessageMention</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The mentions</p>
 </section>
@@ -1288,7 +1288,7 @@ List of entities mentioned in the chat message. Supported entities are: user, bo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">477</span>
+    <span class="phpdocumentor-element-found-in__line">491</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the messageType
@@ -1359,7 +1359,7 @@ The type of chat message. The possible values are: message, chatEvent, typing, u
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">510</span>
+    <span class="phpdocumentor-element-found-in__line">524</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the policyViolation
@@ -1430,7 +1430,7 @@ Defines the properties of a policy violation set by a data loss prevention (DLP)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">544</span>
+    <span class="phpdocumentor-element-found-in__line">558</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the reactions
@@ -1438,7 +1438,7 @@ Reactions for this chat message (for example, Like).</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getReactions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getReactions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageReaction.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageReaction">ChatMessageReaction</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1446,7 +1446,7 @@ Reactions for this chat message (for example, Like).</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageReaction.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageReaction">ChatMessageReaction</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The reactions</p>
 </section>
@@ -1466,7 +1466,7 @@ Reactions for this chat message (for example, Like).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">720</span>
+    <span class="phpdocumentor-element-found-in__line">748</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the replies
@@ -1474,7 +1474,7 @@ Replies for a specified message.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getReplies</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getReplies</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1482,7 +1482,7 @@ Replies for a specified message.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The replies</p>
 </section>
@@ -1502,7 +1502,7 @@ Replies for a specified message.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">573</span>
+    <span class="phpdocumentor-element-found-in__line">594</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the replyToId
@@ -1538,7 +1538,7 @@ Read-only. ID of the parent chat message or root chat message of the thread. (On
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">602</span>
+    <span class="phpdocumentor-element-found-in__line">623</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the subject
@@ -1574,7 +1574,7 @@ The subject of the chat message, in plaintext.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">631</span>
+    <span class="phpdocumentor-element-found-in__line">652</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the summary
@@ -1610,7 +1610,7 @@ Summary text of the chat message that could be used for push notifications and s
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">660</span>
+    <span class="phpdocumentor-element-found-in__line">681</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the webUrl
@@ -1682,7 +1682,7 @@ Manually serialize DateTime into RFC3339 format</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the attachments
@@ -1690,7 +1690,7 @@ References to attached objects like files, tabs, meetings etc.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAttachments</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessageAttachment.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageAttachment">ChatMessageAttachment</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setAttachments</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageAttachment.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageAttachment">ChatMessageAttachment</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1698,7 +1698,7 @@ References to attached objects like files, tabs, meetings etc.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessageAttachment.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageAttachment">ChatMessageAttachment</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageAttachment.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageAttachment">ChatMessageAttachment</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The attachments</p>
@@ -1729,7 +1729,7 @@ References to attached objects like files, tabs, meetings etc.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">84</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the body
@@ -1776,7 +1776,7 @@ Plaintext/HTML representation of the content of the chat message. Representation
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">124</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the channelIdentity
@@ -1823,7 +1823,7 @@ If the message was sent in a channel, represents identity of the channel.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">146</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the chatId
@@ -1870,7 +1870,7 @@ If the message was sent in a chat, represents the identity of the chat.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">179</span>
+    <span class="phpdocumentor-element-found-in__line">186</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the createdDateTime
@@ -1917,7 +1917,7 @@ Timestamp of when the chat message was created.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">212</span>
+    <span class="phpdocumentor-element-found-in__line">219</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the deletedDateTime
@@ -1964,7 +1964,7 @@ Read only. Timestamp at which the chat message was deleted, or null if not delet
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">241</span>
+    <span class="phpdocumentor-element-found-in__line">248</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the etag
@@ -2011,7 +2011,7 @@ Read-only. Version number of the chat message.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">274</span>
+    <span class="phpdocumentor-element-found-in__line">281</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the eventDetail
@@ -2058,7 +2058,7 @@ Read-only.  If present, represents details of an event that happened in a chat, 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">307</span>
+    <span class="phpdocumentor-element-found-in__line">314</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the from
@@ -2105,7 +2105,7 @@ Details of the sender of the chat message. Can only be set during migration.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">707</span>
+    <span class="phpdocumentor-element-found-in__line">735</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the hostedContents
@@ -2113,7 +2113,7 @@ Content in a message hosted by Microsoft Teams - for example, images or code sni
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setHostedContents</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessageHostedContent.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageHostedContent">ChatMessageHostedContent</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setHostedContents</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageHostedContent.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageHostedContent">ChatMessageHostedContent</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2121,7 +2121,7 @@ Content in a message hosted by Microsoft Teams - for example, images or code sni
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessageHostedContent.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageHostedContent">ChatMessageHostedContent</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageHostedContent.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageHostedContent">ChatMessageHostedContent</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The hostedContents</p>
@@ -2199,7 +2199,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">340</span>
+    <span class="phpdocumentor-element-found-in__line">347</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the importance
@@ -2246,7 +2246,7 @@ The importance of the chat message. The possible values are: normal, high, urgen
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">373</span>
+    <span class="phpdocumentor-element-found-in__line">380</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the lastEditedDateTime
@@ -2293,7 +2293,7 @@ Read only. Timestamp when edits to the chat message were made. Triggers an &#039
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">406</span>
+    <span class="phpdocumentor-element-found-in__line">413</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the lastModifiedDateTime
@@ -2340,7 +2340,7 @@ Read only. Timestamp when the chat message is created (initial setting) or modif
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">435</span>
+    <span class="phpdocumentor-element-found-in__line">442</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the locale
@@ -2387,7 +2387,7 @@ Locale of the chat message set by the client. Always set to en-us.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">465</span>
+    <span class="phpdocumentor-element-found-in__line">479</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the mentions
@@ -2395,7 +2395,7 @@ List of entities mentioned in the chat message. Supported entities are: user, bo
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setMentions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessageMention.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageMention">ChatMessageMention</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setMentions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageMention.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageMention">ChatMessageMention</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2403,7 +2403,7 @@ List of entities mentioned in the chat message. Supported entities are: user, bo
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessageMention.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageMention">ChatMessageMention</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageMention.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageMention">ChatMessageMention</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The mentions</p>
@@ -2434,7 +2434,7 @@ List of entities mentioned in the chat message. Supported entities are: user, bo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">498</span>
+    <span class="phpdocumentor-element-found-in__line">512</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the messageType
@@ -2527,7 +2527,7 @@ The type of chat message. The possible values are: message, chatEvent, typing, u
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">531</span>
+    <span class="phpdocumentor-element-found-in__line">545</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the policyViolation
@@ -2574,7 +2574,7 @@ Defines the properties of a policy violation set by a data loss prevention (DLP)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">561</span>
+    <span class="phpdocumentor-element-found-in__line">582</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the reactions
@@ -2582,7 +2582,7 @@ Reactions for this chat message (for example, Like).</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setReactions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessageReaction.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageReaction">ChatMessageReaction</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setReactions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageReaction.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageReaction">ChatMessageReaction</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2590,7 +2590,7 @@ Reactions for this chat message (for example, Like).</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessageReaction.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageReaction">ChatMessageReaction</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessageReaction.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessageReaction">ChatMessageReaction</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The reactions</p>
@@ -2621,7 +2621,7 @@ Reactions for this chat message (for example, Like).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">737</span>
+    <span class="phpdocumentor-element-found-in__line">772</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the replies
@@ -2629,7 +2629,7 @@ Replies for a specified message.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setReplies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setReplies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -2637,7 +2637,7 @@ Replies for a specified message.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-ChatMessage.html"><abbr title="\Beta\Microsoft\Graph\Model\ChatMessage">ChatMessage</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The replies</p>
@@ -2668,7 +2668,7 @@ Replies for a specified message.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">590</span>
+    <span class="phpdocumentor-element-found-in__line">611</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the replyToId
@@ -2715,7 +2715,7 @@ Read-only. ID of the parent chat message or root chat message of the thread. (On
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">619</span>
+    <span class="phpdocumentor-element-found-in__line">640</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the subject
@@ -2762,7 +2762,7 @@ The subject of the chat message, in plaintext.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">648</span>
+    <span class="phpdocumentor-element-found-in__line">669</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the summary
@@ -2809,7 +2809,7 @@ Summary text of the chat message that could be used for push notifications and s
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/ChatMessage.php"><a href="files/src-model-chatmessage.html"><abbr title="src/Model/ChatMessage.php">ChatMessage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">677</span>
+    <span class="phpdocumentor-element-found-in__line">698</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the webUrl

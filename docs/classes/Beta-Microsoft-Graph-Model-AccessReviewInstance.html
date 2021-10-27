@@ -191,7 +191,7 @@ to the model</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html#method_getContactedReviewers">getContactedReviewers()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewer">AccessReviewReviewer</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the contactedReviewers
 Returns the collection of reviewers who were contacted to complete this review. While the reviewers and fallbackReviewers properties of the accessReviewScheduleDefinition might specify group owners or managers as reviewers, contactedReviewers returns their individual identities. Supports $select. Read-only.</dd>
@@ -199,7 +199,7 @@ Returns the collection of reviewers who were contacted to complete this review. 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html#method_getDecisions">getDecisions()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstanceDecisionItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstanceDecisionItem">AccessReviewInstanceDecisionItem</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the decisions
 Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.</dd>
@@ -223,7 +223,7 @@ DateTime when review instance is scheduled to end.The DatetimeOffset type repres
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html#method_getErrors">getErrors()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewError.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewError">AccessReviewError</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the errors
 Collection of errors in an access review instance lifecycle. Read-only.</dd>
@@ -231,7 +231,7 @@ Collection of errors in an access review instance lifecycle. Read-only.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html#method_getFallbackReviewers">getFallbackReviewers()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewerScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewerScope">AccessReviewReviewerScope</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the fallbackReviewers
 This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers will be notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner does not exist, or manager is specified as reviewer but a user&#039;s manager does not exist. Supports $select.</dd>
@@ -261,7 +261,7 @@ Read-only.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html#method_getReviewers">getReviewers()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewerScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewerScope">AccessReviewReviewerScope</abbr></a>&gt;|null    </span>
 </dt>
 <dd>Gets the reviewers
 This collection of access review scopes is used to define who the reviewers are. Supports $select. For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API.</dd>
@@ -504,7 +504,7 @@ to the model</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">252</span>
+    <span class="phpdocumentor-element-found-in__line">273</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the contactedReviewers
@@ -512,7 +512,7 @@ Returns the collection of reviewers who were contacted to complete this review. 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getContactedReviewers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getContactedReviewers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewer">AccessReviewReviewer</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -520,7 +520,7 @@ Returns the collection of reviewers who were contacted to complete this review. 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewer">AccessReviewReviewer</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The contactedReviewers</p>
 </section>
@@ -540,7 +540,7 @@ Returns the collection of reviewers who were contacted to complete this review. 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">282</span>
+    <span class="phpdocumentor-element-found-in__line">310</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the decisions
@@ -548,7 +548,7 @@ Each principal reviewed in an accessReviewInstance has a decision item represent
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getDecisions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getDecisions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstanceDecisionItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstanceDecisionItem">AccessReviewInstanceDecisionItem</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -556,7 +556,7 @@ Each principal reviewed in an accessReviewInstance has a decision item represent
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstanceDecisionItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstanceDecisionItem">AccessReviewInstanceDecisionItem</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The decisions</p>
 </section>
@@ -576,7 +576,7 @@ Each principal reviewed in an accessReviewInstance has a decision item represent
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">311</span>
+    <span class="phpdocumentor-element-found-in__line">346</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the definition
@@ -656,7 +656,7 @@ Collection of errors in an access review instance lifecycle. Read-only.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getErrors</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getErrors</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewError.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewError">AccessReviewError</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -664,7 +664,7 @@ Collection of errors in an access review instance lifecycle. Read-only.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewError.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewError">AccessReviewError</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The errors</p>
 </section>
@@ -684,7 +684,7 @@ Collection of errors in an access review instance lifecycle. Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">97</span>
+    <span class="phpdocumentor-element-found-in__line">104</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the fallbackReviewers
@@ -692,7 +692,7 @@ This collection of reviewer scopes is used to define the list of fallback review
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getFallbackReviewers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getFallbackReviewers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewerScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewerScope">AccessReviewReviewerScope</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -700,7 +700,7 @@ This collection of reviewer scopes is used to define the list of fallback review
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewerScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewerScope">AccessReviewReviewerScope</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The fallbackReviewers</p>
 </section>
@@ -826,7 +826,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">127</span>
+    <span class="phpdocumentor-element-found-in__line">141</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the reviewers
@@ -834,7 +834,7 @@ This collection of access review scopes is used to define who the reviewers are.
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getReviewers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                <span class="phpdocumentor-signature__name">getReviewers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewerScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewerScope">AccessReviewReviewerScope</abbr></a>&gt;|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -842,7 +842,7 @@ This collection of access review scopes is used to define who the reviewers are.
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewerScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewerScope">AccessReviewReviewerScope</abbr></a>&gt;|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>The reviewers</p>
 </section>
@@ -862,7 +862,7 @@ This collection of access review scopes is used to define who the reviewers are.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">156</span>
+    <span class="phpdocumentor-element-found-in__line">177</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the scope
@@ -898,7 +898,7 @@ Created based on scope and instanceEnumerationScope at the accessReviewScheduleD
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">189</span>
+    <span class="phpdocumentor-element-found-in__line">210</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the startDateTime
@@ -934,7 +934,7 @@ DateTime when review instance is scheduled to start. May be in the future. The D
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">222</span>
+    <span class="phpdocumentor-element-found-in__line">243</span>
 </aside>
 
         <p class="phpdocumentor-summary">Gets the status
@@ -1006,7 +1006,7 @@ Manually serialize DateTime into RFC3339 format</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">269</span>
+    <span class="phpdocumentor-element-found-in__line">297</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the contactedReviewers
@@ -1014,7 +1014,7 @@ Returns the collection of reviewers who were contacted to complete this review. 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setContactedReviewers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewer">AccessReviewReviewer</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstance">AccessReviewInstance</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setContactedReviewers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewer">AccessReviewReviewer</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstance">AccessReviewInstance</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1022,7 +1022,7 @@ Returns the collection of reviewers who were contacted to complete this review. 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewer">AccessReviewReviewer</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewer.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewer">AccessReviewReviewer</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The contactedReviewers</p>
@@ -1053,7 +1053,7 @@ Returns the collection of reviewers who were contacted to complete this review. 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">299</span>
+    <span class="phpdocumentor-element-found-in__line">334</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the decisions
@@ -1061,7 +1061,7 @@ Each principal reviewed in an accessReviewInstance has a decision item represent
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setDecisions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstanceDecisionItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstanceDecisionItem">AccessReviewInstanceDecisionItem</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstance">AccessReviewInstance</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setDecisions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstanceDecisionItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstanceDecisionItem">AccessReviewInstanceDecisionItem</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstance">AccessReviewInstance</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1069,7 +1069,7 @@ Each principal reviewed in an accessReviewInstance has a decision item represent
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstanceDecisionItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstanceDecisionItem">AccessReviewInstanceDecisionItem</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstanceDecisionItem.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstanceDecisionItem">AccessReviewInstanceDecisionItem</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The decisions</p>
@@ -1100,7 +1100,7 @@ Each principal reviewed in an accessReviewInstance has a decision item represent
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">332</span>
+    <span class="phpdocumentor-element-found-in__line">367</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the definition
@@ -1194,7 +1194,7 @@ DateTime when review instance is scheduled to end.The DatetimeOffset type repres
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">84</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the errors
@@ -1202,7 +1202,7 @@ Collection of errors in an access review instance lifecycle. Read-only.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setErrors</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewError.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewError">AccessReviewError</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstance">AccessReviewInstance</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setErrors</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewError.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewError">AccessReviewError</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstance">AccessReviewInstance</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1210,7 +1210,7 @@ Collection of errors in an access review instance lifecycle. Read-only.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewError.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewError">AccessReviewError</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewError.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewError">AccessReviewError</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The errors</p>
@@ -1241,7 +1241,7 @@ Collection of errors in an access review instance lifecycle. Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">114</span>
+    <span class="phpdocumentor-element-found-in__line">128</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the fallbackReviewers
@@ -1249,7 +1249,7 @@ This collection of reviewer scopes is used to define the list of fallback review
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setFallbackReviewers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewerScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewerScope">AccessReviewReviewerScope</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstance">AccessReviewInstance</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setFallbackReviewers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewerScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewerScope">AccessReviewReviewerScope</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstance">AccessReviewInstance</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1257,7 +1257,7 @@ This collection of reviewer scopes is used to define the list of fallback review
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewerScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewerScope">AccessReviewReviewerScope</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewerScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewerScope">AccessReviewReviewerScope</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The fallbackReviewers</p>
@@ -1381,7 +1381,7 @@ Read-only.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">144</span>
+    <span class="phpdocumentor-element-found-in__line">165</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the reviewers
@@ -1389,7 +1389,7 @@ This collection of access review scopes is used to define who the reviewers are.
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setReviewers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewerScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewerScope">AccessReviewReviewerScope</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstance">AccessReviewInstance</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setReviewers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewerScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewerScope">AccessReviewReviewerScope</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewInstance.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewInstance">AccessReviewInstance</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1397,7 +1397,7 @@ This collection of access review scopes is used to define who the reviewers are.
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$val</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewerScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewerScope">AccessReviewReviewerScope</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Beta-Microsoft-Graph-Model-AccessReviewReviewerScope.html"><abbr title="\Beta\Microsoft\Graph\Model\AccessReviewReviewerScope">AccessReviewReviewerScope</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The reviewers</p>
@@ -1428,7 +1428,7 @@ This collection of access review scopes is used to define who the reviewers are.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">177</span>
+    <span class="phpdocumentor-element-found-in__line">198</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the scope
@@ -1475,7 +1475,7 @@ Created based on scope and instanceEnumerationScope at the accessReviewScheduleD
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">210</span>
+    <span class="phpdocumentor-element-found-in__line">231</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the startDateTime
@@ -1522,7 +1522,7 @@ DateTime when review instance is scheduled to start. May be in the future. The D
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Model/AccessReviewInstance.php"><a href="files/src-model-accessreviewinstance.html"><abbr title="src/Model/AccessReviewInstance.php">AccessReviewInstance.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">239</span>
+    <span class="phpdocumentor-element-found-in__line">260</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets the status
