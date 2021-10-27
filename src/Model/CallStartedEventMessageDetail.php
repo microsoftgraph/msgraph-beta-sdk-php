@@ -43,8 +43,9 @@ class CallStartedEventMessageDetail extends EventMessageDetail
     */
     public function getCallEventType()
     {
-        if (array_key_exists("callEventType", $this->_propDict)) {
-            if (is_a($this->_propDict["callEventType"], "\Beta\Microsoft\Graph\Model\TeamworkCallEventType") || is_null($this->_propDict["callEventType"])) {
+        if (array_key_exists("callEventType", $this->_propDict) && !is_null($this->_propDict["callEventType"])) {
+     
+            if (is_a($this->_propDict["callEventType"], "\Beta\Microsoft\Graph\Model\TeamworkCallEventType")) {
                 return $this->_propDict["callEventType"];
             } else {
                 $this->_propDict["callEventType"] = new TeamworkCallEventType($this->_propDict["callEventType"]);
@@ -104,8 +105,9 @@ class CallStartedEventMessageDetail extends EventMessageDetail
     */
     public function getInitiator()
     {
-        if (array_key_exists("initiator", $this->_propDict)) {
-            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["initiator"])) {
+        if (array_key_exists("initiator", $this->_propDict) && !is_null($this->_propDict["initiator"])) {
+     
+            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["initiator"];
             } else {
                 $this->_propDict["initiator"] = new IdentitySet($this->_propDict["initiator"]);

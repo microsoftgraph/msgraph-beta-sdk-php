@@ -148,8 +148,8 @@ class AggregatedPolicyCompliance extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastRefreshedDateTime()
     {
-        if (array_key_exists("lastRefreshedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastRefreshedDateTime"], "\DateTime") || is_null($this->_propDict["lastRefreshedDateTime"])) {
+        if (array_key_exists("lastRefreshedDateTime", $this->_propDict) && !is_null($this->_propDict["lastRefreshedDateTime"])) {
+            if (is_a($this->_propDict["lastRefreshedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastRefreshedDateTime"];
             } else {
                 $this->_propDict["lastRefreshedDateTime"] = new \DateTime($this->_propDict["lastRefreshedDateTime"]);
@@ -268,8 +268,8 @@ class AggregatedPolicyCompliance extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getPolicyModifiedDateTime()
     {
-        if (array_key_exists("policyModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["policyModifiedDateTime"], "\DateTime") || is_null($this->_propDict["policyModifiedDateTime"])) {
+        if (array_key_exists("policyModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["policyModifiedDateTime"])) {
+            if (is_a($this->_propDict["policyModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["policyModifiedDateTime"];
             } else {
                 $this->_propDict["policyModifiedDateTime"] = new \DateTime($this->_propDict["policyModifiedDateTime"]);

@@ -31,8 +31,8 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -63,8 +63,8 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
     */
     public function getCreationDateTime()
     {
-        if (array_key_exists("creationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["creationDateTime"], "\DateTime") || is_null($this->_propDict["creationDateTime"])) {
+        if (array_key_exists("creationDateTime", $this->_propDict) && !is_null($this->_propDict["creationDateTime"])) {
+            if (is_a($this->_propDict["creationDateTime"], "\DateTime")) {
                 return $this->_propDict["creationDateTime"];
             } else {
                 $this->_propDict["creationDateTime"] = new \DateTime($this->_propDict["creationDateTime"]);
@@ -124,8 +124,8 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
     */
     public function getDevice()
     {
-        if (array_key_exists("device", $this->_propDict)) {
-            if (is_a($this->_propDict["device"], "\Beta\Microsoft\Graph\Model\Device") || is_null($this->_propDict["device"])) {
+        if (array_key_exists("device", $this->_propDict) && !is_null($this->_propDict["device"])) {
+            if (is_a($this->_propDict["device"], "\Beta\Microsoft\Graph\Model\Device")) {
                 return $this->_propDict["device"];
             } else {
                 $this->_propDict["device"] = new Device($this->_propDict["device"]);

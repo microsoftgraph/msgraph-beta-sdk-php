@@ -32,8 +32,8 @@ class OrganizationSettings extends Entity
     */
     public function getItemInsights()
     {
-        if (array_key_exists("itemInsights", $this->_propDict)) {
-            if (is_a($this->_propDict["itemInsights"], "\Beta\Microsoft\Graph\Model\ItemInsightsSettings") || is_null($this->_propDict["itemInsights"])) {
+        if (array_key_exists("itemInsights", $this->_propDict) && !is_null($this->_propDict["itemInsights"])) {
+            if (is_a($this->_propDict["itemInsights"], "\Beta\Microsoft\Graph\Model\ItemInsightsSettings")) {
                 return $this->_propDict["itemInsights"];
             } else {
                 $this->_propDict["itemInsights"] = new ItemInsightsSettings($this->_propDict["itemInsights"]);
@@ -62,22 +62,29 @@ class OrganizationSettings extends Entity
      * Gets the profileCardProperties
     * Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card. Get organization settings returns the properties configured for profile cards for the organization.
      *
-     * @return array|null The profileCardProperties
+     * @return ProfileCardProperty[]|null The profileCardProperties
      */
     public function getProfileCardProperties()
     {
-        if (array_key_exists("profileCardProperties", $this->_propDict)) {
-           return $this->_propDict["profileCardProperties"];
-        } else {
-            return null;
+        if (array_key_exists('profileCardProperties', $this->_propDict) && !is_null($this->_propDict['profileCardProperties'])) {
+            $profileCardProperties = [];
+            if (count($this->_propDict['profileCardProperties']) > 0 && is_a($this->_propDict['profileCardProperties'][0], 'ProfileCardProperty')) {
+                return $this->_propDict['profileCardProperties'];
+            }
+            foreach ($this->_propDict['profileCardProperties'] as $singleValue) {
+                $profileCardProperties []= new ProfileCardProperty($singleValue);
+            }
+            $this->_propDict['profileCardProperties'] = $profileCardProperties;
+            return $this->_propDict['profileCardProperties'];
         }
+        return null;
     }
     
     /** 
     * Sets the profileCardProperties
     * Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card. Get organization settings returns the properties configured for profile cards for the organization.
     *
-    * @param ProfileCardProperty $val The profileCardProperties
+    * @param ProfileCardProperty[] $val The profileCardProperties
     *
     * @return OrganizationSettings
     */

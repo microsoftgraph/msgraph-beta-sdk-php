@@ -61,8 +61,8 @@ class WindowsProtectionState extends Entity
     */
     public function getDeviceState()
     {
-        if (array_key_exists("deviceState", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceState"], "\Beta\Microsoft\Graph\Model\WindowsDeviceHealthState") || is_null($this->_propDict["deviceState"])) {
+        if (array_key_exists("deviceState", $this->_propDict) && !is_null($this->_propDict["deviceState"])) {
+            if (is_a($this->_propDict["deviceState"], "\Beta\Microsoft\Graph\Model\WindowsDeviceHealthState")) {
                 return $this->_propDict["deviceState"];
             } else {
                 $this->_propDict["deviceState"] = new WindowsDeviceHealthState($this->_propDict["deviceState"]);
@@ -210,8 +210,8 @@ class WindowsProtectionState extends Entity
     */
     public function getLastFullScanDateTime()
     {
-        if (array_key_exists("lastFullScanDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastFullScanDateTime"], "\DateTime") || is_null($this->_propDict["lastFullScanDateTime"])) {
+        if (array_key_exists("lastFullScanDateTime", $this->_propDict) && !is_null($this->_propDict["lastFullScanDateTime"])) {
+            if (is_a($this->_propDict["lastFullScanDateTime"], "\DateTime")) {
                 return $this->_propDict["lastFullScanDateTime"];
             } else {
                 $this->_propDict["lastFullScanDateTime"] = new \DateTime($this->_propDict["lastFullScanDateTime"]);
@@ -272,8 +272,8 @@ class WindowsProtectionState extends Entity
     */
     public function getLastQuickScanDateTime()
     {
-        if (array_key_exists("lastQuickScanDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastQuickScanDateTime"], "\DateTime") || is_null($this->_propDict["lastQuickScanDateTime"])) {
+        if (array_key_exists("lastQuickScanDateTime", $this->_propDict) && !is_null($this->_propDict["lastQuickScanDateTime"])) {
+            if (is_a($this->_propDict["lastQuickScanDateTime"], "\DateTime")) {
                 return $this->_propDict["lastQuickScanDateTime"];
             } else {
                 $this->_propDict["lastQuickScanDateTime"] = new \DateTime($this->_propDict["lastQuickScanDateTime"]);
@@ -334,8 +334,8 @@ class WindowsProtectionState extends Entity
     */
     public function getLastReportedDateTime()
     {
-        if (array_key_exists("lastReportedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime") || is_null($this->_propDict["lastReportedDateTime"])) {
+        if (array_key_exists("lastReportedDateTime", $this->_propDict) && !is_null($this->_propDict["lastReportedDateTime"])) {
+            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastReportedDateTime"];
             } else {
                 $this->_propDict["lastReportedDateTime"] = new \DateTime($this->_propDict["lastReportedDateTime"]);
@@ -425,8 +425,8 @@ class WindowsProtectionState extends Entity
     */
     public function getProductStatus()
     {
-        if (array_key_exists("productStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["productStatus"], "\Beta\Microsoft\Graph\Model\WindowsDefenderProductStatus") || is_null($this->_propDict["productStatus"])) {
+        if (array_key_exists("productStatus", $this->_propDict) && !is_null($this->_propDict["productStatus"])) {
+            if (is_a($this->_propDict["productStatus"], "\Beta\Microsoft\Graph\Model\WindowsDefenderProductStatus")) {
                 return $this->_propDict["productStatus"];
             } else {
                 $this->_propDict["productStatus"] = new WindowsDefenderProductStatus($this->_propDict["productStatus"]);
@@ -629,22 +629,29 @@ class WindowsProtectionState extends Entity
      * Gets the detectedMalwareState
     * Device malware list
      *
-     * @return array|null The detectedMalwareState
+     * @return WindowsDeviceMalwareState[]|null The detectedMalwareState
      */
     public function getDetectedMalwareState()
     {
-        if (array_key_exists("detectedMalwareState", $this->_propDict)) {
-           return $this->_propDict["detectedMalwareState"];
-        } else {
-            return null;
+        if (array_key_exists('detectedMalwareState', $this->_propDict) && !is_null($this->_propDict['detectedMalwareState'])) {
+            $detectedMalwareState = [];
+            if (count($this->_propDict['detectedMalwareState']) > 0 && is_a($this->_propDict['detectedMalwareState'][0], 'WindowsDeviceMalwareState')) {
+                return $this->_propDict['detectedMalwareState'];
+            }
+            foreach ($this->_propDict['detectedMalwareState'] as $singleValue) {
+                $detectedMalwareState []= new WindowsDeviceMalwareState($singleValue);
+            }
+            $this->_propDict['detectedMalwareState'] = $detectedMalwareState;
+            return $this->_propDict['detectedMalwareState'];
         }
+        return null;
     }
     
     /** 
     * Sets the detectedMalwareState
     * Device malware list
     *
-    * @param WindowsDeviceMalwareState $val The detectedMalwareState
+    * @param WindowsDeviceMalwareState[] $val The detectedMalwareState
     *
     * @return WindowsProtectionState
     */

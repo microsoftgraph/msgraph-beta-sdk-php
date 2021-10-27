@@ -53,25 +53,29 @@ class GovernanceRoleAssignmentRequestStatus extends Entity
     /**
     * Gets the statusDetails
     *
-    * @return KeyValue|null The statusDetails
+    * @return KeyValue[]|null The statusDetails
     */
     public function getStatusDetails()
     {
-        if (array_key_exists("statusDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["statusDetails"], "\Beta\Microsoft\Graph\Model\KeyValue") || is_null($this->_propDict["statusDetails"])) {
-                return $this->_propDict["statusDetails"];
-            } else {
-                $this->_propDict["statusDetails"] = new KeyValue($this->_propDict["statusDetails"]);
-                return $this->_propDict["statusDetails"];
+        if (array_key_exists("statusDetails", $this->_propDict) && !is_null($this->_propDict["statusDetails"])) {
+       
+            if (count($this->_propDict['statusDetails']) > 0 && is_a($this->_propDict['statusDetails'][0], 'KeyValue')) {
+               return $this->_propDict['statusDetails'];
             }
-        }
+            $statusDetails = [];
+            foreach ($this->_propDict['statusDetails'] as $singleValue) {
+               $statusDetails []= new KeyValue($singleValue);
+            }
+            $this->_propDict['statusDetails'] = $statusDetails;
+            return $this->_propDict['statusDetails'];
+            }
         return null;
     }
 
     /**
     * Sets the statusDetails
     *
-    * @param KeyValue $val The value to assign to the statusDetails
+    * @param KeyValue[] $val The value to assign to the statusDetails
     *
     * @return GovernanceRoleAssignmentRequestStatus The GovernanceRoleAssignmentRequestStatus
     */

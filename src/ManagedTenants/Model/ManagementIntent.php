@@ -87,22 +87,29 @@ class ManagementIntent extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the managementTemplates
     * The collection of management templates associated with the management intent. Optional. Read-only.
      *
-     * @return array|null The managementTemplates
+     * @return ManagementTemplateDetailedInfo[]|null The managementTemplates
      */
     public function getManagementTemplates()
     {
-        if (array_key_exists("managementTemplates", $this->_propDict)) {
-           return $this->_propDict["managementTemplates"];
-        } else {
-            return null;
+        if (array_key_exists('managementTemplates', $this->_propDict) && !is_null($this->_propDict['managementTemplates'])) {
+            $managementTemplates = [];
+            if (count($this->_propDict['managementTemplates']) > 0 && is_a($this->_propDict['managementTemplates'][0], 'ManagementTemplateDetailedInfo')) {
+                return $this->_propDict['managementTemplates'];
+            }
+            foreach ($this->_propDict['managementTemplates'] as $singleValue) {
+                $managementTemplates []= new ManagementTemplateDetailedInfo($singleValue);
+            }
+            $this->_propDict['managementTemplates'] = $managementTemplates;
+            return $this->_propDict['managementTemplates'];
         }
+        return null;
     }
     
     /** 
     * Sets the managementTemplates
     * The collection of management templates associated with the management intent. Optional. Read-only.
     *
-    * @param ManagementTemplateDetailedInfo $val The managementTemplates
+    * @param ManagementTemplateDetailedInfo[] $val The managementTemplates
     *
     * @return ManagementIntent
     */

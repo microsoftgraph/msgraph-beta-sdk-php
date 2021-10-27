@@ -61,8 +61,8 @@ class WindowsVpnConfiguration extends DeviceConfiguration
     */
     public function getCustomXml()
     {
-        if (array_key_exists("customXml", $this->_propDict)) {
-            if (is_a($this->_propDict["customXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["customXml"])) {
+        if (array_key_exists("customXml", $this->_propDict) && !is_null($this->_propDict["customXml"])) {
+            if (is_a($this->_propDict["customXml"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["customXml"];
             } else {
                 $this->_propDict["customXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["customXml"]);
@@ -91,22 +91,29 @@ class WindowsVpnConfiguration extends DeviceConfiguration
      * Gets the servers
     * List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The servers
+     * @return VpnServer[]|null The servers
      */
     public function getServers()
     {
-        if (array_key_exists("servers", $this->_propDict)) {
-           return $this->_propDict["servers"];
-        } else {
-            return null;
+        if (array_key_exists('servers', $this->_propDict) && !is_null($this->_propDict['servers'])) {
+            $servers = [];
+            if (count($this->_propDict['servers']) > 0 && is_a($this->_propDict['servers'][0], 'VpnServer')) {
+                return $this->_propDict['servers'];
+            }
+            foreach ($this->_propDict['servers'] as $singleValue) {
+                $servers []= new VpnServer($singleValue);
+            }
+            $this->_propDict['servers'] = $servers;
+            return $this->_propDict['servers'];
         }
+        return null;
     }
     
     /** 
     * Sets the servers
     * List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
     *
-    * @param VpnServer $val The servers
+    * @param VpnServer[] $val The servers
     *
     * @return WindowsVpnConfiguration
     */

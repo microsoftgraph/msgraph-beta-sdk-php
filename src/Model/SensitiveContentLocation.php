@@ -53,25 +53,29 @@ class SensitiveContentLocation extends Entity
     /**
     * Gets the evidences
     *
-    * @return SensitiveContentEvidence|null The evidences
+    * @return SensitiveContentEvidence[]|null The evidences
     */
     public function getEvidences()
     {
-        if (array_key_exists("evidences", $this->_propDict)) {
-            if (is_a($this->_propDict["evidences"], "\Beta\Microsoft\Graph\Model\SensitiveContentEvidence") || is_null($this->_propDict["evidences"])) {
-                return $this->_propDict["evidences"];
-            } else {
-                $this->_propDict["evidences"] = new SensitiveContentEvidence($this->_propDict["evidences"]);
-                return $this->_propDict["evidences"];
+        if (array_key_exists("evidences", $this->_propDict) && !is_null($this->_propDict["evidences"])) {
+       
+            if (count($this->_propDict['evidences']) > 0 && is_a($this->_propDict['evidences'][0], 'SensitiveContentEvidence')) {
+               return $this->_propDict['evidences'];
             }
-        }
+            $evidences = [];
+            foreach ($this->_propDict['evidences'] as $singleValue) {
+               $evidences []= new SensitiveContentEvidence($singleValue);
+            }
+            $this->_propDict['evidences'] = $evidences;
+            return $this->_propDict['evidences'];
+            }
         return null;
     }
 
     /**
     * Sets the evidences
     *
-    * @param SensitiveContentEvidence $val The value to assign to the evidences
+    * @param SensitiveContentEvidence[] $val The value to assign to the evidences
     *
     * @return SensitiveContentLocation The SensitiveContentLocation
     */

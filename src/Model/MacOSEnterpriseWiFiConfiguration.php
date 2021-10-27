@@ -32,8 +32,8 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration
     */
     public function getAuthenticationMethod()
     {
-        if (array_key_exists("authenticationMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\WiFiAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
+        if (array_key_exists("authenticationMethod", $this->_propDict) && !is_null($this->_propDict["authenticationMethod"])) {
+            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\WiFiAuthenticationMethod")) {
                 return $this->_propDict["authenticationMethod"];
             } else {
                 $this->_propDict["authenticationMethod"] = new WiFiAuthenticationMethod($this->_propDict["authenticationMethod"]);
@@ -65,8 +65,8 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration
     */
     public function getEapFastConfiguration()
     {
-        if (array_key_exists("eapFastConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["eapFastConfiguration"], "\Beta\Microsoft\Graph\Model\EapFastConfiguration") || is_null($this->_propDict["eapFastConfiguration"])) {
+        if (array_key_exists("eapFastConfiguration", $this->_propDict) && !is_null($this->_propDict["eapFastConfiguration"])) {
+            if (is_a($this->_propDict["eapFastConfiguration"], "\Beta\Microsoft\Graph\Model\EapFastConfiguration")) {
                 return $this->_propDict["eapFastConfiguration"];
             } else {
                 $this->_propDict["eapFastConfiguration"] = new EapFastConfiguration($this->_propDict["eapFastConfiguration"]);
@@ -98,8 +98,8 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration
     */
     public function getEapType()
     {
-        if (array_key_exists("eapType", $this->_propDict)) {
-            if (is_a($this->_propDict["eapType"], "\Beta\Microsoft\Graph\Model\EapType") || is_null($this->_propDict["eapType"])) {
+        if (array_key_exists("eapType", $this->_propDict) && !is_null($this->_propDict["eapType"])) {
+            if (is_a($this->_propDict["eapType"], "\Beta\Microsoft\Graph\Model\EapType")) {
                 return $this->_propDict["eapType"];
             } else {
                 $this->_propDict["eapType"] = new EapType($this->_propDict["eapType"]);
@@ -131,8 +131,8 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration
     */
     public function getInnerAuthenticationProtocolForEapTtls()
     {
-        if (array_key_exists("innerAuthenticationProtocolForEapTtls", $this->_propDict)) {
-            if (is_a($this->_propDict["innerAuthenticationProtocolForEapTtls"], "\Beta\Microsoft\Graph\Model\NonEapAuthenticationMethodForEapTtlsType") || is_null($this->_propDict["innerAuthenticationProtocolForEapTtls"])) {
+        if (array_key_exists("innerAuthenticationProtocolForEapTtls", $this->_propDict) && !is_null($this->_propDict["innerAuthenticationProtocolForEapTtls"])) {
+            if (is_a($this->_propDict["innerAuthenticationProtocolForEapTtls"], "\Beta\Microsoft\Graph\Model\NonEapAuthenticationMethodForEapTtlsType")) {
                 return $this->_propDict["innerAuthenticationProtocolForEapTtls"];
             } else {
                 $this->_propDict["innerAuthenticationProtocolForEapTtls"] = new NonEapAuthenticationMethodForEapTtlsType($this->_propDict["innerAuthenticationProtocolForEapTtls"]);
@@ -222,8 +222,8 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration
     */
     public function getIdentityCertificateForClientAuthentication()
     {
-        if (array_key_exists("identityCertificateForClientAuthentication", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificateForClientAuthentication"], "\Beta\Microsoft\Graph\Model\MacOSCertificateProfileBase") || is_null($this->_propDict["identityCertificateForClientAuthentication"])) {
+        if (array_key_exists("identityCertificateForClientAuthentication", $this->_propDict) && !is_null($this->_propDict["identityCertificateForClientAuthentication"])) {
+            if (is_a($this->_propDict["identityCertificateForClientAuthentication"], "\Beta\Microsoft\Graph\Model\MacOSCertificateProfileBase")) {
                 return $this->_propDict["identityCertificateForClientAuthentication"];
             } else {
                 $this->_propDict["identityCertificateForClientAuthentication"] = new MacOSCertificateProfileBase($this->_propDict["identityCertificateForClientAuthentication"]);
@@ -255,8 +255,8 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration
     */
     public function getRootCertificateForServerValidation()
     {
-        if (array_key_exists("rootCertificateForServerValidation", $this->_propDict)) {
-            if (is_a($this->_propDict["rootCertificateForServerValidation"], "\Beta\Microsoft\Graph\Model\MacOSTrustedRootCertificate") || is_null($this->_propDict["rootCertificateForServerValidation"])) {
+        if (array_key_exists("rootCertificateForServerValidation", $this->_propDict) && !is_null($this->_propDict["rootCertificateForServerValidation"])) {
+            if (is_a($this->_propDict["rootCertificateForServerValidation"], "\Beta\Microsoft\Graph\Model\MacOSTrustedRootCertificate")) {
                 return $this->_propDict["rootCertificateForServerValidation"];
             } else {
                 $this->_propDict["rootCertificateForServerValidation"] = new MacOSTrustedRootCertificate($this->_propDict["rootCertificateForServerValidation"]);
@@ -283,24 +283,31 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration
 
      /** 
      * Gets the rootCertificatesForServerValidation
-    * Trusted Root Certificates for Server Validation when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. If you provide this value you do not need to provide trustedServerCertificateNames, and vice versa.
+    * Trusted Root Certificates for Server Validation when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. If you provide this value you do not need to provide trustedServerCertificateNames, and vice versa. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The rootCertificatesForServerValidation
+     * @return MacOSTrustedRootCertificate[]|null The rootCertificatesForServerValidation
      */
     public function getRootCertificatesForServerValidation()
     {
-        if (array_key_exists("rootCertificatesForServerValidation", $this->_propDict)) {
-           return $this->_propDict["rootCertificatesForServerValidation"];
-        } else {
-            return null;
+        if (array_key_exists('rootCertificatesForServerValidation', $this->_propDict) && !is_null($this->_propDict['rootCertificatesForServerValidation'])) {
+            $rootCertificatesForServerValidation = [];
+            if (count($this->_propDict['rootCertificatesForServerValidation']) > 0 && is_a($this->_propDict['rootCertificatesForServerValidation'][0], 'MacOSTrustedRootCertificate')) {
+                return $this->_propDict['rootCertificatesForServerValidation'];
+            }
+            foreach ($this->_propDict['rootCertificatesForServerValidation'] as $singleValue) {
+                $rootCertificatesForServerValidation []= new MacOSTrustedRootCertificate($singleValue);
+            }
+            $this->_propDict['rootCertificatesForServerValidation'] = $rootCertificatesForServerValidation;
+            return $this->_propDict['rootCertificatesForServerValidation'];
         }
+        return null;
     }
     
     /** 
     * Sets the rootCertificatesForServerValidation
-    * Trusted Root Certificates for Server Validation when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. If you provide this value you do not need to provide trustedServerCertificateNames, and vice versa.
+    * Trusted Root Certificates for Server Validation when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. If you provide this value you do not need to provide trustedServerCertificateNames, and vice versa. This collection can contain a maximum of 500 elements.
     *
-    * @param MacOSTrustedRootCertificate $val The rootCertificatesForServerValidation
+    * @param MacOSTrustedRootCertificate[] $val The rootCertificatesForServerValidation
     *
     * @return MacOSEnterpriseWiFiConfiguration
     */

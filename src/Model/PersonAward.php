@@ -90,8 +90,8 @@ class PersonAward extends ItemFacet
     */
     public function getIssuedDate()
     {
-        if (array_key_exists("issuedDate", $this->_propDict)) {
-            if (is_a($this->_propDict["issuedDate"], "\DateTime") || is_null($this->_propDict["issuedDate"])) {
+        if (array_key_exists("issuedDate", $this->_propDict) && !is_null($this->_propDict["issuedDate"])) {
+            if (is_a($this->_propDict["issuedDate"], "\DateTime")) {
                 return $this->_propDict["issuedDate"];
             } else {
                 $this->_propDict["issuedDate"] = new \DateTime($this->_propDict["issuedDate"]);

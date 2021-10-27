@@ -32,8 +32,9 @@ class ParseExpressionResponse extends Entity
     */
     public function getError()
     {
-        if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\PublicError") || is_null($this->_propDict["error"])) {
+        if (array_key_exists("error", $this->_propDict) && !is_null($this->_propDict["error"])) {
+     
+            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\PublicError")) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new PublicError($this->_propDict["error"]);
@@ -75,7 +76,7 @@ class ParseExpressionResponse extends Entity
     * Sets the evaluationResult
     * A collection of values produced by the evaluation of the expression.
     *
-    * @param string $val The value of the evaluationResult
+    * @param string[] $val The value of the evaluationResult
     *
     * @return ParseExpressionResponse
     */
@@ -121,8 +122,9 @@ class ParseExpressionResponse extends Entity
     */
     public function getParsedExpression()
     {
-        if (array_key_exists("parsedExpression", $this->_propDict)) {
-            if (is_a($this->_propDict["parsedExpression"], "\Beta\Microsoft\Graph\Model\AttributeMappingSource") || is_null($this->_propDict["parsedExpression"])) {
+        if (array_key_exists("parsedExpression", $this->_propDict) && !is_null($this->_propDict["parsedExpression"])) {
+     
+            if (is_a($this->_propDict["parsedExpression"], "\Beta\Microsoft\Graph\Model\AttributeMappingSource")) {
                 return $this->_propDict["parsedExpression"];
             } else {
                 $this->_propDict["parsedExpression"] = new AttributeMappingSource($this->_propDict["parsedExpression"]);

@@ -32,8 +32,9 @@ class MobileAppTroubleshootingHistoryItem extends Entity
     */
     public function getOccurrenceDateTime()
     {
-        if (array_key_exists("occurrenceDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["occurrenceDateTime"], "\DateTime") || is_null($this->_propDict["occurrenceDateTime"])) {
+        if (array_key_exists("occurrenceDateTime", $this->_propDict) && !is_null($this->_propDict["occurrenceDateTime"])) {
+     
+            if (is_a($this->_propDict["occurrenceDateTime"], "\DateTime")) {
                 return $this->_propDict["occurrenceDateTime"];
             } else {
                 $this->_propDict["occurrenceDateTime"] = new \DateTime($this->_propDict["occurrenceDateTime"]);
@@ -65,8 +66,9 @@ class MobileAppTroubleshootingHistoryItem extends Entity
     */
     public function getTroubleshootingErrorDetails()
     {
-        if (array_key_exists("troubleshootingErrorDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["troubleshootingErrorDetails"], "\Beta\Microsoft\Graph\Model\DeviceManagementTroubleshootingErrorDetails") || is_null($this->_propDict["troubleshootingErrorDetails"])) {
+        if (array_key_exists("troubleshootingErrorDetails", $this->_propDict) && !is_null($this->_propDict["troubleshootingErrorDetails"])) {
+     
+            if (is_a($this->_propDict["troubleshootingErrorDetails"], "\Beta\Microsoft\Graph\Model\DeviceManagementTroubleshootingErrorDetails")) {
                 return $this->_propDict["troubleshootingErrorDetails"];
             } else {
                 $this->_propDict["troubleshootingErrorDetails"] = new DeviceManagementTroubleshootingErrorDetails($this->_propDict["troubleshootingErrorDetails"]);

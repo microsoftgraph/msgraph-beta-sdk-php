@@ -90,8 +90,8 @@ class RiskyUser extends Entity
     */
     public function getRiskDetail()
     {
-        if (array_key_exists("riskDetail", $this->_propDict)) {
-            if (is_a($this->_propDict["riskDetail"], "\Beta\Microsoft\Graph\Model\RiskDetail") || is_null($this->_propDict["riskDetail"])) {
+        if (array_key_exists("riskDetail", $this->_propDict) && !is_null($this->_propDict["riskDetail"])) {
+            if (is_a($this->_propDict["riskDetail"], "\Beta\Microsoft\Graph\Model\RiskDetail")) {
                 return $this->_propDict["riskDetail"];
             } else {
                 $this->_propDict["riskDetail"] = new RiskDetail($this->_propDict["riskDetail"]);
@@ -123,8 +123,8 @@ class RiskyUser extends Entity
     */
     public function getRiskLastUpdatedDateTime()
     {
-        if (array_key_exists("riskLastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["riskLastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["riskLastUpdatedDateTime"])) {
+        if (array_key_exists("riskLastUpdatedDateTime", $this->_propDict) && !is_null($this->_propDict["riskLastUpdatedDateTime"])) {
+            if (is_a($this->_propDict["riskLastUpdatedDateTime"], "\DateTime")) {
                 return $this->_propDict["riskLastUpdatedDateTime"];
             } else {
                 $this->_propDict["riskLastUpdatedDateTime"] = new \DateTime($this->_propDict["riskLastUpdatedDateTime"]);
@@ -156,8 +156,8 @@ class RiskyUser extends Entity
     */
     public function getRiskLevel()
     {
-        if (array_key_exists("riskLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["riskLevel"], "\Beta\Microsoft\Graph\Model\RiskLevel") || is_null($this->_propDict["riskLevel"])) {
+        if (array_key_exists("riskLevel", $this->_propDict) && !is_null($this->_propDict["riskLevel"])) {
+            if (is_a($this->_propDict["riskLevel"], "\Beta\Microsoft\Graph\Model\RiskLevel")) {
                 return $this->_propDict["riskLevel"];
             } else {
                 $this->_propDict["riskLevel"] = new RiskLevel($this->_propDict["riskLevel"]);
@@ -189,8 +189,8 @@ class RiskyUser extends Entity
     */
     public function getRiskState()
     {
-        if (array_key_exists("riskState", $this->_propDict)) {
-            if (is_a($this->_propDict["riskState"], "\Beta\Microsoft\Graph\Model\RiskState") || is_null($this->_propDict["riskState"])) {
+        if (array_key_exists("riskState", $this->_propDict) && !is_null($this->_propDict["riskState"])) {
+            if (is_a($this->_propDict["riskState"], "\Beta\Microsoft\Graph\Model\RiskState")) {
                 return $this->_propDict["riskState"];
             } else {
                 $this->_propDict["riskState"] = new RiskState($this->_propDict["riskState"]);
@@ -277,22 +277,29 @@ class RiskyUser extends Entity
      * Gets the history
     * The activity related to user risk level change
      *
-     * @return array|null The history
+     * @return RiskyUserHistoryItem[]|null The history
      */
     public function getHistory()
     {
-        if (array_key_exists("history", $this->_propDict)) {
-           return $this->_propDict["history"];
-        } else {
-            return null;
+        if (array_key_exists('history', $this->_propDict) && !is_null($this->_propDict['history'])) {
+            $history = [];
+            if (count($this->_propDict['history']) > 0 && is_a($this->_propDict['history'][0], 'RiskyUserHistoryItem')) {
+                return $this->_propDict['history'];
+            }
+            foreach ($this->_propDict['history'] as $singleValue) {
+                $history []= new RiskyUserHistoryItem($singleValue);
+            }
+            $this->_propDict['history'] = $history;
+            return $this->_propDict['history'];
         }
+        return null;
     }
     
     /** 
     * Sets the history
     * The activity related to user risk level change
     *
-    * @param RiskyUserHistoryItem $val The history
+    * @param RiskyUserHistoryItem[] $val The history
     *
     * @return RiskyUser
     */

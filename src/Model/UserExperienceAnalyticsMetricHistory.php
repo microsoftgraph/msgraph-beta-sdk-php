@@ -61,8 +61,8 @@ class UserExperienceAnalyticsMetricHistory extends Entity
     */
     public function getMetricDateTime()
     {
-        if (array_key_exists("metricDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["metricDateTime"], "\DateTime") || is_null($this->_propDict["metricDateTime"])) {
+        if (array_key_exists("metricDateTime", $this->_propDict) && !is_null($this->_propDict["metricDateTime"])) {
+            if (is_a($this->_propDict["metricDateTime"], "\DateTime")) {
                 return $this->_propDict["metricDateTime"];
             } else {
                 $this->_propDict["metricDateTime"] = new \DateTime($this->_propDict["metricDateTime"]);
@@ -123,8 +123,8 @@ class UserExperienceAnalyticsMetricHistory extends Entity
     */
     public function getUserExperienceAnalyticsMetric()
     {
-        if (array_key_exists("userExperienceAnalyticsMetric", $this->_propDict)) {
-            if (is_a($this->_propDict["userExperienceAnalyticsMetric"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsMetric") || is_null($this->_propDict["userExperienceAnalyticsMetric"])) {
+        if (array_key_exists("userExperienceAnalyticsMetric", $this->_propDict) && !is_null($this->_propDict["userExperienceAnalyticsMetric"])) {
+            if (is_a($this->_propDict["userExperienceAnalyticsMetric"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsMetric")) {
                 return $this->_propDict["userExperienceAnalyticsMetric"];
             } else {
                 $this->_propDict["userExperienceAnalyticsMetric"] = new UserExperienceAnalyticsMetric($this->_propDict["userExperienceAnalyticsMetric"]);

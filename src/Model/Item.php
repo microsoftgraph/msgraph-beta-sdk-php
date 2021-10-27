@@ -139,8 +139,8 @@ class Item extends Entity
     */
     public function getInventory()
     {
-        if (array_key_exists("inventory", $this->_propDict)) {
-            if (is_a($this->_propDict["inventory"], "\Beta\Microsoft\Graph\Model\Decimal") || is_null($this->_propDict["inventory"])) {
+        if (array_key_exists("inventory", $this->_propDict) && !is_null($this->_propDict["inventory"])) {
+            if (is_a($this->_propDict["inventory"], "\Beta\Microsoft\Graph\Model\Decimal")) {
                 return $this->_propDict["inventory"];
             } else {
                 $this->_propDict["inventory"] = new Decimal($this->_propDict["inventory"]);
@@ -224,8 +224,8 @@ class Item extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -390,8 +390,8 @@ class Item extends Entity
     */
     public function getUnitCost()
     {
-        if (array_key_exists("unitCost", $this->_propDict)) {
-            if (is_a($this->_propDict["unitCost"], "\Beta\Microsoft\Graph\Model\Decimal") || is_null($this->_propDict["unitCost"])) {
+        if (array_key_exists("unitCost", $this->_propDict) && !is_null($this->_propDict["unitCost"])) {
+            if (is_a($this->_propDict["unitCost"], "\Beta\Microsoft\Graph\Model\Decimal")) {
                 return $this->_propDict["unitCost"];
             } else {
                 $this->_propDict["unitCost"] = new Decimal($this->_propDict["unitCost"]);
@@ -421,8 +421,8 @@ class Item extends Entity
     */
     public function getUnitPrice()
     {
-        if (array_key_exists("unitPrice", $this->_propDict)) {
-            if (is_a($this->_propDict["unitPrice"], "\Beta\Microsoft\Graph\Model\Decimal") || is_null($this->_propDict["unitPrice"])) {
+        if (array_key_exists("unitPrice", $this->_propDict) && !is_null($this->_propDict["unitPrice"])) {
+            if (is_a($this->_propDict["unitPrice"], "\Beta\Microsoft\Graph\Model\Decimal")) {
                 return $this->_propDict["unitPrice"];
             } else {
                 $this->_propDict["unitPrice"] = new Decimal($this->_propDict["unitPrice"]);
@@ -452,8 +452,8 @@ class Item extends Entity
     */
     public function getItemCategory()
     {
-        if (array_key_exists("itemCategory", $this->_propDict)) {
-            if (is_a($this->_propDict["itemCategory"], "\Beta\Microsoft\Graph\Model\ItemCategory") || is_null($this->_propDict["itemCategory"])) {
+        if (array_key_exists("itemCategory", $this->_propDict) && !is_null($this->_propDict["itemCategory"])) {
+            if (is_a($this->_propDict["itemCategory"], "\Beta\Microsoft\Graph\Model\ItemCategory")) {
                 return $this->_propDict["itemCategory"];
             } else {
                 $this->_propDict["itemCategory"] = new ItemCategory($this->_propDict["itemCategory"]);
@@ -480,21 +480,28 @@ class Item extends Entity
      /** 
      * Gets the picture
      *
-     * @return array|null The picture
+     * @return Picture[]|null The picture
      */
     public function getPicture()
     {
-        if (array_key_exists("picture", $this->_propDict)) {
-           return $this->_propDict["picture"];
-        } else {
-            return null;
+        if (array_key_exists('picture', $this->_propDict) && !is_null($this->_propDict['picture'])) {
+            $picture = [];
+            if (count($this->_propDict['picture']) > 0 && is_a($this->_propDict['picture'][0], 'Picture')) {
+                return $this->_propDict['picture'];
+            }
+            foreach ($this->_propDict['picture'] as $singleValue) {
+                $picture []= new Picture($singleValue);
+            }
+            $this->_propDict['picture'] = $picture;
+            return $this->_propDict['picture'];
         }
+        return null;
     }
     
     /** 
     * Sets the picture
     *
-    * @param Picture $val The picture
+    * @param Picture[] $val The picture
     *
     * @return Item
     */

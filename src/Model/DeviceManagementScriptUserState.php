@@ -116,22 +116,29 @@ class DeviceManagementScriptUserState extends Entity
      * Gets the deviceRunStates
     * List of run states for this script across all devices of specific user.
      *
-     * @return array|null The deviceRunStates
+     * @return DeviceManagementScriptDeviceState[]|null The deviceRunStates
      */
     public function getDeviceRunStates()
     {
-        if (array_key_exists("deviceRunStates", $this->_propDict)) {
-           return $this->_propDict["deviceRunStates"];
-        } else {
-            return null;
+        if (array_key_exists('deviceRunStates', $this->_propDict) && !is_null($this->_propDict['deviceRunStates'])) {
+            $deviceRunStates = [];
+            if (count($this->_propDict['deviceRunStates']) > 0 && is_a($this->_propDict['deviceRunStates'][0], 'DeviceManagementScriptDeviceState')) {
+                return $this->_propDict['deviceRunStates'];
+            }
+            foreach ($this->_propDict['deviceRunStates'] as $singleValue) {
+                $deviceRunStates []= new DeviceManagementScriptDeviceState($singleValue);
+            }
+            $this->_propDict['deviceRunStates'] = $deviceRunStates;
+            return $this->_propDict['deviceRunStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the deviceRunStates
     * List of run states for this script across all devices of specific user.
     *
-    * @param DeviceManagementScriptDeviceState $val The deviceRunStates
+    * @param DeviceManagementScriptDeviceState[] $val The deviceRunStates
     *
     * @return DeviceManagementScriptUserState
     */

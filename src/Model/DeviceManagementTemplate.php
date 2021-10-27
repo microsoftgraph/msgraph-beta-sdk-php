@@ -148,8 +148,8 @@ class DeviceManagementTemplate extends Entity
     */
     public function getPlatformType()
     {
-        if (array_key_exists("platformType", $this->_propDict)) {
-            if (is_a($this->_propDict["platformType"], "\Beta\Microsoft\Graph\Model\PolicyPlatformType") || is_null($this->_propDict["platformType"])) {
+        if (array_key_exists("platformType", $this->_propDict) && !is_null($this->_propDict["platformType"])) {
+            if (is_a($this->_propDict["platformType"], "\Beta\Microsoft\Graph\Model\PolicyPlatformType")) {
                 return $this->_propDict["platformType"];
             } else {
                 $this->_propDict["platformType"] = new PolicyPlatformType($this->_propDict["platformType"]);
@@ -181,8 +181,8 @@ class DeviceManagementTemplate extends Entity
     */
     public function getPublishedDateTime()
     {
-        if (array_key_exists("publishedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["publishedDateTime"], "\DateTime") || is_null($this->_propDict["publishedDateTime"])) {
+        if (array_key_exists("publishedDateTime", $this->_propDict) && !is_null($this->_propDict["publishedDateTime"])) {
+            if (is_a($this->_propDict["publishedDateTime"], "\DateTime")) {
                 return $this->_propDict["publishedDateTime"];
             } else {
                 $this->_propDict["publishedDateTime"] = new \DateTime($this->_propDict["publishedDateTime"]);
@@ -214,8 +214,8 @@ class DeviceManagementTemplate extends Entity
     */
     public function getTemplateSubtype()
     {
-        if (array_key_exists("templateSubtype", $this->_propDict)) {
-            if (is_a($this->_propDict["templateSubtype"], "\Beta\Microsoft\Graph\Model\DeviceManagementTemplateSubtype") || is_null($this->_propDict["templateSubtype"])) {
+        if (array_key_exists("templateSubtype", $this->_propDict) && !is_null($this->_propDict["templateSubtype"])) {
+            if (is_a($this->_propDict["templateSubtype"], "\Beta\Microsoft\Graph\Model\DeviceManagementTemplateSubtype")) {
                 return $this->_propDict["templateSubtype"];
             } else {
                 $this->_propDict["templateSubtype"] = new DeviceManagementTemplateSubtype($this->_propDict["templateSubtype"]);
@@ -247,8 +247,8 @@ class DeviceManagementTemplate extends Entity
     */
     public function getTemplateType()
     {
-        if (array_key_exists("templateType", $this->_propDict)) {
-            if (is_a($this->_propDict["templateType"], "\Beta\Microsoft\Graph\Model\DeviceManagementTemplateType") || is_null($this->_propDict["templateType"])) {
+        if (array_key_exists("templateType", $this->_propDict) && !is_null($this->_propDict["templateType"])) {
+            if (is_a($this->_propDict["templateType"], "\Beta\Microsoft\Graph\Model\DeviceManagementTemplateType")) {
                 return $this->_propDict["templateType"];
             } else {
                 $this->_propDict["templateType"] = new DeviceManagementTemplateType($this->_propDict["templateType"]);
@@ -306,22 +306,29 @@ class DeviceManagementTemplate extends Entity
      * Gets the categories
     * Collection of setting categories within the template
      *
-     * @return array|null The categories
+     * @return DeviceManagementTemplateSettingCategory[]|null The categories
      */
     public function getCategories()
     {
-        if (array_key_exists("categories", $this->_propDict)) {
-           return $this->_propDict["categories"];
-        } else {
-            return null;
+        if (array_key_exists('categories', $this->_propDict) && !is_null($this->_propDict['categories'])) {
+            $categories = [];
+            if (count($this->_propDict['categories']) > 0 && is_a($this->_propDict['categories'][0], 'DeviceManagementTemplateSettingCategory')) {
+                return $this->_propDict['categories'];
+            }
+            foreach ($this->_propDict['categories'] as $singleValue) {
+                $categories []= new DeviceManagementTemplateSettingCategory($singleValue);
+            }
+            $this->_propDict['categories'] = $categories;
+            return $this->_propDict['categories'];
         }
+        return null;
     }
     
     /** 
     * Sets the categories
     * Collection of setting categories within the template
     *
-    * @param DeviceManagementTemplateSettingCategory $val The categories
+    * @param DeviceManagementTemplateSettingCategory[] $val The categories
     *
     * @return DeviceManagementTemplate
     */
@@ -336,22 +343,29 @@ class DeviceManagementTemplate extends Entity
      * Gets the migratableTo
     * Collection of templates this template can migrate to
      *
-     * @return array|null The migratableTo
+     * @return DeviceManagementTemplate[]|null The migratableTo
      */
     public function getMigratableTo()
     {
-        if (array_key_exists("migratableTo", $this->_propDict)) {
-           return $this->_propDict["migratableTo"];
-        } else {
-            return null;
+        if (array_key_exists('migratableTo', $this->_propDict) && !is_null($this->_propDict['migratableTo'])) {
+            $migratableTo = [];
+            if (count($this->_propDict['migratableTo']) > 0 && is_a($this->_propDict['migratableTo'][0], 'DeviceManagementTemplate')) {
+                return $this->_propDict['migratableTo'];
+            }
+            foreach ($this->_propDict['migratableTo'] as $singleValue) {
+                $migratableTo []= new DeviceManagementTemplate($singleValue);
+            }
+            $this->_propDict['migratableTo'] = $migratableTo;
+            return $this->_propDict['migratableTo'];
         }
+        return null;
     }
     
     /** 
     * Sets the migratableTo
     * Collection of templates this template can migrate to
     *
-    * @param DeviceManagementTemplate $val The migratableTo
+    * @param DeviceManagementTemplate[] $val The migratableTo
     *
     * @return DeviceManagementTemplate
     */
@@ -366,22 +380,29 @@ class DeviceManagementTemplate extends Entity
      * Gets the settings
     * Collection of all settings this template has
      *
-     * @return array|null The settings
+     * @return DeviceManagementSettingInstance[]|null The settings
      */
     public function getSettings()
     {
-        if (array_key_exists("settings", $this->_propDict)) {
-           return $this->_propDict["settings"];
-        } else {
-            return null;
+        if (array_key_exists('settings', $this->_propDict) && !is_null($this->_propDict['settings'])) {
+            $settings = [];
+            if (count($this->_propDict['settings']) > 0 && is_a($this->_propDict['settings'][0], 'DeviceManagementSettingInstance')) {
+                return $this->_propDict['settings'];
+            }
+            foreach ($this->_propDict['settings'] as $singleValue) {
+                $settings []= new DeviceManagementSettingInstance($singleValue);
+            }
+            $this->_propDict['settings'] = $settings;
+            return $this->_propDict['settings'];
         }
+        return null;
     }
     
     /** 
     * Sets the settings
     * Collection of all settings this template has
     *
-    * @param DeviceManagementSettingInstance $val The settings
+    * @param DeviceManagementSettingInstance[] $val The settings
     *
     * @return DeviceManagementTemplate
     */

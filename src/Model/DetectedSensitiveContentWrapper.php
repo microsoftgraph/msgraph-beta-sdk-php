@@ -27,25 +27,29 @@ class DetectedSensitiveContentWrapper extends Entity
     /**
     * Gets the classification
     *
-    * @return DetectedSensitiveContent|null The classification
+    * @return DetectedSensitiveContent[]|null The classification
     */
     public function getClassification()
     {
-        if (array_key_exists("classification", $this->_propDict)) {
-            if (is_a($this->_propDict["classification"], "\Beta\Microsoft\Graph\Model\DetectedSensitiveContent") || is_null($this->_propDict["classification"])) {
-                return $this->_propDict["classification"];
-            } else {
-                $this->_propDict["classification"] = new DetectedSensitiveContent($this->_propDict["classification"]);
-                return $this->_propDict["classification"];
+        if (array_key_exists("classification", $this->_propDict) && !is_null($this->_propDict["classification"])) {
+       
+            if (count($this->_propDict['classification']) > 0 && is_a($this->_propDict['classification'][0], 'DetectedSensitiveContent')) {
+               return $this->_propDict['classification'];
             }
-        }
+            $classification = [];
+            foreach ($this->_propDict['classification'] as $singleValue) {
+               $classification []= new DetectedSensitiveContent($singleValue);
+            }
+            $this->_propDict['classification'] = $classification;
+            return $this->_propDict['classification'];
+            }
         return null;
     }
 
     /**
     * Sets the classification
     *
-    * @param DetectedSensitiveContent $val The value to assign to the classification
+    * @param DetectedSensitiveContent[] $val The value to assign to the classification
     *
     * @return DetectedSensitiveContentWrapper The DetectedSensitiveContentWrapper
     */

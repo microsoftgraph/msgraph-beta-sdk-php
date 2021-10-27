@@ -39,18 +39,22 @@ class DeviceManagementConfigurationGroupSettingCollectionInstance extends Device
     * Gets the groupSettingCollectionValue
     * A collection of GroupSetting values
     *
-    * @return DeviceManagementConfigurationGroupSettingValue|null The groupSettingCollectionValue
+    * @return DeviceManagementConfigurationGroupSettingValue[]|null The groupSettingCollectionValue
     */
     public function getGroupSettingCollectionValue()
     {
-        if (array_key_exists("groupSettingCollectionValue", $this->_propDict)) {
-            if (is_a($this->_propDict["groupSettingCollectionValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationGroupSettingValue") || is_null($this->_propDict["groupSettingCollectionValue"])) {
-                return $this->_propDict["groupSettingCollectionValue"];
-            } else {
-                $this->_propDict["groupSettingCollectionValue"] = new DeviceManagementConfigurationGroupSettingValue($this->_propDict["groupSettingCollectionValue"]);
-                return $this->_propDict["groupSettingCollectionValue"];
+        if (array_key_exists("groupSettingCollectionValue", $this->_propDict) && !is_null($this->_propDict["groupSettingCollectionValue"])) {
+       
+            if (count($this->_propDict['groupSettingCollectionValue']) > 0 && is_a($this->_propDict['groupSettingCollectionValue'][0], 'DeviceManagementConfigurationGroupSettingValue')) {
+               return $this->_propDict['groupSettingCollectionValue'];
             }
-        }
+            $groupSettingCollectionValue = [];
+            foreach ($this->_propDict['groupSettingCollectionValue'] as $singleValue) {
+               $groupSettingCollectionValue []= new DeviceManagementConfigurationGroupSettingValue($singleValue);
+            }
+            $this->_propDict['groupSettingCollectionValue'] = $groupSettingCollectionValue;
+            return $this->_propDict['groupSettingCollectionValue'];
+            }
         return null;
     }
 
@@ -58,7 +62,7 @@ class DeviceManagementConfigurationGroupSettingCollectionInstance extends Device
     * Sets the groupSettingCollectionValue
     * A collection of GroupSetting values
     *
-    * @param DeviceManagementConfigurationGroupSettingValue $val The value to assign to the groupSettingCollectionValue
+    * @param DeviceManagementConfigurationGroupSettingValue[] $val The value to assign to the groupSettingCollectionValue
     *
     * @return DeviceManagementConfigurationGroupSettingCollectionInstance The DeviceManagementConfigurationGroupSettingCollectionInstance
     */

@@ -32,8 +32,9 @@ class AccessReviewNotificationRecipientItem extends Entity
     */
     public function getNotificationRecipientScope()
     {
-        if (array_key_exists("notificationRecipientScope", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationRecipientScope"], "\Beta\Microsoft\Graph\Model\AccessReviewNotificationRecipientScope") || is_null($this->_propDict["notificationRecipientScope"])) {
+        if (array_key_exists("notificationRecipientScope", $this->_propDict) && !is_null($this->_propDict["notificationRecipientScope"])) {
+     
+            if (is_a($this->_propDict["notificationRecipientScope"], "\Beta\Microsoft\Graph\Model\AccessReviewNotificationRecipientScope")) {
                 return $this->_propDict["notificationRecipientScope"];
             } else {
                 $this->_propDict["notificationRecipientScope"] = new AccessReviewNotificationRecipientScope($this->_propDict["notificationRecipientScope"]);
@@ -58,7 +59,7 @@ class AccessReviewNotificationRecipientItem extends Entity
     }
     /**
     * Gets the notificationTemplateType
-    * Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients.
+    * Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.
     *
     * @return string|null The notificationTemplateType
     */
@@ -73,7 +74,7 @@ class AccessReviewNotificationRecipientItem extends Entity
 
     /**
     * Sets the notificationTemplateType
-    * Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients.
+    * Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.
     *
     * @param string $val The value of the notificationTemplateType
     *

@@ -61,8 +61,8 @@ class AppleVpnConfiguration extends DeviceConfiguration
     */
     public function getAuthenticationMethod()
     {
-        if (array_key_exists("authenticationMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\VpnAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
+        if (array_key_exists("authenticationMethod", $this->_propDict) && !is_null($this->_propDict["authenticationMethod"])) {
+            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\VpnAuthenticationMethod")) {
                 return $this->_propDict["authenticationMethod"];
             } else {
                 $this->_propDict["authenticationMethod"] = new VpnAuthenticationMethod($this->_propDict["authenticationMethod"]);
@@ -123,8 +123,8 @@ class AppleVpnConfiguration extends DeviceConfiguration
     */
     public function getConnectionType()
     {
-        if (array_key_exists("connectionType", $this->_propDict)) {
-            if (is_a($this->_propDict["connectionType"], "\Beta\Microsoft\Graph\Model\AppleVpnConnectionType") || is_null($this->_propDict["connectionType"])) {
+        if (array_key_exists("connectionType", $this->_propDict) && !is_null($this->_propDict["connectionType"])) {
+            if (is_a($this->_propDict["connectionType"], "\Beta\Microsoft\Graph\Model\AppleVpnConnectionType")) {
                 return $this->_propDict["connectionType"];
             } else {
                 $this->_propDict["connectionType"] = new AppleVpnConnectionType($this->_propDict["connectionType"]);
@@ -153,22 +153,29 @@ class AppleVpnConfiguration extends DeviceConfiguration
      * Gets the customData
     * Custom data when connection type is set to Custom VPN. Use this field to enable functionality not supported by Intune, but available in your VPN solution. Contact your VPN vendor to learn how to add these key/value pairs. This collection can contain a maximum of 25 elements.
      *
-     * @return array|null The customData
+     * @return KeyValue[]|null The customData
      */
     public function getCustomData()
     {
-        if (array_key_exists("customData", $this->_propDict)) {
-           return $this->_propDict["customData"];
-        } else {
-            return null;
+        if (array_key_exists('customData', $this->_propDict) && !is_null($this->_propDict['customData'])) {
+            $customData = [];
+            if (count($this->_propDict['customData']) > 0 && is_a($this->_propDict['customData'][0], 'KeyValue')) {
+                return $this->_propDict['customData'];
+            }
+            foreach ($this->_propDict['customData'] as $singleValue) {
+                $customData []= new KeyValue($singleValue);
+            }
+            $this->_propDict['customData'] = $customData;
+            return $this->_propDict['customData'];
         }
+        return null;
     }
     
     /** 
     * Sets the customData
     * Custom data when connection type is set to Custom VPN. Use this field to enable functionality not supported by Intune, but available in your VPN solution. Contact your VPN vendor to learn how to add these key/value pairs. This collection can contain a maximum of 25 elements.
     *
-    * @param KeyValue $val The customData
+    * @param KeyValue[] $val The customData
     *
     * @return AppleVpnConfiguration
     */
@@ -183,22 +190,29 @@ class AppleVpnConfiguration extends DeviceConfiguration
      * Gets the customKeyValueData
     * Custom data when connection type is set to Custom VPN. Use this field to enable functionality not supported by Intune, but available in your VPN solution. Contact your VPN vendor to learn how to add these key/value pairs. This collection can contain a maximum of 25 elements.
      *
-     * @return array|null The customKeyValueData
+     * @return KeyValuePair[]|null The customKeyValueData
      */
     public function getCustomKeyValueData()
     {
-        if (array_key_exists("customKeyValueData", $this->_propDict)) {
-           return $this->_propDict["customKeyValueData"];
-        } else {
-            return null;
+        if (array_key_exists('customKeyValueData', $this->_propDict) && !is_null($this->_propDict['customKeyValueData'])) {
+            $customKeyValueData = [];
+            if (count($this->_propDict['customKeyValueData']) > 0 && is_a($this->_propDict['customKeyValueData'][0], 'KeyValuePair')) {
+                return $this->_propDict['customKeyValueData'];
+            }
+            foreach ($this->_propDict['customKeyValueData'] as $singleValue) {
+                $customKeyValueData []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['customKeyValueData'] = $customKeyValueData;
+            return $this->_propDict['customKeyValueData'];
         }
+        return null;
     }
     
     /** 
     * Sets the customKeyValueData
     * Custom data when connection type is set to Custom VPN. Use this field to enable functionality not supported by Intune, but available in your VPN solution. Contact your VPN vendor to learn how to add these key/value pairs. This collection can contain a maximum of 25 elements.
     *
-    * @param KeyValuePair $val The customKeyValueData
+    * @param KeyValuePair[] $val The customKeyValueData
     *
     * @return AppleVpnConfiguration
     */
@@ -445,22 +459,29 @@ class AppleVpnConfiguration extends DeviceConfiguration
      * Gets the onDemandRules
     * On-Demand Rules. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The onDemandRules
+     * @return VpnOnDemandRule[]|null The onDemandRules
      */
     public function getOnDemandRules()
     {
-        if (array_key_exists("onDemandRules", $this->_propDict)) {
-           return $this->_propDict["onDemandRules"];
-        } else {
-            return null;
+        if (array_key_exists('onDemandRules', $this->_propDict) && !is_null($this->_propDict['onDemandRules'])) {
+            $onDemandRules = [];
+            if (count($this->_propDict['onDemandRules']) > 0 && is_a($this->_propDict['onDemandRules'][0], 'VpnOnDemandRule')) {
+                return $this->_propDict['onDemandRules'];
+            }
+            foreach ($this->_propDict['onDemandRules'] as $singleValue) {
+                $onDemandRules []= new VpnOnDemandRule($singleValue);
+            }
+            $this->_propDict['onDemandRules'] = $onDemandRules;
+            return $this->_propDict['onDemandRules'];
         }
+        return null;
     }
     
     /** 
     * Sets the onDemandRules
     * On-Demand Rules. This collection can contain a maximum of 500 elements.
     *
-    * @param VpnOnDemandRule $val The onDemandRules
+    * @param VpnOnDemandRule[] $val The onDemandRules
     *
     * @return AppleVpnConfiguration
     */
@@ -507,8 +528,8 @@ class AppleVpnConfiguration extends DeviceConfiguration
     */
     public function getProviderType()
     {
-        if (array_key_exists("providerType", $this->_propDict)) {
-            if (is_a($this->_propDict["providerType"], "\Beta\Microsoft\Graph\Model\VpnProviderType") || is_null($this->_propDict["providerType"])) {
+        if (array_key_exists("providerType", $this->_propDict) && !is_null($this->_propDict["providerType"])) {
+            if (is_a($this->_propDict["providerType"], "\Beta\Microsoft\Graph\Model\VpnProviderType")) {
                 return $this->_propDict["providerType"];
             } else {
                 $this->_propDict["providerType"] = new VpnProviderType($this->_propDict["providerType"]);
@@ -540,8 +561,8 @@ class AppleVpnConfiguration extends DeviceConfiguration
     */
     public function getProxyServer()
     {
-        if (array_key_exists("proxyServer", $this->_propDict)) {
-            if (is_a($this->_propDict["proxyServer"], "\Beta\Microsoft\Graph\Model\VpnProxyServer") || is_null($this->_propDict["proxyServer"])) {
+        if (array_key_exists("proxyServer", $this->_propDict) && !is_null($this->_propDict["proxyServer"])) {
+            if (is_a($this->_propDict["proxyServer"], "\Beta\Microsoft\Graph\Model\VpnProxyServer")) {
                 return $this->_propDict["proxyServer"];
             } else {
                 $this->_propDict["proxyServer"] = new VpnProxyServer($this->_propDict["proxyServer"]);
@@ -660,8 +681,8 @@ class AppleVpnConfiguration extends DeviceConfiguration
     */
     public function getServer()
     {
-        if (array_key_exists("server", $this->_propDict)) {
-            if (is_a($this->_propDict["server"], "\Beta\Microsoft\Graph\Model\VpnServer") || is_null($this->_propDict["server"])) {
+        if (array_key_exists("server", $this->_propDict) && !is_null($this->_propDict["server"])) {
+            if (is_a($this->_propDict["server"], "\Beta\Microsoft\Graph\Model\VpnServer")) {
                 return $this->_propDict["server"];
             } else {
                 $this->_propDict["server"] = new VpnServer($this->_propDict["server"]);

@@ -61,8 +61,8 @@ class OfficeSuiteApp extends MobileApp
     */
     public function getExcludedApps()
     {
-        if (array_key_exists("excludedApps", $this->_propDict)) {
-            if (is_a($this->_propDict["excludedApps"], "\Beta\Microsoft\Graph\Model\ExcludedApps") || is_null($this->_propDict["excludedApps"])) {
+        if (array_key_exists("excludedApps", $this->_propDict) && !is_null($this->_propDict["excludedApps"])) {
+            if (is_a($this->_propDict["excludedApps"], "\Beta\Microsoft\Graph\Model\ExcludedApps")) {
                 return $this->_propDict["excludedApps"];
             } else {
                 $this->_propDict["excludedApps"] = new ExcludedApps($this->_propDict["excludedApps"]);
@@ -94,8 +94,8 @@ class OfficeSuiteApp extends MobileApp
     */
     public function getInstallProgressDisplayLevel()
     {
-        if (array_key_exists("installProgressDisplayLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["installProgressDisplayLevel"], "\Beta\Microsoft\Graph\Model\OfficeSuiteInstallProgressDisplayLevel") || is_null($this->_propDict["installProgressDisplayLevel"])) {
+        if (array_key_exists("installProgressDisplayLevel", $this->_propDict) && !is_null($this->_propDict["installProgressDisplayLevel"])) {
+            if (is_a($this->_propDict["installProgressDisplayLevel"], "\Beta\Microsoft\Graph\Model\OfficeSuiteInstallProgressDisplayLevel")) {
                 return $this->_propDict["installProgressDisplayLevel"];
             } else {
                 $this->_propDict["installProgressDisplayLevel"] = new OfficeSuiteInstallProgressDisplayLevel($this->_propDict["installProgressDisplayLevel"]);
@@ -156,8 +156,8 @@ class OfficeSuiteApp extends MobileApp
     */
     public function getOfficeConfigurationXml()
     {
-        if (array_key_exists("officeConfigurationXml", $this->_propDict)) {
-            if (is_a($this->_propDict["officeConfigurationXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["officeConfigurationXml"])) {
+        if (array_key_exists("officeConfigurationXml", $this->_propDict) && !is_null($this->_propDict["officeConfigurationXml"])) {
+            if (is_a($this->_propDict["officeConfigurationXml"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["officeConfigurationXml"];
             } else {
                 $this->_propDict["officeConfigurationXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["officeConfigurationXml"]);
@@ -189,8 +189,8 @@ class OfficeSuiteApp extends MobileApp
     */
     public function getOfficePlatformArchitecture()
     {
-        if (array_key_exists("officePlatformArchitecture", $this->_propDict)) {
-            if (is_a($this->_propDict["officePlatformArchitecture"], "\Beta\Microsoft\Graph\Model\WindowsArchitecture") || is_null($this->_propDict["officePlatformArchitecture"])) {
+        if (array_key_exists("officePlatformArchitecture", $this->_propDict) && !is_null($this->_propDict["officePlatformArchitecture"])) {
+            if (is_a($this->_propDict["officePlatformArchitecture"], "\Beta\Microsoft\Graph\Model\WindowsArchitecture")) {
                 return $this->_propDict["officePlatformArchitecture"];
             } else {
                 $this->_propDict["officePlatformArchitecture"] = new WindowsArchitecture($this->_propDict["officePlatformArchitecture"]);
@@ -219,22 +219,29 @@ class OfficeSuiteApp extends MobileApp
      * Gets the productIds
     * The Product Ids that represent the Office365 Suite SKU.
      *
-     * @return array|null The productIds
+     * @return OfficeProductId[]|null The productIds
      */
     public function getProductIds()
     {
-        if (array_key_exists("productIds", $this->_propDict)) {
-           return $this->_propDict["productIds"];
-        } else {
-            return null;
+        if (array_key_exists('productIds', $this->_propDict) && !is_null($this->_propDict['productIds'])) {
+            $productIds = [];
+            if (count($this->_propDict['productIds']) > 0 && is_a($this->_propDict['productIds'][0], 'OfficeProductId')) {
+                return $this->_propDict['productIds'];
+            }
+            foreach ($this->_propDict['productIds'] as $singleValue) {
+                $productIds []= new OfficeProductId($singleValue);
+            }
+            $this->_propDict['productIds'] = $productIds;
+            return $this->_propDict['productIds'];
         }
+        return null;
     }
     
     /** 
     * Sets the productIds
     * The Product Ids that represent the Office365 Suite SKU.
     *
-    * @param OfficeProductId $val The productIds
+    * @param OfficeProductId[] $val The productIds
     *
     * @return OfficeSuiteApp
     */
@@ -310,8 +317,8 @@ class OfficeSuiteApp extends MobileApp
     */
     public function getUpdateChannel()
     {
-        if (array_key_exists("updateChannel", $this->_propDict)) {
-            if (is_a($this->_propDict["updateChannel"], "\Beta\Microsoft\Graph\Model\OfficeUpdateChannel") || is_null($this->_propDict["updateChannel"])) {
+        if (array_key_exists("updateChannel", $this->_propDict) && !is_null($this->_propDict["updateChannel"])) {
+            if (is_a($this->_propDict["updateChannel"], "\Beta\Microsoft\Graph\Model\OfficeUpdateChannel")) {
                 return $this->_propDict["updateChannel"];
             } else {
                 $this->_propDict["updateChannel"] = new OfficeUpdateChannel($this->_propDict["updateChannel"]);

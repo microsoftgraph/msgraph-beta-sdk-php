@@ -56,18 +56,22 @@ class DeviceManagementApplicabilityRuleOsEdition extends Entity
     * Gets the osEditionTypes
     * Applicability rule OS edition type.
     *
-    * @return Windows10EditionType|null The osEditionTypes
+    * @return Windows10EditionType[]|null The osEditionTypes
     */
     public function getOsEditionTypes()
     {
-        if (array_key_exists("osEditionTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["osEditionTypes"], "\Beta\Microsoft\Graph\Model\Windows10EditionType") || is_null($this->_propDict["osEditionTypes"])) {
-                return $this->_propDict["osEditionTypes"];
-            } else {
-                $this->_propDict["osEditionTypes"] = new Windows10EditionType($this->_propDict["osEditionTypes"]);
-                return $this->_propDict["osEditionTypes"];
+        if (array_key_exists("osEditionTypes", $this->_propDict) && !is_null($this->_propDict["osEditionTypes"])) {
+       
+            if (count($this->_propDict['osEditionTypes']) > 0 && is_a($this->_propDict['osEditionTypes'][0], 'Windows10EditionType')) {
+               return $this->_propDict['osEditionTypes'];
             }
-        }
+            $osEditionTypes = [];
+            foreach ($this->_propDict['osEditionTypes'] as $singleValue) {
+               $osEditionTypes []= new Windows10EditionType($singleValue);
+            }
+            $this->_propDict['osEditionTypes'] = $osEditionTypes;
+            return $this->_propDict['osEditionTypes'];
+            }
         return null;
     }
 
@@ -75,7 +79,7 @@ class DeviceManagementApplicabilityRuleOsEdition extends Entity
     * Sets the osEditionTypes
     * Applicability rule OS edition type.
     *
-    * @param Windows10EditionType $val The value to assign to the osEditionTypes
+    * @param Windows10EditionType[] $val The value to assign to the osEditionTypes
     *
     * @return DeviceManagementApplicabilityRuleOsEdition The DeviceManagementApplicabilityRuleOsEdition
     */
@@ -93,8 +97,9 @@ class DeviceManagementApplicabilityRuleOsEdition extends Entity
     */
     public function getRuleType()
     {
-        if (array_key_exists("ruleType", $this->_propDict)) {
-            if (is_a($this->_propDict["ruleType"], "\Beta\Microsoft\Graph\Model\DeviceManagementApplicabilityRuleType") || is_null($this->_propDict["ruleType"])) {
+        if (array_key_exists("ruleType", $this->_propDict) && !is_null($this->_propDict["ruleType"])) {
+     
+            if (is_a($this->_propDict["ruleType"], "\Beta\Microsoft\Graph\Model\DeviceManagementApplicabilityRuleType")) {
                 return $this->_propDict["ruleType"];
             } else {
                 $this->_propDict["ruleType"] = new DeviceManagementApplicabilityRuleType($this->_propDict["ruleType"]);

@@ -32,8 +32,9 @@ class CallParticipantInfo extends Entity
     */
     public function getParticipant()
     {
-        if (array_key_exists("participant", $this->_propDict)) {
-            if (is_a($this->_propDict["participant"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["participant"])) {
+        if (array_key_exists("participant", $this->_propDict) && !is_null($this->_propDict["participant"])) {
+     
+            if (is_a($this->_propDict["participant"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["participant"];
             } else {
                 $this->_propDict["participant"] = new IdentitySet($this->_propDict["participant"]);

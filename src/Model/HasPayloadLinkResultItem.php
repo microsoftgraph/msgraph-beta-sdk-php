@@ -112,18 +112,22 @@ class HasPayloadLinkResultItem extends Entity
     * Gets the sources
     * The reason where the link comes from.
     *
-    * @return DeviceAndAppManagementAssignmentSource|null The sources
+    * @return DeviceAndAppManagementAssignmentSource[]|null The sources
     */
     public function getSources()
     {
-        if (array_key_exists("sources", $this->_propDict)) {
-            if (is_a($this->_propDict["sources"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentSource") || is_null($this->_propDict["sources"])) {
-                return $this->_propDict["sources"];
-            } else {
-                $this->_propDict["sources"] = new DeviceAndAppManagementAssignmentSource($this->_propDict["sources"]);
-                return $this->_propDict["sources"];
+        if (array_key_exists("sources", $this->_propDict) && !is_null($this->_propDict["sources"])) {
+       
+            if (count($this->_propDict['sources']) > 0 && is_a($this->_propDict['sources'][0], 'DeviceAndAppManagementAssignmentSource')) {
+               return $this->_propDict['sources'];
             }
-        }
+            $sources = [];
+            foreach ($this->_propDict['sources'] as $singleValue) {
+               $sources []= new DeviceAndAppManagementAssignmentSource($singleValue);
+            }
+            $this->_propDict['sources'] = $sources;
+            return $this->_propDict['sources'];
+            }
         return null;
     }
 
@@ -131,7 +135,7 @@ class HasPayloadLinkResultItem extends Entity
     * Sets the sources
     * The reason where the link comes from.
     *
-    * @param DeviceAndAppManagementAssignmentSource $val The value to assign to the sources
+    * @param DeviceAndAppManagementAssignmentSource[] $val The value to assign to the sources
     *
     * @return HasPayloadLinkResultItem The HasPayloadLinkResultItem
     */

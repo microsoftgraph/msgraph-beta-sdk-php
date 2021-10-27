@@ -32,8 +32,9 @@ class DeviceComplianceScriptRule extends Entity
     */
     public function getDataType()
     {
-        if (array_key_exists("dataType", $this->_propDict)) {
-            if (is_a($this->_propDict["dataType"], "\Beta\Microsoft\Graph\Model\DataType") || is_null($this->_propDict["dataType"])) {
+        if (array_key_exists("dataType", $this->_propDict) && !is_null($this->_propDict["dataType"])) {
+     
+            if (is_a($this->_propDict["dataType"], "\Beta\Microsoft\Graph\Model\DataType")) {
                 return $this->_propDict["dataType"];
             } else {
                 $this->_propDict["dataType"] = new DataType($this->_propDict["dataType"]);
@@ -65,8 +66,9 @@ class DeviceComplianceScriptRule extends Entity
     */
     public function getDeviceComplianceScriptRuleDataType()
     {
-        if (array_key_exists("deviceComplianceScriptRuleDataType", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceComplianceScriptRuleDataType"], "\Beta\Microsoft\Graph\Model\DeviceComplianceScriptRuleDataType") || is_null($this->_propDict["deviceComplianceScriptRuleDataType"])) {
+        if (array_key_exists("deviceComplianceScriptRuleDataType", $this->_propDict) && !is_null($this->_propDict["deviceComplianceScriptRuleDataType"])) {
+     
+            if (is_a($this->_propDict["deviceComplianceScriptRuleDataType"], "\Beta\Microsoft\Graph\Model\DeviceComplianceScriptRuleDataType")) {
                 return $this->_propDict["deviceComplianceScriptRuleDataType"];
             } else {
                 $this->_propDict["deviceComplianceScriptRuleDataType"] = new DeviceComplianceScriptRuleDataType($this->_propDict["deviceComplianceScriptRuleDataType"]);
@@ -98,8 +100,9 @@ class DeviceComplianceScriptRule extends Entity
     */
     public function getDeviceComplianceScriptRulOperator()
     {
-        if (array_key_exists("deviceComplianceScriptRulOperator", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceComplianceScriptRulOperator"], "\Beta\Microsoft\Graph\Model\DeviceComplianceScriptRulOperator") || is_null($this->_propDict["deviceComplianceScriptRulOperator"])) {
+        if (array_key_exists("deviceComplianceScriptRulOperator", $this->_propDict) && !is_null($this->_propDict["deviceComplianceScriptRulOperator"])) {
+     
+            if (is_a($this->_propDict["deviceComplianceScriptRulOperator"], "\Beta\Microsoft\Graph\Model\DeviceComplianceScriptRulOperator")) {
                 return $this->_propDict["deviceComplianceScriptRulOperator"];
             } else {
                 $this->_propDict["deviceComplianceScriptRulOperator"] = new DeviceComplianceScriptRulOperator($this->_propDict["deviceComplianceScriptRulOperator"]);
@@ -159,8 +162,9 @@ class DeviceComplianceScriptRule extends Entity
     */
     public function getOperator()
     {
-        if (array_key_exists("operator", $this->_propDict)) {
-            if (is_a($this->_propDict["operator"], "\Beta\Microsoft\Graph\Model\Operator") || is_null($this->_propDict["operator"])) {
+        if (array_key_exists("operator", $this->_propDict) && !is_null($this->_propDict["operator"])) {
+     
+            if (is_a($this->_propDict["operator"], "\Beta\Microsoft\Graph\Model\Operator")) {
                 return $this->_propDict["operator"];
             } else {
                 $this->_propDict["operator"] = new Operator($this->_propDict["operator"]);

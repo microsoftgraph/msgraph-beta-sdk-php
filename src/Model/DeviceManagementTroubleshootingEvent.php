@@ -29,22 +29,29 @@ class DeviceManagementTroubleshootingEvent extends Entity
      * Gets the additionalInformation
     * A set of string key and string value pairs which provides additional information on the Troubleshooting event
      *
-     * @return array|null The additionalInformation
+     * @return KeyValuePair[]|null The additionalInformation
      */
     public function getAdditionalInformation()
     {
-        if (array_key_exists("additionalInformation", $this->_propDict)) {
-           return $this->_propDict["additionalInformation"];
-        } else {
-            return null;
+        if (array_key_exists('additionalInformation', $this->_propDict) && !is_null($this->_propDict['additionalInformation'])) {
+            $additionalInformation = [];
+            if (count($this->_propDict['additionalInformation']) > 0 && is_a($this->_propDict['additionalInformation'][0], 'KeyValuePair')) {
+                return $this->_propDict['additionalInformation'];
+            }
+            foreach ($this->_propDict['additionalInformation'] as $singleValue) {
+                $additionalInformation []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['additionalInformation'] = $additionalInformation;
+            return $this->_propDict['additionalInformation'];
         }
+        return null;
     }
     
     /** 
     * Sets the additionalInformation
     * A set of string key and string value pairs which provides additional information on the Troubleshooting event
     *
-    * @param KeyValuePair $val The additionalInformation
+    * @param KeyValuePair[] $val The additionalInformation
     *
     * @return DeviceManagementTroubleshootingEvent
     */
@@ -91,8 +98,8 @@ class DeviceManagementTroubleshootingEvent extends Entity
     */
     public function getEventDateTime()
     {
-        if (array_key_exists("eventDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["eventDateTime"], "\DateTime") || is_null($this->_propDict["eventDateTime"])) {
+        if (array_key_exists("eventDateTime", $this->_propDict) && !is_null($this->_propDict["eventDateTime"])) {
+            if (is_a($this->_propDict["eventDateTime"], "\DateTime")) {
                 return $this->_propDict["eventDateTime"];
             } else {
                 $this->_propDict["eventDateTime"] = new \DateTime($this->_propDict["eventDateTime"]);
@@ -153,8 +160,8 @@ class DeviceManagementTroubleshootingEvent extends Entity
     */
     public function getTroubleshootingErrorDetails()
     {
-        if (array_key_exists("troubleshootingErrorDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["troubleshootingErrorDetails"], "\Beta\Microsoft\Graph\Model\DeviceManagementTroubleshootingErrorDetails") || is_null($this->_propDict["troubleshootingErrorDetails"])) {
+        if (array_key_exists("troubleshootingErrorDetails", $this->_propDict) && !is_null($this->_propDict["troubleshootingErrorDetails"])) {
+            if (is_a($this->_propDict["troubleshootingErrorDetails"], "\Beta\Microsoft\Graph\Model\DeviceManagementTroubleshootingErrorDetails")) {
                 return $this->_propDict["troubleshootingErrorDetails"];
             } else {
                 $this->_propDict["troubleshootingErrorDetails"] = new DeviceManagementTroubleshootingErrorDetails($this->_propDict["troubleshootingErrorDetails"]);

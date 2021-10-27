@@ -42,7 +42,7 @@ class DeviceAndAppManagementAssignedRoleDetails extends Entity
     * Sets the roleAssignmentIds
     * Role Assignment IDs for the specifc Role Assignments assigned to a user. This property is read-only.
     *
-    * @param string $val The value of the roleAssignmentIds
+    * @param string[] $val The value of the roleAssignmentIds
     *
     * @return DeviceAndAppManagementAssignedRoleDetails
     */
@@ -70,7 +70,7 @@ class DeviceAndAppManagementAssignedRoleDetails extends Entity
     * Sets the roleDefinitionIds
     * Role Definition IDs for the specifc Role Definitions assigned to a user. This property is read-only.
     *
-    * @param string $val The value of the roleDefinitionIds
+    * @param string[] $val The value of the roleDefinitionIds
     *
     * @return DeviceAndAppManagementAssignedRoleDetails
     */

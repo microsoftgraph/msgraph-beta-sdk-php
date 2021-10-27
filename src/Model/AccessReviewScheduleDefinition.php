@@ -29,22 +29,29 @@ class AccessReviewScheduleDefinition extends Entity
      * Gets the additionalNotificationRecipients
     * Defines the list of additional users or group members to be notified of the access review progress.
      *
-     * @return array|null The additionalNotificationRecipients
+     * @return AccessReviewNotificationRecipientItem[]|null The additionalNotificationRecipients
      */
     public function getAdditionalNotificationRecipients()
     {
-        if (array_key_exists("additionalNotificationRecipients", $this->_propDict)) {
-           return $this->_propDict["additionalNotificationRecipients"];
-        } else {
-            return null;
+        if (array_key_exists('additionalNotificationRecipients', $this->_propDict) && !is_null($this->_propDict['additionalNotificationRecipients'])) {
+            $additionalNotificationRecipients = [];
+            if (count($this->_propDict['additionalNotificationRecipients']) > 0 && is_a($this->_propDict['additionalNotificationRecipients'][0], 'AccessReviewNotificationRecipientItem')) {
+                return $this->_propDict['additionalNotificationRecipients'];
+            }
+            foreach ($this->_propDict['additionalNotificationRecipients'] as $singleValue) {
+                $additionalNotificationRecipients []= new AccessReviewNotificationRecipientItem($singleValue);
+            }
+            $this->_propDict['additionalNotificationRecipients'] = $additionalNotificationRecipients;
+            return $this->_propDict['additionalNotificationRecipients'];
         }
+        return null;
     }
     
     /** 
     * Sets the additionalNotificationRecipients
     * Defines the list of additional users or group members to be notified of the access review progress.
     *
-    * @param AccessReviewNotificationRecipientItem $val The additionalNotificationRecipients
+    * @param AccessReviewNotificationRecipientItem[] $val The additionalNotificationRecipients
     *
     * @return AccessReviewScheduleDefinition
     */
@@ -58,21 +65,28 @@ class AccessReviewScheduleDefinition extends Entity
      /** 
      * Gets the backupReviewers
      *
-     * @return array|null The backupReviewers
+     * @return AccessReviewReviewerScope[]|null The backupReviewers
      */
     public function getBackupReviewers()
     {
-        if (array_key_exists("backupReviewers", $this->_propDict)) {
-           return $this->_propDict["backupReviewers"];
-        } else {
-            return null;
+        if (array_key_exists('backupReviewers', $this->_propDict) && !is_null($this->_propDict['backupReviewers'])) {
+            $backupReviewers = [];
+            if (count($this->_propDict['backupReviewers']) > 0 && is_a($this->_propDict['backupReviewers'][0], 'AccessReviewReviewerScope')) {
+                return $this->_propDict['backupReviewers'];
+            }
+            foreach ($this->_propDict['backupReviewers'] as $singleValue) {
+                $backupReviewers []= new AccessReviewReviewerScope($singleValue);
+            }
+            $this->_propDict['backupReviewers'] = $backupReviewers;
+            return $this->_propDict['backupReviewers'];
         }
+        return null;
     }
     
     /** 
     * Sets the backupReviewers
     *
-    * @param AccessReviewReviewerScope $val The backupReviewers
+    * @param AccessReviewReviewerScope[] $val The backupReviewers
     *
     * @return AccessReviewScheduleDefinition
     */
@@ -90,8 +104,8 @@ class AccessReviewScheduleDefinition extends Entity
     */
     public function getCreatedBy()
     {
-        if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\UserIdentity") || is_null($this->_propDict["createdBy"])) {
+        if (array_key_exists("createdBy", $this->_propDict) && !is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\UserIdentity")) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new UserIdentity($this->_propDict["createdBy"]);
@@ -123,8 +137,8 @@ class AccessReviewScheduleDefinition extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -240,22 +254,29 @@ class AccessReviewScheduleDefinition extends Entity
      * Gets the fallbackReviewers
     * This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers will be notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner does not exist, or manager is specified as reviewer but a user's manager does not exist. See accessReviewReviewerScope. Replaces backupReviewers. Supports $select.
      *
-     * @return array|null The fallbackReviewers
+     * @return AccessReviewReviewerScope[]|null The fallbackReviewers
      */
     public function getFallbackReviewers()
     {
-        if (array_key_exists("fallbackReviewers", $this->_propDict)) {
-           return $this->_propDict["fallbackReviewers"];
-        } else {
-            return null;
+        if (array_key_exists('fallbackReviewers', $this->_propDict) && !is_null($this->_propDict['fallbackReviewers'])) {
+            $fallbackReviewers = [];
+            if (count($this->_propDict['fallbackReviewers']) > 0 && is_a($this->_propDict['fallbackReviewers'][0], 'AccessReviewReviewerScope')) {
+                return $this->_propDict['fallbackReviewers'];
+            }
+            foreach ($this->_propDict['fallbackReviewers'] as $singleValue) {
+                $fallbackReviewers []= new AccessReviewReviewerScope($singleValue);
+            }
+            $this->_propDict['fallbackReviewers'] = $fallbackReviewers;
+            return $this->_propDict['fallbackReviewers'];
         }
+        return null;
     }
     
     /** 
     * Sets the fallbackReviewers
     * This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers will be notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner does not exist, or manager is specified as reviewer but a user's manager does not exist. See accessReviewReviewerScope. Replaces backupReviewers. Supports $select.
     *
-    * @param AccessReviewReviewerScope $val The fallbackReviewers
+    * @param AccessReviewReviewerScope[] $val The fallbackReviewers
     *
     * @return AccessReviewScheduleDefinition
     */
@@ -273,8 +294,8 @@ class AccessReviewScheduleDefinition extends Entity
     */
     public function getInstanceEnumerationScope()
     {
-        if (array_key_exists("instanceEnumerationScope", $this->_propDict)) {
-            if (is_a($this->_propDict["instanceEnumerationScope"], "\Beta\Microsoft\Graph\Model\AccessReviewScope") || is_null($this->_propDict["instanceEnumerationScope"])) {
+        if (array_key_exists("instanceEnumerationScope", $this->_propDict) && !is_null($this->_propDict["instanceEnumerationScope"])) {
+            if (is_a($this->_propDict["instanceEnumerationScope"], "\Beta\Microsoft\Graph\Model\AccessReviewScope")) {
                 return $this->_propDict["instanceEnumerationScope"];
             } else {
                 $this->_propDict["instanceEnumerationScope"] = new AccessReviewScope($this->_propDict["instanceEnumerationScope"]);
@@ -306,8 +327,8 @@ class AccessReviewScheduleDefinition extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -336,22 +357,29 @@ class AccessReviewScheduleDefinition extends Entity
      * Gets the reviewers
     * This collection of access review scopes is used to define who are the reviewers. The reviewers property is only updatable if individual users are assigned as reviewers. Required on create. Supports $select. For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API.
      *
-     * @return array|null The reviewers
+     * @return AccessReviewReviewerScope[]|null The reviewers
      */
     public function getReviewers()
     {
-        if (array_key_exists("reviewers", $this->_propDict)) {
-           return $this->_propDict["reviewers"];
-        } else {
-            return null;
+        if (array_key_exists('reviewers', $this->_propDict) && !is_null($this->_propDict['reviewers'])) {
+            $reviewers = [];
+            if (count($this->_propDict['reviewers']) > 0 && is_a($this->_propDict['reviewers'][0], 'AccessReviewReviewerScope')) {
+                return $this->_propDict['reviewers'];
+            }
+            foreach ($this->_propDict['reviewers'] as $singleValue) {
+                $reviewers []= new AccessReviewReviewerScope($singleValue);
+            }
+            $this->_propDict['reviewers'] = $reviewers;
+            return $this->_propDict['reviewers'];
         }
+        return null;
     }
     
     /** 
     * Sets the reviewers
     * This collection of access review scopes is used to define who are the reviewers. The reviewers property is only updatable if individual users are assigned as reviewers. Required on create. Supports $select. For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API.
     *
-    * @param AccessReviewReviewerScope $val The reviewers
+    * @param AccessReviewReviewerScope[] $val The reviewers
     *
     * @return AccessReviewScheduleDefinition
     */
@@ -369,8 +397,8 @@ class AccessReviewScheduleDefinition extends Entity
     */
     public function getScope()
     {
-        if (array_key_exists("scope", $this->_propDict)) {
-            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\AccessReviewScope") || is_null($this->_propDict["scope"])) {
+        if (array_key_exists("scope", $this->_propDict) && !is_null($this->_propDict["scope"])) {
+            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\AccessReviewScope")) {
                 return $this->_propDict["scope"];
             } else {
                 $this->_propDict["scope"] = new AccessReviewScope($this->_propDict["scope"]);
@@ -402,8 +430,8 @@ class AccessReviewScheduleDefinition extends Entity
     */
     public function getSettings()
     {
-        if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\AccessReviewScheduleSettings") || is_null($this->_propDict["settings"])) {
+        if (array_key_exists("settings", $this->_propDict) && !is_null($this->_propDict["settings"])) {
+            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\AccessReviewScheduleSettings")) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new AccessReviewScheduleSettings($this->_propDict["settings"]);
@@ -461,22 +489,29 @@ class AccessReviewScheduleDefinition extends Entity
      * Gets the instances
     * If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.
      *
-     * @return array|null The instances
+     * @return AccessReviewInstance[]|null The instances
      */
     public function getInstances()
     {
-        if (array_key_exists("instances", $this->_propDict)) {
-           return $this->_propDict["instances"];
-        } else {
-            return null;
+        if (array_key_exists('instances', $this->_propDict) && !is_null($this->_propDict['instances'])) {
+            $instances = [];
+            if (count($this->_propDict['instances']) > 0 && is_a($this->_propDict['instances'][0], 'AccessReviewInstance')) {
+                return $this->_propDict['instances'];
+            }
+            foreach ($this->_propDict['instances'] as $singleValue) {
+                $instances []= new AccessReviewInstance($singleValue);
+            }
+            $this->_propDict['instances'] = $instances;
+            return $this->_propDict['instances'];
         }
+        return null;
     }
     
     /** 
     * Sets the instances
     * If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.
     *
-    * @param AccessReviewInstance $val The instances
+    * @param AccessReviewInstance[] $val The instances
     *
     * @return AccessReviewScheduleDefinition
     */

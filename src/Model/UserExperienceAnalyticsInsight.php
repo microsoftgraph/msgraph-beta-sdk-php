@@ -60,8 +60,9 @@ class UserExperienceAnalyticsInsight extends Entity
     */
     public function getSeverity()
     {
-        if (array_key_exists("severity", $this->_propDict)) {
-            if (is_a($this->_propDict["severity"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsInsightSeverity") || is_null($this->_propDict["severity"])) {
+        if (array_key_exists("severity", $this->_propDict) && !is_null($this->_propDict["severity"])) {
+     
+            if (is_a($this->_propDict["severity"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsInsightSeverity")) {
                 return $this->_propDict["severity"];
             } else {
                 $this->_propDict["severity"] = new UserExperienceAnalyticsInsightSeverity($this->_propDict["severity"]);
@@ -117,18 +118,22 @@ class UserExperienceAnalyticsInsight extends Entity
     * Gets the values
     * The value of the user experience analytics insight.
     *
-    * @return UserExperienceAnalyticsInsightValue|null The values
+    * @return UserExperienceAnalyticsInsightValue[]|null The values
     */
     public function getValues()
     {
-        if (array_key_exists("values", $this->_propDict)) {
-            if (is_a($this->_propDict["values"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsInsightValue") || is_null($this->_propDict["values"])) {
-                return $this->_propDict["values"];
-            } else {
-                $this->_propDict["values"] = new UserExperienceAnalyticsInsightValue($this->_propDict["values"]);
-                return $this->_propDict["values"];
+        if (array_key_exists("values", $this->_propDict) && !is_null($this->_propDict["values"])) {
+       
+            if (count($this->_propDict['values']) > 0 && is_a($this->_propDict['values'][0], 'UserExperienceAnalyticsInsightValue')) {
+               return $this->_propDict['values'];
             }
-        }
+            $values = [];
+            foreach ($this->_propDict['values'] as $singleValue) {
+               $values []= new UserExperienceAnalyticsInsightValue($singleValue);
+            }
+            $this->_propDict['values'] = $values;
+            return $this->_propDict['values'];
+            }
         return null;
     }
 
@@ -136,7 +141,7 @@ class UserExperienceAnalyticsInsight extends Entity
     * Sets the values
     * The value of the user experience analytics insight.
     *
-    * @param UserExperienceAnalyticsInsightValue $val The value to assign to the values
+    * @param UserExperienceAnalyticsInsightValue[] $val The value to assign to the values
     *
     * @return UserExperienceAnalyticsInsight The UserExperienceAnalyticsInsight
     */

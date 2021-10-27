@@ -58,8 +58,8 @@ class Acronym extends SearchAnswer
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Search\Model\AnswerState") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Search\Model\AnswerState")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new AnswerState($this->_propDict["state"]);

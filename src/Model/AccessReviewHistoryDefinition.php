@@ -32,8 +32,8 @@ class AccessReviewHistoryDefinition extends Entity
     */
     public function getCreatedBy()
     {
-        if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\UserIdentity") || is_null($this->_propDict["createdBy"])) {
+        if (array_key_exists("createdBy", $this->_propDict) && !is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\UserIdentity")) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new UserIdentity($this->_propDict["createdBy"]);
@@ -65,8 +65,8 @@ class AccessReviewHistoryDefinition extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -95,22 +95,29 @@ class AccessReviewHistoryDefinition extends Entity
      * Gets the decisions
     * Determines which review decisions will be included in the fetched review history data if specified. Optional on create. All decisions will be included by default if no decisions are provided on create. Possible values are: approve, deny, dontKnow, notReviewed, and notNotified.
      *
-     * @return array|null The decisions
+     * @return AccessReviewHistoryDecisionFilter[]|null The decisions
      */
     public function getDecisions()
     {
-        if (array_key_exists("decisions", $this->_propDict)) {
-           return $this->_propDict["decisions"];
-        } else {
-            return null;
+        if (array_key_exists('decisions', $this->_propDict) && !is_null($this->_propDict['decisions'])) {
+            $decisions = [];
+            if (count($this->_propDict['decisions']) > 0 && is_a($this->_propDict['decisions'][0], 'AccessReviewHistoryDecisionFilter')) {
+                return $this->_propDict['decisions'];
+            }
+            foreach ($this->_propDict['decisions'] as $singleValue) {
+                $decisions []= new AccessReviewHistoryDecisionFilter($singleValue);
+            }
+            $this->_propDict['decisions'] = $decisions;
+            return $this->_propDict['decisions'];
         }
+        return null;
     }
     
     /** 
     * Sets the decisions
     * Determines which review decisions will be included in the fetched review history data if specified. Optional on create. All decisions will be included by default if no decisions are provided on create. Possible values are: approve, deny, dontKnow, notReviewed, and notNotified.
     *
-    * @param AccessReviewHistoryDecisionFilter $val The decisions
+    * @param AccessReviewHistoryDecisionFilter[] $val The decisions
     *
     * @return AccessReviewHistoryDefinition
     */
@@ -186,8 +193,8 @@ class AccessReviewHistoryDefinition extends Entity
     */
     public function getFulfilledDateTime()
     {
-        if (array_key_exists("fulfilledDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["fulfilledDateTime"], "\DateTime") || is_null($this->_propDict["fulfilledDateTime"])) {
+        if (array_key_exists("fulfilledDateTime", $this->_propDict) && !is_null($this->_propDict["fulfilledDateTime"])) {
+            if (is_a($this->_propDict["fulfilledDateTime"], "\DateTime")) {
                 return $this->_propDict["fulfilledDateTime"];
             } else {
                 $this->_propDict["fulfilledDateTime"] = new \DateTime($this->_propDict["fulfilledDateTime"]);
@@ -219,8 +226,8 @@ class AccessReviewHistoryDefinition extends Entity
     */
     public function getReviewHistoryPeriodEndDateTime()
     {
-        if (array_key_exists("reviewHistoryPeriodEndDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["reviewHistoryPeriodEndDateTime"], "\DateTime") || is_null($this->_propDict["reviewHistoryPeriodEndDateTime"])) {
+        if (array_key_exists("reviewHistoryPeriodEndDateTime", $this->_propDict) && !is_null($this->_propDict["reviewHistoryPeriodEndDateTime"])) {
+            if (is_a($this->_propDict["reviewHistoryPeriodEndDateTime"], "\DateTime")) {
                 return $this->_propDict["reviewHistoryPeriodEndDateTime"];
             } else {
                 $this->_propDict["reviewHistoryPeriodEndDateTime"] = new \DateTime($this->_propDict["reviewHistoryPeriodEndDateTime"]);
@@ -252,8 +259,8 @@ class AccessReviewHistoryDefinition extends Entity
     */
     public function getReviewHistoryPeriodStartDateTime()
     {
-        if (array_key_exists("reviewHistoryPeriodStartDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["reviewHistoryPeriodStartDateTime"], "\DateTime") || is_null($this->_propDict["reviewHistoryPeriodStartDateTime"])) {
+        if (array_key_exists("reviewHistoryPeriodStartDateTime", $this->_propDict) && !is_null($this->_propDict["reviewHistoryPeriodStartDateTime"])) {
+            if (is_a($this->_propDict["reviewHistoryPeriodStartDateTime"], "\DateTime")) {
                 return $this->_propDict["reviewHistoryPeriodStartDateTime"];
             } else {
                 $this->_propDict["reviewHistoryPeriodStartDateTime"] = new \DateTime($this->_propDict["reviewHistoryPeriodStartDateTime"]);
@@ -282,22 +289,29 @@ class AccessReviewHistoryDefinition extends Entity
      * Gets the scopes
     * Used to scope what reviews are included in the fetched history data. Fetches reviews whose scope matches with this provided scope. See accessreviewqueryscope. Required.
      *
-     * @return array|null The scopes
+     * @return AccessReviewScope[]|null The scopes
      */
     public function getScopes()
     {
-        if (array_key_exists("scopes", $this->_propDict)) {
-           return $this->_propDict["scopes"];
-        } else {
-            return null;
+        if (array_key_exists('scopes', $this->_propDict) && !is_null($this->_propDict['scopes'])) {
+            $scopes = [];
+            if (count($this->_propDict['scopes']) > 0 && is_a($this->_propDict['scopes'][0], 'AccessReviewScope')) {
+                return $this->_propDict['scopes'];
+            }
+            foreach ($this->_propDict['scopes'] as $singleValue) {
+                $scopes []= new AccessReviewScope($singleValue);
+            }
+            $this->_propDict['scopes'] = $scopes;
+            return $this->_propDict['scopes'];
         }
+        return null;
     }
     
     /** 
     * Sets the scopes
     * Used to scope what reviews are included in the fetched history data. Fetches reviews whose scope matches with this provided scope. See accessreviewqueryscope. Required.
     *
-    * @param AccessReviewScope $val The scopes
+    * @param AccessReviewScope[] $val The scopes
     *
     * @return AccessReviewHistoryDefinition
     */
@@ -315,8 +329,8 @@ class AccessReviewHistoryDefinition extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\AccessReviewHistoryStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\AccessReviewHistoryStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new AccessReviewHistoryStatus($this->_propDict["status"]);

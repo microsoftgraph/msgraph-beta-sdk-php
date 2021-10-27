@@ -32,8 +32,8 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
     */
     public function getAuthenticationMethod()
     {
-        if (array_key_exists("authenticationMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\VpnAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
+        if (array_key_exists("authenticationMethod", $this->_propDict) && !is_null($this->_propDict["authenticationMethod"])) {
+            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\VpnAuthenticationMethod")) {
                 return $this->_propDict["authenticationMethod"];
             } else {
                 $this->_propDict["authenticationMethod"] = new VpnAuthenticationMethod($this->_propDict["authenticationMethod"]);
@@ -94,8 +94,8 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
     */
     public function getConnectionType()
     {
-        if (array_key_exists("connectionType", $this->_propDict)) {
-            if (is_a($this->_propDict["connectionType"], "\Beta\Microsoft\Graph\Model\AndroidForWorkVpnConnectionType") || is_null($this->_propDict["connectionType"])) {
+        if (array_key_exists("connectionType", $this->_propDict) && !is_null($this->_propDict["connectionType"])) {
+            if (is_a($this->_propDict["connectionType"], "\Beta\Microsoft\Graph\Model\AndroidForWorkVpnConnectionType")) {
                 return $this->_propDict["connectionType"];
             } else {
                 $this->_propDict["connectionType"] = new AndroidForWorkVpnConnectionType($this->_propDict["connectionType"]);
@@ -124,22 +124,29 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
      * Gets the customData
     * Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
      *
-     * @return array|null The customData
+     * @return KeyValue[]|null The customData
      */
     public function getCustomData()
     {
-        if (array_key_exists("customData", $this->_propDict)) {
-           return $this->_propDict["customData"];
-        } else {
-            return null;
+        if (array_key_exists('customData', $this->_propDict) && !is_null($this->_propDict['customData'])) {
+            $customData = [];
+            if (count($this->_propDict['customData']) > 0 && is_a($this->_propDict['customData'][0], 'KeyValue')) {
+                return $this->_propDict['customData'];
+            }
+            foreach ($this->_propDict['customData'] as $singleValue) {
+                $customData []= new KeyValue($singleValue);
+            }
+            $this->_propDict['customData'] = $customData;
+            return $this->_propDict['customData'];
         }
+        return null;
     }
     
     /** 
     * Sets the customData
     * Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
     *
-    * @param KeyValue $val The customData
+    * @param KeyValue[] $val The customData
     *
     * @return AndroidForWorkVpnConfiguration
     */
@@ -154,22 +161,29 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
      * Gets the customKeyValueData
     * Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
      *
-     * @return array|null The customKeyValueData
+     * @return KeyValuePair[]|null The customKeyValueData
      */
     public function getCustomKeyValueData()
     {
-        if (array_key_exists("customKeyValueData", $this->_propDict)) {
-           return $this->_propDict["customKeyValueData"];
-        } else {
-            return null;
+        if (array_key_exists('customKeyValueData', $this->_propDict) && !is_null($this->_propDict['customKeyValueData'])) {
+            $customKeyValueData = [];
+            if (count($this->_propDict['customKeyValueData']) > 0 && is_a($this->_propDict['customKeyValueData'][0], 'KeyValuePair')) {
+                return $this->_propDict['customKeyValueData'];
+            }
+            foreach ($this->_propDict['customKeyValueData'] as $singleValue) {
+                $customKeyValueData []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['customKeyValueData'] = $customKeyValueData;
+            return $this->_propDict['customKeyValueData'];
         }
+        return null;
     }
     
     /** 
     * Sets the customKeyValueData
     * Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
     *
-    * @param KeyValuePair $val The customKeyValueData
+    * @param KeyValuePair[] $val The customKeyValueData
     *
     * @return AndroidForWorkVpnConfiguration
     */
@@ -271,22 +285,29 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
      * Gets the servers
     * List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The servers
+     * @return VpnServer[]|null The servers
      */
     public function getServers()
     {
-        if (array_key_exists("servers", $this->_propDict)) {
-           return $this->_propDict["servers"];
-        } else {
-            return null;
+        if (array_key_exists('servers', $this->_propDict) && !is_null($this->_propDict['servers'])) {
+            $servers = [];
+            if (count($this->_propDict['servers']) > 0 && is_a($this->_propDict['servers'][0], 'VpnServer')) {
+                return $this->_propDict['servers'];
+            }
+            foreach ($this->_propDict['servers'] as $singleValue) {
+                $servers []= new VpnServer($singleValue);
+            }
+            $this->_propDict['servers'] = $servers;
+            return $this->_propDict['servers'];
         }
+        return null;
     }
     
     /** 
     * Sets the servers
     * List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
     *
-    * @param VpnServer $val The servers
+    * @param VpnServer[] $val The servers
     *
     * @return AndroidForWorkVpnConfiguration
     */
@@ -304,8 +325,8 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
     */
     public function getIdentityCertificate()
     {
-        if (array_key_exists("identityCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\AndroidForWorkCertificateProfileBase") || is_null($this->_propDict["identityCertificate"])) {
+        if (array_key_exists("identityCertificate", $this->_propDict) && !is_null($this->_propDict["identityCertificate"])) {
+            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\AndroidForWorkCertificateProfileBase")) {
                 return $this->_propDict["identityCertificate"];
             } else {
                 $this->_propDict["identityCertificate"] = new AndroidForWorkCertificateProfileBase($this->_propDict["identityCertificate"]);

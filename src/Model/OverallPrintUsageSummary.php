@@ -105,25 +105,29 @@ class OverallPrintUsageSummary extends Entity
     /**
     * Gets the topPrinters
     *
-    * @return PrinterUsageSummary|null The topPrinters
+    * @return PrinterUsageSummary[]|null The topPrinters
     */
     public function getTopPrinters()
     {
-        if (array_key_exists("topPrinters", $this->_propDict)) {
-            if (is_a($this->_propDict["topPrinters"], "\Beta\Microsoft\Graph\Model\PrinterUsageSummary") || is_null($this->_propDict["topPrinters"])) {
-                return $this->_propDict["topPrinters"];
-            } else {
-                $this->_propDict["topPrinters"] = new PrinterUsageSummary($this->_propDict["topPrinters"]);
-                return $this->_propDict["topPrinters"];
+        if (array_key_exists("topPrinters", $this->_propDict) && !is_null($this->_propDict["topPrinters"])) {
+       
+            if (count($this->_propDict['topPrinters']) > 0 && is_a($this->_propDict['topPrinters'][0], 'PrinterUsageSummary')) {
+               return $this->_propDict['topPrinters'];
             }
-        }
+            $topPrinters = [];
+            foreach ($this->_propDict['topPrinters'] as $singleValue) {
+               $topPrinters []= new PrinterUsageSummary($singleValue);
+            }
+            $this->_propDict['topPrinters'] = $topPrinters;
+            return $this->_propDict['topPrinters'];
+            }
         return null;
     }
 
     /**
     * Sets the topPrinters
     *
-    * @param PrinterUsageSummary $val The value to assign to the topPrinters
+    * @param PrinterUsageSummary[] $val The value to assign to the topPrinters
     *
     * @return OverallPrintUsageSummary The OverallPrintUsageSummary
     */
@@ -136,25 +140,29 @@ class OverallPrintUsageSummary extends Entity
     /**
     * Gets the topUsers
     *
-    * @return UserPrintUsageSummary|null The topUsers
+    * @return UserPrintUsageSummary[]|null The topUsers
     */
     public function getTopUsers()
     {
-        if (array_key_exists("topUsers", $this->_propDict)) {
-            if (is_a($this->_propDict["topUsers"], "\Beta\Microsoft\Graph\Model\UserPrintUsageSummary") || is_null($this->_propDict["topUsers"])) {
-                return $this->_propDict["topUsers"];
-            } else {
-                $this->_propDict["topUsers"] = new UserPrintUsageSummary($this->_propDict["topUsers"]);
-                return $this->_propDict["topUsers"];
+        if (array_key_exists("topUsers", $this->_propDict) && !is_null($this->_propDict["topUsers"])) {
+       
+            if (count($this->_propDict['topUsers']) > 0 && is_a($this->_propDict['topUsers'][0], 'UserPrintUsageSummary')) {
+               return $this->_propDict['topUsers'];
             }
-        }
+            $topUsers = [];
+            foreach ($this->_propDict['topUsers'] as $singleValue) {
+               $topUsers []= new UserPrintUsageSummary($singleValue);
+            }
+            $this->_propDict['topUsers'] = $topUsers;
+            return $this->_propDict['topUsers'];
+            }
         return null;
     }
 
     /**
     * Sets the topUsers
     *
-    * @param UserPrintUsageSummary $val The value to assign to the topUsers
+    * @param UserPrintUsageSummary[] $val The value to assign to the topUsers
     *
     * @return OverallPrintUsageSummary The OverallPrintUsageSummary
     */

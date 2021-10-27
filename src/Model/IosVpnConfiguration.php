@@ -145,22 +145,29 @@ class IosVpnConfiguration extends AppleVpnConfiguration
      * Gets the targetedMobileApps
     * Targeted mobile apps. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The targetedMobileApps
+     * @return AppListItem[]|null The targetedMobileApps
      */
     public function getTargetedMobileApps()
     {
-        if (array_key_exists("targetedMobileApps", $this->_propDict)) {
-           return $this->_propDict["targetedMobileApps"];
-        } else {
-            return null;
+        if (array_key_exists('targetedMobileApps', $this->_propDict) && !is_null($this->_propDict['targetedMobileApps'])) {
+            $targetedMobileApps = [];
+            if (count($this->_propDict['targetedMobileApps']) > 0 && is_a($this->_propDict['targetedMobileApps'][0], 'AppListItem')) {
+                return $this->_propDict['targetedMobileApps'];
+            }
+            foreach ($this->_propDict['targetedMobileApps'] as $singleValue) {
+                $targetedMobileApps []= new AppListItem($singleValue);
+            }
+            $this->_propDict['targetedMobileApps'] = $targetedMobileApps;
+            return $this->_propDict['targetedMobileApps'];
         }
+        return null;
     }
     
     /** 
     * Sets the targetedMobileApps
     * Targeted mobile apps. This collection can contain a maximum of 500 elements.
     *
-    * @param AppListItem $val The targetedMobileApps
+    * @param AppListItem[] $val The targetedMobileApps
     *
     * @return IosVpnConfiguration
     */
@@ -207,8 +214,8 @@ class IosVpnConfiguration extends AppleVpnConfiguration
     */
     public function getDerivedCredentialSettings()
     {
-        if (array_key_exists("derivedCredentialSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["derivedCredentialSettings"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialSettings") || is_null($this->_propDict["derivedCredentialSettings"])) {
+        if (array_key_exists("derivedCredentialSettings", $this->_propDict) && !is_null($this->_propDict["derivedCredentialSettings"])) {
+            if (is_a($this->_propDict["derivedCredentialSettings"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialSettings")) {
                 return $this->_propDict["derivedCredentialSettings"];
             } else {
                 $this->_propDict["derivedCredentialSettings"] = new DeviceManagementDerivedCredentialSettings($this->_propDict["derivedCredentialSettings"]);
@@ -240,8 +247,8 @@ class IosVpnConfiguration extends AppleVpnConfiguration
     */
     public function getIdentityCertificate()
     {
-        if (array_key_exists("identityCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfileBase") || is_null($this->_propDict["identityCertificate"])) {
+        if (array_key_exists("identityCertificate", $this->_propDict) && !is_null($this->_propDict["identityCertificate"])) {
+            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfileBase")) {
                 return $this->_propDict["identityCertificate"];
             } else {
                 $this->_propDict["identityCertificate"] = new IosCertificateProfileBase($this->_propDict["identityCertificate"]);

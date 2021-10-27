@@ -32,8 +32,9 @@ class BitLockerFixedDrivePolicy extends Entity
     */
     public function getEncryptionMethod()
     {
-        if (array_key_exists("encryptionMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["encryptionMethod"], "\Beta\Microsoft\Graph\Model\BitLockerEncryptionMethod") || is_null($this->_propDict["encryptionMethod"])) {
+        if (array_key_exists("encryptionMethod", $this->_propDict) && !is_null($this->_propDict["encryptionMethod"])) {
+     
+            if (is_a($this->_propDict["encryptionMethod"], "\Beta\Microsoft\Graph\Model\BitLockerEncryptionMethod")) {
                 return $this->_propDict["encryptionMethod"];
             } else {
                 $this->_propDict["encryptionMethod"] = new BitLockerEncryptionMethod($this->_propDict["encryptionMethod"]);
@@ -65,8 +66,9 @@ class BitLockerFixedDrivePolicy extends Entity
     */
     public function getRecoveryOptions()
     {
-        if (array_key_exists("recoveryOptions", $this->_propDict)) {
-            if (is_a($this->_propDict["recoveryOptions"], "\Beta\Microsoft\Graph\Model\BitLockerRecoveryOptions") || is_null($this->_propDict["recoveryOptions"])) {
+        if (array_key_exists("recoveryOptions", $this->_propDict) && !is_null($this->_propDict["recoveryOptions"])) {
+     
+            if (is_a($this->_propDict["recoveryOptions"], "\Beta\Microsoft\Graph\Model\BitLockerRecoveryOptions")) {
                 return $this->_propDict["recoveryOptions"];
             } else {
                 $this->_propDict["recoveryOptions"] = new BitLockerRecoveryOptions($this->_propDict["recoveryOptions"]);

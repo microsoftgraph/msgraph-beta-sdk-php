@@ -32,8 +32,8 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyPresentation
     */
     public function getDefaultItem()
     {
-        if (array_key_exists("defaultItem", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultItem"], "\Beta\Microsoft\Graph\Model\GroupPolicyPresentationDropdownListItem") || is_null($this->_propDict["defaultItem"])) {
+        if (array_key_exists("defaultItem", $this->_propDict) && !is_null($this->_propDict["defaultItem"])) {
+            if (is_a($this->_propDict["defaultItem"], "\Beta\Microsoft\Graph\Model\GroupPolicyPresentationDropdownListItem")) {
                 return $this->_propDict["defaultItem"];
             } else {
                 $this->_propDict["defaultItem"] = new GroupPolicyPresentationDropdownListItem($this->_propDict["defaultItem"]);
@@ -62,22 +62,29 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyPresentation
      * Gets the items
     * Represents a set of localized display names and their associated values.
      *
-     * @return array|null The items
+     * @return GroupPolicyPresentationDropdownListItem[]|null The items
      */
     public function getItems()
     {
-        if (array_key_exists("items", $this->_propDict)) {
-           return $this->_propDict["items"];
-        } else {
-            return null;
+        if (array_key_exists('items', $this->_propDict) && !is_null($this->_propDict['items'])) {
+            $items = [];
+            if (count($this->_propDict['items']) > 0 && is_a($this->_propDict['items'][0], 'GroupPolicyPresentationDropdownListItem')) {
+                return $this->_propDict['items'];
+            }
+            foreach ($this->_propDict['items'] as $singleValue) {
+                $items []= new GroupPolicyPresentationDropdownListItem($singleValue);
+            }
+            $this->_propDict['items'] = $items;
+            return $this->_propDict['items'];
         }
+        return null;
     }
     
     /** 
     * Sets the items
     * Represents a set of localized display names and their associated values.
     *
-    * @param GroupPolicyPresentationDropdownListItem $val The items
+    * @param GroupPolicyPresentationDropdownListItem[] $val The items
     *
     * @return GroupPolicyPresentationDropdownList
     */

@@ -28,18 +28,22 @@ class IosSingleSignOnSettings extends Entity
     * Gets the allowedAppsList
     * List of app identifiers that are allowed to use this login. If this field is omitted, the login applies to all applications on the device. This collection can contain a maximum of 500 elements.
     *
-    * @return AppListItem|null The allowedAppsList
+    * @return AppListItem[]|null The allowedAppsList
     */
     public function getAllowedAppsList()
     {
-        if (array_key_exists("allowedAppsList", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedAppsList"], "\Beta\Microsoft\Graph\Model\AppListItem") || is_null($this->_propDict["allowedAppsList"])) {
-                return $this->_propDict["allowedAppsList"];
-            } else {
-                $this->_propDict["allowedAppsList"] = new AppListItem($this->_propDict["allowedAppsList"]);
-                return $this->_propDict["allowedAppsList"];
+        if (array_key_exists("allowedAppsList", $this->_propDict) && !is_null($this->_propDict["allowedAppsList"])) {
+       
+            if (count($this->_propDict['allowedAppsList']) > 0 && is_a($this->_propDict['allowedAppsList'][0], 'AppListItem')) {
+               return $this->_propDict['allowedAppsList'];
             }
-        }
+            $allowedAppsList = [];
+            foreach ($this->_propDict['allowedAppsList'] as $singleValue) {
+               $allowedAppsList []= new AppListItem($singleValue);
+            }
+            $this->_propDict['allowedAppsList'] = $allowedAppsList;
+            return $this->_propDict['allowedAppsList'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class IosSingleSignOnSettings extends Entity
     * Sets the allowedAppsList
     * List of app identifiers that are allowed to use this login. If this field is omitted, the login applies to all applications on the device. This collection can contain a maximum of 500 elements.
     *
-    * @param AppListItem $val The value to assign to the allowedAppsList
+    * @param AppListItem[] $val The value to assign to the allowedAppsList
     *
     * @return IosSingleSignOnSettings The IosSingleSignOnSettings
     */
@@ -75,7 +79,7 @@ class IosSingleSignOnSettings extends Entity
     * Sets the allowedUrls
     * List of HTTP URLs that must be matched in order to use this login. With iOS 9.0 or later, a wildcard characters may be used.
     *
-    * @param string $val The value of the allowedUrls
+    * @param string[] $val The value of the allowedUrls
     *
     * @return IosSingleSignOnSettings
     */

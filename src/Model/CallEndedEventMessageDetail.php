@@ -39,15 +39,16 @@ class CallEndedEventMessageDetail extends EventMessageDetail
     * Gets the callDuration
     * Duration of the call.
     *
-    * @return Duration|null The callDuration
+    * @return \DateInterval|null The callDuration
     */
     public function getCallDuration()
     {
-        if (array_key_exists("callDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["callDuration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["callDuration"])) {
+        if (array_key_exists("callDuration", $this->_propDict) && !is_null($this->_propDict["callDuration"])) {
+     
+            if (is_a($this->_propDict["callDuration"], "\DateInterval")) {
                 return $this->_propDict["callDuration"];
             } else {
-                $this->_propDict["callDuration"] = new Duration($this->_propDict["callDuration"]);
+                $this->_propDict["callDuration"] = new \DateInterval($this->_propDict["callDuration"]);
                 return $this->_propDict["callDuration"];
             }
         }
@@ -58,7 +59,7 @@ class CallEndedEventMessageDetail extends EventMessageDetail
     * Sets the callDuration
     * Duration of the call.
     *
-    * @param Duration $val The value to assign to the callDuration
+    * @param \DateInterval $val The value to assign to the callDuration
     *
     * @return CallEndedEventMessageDetail The CallEndedEventMessageDetail
     */
@@ -76,8 +77,9 @@ class CallEndedEventMessageDetail extends EventMessageDetail
     */
     public function getCallEventType()
     {
-        if (array_key_exists("callEventType", $this->_propDict)) {
-            if (is_a($this->_propDict["callEventType"], "\Beta\Microsoft\Graph\Model\TeamworkCallEventType") || is_null($this->_propDict["callEventType"])) {
+        if (array_key_exists("callEventType", $this->_propDict) && !is_null($this->_propDict["callEventType"])) {
+     
+            if (is_a($this->_propDict["callEventType"], "\Beta\Microsoft\Graph\Model\TeamworkCallEventType")) {
                 return $this->_propDict["callEventType"];
             } else {
                 $this->_propDict["callEventType"] = new TeamworkCallEventType($this->_propDict["callEventType"]);
@@ -133,18 +135,22 @@ class CallEndedEventMessageDetail extends EventMessageDetail
     * Gets the callParticipants
     * List of call participants.
     *
-    * @return CallParticipantInfo|null The callParticipants
+    * @return CallParticipantInfo[]|null The callParticipants
     */
     public function getCallParticipants()
     {
-        if (array_key_exists("callParticipants", $this->_propDict)) {
-            if (is_a($this->_propDict["callParticipants"], "\Beta\Microsoft\Graph\Model\CallParticipantInfo") || is_null($this->_propDict["callParticipants"])) {
-                return $this->_propDict["callParticipants"];
-            } else {
-                $this->_propDict["callParticipants"] = new CallParticipantInfo($this->_propDict["callParticipants"]);
-                return $this->_propDict["callParticipants"];
+        if (array_key_exists("callParticipants", $this->_propDict) && !is_null($this->_propDict["callParticipants"])) {
+       
+            if (count($this->_propDict['callParticipants']) > 0 && is_a($this->_propDict['callParticipants'][0], 'CallParticipantInfo')) {
+               return $this->_propDict['callParticipants'];
             }
-        }
+            $callParticipants = [];
+            foreach ($this->_propDict['callParticipants'] as $singleValue) {
+               $callParticipants []= new CallParticipantInfo($singleValue);
+            }
+            $this->_propDict['callParticipants'] = $callParticipants;
+            return $this->_propDict['callParticipants'];
+            }
         return null;
     }
 
@@ -152,7 +158,7 @@ class CallEndedEventMessageDetail extends EventMessageDetail
     * Sets the callParticipants
     * List of call participants.
     *
-    * @param CallParticipantInfo $val The value to assign to the callParticipants
+    * @param CallParticipantInfo[] $val The value to assign to the callParticipants
     *
     * @return CallEndedEventMessageDetail The CallEndedEventMessageDetail
     */
@@ -170,8 +176,9 @@ class CallEndedEventMessageDetail extends EventMessageDetail
     */
     public function getInitiator()
     {
-        if (array_key_exists("initiator", $this->_propDict)) {
-            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["initiator"])) {
+        if (array_key_exists("initiator", $this->_propDict) && !is_null($this->_propDict["initiator"])) {
+     
+            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["initiator"];
             } else {
                 $this->_propDict["initiator"] = new IdentitySet($this->_propDict["initiator"]);

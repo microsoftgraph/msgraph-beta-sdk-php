@@ -32,8 +32,8 @@ class Windows10PFXImportCertificateProfile extends DeviceConfiguration
     */
     public function getKeyStorageProvider()
     {
-        if (array_key_exists("keyStorageProvider", $this->_propDict)) {
-            if (is_a($this->_propDict["keyStorageProvider"], "\Beta\Microsoft\Graph\Model\KeyStorageProviderOption") || is_null($this->_propDict["keyStorageProvider"])) {
+        if (array_key_exists("keyStorageProvider", $this->_propDict) && !is_null($this->_propDict["keyStorageProvider"])) {
+            if (is_a($this->_propDict["keyStorageProvider"], "\Beta\Microsoft\Graph\Model\KeyStorageProviderOption")) {
                 return $this->_propDict["keyStorageProvider"];
             } else {
                 $this->_propDict["keyStorageProvider"] = new KeyStorageProviderOption($this->_propDict["keyStorageProvider"]);

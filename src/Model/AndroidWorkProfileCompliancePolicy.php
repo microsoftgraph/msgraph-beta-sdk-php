@@ -32,8 +32,8 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy
     */
     public function getAdvancedThreatProtectionRequiredSecurityLevel()
     {
-        if (array_key_exists("advancedThreatProtectionRequiredSecurityLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"], "\Beta\Microsoft\Graph\Model\DeviceThreatProtectionLevel") || is_null($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"])) {
+        if (array_key_exists("advancedThreatProtectionRequiredSecurityLevel", $this->_propDict) && !is_null($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"])) {
+            if (is_a($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"], "\Beta\Microsoft\Graph\Model\DeviceThreatProtectionLevel")) {
                 return $this->_propDict["advancedThreatProtectionRequiredSecurityLevel"];
             } else {
                 $this->_propDict["advancedThreatProtectionRequiredSecurityLevel"] = new DeviceThreatProtectionLevel($this->_propDict["advancedThreatProtectionRequiredSecurityLevel"]);
@@ -94,8 +94,8 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy
     */
     public function getDeviceThreatProtectionRequiredSecurityLevel()
     {
-        if (array_key_exists("deviceThreatProtectionRequiredSecurityLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"], "\Beta\Microsoft\Graph\Model\DeviceThreatProtectionLevel") || is_null($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"])) {
+        if (array_key_exists("deviceThreatProtectionRequiredSecurityLevel", $this->_propDict) && !is_null($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"])) {
+            if (is_a($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"], "\Beta\Microsoft\Graph\Model\DeviceThreatProtectionLevel")) {
                 return $this->_propDict["deviceThreatProtectionRequiredSecurityLevel"];
             } else {
                 $this->_propDict["deviceThreatProtectionRequiredSecurityLevel"] = new DeviceThreatProtectionLevel($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"]);
@@ -359,8 +359,8 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy
     */
     public function getPasswordRequiredType()
     {
-        if (array_key_exists("passwordRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidRequiredPasswordType") || is_null($this->_propDict["passwordRequiredType"])) {
+        if (array_key_exists("passwordRequiredType", $this->_propDict) && !is_null($this->_propDict["passwordRequiredType"])) {
+            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidRequiredPasswordType")) {
                 return $this->_propDict["passwordRequiredType"];
             } else {
                 $this->_propDict["passwordRequiredType"] = new AndroidRequiredPasswordType($this->_propDict["passwordRequiredType"]);
@@ -537,8 +537,8 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy
     */
     public function getSecurityRequiredAndroidSafetyNetEvaluationType()
     {
-        if (array_key_exists("securityRequiredAndroidSafetyNetEvaluationType", $this->_propDict)) {
-            if (is_a($this->_propDict["securityRequiredAndroidSafetyNetEvaluationType"], "\Beta\Microsoft\Graph\Model\AndroidSafetyNetEvaluationType") || is_null($this->_propDict["securityRequiredAndroidSafetyNetEvaluationType"])) {
+        if (array_key_exists("securityRequiredAndroidSafetyNetEvaluationType", $this->_propDict) && !is_null($this->_propDict["securityRequiredAndroidSafetyNetEvaluationType"])) {
+            if (is_a($this->_propDict["securityRequiredAndroidSafetyNetEvaluationType"], "\Beta\Microsoft\Graph\Model\AndroidSafetyNetEvaluationType")) {
                 return $this->_propDict["securityRequiredAndroidSafetyNetEvaluationType"];
             } else {
                 $this->_propDict["securityRequiredAndroidSafetyNetEvaluationType"] = new AndroidSafetyNetEvaluationType($this->_propDict["securityRequiredAndroidSafetyNetEvaluationType"]);

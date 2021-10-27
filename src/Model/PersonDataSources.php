@@ -40,7 +40,7 @@ class PersonDataSources extends Entity
     /**
     * Sets the type
     *
-    * @param string $val The value of the type
+    * @param string[] $val The value of the type
     *
     * @return PersonDataSources
     */

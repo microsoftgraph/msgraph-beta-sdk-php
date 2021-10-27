@@ -32,8 +32,8 @@ class WindowsAutopilotDeploymentProfile extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -123,8 +123,8 @@ class WindowsAutopilotDeploymentProfile extends Entity
     */
     public function getDeviceType()
     {
-        if (array_key_exists("deviceType", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceType"], "\Beta\Microsoft\Graph\Model\WindowsAutopilotDeviceType") || is_null($this->_propDict["deviceType"])) {
+        if (array_key_exists("deviceType", $this->_propDict) && !is_null($this->_propDict["deviceType"])) {
+            if (is_a($this->_propDict["deviceType"], "\Beta\Microsoft\Graph\Model\WindowsAutopilotDeviceType")) {
                 return $this->_propDict["deviceType"];
             } else {
                 $this->_propDict["deviceType"] = new WindowsAutopilotDeviceType($this->_propDict["deviceType"]);
@@ -214,8 +214,8 @@ class WindowsAutopilotDeploymentProfile extends Entity
     */
     public function getEnrollmentStatusScreenSettings()
     {
-        if (array_key_exists("enrollmentStatusScreenSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentStatusScreenSettings"], "\Beta\Microsoft\Graph\Model\WindowsEnrollmentStatusScreenSettings") || is_null($this->_propDict["enrollmentStatusScreenSettings"])) {
+        if (array_key_exists("enrollmentStatusScreenSettings", $this->_propDict) && !is_null($this->_propDict["enrollmentStatusScreenSettings"])) {
+            if (is_a($this->_propDict["enrollmentStatusScreenSettings"], "\Beta\Microsoft\Graph\Model\WindowsEnrollmentStatusScreenSettings")) {
                 return $this->_propDict["enrollmentStatusScreenSettings"];
             } else {
                 $this->_propDict["enrollmentStatusScreenSettings"] = new WindowsEnrollmentStatusScreenSettings($this->_propDict["enrollmentStatusScreenSettings"]);
@@ -305,8 +305,8 @@ class WindowsAutopilotDeploymentProfile extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -367,8 +367,8 @@ class WindowsAutopilotDeploymentProfile extends Entity
     */
     public function getOutOfBoxExperienceSettings()
     {
-        if (array_key_exists("outOfBoxExperienceSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["outOfBoxExperienceSettings"], "\Beta\Microsoft\Graph\Model\OutOfBoxExperienceSettings") || is_null($this->_propDict["outOfBoxExperienceSettings"])) {
+        if (array_key_exists("outOfBoxExperienceSettings", $this->_propDict) && !is_null($this->_propDict["outOfBoxExperienceSettings"])) {
+            if (is_a($this->_propDict["outOfBoxExperienceSettings"], "\Beta\Microsoft\Graph\Model\OutOfBoxExperienceSettings")) {
                 return $this->_propDict["outOfBoxExperienceSettings"];
             } else {
                 $this->_propDict["outOfBoxExperienceSettings"] = new OutOfBoxExperienceSettings($this->_propDict["outOfBoxExperienceSettings"]);
@@ -426,22 +426,29 @@ class WindowsAutopilotDeploymentProfile extends Entity
      * Gets the assignedDevices
     * The list of assigned devices for the profile.
      *
-     * @return array|null The assignedDevices
+     * @return WindowsAutopilotDeviceIdentity[]|null The assignedDevices
      */
     public function getAssignedDevices()
     {
-        if (array_key_exists("assignedDevices", $this->_propDict)) {
-           return $this->_propDict["assignedDevices"];
-        } else {
-            return null;
+        if (array_key_exists('assignedDevices', $this->_propDict) && !is_null($this->_propDict['assignedDevices'])) {
+            $assignedDevices = [];
+            if (count($this->_propDict['assignedDevices']) > 0 && is_a($this->_propDict['assignedDevices'][0], 'WindowsAutopilotDeviceIdentity')) {
+                return $this->_propDict['assignedDevices'];
+            }
+            foreach ($this->_propDict['assignedDevices'] as $singleValue) {
+                $assignedDevices []= new WindowsAutopilotDeviceIdentity($singleValue);
+            }
+            $this->_propDict['assignedDevices'] = $assignedDevices;
+            return $this->_propDict['assignedDevices'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignedDevices
     * The list of assigned devices for the profile.
     *
-    * @param WindowsAutopilotDeviceIdentity $val The assignedDevices
+    * @param WindowsAutopilotDeviceIdentity[] $val The assignedDevices
     *
     * @return WindowsAutopilotDeploymentProfile
     */
@@ -456,22 +463,29 @@ class WindowsAutopilotDeploymentProfile extends Entity
      * Gets the assignments
     * The list of group assignments for the profile.
      *
-     * @return array|null The assignments
+     * @return WindowsAutopilotDeploymentProfileAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'WindowsAutopilotDeploymentProfileAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new WindowsAutopilotDeploymentProfileAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * The list of group assignments for the profile.
     *
-    * @param WindowsAutopilotDeploymentProfileAssignment $val The assignments
+    * @param WindowsAutopilotDeploymentProfileAssignment[] $val The assignments
     *
     * @return WindowsAutopilotDeploymentProfile
     */

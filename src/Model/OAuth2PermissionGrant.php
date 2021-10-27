@@ -90,8 +90,8 @@ class OAuth2PermissionGrant extends Entity
     */
     public function getExpiryTime()
     {
-        if (array_key_exists("expiryTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expiryTime"], "\DateTime") || is_null($this->_propDict["expiryTime"])) {
+        if (array_key_exists("expiryTime", $this->_propDict) && !is_null($this->_propDict["expiryTime"])) {
+            if (is_a($this->_propDict["expiryTime"], "\DateTime")) {
                 return $this->_propDict["expiryTime"];
             } else {
                 $this->_propDict["expiryTime"] = new \DateTime($this->_propDict["expiryTime"]);
@@ -210,8 +210,8 @@ class OAuth2PermissionGrant extends Entity
     */
     public function getStartTime()
     {
-        if (array_key_exists("startTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startTime"], "\DateTime") || is_null($this->_propDict["startTime"])) {
+        if (array_key_exists("startTime", $this->_propDict) && !is_null($this->_propDict["startTime"])) {
+            if (is_a($this->_propDict["startTime"], "\DateTime")) {
                 return $this->_propDict["startTime"];
             } else {
                 $this->_propDict["startTime"] = new \DateTime($this->_propDict["startTime"]);

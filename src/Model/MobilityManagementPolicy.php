@@ -32,8 +32,8 @@ class MobilityManagementPolicy extends Entity
     */
     public function getAppliesTo()
     {
-        if (array_key_exists("appliesTo", $this->_propDict)) {
-            if (is_a($this->_propDict["appliesTo"], "\Beta\Microsoft\Graph\Model\PolicyScope") || is_null($this->_propDict["appliesTo"])) {
+        if (array_key_exists("appliesTo", $this->_propDict) && !is_null($this->_propDict["appliesTo"])) {
+            if (is_a($this->_propDict["appliesTo"], "\Beta\Microsoft\Graph\Model\PolicyScope")) {
                 return $this->_propDict["appliesTo"];
             } else {
                 $this->_propDict["appliesTo"] = new PolicyScope($this->_propDict["appliesTo"]);
@@ -236,22 +236,29 @@ class MobilityManagementPolicy extends Entity
      * Gets the includedGroups
     * Azure AD groups under the scope of the mobility management application if appliesTo is selected
      *
-     * @return array|null The includedGroups
+     * @return Group[]|null The includedGroups
      */
     public function getIncludedGroups()
     {
-        if (array_key_exists("includedGroups", $this->_propDict)) {
-           return $this->_propDict["includedGroups"];
-        } else {
-            return null;
+        if (array_key_exists('includedGroups', $this->_propDict) && !is_null($this->_propDict['includedGroups'])) {
+            $includedGroups = [];
+            if (count($this->_propDict['includedGroups']) > 0 && is_a($this->_propDict['includedGroups'][0], 'Group')) {
+                return $this->_propDict['includedGroups'];
+            }
+            foreach ($this->_propDict['includedGroups'] as $singleValue) {
+                $includedGroups []= new Group($singleValue);
+            }
+            $this->_propDict['includedGroups'] = $includedGroups;
+            return $this->_propDict['includedGroups'];
         }
+        return null;
     }
     
     /** 
     * Sets the includedGroups
     * Azure AD groups under the scope of the mobility management application if appliesTo is selected
     *
-    * @param Group $val The includedGroups
+    * @param Group[] $val The includedGroups
     *
     * @return MobilityManagementPolicy
     */

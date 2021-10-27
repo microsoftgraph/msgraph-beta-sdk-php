@@ -26,13 +26,15 @@ class ContinuousAccessEvaluationSessionControl extends Entity
 
     /**
     * Gets the mode
+    * Specifies continuous access evaluation settings. The possible values are: strictEnforcement, disabled, unknownFutureValue.
     *
     * @return ContinuousAccessEvaluationMode|null The mode
     */
     public function getMode()
     {
-        if (array_key_exists("mode", $this->_propDict)) {
-            if (is_a($this->_propDict["mode"], "\Beta\Microsoft\Graph\Model\ContinuousAccessEvaluationMode") || is_null($this->_propDict["mode"])) {
+        if (array_key_exists("mode", $this->_propDict) && !is_null($this->_propDict["mode"])) {
+     
+            if (is_a($this->_propDict["mode"], "\Beta\Microsoft\Graph\Model\ContinuousAccessEvaluationMode")) {
                 return $this->_propDict["mode"];
             } else {
                 $this->_propDict["mode"] = new ContinuousAccessEvaluationMode($this->_propDict["mode"]);
@@ -44,6 +46,7 @@ class ContinuousAccessEvaluationSessionControl extends Entity
 
     /**
     * Sets the mode
+    * Specifies continuous access evaluation settings. The possible values are: strictEnforcement, disabled, unknownFutureValue.
     *
     * @param ContinuousAccessEvaluationMode $val The value to assign to the mode
     *

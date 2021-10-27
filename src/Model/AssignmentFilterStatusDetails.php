@@ -28,18 +28,22 @@ class AssignmentFilterStatusDetails extends Entity
     * Gets the deviceProperties
     * Device properties used for filter evaluation during device check-in time.
     *
-    * @return KeyValuePair|null The deviceProperties
+    * @return KeyValuePair[]|null The deviceProperties
     */
     public function getDeviceProperties()
     {
-        if (array_key_exists("deviceProperties", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceProperties"], "\Beta\Microsoft\Graph\Model\KeyValuePair") || is_null($this->_propDict["deviceProperties"])) {
-                return $this->_propDict["deviceProperties"];
-            } else {
-                $this->_propDict["deviceProperties"] = new KeyValuePair($this->_propDict["deviceProperties"]);
-                return $this->_propDict["deviceProperties"];
+        if (array_key_exists("deviceProperties", $this->_propDict) && !is_null($this->_propDict["deviceProperties"])) {
+       
+            if (count($this->_propDict['deviceProperties']) > 0 && is_a($this->_propDict['deviceProperties'][0], 'KeyValuePair')) {
+               return $this->_propDict['deviceProperties'];
             }
-        }
+            $deviceProperties = [];
+            foreach ($this->_propDict['deviceProperties'] as $singleValue) {
+               $deviceProperties []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['deviceProperties'] = $deviceProperties;
+            return $this->_propDict['deviceProperties'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class AssignmentFilterStatusDetails extends Entity
     * Sets the deviceProperties
     * Device properties used for filter evaluation during device check-in time.
     *
-    * @param KeyValuePair $val The value to assign to the deviceProperties
+    * @param KeyValuePair[] $val The value to assign to the deviceProperties
     *
     * @return AssignmentFilterStatusDetails The AssignmentFilterStatusDetails
     */
@@ -61,18 +65,22 @@ class AssignmentFilterStatusDetails extends Entity
     * Gets the evalutionSummaries
     * Evaluation result summaries for each filter associated to device and payload
     *
-    * @return AssignmentFilterEvaluationSummary|null The evalutionSummaries
+    * @return AssignmentFilterEvaluationSummary[]|null The evalutionSummaries
     */
     public function getEvalutionSummaries()
     {
-        if (array_key_exists("evalutionSummaries", $this->_propDict)) {
-            if (is_a($this->_propDict["evalutionSummaries"], "\Beta\Microsoft\Graph\Model\AssignmentFilterEvaluationSummary") || is_null($this->_propDict["evalutionSummaries"])) {
-                return $this->_propDict["evalutionSummaries"];
-            } else {
-                $this->_propDict["evalutionSummaries"] = new AssignmentFilterEvaluationSummary($this->_propDict["evalutionSummaries"]);
-                return $this->_propDict["evalutionSummaries"];
+        if (array_key_exists("evalutionSummaries", $this->_propDict) && !is_null($this->_propDict["evalutionSummaries"])) {
+       
+            if (count($this->_propDict['evalutionSummaries']) > 0 && is_a($this->_propDict['evalutionSummaries'][0], 'AssignmentFilterEvaluationSummary')) {
+               return $this->_propDict['evalutionSummaries'];
             }
-        }
+            $evalutionSummaries = [];
+            foreach ($this->_propDict['evalutionSummaries'] as $singleValue) {
+               $evalutionSummaries []= new AssignmentFilterEvaluationSummary($singleValue);
+            }
+            $this->_propDict['evalutionSummaries'] = $evalutionSummaries;
+            return $this->_propDict['evalutionSummaries'];
+            }
         return null;
     }
 
@@ -80,7 +88,7 @@ class AssignmentFilterStatusDetails extends Entity
     * Sets the evalutionSummaries
     * Evaluation result summaries for each filter associated to device and payload
     *
-    * @param AssignmentFilterEvaluationSummary $val The value to assign to the evalutionSummaries
+    * @param AssignmentFilterEvaluationSummary[] $val The value to assign to the evalutionSummaries
     *
     * @return AssignmentFilterStatusDetails The AssignmentFilterStatusDetails
     */

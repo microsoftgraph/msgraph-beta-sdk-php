@@ -42,7 +42,7 @@ class ManagedDeviceModelsAndManufacturers extends Entity
     * Sets the deviceManufacturers
     * List of Manufactures for managed devices in the account
     *
-    * @param string $val The value of the deviceManufacturers
+    * @param string[] $val The value of the deviceManufacturers
     *
     * @return ManagedDeviceModelsAndManufacturers
     */
@@ -70,7 +70,7 @@ class ManagedDeviceModelsAndManufacturers extends Entity
     * Sets the deviceModels
     * List of Models for managed devices in the account
     *
-    * @param string $val The value of the deviceModels
+    * @param string[] $val The value of the deviceModels
     *
     * @return ManagedDeviceModelsAndManufacturers
     */

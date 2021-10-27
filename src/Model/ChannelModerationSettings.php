@@ -88,8 +88,9 @@ class ChannelModerationSettings extends Entity
     */
     public function getReplyRestriction()
     {
-        if (array_key_exists("replyRestriction", $this->_propDict)) {
-            if (is_a($this->_propDict["replyRestriction"], "\Beta\Microsoft\Graph\Model\ReplyRestriction") || is_null($this->_propDict["replyRestriction"])) {
+        if (array_key_exists("replyRestriction", $this->_propDict) && !is_null($this->_propDict["replyRestriction"])) {
+     
+            if (is_a($this->_propDict["replyRestriction"], "\Beta\Microsoft\Graph\Model\ReplyRestriction")) {
                 return $this->_propDict["replyRestriction"];
             } else {
                 $this->_propDict["replyRestriction"] = new ReplyRestriction($this->_propDict["replyRestriction"]);
@@ -121,8 +122,9 @@ class ChannelModerationSettings extends Entity
     */
     public function getUserNewMessageRestriction()
     {
-        if (array_key_exists("userNewMessageRestriction", $this->_propDict)) {
-            if (is_a($this->_propDict["userNewMessageRestriction"], "\Beta\Microsoft\Graph\Model\UserNewMessageRestriction") || is_null($this->_propDict["userNewMessageRestriction"])) {
+        if (array_key_exists("userNewMessageRestriction", $this->_propDict) && !is_null($this->_propDict["userNewMessageRestriction"])) {
+     
+            if (is_a($this->_propDict["userNewMessageRestriction"], "\Beta\Microsoft\Graph\Model\UserNewMessageRestriction")) {
                 return $this->_propDict["userNewMessageRestriction"];
             } else {
                 $this->_propDict["userNewMessageRestriction"] = new UserNewMessageRestriction($this->_propDict["userNewMessageRestriction"]);

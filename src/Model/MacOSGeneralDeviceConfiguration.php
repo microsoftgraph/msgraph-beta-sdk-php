@@ -293,8 +293,8 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getCompliantAppListType()
     {
-        if (array_key_exists("compliantAppListType", $this->_propDict)) {
-            if (is_a($this->_propDict["compliantAppListType"], "\Beta\Microsoft\Graph\Model\AppListType") || is_null($this->_propDict["compliantAppListType"])) {
+        if (array_key_exists("compliantAppListType", $this->_propDict) && !is_null($this->_propDict["compliantAppListType"])) {
+            if (is_a($this->_propDict["compliantAppListType"], "\Beta\Microsoft\Graph\Model\AppListType")) {
                 return $this->_propDict["compliantAppListType"];
             } else {
                 $this->_propDict["compliantAppListType"] = new AppListType($this->_propDict["compliantAppListType"]);
@@ -323,22 +323,29 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
      * Gets the compliantAppsList
     * List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
      *
-     * @return array|null The compliantAppsList
+     * @return AppListItem[]|null The compliantAppsList
      */
     public function getCompliantAppsList()
     {
-        if (array_key_exists("compliantAppsList", $this->_propDict)) {
-           return $this->_propDict["compliantAppsList"];
-        } else {
-            return null;
+        if (array_key_exists('compliantAppsList', $this->_propDict) && !is_null($this->_propDict['compliantAppsList'])) {
+            $compliantAppsList = [];
+            if (count($this->_propDict['compliantAppsList']) > 0 && is_a($this->_propDict['compliantAppsList'][0], 'AppListItem')) {
+                return $this->_propDict['compliantAppsList'];
+            }
+            foreach ($this->_propDict['compliantAppsList'] as $singleValue) {
+                $compliantAppsList []= new AppListItem($singleValue);
+            }
+            $this->_propDict['compliantAppsList'] = $compliantAppsList;
+            return $this->_propDict['compliantAppsList'];
         }
+        return null;
     }
     
     /** 
     * Sets the compliantAppsList
     * List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
     *
-    * @param AppListItem $val The compliantAppsList
+    * @param AppListItem[] $val The compliantAppsList
     *
     * @return MacOSGeneralDeviceConfiguration
     */
@@ -1342,8 +1349,8 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getPasswordRequiredType()
     {
-        if (array_key_exists("passwordRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\RequiredPasswordType") || is_null($this->_propDict["passwordRequiredType"])) {
+        if (array_key_exists("passwordRequiredType", $this->_propDict) && !is_null($this->_propDict["passwordRequiredType"])) {
+            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\RequiredPasswordType")) {
                 return $this->_propDict["passwordRequiredType"];
             } else {
                 $this->_propDict["passwordRequiredType"] = new RequiredPasswordType($this->_propDict["passwordRequiredType"]);
@@ -1372,22 +1379,29 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
      * Gets the privacyAccessControls
     * List of privacy preference policy controls. This collection can contain a maximum of 10000 elements.
      *
-     * @return array|null The privacyAccessControls
+     * @return MacOSPrivacyAccessControlItem[]|null The privacyAccessControls
      */
     public function getPrivacyAccessControls()
     {
-        if (array_key_exists("privacyAccessControls", $this->_propDict)) {
-           return $this->_propDict["privacyAccessControls"];
-        } else {
-            return null;
+        if (array_key_exists('privacyAccessControls', $this->_propDict) && !is_null($this->_propDict['privacyAccessControls'])) {
+            $privacyAccessControls = [];
+            if (count($this->_propDict['privacyAccessControls']) > 0 && is_a($this->_propDict['privacyAccessControls'][0], 'MacOSPrivacyAccessControlItem')) {
+                return $this->_propDict['privacyAccessControls'];
+            }
+            foreach ($this->_propDict['privacyAccessControls'] as $singleValue) {
+                $privacyAccessControls []= new MacOSPrivacyAccessControlItem($singleValue);
+            }
+            $this->_propDict['privacyAccessControls'] = $privacyAccessControls;
+            return $this->_propDict['privacyAccessControls'];
         }
+        return null;
     }
     
     /** 
     * Sets the privacyAccessControls
     * List of privacy preference policy controls. This collection can contain a maximum of 10000 elements.
     *
-    * @param MacOSPrivacyAccessControlItem $val The privacyAccessControls
+    * @param MacOSPrivacyAccessControlItem[] $val The privacyAccessControls
     *
     * @return MacOSGeneralDeviceConfiguration
     */
@@ -1608,8 +1622,8 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getUpdateDelayPolicy()
     {
-        if (array_key_exists("updateDelayPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["updateDelayPolicy"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateDelayPolicy") || is_null($this->_propDict["updateDelayPolicy"])) {
+        if (array_key_exists("updateDelayPolicy", $this->_propDict) && !is_null($this->_propDict["updateDelayPolicy"])) {
+            if (is_a($this->_propDict["updateDelayPolicy"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateDelayPolicy")) {
                 return $this->_propDict["updateDelayPolicy"];
             } else {
                 $this->_propDict["updateDelayPolicy"] = new MacOSSoftwareUpdateDelayPolicy($this->_propDict["updateDelayPolicy"]);

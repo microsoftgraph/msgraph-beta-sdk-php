@@ -32,8 +32,8 @@ class EnterpriseCodeSigningCertificate extends Entity
     */
     public function getContent()
     {
-        if (array_key_exists("content", $this->_propDict)) {
-            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["content"])) {
+        if (array_key_exists("content", $this->_propDict) && !is_null($this->_propDict["content"])) {
+            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["content"];
             } else {
                 $this->_propDict["content"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
@@ -65,8 +65,8 @@ class EnterpriseCodeSigningCertificate extends Entity
     */
     public function getExpirationDateTime()
     {
-        if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+        if (array_key_exists("expirationDateTime", $this->_propDict) && !is_null($this->_propDict["expirationDateTime"])) {
+            if (is_a($this->_propDict["expirationDateTime"], "\DateTime")) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -156,8 +156,8 @@ class EnterpriseCodeSigningCertificate extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\CertificateStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\CertificateStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new CertificateStatus($this->_propDict["status"]);
@@ -247,8 +247,8 @@ class EnterpriseCodeSigningCertificate extends Entity
     */
     public function getUploadDateTime()
     {
-        if (array_key_exists("uploadDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["uploadDateTime"], "\DateTime") || is_null($this->_propDict["uploadDateTime"])) {
+        if (array_key_exists("uploadDateTime", $this->_propDict) && !is_null($this->_propDict["uploadDateTime"])) {
+            if (is_a($this->_propDict["uploadDateTime"], "\DateTime")) {
                 return $this->_propDict["uploadDateTime"];
             } else {
                 $this->_propDict["uploadDateTime"] = new \DateTime($this->_propDict["uploadDateTime"]);

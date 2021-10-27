@@ -148,8 +148,8 @@ class RoleAssignment extends Entity
     */
     public function getScopeType()
     {
-        if (array_key_exists("scopeType", $this->_propDict)) {
-            if (is_a($this->_propDict["scopeType"], "\Beta\Microsoft\Graph\Model\RoleAssignmentScopeType") || is_null($this->_propDict["scopeType"])) {
+        if (array_key_exists("scopeType", $this->_propDict) && !is_null($this->_propDict["scopeType"])) {
+            if (is_a($this->_propDict["scopeType"], "\Beta\Microsoft\Graph\Model\RoleAssignmentScopeType")) {
                 return $this->_propDict["scopeType"];
             } else {
                 $this->_propDict["scopeType"] = new RoleAssignmentScopeType($this->_propDict["scopeType"]);
@@ -181,8 +181,8 @@ class RoleAssignment extends Entity
     */
     public function getRoleDefinition()
     {
-        if (array_key_exists("roleDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["roleDefinition"], "\Beta\Microsoft\Graph\Model\RoleDefinition") || is_null($this->_propDict["roleDefinition"])) {
+        if (array_key_exists("roleDefinition", $this->_propDict) && !is_null($this->_propDict["roleDefinition"])) {
+            if (is_a($this->_propDict["roleDefinition"], "\Beta\Microsoft\Graph\Model\RoleDefinition")) {
                 return $this->_propDict["roleDefinition"];
             } else {
                 $this->_propDict["roleDefinition"] = new RoleDefinition($this->_propDict["roleDefinition"]);

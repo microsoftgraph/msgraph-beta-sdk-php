@@ -322,8 +322,8 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity
     */
     public function getProcessedDateTime()
     {
-        if (array_key_exists("processedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["processedDateTime"], "\DateTime") || is_null($this->_propDict["processedDateTime"])) {
+        if (array_key_exists("processedDateTime", $this->_propDict) && !is_null($this->_propDict["processedDateTime"])) {
+            if (is_a($this->_propDict["processedDateTime"], "\DateTime")) {
                 return $this->_propDict["processedDateTime"];
             } else {
                 $this->_propDict["processedDateTime"] = new \DateTime($this->_propDict["processedDateTime"]);

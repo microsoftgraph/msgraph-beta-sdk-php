@@ -32,8 +32,8 @@ class DeviceManagementCachedReportConfiguration extends Entity
     */
     public function getExpirationDateTime()
     {
-        if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+        if (array_key_exists("expirationDateTime", $this->_propDict) && !is_null($this->_propDict["expirationDateTime"])) {
+            if (is_a($this->_propDict["expirationDateTime"], "\DateTime")) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -94,8 +94,8 @@ class DeviceManagementCachedReportConfiguration extends Entity
     */
     public function getLastRefreshDateTime()
     {
-        if (array_key_exists("lastRefreshDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastRefreshDateTime"], "\DateTime") || is_null($this->_propDict["lastRefreshDateTime"])) {
+        if (array_key_exists("lastRefreshDateTime", $this->_propDict) && !is_null($this->_propDict["lastRefreshDateTime"])) {
+            if (is_a($this->_propDict["lastRefreshDateTime"], "\DateTime")) {
                 return $this->_propDict["lastRefreshDateTime"];
             } else {
                 $this->_propDict["lastRefreshDateTime"] = new \DateTime($this->_propDict["lastRefreshDateTime"]);
@@ -243,8 +243,8 @@ class DeviceManagementCachedReportConfiguration extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\DeviceManagementReportStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\DeviceManagementReportStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new DeviceManagementReportStatus($this->_propDict["status"]);

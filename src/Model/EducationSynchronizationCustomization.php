@@ -98,7 +98,7 @@ class EducationSynchronizationCustomization extends Entity
     * Sets the optionalPropertiesToSync
     * The collection of property names to sync. If set to null, all properties will be synchronized. Does not apply to Student Enrollments or Teacher Rosters
     *
-    * @param string $val The value of the optionalPropertiesToSync
+    * @param string[] $val The value of the optionalPropertiesToSync
     *
     * @return EducationSynchronizationCustomization
     */
@@ -116,8 +116,9 @@ class EducationSynchronizationCustomization extends Entity
     */
     public function getSynchronizationStartDate()
     {
-        if (array_key_exists("synchronizationStartDate", $this->_propDict)) {
-            if (is_a($this->_propDict["synchronizationStartDate"], "\DateTime") || is_null($this->_propDict["synchronizationStartDate"])) {
+        if (array_key_exists("synchronizationStartDate", $this->_propDict) && !is_null($this->_propDict["synchronizationStartDate"])) {
+     
+            if (is_a($this->_propDict["synchronizationStartDate"], "\DateTime")) {
                 return $this->_propDict["synchronizationStartDate"];
             } else {
                 $this->_propDict["synchronizationStartDate"] = new \DateTime($this->_propDict["synchronizationStartDate"]);

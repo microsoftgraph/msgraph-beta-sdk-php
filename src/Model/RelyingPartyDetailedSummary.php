@@ -61,8 +61,8 @@ class RelyingPartyDetailedSummary extends Entity
     */
     public function getMigrationStatus()
     {
-        if (array_key_exists("migrationStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["migrationStatus"], "\Beta\Microsoft\Graph\Model\MigrationStatus") || is_null($this->_propDict["migrationStatus"])) {
+        if (array_key_exists("migrationStatus", $this->_propDict) && !is_null($this->_propDict["migrationStatus"])) {
+            if (is_a($this->_propDict["migrationStatus"], "\Beta\Microsoft\Graph\Model\MigrationStatus")) {
                 return $this->_propDict["migrationStatus"];
             } else {
                 $this->_propDict["migrationStatus"] = new MigrationStatus($this->_propDict["migrationStatus"]);
@@ -91,22 +91,29 @@ class RelyingPartyDetailedSummary extends Entity
      * Gets the migrationValidationDetails
     * Specifies all the validations check done on applications configuration details to evaluate if the application is ready to be moved to Azure AD.
      *
-     * @return array|null The migrationValidationDetails
+     * @return KeyValuePair[]|null The migrationValidationDetails
      */
     public function getMigrationValidationDetails()
     {
-        if (array_key_exists("migrationValidationDetails", $this->_propDict)) {
-           return $this->_propDict["migrationValidationDetails"];
-        } else {
-            return null;
+        if (array_key_exists('migrationValidationDetails', $this->_propDict) && !is_null($this->_propDict['migrationValidationDetails'])) {
+            $migrationValidationDetails = [];
+            if (count($this->_propDict['migrationValidationDetails']) > 0 && is_a($this->_propDict['migrationValidationDetails'][0], 'KeyValuePair')) {
+                return $this->_propDict['migrationValidationDetails'];
+            }
+            foreach ($this->_propDict['migrationValidationDetails'] as $singleValue) {
+                $migrationValidationDetails []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['migrationValidationDetails'] = $migrationValidationDetails;
+            return $this->_propDict['migrationValidationDetails'];
         }
+        return null;
     }
     
     /** 
     * Sets the migrationValidationDetails
     * Specifies all the validations check done on applications configuration details to evaluate if the application is ready to be moved to Azure AD.
     *
-    * @param KeyValuePair $val The migrationValidationDetails
+    * @param KeyValuePair[] $val The migrationValidationDetails
     *
     * @return RelyingPartyDetailedSummary
     */

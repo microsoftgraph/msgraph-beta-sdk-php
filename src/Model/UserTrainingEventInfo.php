@@ -25,6 +25,7 @@ class UserTrainingEventInfo extends Entity
 {
     /**
     * Gets the displayName
+    * Display name of the training.
     *
     * @return string|null The displayName
     */
@@ -39,6 +40,7 @@ class UserTrainingEventInfo extends Entity
 
     /**
     * Sets the displayName
+    * Display name of the training.
     *
     * @param string $val The value of the displayName
     *
@@ -52,13 +54,15 @@ class UserTrainingEventInfo extends Entity
 
     /**
     * Gets the latestTrainingStatus
+    * Latest status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, notCompleted, unknownFutureValue.
     *
     * @return TrainingStatus|null The latestTrainingStatus
     */
     public function getLatestTrainingStatus()
     {
-        if (array_key_exists("latestTrainingStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["latestTrainingStatus"], "\Beta\Microsoft\Graph\Model\TrainingStatus") || is_null($this->_propDict["latestTrainingStatus"])) {
+        if (array_key_exists("latestTrainingStatus", $this->_propDict) && !is_null($this->_propDict["latestTrainingStatus"])) {
+     
+            if (is_a($this->_propDict["latestTrainingStatus"], "\Beta\Microsoft\Graph\Model\TrainingStatus")) {
                 return $this->_propDict["latestTrainingStatus"];
             } else {
                 $this->_propDict["latestTrainingStatus"] = new TrainingStatus($this->_propDict["latestTrainingStatus"]);
@@ -70,6 +74,7 @@ class UserTrainingEventInfo extends Entity
 
     /**
     * Sets the latestTrainingStatus
+    * Latest status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, notCompleted, unknownFutureValue.
     *
     * @param TrainingStatus $val The value to assign to the latestTrainingStatus
     *
@@ -83,13 +88,15 @@ class UserTrainingEventInfo extends Entity
 
     /**
     * Gets the trainingAssignedProperties
+    * Event details of the training when it was assigned to the user.
     *
     * @return UserTrainingContentEventInfo|null The trainingAssignedProperties
     */
     public function getTrainingAssignedProperties()
     {
-        if (array_key_exists("trainingAssignedProperties", $this->_propDict)) {
-            if (is_a($this->_propDict["trainingAssignedProperties"], "\Beta\Microsoft\Graph\Model\UserTrainingContentEventInfo") || is_null($this->_propDict["trainingAssignedProperties"])) {
+        if (array_key_exists("trainingAssignedProperties", $this->_propDict) && !is_null($this->_propDict["trainingAssignedProperties"])) {
+     
+            if (is_a($this->_propDict["trainingAssignedProperties"], "\Beta\Microsoft\Graph\Model\UserTrainingContentEventInfo")) {
                 return $this->_propDict["trainingAssignedProperties"];
             } else {
                 $this->_propDict["trainingAssignedProperties"] = new UserTrainingContentEventInfo($this->_propDict["trainingAssignedProperties"]);
@@ -101,6 +108,7 @@ class UserTrainingEventInfo extends Entity
 
     /**
     * Sets the trainingAssignedProperties
+    * Event details of the training when it was assigned to the user.
     *
     * @param UserTrainingContentEventInfo $val The value to assign to the trainingAssignedProperties
     *
@@ -114,13 +122,15 @@ class UserTrainingEventInfo extends Entity
 
     /**
     * Gets the trainingCompletedProperties
+    * Event details of the training when it was completed by the user.
     *
     * @return UserTrainingContentEventInfo|null The trainingCompletedProperties
     */
     public function getTrainingCompletedProperties()
     {
-        if (array_key_exists("trainingCompletedProperties", $this->_propDict)) {
-            if (is_a($this->_propDict["trainingCompletedProperties"], "\Beta\Microsoft\Graph\Model\UserTrainingContentEventInfo") || is_null($this->_propDict["trainingCompletedProperties"])) {
+        if (array_key_exists("trainingCompletedProperties", $this->_propDict) && !is_null($this->_propDict["trainingCompletedProperties"])) {
+     
+            if (is_a($this->_propDict["trainingCompletedProperties"], "\Beta\Microsoft\Graph\Model\UserTrainingContentEventInfo")) {
                 return $this->_propDict["trainingCompletedProperties"];
             } else {
                 $this->_propDict["trainingCompletedProperties"] = new UserTrainingContentEventInfo($this->_propDict["trainingCompletedProperties"]);
@@ -132,6 +142,7 @@ class UserTrainingEventInfo extends Entity
 
     /**
     * Sets the trainingCompletedProperties
+    * Event details of the training when it was completed by the user.
     *
     * @param UserTrainingContentEventInfo $val The value to assign to the trainingCompletedProperties
     *
@@ -145,13 +156,15 @@ class UserTrainingEventInfo extends Entity
 
     /**
     * Gets the trainingUpdatedProperties
+    * Event details of the training when it was updated/in-progress by the user.
     *
     * @return UserTrainingContentEventInfo|null The trainingUpdatedProperties
     */
     public function getTrainingUpdatedProperties()
     {
-        if (array_key_exists("trainingUpdatedProperties", $this->_propDict)) {
-            if (is_a($this->_propDict["trainingUpdatedProperties"], "\Beta\Microsoft\Graph\Model\UserTrainingContentEventInfo") || is_null($this->_propDict["trainingUpdatedProperties"])) {
+        if (array_key_exists("trainingUpdatedProperties", $this->_propDict) && !is_null($this->_propDict["trainingUpdatedProperties"])) {
+     
+            if (is_a($this->_propDict["trainingUpdatedProperties"], "\Beta\Microsoft\Graph\Model\UserTrainingContentEventInfo")) {
                 return $this->_propDict["trainingUpdatedProperties"];
             } else {
                 $this->_propDict["trainingUpdatedProperties"] = new UserTrainingContentEventInfo($this->_propDict["trainingUpdatedProperties"]);
@@ -163,6 +176,7 @@ class UserTrainingEventInfo extends Entity
 
     /**
     * Sets the trainingUpdatedProperties
+    * Event details of the training when it was updated/in-progress by the user.
     *
     * @param UserTrainingContentEventInfo $val The value to assign to the trainingUpdatedProperties
     *

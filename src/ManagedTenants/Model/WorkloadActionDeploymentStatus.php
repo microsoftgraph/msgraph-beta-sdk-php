@@ -88,8 +88,9 @@ class WorkloadActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getError()
     {
-        if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\GenericError") || is_null($this->_propDict["error"])) {
+        if (array_key_exists("error", $this->_propDict) && !is_null($this->_propDict["error"])) {
+     
+            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\GenericError")) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new \Beta\Microsoft\Graph\Model\GenericError($this->_propDict["error"]);
@@ -121,8 +122,9 @@ class WorkloadActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastDeploymentDateTime()
     {
-        if (array_key_exists("lastDeploymentDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastDeploymentDateTime"], "\DateTime") || is_null($this->_propDict["lastDeploymentDateTime"])) {
+        if (array_key_exists("lastDeploymentDateTime", $this->_propDict) && !is_null($this->_propDict["lastDeploymentDateTime"])) {
+     
+            if (is_a($this->_propDict["lastDeploymentDateTime"], "\DateTime")) {
                 return $this->_propDict["lastDeploymentDateTime"];
             } else {
                 $this->_propDict["lastDeploymentDateTime"] = new \DateTime($this->_propDict["lastDeploymentDateTime"]);
@@ -154,8 +156,9 @@ class WorkloadActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadActionStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+     
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadActionStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new WorkloadActionStatus($this->_propDict["status"]);

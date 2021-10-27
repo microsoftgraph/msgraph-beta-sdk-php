@@ -53,7 +53,7 @@ class MacOSAzureAdSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Sets the bundleIdAccessControlList
     * An optional list of additional bundle IDs allowed to use the AAD extension for single sign-on.
     *
-    * @param string $val The value of the bundleIdAccessControlList
+    * @param string[] $val The value of the bundleIdAccessControlList
     *
     * @return MacOSAzureAdSingleSignOnExtension
     */
@@ -67,18 +67,22 @@ class MacOSAzureAdSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the configurations
     * Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
     *
-    * @return KeyTypedValuePair|null The configurations
+    * @return KeyTypedValuePair[]|null The configurations
     */
     public function getConfigurations()
     {
-        if (array_key_exists("configurations", $this->_propDict)) {
-            if (is_a($this->_propDict["configurations"], "\Beta\Microsoft\Graph\Model\KeyTypedValuePair") || is_null($this->_propDict["configurations"])) {
-                return $this->_propDict["configurations"];
-            } else {
-                $this->_propDict["configurations"] = new KeyTypedValuePair($this->_propDict["configurations"]);
-                return $this->_propDict["configurations"];
+        if (array_key_exists("configurations", $this->_propDict) && !is_null($this->_propDict["configurations"])) {
+       
+            if (count($this->_propDict['configurations']) > 0 && is_a($this->_propDict['configurations'][0], 'KeyTypedValuePair')) {
+               return $this->_propDict['configurations'];
             }
-        }
+            $configurations = [];
+            foreach ($this->_propDict['configurations'] as $singleValue) {
+               $configurations []= new KeyTypedValuePair($singleValue);
+            }
+            $this->_propDict['configurations'] = $configurations;
+            return $this->_propDict['configurations'];
+            }
         return null;
     }
 
@@ -86,7 +90,7 @@ class MacOSAzureAdSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Sets the configurations
     * Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
     *
-    * @param KeyTypedValuePair $val The value to assign to the configurations
+    * @param KeyTypedValuePair[] $val The value to assign to the configurations
     *
     * @return MacOSAzureAdSingleSignOnExtension The MacOSAzureAdSingleSignOnExtension
     */

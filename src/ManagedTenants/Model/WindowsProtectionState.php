@@ -119,8 +119,8 @@ class WindowsProtectionState extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getDevicePropertyRefreshDateTime()
     {
-        if (array_key_exists("devicePropertyRefreshDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["devicePropertyRefreshDateTime"], "\DateTime") || is_null($this->_propDict["devicePropertyRefreshDateTime"])) {
+        if (array_key_exists("devicePropertyRefreshDateTime", $this->_propDict) && !is_null($this->_propDict["devicePropertyRefreshDateTime"])) {
+            if (is_a($this->_propDict["devicePropertyRefreshDateTime"], "\DateTime")) {
                 return $this->_propDict["devicePropertyRefreshDateTime"];
             } else {
                 $this->_propDict["devicePropertyRefreshDateTime"] = new \DateTime($this->_propDict["devicePropertyRefreshDateTime"]);
@@ -239,8 +239,8 @@ class WindowsProtectionState extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastFullScanDateTime()
     {
-        if (array_key_exists("lastFullScanDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastFullScanDateTime"], "\DateTime") || is_null($this->_propDict["lastFullScanDateTime"])) {
+        if (array_key_exists("lastFullScanDateTime", $this->_propDict) && !is_null($this->_propDict["lastFullScanDateTime"])) {
+            if (is_a($this->_propDict["lastFullScanDateTime"], "\DateTime")) {
                 return $this->_propDict["lastFullScanDateTime"];
             } else {
                 $this->_propDict["lastFullScanDateTime"] = new \DateTime($this->_propDict["lastFullScanDateTime"]);
@@ -301,8 +301,8 @@ class WindowsProtectionState extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastQuickScanDateTime()
     {
-        if (array_key_exists("lastQuickScanDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastQuickScanDateTime"], "\DateTime") || is_null($this->_propDict["lastQuickScanDateTime"])) {
+        if (array_key_exists("lastQuickScanDateTime", $this->_propDict) && !is_null($this->_propDict["lastQuickScanDateTime"])) {
+            if (is_a($this->_propDict["lastQuickScanDateTime"], "\DateTime")) {
                 return $this->_propDict["lastQuickScanDateTime"];
             } else {
                 $this->_propDict["lastQuickScanDateTime"] = new \DateTime($this->_propDict["lastQuickScanDateTime"]);
@@ -363,8 +363,8 @@ class WindowsProtectionState extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastRefreshedDateTime()
     {
-        if (array_key_exists("lastRefreshedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastRefreshedDateTime"], "\DateTime") || is_null($this->_propDict["lastRefreshedDateTime"])) {
+        if (array_key_exists("lastRefreshedDateTime", $this->_propDict) && !is_null($this->_propDict["lastRefreshedDateTime"])) {
+            if (is_a($this->_propDict["lastRefreshedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastRefreshedDateTime"];
             } else {
                 $this->_propDict["lastRefreshedDateTime"] = new \DateTime($this->_propDict["lastRefreshedDateTime"]);
@@ -396,8 +396,8 @@ class WindowsProtectionState extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastReportedDateTime()
     {
-        if (array_key_exists("lastReportedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime") || is_null($this->_propDict["lastReportedDateTime"])) {
+        if (array_key_exists("lastReportedDateTime", $this->_propDict) && !is_null($this->_propDict["lastReportedDateTime"])) {
+            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastReportedDateTime"];
             } else {
                 $this->_propDict["lastReportedDateTime"] = new \DateTime($this->_propDict["lastReportedDateTime"]);

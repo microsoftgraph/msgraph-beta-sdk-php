@@ -32,8 +32,9 @@ class ConditionalAccessFilter extends Entity
     */
     public function getMode()
     {
-        if (array_key_exists("mode", $this->_propDict)) {
-            if (is_a($this->_propDict["mode"], "\Beta\Microsoft\Graph\Model\FilterMode") || is_null($this->_propDict["mode"])) {
+        if (array_key_exists("mode", $this->_propDict) && !is_null($this->_propDict["mode"])) {
+     
+            if (is_a($this->_propDict["mode"], "\Beta\Microsoft\Graph\Model\FilterMode")) {
                 return $this->_propDict["mode"];
             } else {
                 $this->_propDict["mode"] = new FilterMode($this->_propDict["mode"]);
@@ -58,7 +59,7 @@ class ConditionalAccessFilter extends Entity
     }
     /**
     * Gets the rule
-    * Rule syntax is similar to that used for membership rules for groups in Azure AD. For details, see rules with multiple expressions
+    * Rule syntax is similar to that used for membership rules for groups in Azure Active Directory (Azure AD). For details, see rules with multiple expressions
     *
     * @return string|null The rule
     */
@@ -73,7 +74,7 @@ class ConditionalAccessFilter extends Entity
 
     /**
     * Sets the rule
-    * Rule syntax is similar to that used for membership rules for groups in Azure AD. For details, see rules with multiple expressions
+    * Rule syntax is similar to that used for membership rules for groups in Azure Active Directory (Azure AD). For details, see rules with multiple expressions
     *
     * @param string $val The value of the rule
     *

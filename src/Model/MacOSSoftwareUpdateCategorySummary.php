@@ -119,8 +119,8 @@ class MacOSSoftwareUpdateCategorySummary extends Entity
     */
     public function getLastUpdatedDateTime()
     {
-        if (array_key_exists("lastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
+        if (array_key_exists("lastUpdatedDateTime", $this->_propDict) && !is_null($this->_propDict["lastUpdatedDateTime"])) {
+            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastUpdatedDateTime"];
             } else {
                 $this->_propDict["lastUpdatedDateTime"] = new \DateTime($this->_propDict["lastUpdatedDateTime"]);
@@ -210,8 +210,8 @@ class MacOSSoftwareUpdateCategorySummary extends Entity
     */
     public function getUpdateCategory()
     {
-        if (array_key_exists("updateCategory", $this->_propDict)) {
-            if (is_a($this->_propDict["updateCategory"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateCategory") || is_null($this->_propDict["updateCategory"])) {
+        if (array_key_exists("updateCategory", $this->_propDict) && !is_null($this->_propDict["updateCategory"])) {
+            if (is_a($this->_propDict["updateCategory"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateCategory")) {
                 return $this->_propDict["updateCategory"];
             } else {
                 $this->_propDict["updateCategory"] = new MacOSSoftwareUpdateCategory($this->_propDict["updateCategory"]);
@@ -269,22 +269,29 @@ class MacOSSoftwareUpdateCategorySummary extends Entity
      * Gets the updateStateSummaries
     * Summary of the update states.
      *
-     * @return array|null The updateStateSummaries
+     * @return MacOSSoftwareUpdateStateSummary[]|null The updateStateSummaries
      */
     public function getUpdateStateSummaries()
     {
-        if (array_key_exists("updateStateSummaries", $this->_propDict)) {
-           return $this->_propDict["updateStateSummaries"];
-        } else {
-            return null;
+        if (array_key_exists('updateStateSummaries', $this->_propDict) && !is_null($this->_propDict['updateStateSummaries'])) {
+            $updateStateSummaries = [];
+            if (count($this->_propDict['updateStateSummaries']) > 0 && is_a($this->_propDict['updateStateSummaries'][0], 'MacOSSoftwareUpdateStateSummary')) {
+                return $this->_propDict['updateStateSummaries'];
+            }
+            foreach ($this->_propDict['updateStateSummaries'] as $singleValue) {
+                $updateStateSummaries []= new MacOSSoftwareUpdateStateSummary($singleValue);
+            }
+            $this->_propDict['updateStateSummaries'] = $updateStateSummaries;
+            return $this->_propDict['updateStateSummaries'];
         }
+        return null;
     }
     
     /** 
     * Sets the updateStateSummaries
     * Summary of the update states.
     *
-    * @param MacOSSoftwareUpdateStateSummary $val The updateStateSummaries
+    * @param MacOSSoftwareUpdateStateSummary[] $val The updateStateSummaries
     *
     * @return MacOSSoftwareUpdateCategorySummary
     */

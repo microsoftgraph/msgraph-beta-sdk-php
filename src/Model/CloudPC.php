@@ -61,8 +61,8 @@ class CloudPC extends Entity
     */
     public function getGracePeriodEndDateTime()
     {
-        if (array_key_exists("gracePeriodEndDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["gracePeriodEndDateTime"], "\DateTime") || is_null($this->_propDict["gracePeriodEndDateTime"])) {
+        if (array_key_exists("gracePeriodEndDateTime", $this->_propDict) && !is_null($this->_propDict["gracePeriodEndDateTime"])) {
+            if (is_a($this->_propDict["gracePeriodEndDateTime"], "\DateTime")) {
                 return $this->_propDict["gracePeriodEndDateTime"];
             } else {
                 $this->_propDict["gracePeriodEndDateTime"] = new \DateTime($this->_propDict["gracePeriodEndDateTime"]);
@@ -123,8 +123,8 @@ class CloudPC extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -359,8 +359,8 @@ class CloudPC extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\CloudPcStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\CloudPcStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new CloudPcStatus($this->_propDict["status"]);
@@ -392,8 +392,8 @@ class CloudPC extends Entity
     */
     public function getStatusDetails()
     {
-        if (array_key_exists("statusDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["statusDetails"], "\Beta\Microsoft\Graph\Model\CloudPcStatusDetails") || is_null($this->_propDict["statusDetails"])) {
+        if (array_key_exists("statusDetails", $this->_propDict) && !is_null($this->_propDict["statusDetails"])) {
+            if (is_a($this->_propDict["statusDetails"], "\Beta\Microsoft\Graph\Model\CloudPcStatusDetails")) {
                 return $this->_propDict["statusDetails"];
             } else {
                 $this->_propDict["statusDetails"] = new CloudPcStatusDetails($this->_propDict["statusDetails"]);

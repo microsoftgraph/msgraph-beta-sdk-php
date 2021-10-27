@@ -172,8 +172,9 @@ class RelatedContact extends Entity
     */
     public function getRelationship()
     {
-        if (array_key_exists("relationship", $this->_propDict)) {
-            if (is_a($this->_propDict["relationship"], "\Beta\Microsoft\Graph\Model\ContactRelationship") || is_null($this->_propDict["relationship"])) {
+        if (array_key_exists("relationship", $this->_propDict) && !is_null($this->_propDict["relationship"])) {
+     
+            if (is_a($this->_propDict["relationship"], "\Beta\Microsoft\Graph\Model\ContactRelationship")) {
                 return $this->_propDict["relationship"];
             } else {
                 $this->_propDict["relationship"] = new ContactRelationship($this->_propDict["relationship"]);

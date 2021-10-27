@@ -29,22 +29,29 @@ class GroupPolicyPresentationValueList extends GroupPolicyPresentationValue
      * Gets the values
     * A list of pairs for the associated presentation.
      *
-     * @return array|null The values
+     * @return KeyValuePair[]|null The values
      */
     public function getValues()
     {
-        if (array_key_exists("values", $this->_propDict)) {
-           return $this->_propDict["values"];
-        } else {
-            return null;
+        if (array_key_exists('values', $this->_propDict) && !is_null($this->_propDict['values'])) {
+            $values = [];
+            if (count($this->_propDict['values']) > 0 && is_a($this->_propDict['values'][0], 'KeyValuePair')) {
+                return $this->_propDict['values'];
+            }
+            foreach ($this->_propDict['values'] as $singleValue) {
+                $values []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['values'] = $values;
+            return $this->_propDict['values'];
         }
+        return null;
     }
     
     /** 
     * Sets the values
     * A list of pairs for the associated presentation.
     *
-    * @param KeyValuePair $val The values
+    * @param KeyValuePair[] $val The values
     *
     * @return GroupPolicyPresentationValueList
     */

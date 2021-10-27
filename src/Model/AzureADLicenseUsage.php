@@ -28,21 +28,28 @@ class AzureADLicenseUsage extends Entity
      /** 
      * Gets the licenseInfoDetails
      *
-     * @return array|null The licenseInfoDetails
+     * @return LicenseInfoDetail[]|null The licenseInfoDetails
      */
     public function getLicenseInfoDetails()
     {
-        if (array_key_exists("licenseInfoDetails", $this->_propDict)) {
-           return $this->_propDict["licenseInfoDetails"];
-        } else {
-            return null;
+        if (array_key_exists('licenseInfoDetails', $this->_propDict) && !is_null($this->_propDict['licenseInfoDetails'])) {
+            $licenseInfoDetails = [];
+            if (count($this->_propDict['licenseInfoDetails']) > 0 && is_a($this->_propDict['licenseInfoDetails'][0], 'LicenseInfoDetail')) {
+                return $this->_propDict['licenseInfoDetails'];
+            }
+            foreach ($this->_propDict['licenseInfoDetails'] as $singleValue) {
+                $licenseInfoDetails []= new LicenseInfoDetail($singleValue);
+            }
+            $this->_propDict['licenseInfoDetails'] = $licenseInfoDetails;
+            return $this->_propDict['licenseInfoDetails'];
         }
+        return null;
     }
     
     /** 
     * Sets the licenseInfoDetails
     *
-    * @param LicenseInfoDetail $val The licenseInfoDetails
+    * @param LicenseInfoDetail[] $val The licenseInfoDetails
     *
     * @return AzureADLicenseUsage
     */
@@ -59,8 +66,8 @@ class AzureADLicenseUsage extends Entity
     */
     public function getSnapshotDateTime()
     {
-        if (array_key_exists("snapshotDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["snapshotDateTime"], "\DateTime") || is_null($this->_propDict["snapshotDateTime"])) {
+        if (array_key_exists("snapshotDateTime", $this->_propDict) && !is_null($this->_propDict["snapshotDateTime"])) {
+            if (is_a($this->_propDict["snapshotDateTime"], "\DateTime")) {
                 return $this->_propDict["snapshotDateTime"];
             } else {
                 $this->_propDict["snapshotDateTime"] = new \DateTime($this->_propDict["snapshotDateTime"]);

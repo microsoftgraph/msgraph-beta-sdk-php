@@ -32,8 +32,9 @@ class ManagementTemplateDetailedInfo extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getCategory()
     {
-        if (array_key_exists("category", $this->_propDict)) {
-            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagementCategory") || is_null($this->_propDict["category"])) {
+        if (array_key_exists("category", $this->_propDict) && !is_null($this->_propDict["category"])) {
+     
+            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagementCategory")) {
                 return $this->_propDict["category"];
             } else {
                 $this->_propDict["category"] = new ManagementCategory($this->_propDict["category"]);

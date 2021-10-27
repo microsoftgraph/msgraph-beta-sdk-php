@@ -58,22 +58,29 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * Gets the appAssociatedDomains
     * Gets or sets a list that maps apps to their associated domains. Application identifiers must be unique. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The appAssociatedDomains
+     * @return MacOSAssociatedDomainsItem[]|null The appAssociatedDomains
      */
     public function getAppAssociatedDomains()
     {
-        if (array_key_exists("appAssociatedDomains", $this->_propDict)) {
-           return $this->_propDict["appAssociatedDomains"];
-        } else {
-            return null;
+        if (array_key_exists('appAssociatedDomains', $this->_propDict) && !is_null($this->_propDict['appAssociatedDomains'])) {
+            $appAssociatedDomains = [];
+            if (count($this->_propDict['appAssociatedDomains']) > 0 && is_a($this->_propDict['appAssociatedDomains'][0], 'MacOSAssociatedDomainsItem')) {
+                return $this->_propDict['appAssociatedDomains'];
+            }
+            foreach ($this->_propDict['appAssociatedDomains'] as $singleValue) {
+                $appAssociatedDomains []= new MacOSAssociatedDomainsItem($singleValue);
+            }
+            $this->_propDict['appAssociatedDomains'] = $appAssociatedDomains;
+            return $this->_propDict['appAssociatedDomains'];
         }
+        return null;
     }
     
     /** 
     * Sets the appAssociatedDomains
     * Gets or sets a list that maps apps to their associated domains. Application identifiers must be unique. This collection can contain a maximum of 500 elements.
     *
-    * @param MacOSAssociatedDomainsItem $val The appAssociatedDomains
+    * @param MacOSAssociatedDomainsItem[] $val The appAssociatedDomains
     *
     * @return MacOSDeviceFeaturesConfiguration
     */
@@ -88,22 +95,29 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * Gets the associatedDomains
     * DEPRECATED: use appAssociatedDomains instead. Gets or sets a list that maps apps to their associated domains. The key should match the app's ID, and the value should be a string in the form of 'service:domain' where domain is a fully qualified hostname (e.g. webcredentials:example.com). This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The associatedDomains
+     * @return KeyValuePair[]|null The associatedDomains
      */
     public function getAssociatedDomains()
     {
-        if (array_key_exists("associatedDomains", $this->_propDict)) {
-           return $this->_propDict["associatedDomains"];
-        } else {
-            return null;
+        if (array_key_exists('associatedDomains', $this->_propDict) && !is_null($this->_propDict['associatedDomains'])) {
+            $associatedDomains = [];
+            if (count($this->_propDict['associatedDomains']) > 0 && is_a($this->_propDict['associatedDomains'][0], 'KeyValuePair')) {
+                return $this->_propDict['associatedDomains'];
+            }
+            foreach ($this->_propDict['associatedDomains'] as $singleValue) {
+                $associatedDomains []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['associatedDomains'] = $associatedDomains;
+            return $this->_propDict['associatedDomains'];
         }
+        return null;
     }
     
     /** 
     * Sets the associatedDomains
     * DEPRECATED: use appAssociatedDomains instead. Gets or sets a list that maps apps to their associated domains. The key should match the app's ID, and the value should be a string in the form of 'service:domain' where domain is a fully qualified hostname (e.g. webcredentials:example.com). This collection can contain a maximum of 500 elements.
     *
-    * @param KeyValuePair $val The associatedDomains
+    * @param KeyValuePair[] $val The associatedDomains
     *
     * @return MacOSDeviceFeaturesConfiguration
     */
@@ -292,22 +306,29 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * Gets the autoLaunchItems
     * List of applications, files, folders, and other items to launch when the user logs in. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The autoLaunchItems
+     * @return MacOSLaunchItem[]|null The autoLaunchItems
      */
     public function getAutoLaunchItems()
     {
-        if (array_key_exists("autoLaunchItems", $this->_propDict)) {
-           return $this->_propDict["autoLaunchItems"];
-        } else {
-            return null;
+        if (array_key_exists('autoLaunchItems', $this->_propDict) && !is_null($this->_propDict['autoLaunchItems'])) {
+            $autoLaunchItems = [];
+            if (count($this->_propDict['autoLaunchItems']) > 0 && is_a($this->_propDict['autoLaunchItems'][0], 'MacOSLaunchItem')) {
+                return $this->_propDict['autoLaunchItems'];
+            }
+            foreach ($this->_propDict['autoLaunchItems'] as $singleValue) {
+                $autoLaunchItems []= new MacOSLaunchItem($singleValue);
+            }
+            $this->_propDict['autoLaunchItems'] = $autoLaunchItems;
+            return $this->_propDict['autoLaunchItems'];
         }
+        return null;
     }
     
     /** 
     * Sets the autoLaunchItems
     * List of applications, files, folders, and other items to launch when the user logs in. This collection can contain a maximum of 500 elements.
     *
-    * @param MacOSLaunchItem $val The autoLaunchItems
+    * @param MacOSLaunchItem[] $val The autoLaunchItems
     *
     * @return MacOSDeviceFeaturesConfiguration
     */
@@ -319,7 +340,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     
     /**
     * Gets the consoleAccessDisabled
-    * Whether the Other user will disregard use of the `&amp;gt;console&amp;gt; special user name.
+    * Whether the Other user will disregard use of the console special user name.
     *
     * @return bool|null The consoleAccessDisabled
     */
@@ -334,7 +355,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     
     /**
     * Sets the consoleAccessDisabled
-    * Whether the Other user will disregard use of the `&amp;gt;console&amp;gt; special user name.
+    * Whether the Other user will disregard use of the console special user name.
     *
     * @param bool $val The consoleAccessDisabled
     *
@@ -380,22 +401,29 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * Gets the contentCachingClientListenRanges
     * A list of custom IP ranges content caches will use to listen for clients. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The contentCachingClientListenRanges
+     * @return IpRange[]|null The contentCachingClientListenRanges
      */
     public function getContentCachingClientListenRanges()
     {
-        if (array_key_exists("contentCachingClientListenRanges", $this->_propDict)) {
-           return $this->_propDict["contentCachingClientListenRanges"];
-        } else {
-            return null;
+        if (array_key_exists('contentCachingClientListenRanges', $this->_propDict) && !is_null($this->_propDict['contentCachingClientListenRanges'])) {
+            $contentCachingClientListenRanges = [];
+            if (count($this->_propDict['contentCachingClientListenRanges']) > 0 && is_a($this->_propDict['contentCachingClientListenRanges'][0], 'IpRange')) {
+                return $this->_propDict['contentCachingClientListenRanges'];
+            }
+            foreach ($this->_propDict['contentCachingClientListenRanges'] as $singleValue) {
+                $contentCachingClientListenRanges []= new IpRange($singleValue);
+            }
+            $this->_propDict['contentCachingClientListenRanges'] = $contentCachingClientListenRanges;
+            return $this->_propDict['contentCachingClientListenRanges'];
         }
+        return null;
     }
     
     /** 
     * Sets the contentCachingClientListenRanges
     * A list of custom IP ranges content caches will use to listen for clients. This collection can contain a maximum of 500 elements.
     *
-    * @param IpRange $val The contentCachingClientListenRanges
+    * @param IpRange[] $val The contentCachingClientListenRanges
     *
     * @return MacOSDeviceFeaturesConfiguration
     */
@@ -413,8 +441,8 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     */
     public function getContentCachingClientPolicy()
     {
-        if (array_key_exists("contentCachingClientPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["contentCachingClientPolicy"], "\Beta\Microsoft\Graph\Model\MacOSContentCachingClientPolicy") || is_null($this->_propDict["contentCachingClientPolicy"])) {
+        if (array_key_exists("contentCachingClientPolicy", $this->_propDict) && !is_null($this->_propDict["contentCachingClientPolicy"])) {
+            if (is_a($this->_propDict["contentCachingClientPolicy"], "\Beta\Microsoft\Graph\Model\MacOSContentCachingClientPolicy")) {
                 return $this->_propDict["contentCachingClientPolicy"];
             } else {
                 $this->_propDict["contentCachingClientPolicy"] = new MacOSContentCachingClientPolicy($this->_propDict["contentCachingClientPolicy"]);
@@ -678,8 +706,8 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     */
     public function getContentCachingParentSelectionPolicy()
     {
-        if (array_key_exists("contentCachingParentSelectionPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["contentCachingParentSelectionPolicy"], "\Beta\Microsoft\Graph\Model\MacOSContentCachingParentSelectionPolicy") || is_null($this->_propDict["contentCachingParentSelectionPolicy"])) {
+        if (array_key_exists("contentCachingParentSelectionPolicy", $this->_propDict) && !is_null($this->_propDict["contentCachingParentSelectionPolicy"])) {
+            if (is_a($this->_propDict["contentCachingParentSelectionPolicy"], "\Beta\Microsoft\Graph\Model\MacOSContentCachingParentSelectionPolicy")) {
                 return $this->_propDict["contentCachingParentSelectionPolicy"];
             } else {
                 $this->_propDict["contentCachingParentSelectionPolicy"] = new MacOSContentCachingParentSelectionPolicy($this->_propDict["contentCachingParentSelectionPolicy"]);
@@ -708,22 +736,29 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * Gets the contentCachingPeerFilterRanges
     * A list of custom IP ranges content caches will use to query for content from peers caches. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The contentCachingPeerFilterRanges
+     * @return IpRange[]|null The contentCachingPeerFilterRanges
      */
     public function getContentCachingPeerFilterRanges()
     {
-        if (array_key_exists("contentCachingPeerFilterRanges", $this->_propDict)) {
-           return $this->_propDict["contentCachingPeerFilterRanges"];
-        } else {
-            return null;
+        if (array_key_exists('contentCachingPeerFilterRanges', $this->_propDict) && !is_null($this->_propDict['contentCachingPeerFilterRanges'])) {
+            $contentCachingPeerFilterRanges = [];
+            if (count($this->_propDict['contentCachingPeerFilterRanges']) > 0 && is_a($this->_propDict['contentCachingPeerFilterRanges'][0], 'IpRange')) {
+                return $this->_propDict['contentCachingPeerFilterRanges'];
+            }
+            foreach ($this->_propDict['contentCachingPeerFilterRanges'] as $singleValue) {
+                $contentCachingPeerFilterRanges []= new IpRange($singleValue);
+            }
+            $this->_propDict['contentCachingPeerFilterRanges'] = $contentCachingPeerFilterRanges;
+            return $this->_propDict['contentCachingPeerFilterRanges'];
         }
+        return null;
     }
     
     /** 
     * Sets the contentCachingPeerFilterRanges
     * A list of custom IP ranges content caches will use to query for content from peers caches. This collection can contain a maximum of 500 elements.
     *
-    * @param IpRange $val The contentCachingPeerFilterRanges
+    * @param IpRange[] $val The contentCachingPeerFilterRanges
     *
     * @return MacOSDeviceFeaturesConfiguration
     */
@@ -738,22 +773,29 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * Gets the contentCachingPeerListenRanges
     * A list of custom IP ranges content caches will use to listen for peer caches. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The contentCachingPeerListenRanges
+     * @return IpRange[]|null The contentCachingPeerListenRanges
      */
     public function getContentCachingPeerListenRanges()
     {
-        if (array_key_exists("contentCachingPeerListenRanges", $this->_propDict)) {
-           return $this->_propDict["contentCachingPeerListenRanges"];
-        } else {
-            return null;
+        if (array_key_exists('contentCachingPeerListenRanges', $this->_propDict) && !is_null($this->_propDict['contentCachingPeerListenRanges'])) {
+            $contentCachingPeerListenRanges = [];
+            if (count($this->_propDict['contentCachingPeerListenRanges']) > 0 && is_a($this->_propDict['contentCachingPeerListenRanges'][0], 'IpRange')) {
+                return $this->_propDict['contentCachingPeerListenRanges'];
+            }
+            foreach ($this->_propDict['contentCachingPeerListenRanges'] as $singleValue) {
+                $contentCachingPeerListenRanges []= new IpRange($singleValue);
+            }
+            $this->_propDict['contentCachingPeerListenRanges'] = $contentCachingPeerListenRanges;
+            return $this->_propDict['contentCachingPeerListenRanges'];
         }
+        return null;
     }
     
     /** 
     * Sets the contentCachingPeerListenRanges
     * A list of custom IP ranges content caches will use to listen for peer caches. This collection can contain a maximum of 500 elements.
     *
-    * @param IpRange $val The contentCachingPeerListenRanges
+    * @param IpRange[] $val The contentCachingPeerListenRanges
     *
     * @return MacOSDeviceFeaturesConfiguration
     */
@@ -771,8 +813,8 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     */
     public function getContentCachingPeerPolicy()
     {
-        if (array_key_exists("contentCachingPeerPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["contentCachingPeerPolicy"], "\Beta\Microsoft\Graph\Model\MacOSContentCachingPeerPolicy") || is_null($this->_propDict["contentCachingPeerPolicy"])) {
+        if (array_key_exists("contentCachingPeerPolicy", $this->_propDict) && !is_null($this->_propDict["contentCachingPeerPolicy"])) {
+            if (is_a($this->_propDict["contentCachingPeerPolicy"], "\Beta\Microsoft\Graph\Model\MacOSContentCachingPeerPolicy")) {
                 return $this->_propDict["contentCachingPeerPolicy"];
             } else {
                 $this->_propDict["contentCachingPeerPolicy"] = new MacOSContentCachingPeerPolicy($this->_propDict["contentCachingPeerPolicy"]);
@@ -830,22 +872,29 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * Gets the contentCachingPublicRanges
     * A list of custom IP ranges that Apple's content caching service should use to match clients to content caches. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The contentCachingPublicRanges
+     * @return IpRange[]|null The contentCachingPublicRanges
      */
     public function getContentCachingPublicRanges()
     {
-        if (array_key_exists("contentCachingPublicRanges", $this->_propDict)) {
-           return $this->_propDict["contentCachingPublicRanges"];
-        } else {
-            return null;
+        if (array_key_exists('contentCachingPublicRanges', $this->_propDict) && !is_null($this->_propDict['contentCachingPublicRanges'])) {
+            $contentCachingPublicRanges = [];
+            if (count($this->_propDict['contentCachingPublicRanges']) > 0 && is_a($this->_propDict['contentCachingPublicRanges'][0], 'IpRange')) {
+                return $this->_propDict['contentCachingPublicRanges'];
+            }
+            foreach ($this->_propDict['contentCachingPublicRanges'] as $singleValue) {
+                $contentCachingPublicRanges []= new IpRange($singleValue);
+            }
+            $this->_propDict['contentCachingPublicRanges'] = $contentCachingPublicRanges;
+            return $this->_propDict['contentCachingPublicRanges'];
         }
+        return null;
     }
     
     /** 
     * Sets the contentCachingPublicRanges
     * A list of custom IP ranges that Apple's content caching service should use to match clients to content caches. This collection can contain a maximum of 500 elements.
     *
-    * @param IpRange $val The contentCachingPublicRanges
+    * @param IpRange[] $val The contentCachingPublicRanges
     *
     * @return MacOSDeviceFeaturesConfiguration
     */
@@ -892,8 +941,8 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     */
     public function getContentCachingType()
     {
-        if (array_key_exists("contentCachingType", $this->_propDict)) {
-            if (is_a($this->_propDict["contentCachingType"], "\Beta\Microsoft\Graph\Model\MacOSContentCachingType") || is_null($this->_propDict["contentCachingType"])) {
+        if (array_key_exists("contentCachingType", $this->_propDict) && !is_null($this->_propDict["contentCachingType"])) {
+            if (is_a($this->_propDict["contentCachingType"], "\Beta\Microsoft\Graph\Model\MacOSContentCachingType")) {
                 return $this->_propDict["contentCachingType"];
             } else {
                 $this->_propDict["contentCachingType"] = new MacOSContentCachingType($this->_propDict["contentCachingType"]);
@@ -983,8 +1032,8 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     */
     public function getMacOSSingleSignOnExtension()
     {
-        if (array_key_exists("macOSSingleSignOnExtension", $this->_propDict)) {
-            if (is_a($this->_propDict["macOSSingleSignOnExtension"], "\Beta\Microsoft\Graph\Model\MacOSSingleSignOnExtension") || is_null($this->_propDict["macOSSingleSignOnExtension"])) {
+        if (array_key_exists("macOSSingleSignOnExtension", $this->_propDict) && !is_null($this->_propDict["macOSSingleSignOnExtension"])) {
+            if (is_a($this->_propDict["macOSSingleSignOnExtension"], "\Beta\Microsoft\Graph\Model\MacOSSingleSignOnExtension")) {
                 return $this->_propDict["macOSSingleSignOnExtension"];
             } else {
                 $this->_propDict["macOSSingleSignOnExtension"] = new MacOSSingleSignOnExtension($this->_propDict["macOSSingleSignOnExtension"]);
@@ -1190,8 +1239,8 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     */
     public function getSingleSignOnExtension()
     {
-        if (array_key_exists("singleSignOnExtension", $this->_propDict)) {
-            if (is_a($this->_propDict["singleSignOnExtension"], "\Beta\Microsoft\Graph\Model\SingleSignOnExtension") || is_null($this->_propDict["singleSignOnExtension"])) {
+        if (array_key_exists("singleSignOnExtension", $this->_propDict) && !is_null($this->_propDict["singleSignOnExtension"])) {
+            if (is_a($this->_propDict["singleSignOnExtension"], "\Beta\Microsoft\Graph\Model\SingleSignOnExtension")) {
                 return $this->_propDict["singleSignOnExtension"];
             } else {
                 $this->_propDict["singleSignOnExtension"] = new SingleSignOnExtension($this->_propDict["singleSignOnExtension"]);
@@ -1252,8 +1301,8 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     */
     public function getSingleSignOnExtensionPkinitCertificate()
     {
-        if (array_key_exists("singleSignOnExtensionPkinitCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["singleSignOnExtensionPkinitCertificate"], "\Beta\Microsoft\Graph\Model\MacOSCertificateProfileBase") || is_null($this->_propDict["singleSignOnExtensionPkinitCertificate"])) {
+        if (array_key_exists("singleSignOnExtensionPkinitCertificate", $this->_propDict) && !is_null($this->_propDict["singleSignOnExtensionPkinitCertificate"])) {
+            if (is_a($this->_propDict["singleSignOnExtensionPkinitCertificate"], "\Beta\Microsoft\Graph\Model\MacOSCertificateProfileBase")) {
                 return $this->_propDict["singleSignOnExtensionPkinitCertificate"];
             } else {
                 $this->_propDict["singleSignOnExtensionPkinitCertificate"] = new MacOSCertificateProfileBase($this->_propDict["singleSignOnExtensionPkinitCertificate"]);

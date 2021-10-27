@@ -61,8 +61,8 @@ class WindowsManagementApp extends Entity
     */
     public function getManagedInstaller()
     {
-        if (array_key_exists("managedInstaller", $this->_propDict)) {
-            if (is_a($this->_propDict["managedInstaller"], "\Beta\Microsoft\Graph\Model\ManagedInstallerStatus") || is_null($this->_propDict["managedInstaller"])) {
+        if (array_key_exists("managedInstaller", $this->_propDict) && !is_null($this->_propDict["managedInstaller"])) {
+            if (is_a($this->_propDict["managedInstaller"], "\Beta\Microsoft\Graph\Model\ManagedInstallerStatus")) {
                 return $this->_propDict["managedInstaller"];
             } else {
                 $this->_propDict["managedInstaller"] = new ManagedInstallerStatus($this->_propDict["managedInstaller"]);
@@ -120,22 +120,29 @@ class WindowsManagementApp extends Entity
      * Gets the healthStates
     * The list of health states for installed Windows management app.
      *
-     * @return array|null The healthStates
+     * @return WindowsManagementAppHealthState[]|null The healthStates
      */
     public function getHealthStates()
     {
-        if (array_key_exists("healthStates", $this->_propDict)) {
-           return $this->_propDict["healthStates"];
-        } else {
-            return null;
+        if (array_key_exists('healthStates', $this->_propDict) && !is_null($this->_propDict['healthStates'])) {
+            $healthStates = [];
+            if (count($this->_propDict['healthStates']) > 0 && is_a($this->_propDict['healthStates'][0], 'WindowsManagementAppHealthState')) {
+                return $this->_propDict['healthStates'];
+            }
+            foreach ($this->_propDict['healthStates'] as $singleValue) {
+                $healthStates []= new WindowsManagementAppHealthState($singleValue);
+            }
+            $this->_propDict['healthStates'] = $healthStates;
+            return $this->_propDict['healthStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the healthStates
     * The list of health states for installed Windows management app.
     *
-    * @param WindowsManagementAppHealthState $val The healthStates
+    * @param WindowsManagementAppHealthState[] $val The healthStates
     *
     * @return WindowsManagementApp
     */

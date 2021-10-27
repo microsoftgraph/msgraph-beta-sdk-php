@@ -32,8 +32,8 @@ class UserCredentialUsageDetails extends Entity
     */
     public function getAuthMethod()
     {
-        if (array_key_exists("authMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["authMethod"], "\Beta\Microsoft\Graph\Model\UsageAuthMethod") || is_null($this->_propDict["authMethod"])) {
+        if (array_key_exists("authMethod", $this->_propDict) && !is_null($this->_propDict["authMethod"])) {
+            if (is_a($this->_propDict["authMethod"], "\Beta\Microsoft\Graph\Model\UsageAuthMethod")) {
                 return $this->_propDict["authMethod"];
             } else {
                 $this->_propDict["authMethod"] = new UsageAuthMethod($this->_propDict["authMethod"]);
@@ -65,8 +65,8 @@ class UserCredentialUsageDetails extends Entity
     */
     public function getEventDateTime()
     {
-        if (array_key_exists("eventDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["eventDateTime"], "\DateTime") || is_null($this->_propDict["eventDateTime"])) {
+        if (array_key_exists("eventDateTime", $this->_propDict) && !is_null($this->_propDict["eventDateTime"])) {
+            if (is_a($this->_propDict["eventDateTime"], "\DateTime")) {
                 return $this->_propDict["eventDateTime"];
             } else {
                 $this->_propDict["eventDateTime"] = new \DateTime($this->_propDict["eventDateTime"]);
@@ -127,8 +127,8 @@ class UserCredentialUsageDetails extends Entity
     */
     public function getFeature()
     {
-        if (array_key_exists("feature", $this->_propDict)) {
-            if (is_a($this->_propDict["feature"], "\Beta\Microsoft\Graph\Model\FeatureType") || is_null($this->_propDict["feature"])) {
+        if (array_key_exists("feature", $this->_propDict) && !is_null($this->_propDict["feature"])) {
+            if (is_a($this->_propDict["feature"], "\Beta\Microsoft\Graph\Model\FeatureType")) {
                 return $this->_propDict["feature"];
             } else {
                 $this->_propDict["feature"] = new FeatureType($this->_propDict["feature"]);

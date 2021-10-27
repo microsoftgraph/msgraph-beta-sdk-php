@@ -32,8 +32,9 @@ class BinaryManagementConditionExpression extends ManagementConditionExpressionM
     */
     public function getFirstOperand()
     {
-        if (array_key_exists("firstOperand", $this->_propDict)) {
-            if (is_a($this->_propDict["firstOperand"], "\Beta\Microsoft\Graph\Model\ManagementConditionExpressionModel") || is_null($this->_propDict["firstOperand"])) {
+        if (array_key_exists("firstOperand", $this->_propDict) && !is_null($this->_propDict["firstOperand"])) {
+     
+            if (is_a($this->_propDict["firstOperand"], "\Beta\Microsoft\Graph\Model\ManagementConditionExpressionModel")) {
                 return $this->_propDict["firstOperand"];
             } else {
                 $this->_propDict["firstOperand"] = new ManagementConditionExpressionModel($this->_propDict["firstOperand"]);
@@ -65,8 +66,9 @@ class BinaryManagementConditionExpression extends ManagementConditionExpressionM
     */
     public function getOperator()
     {
-        if (array_key_exists("operator", $this->_propDict)) {
-            if (is_a($this->_propDict["operator"], "\Beta\Microsoft\Graph\Model\BinaryManagementConditionExpressionOperatorType") || is_null($this->_propDict["operator"])) {
+        if (array_key_exists("operator", $this->_propDict) && !is_null($this->_propDict["operator"])) {
+     
+            if (is_a($this->_propDict["operator"], "\Beta\Microsoft\Graph\Model\BinaryManagementConditionExpressionOperatorType")) {
                 return $this->_propDict["operator"];
             } else {
                 $this->_propDict["operator"] = new BinaryManagementConditionExpressionOperatorType($this->_propDict["operator"]);
@@ -98,8 +100,9 @@ class BinaryManagementConditionExpression extends ManagementConditionExpressionM
     */
     public function getSecondOperand()
     {
-        if (array_key_exists("secondOperand", $this->_propDict)) {
-            if (is_a($this->_propDict["secondOperand"], "\Beta\Microsoft\Graph\Model\ManagementConditionExpressionModel") || is_null($this->_propDict["secondOperand"])) {
+        if (array_key_exists("secondOperand", $this->_propDict) && !is_null($this->_propDict["secondOperand"])) {
+     
+            if (is_a($this->_propDict["secondOperand"], "\Beta\Microsoft\Graph\Model\ManagementConditionExpressionModel")) {
                 return $this->_propDict["secondOperand"];
             } else {
                 $this->_propDict["secondOperand"] = new ManagementConditionExpressionModel($this->_propDict["secondOperand"]);

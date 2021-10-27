@@ -139,8 +139,8 @@ class Journal extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -170,8 +170,8 @@ class Journal extends Entity
     */
     public function getAccount()
     {
-        if (array_key_exists("account", $this->_propDict)) {
-            if (is_a($this->_propDict["account"], "\Beta\Microsoft\Graph\Model\Account") || is_null($this->_propDict["account"])) {
+        if (array_key_exists("account", $this->_propDict) && !is_null($this->_propDict["account"])) {
+            if (is_a($this->_propDict["account"], "\Beta\Microsoft\Graph\Model\Account")) {
                 return $this->_propDict["account"];
             } else {
                 $this->_propDict["account"] = new Account($this->_propDict["account"]);
@@ -198,21 +198,28 @@ class Journal extends Entity
      /** 
      * Gets the journalLines
      *
-     * @return array|null The journalLines
+     * @return JournalLine[]|null The journalLines
      */
     public function getJournalLines()
     {
-        if (array_key_exists("journalLines", $this->_propDict)) {
-           return $this->_propDict["journalLines"];
-        } else {
-            return null;
+        if (array_key_exists('journalLines', $this->_propDict) && !is_null($this->_propDict['journalLines'])) {
+            $journalLines = [];
+            if (count($this->_propDict['journalLines']) > 0 && is_a($this->_propDict['journalLines'][0], 'JournalLine')) {
+                return $this->_propDict['journalLines'];
+            }
+            foreach ($this->_propDict['journalLines'] as $singleValue) {
+                $journalLines []= new JournalLine($singleValue);
+            }
+            $this->_propDict['journalLines'] = $journalLines;
+            return $this->_propDict['journalLines'];
         }
+        return null;
     }
     
     /** 
     * Sets the journalLines
     *
-    * @param JournalLine $val The journalLines
+    * @param JournalLine[] $val The journalLines
     *
     * @return Journal
     */

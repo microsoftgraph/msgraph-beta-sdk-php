@@ -61,8 +61,8 @@ class EducationSynchronizationProfileStatus extends Entity
     */
     public function getLastActivityDateTime()
     {
-        if (array_key_exists("lastActivityDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastActivityDateTime"], "\DateTime") || is_null($this->_propDict["lastActivityDateTime"])) {
+        if (array_key_exists("lastActivityDateTime", $this->_propDict) && !is_null($this->_propDict["lastActivityDateTime"])) {
+            if (is_a($this->_propDict["lastActivityDateTime"], "\DateTime")) {
                 return $this->_propDict["lastActivityDateTime"];
             } else {
                 $this->_propDict["lastActivityDateTime"] = new \DateTime($this->_propDict["lastActivityDateTime"]);
@@ -94,8 +94,8 @@ class EducationSynchronizationProfileStatus extends Entity
     */
     public function getLastSynchronizationDateTime()
     {
-        if (array_key_exists("lastSynchronizationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSynchronizationDateTime"], "\DateTime") || is_null($this->_propDict["lastSynchronizationDateTime"])) {
+        if (array_key_exists("lastSynchronizationDateTime", $this->_propDict) && !is_null($this->_propDict["lastSynchronizationDateTime"])) {
+            if (is_a($this->_propDict["lastSynchronizationDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSynchronizationDateTime"];
             } else {
                 $this->_propDict["lastSynchronizationDateTime"] = new \DateTime($this->_propDict["lastSynchronizationDateTime"]);
@@ -127,8 +127,8 @@ class EducationSynchronizationProfileStatus extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new EducationSynchronizationStatus($this->_propDict["status"]);

@@ -39,18 +39,22 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase
     * Gets the specificWebsitesOnly
     * URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.
     *
-    * @return IosBookmark|null The specificWebsitesOnly
+    * @return IosBookmark[]|null The specificWebsitesOnly
     */
     public function getSpecificWebsitesOnly()
     {
-        if (array_key_exists("specificWebsitesOnly", $this->_propDict)) {
-            if (is_a($this->_propDict["specificWebsitesOnly"], "\Beta\Microsoft\Graph\Model\IosBookmark") || is_null($this->_propDict["specificWebsitesOnly"])) {
-                return $this->_propDict["specificWebsitesOnly"];
-            } else {
-                $this->_propDict["specificWebsitesOnly"] = new IosBookmark($this->_propDict["specificWebsitesOnly"]);
-                return $this->_propDict["specificWebsitesOnly"];
+        if (array_key_exists("specificWebsitesOnly", $this->_propDict) && !is_null($this->_propDict["specificWebsitesOnly"])) {
+       
+            if (count($this->_propDict['specificWebsitesOnly']) > 0 && is_a($this->_propDict['specificWebsitesOnly'][0], 'IosBookmark')) {
+               return $this->_propDict['specificWebsitesOnly'];
             }
-        }
+            $specificWebsitesOnly = [];
+            foreach ($this->_propDict['specificWebsitesOnly'] as $singleValue) {
+               $specificWebsitesOnly []= new IosBookmark($singleValue);
+            }
+            $this->_propDict['specificWebsitesOnly'] = $specificWebsitesOnly;
+            return $this->_propDict['specificWebsitesOnly'];
+            }
         return null;
     }
 
@@ -58,7 +62,7 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase
     * Sets the specificWebsitesOnly
     * URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.
     *
-    * @param IosBookmark $val The value to assign to the specificWebsitesOnly
+    * @param IosBookmark[] $val The value to assign to the specificWebsitesOnly
     *
     * @return IosWebContentFilterSpecificWebsitesAccess The IosWebContentFilterSpecificWebsitesAccess
     */
@@ -72,18 +76,22 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase
     * Gets the websiteList
     * URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.
     *
-    * @return IosBookmark|null The websiteList
+    * @return IosBookmark[]|null The websiteList
     */
     public function getWebsiteList()
     {
-        if (array_key_exists("websiteList", $this->_propDict)) {
-            if (is_a($this->_propDict["websiteList"], "\Beta\Microsoft\Graph\Model\IosBookmark") || is_null($this->_propDict["websiteList"])) {
-                return $this->_propDict["websiteList"];
-            } else {
-                $this->_propDict["websiteList"] = new IosBookmark($this->_propDict["websiteList"]);
-                return $this->_propDict["websiteList"];
+        if (array_key_exists("websiteList", $this->_propDict) && !is_null($this->_propDict["websiteList"])) {
+       
+            if (count($this->_propDict['websiteList']) > 0 && is_a($this->_propDict['websiteList'][0], 'IosBookmark')) {
+               return $this->_propDict['websiteList'];
             }
-        }
+            $websiteList = [];
+            foreach ($this->_propDict['websiteList'] as $singleValue) {
+               $websiteList []= new IosBookmark($singleValue);
+            }
+            $this->_propDict['websiteList'] = $websiteList;
+            return $this->_propDict['websiteList'];
+            }
         return null;
     }
 
@@ -91,7 +99,7 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase
     * Sets the websiteList
     * URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.
     *
-    * @param IosBookmark $val The value to assign to the websiteList
+    * @param IosBookmark[] $val The value to assign to the websiteList
     *
     * @return IosWebContentFilterSpecificWebsitesAccess The IosWebContentFilterSpecificWebsitesAccess
     */

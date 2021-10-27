@@ -54,14 +54,15 @@ class LobbyBypassSettings extends Entity
 
     /**
     * Gets the scope
-    * Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Possible values are listed in the following table. Optional.
+    * Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
     *
     * @return LobbyBypassScope|null The scope
     */
     public function getScope()
     {
-        if (array_key_exists("scope", $this->_propDict)) {
-            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\LobbyBypassScope") || is_null($this->_propDict["scope"])) {
+        if (array_key_exists("scope", $this->_propDict) && !is_null($this->_propDict["scope"])) {
+     
+            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\LobbyBypassScope")) {
                 return $this->_propDict["scope"];
             } else {
                 $this->_propDict["scope"] = new LobbyBypassScope($this->_propDict["scope"]);
@@ -73,7 +74,7 @@ class LobbyBypassSettings extends Entity
 
     /**
     * Sets the scope
-    * Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Possible values are listed in the following table. Optional.
+    * Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
     *
     * @param LobbyBypassScope $val The value to assign to the scope
     *

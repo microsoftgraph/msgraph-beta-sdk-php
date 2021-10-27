@@ -32,8 +32,9 @@ class SynchronizationStatus extends Entity
     */
     public function getCode()
     {
-        if (array_key_exists("code", $this->_propDict)) {
-            if (is_a($this->_propDict["code"], "\Beta\Microsoft\Graph\Model\SynchronizationStatusCode") || is_null($this->_propDict["code"])) {
+        if (array_key_exists("code", $this->_propDict) && !is_null($this->_propDict["code"])) {
+     
+            if (is_a($this->_propDict["code"], "\Beta\Microsoft\Graph\Model\SynchronizationStatusCode")) {
                 return $this->_propDict["code"];
             } else {
                 $this->_propDict["code"] = new SynchronizationStatusCode($this->_propDict["code"]);
@@ -121,8 +122,9 @@ class SynchronizationStatus extends Entity
     */
     public function getLastExecution()
     {
-        if (array_key_exists("lastExecution", $this->_propDict)) {
-            if (is_a($this->_propDict["lastExecution"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecution") || is_null($this->_propDict["lastExecution"])) {
+        if (array_key_exists("lastExecution", $this->_propDict) && !is_null($this->_propDict["lastExecution"])) {
+     
+            if (is_a($this->_propDict["lastExecution"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecution")) {
                 return $this->_propDict["lastExecution"];
             } else {
                 $this->_propDict["lastExecution"] = new SynchronizationTaskExecution($this->_propDict["lastExecution"]);
@@ -154,8 +156,9 @@ class SynchronizationStatus extends Entity
     */
     public function getLastSuccessfulExecution()
     {
-        if (array_key_exists("lastSuccessfulExecution", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSuccessfulExecution"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecution") || is_null($this->_propDict["lastSuccessfulExecution"])) {
+        if (array_key_exists("lastSuccessfulExecution", $this->_propDict) && !is_null($this->_propDict["lastSuccessfulExecution"])) {
+     
+            if (is_a($this->_propDict["lastSuccessfulExecution"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecution")) {
                 return $this->_propDict["lastSuccessfulExecution"];
             } else {
                 $this->_propDict["lastSuccessfulExecution"] = new SynchronizationTaskExecution($this->_propDict["lastSuccessfulExecution"]);
@@ -187,8 +190,9 @@ class SynchronizationStatus extends Entity
     */
     public function getLastSuccessfulExecutionWithExports()
     {
-        if (array_key_exists("lastSuccessfulExecutionWithExports", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSuccessfulExecutionWithExports"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecution") || is_null($this->_propDict["lastSuccessfulExecutionWithExports"])) {
+        if (array_key_exists("lastSuccessfulExecutionWithExports", $this->_propDict) && !is_null($this->_propDict["lastSuccessfulExecutionWithExports"])) {
+     
+            if (is_a($this->_propDict["lastSuccessfulExecutionWithExports"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecution")) {
                 return $this->_propDict["lastSuccessfulExecutionWithExports"];
             } else {
                 $this->_propDict["lastSuccessfulExecutionWithExports"] = new SynchronizationTaskExecution($this->_propDict["lastSuccessfulExecutionWithExports"]);
@@ -216,18 +220,22 @@ class SynchronizationStatus extends Entity
     * Gets the progress
     * Details of the progress of a job toward completion.
     *
-    * @return SynchronizationProgress|null The progress
+    * @return SynchronizationProgress[]|null The progress
     */
     public function getProgress()
     {
-        if (array_key_exists("progress", $this->_propDict)) {
-            if (is_a($this->_propDict["progress"], "\Beta\Microsoft\Graph\Model\SynchronizationProgress") || is_null($this->_propDict["progress"])) {
-                return $this->_propDict["progress"];
-            } else {
-                $this->_propDict["progress"] = new SynchronizationProgress($this->_propDict["progress"]);
-                return $this->_propDict["progress"];
+        if (array_key_exists("progress", $this->_propDict) && !is_null($this->_propDict["progress"])) {
+       
+            if (count($this->_propDict['progress']) > 0 && is_a($this->_propDict['progress'][0], 'SynchronizationProgress')) {
+               return $this->_propDict['progress'];
             }
-        }
+            $progress = [];
+            foreach ($this->_propDict['progress'] as $singleValue) {
+               $progress []= new SynchronizationProgress($singleValue);
+            }
+            $this->_propDict['progress'] = $progress;
+            return $this->_propDict['progress'];
+            }
         return null;
     }
 
@@ -235,7 +243,7 @@ class SynchronizationStatus extends Entity
     * Sets the progress
     * Details of the progress of a job toward completion.
     *
-    * @param SynchronizationProgress $val The value to assign to the progress
+    * @param SynchronizationProgress[] $val The value to assign to the progress
     *
     * @return SynchronizationStatus The SynchronizationStatus
     */
@@ -253,8 +261,9 @@ class SynchronizationStatus extends Entity
     */
     public function getQuarantine()
     {
-        if (array_key_exists("quarantine", $this->_propDict)) {
-            if (is_a($this->_propDict["quarantine"], "\Beta\Microsoft\Graph\Model\SynchronizationQuarantine") || is_null($this->_propDict["quarantine"])) {
+        if (array_key_exists("quarantine", $this->_propDict) && !is_null($this->_propDict["quarantine"])) {
+     
+            if (is_a($this->_propDict["quarantine"], "\Beta\Microsoft\Graph\Model\SynchronizationQuarantine")) {
                 return $this->_propDict["quarantine"];
             } else {
                 $this->_propDict["quarantine"] = new SynchronizationQuarantine($this->_propDict["quarantine"]);
@@ -286,8 +295,9 @@ class SynchronizationStatus extends Entity
     */
     public function getSteadyStateFirstAchievedTime()
     {
-        if (array_key_exists("steadyStateFirstAchievedTime", $this->_propDict)) {
-            if (is_a($this->_propDict["steadyStateFirstAchievedTime"], "\DateTime") || is_null($this->_propDict["steadyStateFirstAchievedTime"])) {
+        if (array_key_exists("steadyStateFirstAchievedTime", $this->_propDict) && !is_null($this->_propDict["steadyStateFirstAchievedTime"])) {
+     
+            if (is_a($this->_propDict["steadyStateFirstAchievedTime"], "\DateTime")) {
                 return $this->_propDict["steadyStateFirstAchievedTime"];
             } else {
                 $this->_propDict["steadyStateFirstAchievedTime"] = new \DateTime($this->_propDict["steadyStateFirstAchievedTime"]);
@@ -319,8 +329,9 @@ class SynchronizationStatus extends Entity
     */
     public function getSteadyStateLastAchievedTime()
     {
-        if (array_key_exists("steadyStateLastAchievedTime", $this->_propDict)) {
-            if (is_a($this->_propDict["steadyStateLastAchievedTime"], "\DateTime") || is_null($this->_propDict["steadyStateLastAchievedTime"])) {
+        if (array_key_exists("steadyStateLastAchievedTime", $this->_propDict) && !is_null($this->_propDict["steadyStateLastAchievedTime"])) {
+     
+            if (is_a($this->_propDict["steadyStateLastAchievedTime"], "\DateTime")) {
                 return $this->_propDict["steadyStateLastAchievedTime"];
             } else {
                 $this->_propDict["steadyStateLastAchievedTime"] = new \DateTime($this->_propDict["steadyStateLastAchievedTime"]);
@@ -348,18 +359,22 @@ class SynchronizationStatus extends Entity
     * Gets the synchronizedEntryCountByType
     * Count of synchronized objects, listed by object type.
     *
-    * @return StringKeyLongValuePair|null The synchronizedEntryCountByType
+    * @return StringKeyLongValuePair[]|null The synchronizedEntryCountByType
     */
     public function getSynchronizedEntryCountByType()
     {
-        if (array_key_exists("synchronizedEntryCountByType", $this->_propDict)) {
-            if (is_a($this->_propDict["synchronizedEntryCountByType"], "\Beta\Microsoft\Graph\Model\StringKeyLongValuePair") || is_null($this->_propDict["synchronizedEntryCountByType"])) {
-                return $this->_propDict["synchronizedEntryCountByType"];
-            } else {
-                $this->_propDict["synchronizedEntryCountByType"] = new StringKeyLongValuePair($this->_propDict["synchronizedEntryCountByType"]);
-                return $this->_propDict["synchronizedEntryCountByType"];
+        if (array_key_exists("synchronizedEntryCountByType", $this->_propDict) && !is_null($this->_propDict["synchronizedEntryCountByType"])) {
+       
+            if (count($this->_propDict['synchronizedEntryCountByType']) > 0 && is_a($this->_propDict['synchronizedEntryCountByType'][0], 'StringKeyLongValuePair')) {
+               return $this->_propDict['synchronizedEntryCountByType'];
             }
-        }
+            $synchronizedEntryCountByType = [];
+            foreach ($this->_propDict['synchronizedEntryCountByType'] as $singleValue) {
+               $synchronizedEntryCountByType []= new StringKeyLongValuePair($singleValue);
+            }
+            $this->_propDict['synchronizedEntryCountByType'] = $synchronizedEntryCountByType;
+            return $this->_propDict['synchronizedEntryCountByType'];
+            }
         return null;
     }
 
@@ -367,7 +382,7 @@ class SynchronizationStatus extends Entity
     * Sets the synchronizedEntryCountByType
     * Count of synchronized objects, listed by object type.
     *
-    * @param StringKeyLongValuePair $val The value to assign to the synchronizedEntryCountByType
+    * @param StringKeyLongValuePair[] $val The value to assign to the synchronizedEntryCountByType
     *
     * @return SynchronizationStatus The SynchronizationStatus
     */

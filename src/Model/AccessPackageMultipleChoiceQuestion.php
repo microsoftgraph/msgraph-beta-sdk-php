@@ -67,18 +67,22 @@ class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion
     * Gets the choices
     * List of answer choices.
     *
-    * @return AccessPackageAnswerChoice|null The choices
+    * @return AccessPackageAnswerChoice[]|null The choices
     */
     public function getChoices()
     {
-        if (array_key_exists("choices", $this->_propDict)) {
-            if (is_a($this->_propDict["choices"], "\Beta\Microsoft\Graph\Model\AccessPackageAnswerChoice") || is_null($this->_propDict["choices"])) {
-                return $this->_propDict["choices"];
-            } else {
-                $this->_propDict["choices"] = new AccessPackageAnswerChoice($this->_propDict["choices"]);
-                return $this->_propDict["choices"];
+        if (array_key_exists("choices", $this->_propDict) && !is_null($this->_propDict["choices"])) {
+       
+            if (count($this->_propDict['choices']) > 0 && is_a($this->_propDict['choices'][0], 'AccessPackageAnswerChoice')) {
+               return $this->_propDict['choices'];
             }
-        }
+            $choices = [];
+            foreach ($this->_propDict['choices'] as $singleValue) {
+               $choices []= new AccessPackageAnswerChoice($singleValue);
+            }
+            $this->_propDict['choices'] = $choices;
+            return $this->_propDict['choices'];
+            }
         return null;
     }
 
@@ -86,7 +90,7 @@ class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion
     * Sets the choices
     * List of answer choices.
     *
-    * @param AccessPackageAnswerChoice $val The value to assign to the choices
+    * @param AccessPackageAnswerChoice[] $val The value to assign to the choices
     *
     * @return AccessPackageMultipleChoiceQuestion The AccessPackageMultipleChoiceQuestion
     */

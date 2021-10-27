@@ -154,7 +154,7 @@ class VpnDnsRule extends Entity
     * Sets the servers
     * Servers.
     *
-    * @param string $val The value of the servers
+    * @param string[] $val The value of the servers
     *
     * @return VpnDnsRule
     */

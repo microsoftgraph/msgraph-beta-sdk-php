@@ -32,8 +32,8 @@ class AccessPackageResourceEnvironment extends Entity
     */
     public function getConnectionInfo()
     {
-        if (array_key_exists("connectionInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["connectionInfo"], "\Beta\Microsoft\Graph\Model\ConnectionInfo") || is_null($this->_propDict["connectionInfo"])) {
+        if (array_key_exists("connectionInfo", $this->_propDict) && !is_null($this->_propDict["connectionInfo"])) {
+            if (is_a($this->_propDict["connectionInfo"], "\Beta\Microsoft\Graph\Model\ConnectionInfo")) {
                 return $this->_propDict["connectionInfo"];
             } else {
                 $this->_propDict["connectionInfo"] = new ConnectionInfo($this->_propDict["connectionInfo"]);
@@ -94,8 +94,8 @@ class AccessPackageResourceEnvironment extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -243,8 +243,8 @@ class AccessPackageResourceEnvironment extends Entity
     */
     public function getModifiedDateTime()
     {
-        if (array_key_exists("modifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
+        if (array_key_exists("modifiedDateTime", $this->_propDict) && !is_null($this->_propDict["modifiedDateTime"])) {
+            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["modifiedDateTime"];
             } else {
                 $this->_propDict["modifiedDateTime"] = new \DateTime($this->_propDict["modifiedDateTime"]);
@@ -331,22 +331,29 @@ class AccessPackageResourceEnvironment extends Entity
      * Gets the accessPackageResources
     * Read-only. Required.
      *
-     * @return array|null The accessPackageResources
+     * @return AccessPackageResource[]|null The accessPackageResources
      */
     public function getAccessPackageResources()
     {
-        if (array_key_exists("accessPackageResources", $this->_propDict)) {
-           return $this->_propDict["accessPackageResources"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackageResources', $this->_propDict) && !is_null($this->_propDict['accessPackageResources'])) {
+            $accessPackageResources = [];
+            if (count($this->_propDict['accessPackageResources']) > 0 && is_a($this->_propDict['accessPackageResources'][0], 'AccessPackageResource')) {
+                return $this->_propDict['accessPackageResources'];
+            }
+            foreach ($this->_propDict['accessPackageResources'] as $singleValue) {
+                $accessPackageResources []= new AccessPackageResource($singleValue);
+            }
+            $this->_propDict['accessPackageResources'] = $accessPackageResources;
+            return $this->_propDict['accessPackageResources'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackageResources
     * Read-only. Required.
     *
-    * @param AccessPackageResource $val The accessPackageResources
+    * @param AccessPackageResource[] $val The accessPackageResources
     *
     * @return AccessPackageResourceEnvironment
     */

@@ -90,8 +90,8 @@ class AccessPackage extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -268,8 +268,8 @@ class AccessPackage extends Entity
     */
     public function getModifiedDateTime()
     {
-        if (array_key_exists("modifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
+        if (array_key_exists("modifiedDateTime", $this->_propDict) && !is_null($this->_propDict["modifiedDateTime"])) {
+            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["modifiedDateTime"];
             } else {
                 $this->_propDict["modifiedDateTime"] = new \DateTime($this->_propDict["modifiedDateTime"]);
@@ -298,22 +298,29 @@ class AccessPackage extends Entity
      * Gets the accessPackageAssignmentPolicies
     * Read-only. Nullable.
      *
-     * @return array|null The accessPackageAssignmentPolicies
+     * @return AccessPackageAssignmentPolicy[]|null The accessPackageAssignmentPolicies
      */
     public function getAccessPackageAssignmentPolicies()
     {
-        if (array_key_exists("accessPackageAssignmentPolicies", $this->_propDict)) {
-           return $this->_propDict["accessPackageAssignmentPolicies"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackageAssignmentPolicies', $this->_propDict) && !is_null($this->_propDict['accessPackageAssignmentPolicies'])) {
+            $accessPackageAssignmentPolicies = [];
+            if (count($this->_propDict['accessPackageAssignmentPolicies']) > 0 && is_a($this->_propDict['accessPackageAssignmentPolicies'][0], 'AccessPackageAssignmentPolicy')) {
+                return $this->_propDict['accessPackageAssignmentPolicies'];
+            }
+            foreach ($this->_propDict['accessPackageAssignmentPolicies'] as $singleValue) {
+                $accessPackageAssignmentPolicies []= new AccessPackageAssignmentPolicy($singleValue);
+            }
+            $this->_propDict['accessPackageAssignmentPolicies'] = $accessPackageAssignmentPolicies;
+            return $this->_propDict['accessPackageAssignmentPolicies'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackageAssignmentPolicies
     * Read-only. Nullable.
     *
-    * @param AccessPackageAssignmentPolicy $val The accessPackageAssignmentPolicies
+    * @param AccessPackageAssignmentPolicy[] $val The accessPackageAssignmentPolicies
     *
     * @return AccessPackage
     */
@@ -331,8 +338,8 @@ class AccessPackage extends Entity
     */
     public function getAccessPackageCatalog()
     {
-        if (array_key_exists("accessPackageCatalog", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageCatalog"], "\Beta\Microsoft\Graph\Model\AccessPackageCatalog") || is_null($this->_propDict["accessPackageCatalog"])) {
+        if (array_key_exists("accessPackageCatalog", $this->_propDict) && !is_null($this->_propDict["accessPackageCatalog"])) {
+            if (is_a($this->_propDict["accessPackageCatalog"], "\Beta\Microsoft\Graph\Model\AccessPackageCatalog")) {
                 return $this->_propDict["accessPackageCatalog"];
             } else {
                 $this->_propDict["accessPackageCatalog"] = new AccessPackageCatalog($this->_propDict["accessPackageCatalog"]);
@@ -361,22 +368,29 @@ class AccessPackage extends Entity
      * Gets the accessPackageResourceRoleScopes
     * Nullable.
      *
-     * @return array|null The accessPackageResourceRoleScopes
+     * @return AccessPackageResourceRoleScope[]|null The accessPackageResourceRoleScopes
      */
     public function getAccessPackageResourceRoleScopes()
     {
-        if (array_key_exists("accessPackageResourceRoleScopes", $this->_propDict)) {
-           return $this->_propDict["accessPackageResourceRoleScopes"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackageResourceRoleScopes', $this->_propDict) && !is_null($this->_propDict['accessPackageResourceRoleScopes'])) {
+            $accessPackageResourceRoleScopes = [];
+            if (count($this->_propDict['accessPackageResourceRoleScopes']) > 0 && is_a($this->_propDict['accessPackageResourceRoleScopes'][0], 'AccessPackageResourceRoleScope')) {
+                return $this->_propDict['accessPackageResourceRoleScopes'];
+            }
+            foreach ($this->_propDict['accessPackageResourceRoleScopes'] as $singleValue) {
+                $accessPackageResourceRoleScopes []= new AccessPackageResourceRoleScope($singleValue);
+            }
+            $this->_propDict['accessPackageResourceRoleScopes'] = $accessPackageResourceRoleScopes;
+            return $this->_propDict['accessPackageResourceRoleScopes'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackageResourceRoleScopes
     * Nullable.
     *
-    * @param AccessPackageResourceRoleScope $val The accessPackageResourceRoleScopes
+    * @param AccessPackageResourceRoleScope[] $val The accessPackageResourceRoleScopes
     *
     * @return AccessPackage
     */
@@ -391,22 +405,29 @@ class AccessPackage extends Entity
      * Gets the accessPackagesIncompatibleWith
     * The access packages that are incompatible with this package. Read-only.
      *
-     * @return array|null The accessPackagesIncompatibleWith
+     * @return AccessPackage[]|null The accessPackagesIncompatibleWith
      */
     public function getAccessPackagesIncompatibleWith()
     {
-        if (array_key_exists("accessPackagesIncompatibleWith", $this->_propDict)) {
-           return $this->_propDict["accessPackagesIncompatibleWith"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackagesIncompatibleWith', $this->_propDict) && !is_null($this->_propDict['accessPackagesIncompatibleWith'])) {
+            $accessPackagesIncompatibleWith = [];
+            if (count($this->_propDict['accessPackagesIncompatibleWith']) > 0 && is_a($this->_propDict['accessPackagesIncompatibleWith'][0], 'AccessPackage')) {
+                return $this->_propDict['accessPackagesIncompatibleWith'];
+            }
+            foreach ($this->_propDict['accessPackagesIncompatibleWith'] as $singleValue) {
+                $accessPackagesIncompatibleWith []= new AccessPackage($singleValue);
+            }
+            $this->_propDict['accessPackagesIncompatibleWith'] = $accessPackagesIncompatibleWith;
+            return $this->_propDict['accessPackagesIncompatibleWith'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackagesIncompatibleWith
     * The access packages that are incompatible with this package. Read-only.
     *
-    * @param AccessPackage $val The accessPackagesIncompatibleWith
+    * @param AccessPackage[] $val The accessPackagesIncompatibleWith
     *
     * @return AccessPackage
     */
@@ -421,22 +442,29 @@ class AccessPackage extends Entity
      * Gets the incompatibleAccessPackages
     * The  access packages whose assigned users are ineligible to be assigned this access package.
      *
-     * @return array|null The incompatibleAccessPackages
+     * @return AccessPackage[]|null The incompatibleAccessPackages
      */
     public function getIncompatibleAccessPackages()
     {
-        if (array_key_exists("incompatibleAccessPackages", $this->_propDict)) {
-           return $this->_propDict["incompatibleAccessPackages"];
-        } else {
-            return null;
+        if (array_key_exists('incompatibleAccessPackages', $this->_propDict) && !is_null($this->_propDict['incompatibleAccessPackages'])) {
+            $incompatibleAccessPackages = [];
+            if (count($this->_propDict['incompatibleAccessPackages']) > 0 && is_a($this->_propDict['incompatibleAccessPackages'][0], 'AccessPackage')) {
+                return $this->_propDict['incompatibleAccessPackages'];
+            }
+            foreach ($this->_propDict['incompatibleAccessPackages'] as $singleValue) {
+                $incompatibleAccessPackages []= new AccessPackage($singleValue);
+            }
+            $this->_propDict['incompatibleAccessPackages'] = $incompatibleAccessPackages;
+            return $this->_propDict['incompatibleAccessPackages'];
         }
+        return null;
     }
     
     /** 
     * Sets the incompatibleAccessPackages
     * The  access packages whose assigned users are ineligible to be assigned this access package.
     *
-    * @param AccessPackage $val The incompatibleAccessPackages
+    * @param AccessPackage[] $val The incompatibleAccessPackages
     *
     * @return AccessPackage
     */
@@ -451,22 +479,29 @@ class AccessPackage extends Entity
      * Gets the incompatibleGroups
     * The groups whose members are ineligible to be assigned this access package.
      *
-     * @return array|null The incompatibleGroups
+     * @return Group[]|null The incompatibleGroups
      */
     public function getIncompatibleGroups()
     {
-        if (array_key_exists("incompatibleGroups", $this->_propDict)) {
-           return $this->_propDict["incompatibleGroups"];
-        } else {
-            return null;
+        if (array_key_exists('incompatibleGroups', $this->_propDict) && !is_null($this->_propDict['incompatibleGroups'])) {
+            $incompatibleGroups = [];
+            if (count($this->_propDict['incompatibleGroups']) > 0 && is_a($this->_propDict['incompatibleGroups'][0], 'Group')) {
+                return $this->_propDict['incompatibleGroups'];
+            }
+            foreach ($this->_propDict['incompatibleGroups'] as $singleValue) {
+                $incompatibleGroups []= new Group($singleValue);
+            }
+            $this->_propDict['incompatibleGroups'] = $incompatibleGroups;
+            return $this->_propDict['incompatibleGroups'];
         }
+        return null;
     }
     
     /** 
     * Sets the incompatibleGroups
     * The groups whose members are ineligible to be assigned this access package.
     *
-    * @param Group $val The incompatibleGroups
+    * @param Group[] $val The incompatibleGroups
     *
     * @return AccessPackage
     */

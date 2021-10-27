@@ -57,13 +57,14 @@ class Admin implements \JsonSerializable
     
     /**
     * Gets the serviceAnnouncement
+    * A container for service communications resources. Read-only.
     *
     * @return ServiceAnnouncement|null The serviceAnnouncement
     */
     public function getServiceAnnouncement()
     {
-        if (array_key_exists("serviceAnnouncement", $this->_propDict)) {
-            if (is_a($this->_propDict["serviceAnnouncement"], "\Beta\Microsoft\Graph\Model\ServiceAnnouncement") || is_null($this->_propDict["serviceAnnouncement"])) {
+        if (array_key_exists("serviceAnnouncement", $this->_propDict) && !is_null($this->_propDict["serviceAnnouncement"])) {
+            if (is_a($this->_propDict["serviceAnnouncement"], "\Beta\Microsoft\Graph\Model\ServiceAnnouncement")) {
                 return $this->_propDict["serviceAnnouncement"];
             } else {
                 $this->_propDict["serviceAnnouncement"] = new ServiceAnnouncement($this->_propDict["serviceAnnouncement"]);
@@ -75,6 +76,7 @@ class Admin implements \JsonSerializable
     
     /**
     * Sets the serviceAnnouncement
+    * A container for service communications resources. Read-only.
     *
     * @param ServiceAnnouncement $val The serviceAnnouncement
     *
@@ -88,13 +90,14 @@ class Admin implements \JsonSerializable
     
     /**
     * Gets the windows
+    * A container for all Windows Update for Business deployment service functionality. Read-only.
     *
     * @return \Beta\Microsoft\Graph\WindowsUpdates\Model\Windows|null The windows
     */
     public function getWindows()
     {
-        if (array_key_exists("windows", $this->_propDict)) {
-            if (is_a($this->_propDict["windows"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\Windows") || is_null($this->_propDict["windows"])) {
+        if (array_key_exists("windows", $this->_propDict) && !is_null($this->_propDict["windows"])) {
+            if (is_a($this->_propDict["windows"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\Windows")) {
                 return $this->_propDict["windows"];
             } else {
                 $this->_propDict["windows"] = new \Beta\Microsoft\Graph\WindowsUpdates\Model\Windows($this->_propDict["windows"]);
@@ -106,6 +109,7 @@ class Admin implements \JsonSerializable
     
     /**
     * Sets the windows
+    * A container for all Windows Update for Business deployment service functionality. Read-only.
     *
     * @param \Beta\Microsoft\Graph\WindowsUpdates\Model\Windows $val The windows
     *
@@ -153,10 +157,22 @@ class Admin implements \JsonSerializable
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
-                $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            if (is_a($val, '\DateTime')) {
+                $serializableProperties[$property] = $val->format(\DateTimeInterface::RFC3339);
+            } else if (is_a($val, '\Microsoft\Graph\Core\Enum')) {
                 $serializableProperties[$property] = $val->value();
+            } else if (is_array($val)) {
+                $values = [];
+                if (count($val) > 0 && is_a($val[0], '\DateTime')) {
+                   foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->format(\DateTimeInterface::RFC3339);
+                   }
+                } else if(count($val) > 0 && is_a($val[0], '\Microsoft\Graph\Core\Enum')) {
+                    foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->value();
+                   }
+                }
+                $serializableProperties[$property] = $values;
             }
         }
         return $serializableProperties;

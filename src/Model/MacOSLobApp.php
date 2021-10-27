@@ -87,22 +87,29 @@ class MacOSLobApp extends MobileLobApp
      * Gets the childApps
     * The app list in this bundle package
      *
-     * @return array|null The childApps
+     * @return MacOSLobChildApp[]|null The childApps
      */
     public function getChildApps()
     {
-        if (array_key_exists("childApps", $this->_propDict)) {
-           return $this->_propDict["childApps"];
-        } else {
-            return null;
+        if (array_key_exists('childApps', $this->_propDict) && !is_null($this->_propDict['childApps'])) {
+            $childApps = [];
+            if (count($this->_propDict['childApps']) > 0 && is_a($this->_propDict['childApps'][0], 'MacOSLobChildApp')) {
+                return $this->_propDict['childApps'];
+            }
+            foreach ($this->_propDict['childApps'] as $singleValue) {
+                $childApps []= new MacOSLobChildApp($singleValue);
+            }
+            $this->_propDict['childApps'] = $childApps;
+            return $this->_propDict['childApps'];
         }
+        return null;
     }
     
     /** 
     * Sets the childApps
     * The app list in this bundle package
     *
-    * @param MacOSLobChildApp $val The childApps
+    * @param MacOSLobChildApp[] $val The childApps
     *
     * @return MacOSLobApp
     */
@@ -265,8 +272,8 @@ class MacOSLobApp extends MobileLobApp
     */
     public function getMinimumSupportedOperatingSystem()
     {
-        if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\MacOSMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
+        if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict) && !is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
+            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\MacOSMinimumOperatingSystem")) {
                 return $this->_propDict["minimumSupportedOperatingSystem"];
             } else {
                 $this->_propDict["minimumSupportedOperatingSystem"] = new MacOSMinimumOperatingSystem($this->_propDict["minimumSupportedOperatingSystem"]);

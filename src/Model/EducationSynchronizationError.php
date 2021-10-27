@@ -148,8 +148,8 @@ class EducationSynchronizationError extends Entity
     */
     public function getRecordedDateTime()
     {
-        if (array_key_exists("recordedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["recordedDateTime"], "\DateTime") || is_null($this->_propDict["recordedDateTime"])) {
+        if (array_key_exists("recordedDateTime", $this->_propDict) && !is_null($this->_propDict["recordedDateTime"])) {
+            if (is_a($this->_propDict["recordedDateTime"], "\DateTime")) {
                 return $this->_propDict["recordedDateTime"];
             } else {
                 $this->_propDict["recordedDateTime"] = new \DateTime($this->_propDict["recordedDateTime"]);

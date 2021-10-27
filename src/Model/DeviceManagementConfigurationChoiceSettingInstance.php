@@ -43,8 +43,9 @@ class DeviceManagementConfigurationChoiceSettingInstance extends DeviceManagemen
     */
     public function getChoiceSettingValue()
     {
-        if (array_key_exists("choiceSettingValue", $this->_propDict)) {
-            if (is_a($this->_propDict["choiceSettingValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationChoiceSettingValue") || is_null($this->_propDict["choiceSettingValue"])) {
+        if (array_key_exists("choiceSettingValue", $this->_propDict) && !is_null($this->_propDict["choiceSettingValue"])) {
+     
+            if (is_a($this->_propDict["choiceSettingValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationChoiceSettingValue")) {
                 return $this->_propDict["choiceSettingValue"];
             } else {
                 $this->_propDict["choiceSettingValue"] = new DeviceManagementConfigurationChoiceSettingValue($this->_propDict["choiceSettingValue"]);

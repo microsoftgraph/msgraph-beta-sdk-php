@@ -148,8 +148,8 @@ class RestrictedAppsViolation extends Entity
     */
     public function getPlatformType()
     {
-        if (array_key_exists("platformType", $this->_propDict)) {
-            if (is_a($this->_propDict["platformType"], "\Beta\Microsoft\Graph\Model\PolicyPlatformType") || is_null($this->_propDict["platformType"])) {
+        if (array_key_exists("platformType", $this->_propDict) && !is_null($this->_propDict["platformType"])) {
+            if (is_a($this->_propDict["platformType"], "\Beta\Microsoft\Graph\Model\PolicyPlatformType")) {
                 return $this->_propDict["platformType"];
             } else {
                 $this->_propDict["platformType"] = new PolicyPlatformType($this->_propDict["platformType"]);
@@ -178,22 +178,29 @@ class RestrictedAppsViolation extends Entity
      * Gets the restrictedApps
     * List of violated restricted apps
      *
-     * @return array|null The restrictedApps
+     * @return ManagedDeviceReportedApp[]|null The restrictedApps
      */
     public function getRestrictedApps()
     {
-        if (array_key_exists("restrictedApps", $this->_propDict)) {
-           return $this->_propDict["restrictedApps"];
-        } else {
-            return null;
+        if (array_key_exists('restrictedApps', $this->_propDict) && !is_null($this->_propDict['restrictedApps'])) {
+            $restrictedApps = [];
+            if (count($this->_propDict['restrictedApps']) > 0 && is_a($this->_propDict['restrictedApps'][0], 'ManagedDeviceReportedApp')) {
+                return $this->_propDict['restrictedApps'];
+            }
+            foreach ($this->_propDict['restrictedApps'] as $singleValue) {
+                $restrictedApps []= new ManagedDeviceReportedApp($singleValue);
+            }
+            $this->_propDict['restrictedApps'] = $restrictedApps;
+            return $this->_propDict['restrictedApps'];
         }
+        return null;
     }
     
     /** 
     * Sets the restrictedApps
     * List of violated restricted apps
     *
-    * @param ManagedDeviceReportedApp $val The restrictedApps
+    * @param ManagedDeviceReportedApp[] $val The restrictedApps
     *
     * @return RestrictedAppsViolation
     */
@@ -211,8 +218,8 @@ class RestrictedAppsViolation extends Entity
     */
     public function getRestrictedAppsState()
     {
-        if (array_key_exists("restrictedAppsState", $this->_propDict)) {
-            if (is_a($this->_propDict["restrictedAppsState"], "\Beta\Microsoft\Graph\Model\RestrictedAppsState") || is_null($this->_propDict["restrictedAppsState"])) {
+        if (array_key_exists("restrictedAppsState", $this->_propDict) && !is_null($this->_propDict["restrictedAppsState"])) {
+            if (is_a($this->_propDict["restrictedAppsState"], "\Beta\Microsoft\Graph\Model\RestrictedAppsState")) {
                 return $this->_propDict["restrictedAppsState"];
             } else {
                 $this->_propDict["restrictedAppsState"] = new RestrictedAppsState($this->_propDict["restrictedAppsState"]);

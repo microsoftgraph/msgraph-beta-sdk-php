@@ -61,8 +61,8 @@ class ConditionalAccessPolicyCoverage extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLatestPolicyModifiedDateTime()
     {
-        if (array_key_exists("latestPolicyModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["latestPolicyModifiedDateTime"], "\DateTime") || is_null($this->_propDict["latestPolicyModifiedDateTime"])) {
+        if (array_key_exists("latestPolicyModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["latestPolicyModifiedDateTime"])) {
+            if (is_a($this->_propDict["latestPolicyModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["latestPolicyModifiedDateTime"];
             } else {
                 $this->_propDict["latestPolicyModifiedDateTime"] = new \DateTime($this->_propDict["latestPolicyModifiedDateTime"]);

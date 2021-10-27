@@ -27,22 +27,31 @@ class AttackSimulationRoot extends Entity
 
      /** 
      * Gets the simulations
+    * Represent attack simulation and training campaign of a tenant.
      *
-     * @return array|null The simulations
+     * @return Simulation[]|null The simulations
      */
     public function getSimulations()
     {
-        if (array_key_exists("simulations", $this->_propDict)) {
-           return $this->_propDict["simulations"];
-        } else {
-            return null;
+        if (array_key_exists('simulations', $this->_propDict) && !is_null($this->_propDict['simulations'])) {
+            $simulations = [];
+            if (count($this->_propDict['simulations']) > 0 && is_a($this->_propDict['simulations'][0], 'Simulation')) {
+                return $this->_propDict['simulations'];
+            }
+            foreach ($this->_propDict['simulations'] as $singleValue) {
+                $simulations []= new Simulation($singleValue);
+            }
+            $this->_propDict['simulations'] = $simulations;
+            return $this->_propDict['simulations'];
         }
+        return null;
     }
     
     /** 
     * Sets the simulations
+    * Represent attack simulation and training campaign of a tenant.
     *
-    * @param Simulation $val The simulations
+    * @param Simulation[] $val The simulations
     *
     * @return AttackSimulationRoot
     */

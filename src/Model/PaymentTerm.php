@@ -112,8 +112,8 @@ class PaymentTerm extends Entity
     */
     public function getDiscountPercent()
     {
-        if (array_key_exists("discountPercent", $this->_propDict)) {
-            if (is_a($this->_propDict["discountPercent"], "\Beta\Microsoft\Graph\Model\Decimal") || is_null($this->_propDict["discountPercent"])) {
+        if (array_key_exists("discountPercent", $this->_propDict) && !is_null($this->_propDict["discountPercent"])) {
+            if (is_a($this->_propDict["discountPercent"], "\Beta\Microsoft\Graph\Model\Decimal")) {
                 return $this->_propDict["discountPercent"];
             } else {
                 $this->_propDict["discountPercent"] = new Decimal($this->_propDict["discountPercent"]);
@@ -197,8 +197,8 @@ class PaymentTerm extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);

@@ -31,8 +31,9 @@ class Acl extends Entity
     */
     public function getAccessType()
     {
-        if (array_key_exists("accessType", $this->_propDict)) {
-            if (is_a($this->_propDict["accessType"], "\Beta\Microsoft\Graph\Model\AccessType") || is_null($this->_propDict["accessType"])) {
+        if (array_key_exists("accessType", $this->_propDict) && !is_null($this->_propDict["accessType"])) {
+     
+            if (is_a($this->_propDict["accessType"], "\Beta\Microsoft\Graph\Model\AccessType")) {
                 return $this->_propDict["accessType"];
             } else {
                 $this->_propDict["accessType"] = new AccessType($this->_propDict["accessType"]);
@@ -62,8 +63,9 @@ class Acl extends Entity
     */
     public function getIdentitySource()
     {
-        if (array_key_exists("identitySource", $this->_propDict)) {
-            if (is_a($this->_propDict["identitySource"], "\Beta\Microsoft\Graph\Model\IdentitySourceType") || is_null($this->_propDict["identitySource"])) {
+        if (array_key_exists("identitySource", $this->_propDict) && !is_null($this->_propDict["identitySource"])) {
+     
+            if (is_a($this->_propDict["identitySource"], "\Beta\Microsoft\Graph\Model\IdentitySourceType")) {
                 return $this->_propDict["identitySource"];
             } else {
                 $this->_propDict["identitySource"] = new IdentitySourceType($this->_propDict["identitySource"]);
@@ -93,8 +95,9 @@ class Acl extends Entity
     */
     public function getType()
     {
-        if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\AclType") || is_null($this->_propDict["type"])) {
+        if (array_key_exists("type", $this->_propDict) && !is_null($this->_propDict["type"])) {
+     
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\AclType")) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new AclType($this->_propDict["type"]);

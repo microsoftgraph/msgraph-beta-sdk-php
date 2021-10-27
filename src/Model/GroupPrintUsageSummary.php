@@ -57,8 +57,9 @@ class GroupPrintUsageSummary extends Entity
     */
     public function getGroup()
     {
-        if (array_key_exists("group", $this->_propDict)) {
-            if (is_a($this->_propDict["group"], "\Beta\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["group"])) {
+        if (array_key_exists("group", $this->_propDict) && !is_null($this->_propDict["group"])) {
+     
+            if (is_a($this->_propDict["group"], "\Beta\Microsoft\Graph\Model\Identity")) {
                 return $this->_propDict["group"];
             } else {
                 $this->_propDict["group"] = new Identity($this->_propDict["group"]);

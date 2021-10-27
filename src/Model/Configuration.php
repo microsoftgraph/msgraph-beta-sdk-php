@@ -40,7 +40,7 @@ class Configuration extends Entity
     /**
     * Sets the authorizedAppIds
     *
-    * @param string $val The value of the authorizedAppIds
+    * @param string[] $val The value of the authorizedAppIds
     *
     * @return Configuration
     */
@@ -66,7 +66,7 @@ class Configuration extends Entity
     /**
     * Sets the authorizedApps
     *
-    * @param string $val The value of the authorizedApps
+    * @param string[] $val The value of the authorizedApps
     *
     * @return Configuration
     */

@@ -61,8 +61,8 @@ class TeamsAppIcon extends Entity
     */
     public function getHostedContent()
     {
-        if (array_key_exists("hostedContent", $this->_propDict)) {
-            if (is_a($this->_propDict["hostedContent"], "\Beta\Microsoft\Graph\Model\TeamworkHostedContent") || is_null($this->_propDict["hostedContent"])) {
+        if (array_key_exists("hostedContent", $this->_propDict) && !is_null($this->_propDict["hostedContent"])) {
+            if (is_a($this->_propDict["hostedContent"], "\Beta\Microsoft\Graph\Model\TeamworkHostedContent")) {
                 return $this->_propDict["hostedContent"];
             } else {
                 $this->_propDict["hostedContent"] = new TeamworkHostedContent($this->_propDict["hostedContent"]);

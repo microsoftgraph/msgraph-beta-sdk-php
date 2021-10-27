@@ -55,21 +55,28 @@ class ServicePrincipalCreationPolicy extends PolicyBase
      /** 
      * Gets the excludes
      *
-     * @return array|null The excludes
+     * @return ServicePrincipalCreationConditionSet[]|null The excludes
      */
     public function getExcludes()
     {
-        if (array_key_exists("excludes", $this->_propDict)) {
-           return $this->_propDict["excludes"];
-        } else {
-            return null;
+        if (array_key_exists('excludes', $this->_propDict) && !is_null($this->_propDict['excludes'])) {
+            $excludes = [];
+            if (count($this->_propDict['excludes']) > 0 && is_a($this->_propDict['excludes'][0], 'ServicePrincipalCreationConditionSet')) {
+                return $this->_propDict['excludes'];
+            }
+            foreach ($this->_propDict['excludes'] as $singleValue) {
+                $excludes []= new ServicePrincipalCreationConditionSet($singleValue);
+            }
+            $this->_propDict['excludes'] = $excludes;
+            return $this->_propDict['excludes'];
         }
+        return null;
     }
     
     /** 
     * Sets the excludes
     *
-    * @param ServicePrincipalCreationConditionSet $val The excludes
+    * @param ServicePrincipalCreationConditionSet[] $val The excludes
     *
     * @return ServicePrincipalCreationPolicy
     */
@@ -83,21 +90,28 @@ class ServicePrincipalCreationPolicy extends PolicyBase
      /** 
      * Gets the includes
      *
-     * @return array|null The includes
+     * @return ServicePrincipalCreationConditionSet[]|null The includes
      */
     public function getIncludes()
     {
-        if (array_key_exists("includes", $this->_propDict)) {
-           return $this->_propDict["includes"];
-        } else {
-            return null;
+        if (array_key_exists('includes', $this->_propDict) && !is_null($this->_propDict['includes'])) {
+            $includes = [];
+            if (count($this->_propDict['includes']) > 0 && is_a($this->_propDict['includes'][0], 'ServicePrincipalCreationConditionSet')) {
+                return $this->_propDict['includes'];
+            }
+            foreach ($this->_propDict['includes'] as $singleValue) {
+                $includes []= new ServicePrincipalCreationConditionSet($singleValue);
+            }
+            $this->_propDict['includes'] = $includes;
+            return $this->_propDict['includes'];
         }
+        return null;
     }
     
     /** 
     * Sets the includes
     *
-    * @param ServicePrincipalCreationConditionSet $val The includes
+    * @param ServicePrincipalCreationConditionSet[] $val The includes
     *
     * @return ServicePrincipalCreationPolicy
     */

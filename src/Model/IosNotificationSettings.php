@@ -32,8 +32,9 @@ class IosNotificationSettings extends Entity
     */
     public function getAlertType()
     {
-        if (array_key_exists("alertType", $this->_propDict)) {
-            if (is_a($this->_propDict["alertType"], "\Beta\Microsoft\Graph\Model\IosNotificationAlertType") || is_null($this->_propDict["alertType"])) {
+        if (array_key_exists("alertType", $this->_propDict) && !is_null($this->_propDict["alertType"])) {
+     
+            if (is_a($this->_propDict["alertType"], "\Beta\Microsoft\Graph\Model\IosNotificationAlertType")) {
                 return $this->_propDict["alertType"];
             } else {
                 $this->_propDict["alertType"] = new IosNotificationAlertType($this->_propDict["alertType"]);
@@ -177,8 +178,9 @@ class IosNotificationSettings extends Entity
     */
     public function getPreviewVisibility()
     {
-        if (array_key_exists("previewVisibility", $this->_propDict)) {
-            if (is_a($this->_propDict["previewVisibility"], "\Beta\Microsoft\Graph\Model\IosNotificationPreviewVisibility") || is_null($this->_propDict["previewVisibility"])) {
+        if (array_key_exists("previewVisibility", $this->_propDict) && !is_null($this->_propDict["previewVisibility"])) {
+     
+            if (is_a($this->_propDict["previewVisibility"], "\Beta\Microsoft\Graph\Model\IosNotificationPreviewVisibility")) {
                 return $this->_propDict["previewVisibility"];
             } else {
                 $this->_propDict["previewVisibility"] = new IosNotificationPreviewVisibility($this->_propDict["previewVisibility"]);

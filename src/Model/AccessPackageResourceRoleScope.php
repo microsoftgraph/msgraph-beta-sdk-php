@@ -61,8 +61,8 @@ class AccessPackageResourceRoleScope extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -123,8 +123,8 @@ class AccessPackageResourceRoleScope extends Entity
     */
     public function getModifiedDateTime()
     {
-        if (array_key_exists("modifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
+        if (array_key_exists("modifiedDateTime", $this->_propDict) && !is_null($this->_propDict["modifiedDateTime"])) {
+            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["modifiedDateTime"];
             } else {
                 $this->_propDict["modifiedDateTime"] = new \DateTime($this->_propDict["modifiedDateTime"]);
@@ -156,8 +156,8 @@ class AccessPackageResourceRoleScope extends Entity
     */
     public function getAccessPackageResourceRole()
     {
-        if (array_key_exists("accessPackageResourceRole", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageResourceRole"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceRole") || is_null($this->_propDict["accessPackageResourceRole"])) {
+        if (array_key_exists("accessPackageResourceRole", $this->_propDict) && !is_null($this->_propDict["accessPackageResourceRole"])) {
+            if (is_a($this->_propDict["accessPackageResourceRole"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceRole")) {
                 return $this->_propDict["accessPackageResourceRole"];
             } else {
                 $this->_propDict["accessPackageResourceRole"] = new AccessPackageResourceRole($this->_propDict["accessPackageResourceRole"]);
@@ -189,8 +189,8 @@ class AccessPackageResourceRoleScope extends Entity
     */
     public function getAccessPackageResourceScope()
     {
-        if (array_key_exists("accessPackageResourceScope", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageResourceScope"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceScope") || is_null($this->_propDict["accessPackageResourceScope"])) {
+        if (array_key_exists("accessPackageResourceScope", $this->_propDict) && !is_null($this->_propDict["accessPackageResourceScope"])) {
+            if (is_a($this->_propDict["accessPackageResourceScope"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceScope")) {
                 return $this->_propDict["accessPackageResourceScope"];
             } else {
                 $this->_propDict["accessPackageResourceScope"] = new AccessPackageResourceScope($this->_propDict["accessPackageResourceScope"]);

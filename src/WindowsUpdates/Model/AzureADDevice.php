@@ -29,22 +29,29 @@ class AzureADDevice extends UpdatableAsset
      * Gets the enrollments
     * Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.
      *
-     * @return array|null The enrollments
+     * @return UpdatableAssetEnrollment[]|null The enrollments
      */
     public function getEnrollments()
     {
-        if (array_key_exists("enrollments", $this->_propDict)) {
-           return $this->_propDict["enrollments"];
-        } else {
-            return null;
+        if (array_key_exists('enrollments', $this->_propDict) && !is_null($this->_propDict['enrollments'])) {
+            $enrollments = [];
+            if (count($this->_propDict['enrollments']) > 0 && is_a($this->_propDict['enrollments'][0], 'UpdatableAssetEnrollment')) {
+                return $this->_propDict['enrollments'];
+            }
+            foreach ($this->_propDict['enrollments'] as $singleValue) {
+                $enrollments []= new UpdatableAssetEnrollment($singleValue);
+            }
+            $this->_propDict['enrollments'] = $enrollments;
+            return $this->_propDict['enrollments'];
         }
+        return null;
     }
     
     /** 
     * Sets the enrollments
     * Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.
     *
-    * @param UpdatableAssetEnrollment $val The enrollments
+    * @param UpdatableAssetEnrollment[] $val The enrollments
     *
     * @return AzureADDevice
     */
@@ -59,22 +66,29 @@ class AzureADDevice extends UpdatableAsset
      * Gets the errors
     * Specifies any errors that prevent the device from being enrolled in update management or receving deployed content. Read-only. Returned by default.
      *
-     * @return array|null The errors
+     * @return UpdatableAssetError[]|null The errors
      */
     public function getErrors()
     {
-        if (array_key_exists("errors", $this->_propDict)) {
-           return $this->_propDict["errors"];
-        } else {
-            return null;
+        if (array_key_exists('errors', $this->_propDict) && !is_null($this->_propDict['errors'])) {
+            $errors = [];
+            if (count($this->_propDict['errors']) > 0 && is_a($this->_propDict['errors'][0], 'UpdatableAssetError')) {
+                return $this->_propDict['errors'];
+            }
+            foreach ($this->_propDict['errors'] as $singleValue) {
+                $errors []= new UpdatableAssetError($singleValue);
+            }
+            $this->_propDict['errors'] = $errors;
+            return $this->_propDict['errors'];
         }
+        return null;
     }
     
     /** 
     * Sets the errors
     * Specifies any errors that prevent the device from being enrolled in update management or receving deployed content. Read-only. Returned by default.
     *
-    * @param UpdatableAssetError $val The errors
+    * @param UpdatableAssetError[] $val The errors
     *
     * @return AzureADDevice
     */

@@ -230,22 +230,29 @@ class UnifiedRoleAssignmentMultiple extends Entity
      * Gets the appScopes
     * Read-only collection with details of the app specific scopes when the assignment scopes are app specific. Containment entity. Read-only.
      *
-     * @return array|null The appScopes
+     * @return AppScope[]|null The appScopes
      */
     public function getAppScopes()
     {
-        if (array_key_exists("appScopes", $this->_propDict)) {
-           return $this->_propDict["appScopes"];
-        } else {
-            return null;
+        if (array_key_exists('appScopes', $this->_propDict) && !is_null($this->_propDict['appScopes'])) {
+            $appScopes = [];
+            if (count($this->_propDict['appScopes']) > 0 && is_a($this->_propDict['appScopes'][0], 'AppScope')) {
+                return $this->_propDict['appScopes'];
+            }
+            foreach ($this->_propDict['appScopes'] as $singleValue) {
+                $appScopes []= new AppScope($singleValue);
+            }
+            $this->_propDict['appScopes'] = $appScopes;
+            return $this->_propDict['appScopes'];
         }
+        return null;
     }
     
     /** 
     * Sets the appScopes
     * Read-only collection with details of the app specific scopes when the assignment scopes are app specific. Containment entity. Read-only.
     *
-    * @param AppScope $val The appScopes
+    * @param AppScope[] $val The appScopes
     *
     * @return UnifiedRoleAssignmentMultiple
     */
@@ -260,22 +267,29 @@ class UnifiedRoleAssignmentMultiple extends Entity
      * Gets the directoryScopes
     * Read-only collection referencing the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
      *
-     * @return array|null The directoryScopes
+     * @return DirectoryObject[]|null The directoryScopes
      */
     public function getDirectoryScopes()
     {
-        if (array_key_exists("directoryScopes", $this->_propDict)) {
-           return $this->_propDict["directoryScopes"];
-        } else {
-            return null;
+        if (array_key_exists('directoryScopes', $this->_propDict) && !is_null($this->_propDict['directoryScopes'])) {
+            $directoryScopes = [];
+            if (count($this->_propDict['directoryScopes']) > 0 && is_a($this->_propDict['directoryScopes'][0], 'DirectoryObject')) {
+                return $this->_propDict['directoryScopes'];
+            }
+            foreach ($this->_propDict['directoryScopes'] as $singleValue) {
+                $directoryScopes []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['directoryScopes'] = $directoryScopes;
+            return $this->_propDict['directoryScopes'];
         }
+        return null;
     }
     
     /** 
     * Sets the directoryScopes
     * Read-only collection referencing the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
     *
-    * @param DirectoryObject $val The directoryScopes
+    * @param DirectoryObject[] $val The directoryScopes
     *
     * @return UnifiedRoleAssignmentMultiple
     */
@@ -290,22 +304,29 @@ class UnifiedRoleAssignmentMultiple extends Entity
      * Gets the principals
     * Read-only collection referencing the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
      *
-     * @return array|null The principals
+     * @return DirectoryObject[]|null The principals
      */
     public function getPrincipals()
     {
-        if (array_key_exists("principals", $this->_propDict)) {
-           return $this->_propDict["principals"];
-        } else {
-            return null;
+        if (array_key_exists('principals', $this->_propDict) && !is_null($this->_propDict['principals'])) {
+            $principals = [];
+            if (count($this->_propDict['principals']) > 0 && is_a($this->_propDict['principals'][0], 'DirectoryObject')) {
+                return $this->_propDict['principals'];
+            }
+            foreach ($this->_propDict['principals'] as $singleValue) {
+                $principals []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['principals'] = $principals;
+            return $this->_propDict['principals'];
         }
+        return null;
     }
     
     /** 
     * Sets the principals
     * Read-only collection referencing the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
     *
-    * @param DirectoryObject $val The principals
+    * @param DirectoryObject[] $val The principals
     *
     * @return UnifiedRoleAssignmentMultiple
     */
@@ -323,8 +344,8 @@ class UnifiedRoleAssignmentMultiple extends Entity
     */
     public function getRoleDefinition()
     {
-        if (array_key_exists("roleDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["roleDefinition"], "\Beta\Microsoft\Graph\Model\UnifiedRoleDefinition") || is_null($this->_propDict["roleDefinition"])) {
+        if (array_key_exists("roleDefinition", $this->_propDict) && !is_null($this->_propDict["roleDefinition"])) {
+            if (is_a($this->_propDict["roleDefinition"], "\Beta\Microsoft\Graph\Model\UnifiedRoleDefinition")) {
                 return $this->_propDict["roleDefinition"];
             } else {
                 $this->_propDict["roleDefinition"] = new UnifiedRoleDefinition($this->_propDict["roleDefinition"]);

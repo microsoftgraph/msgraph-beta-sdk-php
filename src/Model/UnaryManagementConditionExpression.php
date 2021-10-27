@@ -32,8 +32,9 @@ class UnaryManagementConditionExpression extends ManagementConditionExpressionMo
     */
     public function getOperand()
     {
-        if (array_key_exists("operand", $this->_propDict)) {
-            if (is_a($this->_propDict["operand"], "\Beta\Microsoft\Graph\Model\ManagementConditionExpressionModel") || is_null($this->_propDict["operand"])) {
+        if (array_key_exists("operand", $this->_propDict) && !is_null($this->_propDict["operand"])) {
+     
+            if (is_a($this->_propDict["operand"], "\Beta\Microsoft\Graph\Model\ManagementConditionExpressionModel")) {
                 return $this->_propDict["operand"];
             } else {
                 $this->_propDict["operand"] = new ManagementConditionExpressionModel($this->_propDict["operand"]);
@@ -65,8 +66,9 @@ class UnaryManagementConditionExpression extends ManagementConditionExpressionMo
     */
     public function getOperator()
     {
-        if (array_key_exists("operator", $this->_propDict)) {
-            if (is_a($this->_propDict["operator"], "\Beta\Microsoft\Graph\Model\UnaryManagementConditionExpressionOperatorType") || is_null($this->_propDict["operator"])) {
+        if (array_key_exists("operator", $this->_propDict) && !is_null($this->_propDict["operator"])) {
+     
+            if (is_a($this->_propDict["operator"], "\Beta\Microsoft\Graph\Model\UnaryManagementConditionExpressionOperatorType")) {
                 return $this->_propDict["operator"];
             } else {
                 $this->_propDict["operator"] = new UnaryManagementConditionExpressionOperatorType($this->_propDict["operator"]);

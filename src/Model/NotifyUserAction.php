@@ -31,8 +31,9 @@ class NotifyUserAction extends DlpActionInfo
     */
     public function getActionLastModifiedDateTime()
     {
-        if (array_key_exists("actionLastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["actionLastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["actionLastModifiedDateTime"])) {
+        if (array_key_exists("actionLastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["actionLastModifiedDateTime"])) {
+     
+            if (is_a($this->_propDict["actionLastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["actionLastModifiedDateTime"];
             } else {
                 $this->_propDict["actionLastModifiedDateTime"] = new \DateTime($this->_propDict["actionLastModifiedDateTime"]);
@@ -88,8 +89,9 @@ class NotifyUserAction extends DlpActionInfo
     */
     public function getOverrideOption()
     {
-        if (array_key_exists("overrideOption", $this->_propDict)) {
-            if (is_a($this->_propDict["overrideOption"], "\Beta\Microsoft\Graph\Model\OverrideOption") || is_null($this->_propDict["overrideOption"])) {
+        if (array_key_exists("overrideOption", $this->_propDict) && !is_null($this->_propDict["overrideOption"])) {
+     
+            if (is_a($this->_propDict["overrideOption"], "\Beta\Microsoft\Graph\Model\OverrideOption")) {
                 return $this->_propDict["overrideOption"];
             } else {
                 $this->_propDict["overrideOption"] = new OverrideOption($this->_propDict["overrideOption"]);
@@ -154,7 +156,7 @@ class NotifyUserAction extends DlpActionInfo
     /**
     * Sets the recipients
     *
-    * @param string $val The value of the recipients
+    * @param string[] $val The value of the recipients
     *
     * @return NotifyUserAction
     */

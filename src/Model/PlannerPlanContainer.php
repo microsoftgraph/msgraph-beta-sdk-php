@@ -60,8 +60,9 @@ class PlannerPlanContainer extends Entity
     */
     public function getType()
     {
-        if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PlannerContainerType") || is_null($this->_propDict["type"])) {
+        if (array_key_exists("type", $this->_propDict) && !is_null($this->_propDict["type"])) {
+     
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PlannerContainerType")) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new PlannerContainerType($this->_propDict["type"]);

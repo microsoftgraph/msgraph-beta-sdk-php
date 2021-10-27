@@ -29,22 +29,29 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration
      * Gets the airPrintDestinations
     * An array of AirPrint printers that should always be shown. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The airPrintDestinations
+     * @return AirPrintDestination[]|null The airPrintDestinations
      */
     public function getAirPrintDestinations()
     {
-        if (array_key_exists("airPrintDestinations", $this->_propDict)) {
-           return $this->_propDict["airPrintDestinations"];
-        } else {
-            return null;
+        if (array_key_exists('airPrintDestinations', $this->_propDict) && !is_null($this->_propDict['airPrintDestinations'])) {
+            $airPrintDestinations = [];
+            if (count($this->_propDict['airPrintDestinations']) > 0 && is_a($this->_propDict['airPrintDestinations'][0], 'AirPrintDestination')) {
+                return $this->_propDict['airPrintDestinations'];
+            }
+            foreach ($this->_propDict['airPrintDestinations'] as $singleValue) {
+                $airPrintDestinations []= new AirPrintDestination($singleValue);
+            }
+            $this->_propDict['airPrintDestinations'] = $airPrintDestinations;
+            return $this->_propDict['airPrintDestinations'];
         }
+        return null;
     }
     
     /** 
     * Sets the airPrintDestinations
     * An array of AirPrint printers that should always be shown. This collection can contain a maximum of 500 elements.
     *
-    * @param AirPrintDestination $val The airPrintDestinations
+    * @param AirPrintDestination[] $val The airPrintDestinations
     *
     * @return AppleDeviceFeaturesConfigurationBase
     */

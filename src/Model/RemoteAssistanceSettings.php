@@ -61,8 +61,8 @@ class RemoteAssistanceSettings extends Entity
     */
     public function getRemoteAssistanceState()
     {
-        if (array_key_exists("remoteAssistanceState", $this->_propDict)) {
-            if (is_a($this->_propDict["remoteAssistanceState"], "\Beta\Microsoft\Graph\Model\RemoteAssistanceState") || is_null($this->_propDict["remoteAssistanceState"])) {
+        if (array_key_exists("remoteAssistanceState", $this->_propDict) && !is_null($this->_propDict["remoteAssistanceState"])) {
+            if (is_a($this->_propDict["remoteAssistanceState"], "\Beta\Microsoft\Graph\Model\RemoteAssistanceState")) {
                 return $this->_propDict["remoteAssistanceState"];
             } else {
                 $this->_propDict["remoteAssistanceState"] = new RemoteAssistanceState($this->_propDict["remoteAssistanceState"]);

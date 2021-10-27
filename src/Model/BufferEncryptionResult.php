@@ -31,8 +31,9 @@ class BufferEncryptionResult extends Entity
     */
     public function getEncryptedBuffer()
     {
-        if (array_key_exists("encryptedBuffer", $this->_propDict)) {
-            if (is_a($this->_propDict["encryptedBuffer"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["encryptedBuffer"])) {
+        if (array_key_exists("encryptedBuffer", $this->_propDict) && !is_null($this->_propDict["encryptedBuffer"])) {
+     
+            if (is_a($this->_propDict["encryptedBuffer"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["encryptedBuffer"];
             } else {
                 $this->_propDict["encryptedBuffer"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["encryptedBuffer"]);
@@ -62,8 +63,9 @@ class BufferEncryptionResult extends Entity
     */
     public function getPublishingLicense()
     {
-        if (array_key_exists("publishingLicense", $this->_propDict)) {
-            if (is_a($this->_propDict["publishingLicense"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["publishingLicense"])) {
+        if (array_key_exists("publishingLicense", $this->_propDict) && !is_null($this->_propDict["publishingLicense"])) {
+     
+            if (is_a($this->_propDict["publishingLicense"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["publishingLicense"];
             } else {
                 $this->_propDict["publishingLicense"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["publishingLicense"]);

@@ -148,8 +148,8 @@ class AccessPackageResourceRole extends Entity
     */
     public function getAccessPackageResource()
     {
-        if (array_key_exists("accessPackageResource", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageResource"], "\Beta\Microsoft\Graph\Model\AccessPackageResource") || is_null($this->_propDict["accessPackageResource"])) {
+        if (array_key_exists("accessPackageResource", $this->_propDict) && !is_null($this->_propDict["accessPackageResource"])) {
+            if (is_a($this->_propDict["accessPackageResource"], "\Beta\Microsoft\Graph\Model\AccessPackageResource")) {
                 return $this->_propDict["accessPackageResource"];
             } else {
                 $this->_propDict["accessPackageResource"] = new AccessPackageResource($this->_propDict["accessPackageResource"]);

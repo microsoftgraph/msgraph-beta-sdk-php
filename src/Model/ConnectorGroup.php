@@ -32,8 +32,8 @@ class ConnectorGroup extends Entity
     */
     public function getConnectorGroupType()
     {
-        if (array_key_exists("connectorGroupType", $this->_propDict)) {
-            if (is_a($this->_propDict["connectorGroupType"], "\Beta\Microsoft\Graph\Model\ConnectorGroupType") || is_null($this->_propDict["connectorGroupType"])) {
+        if (array_key_exists("connectorGroupType", $this->_propDict) && !is_null($this->_propDict["connectorGroupType"])) {
+            if (is_a($this->_propDict["connectorGroupType"], "\Beta\Microsoft\Graph\Model\ConnectorGroupType")) {
                 return $this->_propDict["connectorGroupType"];
             } else {
                 $this->_propDict["connectorGroupType"] = new ConnectorGroupType($this->_propDict["connectorGroupType"]);
@@ -123,8 +123,8 @@ class ConnectorGroup extends Entity
     */
     public function getRegion()
     {
-        if (array_key_exists("region", $this->_propDict)) {
-            if (is_a($this->_propDict["region"], "\Beta\Microsoft\Graph\Model\ConnectorGroupRegion") || is_null($this->_propDict["region"])) {
+        if (array_key_exists("region", $this->_propDict) && !is_null($this->_propDict["region"])) {
+            if (is_a($this->_propDict["region"], "\Beta\Microsoft\Graph\Model\ConnectorGroupRegion")) {
                 return $this->_propDict["region"];
             } else {
                 $this->_propDict["region"] = new ConnectorGroupRegion($this->_propDict["region"]);
@@ -153,22 +153,29 @@ class ConnectorGroup extends Entity
      * Gets the applications
     * Read-only. Nullable.
      *
-     * @return array|null The applications
+     * @return Application[]|null The applications
      */
     public function getApplications()
     {
-        if (array_key_exists("applications", $this->_propDict)) {
-           return $this->_propDict["applications"];
-        } else {
-            return null;
+        if (array_key_exists('applications', $this->_propDict) && !is_null($this->_propDict['applications'])) {
+            $applications = [];
+            if (count($this->_propDict['applications']) > 0 && is_a($this->_propDict['applications'][0], 'Application')) {
+                return $this->_propDict['applications'];
+            }
+            foreach ($this->_propDict['applications'] as $singleValue) {
+                $applications []= new Application($singleValue);
+            }
+            $this->_propDict['applications'] = $applications;
+            return $this->_propDict['applications'];
         }
+        return null;
     }
     
     /** 
     * Sets the applications
     * Read-only. Nullable.
     *
-    * @param Application $val The applications
+    * @param Application[] $val The applications
     *
     * @return ConnectorGroup
     */
@@ -183,22 +190,29 @@ class ConnectorGroup extends Entity
      * Gets the members
     * Read-only. Nullable.
      *
-     * @return array|null The members
+     * @return Connector[]|null The members
      */
     public function getMembers()
     {
-        if (array_key_exists("members", $this->_propDict)) {
-           return $this->_propDict["members"];
-        } else {
-            return null;
+        if (array_key_exists('members', $this->_propDict) && !is_null($this->_propDict['members'])) {
+            $members = [];
+            if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'Connector')) {
+                return $this->_propDict['members'];
+            }
+            foreach ($this->_propDict['members'] as $singleValue) {
+                $members []= new Connector($singleValue);
+            }
+            $this->_propDict['members'] = $members;
+            return $this->_propDict['members'];
         }
+        return null;
     }
     
     /** 
     * Sets the members
     * Read-only. Nullable.
     *
-    * @param Connector $val The members
+    * @param Connector[] $val The members
     *
     * @return ConnectorGroup
     */

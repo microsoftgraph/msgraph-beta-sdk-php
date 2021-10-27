@@ -264,8 +264,8 @@ class IosWiFiConfiguration extends DeviceConfiguration
     */
     public function getProxySettings()
     {
-        if (array_key_exists("proxySettings", $this->_propDict)) {
-            if (is_a($this->_propDict["proxySettings"], "\Beta\Microsoft\Graph\Model\WiFiProxySetting") || is_null($this->_propDict["proxySettings"])) {
+        if (array_key_exists("proxySettings", $this->_propDict) && !is_null($this->_propDict["proxySettings"])) {
+            if (is_a($this->_propDict["proxySettings"], "\Beta\Microsoft\Graph\Model\WiFiProxySetting")) {
                 return $this->_propDict["proxySettings"];
             } else {
                 $this->_propDict["proxySettings"] = new WiFiProxySetting($this->_propDict["proxySettings"]);
@@ -326,8 +326,8 @@ class IosWiFiConfiguration extends DeviceConfiguration
     */
     public function getWiFiSecurityType()
     {
-        if (array_key_exists("wiFiSecurityType", $this->_propDict)) {
-            if (is_a($this->_propDict["wiFiSecurityType"], "\Beta\Microsoft\Graph\Model\WiFiSecurityType") || is_null($this->_propDict["wiFiSecurityType"])) {
+        if (array_key_exists("wiFiSecurityType", $this->_propDict) && !is_null($this->_propDict["wiFiSecurityType"])) {
+            if (is_a($this->_propDict["wiFiSecurityType"], "\Beta\Microsoft\Graph\Model\WiFiSecurityType")) {
                 return $this->_propDict["wiFiSecurityType"];
             } else {
                 $this->_propDict["wiFiSecurityType"] = new WiFiSecurityType($this->_propDict["wiFiSecurityType"]);

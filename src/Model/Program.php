@@ -87,22 +87,29 @@ class Program extends Entity
      * Gets the controls
     * Controls associated with the program.
      *
-     * @return array|null The controls
+     * @return ProgramControl[]|null The controls
      */
     public function getControls()
     {
-        if (array_key_exists("controls", $this->_propDict)) {
-           return $this->_propDict["controls"];
-        } else {
-            return null;
+        if (array_key_exists('controls', $this->_propDict) && !is_null($this->_propDict['controls'])) {
+            $controls = [];
+            if (count($this->_propDict['controls']) > 0 && is_a($this->_propDict['controls'][0], 'ProgramControl')) {
+                return $this->_propDict['controls'];
+            }
+            foreach ($this->_propDict['controls'] as $singleValue) {
+                $controls []= new ProgramControl($singleValue);
+            }
+            $this->_propDict['controls'] = $controls;
+            return $this->_propDict['controls'];
         }
+        return null;
     }
     
     /** 
     * Sets the controls
     * Controls associated with the program.
     *
-    * @param ProgramControl $val The controls
+    * @param ProgramControl[] $val The controls
     *
     * @return Program
     */

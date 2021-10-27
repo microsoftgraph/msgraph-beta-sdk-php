@@ -61,8 +61,8 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
     */
     public function getLicenseType()
     {
-        if (array_key_exists("licenseType", $this->_propDict)) {
-            if (is_a($this->_propDict["licenseType"], "\Beta\Microsoft\Graph\Model\EditionUpgradeLicenseType") || is_null($this->_propDict["licenseType"])) {
+        if (array_key_exists("licenseType", $this->_propDict) && !is_null($this->_propDict["licenseType"])) {
+            if (is_a($this->_propDict["licenseType"], "\Beta\Microsoft\Graph\Model\EditionUpgradeLicenseType")) {
                 return $this->_propDict["licenseType"];
             } else {
                 $this->_propDict["licenseType"] = new EditionUpgradeLicenseType($this->_propDict["licenseType"]);
@@ -123,8 +123,8 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
     */
     public function getTargetEdition()
     {
-        if (array_key_exists("targetEdition", $this->_propDict)) {
-            if (is_a($this->_propDict["targetEdition"], "\Beta\Microsoft\Graph\Model\Windows10EditionType") || is_null($this->_propDict["targetEdition"])) {
+        if (array_key_exists("targetEdition", $this->_propDict) && !is_null($this->_propDict["targetEdition"])) {
+            if (is_a($this->_propDict["targetEdition"], "\Beta\Microsoft\Graph\Model\Windows10EditionType")) {
                 return $this->_propDict["targetEdition"];
             } else {
                 $this->_propDict["targetEdition"] = new Windows10EditionType($this->_propDict["targetEdition"]);
@@ -156,8 +156,8 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
     */
     public function getWindowsSMode()
     {
-        if (array_key_exists("windowsSMode", $this->_propDict)) {
-            if (is_a($this->_propDict["windowsSMode"], "\Beta\Microsoft\Graph\Model\WindowsSModeConfiguration") || is_null($this->_propDict["windowsSMode"])) {
+        if (array_key_exists("windowsSMode", $this->_propDict) && !is_null($this->_propDict["windowsSMode"])) {
+            if (is_a($this->_propDict["windowsSMode"], "\Beta\Microsoft\Graph\Model\WindowsSModeConfiguration")) {
                 return $this->_propDict["windowsSMode"];
             } else {
                 $this->_propDict["windowsSMode"] = new WindowsSModeConfiguration($this->_propDict["windowsSMode"]);

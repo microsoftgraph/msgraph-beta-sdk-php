@@ -32,8 +32,8 @@ class SharedPCConfiguration extends DeviceConfiguration
     */
     public function getAccountManagerPolicy()
     {
-        if (array_key_exists("accountManagerPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["accountManagerPolicy"], "\Beta\Microsoft\Graph\Model\SharedPCAccountManagerPolicy") || is_null($this->_propDict["accountManagerPolicy"])) {
+        if (array_key_exists("accountManagerPolicy", $this->_propDict) && !is_null($this->_propDict["accountManagerPolicy"])) {
+            if (is_a($this->_propDict["accountManagerPolicy"], "\Beta\Microsoft\Graph\Model\SharedPCAccountManagerPolicy")) {
                 return $this->_propDict["accountManagerPolicy"];
             } else {
                 $this->_propDict["accountManagerPolicy"] = new SharedPCAccountManagerPolicy($this->_propDict["accountManagerPolicy"]);
@@ -65,8 +65,8 @@ class SharedPCConfiguration extends DeviceConfiguration
     */
     public function getAllowedAccounts()
     {
-        if (array_key_exists("allowedAccounts", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedAccounts"], "\Beta\Microsoft\Graph\Model\SharedPCAllowedAccountType") || is_null($this->_propDict["allowedAccounts"])) {
+        if (array_key_exists("allowedAccounts", $this->_propDict) && !is_null($this->_propDict["allowedAccounts"])) {
+            if (is_a($this->_propDict["allowedAccounts"], "\Beta\Microsoft\Graph\Model\SharedPCAllowedAccountType")) {
                 return $this->_propDict["allowedAccounts"];
             } else {
                 $this->_propDict["allowedAccounts"] = new SharedPCAllowedAccountType($this->_propDict["allowedAccounts"]);
@@ -272,8 +272,8 @@ class SharedPCConfiguration extends DeviceConfiguration
     */
     public function getFastFirstSignIn()
     {
-        if (array_key_exists("fastFirstSignIn", $this->_propDict)) {
-            if (is_a($this->_propDict["fastFirstSignIn"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["fastFirstSignIn"])) {
+        if (array_key_exists("fastFirstSignIn", $this->_propDict) && !is_null($this->_propDict["fastFirstSignIn"])) {
+            if (is_a($this->_propDict["fastFirstSignIn"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["fastFirstSignIn"];
             } else {
                 $this->_propDict["fastFirstSignIn"] = new Enablement($this->_propDict["fastFirstSignIn"]);
@@ -392,8 +392,8 @@ class SharedPCConfiguration extends DeviceConfiguration
     */
     public function getLocalStorage()
     {
-        if (array_key_exists("localStorage", $this->_propDict)) {
-            if (is_a($this->_propDict["localStorage"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["localStorage"])) {
+        if (array_key_exists("localStorage", $this->_propDict) && !is_null($this->_propDict["localStorage"])) {
+            if (is_a($this->_propDict["localStorage"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["localStorage"];
             } else {
                 $this->_propDict["localStorage"] = new Enablement($this->_propDict["localStorage"]);
@@ -425,8 +425,8 @@ class SharedPCConfiguration extends DeviceConfiguration
     */
     public function getMaintenanceStartTime()
     {
-        if (array_key_exists("maintenanceStartTime", $this->_propDict)) {
-            if (is_a($this->_propDict["maintenanceStartTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["maintenanceStartTime"])) {
+        if (array_key_exists("maintenanceStartTime", $this->_propDict) && !is_null($this->_propDict["maintenanceStartTime"])) {
+            if (is_a($this->_propDict["maintenanceStartTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
                 return $this->_propDict["maintenanceStartTime"];
             } else {
                 $this->_propDict["maintenanceStartTime"] = new TimeOfDay($this->_propDict["maintenanceStartTime"]);
@@ -458,8 +458,8 @@ class SharedPCConfiguration extends DeviceConfiguration
     */
     public function getSetAccountManager()
     {
-        if (array_key_exists("setAccountManager", $this->_propDict)) {
-            if (is_a($this->_propDict["setAccountManager"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["setAccountManager"])) {
+        if (array_key_exists("setAccountManager", $this->_propDict) && !is_null($this->_propDict["setAccountManager"])) {
+            if (is_a($this->_propDict["setAccountManager"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["setAccountManager"];
             } else {
                 $this->_propDict["setAccountManager"] = new Enablement($this->_propDict["setAccountManager"]);
@@ -491,8 +491,8 @@ class SharedPCConfiguration extends DeviceConfiguration
     */
     public function getSetEduPolicies()
     {
-        if (array_key_exists("setEduPolicies", $this->_propDict)) {
-            if (is_a($this->_propDict["setEduPolicies"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["setEduPolicies"])) {
+        if (array_key_exists("setEduPolicies", $this->_propDict) && !is_null($this->_propDict["setEduPolicies"])) {
+            if (is_a($this->_propDict["setEduPolicies"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["setEduPolicies"];
             } else {
                 $this->_propDict["setEduPolicies"] = new Enablement($this->_propDict["setEduPolicies"]);
@@ -524,8 +524,8 @@ class SharedPCConfiguration extends DeviceConfiguration
     */
     public function getSetPowerPolicies()
     {
-        if (array_key_exists("setPowerPolicies", $this->_propDict)) {
-            if (is_a($this->_propDict["setPowerPolicies"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["setPowerPolicies"])) {
+        if (array_key_exists("setPowerPolicies", $this->_propDict) && !is_null($this->_propDict["setPowerPolicies"])) {
+            if (is_a($this->_propDict["setPowerPolicies"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["setPowerPolicies"];
             } else {
                 $this->_propDict["setPowerPolicies"] = new Enablement($this->_propDict["setPowerPolicies"]);
@@ -557,8 +557,8 @@ class SharedPCConfiguration extends DeviceConfiguration
     */
     public function getSignInOnResume()
     {
-        if (array_key_exists("signInOnResume", $this->_propDict)) {
-            if (is_a($this->_propDict["signInOnResume"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["signInOnResume"])) {
+        if (array_key_exists("signInOnResume", $this->_propDict) && !is_null($this->_propDict["signInOnResume"])) {
+            if (is_a($this->_propDict["signInOnResume"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["signInOnResume"];
             } else {
                 $this->_propDict["signInOnResume"] = new Enablement($this->_propDict["signInOnResume"]);

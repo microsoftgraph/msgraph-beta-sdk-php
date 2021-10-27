@@ -28,18 +28,22 @@ class PasswordSingleSignOnCredentialSet extends Entity
     * Gets the credentials
     * A list of credential objects that define the complete sign in flow.
     *
-    * @return Credential|null The credentials
+    * @return Credential[]|null The credentials
     */
     public function getCredentials()
     {
-        if (array_key_exists("credentials", $this->_propDict)) {
-            if (is_a($this->_propDict["credentials"], "\Beta\Microsoft\Graph\Model\Credential") || is_null($this->_propDict["credentials"])) {
-                return $this->_propDict["credentials"];
-            } else {
-                $this->_propDict["credentials"] = new Credential($this->_propDict["credentials"]);
-                return $this->_propDict["credentials"];
+        if (array_key_exists("credentials", $this->_propDict) && !is_null($this->_propDict["credentials"])) {
+       
+            if (count($this->_propDict['credentials']) > 0 && is_a($this->_propDict['credentials'][0], 'Credential')) {
+               return $this->_propDict['credentials'];
             }
-        }
+            $credentials = [];
+            foreach ($this->_propDict['credentials'] as $singleValue) {
+               $credentials []= new Credential($singleValue);
+            }
+            $this->_propDict['credentials'] = $credentials;
+            return $this->_propDict['credentials'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class PasswordSingleSignOnCredentialSet extends Entity
     * Sets the credentials
     * A list of credential objects that define the complete sign in flow.
     *
-    * @param Credential $val The value to assign to the credentials
+    * @param Credential[] $val The value to assign to the credentials
     *
     * @return PasswordSingleSignOnCredentialSet The PasswordSingleSignOnCredentialSet
     */

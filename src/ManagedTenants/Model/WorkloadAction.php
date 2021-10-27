@@ -60,8 +60,9 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getCategory()
     {
-        if (array_key_exists("category", $this->_propDict)) {
-            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadActionCategory") || is_null($this->_propDict["category"])) {
+        if (array_key_exists("category", $this->_propDict) && !is_null($this->_propDict["category"])) {
+     
+            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadActionCategory")) {
                 return $this->_propDict["category"];
             } else {
                 $this->_propDict["category"] = new WorkloadActionCategory($this->_propDict["category"]);
@@ -173,18 +174,22 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the settings
     * The collection of settings associated with the workload action. Optional. Read-only.
     *
-    * @return Setting|null The settings
+    * @return Setting[]|null The settings
     */
     public function getSettings()
     {
-        if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\ManagedTenants\Model\Setting") || is_null($this->_propDict["settings"])) {
-                return $this->_propDict["settings"];
-            } else {
-                $this->_propDict["settings"] = new Setting($this->_propDict["settings"]);
-                return $this->_propDict["settings"];
+        if (array_key_exists("settings", $this->_propDict) && !is_null($this->_propDict["settings"])) {
+       
+            if (count($this->_propDict['settings']) > 0 && is_a($this->_propDict['settings'][0], 'Setting')) {
+               return $this->_propDict['settings'];
             }
-        }
+            $settings = [];
+            foreach ($this->_propDict['settings'] as $singleValue) {
+               $settings []= new Setting($singleValue);
+            }
+            $this->_propDict['settings'] = $settings;
+            return $this->_propDict['settings'];
+            }
         return null;
     }
 
@@ -192,7 +197,7 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
     * Sets the settings
     * The collection of settings associated with the workload action. Optional. Read-only.
     *
-    * @param Setting $val The value to assign to the settings
+    * @param Setting[] $val The value to assign to the settings
     *
     * @return WorkloadAction The WorkloadAction
     */

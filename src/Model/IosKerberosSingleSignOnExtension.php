@@ -165,7 +165,7 @@ class IosKerberosSingleSignOnExtension extends IosSingleSignOnExtension
     * Sets the credentialBundleIdAccessControlList
     * Gets or sets a list of app Bundle IDs allowed to access the Kerberos Ticket Granting Ticket.
     *
-    * @param string $val The value of the credentialBundleIdAccessControlList
+    * @param string[] $val The value of the credentialBundleIdAccessControlList
     *
     * @return IosKerberosSingleSignOnExtension
     */
@@ -193,7 +193,7 @@ class IosKerberosSingleSignOnExtension extends IosSingleSignOnExtension
     * Sets the domainRealms
     * Gets or sets a list of realms for custom domain-realm mapping. Realms are case sensitive.
     *
-    * @param string $val The value of the domainRealms
+    * @param string[] $val The value of the domainRealms
     *
     * @return IosKerberosSingleSignOnExtension
     */
@@ -221,7 +221,7 @@ class IosKerberosSingleSignOnExtension extends IosSingleSignOnExtension
     * Sets the domains
     * Gets or sets a list of hosts or domain names for which the app extension performs SSO.
     *
-    * @param string $val The value of the domains
+    * @param string[] $val The value of the domains
     *
     * @return IosKerberosSingleSignOnExtension
     */
@@ -256,6 +256,34 @@ class IosKerberosSingleSignOnExtension extends IosSingleSignOnExtension
     public function setIsDefaultRealm($val)
     {
         $this->_propDict["isDefaultRealm"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the managedAppsInBundleIdACLIncluded
+    * When set to True, the Kerberos extension allows managed apps, and any apps entered with the app bundle ID to access the credential. When set to False, the Kerberos extension allows all apps to access the credential. Available for devices running iOS and iPadOS versions 14 and later.
+    *
+    * @return bool|null The managedAppsInBundleIdACLIncluded
+    */
+    public function getManagedAppsInBundleIdACLIncluded()
+    {
+        if (array_key_exists("managedAppsInBundleIdACLIncluded", $this->_propDict)) {
+            return $this->_propDict["managedAppsInBundleIdACLIncluded"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the managedAppsInBundleIdACLIncluded
+    * When set to True, the Kerberos extension allows managed apps, and any apps entered with the app bundle ID to access the credential. When set to False, the Kerberos extension allows all apps to access the credential. Available for devices running iOS and iPadOS versions 14 and later.
+    *
+    * @param bool $val The value of the managedAppsInBundleIdACLIncluded
+    *
+    * @return IosKerberosSingleSignOnExtension
+    */
+    public function setManagedAppsInBundleIdACLIncluded($val)
+    {
+        $this->_propDict["managedAppsInBundleIdACLIncluded"] = $val;
         return $this;
     }
     /**
@@ -592,6 +620,34 @@ class IosKerberosSingleSignOnExtension extends IosSingleSignOnExtension
     public function setRequireUserPresence($val)
     {
         $this->_propDict["requireUserPresence"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the signInHelpText
+    * Text displayed to the user at the Kerberos sign in window. Available for devices running iOS and iPadOS versions 14 and later.
+    *
+    * @return string|null The signInHelpText
+    */
+    public function getSignInHelpText()
+    {
+        if (array_key_exists("signInHelpText", $this->_propDict)) {
+            return $this->_propDict["signInHelpText"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the signInHelpText
+    * Text displayed to the user at the Kerberos sign in window. Available for devices running iOS and iPadOS versions 14 and later.
+    *
+    * @param string $val The value of the signInHelpText
+    *
+    * @return IosKerberosSingleSignOnExtension
+    */
+    public function setSignInHelpText($val)
+    {
+        $this->_propDict["signInHelpText"] = $val;
         return $this;
     }
     /**
