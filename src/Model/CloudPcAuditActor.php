@@ -200,8 +200,9 @@ class CloudPcAuditActor extends Entity
     */
     public function getType()
     {
-        if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\CloudPcAuditActorType") || is_null($this->_propDict["type"])) {
+        if (array_key_exists("type", $this->_propDict) && !is_null($this->_propDict["type"])) {
+     
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\CloudPcAuditActorType")) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new CloudPcAuditActorType($this->_propDict["type"]);
@@ -271,7 +272,7 @@ class CloudPcAuditActor extends Entity
     * Sets the userPermissions
     * List of user permissions and application permissions when the audit event was performed.
     *
-    * @param string $val The value of the userPermissions
+    * @param string[] $val The value of the userPermissions
     *
     * @return CloudPcAuditActor
     */
@@ -313,18 +314,22 @@ class CloudPcAuditActor extends Entity
     * Gets the userRoleScopeTags
     * List of role scope tags.
     *
-    * @return CloudPcUserRoleScopeTagInfo|null The userRoleScopeTags
+    * @return CloudPcUserRoleScopeTagInfo[]|null The userRoleScopeTags
     */
     public function getUserRoleScopeTags()
     {
-        if (array_key_exists("userRoleScopeTags", $this->_propDict)) {
-            if (is_a($this->_propDict["userRoleScopeTags"], "\Beta\Microsoft\Graph\Model\CloudPcUserRoleScopeTagInfo") || is_null($this->_propDict["userRoleScopeTags"])) {
-                return $this->_propDict["userRoleScopeTags"];
-            } else {
-                $this->_propDict["userRoleScopeTags"] = new CloudPcUserRoleScopeTagInfo($this->_propDict["userRoleScopeTags"]);
-                return $this->_propDict["userRoleScopeTags"];
+        if (array_key_exists("userRoleScopeTags", $this->_propDict) && !is_null($this->_propDict["userRoleScopeTags"])) {
+       
+            if (count($this->_propDict['userRoleScopeTags']) > 0 && is_a($this->_propDict['userRoleScopeTags'][0], 'CloudPcUserRoleScopeTagInfo')) {
+               return $this->_propDict['userRoleScopeTags'];
             }
-        }
+            $userRoleScopeTags = [];
+            foreach ($this->_propDict['userRoleScopeTags'] as $singleValue) {
+               $userRoleScopeTags []= new CloudPcUserRoleScopeTagInfo($singleValue);
+            }
+            $this->_propDict['userRoleScopeTags'] = $userRoleScopeTags;
+            return $this->_propDict['userRoleScopeTags'];
+            }
         return null;
     }
 
@@ -332,7 +337,7 @@ class CloudPcAuditActor extends Entity
     * Sets the userRoleScopeTags
     * List of role scope tags.
     *
-    * @param CloudPcUserRoleScopeTagInfo $val The value to assign to the userRoleScopeTags
+    * @param CloudPcUserRoleScopeTagInfo[] $val The value to assign to the userRoleScopeTags
     *
     * @return CloudPcAuditActor The CloudPcAuditActor
     */

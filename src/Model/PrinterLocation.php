@@ -292,7 +292,7 @@ class PrinterLocation extends Entity
     * Sets the organization
     * The organizational hierarchy that the printer belongs to. The elements should be in hierarchical order.
     *
-    * @param string $val The value of the organization
+    * @param string[] $val The value of the organization
     *
     * @return PrinterLocation
     */
@@ -514,7 +514,7 @@ class PrinterLocation extends Entity
     * Sets the subdivision
     * The subdivision that the printer is located in. The elements should be in hierarchical order.
     *
-    * @param string $val The value of the subdivision
+    * @param string[] $val The value of the subdivision
     *
     * @return PrinterLocation
     */
@@ -540,7 +540,7 @@ class PrinterLocation extends Entity
     /**
     * Sets the subunit
     *
-    * @param string $val The value of the subunit
+    * @param string[] $val The value of the subunit
     *
     * @return PrinterLocation
     */

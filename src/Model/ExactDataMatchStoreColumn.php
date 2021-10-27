@@ -40,7 +40,7 @@ class ExactDataMatchStoreColumn extends Entity
     /**
     * Sets the ignoredDelimiters
     *
-    * @param string $val The value of the ignoredDelimiters
+    * @param string[] $val The value of the ignoredDelimiters
     *
     * @return ExactDataMatchStoreColumn
     */

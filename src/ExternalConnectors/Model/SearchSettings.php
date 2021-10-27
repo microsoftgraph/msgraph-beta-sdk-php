@@ -26,26 +26,32 @@ class SearchSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the searchResultTemplates
+    * Enables the developer to define the appearance of the content and configure conditions that dictate when the template should be displayed.
     *
-    * @return DisplayTemplate|null The searchResultTemplates
+    * @return DisplayTemplate[]|null The searchResultTemplates
     */
     public function getSearchResultTemplates()
     {
-        if (array_key_exists("searchResultTemplates", $this->_propDict)) {
-            if (is_a($this->_propDict["searchResultTemplates"], "\Beta\Microsoft\Graph\ExternalConnectors\Model\DisplayTemplate") || is_null($this->_propDict["searchResultTemplates"])) {
-                return $this->_propDict["searchResultTemplates"];
-            } else {
-                $this->_propDict["searchResultTemplates"] = new DisplayTemplate($this->_propDict["searchResultTemplates"]);
-                return $this->_propDict["searchResultTemplates"];
+        if (array_key_exists("searchResultTemplates", $this->_propDict) && !is_null($this->_propDict["searchResultTemplates"])) {
+       
+            if (count($this->_propDict['searchResultTemplates']) > 0 && is_a($this->_propDict['searchResultTemplates'][0], 'DisplayTemplate')) {
+               return $this->_propDict['searchResultTemplates'];
             }
-        }
+            $searchResultTemplates = [];
+            foreach ($this->_propDict['searchResultTemplates'] as $singleValue) {
+               $searchResultTemplates []= new DisplayTemplate($singleValue);
+            }
+            $this->_propDict['searchResultTemplates'] = $searchResultTemplates;
+            return $this->_propDict['searchResultTemplates'];
+            }
         return null;
     }
 
     /**
     * Sets the searchResultTemplates
+    * Enables the developer to define the appearance of the content and configure conditions that dictate when the template should be displayed.
     *
-    * @param DisplayTemplate $val The value to assign to the searchResultTemplates
+    * @param DisplayTemplate[] $val The value to assign to the searchResultTemplates
     *
     * @return SearchSettings The SearchSettings
     */

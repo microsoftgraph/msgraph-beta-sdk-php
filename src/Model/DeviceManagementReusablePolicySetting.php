@@ -32,8 +32,8 @@ class DeviceManagementReusablePolicySetting extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -123,8 +123,8 @@ class DeviceManagementReusablePolicySetting extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -214,8 +214,8 @@ class DeviceManagementReusablePolicySetting extends Entity
     */
     public function getSettingInstance()
     {
-        if (array_key_exists("settingInstance", $this->_propDict)) {
-            if (is_a($this->_propDict["settingInstance"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingInstance") || is_null($this->_propDict["settingInstance"])) {
+        if (array_key_exists("settingInstance", $this->_propDict) && !is_null($this->_propDict["settingInstance"])) {
+            if (is_a($this->_propDict["settingInstance"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingInstance")) {
                 return $this->_propDict["settingInstance"];
             } else {
                 $this->_propDict["settingInstance"] = new DeviceManagementConfigurationSettingInstance($this->_propDict["settingInstance"]);
@@ -271,24 +271,31 @@ class DeviceManagementReusablePolicySetting extends Entity
 
      /** 
      * Gets the referencingConfigurationPolicies
-    * configuration policies referencing the current reusable setting
+    * configuration policies referencing the current reusable setting. This property is read-only.
      *
-     * @return array|null The referencingConfigurationPolicies
+     * @return DeviceManagementConfigurationPolicy[]|null The referencingConfigurationPolicies
      */
     public function getReferencingConfigurationPolicies()
     {
-        if (array_key_exists("referencingConfigurationPolicies", $this->_propDict)) {
-           return $this->_propDict["referencingConfigurationPolicies"];
-        } else {
-            return null;
+        if (array_key_exists('referencingConfigurationPolicies', $this->_propDict) && !is_null($this->_propDict['referencingConfigurationPolicies'])) {
+            $referencingConfigurationPolicies = [];
+            if (count($this->_propDict['referencingConfigurationPolicies']) > 0 && is_a($this->_propDict['referencingConfigurationPolicies'][0], 'DeviceManagementConfigurationPolicy')) {
+                return $this->_propDict['referencingConfigurationPolicies'];
+            }
+            foreach ($this->_propDict['referencingConfigurationPolicies'] as $singleValue) {
+                $referencingConfigurationPolicies []= new DeviceManagementConfigurationPolicy($singleValue);
+            }
+            $this->_propDict['referencingConfigurationPolicies'] = $referencingConfigurationPolicies;
+            return $this->_propDict['referencingConfigurationPolicies'];
         }
+        return null;
     }
     
     /** 
     * Sets the referencingConfigurationPolicies
-    * configuration policies referencing the current reusable setting
+    * configuration policies referencing the current reusable setting. This property is read-only.
     *
-    * @param DeviceManagementConfigurationPolicy $val The referencingConfigurationPolicies
+    * @param DeviceManagementConfigurationPolicy[] $val The referencingConfigurationPolicies
     *
     * @return DeviceManagementReusablePolicySetting
     */

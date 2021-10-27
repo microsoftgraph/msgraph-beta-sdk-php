@@ -88,8 +88,9 @@ class InstitutionData extends Entity
     */
     public function getLocation()
     {
-        if (array_key_exists("location", $this->_propDict)) {
-            if (is_a($this->_propDict["location"], "\Beta\Microsoft\Graph\Model\PhysicalAddress") || is_null($this->_propDict["location"])) {
+        if (array_key_exists("location", $this->_propDict) && !is_null($this->_propDict["location"])) {
+     
+            if (is_a($this->_propDict["location"], "\Beta\Microsoft\Graph\Model\PhysicalAddress")) {
                 return $this->_propDict["location"];
             } else {
                 $this->_propDict["location"] = new PhysicalAddress($this->_propDict["location"]);

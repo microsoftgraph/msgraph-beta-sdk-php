@@ -88,8 +88,9 @@ class LogonUser extends Entity
     */
     public function getAccountType()
     {
-        if (array_key_exists("accountType", $this->_propDict)) {
-            if (is_a($this->_propDict["accountType"], "\Beta\Microsoft\Graph\Model\UserAccountSecurityType") || is_null($this->_propDict["accountType"])) {
+        if (array_key_exists("accountType", $this->_propDict) && !is_null($this->_propDict["accountType"])) {
+     
+            if (is_a($this->_propDict["accountType"], "\Beta\Microsoft\Graph\Model\UserAccountSecurityType")) {
                 return $this->_propDict["accountType"];
             } else {
                 $this->_propDict["accountType"] = new UserAccountSecurityType($this->_propDict["accountType"]);
@@ -121,8 +122,9 @@ class LogonUser extends Entity
     */
     public function getFirstSeenDateTime()
     {
-        if (array_key_exists("firstSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["firstSeenDateTime"], "\DateTime") || is_null($this->_propDict["firstSeenDateTime"])) {
+        if (array_key_exists("firstSeenDateTime", $this->_propDict) && !is_null($this->_propDict["firstSeenDateTime"])) {
+     
+            if (is_a($this->_propDict["firstSeenDateTime"], "\DateTime")) {
                 return $this->_propDict["firstSeenDateTime"];
             } else {
                 $this->_propDict["firstSeenDateTime"] = new \DateTime($this->_propDict["firstSeenDateTime"]);
@@ -154,8 +156,9 @@ class LogonUser extends Entity
     */
     public function getLastSeenDateTime()
     {
-        if (array_key_exists("lastSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime") || is_null($this->_propDict["lastSeenDateTime"])) {
+        if (array_key_exists("lastSeenDateTime", $this->_propDict) && !is_null($this->_propDict["lastSeenDateTime"])) {
+     
+            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSeenDateTime"];
             } else {
                 $this->_propDict["lastSeenDateTime"] = new \DateTime($this->_propDict["lastSeenDateTime"]);
@@ -211,18 +214,22 @@ class LogonUser extends Entity
     * Gets the logonTypes
     * Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
     *
-    * @return LogonType|null The logonTypes
+    * @return LogonType[]|null The logonTypes
     */
     public function getLogonTypes()
     {
-        if (array_key_exists("logonTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["logonTypes"], "\Beta\Microsoft\Graph\Model\LogonType") || is_null($this->_propDict["logonTypes"])) {
-                return $this->_propDict["logonTypes"];
-            } else {
-                $this->_propDict["logonTypes"] = new LogonType($this->_propDict["logonTypes"]);
-                return $this->_propDict["logonTypes"];
+        if (array_key_exists("logonTypes", $this->_propDict) && !is_null($this->_propDict["logonTypes"])) {
+       
+            if (count($this->_propDict['logonTypes']) > 0 && is_a($this->_propDict['logonTypes'][0], 'LogonType')) {
+               return $this->_propDict['logonTypes'];
             }
-        }
+            $logonTypes = [];
+            foreach ($this->_propDict['logonTypes'] as $singleValue) {
+               $logonTypes []= new LogonType($singleValue);
+            }
+            $this->_propDict['logonTypes'] = $logonTypes;
+            return $this->_propDict['logonTypes'];
+            }
         return null;
     }
 
@@ -230,7 +237,7 @@ class LogonUser extends Entity
     * Sets the logonTypes
     * Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
     *
-    * @param LogonType $val The value to assign to the logonTypes
+    * @param LogonType[] $val The value to assign to the logonTypes
     *
     * @return LogonUser The LogonUser
     */

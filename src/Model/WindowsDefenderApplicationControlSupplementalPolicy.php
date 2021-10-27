@@ -32,8 +32,8 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
     */
     public function getContent()
     {
-        if (array_key_exists("content", $this->_propDict)) {
-            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["content"])) {
+        if (array_key_exists("content", $this->_propDict) && !is_null($this->_propDict["content"])) {
+            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["content"];
             } else {
                 $this->_propDict["content"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
@@ -94,8 +94,8 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
     */
     public function getCreationDateTime()
     {
-        if (array_key_exists("creationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["creationDateTime"], "\DateTime") || is_null($this->_propDict["creationDateTime"])) {
+        if (array_key_exists("creationDateTime", $this->_propDict) && !is_null($this->_propDict["creationDateTime"])) {
+            if (is_a($this->_propDict["creationDateTime"], "\DateTime")) {
                 return $this->_propDict["creationDateTime"];
             } else {
                 $this->_propDict["creationDateTime"] = new \DateTime($this->_propDict["creationDateTime"]);
@@ -185,8 +185,8 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -273,22 +273,29 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
      * Gets the assignments
     * The associated group assignments for this WindowsDefenderApplicationControl supplemental policy.
      *
-     * @return array|null The assignments
+     * @return WindowsDefenderApplicationControlSupplementalPolicyAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'WindowsDefenderApplicationControlSupplementalPolicyAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new WindowsDefenderApplicationControlSupplementalPolicyAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * The associated group assignments for this WindowsDefenderApplicationControl supplemental policy.
     *
-    * @param WindowsDefenderApplicationControlSupplementalPolicyAssignment $val The assignments
+    * @param WindowsDefenderApplicationControlSupplementalPolicyAssignment[] $val The assignments
     *
     * @return WindowsDefenderApplicationControlSupplementalPolicy
     */
@@ -306,8 +313,8 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
     */
     public function getDeploySummary()
     {
-        if (array_key_exists("deploySummary", $this->_propDict)) {
-            if (is_a($this->_propDict["deploySummary"], "\Beta\Microsoft\Graph\Model\WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary") || is_null($this->_propDict["deploySummary"])) {
+        if (array_key_exists("deploySummary", $this->_propDict) && !is_null($this->_propDict["deploySummary"])) {
+            if (is_a($this->_propDict["deploySummary"], "\Beta\Microsoft\Graph\Model\WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary")) {
                 return $this->_propDict["deploySummary"];
             } else {
                 $this->_propDict["deploySummary"] = new WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary($this->_propDict["deploySummary"]);
@@ -336,22 +343,29 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
      * Gets the deviceStatuses
     * The list of device deployment states for this WindowsDefenderApplicationControl supplemental policy.
      *
-     * @return array|null The deviceStatuses
+     * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus[]|null The deviceStatuses
      */
     public function getDeviceStatuses()
     {
-        if (array_key_exists("deviceStatuses", $this->_propDict)) {
-           return $this->_propDict["deviceStatuses"];
-        } else {
-            return null;
+        if (array_key_exists('deviceStatuses', $this->_propDict) && !is_null($this->_propDict['deviceStatuses'])) {
+            $deviceStatuses = [];
+            if (count($this->_propDict['deviceStatuses']) > 0 && is_a($this->_propDict['deviceStatuses'][0], 'WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus')) {
+                return $this->_propDict['deviceStatuses'];
+            }
+            foreach ($this->_propDict['deviceStatuses'] as $singleValue) {
+                $deviceStatuses []= new WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus($singleValue);
+            }
+            $this->_propDict['deviceStatuses'] = $deviceStatuses;
+            return $this->_propDict['deviceStatuses'];
         }
+        return null;
     }
     
     /** 
     * Sets the deviceStatuses
     * The list of device deployment states for this WindowsDefenderApplicationControl supplemental policy.
     *
-    * @param WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus $val The deviceStatuses
+    * @param WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus[] $val The deviceStatuses
     *
     * @return WindowsDefenderApplicationControlSupplementalPolicy
     */

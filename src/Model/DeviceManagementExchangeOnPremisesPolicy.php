@@ -29,22 +29,29 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity
      * Gets the accessRules
     * The list of device access rules in Exchange. The access rules apply globally to the entire Exchange organization
      *
-     * @return array|null The accessRules
+     * @return DeviceManagementExchangeAccessRule[]|null The accessRules
      */
     public function getAccessRules()
     {
-        if (array_key_exists("accessRules", $this->_propDict)) {
-           return $this->_propDict["accessRules"];
-        } else {
-            return null;
+        if (array_key_exists('accessRules', $this->_propDict) && !is_null($this->_propDict['accessRules'])) {
+            $accessRules = [];
+            if (count($this->_propDict['accessRules']) > 0 && is_a($this->_propDict['accessRules'][0], 'DeviceManagementExchangeAccessRule')) {
+                return $this->_propDict['accessRules'];
+            }
+            foreach ($this->_propDict['accessRules'] as $singleValue) {
+                $accessRules []= new DeviceManagementExchangeAccessRule($singleValue);
+            }
+            $this->_propDict['accessRules'] = $accessRules;
+            return $this->_propDict['accessRules'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessRules
     * The list of device access rules in Exchange. The access rules apply globally to the entire Exchange organization
     *
-    * @param DeviceManagementExchangeAccessRule $val The accessRules
+    * @param DeviceManagementExchangeAccessRule[] $val The accessRules
     *
     * @return DeviceManagementExchangeOnPremisesPolicy
     */
@@ -62,8 +69,8 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity
     */
     public function getDefaultAccessLevel()
     {
-        if (array_key_exists("defaultAccessLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultAccessLevel"], "\Beta\Microsoft\Graph\Model\DeviceManagementExchangeAccessLevel") || is_null($this->_propDict["defaultAccessLevel"])) {
+        if (array_key_exists("defaultAccessLevel", $this->_propDict) && !is_null($this->_propDict["defaultAccessLevel"])) {
+            if (is_a($this->_propDict["defaultAccessLevel"], "\Beta\Microsoft\Graph\Model\DeviceManagementExchangeAccessLevel")) {
                 return $this->_propDict["defaultAccessLevel"];
             } else {
                 $this->_propDict["defaultAccessLevel"] = new DeviceManagementExchangeAccessLevel($this->_propDict["defaultAccessLevel"]);
@@ -92,22 +99,29 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity
      * Gets the knownDeviceClasses
     * The list of device classes known to Exchange
      *
-     * @return array|null The knownDeviceClasses
+     * @return DeviceManagementExchangeDeviceClass[]|null The knownDeviceClasses
      */
     public function getKnownDeviceClasses()
     {
-        if (array_key_exists("knownDeviceClasses", $this->_propDict)) {
-           return $this->_propDict["knownDeviceClasses"];
-        } else {
-            return null;
+        if (array_key_exists('knownDeviceClasses', $this->_propDict) && !is_null($this->_propDict['knownDeviceClasses'])) {
+            $knownDeviceClasses = [];
+            if (count($this->_propDict['knownDeviceClasses']) > 0 && is_a($this->_propDict['knownDeviceClasses'][0], 'DeviceManagementExchangeDeviceClass')) {
+                return $this->_propDict['knownDeviceClasses'];
+            }
+            foreach ($this->_propDict['knownDeviceClasses'] as $singleValue) {
+                $knownDeviceClasses []= new DeviceManagementExchangeDeviceClass($singleValue);
+            }
+            $this->_propDict['knownDeviceClasses'] = $knownDeviceClasses;
+            return $this->_propDict['knownDeviceClasses'];
         }
+        return null;
     }
     
     /** 
     * Sets the knownDeviceClasses
     * The list of device classes known to Exchange
     *
-    * @param DeviceManagementExchangeDeviceClass $val The knownDeviceClasses
+    * @param DeviceManagementExchangeDeviceClass[] $val The knownDeviceClasses
     *
     * @return DeviceManagementExchangeOnPremisesPolicy
     */
@@ -125,8 +139,8 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity
     */
     public function getNotificationContent()
     {
-        if (array_key_exists("notificationContent", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationContent"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["notificationContent"])) {
+        if (array_key_exists("notificationContent", $this->_propDict) && !is_null($this->_propDict["notificationContent"])) {
+            if (is_a($this->_propDict["notificationContent"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["notificationContent"];
             } else {
                 $this->_propDict["notificationContent"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["notificationContent"]);
@@ -158,8 +172,8 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity
     */
     public function getConditionalAccessSettings()
     {
-        if (array_key_exists("conditionalAccessSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["conditionalAccessSettings"], "\Beta\Microsoft\Graph\Model\OnPremisesConditionalAccessSettings") || is_null($this->_propDict["conditionalAccessSettings"])) {
+        if (array_key_exists("conditionalAccessSettings", $this->_propDict) && !is_null($this->_propDict["conditionalAccessSettings"])) {
+            if (is_a($this->_propDict["conditionalAccessSettings"], "\Beta\Microsoft\Graph\Model\OnPremisesConditionalAccessSettings")) {
                 return $this->_propDict["conditionalAccessSettings"];
             } else {
                 $this->_propDict["conditionalAccessSettings"] = new OnPremisesConditionalAccessSettings($this->_propDict["conditionalAccessSettings"]);

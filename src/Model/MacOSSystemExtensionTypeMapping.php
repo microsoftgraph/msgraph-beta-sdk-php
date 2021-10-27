@@ -32,8 +32,9 @@ class MacOSSystemExtensionTypeMapping extends Entity
     */
     public function getAllowedTypes()
     {
-        if (array_key_exists("allowedTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedTypes"], "\Beta\Microsoft\Graph\Model\MacOSSystemExtensionType") || is_null($this->_propDict["allowedTypes"])) {
+        if (array_key_exists("allowedTypes", $this->_propDict) && !is_null($this->_propDict["allowedTypes"])) {
+     
+            if (is_a($this->_propDict["allowedTypes"], "\Beta\Microsoft\Graph\Model\MacOSSystemExtensionType")) {
                 return $this->_propDict["allowedTypes"];
             } else {
                 $this->_propDict["allowedTypes"] = new MacOSSystemExtensionType($this->_propDict["allowedTypes"]);

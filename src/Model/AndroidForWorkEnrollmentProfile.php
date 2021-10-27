@@ -61,8 +61,8 @@ class AndroidForWorkEnrollmentProfile extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -181,8 +181,8 @@ class AndroidForWorkEnrollmentProfile extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -243,8 +243,8 @@ class AndroidForWorkEnrollmentProfile extends Entity
     */
     public function getQrCodeImage()
     {
-        if (array_key_exists("qrCodeImage", $this->_propDict)) {
-            if (is_a($this->_propDict["qrCodeImage"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["qrCodeImage"])) {
+        if (array_key_exists("qrCodeImage", $this->_propDict) && !is_null($this->_propDict["qrCodeImage"])) {
+            if (is_a($this->_propDict["qrCodeImage"], "\Beta\Microsoft\Graph\Model\MimeContent")) {
                 return $this->_propDict["qrCodeImage"];
             } else {
                 $this->_propDict["qrCodeImage"] = new MimeContent($this->_propDict["qrCodeImage"]);
@@ -276,8 +276,8 @@ class AndroidForWorkEnrollmentProfile extends Entity
     */
     public function getTokenExpirationDateTime()
     {
-        if (array_key_exists("tokenExpirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["tokenExpirationDateTime"], "\DateTime") || is_null($this->_propDict["tokenExpirationDateTime"])) {
+        if (array_key_exists("tokenExpirationDateTime", $this->_propDict) && !is_null($this->_propDict["tokenExpirationDateTime"])) {
+            if (is_a($this->_propDict["tokenExpirationDateTime"], "\DateTime")) {
                 return $this->_propDict["tokenExpirationDateTime"];
             } else {
                 $this->_propDict["tokenExpirationDateTime"] = new \DateTime($this->_propDict["tokenExpirationDateTime"]);

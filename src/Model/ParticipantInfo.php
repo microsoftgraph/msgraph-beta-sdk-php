@@ -60,8 +60,9 @@ class ParticipantInfo extends Entity
     */
     public function getEndpointType()
     {
-        if (array_key_exists("endpointType", $this->_propDict)) {
-            if (is_a($this->_propDict["endpointType"], "\Beta\Microsoft\Graph\Model\EndpointType") || is_null($this->_propDict["endpointType"])) {
+        if (array_key_exists("endpointType", $this->_propDict) && !is_null($this->_propDict["endpointType"])) {
+     
+            if (is_a($this->_propDict["endpointType"], "\Beta\Microsoft\Graph\Model\EndpointType")) {
                 return $this->_propDict["endpointType"];
             } else {
                 $this->_propDict["endpointType"] = new EndpointType($this->_propDict["endpointType"]);
@@ -93,8 +94,9 @@ class ParticipantInfo extends Entity
     */
     public function getIdentity()
     {
-        if (array_key_exists("identity", $this->_propDict)) {
-            if (is_a($this->_propDict["identity"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["identity"])) {
+        if (array_key_exists("identity", $this->_propDict) && !is_null($this->_propDict["identity"])) {
+     
+            if (is_a($this->_propDict["identity"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["identity"];
             } else {
                 $this->_propDict["identity"] = new IdentitySet($this->_propDict["identity"]);
@@ -143,6 +145,34 @@ class ParticipantInfo extends Entity
     public function setLanguageId($val)
     {
         $this->_propDict["languageId"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the participantId
+    * The participant ID of the participant. Read-only.
+    *
+    * @return string|null The participantId
+    */
+    public function getParticipantId()
+    {
+        if (array_key_exists("participantId", $this->_propDict)) {
+            return $this->_propDict["participantId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the participantId
+    * The participant ID of the participant. Read-only.
+    *
+    * @param string $val The value of the participantId
+    *
+    * @return ParticipantInfo
+    */
+    public function setParticipantId($val)
+    {
+        $this->_propDict["participantId"] = $val;
         return $this;
     }
     /**

@@ -61,8 +61,8 @@ class Team extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -123,8 +123,8 @@ class Team extends Entity
     */
     public function getDiscoverySettings()
     {
-        if (array_key_exists("discoverySettings", $this->_propDict)) {
-            if (is_a($this->_propDict["discoverySettings"], "\Beta\Microsoft\Graph\Model\TeamDiscoverySettings") || is_null($this->_propDict["discoverySettings"])) {
+        if (array_key_exists("discoverySettings", $this->_propDict) && !is_null($this->_propDict["discoverySettings"])) {
+            if (is_a($this->_propDict["discoverySettings"], "\Beta\Microsoft\Graph\Model\TeamDiscoverySettings")) {
                 return $this->_propDict["discoverySettings"];
             } else {
                 $this->_propDict["discoverySettings"] = new TeamDiscoverySettings($this->_propDict["discoverySettings"]);
@@ -185,8 +185,8 @@ class Team extends Entity
     */
     public function getFunSettings()
     {
-        if (array_key_exists("funSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["funSettings"], "\Beta\Microsoft\Graph\Model\TeamFunSettings") || is_null($this->_propDict["funSettings"])) {
+        if (array_key_exists("funSettings", $this->_propDict) && !is_null($this->_propDict["funSettings"])) {
+            if (is_a($this->_propDict["funSettings"], "\Beta\Microsoft\Graph\Model\TeamFunSettings")) {
                 return $this->_propDict["funSettings"];
             } else {
                 $this->_propDict["funSettings"] = new TeamFunSettings($this->_propDict["funSettings"]);
@@ -218,8 +218,8 @@ class Team extends Entity
     */
     public function getGuestSettings()
     {
-        if (array_key_exists("guestSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["guestSettings"], "\Beta\Microsoft\Graph\Model\TeamGuestSettings") || is_null($this->_propDict["guestSettings"])) {
+        if (array_key_exists("guestSettings", $this->_propDict) && !is_null($this->_propDict["guestSettings"])) {
+            if (is_a($this->_propDict["guestSettings"], "\Beta\Microsoft\Graph\Model\TeamGuestSettings")) {
                 return $this->_propDict["guestSettings"];
             } else {
                 $this->_propDict["guestSettings"] = new TeamGuestSettings($this->_propDict["guestSettings"]);
@@ -338,8 +338,8 @@ class Team extends Entity
     */
     public function getMemberSettings()
     {
-        if (array_key_exists("memberSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["memberSettings"], "\Beta\Microsoft\Graph\Model\TeamMemberSettings") || is_null($this->_propDict["memberSettings"])) {
+        if (array_key_exists("memberSettings", $this->_propDict) && !is_null($this->_propDict["memberSettings"])) {
+            if (is_a($this->_propDict["memberSettings"], "\Beta\Microsoft\Graph\Model\TeamMemberSettings")) {
                 return $this->_propDict["memberSettings"];
             } else {
                 $this->_propDict["memberSettings"] = new TeamMemberSettings($this->_propDict["memberSettings"]);
@@ -371,8 +371,8 @@ class Team extends Entity
     */
     public function getMessagingSettings()
     {
-        if (array_key_exists("messagingSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["messagingSettings"], "\Beta\Microsoft\Graph\Model\TeamMessagingSettings") || is_null($this->_propDict["messagingSettings"])) {
+        if (array_key_exists("messagingSettings", $this->_propDict) && !is_null($this->_propDict["messagingSettings"])) {
+            if (is_a($this->_propDict["messagingSettings"], "\Beta\Microsoft\Graph\Model\TeamMessagingSettings")) {
                 return $this->_propDict["messagingSettings"];
             } else {
                 $this->_propDict["messagingSettings"] = new TeamMessagingSettings($this->_propDict["messagingSettings"]);
@@ -404,8 +404,8 @@ class Team extends Entity
     */
     public function getSpecialization()
     {
-        if (array_key_exists("specialization", $this->_propDict)) {
-            if (is_a($this->_propDict["specialization"], "\Beta\Microsoft\Graph\Model\TeamSpecialization") || is_null($this->_propDict["specialization"])) {
+        if (array_key_exists("specialization", $this->_propDict) && !is_null($this->_propDict["specialization"])) {
+            if (is_a($this->_propDict["specialization"], "\Beta\Microsoft\Graph\Model\TeamSpecialization")) {
                 return $this->_propDict["specialization"];
             } else {
                 $this->_propDict["specialization"] = new TeamSpecialization($this->_propDict["specialization"]);
@@ -437,8 +437,8 @@ class Team extends Entity
     */
     public function getVisibility()
     {
-        if (array_key_exists("visibility", $this->_propDict)) {
-            if (is_a($this->_propDict["visibility"], "\Beta\Microsoft\Graph\Model\TeamVisibilityType") || is_null($this->_propDict["visibility"])) {
+        if (array_key_exists("visibility", $this->_propDict) && !is_null($this->_propDict["visibility"])) {
+            if (is_a($this->_propDict["visibility"], "\Beta\Microsoft\Graph\Model\TeamVisibilityType")) {
                 return $this->_propDict["visibility"];
             } else {
                 $this->_propDict["visibility"] = new TeamVisibilityType($this->_propDict["visibility"]);
@@ -496,22 +496,29 @@ class Team extends Entity
      * Gets the channels
     * The collection of channels &amp; messages associated with the team.
      *
-     * @return array|null The channels
+     * @return Channel[]|null The channels
      */
     public function getChannels()
     {
-        if (array_key_exists("channels", $this->_propDict)) {
-           return $this->_propDict["channels"];
-        } else {
-            return null;
+        if (array_key_exists('channels', $this->_propDict) && !is_null($this->_propDict['channels'])) {
+            $channels = [];
+            if (count($this->_propDict['channels']) > 0 && is_a($this->_propDict['channels'][0], 'Channel')) {
+                return $this->_propDict['channels'];
+            }
+            foreach ($this->_propDict['channels'] as $singleValue) {
+                $channels []= new Channel($singleValue);
+            }
+            $this->_propDict['channels'] = $channels;
+            return $this->_propDict['channels'];
         }
+        return null;
     }
     
     /** 
     * Sets the channels
     * The collection of channels &amp; messages associated with the team.
     *
-    * @param Channel $val The channels
+    * @param Channel[] $val The channels
     *
     * @return Team
     */
@@ -528,8 +535,8 @@ class Team extends Entity
     */
     public function getGroup()
     {
-        if (array_key_exists("group", $this->_propDict)) {
-            if (is_a($this->_propDict["group"], "\Beta\Microsoft\Graph\Model\Group") || is_null($this->_propDict["group"])) {
+        if (array_key_exists("group", $this->_propDict) && !is_null($this->_propDict["group"])) {
+            if (is_a($this->_propDict["group"], "\Beta\Microsoft\Graph\Model\Group")) {
                 return $this->_propDict["group"];
             } else {
                 $this->_propDict["group"] = new Group($this->_propDict["group"]);
@@ -557,22 +564,29 @@ class Team extends Entity
      * Gets the installedApps
     * The apps installed in this team.
      *
-     * @return array|null The installedApps
+     * @return TeamsAppInstallation[]|null The installedApps
      */
     public function getInstalledApps()
     {
-        if (array_key_exists("installedApps", $this->_propDict)) {
-           return $this->_propDict["installedApps"];
-        } else {
-            return null;
+        if (array_key_exists('installedApps', $this->_propDict) && !is_null($this->_propDict['installedApps'])) {
+            $installedApps = [];
+            if (count($this->_propDict['installedApps']) > 0 && is_a($this->_propDict['installedApps'][0], 'TeamsAppInstallation')) {
+                return $this->_propDict['installedApps'];
+            }
+            foreach ($this->_propDict['installedApps'] as $singleValue) {
+                $installedApps []= new TeamsAppInstallation($singleValue);
+            }
+            $this->_propDict['installedApps'] = $installedApps;
+            return $this->_propDict['installedApps'];
         }
+        return null;
     }
     
     /** 
     * Sets the installedApps
     * The apps installed in this team.
     *
-    * @param TeamsAppInstallation $val The installedApps
+    * @param TeamsAppInstallation[] $val The installedApps
     *
     * @return Team
     */
@@ -587,22 +601,29 @@ class Team extends Entity
      * Gets the members
     * Members and owners of the team.
      *
-     * @return array|null The members
+     * @return ConversationMember[]|null The members
      */
     public function getMembers()
     {
-        if (array_key_exists("members", $this->_propDict)) {
-           return $this->_propDict["members"];
-        } else {
-            return null;
+        if (array_key_exists('members', $this->_propDict) && !is_null($this->_propDict['members'])) {
+            $members = [];
+            if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'ConversationMember')) {
+                return $this->_propDict['members'];
+            }
+            foreach ($this->_propDict['members'] as $singleValue) {
+                $members []= new ConversationMember($singleValue);
+            }
+            $this->_propDict['members'] = $members;
+            return $this->_propDict['members'];
         }
+        return null;
     }
     
     /** 
     * Sets the members
     * Members and owners of the team.
     *
-    * @param ConversationMember $val The members
+    * @param ConversationMember[] $val The members
     *
     * @return Team
     */
@@ -617,22 +638,29 @@ class Team extends Entity
      * Gets the operations
     * The async operations that ran or are running on this team.
      *
-     * @return array|null The operations
+     * @return TeamsAsyncOperation[]|null The operations
      */
     public function getOperations()
     {
-        if (array_key_exists("operations", $this->_propDict)) {
-           return $this->_propDict["operations"];
-        } else {
-            return null;
+        if (array_key_exists('operations', $this->_propDict) && !is_null($this->_propDict['operations'])) {
+            $operations = [];
+            if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'TeamsAsyncOperation')) {
+                return $this->_propDict['operations'];
+            }
+            foreach ($this->_propDict['operations'] as $singleValue) {
+                $operations []= new TeamsAsyncOperation($singleValue);
+            }
+            $this->_propDict['operations'] = $operations;
+            return $this->_propDict['operations'];
         }
+        return null;
     }
     
     /** 
     * Sets the operations
     * The async operations that ran or are running on this team.
     *
-    * @param TeamsAsyncOperation $val The operations
+    * @param TeamsAsyncOperation[] $val The operations
     *
     * @return Team
     */
@@ -647,22 +675,29 @@ class Team extends Entity
      * Gets the owners
     * The list of this team's owners. Currently, when creating a team using application permissions, exactly one owner must be specified. When using user delegated permissions, no owner can be specified (the current user is the owner). Owner must be specified as an object ID (GUID), not a UPN.
      *
-     * @return array|null The owners
+     * @return User[]|null The owners
      */
     public function getOwners()
     {
-        if (array_key_exists("owners", $this->_propDict)) {
-           return $this->_propDict["owners"];
-        } else {
-            return null;
+        if (array_key_exists('owners', $this->_propDict) && !is_null($this->_propDict['owners'])) {
+            $owners = [];
+            if (count($this->_propDict['owners']) > 0 && is_a($this->_propDict['owners'][0], 'User')) {
+                return $this->_propDict['owners'];
+            }
+            foreach ($this->_propDict['owners'] as $singleValue) {
+                $owners []= new User($singleValue);
+            }
+            $this->_propDict['owners'] = $owners;
+            return $this->_propDict['owners'];
         }
+        return null;
     }
     
     /** 
     * Sets the owners
     * The list of this team's owners. Currently, when creating a team using application permissions, exactly one owner must be specified. When using user delegated permissions, no owner can be specified (the current user is the owner). Owner must be specified as an object ID (GUID), not a UPN.
     *
-    * @param User $val The owners
+    * @param User[] $val The owners
     *
     * @return Team
     */
@@ -677,22 +712,29 @@ class Team extends Entity
      * Gets the permissionGrants
     * A collection of permissions granted to apps to access the team.
      *
-     * @return array|null The permissionGrants
+     * @return ResourceSpecificPermissionGrant[]|null The permissionGrants
      */
     public function getPermissionGrants()
     {
-        if (array_key_exists("permissionGrants", $this->_propDict)) {
-           return $this->_propDict["permissionGrants"];
-        } else {
-            return null;
+        if (array_key_exists('permissionGrants', $this->_propDict) && !is_null($this->_propDict['permissionGrants'])) {
+            $permissionGrants = [];
+            if (count($this->_propDict['permissionGrants']) > 0 && is_a($this->_propDict['permissionGrants'][0], 'ResourceSpecificPermissionGrant')) {
+                return $this->_propDict['permissionGrants'];
+            }
+            foreach ($this->_propDict['permissionGrants'] as $singleValue) {
+                $permissionGrants []= new ResourceSpecificPermissionGrant($singleValue);
+            }
+            $this->_propDict['permissionGrants'] = $permissionGrants;
+            return $this->_propDict['permissionGrants'];
         }
+        return null;
     }
     
     /** 
     * Sets the permissionGrants
     * A collection of permissions granted to apps to access the team.
     *
-    * @param ResourceSpecificPermissionGrant $val The permissionGrants
+    * @param ResourceSpecificPermissionGrant[] $val The permissionGrants
     *
     * @return Team
     */
@@ -710,8 +752,8 @@ class Team extends Entity
     */
     public function getPhoto()
     {
-        if (array_key_exists("photo", $this->_propDict)) {
-            if (is_a($this->_propDict["photo"], "\Beta\Microsoft\Graph\Model\ProfilePhoto") || is_null($this->_propDict["photo"])) {
+        if (array_key_exists("photo", $this->_propDict) && !is_null($this->_propDict["photo"])) {
+            if (is_a($this->_propDict["photo"], "\Beta\Microsoft\Graph\Model\ProfilePhoto")) {
                 return $this->_propDict["photo"];
             } else {
                 $this->_propDict["photo"] = new ProfilePhoto($this->_propDict["photo"]);
@@ -743,8 +785,8 @@ class Team extends Entity
     */
     public function getPrimaryChannel()
     {
-        if (array_key_exists("primaryChannel", $this->_propDict)) {
-            if (is_a($this->_propDict["primaryChannel"], "\Beta\Microsoft\Graph\Model\Channel") || is_null($this->_propDict["primaryChannel"])) {
+        if (array_key_exists("primaryChannel", $this->_propDict) && !is_null($this->_propDict["primaryChannel"])) {
+            if (is_a($this->_propDict["primaryChannel"], "\Beta\Microsoft\Graph\Model\Channel")) {
                 return $this->_propDict["primaryChannel"];
             } else {
                 $this->_propDict["primaryChannel"] = new Channel($this->_propDict["primaryChannel"]);
@@ -773,22 +815,29 @@ class Team extends Entity
      * Gets the tags
     * The tags associated with the team.
      *
-     * @return array|null The tags
+     * @return TeamworkTag[]|null The tags
      */
     public function getTags()
     {
-        if (array_key_exists("tags", $this->_propDict)) {
-           return $this->_propDict["tags"];
-        } else {
-            return null;
+        if (array_key_exists('tags', $this->_propDict) && !is_null($this->_propDict['tags'])) {
+            $tags = [];
+            if (count($this->_propDict['tags']) > 0 && is_a($this->_propDict['tags'][0], 'TeamworkTag')) {
+                return $this->_propDict['tags'];
+            }
+            foreach ($this->_propDict['tags'] as $singleValue) {
+                $tags []= new TeamworkTag($singleValue);
+            }
+            $this->_propDict['tags'] = $tags;
+            return $this->_propDict['tags'];
         }
+        return null;
     }
     
     /** 
     * Sets the tags
     * The tags associated with the team.
     *
-    * @param TeamworkTag $val The tags
+    * @param TeamworkTag[] $val The tags
     *
     * @return Team
     */
@@ -806,8 +855,8 @@ class Team extends Entity
     */
     public function getTemplate()
     {
-        if (array_key_exists("template", $this->_propDict)) {
-            if (is_a($this->_propDict["template"], "\Beta\Microsoft\Graph\Model\TeamsTemplate") || is_null($this->_propDict["template"])) {
+        if (array_key_exists("template", $this->_propDict) && !is_null($this->_propDict["template"])) {
+            if (is_a($this->_propDict["template"], "\Beta\Microsoft\Graph\Model\TeamsTemplate")) {
                 return $this->_propDict["template"];
             } else {
                 $this->_propDict["template"] = new TeamsTemplate($this->_propDict["template"]);
@@ -839,8 +888,8 @@ class Team extends Entity
     */
     public function getSchedule()
     {
-        if (array_key_exists("schedule", $this->_propDict)) {
-            if (is_a($this->_propDict["schedule"], "\Beta\Microsoft\Graph\Model\Schedule") || is_null($this->_propDict["schedule"])) {
+        if (array_key_exists("schedule", $this->_propDict) && !is_null($this->_propDict["schedule"])) {
+            if (is_a($this->_propDict["schedule"], "\Beta\Microsoft\Graph\Model\Schedule")) {
                 return $this->_propDict["schedule"];
             } else {
                 $this->_propDict["schedule"] = new Schedule($this->_propDict["schedule"]);

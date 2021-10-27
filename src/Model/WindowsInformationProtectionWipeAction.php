@@ -32,8 +32,8 @@ class WindowsInformationProtectionWipeAction extends Entity
     */
     public function getLastCheckInDateTime()
     {
-        if (array_key_exists("lastCheckInDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastCheckInDateTime"], "\DateTime") || is_null($this->_propDict["lastCheckInDateTime"])) {
+        if (array_key_exists("lastCheckInDateTime", $this->_propDict) && !is_null($this->_propDict["lastCheckInDateTime"])) {
+            if (is_a($this->_propDict["lastCheckInDateTime"], "\DateTime")) {
                 return $this->_propDict["lastCheckInDateTime"];
             } else {
                 $this->_propDict["lastCheckInDateTime"] = new \DateTime($this->_propDict["lastCheckInDateTime"]);
@@ -65,8 +65,8 @@ class WindowsInformationProtectionWipeAction extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\ActionState") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\ActionState")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ActionState($this->_propDict["status"]);

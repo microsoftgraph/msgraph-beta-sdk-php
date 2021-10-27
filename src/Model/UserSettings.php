@@ -90,8 +90,8 @@ class UserSettings extends Entity
     */
     public function getItemInsights()
     {
-        if (array_key_exists("itemInsights", $this->_propDict)) {
-            if (is_a($this->_propDict["itemInsights"], "\Beta\Microsoft\Graph\Model\UserInsightsSettings") || is_null($this->_propDict["itemInsights"])) {
+        if (array_key_exists("itemInsights", $this->_propDict) && !is_null($this->_propDict["itemInsights"])) {
+            if (is_a($this->_propDict["itemInsights"], "\Beta\Microsoft\Graph\Model\UserInsightsSettings")) {
                 return $this->_propDict["itemInsights"];
             } else {
                 $this->_propDict["itemInsights"] = new UserInsightsSettings($this->_propDict["itemInsights"]);
@@ -123,8 +123,8 @@ class UserSettings extends Entity
     */
     public function getRegionalAndLanguageSettings()
     {
-        if (array_key_exists("regionalAndLanguageSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["regionalAndLanguageSettings"], "\Beta\Microsoft\Graph\Model\RegionalAndLanguageSettings") || is_null($this->_propDict["regionalAndLanguageSettings"])) {
+        if (array_key_exists("regionalAndLanguageSettings", $this->_propDict) && !is_null($this->_propDict["regionalAndLanguageSettings"])) {
+            if (is_a($this->_propDict["regionalAndLanguageSettings"], "\Beta\Microsoft\Graph\Model\RegionalAndLanguageSettings")) {
                 return $this->_propDict["regionalAndLanguageSettings"];
             } else {
                 $this->_propDict["regionalAndLanguageSettings"] = new RegionalAndLanguageSettings($this->_propDict["regionalAndLanguageSettings"]);
@@ -156,8 +156,8 @@ class UserSettings extends Entity
     */
     public function getShiftPreferences()
     {
-        if (array_key_exists("shiftPreferences", $this->_propDict)) {
-            if (is_a($this->_propDict["shiftPreferences"], "\Beta\Microsoft\Graph\Model\ShiftPreferences") || is_null($this->_propDict["shiftPreferences"])) {
+        if (array_key_exists("shiftPreferences", $this->_propDict) && !is_null($this->_propDict["shiftPreferences"])) {
+            if (is_a($this->_propDict["shiftPreferences"], "\Beta\Microsoft\Graph\Model\ShiftPreferences")) {
                 return $this->_propDict["shiftPreferences"];
             } else {
                 $this->_propDict["shiftPreferences"] = new ShiftPreferences($this->_propDict["shiftPreferences"]);

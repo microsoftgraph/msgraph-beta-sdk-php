@@ -39,18 +39,22 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
     * Gets the children
     * Child settings.
     *
-    * @return DeviceManagementConfigurationSettingInstance|null The children
+    * @return DeviceManagementConfigurationSettingInstance[]|null The children
     */
     public function getChildren()
     {
-        if (array_key_exists("children", $this->_propDict)) {
-            if (is_a($this->_propDict["children"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingInstance") || is_null($this->_propDict["children"])) {
-                return $this->_propDict["children"];
-            } else {
-                $this->_propDict["children"] = new DeviceManagementConfigurationSettingInstance($this->_propDict["children"]);
-                return $this->_propDict["children"];
+        if (array_key_exists("children", $this->_propDict) && !is_null($this->_propDict["children"])) {
+       
+            if (count($this->_propDict['children']) > 0 && is_a($this->_propDict['children'][0], 'DeviceManagementConfigurationSettingInstance')) {
+               return $this->_propDict['children'];
             }
-        }
+            $children = [];
+            foreach ($this->_propDict['children'] as $singleValue) {
+               $children []= new DeviceManagementConfigurationSettingInstance($singleValue);
+            }
+            $this->_propDict['children'] = $children;
+            return $this->_propDict['children'];
+            }
         return null;
     }
 
@@ -58,7 +62,7 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
     * Sets the children
     * Child settings.
     *
-    * @param DeviceManagementConfigurationSettingInstance $val The value to assign to the children
+    * @param DeviceManagementConfigurationSettingInstance[] $val The value to assign to the children
     *
     * @return DeviceManagementConfigurationChoiceSettingValue The DeviceManagementConfigurationChoiceSettingValue
     */

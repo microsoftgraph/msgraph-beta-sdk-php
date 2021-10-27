@@ -90,8 +90,8 @@ class DeviceManagementDerivedCredentialSettings extends Entity
     */
     public function getIssuer()
     {
-        if (array_key_exists("issuer", $this->_propDict)) {
-            if (is_a($this->_propDict["issuer"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialIssuer") || is_null($this->_propDict["issuer"])) {
+        if (array_key_exists("issuer", $this->_propDict) && !is_null($this->_propDict["issuer"])) {
+            if (is_a($this->_propDict["issuer"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialIssuer")) {
                 return $this->_propDict["issuer"];
             } else {
                 $this->_propDict["issuer"] = new DeviceManagementDerivedCredentialIssuer($this->_propDict["issuer"]);
@@ -123,8 +123,8 @@ class DeviceManagementDerivedCredentialSettings extends Entity
     */
     public function getNotificationType()
     {
-        if (array_key_exists("notificationType", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationType"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialNotificationType") || is_null($this->_propDict["notificationType"])) {
+        if (array_key_exists("notificationType", $this->_propDict) && !is_null($this->_propDict["notificationType"])) {
+            if (is_a($this->_propDict["notificationType"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialNotificationType")) {
                 return $this->_propDict["notificationType"];
             } else {
                 $this->_propDict["notificationType"] = new DeviceManagementDerivedCredentialNotificationType($this->_propDict["notificationType"]);

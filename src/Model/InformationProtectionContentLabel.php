@@ -32,8 +32,9 @@ class InformationProtectionContentLabel extends Entity
     */
     public function getAssignmentMethod()
     {
-        if (array_key_exists("assignmentMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["assignmentMethod"], "\Beta\Microsoft\Graph\Model\AssignmentMethod") || is_null($this->_propDict["assignmentMethod"])) {
+        if (array_key_exists("assignmentMethod", $this->_propDict) && !is_null($this->_propDict["assignmentMethod"])) {
+     
+            if (is_a($this->_propDict["assignmentMethod"], "\Beta\Microsoft\Graph\Model\AssignmentMethod")) {
                 return $this->_propDict["assignmentMethod"];
             } else {
                 $this->_propDict["assignmentMethod"] = new AssignmentMethod($this->_propDict["assignmentMethod"]);
@@ -65,8 +66,9 @@ class InformationProtectionContentLabel extends Entity
     */
     public function getCreationDateTime()
     {
-        if (array_key_exists("creationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["creationDateTime"], "\DateTime") || is_null($this->_propDict["creationDateTime"])) {
+        if (array_key_exists("creationDateTime", $this->_propDict) && !is_null($this->_propDict["creationDateTime"])) {
+     
+            if (is_a($this->_propDict["creationDateTime"], "\DateTime")) {
                 return $this->_propDict["creationDateTime"];
             } else {
                 $this->_propDict["creationDateTime"] = new \DateTime($this->_propDict["creationDateTime"]);
@@ -98,8 +100,9 @@ class InformationProtectionContentLabel extends Entity
     */
     public function getLabel()
     {
-        if (array_key_exists("label", $this->_propDict)) {
-            if (is_a($this->_propDict["label"], "\Beta\Microsoft\Graph\Model\LabelDetails") || is_null($this->_propDict["label"])) {
+        if (array_key_exists("label", $this->_propDict) && !is_null($this->_propDict["label"])) {
+     
+            if (is_a($this->_propDict["label"], "\Beta\Microsoft\Graph\Model\LabelDetails")) {
                 return $this->_propDict["label"];
             } else {
                 $this->_propDict["label"] = new LabelDetails($this->_propDict["label"]);

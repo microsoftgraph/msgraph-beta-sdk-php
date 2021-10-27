@@ -52,6 +52,32 @@ class AccessPackageQuestion extends Entity
         return $this;
     }
     /**
+    * Gets the isAnswerEditable
+    *
+    * @return bool|null The isAnswerEditable
+    */
+    public function getIsAnswerEditable()
+    {
+        if (array_key_exists("isAnswerEditable", $this->_propDict)) {
+            return $this->_propDict["isAnswerEditable"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isAnswerEditable
+    *
+    * @param bool $val The value of the isAnswerEditable
+    *
+    * @return AccessPackageQuestion
+    */
+    public function setIsAnswerEditable($val)
+    {
+        $this->_propDict["isAnswerEditable"] = $val;
+        return $this;
+    }
+    /**
     * Gets the isRequired
     * Whether the requestor is required to supply an answer or not.
     *
@@ -116,8 +142,9 @@ class AccessPackageQuestion extends Entity
     */
     public function getText()
     {
-        if (array_key_exists("text", $this->_propDict)) {
-            if (is_a($this->_propDict["text"], "\Beta\Microsoft\Graph\Model\AccessPackageLocalizedContent") || is_null($this->_propDict["text"])) {
+        if (array_key_exists("text", $this->_propDict) && !is_null($this->_propDict["text"])) {
+     
+            if (is_a($this->_propDict["text"], "\Beta\Microsoft\Graph\Model\AccessPackageLocalizedContent")) {
                 return $this->_propDict["text"];
             } else {
                 $this->_propDict["text"] = new AccessPackageLocalizedContent($this->_propDict["text"]);

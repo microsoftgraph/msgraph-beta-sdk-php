@@ -264,8 +264,8 @@ class GroupPolicySettingMapping extends Entity
     */
     public function getMdmSupportedState()
     {
-        if (array_key_exists("mdmSupportedState", $this->_propDict)) {
-            if (is_a($this->_propDict["mdmSupportedState"], "\Beta\Microsoft\Graph\Model\MdmSupportedState") || is_null($this->_propDict["mdmSupportedState"])) {
+        if (array_key_exists("mdmSupportedState", $this->_propDict) && !is_null($this->_propDict["mdmSupportedState"])) {
+            if (is_a($this->_propDict["mdmSupportedState"], "\Beta\Microsoft\Graph\Model\MdmSupportedState")) {
                 return $this->_propDict["mdmSupportedState"];
             } else {
                 $this->_propDict["mdmSupportedState"] = new MdmSupportedState($this->_propDict["mdmSupportedState"]);
@@ -471,8 +471,8 @@ class GroupPolicySettingMapping extends Entity
     */
     public function getSettingScope()
     {
-        if (array_key_exists("settingScope", $this->_propDict)) {
-            if (is_a($this->_propDict["settingScope"], "\Beta\Microsoft\Graph\Model\GroupPolicySettingScope") || is_null($this->_propDict["settingScope"])) {
+        if (array_key_exists("settingScope", $this->_propDict) && !is_null($this->_propDict["settingScope"])) {
+            if (is_a($this->_propDict["settingScope"], "\Beta\Microsoft\Graph\Model\GroupPolicySettingScope")) {
                 return $this->_propDict["settingScope"];
             } else {
                 $this->_propDict["settingScope"] = new GroupPolicySettingScope($this->_propDict["settingScope"]);
@@ -504,8 +504,8 @@ class GroupPolicySettingMapping extends Entity
     */
     public function getSettingType()
     {
-        if (array_key_exists("settingType", $this->_propDict)) {
-            if (is_a($this->_propDict["settingType"], "\Beta\Microsoft\Graph\Model\GroupPolicySettingType") || is_null($this->_propDict["settingType"])) {
+        if (array_key_exists("settingType", $this->_propDict) && !is_null($this->_propDict["settingType"])) {
+            if (is_a($this->_propDict["settingType"], "\Beta\Microsoft\Graph\Model\GroupPolicySettingType")) {
                 return $this->_propDict["settingType"];
             } else {
                 $this->_propDict["settingType"] = new GroupPolicySettingType($this->_propDict["settingType"]);

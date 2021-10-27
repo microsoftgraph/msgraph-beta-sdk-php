@@ -61,8 +61,8 @@ class AuthenticationListener extends Entity
     */
     public function getSourceFilter()
     {
-        if (array_key_exists("sourceFilter", $this->_propDict)) {
-            if (is_a($this->_propDict["sourceFilter"], "\Beta\Microsoft\Graph\Model\AuthenticationSourceFilter") || is_null($this->_propDict["sourceFilter"])) {
+        if (array_key_exists("sourceFilter", $this->_propDict) && !is_null($this->_propDict["sourceFilter"])) {
+            if (is_a($this->_propDict["sourceFilter"], "\Beta\Microsoft\Graph\Model\AuthenticationSourceFilter")) {
                 return $this->_propDict["sourceFilter"];
             } else {
                 $this->_propDict["sourceFilter"] = new AuthenticationSourceFilter($this->_propDict["sourceFilter"]);

@@ -163,21 +163,28 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
      /** 
      * Gets the includeTargets
      *
-     * @return array|null The includeTargets
+     * @return AuthenticationMethodTarget[]|null The includeTargets
      */
     public function getIncludeTargets()
     {
-        if (array_key_exists("includeTargets", $this->_propDict)) {
-           return $this->_propDict["includeTargets"];
-        } else {
-            return null;
+        if (array_key_exists('includeTargets', $this->_propDict) && !is_null($this->_propDict['includeTargets'])) {
+            $includeTargets = [];
+            if (count($this->_propDict['includeTargets']) > 0 && is_a($this->_propDict['includeTargets'][0], 'AuthenticationMethodTarget')) {
+                return $this->_propDict['includeTargets'];
+            }
+            foreach ($this->_propDict['includeTargets'] as $singleValue) {
+                $includeTargets []= new AuthenticationMethodTarget($singleValue);
+            }
+            $this->_propDict['includeTargets'] = $includeTargets;
+            return $this->_propDict['includeTargets'];
         }
+        return null;
     }
     
     /** 
     * Sets the includeTargets
     *
-    * @param AuthenticationMethodTarget $val The includeTargets
+    * @param AuthenticationMethodTarget[] $val The includeTargets
     *
     * @return TemporaryAccessPassAuthenticationMethodConfiguration
     */

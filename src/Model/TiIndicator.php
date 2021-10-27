@@ -32,8 +32,8 @@ class TiIndicator extends Entity
     */
     public function getAction()
     {
-        if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\TiAction") || is_null($this->_propDict["action"])) {
+        if (array_key_exists("action", $this->_propDict) && !is_null($this->_propDict["action"])) {
+            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\TiAction")) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new TiAction($this->_propDict["action"]);
@@ -210,8 +210,8 @@ class TiIndicator extends Entity
     */
     public function getDiamondModel()
     {
-        if (array_key_exists("diamondModel", $this->_propDict)) {
-            if (is_a($this->_propDict["diamondModel"], "\Beta\Microsoft\Graph\Model\DiamondModel") || is_null($this->_propDict["diamondModel"])) {
+        if (array_key_exists("diamondModel", $this->_propDict) && !is_null($this->_propDict["diamondModel"])) {
+            if (is_a($this->_propDict["diamondModel"], "\Beta\Microsoft\Graph\Model\DiamondModel")) {
                 return $this->_propDict["diamondModel"];
             } else {
                 $this->_propDict["diamondModel"] = new DiamondModel($this->_propDict["diamondModel"]);
@@ -513,8 +513,8 @@ class TiIndicator extends Entity
     */
     public function getExpirationDateTime()
     {
-        if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+        if (array_key_exists("expirationDateTime", $this->_propDict) && !is_null($this->_propDict["expirationDateTime"])) {
+            if (is_a($this->_propDict["expirationDateTime"], "\DateTime")) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -574,8 +574,8 @@ class TiIndicator extends Entity
     */
     public function getFileCompileDateTime()
     {
-        if (array_key_exists("fileCompileDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["fileCompileDateTime"], "\DateTime") || is_null($this->_propDict["fileCompileDateTime"])) {
+        if (array_key_exists("fileCompileDateTime", $this->_propDict) && !is_null($this->_propDict["fileCompileDateTime"])) {
+            if (is_a($this->_propDict["fileCompileDateTime"], "\DateTime")) {
                 return $this->_propDict["fileCompileDateTime"];
             } else {
                 $this->_propDict["fileCompileDateTime"] = new \DateTime($this->_propDict["fileCompileDateTime"]);
@@ -605,8 +605,8 @@ class TiIndicator extends Entity
     */
     public function getFileCreatedDateTime()
     {
-        if (array_key_exists("fileCreatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["fileCreatedDateTime"], "\DateTime") || is_null($this->_propDict["fileCreatedDateTime"])) {
+        if (array_key_exists("fileCreatedDateTime", $this->_propDict) && !is_null($this->_propDict["fileCreatedDateTime"])) {
+            if (is_a($this->_propDict["fileCreatedDateTime"], "\DateTime")) {
                 return $this->_propDict["fileCreatedDateTime"];
             } else {
                 $this->_propDict["fileCreatedDateTime"] = new \DateTime($this->_propDict["fileCreatedDateTime"]);
@@ -636,8 +636,8 @@ class TiIndicator extends Entity
     */
     public function getFileHashType()
     {
-        if (array_key_exists("fileHashType", $this->_propDict)) {
-            if (is_a($this->_propDict["fileHashType"], "\Beta\Microsoft\Graph\Model\FileHashType") || is_null($this->_propDict["fileHashType"])) {
+        if (array_key_exists("fileHashType", $this->_propDict) && !is_null($this->_propDict["fileHashType"])) {
+            if (is_a($this->_propDict["fileHashType"], "\Beta\Microsoft\Graph\Model\FileHashType")) {
                 return $this->_propDict["fileHashType"];
             } else {
                 $this->_propDict["fileHashType"] = new FileHashType($this->_propDict["fileHashType"]);
@@ -857,8 +857,8 @@ class TiIndicator extends Entity
     */
     public function getIngestedDateTime()
     {
-        if (array_key_exists("ingestedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["ingestedDateTime"], "\DateTime") || is_null($this->_propDict["ingestedDateTime"])) {
+        if (array_key_exists("ingestedDateTime", $this->_propDict) && !is_null($this->_propDict["ingestedDateTime"])) {
+            if (is_a($this->_propDict["ingestedDateTime"], "\DateTime")) {
                 return $this->_propDict["ingestedDateTime"];
             } else {
                 $this->_propDict["ingestedDateTime"] = new \DateTime($this->_propDict["ingestedDateTime"]);
@@ -977,8 +977,8 @@ class TiIndicator extends Entity
     */
     public function getLastReportedDateTime()
     {
-        if (array_key_exists("lastReportedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime") || is_null($this->_propDict["lastReportedDateTime"])) {
+        if (array_key_exists("lastReportedDateTime", $this->_propDict) && !is_null($this->_propDict["lastReportedDateTime"])) {
+            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastReportedDateTime"];
             } else {
                 $this->_propDict["lastReportedDateTime"] = new \DateTime($this->_propDict["lastReportedDateTime"]);
@@ -1589,8 +1589,8 @@ class TiIndicator extends Entity
     */
     public function getTlpLevel()
     {
-        if (array_key_exists("tlpLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["tlpLevel"], "\Beta\Microsoft\Graph\Model\TlpLevel") || is_null($this->_propDict["tlpLevel"])) {
+        if (array_key_exists("tlpLevel", $this->_propDict) && !is_null($this->_propDict["tlpLevel"])) {
+            if (is_a($this->_propDict["tlpLevel"], "\Beta\Microsoft\Graph\Model\TlpLevel")) {
                 return $this->_propDict["tlpLevel"];
             } else {
                 $this->_propDict["tlpLevel"] = new TlpLevel($this->_propDict["tlpLevel"]);

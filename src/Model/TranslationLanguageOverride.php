@@ -60,8 +60,9 @@ class TranslationLanguageOverride extends Entity
     */
     public function getTranslationBehavior()
     {
-        if (array_key_exists("translationBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["translationBehavior"], "\Beta\Microsoft\Graph\Model\TranslationBehavior") || is_null($this->_propDict["translationBehavior"])) {
+        if (array_key_exists("translationBehavior", $this->_propDict) && !is_null($this->_propDict["translationBehavior"])) {
+     
+            if (is_a($this->_propDict["translationBehavior"], "\Beta\Microsoft\Graph\Model\TranslationBehavior")) {
                 return $this->_propDict["translationBehavior"];
             } else {
                 $this->_propDict["translationBehavior"] = new TranslationBehavior($this->_propDict["translationBehavior"]);

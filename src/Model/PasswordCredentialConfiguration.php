@@ -27,15 +27,16 @@ class PasswordCredentialConfiguration extends Entity
     /**
     * Gets the maxLifetime
     *
-    * @return Duration|null The maxLifetime
+    * @return \DateInterval|null The maxLifetime
     */
     public function getMaxLifetime()
     {
-        if (array_key_exists("maxLifetime", $this->_propDict)) {
-            if (is_a($this->_propDict["maxLifetime"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["maxLifetime"])) {
+        if (array_key_exists("maxLifetime", $this->_propDict) && !is_null($this->_propDict["maxLifetime"])) {
+     
+            if (is_a($this->_propDict["maxLifetime"], "\DateInterval")) {
                 return $this->_propDict["maxLifetime"];
             } else {
-                $this->_propDict["maxLifetime"] = new Duration($this->_propDict["maxLifetime"]);
+                $this->_propDict["maxLifetime"] = new \DateInterval($this->_propDict["maxLifetime"]);
                 return $this->_propDict["maxLifetime"];
             }
         }
@@ -45,7 +46,7 @@ class PasswordCredentialConfiguration extends Entity
     /**
     * Sets the maxLifetime
     *
-    * @param Duration $val The value to assign to the maxLifetime
+    * @param \DateInterval $val The value to assign to the maxLifetime
     *
     * @return PasswordCredentialConfiguration The PasswordCredentialConfiguration
     */
@@ -63,8 +64,9 @@ class PasswordCredentialConfiguration extends Entity
     */
     public function getRestrictForAppsCreatedAfterDateTime()
     {
-        if (array_key_exists("restrictForAppsCreatedAfterDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["restrictForAppsCreatedAfterDateTime"], "\DateTime") || is_null($this->_propDict["restrictForAppsCreatedAfterDateTime"])) {
+        if (array_key_exists("restrictForAppsCreatedAfterDateTime", $this->_propDict) && !is_null($this->_propDict["restrictForAppsCreatedAfterDateTime"])) {
+     
+            if (is_a($this->_propDict["restrictForAppsCreatedAfterDateTime"], "\DateTime")) {
                 return $this->_propDict["restrictForAppsCreatedAfterDateTime"];
             } else {
                 $this->_propDict["restrictForAppsCreatedAfterDateTime"] = new \DateTime($this->_propDict["restrictForAppsCreatedAfterDateTime"]);
@@ -90,14 +92,15 @@ class PasswordCredentialConfiguration extends Entity
 
     /**
     * Gets the restrictionType
-    * The type of restriction being applied. Possible values are passwordAddition or passwordLifetime. Each value of restrictionType can be used only once per policy.
+    * The type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime, unknownFutureValue. Each value of restrictionType can be used only once per policy.
     *
     * @return AppCredentialRestrictionType|null The restrictionType
     */
     public function getRestrictionType()
     {
-        if (array_key_exists("restrictionType", $this->_propDict)) {
-            if (is_a($this->_propDict["restrictionType"], "\Beta\Microsoft\Graph\Model\AppCredentialRestrictionType") || is_null($this->_propDict["restrictionType"])) {
+        if (array_key_exists("restrictionType", $this->_propDict) && !is_null($this->_propDict["restrictionType"])) {
+     
+            if (is_a($this->_propDict["restrictionType"], "\Beta\Microsoft\Graph\Model\AppCredentialRestrictionType")) {
                 return $this->_propDict["restrictionType"];
             } else {
                 $this->_propDict["restrictionType"] = new AppCredentialRestrictionType($this->_propDict["restrictionType"]);
@@ -109,7 +112,7 @@ class PasswordCredentialConfiguration extends Entity
 
     /**
     * Sets the restrictionType
-    * The type of restriction being applied. Possible values are passwordAddition or passwordLifetime. Each value of restrictionType can be used only once per policy.
+    * The type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime, unknownFutureValue. Each value of restrictionType can be used only once per policy.
     *
     * @param AppCredentialRestrictionType $val The value to assign to the restrictionType
     *

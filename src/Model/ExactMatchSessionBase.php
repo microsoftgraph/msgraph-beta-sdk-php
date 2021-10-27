@@ -58,8 +58,8 @@ class ExactMatchSessionBase extends ExactMatchJobBase
     */
     public function getProcessingCompletionDateTime()
     {
-        if (array_key_exists("processingCompletionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["processingCompletionDateTime"], "\DateTime") || is_null($this->_propDict["processingCompletionDateTime"])) {
+        if (array_key_exists("processingCompletionDateTime", $this->_propDict) && !is_null($this->_propDict["processingCompletionDateTime"])) {
+            if (is_a($this->_propDict["processingCompletionDateTime"], "\DateTime")) {
                 return $this->_propDict["processingCompletionDateTime"];
             } else {
                 $this->_propDict["processingCompletionDateTime"] = new \DateTime($this->_propDict["processingCompletionDateTime"]);
@@ -224,8 +224,8 @@ class ExactMatchSessionBase extends ExactMatchJobBase
     */
     public function getUploadCompletionDateTime()
     {
-        if (array_key_exists("uploadCompletionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["uploadCompletionDateTime"], "\DateTime") || is_null($this->_propDict["uploadCompletionDateTime"])) {
+        if (array_key_exists("uploadCompletionDateTime", $this->_propDict) && !is_null($this->_propDict["uploadCompletionDateTime"])) {
+            if (is_a($this->_propDict["uploadCompletionDateTime"], "\DateTime")) {
                 return $this->_propDict["uploadCompletionDateTime"];
             } else {
                 $this->_propDict["uploadCompletionDateTime"] = new \DateTime($this->_propDict["uploadCompletionDateTime"]);

@@ -88,8 +88,9 @@ class TeamworkOnlineMeetingInfo extends Entity
     */
     public function getOrganizer()
     {
-        if (array_key_exists("organizer", $this->_propDict)) {
-            if (is_a($this->_propDict["organizer"], "\Beta\Microsoft\Graph\Model\TeamworkUserIdentity") || is_null($this->_propDict["organizer"])) {
+        if (array_key_exists("organizer", $this->_propDict) && !is_null($this->_propDict["organizer"])) {
+     
+            if (is_a($this->_propDict["organizer"], "\Beta\Microsoft\Graph\Model\TeamworkUserIdentity")) {
                 return $this->_propDict["organizer"];
             } else {
                 $this->_propDict["organizer"] = new TeamworkUserIdentity($this->_propDict["organizer"]);

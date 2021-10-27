@@ -32,8 +32,9 @@ class StatusBase extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\ProvisioningResult") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+     
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\ProvisioningResult")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ProvisioningResult($this->_propDict["status"]);

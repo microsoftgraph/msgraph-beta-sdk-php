@@ -32,8 +32,9 @@ class MediaSource extends Entity
     */
     public function getContentCategory()
     {
-        if (array_key_exists("contentCategory", $this->_propDict)) {
-            if (is_a($this->_propDict["contentCategory"], "\Beta\Microsoft\Graph\Model\MediaSourceContentCategory") || is_null($this->_propDict["contentCategory"])) {
+        if (array_key_exists("contentCategory", $this->_propDict) && !is_null($this->_propDict["contentCategory"])) {
+     
+            if (is_a($this->_propDict["contentCategory"], "\Beta\Microsoft\Graph\Model\MediaSourceContentCategory")) {
                 return $this->_propDict["contentCategory"];
             } else {
                 $this->_propDict["contentCategory"] = new MediaSourceContentCategory($this->_propDict["contentCategory"]);

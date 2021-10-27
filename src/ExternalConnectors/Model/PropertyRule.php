@@ -26,13 +26,15 @@ class PropertyRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the operation
+    * Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith, unknownFutureValue. Required.
     *
     * @return RuleOperation|null The operation
     */
     public function getOperation()
     {
-        if (array_key_exists("operation", $this->_propDict)) {
-            if (is_a($this->_propDict["operation"], "\Beta\Microsoft\Graph\ExternalConnectors\Model\RuleOperation") || is_null($this->_propDict["operation"])) {
+        if (array_key_exists("operation", $this->_propDict) && !is_null($this->_propDict["operation"])) {
+     
+            if (is_a($this->_propDict["operation"], "\Beta\Microsoft\Graph\ExternalConnectors\Model\RuleOperation")) {
                 return $this->_propDict["operation"];
             } else {
                 $this->_propDict["operation"] = new RuleOperation($this->_propDict["operation"]);
@@ -44,6 +46,7 @@ class PropertyRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the operation
+    * Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith, unknownFutureValue. Required.
     *
     * @param RuleOperation $val The value to assign to the operation
     *
@@ -56,6 +59,7 @@ class PropertyRule extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the property
+    * The property from the externalItem schema. Required.
     *
     * @return string|null The property
     */
@@ -70,6 +74,7 @@ class PropertyRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the property
+    * The property from the externalItem schema. Required.
     *
     * @param string $val The value of the property
     *
@@ -82,6 +87,7 @@ class PropertyRule extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the values
+    * A collection with one or many strings. The specified string(s) will be matched with the specified property using the specified operation. Required.
     *
     * @return string|null The values
     */
@@ -96,8 +102,9 @@ class PropertyRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the values
+    * A collection with one or many strings. The specified string(s) will be matched with the specified property using the specified operation. Required.
     *
-    * @param string $val The value of the values
+    * @param string[] $val The value of the values
     *
     * @return PropertyRule
     */
@@ -109,13 +116,15 @@ class PropertyRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the valuesJoinedBy
+    * The join operator for evaluating multiple propertyRules. For example, if and is specified, then all propertyRules must be true for the propertyRule to be true. Possible values are: or, and. Required.
     *
     * @return \Beta\Microsoft\Graph\Model\BinaryOperator|null The valuesJoinedBy
     */
     public function getValuesJoinedBy()
     {
-        if (array_key_exists("valuesJoinedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["valuesJoinedBy"], "\Beta\Microsoft\Graph\Model\BinaryOperator") || is_null($this->_propDict["valuesJoinedBy"])) {
+        if (array_key_exists("valuesJoinedBy", $this->_propDict) && !is_null($this->_propDict["valuesJoinedBy"])) {
+     
+            if (is_a($this->_propDict["valuesJoinedBy"], "\Beta\Microsoft\Graph\Model\BinaryOperator")) {
                 return $this->_propDict["valuesJoinedBy"];
             } else {
                 $this->_propDict["valuesJoinedBy"] = new \Beta\Microsoft\Graph\Model\BinaryOperator($this->_propDict["valuesJoinedBy"]);
@@ -127,6 +136,7 @@ class PropertyRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the valuesJoinedBy
+    * The join operator for evaluating multiple propertyRules. For example, if and is specified, then all propertyRules must be true for the propertyRule to be true. Possible values are: or, and. Required.
     *
     * @param \Beta\Microsoft\Graph\Model\BinaryOperator $val The value to assign to the valuesJoinedBy
     *

@@ -32,8 +32,8 @@ class UserExperienceAnalyticsScoreHistory extends Entity
     */
     public function getStartupDateTime()
     {
-        if (array_key_exists("startupDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startupDateTime"], "\DateTime") || is_null($this->_propDict["startupDateTime"])) {
+        if (array_key_exists("startupDateTime", $this->_propDict) && !is_null($this->_propDict["startupDateTime"])) {
+            if (is_a($this->_propDict["startupDateTime"], "\DateTime")) {
                 return $this->_propDict["startupDateTime"];
             } else {
                 $this->_propDict["startupDateTime"] = new \DateTime($this->_propDict["startupDateTime"]);

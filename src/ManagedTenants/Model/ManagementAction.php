@@ -32,8 +32,8 @@ class ManagementAction extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getCategory()
     {
-        if (array_key_exists("category", $this->_propDict)) {
-            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagementCategory") || is_null($this->_propDict["category"])) {
+        if (array_key_exists("category", $this->_propDict) && !is_null($this->_propDict["category"])) {
+            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagementCategory")) {
                 return $this->_propDict["category"];
             } else {
                 $this->_propDict["category"] = new ManagementCategory($this->_propDict["category"]);
@@ -149,22 +149,29 @@ class ManagementAction extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the workloadActions
     * The collection of workload actions associated with the management action. Required. Read-only.
      *
-     * @return array|null The workloadActions
+     * @return WorkloadAction[]|null The workloadActions
      */
     public function getWorkloadActions()
     {
-        if (array_key_exists("workloadActions", $this->_propDict)) {
-           return $this->_propDict["workloadActions"];
-        } else {
-            return null;
+        if (array_key_exists('workloadActions', $this->_propDict) && !is_null($this->_propDict['workloadActions'])) {
+            $workloadActions = [];
+            if (count($this->_propDict['workloadActions']) > 0 && is_a($this->_propDict['workloadActions'][0], 'WorkloadAction')) {
+                return $this->_propDict['workloadActions'];
+            }
+            foreach ($this->_propDict['workloadActions'] as $singleValue) {
+                $workloadActions []= new WorkloadAction($singleValue);
+            }
+            $this->_propDict['workloadActions'] = $workloadActions;
+            return $this->_propDict['workloadActions'];
         }
+        return null;
     }
     
     /** 
     * Sets the workloadActions
     * The collection of workload actions associated with the management action. Required. Read-only.
     *
-    * @param WorkloadAction $val The workloadActions
+    * @param WorkloadAction[] $val The workloadActions
     *
     * @return ManagementAction
     */

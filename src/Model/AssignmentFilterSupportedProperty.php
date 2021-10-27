@@ -140,18 +140,22 @@ class AssignmentFilterSupportedProperty extends Entity
     * Gets the supportedOperators
     * List of all supported operators on this property.
     *
-    * @return AssignmentFilterOperator|null The supportedOperators
+    * @return AssignmentFilterOperator[]|null The supportedOperators
     */
     public function getSupportedOperators()
     {
-        if (array_key_exists("supportedOperators", $this->_propDict)) {
-            if (is_a($this->_propDict["supportedOperators"], "\Beta\Microsoft\Graph\Model\AssignmentFilterOperator") || is_null($this->_propDict["supportedOperators"])) {
-                return $this->_propDict["supportedOperators"];
-            } else {
-                $this->_propDict["supportedOperators"] = new AssignmentFilterOperator($this->_propDict["supportedOperators"]);
-                return $this->_propDict["supportedOperators"];
+        if (array_key_exists("supportedOperators", $this->_propDict) && !is_null($this->_propDict["supportedOperators"])) {
+       
+            if (count($this->_propDict['supportedOperators']) > 0 && is_a($this->_propDict['supportedOperators'][0], 'AssignmentFilterOperator')) {
+               return $this->_propDict['supportedOperators'];
             }
-        }
+            $supportedOperators = [];
+            foreach ($this->_propDict['supportedOperators'] as $singleValue) {
+               $supportedOperators []= new AssignmentFilterOperator($singleValue);
+            }
+            $this->_propDict['supportedOperators'] = $supportedOperators;
+            return $this->_propDict['supportedOperators'];
+            }
         return null;
     }
 
@@ -159,7 +163,7 @@ class AssignmentFilterSupportedProperty extends Entity
     * Sets the supportedOperators
     * List of all supported operators on this property.
     *
-    * @param AssignmentFilterOperator $val The value to assign to the supportedOperators
+    * @param AssignmentFilterOperator[] $val The value to assign to the supportedOperators
     *
     * @return AssignmentFilterSupportedProperty The AssignmentFilterSupportedProperty
     */
@@ -187,7 +191,7 @@ class AssignmentFilterSupportedProperty extends Entity
     * Sets the supportedValues
     * List of all supported values for this propery, empty if everything is supported.
     *
-    * @param string $val The value of the supportedValues
+    * @param string[] $val The value of the supportedValues
     *
     * @return AssignmentFilterSupportedProperty
     */

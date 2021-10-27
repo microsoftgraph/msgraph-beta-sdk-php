@@ -27,25 +27,29 @@ class AppMetadata extends Entity
     /**
     * Gets the data
     *
-    * @return AppMetadataEntry|null The data
+    * @return AppMetadataEntry[]|null The data
     */
     public function getData()
     {
-        if (array_key_exists("data", $this->_propDict)) {
-            if (is_a($this->_propDict["data"], "\Beta\Microsoft\Graph\Model\AppMetadataEntry") || is_null($this->_propDict["data"])) {
-                return $this->_propDict["data"];
-            } else {
-                $this->_propDict["data"] = new AppMetadataEntry($this->_propDict["data"]);
-                return $this->_propDict["data"];
+        if (array_key_exists("data", $this->_propDict) && !is_null($this->_propDict["data"])) {
+       
+            if (count($this->_propDict['data']) > 0 && is_a($this->_propDict['data'][0], 'AppMetadataEntry')) {
+               return $this->_propDict['data'];
             }
-        }
+            $data = [];
+            foreach ($this->_propDict['data'] as $singleValue) {
+               $data []= new AppMetadataEntry($singleValue);
+            }
+            $this->_propDict['data'] = $data;
+            return $this->_propDict['data'];
+            }
         return null;
     }
 
     /**
     * Sets the data
     *
-    * @param AppMetadataEntry $val The value to assign to the data
+    * @param AppMetadataEntry[] $val The value to assign to the data
     *
     * @return AppMetadata The AppMetadata
     */

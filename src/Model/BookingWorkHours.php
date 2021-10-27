@@ -32,8 +32,9 @@ class BookingWorkHours extends Entity
     */
     public function getDay()
     {
-        if (array_key_exists("day", $this->_propDict)) {
-            if (is_a($this->_propDict["day"], "\Beta\Microsoft\Graph\Model\DayOfWeek") || is_null($this->_propDict["day"])) {
+        if (array_key_exists("day", $this->_propDict) && !is_null($this->_propDict["day"])) {
+     
+            if (is_a($this->_propDict["day"], "\Beta\Microsoft\Graph\Model\DayOfWeek")) {
                 return $this->_propDict["day"];
             } else {
                 $this->_propDict["day"] = new DayOfWeek($this->_propDict["day"]);
@@ -61,18 +62,22 @@ class BookingWorkHours extends Entity
     * Gets the timeSlots
     * A list of start/end times during a day.
     *
-    * @return BookingWorkTimeSlot|null The timeSlots
+    * @return BookingWorkTimeSlot[]|null The timeSlots
     */
     public function getTimeSlots()
     {
-        if (array_key_exists("timeSlots", $this->_propDict)) {
-            if (is_a($this->_propDict["timeSlots"], "\Beta\Microsoft\Graph\Model\BookingWorkTimeSlot") || is_null($this->_propDict["timeSlots"])) {
-                return $this->_propDict["timeSlots"];
-            } else {
-                $this->_propDict["timeSlots"] = new BookingWorkTimeSlot($this->_propDict["timeSlots"]);
-                return $this->_propDict["timeSlots"];
+        if (array_key_exists("timeSlots", $this->_propDict) && !is_null($this->_propDict["timeSlots"])) {
+       
+            if (count($this->_propDict['timeSlots']) > 0 && is_a($this->_propDict['timeSlots'][0], 'BookingWorkTimeSlot')) {
+               return $this->_propDict['timeSlots'];
             }
-        }
+            $timeSlots = [];
+            foreach ($this->_propDict['timeSlots'] as $singleValue) {
+               $timeSlots []= new BookingWorkTimeSlot($singleValue);
+            }
+            $this->_propDict['timeSlots'] = $timeSlots;
+            return $this->_propDict['timeSlots'];
+            }
         return null;
     }
 
@@ -80,7 +85,7 @@ class BookingWorkHours extends Entity
     * Sets the timeSlots
     * A list of start/end times during a day.
     *
-    * @param BookingWorkTimeSlot $val The value to assign to the timeSlots
+    * @param BookingWorkTimeSlot[] $val The value to assign to the timeSlots
     *
     * @return BookingWorkHours The BookingWorkHours
     */

@@ -67,18 +67,22 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate exten
     * Gets the choiceSettingCollectionValueTemplate
     * Choice Setting Collection Value Template
     *
-    * @return DeviceManagementConfigurationChoiceSettingValueTemplate|null The choiceSettingCollectionValueTemplate
+    * @return DeviceManagementConfigurationChoiceSettingValueTemplate[]|null The choiceSettingCollectionValueTemplate
     */
     public function getChoiceSettingCollectionValueTemplate()
     {
-        if (array_key_exists("choiceSettingCollectionValueTemplate", $this->_propDict)) {
-            if (is_a($this->_propDict["choiceSettingCollectionValueTemplate"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationChoiceSettingValueTemplate") || is_null($this->_propDict["choiceSettingCollectionValueTemplate"])) {
-                return $this->_propDict["choiceSettingCollectionValueTemplate"];
-            } else {
-                $this->_propDict["choiceSettingCollectionValueTemplate"] = new DeviceManagementConfigurationChoiceSettingValueTemplate($this->_propDict["choiceSettingCollectionValueTemplate"]);
-                return $this->_propDict["choiceSettingCollectionValueTemplate"];
+        if (array_key_exists("choiceSettingCollectionValueTemplate", $this->_propDict) && !is_null($this->_propDict["choiceSettingCollectionValueTemplate"])) {
+       
+            if (count($this->_propDict['choiceSettingCollectionValueTemplate']) > 0 && is_a($this->_propDict['choiceSettingCollectionValueTemplate'][0], 'DeviceManagementConfigurationChoiceSettingValueTemplate')) {
+               return $this->_propDict['choiceSettingCollectionValueTemplate'];
             }
-        }
+            $choiceSettingCollectionValueTemplate = [];
+            foreach ($this->_propDict['choiceSettingCollectionValueTemplate'] as $singleValue) {
+               $choiceSettingCollectionValueTemplate []= new DeviceManagementConfigurationChoiceSettingValueTemplate($singleValue);
+            }
+            $this->_propDict['choiceSettingCollectionValueTemplate'] = $choiceSettingCollectionValueTemplate;
+            return $this->_propDict['choiceSettingCollectionValueTemplate'];
+            }
         return null;
     }
 
@@ -86,7 +90,7 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate exten
     * Sets the choiceSettingCollectionValueTemplate
     * Choice Setting Collection Value Template
     *
-    * @param DeviceManagementConfigurationChoiceSettingValueTemplate $val The value to assign to the choiceSettingCollectionValueTemplate
+    * @param DeviceManagementConfigurationChoiceSettingValueTemplate[] $val The value to assign to the choiceSettingCollectionValueTemplate
     *
     * @return DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate The DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate
     */

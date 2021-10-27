@@ -90,8 +90,8 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastRefreshedDateTime()
     {
-        if (array_key_exists("lastRefreshedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastRefreshedDateTime"], "\DateTime") || is_null($this->_propDict["lastRefreshedDateTime"])) {
+        if (array_key_exists("lastRefreshedDateTime", $this->_propDict) && !is_null($this->_propDict["lastRefreshedDateTime"])) {
+            if (is_a($this->_propDict["lastRefreshedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastRefreshedDateTime"];
             } else {
                 $this->_propDict["lastRefreshedDateTime"] = new \DateTime($this->_propDict["lastRefreshedDateTime"]);

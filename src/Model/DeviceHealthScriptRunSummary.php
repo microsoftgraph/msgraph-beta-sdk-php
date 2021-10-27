@@ -235,8 +235,8 @@ class DeviceHealthScriptRunSummary extends Entity
     */
     public function getLastScriptRunDateTime()
     {
-        if (array_key_exists("lastScriptRunDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastScriptRunDateTime"], "\DateTime") || is_null($this->_propDict["lastScriptRunDateTime"])) {
+        if (array_key_exists("lastScriptRunDateTime", $this->_propDict) && !is_null($this->_propDict["lastScriptRunDateTime"])) {
+            if (is_a($this->_propDict["lastScriptRunDateTime"], "\DateTime")) {
                 return $this->_propDict["lastScriptRunDateTime"];
             } else {
                 $this->_propDict["lastScriptRunDateTime"] = new \DateTime($this->_propDict["lastScriptRunDateTime"]);

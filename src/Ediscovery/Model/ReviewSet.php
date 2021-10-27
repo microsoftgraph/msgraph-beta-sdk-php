@@ -32,8 +32,8 @@ class ReviewSet extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getCreatedBy()
     {
-        if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
+        if (array_key_exists("createdBy", $this->_propDict) && !is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new \Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["createdBy"]);
@@ -65,8 +65,8 @@ class ReviewSet extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -124,22 +124,29 @@ class ReviewSet extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the queries
     * Read-only. Nullable.
      *
-     * @return array|null The queries
+     * @return ReviewSetQuery[]|null The queries
      */
     public function getQueries()
     {
-        if (array_key_exists("queries", $this->_propDict)) {
-           return $this->_propDict["queries"];
-        } else {
-            return null;
+        if (array_key_exists('queries', $this->_propDict) && !is_null($this->_propDict['queries'])) {
+            $queries = [];
+            if (count($this->_propDict['queries']) > 0 && is_a($this->_propDict['queries'][0], 'ReviewSetQuery')) {
+                return $this->_propDict['queries'];
+            }
+            foreach ($this->_propDict['queries'] as $singleValue) {
+                $queries []= new ReviewSetQuery($singleValue);
+            }
+            $this->_propDict['queries'] = $queries;
+            return $this->_propDict['queries'];
         }
+        return null;
     }
     
     /** 
     * Sets the queries
     * Read-only. Nullable.
     *
-    * @param ReviewSetQuery $val The queries
+    * @param ReviewSetQuery[] $val The queries
     *
     * @return ReviewSet
     */

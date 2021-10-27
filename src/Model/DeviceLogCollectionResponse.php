@@ -61,8 +61,8 @@ class DeviceLogCollectionResponse extends Entity
     */
     public function getExpirationDateTimeUTC()
     {
-        if (array_key_exists("expirationDateTimeUTC", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTimeUTC"], "\DateTime") || is_null($this->_propDict["expirationDateTimeUTC"])) {
+        if (array_key_exists("expirationDateTimeUTC", $this->_propDict) && !is_null($this->_propDict["expirationDateTimeUTC"])) {
+            if (is_a($this->_propDict["expirationDateTimeUTC"], "\DateTime")) {
                 return $this->_propDict["expirationDateTimeUTC"];
             } else {
                 $this->_propDict["expirationDateTimeUTC"] = new \DateTime($this->_propDict["expirationDateTimeUTC"]);
@@ -152,8 +152,8 @@ class DeviceLogCollectionResponse extends Entity
     */
     public function getReceivedDateTimeUTC()
     {
-        if (array_key_exists("receivedDateTimeUTC", $this->_propDict)) {
-            if (is_a($this->_propDict["receivedDateTimeUTC"], "\DateTime") || is_null($this->_propDict["receivedDateTimeUTC"])) {
+        if (array_key_exists("receivedDateTimeUTC", $this->_propDict) && !is_null($this->_propDict["receivedDateTimeUTC"])) {
+            if (is_a($this->_propDict["receivedDateTimeUTC"], "\DateTime")) {
                 return $this->_propDict["receivedDateTimeUTC"];
             } else {
                 $this->_propDict["receivedDateTimeUTC"] = new \DateTime($this->_propDict["receivedDateTimeUTC"]);
@@ -185,8 +185,8 @@ class DeviceLogCollectionResponse extends Entity
     */
     public function getRequestedDateTimeUTC()
     {
-        if (array_key_exists("requestedDateTimeUTC", $this->_propDict)) {
-            if (is_a($this->_propDict["requestedDateTimeUTC"], "\DateTime") || is_null($this->_propDict["requestedDateTimeUTC"])) {
+        if (array_key_exists("requestedDateTimeUTC", $this->_propDict) && !is_null($this->_propDict["requestedDateTimeUTC"])) {
+            if (is_a($this->_propDict["requestedDateTimeUTC"], "\DateTime")) {
                 return $this->_propDict["requestedDateTimeUTC"];
             } else {
                 $this->_propDict["requestedDateTimeUTC"] = new \DateTime($this->_propDict["requestedDateTimeUTC"]);

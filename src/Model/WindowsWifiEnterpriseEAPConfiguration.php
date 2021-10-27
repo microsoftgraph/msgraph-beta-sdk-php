@@ -32,8 +32,8 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration
     */
     public function getAuthenticationMethod()
     {
-        if (array_key_exists("authenticationMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\WiFiAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
+        if (array_key_exists("authenticationMethod", $this->_propDict) && !is_null($this->_propDict["authenticationMethod"])) {
+            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\WiFiAuthenticationMethod")) {
                 return $this->_propDict["authenticationMethod"];
             } else {
                 $this->_propDict["authenticationMethod"] = new WiFiAuthenticationMethod($this->_propDict["authenticationMethod"]);
@@ -123,8 +123,8 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration
     */
     public function getAuthenticationType()
     {
-        if (array_key_exists("authenticationType", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationType"], "\Beta\Microsoft\Graph\Model\WifiAuthenticationType") || is_null($this->_propDict["authenticationType"])) {
+        if (array_key_exists("authenticationType", $this->_propDict) && !is_null($this->_propDict["authenticationType"])) {
+            if (is_a($this->_propDict["authenticationType"], "\Beta\Microsoft\Graph\Model\WifiAuthenticationType")) {
                 return $this->_propDict["authenticationType"];
             } else {
                 $this->_propDict["authenticationType"] = new WifiAuthenticationType($this->_propDict["authenticationType"]);
@@ -243,8 +243,8 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration
     */
     public function getEapType()
     {
-        if (array_key_exists("eapType", $this->_propDict)) {
-            if (is_a($this->_propDict["eapType"], "\Beta\Microsoft\Graph\Model\EapType") || is_null($this->_propDict["eapType"])) {
+        if (array_key_exists("eapType", $this->_propDict) && !is_null($this->_propDict["eapType"])) {
+            if (is_a($this->_propDict["eapType"], "\Beta\Microsoft\Graph\Model\EapType")) {
                 return $this->_propDict["eapType"];
             } else {
                 $this->_propDict["eapType"] = new EapType($this->_propDict["eapType"]);
@@ -334,8 +334,8 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration
     */
     public function getInnerAuthenticationProtocolForEAPTTLS()
     {
-        if (array_key_exists("innerAuthenticationProtocolForEAPTTLS", $this->_propDict)) {
-            if (is_a($this->_propDict["innerAuthenticationProtocolForEAPTTLS"], "\Beta\Microsoft\Graph\Model\NonEapAuthenticationMethodForEapTtlsType") || is_null($this->_propDict["innerAuthenticationProtocolForEAPTTLS"])) {
+        if (array_key_exists("innerAuthenticationProtocolForEAPTTLS", $this->_propDict) && !is_null($this->_propDict["innerAuthenticationProtocolForEAPTTLS"])) {
+            if (is_a($this->_propDict["innerAuthenticationProtocolForEAPTTLS"], "\Beta\Microsoft\Graph\Model\NonEapAuthenticationMethodForEapTtlsType")) {
                 return $this->_propDict["innerAuthenticationProtocolForEAPTTLS"];
             } else {
                 $this->_propDict["innerAuthenticationProtocolForEAPTTLS"] = new NonEapAuthenticationMethodForEapTtlsType($this->_propDict["innerAuthenticationProtocolForEAPTTLS"]);
@@ -541,8 +541,8 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration
     */
     public function getNetworkSingleSignOn()
     {
-        if (array_key_exists("networkSingleSignOn", $this->_propDict)) {
-            if (is_a($this->_propDict["networkSingleSignOn"], "\Beta\Microsoft\Graph\Model\NetworkSingleSignOnType") || is_null($this->_propDict["networkSingleSignOn"])) {
+        if (array_key_exists("networkSingleSignOn", $this->_propDict) && !is_null($this->_propDict["networkSingleSignOn"])) {
+            if (is_a($this->_propDict["networkSingleSignOn"], "\Beta\Microsoft\Graph\Model\NetworkSingleSignOnType")) {
                 return $this->_propDict["networkSingleSignOn"];
             } else {
                 $this->_propDict["networkSingleSignOn"] = new NetworkSingleSignOnType($this->_propDict["networkSingleSignOn"]);
@@ -748,8 +748,8 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration
     */
     public function getIdentityCertificateForClientAuthentication()
     {
-        if (array_key_exists("identityCertificateForClientAuthentication", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificateForClientAuthentication"], "\Beta\Microsoft\Graph\Model\WindowsCertificateProfileBase") || is_null($this->_propDict["identityCertificateForClientAuthentication"])) {
+        if (array_key_exists("identityCertificateForClientAuthentication", $this->_propDict) && !is_null($this->_propDict["identityCertificateForClientAuthentication"])) {
+            if (is_a($this->_propDict["identityCertificateForClientAuthentication"], "\Beta\Microsoft\Graph\Model\WindowsCertificateProfileBase")) {
                 return $this->_propDict["identityCertificateForClientAuthentication"];
             } else {
                 $this->_propDict["identityCertificateForClientAuthentication"] = new WindowsCertificateProfileBase($this->_propDict["identityCertificateForClientAuthentication"]);
@@ -781,8 +781,8 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration
     */
     public function getRootCertificateForClientValidation()
     {
-        if (array_key_exists("rootCertificateForClientValidation", $this->_propDict)) {
-            if (is_a($this->_propDict["rootCertificateForClientValidation"], "\Beta\Microsoft\Graph\Model\Windows81TrustedRootCertificate") || is_null($this->_propDict["rootCertificateForClientValidation"])) {
+        if (array_key_exists("rootCertificateForClientValidation", $this->_propDict) && !is_null($this->_propDict["rootCertificateForClientValidation"])) {
+            if (is_a($this->_propDict["rootCertificateForClientValidation"], "\Beta\Microsoft\Graph\Model\Windows81TrustedRootCertificate")) {
                 return $this->_propDict["rootCertificateForClientValidation"];
             } else {
                 $this->_propDict["rootCertificateForClientValidation"] = new Windows81TrustedRootCertificate($this->_propDict["rootCertificateForClientValidation"]);
@@ -809,24 +809,31 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration
 
      /** 
      * Gets the rootCertificatesForServerValidation
-    * Specify root certificate for server validation.
+    * Specify root certificate for server validation. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The rootCertificatesForServerValidation
+     * @return Windows81TrustedRootCertificate[]|null The rootCertificatesForServerValidation
      */
     public function getRootCertificatesForServerValidation()
     {
-        if (array_key_exists("rootCertificatesForServerValidation", $this->_propDict)) {
-           return $this->_propDict["rootCertificatesForServerValidation"];
-        } else {
-            return null;
+        if (array_key_exists('rootCertificatesForServerValidation', $this->_propDict) && !is_null($this->_propDict['rootCertificatesForServerValidation'])) {
+            $rootCertificatesForServerValidation = [];
+            if (count($this->_propDict['rootCertificatesForServerValidation']) > 0 && is_a($this->_propDict['rootCertificatesForServerValidation'][0], 'Windows81TrustedRootCertificate')) {
+                return $this->_propDict['rootCertificatesForServerValidation'];
+            }
+            foreach ($this->_propDict['rootCertificatesForServerValidation'] as $singleValue) {
+                $rootCertificatesForServerValidation []= new Windows81TrustedRootCertificate($singleValue);
+            }
+            $this->_propDict['rootCertificatesForServerValidation'] = $rootCertificatesForServerValidation;
+            return $this->_propDict['rootCertificatesForServerValidation'];
         }
+        return null;
     }
     
     /** 
     * Sets the rootCertificatesForServerValidation
-    * Specify root certificate for server validation.
+    * Specify root certificate for server validation. This collection can contain a maximum of 500 elements.
     *
-    * @param Windows81TrustedRootCertificate $val The rootCertificatesForServerValidation
+    * @param Windows81TrustedRootCertificate[] $val The rootCertificatesForServerValidation
     *
     * @return WindowsWifiEnterpriseEAPConfiguration
     */

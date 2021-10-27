@@ -25,6 +25,7 @@ class DisplayTemplate extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the id
+    * The text identifier for the display template; for example, contosoTickets.
     *
     * @return string|null The id
     */
@@ -39,6 +40,7 @@ class DisplayTemplate extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the id
+    * The text identifier for the display template; for example, contosoTickets.
     *
     * @param string $val The value of the id
     *
@@ -51,6 +53,7 @@ class DisplayTemplate extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the layout
+    * The definition of the content's appearance, represented by an Adaptive Card, which is a JSON-serialized card object model.
     *
     * @return string|null The layout
     */
@@ -65,6 +68,7 @@ class DisplayTemplate extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the layout
+    * The definition of the content's appearance, represented by an Adaptive Card, which is a JSON-serialized card object model.
     *
     * @param string $val The value of the layout
     *
@@ -77,6 +81,7 @@ class DisplayTemplate extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the priority
+    * Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported.
     *
     * @return int|null The priority
     */
@@ -91,6 +96,7 @@ class DisplayTemplate extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the priority
+    * Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported.
     *
     * @param int $val The value of the priority
     *
@@ -104,26 +110,32 @@ class DisplayTemplate extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the rules
+    * Specifies additional rules for selecting this display template based on the item schema. Optional.
     *
-    * @return PropertyRule|null The rules
+    * @return PropertyRule[]|null The rules
     */
     public function getRules()
     {
-        if (array_key_exists("rules", $this->_propDict)) {
-            if (is_a($this->_propDict["rules"], "\Beta\Microsoft\Graph\ExternalConnectors\Model\PropertyRule") || is_null($this->_propDict["rules"])) {
-                return $this->_propDict["rules"];
-            } else {
-                $this->_propDict["rules"] = new PropertyRule($this->_propDict["rules"]);
-                return $this->_propDict["rules"];
+        if (array_key_exists("rules", $this->_propDict) && !is_null($this->_propDict["rules"])) {
+       
+            if (count($this->_propDict['rules']) > 0 && is_a($this->_propDict['rules'][0], 'PropertyRule')) {
+               return $this->_propDict['rules'];
             }
-        }
+            $rules = [];
+            foreach ($this->_propDict['rules'] as $singleValue) {
+               $rules []= new PropertyRule($singleValue);
+            }
+            $this->_propDict['rules'] = $rules;
+            return $this->_propDict['rules'];
+            }
         return null;
     }
 
     /**
     * Sets the rules
+    * Specifies additional rules for selecting this display template based on the item schema. Optional.
     *
-    * @param PropertyRule $val The value to assign to the rules
+    * @param PropertyRule[] $val The value to assign to the rules
     *
     * @return DisplayTemplate The DisplayTemplate
     */

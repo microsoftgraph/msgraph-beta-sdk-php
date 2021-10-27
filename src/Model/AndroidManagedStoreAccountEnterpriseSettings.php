@@ -61,8 +61,8 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
     */
     public function getBindStatus()
     {
-        if (array_key_exists("bindStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["bindStatus"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAccountBindStatus") || is_null($this->_propDict["bindStatus"])) {
+        if (array_key_exists("bindStatus", $this->_propDict) && !is_null($this->_propDict["bindStatus"])) {
+            if (is_a($this->_propDict["bindStatus"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAccountBindStatus")) {
                 return $this->_propDict["bindStatus"];
             } else {
                 $this->_propDict["bindStatus"] = new AndroidManagedStoreAccountBindStatus($this->_propDict["bindStatus"]);
@@ -91,22 +91,29 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
      * Gets the companyCodes
     * Company codes for AndroidManagedStoreAccountEnterpriseSettings
      *
-     * @return array|null The companyCodes
+     * @return AndroidEnrollmentCompanyCode[]|null The companyCodes
      */
     public function getCompanyCodes()
     {
-        if (array_key_exists("companyCodes", $this->_propDict)) {
-           return $this->_propDict["companyCodes"];
-        } else {
-            return null;
+        if (array_key_exists('companyCodes', $this->_propDict) && !is_null($this->_propDict['companyCodes'])) {
+            $companyCodes = [];
+            if (count($this->_propDict['companyCodes']) > 0 && is_a($this->_propDict['companyCodes'][0], 'AndroidEnrollmentCompanyCode')) {
+                return $this->_propDict['companyCodes'];
+            }
+            foreach ($this->_propDict['companyCodes'] as $singleValue) {
+                $companyCodes []= new AndroidEnrollmentCompanyCode($singleValue);
+            }
+            $this->_propDict['companyCodes'] = $companyCodes;
+            return $this->_propDict['companyCodes'];
         }
+        return null;
     }
     
     /** 
     * Sets the companyCodes
     * Company codes for AndroidManagedStoreAccountEnterpriseSettings
     *
-    * @param AndroidEnrollmentCompanyCode $val The companyCodes
+    * @param AndroidEnrollmentCompanyCode[] $val The companyCodes
     *
     * @return AndroidManagedStoreAccountEnterpriseSettings
     */
@@ -153,8 +160,8 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
     */
     public function getEnrollmentTarget()
     {
-        if (array_key_exists("enrollmentTarget", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentTarget"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAccountEnrollmentTarget") || is_null($this->_propDict["enrollmentTarget"])) {
+        if (array_key_exists("enrollmentTarget", $this->_propDict) && !is_null($this->_propDict["enrollmentTarget"])) {
+            if (is_a($this->_propDict["enrollmentTarget"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAccountEnrollmentTarget")) {
                 return $this->_propDict["enrollmentTarget"];
             } else {
                 $this->_propDict["enrollmentTarget"] = new AndroidManagedStoreAccountEnrollmentTarget($this->_propDict["enrollmentTarget"]);
@@ -186,8 +193,8 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
     */
     public function getLastAppSyncDateTime()
     {
-        if (array_key_exists("lastAppSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastAppSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastAppSyncDateTime"])) {
+        if (array_key_exists("lastAppSyncDateTime", $this->_propDict) && !is_null($this->_propDict["lastAppSyncDateTime"])) {
+            if (is_a($this->_propDict["lastAppSyncDateTime"], "\DateTime")) {
                 return $this->_propDict["lastAppSyncDateTime"];
             } else {
                 $this->_propDict["lastAppSyncDateTime"] = new \DateTime($this->_propDict["lastAppSyncDateTime"]);
@@ -219,8 +226,8 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
     */
     public function getLastAppSyncStatus()
     {
-        if (array_key_exists("lastAppSyncStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["lastAppSyncStatus"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAccountAppSyncStatus") || is_null($this->_propDict["lastAppSyncStatus"])) {
+        if (array_key_exists("lastAppSyncStatus", $this->_propDict) && !is_null($this->_propDict["lastAppSyncStatus"])) {
+            if (is_a($this->_propDict["lastAppSyncStatus"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAccountAppSyncStatus")) {
                 return $this->_propDict["lastAppSyncStatus"];
             } else {
                 $this->_propDict["lastAppSyncStatus"] = new AndroidManagedStoreAccountAppSyncStatus($this->_propDict["lastAppSyncStatus"]);
@@ -252,8 +259,8 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);

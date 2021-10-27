@@ -61,8 +61,8 @@ class RiskyUser extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastRefreshedDateTime()
     {
-        if (array_key_exists("lastRefreshedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastRefreshedDateTime"], "\DateTime") || is_null($this->_propDict["lastRefreshedDateTime"])) {
+        if (array_key_exists("lastRefreshedDateTime", $this->_propDict) && !is_null($this->_propDict["lastRefreshedDateTime"])) {
+            if (is_a($this->_propDict["lastRefreshedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastRefreshedDateTime"];
             } else {
                 $this->_propDict["lastRefreshedDateTime"] = new \DateTime($this->_propDict["lastRefreshedDateTime"]);
@@ -123,8 +123,8 @@ class RiskyUser extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getRiskLastUpdatedDateTime()
     {
-        if (array_key_exists("riskLastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["riskLastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["riskLastUpdatedDateTime"])) {
+        if (array_key_exists("riskLastUpdatedDateTime", $this->_propDict) && !is_null($this->_propDict["riskLastUpdatedDateTime"])) {
+            if (is_a($this->_propDict["riskLastUpdatedDateTime"], "\DateTime")) {
                 return $this->_propDict["riskLastUpdatedDateTime"];
             } else {
                 $this->_propDict["riskLastUpdatedDateTime"] = new \DateTime($this->_propDict["riskLastUpdatedDateTime"]);

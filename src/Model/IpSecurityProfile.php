@@ -193,8 +193,8 @@ class IpSecurityProfile extends Entity
     */
     public function getFirstSeenDateTime()
     {
-        if (array_key_exists("firstSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["firstSeenDateTime"], "\DateTime") || is_null($this->_propDict["firstSeenDateTime"])) {
+        if (array_key_exists("firstSeenDateTime", $this->_propDict) && !is_null($this->_propDict["firstSeenDateTime"])) {
+            if (is_a($this->_propDict["firstSeenDateTime"], "\DateTime")) {
                 return $this->_propDict["firstSeenDateTime"];
             } else {
                 $this->_propDict["firstSeenDateTime"] = new \DateTime($this->_propDict["firstSeenDateTime"]);
@@ -221,21 +221,28 @@ class IpSecurityProfile extends Entity
      /** 
      * Gets the ipCategories
      *
-     * @return array|null The ipCategories
+     * @return IpCategory[]|null The ipCategories
      */
     public function getIpCategories()
     {
-        if (array_key_exists("ipCategories", $this->_propDict)) {
-           return $this->_propDict["ipCategories"];
-        } else {
-            return null;
+        if (array_key_exists('ipCategories', $this->_propDict) && !is_null($this->_propDict['ipCategories'])) {
+            $ipCategories = [];
+            if (count($this->_propDict['ipCategories']) > 0 && is_a($this->_propDict['ipCategories'][0], 'IpCategory')) {
+                return $this->_propDict['ipCategories'];
+            }
+            foreach ($this->_propDict['ipCategories'] as $singleValue) {
+                $ipCategories []= new IpCategory($singleValue);
+            }
+            $this->_propDict['ipCategories'] = $ipCategories;
+            return $this->_propDict['ipCategories'];
         }
+        return null;
     }
     
     /** 
     * Sets the ipCategories
     *
-    * @param IpCategory $val The ipCategories
+    * @param IpCategory[] $val The ipCategories
     *
     * @return IpSecurityProfile
     */
@@ -249,21 +256,28 @@ class IpSecurityProfile extends Entity
      /** 
      * Gets the ipReferenceData
      *
-     * @return array|null The ipReferenceData
+     * @return IpReferenceData[]|null The ipReferenceData
      */
     public function getIpReferenceData()
     {
-        if (array_key_exists("ipReferenceData", $this->_propDict)) {
-           return $this->_propDict["ipReferenceData"];
-        } else {
-            return null;
+        if (array_key_exists('ipReferenceData', $this->_propDict) && !is_null($this->_propDict['ipReferenceData'])) {
+            $ipReferenceData = [];
+            if (count($this->_propDict['ipReferenceData']) > 0 && is_a($this->_propDict['ipReferenceData'][0], 'IpReferenceData')) {
+                return $this->_propDict['ipReferenceData'];
+            }
+            foreach ($this->_propDict['ipReferenceData'] as $singleValue) {
+                $ipReferenceData []= new IpReferenceData($singleValue);
+            }
+            $this->_propDict['ipReferenceData'] = $ipReferenceData;
+            return $this->_propDict['ipReferenceData'];
         }
+        return null;
     }
     
     /** 
     * Sets the ipReferenceData
     *
-    * @param IpReferenceData $val The ipReferenceData
+    * @param IpReferenceData[] $val The ipReferenceData
     *
     * @return IpSecurityProfile
     */
@@ -280,8 +294,8 @@ class IpSecurityProfile extends Entity
     */
     public function getLastSeenDateTime()
     {
-        if (array_key_exists("lastSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime") || is_null($this->_propDict["lastSeenDateTime"])) {
+        if (array_key_exists("lastSeenDateTime", $this->_propDict) && !is_null($this->_propDict["lastSeenDateTime"])) {
+            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSeenDateTime"];
             } else {
                 $this->_propDict["lastSeenDateTime"] = new \DateTime($this->_propDict["lastSeenDateTime"]);
@@ -365,8 +379,8 @@ class IpSecurityProfile extends Entity
     */
     public function getVendorInformation()
     {
-        if (array_key_exists("vendorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
+        if (array_key_exists("vendorInformation", $this->_propDict) && !is_null($this->_propDict["vendorInformation"])) {
+            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation")) {
                 return $this->_propDict["vendorInformation"];
             } else {
                 $this->_propDict["vendorInformation"] = new SecurityVendorInformation($this->_propDict["vendorInformation"]);

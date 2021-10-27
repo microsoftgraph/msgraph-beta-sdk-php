@@ -119,8 +119,8 @@ class DeviceManagementIntent extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -207,22 +207,29 @@ class DeviceManagementIntent extends Entity
      * Gets the assignments
     * Collection of assignments
      *
-     * @return array|null The assignments
+     * @return DeviceManagementIntentAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'DeviceManagementIntentAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new DeviceManagementIntentAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * Collection of assignments
     *
-    * @param DeviceManagementIntentAssignment $val The assignments
+    * @param DeviceManagementIntentAssignment[] $val The assignments
     *
     * @return DeviceManagementIntent
     */
@@ -237,22 +244,29 @@ class DeviceManagementIntent extends Entity
      * Gets the categories
     * Collection of setting categories within the intent
      *
-     * @return array|null The categories
+     * @return DeviceManagementIntentSettingCategory[]|null The categories
      */
     public function getCategories()
     {
-        if (array_key_exists("categories", $this->_propDict)) {
-           return $this->_propDict["categories"];
-        } else {
-            return null;
+        if (array_key_exists('categories', $this->_propDict) && !is_null($this->_propDict['categories'])) {
+            $categories = [];
+            if (count($this->_propDict['categories']) > 0 && is_a($this->_propDict['categories'][0], 'DeviceManagementIntentSettingCategory')) {
+                return $this->_propDict['categories'];
+            }
+            foreach ($this->_propDict['categories'] as $singleValue) {
+                $categories []= new DeviceManagementIntentSettingCategory($singleValue);
+            }
+            $this->_propDict['categories'] = $categories;
+            return $this->_propDict['categories'];
         }
+        return null;
     }
     
     /** 
     * Sets the categories
     * Collection of setting categories within the intent
     *
-    * @param DeviceManagementIntentSettingCategory $val The categories
+    * @param DeviceManagementIntentSettingCategory[] $val The categories
     *
     * @return DeviceManagementIntent
     */
@@ -267,22 +281,29 @@ class DeviceManagementIntent extends Entity
      * Gets the deviceSettingStateSummaries
     * Collection of settings and their states and counts of devices that belong to corresponding state for all settings within the intent
      *
-     * @return array|null The deviceSettingStateSummaries
+     * @return DeviceManagementIntentDeviceSettingStateSummary[]|null The deviceSettingStateSummaries
      */
     public function getDeviceSettingStateSummaries()
     {
-        if (array_key_exists("deviceSettingStateSummaries", $this->_propDict)) {
-           return $this->_propDict["deviceSettingStateSummaries"];
-        } else {
-            return null;
+        if (array_key_exists('deviceSettingStateSummaries', $this->_propDict) && !is_null($this->_propDict['deviceSettingStateSummaries'])) {
+            $deviceSettingStateSummaries = [];
+            if (count($this->_propDict['deviceSettingStateSummaries']) > 0 && is_a($this->_propDict['deviceSettingStateSummaries'][0], 'DeviceManagementIntentDeviceSettingStateSummary')) {
+                return $this->_propDict['deviceSettingStateSummaries'];
+            }
+            foreach ($this->_propDict['deviceSettingStateSummaries'] as $singleValue) {
+                $deviceSettingStateSummaries []= new DeviceManagementIntentDeviceSettingStateSummary($singleValue);
+            }
+            $this->_propDict['deviceSettingStateSummaries'] = $deviceSettingStateSummaries;
+            return $this->_propDict['deviceSettingStateSummaries'];
         }
+        return null;
     }
     
     /** 
     * Sets the deviceSettingStateSummaries
     * Collection of settings and their states and counts of devices that belong to corresponding state for all settings within the intent
     *
-    * @param DeviceManagementIntentDeviceSettingStateSummary $val The deviceSettingStateSummaries
+    * @param DeviceManagementIntentDeviceSettingStateSummary[] $val The deviceSettingStateSummaries
     *
     * @return DeviceManagementIntent
     */
@@ -297,22 +318,29 @@ class DeviceManagementIntent extends Entity
      * Gets the deviceStates
     * Collection of states of all devices that the intent is applied to
      *
-     * @return array|null The deviceStates
+     * @return DeviceManagementIntentDeviceState[]|null The deviceStates
      */
     public function getDeviceStates()
     {
-        if (array_key_exists("deviceStates", $this->_propDict)) {
-           return $this->_propDict["deviceStates"];
-        } else {
-            return null;
+        if (array_key_exists('deviceStates', $this->_propDict) && !is_null($this->_propDict['deviceStates'])) {
+            $deviceStates = [];
+            if (count($this->_propDict['deviceStates']) > 0 && is_a($this->_propDict['deviceStates'][0], 'DeviceManagementIntentDeviceState')) {
+                return $this->_propDict['deviceStates'];
+            }
+            foreach ($this->_propDict['deviceStates'] as $singleValue) {
+                $deviceStates []= new DeviceManagementIntentDeviceState($singleValue);
+            }
+            $this->_propDict['deviceStates'] = $deviceStates;
+            return $this->_propDict['deviceStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the deviceStates
     * Collection of states of all devices that the intent is applied to
     *
-    * @param DeviceManagementIntentDeviceState $val The deviceStates
+    * @param DeviceManagementIntentDeviceState[] $val The deviceStates
     *
     * @return DeviceManagementIntent
     */
@@ -330,8 +358,8 @@ class DeviceManagementIntent extends Entity
     */
     public function getDeviceStateSummary()
     {
-        if (array_key_exists("deviceStateSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceStateSummary"], "\Beta\Microsoft\Graph\Model\DeviceManagementIntentDeviceStateSummary") || is_null($this->_propDict["deviceStateSummary"])) {
+        if (array_key_exists("deviceStateSummary", $this->_propDict) && !is_null($this->_propDict["deviceStateSummary"])) {
+            if (is_a($this->_propDict["deviceStateSummary"], "\Beta\Microsoft\Graph\Model\DeviceManagementIntentDeviceStateSummary")) {
                 return $this->_propDict["deviceStateSummary"];
             } else {
                 $this->_propDict["deviceStateSummary"] = new DeviceManagementIntentDeviceStateSummary($this->_propDict["deviceStateSummary"]);
@@ -360,22 +388,29 @@ class DeviceManagementIntent extends Entity
      * Gets the settings
     * Collection of all settings to be applied
      *
-     * @return array|null The settings
+     * @return DeviceManagementSettingInstance[]|null The settings
      */
     public function getSettings()
     {
-        if (array_key_exists("settings", $this->_propDict)) {
-           return $this->_propDict["settings"];
-        } else {
-            return null;
+        if (array_key_exists('settings', $this->_propDict) && !is_null($this->_propDict['settings'])) {
+            $settings = [];
+            if (count($this->_propDict['settings']) > 0 && is_a($this->_propDict['settings'][0], 'DeviceManagementSettingInstance')) {
+                return $this->_propDict['settings'];
+            }
+            foreach ($this->_propDict['settings'] as $singleValue) {
+                $settings []= new DeviceManagementSettingInstance($singleValue);
+            }
+            $this->_propDict['settings'] = $settings;
+            return $this->_propDict['settings'];
         }
+        return null;
     }
     
     /** 
     * Sets the settings
     * Collection of all settings to be applied
     *
-    * @param DeviceManagementSettingInstance $val The settings
+    * @param DeviceManagementSettingInstance[] $val The settings
     *
     * @return DeviceManagementIntent
     */
@@ -390,22 +425,29 @@ class DeviceManagementIntent extends Entity
      * Gets the userStates
     * Collection of states of all users that the intent is applied to
      *
-     * @return array|null The userStates
+     * @return DeviceManagementIntentUserState[]|null The userStates
      */
     public function getUserStates()
     {
-        if (array_key_exists("userStates", $this->_propDict)) {
-           return $this->_propDict["userStates"];
-        } else {
-            return null;
+        if (array_key_exists('userStates', $this->_propDict) && !is_null($this->_propDict['userStates'])) {
+            $userStates = [];
+            if (count($this->_propDict['userStates']) > 0 && is_a($this->_propDict['userStates'][0], 'DeviceManagementIntentUserState')) {
+                return $this->_propDict['userStates'];
+            }
+            foreach ($this->_propDict['userStates'] as $singleValue) {
+                $userStates []= new DeviceManagementIntentUserState($singleValue);
+            }
+            $this->_propDict['userStates'] = $userStates;
+            return $this->_propDict['userStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the userStates
     * Collection of states of all users that the intent is applied to
     *
-    * @param DeviceManagementIntentUserState $val The userStates
+    * @param DeviceManagementIntentUserState[] $val The userStates
     *
     * @return DeviceManagementIntent
     */
@@ -423,8 +465,8 @@ class DeviceManagementIntent extends Entity
     */
     public function getUserStateSummary()
     {
-        if (array_key_exists("userStateSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["userStateSummary"], "\Beta\Microsoft\Graph\Model\DeviceManagementIntentUserStateSummary") || is_null($this->_propDict["userStateSummary"])) {
+        if (array_key_exists("userStateSummary", $this->_propDict) && !is_null($this->_propDict["userStateSummary"])) {
+            if (is_a($this->_propDict["userStateSummary"], "\Beta\Microsoft\Graph\Model\DeviceManagementIntentUserStateSummary")) {
                 return $this->_propDict["userStateSummary"];
             } else {
                 $this->_propDict["userStateSummary"] = new DeviceManagementIntentUserStateSummary($this->_propDict["userStateSummary"]);

@@ -25,6 +25,7 @@ class UserSimulationDetails extends Entity
 {
     /**
     * Gets the assignedTrainingsCount
+    * Number of trainings assigned to a user in an attack simulation and training campaign.
     *
     * @return int|null The assignedTrainingsCount
     */
@@ -39,6 +40,7 @@ class UserSimulationDetails extends Entity
 
     /**
     * Sets the assignedTrainingsCount
+    * Number of trainings assigned to a user in an attack simulation and training campaign.
     *
     * @param int $val The value of the assignedTrainingsCount
     *
@@ -51,6 +53,7 @@ class UserSimulationDetails extends Entity
     }
     /**
     * Gets the completedTrainingsCount
+    * Number of trainings completed by a user in an attack simulation and training campaign.
     *
     * @return int|null The completedTrainingsCount
     */
@@ -65,6 +68,7 @@ class UserSimulationDetails extends Entity
 
     /**
     * Sets the completedTrainingsCount
+    * Number of trainings completed by a user in an attack simulation and training campaign.
     *
     * @param int $val The value of the completedTrainingsCount
     *
@@ -78,13 +82,15 @@ class UserSimulationDetails extends Entity
 
     /**
     * Gets the compromisedDateTime
+    * Date and time of the compromising online action by a user in an attack simulation and training campaign.
     *
     * @return \DateTime|null The compromisedDateTime
     */
     public function getCompromisedDateTime()
     {
-        if (array_key_exists("compromisedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["compromisedDateTime"], "\DateTime") || is_null($this->_propDict["compromisedDateTime"])) {
+        if (array_key_exists("compromisedDateTime", $this->_propDict) && !is_null($this->_propDict["compromisedDateTime"])) {
+     
+            if (is_a($this->_propDict["compromisedDateTime"], "\DateTime")) {
                 return $this->_propDict["compromisedDateTime"];
             } else {
                 $this->_propDict["compromisedDateTime"] = new \DateTime($this->_propDict["compromisedDateTime"]);
@@ -96,6 +102,7 @@ class UserSimulationDetails extends Entity
 
     /**
     * Sets the compromisedDateTime
+    * Date and time of the compromising online action by a user in an attack simulation and training campaign.
     *
     * @param \DateTime $val The value to assign to the compromisedDateTime
     *
@@ -108,6 +115,7 @@ class UserSimulationDetails extends Entity
     }
     /**
     * Gets the inProgressTrainingsCount
+    * Number of trainings in progress by a user in an attack simulation and training campaign.
     *
     * @return int|null The inProgressTrainingsCount
     */
@@ -122,6 +130,7 @@ class UserSimulationDetails extends Entity
 
     /**
     * Sets the inProgressTrainingsCount
+    * Number of trainings in progress by a user in an attack simulation and training campaign.
     *
     * @param int $val The value of the inProgressTrainingsCount
     *
@@ -134,6 +143,7 @@ class UserSimulationDetails extends Entity
     }
     /**
     * Gets the isCompromised
+    * Flag representing if user was compromised in an attack simulation and training campaign.
     *
     * @return bool|null The isCompromised
     */
@@ -148,6 +158,7 @@ class UserSimulationDetails extends Entity
 
     /**
     * Sets the isCompromised
+    * Flag representing if user was compromised in an attack simulation and training campaign.
     *
     * @param bool $val The value of the isCompromised
     *
@@ -161,13 +172,15 @@ class UserSimulationDetails extends Entity
 
     /**
     * Gets the reportedPhishDateTime
+    * Date and time when user reported delivered payload as phish in the attack simulation and training campaign.
     *
     * @return \DateTime|null The reportedPhishDateTime
     */
     public function getReportedPhishDateTime()
     {
-        if (array_key_exists("reportedPhishDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["reportedPhishDateTime"], "\DateTime") || is_null($this->_propDict["reportedPhishDateTime"])) {
+        if (array_key_exists("reportedPhishDateTime", $this->_propDict) && !is_null($this->_propDict["reportedPhishDateTime"])) {
+     
+            if (is_a($this->_propDict["reportedPhishDateTime"], "\DateTime")) {
                 return $this->_propDict["reportedPhishDateTime"];
             } else {
                 $this->_propDict["reportedPhishDateTime"] = new \DateTime($this->_propDict["reportedPhishDateTime"]);
@@ -179,6 +192,7 @@ class UserSimulationDetails extends Entity
 
     /**
     * Sets the reportedPhishDateTime
+    * Date and time when user reported delivered payload as phish in the attack simulation and training campaign.
     *
     * @param \DateTime $val The value to assign to the reportedPhishDateTime
     *
@@ -192,26 +206,32 @@ class UserSimulationDetails extends Entity
 
     /**
     * Gets the simulationEvents
+    * List of simulation events of a user in the attack simulation and training campaign.
     *
-    * @return UserSimulationEventInfo|null The simulationEvents
+    * @return UserSimulationEventInfo[]|null The simulationEvents
     */
     public function getSimulationEvents()
     {
-        if (array_key_exists("simulationEvents", $this->_propDict)) {
-            if (is_a($this->_propDict["simulationEvents"], "\Beta\Microsoft\Graph\Model\UserSimulationEventInfo") || is_null($this->_propDict["simulationEvents"])) {
-                return $this->_propDict["simulationEvents"];
-            } else {
-                $this->_propDict["simulationEvents"] = new UserSimulationEventInfo($this->_propDict["simulationEvents"]);
-                return $this->_propDict["simulationEvents"];
+        if (array_key_exists("simulationEvents", $this->_propDict) && !is_null($this->_propDict["simulationEvents"])) {
+       
+            if (count($this->_propDict['simulationEvents']) > 0 && is_a($this->_propDict['simulationEvents'][0], 'UserSimulationEventInfo')) {
+               return $this->_propDict['simulationEvents'];
             }
-        }
+            $simulationEvents = [];
+            foreach ($this->_propDict['simulationEvents'] as $singleValue) {
+               $simulationEvents []= new UserSimulationEventInfo($singleValue);
+            }
+            $this->_propDict['simulationEvents'] = $simulationEvents;
+            return $this->_propDict['simulationEvents'];
+            }
         return null;
     }
 
     /**
     * Sets the simulationEvents
+    * List of simulation events of a user in the attack simulation and training campaign.
     *
-    * @param UserSimulationEventInfo $val The value to assign to the simulationEvents
+    * @param UserSimulationEventInfo[] $val The value to assign to the simulationEvents
     *
     * @return UserSimulationDetails The UserSimulationDetails
     */
@@ -223,13 +243,15 @@ class UserSimulationDetails extends Entity
 
     /**
     * Gets the simulationUser
+    * User in an attack simulation and training campaign.
     *
     * @return AttackSimulationUser|null The simulationUser
     */
     public function getSimulationUser()
     {
-        if (array_key_exists("simulationUser", $this->_propDict)) {
-            if (is_a($this->_propDict["simulationUser"], "\Beta\Microsoft\Graph\Model\AttackSimulationUser") || is_null($this->_propDict["simulationUser"])) {
+        if (array_key_exists("simulationUser", $this->_propDict) && !is_null($this->_propDict["simulationUser"])) {
+     
+            if (is_a($this->_propDict["simulationUser"], "\Beta\Microsoft\Graph\Model\AttackSimulationUser")) {
                 return $this->_propDict["simulationUser"];
             } else {
                 $this->_propDict["simulationUser"] = new AttackSimulationUser($this->_propDict["simulationUser"]);
@@ -241,6 +263,7 @@ class UserSimulationDetails extends Entity
 
     /**
     * Sets the simulationUser
+    * User in an attack simulation and training campaign.
     *
     * @param AttackSimulationUser $val The value to assign to the simulationUser
     *
@@ -254,26 +277,32 @@ class UserSimulationDetails extends Entity
 
     /**
     * Gets the trainingEvents
+    * List of training events of a user in the attack simulation and training campaign.
     *
-    * @return UserTrainingEventInfo|null The trainingEvents
+    * @return UserTrainingEventInfo[]|null The trainingEvents
     */
     public function getTrainingEvents()
     {
-        if (array_key_exists("trainingEvents", $this->_propDict)) {
-            if (is_a($this->_propDict["trainingEvents"], "\Beta\Microsoft\Graph\Model\UserTrainingEventInfo") || is_null($this->_propDict["trainingEvents"])) {
-                return $this->_propDict["trainingEvents"];
-            } else {
-                $this->_propDict["trainingEvents"] = new UserTrainingEventInfo($this->_propDict["trainingEvents"]);
-                return $this->_propDict["trainingEvents"];
+        if (array_key_exists("trainingEvents", $this->_propDict) && !is_null($this->_propDict["trainingEvents"])) {
+       
+            if (count($this->_propDict['trainingEvents']) > 0 && is_a($this->_propDict['trainingEvents'][0], 'UserTrainingEventInfo')) {
+               return $this->_propDict['trainingEvents'];
             }
-        }
+            $trainingEvents = [];
+            foreach ($this->_propDict['trainingEvents'] as $singleValue) {
+               $trainingEvents []= new UserTrainingEventInfo($singleValue);
+            }
+            $this->_propDict['trainingEvents'] = $trainingEvents;
+            return $this->_propDict['trainingEvents'];
+            }
         return null;
     }
 
     /**
     * Sets the trainingEvents
+    * List of training events of a user in the attack simulation and training campaign.
     *
-    * @param UserTrainingEventInfo $val The value to assign to the trainingEvents
+    * @param UserTrainingEventInfo[] $val The value to assign to the trainingEvents
     *
     * @return UserSimulationDetails The UserSimulationDetails
     */

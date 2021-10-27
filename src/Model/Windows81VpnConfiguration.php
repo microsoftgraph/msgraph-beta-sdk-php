@@ -61,8 +61,8 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration
     */
     public function getConnectionType()
     {
-        if (array_key_exists("connectionType", $this->_propDict)) {
-            if (is_a($this->_propDict["connectionType"], "\Beta\Microsoft\Graph\Model\WindowsVpnConnectionType") || is_null($this->_propDict["connectionType"])) {
+        if (array_key_exists("connectionType", $this->_propDict) && !is_null($this->_propDict["connectionType"])) {
+            if (is_a($this->_propDict["connectionType"], "\Beta\Microsoft\Graph\Model\WindowsVpnConnectionType")) {
                 return $this->_propDict["connectionType"];
             } else {
                 $this->_propDict["connectionType"] = new WindowsVpnConnectionType($this->_propDict["connectionType"]);
@@ -152,8 +152,8 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration
     */
     public function getProxyServer()
     {
-        if (array_key_exists("proxyServer", $this->_propDict)) {
-            if (is_a($this->_propDict["proxyServer"], "\Beta\Microsoft\Graph\Model\Windows81VpnProxyServer") || is_null($this->_propDict["proxyServer"])) {
+        if (array_key_exists("proxyServer", $this->_propDict) && !is_null($this->_propDict["proxyServer"])) {
+            if (is_a($this->_propDict["proxyServer"], "\Beta\Microsoft\Graph\Model\Windows81VpnProxyServer")) {
                 return $this->_propDict["proxyServer"];
             } else {
                 $this->_propDict["proxyServer"] = new Windows81VpnProxyServer($this->_propDict["proxyServer"]);

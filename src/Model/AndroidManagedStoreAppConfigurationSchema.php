@@ -32,8 +32,8 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity
     */
     public function getExampleJson()
     {
-        if (array_key_exists("exampleJson", $this->_propDict)) {
-            if (is_a($this->_propDict["exampleJson"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["exampleJson"])) {
+        if (array_key_exists("exampleJson", $this->_propDict) && !is_null($this->_propDict["exampleJson"])) {
+            if (is_a($this->_propDict["exampleJson"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["exampleJson"];
             } else {
                 $this->_propDict["exampleJson"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["exampleJson"]);
@@ -62,22 +62,29 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity
      * Gets the nestedSchemaItems
     * Collection of items each representing a named configuration option in the schema. It contains a flat list of all configuration.
      *
-     * @return array|null The nestedSchemaItems
+     * @return AndroidManagedStoreAppConfigurationSchemaItem[]|null The nestedSchemaItems
      */
     public function getNestedSchemaItems()
     {
-        if (array_key_exists("nestedSchemaItems", $this->_propDict)) {
-           return $this->_propDict["nestedSchemaItems"];
-        } else {
-            return null;
+        if (array_key_exists('nestedSchemaItems', $this->_propDict) && !is_null($this->_propDict['nestedSchemaItems'])) {
+            $nestedSchemaItems = [];
+            if (count($this->_propDict['nestedSchemaItems']) > 0 && is_a($this->_propDict['nestedSchemaItems'][0], 'AndroidManagedStoreAppConfigurationSchemaItem')) {
+                return $this->_propDict['nestedSchemaItems'];
+            }
+            foreach ($this->_propDict['nestedSchemaItems'] as $singleValue) {
+                $nestedSchemaItems []= new AndroidManagedStoreAppConfigurationSchemaItem($singleValue);
+            }
+            $this->_propDict['nestedSchemaItems'] = $nestedSchemaItems;
+            return $this->_propDict['nestedSchemaItems'];
         }
+        return null;
     }
     
     /** 
     * Sets the nestedSchemaItems
     * Collection of items each representing a named configuration option in the schema. It contains a flat list of all configuration.
     *
-    * @param AndroidManagedStoreAppConfigurationSchemaItem $val The nestedSchemaItems
+    * @param AndroidManagedStoreAppConfigurationSchemaItem[] $val The nestedSchemaItems
     *
     * @return AndroidManagedStoreAppConfigurationSchema
     */
@@ -92,22 +99,29 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity
      * Gets the schemaItems
     * Collection of items each representing a named configuration option in the schema. It only contains the root-level configuration.
      *
-     * @return array|null The schemaItems
+     * @return AndroidManagedStoreAppConfigurationSchemaItem[]|null The schemaItems
      */
     public function getSchemaItems()
     {
-        if (array_key_exists("schemaItems", $this->_propDict)) {
-           return $this->_propDict["schemaItems"];
-        } else {
-            return null;
+        if (array_key_exists('schemaItems', $this->_propDict) && !is_null($this->_propDict['schemaItems'])) {
+            $schemaItems = [];
+            if (count($this->_propDict['schemaItems']) > 0 && is_a($this->_propDict['schemaItems'][0], 'AndroidManagedStoreAppConfigurationSchemaItem')) {
+                return $this->_propDict['schemaItems'];
+            }
+            foreach ($this->_propDict['schemaItems'] as $singleValue) {
+                $schemaItems []= new AndroidManagedStoreAppConfigurationSchemaItem($singleValue);
+            }
+            $this->_propDict['schemaItems'] = $schemaItems;
+            return $this->_propDict['schemaItems'];
         }
+        return null;
     }
     
     /** 
     * Sets the schemaItems
     * Collection of items each representing a named configuration option in the schema. It only contains the root-level configuration.
     *
-    * @param AndroidManagedStoreAppConfigurationSchemaItem $val The schemaItems
+    * @param AndroidManagedStoreAppConfigurationSchemaItem[] $val The schemaItems
     *
     * @return AndroidManagedStoreAppConfigurationSchema
     */

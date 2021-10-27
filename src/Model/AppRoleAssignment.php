@@ -61,8 +61,8 @@ class AppRoleAssignment extends Entity
     */
     public function getCreationTimestamp()
     {
-        if (array_key_exists("creationTimestamp", $this->_propDict)) {
-            if (is_a($this->_propDict["creationTimestamp"], "\DateTime") || is_null($this->_propDict["creationTimestamp"])) {
+        if (array_key_exists("creationTimestamp", $this->_propDict) && !is_null($this->_propDict["creationTimestamp"])) {
+            if (is_a($this->_propDict["creationTimestamp"], "\DateTime")) {
                 return $this->_propDict["creationTimestamp"];
             } else {
                 $this->_propDict["creationTimestamp"] = new \DateTime($this->_propDict["creationTimestamp"]);

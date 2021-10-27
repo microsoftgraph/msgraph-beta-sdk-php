@@ -32,8 +32,8 @@ class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMet
     */
     public function getAuthenticationMode()
     {
-        if (array_key_exists("authenticationMode", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMode"], "\Beta\Microsoft\Graph\Model\MicrosoftAuthenticatorAuthenticationMode") || is_null($this->_propDict["authenticationMode"])) {
+        if (array_key_exists("authenticationMode", $this->_propDict) && !is_null($this->_propDict["authenticationMode"])) {
+            if (is_a($this->_propDict["authenticationMode"], "\Beta\Microsoft\Graph\Model\MicrosoftAuthenticatorAuthenticationMode")) {
                 return $this->_propDict["authenticationMode"];
             } else {
                 $this->_propDict["authenticationMode"] = new MicrosoftAuthenticatorAuthenticationMode($this->_propDict["authenticationMode"]);
@@ -58,35 +58,68 @@ class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMet
     }
     
     /**
-    * Gets the featureSettings
-    * Determines what additional settings should be applied to Microsoft Authenticator. Possible values are: null, requireNumberMatching (Requires number matching for MFA notifications. Value is ignored for phone sign-in notifications).
+    * Gets the displayAppInformationRequiredState
+    * Determines whether the user is shown additional context in their Authenticator app notification. In the body of the Authenticator notification, the user will be shown the app they are signing into along with the location that the authentication request originated from. Possible values are: enabled, disabled, default.
     *
-    * @return AuthenticatorAppFeatureSettings|null The featureSettings
+    * @return AdvancedConfigState|null The displayAppInformationRequiredState
     */
-    public function getFeatureSettings()
+    public function getDisplayAppInformationRequiredState()
     {
-        if (array_key_exists("featureSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["featureSettings"], "\Beta\Microsoft\Graph\Model\AuthenticatorAppFeatureSettings") || is_null($this->_propDict["featureSettings"])) {
-                return $this->_propDict["featureSettings"];
+        if (array_key_exists("displayAppInformationRequiredState", $this->_propDict) && !is_null($this->_propDict["displayAppInformationRequiredState"])) {
+            if (is_a($this->_propDict["displayAppInformationRequiredState"], "\Beta\Microsoft\Graph\Model\AdvancedConfigState")) {
+                return $this->_propDict["displayAppInformationRequiredState"];
             } else {
-                $this->_propDict["featureSettings"] = new AuthenticatorAppFeatureSettings($this->_propDict["featureSettings"]);
-                return $this->_propDict["featureSettings"];
+                $this->_propDict["displayAppInformationRequiredState"] = new AdvancedConfigState($this->_propDict["displayAppInformationRequiredState"]);
+                return $this->_propDict["displayAppInformationRequiredState"];
             }
         }
         return null;
     }
     
     /**
-    * Sets the featureSettings
-    * Determines what additional settings should be applied to Microsoft Authenticator. Possible values are: null, requireNumberMatching (Requires number matching for MFA notifications. Value is ignored for phone sign-in notifications).
+    * Sets the displayAppInformationRequiredState
+    * Determines whether the user is shown additional context in their Authenticator app notification. In the body of the Authenticator notification, the user will be shown the app they are signing into along with the location that the authentication request originated from. Possible values are: enabled, disabled, default.
     *
-    * @param AuthenticatorAppFeatureSettings $val The featureSettings
+    * @param AdvancedConfigState $val The displayAppInformationRequiredState
     *
     * @return MicrosoftAuthenticatorAuthenticationMethodTarget
     */
-    public function setFeatureSettings($val)
+    public function setDisplayAppInformationRequiredState($val)
     {
-        $this->_propDict["featureSettings"] = $val;
+        $this->_propDict["displayAppInformationRequiredState"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the numberMatchingRequiredState
+    * Requires number matching for MFA notifications. Value is ignored for phone sign-in notifications. Possible values are: enabled, disabled, default.
+    *
+    * @return AdvancedConfigState|null The numberMatchingRequiredState
+    */
+    public function getNumberMatchingRequiredState()
+    {
+        if (array_key_exists("numberMatchingRequiredState", $this->_propDict) && !is_null($this->_propDict["numberMatchingRequiredState"])) {
+            if (is_a($this->_propDict["numberMatchingRequiredState"], "\Beta\Microsoft\Graph\Model\AdvancedConfigState")) {
+                return $this->_propDict["numberMatchingRequiredState"];
+            } else {
+                $this->_propDict["numberMatchingRequiredState"] = new AdvancedConfigState($this->_propDict["numberMatchingRequiredState"]);
+                return $this->_propDict["numberMatchingRequiredState"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the numberMatchingRequiredState
+    * Requires number matching for MFA notifications. Value is ignored for phone sign-in notifications. Possible values are: enabled, disabled, default.
+    *
+    * @param AdvancedConfigState $val The numberMatchingRequiredState
+    *
+    * @return MicrosoftAuthenticatorAuthenticationMethodTarget
+    */
+    public function setNumberMatchingRequiredState($val)
+    {
+        $this->_propDict["numberMatchingRequiredState"] = $val;
         return $this;
     }
     

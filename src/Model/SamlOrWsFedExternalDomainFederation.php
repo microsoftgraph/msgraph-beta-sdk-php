@@ -29,22 +29,29 @@ class SamlOrWsFedExternalDomainFederation extends SamlOrWsFedProvider
      * Gets the domains
     * Collection of domain names of the external organizations that the tenant is federating with. Supports $filter (eq).
      *
-     * @return array|null The domains
+     * @return ExternalDomainName[]|null The domains
      */
     public function getDomains()
     {
-        if (array_key_exists("domains", $this->_propDict)) {
-           return $this->_propDict["domains"];
-        } else {
-            return null;
+        if (array_key_exists('domains', $this->_propDict) && !is_null($this->_propDict['domains'])) {
+            $domains = [];
+            if (count($this->_propDict['domains']) > 0 && is_a($this->_propDict['domains'][0], 'ExternalDomainName')) {
+                return $this->_propDict['domains'];
+            }
+            foreach ($this->_propDict['domains'] as $singleValue) {
+                $domains []= new ExternalDomainName($singleValue);
+            }
+            $this->_propDict['domains'] = $domains;
+            return $this->_propDict['domains'];
         }
+        return null;
     }
     
     /** 
     * Sets the domains
     * Collection of domain names of the external organizations that the tenant is federating with. Supports $filter (eq).
     *
-    * @param ExternalDomainName $val The domains
+    * @param ExternalDomainName[] $val The domains
     *
     * @return SamlOrWsFedExternalDomainFederation
     */

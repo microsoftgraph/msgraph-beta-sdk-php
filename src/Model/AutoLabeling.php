@@ -66,7 +66,7 @@ class AutoLabeling extends Entity
     /**
     * Sets the sensitiveTypeIds
     *
-    * @param string $val The value of the sensitiveTypeIds
+    * @param string[] $val The value of the sensitiveTypeIds
     *
     * @return AutoLabeling
     */

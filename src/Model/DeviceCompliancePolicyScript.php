@@ -60,8 +60,9 @@ class DeviceCompliancePolicyScript extends Entity
     */
     public function getRulesContent()
     {
-        if (array_key_exists("rulesContent", $this->_propDict)) {
-            if (is_a($this->_propDict["rulesContent"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["rulesContent"])) {
+        if (array_key_exists("rulesContent", $this->_propDict) && !is_null($this->_propDict["rulesContent"])) {
+     
+            if (is_a($this->_propDict["rulesContent"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["rulesContent"];
             } else {
                 $this->_propDict["rulesContent"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["rulesContent"]);

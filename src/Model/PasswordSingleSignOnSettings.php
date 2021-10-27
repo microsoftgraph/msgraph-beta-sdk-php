@@ -27,25 +27,29 @@ class PasswordSingleSignOnSettings extends Entity
     /**
     * Gets the fields
     *
-    * @return PasswordSingleSignOnField|null The fields
+    * @return PasswordSingleSignOnField[]|null The fields
     */
     public function getFields()
     {
-        if (array_key_exists("fields", $this->_propDict)) {
-            if (is_a($this->_propDict["fields"], "\Beta\Microsoft\Graph\Model\PasswordSingleSignOnField") || is_null($this->_propDict["fields"])) {
-                return $this->_propDict["fields"];
-            } else {
-                $this->_propDict["fields"] = new PasswordSingleSignOnField($this->_propDict["fields"]);
-                return $this->_propDict["fields"];
+        if (array_key_exists("fields", $this->_propDict) && !is_null($this->_propDict["fields"])) {
+       
+            if (count($this->_propDict['fields']) > 0 && is_a($this->_propDict['fields'][0], 'PasswordSingleSignOnField')) {
+               return $this->_propDict['fields'];
             }
-        }
+            $fields = [];
+            foreach ($this->_propDict['fields'] as $singleValue) {
+               $fields []= new PasswordSingleSignOnField($singleValue);
+            }
+            $this->_propDict['fields'] = $fields;
+            return $this->_propDict['fields'];
+            }
         return null;
     }
 
     /**
     * Sets the fields
     *
-    * @param PasswordSingleSignOnField $val The value to assign to the fields
+    * @param PasswordSingleSignOnField[] $val The value to assign to the fields
     *
     * @return PasswordSingleSignOnSettings The PasswordSingleSignOnSettings
     */

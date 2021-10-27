@@ -434,7 +434,7 @@ class TrustFrameworkKey extends Entity
     * Sets the x5c
     * The x5c (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates RFC 5280.
     *
-    * @param string $val The value of the x5c
+    * @param string[] $val The value of the x5c
     *
     * @return TrustFrameworkKey
     */

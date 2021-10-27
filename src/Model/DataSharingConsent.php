@@ -32,8 +32,8 @@ class DataSharingConsent extends Entity
     */
     public function getGrantDateTime()
     {
-        if (array_key_exists("grantDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["grantDateTime"], "\DateTime") || is_null($this->_propDict["grantDateTime"])) {
+        if (array_key_exists("grantDateTime", $this->_propDict) && !is_null($this->_propDict["grantDateTime"])) {
+            if (is_a($this->_propDict["grantDateTime"], "\DateTime")) {
                 return $this->_propDict["grantDateTime"];
             } else {
                 $this->_propDict["grantDateTime"] = new \DateTime($this->_propDict["grantDateTime"]);

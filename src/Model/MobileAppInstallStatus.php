@@ -148,8 +148,8 @@ class MobileAppInstallStatus extends Entity
     */
     public function getInstallState()
     {
-        if (array_key_exists("installState", $this->_propDict)) {
-            if (is_a($this->_propDict["installState"], "\Beta\Microsoft\Graph\Model\ResultantAppState") || is_null($this->_propDict["installState"])) {
+        if (array_key_exists("installState", $this->_propDict) && !is_null($this->_propDict["installState"])) {
+            if (is_a($this->_propDict["installState"], "\Beta\Microsoft\Graph\Model\ResultantAppState")) {
                 return $this->_propDict["installState"];
             } else {
                 $this->_propDict["installState"] = new ResultantAppState($this->_propDict["installState"]);
@@ -181,8 +181,8 @@ class MobileAppInstallStatus extends Entity
     */
     public function getInstallStateDetail()
     {
-        if (array_key_exists("installStateDetail", $this->_propDict)) {
-            if (is_a($this->_propDict["installStateDetail"], "\Beta\Microsoft\Graph\Model\ResultantAppStateDetail") || is_null($this->_propDict["installStateDetail"])) {
+        if (array_key_exists("installStateDetail", $this->_propDict) && !is_null($this->_propDict["installStateDetail"])) {
+            if (is_a($this->_propDict["installStateDetail"], "\Beta\Microsoft\Graph\Model\ResultantAppStateDetail")) {
                 return $this->_propDict["installStateDetail"];
             } else {
                 $this->_propDict["installStateDetail"] = new ResultantAppStateDetail($this->_propDict["installStateDetail"]);
@@ -214,8 +214,8 @@ class MobileAppInstallStatus extends Entity
     */
     public function getLastSyncDateTime()
     {
-        if (array_key_exists("lastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
+        if (array_key_exists("lastSyncDateTime", $this->_propDict) && !is_null($this->_propDict["lastSyncDateTime"])) {
+            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSyncDateTime"];
             } else {
                 $this->_propDict["lastSyncDateTime"] = new \DateTime($this->_propDict["lastSyncDateTime"]);
@@ -247,8 +247,8 @@ class MobileAppInstallStatus extends Entity
     */
     public function getMobileAppInstallStatusValue()
     {
-        if (array_key_exists("mobileAppInstallStatusValue", $this->_propDict)) {
-            if (is_a($this->_propDict["mobileAppInstallStatusValue"], "\Beta\Microsoft\Graph\Model\ResultantAppState") || is_null($this->_propDict["mobileAppInstallStatusValue"])) {
+        if (array_key_exists("mobileAppInstallStatusValue", $this->_propDict) && !is_null($this->_propDict["mobileAppInstallStatusValue"])) {
+            if (is_a($this->_propDict["mobileAppInstallStatusValue"], "\Beta\Microsoft\Graph\Model\ResultantAppState")) {
                 return $this->_propDict["mobileAppInstallStatusValue"];
             } else {
                 $this->_propDict["mobileAppInstallStatusValue"] = new ResultantAppState($this->_propDict["mobileAppInstallStatusValue"]);
@@ -396,8 +396,8 @@ class MobileAppInstallStatus extends Entity
     */
     public function getApp()
     {
-        if (array_key_exists("app", $this->_propDict)) {
-            if (is_a($this->_propDict["app"], "\Beta\Microsoft\Graph\Model\MobileApp") || is_null($this->_propDict["app"])) {
+        if (array_key_exists("app", $this->_propDict) && !is_null($this->_propDict["app"])) {
+            if (is_a($this->_propDict["app"], "\Beta\Microsoft\Graph\Model\MobileApp")) {
                 return $this->_propDict["app"];
             } else {
                 $this->_propDict["app"] = new MobileApp($this->_propDict["app"]);

@@ -59,8 +59,9 @@ class SearchQuery extends Entity
     */
     public function getQuery_string()
     {
-        if (array_key_exists("queryString", $this->_propDict)) {
-            if (is_a($this->_propDict["queryString"], "\Beta\Microsoft\Graph\Model\SearchQueryString") || is_null($this->_propDict["queryString"])) {
+        if (array_key_exists("queryString", $this->_propDict) && !is_null($this->_propDict["queryString"])) {
+     
+            if (is_a($this->_propDict["queryString"], "\Beta\Microsoft\Graph\Model\SearchQueryString")) {
                 return $this->_propDict["queryString"];
             } else {
                 $this->_propDict["queryString"] = new SearchQueryString($this->_propDict["queryString"]);

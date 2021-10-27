@@ -32,8 +32,8 @@ class AndroidForWorkEnterpriseWiFiConfiguration extends AndroidForWorkWiFiConfig
     */
     public function getAuthenticationMethod()
     {
-        if (array_key_exists("authenticationMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\WiFiAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
+        if (array_key_exists("authenticationMethod", $this->_propDict) && !is_null($this->_propDict["authenticationMethod"])) {
+            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\WiFiAuthenticationMethod")) {
                 return $this->_propDict["authenticationMethod"];
             } else {
                 $this->_propDict["authenticationMethod"] = new WiFiAuthenticationMethod($this->_propDict["authenticationMethod"]);
@@ -65,8 +65,8 @@ class AndroidForWorkEnterpriseWiFiConfiguration extends AndroidForWorkWiFiConfig
     */
     public function getEapType()
     {
-        if (array_key_exists("eapType", $this->_propDict)) {
-            if (is_a($this->_propDict["eapType"], "\Beta\Microsoft\Graph\Model\AndroidEapType") || is_null($this->_propDict["eapType"])) {
+        if (array_key_exists("eapType", $this->_propDict) && !is_null($this->_propDict["eapType"])) {
+            if (is_a($this->_propDict["eapType"], "\Beta\Microsoft\Graph\Model\AndroidEapType")) {
                 return $this->_propDict["eapType"];
             } else {
                 $this->_propDict["eapType"] = new AndroidEapType($this->_propDict["eapType"]);
@@ -98,8 +98,8 @@ class AndroidForWorkEnterpriseWiFiConfiguration extends AndroidForWorkWiFiConfig
     */
     public function getInnerAuthenticationProtocolForEapTtls()
     {
-        if (array_key_exists("innerAuthenticationProtocolForEapTtls", $this->_propDict)) {
-            if (is_a($this->_propDict["innerAuthenticationProtocolForEapTtls"], "\Beta\Microsoft\Graph\Model\NonEapAuthenticationMethodForEapTtlsType") || is_null($this->_propDict["innerAuthenticationProtocolForEapTtls"])) {
+        if (array_key_exists("innerAuthenticationProtocolForEapTtls", $this->_propDict) && !is_null($this->_propDict["innerAuthenticationProtocolForEapTtls"])) {
+            if (is_a($this->_propDict["innerAuthenticationProtocolForEapTtls"], "\Beta\Microsoft\Graph\Model\NonEapAuthenticationMethodForEapTtlsType")) {
                 return $this->_propDict["innerAuthenticationProtocolForEapTtls"];
             } else {
                 $this->_propDict["innerAuthenticationProtocolForEapTtls"] = new NonEapAuthenticationMethodForEapTtlsType($this->_propDict["innerAuthenticationProtocolForEapTtls"]);
@@ -131,8 +131,8 @@ class AndroidForWorkEnterpriseWiFiConfiguration extends AndroidForWorkWiFiConfig
     */
     public function getInnerAuthenticationProtocolForPeap()
     {
-        if (array_key_exists("innerAuthenticationProtocolForPeap", $this->_propDict)) {
-            if (is_a($this->_propDict["innerAuthenticationProtocolForPeap"], "\Beta\Microsoft\Graph\Model\NonEapAuthenticationMethodForPeap") || is_null($this->_propDict["innerAuthenticationProtocolForPeap"])) {
+        if (array_key_exists("innerAuthenticationProtocolForPeap", $this->_propDict) && !is_null($this->_propDict["innerAuthenticationProtocolForPeap"])) {
+            if (is_a($this->_propDict["innerAuthenticationProtocolForPeap"], "\Beta\Microsoft\Graph\Model\NonEapAuthenticationMethodForPeap")) {
                 return $this->_propDict["innerAuthenticationProtocolForPeap"];
             } else {
                 $this->_propDict["innerAuthenticationProtocolForPeap"] = new NonEapAuthenticationMethodForPeap($this->_propDict["innerAuthenticationProtocolForPeap"]);
@@ -222,8 +222,8 @@ class AndroidForWorkEnterpriseWiFiConfiguration extends AndroidForWorkWiFiConfig
     */
     public function getIdentityCertificateForClientAuthentication()
     {
-        if (array_key_exists("identityCertificateForClientAuthentication", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificateForClientAuthentication"], "\Beta\Microsoft\Graph\Model\AndroidForWorkCertificateProfileBase") || is_null($this->_propDict["identityCertificateForClientAuthentication"])) {
+        if (array_key_exists("identityCertificateForClientAuthentication", $this->_propDict) && !is_null($this->_propDict["identityCertificateForClientAuthentication"])) {
+            if (is_a($this->_propDict["identityCertificateForClientAuthentication"], "\Beta\Microsoft\Graph\Model\AndroidForWorkCertificateProfileBase")) {
                 return $this->_propDict["identityCertificateForClientAuthentication"];
             } else {
                 $this->_propDict["identityCertificateForClientAuthentication"] = new AndroidForWorkCertificateProfileBase($this->_propDict["identityCertificateForClientAuthentication"]);
@@ -255,8 +255,8 @@ class AndroidForWorkEnterpriseWiFiConfiguration extends AndroidForWorkWiFiConfig
     */
     public function getRootCertificateForServerValidation()
     {
-        if (array_key_exists("rootCertificateForServerValidation", $this->_propDict)) {
-            if (is_a($this->_propDict["rootCertificateForServerValidation"], "\Beta\Microsoft\Graph\Model\AndroidForWorkTrustedRootCertificate") || is_null($this->_propDict["rootCertificateForServerValidation"])) {
+        if (array_key_exists("rootCertificateForServerValidation", $this->_propDict) && !is_null($this->_propDict["rootCertificateForServerValidation"])) {
+            if (is_a($this->_propDict["rootCertificateForServerValidation"], "\Beta\Microsoft\Graph\Model\AndroidForWorkTrustedRootCertificate")) {
                 return $this->_propDict["rootCertificateForServerValidation"];
             } else {
                 $this->_propDict["rootCertificateForServerValidation"] = new AndroidForWorkTrustedRootCertificate($this->_propDict["rootCertificateForServerValidation"]);

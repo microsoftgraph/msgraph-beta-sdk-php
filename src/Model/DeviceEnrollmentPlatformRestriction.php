@@ -42,7 +42,7 @@ class DeviceEnrollmentPlatformRestriction extends Entity
     * Sets the blockedManufacturers
     * Collection of blocked Manufacturers.
     *
-    * @param string $val The value of the blockedManufacturers
+    * @param string[] $val The value of the blockedManufacturers
     *
     * @return DeviceEnrollmentPlatformRestriction
     */
@@ -70,7 +70,7 @@ class DeviceEnrollmentPlatformRestriction extends Entity
     * Sets the blockedSkus
     * Collection of blocked Skus.
     *
-    * @param string $val The value of the blockedSkus
+    * @param string[] $val The value of the blockedSkus
     *
     * @return DeviceEnrollmentPlatformRestriction
     */

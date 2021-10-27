@@ -464,22 +464,29 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
      * Gets the appsSingleAppModeList
     * Gets or sets the list of iOS apps allowed to autonomously enter Single App Mode. Supervised only. iOS 7.0 and later. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The appsSingleAppModeList
+     * @return AppListItem[]|null The appsSingleAppModeList
      */
     public function getAppsSingleAppModeList()
     {
-        if (array_key_exists("appsSingleAppModeList", $this->_propDict)) {
-           return $this->_propDict["appsSingleAppModeList"];
-        } else {
-            return null;
+        if (array_key_exists('appsSingleAppModeList', $this->_propDict) && !is_null($this->_propDict['appsSingleAppModeList'])) {
+            $appsSingleAppModeList = [];
+            if (count($this->_propDict['appsSingleAppModeList']) > 0 && is_a($this->_propDict['appsSingleAppModeList'][0], 'AppListItem')) {
+                return $this->_propDict['appsSingleAppModeList'];
+            }
+            foreach ($this->_propDict['appsSingleAppModeList'] as $singleValue) {
+                $appsSingleAppModeList []= new AppListItem($singleValue);
+            }
+            $this->_propDict['appsSingleAppModeList'] = $appsSingleAppModeList;
+            return $this->_propDict['appsSingleAppModeList'];
         }
+        return null;
     }
     
     /** 
     * Sets the appsSingleAppModeList
     * Gets or sets the list of iOS apps allowed to autonomously enter Single App Mode. Supervised only. iOS 7.0 and later. This collection can contain a maximum of 500 elements.
     *
-    * @param AppListItem $val The appsSingleAppModeList
+    * @param AppListItem[] $val The appsSingleAppModeList
     *
     * @return IosGeneralDeviceConfiguration
     */
@@ -639,22 +646,29 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
      * Gets the appsVisibilityList
     * List of apps in the visibility list (either visible/launchable apps list or hidden/unlaunchable apps list, controlled by AppsVisibilityListType) (iOS 9.3 and later). This collection can contain a maximum of 10000 elements.
      *
-     * @return array|null The appsVisibilityList
+     * @return AppListItem[]|null The appsVisibilityList
      */
     public function getAppsVisibilityList()
     {
-        if (array_key_exists("appsVisibilityList", $this->_propDict)) {
-           return $this->_propDict["appsVisibilityList"];
-        } else {
-            return null;
+        if (array_key_exists('appsVisibilityList', $this->_propDict) && !is_null($this->_propDict['appsVisibilityList'])) {
+            $appsVisibilityList = [];
+            if (count($this->_propDict['appsVisibilityList']) > 0 && is_a($this->_propDict['appsVisibilityList'][0], 'AppListItem')) {
+                return $this->_propDict['appsVisibilityList'];
+            }
+            foreach ($this->_propDict['appsVisibilityList'] as $singleValue) {
+                $appsVisibilityList []= new AppListItem($singleValue);
+            }
+            $this->_propDict['appsVisibilityList'] = $appsVisibilityList;
+            return $this->_propDict['appsVisibilityList'];
         }
+        return null;
     }
     
     /** 
     * Sets the appsVisibilityList
     * List of apps in the visibility list (either visible/launchable apps list or hidden/unlaunchable apps list, controlled by AppsVisibilityListType) (iOS 9.3 and later). This collection can contain a maximum of 10000 elements.
     *
-    * @param AppListItem $val The appsVisibilityList
+    * @param AppListItem[] $val The appsVisibilityList
     *
     * @return IosGeneralDeviceConfiguration
     */
@@ -672,8 +686,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getAppsVisibilityListType()
     {
-        if (array_key_exists("appsVisibilityListType", $this->_propDict)) {
-            if (is_a($this->_propDict["appsVisibilityListType"], "\Beta\Microsoft\Graph\Model\AppListType") || is_null($this->_propDict["appsVisibilityListType"])) {
+        if (array_key_exists("appsVisibilityListType", $this->_propDict) && !is_null($this->_propDict["appsVisibilityListType"])) {
+            if (is_a($this->_propDict["appsVisibilityListType"], "\Beta\Microsoft\Graph\Model\AppListType")) {
                 return $this->_propDict["appsVisibilityListType"];
             } else {
                 $this->_propDict["appsVisibilityListType"] = new AppListType($this->_propDict["appsVisibilityListType"]);
@@ -1227,8 +1241,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getCompliantAppListType()
     {
-        if (array_key_exists("compliantAppListType", $this->_propDict)) {
-            if (is_a($this->_propDict["compliantAppListType"], "\Beta\Microsoft\Graph\Model\AppListType") || is_null($this->_propDict["compliantAppListType"])) {
+        if (array_key_exists("compliantAppListType", $this->_propDict) && !is_null($this->_propDict["compliantAppListType"])) {
+            if (is_a($this->_propDict["compliantAppListType"], "\Beta\Microsoft\Graph\Model\AppListType")) {
                 return $this->_propDict["compliantAppListType"];
             } else {
                 $this->_propDict["compliantAppListType"] = new AppListType($this->_propDict["compliantAppListType"]);
@@ -1257,22 +1271,29 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
      * Gets the compliantAppsList
     * List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
      *
-     * @return array|null The compliantAppsList
+     * @return AppListItem[]|null The compliantAppsList
      */
     public function getCompliantAppsList()
     {
-        if (array_key_exists("compliantAppsList", $this->_propDict)) {
-           return $this->_propDict["compliantAppsList"];
-        } else {
-            return null;
+        if (array_key_exists('compliantAppsList', $this->_propDict) && !is_null($this->_propDict['compliantAppsList'])) {
+            $compliantAppsList = [];
+            if (count($this->_propDict['compliantAppsList']) > 0 && is_a($this->_propDict['compliantAppsList'][0], 'AppListItem')) {
+                return $this->_propDict['compliantAppsList'];
+            }
+            foreach ($this->_propDict['compliantAppsList'] as $singleValue) {
+                $compliantAppsList []= new AppListItem($singleValue);
+            }
+            $this->_propDict['compliantAppsList'] = $compliantAppsList;
+            return $this->_propDict['compliantAppsList'];
         }
+        return null;
     }
     
     /** 
     * Sets the compliantAppsList
     * List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
     *
-    * @param AppListItem $val The compliantAppsList
+    * @param AppListItem[] $val The compliantAppsList
     *
     * @return IosGeneralDeviceConfiguration
     */
@@ -3088,8 +3109,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getKioskModeAppType()
     {
-        if (array_key_exists("kioskModeAppType", $this->_propDict)) {
-            if (is_a($this->_propDict["kioskModeAppType"], "\Beta\Microsoft\Graph\Model\IosKioskModeAppType") || is_null($this->_propDict["kioskModeAppType"])) {
+        if (array_key_exists("kioskModeAppType", $this->_propDict) && !is_null($this->_propDict["kioskModeAppType"])) {
+            if (is_a($this->_propDict["kioskModeAppType"], "\Beta\Microsoft\Graph\Model\IosKioskModeAppType")) {
                 return $this->_propDict["kioskModeAppType"];
             } else {
                 $this->_propDict["kioskModeAppType"] = new IosKioskModeAppType($this->_propDict["kioskModeAppType"]);
@@ -3672,8 +3693,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getMediaContentRatingApps()
     {
-        if (array_key_exists("mediaContentRatingApps", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaContentRatingApps"], "\Beta\Microsoft\Graph\Model\RatingAppsType") || is_null($this->_propDict["mediaContentRatingApps"])) {
+        if (array_key_exists("mediaContentRatingApps", $this->_propDict) && !is_null($this->_propDict["mediaContentRatingApps"])) {
+            if (is_a($this->_propDict["mediaContentRatingApps"], "\Beta\Microsoft\Graph\Model\RatingAppsType")) {
                 return $this->_propDict["mediaContentRatingApps"];
             } else {
                 $this->_propDict["mediaContentRatingApps"] = new RatingAppsType($this->_propDict["mediaContentRatingApps"]);
@@ -3705,8 +3726,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getMediaContentRatingAustralia()
     {
-        if (array_key_exists("mediaContentRatingAustralia", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaContentRatingAustralia"], "\Beta\Microsoft\Graph\Model\MediaContentRatingAustralia") || is_null($this->_propDict["mediaContentRatingAustralia"])) {
+        if (array_key_exists("mediaContentRatingAustralia", $this->_propDict) && !is_null($this->_propDict["mediaContentRatingAustralia"])) {
+            if (is_a($this->_propDict["mediaContentRatingAustralia"], "\Beta\Microsoft\Graph\Model\MediaContentRatingAustralia")) {
                 return $this->_propDict["mediaContentRatingAustralia"];
             } else {
                 $this->_propDict["mediaContentRatingAustralia"] = new MediaContentRatingAustralia($this->_propDict["mediaContentRatingAustralia"]);
@@ -3738,8 +3759,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getMediaContentRatingCanada()
     {
-        if (array_key_exists("mediaContentRatingCanada", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaContentRatingCanada"], "\Beta\Microsoft\Graph\Model\MediaContentRatingCanada") || is_null($this->_propDict["mediaContentRatingCanada"])) {
+        if (array_key_exists("mediaContentRatingCanada", $this->_propDict) && !is_null($this->_propDict["mediaContentRatingCanada"])) {
+            if (is_a($this->_propDict["mediaContentRatingCanada"], "\Beta\Microsoft\Graph\Model\MediaContentRatingCanada")) {
                 return $this->_propDict["mediaContentRatingCanada"];
             } else {
                 $this->_propDict["mediaContentRatingCanada"] = new MediaContentRatingCanada($this->_propDict["mediaContentRatingCanada"]);
@@ -3771,8 +3792,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getMediaContentRatingFrance()
     {
-        if (array_key_exists("mediaContentRatingFrance", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaContentRatingFrance"], "\Beta\Microsoft\Graph\Model\MediaContentRatingFrance") || is_null($this->_propDict["mediaContentRatingFrance"])) {
+        if (array_key_exists("mediaContentRatingFrance", $this->_propDict) && !is_null($this->_propDict["mediaContentRatingFrance"])) {
+            if (is_a($this->_propDict["mediaContentRatingFrance"], "\Beta\Microsoft\Graph\Model\MediaContentRatingFrance")) {
                 return $this->_propDict["mediaContentRatingFrance"];
             } else {
                 $this->_propDict["mediaContentRatingFrance"] = new MediaContentRatingFrance($this->_propDict["mediaContentRatingFrance"]);
@@ -3804,8 +3825,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getMediaContentRatingGermany()
     {
-        if (array_key_exists("mediaContentRatingGermany", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaContentRatingGermany"], "\Beta\Microsoft\Graph\Model\MediaContentRatingGermany") || is_null($this->_propDict["mediaContentRatingGermany"])) {
+        if (array_key_exists("mediaContentRatingGermany", $this->_propDict) && !is_null($this->_propDict["mediaContentRatingGermany"])) {
+            if (is_a($this->_propDict["mediaContentRatingGermany"], "\Beta\Microsoft\Graph\Model\MediaContentRatingGermany")) {
                 return $this->_propDict["mediaContentRatingGermany"];
             } else {
                 $this->_propDict["mediaContentRatingGermany"] = new MediaContentRatingGermany($this->_propDict["mediaContentRatingGermany"]);
@@ -3837,8 +3858,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getMediaContentRatingIreland()
     {
-        if (array_key_exists("mediaContentRatingIreland", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaContentRatingIreland"], "\Beta\Microsoft\Graph\Model\MediaContentRatingIreland") || is_null($this->_propDict["mediaContentRatingIreland"])) {
+        if (array_key_exists("mediaContentRatingIreland", $this->_propDict) && !is_null($this->_propDict["mediaContentRatingIreland"])) {
+            if (is_a($this->_propDict["mediaContentRatingIreland"], "\Beta\Microsoft\Graph\Model\MediaContentRatingIreland")) {
                 return $this->_propDict["mediaContentRatingIreland"];
             } else {
                 $this->_propDict["mediaContentRatingIreland"] = new MediaContentRatingIreland($this->_propDict["mediaContentRatingIreland"]);
@@ -3870,8 +3891,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getMediaContentRatingJapan()
     {
-        if (array_key_exists("mediaContentRatingJapan", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaContentRatingJapan"], "\Beta\Microsoft\Graph\Model\MediaContentRatingJapan") || is_null($this->_propDict["mediaContentRatingJapan"])) {
+        if (array_key_exists("mediaContentRatingJapan", $this->_propDict) && !is_null($this->_propDict["mediaContentRatingJapan"])) {
+            if (is_a($this->_propDict["mediaContentRatingJapan"], "\Beta\Microsoft\Graph\Model\MediaContentRatingJapan")) {
                 return $this->_propDict["mediaContentRatingJapan"];
             } else {
                 $this->_propDict["mediaContentRatingJapan"] = new MediaContentRatingJapan($this->_propDict["mediaContentRatingJapan"]);
@@ -3903,8 +3924,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getMediaContentRatingNewZealand()
     {
-        if (array_key_exists("mediaContentRatingNewZealand", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaContentRatingNewZealand"], "\Beta\Microsoft\Graph\Model\MediaContentRatingNewZealand") || is_null($this->_propDict["mediaContentRatingNewZealand"])) {
+        if (array_key_exists("mediaContentRatingNewZealand", $this->_propDict) && !is_null($this->_propDict["mediaContentRatingNewZealand"])) {
+            if (is_a($this->_propDict["mediaContentRatingNewZealand"], "\Beta\Microsoft\Graph\Model\MediaContentRatingNewZealand")) {
                 return $this->_propDict["mediaContentRatingNewZealand"];
             } else {
                 $this->_propDict["mediaContentRatingNewZealand"] = new MediaContentRatingNewZealand($this->_propDict["mediaContentRatingNewZealand"]);
@@ -3936,8 +3957,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getMediaContentRatingUnitedKingdom()
     {
-        if (array_key_exists("mediaContentRatingUnitedKingdom", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaContentRatingUnitedKingdom"], "\Beta\Microsoft\Graph\Model\MediaContentRatingUnitedKingdom") || is_null($this->_propDict["mediaContentRatingUnitedKingdom"])) {
+        if (array_key_exists("mediaContentRatingUnitedKingdom", $this->_propDict) && !is_null($this->_propDict["mediaContentRatingUnitedKingdom"])) {
+            if (is_a($this->_propDict["mediaContentRatingUnitedKingdom"], "\Beta\Microsoft\Graph\Model\MediaContentRatingUnitedKingdom")) {
                 return $this->_propDict["mediaContentRatingUnitedKingdom"];
             } else {
                 $this->_propDict["mediaContentRatingUnitedKingdom"] = new MediaContentRatingUnitedKingdom($this->_propDict["mediaContentRatingUnitedKingdom"]);
@@ -3969,8 +3990,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getMediaContentRatingUnitedStates()
     {
-        if (array_key_exists("mediaContentRatingUnitedStates", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaContentRatingUnitedStates"], "\Beta\Microsoft\Graph\Model\MediaContentRatingUnitedStates") || is_null($this->_propDict["mediaContentRatingUnitedStates"])) {
+        if (array_key_exists("mediaContentRatingUnitedStates", $this->_propDict) && !is_null($this->_propDict["mediaContentRatingUnitedStates"])) {
+            if (is_a($this->_propDict["mediaContentRatingUnitedStates"], "\Beta\Microsoft\Graph\Model\MediaContentRatingUnitedStates")) {
                 return $this->_propDict["mediaContentRatingUnitedStates"];
             } else {
                 $this->_propDict["mediaContentRatingUnitedStates"] = new MediaContentRatingUnitedStates($this->_propDict["mediaContentRatingUnitedStates"]);
@@ -4028,22 +4049,29 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
      * Gets the networkUsageRules
     * List of managed apps and the network rules that applies to them. This collection can contain a maximum of 1000 elements.
      *
-     * @return array|null The networkUsageRules
+     * @return IosNetworkUsageRule[]|null The networkUsageRules
      */
     public function getNetworkUsageRules()
     {
-        if (array_key_exists("networkUsageRules", $this->_propDict)) {
-           return $this->_propDict["networkUsageRules"];
-        } else {
-            return null;
+        if (array_key_exists('networkUsageRules', $this->_propDict) && !is_null($this->_propDict['networkUsageRules'])) {
+            $networkUsageRules = [];
+            if (count($this->_propDict['networkUsageRules']) > 0 && is_a($this->_propDict['networkUsageRules'][0], 'IosNetworkUsageRule')) {
+                return $this->_propDict['networkUsageRules'];
+            }
+            foreach ($this->_propDict['networkUsageRules'] as $singleValue) {
+                $networkUsageRules []= new IosNetworkUsageRule($singleValue);
+            }
+            $this->_propDict['networkUsageRules'] = $networkUsageRules;
+            return $this->_propDict['networkUsageRules'];
         }
+        return null;
     }
     
     /** 
     * Sets the networkUsageRules
     * List of managed apps and the network rules that applies to them. This collection can contain a maximum of 1000 elements.
     *
-    * @param IosNetworkUsageRule $val The networkUsageRules
+    * @param IosNetworkUsageRule[] $val The networkUsageRules
     *
     * @return IosGeneralDeviceConfiguration
     */
@@ -4496,8 +4524,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getPasscodeRequiredType()
     {
-        if (array_key_exists("passcodeRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["passcodeRequiredType"], "\Beta\Microsoft\Graph\Model\RequiredPasswordType") || is_null($this->_propDict["passcodeRequiredType"])) {
+        if (array_key_exists("passcodeRequiredType", $this->_propDict) && !is_null($this->_propDict["passcodeRequiredType"])) {
+            if (is_a($this->_propDict["passcodeRequiredType"], "\Beta\Microsoft\Graph\Model\RequiredPasswordType")) {
                 return $this->_propDict["passcodeRequiredType"];
             } else {
                 $this->_propDict["passcodeRequiredType"] = new RequiredPasswordType($this->_propDict["passcodeRequiredType"]);
@@ -4877,8 +4905,8 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getSafariCookieSettings()
     {
-        if (array_key_exists("safariCookieSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["safariCookieSettings"], "\Beta\Microsoft\Graph\Model\WebBrowserCookieSettings") || is_null($this->_propDict["safariCookieSettings"])) {
+        if (array_key_exists("safariCookieSettings", $this->_propDict) && !is_null($this->_propDict["safariCookieSettings"])) {
+            if (is_a($this->_propDict["safariCookieSettings"], "\Beta\Microsoft\Graph\Model\WebBrowserCookieSettings")) {
                 return $this->_propDict["safariCookieSettings"];
             } else {
                 $this->_propDict["safariCookieSettings"] = new WebBrowserCookieSettings($this->_propDict["safariCookieSettings"]);

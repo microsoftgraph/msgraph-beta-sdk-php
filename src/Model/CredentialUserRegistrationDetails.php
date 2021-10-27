@@ -29,22 +29,29 @@ class CredentialUserRegistrationDetails extends Entity
      * Gets the authMethods
     * Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
      *
-     * @return array|null The authMethods
+     * @return RegistrationAuthMethod[]|null The authMethods
      */
     public function getAuthMethods()
     {
-        if (array_key_exists("authMethods", $this->_propDict)) {
-           return $this->_propDict["authMethods"];
-        } else {
-            return null;
+        if (array_key_exists('authMethods', $this->_propDict) && !is_null($this->_propDict['authMethods'])) {
+            $authMethods = [];
+            if (count($this->_propDict['authMethods']) > 0 && is_a($this->_propDict['authMethods'][0], 'RegistrationAuthMethod')) {
+                return $this->_propDict['authMethods'];
+            }
+            foreach ($this->_propDict['authMethods'] as $singleValue) {
+                $authMethods []= new RegistrationAuthMethod($singleValue);
+            }
+            $this->_propDict['authMethods'] = $authMethods;
+            return $this->_propDict['authMethods'];
         }
+        return null;
     }
     
     /** 
     * Sets the authMethods
     * Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
     *
-    * @param RegistrationAuthMethod $val The authMethods
+    * @param RegistrationAuthMethod[] $val The authMethods
     *
     * @return CredentialUserRegistrationDetails
     */

@@ -59,21 +59,28 @@ class AppCatalogs implements \JsonSerializable
      /** 
      * Gets the teamsApps
      *
-     * @return array|null The teamsApps
+     * @return TeamsApp[]|null The teamsApps
      */
     public function getTeamsApps()
     {
-        if (array_key_exists("teamsApps", $this->_propDict)) {
-           return $this->_propDict["teamsApps"];
-        } else {
-            return null;
+        if (array_key_exists('teamsApps', $this->_propDict) && !is_null($this->_propDict['teamsApps'])) {
+            $teamsApps = [];
+            if (count($this->_propDict['teamsApps']) > 0 && is_a($this->_propDict['teamsApps'][0], 'TeamsApp')) {
+                return $this->_propDict['teamsApps'];
+            }
+            foreach ($this->_propDict['teamsApps'] as $singleValue) {
+                $teamsApps []= new TeamsApp($singleValue);
+            }
+            $this->_propDict['teamsApps'] = $teamsApps;
+            return $this->_propDict['teamsApps'];
         }
+        return null;
     }
     
     /** 
     * Sets the teamsApps
     *
-    * @param TeamsApp $val The teamsApps
+    * @param TeamsApp[] $val The teamsApps
     *
     * @return AppCatalogs
     */
@@ -119,10 +126,22 @@ class AppCatalogs implements \JsonSerializable
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
-                $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            if (is_a($val, '\DateTime')) {
+                $serializableProperties[$property] = $val->format(\DateTimeInterface::RFC3339);
+            } else if (is_a($val, '\Microsoft\Graph\Core\Enum')) {
                 $serializableProperties[$property] = $val->value();
+            } else if (is_array($val)) {
+                $values = [];
+                if (count($val) > 0 && is_a($val[0], '\DateTime')) {
+                   foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->format(\DateTimeInterface::RFC3339);
+                   }
+                } else if(count($val) > 0 && is_a($val[0], '\Microsoft\Graph\Core\Enum')) {
+                    foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->value();
+                   }
+                }
+                $serializableProperties[$property] = $values;
             }
         }
         return $serializableProperties;

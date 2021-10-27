@@ -60,8 +60,9 @@ class HybridAgentUpdaterConfiguration extends Entity
     */
     public function getDeferUpdateDateTime()
     {
-        if (array_key_exists("deferUpdateDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["deferUpdateDateTime"], "\DateTime") || is_null($this->_propDict["deferUpdateDateTime"])) {
+        if (array_key_exists("deferUpdateDateTime", $this->_propDict) && !is_null($this->_propDict["deferUpdateDateTime"])) {
+     
+            if (is_a($this->_propDict["deferUpdateDateTime"], "\DateTime")) {
                 return $this->_propDict["deferUpdateDateTime"];
             } else {
                 $this->_propDict["deferUpdateDateTime"] = new \DateTime($this->_propDict["deferUpdateDateTime"]);
@@ -92,8 +93,9 @@ class HybridAgentUpdaterConfiguration extends Entity
     */
     public function getUpdateWindow()
     {
-        if (array_key_exists("updateWindow", $this->_propDict)) {
-            if (is_a($this->_propDict["updateWindow"], "\Beta\Microsoft\Graph\Model\UpdateWindow") || is_null($this->_propDict["updateWindow"])) {
+        if (array_key_exists("updateWindow", $this->_propDict) && !is_null($this->_propDict["updateWindow"])) {
+     
+            if (is_a($this->_propDict["updateWindow"], "\Beta\Microsoft\Graph\Model\UpdateWindow")) {
                 return $this->_propDict["updateWindow"];
             } else {
                 $this->_propDict["updateWindow"] = new UpdateWindow($this->_propDict["updateWindow"]);

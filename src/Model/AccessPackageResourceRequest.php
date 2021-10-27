@@ -88,8 +88,8 @@ class AccessPackageResourceRequest extends Entity
     */
     public function getExpirationDateTime()
     {
-        if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+        if (array_key_exists("expirationDateTime", $this->_propDict) && !is_null($this->_propDict["expirationDateTime"])) {
+            if (is_a($this->_propDict["expirationDateTime"], "\DateTime")) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -266,8 +266,8 @@ class AccessPackageResourceRequest extends Entity
     */
     public function getAccessPackageResource()
     {
-        if (array_key_exists("accessPackageResource", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageResource"], "\Beta\Microsoft\Graph\Model\AccessPackageResource") || is_null($this->_propDict["accessPackageResource"])) {
+        if (array_key_exists("accessPackageResource", $this->_propDict) && !is_null($this->_propDict["accessPackageResource"])) {
+            if (is_a($this->_propDict["accessPackageResource"], "\Beta\Microsoft\Graph\Model\AccessPackageResource")) {
                 return $this->_propDict["accessPackageResource"];
             } else {
                 $this->_propDict["accessPackageResource"] = new AccessPackageResource($this->_propDict["accessPackageResource"]);
@@ -299,8 +299,8 @@ class AccessPackageResourceRequest extends Entity
     */
     public function getRequestor()
     {
-        if (array_key_exists("requestor", $this->_propDict)) {
-            if (is_a($this->_propDict["requestor"], "\Beta\Microsoft\Graph\Model\AccessPackageSubject") || is_null($this->_propDict["requestor"])) {
+        if (array_key_exists("requestor", $this->_propDict) && !is_null($this->_propDict["requestor"])) {
+            if (is_a($this->_propDict["requestor"], "\Beta\Microsoft\Graph\Model\AccessPackageSubject")) {
                 return $this->_propDict["requestor"];
             } else {
                 $this->_propDict["requestor"] = new AccessPackageSubject($this->_propDict["requestor"]);

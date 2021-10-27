@@ -58,22 +58,29 @@ class WorkPosition extends ItemFacet
      * Gets the colleagues
     * Colleagues that are associated with this position.
      *
-     * @return array|null The colleagues
+     * @return RelatedPerson[]|null The colleagues
      */
     public function getColleagues()
     {
-        if (array_key_exists("colleagues", $this->_propDict)) {
-           return $this->_propDict["colleagues"];
-        } else {
-            return null;
+        if (array_key_exists('colleagues', $this->_propDict) && !is_null($this->_propDict['colleagues'])) {
+            $colleagues = [];
+            if (count($this->_propDict['colleagues']) > 0 && is_a($this->_propDict['colleagues'][0], 'RelatedPerson')) {
+                return $this->_propDict['colleagues'];
+            }
+            foreach ($this->_propDict['colleagues'] as $singleValue) {
+                $colleagues []= new RelatedPerson($singleValue);
+            }
+            $this->_propDict['colleagues'] = $colleagues;
+            return $this->_propDict['colleagues'];
         }
+        return null;
     }
     
     /** 
     * Sets the colleagues
     * Colleagues that are associated with this position.
     *
-    * @param RelatedPerson $val The colleagues
+    * @param RelatedPerson[] $val The colleagues
     *
     * @return WorkPosition
     */
@@ -91,8 +98,8 @@ class WorkPosition extends ItemFacet
     */
     public function getDetail()
     {
-        if (array_key_exists("detail", $this->_propDict)) {
-            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\PositionDetail") || is_null($this->_propDict["detail"])) {
+        if (array_key_exists("detail", $this->_propDict) && !is_null($this->_propDict["detail"])) {
+            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\PositionDetail")) {
                 return $this->_propDict["detail"];
             } else {
                 $this->_propDict["detail"] = new PositionDetail($this->_propDict["detail"]);
@@ -153,8 +160,8 @@ class WorkPosition extends ItemFacet
     */
     public function getManager()
     {
-        if (array_key_exists("manager", $this->_propDict)) {
-            if (is_a($this->_propDict["manager"], "\Beta\Microsoft\Graph\Model\RelatedPerson") || is_null($this->_propDict["manager"])) {
+        if (array_key_exists("manager", $this->_propDict) && !is_null($this->_propDict["manager"])) {
+            if (is_a($this->_propDict["manager"], "\Beta\Microsoft\Graph\Model\RelatedPerson")) {
                 return $this->_propDict["manager"];
             } else {
                 $this->_propDict["manager"] = new RelatedPerson($this->_propDict["manager"]);

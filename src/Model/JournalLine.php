@@ -85,8 +85,8 @@ class JournalLine extends Entity
     */
     public function getAmount()
     {
-        if (array_key_exists("amount", $this->_propDict)) {
-            if (is_a($this->_propDict["amount"], "\Beta\Microsoft\Graph\Model\Decimal") || is_null($this->_propDict["amount"])) {
+        if (array_key_exists("amount", $this->_propDict) && !is_null($this->_propDict["amount"])) {
+            if (is_a($this->_propDict["amount"], "\Beta\Microsoft\Graph\Model\Decimal")) {
                 return $this->_propDict["amount"];
             } else {
                 $this->_propDict["amount"] = new Decimal($this->_propDict["amount"]);
@@ -251,8 +251,8 @@ class JournalLine extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -309,8 +309,8 @@ class JournalLine extends Entity
     */
     public function getPostingDate()
     {
-        if (array_key_exists("postingDate", $this->_propDict)) {
-            if (is_a($this->_propDict["postingDate"], "\DateTime") || is_null($this->_propDict["postingDate"])) {
+        if (array_key_exists("postingDate", $this->_propDict) && !is_null($this->_propDict["postingDate"])) {
+            if (is_a($this->_propDict["postingDate"], "\DateTime")) {
                 return $this->_propDict["postingDate"];
             } else {
                 $this->_propDict["postingDate"] = new \DateTime($this->_propDict["postingDate"]);
@@ -340,8 +340,8 @@ class JournalLine extends Entity
     */
     public function getAccount()
     {
-        if (array_key_exists("account", $this->_propDict)) {
-            if (is_a($this->_propDict["account"], "\Beta\Microsoft\Graph\Model\Account") || is_null($this->_propDict["account"])) {
+        if (array_key_exists("account", $this->_propDict) && !is_null($this->_propDict["account"])) {
+            if (is_a($this->_propDict["account"], "\Beta\Microsoft\Graph\Model\Account")) {
                 return $this->_propDict["account"];
             } else {
                 $this->_propDict["account"] = new Account($this->_propDict["account"]);

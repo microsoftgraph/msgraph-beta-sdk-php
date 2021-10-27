@@ -32,8 +32,8 @@ class WindowsDriverUpdateProfile extends Entity
     */
     public function getApprovalType()
     {
-        if (array_key_exists("approvalType", $this->_propDict)) {
-            if (is_a($this->_propDict["approvalType"], "\Beta\Microsoft\Graph\Model\DriverUpdateProfileApprovalType") || is_null($this->_propDict["approvalType"])) {
+        if (array_key_exists("approvalType", $this->_propDict) && !is_null($this->_propDict["approvalType"])) {
+            if (is_a($this->_propDict["approvalType"], "\Beta\Microsoft\Graph\Model\DriverUpdateProfileApprovalType")) {
                 return $this->_propDict["approvalType"];
             } else {
                 $this->_propDict["approvalType"] = new DriverUpdateProfileApprovalType($this->_propDict["approvalType"]);
@@ -65,8 +65,8 @@ class WindowsDriverUpdateProfile extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -214,8 +214,8 @@ class WindowsDriverUpdateProfile extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -302,22 +302,29 @@ class WindowsDriverUpdateProfile extends Entity
      * Gets the assignments
     * The list of group assignments of the profile.
      *
-     * @return array|null The assignments
+     * @return WindowsDriverUpdateProfileAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'WindowsDriverUpdateProfileAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new WindowsDriverUpdateProfileAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * The list of group assignments of the profile.
     *
-    * @param WindowsDriverUpdateProfileAssignment $val The assignments
+    * @param WindowsDriverUpdateProfileAssignment[] $val The assignments
     *
     * @return WindowsDriverUpdateProfile
     */
@@ -332,22 +339,29 @@ class WindowsDriverUpdateProfile extends Entity
      * Gets the driverInventories
     * Driver inventories for this profile.
      *
-     * @return array|null The driverInventories
+     * @return WindowsDriverUpdateInventory[]|null The driverInventories
      */
     public function getDriverInventories()
     {
-        if (array_key_exists("driverInventories", $this->_propDict)) {
-           return $this->_propDict["driverInventories"];
-        } else {
-            return null;
+        if (array_key_exists('driverInventories', $this->_propDict) && !is_null($this->_propDict['driverInventories'])) {
+            $driverInventories = [];
+            if (count($this->_propDict['driverInventories']) > 0 && is_a($this->_propDict['driverInventories'][0], 'WindowsDriverUpdateInventory')) {
+                return $this->_propDict['driverInventories'];
+            }
+            foreach ($this->_propDict['driverInventories'] as $singleValue) {
+                $driverInventories []= new WindowsDriverUpdateInventory($singleValue);
+            }
+            $this->_propDict['driverInventories'] = $driverInventories;
+            return $this->_propDict['driverInventories'];
         }
+        return null;
     }
     
     /** 
     * Sets the driverInventories
     * Driver inventories for this profile.
     *
-    * @param WindowsDriverUpdateInventory $val The driverInventories
+    * @param WindowsDriverUpdateInventory[] $val The driverInventories
     *
     * @return WindowsDriverUpdateProfile
     */

@@ -56,18 +56,22 @@ class SynchronizationJobApplicationParameters extends Entity
     * Gets the subjects
     * The identifiers of one or more objects to which a synchronizationJob is to be applied.
     *
-    * @return SynchronizationJobSubject|null The subjects
+    * @return SynchronizationJobSubject[]|null The subjects
     */
     public function getSubjects()
     {
-        if (array_key_exists("subjects", $this->_propDict)) {
-            if (is_a($this->_propDict["subjects"], "\Beta\Microsoft\Graph\Model\SynchronizationJobSubject") || is_null($this->_propDict["subjects"])) {
-                return $this->_propDict["subjects"];
-            } else {
-                $this->_propDict["subjects"] = new SynchronizationJobSubject($this->_propDict["subjects"]);
-                return $this->_propDict["subjects"];
+        if (array_key_exists("subjects", $this->_propDict) && !is_null($this->_propDict["subjects"])) {
+       
+            if (count($this->_propDict['subjects']) > 0 && is_a($this->_propDict['subjects'][0], 'SynchronizationJobSubject')) {
+               return $this->_propDict['subjects'];
             }
-        }
+            $subjects = [];
+            foreach ($this->_propDict['subjects'] as $singleValue) {
+               $subjects []= new SynchronizationJobSubject($singleValue);
+            }
+            $this->_propDict['subjects'] = $subjects;
+            return $this->_propDict['subjects'];
+            }
         return null;
     }
 
@@ -75,7 +79,7 @@ class SynchronizationJobApplicationParameters extends Entity
     * Sets the subjects
     * The identifiers of one or more objects to which a synchronizationJob is to be applied.
     *
-    * @param SynchronizationJobSubject $val The value to assign to the subjects
+    * @param SynchronizationJobSubject[] $val The value to assign to the subjects
     *
     * @return SynchronizationJobApplicationParameters The SynchronizationJobApplicationParameters
     */

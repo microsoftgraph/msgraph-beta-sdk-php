@@ -28,18 +28,22 @@ class TranslationPreferences extends Entity
     * Gets the languageOverrides
     * Translation override behavior for languages, if any.Returned by default.
     *
-    * @return TranslationLanguageOverride|null The languageOverrides
+    * @return TranslationLanguageOverride[]|null The languageOverrides
     */
     public function getLanguageOverrides()
     {
-        if (array_key_exists("languageOverrides", $this->_propDict)) {
-            if (is_a($this->_propDict["languageOverrides"], "\Beta\Microsoft\Graph\Model\TranslationLanguageOverride") || is_null($this->_propDict["languageOverrides"])) {
-                return $this->_propDict["languageOverrides"];
-            } else {
-                $this->_propDict["languageOverrides"] = new TranslationLanguageOverride($this->_propDict["languageOverrides"]);
-                return $this->_propDict["languageOverrides"];
+        if (array_key_exists("languageOverrides", $this->_propDict) && !is_null($this->_propDict["languageOverrides"])) {
+       
+            if (count($this->_propDict['languageOverrides']) > 0 && is_a($this->_propDict['languageOverrides'][0], 'TranslationLanguageOverride')) {
+               return $this->_propDict['languageOverrides'];
             }
-        }
+            $languageOverrides = [];
+            foreach ($this->_propDict['languageOverrides'] as $singleValue) {
+               $languageOverrides []= new TranslationLanguageOverride($singleValue);
+            }
+            $this->_propDict['languageOverrides'] = $languageOverrides;
+            return $this->_propDict['languageOverrides'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class TranslationPreferences extends Entity
     * Sets the languageOverrides
     * Translation override behavior for languages, if any.Returned by default.
     *
-    * @param TranslationLanguageOverride $val The value to assign to the languageOverrides
+    * @param TranslationLanguageOverride[] $val The value to assign to the languageOverrides
     *
     * @return TranslationPreferences The TranslationPreferences
     */
@@ -65,8 +69,9 @@ class TranslationPreferences extends Entity
     */
     public function getTranslationBehavior()
     {
-        if (array_key_exists("translationBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["translationBehavior"], "\Beta\Microsoft\Graph\Model\TranslationBehavior") || is_null($this->_propDict["translationBehavior"])) {
+        if (array_key_exists("translationBehavior", $this->_propDict) && !is_null($this->_propDict["translationBehavior"])) {
+     
+            if (is_a($this->_propDict["translationBehavior"], "\Beta\Microsoft\Graph\Model\TranslationBehavior")) {
                 return $this->_propDict["translationBehavior"];
             } else {
                 $this->_propDict["translationBehavior"] = new TranslationBehavior($this->_propDict["translationBehavior"]);
@@ -108,7 +113,7 @@ class TranslationPreferences extends Entity
     * Sets the untranslatedLanguages
     * The list of languages the user does not need translated. This is computed from the authoringLanguages collection in regionalAndLanguageSettings, and the languageOverrides collection in translationPreferences. The list specifies neutral culture values that include the language code without any country or region association. For example, it would specify 'fr' for the neutral French culture, but not 'fr-FR' for the French culture in France. Returned by default. Read only.
     *
-    * @param string $val The value of the untranslatedLanguages
+    * @param string[] $val The value of the untranslatedLanguages
     *
     * @return TranslationPreferences
     */

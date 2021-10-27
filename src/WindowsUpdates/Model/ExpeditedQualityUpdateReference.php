@@ -32,8 +32,9 @@ class ExpeditedQualityUpdateReference extends QualityUpdateReference
     */
     public function getEquivalentContent()
     {
-        if (array_key_exists("equivalentContent", $this->_propDict)) {
-            if (is_a($this->_propDict["equivalentContent"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\EquivalentContentOption") || is_null($this->_propDict["equivalentContent"])) {
+        if (array_key_exists("equivalentContent", $this->_propDict) && !is_null($this->_propDict["equivalentContent"])) {
+     
+            if (is_a($this->_propDict["equivalentContent"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\EquivalentContentOption")) {
                 return $this->_propDict["equivalentContent"];
             } else {
                 $this->_propDict["equivalentContent"] = new EquivalentContentOption($this->_propDict["equivalentContent"]);

@@ -61,8 +61,8 @@ class DeviceAppManagementTask extends Entity
     */
     public function getCategory()
     {
-        if (array_key_exists("category", $this->_propDict)) {
-            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\Model\DeviceAppManagementTaskCategory") || is_null($this->_propDict["category"])) {
+        if (array_key_exists("category", $this->_propDict) && !is_null($this->_propDict["category"])) {
+            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\Model\DeviceAppManagementTaskCategory")) {
                 return $this->_propDict["category"];
             } else {
                 $this->_propDict["category"] = new DeviceAppManagementTaskCategory($this->_propDict["category"]);
@@ -94,8 +94,8 @@ class DeviceAppManagementTask extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -243,8 +243,8 @@ class DeviceAppManagementTask extends Entity
     */
     public function getDueDateTime()
     {
-        if (array_key_exists("dueDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["dueDateTime"], "\DateTime") || is_null($this->_propDict["dueDateTime"])) {
+        if (array_key_exists("dueDateTime", $this->_propDict) && !is_null($this->_propDict["dueDateTime"])) {
+            if (is_a($this->_propDict["dueDateTime"], "\DateTime")) {
                 return $this->_propDict["dueDateTime"];
             } else {
                 $this->_propDict["dueDateTime"] = new \DateTime($this->_propDict["dueDateTime"]);
@@ -276,8 +276,8 @@ class DeviceAppManagementTask extends Entity
     */
     public function getPriority()
     {
-        if (array_key_exists("priority", $this->_propDict)) {
-            if (is_a($this->_propDict["priority"], "\Beta\Microsoft\Graph\Model\DeviceAppManagementTaskPriority") || is_null($this->_propDict["priority"])) {
+        if (array_key_exists("priority", $this->_propDict) && !is_null($this->_propDict["priority"])) {
+            if (is_a($this->_propDict["priority"], "\Beta\Microsoft\Graph\Model\DeviceAppManagementTaskPriority")) {
                 return $this->_propDict["priority"];
             } else {
                 $this->_propDict["priority"] = new DeviceAppManagementTaskPriority($this->_propDict["priority"]);
@@ -309,8 +309,8 @@ class DeviceAppManagementTask extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\DeviceAppManagementTaskStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\DeviceAppManagementTaskStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new DeviceAppManagementTaskStatus($this->_propDict["status"]);

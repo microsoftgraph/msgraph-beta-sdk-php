@@ -32,8 +32,8 @@ class Tag extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getChildSelectability()
     {
-        if (array_key_exists("childSelectability", $this->_propDict)) {
-            if (is_a($this->_propDict["childSelectability"], "\Beta\Microsoft\Graph\Ediscovery\Model\ChildSelectability") || is_null($this->_propDict["childSelectability"])) {
+        if (array_key_exists("childSelectability", $this->_propDict) && !is_null($this->_propDict["childSelectability"])) {
+            if (is_a($this->_propDict["childSelectability"], "\Beta\Microsoft\Graph\Ediscovery\Model\ChildSelectability")) {
                 return $this->_propDict["childSelectability"];
             } else {
                 $this->_propDict["childSelectability"] = new ChildSelectability($this->_propDict["childSelectability"]);
@@ -65,8 +65,8 @@ class Tag extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getCreatedBy()
     {
-        if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
+        if (array_key_exists("createdBy", $this->_propDict) && !is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new \Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["createdBy"]);
@@ -156,8 +156,8 @@ class Tag extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -186,22 +186,29 @@ class Tag extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the childTags
     * Returns the tags that are a child of a tag.
      *
-     * @return array|null The childTags
+     * @return Tag[]|null The childTags
      */
     public function getChildTags()
     {
-        if (array_key_exists("childTags", $this->_propDict)) {
-           return $this->_propDict["childTags"];
-        } else {
-            return null;
+        if (array_key_exists('childTags', $this->_propDict) && !is_null($this->_propDict['childTags'])) {
+            $childTags = [];
+            if (count($this->_propDict['childTags']) > 0 && is_a($this->_propDict['childTags'][0], 'Tag')) {
+                return $this->_propDict['childTags'];
+            }
+            foreach ($this->_propDict['childTags'] as $singleValue) {
+                $childTags []= new Tag($singleValue);
+            }
+            $this->_propDict['childTags'] = $childTags;
+            return $this->_propDict['childTags'];
         }
+        return null;
     }
     
     /** 
     * Sets the childTags
     * Returns the tags that are a child of a tag.
     *
-    * @param Tag $val The childTags
+    * @param Tag[] $val The childTags
     *
     * @return Tag
     */
@@ -219,8 +226,8 @@ class Tag extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getParent()
     {
-        if (array_key_exists("parent", $this->_propDict)) {
-            if (is_a($this->_propDict["parent"], "\Beta\Microsoft\Graph\Ediscovery\Model\Tag") || is_null($this->_propDict["parent"])) {
+        if (array_key_exists("parent", $this->_propDict) && !is_null($this->_propDict["parent"])) {
+            if (is_a($this->_propDict["parent"], "\Beta\Microsoft\Graph\Ediscovery\Model\Tag")) {
                 return $this->_propDict["parent"];
             } else {
                 $this->_propDict["parent"] = new Tag($this->_propDict["parent"]);

@@ -32,8 +32,8 @@ class InvokeUserFlowListener extends AuthenticationListener
     */
     public function getUserFlow()
     {
-        if (array_key_exists("userFlow", $this->_propDict)) {
-            if (is_a($this->_propDict["userFlow"], "\Beta\Microsoft\Graph\Model\B2xIdentityUserFlow") || is_null($this->_propDict["userFlow"])) {
+        if (array_key_exists("userFlow", $this->_propDict) && !is_null($this->_propDict["userFlow"])) {
+            if (is_a($this->_propDict["userFlow"], "\Beta\Microsoft\Graph\Model\B2xIdentityUserFlow")) {
                 return $this->_propDict["userFlow"];
             } else {
                 $this->_propDict["userFlow"] = new B2xIdentityUserFlow($this->_propDict["userFlow"]);

@@ -26,14 +26,15 @@ class ConditionalAccessDevices extends Entity
 
     /**
     * Gets the deviceFilter
-    * Filter defining the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.
+    * Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them.
     *
     * @return ConditionalAccessFilter|null The deviceFilter
     */
     public function getDeviceFilter()
     {
-        if (array_key_exists("deviceFilter", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceFilter"], "\Beta\Microsoft\Graph\Model\ConditionalAccessFilter") || is_null($this->_propDict["deviceFilter"])) {
+        if (array_key_exists("deviceFilter", $this->_propDict) && !is_null($this->_propDict["deviceFilter"])) {
+     
+            if (is_a($this->_propDict["deviceFilter"], "\Beta\Microsoft\Graph\Model\ConditionalAccessFilter")) {
                 return $this->_propDict["deviceFilter"];
             } else {
                 $this->_propDict["deviceFilter"] = new ConditionalAccessFilter($this->_propDict["deviceFilter"]);
@@ -45,7 +46,7 @@ class ConditionalAccessDevices extends Entity
 
     /**
     * Sets the deviceFilter
-    * Filter defining the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.
+    * Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them.
     *
     * @param ConditionalAccessFilter $val The value to assign to the deviceFilter
     *
@@ -75,7 +76,7 @@ class ConditionalAccessDevices extends Entity
     * Sets the excludeDevices
     * States excluded from the scope of the policy. Possible values: Compliant, DomainJoined. Cannot be set if deviceFIlter is set.
     *
-    * @param string $val The value of the excludeDevices
+    * @param string[] $val The value of the excludeDevices
     *
     * @return ConditionalAccessDevices
     */
@@ -101,7 +102,7 @@ class ConditionalAccessDevices extends Entity
     /**
     * Sets the excludeDeviceStates
     *
-    * @param string $val The value of the excludeDeviceStates
+    * @param string[] $val The value of the excludeDeviceStates
     *
     * @return ConditionalAccessDevices
     */
@@ -129,7 +130,7 @@ class ConditionalAccessDevices extends Entity
     * Sets the includeDevices
     * States in the scope of the policy. All is the only allowed value. Cannot be set if deviceFIlter is set.
     *
-    * @param string $val The value of the includeDevices
+    * @param string[] $val The value of the includeDevices
     *
     * @return ConditionalAccessDevices
     */
@@ -155,7 +156,7 @@ class ConditionalAccessDevices extends Entity
     /**
     * Sets the includeDeviceStates
     *
-    * @param string $val The value of the includeDeviceStates
+    * @param string[] $val The value of the includeDeviceStates
     *
     * @return ConditionalAccessDevices
     */

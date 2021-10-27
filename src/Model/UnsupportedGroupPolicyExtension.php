@@ -119,8 +119,8 @@ class UnsupportedGroupPolicyExtension extends Entity
     */
     public function getSettingScope()
     {
-        if (array_key_exists("settingScope", $this->_propDict)) {
-            if (is_a($this->_propDict["settingScope"], "\Beta\Microsoft\Graph\Model\GroupPolicySettingScope") || is_null($this->_propDict["settingScope"])) {
+        if (array_key_exists("settingScope", $this->_propDict) && !is_null($this->_propDict["settingScope"])) {
+            if (is_a($this->_propDict["settingScope"], "\Beta\Microsoft\Graph\Model\GroupPolicySettingScope")) {
                 return $this->_propDict["settingScope"];
             } else {
                 $this->_propDict["settingScope"] = new GroupPolicySettingScope($this->_propDict["settingScope"]);

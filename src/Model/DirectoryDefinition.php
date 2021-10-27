@@ -32,8 +32,8 @@ class DirectoryDefinition extends Entity
     */
     public function getDiscoverabilities()
     {
-        if (array_key_exists("discoverabilities", $this->_propDict)) {
-            if (is_a($this->_propDict["discoverabilities"], "\Beta\Microsoft\Graph\Model\DirectoryDefinitionDiscoverabilities") || is_null($this->_propDict["discoverabilities"])) {
+        if (array_key_exists("discoverabilities", $this->_propDict) && !is_null($this->_propDict["discoverabilities"])) {
+            if (is_a($this->_propDict["discoverabilities"], "\Beta\Microsoft\Graph\Model\DirectoryDefinitionDiscoverabilities")) {
                 return $this->_propDict["discoverabilities"];
             } else {
                 $this->_propDict["discoverabilities"] = new DirectoryDefinitionDiscoverabilities($this->_propDict["discoverabilities"]);
@@ -65,8 +65,8 @@ class DirectoryDefinition extends Entity
     */
     public function getDiscoveryDateTime()
     {
-        if (array_key_exists("discoveryDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["discoveryDateTime"], "\DateTime") || is_null($this->_propDict["discoveryDateTime"])) {
+        if (array_key_exists("discoveryDateTime", $this->_propDict) && !is_null($this->_propDict["discoveryDateTime"])) {
+            if (is_a($this->_propDict["discoveryDateTime"], "\DateTime")) {
                 return $this->_propDict["discoveryDateTime"];
             } else {
                 $this->_propDict["discoveryDateTime"] = new \DateTime($this->_propDict["discoveryDateTime"]);
@@ -124,22 +124,29 @@ class DirectoryDefinition extends Entity
      * Gets the objects
     * Collection of objects supported by the directory.
      *
-     * @return array|null The objects
+     * @return ObjectDefinition[]|null The objects
      */
     public function getObjects()
     {
-        if (array_key_exists("objects", $this->_propDict)) {
-           return $this->_propDict["objects"];
-        } else {
-            return null;
+        if (array_key_exists('objects', $this->_propDict) && !is_null($this->_propDict['objects'])) {
+            $objects = [];
+            if (count($this->_propDict['objects']) > 0 && is_a($this->_propDict['objects'][0], 'ObjectDefinition')) {
+                return $this->_propDict['objects'];
+            }
+            foreach ($this->_propDict['objects'] as $singleValue) {
+                $objects []= new ObjectDefinition($singleValue);
+            }
+            $this->_propDict['objects'] = $objects;
+            return $this->_propDict['objects'];
         }
+        return null;
     }
     
     /** 
     * Sets the objects
     * Collection of objects supported by the directory.
     *
-    * @param ObjectDefinition $val The objects
+    * @param ObjectDefinition[] $val The objects
     *
     * @return DirectoryDefinition
     */

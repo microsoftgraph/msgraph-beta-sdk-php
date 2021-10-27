@@ -56,18 +56,22 @@ class ApprovalStage extends Entity
     * Gets the escalationApprovers
     * If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. This can be a collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.
     *
-    * @return UserSet|null The escalationApprovers
+    * @return UserSet[]|null The escalationApprovers
     */
     public function getEscalationApprovers()
     {
-        if (array_key_exists("escalationApprovers", $this->_propDict)) {
-            if (is_a($this->_propDict["escalationApprovers"], "\Beta\Microsoft\Graph\Model\UserSet") || is_null($this->_propDict["escalationApprovers"])) {
-                return $this->_propDict["escalationApprovers"];
-            } else {
-                $this->_propDict["escalationApprovers"] = new UserSet($this->_propDict["escalationApprovers"]);
-                return $this->_propDict["escalationApprovers"];
+        if (array_key_exists("escalationApprovers", $this->_propDict) && !is_null($this->_propDict["escalationApprovers"])) {
+       
+            if (count($this->_propDict['escalationApprovers']) > 0 && is_a($this->_propDict['escalationApprovers'][0], 'UserSet')) {
+               return $this->_propDict['escalationApprovers'];
             }
-        }
+            $escalationApprovers = [];
+            foreach ($this->_propDict['escalationApprovers'] as $singleValue) {
+               $escalationApprovers []= new UserSet($singleValue);
+            }
+            $this->_propDict['escalationApprovers'] = $escalationApprovers;
+            return $this->_propDict['escalationApprovers'];
+            }
         return null;
     }
 
@@ -75,7 +79,7 @@ class ApprovalStage extends Entity
     * Sets the escalationApprovers
     * If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. This can be a collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.
     *
-    * @param UserSet $val The value to assign to the escalationApprovers
+    * @param UserSet[] $val The value to assign to the escalationApprovers
     *
     * @return ApprovalStage The ApprovalStage
     */
@@ -173,18 +177,22 @@ class ApprovalStage extends Entity
     * Gets the primaryApprovers
     * The users who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.
     *
-    * @return UserSet|null The primaryApprovers
+    * @return UserSet[]|null The primaryApprovers
     */
     public function getPrimaryApprovers()
     {
-        if (array_key_exists("primaryApprovers", $this->_propDict)) {
-            if (is_a($this->_propDict["primaryApprovers"], "\Beta\Microsoft\Graph\Model\UserSet") || is_null($this->_propDict["primaryApprovers"])) {
-                return $this->_propDict["primaryApprovers"];
-            } else {
-                $this->_propDict["primaryApprovers"] = new UserSet($this->_propDict["primaryApprovers"]);
-                return $this->_propDict["primaryApprovers"];
+        if (array_key_exists("primaryApprovers", $this->_propDict) && !is_null($this->_propDict["primaryApprovers"])) {
+       
+            if (count($this->_propDict['primaryApprovers']) > 0 && is_a($this->_propDict['primaryApprovers'][0], 'UserSet')) {
+               return $this->_propDict['primaryApprovers'];
             }
-        }
+            $primaryApprovers = [];
+            foreach ($this->_propDict['primaryApprovers'] as $singleValue) {
+               $primaryApprovers []= new UserSet($singleValue);
+            }
+            $this->_propDict['primaryApprovers'] = $primaryApprovers;
+            return $this->_propDict['primaryApprovers'];
+            }
         return null;
     }
 
@@ -192,7 +200,7 @@ class ApprovalStage extends Entity
     * Sets the primaryApprovers
     * The users who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.
     *
-    * @param UserSet $val The value to assign to the primaryApprovers
+    * @param UserSet[] $val The value to assign to the primaryApprovers
     *
     * @return ApprovalStage The ApprovalStage
     */

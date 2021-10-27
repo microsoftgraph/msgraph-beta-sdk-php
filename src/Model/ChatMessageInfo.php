@@ -32,8 +32,8 @@ class ChatMessageInfo extends Entity
     */
     public function getBody()
     {
-        if (array_key_exists("body", $this->_propDict)) {
-            if (is_a($this->_propDict["body"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["body"])) {
+        if (array_key_exists("body", $this->_propDict) && !is_null($this->_propDict["body"])) {
+            if (is_a($this->_propDict["body"], "\Beta\Microsoft\Graph\Model\ItemBody")) {
                 return $this->_propDict["body"];
             } else {
                 $this->_propDict["body"] = new ItemBody($this->_propDict["body"]);
@@ -65,8 +65,8 @@ class ChatMessageInfo extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -98,8 +98,8 @@ class ChatMessageInfo extends Entity
     */
     public function getEventDetail()
     {
-        if (array_key_exists("eventDetail", $this->_propDict)) {
-            if (is_a($this->_propDict["eventDetail"], "\Beta\Microsoft\Graph\Model\EventMessageDetail") || is_null($this->_propDict["eventDetail"])) {
+        if (array_key_exists("eventDetail", $this->_propDict) && !is_null($this->_propDict["eventDetail"])) {
+            if (is_a($this->_propDict["eventDetail"], "\Beta\Microsoft\Graph\Model\EventMessageDetail")) {
                 return $this->_propDict["eventDetail"];
             } else {
                 $this->_propDict["eventDetail"] = new EventMessageDetail($this->_propDict["eventDetail"]);
@@ -131,8 +131,8 @@ class ChatMessageInfo extends Entity
     */
     public function getFrom()
     {
-        if (array_key_exists("from", $this->_propDict)) {
-            if (is_a($this->_propDict["from"], "\Beta\Microsoft\Graph\Model\ChatMessageFromIdentitySet") || is_null($this->_propDict["from"])) {
+        if (array_key_exists("from", $this->_propDict) && !is_null($this->_propDict["from"])) {
+            if (is_a($this->_propDict["from"], "\Beta\Microsoft\Graph\Model\ChatMessageFromIdentitySet")) {
                 return $this->_propDict["from"];
             } else {
                 $this->_propDict["from"] = new ChatMessageFromIdentitySet($this->_propDict["from"]);
@@ -193,8 +193,8 @@ class ChatMessageInfo extends Entity
     */
     public function getMessageType()
     {
-        if (array_key_exists("messageType", $this->_propDict)) {
-            if (is_a($this->_propDict["messageType"], "\Beta\Microsoft\Graph\Model\ChatMessageType") || is_null($this->_propDict["messageType"])) {
+        if (array_key_exists("messageType", $this->_propDict) && !is_null($this->_propDict["messageType"])) {
+            if (is_a($this->_propDict["messageType"], "\Beta\Microsoft\Graph\Model\ChatMessageType")) {
                 return $this->_propDict["messageType"];
             } else {
                 $this->_propDict["messageType"] = new ChatMessageType($this->_propDict["messageType"]);

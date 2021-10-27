@@ -266,7 +266,7 @@ class AuditActor extends Entity
     * Sets the userPermissions
     * List of user permissions when the audit was performed.
     *
-    * @param string $val The value of the userPermissions
+    * @param string[] $val The value of the userPermissions
     *
     * @return AuditActor
     */
@@ -308,18 +308,22 @@ class AuditActor extends Entity
     * Gets the userRoleScopeTags
     * List of user scope tags when the audit was performed.
     *
-    * @return RoleScopeTagInfo|null The userRoleScopeTags
+    * @return RoleScopeTagInfo[]|null The userRoleScopeTags
     */
     public function getUserRoleScopeTags()
     {
-        if (array_key_exists("userRoleScopeTags", $this->_propDict)) {
-            if (is_a($this->_propDict["userRoleScopeTags"], "\Beta\Microsoft\Graph\Model\RoleScopeTagInfo") || is_null($this->_propDict["userRoleScopeTags"])) {
-                return $this->_propDict["userRoleScopeTags"];
-            } else {
-                $this->_propDict["userRoleScopeTags"] = new RoleScopeTagInfo($this->_propDict["userRoleScopeTags"]);
-                return $this->_propDict["userRoleScopeTags"];
+        if (array_key_exists("userRoleScopeTags", $this->_propDict) && !is_null($this->_propDict["userRoleScopeTags"])) {
+       
+            if (count($this->_propDict['userRoleScopeTags']) > 0 && is_a($this->_propDict['userRoleScopeTags'][0], 'RoleScopeTagInfo')) {
+               return $this->_propDict['userRoleScopeTags'];
             }
-        }
+            $userRoleScopeTags = [];
+            foreach ($this->_propDict['userRoleScopeTags'] as $singleValue) {
+               $userRoleScopeTags []= new RoleScopeTagInfo($singleValue);
+            }
+            $this->_propDict['userRoleScopeTags'] = $userRoleScopeTags;
+            return $this->_propDict['userRoleScopeTags'];
+            }
         return null;
     }
 
@@ -327,7 +331,7 @@ class AuditActor extends Entity
     * Sets the userRoleScopeTags
     * List of user scope tags when the audit was performed.
     *
-    * @param RoleScopeTagInfo $val The value to assign to the userRoleScopeTags
+    * @param RoleScopeTagInfo[] $val The value to assign to the userRoleScopeTags
     *
     * @return AuditActor The AuditActor
     */

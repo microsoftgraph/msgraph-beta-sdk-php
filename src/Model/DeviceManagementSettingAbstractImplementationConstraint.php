@@ -53,7 +53,7 @@ class DeviceManagementSettingAbstractImplementationConstraint extends DeviceMana
     * Sets the allowedAbstractImplementationDefinitionIds
     * List of value which means not configured for the setting
     *
-    * @param string $val The value of the allowedAbstractImplementationDefinitionIds
+    * @param string[] $val The value of the allowedAbstractImplementationDefinitionIds
     *
     * @return DeviceManagementSettingAbstractImplementationConstraint
     */

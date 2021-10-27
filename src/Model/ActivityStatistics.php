@@ -32,8 +32,8 @@ class ActivityStatistics extends Entity
     */
     public function getActivity()
     {
-        if (array_key_exists("activity", $this->_propDict)) {
-            if (is_a($this->_propDict["activity"], "\Beta\Microsoft\Graph\Model\AnalyticsActivityType") || is_null($this->_propDict["activity"])) {
+        if (array_key_exists("activity", $this->_propDict) && !is_null($this->_propDict["activity"])) {
+            if (is_a($this->_propDict["activity"], "\Beta\Microsoft\Graph\Model\AnalyticsActivityType")) {
                 return $this->_propDict["activity"];
             } else {
                 $this->_propDict["activity"] = new AnalyticsActivityType($this->_propDict["activity"]);
@@ -61,15 +61,15 @@ class ActivityStatistics extends Entity
     * Gets the duration
     * Total hours spent on the activity. The value is represented in ISO 8601 format for durations.
     *
-    * @return Duration|null The duration
+    * @return \DateInterval|null The duration
     */
     public function getDuration()
     {
-        if (array_key_exists("duration", $this->_propDict)) {
-            if (is_a($this->_propDict["duration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["duration"])) {
+        if (array_key_exists("duration", $this->_propDict) && !is_null($this->_propDict["duration"])) {
+            if (is_a($this->_propDict["duration"], "\DateInterval")) {
                 return $this->_propDict["duration"];
             } else {
-                $this->_propDict["duration"] = new Duration($this->_propDict["duration"]);
+                $this->_propDict["duration"] = new \DateInterval($this->_propDict["duration"]);
                 return $this->_propDict["duration"];
             }
         }
@@ -80,7 +80,7 @@ class ActivityStatistics extends Entity
     * Sets the duration
     * Total hours spent on the activity. The value is represented in ISO 8601 format for durations.
     *
-    * @param Duration $val The duration
+    * @param \DateInterval $val The duration
     *
     * @return ActivityStatistics
     */
@@ -98,8 +98,8 @@ class ActivityStatistics extends Entity
     */
     public function getEndDate()
     {
-        if (array_key_exists("endDate", $this->_propDict)) {
-            if (is_a($this->_propDict["endDate"], "\DateTime") || is_null($this->_propDict["endDate"])) {
+        if (array_key_exists("endDate", $this->_propDict) && !is_null($this->_propDict["endDate"])) {
+            if (is_a($this->_propDict["endDate"], "\DateTime")) {
                 return $this->_propDict["endDate"];
             } else {
                 $this->_propDict["endDate"] = new \DateTime($this->_propDict["endDate"]);
@@ -131,8 +131,8 @@ class ActivityStatistics extends Entity
     */
     public function getStartDate()
     {
-        if (array_key_exists("startDate", $this->_propDict)) {
-            if (is_a($this->_propDict["startDate"], "\DateTime") || is_null($this->_propDict["startDate"])) {
+        if (array_key_exists("startDate", $this->_propDict) && !is_null($this->_propDict["startDate"])) {
+            if (is_a($this->_propDict["startDate"], "\DateTime")) {
                 return $this->_propDict["startDate"];
             } else {
                 $this->_propDict["startDate"] = new \DateTime($this->_propDict["startDate"]);

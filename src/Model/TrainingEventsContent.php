@@ -26,26 +26,32 @@ class TrainingEventsContent extends Entity
 
     /**
     * Gets the assignedTrainingsInfos
+    * List of assigned trainings and their information in an attack simulation and training campaign.
     *
-    * @return AssignedTrainingInfo|null The assignedTrainingsInfos
+    * @return AssignedTrainingInfo[]|null The assignedTrainingsInfos
     */
     public function getAssignedTrainingsInfos()
     {
-        if (array_key_exists("assignedTrainingsInfos", $this->_propDict)) {
-            if (is_a($this->_propDict["assignedTrainingsInfos"], "\Beta\Microsoft\Graph\Model\AssignedTrainingInfo") || is_null($this->_propDict["assignedTrainingsInfos"])) {
-                return $this->_propDict["assignedTrainingsInfos"];
-            } else {
-                $this->_propDict["assignedTrainingsInfos"] = new AssignedTrainingInfo($this->_propDict["assignedTrainingsInfos"]);
-                return $this->_propDict["assignedTrainingsInfos"];
+        if (array_key_exists("assignedTrainingsInfos", $this->_propDict) && !is_null($this->_propDict["assignedTrainingsInfos"])) {
+       
+            if (count($this->_propDict['assignedTrainingsInfos']) > 0 && is_a($this->_propDict['assignedTrainingsInfos'][0], 'AssignedTrainingInfo')) {
+               return $this->_propDict['assignedTrainingsInfos'];
             }
-        }
+            $assignedTrainingsInfos = [];
+            foreach ($this->_propDict['assignedTrainingsInfos'] as $singleValue) {
+               $assignedTrainingsInfos []= new AssignedTrainingInfo($singleValue);
+            }
+            $this->_propDict['assignedTrainingsInfos'] = $assignedTrainingsInfos;
+            return $this->_propDict['assignedTrainingsInfos'];
+            }
         return null;
     }
 
     /**
     * Sets the assignedTrainingsInfos
+    * List of assigned trainings and their information in an attack simulation and training campaign.
     *
-    * @param AssignedTrainingInfo $val The value to assign to the assignedTrainingsInfos
+    * @param AssignedTrainingInfo[] $val The value to assign to the assignedTrainingsInfos
     *
     * @return TrainingEventsContent The TrainingEventsContent
     */
@@ -56,6 +62,7 @@ class TrainingEventsContent extends Entity
     }
     /**
     * Gets the trainingsAssignedUserCount
+    * Number of users who were assigned trainings in an attack simulation and training campaign.
     *
     * @return int|null The trainingsAssignedUserCount
     */
@@ -70,6 +77,7 @@ class TrainingEventsContent extends Entity
 
     /**
     * Sets the trainingsAssignedUserCount
+    * Number of users who were assigned trainings in an attack simulation and training campaign.
     *
     * @param int $val The value of the trainingsAssignedUserCount
     *

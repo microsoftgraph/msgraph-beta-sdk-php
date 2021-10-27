@@ -32,8 +32,8 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
     */
     public function getPlatformRestriction()
     {
-        if (array_key_exists("platformRestriction", $this->_propDict)) {
-            if (is_a($this->_propDict["platformRestriction"], "\Beta\Microsoft\Graph\Model\DeviceEnrollmentPlatformRestriction") || is_null($this->_propDict["platformRestriction"])) {
+        if (array_key_exists("platformRestriction", $this->_propDict) && !is_null($this->_propDict["platformRestriction"])) {
+            if (is_a($this->_propDict["platformRestriction"], "\Beta\Microsoft\Graph\Model\DeviceEnrollmentPlatformRestriction")) {
                 return $this->_propDict["platformRestriction"];
             } else {
                 $this->_propDict["platformRestriction"] = new DeviceEnrollmentPlatformRestriction($this->_propDict["platformRestriction"]);
@@ -65,8 +65,8 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
     */
     public function getPlatformType()
     {
-        if (array_key_exists("platformType", $this->_propDict)) {
-            if (is_a($this->_propDict["platformType"], "\Beta\Microsoft\Graph\Model\EnrollmentRestrictionPlatformType") || is_null($this->_propDict["platformType"])) {
+        if (array_key_exists("platformType", $this->_propDict) && !is_null($this->_propDict["platformType"])) {
+            if (is_a($this->_propDict["platformType"], "\Beta\Microsoft\Graph\Model\EnrollmentRestrictionPlatformType")) {
                 return $this->_propDict["platformType"];
             } else {
                 $this->_propDict["platformType"] = new EnrollmentRestrictionPlatformType($this->_propDict["platformType"]);

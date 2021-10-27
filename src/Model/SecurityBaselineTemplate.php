@@ -29,22 +29,29 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate
      * Gets the categoryDeviceStateSummaries
     * The security baseline per category device state summary
      *
-     * @return array|null The categoryDeviceStateSummaries
+     * @return SecurityBaselineCategoryStateSummary[]|null The categoryDeviceStateSummaries
      */
     public function getCategoryDeviceStateSummaries()
     {
-        if (array_key_exists("categoryDeviceStateSummaries", $this->_propDict)) {
-           return $this->_propDict["categoryDeviceStateSummaries"];
-        } else {
-            return null;
+        if (array_key_exists('categoryDeviceStateSummaries', $this->_propDict) && !is_null($this->_propDict['categoryDeviceStateSummaries'])) {
+            $categoryDeviceStateSummaries = [];
+            if (count($this->_propDict['categoryDeviceStateSummaries']) > 0 && is_a($this->_propDict['categoryDeviceStateSummaries'][0], 'SecurityBaselineCategoryStateSummary')) {
+                return $this->_propDict['categoryDeviceStateSummaries'];
+            }
+            foreach ($this->_propDict['categoryDeviceStateSummaries'] as $singleValue) {
+                $categoryDeviceStateSummaries []= new SecurityBaselineCategoryStateSummary($singleValue);
+            }
+            $this->_propDict['categoryDeviceStateSummaries'] = $categoryDeviceStateSummaries;
+            return $this->_propDict['categoryDeviceStateSummaries'];
         }
+        return null;
     }
     
     /** 
     * Sets the categoryDeviceStateSummaries
     * The security baseline per category device state summary
     *
-    * @param SecurityBaselineCategoryStateSummary $val The categoryDeviceStateSummaries
+    * @param SecurityBaselineCategoryStateSummary[] $val The categoryDeviceStateSummaries
     *
     * @return SecurityBaselineTemplate
     */
@@ -59,22 +66,29 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate
      * Gets the deviceStates
     * The security baseline device states
      *
-     * @return array|null The deviceStates
+     * @return SecurityBaselineDeviceState[]|null The deviceStates
      */
     public function getDeviceStates()
     {
-        if (array_key_exists("deviceStates", $this->_propDict)) {
-           return $this->_propDict["deviceStates"];
-        } else {
-            return null;
+        if (array_key_exists('deviceStates', $this->_propDict) && !is_null($this->_propDict['deviceStates'])) {
+            $deviceStates = [];
+            if (count($this->_propDict['deviceStates']) > 0 && is_a($this->_propDict['deviceStates'][0], 'SecurityBaselineDeviceState')) {
+                return $this->_propDict['deviceStates'];
+            }
+            foreach ($this->_propDict['deviceStates'] as $singleValue) {
+                $deviceStates []= new SecurityBaselineDeviceState($singleValue);
+            }
+            $this->_propDict['deviceStates'] = $deviceStates;
+            return $this->_propDict['deviceStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the deviceStates
     * The security baseline device states
     *
-    * @param SecurityBaselineDeviceState $val The deviceStates
+    * @param SecurityBaselineDeviceState[] $val The deviceStates
     *
     * @return SecurityBaselineTemplate
     */
@@ -92,8 +106,8 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate
     */
     public function getDeviceStateSummary()
     {
-        if (array_key_exists("deviceStateSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceStateSummary"], "\Beta\Microsoft\Graph\Model\SecurityBaselineStateSummary") || is_null($this->_propDict["deviceStateSummary"])) {
+        if (array_key_exists("deviceStateSummary", $this->_propDict) && !is_null($this->_propDict["deviceStateSummary"])) {
+            if (is_a($this->_propDict["deviceStateSummary"], "\Beta\Microsoft\Graph\Model\SecurityBaselineStateSummary")) {
                 return $this->_propDict["deviceStateSummary"];
             } else {
                 $this->_propDict["deviceStateSummary"] = new SecurityBaselineStateSummary($this->_propDict["deviceStateSummary"]);

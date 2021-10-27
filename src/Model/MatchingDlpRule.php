@@ -27,25 +27,29 @@ class MatchingDlpRule extends Entity
     /**
     * Gets the actions
     *
-    * @return DlpActionInfo|null The actions
+    * @return DlpActionInfo[]|null The actions
     */
     public function getActions()
     {
-        if (array_key_exists("actions", $this->_propDict)) {
-            if (is_a($this->_propDict["actions"], "\Beta\Microsoft\Graph\Model\DlpActionInfo") || is_null($this->_propDict["actions"])) {
-                return $this->_propDict["actions"];
-            } else {
-                $this->_propDict["actions"] = new DlpActionInfo($this->_propDict["actions"]);
-                return $this->_propDict["actions"];
+        if (array_key_exists("actions", $this->_propDict) && !is_null($this->_propDict["actions"])) {
+       
+            if (count($this->_propDict['actions']) > 0 && is_a($this->_propDict['actions'][0], 'DlpActionInfo')) {
+               return $this->_propDict['actions'];
             }
-        }
+            $actions = [];
+            foreach ($this->_propDict['actions'] as $singleValue) {
+               $actions []= new DlpActionInfo($singleValue);
+            }
+            $this->_propDict['actions'] = $actions;
+            return $this->_propDict['actions'];
+            }
         return null;
     }
 
     /**
     * Sets the actions
     *
-    * @param DlpActionInfo $val The value to assign to the actions
+    * @param DlpActionInfo[] $val The value to assign to the actions
     *
     * @return MatchingDlpRule The MatchingDlpRule
     */
@@ -192,8 +196,9 @@ class MatchingDlpRule extends Entity
     */
     public function getRuleMode()
     {
-        if (array_key_exists("ruleMode", $this->_propDict)) {
-            if (is_a($this->_propDict["ruleMode"], "\Beta\Microsoft\Graph\Model\RuleMode") || is_null($this->_propDict["ruleMode"])) {
+        if (array_key_exists("ruleMode", $this->_propDict) && !is_null($this->_propDict["ruleMode"])) {
+     
+            if (is_a($this->_propDict["ruleMode"], "\Beta\Microsoft\Graph\Model\RuleMode")) {
                 return $this->_propDict["ruleMode"];
             } else {
                 $this->_propDict["ruleMode"] = new RuleMode($this->_propDict["ruleMode"]);
