@@ -78,11 +78,7 @@ This sample will start you with a little Laravel project that helps you with reg
 
 ## Documentation and resources
 
-* [Documentation](https://github.com/microsoftgraph/msgraph-beta-sdk-php/blob/master/docs/index.html)
-
-* [Wiki](https://github.com/microsoftgraph/msgraph-sdk-php/wiki)
-
-* [Examples](https://github.com/microsoftgraph/msgraph-sdk-php/wiki/Example-calls)
+* [Documentation](https://github.com/microsoftgraph/msgraph-sdk-php/blob/feat/2.0.0/docs/README.md)
 
 * [Microsoft Graph website](https://developer.microsoft.com/en-us/graph/)
 
