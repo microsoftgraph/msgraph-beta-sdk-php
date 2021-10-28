@@ -19,5 +19,5 @@ namespace Beta\Microsoft\Graph;
 final class GraphConstants
 {
     const API_VERSION = "beta";
-    const SDK_VERSION = "2.0.0-preview";
+    const SDK_VERSION = "2.0.0-RC1";
 }
