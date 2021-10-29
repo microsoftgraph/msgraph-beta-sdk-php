@@ -3,13 +3,21 @@
 [![Latest Stable Version](https://poser.pugx.org/microsoft/microsoft-graph-beta/version)](https://packagist.org/packages/microsoft/microsoft-graph)
 
 ## Install the SDK
-You can install the Beta PHP SDK with Composer, either run `composer require microsoft/microsoft-graph-beta`, or edit your `composer.json` file:
+You can install the Beta PHP SDK with Composer by editing your `composer.json` file:
 ```
 {
+    "minimum-stability": "RC"
     "require": {
         "microsoft/microsoft-graph-beta": "^2.0.0-RC1"
     }
 }
+```
+OR
+```
+    "require": {
+        "microsoft/microsoft-graph-beta": "^2.0.0-RC1",
+        "microsoft/microsoft-graph-core": "@RC"
+    }
 ```
 ## Get started with Microsoft Graph
 
