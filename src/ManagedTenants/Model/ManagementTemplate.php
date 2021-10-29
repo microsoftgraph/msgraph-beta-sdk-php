@@ -26,13 +26,14 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the category
+    * The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
     *
     * @return ManagementCategory|null The category
     */
     public function getCategory()
     {
-        if (array_key_exists("category", $this->_propDict)) {
-            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagementCategory") || is_null($this->_propDict["category"])) {
+        if (array_key_exists("category", $this->_propDict) && !is_null($this->_propDict["category"])) {
+            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagementCategory")) {
                 return $this->_propDict["category"];
             } else {
                 $this->_propDict["category"] = new ManagementCategory($this->_propDict["category"]);
@@ -44,6 +45,7 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the category
+    * The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
     *
     * @param ManagementCategory $val The category
     *
@@ -57,6 +59,7 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the description
+    * The description for the management template. Optional. Read-only.
     *
     * @return string|null The description
     */
@@ -71,6 +74,7 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the description
+    * The description for the management template. Optional. Read-only.
     *
     * @param string $val The description
     *
@@ -84,6 +88,7 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the displayName
+    * The display name for the management template. Required. Read-only.
     *
     * @return string|null The displayName
     */
@@ -98,6 +103,7 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the displayName
+    * The display name for the management template. Required. Read-only.
     *
     * @param string $val The displayName
     *
@@ -112,22 +118,31 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
 
      /** 
      * Gets the parameters
+    * The collection of parameters used by the management template. Optional. Read-only.
      *
-     * @return array|null The parameters
+     * @return TemplateParameter[]|null The parameters
      */
     public function getParameters()
     {
-        if (array_key_exists("parameters", $this->_propDict)) {
-           return $this->_propDict["parameters"];
-        } else {
-            return null;
+        if (array_key_exists('parameters', $this->_propDict) && !is_null($this->_propDict['parameters'])) {
+            $parameters = [];
+            if (count($this->_propDict['parameters']) > 0 && is_a($this->_propDict['parameters'][0], 'TemplateParameter')) {
+                return $this->_propDict['parameters'];
+            }
+            foreach ($this->_propDict['parameters'] as $singleValue) {
+                $parameters []= new TemplateParameter($singleValue);
+            }
+            $this->_propDict['parameters'] = $parameters;
+            return $this->_propDict['parameters'];
         }
+        return null;
     }
     
     /** 
     * Sets the parameters
+    * The collection of parameters used by the management template. Optional. Read-only.
     *
-    * @param TemplateParameter $val The parameters
+    * @param TemplateParameter[] $val The parameters
     *
     * @return ManagementTemplate
     */
@@ -140,22 +155,31 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
 
      /** 
      * Gets the workloadActions
+    * The collection of workload actions associated with the management template. Optional. Read-only.
      *
-     * @return array|null The workloadActions
+     * @return WorkloadAction[]|null The workloadActions
      */
     public function getWorkloadActions()
     {
-        if (array_key_exists("workloadActions", $this->_propDict)) {
-           return $this->_propDict["workloadActions"];
-        } else {
-            return null;
+        if (array_key_exists('workloadActions', $this->_propDict) && !is_null($this->_propDict['workloadActions'])) {
+            $workloadActions = [];
+            if (count($this->_propDict['workloadActions']) > 0 && is_a($this->_propDict['workloadActions'][0], 'WorkloadAction')) {
+                return $this->_propDict['workloadActions'];
+            }
+            foreach ($this->_propDict['workloadActions'] as $singleValue) {
+                $workloadActions []= new WorkloadAction($singleValue);
+            }
+            $this->_propDict['workloadActions'] = $workloadActions;
+            return $this->_propDict['workloadActions'];
         }
+        return null;
     }
     
     /** 
     * Sets the workloadActions
+    * The collection of workload actions associated with the management template. Optional. Read-only.
     *
-    * @param WorkloadAction $val The workloadActions
+    * @param WorkloadAction[] $val The workloadActions
     *
     * @return ManagementTemplate
     */

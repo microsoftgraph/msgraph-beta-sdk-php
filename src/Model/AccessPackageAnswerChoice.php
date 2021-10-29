@@ -60,8 +60,9 @@ class AccessPackageAnswerChoice extends Entity
     */
     public function getDisplayValue()
     {
-        if (array_key_exists("displayValue", $this->_propDict)) {
-            if (is_a($this->_propDict["displayValue"], "\Beta\Microsoft\Graph\Model\AccessPackageLocalizedContent") || is_null($this->_propDict["displayValue"])) {
+        if (array_key_exists("displayValue", $this->_propDict) && !is_null($this->_propDict["displayValue"])) {
+     
+            if (is_a($this->_propDict["displayValue"], "\Beta\Microsoft\Graph\Model\AccessPackageLocalizedContent")) {
                 return $this->_propDict["displayValue"];
             } else {
                 $this->_propDict["displayValue"] = new AccessPackageLocalizedContent($this->_propDict["displayValue"]);

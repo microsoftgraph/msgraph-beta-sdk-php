@@ -57,8 +57,9 @@ class SessionLifetimePolicy extends Entity
     */
     public function getExpirationRequirement()
     {
-        if (array_key_exists("expirationRequirement", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationRequirement"], "\Beta\Microsoft\Graph\Model\ExpirationRequirement") || is_null($this->_propDict["expirationRequirement"])) {
+        if (array_key_exists("expirationRequirement", $this->_propDict) && !is_null($this->_propDict["expirationRequirement"])) {
+     
+            if (is_a($this->_propDict["expirationRequirement"], "\Beta\Microsoft\Graph\Model\ExpirationRequirement")) {
                 return $this->_propDict["expirationRequirement"];
             } else {
                 $this->_propDict["expirationRequirement"] = new ExpirationRequirement($this->_propDict["expirationRequirement"]);

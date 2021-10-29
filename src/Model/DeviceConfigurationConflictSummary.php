@@ -29,22 +29,29 @@ class DeviceConfigurationConflictSummary extends Entity
      * Gets the conflictingDeviceConfigurations
     * The set of policies in conflict with the given setting
      *
-     * @return array|null The conflictingDeviceConfigurations
+     * @return SettingSource[]|null The conflictingDeviceConfigurations
      */
     public function getConflictingDeviceConfigurations()
     {
-        if (array_key_exists("conflictingDeviceConfigurations", $this->_propDict)) {
-           return $this->_propDict["conflictingDeviceConfigurations"];
-        } else {
-            return null;
+        if (array_key_exists('conflictingDeviceConfigurations', $this->_propDict) && !is_null($this->_propDict['conflictingDeviceConfigurations'])) {
+            $conflictingDeviceConfigurations = [];
+            if (count($this->_propDict['conflictingDeviceConfigurations']) > 0 && is_a($this->_propDict['conflictingDeviceConfigurations'][0], 'SettingSource')) {
+                return $this->_propDict['conflictingDeviceConfigurations'];
+            }
+            foreach ($this->_propDict['conflictingDeviceConfigurations'] as $singleValue) {
+                $conflictingDeviceConfigurations []= new SettingSource($singleValue);
+            }
+            $this->_propDict['conflictingDeviceConfigurations'] = $conflictingDeviceConfigurations;
+            return $this->_propDict['conflictingDeviceConfigurations'];
         }
+        return null;
     }
     
     /** 
     * Sets the conflictingDeviceConfigurations
     * The set of policies in conflict with the given setting
     *
-    * @param SettingSource $val The conflictingDeviceConfigurations
+    * @param SettingSource[] $val The conflictingDeviceConfigurations
     *
     * @return DeviceConfigurationConflictSummary
     */

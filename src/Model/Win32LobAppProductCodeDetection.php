@@ -26,9 +26,11 @@ class Win32LobAppProductCodeDetection extends Win32LobAppDetection
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.win32LobAppProductCodeDetection");
     }
 
@@ -97,8 +99,9 @@ class Win32LobAppProductCodeDetection extends Win32LobAppDetection
     */
     public function getProductVersionOperator()
     {
-        if (array_key_exists("productVersionOperator", $this->_propDict)) {
-            if (is_a($this->_propDict["productVersionOperator"], "\Beta\Microsoft\Graph\Model\Win32LobAppDetectionOperator") || is_null($this->_propDict["productVersionOperator"])) {
+        if (array_key_exists("productVersionOperator", $this->_propDict) && !is_null($this->_propDict["productVersionOperator"])) {
+     
+            if (is_a($this->_propDict["productVersionOperator"], "\Beta\Microsoft\Graph\Model\Win32LobAppDetectionOperator")) {
                 return $this->_propDict["productVersionOperator"];
             } else {
                 $this->_propDict["productVersionOperator"] = new Win32LobAppDetectionOperator($this->_propDict["productVersionOperator"]);

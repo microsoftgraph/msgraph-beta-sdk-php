@@ -56,15 +56,16 @@ class BookingReminder extends Entity
     * Gets the offset
     * The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.
     *
-    * @return Duration|null The offset
+    * @return \DateInterval|null The offset
     */
     public function getOffset()
     {
-        if (array_key_exists("offset", $this->_propDict)) {
-            if (is_a($this->_propDict["offset"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["offset"])) {
+        if (array_key_exists("offset", $this->_propDict) && !is_null($this->_propDict["offset"])) {
+     
+            if (is_a($this->_propDict["offset"], "\DateInterval")) {
                 return $this->_propDict["offset"];
             } else {
-                $this->_propDict["offset"] = new Duration($this->_propDict["offset"]);
+                $this->_propDict["offset"] = new \DateInterval($this->_propDict["offset"]);
                 return $this->_propDict["offset"];
             }
         }
@@ -75,7 +76,7 @@ class BookingReminder extends Entity
     * Sets the offset
     * The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.
     *
-    * @param Duration $val The value to assign to the offset
+    * @param \DateInterval $val The value to assign to the offset
     *
     * @return BookingReminder The BookingReminder
     */
@@ -93,8 +94,9 @@ class BookingReminder extends Entity
     */
     public function getRecipients()
     {
-        if (array_key_exists("recipients", $this->_propDict)) {
-            if (is_a($this->_propDict["recipients"], "\Beta\Microsoft\Graph\Model\BookingReminderRecipients") || is_null($this->_propDict["recipients"])) {
+        if (array_key_exists("recipients", $this->_propDict) && !is_null($this->_propDict["recipients"])) {
+     
+            if (is_a($this->_propDict["recipients"], "\Beta\Microsoft\Graph\Model\BookingReminderRecipients")) {
                 return $this->_propDict["recipients"];
             } else {
                 $this->_propDict["recipients"] = new BookingReminderRecipients($this->_propDict["recipients"]);

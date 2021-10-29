@@ -264,8 +264,8 @@ class UserExperienceAnalyticsDevicePerformance extends Entity
     */
     public function getDiskType()
     {
-        if (array_key_exists("diskType", $this->_propDict)) {
-            if (is_a($this->_propDict["diskType"], "\Beta\Microsoft\Graph\Model\DiskType") || is_null($this->_propDict["diskType"])) {
+        if (array_key_exists("diskType", $this->_propDict) && !is_null($this->_propDict["diskType"])) {
+            if (is_a($this->_propDict["diskType"], "\Beta\Microsoft\Graph\Model\DiskType")) {
                 return $this->_propDict["diskType"];
             } else {
                 $this->_propDict["diskType"] = new DiskType($this->_propDict["diskType"]);
@@ -355,8 +355,8 @@ class UserExperienceAnalyticsDevicePerformance extends Entity
     */
     public function getHealthStatus()
     {
-        if (array_key_exists("healthStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["healthStatus"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsHealthState") || is_null($this->_propDict["healthStatus"])) {
+        if (array_key_exists("healthStatus", $this->_propDict) && !is_null($this->_propDict["healthStatus"])) {
+            if (is_a($this->_propDict["healthStatus"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsHealthState")) {
                 return $this->_propDict["healthStatus"];
             } else {
                 $this->_propDict["healthStatus"] = new UserExperienceAnalyticsHealthState($this->_propDict["healthStatus"]);
@@ -468,6 +468,35 @@ class UserExperienceAnalyticsDevicePerformance extends Entity
     }
     
     /**
+    * Gets the modelStartupPerformanceScore
+    * The user experience analytics model level startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+    *
+    * @return float|null The modelStartupPerformanceScore
+    */
+    public function getModelStartupPerformanceScore()
+    {
+        if (array_key_exists("modelStartupPerformanceScore", $this->_propDict)) {
+            return $this->_propDict["modelStartupPerformanceScore"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the modelStartupPerformanceScore
+    * The user experience analytics model level startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+    *
+    * @param float $val The modelStartupPerformanceScore
+    *
+    * @return UserExperienceAnalyticsDevicePerformance
+    */
+    public function setModelStartupPerformanceScore($val)
+    {
+        $this->_propDict["modelStartupPerformanceScore"] = floatval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the operatingSystemVersion
     * The user experience analytics device Operating System version.
     *
@@ -551,6 +580,35 @@ class UserExperienceAnalyticsDevicePerformance extends Entity
     public function setRestartCount($val)
     {
         $this->_propDict["restartCount"] = intval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the startupPerformanceScore
+    * The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+    *
+    * @return float|null The startupPerformanceScore
+    */
+    public function getStartupPerformanceScore()
+    {
+        if (array_key_exists("startupPerformanceScore", $this->_propDict)) {
+            return $this->_propDict["startupPerformanceScore"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the startupPerformanceScore
+    * The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+    *
+    * @param float $val The startupPerformanceScore
+    *
+    * @return UserExperienceAnalyticsDevicePerformance
+    */
+    public function setStartupPerformanceScore($val)
+    {
+        $this->_propDict["startupPerformanceScore"] = floatval($val);
         return $this;
     }
     

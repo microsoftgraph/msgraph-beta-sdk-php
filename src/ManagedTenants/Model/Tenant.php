@@ -26,13 +26,14 @@ class Tenant extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the contract
+    * The relationship details for the tenant with the managing entity.
     *
     * @return TenantContract|null The contract
     */
     public function getContract()
     {
-        if (array_key_exists("contract", $this->_propDict)) {
-            if (is_a($this->_propDict["contract"], "\Beta\Microsoft\Graph\ManagedTenants\Model\TenantContract") || is_null($this->_propDict["contract"])) {
+        if (array_key_exists("contract", $this->_propDict) && !is_null($this->_propDict["contract"])) {
+            if (is_a($this->_propDict["contract"], "\Beta\Microsoft\Graph\ManagedTenants\Model\TenantContract")) {
                 return $this->_propDict["contract"];
             } else {
                 $this->_propDict["contract"] = new TenantContract($this->_propDict["contract"]);
@@ -44,6 +45,7 @@ class Tenant extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the contract
+    * The relationship details for the tenant with the managing entity.
     *
     * @param TenantContract $val The contract
     *
@@ -57,13 +59,14 @@ class Tenant extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the createdDateTime
+    * The date and time the tenant was created in the multi-tenant management platform. Optional. Read-only.
     *
     * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -75,6 +78,7 @@ class Tenant extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the createdDateTime
+    * The date and time the tenant was created in the multi-tenant management platform. Optional. Read-only.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -88,6 +92,7 @@ class Tenant extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the displayName
+    * The display name for the tenant. Required. Read-only.
     *
     * @return string|null The displayName
     */
@@ -102,6 +107,7 @@ class Tenant extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the displayName
+    * The display name for the tenant. Required. Read-only.
     *
     * @param string $val The displayName
     *
@@ -115,13 +121,14 @@ class Tenant extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the lastUpdatedDateTime
+    * The date and time the tenant was last updated within the multi-tenant management platform. Optional. Read-only.
     *
     * @return \DateTime|null The lastUpdatedDateTime
     */
     public function getLastUpdatedDateTime()
     {
-        if (array_key_exists("lastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
+        if (array_key_exists("lastUpdatedDateTime", $this->_propDict) && !is_null($this->_propDict["lastUpdatedDateTime"])) {
+            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastUpdatedDateTime"];
             } else {
                 $this->_propDict["lastUpdatedDateTime"] = new \DateTime($this->_propDict["lastUpdatedDateTime"]);
@@ -133,6 +140,7 @@ class Tenant extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the lastUpdatedDateTime
+    * The date and time the tenant was last updated within the multi-tenant management platform. Optional. Read-only.
     *
     * @param \DateTime $val The lastUpdatedDateTime
     *
@@ -146,6 +154,7 @@ class Tenant extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the tenantId
+    * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
     *
     * @return string|null The tenantId
     */
@@ -160,6 +169,7 @@ class Tenant extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the tenantId
+    * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
     *
     * @param string $val The tenantId
     *
@@ -173,13 +183,14 @@ class Tenant extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the tenantStatusInformation
+    * The onboarding status information for the tenant. Optional. Read-only.
     *
     * @return TenantStatusInformation|null The tenantStatusInformation
     */
     public function getTenantStatusInformation()
     {
-        if (array_key_exists("tenantStatusInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["tenantStatusInformation"], "\Beta\Microsoft\Graph\ManagedTenants\Model\TenantStatusInformation") || is_null($this->_propDict["tenantStatusInformation"])) {
+        if (array_key_exists("tenantStatusInformation", $this->_propDict) && !is_null($this->_propDict["tenantStatusInformation"])) {
+            if (is_a($this->_propDict["tenantStatusInformation"], "\Beta\Microsoft\Graph\ManagedTenants\Model\TenantStatusInformation")) {
                 return $this->_propDict["tenantStatusInformation"];
             } else {
                 $this->_propDict["tenantStatusInformation"] = new TenantStatusInformation($this->_propDict["tenantStatusInformation"]);
@@ -191,6 +202,7 @@ class Tenant extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the tenantStatusInformation
+    * The onboarding status information for the tenant. Optional. Read-only.
     *
     * @param TenantStatusInformation $val The tenantStatusInformation
     *

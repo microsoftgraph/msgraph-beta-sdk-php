@@ -82,14 +82,15 @@ class IosVpnSecurityAssociationParameters extends Entity
 
     /**
     * Gets the securityEncryptionAlgorithm
-    * Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm.
+    * Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
     *
     * @return VpnEncryptionAlgorithmType|null The securityEncryptionAlgorithm
     */
     public function getSecurityEncryptionAlgorithm()
     {
-        if (array_key_exists("securityEncryptionAlgorithm", $this->_propDict)) {
-            if (is_a($this->_propDict["securityEncryptionAlgorithm"], "\Beta\Microsoft\Graph\Model\VpnEncryptionAlgorithmType") || is_null($this->_propDict["securityEncryptionAlgorithm"])) {
+        if (array_key_exists("securityEncryptionAlgorithm", $this->_propDict) && !is_null($this->_propDict["securityEncryptionAlgorithm"])) {
+     
+            if (is_a($this->_propDict["securityEncryptionAlgorithm"], "\Beta\Microsoft\Graph\Model\VpnEncryptionAlgorithmType")) {
                 return $this->_propDict["securityEncryptionAlgorithm"];
             } else {
                 $this->_propDict["securityEncryptionAlgorithm"] = new VpnEncryptionAlgorithmType($this->_propDict["securityEncryptionAlgorithm"]);
@@ -101,7 +102,7 @@ class IosVpnSecurityAssociationParameters extends Entity
 
     /**
     * Sets the securityEncryptionAlgorithm
-    * Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm.
+    * Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
     *
     * @param VpnEncryptionAlgorithmType $val The value to assign to the securityEncryptionAlgorithm
     *
@@ -121,8 +122,9 @@ class IosVpnSecurityAssociationParameters extends Entity
     */
     public function getSecurityIntegrityAlgorithm()
     {
-        if (array_key_exists("securityIntegrityAlgorithm", $this->_propDict)) {
-            if (is_a($this->_propDict["securityIntegrityAlgorithm"], "\Beta\Microsoft\Graph\Model\VpnIntegrityAlgorithmType") || is_null($this->_propDict["securityIntegrityAlgorithm"])) {
+        if (array_key_exists("securityIntegrityAlgorithm", $this->_propDict) && !is_null($this->_propDict["securityIntegrityAlgorithm"])) {
+     
+            if (is_a($this->_propDict["securityIntegrityAlgorithm"], "\Beta\Microsoft\Graph\Model\VpnIntegrityAlgorithmType")) {
                 return $this->_propDict["securityIntegrityAlgorithm"];
             } else {
                 $this->_propDict["securityIntegrityAlgorithm"] = new VpnIntegrityAlgorithmType($this->_propDict["securityIntegrityAlgorithm"]);

@@ -29,22 +29,29 @@ class IntuneBrandingProfile extends Entity
      * Gets the companyPortalBlockedActions
     * Collection of blocked actions on the company portal as per platform and device ownership types.
      *
-     * @return array|null The companyPortalBlockedActions
+     * @return CompanyPortalBlockedAction[]|null The companyPortalBlockedActions
      */
     public function getCompanyPortalBlockedActions()
     {
-        if (array_key_exists("companyPortalBlockedActions", $this->_propDict)) {
-           return $this->_propDict["companyPortalBlockedActions"];
-        } else {
-            return null;
+        if (array_key_exists('companyPortalBlockedActions', $this->_propDict) && !is_null($this->_propDict['companyPortalBlockedActions'])) {
+            $companyPortalBlockedActions = [];
+            if (count($this->_propDict['companyPortalBlockedActions']) > 0 && is_a($this->_propDict['companyPortalBlockedActions'][0], 'CompanyPortalBlockedAction')) {
+                return $this->_propDict['companyPortalBlockedActions'];
+            }
+            foreach ($this->_propDict['companyPortalBlockedActions'] as $singleValue) {
+                $companyPortalBlockedActions []= new CompanyPortalBlockedAction($singleValue);
+            }
+            $this->_propDict['companyPortalBlockedActions'] = $companyPortalBlockedActions;
+            return $this->_propDict['companyPortalBlockedActions'];
         }
+        return null;
     }
     
     /** 
     * Sets the companyPortalBlockedActions
     * Collection of blocked actions on the company portal as per platform and device ownership types.
     *
-    * @param CompanyPortalBlockedAction $val The companyPortalBlockedActions
+    * @param CompanyPortalBlockedAction[] $val The companyPortalBlockedActions
     *
     * @return IntuneBrandingProfile
     */
@@ -178,8 +185,8 @@ class IntuneBrandingProfile extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -356,8 +363,8 @@ class IntuneBrandingProfile extends Entity
     */
     public function getEnrollmentAvailability()
     {
-        if (array_key_exists("enrollmentAvailability", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentAvailability"], "\Beta\Microsoft\Graph\Model\EnrollmentAvailabilityOptions") || is_null($this->_propDict["enrollmentAvailability"])) {
+        if (array_key_exists("enrollmentAvailability", $this->_propDict) && !is_null($this->_propDict["enrollmentAvailability"])) {
+            if (is_a($this->_propDict["enrollmentAvailability"], "\Beta\Microsoft\Graph\Model\EnrollmentAvailabilityOptions")) {
                 return $this->_propDict["enrollmentAvailability"];
             } else {
                 $this->_propDict["enrollmentAvailability"] = new EnrollmentAvailabilityOptions($this->_propDict["enrollmentAvailability"]);
@@ -476,8 +483,8 @@ class IntuneBrandingProfile extends Entity
     */
     public function getLandingPageCustomizedImage()
     {
-        if (array_key_exists("landingPageCustomizedImage", $this->_propDict)) {
-            if (is_a($this->_propDict["landingPageCustomizedImage"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["landingPageCustomizedImage"])) {
+        if (array_key_exists("landingPageCustomizedImage", $this->_propDict) && !is_null($this->_propDict["landingPageCustomizedImage"])) {
+            if (is_a($this->_propDict["landingPageCustomizedImage"], "\Beta\Microsoft\Graph\Model\MimeContent")) {
                 return $this->_propDict["landingPageCustomizedImage"];
             } else {
                 $this->_propDict["landingPageCustomizedImage"] = new MimeContent($this->_propDict["landingPageCustomizedImage"]);
@@ -509,8 +516,8 @@ class IntuneBrandingProfile extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -542,8 +549,8 @@ class IntuneBrandingProfile extends Entity
     */
     public function getLightBackgroundLogo()
     {
-        if (array_key_exists("lightBackgroundLogo", $this->_propDict)) {
-            if (is_a($this->_propDict["lightBackgroundLogo"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["lightBackgroundLogo"])) {
+        if (array_key_exists("lightBackgroundLogo", $this->_propDict) && !is_null($this->_propDict["lightBackgroundLogo"])) {
+            if (is_a($this->_propDict["lightBackgroundLogo"], "\Beta\Microsoft\Graph\Model\MimeContent")) {
                 return $this->_propDict["lightBackgroundLogo"];
             } else {
                 $this->_propDict["lightBackgroundLogo"] = new MimeContent($this->_propDict["lightBackgroundLogo"]);
@@ -894,8 +901,8 @@ class IntuneBrandingProfile extends Entity
     */
     public function getThemeColor()
     {
-        if (array_key_exists("themeColor", $this->_propDict)) {
-            if (is_a($this->_propDict["themeColor"], "\Beta\Microsoft\Graph\Model\RgbColor") || is_null($this->_propDict["themeColor"])) {
+        if (array_key_exists("themeColor", $this->_propDict) && !is_null($this->_propDict["themeColor"])) {
+            if (is_a($this->_propDict["themeColor"], "\Beta\Microsoft\Graph\Model\RgbColor")) {
                 return $this->_propDict["themeColor"];
             } else {
                 $this->_propDict["themeColor"] = new RgbColor($this->_propDict["themeColor"]);
@@ -927,8 +934,8 @@ class IntuneBrandingProfile extends Entity
     */
     public function getThemeColorLogo()
     {
-        if (array_key_exists("themeColorLogo", $this->_propDict)) {
-            if (is_a($this->_propDict["themeColorLogo"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["themeColorLogo"])) {
+        if (array_key_exists("themeColorLogo", $this->_propDict) && !is_null($this->_propDict["themeColorLogo"])) {
+            if (is_a($this->_propDict["themeColorLogo"], "\Beta\Microsoft\Graph\Model\MimeContent")) {
                 return $this->_propDict["themeColorLogo"];
             } else {
                 $this->_propDict["themeColorLogo"] = new MimeContent($this->_propDict["themeColorLogo"]);
@@ -957,22 +964,29 @@ class IntuneBrandingProfile extends Entity
      * Gets the assignments
     * The list of group assignments for the branding profile
      *
-     * @return array|null The assignments
+     * @return IntuneBrandingProfileAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'IntuneBrandingProfileAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new IntuneBrandingProfileAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * The list of group assignments for the branding profile
     *
-    * @param IntuneBrandingProfileAssignment $val The assignments
+    * @param IntuneBrandingProfileAssignment[] $val The assignments
     *
     * @return IntuneBrandingProfile
     */

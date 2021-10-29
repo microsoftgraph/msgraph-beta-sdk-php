@@ -57,13 +57,14 @@ class RoleManagement implements \JsonSerializable
     
     /**
     * Gets the directory
+    * Read-only. Nullable.
     *
     * @return RbacApplication|null The directory
     */
     public function getDirectory()
     {
-        if (array_key_exists("directory", $this->_propDict)) {
-            if (is_a($this->_propDict["directory"], "\Beta\Microsoft\Graph\Model\RbacApplication") || is_null($this->_propDict["directory"])) {
+        if (array_key_exists("directory", $this->_propDict) && !is_null($this->_propDict["directory"])) {
+            if (is_a($this->_propDict["directory"], "\Beta\Microsoft\Graph\Model\RbacApplication")) {
                 return $this->_propDict["directory"];
             } else {
                 $this->_propDict["directory"] = new RbacApplication($this->_propDict["directory"]);
@@ -75,6 +76,7 @@ class RoleManagement implements \JsonSerializable
     
     /**
     * Sets the directory
+    * Read-only. Nullable.
     *
     * @param RbacApplication $val The directory
     *
@@ -93,8 +95,8 @@ class RoleManagement implements \JsonSerializable
     */
     public function getCloudPC()
     {
-        if (array_key_exists("cloudPC", $this->_propDict)) {
-            if (is_a($this->_propDict["cloudPC"], "\Beta\Microsoft\Graph\Model\RbacApplicationMultiple") || is_null($this->_propDict["cloudPC"])) {
+        if (array_key_exists("cloudPC", $this->_propDict) && !is_null($this->_propDict["cloudPC"])) {
+            if (is_a($this->_propDict["cloudPC"], "\Beta\Microsoft\Graph\Model\RbacApplicationMultiple")) {
                 return $this->_propDict["cloudPC"];
             } else {
                 $this->_propDict["cloudPC"] = new RbacApplicationMultiple($this->_propDict["cloudPC"]);
@@ -125,8 +127,8 @@ class RoleManagement implements \JsonSerializable
     */
     public function getEntitlementManagement()
     {
-        if (array_key_exists("entitlementManagement", $this->_propDict)) {
-            if (is_a($this->_propDict["entitlementManagement"], "\Beta\Microsoft\Graph\Model\RbacApplication") || is_null($this->_propDict["entitlementManagement"])) {
+        if (array_key_exists("entitlementManagement", $this->_propDict) && !is_null($this->_propDict["entitlementManagement"])) {
+            if (is_a($this->_propDict["entitlementManagement"], "\Beta\Microsoft\Graph\Model\RbacApplication")) {
                 return $this->_propDict["entitlementManagement"];
             } else {
                 $this->_propDict["entitlementManagement"] = new RbacApplication($this->_propDict["entitlementManagement"]);
@@ -158,8 +160,8 @@ class RoleManagement implements \JsonSerializable
     */
     public function getDeviceManagement()
     {
-        if (array_key_exists("deviceManagement", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceManagement"], "\Beta\Microsoft\Graph\Model\RbacApplicationMultiple") || is_null($this->_propDict["deviceManagement"])) {
+        if (array_key_exists("deviceManagement", $this->_propDict) && !is_null($this->_propDict["deviceManagement"])) {
+            if (is_a($this->_propDict["deviceManagement"], "\Beta\Microsoft\Graph\Model\RbacApplicationMultiple")) {
                 return $this->_propDict["deviceManagement"];
             } else {
                 $this->_propDict["deviceManagement"] = new RbacApplicationMultiple($this->_propDict["deviceManagement"]);
@@ -186,11 +188,14 @@ class RoleManagement implements \JsonSerializable
     /**
     * Gets the ODataType
     *
-    * @return string The ODataType
+    * @return string|null The ODataType
     */
     public function getODataType()
     {
-        return $this->_propDict["@odata.type"];
+        if (array_key_exists('@odata.type', $this->_propDict)) {
+            return $this->_propDict["@odata.type"];
+        }
+        return null;
     }
     
     /**
@@ -216,10 +221,22 @@ class RoleManagement implements \JsonSerializable
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
-                $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            if (is_a($val, '\DateTime')) {
+                $serializableProperties[$property] = $val->format(\DateTimeInterface::RFC3339);
+            } else if (is_a($val, '\Microsoft\Graph\Core\Enum')) {
                 $serializableProperties[$property] = $val->value();
+            } else if (is_array($val)) {
+                $values = [];
+                if (count($val) > 0 && is_a($val[0], '\DateTime')) {
+                   foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->format(\DateTimeInterface::RFC3339);
+                   }
+                } else if(count($val) > 0 && is_a($val[0], '\Microsoft\Graph\Core\Enum')) {
+                    foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->value();
+                   }
+                }
+                $serializableProperties[$property] = $values;
             }
         }
         return $serializableProperties;

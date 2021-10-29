@@ -32,8 +32,9 @@ class CryptographySuite extends Entity
     */
     public function getAuthenticationTransformConstants()
     {
-        if (array_key_exists("authenticationTransformConstants", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationTransformConstants"], "\Beta\Microsoft\Graph\Model\AuthenticationTransformConstant") || is_null($this->_propDict["authenticationTransformConstants"])) {
+        if (array_key_exists("authenticationTransformConstants", $this->_propDict) && !is_null($this->_propDict["authenticationTransformConstants"])) {
+     
+            if (is_a($this->_propDict["authenticationTransformConstants"], "\Beta\Microsoft\Graph\Model\AuthenticationTransformConstant")) {
                 return $this->_propDict["authenticationTransformConstants"];
             } else {
                 $this->_propDict["authenticationTransformConstants"] = new AuthenticationTransformConstant($this->_propDict["authenticationTransformConstants"]);
@@ -59,14 +60,15 @@ class CryptographySuite extends Entity
 
     /**
     * Gets the cipherTransformConstants
-    * Cipher Transform Constants. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm.
+    * Cipher Transform Constants. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
     *
     * @return VpnEncryptionAlgorithmType|null The cipherTransformConstants
     */
     public function getCipherTransformConstants()
     {
-        if (array_key_exists("cipherTransformConstants", $this->_propDict)) {
-            if (is_a($this->_propDict["cipherTransformConstants"], "\Beta\Microsoft\Graph\Model\VpnEncryptionAlgorithmType") || is_null($this->_propDict["cipherTransformConstants"])) {
+        if (array_key_exists("cipherTransformConstants", $this->_propDict) && !is_null($this->_propDict["cipherTransformConstants"])) {
+     
+            if (is_a($this->_propDict["cipherTransformConstants"], "\Beta\Microsoft\Graph\Model\VpnEncryptionAlgorithmType")) {
                 return $this->_propDict["cipherTransformConstants"];
             } else {
                 $this->_propDict["cipherTransformConstants"] = new VpnEncryptionAlgorithmType($this->_propDict["cipherTransformConstants"]);
@@ -78,7 +80,7 @@ class CryptographySuite extends Entity
 
     /**
     * Sets the cipherTransformConstants
-    * Cipher Transform Constants. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm.
+    * Cipher Transform Constants. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
     *
     * @param VpnEncryptionAlgorithmType $val The value to assign to the cipherTransformConstants
     *
@@ -98,8 +100,9 @@ class CryptographySuite extends Entity
     */
     public function getDhGroup()
     {
-        if (array_key_exists("dhGroup", $this->_propDict)) {
-            if (is_a($this->_propDict["dhGroup"], "\Beta\Microsoft\Graph\Model\DiffieHellmanGroup") || is_null($this->_propDict["dhGroup"])) {
+        if (array_key_exists("dhGroup", $this->_propDict) && !is_null($this->_propDict["dhGroup"])) {
+     
+            if (is_a($this->_propDict["dhGroup"], "\Beta\Microsoft\Graph\Model\DiffieHellmanGroup")) {
                 return $this->_propDict["dhGroup"];
             } else {
                 $this->_propDict["dhGroup"] = new DiffieHellmanGroup($this->_propDict["dhGroup"]);
@@ -125,14 +128,15 @@ class CryptographySuite extends Entity
 
     /**
     * Gets the encryptionMethod
-    * Encryption Method. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm.
+    * Encryption Method. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
     *
     * @return VpnEncryptionAlgorithmType|null The encryptionMethod
     */
     public function getEncryptionMethod()
     {
-        if (array_key_exists("encryptionMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["encryptionMethod"], "\Beta\Microsoft\Graph\Model\VpnEncryptionAlgorithmType") || is_null($this->_propDict["encryptionMethod"])) {
+        if (array_key_exists("encryptionMethod", $this->_propDict) && !is_null($this->_propDict["encryptionMethod"])) {
+     
+            if (is_a($this->_propDict["encryptionMethod"], "\Beta\Microsoft\Graph\Model\VpnEncryptionAlgorithmType")) {
                 return $this->_propDict["encryptionMethod"];
             } else {
                 $this->_propDict["encryptionMethod"] = new VpnEncryptionAlgorithmType($this->_propDict["encryptionMethod"]);
@@ -144,7 +148,7 @@ class CryptographySuite extends Entity
 
     /**
     * Sets the encryptionMethod
-    * Encryption Method. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm.
+    * Encryption Method. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
     *
     * @param VpnEncryptionAlgorithmType $val The value to assign to the encryptionMethod
     *
@@ -164,8 +168,9 @@ class CryptographySuite extends Entity
     */
     public function getIntegrityCheckMethod()
     {
-        if (array_key_exists("integrityCheckMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["integrityCheckMethod"], "\Beta\Microsoft\Graph\Model\VpnIntegrityAlgorithmType") || is_null($this->_propDict["integrityCheckMethod"])) {
+        if (array_key_exists("integrityCheckMethod", $this->_propDict) && !is_null($this->_propDict["integrityCheckMethod"])) {
+     
+            if (is_a($this->_propDict["integrityCheckMethod"], "\Beta\Microsoft\Graph\Model\VpnIntegrityAlgorithmType")) {
                 return $this->_propDict["integrityCheckMethod"];
             } else {
                 $this->_propDict["integrityCheckMethod"] = new VpnIntegrityAlgorithmType($this->_propDict["integrityCheckMethod"]);
@@ -197,8 +202,9 @@ class CryptographySuite extends Entity
     */
     public function getPfsGroup()
     {
-        if (array_key_exists("pfsGroup", $this->_propDict)) {
-            if (is_a($this->_propDict["pfsGroup"], "\Beta\Microsoft\Graph\Model\PerfectForwardSecrecyGroup") || is_null($this->_propDict["pfsGroup"])) {
+        if (array_key_exists("pfsGroup", $this->_propDict) && !is_null($this->_propDict["pfsGroup"])) {
+     
+            if (is_a($this->_propDict["pfsGroup"], "\Beta\Microsoft\Graph\Model\PerfectForwardSecrecyGroup")) {
                 return $this->_propDict["pfsGroup"];
             } else {
                 $this->_propDict["pfsGroup"] = new PerfectForwardSecrecyGroup($this->_propDict["pfsGroup"]);

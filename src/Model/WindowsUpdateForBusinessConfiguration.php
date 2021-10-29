@@ -25,15 +25,44 @@ namespace Beta\Microsoft\Graph\Model;
 class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
 {
     /**
+    * Gets the allowWindows11Upgrade
+    * Allow eligible Windows 10 devices to upgrade to the latest version of Windows 11.
+    *
+    * @return bool|null The allowWindows11Upgrade
+    */
+    public function getAllowWindows11Upgrade()
+    {
+        if (array_key_exists("allowWindows11Upgrade", $this->_propDict)) {
+            return $this->_propDict["allowWindows11Upgrade"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the allowWindows11Upgrade
+    * Allow eligible Windows 10 devices to upgrade to the latest version of Windows 11.
+    *
+    * @param bool $val The allowWindows11Upgrade
+    *
+    * @return WindowsUpdateForBusinessConfiguration
+    */
+    public function setAllowWindows11Upgrade($val)
+    {
+        $this->_propDict["allowWindows11Upgrade"] = boolval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the automaticUpdateMode
-    * Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl, windowsDefault.
+    * Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl.
     *
     * @return AutomaticUpdateMode|null The automaticUpdateMode
     */
     public function getAutomaticUpdateMode()
     {
-        if (array_key_exists("automaticUpdateMode", $this->_propDict)) {
-            if (is_a($this->_propDict["automaticUpdateMode"], "\Beta\Microsoft\Graph\Model\AutomaticUpdateMode") || is_null($this->_propDict["automaticUpdateMode"])) {
+        if (array_key_exists("automaticUpdateMode", $this->_propDict) && !is_null($this->_propDict["automaticUpdateMode"])) {
+            if (is_a($this->_propDict["automaticUpdateMode"], "\Beta\Microsoft\Graph\Model\AutomaticUpdateMode")) {
                 return $this->_propDict["automaticUpdateMode"];
             } else {
                 $this->_propDict["automaticUpdateMode"] = new AutomaticUpdateMode($this->_propDict["automaticUpdateMode"]);
@@ -45,7 +74,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     
     /**
     * Sets the automaticUpdateMode
-    * Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl, windowsDefault.
+    * Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl.
     *
     * @param AutomaticUpdateMode $val The automaticUpdateMode
     *
@@ -65,8 +94,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getAutoRestartNotificationDismissal()
     {
-        if (array_key_exists("autoRestartNotificationDismissal", $this->_propDict)) {
-            if (is_a($this->_propDict["autoRestartNotificationDismissal"], "\Beta\Microsoft\Graph\Model\AutoRestartNotificationDismissalMethod") || is_null($this->_propDict["autoRestartNotificationDismissal"])) {
+        if (array_key_exists("autoRestartNotificationDismissal", $this->_propDict) && !is_null($this->_propDict["autoRestartNotificationDismissal"])) {
+            if (is_a($this->_propDict["autoRestartNotificationDismissal"], "\Beta\Microsoft\Graph\Model\AutoRestartNotificationDismissalMethod")) {
                 return $this->_propDict["autoRestartNotificationDismissal"];
             } else {
                 $this->_propDict["autoRestartNotificationDismissal"] = new AutoRestartNotificationDismissalMethod($this->_propDict["autoRestartNotificationDismissal"]);
@@ -98,8 +127,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getBusinessReadyUpdatesOnly()
     {
-        if (array_key_exists("businessReadyUpdatesOnly", $this->_propDict)) {
-            if (is_a($this->_propDict["businessReadyUpdatesOnly"], "\Beta\Microsoft\Graph\Model\WindowsUpdateType") || is_null($this->_propDict["businessReadyUpdatesOnly"])) {
+        if (array_key_exists("businessReadyUpdatesOnly", $this->_propDict) && !is_null($this->_propDict["businessReadyUpdatesOnly"])) {
+            if (is_a($this->_propDict["businessReadyUpdatesOnly"], "\Beta\Microsoft\Graph\Model\WindowsUpdateType")) {
                 return $this->_propDict["businessReadyUpdatesOnly"];
             } else {
                 $this->_propDict["businessReadyUpdatesOnly"] = new WindowsUpdateType($this->_propDict["businessReadyUpdatesOnly"]);
@@ -218,8 +247,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getDeliveryOptimizationMode()
     {
-        if (array_key_exists("deliveryOptimizationMode", $this->_propDict)) {
-            if (is_a($this->_propDict["deliveryOptimizationMode"], "\Beta\Microsoft\Graph\Model\WindowsDeliveryOptimizationMode") || is_null($this->_propDict["deliveryOptimizationMode"])) {
+        if (array_key_exists("deliveryOptimizationMode", $this->_propDict) && !is_null($this->_propDict["deliveryOptimizationMode"])) {
+            if (is_a($this->_propDict["deliveryOptimizationMode"], "\Beta\Microsoft\Graph\Model\WindowsDeliveryOptimizationMode")) {
                 return $this->_propDict["deliveryOptimizationMode"];
             } else {
                 $this->_propDict["deliveryOptimizationMode"] = new WindowsDeliveryOptimizationMode($this->_propDict["deliveryOptimizationMode"]);
@@ -425,8 +454,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getFeatureUpdatesPauseExpiryDateTime()
     {
-        if (array_key_exists("featureUpdatesPauseExpiryDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["featureUpdatesPauseExpiryDateTime"], "\DateTime") || is_null($this->_propDict["featureUpdatesPauseExpiryDateTime"])) {
+        if (array_key_exists("featureUpdatesPauseExpiryDateTime", $this->_propDict) && !is_null($this->_propDict["featureUpdatesPauseExpiryDateTime"])) {
+            if (is_a($this->_propDict["featureUpdatesPauseExpiryDateTime"], "\DateTime")) {
                 return $this->_propDict["featureUpdatesPauseExpiryDateTime"];
             } else {
                 $this->_propDict["featureUpdatesPauseExpiryDateTime"] = new \DateTime($this->_propDict["featureUpdatesPauseExpiryDateTime"]);
@@ -458,8 +487,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getFeatureUpdatesPauseStartDate()
     {
-        if (array_key_exists("featureUpdatesPauseStartDate", $this->_propDict)) {
-            if (is_a($this->_propDict["featureUpdatesPauseStartDate"], "\DateTime") || is_null($this->_propDict["featureUpdatesPauseStartDate"])) {
+        if (array_key_exists("featureUpdatesPauseStartDate", $this->_propDict) && !is_null($this->_propDict["featureUpdatesPauseStartDate"])) {
+            if (is_a($this->_propDict["featureUpdatesPauseStartDate"], "\DateTime")) {
                 return $this->_propDict["featureUpdatesPauseStartDate"];
             } else {
                 $this->_propDict["featureUpdatesPauseStartDate"] = new \DateTime($this->_propDict["featureUpdatesPauseStartDate"]);
@@ -491,8 +520,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getFeatureUpdatesRollbackStartDateTime()
     {
-        if (array_key_exists("featureUpdatesRollbackStartDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["featureUpdatesRollbackStartDateTime"], "\DateTime") || is_null($this->_propDict["featureUpdatesRollbackStartDateTime"])) {
+        if (array_key_exists("featureUpdatesRollbackStartDateTime", $this->_propDict) && !is_null($this->_propDict["featureUpdatesRollbackStartDateTime"])) {
+            if (is_a($this->_propDict["featureUpdatesRollbackStartDateTime"], "\DateTime")) {
                 return $this->_propDict["featureUpdatesRollbackStartDateTime"];
             } else {
                 $this->_propDict["featureUpdatesRollbackStartDateTime"] = new \DateTime($this->_propDict["featureUpdatesRollbackStartDateTime"]);
@@ -582,8 +611,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getInstallationSchedule()
     {
-        if (array_key_exists("installationSchedule", $this->_propDict)) {
-            if (is_a($this->_propDict["installationSchedule"], "\Beta\Microsoft\Graph\Model\WindowsUpdateInstallScheduleType") || is_null($this->_propDict["installationSchedule"])) {
+        if (array_key_exists("installationSchedule", $this->_propDict) && !is_null($this->_propDict["installationSchedule"])) {
+            if (is_a($this->_propDict["installationSchedule"], "\Beta\Microsoft\Graph\Model\WindowsUpdateInstallScheduleType")) {
                 return $this->_propDict["installationSchedule"];
             } else {
                 $this->_propDict["installationSchedule"] = new WindowsUpdateInstallScheduleType($this->_propDict["installationSchedule"]);
@@ -673,8 +702,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getPrereleaseFeatures()
     {
-        if (array_key_exists("prereleaseFeatures", $this->_propDict)) {
-            if (is_a($this->_propDict["prereleaseFeatures"], "\Beta\Microsoft\Graph\Model\PrereleaseFeatures") || is_null($this->_propDict["prereleaseFeatures"])) {
+        if (array_key_exists("prereleaseFeatures", $this->_propDict) && !is_null($this->_propDict["prereleaseFeatures"])) {
+            if (is_a($this->_propDict["prereleaseFeatures"], "\Beta\Microsoft\Graph\Model\PrereleaseFeatures")) {
                 return $this->_propDict["prereleaseFeatures"];
             } else {
                 $this->_propDict["prereleaseFeatures"] = new PrereleaseFeatures($this->_propDict["prereleaseFeatures"]);
@@ -764,8 +793,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getQualityUpdatesPauseExpiryDateTime()
     {
-        if (array_key_exists("qualityUpdatesPauseExpiryDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["qualityUpdatesPauseExpiryDateTime"], "\DateTime") || is_null($this->_propDict["qualityUpdatesPauseExpiryDateTime"])) {
+        if (array_key_exists("qualityUpdatesPauseExpiryDateTime", $this->_propDict) && !is_null($this->_propDict["qualityUpdatesPauseExpiryDateTime"])) {
+            if (is_a($this->_propDict["qualityUpdatesPauseExpiryDateTime"], "\DateTime")) {
                 return $this->_propDict["qualityUpdatesPauseExpiryDateTime"];
             } else {
                 $this->_propDict["qualityUpdatesPauseExpiryDateTime"] = new \DateTime($this->_propDict["qualityUpdatesPauseExpiryDateTime"]);
@@ -797,8 +826,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getQualityUpdatesPauseStartDate()
     {
-        if (array_key_exists("qualityUpdatesPauseStartDate", $this->_propDict)) {
-            if (is_a($this->_propDict["qualityUpdatesPauseStartDate"], "\DateTime") || is_null($this->_propDict["qualityUpdatesPauseStartDate"])) {
+        if (array_key_exists("qualityUpdatesPauseStartDate", $this->_propDict) && !is_null($this->_propDict["qualityUpdatesPauseStartDate"])) {
+            if (is_a($this->_propDict["qualityUpdatesPauseStartDate"], "\DateTime")) {
                 return $this->_propDict["qualityUpdatesPauseStartDate"];
             } else {
                 $this->_propDict["qualityUpdatesPauseStartDate"] = new \DateTime($this->_propDict["qualityUpdatesPauseStartDate"]);
@@ -830,8 +859,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getQualityUpdatesRollbackStartDateTime()
     {
-        if (array_key_exists("qualityUpdatesRollbackStartDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["qualityUpdatesRollbackStartDateTime"], "\DateTime") || is_null($this->_propDict["qualityUpdatesRollbackStartDateTime"])) {
+        if (array_key_exists("qualityUpdatesRollbackStartDateTime", $this->_propDict) && !is_null($this->_propDict["qualityUpdatesRollbackStartDateTime"])) {
+            if (is_a($this->_propDict["qualityUpdatesRollbackStartDateTime"], "\DateTime")) {
                 return $this->_propDict["qualityUpdatesRollbackStartDateTime"];
             } else {
                 $this->_propDict["qualityUpdatesRollbackStartDateTime"] = new \DateTime($this->_propDict["qualityUpdatesRollbackStartDateTime"]);
@@ -979,8 +1008,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getUpdateNotificationLevel()
     {
-        if (array_key_exists("updateNotificationLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["updateNotificationLevel"], "\Beta\Microsoft\Graph\Model\WindowsUpdateNotificationDisplayOption") || is_null($this->_propDict["updateNotificationLevel"])) {
+        if (array_key_exists("updateNotificationLevel", $this->_propDict) && !is_null($this->_propDict["updateNotificationLevel"])) {
+            if (is_a($this->_propDict["updateNotificationLevel"], "\Beta\Microsoft\Graph\Model\WindowsUpdateNotificationDisplayOption")) {
                 return $this->_propDict["updateNotificationLevel"];
             } else {
                 $this->_propDict["updateNotificationLevel"] = new WindowsUpdateNotificationDisplayOption($this->_propDict["updateNotificationLevel"]);
@@ -1012,8 +1041,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getUpdateWeeks()
     {
-        if (array_key_exists("updateWeeks", $this->_propDict)) {
-            if (is_a($this->_propDict["updateWeeks"], "\Beta\Microsoft\Graph\Model\WindowsUpdateForBusinessUpdateWeeks") || is_null($this->_propDict["updateWeeks"])) {
+        if (array_key_exists("updateWeeks", $this->_propDict) && !is_null($this->_propDict["updateWeeks"])) {
+            if (is_a($this->_propDict["updateWeeks"], "\Beta\Microsoft\Graph\Model\WindowsUpdateForBusinessUpdateWeeks")) {
                 return $this->_propDict["updateWeeks"];
             } else {
                 $this->_propDict["updateWeeks"] = new WindowsUpdateForBusinessUpdateWeeks($this->_propDict["updateWeeks"]);
@@ -1045,8 +1074,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getUserPauseAccess()
     {
-        if (array_key_exists("userPauseAccess", $this->_propDict)) {
-            if (is_a($this->_propDict["userPauseAccess"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["userPauseAccess"])) {
+        if (array_key_exists("userPauseAccess", $this->_propDict) && !is_null($this->_propDict["userPauseAccess"])) {
+            if (is_a($this->_propDict["userPauseAccess"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["userPauseAccess"];
             } else {
                 $this->_propDict["userPauseAccess"] = new Enablement($this->_propDict["userPauseAccess"]);
@@ -1078,8 +1107,8 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     */
     public function getUserWindowsUpdateScanAccess()
     {
-        if (array_key_exists("userWindowsUpdateScanAccess", $this->_propDict)) {
-            if (is_a($this->_propDict["userWindowsUpdateScanAccess"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["userWindowsUpdateScanAccess"])) {
+        if (array_key_exists("userWindowsUpdateScanAccess", $this->_propDict) && !is_null($this->_propDict["userWindowsUpdateScanAccess"])) {
+            if (is_a($this->_propDict["userWindowsUpdateScanAccess"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["userWindowsUpdateScanAccess"];
             } else {
                 $this->_propDict["userWindowsUpdateScanAccess"] = new Enablement($this->_propDict["userWindowsUpdateScanAccess"]);
@@ -1106,24 +1135,31 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
 
      /** 
      * Gets the deviceUpdateStates
-    * Windows update for business configuration device states.
+    * Windows update for business configuration device states. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The deviceUpdateStates
+     * @return WindowsUpdateState[]|null The deviceUpdateStates
      */
     public function getDeviceUpdateStates()
     {
-        if (array_key_exists("deviceUpdateStates", $this->_propDict)) {
-           return $this->_propDict["deviceUpdateStates"];
-        } else {
-            return null;
+        if (array_key_exists('deviceUpdateStates', $this->_propDict) && !is_null($this->_propDict['deviceUpdateStates'])) {
+            $deviceUpdateStates = [];
+            if (count($this->_propDict['deviceUpdateStates']) > 0 && is_a($this->_propDict['deviceUpdateStates'][0], 'WindowsUpdateState')) {
+                return $this->_propDict['deviceUpdateStates'];
+            }
+            foreach ($this->_propDict['deviceUpdateStates'] as $singleValue) {
+                $deviceUpdateStates []= new WindowsUpdateState($singleValue);
+            }
+            $this->_propDict['deviceUpdateStates'] = $deviceUpdateStates;
+            return $this->_propDict['deviceUpdateStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the deviceUpdateStates
-    * Windows update for business configuration device states.
+    * Windows update for business configuration device states. This collection can contain a maximum of 500 elements.
     *
-    * @param WindowsUpdateState $val The deviceUpdateStates
+    * @param WindowsUpdateState[] $val The deviceUpdateStates
     *
     * @return WindowsUpdateForBusinessConfiguration
     */

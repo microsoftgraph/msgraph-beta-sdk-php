@@ -60,8 +60,9 @@ class DeviceManagementSettings extends Entity
     */
     public function getDerivedCredentialProvider()
     {
-        if (array_key_exists("derivedCredentialProvider", $this->_propDict)) {
-            if (is_a($this->_propDict["derivedCredentialProvider"], "\Beta\Microsoft\Graph\Model\DerivedCredentialProviderType") || is_null($this->_propDict["derivedCredentialProvider"])) {
+        if (array_key_exists("derivedCredentialProvider", $this->_propDict) && !is_null($this->_propDict["derivedCredentialProvider"])) {
+     
+            if (is_a($this->_propDict["derivedCredentialProvider"], "\Beta\Microsoft\Graph\Model\DerivedCredentialProviderType")) {
                 return $this->_propDict["derivedCredentialProvider"];
             } else {
                 $this->_propDict["derivedCredentialProvider"] = new DerivedCredentialProviderType($this->_propDict["derivedCredentialProvider"]);

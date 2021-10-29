@@ -32,8 +32,8 @@ class MobileAppDependency extends MobileAppRelationship
     */
     public function getDependencyType()
     {
-        if (array_key_exists("dependencyType", $this->_propDict)) {
-            if (is_a($this->_propDict["dependencyType"], "\Beta\Microsoft\Graph\Model\MobileAppDependencyType") || is_null($this->_propDict["dependencyType"])) {
+        if (array_key_exists("dependencyType", $this->_propDict) && !is_null($this->_propDict["dependencyType"])) {
+            if (is_a($this->_propDict["dependencyType"], "\Beta\Microsoft\Graph\Model\MobileAppDependencyType")) {
                 return $this->_propDict["dependencyType"];
             } else {
                 $this->_propDict["dependencyType"] = new MobileAppDependencyType($this->_propDict["dependencyType"]);

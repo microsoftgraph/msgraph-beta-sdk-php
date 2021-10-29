@@ -56,18 +56,22 @@ class CustomAction extends InformationProtectionAction
     * Gets the customActionProperties
     * Properties, in key value pair format, of the action.
     *
-    * @return KeyValuePair|null The customActionProperties
+    * @return KeyValuePair[]|null The customActionProperties
     */
     public function getCustomActionProperties()
     {
-        if (array_key_exists("properties", $this->_propDict)) {
-            if (is_a($this->_propDict["properties"], "\Beta\Microsoft\Graph\Model\KeyValuePair") || is_null($this->_propDict["properties"])) {
-                return $this->_propDict["properties"];
-            } else {
-                $this->_propDict["properties"] = new KeyValuePair($this->_propDict["properties"]);
-                return $this->_propDict["properties"];
+        if (array_key_exists("properties", $this->_propDict) && !is_null($this->_propDict["properties"])) {
+       
+            if (count($this->_propDict['properties']) > 0 && is_a($this->_propDict['properties'][0], 'KeyValuePair')) {
+               return $this->_propDict['properties'];
             }
-        }
+            $properties = [];
+            foreach ($this->_propDict['properties'] as $singleValue) {
+               $properties []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['properties'] = $properties;
+            return $this->_propDict['properties'];
+            }
         return null;
     }
 
@@ -75,7 +79,7 @@ class CustomAction extends InformationProtectionAction
     * Sets the customActionProperties
     * Properties, in key value pair format, of the action.
     *
-    * @param KeyValuePair $val The value to assign to the properties
+    * @param KeyValuePair[] $val The value to assign to the properties
     *
     * @return CustomAction The CustomAction
     */

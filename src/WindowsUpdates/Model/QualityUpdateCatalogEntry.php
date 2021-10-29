@@ -61,8 +61,8 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry
     */
     public function getQualityUpdateClassification()
     {
-        if (array_key_exists("qualityUpdateClassification", $this->_propDict)) {
-            if (is_a($this->_propDict["qualityUpdateClassification"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\QualityUpdateClassification") || is_null($this->_propDict["qualityUpdateClassification"])) {
+        if (array_key_exists("qualityUpdateClassification", $this->_propDict) && !is_null($this->_propDict["qualityUpdateClassification"])) {
+            if (is_a($this->_propDict["qualityUpdateClassification"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\QualityUpdateClassification")) {
                 return $this->_propDict["qualityUpdateClassification"];
             } else {
                 $this->_propDict["qualityUpdateClassification"] = new QualityUpdateClassification($this->_propDict["qualityUpdateClassification"]);

@@ -32,8 +32,9 @@ class EducationIdentityDomain extends Entity
     */
     public function getAppliesTo()
     {
-        if (array_key_exists("appliesTo", $this->_propDict)) {
-            if (is_a($this->_propDict["appliesTo"], "\Beta\Microsoft\Graph\Model\EducationUserRole") || is_null($this->_propDict["appliesTo"])) {
+        if (array_key_exists("appliesTo", $this->_propDict) && !is_null($this->_propDict["appliesTo"])) {
+     
+            if (is_a($this->_propDict["appliesTo"], "\Beta\Microsoft\Graph\Model\EducationUserRole")) {
                 return $this->_propDict["appliesTo"];
             } else {
                 $this->_propDict["appliesTo"] = new EducationUserRole($this->_propDict["appliesTo"]);

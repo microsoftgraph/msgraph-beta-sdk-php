@@ -60,8 +60,9 @@ class DeviceManagementConfigurationSettingInstance extends Entity
     */
     public function getSettingInstanceTemplateReference()
     {
-        if (array_key_exists("settingInstanceTemplateReference", $this->_propDict)) {
-            if (is_a($this->_propDict["settingInstanceTemplateReference"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingInstanceTemplateReference") || is_null($this->_propDict["settingInstanceTemplateReference"])) {
+        if (array_key_exists("settingInstanceTemplateReference", $this->_propDict) && !is_null($this->_propDict["settingInstanceTemplateReference"])) {
+     
+            if (is_a($this->_propDict["settingInstanceTemplateReference"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingInstanceTemplateReference")) {
                 return $this->_propDict["settingInstanceTemplateReference"];
             } else {
                 $this->_propDict["settingInstanceTemplateReference"] = new DeviceManagementConfigurationSettingInstanceTemplateReference($this->_propDict["settingInstanceTemplateReference"]);

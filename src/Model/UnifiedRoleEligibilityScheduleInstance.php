@@ -26,14 +26,14 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
 {
     /**
     * Gets the endDateTime
-    * Time that the roleEligibilityScheduleInstance will expire
+    * Time that the roleEligibilityScheduleInstance will expire.
     *
     * @return \DateTime|null The endDateTime
     */
     public function getEndDateTime()
     {
-        if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
+        if (array_key_exists("endDateTime", $this->_propDict) && !is_null($this->_propDict["endDateTime"])) {
+            if (is_a($this->_propDict["endDateTime"], "\DateTime")) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -45,7 +45,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
     
     /**
     * Sets the endDateTime
-    * Time that the roleEligibilityScheduleInstance will expire
+    * Time that the roleEligibilityScheduleInstance will expire.
     *
     * @param \DateTime $val The endDateTime
     *
@@ -88,7 +88,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
     
     /**
     * Gets the roleEligibilityScheduleId
-    * ID of the parent roleEligibilitySchedule for this instance
+    * Identifier of the parent roleEligibilitySchedule for this instance.
     *
     * @return string|null The roleEligibilityScheduleId
     */
@@ -103,7 +103,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
     
     /**
     * Sets the roleEligibilityScheduleId
-    * ID of the parent roleEligibilitySchedule for this instance
+    * Identifier of the parent roleEligibilitySchedule for this instance.
     *
     * @param string $val The roleEligibilityScheduleId
     *
@@ -117,14 +117,14 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
     
     /**
     * Gets the startDateTime
-    * Time that the roleEligibilityScheduleInstance will start
+    * Time that the roleEligibilityScheduleInstance will start.
     *
     * @return \DateTime|null The startDateTime
     */
     public function getStartDateTime()
     {
-        if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+        if (array_key_exists("startDateTime", $this->_propDict) && !is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -136,7 +136,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
     
     /**
     * Sets the startDateTime
-    * Time that the roleEligibilityScheduleInstance will start
+    * Time that the roleEligibilityScheduleInstance will start.
     *
     * @param \DateTime $val The startDateTime
     *

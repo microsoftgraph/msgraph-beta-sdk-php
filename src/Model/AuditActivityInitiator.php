@@ -32,8 +32,9 @@ class AuditActivityInitiator extends Entity
     */
     public function getApp()
     {
-        if (array_key_exists("app", $this->_propDict)) {
-            if (is_a($this->_propDict["app"], "\Beta\Microsoft\Graph\Model\AppIdentity") || is_null($this->_propDict["app"])) {
+        if (array_key_exists("app", $this->_propDict) && !is_null($this->_propDict["app"])) {
+     
+            if (is_a($this->_propDict["app"], "\Beta\Microsoft\Graph\Model\AppIdentity")) {
                 return $this->_propDict["app"];
             } else {
                 $this->_propDict["app"] = new AppIdentity($this->_propDict["app"]);
@@ -61,15 +62,16 @@ class AuditActivityInitiator extends Entity
     * Gets the user
     * If the resource initiating the activity is a user, this property Indicates all the user related information like userId, Name, UserPrinicpalName.
     *
-    * @return UserIdentity|null The user
+    * @return AuditUserIdentity|null The user
     */
     public function getUser()
     {
-        if (array_key_exists("user", $this->_propDict)) {
-            if (is_a($this->_propDict["user"], "\Beta\Microsoft\Graph\Model\UserIdentity") || is_null($this->_propDict["user"])) {
+        if (array_key_exists("user", $this->_propDict) && !is_null($this->_propDict["user"])) {
+     
+            if (is_a($this->_propDict["user"], "\Beta\Microsoft\Graph\Model\AuditUserIdentity")) {
                 return $this->_propDict["user"];
             } else {
-                $this->_propDict["user"] = new UserIdentity($this->_propDict["user"]);
+                $this->_propDict["user"] = new AuditUserIdentity($this->_propDict["user"]);
                 return $this->_propDict["user"];
             }
         }
@@ -80,7 +82,7 @@ class AuditActivityInitiator extends Entity
     * Sets the user
     * If the resource initiating the activity is a user, this property Indicates all the user related information like userId, Name, UserPrinicpalName.
     *
-    * @param UserIdentity $val The value to assign to the user
+    * @param AuditUserIdentity $val The value to assign to the user
     *
     * @return AuditActivityInitiator The AuditActivityInitiator
     */

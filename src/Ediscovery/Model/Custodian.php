@@ -32,8 +32,8 @@ class Custodian extends DataSourceContainer
     */
     public function getAcknowledgedDateTime()
     {
-        if (array_key_exists("acknowledgedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["acknowledgedDateTime"], "\DateTime") || is_null($this->_propDict["acknowledgedDateTime"])) {
+        if (array_key_exists("acknowledgedDateTime", $this->_propDict) && !is_null($this->_propDict["acknowledgedDateTime"])) {
+            if (is_a($this->_propDict["acknowledgedDateTime"], "\DateTime")) {
                 return $this->_propDict["acknowledgedDateTime"];
             } else {
                 $this->_propDict["acknowledgedDateTime"] = new \DateTime($this->_propDict["acknowledgedDateTime"]);
@@ -120,22 +120,29 @@ class Custodian extends DataSourceContainer
      * Gets the siteSources
     * Data source entity for SharePoint sites associated with the custodian.
      *
-     * @return array|null The siteSources
+     * @return SiteSource[]|null The siteSources
      */
     public function getSiteSources()
     {
-        if (array_key_exists("siteSources", $this->_propDict)) {
-           return $this->_propDict["siteSources"];
-        } else {
-            return null;
+        if (array_key_exists('siteSources', $this->_propDict) && !is_null($this->_propDict['siteSources'])) {
+            $siteSources = [];
+            if (count($this->_propDict['siteSources']) > 0 && is_a($this->_propDict['siteSources'][0], 'SiteSource')) {
+                return $this->_propDict['siteSources'];
+            }
+            foreach ($this->_propDict['siteSources'] as $singleValue) {
+                $siteSources []= new SiteSource($singleValue);
+            }
+            $this->_propDict['siteSources'] = $siteSources;
+            return $this->_propDict['siteSources'];
         }
+        return null;
     }
     
     /** 
     * Sets the siteSources
     * Data source entity for SharePoint sites associated with the custodian.
     *
-    * @param SiteSource $val The siteSources
+    * @param SiteSource[] $val The siteSources
     *
     * @return Custodian
     */
@@ -150,22 +157,29 @@ class Custodian extends DataSourceContainer
      * Gets the unifiedGroupSources
     * Data source entity for groups associated with the custodian.
      *
-     * @return array|null The unifiedGroupSources
+     * @return UnifiedGroupSource[]|null The unifiedGroupSources
      */
     public function getUnifiedGroupSources()
     {
-        if (array_key_exists("unifiedGroupSources", $this->_propDict)) {
-           return $this->_propDict["unifiedGroupSources"];
-        } else {
-            return null;
+        if (array_key_exists('unifiedGroupSources', $this->_propDict) && !is_null($this->_propDict['unifiedGroupSources'])) {
+            $unifiedGroupSources = [];
+            if (count($this->_propDict['unifiedGroupSources']) > 0 && is_a($this->_propDict['unifiedGroupSources'][0], 'UnifiedGroupSource')) {
+                return $this->_propDict['unifiedGroupSources'];
+            }
+            foreach ($this->_propDict['unifiedGroupSources'] as $singleValue) {
+                $unifiedGroupSources []= new UnifiedGroupSource($singleValue);
+            }
+            $this->_propDict['unifiedGroupSources'] = $unifiedGroupSources;
+            return $this->_propDict['unifiedGroupSources'];
         }
+        return null;
     }
     
     /** 
     * Sets the unifiedGroupSources
     * Data source entity for groups associated with the custodian.
     *
-    * @param UnifiedGroupSource $val The unifiedGroupSources
+    * @param UnifiedGroupSource[] $val The unifiedGroupSources
     *
     * @return Custodian
     */
@@ -180,22 +194,29 @@ class Custodian extends DataSourceContainer
      * Gets the userSources
     * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
      *
-     * @return array|null The userSources
+     * @return UserSource[]|null The userSources
      */
     public function getUserSources()
     {
-        if (array_key_exists("userSources", $this->_propDict)) {
-           return $this->_propDict["userSources"];
-        } else {
-            return null;
+        if (array_key_exists('userSources', $this->_propDict) && !is_null($this->_propDict['userSources'])) {
+            $userSources = [];
+            if (count($this->_propDict['userSources']) > 0 && is_a($this->_propDict['userSources'][0], 'UserSource')) {
+                return $this->_propDict['userSources'];
+            }
+            foreach ($this->_propDict['userSources'] as $singleValue) {
+                $userSources []= new UserSource($singleValue);
+            }
+            $this->_propDict['userSources'] = $userSources;
+            return $this->_propDict['userSources'];
         }
+        return null;
     }
     
     /** 
     * Sets the userSources
     * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
     *
-    * @param UserSource $val The userSources
+    * @param UserSource[] $val The userSources
     *
     * @return Custodian
     */

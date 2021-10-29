@@ -32,11 +32,12 @@ class KeyCredential extends Entity
     */
     public function getCustomKeyIdentifier()
     {
-        if (array_key_exists("customKeyIdentifier", $this->_propDict)) {
-            if (is_a($this->_propDict["customKeyIdentifier"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["customKeyIdentifier"])) {
+        if (array_key_exists("customKeyIdentifier", $this->_propDict) && !is_null($this->_propDict["customKeyIdentifier"])) {
+     
+            if (is_a($this->_propDict["customKeyIdentifier"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["customKeyIdentifier"];
             } else {
-                $this->_propDict["customKeyIdentifier"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["customKeyIdentifier"]);
+                $this->_propDict["customKeyIdentifier"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["customKeyIdentifier"]);
                 return $this->_propDict["customKeyIdentifier"];
             }
         }
@@ -87,14 +88,15 @@ class KeyCredential extends Entity
 
     /**
     * Gets the endDateTime
-    * The date and time at which the credential expires.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * The date and time at which the credential expires.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The endDateTime
     */
     public function getEndDateTime()
     {
-        if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
+        if (array_key_exists("endDateTime", $this->_propDict) && !is_null($this->_propDict["endDateTime"])) {
+     
+            if (is_a($this->_propDict["endDateTime"], "\DateTime")) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -106,7 +108,7 @@ class KeyCredential extends Entity
 
     /**
     * Sets the endDateTime
-    * The date and time at which the credential expires.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * The date and time at which the credential expires.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The value to assign to the endDateTime
     *
@@ -120,17 +122,18 @@ class KeyCredential extends Entity
 
     /**
     * Gets the key
-    * Value for the key credential. Should be a base 64 encoded value.
+    * The certificate's raw data in byte array converted to Base64 string; for example, [System.Convert]::ToBase64String($Cert.GetRawCertData()).
     *
     * @return \GuzzleHttp\Psr7\Stream|null The key
     */
     public function getKey()
     {
-        if (array_key_exists("key", $this->_propDict)) {
-            if (is_a($this->_propDict["key"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["key"])) {
+        if (array_key_exists("key", $this->_propDict) && !is_null($this->_propDict["key"])) {
+     
+            if (is_a($this->_propDict["key"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["key"];
             } else {
-                $this->_propDict["key"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["key"]);
+                $this->_propDict["key"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["key"]);
                 return $this->_propDict["key"];
             }
         }
@@ -139,7 +142,7 @@ class KeyCredential extends Entity
 
     /**
     * Sets the key
-    * Value for the key credential. Should be a base 64 encoded value.
+    * The certificate's raw data in byte array converted to Base64 string; for example, [System.Convert]::ToBase64String($Cert.GetRawCertData()).
     *
     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the key
     *
@@ -181,14 +184,15 @@ class KeyCredential extends Entity
 
     /**
     * Gets the startDateTime
-    * The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The startDateTime
     */
     public function getStartDateTime()
     {
-        if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+        if (array_key_exists("startDateTime", $this->_propDict) && !is_null($this->_propDict["startDateTime"])) {
+     
+            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -200,7 +204,7 @@ class KeyCredential extends Entity
 
     /**
     * Sets the startDateTime
-    * The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The value to assign to the startDateTime
     *
@@ -213,7 +217,7 @@ class KeyCredential extends Entity
     }
     /**
     * Gets the type
-    * The type of key credential; for example, 'Symmetric'.
+    * The type of key credential; for example, Symmetric.
     *
     * @return string|null The type
     */
@@ -228,7 +232,7 @@ class KeyCredential extends Entity
 
     /**
     * Sets the type
-    * The type of key credential; for example, 'Symmetric'.
+    * The type of key credential; for example, Symmetric.
     *
     * @param string $val The value of the type
     *
@@ -241,7 +245,7 @@ class KeyCredential extends Entity
     }
     /**
     * Gets the usage
-    * A string that describes the purpose for which the key can be used; for example, 'Verify'.
+    * A string that describes the purpose for which the key can be used; for example, Verify.
     *
     * @return string|null The usage
     */
@@ -256,7 +260,7 @@ class KeyCredential extends Entity
 
     /**
     * Sets the usage
-    * A string that describes the purpose for which the key can be used; for example, 'Verify'.
+    * A string that describes the purpose for which the key can be used; for example, Verify.
     *
     * @param string $val The value of the usage
     *

@@ -119,8 +119,8 @@ class GroupPolicyDefinitionFile extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -152,8 +152,8 @@ class GroupPolicyDefinitionFile extends Entity
     */
     public function getPolicyType()
     {
-        if (array_key_exists("policyType", $this->_propDict)) {
-            if (is_a($this->_propDict["policyType"], "\Beta\Microsoft\Graph\Model\GroupPolicyType") || is_null($this->_propDict["policyType"])) {
+        if (array_key_exists("policyType", $this->_propDict) && !is_null($this->_propDict["policyType"])) {
+            if (is_a($this->_propDict["policyType"], "\Beta\Microsoft\Graph\Model\GroupPolicyType")) {
                 return $this->_propDict["policyType"];
             } else {
                 $this->_propDict["policyType"] = new GroupPolicyType($this->_propDict["policyType"]);
@@ -269,22 +269,29 @@ class GroupPolicyDefinitionFile extends Entity
      * Gets the definitions
     * The group policy definitions associated with the file.
      *
-     * @return array|null The definitions
+     * @return GroupPolicyDefinition[]|null The definitions
      */
     public function getDefinitions()
     {
-        if (array_key_exists("definitions", $this->_propDict)) {
-           return $this->_propDict["definitions"];
-        } else {
-            return null;
+        if (array_key_exists('definitions', $this->_propDict) && !is_null($this->_propDict['definitions'])) {
+            $definitions = [];
+            if (count($this->_propDict['definitions']) > 0 && is_a($this->_propDict['definitions'][0], 'GroupPolicyDefinition')) {
+                return $this->_propDict['definitions'];
+            }
+            foreach ($this->_propDict['definitions'] as $singleValue) {
+                $definitions []= new GroupPolicyDefinition($singleValue);
+            }
+            $this->_propDict['definitions'] = $definitions;
+            return $this->_propDict['definitions'];
         }
+        return null;
     }
     
     /** 
     * Sets the definitions
     * The group policy definitions associated with the file.
     *
-    * @param GroupPolicyDefinition $val The definitions
+    * @param GroupPolicyDefinition[] $val The definitions
     *
     * @return GroupPolicyDefinitionFile
     */

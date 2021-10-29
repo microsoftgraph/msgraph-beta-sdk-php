@@ -26,9 +26,11 @@ class DeviceManagementConfigurationChoiceSettingInstanceTemplate extends DeviceM
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deviceManagementConfigurationChoiceSettingInstanceTemplate");
     }
 
@@ -41,8 +43,9 @@ class DeviceManagementConfigurationChoiceSettingInstanceTemplate extends DeviceM
     */
     public function getChoiceSettingValueTemplate()
     {
-        if (array_key_exists("choiceSettingValueTemplate", $this->_propDict)) {
-            if (is_a($this->_propDict["choiceSettingValueTemplate"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationChoiceSettingValueTemplate") || is_null($this->_propDict["choiceSettingValueTemplate"])) {
+        if (array_key_exists("choiceSettingValueTemplate", $this->_propDict) && !is_null($this->_propDict["choiceSettingValueTemplate"])) {
+     
+            if (is_a($this->_propDict["choiceSettingValueTemplate"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationChoiceSettingValueTemplate")) {
                 return $this->_propDict["choiceSettingValueTemplate"];
             } else {
                 $this->_propDict["choiceSettingValueTemplate"] = new DeviceManagementConfigurationChoiceSettingValueTemplate($this->_propDict["choiceSettingValueTemplate"]);

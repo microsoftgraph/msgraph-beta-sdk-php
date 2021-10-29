@@ -25,6 +25,7 @@ class WorkloadActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the actionId
+    * The unique identifier for the workload action. Required. Read-only.
     *
     * @return string|null The actionId
     */
@@ -39,6 +40,7 @@ class WorkloadActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the actionId
+    * The unique identifier for the workload action. Required. Read-only.
     *
     * @param string $val The value of the actionId
     *
@@ -51,6 +53,7 @@ class WorkloadActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the deployedPolicyId
+    * The identifier of any policy that was created by applying the workload action. Optional. Read-only.
     *
     * @return string|null The deployedPolicyId
     */
@@ -65,6 +68,7 @@ class WorkloadActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the deployedPolicyId
+    * The identifier of any policy that was created by applying the workload action. Optional. Read-only.
     *
     * @param string $val The value of the deployedPolicyId
     *
@@ -78,13 +82,15 @@ class WorkloadActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the error
+    * The detailed information for exceptions that occur when deploying the workload action. Optional. Required.
     *
     * @return \Beta\Microsoft\Graph\Model\GenericError|null The error
     */
     public function getError()
     {
-        if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\GenericError") || is_null($this->_propDict["error"])) {
+        if (array_key_exists("error", $this->_propDict) && !is_null($this->_propDict["error"])) {
+     
+            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\GenericError")) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new \Beta\Microsoft\Graph\Model\GenericError($this->_propDict["error"]);
@@ -96,6 +102,7 @@ class WorkloadActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the error
+    * The detailed information for exceptions that occur when deploying the workload action. Optional. Required.
     *
     * @param \Beta\Microsoft\Graph\Model\GenericError $val The value to assign to the error
     *
@@ -109,13 +116,15 @@ class WorkloadActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the lastDeploymentDateTime
+    * The date and time the workload action was last deployed. Optional.
     *
     * @return \DateTime|null The lastDeploymentDateTime
     */
     public function getLastDeploymentDateTime()
     {
-        if (array_key_exists("lastDeploymentDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastDeploymentDateTime"], "\DateTime") || is_null($this->_propDict["lastDeploymentDateTime"])) {
+        if (array_key_exists("lastDeploymentDateTime", $this->_propDict) && !is_null($this->_propDict["lastDeploymentDateTime"])) {
+     
+            if (is_a($this->_propDict["lastDeploymentDateTime"], "\DateTime")) {
                 return $this->_propDict["lastDeploymentDateTime"];
             } else {
                 $this->_propDict["lastDeploymentDateTime"] = new \DateTime($this->_propDict["lastDeploymentDateTime"]);
@@ -127,6 +136,7 @@ class WorkloadActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the lastDeploymentDateTime
+    * The date and time the workload action was last deployed. Optional.
     *
     * @param \DateTime $val The value to assign to the lastDeploymentDateTime
     *
@@ -140,13 +150,15 @@ class WorkloadActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the status
+    * The status of the workload action deployment. Possible values are: toAddress, completed, error, timeOut, inProgress, unknownFutureValue. Required. Read-only.
     *
     * @return WorkloadActionStatus|null The status
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadActionStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+     
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadActionStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new WorkloadActionStatus($this->_propDict["status"]);
@@ -158,6 +170,7 @@ class WorkloadActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the status
+    * The status of the workload action deployment. Possible values are: toAddress, completed, error, timeOut, inProgress, unknownFutureValue. Required. Read-only.
     *
     * @param WorkloadActionStatus $val The value to assign to the status
     *

@@ -79,25 +79,29 @@ class AttributeMappingSource extends Entity
     /**
     * Gets the parameters
     *
-    * @return StringKeyAttributeMappingSourceValuePair|null The parameters
+    * @return StringKeyAttributeMappingSourceValuePair[]|null The parameters
     */
     public function getParameters()
     {
-        if (array_key_exists("parameters", $this->_propDict)) {
-            if (is_a($this->_propDict["parameters"], "\Beta\Microsoft\Graph\Model\StringKeyAttributeMappingSourceValuePair") || is_null($this->_propDict["parameters"])) {
-                return $this->_propDict["parameters"];
-            } else {
-                $this->_propDict["parameters"] = new StringKeyAttributeMappingSourceValuePair($this->_propDict["parameters"]);
-                return $this->_propDict["parameters"];
+        if (array_key_exists("parameters", $this->_propDict) && !is_null($this->_propDict["parameters"])) {
+       
+            if (count($this->_propDict['parameters']) > 0 && is_a($this->_propDict['parameters'][0], 'StringKeyAttributeMappingSourceValuePair')) {
+               return $this->_propDict['parameters'];
             }
-        }
+            $parameters = [];
+            foreach ($this->_propDict['parameters'] as $singleValue) {
+               $parameters []= new StringKeyAttributeMappingSourceValuePair($singleValue);
+            }
+            $this->_propDict['parameters'] = $parameters;
+            return $this->_propDict['parameters'];
+            }
         return null;
     }
 
     /**
     * Sets the parameters
     *
-    * @param StringKeyAttributeMappingSourceValuePair $val The value to assign to the parameters
+    * @param StringKeyAttributeMappingSourceValuePair[] $val The value to assign to the parameters
     *
     * @return AttributeMappingSource The AttributeMappingSource
     */
@@ -114,8 +118,9 @@ class AttributeMappingSource extends Entity
     */
     public function getType()
     {
-        if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\AttributeMappingSourceType") || is_null($this->_propDict["type"])) {
+        if (array_key_exists("type", $this->_propDict) && !is_null($this->_propDict["type"])) {
+     
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\AttributeMappingSourceType")) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new AttributeMappingSourceType($this->_propDict["type"]);

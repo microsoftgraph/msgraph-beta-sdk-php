@@ -32,8 +32,8 @@ class SitePage extends BaseItem
     */
     public function getContentType()
     {
-        if (array_key_exists("contentType", $this->_propDict)) {
-            if (is_a($this->_propDict["contentType"], "\Beta\Microsoft\Graph\Model\ContentTypeInfo") || is_null($this->_propDict["contentType"])) {
+        if (array_key_exists("contentType", $this->_propDict) && !is_null($this->_propDict["contentType"])) {
+            if (is_a($this->_propDict["contentType"], "\Beta\Microsoft\Graph\Model\ContentTypeInfo")) {
                 return $this->_propDict["contentType"];
             } else {
                 $this->_propDict["contentType"] = new ContentTypeInfo($this->_propDict["contentType"]);
@@ -91,8 +91,8 @@ class SitePage extends BaseItem
     */
     public function getPublishingState()
     {
-        if (array_key_exists("publishingState", $this->_propDict)) {
-            if (is_a($this->_propDict["publishingState"], "\Beta\Microsoft\Graph\Model\PublicationFacet") || is_null($this->_propDict["publishingState"])) {
+        if (array_key_exists("publishingState", $this->_propDict) && !is_null($this->_propDict["publishingState"])) {
+            if (is_a($this->_propDict["publishingState"], "\Beta\Microsoft\Graph\Model\PublicationFacet")) {
                 return $this->_propDict["publishingState"];
             } else {
                 $this->_propDict["publishingState"] = new PublicationFacet($this->_propDict["publishingState"]);
@@ -146,21 +146,28 @@ class SitePage extends BaseItem
      /** 
      * Gets the webParts
      *
-     * @return array|null The webParts
+     * @return WebPart[]|null The webParts
      */
     public function getWebParts()
     {
-        if (array_key_exists("webParts", $this->_propDict)) {
-           return $this->_propDict["webParts"];
-        } else {
-            return null;
+        if (array_key_exists('webParts', $this->_propDict) && !is_null($this->_propDict['webParts'])) {
+            $webParts = [];
+            if (count($this->_propDict['webParts']) > 0 && is_a($this->_propDict['webParts'][0], 'WebPart')) {
+                return $this->_propDict['webParts'];
+            }
+            foreach ($this->_propDict['webParts'] as $singleValue) {
+                $webParts []= new WebPart($singleValue);
+            }
+            $this->_propDict['webParts'] = $webParts;
+            return $this->_propDict['webParts'];
         }
+        return null;
     }
     
     /** 
     * Sets the webParts
     *
-    * @param WebPart $val The webParts
+    * @param WebPart[] $val The webParts
     *
     * @return SitePage
     */

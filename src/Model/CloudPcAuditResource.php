@@ -25,6 +25,7 @@ class CloudPcAuditResource extends Entity
 {
     /**
     * Gets the displayName
+    * The resource entity display name.
     *
     * @return string|null The displayName
     */
@@ -39,6 +40,7 @@ class CloudPcAuditResource extends Entity
 
     /**
     * Sets the displayName
+    * The resource entity display name.
     *
     * @param string $val The value of the displayName
     *
@@ -52,26 +54,32 @@ class CloudPcAuditResource extends Entity
 
     /**
     * Gets the modifiedProperties
+    * A list of modified properties.
     *
-    * @return CloudPcAuditProperty|null The modifiedProperties
+    * @return CloudPcAuditProperty[]|null The modifiedProperties
     */
     public function getModifiedProperties()
     {
-        if (array_key_exists("modifiedProperties", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedProperties"], "\Beta\Microsoft\Graph\Model\CloudPcAuditProperty") || is_null($this->_propDict["modifiedProperties"])) {
-                return $this->_propDict["modifiedProperties"];
-            } else {
-                $this->_propDict["modifiedProperties"] = new CloudPcAuditProperty($this->_propDict["modifiedProperties"]);
-                return $this->_propDict["modifiedProperties"];
+        if (array_key_exists("modifiedProperties", $this->_propDict) && !is_null($this->_propDict["modifiedProperties"])) {
+       
+            if (count($this->_propDict['modifiedProperties']) > 0 && is_a($this->_propDict['modifiedProperties'][0], 'CloudPcAuditProperty')) {
+               return $this->_propDict['modifiedProperties'];
             }
-        }
+            $modifiedProperties = [];
+            foreach ($this->_propDict['modifiedProperties'] as $singleValue) {
+               $modifiedProperties []= new CloudPcAuditProperty($singleValue);
+            }
+            $this->_propDict['modifiedProperties'] = $modifiedProperties;
+            return $this->_propDict['modifiedProperties'];
+            }
         return null;
     }
 
     /**
     * Sets the modifiedProperties
+    * A list of modified properties.
     *
-    * @param CloudPcAuditProperty $val The value to assign to the modifiedProperties
+    * @param CloudPcAuditProperty[] $val The value to assign to the modifiedProperties
     *
     * @return CloudPcAuditResource The CloudPcAuditResource
     */
@@ -82,6 +90,7 @@ class CloudPcAuditResource extends Entity
     }
     /**
     * Gets the resourceId
+    * The ID of the audit resource.
     *
     * @return string|null The resourceId
     */
@@ -96,6 +105,7 @@ class CloudPcAuditResource extends Entity
 
     /**
     * Sets the resourceId
+    * The ID of the audit resource.
     *
     * @param string $val The value of the resourceId
     *
@@ -108,6 +118,7 @@ class CloudPcAuditResource extends Entity
     }
     /**
     * Gets the type
+    * The type of the audit resource.
     *
     * @return string|null The type
     */
@@ -122,6 +133,7 @@ class CloudPcAuditResource extends Entity
 
     /**
     * Sets the type
+    * The type of the audit resource.
     *
     * @param string $val The value of the type
     *

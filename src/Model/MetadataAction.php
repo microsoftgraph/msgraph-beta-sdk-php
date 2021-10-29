@@ -28,18 +28,22 @@ class MetadataAction extends InformationProtectionAction
     * Gets the metadataToAdd
     * A collection of key value pairs that should be added to the file.
     *
-    * @return KeyValuePair|null The metadataToAdd
+    * @return KeyValuePair[]|null The metadataToAdd
     */
     public function getMetadataToAdd()
     {
-        if (array_key_exists("metadataToAdd", $this->_propDict)) {
-            if (is_a($this->_propDict["metadataToAdd"], "\Beta\Microsoft\Graph\Model\KeyValuePair") || is_null($this->_propDict["metadataToAdd"])) {
-                return $this->_propDict["metadataToAdd"];
-            } else {
-                $this->_propDict["metadataToAdd"] = new KeyValuePair($this->_propDict["metadataToAdd"]);
-                return $this->_propDict["metadataToAdd"];
+        if (array_key_exists("metadataToAdd", $this->_propDict) && !is_null($this->_propDict["metadataToAdd"])) {
+       
+            if (count($this->_propDict['metadataToAdd']) > 0 && is_a($this->_propDict['metadataToAdd'][0], 'KeyValuePair')) {
+               return $this->_propDict['metadataToAdd'];
             }
-        }
+            $metadataToAdd = [];
+            foreach ($this->_propDict['metadataToAdd'] as $singleValue) {
+               $metadataToAdd []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['metadataToAdd'] = $metadataToAdd;
+            return $this->_propDict['metadataToAdd'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class MetadataAction extends InformationProtectionAction
     * Sets the metadataToAdd
     * A collection of key value pairs that should be added to the file.
     *
-    * @param KeyValuePair $val The value to assign to the metadataToAdd
+    * @param KeyValuePair[] $val The value to assign to the metadataToAdd
     *
     * @return MetadataAction The MetadataAction
     */
@@ -75,7 +79,7 @@ class MetadataAction extends InformationProtectionAction
     * Sets the metadataToRemove
     * A collection of strings that indicate which keys to remove from the file metadata.
     *
-    * @param string $val The value of the metadataToRemove
+    * @param string[] $val The value of the metadataToRemove
     *
     * @return MetadataAction
     */

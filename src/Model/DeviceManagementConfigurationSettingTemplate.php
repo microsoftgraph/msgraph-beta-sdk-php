@@ -32,8 +32,8 @@ class DeviceManagementConfigurationSettingTemplate extends Entity
     */
     public function getSettingInstanceTemplate()
     {
-        if (array_key_exists("settingInstanceTemplate", $this->_propDict)) {
-            if (is_a($this->_propDict["settingInstanceTemplate"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingInstanceTemplate") || is_null($this->_propDict["settingInstanceTemplate"])) {
+        if (array_key_exists("settingInstanceTemplate", $this->_propDict) && !is_null($this->_propDict["settingInstanceTemplate"])) {
+            if (is_a($this->_propDict["settingInstanceTemplate"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingInstanceTemplate")) {
                 return $this->_propDict["settingInstanceTemplate"];
             } else {
                 $this->_propDict["settingInstanceTemplate"] = new DeviceManagementConfigurationSettingInstanceTemplate($this->_propDict["settingInstanceTemplate"]);
@@ -62,22 +62,29 @@ class DeviceManagementConfigurationSettingTemplate extends Entity
      * Gets the settingDefinitions
     * List of related Setting Definitions
      *
-     * @return array|null The settingDefinitions
+     * @return DeviceManagementConfigurationSettingDefinition[]|null The settingDefinitions
      */
     public function getSettingDefinitions()
     {
-        if (array_key_exists("settingDefinitions", $this->_propDict)) {
-           return $this->_propDict["settingDefinitions"];
-        } else {
-            return null;
+        if (array_key_exists('settingDefinitions', $this->_propDict) && !is_null($this->_propDict['settingDefinitions'])) {
+            $settingDefinitions = [];
+            if (count($this->_propDict['settingDefinitions']) > 0 && is_a($this->_propDict['settingDefinitions'][0], 'DeviceManagementConfigurationSettingDefinition')) {
+                return $this->_propDict['settingDefinitions'];
+            }
+            foreach ($this->_propDict['settingDefinitions'] as $singleValue) {
+                $settingDefinitions []= new DeviceManagementConfigurationSettingDefinition($singleValue);
+            }
+            $this->_propDict['settingDefinitions'] = $settingDefinitions;
+            return $this->_propDict['settingDefinitions'];
         }
+        return null;
     }
     
     /** 
     * Sets the settingDefinitions
     * List of related Setting Definitions
     *
-    * @param DeviceManagementConfigurationSettingDefinition $val The settingDefinitions
+    * @param DeviceManagementConfigurationSettingDefinition[] $val The settingDefinitions
     *
     * @return DeviceManagementConfigurationSettingTemplate
     */

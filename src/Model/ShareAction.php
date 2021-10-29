@@ -28,18 +28,22 @@ class ShareAction extends Entity
     * Gets the recipients
     * The identities the item was shared with in this action.
     *
-    * @return IdentitySet|null The recipients
+    * @return IdentitySet[]|null The recipients
     */
     public function getRecipients()
     {
-        if (array_key_exists("recipients", $this->_propDict)) {
-            if (is_a($this->_propDict["recipients"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["recipients"])) {
-                return $this->_propDict["recipients"];
-            } else {
-                $this->_propDict["recipients"] = new IdentitySet($this->_propDict["recipients"]);
-                return $this->_propDict["recipients"];
+        if (array_key_exists("recipients", $this->_propDict) && !is_null($this->_propDict["recipients"])) {
+       
+            if (count($this->_propDict['recipients']) > 0 && is_a($this->_propDict['recipients'][0], 'IdentitySet')) {
+               return $this->_propDict['recipients'];
             }
-        }
+            $recipients = [];
+            foreach ($this->_propDict['recipients'] as $singleValue) {
+               $recipients []= new IdentitySet($singleValue);
+            }
+            $this->_propDict['recipients'] = $recipients;
+            return $this->_propDict['recipients'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class ShareAction extends Entity
     * Sets the recipients
     * The identities the item was shared with in this action.
     *
-    * @param IdentitySet $val The value to assign to the recipients
+    * @param IdentitySet[] $val The value to assign to the recipients
     *
     * @return ShareAction The ShareAction
     */

@@ -31,8 +31,8 @@ class SharedEmailDomainInvitation extends Entity
     */
     public function getExpiryTime()
     {
-        if (array_key_exists("expiryTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expiryTime"], "\DateTime") || is_null($this->_propDict["expiryTime"])) {
+        if (array_key_exists("expiryTime", $this->_propDict) && !is_null($this->_propDict["expiryTime"])) {
+            if (is_a($this->_propDict["expiryTime"], "\DateTime")) {
                 return $this->_propDict["expiryTime"];
             } else {
                 $this->_propDict["expiryTime"] = new \DateTime($this->_propDict["expiryTime"]);

@@ -87,22 +87,29 @@ class AndroidManagedStoreApp extends MobileApp
      * Gets the appTracks
     * The tracks that are visible to this enterprise.
      *
-     * @return array|null The appTracks
+     * @return AndroidManagedStoreAppTrack[]|null The appTracks
      */
     public function getAppTracks()
     {
-        if (array_key_exists("appTracks", $this->_propDict)) {
-           return $this->_propDict["appTracks"];
-        } else {
-            return null;
+        if (array_key_exists('appTracks', $this->_propDict) && !is_null($this->_propDict['appTracks'])) {
+            $appTracks = [];
+            if (count($this->_propDict['appTracks']) > 0 && is_a($this->_propDict['appTracks'][0], 'AndroidManagedStoreAppTrack')) {
+                return $this->_propDict['appTracks'];
+            }
+            foreach ($this->_propDict['appTracks'] as $singleValue) {
+                $appTracks []= new AndroidManagedStoreAppTrack($singleValue);
+            }
+            $this->_propDict['appTracks'] = $appTracks;
+            return $this->_propDict['appTracks'];
         }
+        return null;
     }
     
     /** 
     * Sets the appTracks
     * The tracks that are visible to this enterprise.
     *
-    * @param AndroidManagedStoreAppTrack $val The appTracks
+    * @param AndroidManagedStoreAppTrack[] $val The appTracks
     *
     * @return AndroidManagedStoreApp
     */

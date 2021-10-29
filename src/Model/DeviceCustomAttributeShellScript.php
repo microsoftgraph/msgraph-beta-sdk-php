@@ -32,8 +32,8 @@ class DeviceCustomAttributeShellScript extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -94,8 +94,8 @@ class DeviceCustomAttributeShellScript extends Entity
     */
     public function getCustomAttributeType()
     {
-        if (array_key_exists("customAttributeType", $this->_propDict)) {
-            if (is_a($this->_propDict["customAttributeType"], "\Beta\Microsoft\Graph\Model\DeviceCustomAttributeValueType") || is_null($this->_propDict["customAttributeType"])) {
+        if (array_key_exists("customAttributeType", $this->_propDict) && !is_null($this->_propDict["customAttributeType"])) {
+            if (is_a($this->_propDict["customAttributeType"], "\Beta\Microsoft\Graph\Model\DeviceCustomAttributeValueType")) {
                 return $this->_propDict["customAttributeType"];
             } else {
                 $this->_propDict["customAttributeType"] = new DeviceCustomAttributeValueType($this->_propDict["customAttributeType"]);
@@ -214,8 +214,8 @@ class DeviceCustomAttributeShellScript extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -276,8 +276,8 @@ class DeviceCustomAttributeShellScript extends Entity
     */
     public function getRunAsAccount()
     {
-        if (array_key_exists("runAsAccount", $this->_propDict)) {
-            if (is_a($this->_propDict["runAsAccount"], "\Beta\Microsoft\Graph\Model\RunAsAccountType") || is_null($this->_propDict["runAsAccount"])) {
+        if (array_key_exists("runAsAccount", $this->_propDict) && !is_null($this->_propDict["runAsAccount"])) {
+            if (is_a($this->_propDict["runAsAccount"], "\Beta\Microsoft\Graph\Model\RunAsAccountType")) {
                 return $this->_propDict["runAsAccount"];
             } else {
                 $this->_propDict["runAsAccount"] = new RunAsAccountType($this->_propDict["runAsAccount"]);
@@ -309,11 +309,11 @@ class DeviceCustomAttributeShellScript extends Entity
     */
     public function getScriptContent()
     {
-        if (array_key_exists("scriptContent", $this->_propDict)) {
-            if (is_a($this->_propDict["scriptContent"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["scriptContent"])) {
+        if (array_key_exists("scriptContent", $this->_propDict) && !is_null($this->_propDict["scriptContent"])) {
+            if (is_a($this->_propDict["scriptContent"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["scriptContent"];
             } else {
-                $this->_propDict["scriptContent"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["scriptContent"]);
+                $this->_propDict["scriptContent"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["scriptContent"]);
                 return $this->_propDict["scriptContent"];
             }
         }
@@ -339,22 +339,29 @@ class DeviceCustomAttributeShellScript extends Entity
      * Gets the assignments
     * The list of group assignments for the device management script.
      *
-     * @return array|null The assignments
+     * @return DeviceManagementScriptAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'DeviceManagementScriptAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new DeviceManagementScriptAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * The list of group assignments for the device management script.
     *
-    * @param DeviceManagementScriptAssignment $val The assignments
+    * @param DeviceManagementScriptAssignment[] $val The assignments
     *
     * @return DeviceCustomAttributeShellScript
     */
@@ -369,22 +376,29 @@ class DeviceCustomAttributeShellScript extends Entity
      * Gets the deviceRunStates
     * List of run states for this script across all devices.
      *
-     * @return array|null The deviceRunStates
+     * @return DeviceManagementScriptDeviceState[]|null The deviceRunStates
      */
     public function getDeviceRunStates()
     {
-        if (array_key_exists("deviceRunStates", $this->_propDict)) {
-           return $this->_propDict["deviceRunStates"];
-        } else {
-            return null;
+        if (array_key_exists('deviceRunStates', $this->_propDict) && !is_null($this->_propDict['deviceRunStates'])) {
+            $deviceRunStates = [];
+            if (count($this->_propDict['deviceRunStates']) > 0 && is_a($this->_propDict['deviceRunStates'][0], 'DeviceManagementScriptDeviceState')) {
+                return $this->_propDict['deviceRunStates'];
+            }
+            foreach ($this->_propDict['deviceRunStates'] as $singleValue) {
+                $deviceRunStates []= new DeviceManagementScriptDeviceState($singleValue);
+            }
+            $this->_propDict['deviceRunStates'] = $deviceRunStates;
+            return $this->_propDict['deviceRunStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the deviceRunStates
     * List of run states for this script across all devices.
     *
-    * @param DeviceManagementScriptDeviceState $val The deviceRunStates
+    * @param DeviceManagementScriptDeviceState[] $val The deviceRunStates
     *
     * @return DeviceCustomAttributeShellScript
     */
@@ -399,22 +413,29 @@ class DeviceCustomAttributeShellScript extends Entity
      * Gets the groupAssignments
     * The list of group assignments for the device management script.
      *
-     * @return array|null The groupAssignments
+     * @return DeviceManagementScriptGroupAssignment[]|null The groupAssignments
      */
     public function getGroupAssignments()
     {
-        if (array_key_exists("groupAssignments", $this->_propDict)) {
-           return $this->_propDict["groupAssignments"];
-        } else {
-            return null;
+        if (array_key_exists('groupAssignments', $this->_propDict) && !is_null($this->_propDict['groupAssignments'])) {
+            $groupAssignments = [];
+            if (count($this->_propDict['groupAssignments']) > 0 && is_a($this->_propDict['groupAssignments'][0], 'DeviceManagementScriptGroupAssignment')) {
+                return $this->_propDict['groupAssignments'];
+            }
+            foreach ($this->_propDict['groupAssignments'] as $singleValue) {
+                $groupAssignments []= new DeviceManagementScriptGroupAssignment($singleValue);
+            }
+            $this->_propDict['groupAssignments'] = $groupAssignments;
+            return $this->_propDict['groupAssignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the groupAssignments
     * The list of group assignments for the device management script.
     *
-    * @param DeviceManagementScriptGroupAssignment $val The groupAssignments
+    * @param DeviceManagementScriptGroupAssignment[] $val The groupAssignments
     *
     * @return DeviceCustomAttributeShellScript
     */
@@ -432,8 +453,8 @@ class DeviceCustomAttributeShellScript extends Entity
     */
     public function getRunSummary()
     {
-        if (array_key_exists("runSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["runSummary"], "\Beta\Microsoft\Graph\Model\DeviceManagementScriptRunSummary") || is_null($this->_propDict["runSummary"])) {
+        if (array_key_exists("runSummary", $this->_propDict) && !is_null($this->_propDict["runSummary"])) {
+            if (is_a($this->_propDict["runSummary"], "\Beta\Microsoft\Graph\Model\DeviceManagementScriptRunSummary")) {
                 return $this->_propDict["runSummary"];
             } else {
                 $this->_propDict["runSummary"] = new DeviceManagementScriptRunSummary($this->_propDict["runSummary"]);
@@ -462,22 +483,29 @@ class DeviceCustomAttributeShellScript extends Entity
      * Gets the userRunStates
     * List of run states for this script across all users.
      *
-     * @return array|null The userRunStates
+     * @return DeviceManagementScriptUserState[]|null The userRunStates
      */
     public function getUserRunStates()
     {
-        if (array_key_exists("userRunStates", $this->_propDict)) {
-           return $this->_propDict["userRunStates"];
-        } else {
-            return null;
+        if (array_key_exists('userRunStates', $this->_propDict) && !is_null($this->_propDict['userRunStates'])) {
+            $userRunStates = [];
+            if (count($this->_propDict['userRunStates']) > 0 && is_a($this->_propDict['userRunStates'][0], 'DeviceManagementScriptUserState')) {
+                return $this->_propDict['userRunStates'];
+            }
+            foreach ($this->_propDict['userRunStates'] as $singleValue) {
+                $userRunStates []= new DeviceManagementScriptUserState($singleValue);
+            }
+            $this->_propDict['userRunStates'] = $userRunStates;
+            return $this->_propDict['userRunStates'];
         }
+        return null;
     }
     
     /** 
     * Sets the userRunStates
     * List of run states for this script across all users.
     *
-    * @param DeviceManagementScriptUserState $val The userRunStates
+    * @param DeviceManagementScriptUserState[] $val The userRunStates
     *
     * @return DeviceCustomAttributeShellScript
     */

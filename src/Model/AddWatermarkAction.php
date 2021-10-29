@@ -116,8 +116,9 @@ class AddWatermarkAction extends InformationProtectionAction
     */
     public function getLayout()
     {
-        if (array_key_exists("layout", $this->_propDict)) {
-            if (is_a($this->_propDict["layout"], "\Beta\Microsoft\Graph\Model\WatermarkLayout") || is_null($this->_propDict["layout"])) {
+        if (array_key_exists("layout", $this->_propDict) && !is_null($this->_propDict["layout"])) {
+     
+            if (is_a($this->_propDict["layout"], "\Beta\Microsoft\Graph\Model\WatermarkLayout")) {
                 return $this->_propDict["layout"];
             } else {
                 $this->_propDict["layout"] = new WatermarkLayout($this->_propDict["layout"]);

@@ -32,8 +32,9 @@ class VpnOnDemandRule extends Entity
     */
     public function getAction()
     {
-        if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\VpnOnDemandRuleConnectionAction") || is_null($this->_propDict["action"])) {
+        if (array_key_exists("action", $this->_propDict) && !is_null($this->_propDict["action"])) {
+     
+            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\VpnOnDemandRuleConnectionAction")) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new VpnOnDemandRuleConnectionAction($this->_propDict["action"]);
@@ -75,7 +76,7 @@ class VpnOnDemandRule extends Entity
     * Sets the dnsSearchDomains
     * DNS Search Domains.
     *
-    * @param string $val The value of the dnsSearchDomains
+    * @param string[] $val The value of the dnsSearchDomains
     *
     * @return VpnOnDemandRule
     */
@@ -93,8 +94,9 @@ class VpnOnDemandRule extends Entity
     */
     public function getDomainAction()
     {
-        if (array_key_exists("domainAction", $this->_propDict)) {
-            if (is_a($this->_propDict["domainAction"], "\Beta\Microsoft\Graph\Model\VpnOnDemandRuleConnectionDomainAction") || is_null($this->_propDict["domainAction"])) {
+        if (array_key_exists("domainAction", $this->_propDict) && !is_null($this->_propDict["domainAction"])) {
+     
+            if (is_a($this->_propDict["domainAction"], "\Beta\Microsoft\Graph\Model\VpnOnDemandRuleConnectionDomainAction")) {
                 return $this->_propDict["domainAction"];
             } else {
                 $this->_propDict["domainAction"] = new VpnOnDemandRuleConnectionDomainAction($this->_propDict["domainAction"]);
@@ -136,7 +138,7 @@ class VpnOnDemandRule extends Entity
     * Sets the domains
     * Domains (Only applicable when Action is evaluate connection).
     *
-    * @param string $val The value of the domains
+    * @param string[] $val The value of the domains
     *
     * @return VpnOnDemandRule
     */
@@ -220,7 +222,7 @@ class VpnOnDemandRule extends Entity
     * Sets the ssids
     * Network Service Set Identifiers (SSIDs).
     *
-    * @param string $val The value of the ssids
+    * @param string[] $val The value of the ssids
     *
     * @return VpnOnDemandRule
     */

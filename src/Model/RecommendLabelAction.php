@@ -28,18 +28,22 @@ class RecommendLabelAction extends InformationProtectionAction
     * Gets the actions
     * Actions to take if the label is accepted by the user.
     *
-    * @return InformationProtectionAction|null The actions
+    * @return InformationProtectionAction[]|null The actions
     */
     public function getActions()
     {
-        if (array_key_exists("actions", $this->_propDict)) {
-            if (is_a($this->_propDict["actions"], "\Beta\Microsoft\Graph\Model\InformationProtectionAction") || is_null($this->_propDict["actions"])) {
-                return $this->_propDict["actions"];
-            } else {
-                $this->_propDict["actions"] = new InformationProtectionAction($this->_propDict["actions"]);
-                return $this->_propDict["actions"];
+        if (array_key_exists("actions", $this->_propDict) && !is_null($this->_propDict["actions"])) {
+       
+            if (count($this->_propDict['actions']) > 0 && is_a($this->_propDict['actions'][0], 'InformationProtectionAction')) {
+               return $this->_propDict['actions'];
             }
-        }
+            $actions = [];
+            foreach ($this->_propDict['actions'] as $singleValue) {
+               $actions []= new InformationProtectionAction($singleValue);
+            }
+            $this->_propDict['actions'] = $actions;
+            return $this->_propDict['actions'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class RecommendLabelAction extends InformationProtectionAction
     * Sets the actions
     * Actions to take if the label is accepted by the user.
     *
-    * @param InformationProtectionAction $val The value to assign to the actions
+    * @param InformationProtectionAction[] $val The value to assign to the actions
     *
     * @return RecommendLabelAction The RecommendLabelAction
     */
@@ -65,8 +69,9 @@ class RecommendLabelAction extends InformationProtectionAction
     */
     public function getActionSource()
     {
-        if (array_key_exists("actionSource", $this->_propDict)) {
-            if (is_a($this->_propDict["actionSource"], "\Beta\Microsoft\Graph\Model\ActionSource") || is_null($this->_propDict["actionSource"])) {
+        if (array_key_exists("actionSource", $this->_propDict) && !is_null($this->_propDict["actionSource"])) {
+     
+            if (is_a($this->_propDict["actionSource"], "\Beta\Microsoft\Graph\Model\ActionSource")) {
                 return $this->_propDict["actionSource"];
             } else {
                 $this->_propDict["actionSource"] = new ActionSource($this->_propDict["actionSource"]);
@@ -98,8 +103,9 @@ class RecommendLabelAction extends InformationProtectionAction
     */
     public function getLabel()
     {
-        if (array_key_exists("label", $this->_propDict)) {
-            if (is_a($this->_propDict["label"], "\Beta\Microsoft\Graph\Model\LabelDetails") || is_null($this->_propDict["label"])) {
+        if (array_key_exists("label", $this->_propDict) && !is_null($this->_propDict["label"])) {
+     
+            if (is_a($this->_propDict["label"], "\Beta\Microsoft\Graph\Model\LabelDetails")) {
                 return $this->_propDict["label"];
             } else {
                 $this->_propDict["label"] = new LabelDetails($this->_propDict["label"]);
@@ -141,7 +147,7 @@ class RecommendLabelAction extends InformationProtectionAction
     * Sets the responsibleSensitiveTypeIds
     * The sensitive information type GUIDs that caused the recommendation to be given.
     *
-    * @param string $val The value of the responsibleSensitiveTypeIds
+    * @param string[] $val The value of the responsibleSensitiveTypeIds
     *
     * @return RecommendLabelAction
     */

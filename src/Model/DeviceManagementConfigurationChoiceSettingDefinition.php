@@ -58,22 +58,29 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
      * Gets the options
     * Options for the setting that can be selected
      *
-     * @return array|null The options
+     * @return DeviceManagementConfigurationOptionDefinition[]|null The options
      */
     public function getOptions()
     {
-        if (array_key_exists("options", $this->_propDict)) {
-           return $this->_propDict["options"];
-        } else {
-            return null;
+        if (array_key_exists('options', $this->_propDict) && !is_null($this->_propDict['options'])) {
+            $options = [];
+            if (count($this->_propDict['options']) > 0 && is_a($this->_propDict['options'][0], 'DeviceManagementConfigurationOptionDefinition')) {
+                return $this->_propDict['options'];
+            }
+            foreach ($this->_propDict['options'] as $singleValue) {
+                $options []= new DeviceManagementConfigurationOptionDefinition($singleValue);
+            }
+            $this->_propDict['options'] = $options;
+            return $this->_propDict['options'];
         }
+        return null;
     }
     
     /** 
     * Sets the options
     * Options for the setting that can be selected
     *
-    * @param DeviceManagementConfigurationOptionDefinition $val The options
+    * @param DeviceManagementConfigurationOptionDefinition[] $val The options
     *
     * @return DeviceManagementConfigurationChoiceSettingDefinition
     */

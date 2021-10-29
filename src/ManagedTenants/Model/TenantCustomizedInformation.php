@@ -27,22 +27,31 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
 
      /** 
      * Gets the contacts
+    * The collection of contacts for the managed tenant. Optional.
      *
-     * @return array|null The contacts
+     * @return TenantContactInformation[]|null The contacts
      */
     public function getContacts()
     {
-        if (array_key_exists("contacts", $this->_propDict)) {
-           return $this->_propDict["contacts"];
-        } else {
-            return null;
+        if (array_key_exists('contacts', $this->_propDict) && !is_null($this->_propDict['contacts'])) {
+            $contacts = [];
+            if (count($this->_propDict['contacts']) > 0 && is_a($this->_propDict['contacts'][0], 'TenantContactInformation')) {
+                return $this->_propDict['contacts'];
+            }
+            foreach ($this->_propDict['contacts'] as $singleValue) {
+                $contacts []= new TenantContactInformation($singleValue);
+            }
+            $this->_propDict['contacts'] = $contacts;
+            return $this->_propDict['contacts'];
         }
+        return null;
     }
     
     /** 
     * Sets the contacts
+    * The collection of contacts for the managed tenant. Optional.
     *
-    * @param TenantContactInformation $val The contacts
+    * @param TenantContactInformation[] $val The contacts
     *
     * @return TenantCustomizedInformation
     */
@@ -54,6 +63,7 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the displayName
+    * The display name for the managed tenant. Required. Read-only.
     *
     * @return string|null The displayName
     */
@@ -68,6 +78,7 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the displayName
+    * The display name for the managed tenant. Required. Read-only.
     *
     * @param string $val The displayName
     *
@@ -81,6 +92,7 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the tenantId
+    * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
     *
     * @return string|null The tenantId
     */
@@ -95,6 +107,7 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the tenantId
+    * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
     *
     * @param string $val The tenantId
     *
@@ -108,6 +121,7 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the website
+    * The website for the managed tenant. Required.
     *
     * @return string|null The website
     */
@@ -122,6 +136,7 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the website
+    * The website for the managed tenant. Required.
     *
     * @param string $val The website
     *

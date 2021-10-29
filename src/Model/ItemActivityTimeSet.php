@@ -31,8 +31,9 @@ class ItemActivityTimeSet extends Entity
     */
     public function getLastRecordedDateTime()
     {
-        if (array_key_exists("lastRecordedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastRecordedDateTime"], "\DateTime") || is_null($this->_propDict["lastRecordedDateTime"])) {
+        if (array_key_exists("lastRecordedDateTime", $this->_propDict) && !is_null($this->_propDict["lastRecordedDateTime"])) {
+     
+            if (is_a($this->_propDict["lastRecordedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastRecordedDateTime"];
             } else {
                 $this->_propDict["lastRecordedDateTime"] = new \DateTime($this->_propDict["lastRecordedDateTime"]);
@@ -63,8 +64,9 @@ class ItemActivityTimeSet extends Entity
     */
     public function getObservedDateTime()
     {
-        if (array_key_exists("observedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["observedDateTime"], "\DateTime") || is_null($this->_propDict["observedDateTime"])) {
+        if (array_key_exists("observedDateTime", $this->_propDict) && !is_null($this->_propDict["observedDateTime"])) {
+     
+            if (is_a($this->_propDict["observedDateTime"], "\DateTime")) {
                 return $this->_propDict["observedDateTime"];
             } else {
                 $this->_propDict["observedDateTime"] = new \DateTime($this->_propDict["observedDateTime"]);
@@ -96,8 +98,9 @@ class ItemActivityTimeSet extends Entity
     */
     public function getRecordedDateTime()
     {
-        if (array_key_exists("recordedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["recordedDateTime"], "\DateTime") || is_null($this->_propDict["recordedDateTime"])) {
+        if (array_key_exists("recordedDateTime", $this->_propDict) && !is_null($this->_propDict["recordedDateTime"])) {
+     
+            if (is_a($this->_propDict["recordedDateTime"], "\DateTime")) {
                 return $this->_propDict["recordedDateTime"];
             } else {
                 $this->_propDict["recordedDateTime"] = new \DateTime($this->_propDict["recordedDateTime"]);

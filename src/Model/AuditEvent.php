@@ -61,8 +61,8 @@ class AuditEvent extends Entity
     */
     public function getActivityDateTime()
     {
-        if (array_key_exists("activityDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["activityDateTime"], "\DateTime") || is_null($this->_propDict["activityDateTime"])) {
+        if (array_key_exists("activityDateTime", $this->_propDict) && !is_null($this->_propDict["activityDateTime"])) {
+            if (is_a($this->_propDict["activityDateTime"], "\DateTime")) {
                 return $this->_propDict["activityDateTime"];
             } else {
                 $this->_propDict["activityDateTime"] = new \DateTime($this->_propDict["activityDateTime"]);
@@ -181,8 +181,8 @@ class AuditEvent extends Entity
     */
     public function getActor()
     {
-        if (array_key_exists("actor", $this->_propDict)) {
-            if (is_a($this->_propDict["actor"], "\Beta\Microsoft\Graph\Model\AuditActor") || is_null($this->_propDict["actor"])) {
+        if (array_key_exists("actor", $this->_propDict) && !is_null($this->_propDict["actor"])) {
+            if (is_a($this->_propDict["actor"], "\Beta\Microsoft\Graph\Model\AuditActor")) {
                 return $this->_propDict["actor"];
             } else {
                 $this->_propDict["actor"] = new AuditActor($this->_propDict["actor"]);
@@ -327,22 +327,29 @@ class AuditEvent extends Entity
      * Gets the resources
     * Resources being modified.
      *
-     * @return array|null The resources
+     * @return AuditResource[]|null The resources
      */
     public function getResources()
     {
-        if (array_key_exists("resources", $this->_propDict)) {
-           return $this->_propDict["resources"];
-        } else {
-            return null;
+        if (array_key_exists('resources', $this->_propDict) && !is_null($this->_propDict['resources'])) {
+            $resources = [];
+            if (count($this->_propDict['resources']) > 0 && is_a($this->_propDict['resources'][0], 'AuditResource')) {
+                return $this->_propDict['resources'];
+            }
+            foreach ($this->_propDict['resources'] as $singleValue) {
+                $resources []= new AuditResource($singleValue);
+            }
+            $this->_propDict['resources'] = $resources;
+            return $this->_propDict['resources'];
         }
+        return null;
     }
     
     /** 
     * Sets the resources
     * Resources being modified.
     *
-    * @param AuditResource $val The resources
+    * @param AuditResource[] $val The resources
     *
     * @return AuditEvent
     */

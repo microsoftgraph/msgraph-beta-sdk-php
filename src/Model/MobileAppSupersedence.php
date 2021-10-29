@@ -61,8 +61,8 @@ class MobileAppSupersedence extends MobileAppRelationship
     */
     public function getSupersedenceType()
     {
-        if (array_key_exists("supersedenceType", $this->_propDict)) {
-            if (is_a($this->_propDict["supersedenceType"], "\Beta\Microsoft\Graph\Model\MobileAppSupersedenceType") || is_null($this->_propDict["supersedenceType"])) {
+        if (array_key_exists("supersedenceType", $this->_propDict) && !is_null($this->_propDict["supersedenceType"])) {
+            if (is_a($this->_propDict["supersedenceType"], "\Beta\Microsoft\Graph\Model\MobileAppSupersedenceType")) {
                 return $this->_propDict["supersedenceType"];
             } else {
                 $this->_propDict["supersedenceType"] = new MobileAppSupersedenceType($this->_propDict["supersedenceType"]);

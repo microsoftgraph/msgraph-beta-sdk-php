@@ -29,22 +29,29 @@ class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCateg
      * Gets the settings
     * The settings this category contains
      *
-     * @return array|null The settings
+     * @return DeviceManagementSettingInstance[]|null The settings
      */
     public function getSettings()
     {
-        if (array_key_exists("settings", $this->_propDict)) {
-           return $this->_propDict["settings"];
-        } else {
-            return null;
+        if (array_key_exists('settings', $this->_propDict) && !is_null($this->_propDict['settings'])) {
+            $settings = [];
+            if (count($this->_propDict['settings']) > 0 && is_a($this->_propDict['settings'][0], 'DeviceManagementSettingInstance')) {
+                return $this->_propDict['settings'];
+            }
+            foreach ($this->_propDict['settings'] as $singleValue) {
+                $settings []= new DeviceManagementSettingInstance($singleValue);
+            }
+            $this->_propDict['settings'] = $settings;
+            return $this->_propDict['settings'];
         }
+        return null;
     }
     
     /** 
     * Sets the settings
     * The settings this category contains
     *
-    * @param DeviceManagementSettingInstance $val The settings
+    * @param DeviceManagementSettingInstance[] $val The settings
     *
     * @return DeviceManagementIntentSettingCategory
     */

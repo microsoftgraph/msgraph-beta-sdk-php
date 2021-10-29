@@ -88,8 +88,9 @@ class AttributeMapping extends Entity
     */
     public function getFlowBehavior()
     {
-        if (array_key_exists("flowBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["flowBehavior"], "\Beta\Microsoft\Graph\Model\AttributeFlowBehavior") || is_null($this->_propDict["flowBehavior"])) {
+        if (array_key_exists("flowBehavior", $this->_propDict) && !is_null($this->_propDict["flowBehavior"])) {
+     
+            if (is_a($this->_propDict["flowBehavior"], "\Beta\Microsoft\Graph\Model\AttributeFlowBehavior")) {
                 return $this->_propDict["flowBehavior"];
             } else {
                 $this->_propDict["flowBehavior"] = new AttributeFlowBehavior($this->_propDict["flowBehavior"]);
@@ -121,8 +122,9 @@ class AttributeMapping extends Entity
     */
     public function getFlowType()
     {
-        if (array_key_exists("flowType", $this->_propDict)) {
-            if (is_a($this->_propDict["flowType"], "\Beta\Microsoft\Graph\Model\AttributeFlowType") || is_null($this->_propDict["flowType"])) {
+        if (array_key_exists("flowType", $this->_propDict) && !is_null($this->_propDict["flowType"])) {
+     
+            if (is_a($this->_propDict["flowType"], "\Beta\Microsoft\Graph\Model\AttributeFlowType")) {
                 return $this->_propDict["flowType"];
             } else {
                 $this->_propDict["flowType"] = new AttributeFlowType($this->_propDict["flowType"]);
@@ -182,8 +184,9 @@ class AttributeMapping extends Entity
     */
     public function getSource()
     {
-        if (array_key_exists("source", $this->_propDict)) {
-            if (is_a($this->_propDict["source"], "\Beta\Microsoft\Graph\Model\AttributeMappingSource") || is_null($this->_propDict["source"])) {
+        if (array_key_exists("source", $this->_propDict) && !is_null($this->_propDict["source"])) {
+     
+            if (is_a($this->_propDict["source"], "\Beta\Microsoft\Graph\Model\AttributeMappingSource")) {
                 return $this->_propDict["source"];
             } else {
                 $this->_propDict["source"] = new AttributeMappingSource($this->_propDict["source"]);

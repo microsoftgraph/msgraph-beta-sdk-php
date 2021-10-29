@@ -58,22 +58,29 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
      * Gets the history
     * Intune Mobile Application Troubleshooting History Item
      *
-     * @return array|null The history
+     * @return MobileAppTroubleshootingHistoryItem[]|null The history
      */
     public function getHistory()
     {
-        if (array_key_exists("history", $this->_propDict)) {
-           return $this->_propDict["history"];
-        } else {
-            return null;
+        if (array_key_exists('history', $this->_propDict) && !is_null($this->_propDict['history'])) {
+            $history = [];
+            if (count($this->_propDict['history']) > 0 && is_a($this->_propDict['history'][0], 'MobileAppTroubleshootingHistoryItem')) {
+                return $this->_propDict['history'];
+            }
+            foreach ($this->_propDict['history'] as $singleValue) {
+                $history []= new MobileAppTroubleshootingHistoryItem($singleValue);
+            }
+            $this->_propDict['history'] = $history;
+            return $this->_propDict['history'];
         }
+        return null;
     }
     
     /** 
     * Sets the history
     * Intune Mobile Application Troubleshooting History Item
     *
-    * @param MobileAppTroubleshootingHistoryItem $val The history
+    * @param MobileAppTroubleshootingHistoryItem[] $val The history
     *
     * @return MobileAppTroubleshootingEvent
     */
@@ -146,22 +153,29 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
      * Gets the appLogCollectionRequests
     * The collection property of AppLogUploadRequest.
      *
-     * @return array|null The appLogCollectionRequests
+     * @return AppLogCollectionRequest[]|null The appLogCollectionRequests
      */
     public function getAppLogCollectionRequests()
     {
-        if (array_key_exists("appLogCollectionRequests", $this->_propDict)) {
-           return $this->_propDict["appLogCollectionRequests"];
-        } else {
-            return null;
+        if (array_key_exists('appLogCollectionRequests', $this->_propDict) && !is_null($this->_propDict['appLogCollectionRequests'])) {
+            $appLogCollectionRequests = [];
+            if (count($this->_propDict['appLogCollectionRequests']) > 0 && is_a($this->_propDict['appLogCollectionRequests'][0], 'AppLogCollectionRequest')) {
+                return $this->_propDict['appLogCollectionRequests'];
+            }
+            foreach ($this->_propDict['appLogCollectionRequests'] as $singleValue) {
+                $appLogCollectionRequests []= new AppLogCollectionRequest($singleValue);
+            }
+            $this->_propDict['appLogCollectionRequests'] = $appLogCollectionRequests;
+            return $this->_propDict['appLogCollectionRequests'];
         }
+        return null;
     }
     
     /** 
     * Sets the appLogCollectionRequests
     * The collection property of AppLogUploadRequest.
     *
-    * @param AppLogCollectionRequest $val The appLogCollectionRequests
+    * @param AppLogCollectionRequest[] $val The appLogCollectionRequests
     *
     * @return MobileAppTroubleshootingEvent
     */

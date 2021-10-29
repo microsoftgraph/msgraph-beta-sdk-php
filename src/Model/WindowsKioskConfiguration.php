@@ -261,22 +261,29 @@ class WindowsKioskConfiguration extends DeviceConfiguration
      * Gets the kioskProfiles
     * This policy setting allows to define a list of Kiosk profiles for a Kiosk configuration. This collection can contain a maximum of 3 elements.
      *
-     * @return array|null The kioskProfiles
+     * @return WindowsKioskProfile[]|null The kioskProfiles
      */
     public function getKioskProfiles()
     {
-        if (array_key_exists("kioskProfiles", $this->_propDict)) {
-           return $this->_propDict["kioskProfiles"];
-        } else {
-            return null;
+        if (array_key_exists('kioskProfiles', $this->_propDict) && !is_null($this->_propDict['kioskProfiles'])) {
+            $kioskProfiles = [];
+            if (count($this->_propDict['kioskProfiles']) > 0 && is_a($this->_propDict['kioskProfiles'][0], 'WindowsKioskProfile')) {
+                return $this->_propDict['kioskProfiles'];
+            }
+            foreach ($this->_propDict['kioskProfiles'] as $singleValue) {
+                $kioskProfiles []= new WindowsKioskProfile($singleValue);
+            }
+            $this->_propDict['kioskProfiles'] = $kioskProfiles;
+            return $this->_propDict['kioskProfiles'];
         }
+        return null;
     }
     
     /** 
     * Sets the kioskProfiles
     * This policy setting allows to define a list of Kiosk profiles for a Kiosk configuration. This collection can contain a maximum of 3 elements.
     *
-    * @param WindowsKioskProfile $val The kioskProfiles
+    * @param WindowsKioskProfile[] $val The kioskProfiles
     *
     * @return WindowsKioskConfiguration
     */
@@ -294,8 +301,8 @@ class WindowsKioskConfiguration extends DeviceConfiguration
     */
     public function getWindowsKioskForceUpdateSchedule()
     {
-        if (array_key_exists("windowsKioskForceUpdateSchedule", $this->_propDict)) {
-            if (is_a($this->_propDict["windowsKioskForceUpdateSchedule"], "\Beta\Microsoft\Graph\Model\WindowsKioskForceUpdateSchedule") || is_null($this->_propDict["windowsKioskForceUpdateSchedule"])) {
+        if (array_key_exists("windowsKioskForceUpdateSchedule", $this->_propDict) && !is_null($this->_propDict["windowsKioskForceUpdateSchedule"])) {
+            if (is_a($this->_propDict["windowsKioskForceUpdateSchedule"], "\Beta\Microsoft\Graph\Model\WindowsKioskForceUpdateSchedule")) {
                 return $this->_propDict["windowsKioskForceUpdateSchedule"];
             } else {
                 $this->_propDict["windowsKioskForceUpdateSchedule"] = new WindowsKioskForceUpdateSchedule($this->_propDict["windowsKioskForceUpdateSchedule"]);

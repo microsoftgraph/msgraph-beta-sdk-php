@@ -27,25 +27,29 @@ class GovernancePolicy extends Entity
     /**
     * Gets the decisionMakerCriteria
     *
-    * @return GovernanceCriteria|null The decisionMakerCriteria
+    * @return GovernanceCriteria[]|null The decisionMakerCriteria
     */
     public function getDecisionMakerCriteria()
     {
-        if (array_key_exists("decisionMakerCriteria", $this->_propDict)) {
-            if (is_a($this->_propDict["decisionMakerCriteria"], "\Beta\Microsoft\Graph\Model\GovernanceCriteria") || is_null($this->_propDict["decisionMakerCriteria"])) {
-                return $this->_propDict["decisionMakerCriteria"];
-            } else {
-                $this->_propDict["decisionMakerCriteria"] = new GovernanceCriteria($this->_propDict["decisionMakerCriteria"]);
-                return $this->_propDict["decisionMakerCriteria"];
+        if (array_key_exists("decisionMakerCriteria", $this->_propDict) && !is_null($this->_propDict["decisionMakerCriteria"])) {
+       
+            if (count($this->_propDict['decisionMakerCriteria']) > 0 && is_a($this->_propDict['decisionMakerCriteria'][0], 'GovernanceCriteria')) {
+               return $this->_propDict['decisionMakerCriteria'];
             }
-        }
+            $decisionMakerCriteria = [];
+            foreach ($this->_propDict['decisionMakerCriteria'] as $singleValue) {
+               $decisionMakerCriteria []= new GovernanceCriteria($singleValue);
+            }
+            $this->_propDict['decisionMakerCriteria'] = $decisionMakerCriteria;
+            return $this->_propDict['decisionMakerCriteria'];
+            }
         return null;
     }
 
     /**
     * Sets the decisionMakerCriteria
     *
-    * @param GovernanceCriteria $val The value to assign to the decisionMakerCriteria
+    * @param GovernanceCriteria[] $val The value to assign to the decisionMakerCriteria
     *
     * @return GovernancePolicy The GovernancePolicy
     */
@@ -62,8 +66,9 @@ class GovernancePolicy extends Entity
     */
     public function getNotificationPolicy()
     {
-        if (array_key_exists("notificationPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationPolicy"], "\Beta\Microsoft\Graph\Model\GovernanceNotificationPolicy") || is_null($this->_propDict["notificationPolicy"])) {
+        if (array_key_exists("notificationPolicy", $this->_propDict) && !is_null($this->_propDict["notificationPolicy"])) {
+     
+            if (is_a($this->_propDict["notificationPolicy"], "\Beta\Microsoft\Graph\Model\GovernanceNotificationPolicy")) {
                 return $this->_propDict["notificationPolicy"];
             } else {
                 $this->_propDict["notificationPolicy"] = new GovernanceNotificationPolicy($this->_propDict["notificationPolicy"]);

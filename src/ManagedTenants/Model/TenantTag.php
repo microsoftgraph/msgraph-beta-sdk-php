@@ -26,6 +26,7 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the createdByUserId
+    * The identifier for the account that created the tenant tag. Required. Read-only.
     *
     * @return string|null The createdByUserId
     */
@@ -40,6 +41,7 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the createdByUserId
+    * The identifier for the account that created the tenant tag. Required. Read-only.
     *
     * @param string $val The createdByUserId
     *
@@ -53,13 +55,14 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the createdDateTime
+    * The date and time when the tenant tag was created. Required. Read-only.
     *
     * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -71,6 +74,7 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the createdDateTime
+    * The date and time when the tenant tag was created. Required. Read-only.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -84,13 +88,14 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the deletedDateTime
+    * The date and time when the tenant tag was deleted. Required. Read-only.
     *
     * @return \DateTime|null The deletedDateTime
     */
     public function getDeletedDateTime()
     {
-        if (array_key_exists("deletedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["deletedDateTime"], "\DateTime") || is_null($this->_propDict["deletedDateTime"])) {
+        if (array_key_exists("deletedDateTime", $this->_propDict) && !is_null($this->_propDict["deletedDateTime"])) {
+            if (is_a($this->_propDict["deletedDateTime"], "\DateTime")) {
                 return $this->_propDict["deletedDateTime"];
             } else {
                 $this->_propDict["deletedDateTime"] = new \DateTime($this->_propDict["deletedDateTime"]);
@@ -102,6 +107,7 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the deletedDateTime
+    * The date and time when the tenant tag was deleted. Required. Read-only.
     *
     * @param \DateTime $val The deletedDateTime
     *
@@ -115,6 +121,7 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the description
+    * The description for the tenant tag. Optional. Read-only.
     *
     * @return string|null The description
     */
@@ -129,6 +136,7 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the description
+    * The description for the tenant tag. Optional. Read-only.
     *
     * @param string $val The description
     *
@@ -142,6 +150,7 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the displayName
+    * The display name for the tenant tag. Required. Read-only.
     *
     * @return string|null The displayName
     */
@@ -156,6 +165,7 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the displayName
+    * The display name for the tenant tag. Required. Read-only.
     *
     * @param string $val The displayName
     *
@@ -169,6 +179,7 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the lastActionByUserId
+    * The identifier for the account that lasted on the tenant tag. Optional. Read-only.
     *
     * @return string|null The lastActionByUserId
     */
@@ -183,6 +194,7 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the lastActionByUserId
+    * The identifier for the account that lasted on the tenant tag. Optional. Read-only.
     *
     * @param string $val The lastActionByUserId
     *
@@ -196,13 +208,14 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Gets the lastActionDateTime
+    * The date and time the last action was performed against the tenant tag. Optional. Read-only.
     *
     * @return \DateTime|null The lastActionDateTime
     */
     public function getLastActionDateTime()
     {
-        if (array_key_exists("lastActionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastActionDateTime"], "\DateTime") || is_null($this->_propDict["lastActionDateTime"])) {
+        if (array_key_exists("lastActionDateTime", $this->_propDict) && !is_null($this->_propDict["lastActionDateTime"])) {
+            if (is_a($this->_propDict["lastActionDateTime"], "\DateTime")) {
                 return $this->_propDict["lastActionDateTime"];
             } else {
                 $this->_propDict["lastActionDateTime"] = new \DateTime($this->_propDict["lastActionDateTime"]);
@@ -214,6 +227,7 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
     
     /**
     * Sets the lastActionDateTime
+    * The date and time the last action was performed against the tenant tag. Optional. Read-only.
     *
     * @param \DateTime $val The lastActionDateTime
     *
@@ -228,22 +242,31 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
 
      /** 
      * Gets the tenants
+    * The collection of managed tenants associated with the tenant tag. Optional.
      *
-     * @return array|null The tenants
+     * @return TenantInfo[]|null The tenants
      */
     public function getTenants()
     {
-        if (array_key_exists("tenants", $this->_propDict)) {
-           return $this->_propDict["tenants"];
-        } else {
-            return null;
+        if (array_key_exists('tenants', $this->_propDict) && !is_null($this->_propDict['tenants'])) {
+            $tenants = [];
+            if (count($this->_propDict['tenants']) > 0 && is_a($this->_propDict['tenants'][0], 'TenantInfo')) {
+                return $this->_propDict['tenants'];
+            }
+            foreach ($this->_propDict['tenants'] as $singleValue) {
+                $tenants []= new TenantInfo($singleValue);
+            }
+            $this->_propDict['tenants'] = $tenants;
+            return $this->_propDict['tenants'];
         }
+        return null;
     }
     
     /** 
     * Sets the tenants
+    * The collection of managed tenants associated with the tenant tag. Optional.
     *
-    * @param TenantInfo $val The tenants
+    * @param TenantInfo[] $val The tenants
     *
     * @return TenantTag
     */

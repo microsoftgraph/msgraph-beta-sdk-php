@@ -87,22 +87,29 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
      * Gets the kernelExtensionsAllowed
     * A list of kernel extensions that will be allowed to load. . This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The kernelExtensionsAllowed
+     * @return MacOSKernelExtension[]|null The kernelExtensionsAllowed
      */
     public function getKernelExtensionsAllowed()
     {
-        if (array_key_exists("kernelExtensionsAllowed", $this->_propDict)) {
-           return $this->_propDict["kernelExtensionsAllowed"];
-        } else {
-            return null;
+        if (array_key_exists('kernelExtensionsAllowed', $this->_propDict) && !is_null($this->_propDict['kernelExtensionsAllowed'])) {
+            $kernelExtensionsAllowed = [];
+            if (count($this->_propDict['kernelExtensionsAllowed']) > 0 && is_a($this->_propDict['kernelExtensionsAllowed'][0], 'MacOSKernelExtension')) {
+                return $this->_propDict['kernelExtensionsAllowed'];
+            }
+            foreach ($this->_propDict['kernelExtensionsAllowed'] as $singleValue) {
+                $kernelExtensionsAllowed []= new MacOSKernelExtension($singleValue);
+            }
+            $this->_propDict['kernelExtensionsAllowed'] = $kernelExtensionsAllowed;
+            return $this->_propDict['kernelExtensionsAllowed'];
         }
+        return null;
     }
     
     /** 
     * Sets the kernelExtensionsAllowed
     * A list of kernel extensions that will be allowed to load. . This collection can contain a maximum of 500 elements.
     *
-    * @param MacOSKernelExtension $val The kernelExtensionsAllowed
+    * @param MacOSKernelExtension[] $val The kernelExtensionsAllowed
     *
     * @return MacOSExtensionsConfiguration
     */
@@ -117,22 +124,29 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
      * Gets the systemExtensionsAllowed
     * Gets or sets a list of allowed macOS system extensions. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The systemExtensionsAllowed
+     * @return MacOSSystemExtension[]|null The systemExtensionsAllowed
      */
     public function getSystemExtensionsAllowed()
     {
-        if (array_key_exists("systemExtensionsAllowed", $this->_propDict)) {
-           return $this->_propDict["systemExtensionsAllowed"];
-        } else {
-            return null;
+        if (array_key_exists('systemExtensionsAllowed', $this->_propDict) && !is_null($this->_propDict['systemExtensionsAllowed'])) {
+            $systemExtensionsAllowed = [];
+            if (count($this->_propDict['systemExtensionsAllowed']) > 0 && is_a($this->_propDict['systemExtensionsAllowed'][0], 'MacOSSystemExtension')) {
+                return $this->_propDict['systemExtensionsAllowed'];
+            }
+            foreach ($this->_propDict['systemExtensionsAllowed'] as $singleValue) {
+                $systemExtensionsAllowed []= new MacOSSystemExtension($singleValue);
+            }
+            $this->_propDict['systemExtensionsAllowed'] = $systemExtensionsAllowed;
+            return $this->_propDict['systemExtensionsAllowed'];
         }
+        return null;
     }
     
     /** 
     * Sets the systemExtensionsAllowed
     * Gets or sets a list of allowed macOS system extensions. This collection can contain a maximum of 500 elements.
     *
-    * @param MacOSSystemExtension $val The systemExtensionsAllowed
+    * @param MacOSSystemExtension[] $val The systemExtensionsAllowed
     *
     * @return MacOSExtensionsConfiguration
     */
@@ -176,22 +190,29 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
      * Gets the systemExtensionsAllowedTypes
     * Gets or sets a list of allowed macOS system extension types. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The systemExtensionsAllowedTypes
+     * @return MacOSSystemExtensionTypeMapping[]|null The systemExtensionsAllowedTypes
      */
     public function getSystemExtensionsAllowedTypes()
     {
-        if (array_key_exists("systemExtensionsAllowedTypes", $this->_propDict)) {
-           return $this->_propDict["systemExtensionsAllowedTypes"];
-        } else {
-            return null;
+        if (array_key_exists('systemExtensionsAllowedTypes', $this->_propDict) && !is_null($this->_propDict['systemExtensionsAllowedTypes'])) {
+            $systemExtensionsAllowedTypes = [];
+            if (count($this->_propDict['systemExtensionsAllowedTypes']) > 0 && is_a($this->_propDict['systemExtensionsAllowedTypes'][0], 'MacOSSystemExtensionTypeMapping')) {
+                return $this->_propDict['systemExtensionsAllowedTypes'];
+            }
+            foreach ($this->_propDict['systemExtensionsAllowedTypes'] as $singleValue) {
+                $systemExtensionsAllowedTypes []= new MacOSSystemExtensionTypeMapping($singleValue);
+            }
+            $this->_propDict['systemExtensionsAllowedTypes'] = $systemExtensionsAllowedTypes;
+            return $this->_propDict['systemExtensionsAllowedTypes'];
         }
+        return null;
     }
     
     /** 
     * Sets the systemExtensionsAllowedTypes
     * Gets or sets a list of allowed macOS system extension types. This collection can contain a maximum of 500 elements.
     *
-    * @param MacOSSystemExtensionTypeMapping $val The systemExtensionsAllowedTypes
+    * @param MacOSSystemExtensionTypeMapping[] $val The systemExtensionsAllowedTypes
     *
     * @return MacOSExtensionsConfiguration
     */

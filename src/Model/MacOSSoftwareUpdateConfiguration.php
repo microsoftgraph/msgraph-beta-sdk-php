@@ -32,8 +32,8 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
     */
     public function getAllOtherUpdateBehavior()
     {
-        if (array_key_exists("allOtherUpdateBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["allOtherUpdateBehavior"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateBehavior") || is_null($this->_propDict["allOtherUpdateBehavior"])) {
+        if (array_key_exists("allOtherUpdateBehavior", $this->_propDict) && !is_null($this->_propDict["allOtherUpdateBehavior"])) {
+            if (is_a($this->_propDict["allOtherUpdateBehavior"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateBehavior")) {
                 return $this->_propDict["allOtherUpdateBehavior"];
             } else {
                 $this->_propDict["allOtherUpdateBehavior"] = new MacOSSoftwareUpdateBehavior($this->_propDict["allOtherUpdateBehavior"]);
@@ -65,8 +65,8 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
     */
     public function getConfigDataUpdateBehavior()
     {
-        if (array_key_exists("configDataUpdateBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["configDataUpdateBehavior"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateBehavior") || is_null($this->_propDict["configDataUpdateBehavior"])) {
+        if (array_key_exists("configDataUpdateBehavior", $this->_propDict) && !is_null($this->_propDict["configDataUpdateBehavior"])) {
+            if (is_a($this->_propDict["configDataUpdateBehavior"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateBehavior")) {
                 return $this->_propDict["configDataUpdateBehavior"];
             } else {
                 $this->_propDict["configDataUpdateBehavior"] = new MacOSSoftwareUpdateBehavior($this->_propDict["configDataUpdateBehavior"]);
@@ -98,8 +98,8 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
     */
     public function getCriticalUpdateBehavior()
     {
-        if (array_key_exists("criticalUpdateBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["criticalUpdateBehavior"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateBehavior") || is_null($this->_propDict["criticalUpdateBehavior"])) {
+        if (array_key_exists("criticalUpdateBehavior", $this->_propDict) && !is_null($this->_propDict["criticalUpdateBehavior"])) {
+            if (is_a($this->_propDict["criticalUpdateBehavior"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateBehavior")) {
                 return $this->_propDict["criticalUpdateBehavior"];
             } else {
                 $this->_propDict["criticalUpdateBehavior"] = new MacOSSoftwareUpdateBehavior($this->_propDict["criticalUpdateBehavior"]);
@@ -128,22 +128,29 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
      * Gets the customUpdateTimeWindows
     * Custom Time windows when updates will be allowed or blocked. This collection can contain a maximum of 20 elements.
      *
-     * @return array|null The customUpdateTimeWindows
+     * @return CustomUpdateTimeWindow[]|null The customUpdateTimeWindows
      */
     public function getCustomUpdateTimeWindows()
     {
-        if (array_key_exists("customUpdateTimeWindows", $this->_propDict)) {
-           return $this->_propDict["customUpdateTimeWindows"];
-        } else {
-            return null;
+        if (array_key_exists('customUpdateTimeWindows', $this->_propDict) && !is_null($this->_propDict['customUpdateTimeWindows'])) {
+            $customUpdateTimeWindows = [];
+            if (count($this->_propDict['customUpdateTimeWindows']) > 0 && is_a($this->_propDict['customUpdateTimeWindows'][0], 'CustomUpdateTimeWindow')) {
+                return $this->_propDict['customUpdateTimeWindows'];
+            }
+            foreach ($this->_propDict['customUpdateTimeWindows'] as $singleValue) {
+                $customUpdateTimeWindows []= new CustomUpdateTimeWindow($singleValue);
+            }
+            $this->_propDict['customUpdateTimeWindows'] = $customUpdateTimeWindows;
+            return $this->_propDict['customUpdateTimeWindows'];
         }
+        return null;
     }
     
     /** 
     * Sets the customUpdateTimeWindows
     * Custom Time windows when updates will be allowed or blocked. This collection can contain a maximum of 20 elements.
     *
-    * @param CustomUpdateTimeWindow $val The customUpdateTimeWindows
+    * @param CustomUpdateTimeWindow[] $val The customUpdateTimeWindows
     *
     * @return MacOSSoftwareUpdateConfiguration
     */
@@ -161,8 +168,8 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
     */
     public function getFirmwareUpdateBehavior()
     {
-        if (array_key_exists("firmwareUpdateBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["firmwareUpdateBehavior"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateBehavior") || is_null($this->_propDict["firmwareUpdateBehavior"])) {
+        if (array_key_exists("firmwareUpdateBehavior", $this->_propDict) && !is_null($this->_propDict["firmwareUpdateBehavior"])) {
+            if (is_a($this->_propDict["firmwareUpdateBehavior"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateBehavior")) {
                 return $this->_propDict["firmwareUpdateBehavior"];
             } else {
                 $this->_propDict["firmwareUpdateBehavior"] = new MacOSSoftwareUpdateBehavior($this->_propDict["firmwareUpdateBehavior"]);
@@ -194,8 +201,8 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
     */
     public function getUpdateScheduleType()
     {
-        if (array_key_exists("updateScheduleType", $this->_propDict)) {
-            if (is_a($this->_propDict["updateScheduleType"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateScheduleType") || is_null($this->_propDict["updateScheduleType"])) {
+        if (array_key_exists("updateScheduleType", $this->_propDict) && !is_null($this->_propDict["updateScheduleType"])) {
+            if (is_a($this->_propDict["updateScheduleType"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateScheduleType")) {
                 return $this->_propDict["updateScheduleType"];
             } else {
                 $this->_propDict["updateScheduleType"] = new MacOSSoftwareUpdateScheduleType($this->_propDict["updateScheduleType"]);

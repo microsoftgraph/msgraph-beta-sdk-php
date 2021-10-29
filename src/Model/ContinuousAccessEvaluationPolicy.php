@@ -84,7 +84,7 @@ class ContinuousAccessEvaluationPolicy extends Entity
     
     /**
     * Gets the groups
-    * The collection of group identifiers in scope for evaluation. All groups are in scope when the collection is empty.
+    * The collection of group identifiers in scope for evaluation. All groups are in scope when the collection is empty. Read-only.
     *
     * @return string|null The groups
     */
@@ -99,7 +99,7 @@ class ContinuousAccessEvaluationPolicy extends Entity
     
     /**
     * Sets the groups
-    * The collection of group identifiers in scope for evaluation. All groups are in scope when the collection is empty.
+    * The collection of group identifiers in scope for evaluation. All groups are in scope when the collection is empty. Read-only.
     *
     * @param string $val The groups
     *
@@ -113,7 +113,7 @@ class ContinuousAccessEvaluationPolicy extends Entity
     
     /**
     * Gets the isEnabled
-    * true to indicate whether continuous access evaluation should be performed; otherwise false.
+    * true to indicate whether continuous access evaluation should be performed; otherwise false. Read-only.
     *
     * @return bool|null The isEnabled
     */
@@ -128,7 +128,7 @@ class ContinuousAccessEvaluationPolicy extends Entity
     
     /**
     * Sets the isEnabled
-    * true to indicate whether continuous access evaluation should be performed; otherwise false.
+    * true to indicate whether continuous access evaluation should be performed; otherwise false. Read-only.
     *
     * @param bool $val The isEnabled
     *
@@ -141,8 +141,37 @@ class ContinuousAccessEvaluationPolicy extends Entity
     }
     
     /**
+    * Gets the migrate
+    * true to indicate that the continuous access evaluation policy settings should be or has been migrated to the conditional access policy.
+    *
+    * @return bool|null The migrate
+    */
+    public function getMigrate()
+    {
+        if (array_key_exists("migrate", $this->_propDict)) {
+            return $this->_propDict["migrate"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the migrate
+    * true to indicate that the continuous access evaluation policy settings should be or has been migrated to the conditional access policy.
+    *
+    * @param bool $val The migrate
+    *
+    * @return ContinuousAccessEvaluationPolicy
+    */
+    public function setMigrate($val)
+    {
+        $this->_propDict["migrate"] = boolval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the users
-    * The collection of user identifiers in scope for evaluation. All users are in scope when the collection is empty.
+    * The collection of user identifiers in scope for evaluation. All users are in scope when the collection is empty. Read-only.
     *
     * @return string|null The users
     */
@@ -157,7 +186,7 @@ class ContinuousAccessEvaluationPolicy extends Entity
     
     /**
     * Sets the users
-    * The collection of user identifiers in scope for evaluation. All users are in scope when the collection is empty.
+    * The collection of user identifiers in scope for evaluation. All users are in scope when the collection is empty. Read-only.
     *
     * @param string $val The users
     *

@@ -27,22 +27,31 @@ class ManagementActionTenantDeploymentStatus extends \Beta\Microsoft\Graph\Model
 
      /** 
      * Gets the statuses
+    * The collection of deployment status for each instance of a management action. Optional.
      *
-     * @return array|null The statuses
+     * @return ManagementActionDeploymentStatus[]|null The statuses
      */
     public function getStatuses()
     {
-        if (array_key_exists("statuses", $this->_propDict)) {
-           return $this->_propDict["statuses"];
-        } else {
-            return null;
+        if (array_key_exists('statuses', $this->_propDict) && !is_null($this->_propDict['statuses'])) {
+            $statuses = [];
+            if (count($this->_propDict['statuses']) > 0 && is_a($this->_propDict['statuses'][0], 'ManagementActionDeploymentStatus')) {
+                return $this->_propDict['statuses'];
+            }
+            foreach ($this->_propDict['statuses'] as $singleValue) {
+                $statuses []= new ManagementActionDeploymentStatus($singleValue);
+            }
+            $this->_propDict['statuses'] = $statuses;
+            return $this->_propDict['statuses'];
         }
+        return null;
     }
     
     /** 
     * Sets the statuses
+    * The collection of deployment status for each instance of a management action. Optional.
     *
-    * @param ManagementActionDeploymentStatus $val The statuses
+    * @param ManagementActionDeploymentStatus[] $val The statuses
     *
     * @return ManagementActionTenantDeploymentStatus
     */
@@ -54,6 +63,7 @@ class ManagementActionTenantDeploymentStatus extends \Beta\Microsoft\Graph\Model
     
     /**
     * Gets the tenantGroupId
+    * The identifier for the tenant group that is associated with the management action. Required. Read-only.
     *
     * @return string|null The tenantGroupId
     */
@@ -68,6 +78,7 @@ class ManagementActionTenantDeploymentStatus extends \Beta\Microsoft\Graph\Model
     
     /**
     * Sets the tenantGroupId
+    * The identifier for the tenant group that is associated with the management action. Required. Read-only.
     *
     * @param string $val The tenantGroupId
     *
@@ -81,6 +92,7 @@ class ManagementActionTenantDeploymentStatus extends \Beta\Microsoft\Graph\Model
     
     /**
     * Gets the tenantId
+    * The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
     *
     * @return string|null The tenantId
     */
@@ -95,6 +107,7 @@ class ManagementActionTenantDeploymentStatus extends \Beta\Microsoft\Graph\Model
     
     /**
     * Sets the tenantId
+    * The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
     *
     * @param string $val The tenantId
     *

@@ -26,14 +26,17 @@ class ConversationMemberRoleUpdatedEventMessageDetail extends EventMessageDetail
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.conversationMemberRoleUpdatedEventMessageDetail");
     }
 
     /**
     * Gets the conversationMemberRoles
+    * Roles for the coversation member user.
     *
     * @return string|null The conversationMemberRoles
     */
@@ -48,8 +51,9 @@ class ConversationMemberRoleUpdatedEventMessageDetail extends EventMessageDetail
 
     /**
     * Sets the conversationMemberRoles
+    * Roles for the coversation member user.
     *
-    * @param string $val The value of the conversationMemberRoles
+    * @param string[] $val The value of the conversationMemberRoles
     *
     * @return ConversationMemberRoleUpdatedEventMessageDetail
     */
@@ -61,16 +65,18 @@ class ConversationMemberRoleUpdatedEventMessageDetail extends EventMessageDetail
 
     /**
     * Gets the conversationMemberUser
+    * Identity of the conversation member user.
     *
-    * @return Identity|null The conversationMemberUser
+    * @return TeamworkUserIdentity|null The conversationMemberUser
     */
     public function getConversationMemberUser()
     {
-        if (array_key_exists("conversationMemberUser", $this->_propDict)) {
-            if (is_a($this->_propDict["conversationMemberUser"], "\Beta\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["conversationMemberUser"])) {
+        if (array_key_exists("conversationMemberUser", $this->_propDict) && !is_null($this->_propDict["conversationMemberUser"])) {
+     
+            if (is_a($this->_propDict["conversationMemberUser"], "\Beta\Microsoft\Graph\Model\TeamworkUserIdentity")) {
                 return $this->_propDict["conversationMemberUser"];
             } else {
-                $this->_propDict["conversationMemberUser"] = new Identity($this->_propDict["conversationMemberUser"]);
+                $this->_propDict["conversationMemberUser"] = new TeamworkUserIdentity($this->_propDict["conversationMemberUser"]);
                 return $this->_propDict["conversationMemberUser"];
             }
         }
@@ -79,8 +85,9 @@ class ConversationMemberRoleUpdatedEventMessageDetail extends EventMessageDetail
 
     /**
     * Sets the conversationMemberUser
+    * Identity of the conversation member user.
     *
-    * @param Identity $val The value to assign to the conversationMemberUser
+    * @param TeamworkUserIdentity $val The value to assign to the conversationMemberUser
     *
     * @return ConversationMemberRoleUpdatedEventMessageDetail The ConversationMemberRoleUpdatedEventMessageDetail
     */
@@ -92,13 +99,15 @@ class ConversationMemberRoleUpdatedEventMessageDetail extends EventMessageDetail
 
     /**
     * Gets the initiator
+    * Initiator of the event.
     *
     * @return IdentitySet|null The initiator
     */
     public function getInitiator()
     {
-        if (array_key_exists("initiator", $this->_propDict)) {
-            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["initiator"])) {
+        if (array_key_exists("initiator", $this->_propDict) && !is_null($this->_propDict["initiator"])) {
+     
+            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["initiator"];
             } else {
                 $this->_propDict["initiator"] = new IdentitySet($this->_propDict["initiator"]);
@@ -110,6 +119,7 @@ class ConversationMemberRoleUpdatedEventMessageDetail extends EventMessageDetail
 
     /**
     * Sets the initiator
+    * Initiator of the event.
     *
     * @param IdentitySet $val The value to assign to the initiator
     *

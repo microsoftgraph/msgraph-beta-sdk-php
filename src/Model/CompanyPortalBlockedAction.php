@@ -32,8 +32,9 @@ class CompanyPortalBlockedAction extends Entity
     */
     public function getAction()
     {
-        if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\CompanyPortalAction") || is_null($this->_propDict["action"])) {
+        if (array_key_exists("action", $this->_propDict) && !is_null($this->_propDict["action"])) {
+     
+            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\CompanyPortalAction")) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new CompanyPortalAction($this->_propDict["action"]);
@@ -65,8 +66,9 @@ class CompanyPortalBlockedAction extends Entity
     */
     public function getOwnerType()
     {
-        if (array_key_exists("ownerType", $this->_propDict)) {
-            if (is_a($this->_propDict["ownerType"], "\Beta\Microsoft\Graph\Model\OwnerType") || is_null($this->_propDict["ownerType"])) {
+        if (array_key_exists("ownerType", $this->_propDict) && !is_null($this->_propDict["ownerType"])) {
+     
+            if (is_a($this->_propDict["ownerType"], "\Beta\Microsoft\Graph\Model\OwnerType")) {
                 return $this->_propDict["ownerType"];
             } else {
                 $this->_propDict["ownerType"] = new OwnerType($this->_propDict["ownerType"]);
@@ -98,8 +100,9 @@ class CompanyPortalBlockedAction extends Entity
     */
     public function getPlatform()
     {
-        if (array_key_exists("platform", $this->_propDict)) {
-            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\DevicePlatformType") || is_null($this->_propDict["platform"])) {
+        if (array_key_exists("platform", $this->_propDict) && !is_null($this->_propDict["platform"])) {
+     
+            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\DevicePlatformType")) {
                 return $this->_propDict["platform"];
             } else {
                 $this->_propDict["platform"] = new DevicePlatformType($this->_propDict["platform"]);

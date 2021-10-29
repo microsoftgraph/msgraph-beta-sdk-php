@@ -26,9 +26,11 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.androidManagedStoreAppAssignmentSettings");
     }
 
@@ -51,7 +53,7 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
     * Sets the androidManagedStoreAppTrackIds
     * The track IDs to enable for this app assignment.
     *
-    * @param string $val The value of the androidManagedStoreAppTrackIds
+    * @param string[] $val The value of the androidManagedStoreAppTrackIds
     *
     * @return AndroidManagedStoreAppAssignmentSettings
     */
@@ -59,5 +61,39 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
     {
         $this->_propDict["androidManagedStoreAppTrackIds"] = $val;
         return $this;
+    }
+
+    /**
+    * Gets the autoUpdateMode
+    * The prioritization of automatic updates for this app assignment. Possible values are: default, postponed, priority, unknownFutureValue.
+    *
+    * @return AndroidManagedStoreAutoUpdateMode|null The autoUpdateMode
+    */
+    public function getAutoUpdateMode()
+    {
+        if (array_key_exists("autoUpdateMode", $this->_propDict) && !is_null($this->_propDict["autoUpdateMode"])) {
+     
+            if (is_a($this->_propDict["autoUpdateMode"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAutoUpdateMode")) {
+                return $this->_propDict["autoUpdateMode"];
+            } else {
+                $this->_propDict["autoUpdateMode"] = new AndroidManagedStoreAutoUpdateMode($this->_propDict["autoUpdateMode"]);
+                return $this->_propDict["autoUpdateMode"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the autoUpdateMode
+    * The prioritization of automatic updates for this app assignment. Possible values are: default, postponed, priority, unknownFutureValue.
+    *
+    * @param AndroidManagedStoreAutoUpdateMode $val The value to assign to the autoUpdateMode
+    *
+    * @return AndroidManagedStoreAppAssignmentSettings The AndroidManagedStoreAppAssignmentSettings
+    */
+    public function setAutoUpdateMode($val)
+    {
+        $this->_propDict["autoUpdateMode"] = $val;
+         return $this;
     }
 }

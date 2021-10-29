@@ -29,22 +29,29 @@ class UserExperienceAnalyticsRegressionSummary extends Entity
      * Gets the manufacturerRegression
     * The metric values for the user experience analytics Manufacturer regression.
      *
-     * @return array|null The manufacturerRegression
+     * @return UserExperienceAnalyticsMetric[]|null The manufacturerRegression
      */
     public function getManufacturerRegression()
     {
-        if (array_key_exists("manufacturerRegression", $this->_propDict)) {
-           return $this->_propDict["manufacturerRegression"];
-        } else {
-            return null;
+        if (array_key_exists('manufacturerRegression', $this->_propDict) && !is_null($this->_propDict['manufacturerRegression'])) {
+            $manufacturerRegression = [];
+            if (count($this->_propDict['manufacturerRegression']) > 0 && is_a($this->_propDict['manufacturerRegression'][0], 'UserExperienceAnalyticsMetric')) {
+                return $this->_propDict['manufacturerRegression'];
+            }
+            foreach ($this->_propDict['manufacturerRegression'] as $singleValue) {
+                $manufacturerRegression []= new UserExperienceAnalyticsMetric($singleValue);
+            }
+            $this->_propDict['manufacturerRegression'] = $manufacturerRegression;
+            return $this->_propDict['manufacturerRegression'];
         }
+        return null;
     }
     
     /** 
     * Sets the manufacturerRegression
     * The metric values for the user experience analytics Manufacturer regression.
     *
-    * @param UserExperienceAnalyticsMetric $val The manufacturerRegression
+    * @param UserExperienceAnalyticsMetric[] $val The manufacturerRegression
     *
     * @return UserExperienceAnalyticsRegressionSummary
     */
@@ -59,22 +66,29 @@ class UserExperienceAnalyticsRegressionSummary extends Entity
      * Gets the modelRegression
     * The metric values for the user experience analytics model regression.
      *
-     * @return array|null The modelRegression
+     * @return UserExperienceAnalyticsMetric[]|null The modelRegression
      */
     public function getModelRegression()
     {
-        if (array_key_exists("modelRegression", $this->_propDict)) {
-           return $this->_propDict["modelRegression"];
-        } else {
-            return null;
+        if (array_key_exists('modelRegression', $this->_propDict) && !is_null($this->_propDict['modelRegression'])) {
+            $modelRegression = [];
+            if (count($this->_propDict['modelRegression']) > 0 && is_a($this->_propDict['modelRegression'][0], 'UserExperienceAnalyticsMetric')) {
+                return $this->_propDict['modelRegression'];
+            }
+            foreach ($this->_propDict['modelRegression'] as $singleValue) {
+                $modelRegression []= new UserExperienceAnalyticsMetric($singleValue);
+            }
+            $this->_propDict['modelRegression'] = $modelRegression;
+            return $this->_propDict['modelRegression'];
         }
+        return null;
     }
     
     /** 
     * Sets the modelRegression
     * The metric values for the user experience analytics model regression.
     *
-    * @param UserExperienceAnalyticsMetric $val The modelRegression
+    * @param UserExperienceAnalyticsMetric[] $val The modelRegression
     *
     * @return UserExperienceAnalyticsRegressionSummary
     */
@@ -89,22 +103,29 @@ class UserExperienceAnalyticsRegressionSummary extends Entity
      * Gets the operatingSystemRegression
     * The metric values for the user experience analytics operating system regression.
      *
-     * @return array|null The operatingSystemRegression
+     * @return UserExperienceAnalyticsMetric[]|null The operatingSystemRegression
      */
     public function getOperatingSystemRegression()
     {
-        if (array_key_exists("operatingSystemRegression", $this->_propDict)) {
-           return $this->_propDict["operatingSystemRegression"];
-        } else {
-            return null;
+        if (array_key_exists('operatingSystemRegression', $this->_propDict) && !is_null($this->_propDict['operatingSystemRegression'])) {
+            $operatingSystemRegression = [];
+            if (count($this->_propDict['operatingSystemRegression']) > 0 && is_a($this->_propDict['operatingSystemRegression'][0], 'UserExperienceAnalyticsMetric')) {
+                return $this->_propDict['operatingSystemRegression'];
+            }
+            foreach ($this->_propDict['operatingSystemRegression'] as $singleValue) {
+                $operatingSystemRegression []= new UserExperienceAnalyticsMetric($singleValue);
+            }
+            $this->_propDict['operatingSystemRegression'] = $operatingSystemRegression;
+            return $this->_propDict['operatingSystemRegression'];
         }
+        return null;
     }
     
     /** 
     * Sets the operatingSystemRegression
     * The metric values for the user experience analytics operating system regression.
     *
-    * @param UserExperienceAnalyticsMetric $val The operatingSystemRegression
+    * @param UserExperienceAnalyticsMetric[] $val The operatingSystemRegression
     *
     * @return UserExperienceAnalyticsRegressionSummary
     */

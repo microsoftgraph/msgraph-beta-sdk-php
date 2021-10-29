@@ -25,6 +25,7 @@ class ManagementIntentInfo extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the managementIntentDisplayName
+    * The display name for the management intent. Optional. Read-only.
     *
     * @return string|null The managementIntentDisplayName
     */
@@ -39,6 +40,7 @@ class ManagementIntentInfo extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the managementIntentDisplayName
+    * The display name for the management intent. Optional. Read-only.
     *
     * @param string $val The value of the managementIntentDisplayName
     *
@@ -51,6 +53,7 @@ class ManagementIntentInfo extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the managementIntentId
+    * The identifier for the management intent. Required. Read-only.
     *
     * @return string|null The managementIntentId
     */
@@ -65,6 +68,7 @@ class ManagementIntentInfo extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the managementIntentId
+    * The identifier for the management intent. Required. Read-only.
     *
     * @param string $val The value of the managementIntentId
     *
@@ -78,26 +82,32 @@ class ManagementIntentInfo extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the managementTemplates
+    * The collection of management template information associated with the management intent. Optional. Read-only.
     *
-    * @return ManagementTemplateDetailedInfo|null The managementTemplates
+    * @return ManagementTemplateDetailedInfo[]|null The managementTemplates
     */
     public function getManagementTemplates()
     {
-        if (array_key_exists("managementTemplates", $this->_propDict)) {
-            if (is_a($this->_propDict["managementTemplates"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagementTemplateDetailedInfo") || is_null($this->_propDict["managementTemplates"])) {
-                return $this->_propDict["managementTemplates"];
-            } else {
-                $this->_propDict["managementTemplates"] = new ManagementTemplateDetailedInfo($this->_propDict["managementTemplates"]);
-                return $this->_propDict["managementTemplates"];
+        if (array_key_exists("managementTemplates", $this->_propDict) && !is_null($this->_propDict["managementTemplates"])) {
+       
+            if (count($this->_propDict['managementTemplates']) > 0 && is_a($this->_propDict['managementTemplates'][0], 'ManagementTemplateDetailedInfo')) {
+               return $this->_propDict['managementTemplates'];
             }
-        }
+            $managementTemplates = [];
+            foreach ($this->_propDict['managementTemplates'] as $singleValue) {
+               $managementTemplates []= new ManagementTemplateDetailedInfo($singleValue);
+            }
+            $this->_propDict['managementTemplates'] = $managementTemplates;
+            return $this->_propDict['managementTemplates'];
+            }
         return null;
     }
 
     /**
     * Sets the managementTemplates
+    * The collection of management template information associated with the management intent. Optional. Read-only.
     *
-    * @param ManagementTemplateDetailedInfo $val The value to assign to the managementTemplates
+    * @param ManagementTemplateDetailedInfo[] $val The value to assign to the managementTemplates
     *
     * @return ManagementIntentInfo The ManagementIntentInfo
     */

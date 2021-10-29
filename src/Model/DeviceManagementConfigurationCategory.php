@@ -25,6 +25,35 @@ namespace Beta\Microsoft\Graph\Model;
 class DeviceManagementConfigurationCategory extends Entity
 {
     /**
+    * Gets the categoryDescription
+    * Description of the category header
+    *
+    * @return string|null The categoryDescription
+    */
+    public function getCategoryDescription()
+    {
+        if (array_key_exists("categoryDescription", $this->_propDict)) {
+            return $this->_propDict["categoryDescription"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the categoryDescription
+    * Description of the category header
+    *
+    * @param string $val The categoryDescription
+    *
+    * @return DeviceManagementConfigurationCategory
+    */
+    public function setCategoryDescription($val)
+    {
+        $this->_propDict["categoryDescription"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the childCategoryIds
     * List of child ids of the category.
     *
@@ -200,14 +229,14 @@ class DeviceManagementConfigurationCategory extends Entity
     
     /**
     * Gets the platforms
-    * Platforms types, which settings in the category have. Possible values are: none, macOS, windows10X, windows10.
+    * Platforms types, which settings in the category have. Possible values are: none, android, iOS, macOS, windows10X, windows10.
     *
     * @return DeviceManagementConfigurationPlatforms|null The platforms
     */
     public function getPlatforms()
     {
-        if (array_key_exists("platforms", $this->_propDict)) {
-            if (is_a($this->_propDict["platforms"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationPlatforms") || is_null($this->_propDict["platforms"])) {
+        if (array_key_exists("platforms", $this->_propDict) && !is_null($this->_propDict["platforms"])) {
+            if (is_a($this->_propDict["platforms"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationPlatforms")) {
                 return $this->_propDict["platforms"];
             } else {
                 $this->_propDict["platforms"] = new DeviceManagementConfigurationPlatforms($this->_propDict["platforms"]);
@@ -219,7 +248,7 @@ class DeviceManagementConfigurationCategory extends Entity
     
     /**
     * Sets the platforms
-    * Platforms types, which settings in the category have. Possible values are: none, macOS, windows10X, windows10.
+    * Platforms types, which settings in the category have. Possible values are: none, android, iOS, macOS, windows10X, windows10.
     *
     * @param DeviceManagementConfigurationPlatforms $val The platforms
     *
@@ -262,14 +291,14 @@ class DeviceManagementConfigurationCategory extends Entity
     
     /**
     * Gets the settingUsage
-    * Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration.
+    * Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration, compliance.
     *
     * @return DeviceManagementConfigurationSettingUsage|null The settingUsage
     */
     public function getSettingUsage()
     {
-        if (array_key_exists("settingUsage", $this->_propDict)) {
-            if (is_a($this->_propDict["settingUsage"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingUsage") || is_null($this->_propDict["settingUsage"])) {
+        if (array_key_exists("settingUsage", $this->_propDict) && !is_null($this->_propDict["settingUsage"])) {
+            if (is_a($this->_propDict["settingUsage"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingUsage")) {
                 return $this->_propDict["settingUsage"];
             } else {
                 $this->_propDict["settingUsage"] = new DeviceManagementConfigurationSettingUsage($this->_propDict["settingUsage"]);
@@ -281,7 +310,7 @@ class DeviceManagementConfigurationCategory extends Entity
     
     /**
     * Sets the settingUsage
-    * Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration.
+    * Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration, compliance.
     *
     * @param DeviceManagementConfigurationSettingUsage $val The settingUsage
     *
@@ -295,14 +324,14 @@ class DeviceManagementConfigurationCategory extends Entity
     
     /**
     * Gets the technologies
-    * Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense.
+    * Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
     *
     * @return DeviceManagementConfigurationTechnologies|null The technologies
     */
     public function getTechnologies()
     {
-        if (array_key_exists("technologies", $this->_propDict)) {
-            if (is_a($this->_propDict["technologies"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationTechnologies") || is_null($this->_propDict["technologies"])) {
+        if (array_key_exists("technologies", $this->_propDict) && !is_null($this->_propDict["technologies"])) {
+            if (is_a($this->_propDict["technologies"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationTechnologies")) {
                 return $this->_propDict["technologies"];
             } else {
                 $this->_propDict["technologies"] = new DeviceManagementConfigurationTechnologies($this->_propDict["technologies"]);
@@ -314,7 +343,7 @@ class DeviceManagementConfigurationCategory extends Entity
     
     /**
     * Sets the technologies
-    * Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense.
+    * Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
     *
     * @param DeviceManagementConfigurationTechnologies $val The technologies
     *

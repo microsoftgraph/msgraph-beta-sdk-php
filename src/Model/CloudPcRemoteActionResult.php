@@ -25,6 +25,7 @@ class CloudPcRemoteActionResult extends Entity
 {
     /**
     * Gets the actionName
+    * The specified action. Supported values: Reprovision, Resize.
     *
     * @return string|null The actionName
     */
@@ -39,6 +40,7 @@ class CloudPcRemoteActionResult extends Entity
 
     /**
     * Sets the actionName
+    * The specified action. Supported values: Reprovision, Resize.
     *
     * @param string $val The value of the actionName
     *
@@ -52,13 +54,15 @@ class CloudPcRemoteActionResult extends Entity
 
     /**
     * Gets the actionState
+    * State of the action. Possible values are: None, pending, canceled, active, done, failed, notSupported. Read-only.
     *
     * @return ActionState|null The actionState
     */
     public function getActionState()
     {
-        if (array_key_exists("actionState", $this->_propDict)) {
-            if (is_a($this->_propDict["actionState"], "\Beta\Microsoft\Graph\Model\ActionState") || is_null($this->_propDict["actionState"])) {
+        if (array_key_exists("actionState", $this->_propDict) && !is_null($this->_propDict["actionState"])) {
+     
+            if (is_a($this->_propDict["actionState"], "\Beta\Microsoft\Graph\Model\ActionState")) {
                 return $this->_propDict["actionState"];
             } else {
                 $this->_propDict["actionState"] = new ActionState($this->_propDict["actionState"]);
@@ -70,6 +74,7 @@ class CloudPcRemoteActionResult extends Entity
 
     /**
     * Sets the actionState
+    * State of the action. Possible values are: None, pending, canceled, active, done, failed, notSupported. Read-only.
     *
     * @param ActionState $val The value to assign to the actionState
     *
@@ -82,6 +87,7 @@ class CloudPcRemoteActionResult extends Entity
     }
     /**
     * Gets the cloudPcId
+    * The ID of the Cloud PC device on which the remote action is performed. Read-only.
     *
     * @return string|null The cloudPcId
     */
@@ -96,6 +102,7 @@ class CloudPcRemoteActionResult extends Entity
 
     /**
     * Sets the cloudPcId
+    * The ID of the Cloud PC device on which the remote action is performed. Read-only.
     *
     * @param string $val The value of the cloudPcId
     *
@@ -109,13 +116,15 @@ class CloudPcRemoteActionResult extends Entity
 
     /**
     * Gets the lastUpdatedDateTime
+    * Last update time for action. The Timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
     *
     * @return \DateTime|null The lastUpdatedDateTime
     */
     public function getLastUpdatedDateTime()
     {
-        if (array_key_exists("lastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
+        if (array_key_exists("lastUpdatedDateTime", $this->_propDict) && !is_null($this->_propDict["lastUpdatedDateTime"])) {
+     
+            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastUpdatedDateTime"];
             } else {
                 $this->_propDict["lastUpdatedDateTime"] = new \DateTime($this->_propDict["lastUpdatedDateTime"]);
@@ -127,6 +136,7 @@ class CloudPcRemoteActionResult extends Entity
 
     /**
     * Sets the lastUpdatedDateTime
+    * Last update time for action. The Timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
     *
     * @param \DateTime $val The value to assign to the lastUpdatedDateTime
     *
@@ -139,6 +149,7 @@ class CloudPcRemoteActionResult extends Entity
     }
     /**
     * Gets the managedDeviceId
+    * The ID of the Intune managed device on which the remote action is performed. Read-only.
     *
     * @return string|null The managedDeviceId
     */
@@ -153,6 +164,7 @@ class CloudPcRemoteActionResult extends Entity
 
     /**
     * Sets the managedDeviceId
+    * The ID of the Intune managed device on which the remote action is performed. Read-only.
     *
     * @param string $val The value of the managedDeviceId
     *
@@ -166,13 +178,15 @@ class CloudPcRemoteActionResult extends Entity
 
     /**
     * Gets the startDateTime
+    * Time the action was initiated. The Timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
     *
     * @return \DateTime|null The startDateTime
     */
     public function getStartDateTime()
     {
-        if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+        if (array_key_exists("startDateTime", $this->_propDict) && !is_null($this->_propDict["startDateTime"])) {
+     
+            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -184,6 +198,7 @@ class CloudPcRemoteActionResult extends Entity
 
     /**
     * Sets the startDateTime
+    * Time the action was initiated. The Timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
     *
     * @param \DateTime $val The value to assign to the startDateTime
     *
@@ -197,13 +212,15 @@ class CloudPcRemoteActionResult extends Entity
 
     /**
     * Gets the statusDetails
+    * The details of the Cloud PC status.
     *
     * @return CloudPcStatusDetails|null The statusDetails
     */
     public function getStatusDetails()
     {
-        if (array_key_exists("statusDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["statusDetails"], "\Beta\Microsoft\Graph\Model\CloudPcStatusDetails") || is_null($this->_propDict["statusDetails"])) {
+        if (array_key_exists("statusDetails", $this->_propDict) && !is_null($this->_propDict["statusDetails"])) {
+     
+            if (is_a($this->_propDict["statusDetails"], "\Beta\Microsoft\Graph\Model\CloudPcStatusDetails")) {
                 return $this->_propDict["statusDetails"];
             } else {
                 $this->_propDict["statusDetails"] = new CloudPcStatusDetails($this->_propDict["statusDetails"]);
@@ -215,6 +232,7 @@ class CloudPcRemoteActionResult extends Entity
 
     /**
     * Sets the statusDetails
+    * The details of the Cloud PC status.
     *
     * @param CloudPcStatusDetails $val The value to assign to the statusDetails
     *

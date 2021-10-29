@@ -32,8 +32,8 @@ class PolicySet extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -123,8 +123,8 @@ class PolicySet extends Entity
     */
     public function getErrorCode()
     {
-        if (array_key_exists("errorCode", $this->_propDict)) {
-            if (is_a($this->_propDict["errorCode"], "\Beta\Microsoft\Graph\Model\ErrorCode") || is_null($this->_propDict["errorCode"])) {
+        if (array_key_exists("errorCode", $this->_propDict) && !is_null($this->_propDict["errorCode"])) {
+            if (is_a($this->_propDict["errorCode"], "\Beta\Microsoft\Graph\Model\ErrorCode")) {
                 return $this->_propDict["errorCode"];
             } else {
                 $this->_propDict["errorCode"] = new ErrorCode($this->_propDict["errorCode"]);
@@ -185,8 +185,8 @@ class PolicySet extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -247,8 +247,8 @@ class PolicySet extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\PolicySetStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\PolicySetStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new PolicySetStatus($this->_propDict["status"]);
@@ -277,22 +277,29 @@ class PolicySet extends Entity
      * Gets the assignments
     * Assignments of the PolicySet.
      *
-     * @return array|null The assignments
+     * @return PolicySetAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+            $assignments = [];
+            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'PolicySetAssignment')) {
+                return $this->_propDict['assignments'];
+            }
+            foreach ($this->_propDict['assignments'] as $singleValue) {
+                $assignments []= new PolicySetAssignment($singleValue);
+            }
+            $this->_propDict['assignments'] = $assignments;
+            return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * Assignments of the PolicySet.
     *
-    * @param PolicySetAssignment $val The assignments
+    * @param PolicySetAssignment[] $val The assignments
     *
     * @return PolicySet
     */
@@ -307,22 +314,29 @@ class PolicySet extends Entity
      * Gets the items
     * Items of the PolicySet with maximum count 100.
      *
-     * @return array|null The items
+     * @return PolicySetItem[]|null The items
      */
     public function getItems()
     {
-        if (array_key_exists("items", $this->_propDict)) {
-           return $this->_propDict["items"];
-        } else {
-            return null;
+        if (array_key_exists('items', $this->_propDict) && !is_null($this->_propDict['items'])) {
+            $items = [];
+            if (count($this->_propDict['items']) > 0 && is_a($this->_propDict['items'][0], 'PolicySetItem')) {
+                return $this->_propDict['items'];
+            }
+            foreach ($this->_propDict['items'] as $singleValue) {
+                $items []= new PolicySetItem($singleValue);
+            }
+            $this->_propDict['items'] = $items;
+            return $this->_propDict['items'];
         }
+        return null;
     }
     
     /** 
     * Sets the items
     * Items of the PolicySet with maximum count 100.
     *
-    * @param PolicySetItem $val The items
+    * @param PolicySetItem[] $val The items
     *
     * @return PolicySet
     */

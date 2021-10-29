@@ -26,14 +26,15 @@ class TimeSlot extends Entity
 
     /**
     * Gets the end
-    * The date, time, and time zone that a period begins.
+    * The date, time, and time zone that a period ends.
     *
     * @return DateTimeTimeZone|null The end
     */
     public function getEnd()
     {
-        if (array_key_exists("end", $this->_propDict)) {
-            if (is_a($this->_propDict["end"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["end"])) {
+        if (array_key_exists("end", $this->_propDict) && !is_null($this->_propDict["end"])) {
+     
+            if (is_a($this->_propDict["end"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone")) {
                 return $this->_propDict["end"];
             } else {
                 $this->_propDict["end"] = new DateTimeTimeZone($this->_propDict["end"]);
@@ -45,7 +46,7 @@ class TimeSlot extends Entity
 
     /**
     * Sets the end
-    * The date, time, and time zone that a period begins.
+    * The date, time, and time zone that a period ends.
     *
     * @param DateTimeTimeZone $val The value to assign to the end
     *
@@ -59,14 +60,15 @@ class TimeSlot extends Entity
 
     /**
     * Gets the start
-    * The date, time, and time zone that a period ends.
+    * The date, time, and time zone that a period begins.
     *
     * @return DateTimeTimeZone|null The start
     */
     public function getStart()
     {
-        if (array_key_exists("start", $this->_propDict)) {
-            if (is_a($this->_propDict["start"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["start"])) {
+        if (array_key_exists("start", $this->_propDict) && !is_null($this->_propDict["start"])) {
+     
+            if (is_a($this->_propDict["start"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone")) {
                 return $this->_propDict["start"];
             } else {
                 $this->_propDict["start"] = new DateTimeTimeZone($this->_propDict["start"]);
@@ -78,7 +80,7 @@ class TimeSlot extends Entity
 
     /**
     * Sets the start
-    * The date, time, and time zone that a period ends.
+    * The date, time, and time zone that a period begins.
     *
     * @param DateTimeTimeZone $val The value to assign to the start
     *

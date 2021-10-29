@@ -28,18 +28,22 @@ class DeploymentState extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the reasons
     * Specifies the reasons the deployment has its state value. Read-only.
     *
-    * @return DeploymentStateReason|null The reasons
+    * @return DeploymentStateReason[]|null The reasons
     */
     public function getReasons()
     {
-        if (array_key_exists("reasons", $this->_propDict)) {
-            if (is_a($this->_propDict["reasons"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\DeploymentStateReason") || is_null($this->_propDict["reasons"])) {
-                return $this->_propDict["reasons"];
-            } else {
-                $this->_propDict["reasons"] = new DeploymentStateReason($this->_propDict["reasons"]);
-                return $this->_propDict["reasons"];
+        if (array_key_exists("reasons", $this->_propDict) && !is_null($this->_propDict["reasons"])) {
+       
+            if (count($this->_propDict['reasons']) > 0 && is_a($this->_propDict['reasons'][0], 'DeploymentStateReason')) {
+               return $this->_propDict['reasons'];
             }
-        }
+            $reasons = [];
+            foreach ($this->_propDict['reasons'] as $singleValue) {
+               $reasons []= new DeploymentStateReason($singleValue);
+            }
+            $this->_propDict['reasons'] = $reasons;
+            return $this->_propDict['reasons'];
+            }
         return null;
     }
 
@@ -47,7 +51,7 @@ class DeploymentState extends \Beta\Microsoft\Graph\Model\Entity
     * Sets the reasons
     * Specifies the reasons the deployment has its state value. Read-only.
     *
-    * @param DeploymentStateReason $val The value to assign to the reasons
+    * @param DeploymentStateReason[] $val The value to assign to the reasons
     *
     * @return DeploymentState The DeploymentState
     */
@@ -65,8 +69,9 @@ class DeploymentState extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getRequestedValue()
     {
-        if (array_key_exists("requestedValue", $this->_propDict)) {
-            if (is_a($this->_propDict["requestedValue"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\RequestedDeploymentStateValue") || is_null($this->_propDict["requestedValue"])) {
+        if (array_key_exists("requestedValue", $this->_propDict) && !is_null($this->_propDict["requestedValue"])) {
+     
+            if (is_a($this->_propDict["requestedValue"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\RequestedDeploymentStateValue")) {
                 return $this->_propDict["requestedValue"];
             } else {
                 $this->_propDict["requestedValue"] = new RequestedDeploymentStateValue($this->_propDict["requestedValue"]);
@@ -98,8 +103,9 @@ class DeploymentState extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getValue()
     {
-        if (array_key_exists("value", $this->_propDict)) {
-            if (is_a($this->_propDict["value"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\DeploymentStateValue") || is_null($this->_propDict["value"])) {
+        if (array_key_exists("value", $this->_propDict) && !is_null($this->_propDict["value"])) {
+     
+            if (is_a($this->_propDict["value"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\DeploymentStateValue")) {
                 return $this->_propDict["value"];
             } else {
                 $this->_propDict["value"] = new DeploymentStateValue($this->_propDict["value"]);

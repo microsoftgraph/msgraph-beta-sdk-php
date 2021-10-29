@@ -26,9 +26,11 @@ class ProtectGroup extends LabelActionBase
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.protectGroup");
     }
 
@@ -92,8 +94,9 @@ class ProtectGroup extends LabelActionBase
     */
     public function getPrivacy()
     {
-        if (array_key_exists("privacy", $this->_propDict)) {
-            if (is_a($this->_propDict["privacy"], "\Beta\Microsoft\Graph\Model\GroupPrivacy") || is_null($this->_propDict["privacy"])) {
+        if (array_key_exists("privacy", $this->_propDict) && !is_null($this->_propDict["privacy"])) {
+     
+            if (is_a($this->_propDict["privacy"], "\Beta\Microsoft\Graph\Model\GroupPrivacy")) {
                 return $this->_propDict["privacy"];
             } else {
                 $this->_propDict["privacy"] = new GroupPrivacy($this->_propDict["privacy"]);

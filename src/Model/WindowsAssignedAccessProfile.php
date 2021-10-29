@@ -84,7 +84,7 @@ class WindowsAssignedAccessProfile extends Entity
     
     /**
     * Gets the profileName
-    * This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
+    * This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
     *
     * @return string|null The profileName
     */
@@ -99,7 +99,7 @@ class WindowsAssignedAccessProfile extends Entity
     
     /**
     * Sets the profileName
-    * This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
+    * This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
     *
     * @param string $val The profileName
     *
@@ -142,17 +142,17 @@ class WindowsAssignedAccessProfile extends Entity
     
     /**
     * Gets the startMenuLayoutXml
-    * Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
+    * Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The startMenuLayoutXml
     */
     public function getStartMenuLayoutXml()
     {
-        if (array_key_exists("startMenuLayoutXml", $this->_propDict)) {
-            if (is_a($this->_propDict["startMenuLayoutXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["startMenuLayoutXml"])) {
+        if (array_key_exists("startMenuLayoutXml", $this->_propDict) && !is_null($this->_propDict["startMenuLayoutXml"])) {
+            if (is_a($this->_propDict["startMenuLayoutXml"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["startMenuLayoutXml"];
             } else {
-                $this->_propDict["startMenuLayoutXml"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["startMenuLayoutXml"]);
+                $this->_propDict["startMenuLayoutXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["startMenuLayoutXml"]);
                 return $this->_propDict["startMenuLayoutXml"];
             }
         }
@@ -161,7 +161,7 @@ class WindowsAssignedAccessProfile extends Entity
     
     /**
     * Sets the startMenuLayoutXml
-    * Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
+    * Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The startMenuLayoutXml
     *

@@ -32,8 +32,8 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getClosedBy()
     {
-        if (array_key_exists("closedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["closedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["closedBy"])) {
+        if (array_key_exists("closedBy", $this->_propDict) && !is_null($this->_propDict["closedBy"])) {
+            if (is_a($this->_propDict["closedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["closedBy"];
             } else {
                 $this->_propDict["closedBy"] = new \Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["closedBy"]);
@@ -65,8 +65,8 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getClosedDateTime()
     {
-        if (array_key_exists("closedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["closedDateTime"], "\DateTime") || is_null($this->_propDict["closedDateTime"])) {
+        if (array_key_exists("closedDateTime", $this->_propDict) && !is_null($this->_propDict["closedDateTime"])) {
+            if (is_a($this->_propDict["closedDateTime"], "\DateTime")) {
                 return $this->_propDict["closedDateTime"];
             } else {
                 $this->_propDict["closedDateTime"] = new \DateTime($this->_propDict["closedDateTime"]);
@@ -98,8 +98,8 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -218,8 +218,8 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastModifiedBy()
     {
-        if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
+        if (array_key_exists("lastModifiedBy", $this->_propDict) && !is_null($this->_propDict["lastModifiedBy"])) {
+            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["lastModifiedBy"];
             } else {
                 $this->_propDict["lastModifiedBy"] = new \Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["lastModifiedBy"]);
@@ -251,8 +251,8 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -284,8 +284,8 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Ediscovery\Model\CaseStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Ediscovery\Model\CaseStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new CaseStatus($this->_propDict["status"]);
@@ -314,22 +314,29 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the custodians
     * Returns a list of case custodian objects for this case.  Nullable.
      *
-     * @return array|null The custodians
+     * @return Custodian[]|null The custodians
      */
     public function getCustodians()
     {
-        if (array_key_exists("custodians", $this->_propDict)) {
-           return $this->_propDict["custodians"];
-        } else {
-            return null;
+        if (array_key_exists('custodians', $this->_propDict) && !is_null($this->_propDict['custodians'])) {
+            $custodians = [];
+            if (count($this->_propDict['custodians']) > 0 && is_a($this->_propDict['custodians'][0], 'Custodian')) {
+                return $this->_propDict['custodians'];
+            }
+            foreach ($this->_propDict['custodians'] as $singleValue) {
+                $custodians []= new Custodian($singleValue);
+            }
+            $this->_propDict['custodians'] = $custodians;
+            return $this->_propDict['custodians'];
         }
+        return null;
     }
     
     /** 
     * Sets the custodians
     * Returns a list of case custodian objects for this case.  Nullable.
     *
-    * @param Custodian $val The custodians
+    * @param Custodian[] $val The custodians
     *
     * @return GraphCase
     */
@@ -344,22 +351,29 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the legalHolds
     * Returns a list of case legalHold objects for this case.  Nullable.
      *
-     * @return array|null The legalHolds
+     * @return LegalHold[]|null The legalHolds
      */
     public function getLegalHolds()
     {
-        if (array_key_exists("legalHolds", $this->_propDict)) {
-           return $this->_propDict["legalHolds"];
-        } else {
-            return null;
+        if (array_key_exists('legalHolds', $this->_propDict) && !is_null($this->_propDict['legalHolds'])) {
+            $legalHolds = [];
+            if (count($this->_propDict['legalHolds']) > 0 && is_a($this->_propDict['legalHolds'][0], 'LegalHold')) {
+                return $this->_propDict['legalHolds'];
+            }
+            foreach ($this->_propDict['legalHolds'] as $singleValue) {
+                $legalHolds []= new LegalHold($singleValue);
+            }
+            $this->_propDict['legalHolds'] = $legalHolds;
+            return $this->_propDict['legalHolds'];
         }
+        return null;
     }
     
     /** 
     * Sets the legalHolds
     * Returns a list of case legalHold objects for this case.  Nullable.
     *
-    * @param LegalHold $val The legalHolds
+    * @param LegalHold[] $val The legalHolds
     *
     * @return GraphCase
     */
@@ -374,22 +388,29 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the noncustodialDataSources
     * Returns a list of case noncustodialDataSource objects for this case.  Nullable.
      *
-     * @return array|null The noncustodialDataSources
+     * @return NoncustodialDataSource[]|null The noncustodialDataSources
      */
     public function getNoncustodialDataSources()
     {
-        if (array_key_exists("noncustodialDataSources", $this->_propDict)) {
-           return $this->_propDict["noncustodialDataSources"];
-        } else {
-            return null;
+        if (array_key_exists('noncustodialDataSources', $this->_propDict) && !is_null($this->_propDict['noncustodialDataSources'])) {
+            $noncustodialDataSources = [];
+            if (count($this->_propDict['noncustodialDataSources']) > 0 && is_a($this->_propDict['noncustodialDataSources'][0], 'NoncustodialDataSource')) {
+                return $this->_propDict['noncustodialDataSources'];
+            }
+            foreach ($this->_propDict['noncustodialDataSources'] as $singleValue) {
+                $noncustodialDataSources []= new NoncustodialDataSource($singleValue);
+            }
+            $this->_propDict['noncustodialDataSources'] = $noncustodialDataSources;
+            return $this->_propDict['noncustodialDataSources'];
         }
+        return null;
     }
     
     /** 
     * Sets the noncustodialDataSources
     * Returns a list of case noncustodialDataSource objects for this case.  Nullable.
     *
-    * @param NoncustodialDataSource $val The noncustodialDataSources
+    * @param NoncustodialDataSource[] $val The noncustodialDataSources
     *
     * @return GraphCase
     */
@@ -404,22 +425,29 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the operations
     * Returns a list of case operation objects for this case. Nullable.
      *
-     * @return array|null The operations
+     * @return CaseOperation[]|null The operations
      */
     public function getOperations()
     {
-        if (array_key_exists("operations", $this->_propDict)) {
-           return $this->_propDict["operations"];
-        } else {
-            return null;
+        if (array_key_exists('operations', $this->_propDict) && !is_null($this->_propDict['operations'])) {
+            $operations = [];
+            if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'CaseOperation')) {
+                return $this->_propDict['operations'];
+            }
+            foreach ($this->_propDict['operations'] as $singleValue) {
+                $operations []= new CaseOperation($singleValue);
+            }
+            $this->_propDict['operations'] = $operations;
+            return $this->_propDict['operations'];
         }
+        return null;
     }
     
     /** 
     * Sets the operations
     * Returns a list of case operation objects for this case. Nullable.
     *
-    * @param CaseOperation $val The operations
+    * @param CaseOperation[] $val The operations
     *
     * @return GraphCase
     */
@@ -434,22 +462,29 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the reviewSets
     * Returns a list of reviewSet objects in the case. Read-only. Nullable.
      *
-     * @return array|null The reviewSets
+     * @return ReviewSet[]|null The reviewSets
      */
     public function getReviewSets()
     {
-        if (array_key_exists("reviewSets", $this->_propDict)) {
-           return $this->_propDict["reviewSets"];
-        } else {
-            return null;
+        if (array_key_exists('reviewSets', $this->_propDict) && !is_null($this->_propDict['reviewSets'])) {
+            $reviewSets = [];
+            if (count($this->_propDict['reviewSets']) > 0 && is_a($this->_propDict['reviewSets'][0], 'ReviewSet')) {
+                return $this->_propDict['reviewSets'];
+            }
+            foreach ($this->_propDict['reviewSets'] as $singleValue) {
+                $reviewSets []= new ReviewSet($singleValue);
+            }
+            $this->_propDict['reviewSets'] = $reviewSets;
+            return $this->_propDict['reviewSets'];
         }
+        return null;
     }
     
     /** 
     * Sets the reviewSets
     * Returns a list of reviewSet objects in the case. Read-only. Nullable.
     *
-    * @param ReviewSet $val The reviewSets
+    * @param ReviewSet[] $val The reviewSets
     *
     * @return GraphCase
     */
@@ -462,15 +497,15 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     /**
     * Gets the settings
     *
-    * @return Settings|null The settings
+    * @return CaseSettings|null The settings
     */
     public function getSettings()
     {
-        if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Ediscovery\Model\Settings") || is_null($this->_propDict["settings"])) {
+        if (array_key_exists("settings", $this->_propDict) && !is_null($this->_propDict["settings"])) {
+            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Ediscovery\Model\CaseSettings")) {
                 return $this->_propDict["settings"];
             } else {
-                $this->_propDict["settings"] = new Settings($this->_propDict["settings"]);
+                $this->_propDict["settings"] = new CaseSettings($this->_propDict["settings"]);
                 return $this->_propDict["settings"];
             }
         }
@@ -480,7 +515,7 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     /**
     * Sets the settings
     *
-    * @param Settings $val The settings
+    * @param CaseSettings $val The settings
     *
     * @return GraphCase
     */
@@ -495,22 +530,29 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the sourceCollections
     * Returns a list of sourceCollection objects associated with this case.
      *
-     * @return array|null The sourceCollections
+     * @return SourceCollection[]|null The sourceCollections
      */
     public function getSourceCollections()
     {
-        if (array_key_exists("sourceCollections", $this->_propDict)) {
-           return $this->_propDict["sourceCollections"];
-        } else {
-            return null;
+        if (array_key_exists('sourceCollections', $this->_propDict) && !is_null($this->_propDict['sourceCollections'])) {
+            $sourceCollections = [];
+            if (count($this->_propDict['sourceCollections']) > 0 && is_a($this->_propDict['sourceCollections'][0], 'SourceCollection')) {
+                return $this->_propDict['sourceCollections'];
+            }
+            foreach ($this->_propDict['sourceCollections'] as $singleValue) {
+                $sourceCollections []= new SourceCollection($singleValue);
+            }
+            $this->_propDict['sourceCollections'] = $sourceCollections;
+            return $this->_propDict['sourceCollections'];
         }
+        return null;
     }
     
     /** 
     * Sets the sourceCollections
     * Returns a list of sourceCollection objects associated with this case.
     *
-    * @param SourceCollection $val The sourceCollections
+    * @param SourceCollection[] $val The sourceCollections
     *
     * @return GraphCase
     */
@@ -525,22 +567,29 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the tags
     * Returns a list of tag objects associated to this case.
      *
-     * @return array|null The tags
+     * @return Tag[]|null The tags
      */
     public function getTags()
     {
-        if (array_key_exists("tags", $this->_propDict)) {
-           return $this->_propDict["tags"];
-        } else {
-            return null;
+        if (array_key_exists('tags', $this->_propDict) && !is_null($this->_propDict['tags'])) {
+            $tags = [];
+            if (count($this->_propDict['tags']) > 0 && is_a($this->_propDict['tags'][0], 'Tag')) {
+                return $this->_propDict['tags'];
+            }
+            foreach ($this->_propDict['tags'] as $singleValue) {
+                $tags []= new Tag($singleValue);
+            }
+            $this->_propDict['tags'] = $tags;
+            return $this->_propDict['tags'];
         }
+        return null;
     }
     
     /** 
     * Sets the tags
     * Returns a list of tag objects associated to this case.
     *
-    * @param Tag $val The tags
+    * @param Tag[] $val The tags
     *
     * @return GraphCase
     */

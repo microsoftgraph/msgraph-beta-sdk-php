@@ -55,7 +55,7 @@ class Subscription extends Entity
     
     /**
     * Gets the changeType
-    * Indicates the type of change in the subscribed resource that will raise a change notification. The supported values are: created, updated, deleted. Multiple values can be combined using a comma-separated list. Required. Note: Drive root item and list change notifications support only the updated changeType. User and group change notifications support updated and deleted changeType.
+    * Required. Indicates the type of change in the subscribed resource that will raise a change notification. The supported values are: created, updated, deleted. Multiple values can be combined using a comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and group change notifications support updated and deleted changeType.
     *
     * @return string|null The changeType
     */
@@ -70,7 +70,7 @@ class Subscription extends Entity
     
     /**
     * Sets the changeType
-    * Indicates the type of change in the subscribed resource that will raise a change notification. The supported values are: created, updated, deleted. Multiple values can be combined using a comma-separated list. Required. Note: Drive root item and list change notifications support only the updated changeType. User and group change notifications support updated and deleted changeType.
+    * Required. Indicates the type of change in the subscribed resource that will raise a change notification. The supported values are: created, updated, deleted. Multiple values can be combined using a comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and group change notifications support updated and deleted changeType.
     *
     * @param string $val The changeType
     *
@@ -84,7 +84,7 @@ class Subscription extends Entity
     
     /**
     * Gets the clientState
-    * Specifies the value of the clientState property sent by the service in each change notification. The maximum length is 255 characters. The client can check that the change notification came from the service by comparing the value of the clientState property sent with the subscription with the value of the clientState property received with each change notification. Optional.
+    * Optional. Specifies the value of the clientState property sent by the service in each change notification. The maximum length is 128 characters. The client can check that the change notification came from the service by comparing the value of the clientState property sent with the subscription with the value of the clientState property received with each change notification.
     *
     * @return string|null The clientState
     */
@@ -99,7 +99,7 @@ class Subscription extends Entity
     
     /**
     * Sets the clientState
-    * Specifies the value of the clientState property sent by the service in each change notification. The maximum length is 255 characters. The client can check that the change notification came from the service by comparing the value of the clientState property sent with the subscription with the value of the clientState property received with each change notification. Optional.
+    * Optional. Specifies the value of the clientState property sent by the service in each change notification. The maximum length is 128 characters. The client can check that the change notification came from the service by comparing the value of the clientState property sent with the subscription with the value of the clientState property received with each change notification.
     *
     * @param string $val The clientState
     *
@@ -113,7 +113,7 @@ class Subscription extends Entity
     
     /**
     * Gets the creatorId
-    * Identifier of the user or service principal that created the subscription. If the app used delegated permissions to create the subscription, this field contains the ID of the signed-in user the app called on behalf of. If the app used application permissions, this field contains the ID of the service principal corresponding to the app. Read-only.
+    * Identifier of the user or service principal that created the subscription. If the app used delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on behalf of. If the app used application permissions, this field contains the id of the service principal corresponding to the app. Read-only.
     *
     * @return string|null The creatorId
     */
@@ -128,7 +128,7 @@ class Subscription extends Entity
     
     /**
     * Sets the creatorId
-    * Identifier of the user or service principal that created the subscription. If the app used delegated permissions to create the subscription, this field contains the ID of the signed-in user the app called on behalf of. If the app used application permissions, this field contains the ID of the service principal corresponding to the app. Read-only.
+    * Identifier of the user or service principal that created the subscription. If the app used delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on behalf of. If the app used application permissions, this field contains the id of the service principal corresponding to the app. Read-only.
     *
     * @param string $val The creatorId
     *
@@ -171,7 +171,7 @@ class Subscription extends Entity
     
     /**
     * Gets the encryptionCertificateId
-    * A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Optional. Required when includeResourceData is true.
+    * A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Optional.
     *
     * @return string|null The encryptionCertificateId
     */
@@ -186,7 +186,7 @@ class Subscription extends Entity
     
     /**
     * Sets the encryptionCertificateId
-    * A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Optional. Required when includeResourceData is true.
+    * A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Optional.
     *
     * @param string $val The encryptionCertificateId
     *
@@ -200,14 +200,14 @@ class Subscription extends Entity
     
     /**
     * Gets the expirationDateTime
-    * Specifies the date and time when the webhook subscription expires. The time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  See the table below for maximum supported subscription length of time. Required.
+    * Required. Specifies the date and time when the webhook subscription expires. The time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  See the table below for maximum supported subscription length of time.
     *
     * @return \DateTime|null The expirationDateTime
     */
     public function getExpirationDateTime()
     {
-        if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+        if (array_key_exists("expirationDateTime", $this->_propDict) && !is_null($this->_propDict["expirationDateTime"])) {
+            if (is_a($this->_propDict["expirationDateTime"], "\DateTime")) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -219,7 +219,7 @@ class Subscription extends Entity
     
     /**
     * Sets the expirationDateTime
-    * Specifies the date and time when the webhook subscription expires. The time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  See the table below for maximum supported subscription length of time. Required.
+    * Required. Specifies the date and time when the webhook subscription expires. The time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  See the table below for maximum supported subscription length of time.
     *
     * @param \DateTime $val The expirationDateTime
     *
@@ -378,7 +378,7 @@ class Subscription extends Entity
     
     /**
     * Gets the notificationUrl
-    * The URL of the endpoint that receives the change notifications. This URL must make use of the HTTPS protocol. Required.
+    * Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol.
     *
     * @return string|null The notificationUrl
     */
@@ -393,7 +393,7 @@ class Subscription extends Entity
     
     /**
     * Sets the notificationUrl
-    * The URL of the endpoint that receives the change notifications. This URL must make use of the HTTPS protocol. Required.
+    * Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol.
     *
     * @param string $val The notificationUrl
     *
@@ -406,8 +406,35 @@ class Subscription extends Entity
     }
     
     /**
+    * Gets the notificationUrlAppId
+    *
+    * @return string|null The notificationUrlAppId
+    */
+    public function getNotificationUrlAppId()
+    {
+        if (array_key_exists("notificationUrlAppId", $this->_propDict)) {
+            return $this->_propDict["notificationUrlAppId"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the notificationUrlAppId
+    *
+    * @param string $val The notificationUrlAppId
+    *
+    * @return Subscription
+    */
+    public function setNotificationUrlAppId($val)
+    {
+        $this->_propDict["notificationUrlAppId"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the resource
-    * Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/beta/). See the possible resource path values for each supported resource. Required.
+    * Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
     *
     * @return string|null The resource
     */
@@ -422,7 +449,7 @@ class Subscription extends Entity
     
     /**
     * Sets the resource
-    * Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/beta/). See the possible resource path values for each supported resource. Required.
+    * Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
     *
     * @param string $val The resource
     *

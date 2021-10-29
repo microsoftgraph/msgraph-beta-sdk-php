@@ -56,18 +56,22 @@ class UserRegistrationFeatureSummary extends Entity
     * Gets the userRegistrationFeatureCounts
     * Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication.
     *
-    * @return UserRegistrationFeatureCount|null The userRegistrationFeatureCounts
+    * @return UserRegistrationFeatureCount[]|null The userRegistrationFeatureCounts
     */
     public function getUserRegistrationFeatureCounts()
     {
-        if (array_key_exists("userRegistrationFeatureCounts", $this->_propDict)) {
-            if (is_a($this->_propDict["userRegistrationFeatureCounts"], "\Beta\Microsoft\Graph\Model\UserRegistrationFeatureCount") || is_null($this->_propDict["userRegistrationFeatureCounts"])) {
-                return $this->_propDict["userRegistrationFeatureCounts"];
-            } else {
-                $this->_propDict["userRegistrationFeatureCounts"] = new UserRegistrationFeatureCount($this->_propDict["userRegistrationFeatureCounts"]);
-                return $this->_propDict["userRegistrationFeatureCounts"];
+        if (array_key_exists("userRegistrationFeatureCounts", $this->_propDict) && !is_null($this->_propDict["userRegistrationFeatureCounts"])) {
+       
+            if (count($this->_propDict['userRegistrationFeatureCounts']) > 0 && is_a($this->_propDict['userRegistrationFeatureCounts'][0], 'UserRegistrationFeatureCount')) {
+               return $this->_propDict['userRegistrationFeatureCounts'];
             }
-        }
+            $userRegistrationFeatureCounts = [];
+            foreach ($this->_propDict['userRegistrationFeatureCounts'] as $singleValue) {
+               $userRegistrationFeatureCounts []= new UserRegistrationFeatureCount($singleValue);
+            }
+            $this->_propDict['userRegistrationFeatureCounts'] = $userRegistrationFeatureCounts;
+            return $this->_propDict['userRegistrationFeatureCounts'];
+            }
         return null;
     }
 
@@ -75,7 +79,7 @@ class UserRegistrationFeatureSummary extends Entity
     * Sets the userRegistrationFeatureCounts
     * Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication.
     *
-    * @param UserRegistrationFeatureCount $val The value to assign to the userRegistrationFeatureCounts
+    * @param UserRegistrationFeatureCount[] $val The value to assign to the userRegistrationFeatureCounts
     *
     * @return UserRegistrationFeatureSummary The UserRegistrationFeatureSummary
     */
@@ -93,8 +97,9 @@ class UserRegistrationFeatureSummary extends Entity
     */
     public function getUserRoles()
     {
-        if (array_key_exists("userRoles", $this->_propDict)) {
-            if (is_a($this->_propDict["userRoles"], "\Beta\Microsoft\Graph\Model\IncludedUserRoles") || is_null($this->_propDict["userRoles"])) {
+        if (array_key_exists("userRoles", $this->_propDict) && !is_null($this->_propDict["userRoles"])) {
+     
+            if (is_a($this->_propDict["userRoles"], "\Beta\Microsoft\Graph\Model\IncludedUserRoles")) {
                 return $this->_propDict["userRoles"];
             } else {
                 $this->_propDict["userRoles"] = new IncludedUserRoles($this->_propDict["userRoles"]);
@@ -126,8 +131,9 @@ class UserRegistrationFeatureSummary extends Entity
     */
     public function getUserTypes()
     {
-        if (array_key_exists("userTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["userTypes"], "\Beta\Microsoft\Graph\Model\IncludedUserTypes") || is_null($this->_propDict["userTypes"])) {
+        if (array_key_exists("userTypes", $this->_propDict) && !is_null($this->_propDict["userTypes"])) {
+     
+            if (is_a($this->_propDict["userTypes"], "\Beta\Microsoft\Graph\Model\IncludedUserTypes")) {
                 return $this->_propDict["userTypes"];
             } else {
                 $this->_propDict["userTypes"] = new IncludedUserTypes($this->_propDict["userTypes"]);

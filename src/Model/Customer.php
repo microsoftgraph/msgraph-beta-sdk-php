@@ -31,8 +31,8 @@ class Customer extends Entity
     */
     public function getAddress()
     {
-        if (array_key_exists("address", $this->_propDict)) {
-            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PostalAddressType") || is_null($this->_propDict["address"])) {
+        if (array_key_exists("address", $this->_propDict) && !is_null($this->_propDict["address"])) {
+            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PostalAddressType")) {
                 return $this->_propDict["address"];
             } else {
                 $this->_propDict["address"] = new PostalAddressType($this->_propDict["address"]);
@@ -197,8 +197,8 @@ class Customer extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -525,8 +525,8 @@ class Customer extends Entity
     */
     public function getCurrency()
     {
-        if (array_key_exists("currency", $this->_propDict)) {
-            if (is_a($this->_propDict["currency"], "\Beta\Microsoft\Graph\Model\Currency") || is_null($this->_propDict["currency"])) {
+        if (array_key_exists("currency", $this->_propDict) && !is_null($this->_propDict["currency"])) {
+            if (is_a($this->_propDict["currency"], "\Beta\Microsoft\Graph\Model\Currency")) {
                 return $this->_propDict["currency"];
             } else {
                 $this->_propDict["currency"] = new Currency($this->_propDict["currency"]);
@@ -556,8 +556,8 @@ class Customer extends Entity
     */
     public function getPaymentMethod()
     {
-        if (array_key_exists("paymentMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["paymentMethod"], "\Beta\Microsoft\Graph\Model\PaymentMethod") || is_null($this->_propDict["paymentMethod"])) {
+        if (array_key_exists("paymentMethod", $this->_propDict) && !is_null($this->_propDict["paymentMethod"])) {
+            if (is_a($this->_propDict["paymentMethod"], "\Beta\Microsoft\Graph\Model\PaymentMethod")) {
                 return $this->_propDict["paymentMethod"];
             } else {
                 $this->_propDict["paymentMethod"] = new PaymentMethod($this->_propDict["paymentMethod"]);
@@ -587,8 +587,8 @@ class Customer extends Entity
     */
     public function getPaymentTerm()
     {
-        if (array_key_exists("paymentTerm", $this->_propDict)) {
-            if (is_a($this->_propDict["paymentTerm"], "\Beta\Microsoft\Graph\Model\PaymentTerm") || is_null($this->_propDict["paymentTerm"])) {
+        if (array_key_exists("paymentTerm", $this->_propDict) && !is_null($this->_propDict["paymentTerm"])) {
+            if (is_a($this->_propDict["paymentTerm"], "\Beta\Microsoft\Graph\Model\PaymentTerm")) {
                 return $this->_propDict["paymentTerm"];
             } else {
                 $this->_propDict["paymentTerm"] = new PaymentTerm($this->_propDict["paymentTerm"]);
@@ -615,21 +615,28 @@ class Customer extends Entity
      /** 
      * Gets the picture
      *
-     * @return array|null The picture
+     * @return Picture[]|null The picture
      */
     public function getPicture()
     {
-        if (array_key_exists("picture", $this->_propDict)) {
-           return $this->_propDict["picture"];
-        } else {
-            return null;
+        if (array_key_exists('picture', $this->_propDict) && !is_null($this->_propDict['picture'])) {
+            $picture = [];
+            if (count($this->_propDict['picture']) > 0 && is_a($this->_propDict['picture'][0], 'Picture')) {
+                return $this->_propDict['picture'];
+            }
+            foreach ($this->_propDict['picture'] as $singleValue) {
+                $picture []= new Picture($singleValue);
+            }
+            $this->_propDict['picture'] = $picture;
+            return $this->_propDict['picture'];
         }
+        return null;
     }
     
     /** 
     * Sets the picture
     *
-    * @param Picture $val The picture
+    * @param Picture[] $val The picture
     *
     * @return Customer
     */
@@ -646,8 +653,8 @@ class Customer extends Entity
     */
     public function getShipmentMethod()
     {
-        if (array_key_exists("shipmentMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["shipmentMethod"], "\Beta\Microsoft\Graph\Model\ShipmentMethod") || is_null($this->_propDict["shipmentMethod"])) {
+        if (array_key_exists("shipmentMethod", $this->_propDict) && !is_null($this->_propDict["shipmentMethod"])) {
+            if (is_a($this->_propDict["shipmentMethod"], "\Beta\Microsoft\Graph\Model\ShipmentMethod")) {
                 return $this->_propDict["shipmentMethod"];
             } else {
                 $this->_propDict["shipmentMethod"] = new ShipmentMethod($this->_propDict["shipmentMethod"]);

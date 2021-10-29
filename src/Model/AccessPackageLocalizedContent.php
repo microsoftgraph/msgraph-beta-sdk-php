@@ -56,18 +56,22 @@ class AccessPackageLocalizedContent extends Entity
     * Gets the localizedTexts
     * Content represented in a format for a specific locale.
     *
-    * @return AccessPackageLocalizedText|null The localizedTexts
+    * @return AccessPackageLocalizedText[]|null The localizedTexts
     */
     public function getLocalizedTexts()
     {
-        if (array_key_exists("localizedTexts", $this->_propDict)) {
-            if (is_a($this->_propDict["localizedTexts"], "\Beta\Microsoft\Graph\Model\AccessPackageLocalizedText") || is_null($this->_propDict["localizedTexts"])) {
-                return $this->_propDict["localizedTexts"];
-            } else {
-                $this->_propDict["localizedTexts"] = new AccessPackageLocalizedText($this->_propDict["localizedTexts"]);
-                return $this->_propDict["localizedTexts"];
+        if (array_key_exists("localizedTexts", $this->_propDict) && !is_null($this->_propDict["localizedTexts"])) {
+       
+            if (count($this->_propDict['localizedTexts']) > 0 && is_a($this->_propDict['localizedTexts'][0], 'AccessPackageLocalizedText')) {
+               return $this->_propDict['localizedTexts'];
             }
-        }
+            $localizedTexts = [];
+            foreach ($this->_propDict['localizedTexts'] as $singleValue) {
+               $localizedTexts []= new AccessPackageLocalizedText($singleValue);
+            }
+            $this->_propDict['localizedTexts'] = $localizedTexts;
+            return $this->_propDict['localizedTexts'];
+            }
         return null;
     }
 
@@ -75,7 +79,7 @@ class AccessPackageLocalizedContent extends Entity
     * Sets the localizedTexts
     * Content represented in a format for a specific locale.
     *
-    * @param AccessPackageLocalizedText $val The value to assign to the localizedTexts
+    * @param AccessPackageLocalizedText[] $val The value to assign to the localizedTexts
     *
     * @return AccessPackageLocalizedContent The AccessPackageLocalizedContent
     */

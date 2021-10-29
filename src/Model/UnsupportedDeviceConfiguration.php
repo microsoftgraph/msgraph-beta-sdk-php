@@ -29,22 +29,29 @@ class UnsupportedDeviceConfiguration extends DeviceConfiguration
      * Gets the details
     * Details describing why the entity is unsupported. This collection can contain a maximum of 1000 elements.
      *
-     * @return array|null The details
+     * @return UnsupportedDeviceConfigurationDetail[]|null The details
      */
     public function getDetails()
     {
-        if (array_key_exists("details", $this->_propDict)) {
-           return $this->_propDict["details"];
-        } else {
-            return null;
+        if (array_key_exists('details', $this->_propDict) && !is_null($this->_propDict['details'])) {
+            $details = [];
+            if (count($this->_propDict['details']) > 0 && is_a($this->_propDict['details'][0], 'UnsupportedDeviceConfigurationDetail')) {
+                return $this->_propDict['details'];
+            }
+            foreach ($this->_propDict['details'] as $singleValue) {
+                $details []= new UnsupportedDeviceConfigurationDetail($singleValue);
+            }
+            $this->_propDict['details'] = $details;
+            return $this->_propDict['details'];
         }
+        return null;
     }
     
     /** 
     * Sets the details
     * Details describing why the entity is unsupported. This collection can contain a maximum of 1000 elements.
     *
-    * @param UnsupportedDeviceConfigurationDetail $val The details
+    * @param UnsupportedDeviceConfigurationDetail[] $val The details
     *
     * @return UnsupportedDeviceConfiguration
     */

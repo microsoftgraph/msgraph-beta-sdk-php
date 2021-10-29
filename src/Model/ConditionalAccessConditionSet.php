@@ -32,8 +32,9 @@ class ConditionalAccessConditionSet extends Entity
     */
     public function getApplications()
     {
-        if (array_key_exists("applications", $this->_propDict)) {
-            if (is_a($this->_propDict["applications"], "\Beta\Microsoft\Graph\Model\ConditionalAccessApplications") || is_null($this->_propDict["applications"])) {
+        if (array_key_exists("applications", $this->_propDict) && !is_null($this->_propDict["applications"])) {
+     
+            if (is_a($this->_propDict["applications"], "\Beta\Microsoft\Graph\Model\ConditionalAccessApplications")) {
                 return $this->_propDict["applications"];
             } else {
                 $this->_propDict["applications"] = new ConditionalAccessApplications($this->_propDict["applications"]);
@@ -64,8 +65,9 @@ class ConditionalAccessConditionSet extends Entity
     */
     public function getClientApplications()
     {
-        if (array_key_exists("clientApplications", $this->_propDict)) {
-            if (is_a($this->_propDict["clientApplications"], "\Beta\Microsoft\Graph\Model\ConditionalAccessClientApplications") || is_null($this->_propDict["clientApplications"])) {
+        if (array_key_exists("clientApplications", $this->_propDict) && !is_null($this->_propDict["clientApplications"])) {
+     
+            if (is_a($this->_propDict["clientApplications"], "\Beta\Microsoft\Graph\Model\ConditionalAccessClientApplications")) {
                 return $this->_propDict["clientApplications"];
             } else {
                 $this->_propDict["clientApplications"] = new ConditionalAccessClientApplications($this->_propDict["clientApplications"]);
@@ -92,18 +94,22 @@ class ConditionalAccessConditionSet extends Entity
     * Gets the clientAppTypes
     * Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.
     *
-    * @return ConditionalAccessClientApp|null The clientAppTypes
+    * @return ConditionalAccessClientApp[]|null The clientAppTypes
     */
     public function getClientAppTypes()
     {
-        if (array_key_exists("clientAppTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["clientAppTypes"], "\Beta\Microsoft\Graph\Model\ConditionalAccessClientApp") || is_null($this->_propDict["clientAppTypes"])) {
-                return $this->_propDict["clientAppTypes"];
-            } else {
-                $this->_propDict["clientAppTypes"] = new ConditionalAccessClientApp($this->_propDict["clientAppTypes"]);
-                return $this->_propDict["clientAppTypes"];
+        if (array_key_exists("clientAppTypes", $this->_propDict) && !is_null($this->_propDict["clientAppTypes"])) {
+       
+            if (count($this->_propDict['clientAppTypes']) > 0 && is_a($this->_propDict['clientAppTypes'][0], 'ConditionalAccessClientApp')) {
+               return $this->_propDict['clientAppTypes'];
             }
-        }
+            $clientAppTypes = [];
+            foreach ($this->_propDict['clientAppTypes'] as $singleValue) {
+               $clientAppTypes []= new ConditionalAccessClientApp($singleValue);
+            }
+            $this->_propDict['clientAppTypes'] = $clientAppTypes;
+            return $this->_propDict['clientAppTypes'];
+            }
         return null;
     }
 
@@ -111,7 +117,7 @@ class ConditionalAccessConditionSet extends Entity
     * Sets the clientAppTypes
     * Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.
     *
-    * @param ConditionalAccessClientApp $val The value to assign to the clientAppTypes
+    * @param ConditionalAccessClientApp[] $val The value to assign to the clientAppTypes
     *
     * @return ConditionalAccessConditionSet The ConditionalAccessConditionSet
     */
@@ -129,8 +135,9 @@ class ConditionalAccessConditionSet extends Entity
     */
     public function getDevices()
     {
-        if (array_key_exists("devices", $this->_propDict)) {
-            if (is_a($this->_propDict["devices"], "\Beta\Microsoft\Graph\Model\ConditionalAccessDevices") || is_null($this->_propDict["devices"])) {
+        if (array_key_exists("devices", $this->_propDict) && !is_null($this->_propDict["devices"])) {
+     
+            if (is_a($this->_propDict["devices"], "\Beta\Microsoft\Graph\Model\ConditionalAccessDevices")) {
                 return $this->_propDict["devices"];
             } else {
                 $this->_propDict["devices"] = new ConditionalAccessDevices($this->_propDict["devices"]);
@@ -162,8 +169,9 @@ class ConditionalAccessConditionSet extends Entity
     */
     public function getDeviceStates()
     {
-        if (array_key_exists("deviceStates", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceStates"], "\Beta\Microsoft\Graph\Model\ConditionalAccessDeviceStates") || is_null($this->_propDict["deviceStates"])) {
+        if (array_key_exists("deviceStates", $this->_propDict) && !is_null($this->_propDict["deviceStates"])) {
+     
+            if (is_a($this->_propDict["deviceStates"], "\Beta\Microsoft\Graph\Model\ConditionalAccessDeviceStates")) {
                 return $this->_propDict["deviceStates"];
             } else {
                 $this->_propDict["deviceStates"] = new ConditionalAccessDeviceStates($this->_propDict["deviceStates"]);
@@ -195,8 +203,9 @@ class ConditionalAccessConditionSet extends Entity
     */
     public function getLocations()
     {
-        if (array_key_exists("locations", $this->_propDict)) {
-            if (is_a($this->_propDict["locations"], "\Beta\Microsoft\Graph\Model\ConditionalAccessLocations") || is_null($this->_propDict["locations"])) {
+        if (array_key_exists("locations", $this->_propDict) && !is_null($this->_propDict["locations"])) {
+     
+            if (is_a($this->_propDict["locations"], "\Beta\Microsoft\Graph\Model\ConditionalAccessLocations")) {
                 return $this->_propDict["locations"];
             } else {
                 $this->_propDict["locations"] = new ConditionalAccessLocations($this->_propDict["locations"]);
@@ -228,8 +237,9 @@ class ConditionalAccessConditionSet extends Entity
     */
     public function getPlatforms()
     {
-        if (array_key_exists("platforms", $this->_propDict)) {
-            if (is_a($this->_propDict["platforms"], "\Beta\Microsoft\Graph\Model\ConditionalAccessPlatforms") || is_null($this->_propDict["platforms"])) {
+        if (array_key_exists("platforms", $this->_propDict) && !is_null($this->_propDict["platforms"])) {
+     
+            if (is_a($this->_propDict["platforms"], "\Beta\Microsoft\Graph\Model\ConditionalAccessPlatforms")) {
                 return $this->_propDict["platforms"];
             } else {
                 $this->_propDict["platforms"] = new ConditionalAccessPlatforms($this->_propDict["platforms"]);
@@ -257,18 +267,22 @@ class ConditionalAccessConditionSet extends Entity
     * Gets the signInRiskLevels
     * Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
     *
-    * @return RiskLevel|null The signInRiskLevels
+    * @return RiskLevel[]|null The signInRiskLevels
     */
     public function getSignInRiskLevels()
     {
-        if (array_key_exists("signInRiskLevels", $this->_propDict)) {
-            if (is_a($this->_propDict["signInRiskLevels"], "\Beta\Microsoft\Graph\Model\RiskLevel") || is_null($this->_propDict["signInRiskLevels"])) {
-                return $this->_propDict["signInRiskLevels"];
-            } else {
-                $this->_propDict["signInRiskLevels"] = new RiskLevel($this->_propDict["signInRiskLevels"]);
-                return $this->_propDict["signInRiskLevels"];
+        if (array_key_exists("signInRiskLevels", $this->_propDict) && !is_null($this->_propDict["signInRiskLevels"])) {
+       
+            if (count($this->_propDict['signInRiskLevels']) > 0 && is_a($this->_propDict['signInRiskLevels'][0], 'RiskLevel')) {
+               return $this->_propDict['signInRiskLevels'];
             }
-        }
+            $signInRiskLevels = [];
+            foreach ($this->_propDict['signInRiskLevels'] as $singleValue) {
+               $signInRiskLevels []= new RiskLevel($singleValue);
+            }
+            $this->_propDict['signInRiskLevels'] = $signInRiskLevels;
+            return $this->_propDict['signInRiskLevels'];
+            }
         return null;
     }
 
@@ -276,7 +290,7 @@ class ConditionalAccessConditionSet extends Entity
     * Sets the signInRiskLevels
     * Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
     *
-    * @param RiskLevel $val The value to assign to the signInRiskLevels
+    * @param RiskLevel[] $val The value to assign to the signInRiskLevels
     *
     * @return ConditionalAccessConditionSet The ConditionalAccessConditionSet
     */
@@ -290,18 +304,22 @@ class ConditionalAccessConditionSet extends Entity
     * Gets the userRiskLevels
     * User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
     *
-    * @return RiskLevel|null The userRiskLevels
+    * @return RiskLevel[]|null The userRiskLevels
     */
     public function getUserRiskLevels()
     {
-        if (array_key_exists("userRiskLevels", $this->_propDict)) {
-            if (is_a($this->_propDict["userRiskLevels"], "\Beta\Microsoft\Graph\Model\RiskLevel") || is_null($this->_propDict["userRiskLevels"])) {
-                return $this->_propDict["userRiskLevels"];
-            } else {
-                $this->_propDict["userRiskLevels"] = new RiskLevel($this->_propDict["userRiskLevels"]);
-                return $this->_propDict["userRiskLevels"];
+        if (array_key_exists("userRiskLevels", $this->_propDict) && !is_null($this->_propDict["userRiskLevels"])) {
+       
+            if (count($this->_propDict['userRiskLevels']) > 0 && is_a($this->_propDict['userRiskLevels'][0], 'RiskLevel')) {
+               return $this->_propDict['userRiskLevels'];
             }
-        }
+            $userRiskLevels = [];
+            foreach ($this->_propDict['userRiskLevels'] as $singleValue) {
+               $userRiskLevels []= new RiskLevel($singleValue);
+            }
+            $this->_propDict['userRiskLevels'] = $userRiskLevels;
+            return $this->_propDict['userRiskLevels'];
+            }
         return null;
     }
 
@@ -309,7 +327,7 @@ class ConditionalAccessConditionSet extends Entity
     * Sets the userRiskLevels
     * User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
     *
-    * @param RiskLevel $val The value to assign to the userRiskLevels
+    * @param RiskLevel[] $val The value to assign to the userRiskLevels
     *
     * @return ConditionalAccessConditionSet The ConditionalAccessConditionSet
     */
@@ -327,8 +345,9 @@ class ConditionalAccessConditionSet extends Entity
     */
     public function getUsers()
     {
-        if (array_key_exists("users", $this->_propDict)) {
-            if (is_a($this->_propDict["users"], "\Beta\Microsoft\Graph\Model\ConditionalAccessUsers") || is_null($this->_propDict["users"])) {
+        if (array_key_exists("users", $this->_propDict) && !is_null($this->_propDict["users"])) {
+     
+            if (is_a($this->_propDict["users"], "\Beta\Microsoft\Graph\Model\ConditionalAccessUsers")) {
                 return $this->_propDict["users"];
             } else {
                 $this->_propDict["users"] = new ConditionalAccessUsers($this->_propDict["users"]);

@@ -29,22 +29,29 @@ class AttributeMappingFunctionSchema extends Entity
      * Gets the parameters
     * Collection of function parameters.
      *
-     * @return array|null The parameters
+     * @return AttributeMappingParameterSchema[]|null The parameters
      */
     public function getParameters()
     {
-        if (array_key_exists("parameters", $this->_propDict)) {
-           return $this->_propDict["parameters"];
-        } else {
-            return null;
+        if (array_key_exists('parameters', $this->_propDict) && !is_null($this->_propDict['parameters'])) {
+            $parameters = [];
+            if (count($this->_propDict['parameters']) > 0 && is_a($this->_propDict['parameters'][0], 'AttributeMappingParameterSchema')) {
+                return $this->_propDict['parameters'];
+            }
+            foreach ($this->_propDict['parameters'] as $singleValue) {
+                $parameters []= new AttributeMappingParameterSchema($singleValue);
+            }
+            $this->_propDict['parameters'] = $parameters;
+            return $this->_propDict['parameters'];
         }
+        return null;
     }
     
     /** 
     * Sets the parameters
     * Collection of function parameters.
     *
-    * @param AttributeMappingParameterSchema $val The parameters
+    * @param AttributeMappingParameterSchema[] $val The parameters
     *
     * @return AttributeMappingFunctionSchema
     */

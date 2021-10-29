@@ -61,8 +61,8 @@ class SourceCollection extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getCreatedBy()
     {
-        if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
+        if (array_key_exists("createdBy", $this->_propDict) && !is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new \Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["createdBy"]);
@@ -94,8 +94,8 @@ class SourceCollection extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -127,8 +127,8 @@ class SourceCollection extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getDataSourceScopes()
     {
-        if (array_key_exists("dataSourceScopes", $this->_propDict)) {
-            if (is_a($this->_propDict["dataSourceScopes"], "\Beta\Microsoft\Graph\Ediscovery\Model\DataSourceScopes") || is_null($this->_propDict["dataSourceScopes"])) {
+        if (array_key_exists("dataSourceScopes", $this->_propDict) && !is_null($this->_propDict["dataSourceScopes"])) {
+            if (is_a($this->_propDict["dataSourceScopes"], "\Beta\Microsoft\Graph\Ediscovery\Model\DataSourceScopes")) {
                 return $this->_propDict["dataSourceScopes"];
             } else {
                 $this->_propDict["dataSourceScopes"] = new DataSourceScopes($this->_propDict["dataSourceScopes"]);
@@ -218,8 +218,8 @@ class SourceCollection extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastModifiedBy()
     {
-        if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
+        if (array_key_exists("lastModifiedBy", $this->_propDict) && !is_null($this->_propDict["lastModifiedBy"])) {
+            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["lastModifiedBy"];
             } else {
                 $this->_propDict["lastModifiedBy"] = new \Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["lastModifiedBy"]);
@@ -251,8 +251,8 @@ class SourceCollection extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -281,22 +281,29 @@ class SourceCollection extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the additionalSources
     * Adds an additional source to the sourceCollection.
      *
-     * @return array|null The additionalSources
+     * @return DataSource[]|null The additionalSources
      */
     public function getAdditionalSources()
     {
-        if (array_key_exists("additionalSources", $this->_propDict)) {
-           return $this->_propDict["additionalSources"];
-        } else {
-            return null;
+        if (array_key_exists('additionalSources', $this->_propDict) && !is_null($this->_propDict['additionalSources'])) {
+            $additionalSources = [];
+            if (count($this->_propDict['additionalSources']) > 0 && is_a($this->_propDict['additionalSources'][0], 'DataSource')) {
+                return $this->_propDict['additionalSources'];
+            }
+            foreach ($this->_propDict['additionalSources'] as $singleValue) {
+                $additionalSources []= new DataSource($singleValue);
+            }
+            $this->_propDict['additionalSources'] = $additionalSources;
+            return $this->_propDict['additionalSources'];
         }
+        return null;
     }
     
     /** 
     * Sets the additionalSources
     * Adds an additional source to the sourceCollection.
     *
-    * @param DataSource $val The additionalSources
+    * @param DataSource[] $val The additionalSources
     *
     * @return SourceCollection
     */
@@ -314,8 +321,8 @@ class SourceCollection extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getAddToReviewSetOperation()
     {
-        if (array_key_exists("addToReviewSetOperation", $this->_propDict)) {
-            if (is_a($this->_propDict["addToReviewSetOperation"], "\Beta\Microsoft\Graph\Ediscovery\Model\AddToReviewSetOperation") || is_null($this->_propDict["addToReviewSetOperation"])) {
+        if (array_key_exists("addToReviewSetOperation", $this->_propDict) && !is_null($this->_propDict["addToReviewSetOperation"])) {
+            if (is_a($this->_propDict["addToReviewSetOperation"], "\Beta\Microsoft\Graph\Ediscovery\Model\AddToReviewSetOperation")) {
                 return $this->_propDict["addToReviewSetOperation"];
             } else {
                 $this->_propDict["addToReviewSetOperation"] = new AddToReviewSetOperation($this->_propDict["addToReviewSetOperation"]);
@@ -344,22 +351,29 @@ class SourceCollection extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the custodianSources
     * Custodian sources that are included in the sourceCollection.
      *
-     * @return array|null The custodianSources
+     * @return DataSource[]|null The custodianSources
      */
     public function getCustodianSources()
     {
-        if (array_key_exists("custodianSources", $this->_propDict)) {
-           return $this->_propDict["custodianSources"];
-        } else {
-            return null;
+        if (array_key_exists('custodianSources', $this->_propDict) && !is_null($this->_propDict['custodianSources'])) {
+            $custodianSources = [];
+            if (count($this->_propDict['custodianSources']) > 0 && is_a($this->_propDict['custodianSources'][0], 'DataSource')) {
+                return $this->_propDict['custodianSources'];
+            }
+            foreach ($this->_propDict['custodianSources'] as $singleValue) {
+                $custodianSources []= new DataSource($singleValue);
+            }
+            $this->_propDict['custodianSources'] = $custodianSources;
+            return $this->_propDict['custodianSources'];
         }
+        return null;
     }
     
     /** 
     * Sets the custodianSources
     * Custodian sources that are included in the sourceCollection.
     *
-    * @param DataSource $val The custodianSources
+    * @param DataSource[] $val The custodianSources
     *
     * @return SourceCollection
     */
@@ -377,8 +391,8 @@ class SourceCollection extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getLastEstimateStatisticsOperation()
     {
-        if (array_key_exists("lastEstimateStatisticsOperation", $this->_propDict)) {
-            if (is_a($this->_propDict["lastEstimateStatisticsOperation"], "\Beta\Microsoft\Graph\Ediscovery\Model\EstimateStatisticsOperation") || is_null($this->_propDict["lastEstimateStatisticsOperation"])) {
+        if (array_key_exists("lastEstimateStatisticsOperation", $this->_propDict) && !is_null($this->_propDict["lastEstimateStatisticsOperation"])) {
+            if (is_a($this->_propDict["lastEstimateStatisticsOperation"], "\Beta\Microsoft\Graph\Ediscovery\Model\EstimateStatisticsOperation")) {
                 return $this->_propDict["lastEstimateStatisticsOperation"];
             } else {
                 $this->_propDict["lastEstimateStatisticsOperation"] = new EstimateStatisticsOperation($this->_propDict["lastEstimateStatisticsOperation"]);
@@ -407,22 +421,29 @@ class SourceCollection extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the noncustodialSources
     * noncustodialDataSource sources that are included in the sourceCollection
      *
-     * @return array|null The noncustodialSources
+     * @return NoncustodialDataSource[]|null The noncustodialSources
      */
     public function getNoncustodialSources()
     {
-        if (array_key_exists("noncustodialSources", $this->_propDict)) {
-           return $this->_propDict["noncustodialSources"];
-        } else {
-            return null;
+        if (array_key_exists('noncustodialSources', $this->_propDict) && !is_null($this->_propDict['noncustodialSources'])) {
+            $noncustodialSources = [];
+            if (count($this->_propDict['noncustodialSources']) > 0 && is_a($this->_propDict['noncustodialSources'][0], 'NoncustodialDataSource')) {
+                return $this->_propDict['noncustodialSources'];
+            }
+            foreach ($this->_propDict['noncustodialSources'] as $singleValue) {
+                $noncustodialSources []= new NoncustodialDataSource($singleValue);
+            }
+            $this->_propDict['noncustodialSources'] = $noncustodialSources;
+            return $this->_propDict['noncustodialSources'];
         }
+        return null;
     }
     
     /** 
     * Sets the noncustodialSources
     * noncustodialDataSource sources that are included in the sourceCollection
     *
-    * @param NoncustodialDataSource $val The noncustodialSources
+    * @param NoncustodialDataSource[] $val The noncustodialSources
     *
     * @return SourceCollection
     */

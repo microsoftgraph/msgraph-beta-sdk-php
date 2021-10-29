@@ -88,8 +88,9 @@ class SecurityBaselineContributingPolicy extends Entity
     */
     public function getSourceType()
     {
-        if (array_key_exists("sourceType", $this->_propDict)) {
-            if (is_a($this->_propDict["sourceType"], "\Beta\Microsoft\Graph\Model\SecurityBaselinePolicySourceType") || is_null($this->_propDict["sourceType"])) {
+        if (array_key_exists("sourceType", $this->_propDict) && !is_null($this->_propDict["sourceType"])) {
+     
+            if (is_a($this->_propDict["sourceType"], "\Beta\Microsoft\Graph\Model\SecurityBaselinePolicySourceType")) {
                 return $this->_propDict["sourceType"];
             } else {
                 $this->_propDict["sourceType"] = new SecurityBaselinePolicySourceType($this->_propDict["sourceType"]);

@@ -25,6 +25,7 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
 {
     /**
     * Gets the caller
+    * The caller for the policy rule target. Allowed values are: None, Admin, EndUser.
     *
     * @return string|null The caller
     */
@@ -39,6 +40,7 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
 
     /**
     * Sets the caller
+    * The caller for the policy rule target. Allowed values are: None, Admin, EndUser.
     *
     * @param string $val The value of the caller
     *
@@ -51,6 +53,7 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
     }
     /**
     * Gets the enforcedSettings
+    * The list of settings which are enforced and cannot be overridden by child scopes. Use All for all settings.
     *
     * @return string|null The enforcedSettings
     */
@@ -65,8 +68,9 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
 
     /**
     * Sets the enforcedSettings
+    * The list of settings which are enforced and cannot be overridden by child scopes. Use All for all settings.
     *
-    * @param string $val The value of the enforcedSettings
+    * @param string[] $val The value of the enforcedSettings
     *
     * @return UnifiedRoleManagementPolicyRuleTarget
     */
@@ -77,6 +81,7 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
     }
     /**
     * Gets the inheritableSettings
+    * The list of settings which can be inherited by child scopes. Use All for all settings.
     *
     * @return string|null The inheritableSettings
     */
@@ -91,8 +96,9 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
 
     /**
     * Sets the inheritableSettings
+    * The list of settings which can be inherited by child scopes. Use All for all settings.
     *
-    * @param string $val The value of the inheritableSettings
+    * @param string[] $val The value of the inheritableSettings
     *
     * @return UnifiedRoleManagementPolicyRuleTarget
     */
@@ -103,6 +109,7 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
     }
     /**
     * Gets the level
+    * The level for the policy rule target. Allowed values are: Eligibility, Assignment.
     *
     * @return string|null The level
     */
@@ -117,6 +124,7 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
 
     /**
     * Sets the level
+    * The level for the policy rule target. Allowed values are: Eligibility, Assignment.
     *
     * @param string $val The value of the level
     *
@@ -129,6 +137,7 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
     }
     /**
     * Gets the operations
+    * The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
     *
     * @return string|null The operations
     */
@@ -143,8 +152,9 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
 
     /**
     * Sets the operations
+    * The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
     *
-    * @param string $val The value of the operations
+    * @param string[] $val The value of the operations
     *
     * @return UnifiedRoleManagementPolicyRuleTarget
     */
@@ -157,25 +167,29 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
     /**
     * Gets the targetObjects
     *
-    * @return DirectoryObject|null The targetObjects
+    * @return DirectoryObject[]|null The targetObjects
     */
     public function getTargetObjects()
     {
-        if (array_key_exists("targetObjects", $this->_propDict)) {
-            if (is_a($this->_propDict["targetObjects"], "\Beta\Microsoft\Graph\Model\DirectoryObject") || is_null($this->_propDict["targetObjects"])) {
-                return $this->_propDict["targetObjects"];
-            } else {
-                $this->_propDict["targetObjects"] = new DirectoryObject($this->_propDict["targetObjects"]);
-                return $this->_propDict["targetObjects"];
+        if (array_key_exists("targetObjects", $this->_propDict) && !is_null($this->_propDict["targetObjects"])) {
+       
+            if (count($this->_propDict['targetObjects']) > 0 && is_a($this->_propDict['targetObjects'][0], 'DirectoryObject')) {
+               return $this->_propDict['targetObjects'];
             }
-        }
+            $targetObjects = [];
+            foreach ($this->_propDict['targetObjects'] as $singleValue) {
+               $targetObjects []= new DirectoryObject($singleValue);
+            }
+            $this->_propDict['targetObjects'] = $targetObjects;
+            return $this->_propDict['targetObjects'];
+            }
         return null;
     }
 
     /**
     * Sets the targetObjects
     *
-    * @param DirectoryObject $val The value to assign to the targetObjects
+    * @param DirectoryObject[] $val The value to assign to the targetObjects
     *
     * @return UnifiedRoleManagementPolicyRuleTarget The UnifiedRoleManagementPolicyRuleTarget
     */

@@ -90,8 +90,8 @@ class ItemEmail extends ItemFacet
     */
     public function getType()
     {
-        if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\EmailType") || is_null($this->_propDict["type"])) {
+        if (array_key_exists("type", $this->_propDict) && !is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\EmailType")) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new EmailType($this->_propDict["type"]);

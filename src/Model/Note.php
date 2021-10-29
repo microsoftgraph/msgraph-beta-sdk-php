@@ -31,8 +31,8 @@ class Note extends OutlookItem
     */
     public function getBody()
     {
-        if (array_key_exists("body", $this->_propDict)) {
-            if (is_a($this->_propDict["body"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["body"])) {
+        if (array_key_exists("body", $this->_propDict) && !is_null($this->_propDict["body"])) {
+            if (is_a($this->_propDict["body"], "\Beta\Microsoft\Graph\Model\ItemBody")) {
                 return $this->_propDict["body"];
             } else {
                 $this->_propDict["body"] = new ItemBody($this->_propDict["body"]);
@@ -140,21 +140,28 @@ class Note extends OutlookItem
      /** 
      * Gets the attachments
      *
-     * @return array|null The attachments
+     * @return Attachment[]|null The attachments
      */
     public function getAttachments()
     {
-        if (array_key_exists("attachments", $this->_propDict)) {
-           return $this->_propDict["attachments"];
-        } else {
-            return null;
+        if (array_key_exists('attachments', $this->_propDict) && !is_null($this->_propDict['attachments'])) {
+            $attachments = [];
+            if (count($this->_propDict['attachments']) > 0 && is_a($this->_propDict['attachments'][0], 'Attachment')) {
+                return $this->_propDict['attachments'];
+            }
+            foreach ($this->_propDict['attachments'] as $singleValue) {
+                $attachments []= new Attachment($singleValue);
+            }
+            $this->_propDict['attachments'] = $attachments;
+            return $this->_propDict['attachments'];
         }
+        return null;
     }
     
     /** 
     * Sets the attachments
     *
-    * @param Attachment $val The attachments
+    * @param Attachment[] $val The attachments
     *
     * @return Note
     */
@@ -168,21 +175,28 @@ class Note extends OutlookItem
      /** 
      * Gets the extensions
      *
-     * @return array|null The extensions
+     * @return Extension[]|null The extensions
      */
     public function getExtensions()
     {
-        if (array_key_exists("extensions", $this->_propDict)) {
-           return $this->_propDict["extensions"];
-        } else {
-            return null;
+        if (array_key_exists('extensions', $this->_propDict) && !is_null($this->_propDict['extensions'])) {
+            $extensions = [];
+            if (count($this->_propDict['extensions']) > 0 && is_a($this->_propDict['extensions'][0], 'Extension')) {
+                return $this->_propDict['extensions'];
+            }
+            foreach ($this->_propDict['extensions'] as $singleValue) {
+                $extensions []= new Extension($singleValue);
+            }
+            $this->_propDict['extensions'] = $extensions;
+            return $this->_propDict['extensions'];
         }
+        return null;
     }
     
     /** 
     * Sets the extensions
     *
-    * @param Extension $val The extensions
+    * @param Extension[] $val The extensions
     *
     * @return Note
     */
@@ -196,21 +210,28 @@ class Note extends OutlookItem
      /** 
      * Gets the multiValueExtendedProperties
      *
-     * @return array|null The multiValueExtendedProperties
+     * @return MultiValueLegacyExtendedProperty[]|null The multiValueExtendedProperties
      */
     public function getMultiValueExtendedProperties()
     {
-        if (array_key_exists("multiValueExtendedProperties", $this->_propDict)) {
-           return $this->_propDict["multiValueExtendedProperties"];
-        } else {
-            return null;
+        if (array_key_exists('multiValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['multiValueExtendedProperties'])) {
+            $multiValueExtendedProperties = [];
+            if (count($this->_propDict['multiValueExtendedProperties']) > 0 && is_a($this->_propDict['multiValueExtendedProperties'][0], 'MultiValueLegacyExtendedProperty')) {
+                return $this->_propDict['multiValueExtendedProperties'];
+            }
+            foreach ($this->_propDict['multiValueExtendedProperties'] as $singleValue) {
+                $multiValueExtendedProperties []= new MultiValueLegacyExtendedProperty($singleValue);
+            }
+            $this->_propDict['multiValueExtendedProperties'] = $multiValueExtendedProperties;
+            return $this->_propDict['multiValueExtendedProperties'];
         }
+        return null;
     }
     
     /** 
     * Sets the multiValueExtendedProperties
     *
-    * @param MultiValueLegacyExtendedProperty $val The multiValueExtendedProperties
+    * @param MultiValueLegacyExtendedProperty[] $val The multiValueExtendedProperties
     *
     * @return Note
     */
@@ -224,21 +245,28 @@ class Note extends OutlookItem
      /** 
      * Gets the singleValueExtendedProperties
      *
-     * @return array|null The singleValueExtendedProperties
+     * @return SingleValueLegacyExtendedProperty[]|null The singleValueExtendedProperties
      */
     public function getSingleValueExtendedProperties()
     {
-        if (array_key_exists("singleValueExtendedProperties", $this->_propDict)) {
-           return $this->_propDict["singleValueExtendedProperties"];
-        } else {
-            return null;
+        if (array_key_exists('singleValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['singleValueExtendedProperties'])) {
+            $singleValueExtendedProperties = [];
+            if (count($this->_propDict['singleValueExtendedProperties']) > 0 && is_a($this->_propDict['singleValueExtendedProperties'][0], 'SingleValueLegacyExtendedProperty')) {
+                return $this->_propDict['singleValueExtendedProperties'];
+            }
+            foreach ($this->_propDict['singleValueExtendedProperties'] as $singleValue) {
+                $singleValueExtendedProperties []= new SingleValueLegacyExtendedProperty($singleValue);
+            }
+            $this->_propDict['singleValueExtendedProperties'] = $singleValueExtendedProperties;
+            return $this->_propDict['singleValueExtendedProperties'];
         }
+        return null;
     }
     
     /** 
     * Sets the singleValueExtendedProperties
     *
-    * @param SingleValueLegacyExtendedProperty $val The singleValueExtendedProperties
+    * @param SingleValueLegacyExtendedProperty[] $val The singleValueExtendedProperties
     *
     * @return Note
     */

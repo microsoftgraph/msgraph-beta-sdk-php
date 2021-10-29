@@ -32,8 +32,9 @@ class WindowsFirewallRule extends Entity
     */
     public function getAction()
     {
-        if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\StateManagementSetting") || is_null($this->_propDict["action"])) {
+        if (array_key_exists("action", $this->_propDict) && !is_null($this->_propDict["action"])) {
+     
+            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\StateManagementSetting")) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new StateManagementSetting($this->_propDict["action"]);
@@ -121,8 +122,9 @@ class WindowsFirewallRule extends Entity
     */
     public function getEdgeTraversal()
     {
-        if (array_key_exists("edgeTraversal", $this->_propDict)) {
-            if (is_a($this->_propDict["edgeTraversal"], "\Beta\Microsoft\Graph\Model\StateManagementSetting") || is_null($this->_propDict["edgeTraversal"])) {
+        if (array_key_exists("edgeTraversal", $this->_propDict) && !is_null($this->_propDict["edgeTraversal"])) {
+     
+            if (is_a($this->_propDict["edgeTraversal"], "\Beta\Microsoft\Graph\Model\StateManagementSetting")) {
                 return $this->_propDict["edgeTraversal"];
             } else {
                 $this->_propDict["edgeTraversal"] = new StateManagementSetting($this->_propDict["edgeTraversal"]);
@@ -182,8 +184,9 @@ class WindowsFirewallRule extends Entity
     */
     public function getInterfaceTypes()
     {
-        if (array_key_exists("interfaceTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["interfaceTypes"], "\Beta\Microsoft\Graph\Model\WindowsFirewallRuleInterfaceTypes") || is_null($this->_propDict["interfaceTypes"])) {
+        if (array_key_exists("interfaceTypes", $this->_propDict) && !is_null($this->_propDict["interfaceTypes"])) {
+     
+            if (is_a($this->_propDict["interfaceTypes"], "\Beta\Microsoft\Graph\Model\WindowsFirewallRuleInterfaceTypes")) {
                 return $this->_propDict["interfaceTypes"];
             } else {
                 $this->_propDict["interfaceTypes"] = new WindowsFirewallRuleInterfaceTypes($this->_propDict["interfaceTypes"]);
@@ -225,7 +228,7 @@ class WindowsFirewallRule extends Entity
     * Sets the localAddressRanges
     * List of local addresses covered by the rule. Default is any address. Valid tokens include:'' indicates any local address. If present, this must be the only token included.A subnet can be specified using either the subnet mask or network prefix notation. If neither a subnet mask nor a network prefix is specified, the subnet mask defaults to 255.255.255.255.A valid IPv6 address.An IPv4 address range in the format of 'start address - end address' with no spaces included.An IPv6 address range in the format of 'start address - end address' with no spaces included.
     *
-    * @param string $val The value of the localAddressRanges
+    * @param string[] $val The value of the localAddressRanges
     *
     * @return WindowsFirewallRule
     */
@@ -253,7 +256,7 @@ class WindowsFirewallRule extends Entity
     * Sets the localPortRanges
     * List of local port ranges. For example, '100-120', '200', '300-320'. If not specified, the default is All.
     *
-    * @param string $val The value of the localPortRanges
+    * @param string[] $val The value of the localPortRanges
     *
     * @return WindowsFirewallRule
     */
@@ -327,8 +330,9 @@ class WindowsFirewallRule extends Entity
     */
     public function getProfileTypes()
     {
-        if (array_key_exists("profileTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["profileTypes"], "\Beta\Microsoft\Graph\Model\WindowsFirewallRuleNetworkProfileTypes") || is_null($this->_propDict["profileTypes"])) {
+        if (array_key_exists("profileTypes", $this->_propDict) && !is_null($this->_propDict["profileTypes"])) {
+     
+            if (is_a($this->_propDict["profileTypes"], "\Beta\Microsoft\Graph\Model\WindowsFirewallRuleNetworkProfileTypes")) {
                 return $this->_propDict["profileTypes"];
             } else {
                 $this->_propDict["profileTypes"] = new WindowsFirewallRuleNetworkProfileTypes($this->_propDict["profileTypes"]);
@@ -398,7 +402,7 @@ class WindowsFirewallRule extends Entity
     * Sets the remoteAddressRanges
     * List of tokens specifying the remote addresses covered by the rule. Tokens are case insensitive. Default is any address. Valid tokens include:'' indicates any remote address. If present, this must be the only token included.'Defaultgateway''DHCP''DNS''WINS''Intranet' (supported on Windows versions 1809+)'RmtIntranet' (supported on Windows versions 1809+)'Internet' (supported on Windows versions 1809+)'Ply2Renders' (supported on Windows versions 1809+)'LocalSubnet' indicates any local address on the local subnet.A subnet can be specified using either the subnet mask or network prefix notation. If neither a subnet mask nor a network prefix is specified, the subnet mask defaults to 255.255.255.255.A valid IPv6 address.An IPv4 address range in the format of 'start address - end address' with no spaces included.An IPv6 address range in the format of 'start address - end address' with no spaces included.
     *
-    * @param string $val The value of the remoteAddressRanges
+    * @param string[] $val The value of the remoteAddressRanges
     *
     * @return WindowsFirewallRule
     */
@@ -426,7 +430,7 @@ class WindowsFirewallRule extends Entity
     * Sets the remotePortRanges
     * List of remote port ranges. For example, '100-120', '200', '300-320'. If not specified, the default is All.
     *
-    * @param string $val The value of the remotePortRanges
+    * @param string[] $val The value of the remotePortRanges
     *
     * @return WindowsFirewallRule
     */
@@ -472,8 +476,9 @@ class WindowsFirewallRule extends Entity
     */
     public function getTrafficDirection()
     {
-        if (array_key_exists("trafficDirection", $this->_propDict)) {
-            if (is_a($this->_propDict["trafficDirection"], "\Beta\Microsoft\Graph\Model\WindowsFirewallRuleTrafficDirectionType") || is_null($this->_propDict["trafficDirection"])) {
+        if (array_key_exists("trafficDirection", $this->_propDict) && !is_null($this->_propDict["trafficDirection"])) {
+     
+            if (is_a($this->_propDict["trafficDirection"], "\Beta\Microsoft\Graph\Model\WindowsFirewallRuleTrafficDirectionType")) {
                 return $this->_propDict["trafficDirection"];
             } else {
                 $this->_propDict["trafficDirection"] = new WindowsFirewallRuleTrafficDirectionType($this->_propDict["trafficDirection"]);

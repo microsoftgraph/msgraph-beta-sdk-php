@@ -90,8 +90,8 @@ class OnPremisesAgent extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\AgentStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\AgentStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new AgentStatus($this->_propDict["status"]);
@@ -119,21 +119,28 @@ class OnPremisesAgent extends Entity
      /** 
      * Gets the supportedPublishingTypes
      *
-     * @return array|null The supportedPublishingTypes
+     * @return OnPremisesPublishingType[]|null The supportedPublishingTypes
      */
     public function getSupportedPublishingTypes()
     {
-        if (array_key_exists("supportedPublishingTypes", $this->_propDict)) {
-           return $this->_propDict["supportedPublishingTypes"];
-        } else {
-            return null;
+        if (array_key_exists('supportedPublishingTypes', $this->_propDict) && !is_null($this->_propDict['supportedPublishingTypes'])) {
+            $supportedPublishingTypes = [];
+            if (count($this->_propDict['supportedPublishingTypes']) > 0 && is_a($this->_propDict['supportedPublishingTypes'][0], 'OnPremisesPublishingType')) {
+                return $this->_propDict['supportedPublishingTypes'];
+            }
+            foreach ($this->_propDict['supportedPublishingTypes'] as $singleValue) {
+                $supportedPublishingTypes []= new OnPremisesPublishingType($singleValue);
+            }
+            $this->_propDict['supportedPublishingTypes'] = $supportedPublishingTypes;
+            return $this->_propDict['supportedPublishingTypes'];
         }
+        return null;
     }
     
     /** 
     * Sets the supportedPublishingTypes
     *
-    * @param OnPremisesPublishingType $val The supportedPublishingTypes
+    * @param OnPremisesPublishingType[] $val The supportedPublishingTypes
     *
     * @return OnPremisesAgent
     */
@@ -148,22 +155,29 @@ class OnPremisesAgent extends Entity
      * Gets the agentGroups
     * List of onPremisesAgentGroups that an onPremisesAgent is assigned to. Read-only. Nullable.
      *
-     * @return array|null The agentGroups
+     * @return OnPremisesAgentGroup[]|null The agentGroups
      */
     public function getAgentGroups()
     {
-        if (array_key_exists("agentGroups", $this->_propDict)) {
-           return $this->_propDict["agentGroups"];
-        } else {
-            return null;
+        if (array_key_exists('agentGroups', $this->_propDict) && !is_null($this->_propDict['agentGroups'])) {
+            $agentGroups = [];
+            if (count($this->_propDict['agentGroups']) > 0 && is_a($this->_propDict['agentGroups'][0], 'OnPremisesAgentGroup')) {
+                return $this->_propDict['agentGroups'];
+            }
+            foreach ($this->_propDict['agentGroups'] as $singleValue) {
+                $agentGroups []= new OnPremisesAgentGroup($singleValue);
+            }
+            $this->_propDict['agentGroups'] = $agentGroups;
+            return $this->_propDict['agentGroups'];
         }
+        return null;
     }
     
     /** 
     * Sets the agentGroups
     * List of onPremisesAgentGroups that an onPremisesAgent is assigned to. Read-only. Nullable.
     *
-    * @param OnPremisesAgentGroup $val The agentGroups
+    * @param OnPremisesAgentGroup[] $val The agentGroups
     *
     * @return OnPremisesAgent
     */

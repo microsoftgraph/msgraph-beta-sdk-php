@@ -26,14 +26,15 @@ class ResponseStatus extends Entity
 
     /**
     * Gets the response
-    * The response type. Possible values are: None, Organizer, TentativelyAccepted, Accepted, Declined, NotResponded.
+    * The response type. Possible values are: none, organizer, tentativelyAccepted, accepted, declined, notResponded.To differentiate between none and notResponded: as an example, if attendee Alex hasn't responded to a meeting request, getting Alex' response status for that event in Alex' calendar returns notResponded. Getting Alex' response from the calendar of any other attendee or the organizer's returns none. Getting the organizer's response for the event in anybody's calendar also returns none.
     *
     * @return ResponseType|null The response
     */
     public function getResponse()
     {
-        if (array_key_exists("response", $this->_propDict)) {
-            if (is_a($this->_propDict["response"], "\Beta\Microsoft\Graph\Model\ResponseType") || is_null($this->_propDict["response"])) {
+        if (array_key_exists("response", $this->_propDict) && !is_null($this->_propDict["response"])) {
+     
+            if (is_a($this->_propDict["response"], "\Beta\Microsoft\Graph\Model\ResponseType")) {
                 return $this->_propDict["response"];
             } else {
                 $this->_propDict["response"] = new ResponseType($this->_propDict["response"]);
@@ -45,7 +46,7 @@ class ResponseStatus extends Entity
 
     /**
     * Sets the response
-    * The response type. Possible values are: None, Organizer, TentativelyAccepted, Accepted, Declined, NotResponded.
+    * The response type. Possible values are: none, organizer, tentativelyAccepted, accepted, declined, notResponded.To differentiate between none and notResponded: as an example, if attendee Alex hasn't responded to a meeting request, getting Alex' response status for that event in Alex' calendar returns notResponded. Getting Alex' response from the calendar of any other attendee or the organizer's returns none. Getting the organizer's response for the event in anybody's calendar also returns none.
     *
     * @param ResponseType $val The value to assign to the response
     *
@@ -65,8 +66,9 @@ class ResponseStatus extends Entity
     */
     public function getTime()
     {
-        if (array_key_exists("time", $this->_propDict)) {
-            if (is_a($this->_propDict["time"], "\DateTime") || is_null($this->_propDict["time"])) {
+        if (array_key_exists("time", $this->_propDict) && !is_null($this->_propDict["time"])) {
+     
+            if (is_a($this->_propDict["time"], "\DateTime")) {
                 return $this->_propDict["time"];
             } else {
                 $this->_propDict["time"] = new \DateTime($this->_propDict["time"]);

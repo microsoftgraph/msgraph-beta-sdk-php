@@ -32,8 +32,8 @@ class DeviceComplianceScriptDeviceState extends Entity
     */
     public function getDetectionState()
     {
-        if (array_key_exists("detectionState", $this->_propDict)) {
-            if (is_a($this->_propDict["detectionState"], "\Beta\Microsoft\Graph\Model\RunState") || is_null($this->_propDict["detectionState"])) {
+        if (array_key_exists("detectionState", $this->_propDict) && !is_null($this->_propDict["detectionState"])) {
+            if (is_a($this->_propDict["detectionState"], "\Beta\Microsoft\Graph\Model\RunState")) {
                 return $this->_propDict["detectionState"];
             } else {
                 $this->_propDict["detectionState"] = new RunState($this->_propDict["detectionState"]);
@@ -65,8 +65,8 @@ class DeviceComplianceScriptDeviceState extends Entity
     */
     public function getExpectedStateUpdateDateTime()
     {
-        if (array_key_exists("expectedStateUpdateDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expectedStateUpdateDateTime"], "\DateTime") || is_null($this->_propDict["expectedStateUpdateDateTime"])) {
+        if (array_key_exists("expectedStateUpdateDateTime", $this->_propDict) && !is_null($this->_propDict["expectedStateUpdateDateTime"])) {
+            if (is_a($this->_propDict["expectedStateUpdateDateTime"], "\DateTime")) {
                 return $this->_propDict["expectedStateUpdateDateTime"];
             } else {
                 $this->_propDict["expectedStateUpdateDateTime"] = new \DateTime($this->_propDict["expectedStateUpdateDateTime"]);
@@ -98,8 +98,8 @@ class DeviceComplianceScriptDeviceState extends Entity
     */
     public function getLastStateUpdateDateTime()
     {
-        if (array_key_exists("lastStateUpdateDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastStateUpdateDateTime"], "\DateTime") || is_null($this->_propDict["lastStateUpdateDateTime"])) {
+        if (array_key_exists("lastStateUpdateDateTime", $this->_propDict) && !is_null($this->_propDict["lastStateUpdateDateTime"])) {
+            if (is_a($this->_propDict["lastStateUpdateDateTime"], "\DateTime")) {
                 return $this->_propDict["lastStateUpdateDateTime"];
             } else {
                 $this->_propDict["lastStateUpdateDateTime"] = new \DateTime($this->_propDict["lastStateUpdateDateTime"]);
@@ -131,8 +131,8 @@ class DeviceComplianceScriptDeviceState extends Entity
     */
     public function getLastSyncDateTime()
     {
-        if (array_key_exists("lastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
+        if (array_key_exists("lastSyncDateTime", $this->_propDict) && !is_null($this->_propDict["lastSyncDateTime"])) {
+            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSyncDateTime"];
             } else {
                 $this->_propDict["lastSyncDateTime"] = new \DateTime($this->_propDict["lastSyncDateTime"]);
@@ -222,8 +222,8 @@ class DeviceComplianceScriptDeviceState extends Entity
     */
     public function getManagedDevice()
     {
-        if (array_key_exists("managedDevice", $this->_propDict)) {
-            if (is_a($this->_propDict["managedDevice"], "\Beta\Microsoft\Graph\Model\ManagedDevice") || is_null($this->_propDict["managedDevice"])) {
+        if (array_key_exists("managedDevice", $this->_propDict) && !is_null($this->_propDict["managedDevice"])) {
+            if (is_a($this->_propDict["managedDevice"], "\Beta\Microsoft\Graph\Model\ManagedDevice")) {
                 return $this->_propDict["managedDevice"];
             } else {
                 $this->_propDict["managedDevice"] = new ManagedDevice($this->_propDict["managedDevice"]);

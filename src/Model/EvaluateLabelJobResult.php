@@ -31,8 +31,9 @@ class EvaluateLabelJobResult extends Entity
     */
     public function getResponsiblePolicy()
     {
-        if (array_key_exists("responsiblePolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["responsiblePolicy"], "\Beta\Microsoft\Graph\Model\ResponsiblePolicy") || is_null($this->_propDict["responsiblePolicy"])) {
+        if (array_key_exists("responsiblePolicy", $this->_propDict) && !is_null($this->_propDict["responsiblePolicy"])) {
+     
+            if (is_a($this->_propDict["responsiblePolicy"], "\Beta\Microsoft\Graph\Model\ResponsiblePolicy")) {
                 return $this->_propDict["responsiblePolicy"];
             } else {
                 $this->_propDict["responsiblePolicy"] = new ResponsiblePolicy($this->_propDict["responsiblePolicy"]);
@@ -58,25 +59,29 @@ class EvaluateLabelJobResult extends Entity
     /**
     * Gets the responsibleSensitiveTypes
     *
-    * @return ResponsibleSensitiveType|null The responsibleSensitiveTypes
+    * @return ResponsibleSensitiveType[]|null The responsibleSensitiveTypes
     */
     public function getResponsibleSensitiveTypes()
     {
-        if (array_key_exists("responsibleSensitiveTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["responsibleSensitiveTypes"], "\Beta\Microsoft\Graph\Model\ResponsibleSensitiveType") || is_null($this->_propDict["responsibleSensitiveTypes"])) {
-                return $this->_propDict["responsibleSensitiveTypes"];
-            } else {
-                $this->_propDict["responsibleSensitiveTypes"] = new ResponsibleSensitiveType($this->_propDict["responsibleSensitiveTypes"]);
-                return $this->_propDict["responsibleSensitiveTypes"];
+        if (array_key_exists("responsibleSensitiveTypes", $this->_propDict) && !is_null($this->_propDict["responsibleSensitiveTypes"])) {
+       
+            if (count($this->_propDict['responsibleSensitiveTypes']) > 0 && is_a($this->_propDict['responsibleSensitiveTypes'][0], 'ResponsibleSensitiveType')) {
+               return $this->_propDict['responsibleSensitiveTypes'];
             }
-        }
+            $responsibleSensitiveTypes = [];
+            foreach ($this->_propDict['responsibleSensitiveTypes'] as $singleValue) {
+               $responsibleSensitiveTypes []= new ResponsibleSensitiveType($singleValue);
+            }
+            $this->_propDict['responsibleSensitiveTypes'] = $responsibleSensitiveTypes;
+            return $this->_propDict['responsibleSensitiveTypes'];
+            }
         return null;
     }
 
     /**
     * Sets the responsibleSensitiveTypes
     *
-    * @param ResponsibleSensitiveType $val The value to assign to the responsibleSensitiveTypes
+    * @param ResponsibleSensitiveType[] $val The value to assign to the responsibleSensitiveTypes
     *
     * @return EvaluateLabelJobResult The EvaluateLabelJobResult
     */
@@ -93,8 +98,9 @@ class EvaluateLabelJobResult extends Entity
     */
     public function getSensitivityLabel()
     {
-        if (array_key_exists("sensitivityLabel", $this->_propDict)) {
-            if (is_a($this->_propDict["sensitivityLabel"], "\Beta\Microsoft\Graph\Model\MatchingLabel") || is_null($this->_propDict["sensitivityLabel"])) {
+        if (array_key_exists("sensitivityLabel", $this->_propDict) && !is_null($this->_propDict["sensitivityLabel"])) {
+     
+            if (is_a($this->_propDict["sensitivityLabel"], "\Beta\Microsoft\Graph\Model\MatchingLabel")) {
                 return $this->_propDict["sensitivityLabel"];
             } else {
                 $this->_propDict["sensitivityLabel"] = new MatchingLabel($this->_propDict["sensitivityLabel"]);

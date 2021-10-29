@@ -29,22 +29,29 @@ class WorkbookTableSort extends Entity
      * Gets the fields
     * Represents the current conditions used to last sort the table. Read-only.
      *
-     * @return array|null The fields
+     * @return WorkbookSortField[]|null The fields
      */
     public function getFields()
     {
-        if (array_key_exists("fields", $this->_propDict)) {
-           return $this->_propDict["fields"];
-        } else {
-            return null;
+        if (array_key_exists('fields', $this->_propDict) && !is_null($this->_propDict['fields'])) {
+            $fields = [];
+            if (count($this->_propDict['fields']) > 0 && is_a($this->_propDict['fields'][0], 'WorkbookSortField')) {
+                return $this->_propDict['fields'];
+            }
+            foreach ($this->_propDict['fields'] as $singleValue) {
+                $fields []= new WorkbookSortField($singleValue);
+            }
+            $this->_propDict['fields'] = $fields;
+            return $this->_propDict['fields'];
         }
+        return null;
     }
     
     /** 
     * Sets the fields
     * Represents the current conditions used to last sort the table. Read-only.
     *
-    * @param WorkbookSortField $val The fields
+    * @param WorkbookSortField[] $val The fields
     *
     * @return WorkbookTableSort
     */
@@ -85,7 +92,7 @@ class WorkbookTableSort extends Entity
     
     /**
     * Gets the method
-    * Represents Chinese character ordering method last used to sort the table. Possible values are: PinYin, StrokeCount. Read-only.
+    * Represents Chinese character ordering method last used to sort the table. The possible values are: PinYin, StrokeCount. Read-only.
     *
     * @return string|null The method
     */
@@ -100,7 +107,7 @@ class WorkbookTableSort extends Entity
     
     /**
     * Sets the method
-    * Represents Chinese character ordering method last used to sort the table. Possible values are: PinYin, StrokeCount. Read-only.
+    * Represents Chinese character ordering method last used to sort the table. The possible values are: PinYin, StrokeCount. Read-only.
     *
     * @param string $val The method
     *

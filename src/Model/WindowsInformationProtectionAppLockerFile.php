@@ -61,11 +61,11 @@ class WindowsInformationProtectionAppLockerFile extends Entity
     */
     public function getFile()
     {
-        if (array_key_exists("file", $this->_propDict)) {
-            if (is_a($this->_propDict["file"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["file"])) {
+        if (array_key_exists("file", $this->_propDict) && !is_null($this->_propDict["file"])) {
+            if (is_a($this->_propDict["file"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["file"];
             } else {
-                $this->_propDict["file"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["file"]);
+                $this->_propDict["file"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["file"]);
                 return $this->_propDict["file"];
             }
         }

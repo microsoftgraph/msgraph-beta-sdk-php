@@ -312,8 +312,9 @@ class SynchronizationTaskExecution extends Entity
     */
     public function getError()
     {
-        if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\SynchronizationError") || is_null($this->_propDict["error"])) {
+        if (array_key_exists("error", $this->_propDict) && !is_null($this->_propDict["error"])) {
+     
+            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\SynchronizationError")) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new SynchronizationError($this->_propDict["error"]);
@@ -345,8 +346,9 @@ class SynchronizationTaskExecution extends Entity
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecutionResult") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+     
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecutionResult")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new SynchronizationTaskExecutionResult($this->_propDict["state"]);
@@ -378,8 +380,9 @@ class SynchronizationTaskExecution extends Entity
     */
     public function getTimeBegan()
     {
-        if (array_key_exists("timeBegan", $this->_propDict)) {
-            if (is_a($this->_propDict["timeBegan"], "\DateTime") || is_null($this->_propDict["timeBegan"])) {
+        if (array_key_exists("timeBegan", $this->_propDict) && !is_null($this->_propDict["timeBegan"])) {
+     
+            if (is_a($this->_propDict["timeBegan"], "\DateTime")) {
                 return $this->_propDict["timeBegan"];
             } else {
                 $this->_propDict["timeBegan"] = new \DateTime($this->_propDict["timeBegan"]);
@@ -411,8 +414,9 @@ class SynchronizationTaskExecution extends Entity
     */
     public function getTimeEnded()
     {
-        if (array_key_exists("timeEnded", $this->_propDict)) {
-            if (is_a($this->_propDict["timeEnded"], "\DateTime") || is_null($this->_propDict["timeEnded"])) {
+        if (array_key_exists("timeEnded", $this->_propDict) && !is_null($this->_propDict["timeEnded"])) {
+     
+            if (is_a($this->_propDict["timeEnded"], "\DateTime")) {
                 return $this->_propDict["timeEnded"];
             } else {
                 $this->_propDict["timeEnded"] = new \DateTime($this->_propDict["timeEnded"]);

@@ -58,22 +58,29 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
      * Gets the dependedOnBy
     * List of child settings that depend on this setting
      *
-     * @return array|null The dependedOnBy
+     * @return DeviceManagementConfigurationSettingDependedOnBy[]|null The dependedOnBy
      */
     public function getDependedOnBy()
     {
-        if (array_key_exists("dependedOnBy", $this->_propDict)) {
-           return $this->_propDict["dependedOnBy"];
-        } else {
-            return null;
+        if (array_key_exists('dependedOnBy', $this->_propDict) && !is_null($this->_propDict['dependedOnBy'])) {
+            $dependedOnBy = [];
+            if (count($this->_propDict['dependedOnBy']) > 0 && is_a($this->_propDict['dependedOnBy'][0], 'DeviceManagementConfigurationSettingDependedOnBy')) {
+                return $this->_propDict['dependedOnBy'];
+            }
+            foreach ($this->_propDict['dependedOnBy'] as $singleValue) {
+                $dependedOnBy []= new DeviceManagementConfigurationSettingDependedOnBy($singleValue);
+            }
+            $this->_propDict['dependedOnBy'] = $dependedOnBy;
+            return $this->_propDict['dependedOnBy'];
         }
+        return null;
     }
     
     /** 
     * Sets the dependedOnBy
     * List of child settings that depend on this setting
     *
-    * @param DeviceManagementConfigurationSettingDependedOnBy $val The dependedOnBy
+    * @param DeviceManagementConfigurationSettingDependedOnBy[] $val The dependedOnBy
     *
     * @return DeviceManagementConfigurationSettingGroupDefinition
     */
@@ -88,22 +95,29 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
      * Gets the dependentOn
     * List of Dependencies for the setting group
      *
-     * @return array|null The dependentOn
+     * @return DeviceManagementConfigurationDependentOn[]|null The dependentOn
      */
     public function getDependentOn()
     {
-        if (array_key_exists("dependentOn", $this->_propDict)) {
-           return $this->_propDict["dependentOn"];
-        } else {
-            return null;
+        if (array_key_exists('dependentOn', $this->_propDict) && !is_null($this->_propDict['dependentOn'])) {
+            $dependentOn = [];
+            if (count($this->_propDict['dependentOn']) > 0 && is_a($this->_propDict['dependentOn'][0], 'DeviceManagementConfigurationDependentOn')) {
+                return $this->_propDict['dependentOn'];
+            }
+            foreach ($this->_propDict['dependentOn'] as $singleValue) {
+                $dependentOn []= new DeviceManagementConfigurationDependentOn($singleValue);
+            }
+            $this->_propDict['dependentOn'] = $dependentOn;
+            return $this->_propDict['dependentOn'];
         }
+        return null;
     }
     
     /** 
     * Sets the dependentOn
     * List of Dependencies for the setting group
     *
-    * @param DeviceManagementConfigurationDependentOn $val The dependentOn
+    * @param DeviceManagementConfigurationDependentOn[] $val The dependentOn
     *
     * @return DeviceManagementConfigurationSettingGroupDefinition
     */

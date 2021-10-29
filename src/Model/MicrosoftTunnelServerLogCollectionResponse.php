@@ -32,8 +32,8 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity
     */
     public function getEndDateTime()
     {
-        if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
+        if (array_key_exists("endDateTime", $this->_propDict) && !is_null($this->_propDict["endDateTime"])) {
+            if (is_a($this->_propDict["endDateTime"], "\DateTime")) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -65,8 +65,8 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity
     */
     public function getExpiryDateTime()
     {
-        if (array_key_exists("expiryDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expiryDateTime"], "\DateTime") || is_null($this->_propDict["expiryDateTime"])) {
+        if (array_key_exists("expiryDateTime", $this->_propDict) && !is_null($this->_propDict["expiryDateTime"])) {
+            if (is_a($this->_propDict["expiryDateTime"], "\DateTime")) {
                 return $this->_propDict["expiryDateTime"];
             } else {
                 $this->_propDict["expiryDateTime"] = new \DateTime($this->_propDict["expiryDateTime"]);
@@ -98,8 +98,8 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity
     */
     public function getRequestDateTime()
     {
-        if (array_key_exists("requestDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["requestDateTime"], "\DateTime") || is_null($this->_propDict["requestDateTime"])) {
+        if (array_key_exists("requestDateTime", $this->_propDict) && !is_null($this->_propDict["requestDateTime"])) {
+            if (is_a($this->_propDict["requestDateTime"], "\DateTime")) {
                 return $this->_propDict["requestDateTime"];
             } else {
                 $this->_propDict["requestDateTime"] = new \DateTime($this->_propDict["requestDateTime"]);
@@ -189,8 +189,8 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity
     */
     public function getStartDateTime()
     {
-        if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+        if (array_key_exists("startDateTime", $this->_propDict) && !is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -222,8 +222,8 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\MicrosoftTunnelLogCollectionStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\MicrosoftTunnelLogCollectionStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new MicrosoftTunnelLogCollectionStatus($this->_propDict["status"]);

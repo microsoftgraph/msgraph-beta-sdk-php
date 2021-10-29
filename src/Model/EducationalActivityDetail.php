@@ -70,7 +70,7 @@ class EducationalActivityDetail extends Entity
     * Sets the activities
     * Extracurricular activities undertaken alongside the program.
     *
-    * @param string $val The value of the activities
+    * @param string[] $val The value of the activities
     *
     * @return EducationalActivityDetail
     */
@@ -98,7 +98,7 @@ class EducationalActivityDetail extends Entity
     * Sets the awards
     * Any awards or honors associated with the program.
     *
-    * @param string $val The value of the awards
+    * @param string[] $val The value of the awards
     *
     * @return EducationalActivityDetail
     */
@@ -182,7 +182,7 @@ class EducationalActivityDetail extends Entity
     * Sets the fieldsOfStudy
     * Majors and minors associated with the program. (if applicable)
     *
-    * @param string $val The value of the fieldsOfStudy
+    * @param string[] $val The value of the fieldsOfStudy
     *
     * @return EducationalActivityDetail
     */

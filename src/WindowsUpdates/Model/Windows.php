@@ -32,8 +32,8 @@ class Windows extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getUpdates()
     {
-        if (array_key_exists("updates", $this->_propDict)) {
-            if (is_a($this->_propDict["updates"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\Updates") || is_null($this->_propDict["updates"])) {
+        if (array_key_exists("updates", $this->_propDict) && !is_null($this->_propDict["updates"])) {
+            if (is_a($this->_propDict["updates"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\Updates")) {
                 return $this->_propDict["updates"];
             } else {
                 $this->_propDict["updates"] = new Updates($this->_propDict["updates"]);

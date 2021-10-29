@@ -32,8 +32,8 @@ class Updates extends \Beta\Microsoft\Graph\Model\Entity
     */
     public function getCatalog()
     {
-        if (array_key_exists("catalog", $this->_propDict)) {
-            if (is_a($this->_propDict["catalog"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\Catalog") || is_null($this->_propDict["catalog"])) {
+        if (array_key_exists("catalog", $this->_propDict) && !is_null($this->_propDict["catalog"])) {
+            if (is_a($this->_propDict["catalog"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\Catalog")) {
                 return $this->_propDict["catalog"];
             } else {
                 $this->_propDict["catalog"] = new Catalog($this->_propDict["catalog"]);
@@ -62,22 +62,29 @@ class Updates extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the deployments
     * Deployments created using the deployment service. Read-only.
      *
-     * @return array|null The deployments
+     * @return Deployment[]|null The deployments
      */
     public function getDeployments()
     {
-        if (array_key_exists("deployments", $this->_propDict)) {
-           return $this->_propDict["deployments"];
-        } else {
-            return null;
+        if (array_key_exists('deployments', $this->_propDict) && !is_null($this->_propDict['deployments'])) {
+            $deployments = [];
+            if (count($this->_propDict['deployments']) > 0 && is_a($this->_propDict['deployments'][0], 'Deployment')) {
+                return $this->_propDict['deployments'];
+            }
+            foreach ($this->_propDict['deployments'] as $singleValue) {
+                $deployments []= new Deployment($singleValue);
+            }
+            $this->_propDict['deployments'] = $deployments;
+            return $this->_propDict['deployments'];
         }
+        return null;
     }
     
     /** 
     * Sets the deployments
     * Deployments created using the deployment service. Read-only.
     *
-    * @param Deployment $val The deployments
+    * @param Deployment[] $val The deployments
     *
     * @return Updates
     */
@@ -92,22 +99,29 @@ class Updates extends \Beta\Microsoft\Graph\Model\Entity
      * Gets the updatableAssets
     * Assets registered with the deployment service that can receive updates. Read-only.
      *
-     * @return array|null The updatableAssets
+     * @return UpdatableAsset[]|null The updatableAssets
      */
     public function getUpdatableAssets()
     {
-        if (array_key_exists("updatableAssets", $this->_propDict)) {
-           return $this->_propDict["updatableAssets"];
-        } else {
-            return null;
+        if (array_key_exists('updatableAssets', $this->_propDict) && !is_null($this->_propDict['updatableAssets'])) {
+            $updatableAssets = [];
+            if (count($this->_propDict['updatableAssets']) > 0 && is_a($this->_propDict['updatableAssets'][0], 'UpdatableAsset')) {
+                return $this->_propDict['updatableAssets'];
+            }
+            foreach ($this->_propDict['updatableAssets'] as $singleValue) {
+                $updatableAssets []= new UpdatableAsset($singleValue);
+            }
+            $this->_propDict['updatableAssets'] = $updatableAssets;
+            return $this->_propDict['updatableAssets'];
         }
+        return null;
     }
     
     /** 
     * Sets the updatableAssets
     * Assets registered with the deployment service that can receive updates. Read-only.
     *
-    * @param UpdatableAsset $val The updatableAssets
+    * @param UpdatableAsset[] $val The updatableAssets
     *
     * @return Updates
     */

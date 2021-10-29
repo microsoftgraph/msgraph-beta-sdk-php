@@ -28,21 +28,28 @@ class ExactMatchDataStore extends ExactMatchDataStoreBase
      /** 
      * Gets the sessions
      *
-     * @return array|null The sessions
+     * @return ExactMatchSession[]|null The sessions
      */
     public function getSessions()
     {
-        if (array_key_exists("sessions", $this->_propDict)) {
-           return $this->_propDict["sessions"];
-        } else {
-            return null;
+        if (array_key_exists('sessions', $this->_propDict) && !is_null($this->_propDict['sessions'])) {
+            $sessions = [];
+            if (count($this->_propDict['sessions']) > 0 && is_a($this->_propDict['sessions'][0], 'ExactMatchSession')) {
+                return $this->_propDict['sessions'];
+            }
+            foreach ($this->_propDict['sessions'] as $singleValue) {
+                $sessions []= new ExactMatchSession($singleValue);
+            }
+            $this->_propDict['sessions'] = $sessions;
+            return $this->_propDict['sessions'];
         }
+        return null;
     }
     
     /** 
     * Sets the sessions
     *
-    * @param ExactMatchSession $val The sessions
+    * @param ExactMatchSession[] $val The sessions
     *
     * @return ExactMatchDataStore
     */

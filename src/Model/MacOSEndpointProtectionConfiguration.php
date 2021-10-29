@@ -32,8 +32,8 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     */
     public function getAdvancedThreatProtectionAutomaticSampleSubmission()
     {
-        if (array_key_exists("advancedThreatProtectionAutomaticSampleSubmission", $this->_propDict)) {
-            if (is_a($this->_propDict["advancedThreatProtectionAutomaticSampleSubmission"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["advancedThreatProtectionAutomaticSampleSubmission"])) {
+        if (array_key_exists("advancedThreatProtectionAutomaticSampleSubmission", $this->_propDict) && !is_null($this->_propDict["advancedThreatProtectionAutomaticSampleSubmission"])) {
+            if (is_a($this->_propDict["advancedThreatProtectionAutomaticSampleSubmission"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["advancedThreatProtectionAutomaticSampleSubmission"];
             } else {
                 $this->_propDict["advancedThreatProtectionAutomaticSampleSubmission"] = new Enablement($this->_propDict["advancedThreatProtectionAutomaticSampleSubmission"]);
@@ -65,8 +65,8 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     */
     public function getAdvancedThreatProtectionCloudDelivered()
     {
-        if (array_key_exists("advancedThreatProtectionCloudDelivered", $this->_propDict)) {
-            if (is_a($this->_propDict["advancedThreatProtectionCloudDelivered"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["advancedThreatProtectionCloudDelivered"])) {
+        if (array_key_exists("advancedThreatProtectionCloudDelivered", $this->_propDict) && !is_null($this->_propDict["advancedThreatProtectionCloudDelivered"])) {
+            if (is_a($this->_propDict["advancedThreatProtectionCloudDelivered"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["advancedThreatProtectionCloudDelivered"];
             } else {
                 $this->_propDict["advancedThreatProtectionCloudDelivered"] = new Enablement($this->_propDict["advancedThreatProtectionCloudDelivered"]);
@@ -98,8 +98,8 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     */
     public function getAdvancedThreatProtectionDiagnosticDataCollection()
     {
-        if (array_key_exists("advancedThreatProtectionDiagnosticDataCollection", $this->_propDict)) {
-            if (is_a($this->_propDict["advancedThreatProtectionDiagnosticDataCollection"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["advancedThreatProtectionDiagnosticDataCollection"])) {
+        if (array_key_exists("advancedThreatProtectionDiagnosticDataCollection", $this->_propDict) && !is_null($this->_propDict["advancedThreatProtectionDiagnosticDataCollection"])) {
+            if (is_a($this->_propDict["advancedThreatProtectionDiagnosticDataCollection"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["advancedThreatProtectionDiagnosticDataCollection"];
             } else {
                 $this->_propDict["advancedThreatProtectionDiagnosticDataCollection"] = new Enablement($this->_propDict["advancedThreatProtectionDiagnosticDataCollection"]);
@@ -247,8 +247,8 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     */
     public function getAdvancedThreatProtectionRealTime()
     {
-        if (array_key_exists("advancedThreatProtectionRealTime", $this->_propDict)) {
-            if (is_a($this->_propDict["advancedThreatProtectionRealTime"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["advancedThreatProtectionRealTime"])) {
+        if (array_key_exists("advancedThreatProtectionRealTime", $this->_propDict) && !is_null($this->_propDict["advancedThreatProtectionRealTime"])) {
+            if (is_a($this->_propDict["advancedThreatProtectionRealTime"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["advancedThreatProtectionRealTime"];
             } else {
                 $this->_propDict["advancedThreatProtectionRealTime"] = new Enablement($this->_propDict["advancedThreatProtectionRealTime"]);
@@ -396,11 +396,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     */
     public function getFileVaultInstitutionalRecoveryKeyCertificate()
     {
-        if (array_key_exists("fileVaultInstitutionalRecoveryKeyCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["fileVaultInstitutionalRecoveryKeyCertificate"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["fileVaultInstitutionalRecoveryKeyCertificate"])) {
+        if (array_key_exists("fileVaultInstitutionalRecoveryKeyCertificate", $this->_propDict) && !is_null($this->_propDict["fileVaultInstitutionalRecoveryKeyCertificate"])) {
+            if (is_a($this->_propDict["fileVaultInstitutionalRecoveryKeyCertificate"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["fileVaultInstitutionalRecoveryKeyCertificate"];
             } else {
-                $this->_propDict["fileVaultInstitutionalRecoveryKeyCertificate"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["fileVaultInstitutionalRecoveryKeyCertificate"]);
+                $this->_propDict["fileVaultInstitutionalRecoveryKeyCertificate"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["fileVaultInstitutionalRecoveryKeyCertificate"]);
                 return $this->_propDict["fileVaultInstitutionalRecoveryKeyCertificate"];
             }
         }
@@ -545,8 +545,8 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     */
     public function getFileVaultSelectedRecoveryKeyTypes()
     {
-        if (array_key_exists("fileVaultSelectedRecoveryKeyTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["fileVaultSelectedRecoveryKeyTypes"], "\Beta\Microsoft\Graph\Model\MacOSFileVaultRecoveryKeyTypes") || is_null($this->_propDict["fileVaultSelectedRecoveryKeyTypes"])) {
+        if (array_key_exists("fileVaultSelectedRecoveryKeyTypes", $this->_propDict) && !is_null($this->_propDict["fileVaultSelectedRecoveryKeyTypes"])) {
+            if (is_a($this->_propDict["fileVaultSelectedRecoveryKeyTypes"], "\Beta\Microsoft\Graph\Model\MacOSFileVaultRecoveryKeyTypes")) {
                 return $this->_propDict["fileVaultSelectedRecoveryKeyTypes"];
             } else {
                 $this->_propDict["fileVaultSelectedRecoveryKeyTypes"] = new MacOSFileVaultRecoveryKeyTypes($this->_propDict["fileVaultSelectedRecoveryKeyTypes"]);
@@ -575,22 +575,29 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
      * Gets the firewallApplications
     * List of applications with firewall settings. Firewall settings for applications not on this list are determined by the user. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The firewallApplications
+     * @return MacOSFirewallApplication[]|null The firewallApplications
      */
     public function getFirewallApplications()
     {
-        if (array_key_exists("firewallApplications", $this->_propDict)) {
-           return $this->_propDict["firewallApplications"];
-        } else {
-            return null;
+        if (array_key_exists('firewallApplications', $this->_propDict) && !is_null($this->_propDict['firewallApplications'])) {
+            $firewallApplications = [];
+            if (count($this->_propDict['firewallApplications']) > 0 && is_a($this->_propDict['firewallApplications'][0], 'MacOSFirewallApplication')) {
+                return $this->_propDict['firewallApplications'];
+            }
+            foreach ($this->_propDict['firewallApplications'] as $singleValue) {
+                $firewallApplications []= new MacOSFirewallApplication($singleValue);
+            }
+            $this->_propDict['firewallApplications'] = $firewallApplications;
+            return $this->_propDict['firewallApplications'];
         }
+        return null;
     }
     
     /** 
     * Sets the firewallApplications
     * List of applications with firewall settings. Firewall settings for applications not on this list are determined by the user. This collection can contain a maximum of 500 elements.
     *
-    * @param MacOSFirewallApplication $val The firewallApplications
+    * @param MacOSFirewallApplication[] $val The firewallApplications
     *
     * @return MacOSEndpointProtectionConfiguration
     */
@@ -695,8 +702,8 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     */
     public function getGatekeeperAllowedAppSource()
     {
-        if (array_key_exists("gatekeeperAllowedAppSource", $this->_propDict)) {
-            if (is_a($this->_propDict["gatekeeperAllowedAppSource"], "\Beta\Microsoft\Graph\Model\MacOSGatekeeperAppSources") || is_null($this->_propDict["gatekeeperAllowedAppSource"])) {
+        if (array_key_exists("gatekeeperAllowedAppSource", $this->_propDict) && !is_null($this->_propDict["gatekeeperAllowedAppSource"])) {
+            if (is_a($this->_propDict["gatekeeperAllowedAppSource"], "\Beta\Microsoft\Graph\Model\MacOSGatekeeperAppSources")) {
                 return $this->_propDict["gatekeeperAllowedAppSource"];
             } else {
                 $this->_propDict["gatekeeperAllowedAppSource"] = new MacOSGatekeeperAppSources($this->_propDict["gatekeeperAllowedAppSource"]);

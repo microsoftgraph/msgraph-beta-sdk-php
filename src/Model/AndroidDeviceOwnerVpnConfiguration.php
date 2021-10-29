@@ -90,8 +90,8 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration
     */
     public function getConnectionType()
     {
-        if (array_key_exists("connectionType", $this->_propDict)) {
-            if (is_a($this->_propDict["connectionType"], "\Beta\Microsoft\Graph\Model\AndroidVpnConnectionType") || is_null($this->_propDict["connectionType"])) {
+        if (array_key_exists("connectionType", $this->_propDict) && !is_null($this->_propDict["connectionType"])) {
+            if (is_a($this->_propDict["connectionType"], "\Beta\Microsoft\Graph\Model\AndroidVpnConnectionType")) {
                 return $this->_propDict["connectionType"];
             } else {
                 $this->_propDict["connectionType"] = new AndroidVpnConnectionType($this->_propDict["connectionType"]);
@@ -120,22 +120,29 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration
      * Gets the customData
     * Custom data to define key/value pairs specific to a VPN provider. This collection can contain a maximum of 25 elements.
      *
-     * @return array|null The customData
+     * @return KeyValue[]|null The customData
      */
     public function getCustomData()
     {
-        if (array_key_exists("customData", $this->_propDict)) {
-           return $this->_propDict["customData"];
-        } else {
-            return null;
+        if (array_key_exists('customData', $this->_propDict) && !is_null($this->_propDict['customData'])) {
+            $customData = [];
+            if (count($this->_propDict['customData']) > 0 && is_a($this->_propDict['customData'][0], 'KeyValue')) {
+                return $this->_propDict['customData'];
+            }
+            foreach ($this->_propDict['customData'] as $singleValue) {
+                $customData []= new KeyValue($singleValue);
+            }
+            $this->_propDict['customData'] = $customData;
+            return $this->_propDict['customData'];
         }
+        return null;
     }
     
     /** 
     * Sets the customData
     * Custom data to define key/value pairs specific to a VPN provider. This collection can contain a maximum of 25 elements.
     *
-    * @param KeyValue $val The customData
+    * @param KeyValue[] $val The customData
     *
     * @return AndroidDeviceOwnerVpnConfiguration
     */
@@ -150,22 +157,29 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration
      * Gets the customKeyValueData
     * Custom data to define key/value pairs specific to a VPN provider. This collection can contain a maximum of 25 elements.
      *
-     * @return array|null The customKeyValueData
+     * @return KeyValuePair[]|null The customKeyValueData
      */
     public function getCustomKeyValueData()
     {
-        if (array_key_exists("customKeyValueData", $this->_propDict)) {
-           return $this->_propDict["customKeyValueData"];
-        } else {
-            return null;
+        if (array_key_exists('customKeyValueData', $this->_propDict) && !is_null($this->_propDict['customKeyValueData'])) {
+            $customKeyValueData = [];
+            if (count($this->_propDict['customKeyValueData']) > 0 && is_a($this->_propDict['customKeyValueData'][0], 'KeyValuePair')) {
+                return $this->_propDict['customKeyValueData'];
+            }
+            foreach ($this->_propDict['customKeyValueData'] as $singleValue) {
+                $customKeyValueData []= new KeyValuePair($singleValue);
+            }
+            $this->_propDict['customKeyValueData'] = $customKeyValueData;
+            return $this->_propDict['customKeyValueData'];
         }
+        return null;
     }
     
     /** 
     * Sets the customKeyValueData
     * Custom data to define key/value pairs specific to a VPN provider. This collection can contain a maximum of 25 elements.
     *
-    * @param KeyValuePair $val The customKeyValueData
+    * @param KeyValuePair[] $val The customKeyValueData
     *
     * @return AndroidDeviceOwnerVpnConfiguration
     */
@@ -212,8 +226,8 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration
     */
     public function getProxyServer()
     {
-        if (array_key_exists("proxyServer", $this->_propDict)) {
-            if (is_a($this->_propDict["proxyServer"], "\Beta\Microsoft\Graph\Model\VpnProxyServer") || is_null($this->_propDict["proxyServer"])) {
+        if (array_key_exists("proxyServer", $this->_propDict) && !is_null($this->_propDict["proxyServer"])) {
+            if (is_a($this->_propDict["proxyServer"], "\Beta\Microsoft\Graph\Model\VpnProxyServer")) {
                 return $this->_propDict["proxyServer"];
             } else {
                 $this->_propDict["proxyServer"] = new VpnProxyServer($this->_propDict["proxyServer"]);
@@ -242,22 +256,29 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration
      * Gets the targetedMobileApps
     * Targeted mobile apps. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The targetedMobileApps
+     * @return AppListItem[]|null The targetedMobileApps
      */
     public function getTargetedMobileApps()
     {
-        if (array_key_exists("targetedMobileApps", $this->_propDict)) {
-           return $this->_propDict["targetedMobileApps"];
-        } else {
-            return null;
+        if (array_key_exists('targetedMobileApps', $this->_propDict) && !is_null($this->_propDict['targetedMobileApps'])) {
+            $targetedMobileApps = [];
+            if (count($this->_propDict['targetedMobileApps']) > 0 && is_a($this->_propDict['targetedMobileApps'][0], 'AppListItem')) {
+                return $this->_propDict['targetedMobileApps'];
+            }
+            foreach ($this->_propDict['targetedMobileApps'] as $singleValue) {
+                $targetedMobileApps []= new AppListItem($singleValue);
+            }
+            $this->_propDict['targetedMobileApps'] = $targetedMobileApps;
+            return $this->_propDict['targetedMobileApps'];
         }
+        return null;
     }
     
     /** 
     * Sets the targetedMobileApps
     * Targeted mobile apps. This collection can contain a maximum of 500 elements.
     *
-    * @param AppListItem $val The targetedMobileApps
+    * @param AppListItem[] $val The targetedMobileApps
     *
     * @return AndroidDeviceOwnerVpnConfiguration
     */
@@ -304,8 +325,8 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration
     */
     public function getDerivedCredentialSettings()
     {
-        if (array_key_exists("derivedCredentialSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["derivedCredentialSettings"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialSettings") || is_null($this->_propDict["derivedCredentialSettings"])) {
+        if (array_key_exists("derivedCredentialSettings", $this->_propDict) && !is_null($this->_propDict["derivedCredentialSettings"])) {
+            if (is_a($this->_propDict["derivedCredentialSettings"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialSettings")) {
                 return $this->_propDict["derivedCredentialSettings"];
             } else {
                 $this->_propDict["derivedCredentialSettings"] = new DeviceManagementDerivedCredentialSettings($this->_propDict["derivedCredentialSettings"]);
@@ -337,8 +358,8 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration
     */
     public function getIdentityCertificate()
     {
-        if (array_key_exists("identityCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerCertificateProfileBase") || is_null($this->_propDict["identityCertificate"])) {
+        if (array_key_exists("identityCertificate", $this->_propDict) && !is_null($this->_propDict["identityCertificate"])) {
+            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerCertificateProfileBase")) {
                 return $this->_propDict["identityCertificate"];
             } else {
                 $this->_propDict["identityCertificate"] = new AndroidDeviceOwnerCertificateProfileBase($this->_propDict["identityCertificate"]);

@@ -26,9 +26,11 @@ class WindowsUpdateActiveHoursInstall extends WindowsUpdateInstallScheduleType
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.windowsUpdateActiveHoursInstall");
     }
 
@@ -41,8 +43,9 @@ class WindowsUpdateActiveHoursInstall extends WindowsUpdateInstallScheduleType
     */
     public function getActiveHoursEnd()
     {
-        if (array_key_exists("activeHoursEnd", $this->_propDict)) {
-            if (is_a($this->_propDict["activeHoursEnd"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["activeHoursEnd"])) {
+        if (array_key_exists("activeHoursEnd", $this->_propDict) && !is_null($this->_propDict["activeHoursEnd"])) {
+     
+            if (is_a($this->_propDict["activeHoursEnd"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
                 return $this->_propDict["activeHoursEnd"];
             } else {
                 $this->_propDict["activeHoursEnd"] = new TimeOfDay($this->_propDict["activeHoursEnd"]);
@@ -74,8 +77,9 @@ class WindowsUpdateActiveHoursInstall extends WindowsUpdateInstallScheduleType
     */
     public function getActiveHoursStart()
     {
-        if (array_key_exists("activeHoursStart", $this->_propDict)) {
-            if (is_a($this->_propDict["activeHoursStart"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["activeHoursStart"])) {
+        if (array_key_exists("activeHoursStart", $this->_propDict) && !is_null($this->_propDict["activeHoursStart"])) {
+     
+            if (is_a($this->_propDict["activeHoursStart"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
                 return $this->_propDict["activeHoursStart"];
             } else {
                 $this->_propDict["activeHoursStart"] = new TimeOfDay($this->_propDict["activeHoursStart"]);

@@ -58,22 +58,29 @@ class MobileAppIntentAndState extends Entity
      * Gets the mobileAppList
     * The list of payload intents and states for the tenant.
      *
-     * @return array|null The mobileAppList
+     * @return MobileAppIntentAndStateDetail[]|null The mobileAppList
      */
     public function getMobileAppList()
     {
-        if (array_key_exists("mobileAppList", $this->_propDict)) {
-           return $this->_propDict["mobileAppList"];
-        } else {
-            return null;
+        if (array_key_exists('mobileAppList', $this->_propDict) && !is_null($this->_propDict['mobileAppList'])) {
+            $mobileAppList = [];
+            if (count($this->_propDict['mobileAppList']) > 0 && is_a($this->_propDict['mobileAppList'][0], 'MobileAppIntentAndStateDetail')) {
+                return $this->_propDict['mobileAppList'];
+            }
+            foreach ($this->_propDict['mobileAppList'] as $singleValue) {
+                $mobileAppList []= new MobileAppIntentAndStateDetail($singleValue);
+            }
+            $this->_propDict['mobileAppList'] = $mobileAppList;
+            return $this->_propDict['mobileAppList'];
         }
+        return null;
     }
     
     /** 
     * Sets the mobileAppList
     * The list of payload intents and states for the tenant.
     *
-    * @param MobileAppIntentAndStateDetail $val The mobileAppList
+    * @param MobileAppIntentAndStateDetail[] $val The mobileAppList
     *
     * @return MobileAppIntentAndState
     */

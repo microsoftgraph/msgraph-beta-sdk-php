@@ -82,14 +82,15 @@ class DeviceManagementConfigurationPolicyTemplateReference extends Entity
 
     /**
     * Gets the templateFamily
-    * Template Family of the referenced Template. This property is read-only. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl.
+    * Template Family of the referenced Template. This property is read-only. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline.
     *
     * @return DeviceManagementConfigurationTemplateFamily|null The templateFamily
     */
     public function getTemplateFamily()
     {
-        if (array_key_exists("templateFamily", $this->_propDict)) {
-            if (is_a($this->_propDict["templateFamily"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationTemplateFamily") || is_null($this->_propDict["templateFamily"])) {
+        if (array_key_exists("templateFamily", $this->_propDict) && !is_null($this->_propDict["templateFamily"])) {
+     
+            if (is_a($this->_propDict["templateFamily"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationTemplateFamily")) {
                 return $this->_propDict["templateFamily"];
             } else {
                 $this->_propDict["templateFamily"] = new DeviceManagementConfigurationTemplateFamily($this->_propDict["templateFamily"]);
@@ -101,7 +102,7 @@ class DeviceManagementConfigurationPolicyTemplateReference extends Entity
 
     /**
     * Sets the templateFamily
-    * Template Family of the referenced Template. This property is read-only. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl.
+    * Template Family of the referenced Template. This property is read-only. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline.
     *
     * @param DeviceManagementConfigurationTemplateFamily $val The value to assign to the templateFamily
     *

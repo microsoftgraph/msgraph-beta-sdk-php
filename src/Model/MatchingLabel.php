@@ -31,8 +31,9 @@ class MatchingLabel extends Entity
     */
     public function getApplicationMode()
     {
-        if (array_key_exists("applicationMode", $this->_propDict)) {
-            if (is_a($this->_propDict["applicationMode"], "\Beta\Microsoft\Graph\Model\ApplicationMode") || is_null($this->_propDict["applicationMode"])) {
+        if (array_key_exists("applicationMode", $this->_propDict) && !is_null($this->_propDict["applicationMode"])) {
+     
+            if (is_a($this->_propDict["applicationMode"], "\Beta\Microsoft\Graph\Model\ApplicationMode")) {
                 return $this->_propDict["applicationMode"];
             } else {
                 $this->_propDict["applicationMode"] = new ApplicationMode($this->_propDict["applicationMode"]);
@@ -162,25 +163,29 @@ class MatchingLabel extends Entity
     /**
     * Gets the labelActions
     *
-    * @return LabelActionBase|null The labelActions
+    * @return LabelActionBase[]|null The labelActions
     */
     public function getLabelActions()
     {
-        if (array_key_exists("labelActions", $this->_propDict)) {
-            if (is_a($this->_propDict["labelActions"], "\Beta\Microsoft\Graph\Model\LabelActionBase") || is_null($this->_propDict["labelActions"])) {
-                return $this->_propDict["labelActions"];
-            } else {
-                $this->_propDict["labelActions"] = new LabelActionBase($this->_propDict["labelActions"]);
-                return $this->_propDict["labelActions"];
+        if (array_key_exists("labelActions", $this->_propDict) && !is_null($this->_propDict["labelActions"])) {
+       
+            if (count($this->_propDict['labelActions']) > 0 && is_a($this->_propDict['labelActions'][0], 'LabelActionBase')) {
+               return $this->_propDict['labelActions'];
             }
-        }
+            $labelActions = [];
+            foreach ($this->_propDict['labelActions'] as $singleValue) {
+               $labelActions []= new LabelActionBase($singleValue);
+            }
+            $this->_propDict['labelActions'] = $labelActions;
+            return $this->_propDict['labelActions'];
+            }
         return null;
     }
 
     /**
     * Sets the labelActions
     *
-    * @param LabelActionBase $val The value to assign to the labelActions
+    * @param LabelActionBase[] $val The value to assign to the labelActions
     *
     * @return MatchingLabel The MatchingLabel
     */

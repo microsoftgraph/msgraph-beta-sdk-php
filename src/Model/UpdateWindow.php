@@ -32,8 +32,9 @@ class UpdateWindow extends Entity
     */
     public function getUpdateWindowEndTime()
     {
-        if (array_key_exists("updateWindowEndTime", $this->_propDict)) {
-            if (is_a($this->_propDict["updateWindowEndTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["updateWindowEndTime"])) {
+        if (array_key_exists("updateWindowEndTime", $this->_propDict) && !is_null($this->_propDict["updateWindowEndTime"])) {
+     
+            if (is_a($this->_propDict["updateWindowEndTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
                 return $this->_propDict["updateWindowEndTime"];
             } else {
                 $this->_propDict["updateWindowEndTime"] = new TimeOfDay($this->_propDict["updateWindowEndTime"]);
@@ -65,8 +66,9 @@ class UpdateWindow extends Entity
     */
     public function getUpdateWindowStartTime()
     {
-        if (array_key_exists("updateWindowStartTime", $this->_propDict)) {
-            if (is_a($this->_propDict["updateWindowStartTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["updateWindowStartTime"])) {
+        if (array_key_exists("updateWindowStartTime", $this->_propDict) && !is_null($this->_propDict["updateWindowStartTime"])) {
+     
+            if (is_a($this->_propDict["updateWindowStartTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
                 return $this->_propDict["updateWindowStartTime"];
             } else {
                 $this->_propDict["updateWindowStartTime"] = new TimeOfDay($this->_propDict["updateWindowStartTime"]);

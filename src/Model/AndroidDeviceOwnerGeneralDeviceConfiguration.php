@@ -90,8 +90,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getAppsAutoUpdatePolicy()
     {
-        if (array_key_exists("appsAutoUpdatePolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["appsAutoUpdatePolicy"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerAppAutoUpdatePolicyType") || is_null($this->_propDict["appsAutoUpdatePolicy"])) {
+        if (array_key_exists("appsAutoUpdatePolicy", $this->_propDict) && !is_null($this->_propDict["appsAutoUpdatePolicy"])) {
+            if (is_a($this->_propDict["appsAutoUpdatePolicy"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerAppAutoUpdatePolicyType")) {
                 return $this->_propDict["appsAutoUpdatePolicy"];
             } else {
                 $this->_propDict["appsAutoUpdatePolicy"] = new AndroidDeviceOwnerAppAutoUpdatePolicyType($this->_propDict["appsAutoUpdatePolicy"]);
@@ -123,8 +123,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getAppsDefaultPermissionPolicy()
     {
-        if (array_key_exists("appsDefaultPermissionPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["appsDefaultPermissionPolicy"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerDefaultAppPermissionPolicyType") || is_null($this->_propDict["appsDefaultPermissionPolicy"])) {
+        if (array_key_exists("appsDefaultPermissionPolicy", $this->_propDict) && !is_null($this->_propDict["appsDefaultPermissionPolicy"])) {
+            if (is_a($this->_propDict["appsDefaultPermissionPolicy"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerDefaultAppPermissionPolicyType")) {
                 return $this->_propDict["appsDefaultPermissionPolicy"];
             } else {
                 $this->_propDict["appsDefaultPermissionPolicy"] = new AndroidDeviceOwnerDefaultAppPermissionPolicyType($this->_propDict["appsDefaultPermissionPolicy"]);
@@ -388,8 +388,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getEnrollmentProfile()
     {
-        if (array_key_exists("enrollmentProfile", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentProfile"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerEnrollmentProfileType") || is_null($this->_propDict["enrollmentProfile"])) {
+        if (array_key_exists("enrollmentProfile", $this->_propDict) && !is_null($this->_propDict["enrollmentProfile"])) {
+            if (is_a($this->_propDict["enrollmentProfile"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerEnrollmentProfileType")) {
                 return $this->_propDict["enrollmentProfile"];
             } else {
                 $this->_propDict["enrollmentProfile"] = new AndroidDeviceOwnerEnrollmentProfileType($this->_propDict["enrollmentProfile"]);
@@ -479,8 +479,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getGlobalProxy()
     {
-        if (array_key_exists("globalProxy", $this->_propDict)) {
-            if (is_a($this->_propDict["globalProxy"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerGlobalProxy") || is_null($this->_propDict["globalProxy"])) {
+        if (array_key_exists("globalProxy", $this->_propDict) && !is_null($this->_propDict["globalProxy"])) {
+            if (is_a($this->_propDict["globalProxy"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerGlobalProxy")) {
                 return $this->_propDict["globalProxy"];
             } else {
                 $this->_propDict["globalProxy"] = new AndroidDeviceOwnerGlobalProxy($this->_propDict["globalProxy"]);
@@ -599,8 +599,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getKioskCustomizationStatusBar()
     {
-        if (array_key_exists("kioskCustomizationStatusBar", $this->_propDict)) {
-            if (is_a($this->_propDict["kioskCustomizationStatusBar"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskCustomizationStatusBar") || is_null($this->_propDict["kioskCustomizationStatusBar"])) {
+        if (array_key_exists("kioskCustomizationStatusBar", $this->_propDict) && !is_null($this->_propDict["kioskCustomizationStatusBar"])) {
+            if (is_a($this->_propDict["kioskCustomizationStatusBar"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskCustomizationStatusBar")) {
                 return $this->_propDict["kioskCustomizationStatusBar"];
             } else {
                 $this->_propDict["kioskCustomizationStatusBar"] = new AndroidDeviceOwnerKioskCustomizationStatusBar($this->_propDict["kioskCustomizationStatusBar"]);
@@ -661,8 +661,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getKioskCustomizationSystemNavigation()
     {
-        if (array_key_exists("kioskCustomizationSystemNavigation", $this->_propDict)) {
-            if (is_a($this->_propDict["kioskCustomizationSystemNavigation"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskCustomizationSystemNavigation") || is_null($this->_propDict["kioskCustomizationSystemNavigation"])) {
+        if (array_key_exists("kioskCustomizationSystemNavigation", $this->_propDict) && !is_null($this->_propDict["kioskCustomizationSystemNavigation"])) {
+            if (is_a($this->_propDict["kioskCustomizationSystemNavigation"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskCustomizationSystemNavigation")) {
                 return $this->_propDict["kioskCustomizationSystemNavigation"];
             } else {
                 $this->_propDict["kioskCustomizationSystemNavigation"] = new AndroidDeviceOwnerKioskCustomizationSystemNavigation($this->_propDict["kioskCustomizationSystemNavigation"]);
@@ -720,22 +720,29 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
      * Gets the kioskModeAppPositions
     * The ordering of items on Kiosk Mode Managed Home Screen. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The kioskModeAppPositions
+     * @return AndroidDeviceOwnerKioskModeAppPositionItem[]|null The kioskModeAppPositions
      */
     public function getKioskModeAppPositions()
     {
-        if (array_key_exists("kioskModeAppPositions", $this->_propDict)) {
-           return $this->_propDict["kioskModeAppPositions"];
-        } else {
-            return null;
+        if (array_key_exists('kioskModeAppPositions', $this->_propDict) && !is_null($this->_propDict['kioskModeAppPositions'])) {
+            $kioskModeAppPositions = [];
+            if (count($this->_propDict['kioskModeAppPositions']) > 0 && is_a($this->_propDict['kioskModeAppPositions'][0], 'AndroidDeviceOwnerKioskModeAppPositionItem')) {
+                return $this->_propDict['kioskModeAppPositions'];
+            }
+            foreach ($this->_propDict['kioskModeAppPositions'] as $singleValue) {
+                $kioskModeAppPositions []= new AndroidDeviceOwnerKioskModeAppPositionItem($singleValue);
+            }
+            $this->_propDict['kioskModeAppPositions'] = $kioskModeAppPositions;
+            return $this->_propDict['kioskModeAppPositions'];
         }
+        return null;
     }
     
     /** 
     * Sets the kioskModeAppPositions
     * The ordering of items on Kiosk Mode Managed Home Screen. This collection can contain a maximum of 500 elements.
     *
-    * @param AndroidDeviceOwnerKioskModeAppPositionItem $val The kioskModeAppPositions
+    * @param AndroidDeviceOwnerKioskModeAppPositionItem[] $val The kioskModeAppPositions
     *
     * @return AndroidDeviceOwnerGeneralDeviceConfiguration
     */
@@ -750,22 +757,29 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
      * Gets the kioskModeApps
     * A list of managed apps that will be shown when the device is in Kiosk Mode. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The kioskModeApps
+     * @return AppListItem[]|null The kioskModeApps
      */
     public function getKioskModeApps()
     {
-        if (array_key_exists("kioskModeApps", $this->_propDict)) {
-           return $this->_propDict["kioskModeApps"];
-        } else {
-            return null;
+        if (array_key_exists('kioskModeApps', $this->_propDict) && !is_null($this->_propDict['kioskModeApps'])) {
+            $kioskModeApps = [];
+            if (count($this->_propDict['kioskModeApps']) > 0 && is_a($this->_propDict['kioskModeApps'][0], 'AppListItem')) {
+                return $this->_propDict['kioskModeApps'];
+            }
+            foreach ($this->_propDict['kioskModeApps'] as $singleValue) {
+                $kioskModeApps []= new AppListItem($singleValue);
+            }
+            $this->_propDict['kioskModeApps'] = $kioskModeApps;
+            return $this->_propDict['kioskModeApps'];
         }
+        return null;
     }
     
     /** 
     * Sets the kioskModeApps
     * A list of managed apps that will be shown when the device is in Kiosk Mode. This collection can contain a maximum of 500 elements.
     *
-    * @param AppListItem $val The kioskModeApps
+    * @param AppListItem[] $val The kioskModeApps
     *
     * @return AndroidDeviceOwnerGeneralDeviceConfiguration
     */
@@ -928,8 +942,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getKioskModeFolderIcon()
     {
-        if (array_key_exists("kioskModeFolderIcon", $this->_propDict)) {
-            if (is_a($this->_propDict["kioskModeFolderIcon"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskModeFolderIcon") || is_null($this->_propDict["kioskModeFolderIcon"])) {
+        if (array_key_exists("kioskModeFolderIcon", $this->_propDict) && !is_null($this->_propDict["kioskModeFolderIcon"])) {
+            if (is_a($this->_propDict["kioskModeFolderIcon"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskModeFolderIcon")) {
                 return $this->_propDict["kioskModeFolderIcon"];
             } else {
                 $this->_propDict["kioskModeFolderIcon"] = new AndroidDeviceOwnerKioskModeFolderIcon($this->_propDict["kioskModeFolderIcon"]);
@@ -1019,8 +1033,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getKioskModeIconSize()
     {
-        if (array_key_exists("kioskModeIconSize", $this->_propDict)) {
-            if (is_a($this->_propDict["kioskModeIconSize"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskModeIconSize") || is_null($this->_propDict["kioskModeIconSize"])) {
+        if (array_key_exists("kioskModeIconSize", $this->_propDict) && !is_null($this->_propDict["kioskModeIconSize"])) {
+            if (is_a($this->_propDict["kioskModeIconSize"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskModeIconSize")) {
                 return $this->_propDict["kioskModeIconSize"];
             } else {
                 $this->_propDict["kioskModeIconSize"] = new AndroidDeviceOwnerKioskModeIconSize($this->_propDict["kioskModeIconSize"]);
@@ -1078,28 +1092,300 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
      * Gets the kioskModeManagedFolders
     * A list of managed folders for a device in Kiosk Mode. This collection can contain a maximum of 500 elements.
      *
-     * @return array|null The kioskModeManagedFolders
+     * @return AndroidDeviceOwnerKioskModeManagedFolder[]|null The kioskModeManagedFolders
      */
     public function getKioskModeManagedFolders()
     {
-        if (array_key_exists("kioskModeManagedFolders", $this->_propDict)) {
-           return $this->_propDict["kioskModeManagedFolders"];
-        } else {
-            return null;
+        if (array_key_exists('kioskModeManagedFolders', $this->_propDict) && !is_null($this->_propDict['kioskModeManagedFolders'])) {
+            $kioskModeManagedFolders = [];
+            if (count($this->_propDict['kioskModeManagedFolders']) > 0 && is_a($this->_propDict['kioskModeManagedFolders'][0], 'AndroidDeviceOwnerKioskModeManagedFolder')) {
+                return $this->_propDict['kioskModeManagedFolders'];
+            }
+            foreach ($this->_propDict['kioskModeManagedFolders'] as $singleValue) {
+                $kioskModeManagedFolders []= new AndroidDeviceOwnerKioskModeManagedFolder($singleValue);
+            }
+            $this->_propDict['kioskModeManagedFolders'] = $kioskModeManagedFolders;
+            return $this->_propDict['kioskModeManagedFolders'];
         }
+        return null;
     }
     
     /** 
     * Sets the kioskModeManagedFolders
     * A list of managed folders for a device in Kiosk Mode. This collection can contain a maximum of 500 elements.
     *
-    * @param AndroidDeviceOwnerKioskModeManagedFolder $val The kioskModeManagedFolders
+    * @param AndroidDeviceOwnerKioskModeManagedFolder[] $val The kioskModeManagedFolders
     *
     * @return AndroidDeviceOwnerGeneralDeviceConfiguration
     */
     public function setKioskModeManagedFolders($val)
     {
         $this->_propDict["kioskModeManagedFolders"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the kioskModeManagedHomeScreenAutoSignout
+    * Whether or not to automatically sign-out of MHS and Shared device mode applications after inactive for Managed Home Screen.
+    *
+    * @return bool|null The kioskModeManagedHomeScreenAutoSignout
+    */
+    public function getKioskModeManagedHomeScreenAutoSignout()
+    {
+        if (array_key_exists("kioskModeManagedHomeScreenAutoSignout", $this->_propDict)) {
+            return $this->_propDict["kioskModeManagedHomeScreenAutoSignout"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the kioskModeManagedHomeScreenAutoSignout
+    * Whether or not to automatically sign-out of MHS and Shared device mode applications after inactive for Managed Home Screen.
+    *
+    * @param bool $val The kioskModeManagedHomeScreenAutoSignout
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setKioskModeManagedHomeScreenAutoSignout($val)
+    {
+        $this->_propDict["kioskModeManagedHomeScreenAutoSignout"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds
+    * Number of seconds to give user notice before automatically signing them out for Managed Home Screen. Valid values 0 to 9999999
+    *
+    * @return int|null The kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds
+    */
+    public function getKioskModeManagedHomeScreenInactiveSignOutDelayInSeconds()
+    {
+        if (array_key_exists("kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds", $this->_propDict)) {
+            return $this->_propDict["kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds
+    * Number of seconds to give user notice before automatically signing them out for Managed Home Screen. Valid values 0 to 9999999
+    *
+    * @param int $val The kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setKioskModeManagedHomeScreenInactiveSignOutDelayInSeconds($val)
+    {
+        $this->_propDict["kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds"] = intval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds
+    * Number of seconds device is inactive before automatically signing user out for Managed Home Screen. Valid values 0 to 9999999
+    *
+    * @return int|null The kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds
+    */
+    public function getKioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds()
+    {
+        if (array_key_exists("kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds", $this->_propDict)) {
+            return $this->_propDict["kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds
+    * Number of seconds device is inactive before automatically signing user out for Managed Home Screen. Valid values 0 to 9999999
+    *
+    * @param int $val The kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setKioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds($val)
+    {
+        $this->_propDict["kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds"] = intval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the kioskModeManagedHomeScreenPinComplexity
+    * Complexity of PIN for sign-in session for Managed Home Screen. Possible values are: notConfigured, simple, complex.
+    *
+    * @return KioskModeManagedHomeScreenPinComplexity|null The kioskModeManagedHomeScreenPinComplexity
+    */
+    public function getKioskModeManagedHomeScreenPinComplexity()
+    {
+        if (array_key_exists("kioskModeManagedHomeScreenPinComplexity", $this->_propDict) && !is_null($this->_propDict["kioskModeManagedHomeScreenPinComplexity"])) {
+            if (is_a($this->_propDict["kioskModeManagedHomeScreenPinComplexity"], "\Beta\Microsoft\Graph\Model\KioskModeManagedHomeScreenPinComplexity")) {
+                return $this->_propDict["kioskModeManagedHomeScreenPinComplexity"];
+            } else {
+                $this->_propDict["kioskModeManagedHomeScreenPinComplexity"] = new KioskModeManagedHomeScreenPinComplexity($this->_propDict["kioskModeManagedHomeScreenPinComplexity"]);
+                return $this->_propDict["kioskModeManagedHomeScreenPinComplexity"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the kioskModeManagedHomeScreenPinComplexity
+    * Complexity of PIN for sign-in session for Managed Home Screen. Possible values are: notConfigured, simple, complex.
+    *
+    * @param KioskModeManagedHomeScreenPinComplexity $val The kioskModeManagedHomeScreenPinComplexity
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setKioskModeManagedHomeScreenPinComplexity($val)
+    {
+        $this->_propDict["kioskModeManagedHomeScreenPinComplexity"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the kioskModeManagedHomeScreenPinRequired
+    * Whether or not require user to set a PIN for sign-in session for Managed Home Screen.
+    *
+    * @return bool|null The kioskModeManagedHomeScreenPinRequired
+    */
+    public function getKioskModeManagedHomeScreenPinRequired()
+    {
+        if (array_key_exists("kioskModeManagedHomeScreenPinRequired", $this->_propDict)) {
+            return $this->_propDict["kioskModeManagedHomeScreenPinRequired"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the kioskModeManagedHomeScreenPinRequired
+    * Whether or not require user to set a PIN for sign-in session for Managed Home Screen.
+    *
+    * @param bool $val The kioskModeManagedHomeScreenPinRequired
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setKioskModeManagedHomeScreenPinRequired($val)
+    {
+        $this->_propDict["kioskModeManagedHomeScreenPinRequired"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the kioskModeManagedHomeScreenPinRequiredToResume
+    * Whether or not required user to enter session PIN if screensaver has appeared for Managed Home Screen.
+    *
+    * @return bool|null The kioskModeManagedHomeScreenPinRequiredToResume
+    */
+    public function getKioskModeManagedHomeScreenPinRequiredToResume()
+    {
+        if (array_key_exists("kioskModeManagedHomeScreenPinRequiredToResume", $this->_propDict)) {
+            return $this->_propDict["kioskModeManagedHomeScreenPinRequiredToResume"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the kioskModeManagedHomeScreenPinRequiredToResume
+    * Whether or not required user to enter session PIN if screensaver has appeared for Managed Home Screen.
+    *
+    * @param bool $val The kioskModeManagedHomeScreenPinRequiredToResume
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setKioskModeManagedHomeScreenPinRequiredToResume($val)
+    {
+        $this->_propDict["kioskModeManagedHomeScreenPinRequiredToResume"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the kioskModeManagedHomeScreenSignInBackground
+    * Custom URL background for sign-in screen for Managed Home Screen.
+    *
+    * @return string|null The kioskModeManagedHomeScreenSignInBackground
+    */
+    public function getKioskModeManagedHomeScreenSignInBackground()
+    {
+        if (array_key_exists("kioskModeManagedHomeScreenSignInBackground", $this->_propDict)) {
+            return $this->_propDict["kioskModeManagedHomeScreenSignInBackground"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the kioskModeManagedHomeScreenSignInBackground
+    * Custom URL background for sign-in screen for Managed Home Screen.
+    *
+    * @param string $val The kioskModeManagedHomeScreenSignInBackground
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setKioskModeManagedHomeScreenSignInBackground($val)
+    {
+        $this->_propDict["kioskModeManagedHomeScreenSignInBackground"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the kioskModeManagedHomeScreenSignInBrandingLogo
+    * Custom URL branding logo for sign-in screen and session pin page for Managed Home Screen.
+    *
+    * @return string|null The kioskModeManagedHomeScreenSignInBrandingLogo
+    */
+    public function getKioskModeManagedHomeScreenSignInBrandingLogo()
+    {
+        if (array_key_exists("kioskModeManagedHomeScreenSignInBrandingLogo", $this->_propDict)) {
+            return $this->_propDict["kioskModeManagedHomeScreenSignInBrandingLogo"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the kioskModeManagedHomeScreenSignInBrandingLogo
+    * Custom URL branding logo for sign-in screen and session pin page for Managed Home Screen.
+    *
+    * @param string $val The kioskModeManagedHomeScreenSignInBrandingLogo
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setKioskModeManagedHomeScreenSignInBrandingLogo($val)
+    {
+        $this->_propDict["kioskModeManagedHomeScreenSignInBrandingLogo"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the kioskModeManagedHomeScreenSignInEnabled
+    * Whether or not show sign-in screen for Managed Home Screen.
+    *
+    * @return bool|null The kioskModeManagedHomeScreenSignInEnabled
+    */
+    public function getKioskModeManagedHomeScreenSignInEnabled()
+    {
+        if (array_key_exists("kioskModeManagedHomeScreenSignInEnabled", $this->_propDict)) {
+            return $this->_propDict["kioskModeManagedHomeScreenSignInEnabled"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the kioskModeManagedHomeScreenSignInEnabled
+    * Whether or not show sign-in screen for Managed Home Screen.
+    *
+    * @param bool $val The kioskModeManagedHomeScreenSignInEnabled
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setKioskModeManagedHomeScreenSignInEnabled($val)
+    {
+        $this->_propDict["kioskModeManagedHomeScreenSignInEnabled"] = boolval($val);
         return $this;
     }
     
@@ -1169,8 +1455,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getKioskModeScreenOrientation()
     {
-        if (array_key_exists("kioskModeScreenOrientation", $this->_propDict)) {
-            if (is_a($this->_propDict["kioskModeScreenOrientation"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskModeScreenOrientation") || is_null($this->_propDict["kioskModeScreenOrientation"])) {
+        if (array_key_exists("kioskModeScreenOrientation", $this->_propDict) && !is_null($this->_propDict["kioskModeScreenOrientation"])) {
+            if (is_a($this->_propDict["kioskModeScreenOrientation"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskModeScreenOrientation")) {
                 return $this->_propDict["kioskModeScreenOrientation"];
             } else {
                 $this->_propDict["kioskModeScreenOrientation"] = new AndroidDeviceOwnerKioskModeScreenOrientation($this->_propDict["kioskModeScreenOrientation"]);
@@ -1434,8 +1720,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getKioskModeVirtualHomeButtonType()
     {
-        if (array_key_exists("kioskModeVirtualHomeButtonType", $this->_propDict)) {
-            if (is_a($this->_propDict["kioskModeVirtualHomeButtonType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerVirtualHomeButtonType") || is_null($this->_propDict["kioskModeVirtualHomeButtonType"])) {
+        if (array_key_exists("kioskModeVirtualHomeButtonType", $this->_propDict) && !is_null($this->_propDict["kioskModeVirtualHomeButtonType"])) {
+            if (is_a($this->_propDict["kioskModeVirtualHomeButtonType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerVirtualHomeButtonType")) {
                 return $this->_propDict["kioskModeVirtualHomeButtonType"];
             } else {
                 $this->_propDict["kioskModeVirtualHomeButtonType"] = new AndroidDeviceOwnerVirtualHomeButtonType($this->_propDict["kioskModeVirtualHomeButtonType"]);
@@ -1728,8 +2014,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getMicrosoftLauncherDockPresenceConfiguration()
     {
-        if (array_key_exists("microsoftLauncherDockPresenceConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["microsoftLauncherDockPresenceConfiguration"], "\Beta\Microsoft\Graph\Model\MicrosoftLauncherDockPresence") || is_null($this->_propDict["microsoftLauncherDockPresenceConfiguration"])) {
+        if (array_key_exists("microsoftLauncherDockPresenceConfiguration", $this->_propDict) && !is_null($this->_propDict["microsoftLauncherDockPresenceConfiguration"])) {
+            if (is_a($this->_propDict["microsoftLauncherDockPresenceConfiguration"], "\Beta\Microsoft\Graph\Model\MicrosoftLauncherDockPresence")) {
                 return $this->_propDict["microsoftLauncherDockPresenceConfiguration"];
             } else {
                 $this->_propDict["microsoftLauncherDockPresenceConfiguration"] = new MicrosoftLauncherDockPresence($this->_propDict["microsoftLauncherDockPresenceConfiguration"]);
@@ -1819,8 +2105,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getMicrosoftLauncherSearchBarPlacementConfiguration()
     {
-        if (array_key_exists("microsoftLauncherSearchBarPlacementConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["microsoftLauncherSearchBarPlacementConfiguration"], "\Beta\Microsoft\Graph\Model\MicrosoftLauncherSearchBarPlacement") || is_null($this->_propDict["microsoftLauncherSearchBarPlacementConfiguration"])) {
+        if (array_key_exists("microsoftLauncherSearchBarPlacementConfiguration", $this->_propDict) && !is_null($this->_propDict["microsoftLauncherSearchBarPlacementConfiguration"])) {
+            if (is_a($this->_propDict["microsoftLauncherSearchBarPlacementConfiguration"], "\Beta\Microsoft\Graph\Model\MicrosoftLauncherSearchBarPlacement")) {
                 return $this->_propDict["microsoftLauncherSearchBarPlacementConfiguration"];
             } else {
                 $this->_propDict["microsoftLauncherSearchBarPlacementConfiguration"] = new MicrosoftLauncherSearchBarPlacement($this->_propDict["microsoftLauncherSearchBarPlacementConfiguration"]);
@@ -1936,22 +2222,29 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
      * Gets the passwordBlockKeyguardFeatures
     * List of device keyguard features to block. This collection can contain a maximum of 7 elements.
      *
-     * @return array|null The passwordBlockKeyguardFeatures
+     * @return AndroidKeyguardFeature[]|null The passwordBlockKeyguardFeatures
      */
     public function getPasswordBlockKeyguardFeatures()
     {
-        if (array_key_exists("passwordBlockKeyguardFeatures", $this->_propDict)) {
-           return $this->_propDict["passwordBlockKeyguardFeatures"];
-        } else {
-            return null;
+        if (array_key_exists('passwordBlockKeyguardFeatures', $this->_propDict) && !is_null($this->_propDict['passwordBlockKeyguardFeatures'])) {
+            $passwordBlockKeyguardFeatures = [];
+            if (count($this->_propDict['passwordBlockKeyguardFeatures']) > 0 && is_a($this->_propDict['passwordBlockKeyguardFeatures'][0], 'AndroidKeyguardFeature')) {
+                return $this->_propDict['passwordBlockKeyguardFeatures'];
+            }
+            foreach ($this->_propDict['passwordBlockKeyguardFeatures'] as $singleValue) {
+                $passwordBlockKeyguardFeatures []= new AndroidKeyguardFeature($singleValue);
+            }
+            $this->_propDict['passwordBlockKeyguardFeatures'] = $passwordBlockKeyguardFeatures;
+            return $this->_propDict['passwordBlockKeyguardFeatures'];
         }
+        return null;
     }
     
     /** 
     * Sets the passwordBlockKeyguardFeatures
     * List of device keyguard features to block. This collection can contain a maximum of 7 elements.
     *
-    * @param AndroidKeyguardFeature $val The passwordBlockKeyguardFeatures
+    * @param AndroidKeyguardFeature[] $val The passwordBlockKeyguardFeatures
     *
     * @return AndroidDeviceOwnerGeneralDeviceConfiguration
     */
@@ -2259,8 +2552,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getPasswordRequiredType()
     {
-        if (array_key_exists("passwordRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerRequiredPasswordType") || is_null($this->_propDict["passwordRequiredType"])) {
+        if (array_key_exists("passwordRequiredType", $this->_propDict) && !is_null($this->_propDict["passwordRequiredType"])) {
+            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerRequiredPasswordType")) {
                 return $this->_propDict["passwordRequiredType"];
             } else {
                 $this->_propDict["passwordRequiredType"] = new AndroidDeviceOwnerRequiredPasswordType($this->_propDict["passwordRequiredType"]);
@@ -2408,8 +2701,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getPlayStoreMode()
     {
-        if (array_key_exists("playStoreMode", $this->_propDict)) {
-            if (is_a($this->_propDict["playStoreMode"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerPlayStoreMode") || is_null($this->_propDict["playStoreMode"])) {
+        if (array_key_exists("playStoreMode", $this->_propDict) && !is_null($this->_propDict["playStoreMode"])) {
+            if (is_a($this->_propDict["playStoreMode"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerPlayStoreMode")) {
                 return $this->_propDict["playStoreMode"];
             } else {
                 $this->_propDict["playStoreMode"] = new AndroidDeviceOwnerPlayStoreMode($this->_propDict["playStoreMode"]);
@@ -2521,6 +2814,35 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     }
     
     /**
+    * Gets the securityDeveloperSettingsEnabled
+    * Indicates whether or not the user is allowed to access developer settings like developer options and safe boot on the device.
+    *
+    * @return bool|null The securityDeveloperSettingsEnabled
+    */
+    public function getSecurityDeveloperSettingsEnabled()
+    {
+        if (array_key_exists("securityDeveloperSettingsEnabled", $this->_propDict)) {
+            return $this->_propDict["securityDeveloperSettingsEnabled"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the securityDeveloperSettingsEnabled
+    * Indicates whether or not the user is allowed to access developer settings like developer options and safe boot on the device.
+    *
+    * @param bool $val The securityDeveloperSettingsEnabled
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setSecurityDeveloperSettingsEnabled($val)
+    {
+        $this->_propDict["securityDeveloperSettingsEnabled"] = boolval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the securityRequireVerifyApps
     * Indicates whether or not verify apps is required.
     *
@@ -2583,22 +2905,29 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
      * Gets the stayOnModes
     * List of modes in which the device's display will stay powered-on. This collection can contain a maximum of 4 elements.
      *
-     * @return array|null The stayOnModes
+     * @return AndroidDeviceOwnerBatteryPluggedMode[]|null The stayOnModes
      */
     public function getStayOnModes()
     {
-        if (array_key_exists("stayOnModes", $this->_propDict)) {
-           return $this->_propDict["stayOnModes"];
-        } else {
-            return null;
+        if (array_key_exists('stayOnModes', $this->_propDict) && !is_null($this->_propDict['stayOnModes'])) {
+            $stayOnModes = [];
+            if (count($this->_propDict['stayOnModes']) > 0 && is_a($this->_propDict['stayOnModes'][0], 'AndroidDeviceOwnerBatteryPluggedMode')) {
+                return $this->_propDict['stayOnModes'];
+            }
+            foreach ($this->_propDict['stayOnModes'] as $singleValue) {
+                $stayOnModes []= new AndroidDeviceOwnerBatteryPluggedMode($singleValue);
+            }
+            $this->_propDict['stayOnModes'] = $stayOnModes;
+            return $this->_propDict['stayOnModes'];
         }
+        return null;
     }
     
     /** 
     * Sets the stayOnModes
     * List of modes in which the device's display will stay powered-on. This collection can contain a maximum of 4 elements.
     *
-    * @param AndroidDeviceOwnerBatteryPluggedMode $val The stayOnModes
+    * @param AndroidDeviceOwnerBatteryPluggedMode[] $val The stayOnModes
     *
     * @return AndroidDeviceOwnerGeneralDeviceConfiguration
     */
@@ -2703,8 +3032,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getSystemUpdateInstallType()
     {
-        if (array_key_exists("systemUpdateInstallType", $this->_propDict)) {
-            if (is_a($this->_propDict["systemUpdateInstallType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerSystemUpdateInstallType") || is_null($this->_propDict["systemUpdateInstallType"])) {
+        if (array_key_exists("systemUpdateInstallType", $this->_propDict) && !is_null($this->_propDict["systemUpdateInstallType"])) {
+            if (is_a($this->_propDict["systemUpdateInstallType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerSystemUpdateInstallType")) {
                 return $this->_propDict["systemUpdateInstallType"];
             } else {
                 $this->_propDict["systemUpdateInstallType"] = new AndroidDeviceOwnerSystemUpdateInstallType($this->_propDict["systemUpdateInstallType"]);
@@ -3287,8 +3616,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     */
     public function getWorkProfilePasswordRequiredType()
     {
-        if (array_key_exists("workProfilePasswordRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["workProfilePasswordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerRequiredPasswordType") || is_null($this->_propDict["workProfilePasswordRequiredType"])) {
+        if (array_key_exists("workProfilePasswordRequiredType", $this->_propDict) && !is_null($this->_propDict["workProfilePasswordRequiredType"])) {
+            if (is_a($this->_propDict["workProfilePasswordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerRequiredPasswordType")) {
                 return $this->_propDict["workProfilePasswordRequiredType"];
             } else {
                 $this->_propDict["workProfilePasswordRequiredType"] = new AndroidDeviceOwnerRequiredPasswordType($this->_propDict["workProfilePasswordRequiredType"]);

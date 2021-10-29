@@ -58,22 +58,29 @@ class CredentialUserRegistrationCount extends Entity
      * Gets the userRegistrationCounts
     * A collection of registration count and status information for users in your tenant.
      *
-     * @return array|null The userRegistrationCounts
+     * @return UserRegistrationCount[]|null The userRegistrationCounts
      */
     public function getUserRegistrationCounts()
     {
-        if (array_key_exists("userRegistrationCounts", $this->_propDict)) {
-           return $this->_propDict["userRegistrationCounts"];
-        } else {
-            return null;
+        if (array_key_exists('userRegistrationCounts', $this->_propDict) && !is_null($this->_propDict['userRegistrationCounts'])) {
+            $userRegistrationCounts = [];
+            if (count($this->_propDict['userRegistrationCounts']) > 0 && is_a($this->_propDict['userRegistrationCounts'][0], 'UserRegistrationCount')) {
+                return $this->_propDict['userRegistrationCounts'];
+            }
+            foreach ($this->_propDict['userRegistrationCounts'] as $singleValue) {
+                $userRegistrationCounts []= new UserRegistrationCount($singleValue);
+            }
+            $this->_propDict['userRegistrationCounts'] = $userRegistrationCounts;
+            return $this->_propDict['userRegistrationCounts'];
         }
+        return null;
     }
     
     /** 
     * Sets the userRegistrationCounts
     * A collection of registration count and status information for users in your tenant.
     *
-    * @param UserRegistrationCount $val The userRegistrationCounts
+    * @param UserRegistrationCount[] $val The userRegistrationCounts
     *
     * @return CredentialUserRegistrationCount
     */

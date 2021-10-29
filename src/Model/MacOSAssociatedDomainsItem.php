@@ -98,7 +98,7 @@ class MacOSAssociatedDomainsItem extends Entity
     * Sets the domains
     * The list of domains to associate.
     *
-    * @param string $val The value of the domains
+    * @param string[] $val The value of the domains
     *
     * @return MacOSAssociatedDomainsItem
     */
