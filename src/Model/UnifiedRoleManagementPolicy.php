@@ -245,15 +245,15 @@ class UnifiedRoleManagementPolicy extends Entity
     public function getEffectiveRules()
     {
         if (array_key_exists('effectiveRules', $this->_propDict) && !is_null($this->_propDict['effectiveRules'])) {
-            $effectiveRules = [];
-            if (count($this->_propDict['effectiveRules']) > 0 && is_a($this->_propDict['effectiveRules'][0], 'UnifiedRoleManagementPolicyRule')) {
-                return $this->_propDict['effectiveRules'];
-            }
-            foreach ($this->_propDict['effectiveRules'] as $singleValue) {
-                $effectiveRules []= new UnifiedRoleManagementPolicyRule($singleValue);
-            }
-            $this->_propDict['effectiveRules'] = $effectiveRules;
-            return $this->_propDict['effectiveRules'];
+           $effectiveRules = [];
+           if (count($this->_propDict['effectiveRules']) > 0 && is_a($this->_propDict['effectiveRules'][0], 'UnifiedRoleManagementPolicyRule')) {
+              return $this->_propDict['effectiveRules'];
+           }
+           foreach ($this->_propDict['effectiveRules'] as $singleValue) {
+              $effectiveRules []= new UnifiedRoleManagementPolicyRule($singleValue);
+           }
+           $this->_propDict['effectiveRules'] = $effectiveRules;
+           return $this->_propDict['effectiveRules'];
         }
         return null;
     }
@@ -282,15 +282,15 @@ class UnifiedRoleManagementPolicy extends Entity
     public function getRules()
     {
         if (array_key_exists('rules', $this->_propDict) && !is_null($this->_propDict['rules'])) {
-            $rules = [];
-            if (count($this->_propDict['rules']) > 0 && is_a($this->_propDict['rules'][0], 'UnifiedRoleManagementPolicyRule')) {
-                return $this->_propDict['rules'];
-            }
-            foreach ($this->_propDict['rules'] as $singleValue) {
-                $rules []= new UnifiedRoleManagementPolicyRule($singleValue);
-            }
-            $this->_propDict['rules'] = $rules;
-            return $this->_propDict['rules'];
+           $rules = [];
+           if (count($this->_propDict['rules']) > 0 && is_a($this->_propDict['rules'][0], 'UnifiedRoleManagementPolicyRule')) {
+              return $this->_propDict['rules'];
+           }
+           foreach ($this->_propDict['rules'] as $singleValue) {
+              $rules []= new UnifiedRoleManagementPolicyRule($singleValue);
+           }
+           $this->_propDict['rules'] = $rules;
+           return $this->_propDict['rules'];
         }
         return null;
     }

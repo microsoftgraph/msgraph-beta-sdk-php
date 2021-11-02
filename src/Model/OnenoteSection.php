@@ -125,15 +125,15 @@ class OnenoteSection extends OnenoteEntityHierarchyModel
     public function getPages()
     {
         if (array_key_exists('pages', $this->_propDict) && !is_null($this->_propDict['pages'])) {
-            $pages = [];
-            if (count($this->_propDict['pages']) > 0 && is_a($this->_propDict['pages'][0], 'OnenotePage')) {
-                return $this->_propDict['pages'];
-            }
-            foreach ($this->_propDict['pages'] as $singleValue) {
-                $pages []= new OnenotePage($singleValue);
-            }
-            $this->_propDict['pages'] = $pages;
-            return $this->_propDict['pages'];
+           $pages = [];
+           if (count($this->_propDict['pages']) > 0 && is_a($this->_propDict['pages'][0], 'OnenotePage')) {
+              return $this->_propDict['pages'];
+           }
+           foreach ($this->_propDict['pages'] as $singleValue) {
+              $pages []= new OnenotePage($singleValue);
+           }
+           $this->_propDict['pages'] = $pages;
+           return $this->_propDict['pages'];
         }
         return null;
     }

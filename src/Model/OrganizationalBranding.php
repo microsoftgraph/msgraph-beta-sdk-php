@@ -34,15 +34,15 @@ class OrganizationalBranding extends OrganizationalBrandingProperties
     public function getLocalizations()
     {
         if (array_key_exists('localizations', $this->_propDict) && !is_null($this->_propDict['localizations'])) {
-            $localizations = [];
-            if (count($this->_propDict['localizations']) > 0 && is_a($this->_propDict['localizations'][0], 'OrganizationalBrandingLocalization')) {
-                return $this->_propDict['localizations'];
-            }
-            foreach ($this->_propDict['localizations'] as $singleValue) {
-                $localizations []= new OrganizationalBrandingLocalization($singleValue);
-            }
-            $this->_propDict['localizations'] = $localizations;
-            return $this->_propDict['localizations'];
+           $localizations = [];
+           if (count($this->_propDict['localizations']) > 0 && is_a($this->_propDict['localizations'][0], 'OrganizationalBrandingLocalization')) {
+              return $this->_propDict['localizations'];
+           }
+           foreach ($this->_propDict['localizations'] as $singleValue) {
+              $localizations []= new OrganizationalBrandingLocalization($singleValue);
+           }
+           $this->_propDict['localizations'] = $localizations;
+           return $this->_propDict['localizations'];
         }
         return null;
     }

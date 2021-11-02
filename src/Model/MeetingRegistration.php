@@ -187,15 +187,15 @@ class MeetingRegistration extends Entity
     public function getSpeakers()
     {
         if (array_key_exists('speakers', $this->_propDict) && !is_null($this->_propDict['speakers'])) {
-            $speakers = [];
-            if (count($this->_propDict['speakers']) > 0 && is_a($this->_propDict['speakers'][0], 'MeetingSpeaker')) {
-                return $this->_propDict['speakers'];
-            }
-            foreach ($this->_propDict['speakers'] as $singleValue) {
-                $speakers []= new MeetingSpeaker($singleValue);
-            }
-            $this->_propDict['speakers'] = $speakers;
-            return $this->_propDict['speakers'];
+           $speakers = [];
+           if (count($this->_propDict['speakers']) > 0 && is_a($this->_propDict['speakers'][0], 'MeetingSpeaker')) {
+              return $this->_propDict['speakers'];
+           }
+           foreach ($this->_propDict['speakers'] as $singleValue) {
+              $speakers []= new MeetingSpeaker($singleValue);
+           }
+           $this->_propDict['speakers'] = $speakers;
+           return $this->_propDict['speakers'];
         }
         return null;
     }
@@ -286,15 +286,15 @@ class MeetingRegistration extends Entity
     public function getCustomQuestions()
     {
         if (array_key_exists('customQuestions', $this->_propDict) && !is_null($this->_propDict['customQuestions'])) {
-            $customQuestions = [];
-            if (count($this->_propDict['customQuestions']) > 0 && is_a($this->_propDict['customQuestions'][0], 'MeetingRegistrationQuestion')) {
-                return $this->_propDict['customQuestions'];
-            }
-            foreach ($this->_propDict['customQuestions'] as $singleValue) {
-                $customQuestions []= new MeetingRegistrationQuestion($singleValue);
-            }
-            $this->_propDict['customQuestions'] = $customQuestions;
-            return $this->_propDict['customQuestions'];
+           $customQuestions = [];
+           if (count($this->_propDict['customQuestions']) > 0 && is_a($this->_propDict['customQuestions'][0], 'MeetingRegistrationQuestion')) {
+              return $this->_propDict['customQuestions'];
+           }
+           foreach ($this->_propDict['customQuestions'] as $singleValue) {
+              $customQuestions []= new MeetingRegistrationQuestion($singleValue);
+           }
+           $this->_propDict['customQuestions'] = $customQuestions;
+           return $this->_propDict['customQuestions'];
         }
         return null;
     }
@@ -323,15 +323,15 @@ class MeetingRegistration extends Entity
     public function getRegistrants()
     {
         if (array_key_exists('registrants', $this->_propDict) && !is_null($this->_propDict['registrants'])) {
-            $registrants = [];
-            if (count($this->_propDict['registrants']) > 0 && is_a($this->_propDict['registrants'][0], 'MeetingRegistrant')) {
-                return $this->_propDict['registrants'];
-            }
-            foreach ($this->_propDict['registrants'] as $singleValue) {
-                $registrants []= new MeetingRegistrant($singleValue);
-            }
-            $this->_propDict['registrants'] = $registrants;
-            return $this->_propDict['registrants'];
+           $registrants = [];
+           if (count($this->_propDict['registrants']) > 0 && is_a($this->_propDict['registrants'][0], 'MeetingRegistrant')) {
+              return $this->_propDict['registrants'];
+           }
+           foreach ($this->_propDict['registrants'] as $singleValue) {
+              $registrants []= new MeetingRegistrant($singleValue);
+           }
+           $this->_propDict['registrants'] = $registrants;
+           return $this->_propDict['registrants'];
         }
         return null;
     }

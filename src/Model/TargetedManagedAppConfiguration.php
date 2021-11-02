@@ -125,15 +125,15 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration
     public function getApps()
     {
         if (array_key_exists('apps', $this->_propDict) && !is_null($this->_propDict['apps'])) {
-            $apps = [];
-            if (count($this->_propDict['apps']) > 0 && is_a($this->_propDict['apps'][0], 'ManagedMobileApp')) {
-                return $this->_propDict['apps'];
-            }
-            foreach ($this->_propDict['apps'] as $singleValue) {
-                $apps []= new ManagedMobileApp($singleValue);
-            }
-            $this->_propDict['apps'] = $apps;
-            return $this->_propDict['apps'];
+           $apps = [];
+           if (count($this->_propDict['apps']) > 0 && is_a($this->_propDict['apps'][0], 'ManagedMobileApp')) {
+              return $this->_propDict['apps'];
+           }
+           foreach ($this->_propDict['apps'] as $singleValue) {
+              $apps []= new ManagedMobileApp($singleValue);
+           }
+           $this->_propDict['apps'] = $apps;
+           return $this->_propDict['apps'];
         }
         return null;
     }
@@ -162,15 +162,15 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'TargetedManagedAppPolicyAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new TargetedManagedAppPolicyAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'TargetedManagedAppPolicyAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new TargetedManagedAppPolicyAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }

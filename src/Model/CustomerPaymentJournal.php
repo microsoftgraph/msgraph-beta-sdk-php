@@ -203,15 +203,15 @@ class CustomerPaymentJournal extends Entity
     public function getCustomerPayments()
     {
         if (array_key_exists('customerPayments', $this->_propDict) && !is_null($this->_propDict['customerPayments'])) {
-            $customerPayments = [];
-            if (count($this->_propDict['customerPayments']) > 0 && is_a($this->_propDict['customerPayments'][0], 'CustomerPayment')) {
-                return $this->_propDict['customerPayments'];
-            }
-            foreach ($this->_propDict['customerPayments'] as $singleValue) {
-                $customerPayments []= new CustomerPayment($singleValue);
-            }
-            $this->_propDict['customerPayments'] = $customerPayments;
-            return $this->_propDict['customerPayments'];
+           $customerPayments = [];
+           if (count($this->_propDict['customerPayments']) > 0 && is_a($this->_propDict['customerPayments'][0], 'CustomerPayment')) {
+              return $this->_propDict['customerPayments'];
+           }
+           foreach ($this->_propDict['customerPayments'] as $singleValue) {
+              $customerPayments []= new CustomerPayment($singleValue);
+           }
+           $this->_propDict['customerPayments'] = $customerPayments;
+           return $this->_propDict['customerPayments'];
         }
         return null;
     }

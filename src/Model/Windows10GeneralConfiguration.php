@@ -8452,15 +8452,15 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     public function getPrivacyAccessControls()
     {
         if (array_key_exists('privacyAccessControls', $this->_propDict) && !is_null($this->_propDict['privacyAccessControls'])) {
-            $privacyAccessControls = [];
-            if (count($this->_propDict['privacyAccessControls']) > 0 && is_a($this->_propDict['privacyAccessControls'][0], 'WindowsPrivacyDataAccessControlItem')) {
-                return $this->_propDict['privacyAccessControls'];
-            }
-            foreach ($this->_propDict['privacyAccessControls'] as $singleValue) {
-                $privacyAccessControls []= new WindowsPrivacyDataAccessControlItem($singleValue);
-            }
-            $this->_propDict['privacyAccessControls'] = $privacyAccessControls;
-            return $this->_propDict['privacyAccessControls'];
+           $privacyAccessControls = [];
+           if (count($this->_propDict['privacyAccessControls']) > 0 && is_a($this->_propDict['privacyAccessControls'][0], 'WindowsPrivacyDataAccessControlItem')) {
+              return $this->_propDict['privacyAccessControls'];
+           }
+           foreach ($this->_propDict['privacyAccessControls'] as $singleValue) {
+              $privacyAccessControls []= new WindowsPrivacyDataAccessControlItem($singleValue);
+           }
+           $this->_propDict['privacyAccessControls'] = $privacyAccessControls;
+           return $this->_propDict['privacyAccessControls'];
         }
         return null;
     }

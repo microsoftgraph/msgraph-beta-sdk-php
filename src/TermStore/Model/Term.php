@@ -67,15 +67,15 @@ class Term extends \Beta\Microsoft\Graph\Model\Entity
     public function getDescriptions()
     {
         if (array_key_exists('descriptions', $this->_propDict) && !is_null($this->_propDict['descriptions'])) {
-            $descriptions = [];
-            if (count($this->_propDict['descriptions']) > 0 && is_a($this->_propDict['descriptions'][0], 'LocalizedDescription')) {
-                return $this->_propDict['descriptions'];
-            }
-            foreach ($this->_propDict['descriptions'] as $singleValue) {
-                $descriptions []= new LocalizedDescription($singleValue);
-            }
-            $this->_propDict['descriptions'] = $descriptions;
-            return $this->_propDict['descriptions'];
+           $descriptions = [];
+           if (count($this->_propDict['descriptions']) > 0 && is_a($this->_propDict['descriptions'][0], 'LocalizedDescription')) {
+              return $this->_propDict['descriptions'];
+           }
+           foreach ($this->_propDict['descriptions'] as $singleValue) {
+              $descriptions []= new LocalizedDescription($singleValue);
+           }
+           $this->_propDict['descriptions'] = $descriptions;
+           return $this->_propDict['descriptions'];
         }
         return null;
     }
@@ -104,15 +104,15 @@ class Term extends \Beta\Microsoft\Graph\Model\Entity
     public function getLabels()
     {
         if (array_key_exists('labels', $this->_propDict) && !is_null($this->_propDict['labels'])) {
-            $labels = [];
-            if (count($this->_propDict['labels']) > 0 && is_a($this->_propDict['labels'][0], 'LocalizedLabel')) {
-                return $this->_propDict['labels'];
-            }
-            foreach ($this->_propDict['labels'] as $singleValue) {
-                $labels []= new LocalizedLabel($singleValue);
-            }
-            $this->_propDict['labels'] = $labels;
-            return $this->_propDict['labels'];
+           $labels = [];
+           if (count($this->_propDict['labels']) > 0 && is_a($this->_propDict['labels'][0], 'LocalizedLabel')) {
+              return $this->_propDict['labels'];
+           }
+           foreach ($this->_propDict['labels'] as $singleValue) {
+              $labels []= new LocalizedLabel($singleValue);
+           }
+           $this->_propDict['labels'] = $labels;
+           return $this->_propDict['labels'];
         }
         return null;
     }
@@ -174,15 +174,15 @@ class Term extends \Beta\Microsoft\Graph\Model\Entity
     public function getTermProperties()
     {
         if (array_key_exists('properties', $this->_propDict) && !is_null($this->_propDict['properties'])) {
-            $properties = [];
-            if (count($this->_propDict['properties']) > 0 && is_a($this->_propDict['properties'][0], '\Beta\Microsoft\Graph\Model\KeyValue')) {
-                return $this->_propDict['properties'];
-            }
-            foreach ($this->_propDict['properties'] as $singleValue) {
-                $properties []= new \Beta\Microsoft\Graph\Model\KeyValue($singleValue);
-            }
-            $this->_propDict['properties'] = $properties;
-            return $this->_propDict['properties'];
+           $properties = [];
+           if (count($this->_propDict['properties']) > 0 && is_a($this->_propDict['properties'][0], '\Beta\Microsoft\Graph\Model\KeyValue')) {
+              return $this->_propDict['properties'];
+           }
+           foreach ($this->_propDict['properties'] as $singleValue) {
+              $properties []= new \Beta\Microsoft\Graph\Model\KeyValue($singleValue);
+           }
+           $this->_propDict['properties'] = $properties;
+           return $this->_propDict['properties'];
         }
         return null;
     }
@@ -211,15 +211,15 @@ class Term extends \Beta\Microsoft\Graph\Model\Entity
     public function getChildren()
     {
         if (array_key_exists('children', $this->_propDict) && !is_null($this->_propDict['children'])) {
-            $children = [];
-            if (count($this->_propDict['children']) > 0 && is_a($this->_propDict['children'][0], 'Term')) {
-                return $this->_propDict['children'];
-            }
-            foreach ($this->_propDict['children'] as $singleValue) {
-                $children []= new Term($singleValue);
-            }
-            $this->_propDict['children'] = $children;
-            return $this->_propDict['children'];
+           $children = [];
+           if (count($this->_propDict['children']) > 0 && is_a($this->_propDict['children'][0], 'Term')) {
+              return $this->_propDict['children'];
+           }
+           foreach ($this->_propDict['children'] as $singleValue) {
+              $children []= new Term($singleValue);
+           }
+           $this->_propDict['children'] = $children;
+           return $this->_propDict['children'];
         }
         return null;
     }
@@ -248,15 +248,15 @@ class Term extends \Beta\Microsoft\Graph\Model\Entity
     public function getRelations()
     {
         if (array_key_exists('relations', $this->_propDict) && !is_null($this->_propDict['relations'])) {
-            $relations = [];
-            if (count($this->_propDict['relations']) > 0 && is_a($this->_propDict['relations'][0], 'Relation')) {
-                return $this->_propDict['relations'];
-            }
-            foreach ($this->_propDict['relations'] as $singleValue) {
-                $relations []= new Relation($singleValue);
-            }
-            $this->_propDict['relations'] = $relations;
-            return $this->_propDict['relations'];
+           $relations = [];
+           if (count($this->_propDict['relations']) > 0 && is_a($this->_propDict['relations'][0], 'Relation')) {
+              return $this->_propDict['relations'];
+           }
+           foreach ($this->_propDict['relations'] as $singleValue) {
+              $relations []= new Relation($singleValue);
+           }
+           $this->_propDict['relations'] = $relations;
+           return $this->_propDict['relations'];
         }
         return null;
     }

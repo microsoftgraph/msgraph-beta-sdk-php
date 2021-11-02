@@ -125,15 +125,15 @@ class Connector extends Entity
     public function getMemberOf()
     {
         if (array_key_exists('memberOf', $this->_propDict) && !is_null($this->_propDict['memberOf'])) {
-            $memberOf = [];
-            if (count($this->_propDict['memberOf']) > 0 && is_a($this->_propDict['memberOf'][0], 'ConnectorGroup')) {
-                return $this->_propDict['memberOf'];
-            }
-            foreach ($this->_propDict['memberOf'] as $singleValue) {
-                $memberOf []= new ConnectorGroup($singleValue);
-            }
-            $this->_propDict['memberOf'] = $memberOf;
-            return $this->_propDict['memberOf'];
+           $memberOf = [];
+           if (count($this->_propDict['memberOf']) > 0 && is_a($this->_propDict['memberOf'][0], 'ConnectorGroup')) {
+              return $this->_propDict['memberOf'];
+           }
+           foreach ($this->_propDict['memberOf'] as $singleValue) {
+              $memberOf []= new ConnectorGroup($singleValue);
+           }
+           $this->_propDict['memberOf'] = $memberOf;
+           return $this->_propDict['memberOf'];
         }
         return null;
     }

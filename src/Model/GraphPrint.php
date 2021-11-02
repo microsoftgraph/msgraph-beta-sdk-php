@@ -98,15 +98,15 @@ class GraphPrint implements \JsonSerializable
     public function getConnectors()
     {
         if (array_key_exists('connectors', $this->_propDict) && !is_null($this->_propDict['connectors'])) {
-            $connectors = [];
-            if (count($this->_propDict['connectors']) > 0 && is_a($this->_propDict['connectors'][0], 'PrintConnector')) {
-                return $this->_propDict['connectors'];
-            }
-            foreach ($this->_propDict['connectors'] as $singleValue) {
-                $connectors []= new PrintConnector($singleValue);
-            }
-            $this->_propDict['connectors'] = $connectors;
-            return $this->_propDict['connectors'];
+           $connectors = [];
+           if (count($this->_propDict['connectors']) > 0 && is_a($this->_propDict['connectors'][0], 'PrintConnector')) {
+              return $this->_propDict['connectors'];
+           }
+           foreach ($this->_propDict['connectors'] as $singleValue) {
+              $connectors []= new PrintConnector($singleValue);
+           }
+           $this->_propDict['connectors'] = $connectors;
+           return $this->_propDict['connectors'];
         }
         return null;
     }
@@ -135,15 +135,15 @@ class GraphPrint implements \JsonSerializable
     public function getOperations()
     {
         if (array_key_exists('operations', $this->_propDict) && !is_null($this->_propDict['operations'])) {
-            $operations = [];
-            if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'PrintOperation')) {
-                return $this->_propDict['operations'];
-            }
-            foreach ($this->_propDict['operations'] as $singleValue) {
-                $operations []= new PrintOperation($singleValue);
-            }
-            $this->_propDict['operations'] = $operations;
-            return $this->_propDict['operations'];
+           $operations = [];
+           if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'PrintOperation')) {
+              return $this->_propDict['operations'];
+           }
+           foreach ($this->_propDict['operations'] as $singleValue) {
+              $operations []= new PrintOperation($singleValue);
+           }
+           $this->_propDict['operations'] = $operations;
+           return $this->_propDict['operations'];
         }
         return null;
     }
@@ -172,15 +172,15 @@ class GraphPrint implements \JsonSerializable
     public function getPrinters()
     {
         if (array_key_exists('printers', $this->_propDict) && !is_null($this->_propDict['printers'])) {
-            $printers = [];
-            if (count($this->_propDict['printers']) > 0 && is_a($this->_propDict['printers'][0], 'Printer')) {
-                return $this->_propDict['printers'];
-            }
-            foreach ($this->_propDict['printers'] as $singleValue) {
-                $printers []= new Printer($singleValue);
-            }
-            $this->_propDict['printers'] = $printers;
-            return $this->_propDict['printers'];
+           $printers = [];
+           if (count($this->_propDict['printers']) > 0 && is_a($this->_propDict['printers'][0], 'Printer')) {
+              return $this->_propDict['printers'];
+           }
+           foreach ($this->_propDict['printers'] as $singleValue) {
+              $printers []= new Printer($singleValue);
+           }
+           $this->_propDict['printers'] = $printers;
+           return $this->_propDict['printers'];
         }
         return null;
     }
@@ -208,15 +208,15 @@ class GraphPrint implements \JsonSerializable
     public function getPrinterShares()
     {
         if (array_key_exists('printerShares', $this->_propDict) && !is_null($this->_propDict['printerShares'])) {
-            $printerShares = [];
-            if (count($this->_propDict['printerShares']) > 0 && is_a($this->_propDict['printerShares'][0], 'PrinterShare')) {
-                return $this->_propDict['printerShares'];
-            }
-            foreach ($this->_propDict['printerShares'] as $singleValue) {
-                $printerShares []= new PrinterShare($singleValue);
-            }
-            $this->_propDict['printerShares'] = $printerShares;
-            return $this->_propDict['printerShares'];
+           $printerShares = [];
+           if (count($this->_propDict['printerShares']) > 0 && is_a($this->_propDict['printerShares'][0], 'PrinterShare')) {
+              return $this->_propDict['printerShares'];
+           }
+           foreach ($this->_propDict['printerShares'] as $singleValue) {
+              $printerShares []= new PrinterShare($singleValue);
+           }
+           $this->_propDict['printerShares'] = $printerShares;
+           return $this->_propDict['printerShares'];
         }
         return null;
     }
@@ -275,15 +275,15 @@ class GraphPrint implements \JsonSerializable
     public function getServices()
     {
         if (array_key_exists('services', $this->_propDict) && !is_null($this->_propDict['services'])) {
-            $services = [];
-            if (count($this->_propDict['services']) > 0 && is_a($this->_propDict['services'][0], 'PrintService')) {
-                return $this->_propDict['services'];
-            }
-            foreach ($this->_propDict['services'] as $singleValue) {
-                $services []= new PrintService($singleValue);
-            }
-            $this->_propDict['services'] = $services;
-            return $this->_propDict['services'];
+           $services = [];
+           if (count($this->_propDict['services']) > 0 && is_a($this->_propDict['services'][0], 'PrintService')) {
+              return $this->_propDict['services'];
+           }
+           foreach ($this->_propDict['services'] as $singleValue) {
+              $services []= new PrintService($singleValue);
+           }
+           $this->_propDict['services'] = $services;
+           return $this->_propDict['services'];
         }
         return null;
     }
@@ -312,15 +312,15 @@ class GraphPrint implements \JsonSerializable
     public function getShares()
     {
         if (array_key_exists('shares', $this->_propDict) && !is_null($this->_propDict['shares'])) {
-            $shares = [];
-            if (count($this->_propDict['shares']) > 0 && is_a($this->_propDict['shares'][0], 'PrinterShare')) {
-                return $this->_propDict['shares'];
-            }
-            foreach ($this->_propDict['shares'] as $singleValue) {
-                $shares []= new PrinterShare($singleValue);
-            }
-            $this->_propDict['shares'] = $shares;
-            return $this->_propDict['shares'];
+           $shares = [];
+           if (count($this->_propDict['shares']) > 0 && is_a($this->_propDict['shares'][0], 'PrinterShare')) {
+              return $this->_propDict['shares'];
+           }
+           foreach ($this->_propDict['shares'] as $singleValue) {
+              $shares []= new PrinterShare($singleValue);
+           }
+           $this->_propDict['shares'] = $shares;
+           return $this->_propDict['shares'];
         }
         return null;
     }
@@ -349,15 +349,15 @@ class GraphPrint implements \JsonSerializable
     public function getTaskDefinitions()
     {
         if (array_key_exists('taskDefinitions', $this->_propDict) && !is_null($this->_propDict['taskDefinitions'])) {
-            $taskDefinitions = [];
-            if (count($this->_propDict['taskDefinitions']) > 0 && is_a($this->_propDict['taskDefinitions'][0], 'PrintTaskDefinition')) {
-                return $this->_propDict['taskDefinitions'];
-            }
-            foreach ($this->_propDict['taskDefinitions'] as $singleValue) {
-                $taskDefinitions []= new PrintTaskDefinition($singleValue);
-            }
-            $this->_propDict['taskDefinitions'] = $taskDefinitions;
-            return $this->_propDict['taskDefinitions'];
+           $taskDefinitions = [];
+           if (count($this->_propDict['taskDefinitions']) > 0 && is_a($this->_propDict['taskDefinitions'][0], 'PrintTaskDefinition')) {
+              return $this->_propDict['taskDefinitions'];
+           }
+           foreach ($this->_propDict['taskDefinitions'] as $singleValue) {
+              $taskDefinitions []= new PrintTaskDefinition($singleValue);
+           }
+           $this->_propDict['taskDefinitions'] = $taskDefinitions;
+           return $this->_propDict['taskDefinitions'];
         }
         return null;
     }

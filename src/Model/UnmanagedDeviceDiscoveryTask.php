@@ -34,15 +34,15 @@ class UnmanagedDeviceDiscoveryTask extends DeviceAppManagementTask
     public function getUnmanagedDevices()
     {
         if (array_key_exists('unmanagedDevices', $this->_propDict) && !is_null($this->_propDict['unmanagedDevices'])) {
-            $unmanagedDevices = [];
-            if (count($this->_propDict['unmanagedDevices']) > 0 && is_a($this->_propDict['unmanagedDevices'][0], 'UnmanagedDevice')) {
-                return $this->_propDict['unmanagedDevices'];
-            }
-            foreach ($this->_propDict['unmanagedDevices'] as $singleValue) {
-                $unmanagedDevices []= new UnmanagedDevice($singleValue);
-            }
-            $this->_propDict['unmanagedDevices'] = $unmanagedDevices;
-            return $this->_propDict['unmanagedDevices'];
+           $unmanagedDevices = [];
+           if (count($this->_propDict['unmanagedDevices']) > 0 && is_a($this->_propDict['unmanagedDevices'][0], 'UnmanagedDevice')) {
+              return $this->_propDict['unmanagedDevices'];
+           }
+           foreach ($this->_propDict['unmanagedDevices'] as $singleValue) {
+              $unmanagedDevices []= new UnmanagedDevice($singleValue);
+           }
+           $this->_propDict['unmanagedDevices'] = $unmanagedDevices;
+           return $this->_propDict['unmanagedDevices'];
         }
         return null;
     }

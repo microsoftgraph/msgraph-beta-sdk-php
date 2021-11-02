@@ -158,15 +158,15 @@ class WindowsInformationProtection extends ManagedAppPolicy
     public function getEnterpriseInternalProxyServers()
     {
         if (array_key_exists('enterpriseInternalProxyServers', $this->_propDict) && !is_null($this->_propDict['enterpriseInternalProxyServers'])) {
-            $enterpriseInternalProxyServers = [];
-            if (count($this->_propDict['enterpriseInternalProxyServers']) > 0 && is_a($this->_propDict['enterpriseInternalProxyServers'][0], 'WindowsInformationProtectionResourceCollection')) {
-                return $this->_propDict['enterpriseInternalProxyServers'];
-            }
-            foreach ($this->_propDict['enterpriseInternalProxyServers'] as $singleValue) {
-                $enterpriseInternalProxyServers []= new WindowsInformationProtectionResourceCollection($singleValue);
-            }
-            $this->_propDict['enterpriseInternalProxyServers'] = $enterpriseInternalProxyServers;
-            return $this->_propDict['enterpriseInternalProxyServers'];
+           $enterpriseInternalProxyServers = [];
+           if (count($this->_propDict['enterpriseInternalProxyServers']) > 0 && is_a($this->_propDict['enterpriseInternalProxyServers'][0], 'WindowsInformationProtectionResourceCollection')) {
+              return $this->_propDict['enterpriseInternalProxyServers'];
+           }
+           foreach ($this->_propDict['enterpriseInternalProxyServers'] as $singleValue) {
+              $enterpriseInternalProxyServers []= new WindowsInformationProtectionResourceCollection($singleValue);
+           }
+           $this->_propDict['enterpriseInternalProxyServers'] = $enterpriseInternalProxyServers;
+           return $this->_propDict['enterpriseInternalProxyServers'];
         }
         return null;
     }
@@ -195,15 +195,15 @@ class WindowsInformationProtection extends ManagedAppPolicy
     public function getEnterpriseIPRanges()
     {
         if (array_key_exists('enterpriseIPRanges', $this->_propDict) && !is_null($this->_propDict['enterpriseIPRanges'])) {
-            $enterpriseIPRanges = [];
-            if (count($this->_propDict['enterpriseIPRanges']) > 0 && is_a($this->_propDict['enterpriseIPRanges'][0], 'WindowsInformationProtectionIPRangeCollection')) {
-                return $this->_propDict['enterpriseIPRanges'];
-            }
-            foreach ($this->_propDict['enterpriseIPRanges'] as $singleValue) {
-                $enterpriseIPRanges []= new WindowsInformationProtectionIPRangeCollection($singleValue);
-            }
-            $this->_propDict['enterpriseIPRanges'] = $enterpriseIPRanges;
-            return $this->_propDict['enterpriseIPRanges'];
+           $enterpriseIPRanges = [];
+           if (count($this->_propDict['enterpriseIPRanges']) > 0 && is_a($this->_propDict['enterpriseIPRanges'][0], 'WindowsInformationProtectionIPRangeCollection')) {
+              return $this->_propDict['enterpriseIPRanges'];
+           }
+           foreach ($this->_propDict['enterpriseIPRanges'] as $singleValue) {
+              $enterpriseIPRanges []= new WindowsInformationProtectionIPRangeCollection($singleValue);
+           }
+           $this->_propDict['enterpriseIPRanges'] = $enterpriseIPRanges;
+           return $this->_propDict['enterpriseIPRanges'];
         }
         return null;
     }
@@ -261,15 +261,15 @@ class WindowsInformationProtection extends ManagedAppPolicy
     public function getEnterpriseNetworkDomainNames()
     {
         if (array_key_exists('enterpriseNetworkDomainNames', $this->_propDict) && !is_null($this->_propDict['enterpriseNetworkDomainNames'])) {
-            $enterpriseNetworkDomainNames = [];
-            if (count($this->_propDict['enterpriseNetworkDomainNames']) > 0 && is_a($this->_propDict['enterpriseNetworkDomainNames'][0], 'WindowsInformationProtectionResourceCollection')) {
-                return $this->_propDict['enterpriseNetworkDomainNames'];
-            }
-            foreach ($this->_propDict['enterpriseNetworkDomainNames'] as $singleValue) {
-                $enterpriseNetworkDomainNames []= new WindowsInformationProtectionResourceCollection($singleValue);
-            }
-            $this->_propDict['enterpriseNetworkDomainNames'] = $enterpriseNetworkDomainNames;
-            return $this->_propDict['enterpriseNetworkDomainNames'];
+           $enterpriseNetworkDomainNames = [];
+           if (count($this->_propDict['enterpriseNetworkDomainNames']) > 0 && is_a($this->_propDict['enterpriseNetworkDomainNames'][0], 'WindowsInformationProtectionResourceCollection')) {
+              return $this->_propDict['enterpriseNetworkDomainNames'];
+           }
+           foreach ($this->_propDict['enterpriseNetworkDomainNames'] as $singleValue) {
+              $enterpriseNetworkDomainNames []= new WindowsInformationProtectionResourceCollection($singleValue);
+           }
+           $this->_propDict['enterpriseNetworkDomainNames'] = $enterpriseNetworkDomainNames;
+           return $this->_propDict['enterpriseNetworkDomainNames'];
         }
         return null;
     }
@@ -298,15 +298,15 @@ class WindowsInformationProtection extends ManagedAppPolicy
     public function getEnterpriseProtectedDomainNames()
     {
         if (array_key_exists('enterpriseProtectedDomainNames', $this->_propDict) && !is_null($this->_propDict['enterpriseProtectedDomainNames'])) {
-            $enterpriseProtectedDomainNames = [];
-            if (count($this->_propDict['enterpriseProtectedDomainNames']) > 0 && is_a($this->_propDict['enterpriseProtectedDomainNames'][0], 'WindowsInformationProtectionResourceCollection')) {
-                return $this->_propDict['enterpriseProtectedDomainNames'];
-            }
-            foreach ($this->_propDict['enterpriseProtectedDomainNames'] as $singleValue) {
-                $enterpriseProtectedDomainNames []= new WindowsInformationProtectionResourceCollection($singleValue);
-            }
-            $this->_propDict['enterpriseProtectedDomainNames'] = $enterpriseProtectedDomainNames;
-            return $this->_propDict['enterpriseProtectedDomainNames'];
+           $enterpriseProtectedDomainNames = [];
+           if (count($this->_propDict['enterpriseProtectedDomainNames']) > 0 && is_a($this->_propDict['enterpriseProtectedDomainNames'][0], 'WindowsInformationProtectionResourceCollection')) {
+              return $this->_propDict['enterpriseProtectedDomainNames'];
+           }
+           foreach ($this->_propDict['enterpriseProtectedDomainNames'] as $singleValue) {
+              $enterpriseProtectedDomainNames []= new WindowsInformationProtectionResourceCollection($singleValue);
+           }
+           $this->_propDict['enterpriseProtectedDomainNames'] = $enterpriseProtectedDomainNames;
+           return $this->_propDict['enterpriseProtectedDomainNames'];
         }
         return null;
     }
@@ -335,15 +335,15 @@ class WindowsInformationProtection extends ManagedAppPolicy
     public function getEnterpriseProxiedDomains()
     {
         if (array_key_exists('enterpriseProxiedDomains', $this->_propDict) && !is_null($this->_propDict['enterpriseProxiedDomains'])) {
-            $enterpriseProxiedDomains = [];
-            if (count($this->_propDict['enterpriseProxiedDomains']) > 0 && is_a($this->_propDict['enterpriseProxiedDomains'][0], 'WindowsInformationProtectionProxiedDomainCollection')) {
-                return $this->_propDict['enterpriseProxiedDomains'];
-            }
-            foreach ($this->_propDict['enterpriseProxiedDomains'] as $singleValue) {
-                $enterpriseProxiedDomains []= new WindowsInformationProtectionProxiedDomainCollection($singleValue);
-            }
-            $this->_propDict['enterpriseProxiedDomains'] = $enterpriseProxiedDomains;
-            return $this->_propDict['enterpriseProxiedDomains'];
+           $enterpriseProxiedDomains = [];
+           if (count($this->_propDict['enterpriseProxiedDomains']) > 0 && is_a($this->_propDict['enterpriseProxiedDomains'][0], 'WindowsInformationProtectionProxiedDomainCollection')) {
+              return $this->_propDict['enterpriseProxiedDomains'];
+           }
+           foreach ($this->_propDict['enterpriseProxiedDomains'] as $singleValue) {
+              $enterpriseProxiedDomains []= new WindowsInformationProtectionProxiedDomainCollection($singleValue);
+           }
+           $this->_propDict['enterpriseProxiedDomains'] = $enterpriseProxiedDomains;
+           return $this->_propDict['enterpriseProxiedDomains'];
         }
         return null;
     }
@@ -372,15 +372,15 @@ class WindowsInformationProtection extends ManagedAppPolicy
     public function getEnterpriseProxyServers()
     {
         if (array_key_exists('enterpriseProxyServers', $this->_propDict) && !is_null($this->_propDict['enterpriseProxyServers'])) {
-            $enterpriseProxyServers = [];
-            if (count($this->_propDict['enterpriseProxyServers']) > 0 && is_a($this->_propDict['enterpriseProxyServers'][0], 'WindowsInformationProtectionResourceCollection')) {
-                return $this->_propDict['enterpriseProxyServers'];
-            }
-            foreach ($this->_propDict['enterpriseProxyServers'] as $singleValue) {
-                $enterpriseProxyServers []= new WindowsInformationProtectionResourceCollection($singleValue);
-            }
-            $this->_propDict['enterpriseProxyServers'] = $enterpriseProxyServers;
-            return $this->_propDict['enterpriseProxyServers'];
+           $enterpriseProxyServers = [];
+           if (count($this->_propDict['enterpriseProxyServers']) > 0 && is_a($this->_propDict['enterpriseProxyServers'][0], 'WindowsInformationProtectionResourceCollection')) {
+              return $this->_propDict['enterpriseProxyServers'];
+           }
+           foreach ($this->_propDict['enterpriseProxyServers'] as $singleValue) {
+              $enterpriseProxyServers []= new WindowsInformationProtectionResourceCollection($singleValue);
+           }
+           $this->_propDict['enterpriseProxyServers'] = $enterpriseProxyServers;
+           return $this->_propDict['enterpriseProxyServers'];
         }
         return null;
     }
@@ -438,15 +438,15 @@ class WindowsInformationProtection extends ManagedAppPolicy
     public function getExemptApps()
     {
         if (array_key_exists('exemptApps', $this->_propDict) && !is_null($this->_propDict['exemptApps'])) {
-            $exemptApps = [];
-            if (count($this->_propDict['exemptApps']) > 0 && is_a($this->_propDict['exemptApps'][0], 'WindowsInformationProtectionApp')) {
-                return $this->_propDict['exemptApps'];
-            }
-            foreach ($this->_propDict['exemptApps'] as $singleValue) {
-                $exemptApps []= new WindowsInformationProtectionApp($singleValue);
-            }
-            $this->_propDict['exemptApps'] = $exemptApps;
-            return $this->_propDict['exemptApps'];
+           $exemptApps = [];
+           if (count($this->_propDict['exemptApps']) > 0 && is_a($this->_propDict['exemptApps'][0], 'WindowsInformationProtectionApp')) {
+              return $this->_propDict['exemptApps'];
+           }
+           foreach ($this->_propDict['exemptApps'] as $singleValue) {
+              $exemptApps []= new WindowsInformationProtectionApp($singleValue);
+           }
+           $this->_propDict['exemptApps'] = $exemptApps;
+           return $this->_propDict['exemptApps'];
         }
         return null;
     }
@@ -562,15 +562,15 @@ class WindowsInformationProtection extends ManagedAppPolicy
     public function getNeutralDomainResources()
     {
         if (array_key_exists('neutralDomainResources', $this->_propDict) && !is_null($this->_propDict['neutralDomainResources'])) {
-            $neutralDomainResources = [];
-            if (count($this->_propDict['neutralDomainResources']) > 0 && is_a($this->_propDict['neutralDomainResources'][0], 'WindowsInformationProtectionResourceCollection')) {
-                return $this->_propDict['neutralDomainResources'];
-            }
-            foreach ($this->_propDict['neutralDomainResources'] as $singleValue) {
-                $neutralDomainResources []= new WindowsInformationProtectionResourceCollection($singleValue);
-            }
-            $this->_propDict['neutralDomainResources'] = $neutralDomainResources;
-            return $this->_propDict['neutralDomainResources'];
+           $neutralDomainResources = [];
+           if (count($this->_propDict['neutralDomainResources']) > 0 && is_a($this->_propDict['neutralDomainResources'][0], 'WindowsInformationProtectionResourceCollection')) {
+              return $this->_propDict['neutralDomainResources'];
+           }
+           foreach ($this->_propDict['neutralDomainResources'] as $singleValue) {
+              $neutralDomainResources []= new WindowsInformationProtectionResourceCollection($singleValue);
+           }
+           $this->_propDict['neutralDomainResources'] = $neutralDomainResources;
+           return $this->_propDict['neutralDomainResources'];
         }
         return null;
     }
@@ -599,15 +599,15 @@ class WindowsInformationProtection extends ManagedAppPolicy
     public function getProtectedApps()
     {
         if (array_key_exists('protectedApps', $this->_propDict) && !is_null($this->_propDict['protectedApps'])) {
-            $protectedApps = [];
-            if (count($this->_propDict['protectedApps']) > 0 && is_a($this->_propDict['protectedApps'][0], 'WindowsInformationProtectionApp')) {
-                return $this->_propDict['protectedApps'];
-            }
-            foreach ($this->_propDict['protectedApps'] as $singleValue) {
-                $protectedApps []= new WindowsInformationProtectionApp($singleValue);
-            }
-            $this->_propDict['protectedApps'] = $protectedApps;
-            return $this->_propDict['protectedApps'];
+           $protectedApps = [];
+           if (count($this->_propDict['protectedApps']) > 0 && is_a($this->_propDict['protectedApps'][0], 'WindowsInformationProtectionApp')) {
+              return $this->_propDict['protectedApps'];
+           }
+           foreach ($this->_propDict['protectedApps'] as $singleValue) {
+              $protectedApps []= new WindowsInformationProtectionApp($singleValue);
+           }
+           $this->_propDict['protectedApps'] = $protectedApps;
+           return $this->_propDict['protectedApps'];
         }
         return null;
     }
@@ -723,15 +723,15 @@ class WindowsInformationProtection extends ManagedAppPolicy
     public function getSmbAutoEncryptedFileExtensions()
     {
         if (array_key_exists('smbAutoEncryptedFileExtensions', $this->_propDict) && !is_null($this->_propDict['smbAutoEncryptedFileExtensions'])) {
-            $smbAutoEncryptedFileExtensions = [];
-            if (count($this->_propDict['smbAutoEncryptedFileExtensions']) > 0 && is_a($this->_propDict['smbAutoEncryptedFileExtensions'][0], 'WindowsInformationProtectionResourceCollection')) {
-                return $this->_propDict['smbAutoEncryptedFileExtensions'];
-            }
-            foreach ($this->_propDict['smbAutoEncryptedFileExtensions'] as $singleValue) {
-                $smbAutoEncryptedFileExtensions []= new WindowsInformationProtectionResourceCollection($singleValue);
-            }
-            $this->_propDict['smbAutoEncryptedFileExtensions'] = $smbAutoEncryptedFileExtensions;
-            return $this->_propDict['smbAutoEncryptedFileExtensions'];
+           $smbAutoEncryptedFileExtensions = [];
+           if (count($this->_propDict['smbAutoEncryptedFileExtensions']) > 0 && is_a($this->_propDict['smbAutoEncryptedFileExtensions'][0], 'WindowsInformationProtectionResourceCollection')) {
+              return $this->_propDict['smbAutoEncryptedFileExtensions'];
+           }
+           foreach ($this->_propDict['smbAutoEncryptedFileExtensions'] as $singleValue) {
+              $smbAutoEncryptedFileExtensions []= new WindowsInformationProtectionResourceCollection($singleValue);
+           }
+           $this->_propDict['smbAutoEncryptedFileExtensions'] = $smbAutoEncryptedFileExtensions;
+           return $this->_propDict['smbAutoEncryptedFileExtensions'];
         }
         return null;
     }
@@ -760,15 +760,15 @@ class WindowsInformationProtection extends ManagedAppPolicy
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'TargetedManagedAppPolicyAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new TargetedManagedAppPolicyAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'TargetedManagedAppPolicyAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new TargetedManagedAppPolicyAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }
@@ -797,15 +797,15 @@ class WindowsInformationProtection extends ManagedAppPolicy
     public function getExemptAppLockerFiles()
     {
         if (array_key_exists('exemptAppLockerFiles', $this->_propDict) && !is_null($this->_propDict['exemptAppLockerFiles'])) {
-            $exemptAppLockerFiles = [];
-            if (count($this->_propDict['exemptAppLockerFiles']) > 0 && is_a($this->_propDict['exemptAppLockerFiles'][0], 'WindowsInformationProtectionAppLockerFile')) {
-                return $this->_propDict['exemptAppLockerFiles'];
-            }
-            foreach ($this->_propDict['exemptAppLockerFiles'] as $singleValue) {
-                $exemptAppLockerFiles []= new WindowsInformationProtectionAppLockerFile($singleValue);
-            }
-            $this->_propDict['exemptAppLockerFiles'] = $exemptAppLockerFiles;
-            return $this->_propDict['exemptAppLockerFiles'];
+           $exemptAppLockerFiles = [];
+           if (count($this->_propDict['exemptAppLockerFiles']) > 0 && is_a($this->_propDict['exemptAppLockerFiles'][0], 'WindowsInformationProtectionAppLockerFile')) {
+              return $this->_propDict['exemptAppLockerFiles'];
+           }
+           foreach ($this->_propDict['exemptAppLockerFiles'] as $singleValue) {
+              $exemptAppLockerFiles []= new WindowsInformationProtectionAppLockerFile($singleValue);
+           }
+           $this->_propDict['exemptAppLockerFiles'] = $exemptAppLockerFiles;
+           return $this->_propDict['exemptAppLockerFiles'];
         }
         return null;
     }
@@ -834,15 +834,15 @@ class WindowsInformationProtection extends ManagedAppPolicy
     public function getProtectedAppLockerFiles()
     {
         if (array_key_exists('protectedAppLockerFiles', $this->_propDict) && !is_null($this->_propDict['protectedAppLockerFiles'])) {
-            $protectedAppLockerFiles = [];
-            if (count($this->_propDict['protectedAppLockerFiles']) > 0 && is_a($this->_propDict['protectedAppLockerFiles'][0], 'WindowsInformationProtectionAppLockerFile')) {
-                return $this->_propDict['protectedAppLockerFiles'];
-            }
-            foreach ($this->_propDict['protectedAppLockerFiles'] as $singleValue) {
-                $protectedAppLockerFiles []= new WindowsInformationProtectionAppLockerFile($singleValue);
-            }
-            $this->_propDict['protectedAppLockerFiles'] = $protectedAppLockerFiles;
-            return $this->_propDict['protectedAppLockerFiles'];
+           $protectedAppLockerFiles = [];
+           if (count($this->_propDict['protectedAppLockerFiles']) > 0 && is_a($this->_propDict['protectedAppLockerFiles'][0], 'WindowsInformationProtectionAppLockerFile')) {
+              return $this->_propDict['protectedAppLockerFiles'];
+           }
+           foreach ($this->_propDict['protectedAppLockerFiles'] as $singleValue) {
+              $protectedAppLockerFiles []= new WindowsInformationProtectionAppLockerFile($singleValue);
+           }
+           $this->_propDict['protectedAppLockerFiles'] = $protectedAppLockerFiles;
+           return $this->_propDict['protectedAppLockerFiles'];
         }
         return null;
     }

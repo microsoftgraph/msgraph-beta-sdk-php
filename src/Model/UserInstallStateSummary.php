@@ -150,15 +150,15 @@ class UserInstallStateSummary extends Entity
     public function getDeviceStates()
     {
         if (array_key_exists('deviceStates', $this->_propDict) && !is_null($this->_propDict['deviceStates'])) {
-            $deviceStates = [];
-            if (count($this->_propDict['deviceStates']) > 0 && is_a($this->_propDict['deviceStates'][0], 'DeviceInstallState')) {
-                return $this->_propDict['deviceStates'];
-            }
-            foreach ($this->_propDict['deviceStates'] as $singleValue) {
-                $deviceStates []= new DeviceInstallState($singleValue);
-            }
-            $this->_propDict['deviceStates'] = $deviceStates;
-            return $this->_propDict['deviceStates'];
+           $deviceStates = [];
+           if (count($this->_propDict['deviceStates']) > 0 && is_a($this->_propDict['deviceStates'][0], 'DeviceInstallState')) {
+              return $this->_propDict['deviceStates'];
+           }
+           foreach ($this->_propDict['deviceStates'] as $singleValue) {
+              $deviceStates []= new DeviceInstallState($singleValue);
+           }
+           $this->_propDict['deviceStates'] = $deviceStates;
+           return $this->_propDict['deviceStates'];
         }
         return null;
     }

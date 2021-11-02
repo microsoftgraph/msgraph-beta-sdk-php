@@ -64,15 +64,15 @@ class InformationProtection extends Entity
     public function getDataLossPreventionPolicies()
     {
         if (array_key_exists('dataLossPreventionPolicies', $this->_propDict) && !is_null($this->_propDict['dataLossPreventionPolicies'])) {
-            $dataLossPreventionPolicies = [];
-            if (count($this->_propDict['dataLossPreventionPolicies']) > 0 && is_a($this->_propDict['dataLossPreventionPolicies'][0], 'DataLossPreventionPolicy')) {
-                return $this->_propDict['dataLossPreventionPolicies'];
-            }
-            foreach ($this->_propDict['dataLossPreventionPolicies'] as $singleValue) {
-                $dataLossPreventionPolicies []= new DataLossPreventionPolicy($singleValue);
-            }
-            $this->_propDict['dataLossPreventionPolicies'] = $dataLossPreventionPolicies;
-            return $this->_propDict['dataLossPreventionPolicies'];
+           $dataLossPreventionPolicies = [];
+           if (count($this->_propDict['dataLossPreventionPolicies']) > 0 && is_a($this->_propDict['dataLossPreventionPolicies'][0], 'DataLossPreventionPolicy')) {
+              return $this->_propDict['dataLossPreventionPolicies'];
+           }
+           foreach ($this->_propDict['dataLossPreventionPolicies'] as $singleValue) {
+              $dataLossPreventionPolicies []= new DataLossPreventionPolicy($singleValue);
+           }
+           $this->_propDict['dataLossPreventionPolicies'] = $dataLossPreventionPolicies;
+           return $this->_propDict['dataLossPreventionPolicies'];
         }
         return null;
     }
@@ -99,15 +99,15 @@ class InformationProtection extends Entity
     public function getSensitivityLabels()
     {
         if (array_key_exists('sensitivityLabels', $this->_propDict) && !is_null($this->_propDict['sensitivityLabels'])) {
-            $sensitivityLabels = [];
-            if (count($this->_propDict['sensitivityLabels']) > 0 && is_a($this->_propDict['sensitivityLabels'][0], 'SensitivityLabel')) {
-                return $this->_propDict['sensitivityLabels'];
-            }
-            foreach ($this->_propDict['sensitivityLabels'] as $singleValue) {
-                $sensitivityLabels []= new SensitivityLabel($singleValue);
-            }
-            $this->_propDict['sensitivityLabels'] = $sensitivityLabels;
-            return $this->_propDict['sensitivityLabels'];
+           $sensitivityLabels = [];
+           if (count($this->_propDict['sensitivityLabels']) > 0 && is_a($this->_propDict['sensitivityLabels'][0], 'SensitivityLabel')) {
+              return $this->_propDict['sensitivityLabels'];
+           }
+           foreach ($this->_propDict['sensitivityLabels'] as $singleValue) {
+              $sensitivityLabels []= new SensitivityLabel($singleValue);
+           }
+           $this->_propDict['sensitivityLabels'] = $sensitivityLabels;
+           return $this->_propDict['sensitivityLabels'];
         }
         return null;
     }
@@ -196,15 +196,15 @@ class InformationProtection extends Entity
     public function getThreatAssessmentRequests()
     {
         if (array_key_exists('threatAssessmentRequests', $this->_propDict) && !is_null($this->_propDict['threatAssessmentRequests'])) {
-            $threatAssessmentRequests = [];
-            if (count($this->_propDict['threatAssessmentRequests']) > 0 && is_a($this->_propDict['threatAssessmentRequests'][0], 'ThreatAssessmentRequest')) {
-                return $this->_propDict['threatAssessmentRequests'];
-            }
-            foreach ($this->_propDict['threatAssessmentRequests'] as $singleValue) {
-                $threatAssessmentRequests []= new ThreatAssessmentRequest($singleValue);
-            }
-            $this->_propDict['threatAssessmentRequests'] = $threatAssessmentRequests;
-            return $this->_propDict['threatAssessmentRequests'];
+           $threatAssessmentRequests = [];
+           if (count($this->_propDict['threatAssessmentRequests']) > 0 && is_a($this->_propDict['threatAssessmentRequests'][0], 'ThreatAssessmentRequest')) {
+              return $this->_propDict['threatAssessmentRequests'];
+           }
+           foreach ($this->_propDict['threatAssessmentRequests'] as $singleValue) {
+              $threatAssessmentRequests []= new ThreatAssessmentRequest($singleValue);
+           }
+           $this->_propDict['threatAssessmentRequests'] = $threatAssessmentRequests;
+           return $this->_propDict['threatAssessmentRequests'];
         }
         return null;
     }

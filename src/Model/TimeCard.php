@@ -34,15 +34,15 @@ class TimeCard extends ChangeTrackedEntity
     public function getBreaks()
     {
         if (array_key_exists('breaks', $this->_propDict) && !is_null($this->_propDict['breaks'])) {
-            $breaks = [];
-            if (count($this->_propDict['breaks']) > 0 && is_a($this->_propDict['breaks'][0], 'TimeCardBreak')) {
-                return $this->_propDict['breaks'];
-            }
-            foreach ($this->_propDict['breaks'] as $singleValue) {
-                $breaks []= new TimeCardBreak($singleValue);
-            }
-            $this->_propDict['breaks'] = $breaks;
-            return $this->_propDict['breaks'];
+           $breaks = [];
+           if (count($this->_propDict['breaks']) > 0 && is_a($this->_propDict['breaks'][0], 'TimeCardBreak')) {
+              return $this->_propDict['breaks'];
+           }
+           foreach ($this->_propDict['breaks'] as $singleValue) {
+              $breaks []= new TimeCardBreak($singleValue);
+           }
+           $this->_propDict['breaks'] = $breaks;
+           return $this->_propDict['breaks'];
         }
         return null;
     }

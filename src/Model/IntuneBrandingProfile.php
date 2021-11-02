@@ -34,15 +34,15 @@ class IntuneBrandingProfile extends Entity
     public function getCompanyPortalBlockedActions()
     {
         if (array_key_exists('companyPortalBlockedActions', $this->_propDict) && !is_null($this->_propDict['companyPortalBlockedActions'])) {
-            $companyPortalBlockedActions = [];
-            if (count($this->_propDict['companyPortalBlockedActions']) > 0 && is_a($this->_propDict['companyPortalBlockedActions'][0], 'CompanyPortalBlockedAction')) {
-                return $this->_propDict['companyPortalBlockedActions'];
-            }
-            foreach ($this->_propDict['companyPortalBlockedActions'] as $singleValue) {
-                $companyPortalBlockedActions []= new CompanyPortalBlockedAction($singleValue);
-            }
-            $this->_propDict['companyPortalBlockedActions'] = $companyPortalBlockedActions;
-            return $this->_propDict['companyPortalBlockedActions'];
+           $companyPortalBlockedActions = [];
+           if (count($this->_propDict['companyPortalBlockedActions']) > 0 && is_a($this->_propDict['companyPortalBlockedActions'][0], 'CompanyPortalBlockedAction')) {
+              return $this->_propDict['companyPortalBlockedActions'];
+           }
+           foreach ($this->_propDict['companyPortalBlockedActions'] as $singleValue) {
+              $companyPortalBlockedActions []= new CompanyPortalBlockedAction($singleValue);
+           }
+           $this->_propDict['companyPortalBlockedActions'] = $companyPortalBlockedActions;
+           return $this->_propDict['companyPortalBlockedActions'];
         }
         return null;
     }
@@ -969,15 +969,15 @@ class IntuneBrandingProfile extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'IntuneBrandingProfileAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new IntuneBrandingProfileAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'IntuneBrandingProfileAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new IntuneBrandingProfileAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }

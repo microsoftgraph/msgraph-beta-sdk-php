@@ -67,15 +67,15 @@ class Updates extends \Beta\Microsoft\Graph\Model\Entity
     public function getDeployments()
     {
         if (array_key_exists('deployments', $this->_propDict) && !is_null($this->_propDict['deployments'])) {
-            $deployments = [];
-            if (count($this->_propDict['deployments']) > 0 && is_a($this->_propDict['deployments'][0], 'Deployment')) {
-                return $this->_propDict['deployments'];
-            }
-            foreach ($this->_propDict['deployments'] as $singleValue) {
-                $deployments []= new Deployment($singleValue);
-            }
-            $this->_propDict['deployments'] = $deployments;
-            return $this->_propDict['deployments'];
+           $deployments = [];
+           if (count($this->_propDict['deployments']) > 0 && is_a($this->_propDict['deployments'][0], 'Deployment')) {
+              return $this->_propDict['deployments'];
+           }
+           foreach ($this->_propDict['deployments'] as $singleValue) {
+              $deployments []= new Deployment($singleValue);
+           }
+           $this->_propDict['deployments'] = $deployments;
+           return $this->_propDict['deployments'];
         }
         return null;
     }
@@ -104,15 +104,15 @@ class Updates extends \Beta\Microsoft\Graph\Model\Entity
     public function getUpdatableAssets()
     {
         if (array_key_exists('updatableAssets', $this->_propDict) && !is_null($this->_propDict['updatableAssets'])) {
-            $updatableAssets = [];
-            if (count($this->_propDict['updatableAssets']) > 0 && is_a($this->_propDict['updatableAssets'][0], 'UpdatableAsset')) {
-                return $this->_propDict['updatableAssets'];
-            }
-            foreach ($this->_propDict['updatableAssets'] as $singleValue) {
-                $updatableAssets []= new UpdatableAsset($singleValue);
-            }
-            $this->_propDict['updatableAssets'] = $updatableAssets;
-            return $this->_propDict['updatableAssets'];
+           $updatableAssets = [];
+           if (count($this->_propDict['updatableAssets']) > 0 && is_a($this->_propDict['updatableAssets'][0], 'UpdatableAsset')) {
+              return $this->_propDict['updatableAssets'];
+           }
+           foreach ($this->_propDict['updatableAssets'] as $singleValue) {
+              $updatableAssets []= new UpdatableAsset($singleValue);
+           }
+           $this->_propDict['updatableAssets'] = $updatableAssets;
+           return $this->_propDict['updatableAssets'];
         }
         return null;
     }

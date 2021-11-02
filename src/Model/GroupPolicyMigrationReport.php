@@ -402,15 +402,15 @@ class GroupPolicyMigrationReport extends Entity
     public function getGroupPolicySettingMappings()
     {
         if (array_key_exists('groupPolicySettingMappings', $this->_propDict) && !is_null($this->_propDict['groupPolicySettingMappings'])) {
-            $groupPolicySettingMappings = [];
-            if (count($this->_propDict['groupPolicySettingMappings']) > 0 && is_a($this->_propDict['groupPolicySettingMappings'][0], 'GroupPolicySettingMapping')) {
-                return $this->_propDict['groupPolicySettingMappings'];
-            }
-            foreach ($this->_propDict['groupPolicySettingMappings'] as $singleValue) {
-                $groupPolicySettingMappings []= new GroupPolicySettingMapping($singleValue);
-            }
-            $this->_propDict['groupPolicySettingMappings'] = $groupPolicySettingMappings;
-            return $this->_propDict['groupPolicySettingMappings'];
+           $groupPolicySettingMappings = [];
+           if (count($this->_propDict['groupPolicySettingMappings']) > 0 && is_a($this->_propDict['groupPolicySettingMappings'][0], 'GroupPolicySettingMapping')) {
+              return $this->_propDict['groupPolicySettingMappings'];
+           }
+           foreach ($this->_propDict['groupPolicySettingMappings'] as $singleValue) {
+              $groupPolicySettingMappings []= new GroupPolicySettingMapping($singleValue);
+           }
+           $this->_propDict['groupPolicySettingMappings'] = $groupPolicySettingMappings;
+           return $this->_propDict['groupPolicySettingMappings'];
         }
         return null;
     }
@@ -439,15 +439,15 @@ class GroupPolicyMigrationReport extends Entity
     public function getUnsupportedGroupPolicyExtensions()
     {
         if (array_key_exists('unsupportedGroupPolicyExtensions', $this->_propDict) && !is_null($this->_propDict['unsupportedGroupPolicyExtensions'])) {
-            $unsupportedGroupPolicyExtensions = [];
-            if (count($this->_propDict['unsupportedGroupPolicyExtensions']) > 0 && is_a($this->_propDict['unsupportedGroupPolicyExtensions'][0], 'UnsupportedGroupPolicyExtension')) {
-                return $this->_propDict['unsupportedGroupPolicyExtensions'];
-            }
-            foreach ($this->_propDict['unsupportedGroupPolicyExtensions'] as $singleValue) {
-                $unsupportedGroupPolicyExtensions []= new UnsupportedGroupPolicyExtension($singleValue);
-            }
-            $this->_propDict['unsupportedGroupPolicyExtensions'] = $unsupportedGroupPolicyExtensions;
-            return $this->_propDict['unsupportedGroupPolicyExtensions'];
+           $unsupportedGroupPolicyExtensions = [];
+           if (count($this->_propDict['unsupportedGroupPolicyExtensions']) > 0 && is_a($this->_propDict['unsupportedGroupPolicyExtensions'][0], 'UnsupportedGroupPolicyExtension')) {
+              return $this->_propDict['unsupportedGroupPolicyExtensions'];
+           }
+           foreach ($this->_propDict['unsupportedGroupPolicyExtensions'] as $singleValue) {
+              $unsupportedGroupPolicyExtensions []= new UnsupportedGroupPolicyExtension($singleValue);
+           }
+           $this->_propDict['unsupportedGroupPolicyExtensions'] = $unsupportedGroupPolicyExtensions;
+           return $this->_propDict['unsupportedGroupPolicyExtensions'];
         }
         return null;
     }

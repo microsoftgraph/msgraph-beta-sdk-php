@@ -601,15 +601,15 @@ class MobileApp extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'MobileAppAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new MobileAppAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'MobileAppAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new MobileAppAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }
@@ -638,15 +638,15 @@ class MobileApp extends Entity
     public function getCategories()
     {
         if (array_key_exists('categories', $this->_propDict) && !is_null($this->_propDict['categories'])) {
-            $categories = [];
-            if (count($this->_propDict['categories']) > 0 && is_a($this->_propDict['categories'][0], 'MobileAppCategory')) {
-                return $this->_propDict['categories'];
-            }
-            foreach ($this->_propDict['categories'] as $singleValue) {
-                $categories []= new MobileAppCategory($singleValue);
-            }
-            $this->_propDict['categories'] = $categories;
-            return $this->_propDict['categories'];
+           $categories = [];
+           if (count($this->_propDict['categories']) > 0 && is_a($this->_propDict['categories'][0], 'MobileAppCategory')) {
+              return $this->_propDict['categories'];
+           }
+           foreach ($this->_propDict['categories'] as $singleValue) {
+              $categories []= new MobileAppCategory($singleValue);
+           }
+           $this->_propDict['categories'] = $categories;
+           return $this->_propDict['categories'];
         }
         return null;
     }
@@ -675,15 +675,15 @@ class MobileApp extends Entity
     public function getDeviceStatuses()
     {
         if (array_key_exists('deviceStatuses', $this->_propDict) && !is_null($this->_propDict['deviceStatuses'])) {
-            $deviceStatuses = [];
-            if (count($this->_propDict['deviceStatuses']) > 0 && is_a($this->_propDict['deviceStatuses'][0], 'MobileAppInstallStatus')) {
-                return $this->_propDict['deviceStatuses'];
-            }
-            foreach ($this->_propDict['deviceStatuses'] as $singleValue) {
-                $deviceStatuses []= new MobileAppInstallStatus($singleValue);
-            }
-            $this->_propDict['deviceStatuses'] = $deviceStatuses;
-            return $this->_propDict['deviceStatuses'];
+           $deviceStatuses = [];
+           if (count($this->_propDict['deviceStatuses']) > 0 && is_a($this->_propDict['deviceStatuses'][0], 'MobileAppInstallStatus')) {
+              return $this->_propDict['deviceStatuses'];
+           }
+           foreach ($this->_propDict['deviceStatuses'] as $singleValue) {
+              $deviceStatuses []= new MobileAppInstallStatus($singleValue);
+           }
+           $this->_propDict['deviceStatuses'] = $deviceStatuses;
+           return $this->_propDict['deviceStatuses'];
         }
         return null;
     }
@@ -745,15 +745,15 @@ class MobileApp extends Entity
     public function getRelationships()
     {
         if (array_key_exists('relationships', $this->_propDict) && !is_null($this->_propDict['relationships'])) {
-            $relationships = [];
-            if (count($this->_propDict['relationships']) > 0 && is_a($this->_propDict['relationships'][0], 'MobileAppRelationship')) {
-                return $this->_propDict['relationships'];
-            }
-            foreach ($this->_propDict['relationships'] as $singleValue) {
-                $relationships []= new MobileAppRelationship($singleValue);
-            }
-            $this->_propDict['relationships'] = $relationships;
-            return $this->_propDict['relationships'];
+           $relationships = [];
+           if (count($this->_propDict['relationships']) > 0 && is_a($this->_propDict['relationships'][0], 'MobileAppRelationship')) {
+              return $this->_propDict['relationships'];
+           }
+           foreach ($this->_propDict['relationships'] as $singleValue) {
+              $relationships []= new MobileAppRelationship($singleValue);
+           }
+           $this->_propDict['relationships'] = $relationships;
+           return $this->_propDict['relationships'];
         }
         return null;
     }
@@ -782,15 +782,15 @@ class MobileApp extends Entity
     public function getUserStatuses()
     {
         if (array_key_exists('userStatuses', $this->_propDict) && !is_null($this->_propDict['userStatuses'])) {
-            $userStatuses = [];
-            if (count($this->_propDict['userStatuses']) > 0 && is_a($this->_propDict['userStatuses'][0], 'UserAppInstallStatus')) {
-                return $this->_propDict['userStatuses'];
-            }
-            foreach ($this->_propDict['userStatuses'] as $singleValue) {
-                $userStatuses []= new UserAppInstallStatus($singleValue);
-            }
-            $this->_propDict['userStatuses'] = $userStatuses;
-            return $this->_propDict['userStatuses'];
+           $userStatuses = [];
+           if (count($this->_propDict['userStatuses']) > 0 && is_a($this->_propDict['userStatuses'][0], 'UserAppInstallStatus')) {
+              return $this->_propDict['userStatuses'];
+           }
+           foreach ($this->_propDict['userStatuses'] as $singleValue) {
+              $userStatuses []= new UserAppInstallStatus($singleValue);
+           }
+           $this->_propDict['userStatuses'] = $userStatuses;
+           return $this->_propDict['userStatuses'];
         }
         return null;
     }

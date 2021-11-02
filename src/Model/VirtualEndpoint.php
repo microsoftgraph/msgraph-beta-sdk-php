@@ -34,15 +34,15 @@ class VirtualEndpoint extends Entity
     public function getAuditEvents()
     {
         if (array_key_exists('auditEvents', $this->_propDict) && !is_null($this->_propDict['auditEvents'])) {
-            $auditEvents = [];
-            if (count($this->_propDict['auditEvents']) > 0 && is_a($this->_propDict['auditEvents'][0], 'CloudPcAuditEvent')) {
-                return $this->_propDict['auditEvents'];
-            }
-            foreach ($this->_propDict['auditEvents'] as $singleValue) {
-                $auditEvents []= new CloudPcAuditEvent($singleValue);
-            }
-            $this->_propDict['auditEvents'] = $auditEvents;
-            return $this->_propDict['auditEvents'];
+           $auditEvents = [];
+           if (count($this->_propDict['auditEvents']) > 0 && is_a($this->_propDict['auditEvents'][0], 'CloudPcAuditEvent')) {
+              return $this->_propDict['auditEvents'];
+           }
+           foreach ($this->_propDict['auditEvents'] as $singleValue) {
+              $auditEvents []= new CloudPcAuditEvent($singleValue);
+           }
+           $this->_propDict['auditEvents'] = $auditEvents;
+           return $this->_propDict['auditEvents'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class VirtualEndpoint extends Entity
     public function getCloudPCs()
     {
         if (array_key_exists('cloudPCs', $this->_propDict) && !is_null($this->_propDict['cloudPCs'])) {
-            $cloudPCs = [];
-            if (count($this->_propDict['cloudPCs']) > 0 && is_a($this->_propDict['cloudPCs'][0], 'CloudPC')) {
-                return $this->_propDict['cloudPCs'];
-            }
-            foreach ($this->_propDict['cloudPCs'] as $singleValue) {
-                $cloudPCs []= new CloudPC($singleValue);
-            }
-            $this->_propDict['cloudPCs'] = $cloudPCs;
-            return $this->_propDict['cloudPCs'];
+           $cloudPCs = [];
+           if (count($this->_propDict['cloudPCs']) > 0 && is_a($this->_propDict['cloudPCs'][0], 'CloudPC')) {
+              return $this->_propDict['cloudPCs'];
+           }
+           foreach ($this->_propDict['cloudPCs'] as $singleValue) {
+              $cloudPCs []= new CloudPC($singleValue);
+           }
+           $this->_propDict['cloudPCs'] = $cloudPCs;
+           return $this->_propDict['cloudPCs'];
         }
         return null;
     }
@@ -108,15 +108,15 @@ class VirtualEndpoint extends Entity
     public function getDeviceImages()
     {
         if (array_key_exists('deviceImages', $this->_propDict) && !is_null($this->_propDict['deviceImages'])) {
-            $deviceImages = [];
-            if (count($this->_propDict['deviceImages']) > 0 && is_a($this->_propDict['deviceImages'][0], 'CloudPcDeviceImage')) {
-                return $this->_propDict['deviceImages'];
-            }
-            foreach ($this->_propDict['deviceImages'] as $singleValue) {
-                $deviceImages []= new CloudPcDeviceImage($singleValue);
-            }
-            $this->_propDict['deviceImages'] = $deviceImages;
-            return $this->_propDict['deviceImages'];
+           $deviceImages = [];
+           if (count($this->_propDict['deviceImages']) > 0 && is_a($this->_propDict['deviceImages'][0], 'CloudPcDeviceImage')) {
+              return $this->_propDict['deviceImages'];
+           }
+           foreach ($this->_propDict['deviceImages'] as $singleValue) {
+              $deviceImages []= new CloudPcDeviceImage($singleValue);
+           }
+           $this->_propDict['deviceImages'] = $deviceImages;
+           return $this->_propDict['deviceImages'];
         }
         return null;
     }
@@ -144,15 +144,15 @@ class VirtualEndpoint extends Entity
     public function getGalleryImages()
     {
         if (array_key_exists('galleryImages', $this->_propDict) && !is_null($this->_propDict['galleryImages'])) {
-            $galleryImages = [];
-            if (count($this->_propDict['galleryImages']) > 0 && is_a($this->_propDict['galleryImages'][0], 'CloudPcGalleryImage')) {
-                return $this->_propDict['galleryImages'];
-            }
-            foreach ($this->_propDict['galleryImages'] as $singleValue) {
-                $galleryImages []= new CloudPcGalleryImage($singleValue);
-            }
-            $this->_propDict['galleryImages'] = $galleryImages;
-            return $this->_propDict['galleryImages'];
+           $galleryImages = [];
+           if (count($this->_propDict['galleryImages']) > 0 && is_a($this->_propDict['galleryImages'][0], 'CloudPcGalleryImage')) {
+              return $this->_propDict['galleryImages'];
+           }
+           foreach ($this->_propDict['galleryImages'] as $singleValue) {
+              $galleryImages []= new CloudPcGalleryImage($singleValue);
+           }
+           $this->_propDict['galleryImages'] = $galleryImages;
+           return $this->_propDict['galleryImages'];
         }
         return null;
     }
@@ -180,15 +180,15 @@ class VirtualEndpoint extends Entity
     public function getOnPremisesConnections()
     {
         if (array_key_exists('onPremisesConnections', $this->_propDict) && !is_null($this->_propDict['onPremisesConnections'])) {
-            $onPremisesConnections = [];
-            if (count($this->_propDict['onPremisesConnections']) > 0 && is_a($this->_propDict['onPremisesConnections'][0], 'CloudPcOnPremisesConnection')) {
-                return $this->_propDict['onPremisesConnections'];
-            }
-            foreach ($this->_propDict['onPremisesConnections'] as $singleValue) {
-                $onPremisesConnections []= new CloudPcOnPremisesConnection($singleValue);
-            }
-            $this->_propDict['onPremisesConnections'] = $onPremisesConnections;
-            return $this->_propDict['onPremisesConnections'];
+           $onPremisesConnections = [];
+           if (count($this->_propDict['onPremisesConnections']) > 0 && is_a($this->_propDict['onPremisesConnections'][0], 'CloudPcOnPremisesConnection')) {
+              return $this->_propDict['onPremisesConnections'];
+           }
+           foreach ($this->_propDict['onPremisesConnections'] as $singleValue) {
+              $onPremisesConnections []= new CloudPcOnPremisesConnection($singleValue);
+           }
+           $this->_propDict['onPremisesConnections'] = $onPremisesConnections;
+           return $this->_propDict['onPremisesConnections'];
         }
         return null;
     }
@@ -217,15 +217,15 @@ class VirtualEndpoint extends Entity
     public function getProvisioningPolicies()
     {
         if (array_key_exists('provisioningPolicies', $this->_propDict) && !is_null($this->_propDict['provisioningPolicies'])) {
-            $provisioningPolicies = [];
-            if (count($this->_propDict['provisioningPolicies']) > 0 && is_a($this->_propDict['provisioningPolicies'][0], 'CloudPcProvisioningPolicy')) {
-                return $this->_propDict['provisioningPolicies'];
-            }
-            foreach ($this->_propDict['provisioningPolicies'] as $singleValue) {
-                $provisioningPolicies []= new CloudPcProvisioningPolicy($singleValue);
-            }
-            $this->_propDict['provisioningPolicies'] = $provisioningPolicies;
-            return $this->_propDict['provisioningPolicies'];
+           $provisioningPolicies = [];
+           if (count($this->_propDict['provisioningPolicies']) > 0 && is_a($this->_propDict['provisioningPolicies'][0], 'CloudPcProvisioningPolicy')) {
+              return $this->_propDict['provisioningPolicies'];
+           }
+           foreach ($this->_propDict['provisioningPolicies'] as $singleValue) {
+              $provisioningPolicies []= new CloudPcProvisioningPolicy($singleValue);
+           }
+           $this->_propDict['provisioningPolicies'] = $provisioningPolicies;
+           return $this->_propDict['provisioningPolicies'];
         }
         return null;
     }
@@ -254,15 +254,15 @@ class VirtualEndpoint extends Entity
     public function getServicePlans()
     {
         if (array_key_exists('servicePlans', $this->_propDict) && !is_null($this->_propDict['servicePlans'])) {
-            $servicePlans = [];
-            if (count($this->_propDict['servicePlans']) > 0 && is_a($this->_propDict['servicePlans'][0], 'CloudPcServicePlan')) {
-                return $this->_propDict['servicePlans'];
-            }
-            foreach ($this->_propDict['servicePlans'] as $singleValue) {
-                $servicePlans []= new CloudPcServicePlan($singleValue);
-            }
-            $this->_propDict['servicePlans'] = $servicePlans;
-            return $this->_propDict['servicePlans'];
+           $servicePlans = [];
+           if (count($this->_propDict['servicePlans']) > 0 && is_a($this->_propDict['servicePlans'][0], 'CloudPcServicePlan')) {
+              return $this->_propDict['servicePlans'];
+           }
+           foreach ($this->_propDict['servicePlans'] as $singleValue) {
+              $servicePlans []= new CloudPcServicePlan($singleValue);
+           }
+           $this->_propDict['servicePlans'] = $servicePlans;
+           return $this->_propDict['servicePlans'];
         }
         return null;
     }
@@ -291,15 +291,15 @@ class VirtualEndpoint extends Entity
     public function getSupportedRegions()
     {
         if (array_key_exists('supportedRegions', $this->_propDict) && !is_null($this->_propDict['supportedRegions'])) {
-            $supportedRegions = [];
-            if (count($this->_propDict['supportedRegions']) > 0 && is_a($this->_propDict['supportedRegions'][0], 'CloudPcSupportedRegion')) {
-                return $this->_propDict['supportedRegions'];
-            }
-            foreach ($this->_propDict['supportedRegions'] as $singleValue) {
-                $supportedRegions []= new CloudPcSupportedRegion($singleValue);
-            }
-            $this->_propDict['supportedRegions'] = $supportedRegions;
-            return $this->_propDict['supportedRegions'];
+           $supportedRegions = [];
+           if (count($this->_propDict['supportedRegions']) > 0 && is_a($this->_propDict['supportedRegions'][0], 'CloudPcSupportedRegion')) {
+              return $this->_propDict['supportedRegions'];
+           }
+           foreach ($this->_propDict['supportedRegions'] as $singleValue) {
+              $supportedRegions []= new CloudPcSupportedRegion($singleValue);
+           }
+           $this->_propDict['supportedRegions'] = $supportedRegions;
+           return $this->_propDict['supportedRegions'];
         }
         return null;
     }
@@ -328,15 +328,15 @@ class VirtualEndpoint extends Entity
     public function getUserSettings()
     {
         if (array_key_exists('userSettings', $this->_propDict) && !is_null($this->_propDict['userSettings'])) {
-            $userSettings = [];
-            if (count($this->_propDict['userSettings']) > 0 && is_a($this->_propDict['userSettings'][0], 'CloudPcUserSetting')) {
-                return $this->_propDict['userSettings'];
-            }
-            foreach ($this->_propDict['userSettings'] as $singleValue) {
-                $userSettings []= new CloudPcUserSetting($singleValue);
-            }
-            $this->_propDict['userSettings'] = $userSettings;
-            return $this->_propDict['userSettings'];
+           $userSettings = [];
+           if (count($this->_propDict['userSettings']) > 0 && is_a($this->_propDict['userSettings'][0], 'CloudPcUserSetting')) {
+              return $this->_propDict['userSettings'];
+           }
+           foreach ($this->_propDict['userSettings'] as $singleValue) {
+              $userSettings []= new CloudPcUserSetting($singleValue);
+           }
+           $this->_propDict['userSettings'] = $userSettings;
+           return $this->_propDict['userSettings'];
         }
         return null;
     }

@@ -96,15 +96,15 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     public function getHomeScreenDockIcons()
     {
         if (array_key_exists('homeScreenDockIcons', $this->_propDict) && !is_null($this->_propDict['homeScreenDockIcons'])) {
-            $homeScreenDockIcons = [];
-            if (count($this->_propDict['homeScreenDockIcons']) > 0 && is_a($this->_propDict['homeScreenDockIcons'][0], 'IosHomeScreenItem')) {
-                return $this->_propDict['homeScreenDockIcons'];
-            }
-            foreach ($this->_propDict['homeScreenDockIcons'] as $singleValue) {
-                $homeScreenDockIcons []= new IosHomeScreenItem($singleValue);
-            }
-            $this->_propDict['homeScreenDockIcons'] = $homeScreenDockIcons;
-            return $this->_propDict['homeScreenDockIcons'];
+           $homeScreenDockIcons = [];
+           if (count($this->_propDict['homeScreenDockIcons']) > 0 && is_a($this->_propDict['homeScreenDockIcons'][0], 'IosHomeScreenItem')) {
+              return $this->_propDict['homeScreenDockIcons'];
+           }
+           foreach ($this->_propDict['homeScreenDockIcons'] as $singleValue) {
+              $homeScreenDockIcons []= new IosHomeScreenItem($singleValue);
+           }
+           $this->_propDict['homeScreenDockIcons'] = $homeScreenDockIcons;
+           return $this->_propDict['homeScreenDockIcons'];
         }
         return null;
     }
@@ -191,15 +191,15 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     public function getHomeScreenPages()
     {
         if (array_key_exists('homeScreenPages', $this->_propDict) && !is_null($this->_propDict['homeScreenPages'])) {
-            $homeScreenPages = [];
-            if (count($this->_propDict['homeScreenPages']) > 0 && is_a($this->_propDict['homeScreenPages'][0], 'IosHomeScreenPage')) {
-                return $this->_propDict['homeScreenPages'];
-            }
-            foreach ($this->_propDict['homeScreenPages'] as $singleValue) {
-                $homeScreenPages []= new IosHomeScreenPage($singleValue);
-            }
-            $this->_propDict['homeScreenPages'] = $homeScreenPages;
-            return $this->_propDict['homeScreenPages'];
+           $homeScreenPages = [];
+           if (count($this->_propDict['homeScreenPages']) > 0 && is_a($this->_propDict['homeScreenPages'][0], 'IosHomeScreenPage')) {
+              return $this->_propDict['homeScreenPages'];
+           }
+           foreach ($this->_propDict['homeScreenPages'] as $singleValue) {
+              $homeScreenPages []= new IosHomeScreenPage($singleValue);
+           }
+           $this->_propDict['homeScreenPages'] = $homeScreenPages;
+           return $this->_propDict['homeScreenPages'];
         }
         return null;
     }
@@ -290,15 +290,15 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     public function getNotificationSettings()
     {
         if (array_key_exists('notificationSettings', $this->_propDict) && !is_null($this->_propDict['notificationSettings'])) {
-            $notificationSettings = [];
-            if (count($this->_propDict['notificationSettings']) > 0 && is_a($this->_propDict['notificationSettings'][0], 'IosNotificationSettings')) {
-                return $this->_propDict['notificationSettings'];
-            }
-            foreach ($this->_propDict['notificationSettings'] as $singleValue) {
-                $notificationSettings []= new IosNotificationSettings($singleValue);
-            }
-            $this->_propDict['notificationSettings'] = $notificationSettings;
-            return $this->_propDict['notificationSettings'];
+           $notificationSettings = [];
+           if (count($this->_propDict['notificationSettings']) > 0 && is_a($this->_propDict['notificationSettings'][0], 'IosNotificationSettings')) {
+              return $this->_propDict['notificationSettings'];
+           }
+           foreach ($this->_propDict['notificationSettings'] as $singleValue) {
+              $notificationSettings []= new IosNotificationSettings($singleValue);
+           }
+           $this->_propDict['notificationSettings'] = $notificationSettings;
+           return $this->_propDict['notificationSettings'];
         }
         return null;
     }

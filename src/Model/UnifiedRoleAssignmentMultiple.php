@@ -235,15 +235,15 @@ class UnifiedRoleAssignmentMultiple extends Entity
     public function getAppScopes()
     {
         if (array_key_exists('appScopes', $this->_propDict) && !is_null($this->_propDict['appScopes'])) {
-            $appScopes = [];
-            if (count($this->_propDict['appScopes']) > 0 && is_a($this->_propDict['appScopes'][0], 'AppScope')) {
-                return $this->_propDict['appScopes'];
-            }
-            foreach ($this->_propDict['appScopes'] as $singleValue) {
-                $appScopes []= new AppScope($singleValue);
-            }
-            $this->_propDict['appScopes'] = $appScopes;
-            return $this->_propDict['appScopes'];
+           $appScopes = [];
+           if (count($this->_propDict['appScopes']) > 0 && is_a($this->_propDict['appScopes'][0], 'AppScope')) {
+              return $this->_propDict['appScopes'];
+           }
+           foreach ($this->_propDict['appScopes'] as $singleValue) {
+              $appScopes []= new AppScope($singleValue);
+           }
+           $this->_propDict['appScopes'] = $appScopes;
+           return $this->_propDict['appScopes'];
         }
         return null;
     }
@@ -272,15 +272,15 @@ class UnifiedRoleAssignmentMultiple extends Entity
     public function getDirectoryScopes()
     {
         if (array_key_exists('directoryScopes', $this->_propDict) && !is_null($this->_propDict['directoryScopes'])) {
-            $directoryScopes = [];
-            if (count($this->_propDict['directoryScopes']) > 0 && is_a($this->_propDict['directoryScopes'][0], 'DirectoryObject')) {
-                return $this->_propDict['directoryScopes'];
-            }
-            foreach ($this->_propDict['directoryScopes'] as $singleValue) {
-                $directoryScopes []= new DirectoryObject($singleValue);
-            }
-            $this->_propDict['directoryScopes'] = $directoryScopes;
-            return $this->_propDict['directoryScopes'];
+           $directoryScopes = [];
+           if (count($this->_propDict['directoryScopes']) > 0 && is_a($this->_propDict['directoryScopes'][0], 'DirectoryObject')) {
+              return $this->_propDict['directoryScopes'];
+           }
+           foreach ($this->_propDict['directoryScopes'] as $singleValue) {
+              $directoryScopes []= new DirectoryObject($singleValue);
+           }
+           $this->_propDict['directoryScopes'] = $directoryScopes;
+           return $this->_propDict['directoryScopes'];
         }
         return null;
     }
@@ -309,15 +309,15 @@ class UnifiedRoleAssignmentMultiple extends Entity
     public function getPrincipals()
     {
         if (array_key_exists('principals', $this->_propDict) && !is_null($this->_propDict['principals'])) {
-            $principals = [];
-            if (count($this->_propDict['principals']) > 0 && is_a($this->_propDict['principals'][0], 'DirectoryObject')) {
-                return $this->_propDict['principals'];
-            }
-            foreach ($this->_propDict['principals'] as $singleValue) {
-                $principals []= new DirectoryObject($singleValue);
-            }
-            $this->_propDict['principals'] = $principals;
-            return $this->_propDict['principals'];
+           $principals = [];
+           if (count($this->_propDict['principals']) > 0 && is_a($this->_propDict['principals'][0], 'DirectoryObject')) {
+              return $this->_propDict['principals'];
+           }
+           foreach ($this->_propDict['principals'] as $singleValue) {
+              $principals []= new DirectoryObject($singleValue);
+           }
+           $this->_propDict['principals'] = $principals;
+           return $this->_propDict['principals'];
         }
         return null;
     }

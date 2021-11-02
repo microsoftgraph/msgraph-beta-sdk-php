@@ -34,15 +34,15 @@ class EducationRubricOutcome extends EducationOutcome
     public function getPublishedRubricQualityFeedback()
     {
         if (array_key_exists('publishedRubricQualityFeedback', $this->_propDict) && !is_null($this->_propDict['publishedRubricQualityFeedback'])) {
-            $publishedRubricQualityFeedback = [];
-            if (count($this->_propDict['publishedRubricQualityFeedback']) > 0 && is_a($this->_propDict['publishedRubricQualityFeedback'][0], 'RubricQualityFeedbackModel')) {
-                return $this->_propDict['publishedRubricQualityFeedback'];
-            }
-            foreach ($this->_propDict['publishedRubricQualityFeedback'] as $singleValue) {
-                $publishedRubricQualityFeedback []= new RubricQualityFeedbackModel($singleValue);
-            }
-            $this->_propDict['publishedRubricQualityFeedback'] = $publishedRubricQualityFeedback;
-            return $this->_propDict['publishedRubricQualityFeedback'];
+           $publishedRubricQualityFeedback = [];
+           if (count($this->_propDict['publishedRubricQualityFeedback']) > 0 && is_a($this->_propDict['publishedRubricQualityFeedback'][0], 'RubricQualityFeedbackModel')) {
+              return $this->_propDict['publishedRubricQualityFeedback'];
+           }
+           foreach ($this->_propDict['publishedRubricQualityFeedback'] as $singleValue) {
+              $publishedRubricQualityFeedback []= new RubricQualityFeedbackModel($singleValue);
+           }
+           $this->_propDict['publishedRubricQualityFeedback'] = $publishedRubricQualityFeedback;
+           return $this->_propDict['publishedRubricQualityFeedback'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class EducationRubricOutcome extends EducationOutcome
     public function getPublishedRubricQualitySelectedLevels()
     {
         if (array_key_exists('publishedRubricQualitySelectedLevels', $this->_propDict) && !is_null($this->_propDict['publishedRubricQualitySelectedLevels'])) {
-            $publishedRubricQualitySelectedLevels = [];
-            if (count($this->_propDict['publishedRubricQualitySelectedLevels']) > 0 && is_a($this->_propDict['publishedRubricQualitySelectedLevels'][0], 'RubricQualitySelectedColumnModel')) {
-                return $this->_propDict['publishedRubricQualitySelectedLevels'];
-            }
-            foreach ($this->_propDict['publishedRubricQualitySelectedLevels'] as $singleValue) {
-                $publishedRubricQualitySelectedLevels []= new RubricQualitySelectedColumnModel($singleValue);
-            }
-            $this->_propDict['publishedRubricQualitySelectedLevels'] = $publishedRubricQualitySelectedLevels;
-            return $this->_propDict['publishedRubricQualitySelectedLevels'];
+           $publishedRubricQualitySelectedLevels = [];
+           if (count($this->_propDict['publishedRubricQualitySelectedLevels']) > 0 && is_a($this->_propDict['publishedRubricQualitySelectedLevels'][0], 'RubricQualitySelectedColumnModel')) {
+              return $this->_propDict['publishedRubricQualitySelectedLevels'];
+           }
+           foreach ($this->_propDict['publishedRubricQualitySelectedLevels'] as $singleValue) {
+              $publishedRubricQualitySelectedLevels []= new RubricQualitySelectedColumnModel($singleValue);
+           }
+           $this->_propDict['publishedRubricQualitySelectedLevels'] = $publishedRubricQualitySelectedLevels;
+           return $this->_propDict['publishedRubricQualitySelectedLevels'];
         }
         return null;
     }
@@ -108,15 +108,15 @@ class EducationRubricOutcome extends EducationOutcome
     public function getRubricQualityFeedback()
     {
         if (array_key_exists('rubricQualityFeedback', $this->_propDict) && !is_null($this->_propDict['rubricQualityFeedback'])) {
-            $rubricQualityFeedback = [];
-            if (count($this->_propDict['rubricQualityFeedback']) > 0 && is_a($this->_propDict['rubricQualityFeedback'][0], 'RubricQualityFeedbackModel')) {
-                return $this->_propDict['rubricQualityFeedback'];
-            }
-            foreach ($this->_propDict['rubricQualityFeedback'] as $singleValue) {
-                $rubricQualityFeedback []= new RubricQualityFeedbackModel($singleValue);
-            }
-            $this->_propDict['rubricQualityFeedback'] = $rubricQualityFeedback;
-            return $this->_propDict['rubricQualityFeedback'];
+           $rubricQualityFeedback = [];
+           if (count($this->_propDict['rubricQualityFeedback']) > 0 && is_a($this->_propDict['rubricQualityFeedback'][0], 'RubricQualityFeedbackModel')) {
+              return $this->_propDict['rubricQualityFeedback'];
+           }
+           foreach ($this->_propDict['rubricQualityFeedback'] as $singleValue) {
+              $rubricQualityFeedback []= new RubricQualityFeedbackModel($singleValue);
+           }
+           $this->_propDict['rubricQualityFeedback'] = $rubricQualityFeedback;
+           return $this->_propDict['rubricQualityFeedback'];
         }
         return null;
     }
@@ -145,15 +145,15 @@ class EducationRubricOutcome extends EducationOutcome
     public function getRubricQualitySelectedLevels()
     {
         if (array_key_exists('rubricQualitySelectedLevels', $this->_propDict) && !is_null($this->_propDict['rubricQualitySelectedLevels'])) {
-            $rubricQualitySelectedLevels = [];
-            if (count($this->_propDict['rubricQualitySelectedLevels']) > 0 && is_a($this->_propDict['rubricQualitySelectedLevels'][0], 'RubricQualitySelectedColumnModel')) {
-                return $this->_propDict['rubricQualitySelectedLevels'];
-            }
-            foreach ($this->_propDict['rubricQualitySelectedLevels'] as $singleValue) {
-                $rubricQualitySelectedLevels []= new RubricQualitySelectedColumnModel($singleValue);
-            }
-            $this->_propDict['rubricQualitySelectedLevels'] = $rubricQualitySelectedLevels;
-            return $this->_propDict['rubricQualitySelectedLevels'];
+           $rubricQualitySelectedLevels = [];
+           if (count($this->_propDict['rubricQualitySelectedLevels']) > 0 && is_a($this->_propDict['rubricQualitySelectedLevels'][0], 'RubricQualitySelectedColumnModel')) {
+              return $this->_propDict['rubricQualitySelectedLevels'];
+           }
+           foreach ($this->_propDict['rubricQualitySelectedLevels'] as $singleValue) {
+              $rubricQualitySelectedLevels []= new RubricQualitySelectedColumnModel($singleValue);
+           }
+           $this->_propDict['rubricQualitySelectedLevels'] = $rubricQualitySelectedLevels;
+           return $this->_propDict['rubricQualitySelectedLevels'];
         }
         return null;
     }

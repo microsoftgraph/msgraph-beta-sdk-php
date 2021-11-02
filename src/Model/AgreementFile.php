@@ -33,15 +33,15 @@ class AgreementFile extends AgreementFileProperties
     public function getLocalizations()
     {
         if (array_key_exists('localizations', $this->_propDict) && !is_null($this->_propDict['localizations'])) {
-            $localizations = [];
-            if (count($this->_propDict['localizations']) > 0 && is_a($this->_propDict['localizations'][0], 'AgreementFileLocalization')) {
-                return $this->_propDict['localizations'];
-            }
-            foreach ($this->_propDict['localizations'] as $singleValue) {
-                $localizations []= new AgreementFileLocalization($singleValue);
-            }
-            $this->_propDict['localizations'] = $localizations;
-            return $this->_propDict['localizations'];
+           $localizations = [];
+           if (count($this->_propDict['localizations']) > 0 && is_a($this->_propDict['localizations'][0], 'AgreementFileLocalization')) {
+              return $this->_propDict['localizations'];
+           }
+           foreach ($this->_propDict['localizations'] as $singleValue) {
+              $localizations []= new AgreementFileLocalization($singleValue);
+           }
+           $this->_propDict['localizations'] = $localizations;
+           return $this->_propDict['localizations'];
         }
         return null;
     }

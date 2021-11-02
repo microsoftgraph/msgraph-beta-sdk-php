@@ -63,15 +63,15 @@ class CredentialUserRegistrationCount extends Entity
     public function getUserRegistrationCounts()
     {
         if (array_key_exists('userRegistrationCounts', $this->_propDict) && !is_null($this->_propDict['userRegistrationCounts'])) {
-            $userRegistrationCounts = [];
-            if (count($this->_propDict['userRegistrationCounts']) > 0 && is_a($this->_propDict['userRegistrationCounts'][0], 'UserRegistrationCount')) {
-                return $this->_propDict['userRegistrationCounts'];
-            }
-            foreach ($this->_propDict['userRegistrationCounts'] as $singleValue) {
-                $userRegistrationCounts []= new UserRegistrationCount($singleValue);
-            }
-            $this->_propDict['userRegistrationCounts'] = $userRegistrationCounts;
-            return $this->_propDict['userRegistrationCounts'];
+           $userRegistrationCounts = [];
+           if (count($this->_propDict['userRegistrationCounts']) > 0 && is_a($this->_propDict['userRegistrationCounts'][0], 'UserRegistrationCount')) {
+              return $this->_propDict['userRegistrationCounts'];
+           }
+           foreach ($this->_propDict['userRegistrationCounts'] as $singleValue) {
+              $userRegistrationCounts []= new UserRegistrationCount($singleValue);
+           }
+           $this->_propDict['userRegistrationCounts'] = $userRegistrationCounts;
+           return $this->_propDict['userRegistrationCounts'];
         }
         return null;
     }

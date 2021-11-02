@@ -34,15 +34,15 @@ class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity
     public function getMetricDevices()
     {
         if (array_key_exists('metricDevices', $this->_propDict) && !is_null($this->_propDict['metricDevices'])) {
-            $metricDevices = [];
-            if (count($this->_propDict['metricDevices']) > 0 && is_a($this->_propDict['metricDevices'][0], 'UserExperienceAnalyticsWorkFromAnywhereDevice')) {
-                return $this->_propDict['metricDevices'];
-            }
-            foreach ($this->_propDict['metricDevices'] as $singleValue) {
-                $metricDevices []= new UserExperienceAnalyticsWorkFromAnywhereDevice($singleValue);
-            }
-            $this->_propDict['metricDevices'] = $metricDevices;
-            return $this->_propDict['metricDevices'];
+           $metricDevices = [];
+           if (count($this->_propDict['metricDevices']) > 0 && is_a($this->_propDict['metricDevices'][0], 'UserExperienceAnalyticsWorkFromAnywhereDevice')) {
+              return $this->_propDict['metricDevices'];
+           }
+           foreach ($this->_propDict['metricDevices'] as $singleValue) {
+              $metricDevices []= new UserExperienceAnalyticsWorkFromAnywhereDevice($singleValue);
+           }
+           $this->_propDict['metricDevices'] = $metricDevices;
+           return $this->_propDict['metricDevices'];
         }
         return null;
     }

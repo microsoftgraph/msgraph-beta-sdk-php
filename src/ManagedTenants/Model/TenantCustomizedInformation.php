@@ -34,15 +34,15 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
     public function getContacts()
     {
         if (array_key_exists('contacts', $this->_propDict) && !is_null($this->_propDict['contacts'])) {
-            $contacts = [];
-            if (count($this->_propDict['contacts']) > 0 && is_a($this->_propDict['contacts'][0], 'TenantContactInformation')) {
-                return $this->_propDict['contacts'];
-            }
-            foreach ($this->_propDict['contacts'] as $singleValue) {
-                $contacts []= new TenantContactInformation($singleValue);
-            }
-            $this->_propDict['contacts'] = $contacts;
-            return $this->_propDict['contacts'];
+           $contacts = [];
+           if (count($this->_propDict['contacts']) > 0 && is_a($this->_propDict['contacts'][0], 'TenantContactInformation')) {
+              return $this->_propDict['contacts'];
+           }
+           foreach ($this->_propDict['contacts'] as $singleValue) {
+              $contacts []= new TenantContactInformation($singleValue);
+           }
+           $this->_propDict['contacts'] = $contacts;
+           return $this->_propDict['contacts'];
         }
         return null;
     }

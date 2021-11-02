@@ -309,15 +309,15 @@ class SecurityAction extends Entity
     public function getParameters()
     {
         if (array_key_exists('parameters', $this->_propDict) && !is_null($this->_propDict['parameters'])) {
-            $parameters = [];
-            if (count($this->_propDict['parameters']) > 0 && is_a($this->_propDict['parameters'][0], 'KeyValuePair')) {
-                return $this->_propDict['parameters'];
-            }
-            foreach ($this->_propDict['parameters'] as $singleValue) {
-                $parameters []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['parameters'] = $parameters;
-            return $this->_propDict['parameters'];
+           $parameters = [];
+           if (count($this->_propDict['parameters']) > 0 && is_a($this->_propDict['parameters'][0], 'KeyValuePair')) {
+              return $this->_propDict['parameters'];
+           }
+           foreach ($this->_propDict['parameters'] as $singleValue) {
+              $parameters []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['parameters'] = $parameters;
+           return $this->_propDict['parameters'];
         }
         return null;
     }
@@ -346,15 +346,15 @@ class SecurityAction extends Entity
     public function getStates()
     {
         if (array_key_exists('states', $this->_propDict) && !is_null($this->_propDict['states'])) {
-            $states = [];
-            if (count($this->_propDict['states']) > 0 && is_a($this->_propDict['states'][0], 'SecurityActionState')) {
-                return $this->_propDict['states'];
-            }
-            foreach ($this->_propDict['states'] as $singleValue) {
-                $states []= new SecurityActionState($singleValue);
-            }
-            $this->_propDict['states'] = $states;
-            return $this->_propDict['states'];
+           $states = [];
+           if (count($this->_propDict['states']) > 0 && is_a($this->_propDict['states'][0], 'SecurityActionState')) {
+              return $this->_propDict['states'];
+           }
+           foreach ($this->_propDict['states'] as $singleValue) {
+              $states []= new SecurityActionState($singleValue);
+           }
+           $this->_propDict['states'] = $states;
+           return $this->_propDict['states'];
         }
         return null;
     }

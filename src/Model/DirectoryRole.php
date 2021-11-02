@@ -121,15 +121,15 @@ class DirectoryRole extends DirectoryObject
     public function getMembers()
     {
         if (array_key_exists('members', $this->_propDict) && !is_null($this->_propDict['members'])) {
-            $members = [];
-            if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'DirectoryObject')) {
-                return $this->_propDict['members'];
-            }
-            foreach ($this->_propDict['members'] as $singleValue) {
-                $members []= new DirectoryObject($singleValue);
-            }
-            $this->_propDict['members'] = $members;
-            return $this->_propDict['members'];
+           $members = [];
+           if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'DirectoryObject')) {
+              return $this->_propDict['members'];
+           }
+           foreach ($this->_propDict['members'] as $singleValue) {
+              $members []= new DirectoryObject($singleValue);
+           }
+           $this->_propDict['members'] = $members;
+           return $this->_propDict['members'];
         }
         return null;
     }
@@ -158,15 +158,15 @@ class DirectoryRole extends DirectoryObject
     public function getScopedMembers()
     {
         if (array_key_exists('scopedMembers', $this->_propDict) && !is_null($this->_propDict['scopedMembers'])) {
-            $scopedMembers = [];
-            if (count($this->_propDict['scopedMembers']) > 0 && is_a($this->_propDict['scopedMembers'][0], 'ScopedRoleMembership')) {
-                return $this->_propDict['scopedMembers'];
-            }
-            foreach ($this->_propDict['scopedMembers'] as $singleValue) {
-                $scopedMembers []= new ScopedRoleMembership($singleValue);
-            }
-            $this->_propDict['scopedMembers'] = $scopedMembers;
-            return $this->_propDict['scopedMembers'];
+           $scopedMembers = [];
+           if (count($this->_propDict['scopedMembers']) > 0 && is_a($this->_propDict['scopedMembers'][0], 'ScopedRoleMembership')) {
+              return $this->_propDict['scopedMembers'];
+           }
+           foreach ($this->_propDict['scopedMembers'] as $singleValue) {
+              $scopedMembers []= new ScopedRoleMembership($singleValue);
+           }
+           $this->_propDict['scopedMembers'] = $scopedMembers;
+           return $this->_propDict['scopedMembers'];
         }
         return null;
     }

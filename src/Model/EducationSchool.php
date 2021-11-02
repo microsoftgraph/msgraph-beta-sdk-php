@@ -392,15 +392,15 @@ class EducationSchool extends EducationOrganization
     public function getClasses()
     {
         if (array_key_exists('classes', $this->_propDict) && !is_null($this->_propDict['classes'])) {
-            $classes = [];
-            if (count($this->_propDict['classes']) > 0 && is_a($this->_propDict['classes'][0], 'EducationClass')) {
-                return $this->_propDict['classes'];
-            }
-            foreach ($this->_propDict['classes'] as $singleValue) {
-                $classes []= new EducationClass($singleValue);
-            }
-            $this->_propDict['classes'] = $classes;
-            return $this->_propDict['classes'];
+           $classes = [];
+           if (count($this->_propDict['classes']) > 0 && is_a($this->_propDict['classes'][0], 'EducationClass')) {
+              return $this->_propDict['classes'];
+           }
+           foreach ($this->_propDict['classes'] as $singleValue) {
+              $classes []= new EducationClass($singleValue);
+           }
+           $this->_propDict['classes'] = $classes;
+           return $this->_propDict['classes'];
         }
         return null;
     }
@@ -429,15 +429,15 @@ class EducationSchool extends EducationOrganization
     public function getUsers()
     {
         if (array_key_exists('users', $this->_propDict) && !is_null($this->_propDict['users'])) {
-            $users = [];
-            if (count($this->_propDict['users']) > 0 && is_a($this->_propDict['users'][0], 'EducationUser')) {
-                return $this->_propDict['users'];
-            }
-            foreach ($this->_propDict['users'] as $singleValue) {
-                $users []= new EducationUser($singleValue);
-            }
-            $this->_propDict['users'] = $users;
-            return $this->_propDict['users'];
+           $users = [];
+           if (count($this->_propDict['users']) > 0 && is_a($this->_propDict['users'][0], 'EducationUser')) {
+              return $this->_propDict['users'];
+           }
+           foreach ($this->_propDict['users'] as $singleValue) {
+              $users []= new EducationUser($singleValue);
+           }
+           $this->_propDict['users'] = $users;
+           return $this->_propDict['users'];
         }
         return null;
     }

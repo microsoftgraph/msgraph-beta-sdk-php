@@ -149,15 +149,15 @@ class ExternalConnection extends Entity
     public function getGroups()
     {
         if (array_key_exists('groups', $this->_propDict) && !is_null($this->_propDict['groups'])) {
-            $groups = [];
-            if (count($this->_propDict['groups']) > 0 && is_a($this->_propDict['groups'][0], 'ExternalGroup')) {
-                return $this->_propDict['groups'];
-            }
-            foreach ($this->_propDict['groups'] as $singleValue) {
-                $groups []= new ExternalGroup($singleValue);
-            }
-            $this->_propDict['groups'] = $groups;
-            return $this->_propDict['groups'];
+           $groups = [];
+           if (count($this->_propDict['groups']) > 0 && is_a($this->_propDict['groups'][0], 'ExternalGroup')) {
+              return $this->_propDict['groups'];
+           }
+           foreach ($this->_propDict['groups'] as $singleValue) {
+              $groups []= new ExternalGroup($singleValue);
+           }
+           $this->_propDict['groups'] = $groups;
+           return $this->_propDict['groups'];
         }
         return null;
     }
@@ -184,15 +184,15 @@ class ExternalConnection extends Entity
     public function getItems()
     {
         if (array_key_exists('items', $this->_propDict) && !is_null($this->_propDict['items'])) {
-            $items = [];
-            if (count($this->_propDict['items']) > 0 && is_a($this->_propDict['items'][0], 'ExternalItem')) {
-                return $this->_propDict['items'];
-            }
-            foreach ($this->_propDict['items'] as $singleValue) {
-                $items []= new ExternalItem($singleValue);
-            }
-            $this->_propDict['items'] = $items;
-            return $this->_propDict['items'];
+           $items = [];
+           if (count($this->_propDict['items']) > 0 && is_a($this->_propDict['items'][0], 'ExternalItem')) {
+              return $this->_propDict['items'];
+           }
+           foreach ($this->_propDict['items'] as $singleValue) {
+              $items []= new ExternalItem($singleValue);
+           }
+           $this->_propDict['items'] = $items;
+           return $this->_propDict['items'];
         }
         return null;
     }
@@ -219,15 +219,15 @@ class ExternalConnection extends Entity
     public function getOperations()
     {
         if (array_key_exists('operations', $this->_propDict) && !is_null($this->_propDict['operations'])) {
-            $operations = [];
-            if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'ConnectionOperation')) {
-                return $this->_propDict['operations'];
-            }
-            foreach ($this->_propDict['operations'] as $singleValue) {
-                $operations []= new ConnectionOperation($singleValue);
-            }
-            $this->_propDict['operations'] = $operations;
-            return $this->_propDict['operations'];
+           $operations = [];
+           if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'ConnectionOperation')) {
+              return $this->_propDict['operations'];
+           }
+           foreach ($this->_propDict['operations'] as $singleValue) {
+              $operations []= new ConnectionOperation($singleValue);
+           }
+           $this->_propDict['operations'] = $operations;
+           return $this->_propDict['operations'];
         }
         return null;
     }

@@ -64,15 +64,15 @@ class Financials implements \JsonSerializable
     public function getCompanies()
     {
         if (array_key_exists('companies', $this->_propDict) && !is_null($this->_propDict['companies'])) {
-            $companies = [];
-            if (count($this->_propDict['companies']) > 0 && is_a($this->_propDict['companies'][0], 'Company')) {
-                return $this->_propDict['companies'];
-            }
-            foreach ($this->_propDict['companies'] as $singleValue) {
-                $companies []= new Company($singleValue);
-            }
-            $this->_propDict['companies'] = $companies;
-            return $this->_propDict['companies'];
+           $companies = [];
+           if (count($this->_propDict['companies']) > 0 && is_a($this->_propDict['companies'][0], 'Company')) {
+              return $this->_propDict['companies'];
+           }
+           foreach ($this->_propDict['companies'] as $singleValue) {
+              $companies []= new Company($singleValue);
+           }
+           $this->_propDict['companies'] = $companies;
+           return $this->_propDict['companies'];
         }
         return null;
     }

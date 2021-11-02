@@ -92,15 +92,15 @@ class MacOSLobApp extends MobileLobApp
     public function getChildApps()
     {
         if (array_key_exists('childApps', $this->_propDict) && !is_null($this->_propDict['childApps'])) {
-            $childApps = [];
-            if (count($this->_propDict['childApps']) > 0 && is_a($this->_propDict['childApps'][0], 'MacOSLobChildApp')) {
-                return $this->_propDict['childApps'];
-            }
-            foreach ($this->_propDict['childApps'] as $singleValue) {
-                $childApps []= new MacOSLobChildApp($singleValue);
-            }
-            $this->_propDict['childApps'] = $childApps;
-            return $this->_propDict['childApps'];
+           $childApps = [];
+           if (count($this->_propDict['childApps']) > 0 && is_a($this->_propDict['childApps'][0], 'MacOSLobChildApp')) {
+              return $this->_propDict['childApps'];
+           }
+           foreach ($this->_propDict['childApps'] as $singleValue) {
+              $childApps []= new MacOSLobChildApp($singleValue);
+           }
+           $this->_propDict['childApps'] = $childApps;
+           return $this->_propDict['childApps'];
         }
         return null;
     }

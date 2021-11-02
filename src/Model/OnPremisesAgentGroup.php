@@ -125,15 +125,15 @@ class OnPremisesAgentGroup extends Entity
     public function getAgents()
     {
         if (array_key_exists('agents', $this->_propDict) && !is_null($this->_propDict['agents'])) {
-            $agents = [];
-            if (count($this->_propDict['agents']) > 0 && is_a($this->_propDict['agents'][0], 'OnPremisesAgent')) {
-                return $this->_propDict['agents'];
-            }
-            foreach ($this->_propDict['agents'] as $singleValue) {
-                $agents []= new OnPremisesAgent($singleValue);
-            }
-            $this->_propDict['agents'] = $agents;
-            return $this->_propDict['agents'];
+           $agents = [];
+           if (count($this->_propDict['agents']) > 0 && is_a($this->_propDict['agents'][0], 'OnPremisesAgent')) {
+              return $this->_propDict['agents'];
+           }
+           foreach ($this->_propDict['agents'] as $singleValue) {
+              $agents []= new OnPremisesAgent($singleValue);
+           }
+           $this->_propDict['agents'] = $agents;
+           return $this->_propDict['agents'];
         }
         return null;
     }
@@ -162,15 +162,15 @@ class OnPremisesAgentGroup extends Entity
     public function getPublishedResources()
     {
         if (array_key_exists('publishedResources', $this->_propDict) && !is_null($this->_propDict['publishedResources'])) {
-            $publishedResources = [];
-            if (count($this->_propDict['publishedResources']) > 0 && is_a($this->_propDict['publishedResources'][0], 'PublishedResource')) {
-                return $this->_propDict['publishedResources'];
-            }
-            foreach ($this->_propDict['publishedResources'] as $singleValue) {
-                $publishedResources []= new PublishedResource($singleValue);
-            }
-            $this->_propDict['publishedResources'] = $publishedResources;
-            return $this->_propDict['publishedResources'];
+           $publishedResources = [];
+           if (count($this->_propDict['publishedResources']) > 0 && is_a($this->_propDict['publishedResources'][0], 'PublishedResource')) {
+              return $this->_propDict['publishedResources'];
+           }
+           foreach ($this->_propDict['publishedResources'] as $singleValue) {
+              $publishedResources []= new PublishedResource($singleValue);
+           }
+           $this->_propDict['publishedResources'] = $publishedResources;
+           return $this->_propDict['publishedResources'];
         }
         return null;
     }

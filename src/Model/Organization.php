@@ -34,15 +34,15 @@ class Organization extends DirectoryObject
     public function getAssignedPlans()
     {
         if (array_key_exists('assignedPlans', $this->_propDict) && !is_null($this->_propDict['assignedPlans'])) {
-            $assignedPlans = [];
-            if (count($this->_propDict['assignedPlans']) > 0 && is_a($this->_propDict['assignedPlans'][0], 'AssignedPlan')) {
-                return $this->_propDict['assignedPlans'];
-            }
-            foreach ($this->_propDict['assignedPlans'] as $singleValue) {
-                $assignedPlans []= new AssignedPlan($singleValue);
-            }
-            $this->_propDict['assignedPlans'] = $assignedPlans;
-            return $this->_propDict['assignedPlans'];
+           $assignedPlans = [];
+           if (count($this->_propDict['assignedPlans']) > 0 && is_a($this->_propDict['assignedPlans'][0], 'AssignedPlan')) {
+              return $this->_propDict['assignedPlans'];
+           }
+           foreach ($this->_propDict['assignedPlans'] as $singleValue) {
+              $assignedPlans []= new AssignedPlan($singleValue);
+           }
+           $this->_propDict['assignedPlans'] = $assignedPlans;
+           return $this->_propDict['assignedPlans'];
         }
         return null;
     }
@@ -493,15 +493,15 @@ class Organization extends DirectoryObject
     public function getProvisionedPlans()
     {
         if (array_key_exists('provisionedPlans', $this->_propDict) && !is_null($this->_propDict['provisionedPlans'])) {
-            $provisionedPlans = [];
-            if (count($this->_propDict['provisionedPlans']) > 0 && is_a($this->_propDict['provisionedPlans'][0], 'ProvisionedPlan')) {
-                return $this->_propDict['provisionedPlans'];
-            }
-            foreach ($this->_propDict['provisionedPlans'] as $singleValue) {
-                $provisionedPlans []= new ProvisionedPlan($singleValue);
-            }
-            $this->_propDict['provisionedPlans'] = $provisionedPlans;
-            return $this->_propDict['provisionedPlans'];
+           $provisionedPlans = [];
+           if (count($this->_propDict['provisionedPlans']) > 0 && is_a($this->_propDict['provisionedPlans'][0], 'ProvisionedPlan')) {
+              return $this->_propDict['provisionedPlans'];
+           }
+           foreach ($this->_propDict['provisionedPlans'] as $singleValue) {
+              $provisionedPlans []= new ProvisionedPlan($singleValue);
+           }
+           $this->_propDict['provisionedPlans'] = $provisionedPlans;
+           return $this->_propDict['provisionedPlans'];
         }
         return null;
     }
@@ -671,15 +671,15 @@ class Organization extends DirectoryObject
     public function getVerifiedDomains()
     {
         if (array_key_exists('verifiedDomains', $this->_propDict) && !is_null($this->_propDict['verifiedDomains'])) {
-            $verifiedDomains = [];
-            if (count($this->_propDict['verifiedDomains']) > 0 && is_a($this->_propDict['verifiedDomains'][0], 'VerifiedDomain')) {
-                return $this->_propDict['verifiedDomains'];
-            }
-            foreach ($this->_propDict['verifiedDomains'] as $singleValue) {
-                $verifiedDomains []= new VerifiedDomain($singleValue);
-            }
-            $this->_propDict['verifiedDomains'] = $verifiedDomains;
-            return $this->_propDict['verifiedDomains'];
+           $verifiedDomains = [];
+           if (count($this->_propDict['verifiedDomains']) > 0 && is_a($this->_propDict['verifiedDomains'][0], 'VerifiedDomain')) {
+              return $this->_propDict['verifiedDomains'];
+           }
+           foreach ($this->_propDict['verifiedDomains'] as $singleValue) {
+              $verifiedDomains []= new VerifiedDomain($singleValue);
+           }
+           $this->_propDict['verifiedDomains'] = $verifiedDomains;
+           return $this->_propDict['verifiedDomains'];
         }
         return null;
     }
@@ -805,15 +805,15 @@ class Organization extends DirectoryObject
     public function getCertificateBasedAuthConfiguration()
     {
         if (array_key_exists('certificateBasedAuthConfiguration', $this->_propDict) && !is_null($this->_propDict['certificateBasedAuthConfiguration'])) {
-            $certificateBasedAuthConfiguration = [];
-            if (count($this->_propDict['certificateBasedAuthConfiguration']) > 0 && is_a($this->_propDict['certificateBasedAuthConfiguration'][0], 'CertificateBasedAuthConfiguration')) {
-                return $this->_propDict['certificateBasedAuthConfiguration'];
-            }
-            foreach ($this->_propDict['certificateBasedAuthConfiguration'] as $singleValue) {
-                $certificateBasedAuthConfiguration []= new CertificateBasedAuthConfiguration($singleValue);
-            }
-            $this->_propDict['certificateBasedAuthConfiguration'] = $certificateBasedAuthConfiguration;
-            return $this->_propDict['certificateBasedAuthConfiguration'];
+           $certificateBasedAuthConfiguration = [];
+           if (count($this->_propDict['certificateBasedAuthConfiguration']) > 0 && is_a($this->_propDict['certificateBasedAuthConfiguration'][0], 'CertificateBasedAuthConfiguration')) {
+              return $this->_propDict['certificateBasedAuthConfiguration'];
+           }
+           foreach ($this->_propDict['certificateBasedAuthConfiguration'] as $singleValue) {
+              $certificateBasedAuthConfiguration []= new CertificateBasedAuthConfiguration($singleValue);
+           }
+           $this->_propDict['certificateBasedAuthConfiguration'] = $certificateBasedAuthConfiguration;
+           return $this->_propDict['certificateBasedAuthConfiguration'];
         }
         return null;
     }
@@ -842,15 +842,15 @@ class Organization extends DirectoryObject
     public function getExtensions()
     {
         if (array_key_exists('extensions', $this->_propDict) && !is_null($this->_propDict['extensions'])) {
-            $extensions = [];
-            if (count($this->_propDict['extensions']) > 0 && is_a($this->_propDict['extensions'][0], 'Extension')) {
-                return $this->_propDict['extensions'];
-            }
-            foreach ($this->_propDict['extensions'] as $singleValue) {
-                $extensions []= new Extension($singleValue);
-            }
-            $this->_propDict['extensions'] = $extensions;
-            return $this->_propDict['extensions'];
+           $extensions = [];
+           if (count($this->_propDict['extensions']) > 0 && is_a($this->_propDict['extensions'][0], 'Extension')) {
+              return $this->_propDict['extensions'];
+           }
+           foreach ($this->_propDict['extensions'] as $singleValue) {
+              $extensions []= new Extension($singleValue);
+           }
+           $this->_propDict['extensions'] = $extensions;
+           return $this->_propDict['extensions'];
         }
         return null;
     }

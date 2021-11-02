@@ -153,15 +153,15 @@ class ConnectedOrganization extends Entity
     public function getIdentitySources()
     {
         if (array_key_exists('identitySources', $this->_propDict) && !is_null($this->_propDict['identitySources'])) {
-            $identitySources = [];
-            if (count($this->_propDict['identitySources']) > 0 && is_a($this->_propDict['identitySources'][0], 'IdentitySource')) {
-                return $this->_propDict['identitySources'];
-            }
-            foreach ($this->_propDict['identitySources'] as $singleValue) {
-                $identitySources []= new IdentitySource($singleValue);
-            }
-            $this->_propDict['identitySources'] = $identitySources;
-            return $this->_propDict['identitySources'];
+           $identitySources = [];
+           if (count($this->_propDict['identitySources']) > 0 && is_a($this->_propDict['identitySources'][0], 'IdentitySource')) {
+              return $this->_propDict['identitySources'];
+           }
+           foreach ($this->_propDict['identitySources'] as $singleValue) {
+              $identitySources []= new IdentitySource($singleValue);
+           }
+           $this->_propDict['identitySources'] = $identitySources;
+           return $this->_propDict['identitySources'];
         }
         return null;
     }
@@ -284,15 +284,15 @@ class ConnectedOrganization extends Entity
     public function getExternalSponsors()
     {
         if (array_key_exists('externalSponsors', $this->_propDict) && !is_null($this->_propDict['externalSponsors'])) {
-            $externalSponsors = [];
-            if (count($this->_propDict['externalSponsors']) > 0 && is_a($this->_propDict['externalSponsors'][0], 'DirectoryObject')) {
-                return $this->_propDict['externalSponsors'];
-            }
-            foreach ($this->_propDict['externalSponsors'] as $singleValue) {
-                $externalSponsors []= new DirectoryObject($singleValue);
-            }
-            $this->_propDict['externalSponsors'] = $externalSponsors;
-            return $this->_propDict['externalSponsors'];
+           $externalSponsors = [];
+           if (count($this->_propDict['externalSponsors']) > 0 && is_a($this->_propDict['externalSponsors'][0], 'DirectoryObject')) {
+              return $this->_propDict['externalSponsors'];
+           }
+           foreach ($this->_propDict['externalSponsors'] as $singleValue) {
+              $externalSponsors []= new DirectoryObject($singleValue);
+           }
+           $this->_propDict['externalSponsors'] = $externalSponsors;
+           return $this->_propDict['externalSponsors'];
         }
         return null;
     }
@@ -321,15 +321,15 @@ class ConnectedOrganization extends Entity
     public function getInternalSponsors()
     {
         if (array_key_exists('internalSponsors', $this->_propDict) && !is_null($this->_propDict['internalSponsors'])) {
-            $internalSponsors = [];
-            if (count($this->_propDict['internalSponsors']) > 0 && is_a($this->_propDict['internalSponsors'][0], 'DirectoryObject')) {
-                return $this->_propDict['internalSponsors'];
-            }
-            foreach ($this->_propDict['internalSponsors'] as $singleValue) {
-                $internalSponsors []= new DirectoryObject($singleValue);
-            }
-            $this->_propDict['internalSponsors'] = $internalSponsors;
-            return $this->_propDict['internalSponsors'];
+           $internalSponsors = [];
+           if (count($this->_propDict['internalSponsors']) > 0 && is_a($this->_propDict['internalSponsors'][0], 'DirectoryObject')) {
+              return $this->_propDict['internalSponsors'];
+           }
+           foreach ($this->_propDict['internalSponsors'] as $singleValue) {
+              $internalSponsors []= new DirectoryObject($singleValue);
+           }
+           $this->_propDict['internalSponsors'] = $internalSponsors;
+           return $this->_propDict['internalSponsors'];
         }
         return null;
     }

@@ -328,15 +328,15 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
     public function getCategorySummaries()
     {
         if (array_key_exists('categorySummaries', $this->_propDict) && !is_null($this->_propDict['categorySummaries'])) {
-            $categorySummaries = [];
-            if (count($this->_propDict['categorySummaries']) > 0 && is_a($this->_propDict['categorySummaries'][0], 'MacOSSoftwareUpdateCategorySummary')) {
-                return $this->_propDict['categorySummaries'];
-            }
-            foreach ($this->_propDict['categorySummaries'] as $singleValue) {
-                $categorySummaries []= new MacOSSoftwareUpdateCategorySummary($singleValue);
-            }
-            $this->_propDict['categorySummaries'] = $categorySummaries;
-            return $this->_propDict['categorySummaries'];
+           $categorySummaries = [];
+           if (count($this->_propDict['categorySummaries']) > 0 && is_a($this->_propDict['categorySummaries'][0], 'MacOSSoftwareUpdateCategorySummary')) {
+              return $this->_propDict['categorySummaries'];
+           }
+           foreach ($this->_propDict['categorySummaries'] as $singleValue) {
+              $categorySummaries []= new MacOSSoftwareUpdateCategorySummary($singleValue);
+           }
+           $this->_propDict['categorySummaries'] = $categorySummaries;
+           return $this->_propDict['categorySummaries'];
         }
         return null;
     }

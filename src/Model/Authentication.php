@@ -33,15 +33,15 @@ class Authentication extends Entity
     public function getEmailMethods()
     {
         if (array_key_exists('emailMethods', $this->_propDict) && !is_null($this->_propDict['emailMethods'])) {
-            $emailMethods = [];
-            if (count($this->_propDict['emailMethods']) > 0 && is_a($this->_propDict['emailMethods'][0], 'EmailAuthenticationMethod')) {
-                return $this->_propDict['emailMethods'];
-            }
-            foreach ($this->_propDict['emailMethods'] as $singleValue) {
-                $emailMethods []= new EmailAuthenticationMethod($singleValue);
-            }
-            $this->_propDict['emailMethods'] = $emailMethods;
-            return $this->_propDict['emailMethods'];
+           $emailMethods = [];
+           if (count($this->_propDict['emailMethods']) > 0 && is_a($this->_propDict['emailMethods'][0], 'EmailAuthenticationMethod')) {
+              return $this->_propDict['emailMethods'];
+           }
+           foreach ($this->_propDict['emailMethods'] as $singleValue) {
+              $emailMethods []= new EmailAuthenticationMethod($singleValue);
+           }
+           $this->_propDict['emailMethods'] = $emailMethods;
+           return $this->_propDict['emailMethods'];
         }
         return null;
     }
@@ -68,15 +68,15 @@ class Authentication extends Entity
     public function getFido2Methods()
     {
         if (array_key_exists('fido2Methods', $this->_propDict) && !is_null($this->_propDict['fido2Methods'])) {
-            $fido2Methods = [];
-            if (count($this->_propDict['fido2Methods']) > 0 && is_a($this->_propDict['fido2Methods'][0], 'Fido2AuthenticationMethod')) {
-                return $this->_propDict['fido2Methods'];
-            }
-            foreach ($this->_propDict['fido2Methods'] as $singleValue) {
-                $fido2Methods []= new Fido2AuthenticationMethod($singleValue);
-            }
-            $this->_propDict['fido2Methods'] = $fido2Methods;
-            return $this->_propDict['fido2Methods'];
+           $fido2Methods = [];
+           if (count($this->_propDict['fido2Methods']) > 0 && is_a($this->_propDict['fido2Methods'][0], 'Fido2AuthenticationMethod')) {
+              return $this->_propDict['fido2Methods'];
+           }
+           foreach ($this->_propDict['fido2Methods'] as $singleValue) {
+              $fido2Methods []= new Fido2AuthenticationMethod($singleValue);
+           }
+           $this->_propDict['fido2Methods'] = $fido2Methods;
+           return $this->_propDict['fido2Methods'];
         }
         return null;
     }
@@ -103,15 +103,15 @@ class Authentication extends Entity
     public function getMethods()
     {
         if (array_key_exists('methods', $this->_propDict) && !is_null($this->_propDict['methods'])) {
-            $methods = [];
-            if (count($this->_propDict['methods']) > 0 && is_a($this->_propDict['methods'][0], 'AuthenticationMethod')) {
-                return $this->_propDict['methods'];
-            }
-            foreach ($this->_propDict['methods'] as $singleValue) {
-                $methods []= new AuthenticationMethod($singleValue);
-            }
-            $this->_propDict['methods'] = $methods;
-            return $this->_propDict['methods'];
+           $methods = [];
+           if (count($this->_propDict['methods']) > 0 && is_a($this->_propDict['methods'][0], 'AuthenticationMethod')) {
+              return $this->_propDict['methods'];
+           }
+           foreach ($this->_propDict['methods'] as $singleValue) {
+              $methods []= new AuthenticationMethod($singleValue);
+           }
+           $this->_propDict['methods'] = $methods;
+           return $this->_propDict['methods'];
         }
         return null;
     }
@@ -138,15 +138,15 @@ class Authentication extends Entity
     public function getMicrosoftAuthenticatorMethods()
     {
         if (array_key_exists('microsoftAuthenticatorMethods', $this->_propDict) && !is_null($this->_propDict['microsoftAuthenticatorMethods'])) {
-            $microsoftAuthenticatorMethods = [];
-            if (count($this->_propDict['microsoftAuthenticatorMethods']) > 0 && is_a($this->_propDict['microsoftAuthenticatorMethods'][0], 'MicrosoftAuthenticatorAuthenticationMethod')) {
-                return $this->_propDict['microsoftAuthenticatorMethods'];
-            }
-            foreach ($this->_propDict['microsoftAuthenticatorMethods'] as $singleValue) {
-                $microsoftAuthenticatorMethods []= new MicrosoftAuthenticatorAuthenticationMethod($singleValue);
-            }
-            $this->_propDict['microsoftAuthenticatorMethods'] = $microsoftAuthenticatorMethods;
-            return $this->_propDict['microsoftAuthenticatorMethods'];
+           $microsoftAuthenticatorMethods = [];
+           if (count($this->_propDict['microsoftAuthenticatorMethods']) > 0 && is_a($this->_propDict['microsoftAuthenticatorMethods'][0], 'MicrosoftAuthenticatorAuthenticationMethod')) {
+              return $this->_propDict['microsoftAuthenticatorMethods'];
+           }
+           foreach ($this->_propDict['microsoftAuthenticatorMethods'] as $singleValue) {
+              $microsoftAuthenticatorMethods []= new MicrosoftAuthenticatorAuthenticationMethod($singleValue);
+           }
+           $this->_propDict['microsoftAuthenticatorMethods'] = $microsoftAuthenticatorMethods;
+           return $this->_propDict['microsoftAuthenticatorMethods'];
         }
         return null;
     }
@@ -173,15 +173,15 @@ class Authentication extends Entity
     public function getOperations()
     {
         if (array_key_exists('operations', $this->_propDict) && !is_null($this->_propDict['operations'])) {
-            $operations = [];
-            if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'LongRunningOperation')) {
-                return $this->_propDict['operations'];
-            }
-            foreach ($this->_propDict['operations'] as $singleValue) {
-                $operations []= new LongRunningOperation($singleValue);
-            }
-            $this->_propDict['operations'] = $operations;
-            return $this->_propDict['operations'];
+           $operations = [];
+           if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'LongRunningOperation')) {
+              return $this->_propDict['operations'];
+           }
+           foreach ($this->_propDict['operations'] as $singleValue) {
+              $operations []= new LongRunningOperation($singleValue);
+           }
+           $this->_propDict['operations'] = $operations;
+           return $this->_propDict['operations'];
         }
         return null;
     }
@@ -208,15 +208,15 @@ class Authentication extends Entity
     public function getPasswordlessMicrosoftAuthenticatorMethods()
     {
         if (array_key_exists('passwordlessMicrosoftAuthenticatorMethods', $this->_propDict) && !is_null($this->_propDict['passwordlessMicrosoftAuthenticatorMethods'])) {
-            $passwordlessMicrosoftAuthenticatorMethods = [];
-            if (count($this->_propDict['passwordlessMicrosoftAuthenticatorMethods']) > 0 && is_a($this->_propDict['passwordlessMicrosoftAuthenticatorMethods'][0], 'PasswordlessMicrosoftAuthenticatorAuthenticationMethod')) {
-                return $this->_propDict['passwordlessMicrosoftAuthenticatorMethods'];
-            }
-            foreach ($this->_propDict['passwordlessMicrosoftAuthenticatorMethods'] as $singleValue) {
-                $passwordlessMicrosoftAuthenticatorMethods []= new PasswordlessMicrosoftAuthenticatorAuthenticationMethod($singleValue);
-            }
-            $this->_propDict['passwordlessMicrosoftAuthenticatorMethods'] = $passwordlessMicrosoftAuthenticatorMethods;
-            return $this->_propDict['passwordlessMicrosoftAuthenticatorMethods'];
+           $passwordlessMicrosoftAuthenticatorMethods = [];
+           if (count($this->_propDict['passwordlessMicrosoftAuthenticatorMethods']) > 0 && is_a($this->_propDict['passwordlessMicrosoftAuthenticatorMethods'][0], 'PasswordlessMicrosoftAuthenticatorAuthenticationMethod')) {
+              return $this->_propDict['passwordlessMicrosoftAuthenticatorMethods'];
+           }
+           foreach ($this->_propDict['passwordlessMicrosoftAuthenticatorMethods'] as $singleValue) {
+              $passwordlessMicrosoftAuthenticatorMethods []= new PasswordlessMicrosoftAuthenticatorAuthenticationMethod($singleValue);
+           }
+           $this->_propDict['passwordlessMicrosoftAuthenticatorMethods'] = $passwordlessMicrosoftAuthenticatorMethods;
+           return $this->_propDict['passwordlessMicrosoftAuthenticatorMethods'];
         }
         return null;
     }
@@ -243,15 +243,15 @@ class Authentication extends Entity
     public function getPasswordMethods()
     {
         if (array_key_exists('passwordMethods', $this->_propDict) && !is_null($this->_propDict['passwordMethods'])) {
-            $passwordMethods = [];
-            if (count($this->_propDict['passwordMethods']) > 0 && is_a($this->_propDict['passwordMethods'][0], 'PasswordAuthenticationMethod')) {
-                return $this->_propDict['passwordMethods'];
-            }
-            foreach ($this->_propDict['passwordMethods'] as $singleValue) {
-                $passwordMethods []= new PasswordAuthenticationMethod($singleValue);
-            }
-            $this->_propDict['passwordMethods'] = $passwordMethods;
-            return $this->_propDict['passwordMethods'];
+           $passwordMethods = [];
+           if (count($this->_propDict['passwordMethods']) > 0 && is_a($this->_propDict['passwordMethods'][0], 'PasswordAuthenticationMethod')) {
+              return $this->_propDict['passwordMethods'];
+           }
+           foreach ($this->_propDict['passwordMethods'] as $singleValue) {
+              $passwordMethods []= new PasswordAuthenticationMethod($singleValue);
+           }
+           $this->_propDict['passwordMethods'] = $passwordMethods;
+           return $this->_propDict['passwordMethods'];
         }
         return null;
     }
@@ -278,15 +278,15 @@ class Authentication extends Entity
     public function getPhoneMethods()
     {
         if (array_key_exists('phoneMethods', $this->_propDict) && !is_null($this->_propDict['phoneMethods'])) {
-            $phoneMethods = [];
-            if (count($this->_propDict['phoneMethods']) > 0 && is_a($this->_propDict['phoneMethods'][0], 'PhoneAuthenticationMethod')) {
-                return $this->_propDict['phoneMethods'];
-            }
-            foreach ($this->_propDict['phoneMethods'] as $singleValue) {
-                $phoneMethods []= new PhoneAuthenticationMethod($singleValue);
-            }
-            $this->_propDict['phoneMethods'] = $phoneMethods;
-            return $this->_propDict['phoneMethods'];
+           $phoneMethods = [];
+           if (count($this->_propDict['phoneMethods']) > 0 && is_a($this->_propDict['phoneMethods'][0], 'PhoneAuthenticationMethod')) {
+              return $this->_propDict['phoneMethods'];
+           }
+           foreach ($this->_propDict['phoneMethods'] as $singleValue) {
+              $phoneMethods []= new PhoneAuthenticationMethod($singleValue);
+           }
+           $this->_propDict['phoneMethods'] = $phoneMethods;
+           return $this->_propDict['phoneMethods'];
         }
         return null;
     }
@@ -313,15 +313,15 @@ class Authentication extends Entity
     public function getSoftwareOathMethods()
     {
         if (array_key_exists('softwareOathMethods', $this->_propDict) && !is_null($this->_propDict['softwareOathMethods'])) {
-            $softwareOathMethods = [];
-            if (count($this->_propDict['softwareOathMethods']) > 0 && is_a($this->_propDict['softwareOathMethods'][0], 'SoftwareOathAuthenticationMethod')) {
-                return $this->_propDict['softwareOathMethods'];
-            }
-            foreach ($this->_propDict['softwareOathMethods'] as $singleValue) {
-                $softwareOathMethods []= new SoftwareOathAuthenticationMethod($singleValue);
-            }
-            $this->_propDict['softwareOathMethods'] = $softwareOathMethods;
-            return $this->_propDict['softwareOathMethods'];
+           $softwareOathMethods = [];
+           if (count($this->_propDict['softwareOathMethods']) > 0 && is_a($this->_propDict['softwareOathMethods'][0], 'SoftwareOathAuthenticationMethod')) {
+              return $this->_propDict['softwareOathMethods'];
+           }
+           foreach ($this->_propDict['softwareOathMethods'] as $singleValue) {
+              $softwareOathMethods []= new SoftwareOathAuthenticationMethod($singleValue);
+           }
+           $this->_propDict['softwareOathMethods'] = $softwareOathMethods;
+           return $this->_propDict['softwareOathMethods'];
         }
         return null;
     }
@@ -348,15 +348,15 @@ class Authentication extends Entity
     public function getTemporaryAccessPassMethods()
     {
         if (array_key_exists('temporaryAccessPassMethods', $this->_propDict) && !is_null($this->_propDict['temporaryAccessPassMethods'])) {
-            $temporaryAccessPassMethods = [];
-            if (count($this->_propDict['temporaryAccessPassMethods']) > 0 && is_a($this->_propDict['temporaryAccessPassMethods'][0], 'TemporaryAccessPassAuthenticationMethod')) {
-                return $this->_propDict['temporaryAccessPassMethods'];
-            }
-            foreach ($this->_propDict['temporaryAccessPassMethods'] as $singleValue) {
-                $temporaryAccessPassMethods []= new TemporaryAccessPassAuthenticationMethod($singleValue);
-            }
-            $this->_propDict['temporaryAccessPassMethods'] = $temporaryAccessPassMethods;
-            return $this->_propDict['temporaryAccessPassMethods'];
+           $temporaryAccessPassMethods = [];
+           if (count($this->_propDict['temporaryAccessPassMethods']) > 0 && is_a($this->_propDict['temporaryAccessPassMethods'][0], 'TemporaryAccessPassAuthenticationMethod')) {
+              return $this->_propDict['temporaryAccessPassMethods'];
+           }
+           foreach ($this->_propDict['temporaryAccessPassMethods'] as $singleValue) {
+              $temporaryAccessPassMethods []= new TemporaryAccessPassAuthenticationMethod($singleValue);
+           }
+           $this->_propDict['temporaryAccessPassMethods'] = $temporaryAccessPassMethods;
+           return $this->_propDict['temporaryAccessPassMethods'];
         }
         return null;
     }
@@ -383,15 +383,15 @@ class Authentication extends Entity
     public function getWindowsHelloForBusinessMethods()
     {
         if (array_key_exists('windowsHelloForBusinessMethods', $this->_propDict) && !is_null($this->_propDict['windowsHelloForBusinessMethods'])) {
-            $windowsHelloForBusinessMethods = [];
-            if (count($this->_propDict['windowsHelloForBusinessMethods']) > 0 && is_a($this->_propDict['windowsHelloForBusinessMethods'][0], 'WindowsHelloForBusinessAuthenticationMethod')) {
-                return $this->_propDict['windowsHelloForBusinessMethods'];
-            }
-            foreach ($this->_propDict['windowsHelloForBusinessMethods'] as $singleValue) {
-                $windowsHelloForBusinessMethods []= new WindowsHelloForBusinessAuthenticationMethod($singleValue);
-            }
-            $this->_propDict['windowsHelloForBusinessMethods'] = $windowsHelloForBusinessMethods;
-            return $this->_propDict['windowsHelloForBusinessMethods'];
+           $windowsHelloForBusinessMethods = [];
+           if (count($this->_propDict['windowsHelloForBusinessMethods']) > 0 && is_a($this->_propDict['windowsHelloForBusinessMethods'][0], 'WindowsHelloForBusinessAuthenticationMethod')) {
+              return $this->_propDict['windowsHelloForBusinessMethods'];
+           }
+           foreach ($this->_propDict['windowsHelloForBusinessMethods'] as $singleValue) {
+              $windowsHelloForBusinessMethods []= new WindowsHelloForBusinessAuthenticationMethod($singleValue);
+           }
+           $this->_propDict['windowsHelloForBusinessMethods'] = $windowsHelloForBusinessMethods;
+           return $this->_propDict['windowsHelloForBusinessMethods'];
         }
         return null;
     }

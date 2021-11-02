@@ -64,15 +64,15 @@ class Workbook extends Entity
     public function getComments()
     {
         if (array_key_exists('comments', $this->_propDict) && !is_null($this->_propDict['comments'])) {
-            $comments = [];
-            if (count($this->_propDict['comments']) > 0 && is_a($this->_propDict['comments'][0], 'WorkbookComment')) {
-                return $this->_propDict['comments'];
-            }
-            foreach ($this->_propDict['comments'] as $singleValue) {
-                $comments []= new WorkbookComment($singleValue);
-            }
-            $this->_propDict['comments'] = $comments;
-            return $this->_propDict['comments'];
+           $comments = [];
+           if (count($this->_propDict['comments']) > 0 && is_a($this->_propDict['comments'][0], 'WorkbookComment')) {
+              return $this->_propDict['comments'];
+           }
+           foreach ($this->_propDict['comments'] as $singleValue) {
+              $comments []= new WorkbookComment($singleValue);
+           }
+           $this->_propDict['comments'] = $comments;
+           return $this->_propDict['comments'];
         }
         return null;
     }
@@ -131,15 +131,15 @@ class Workbook extends Entity
     public function getNames()
     {
         if (array_key_exists('names', $this->_propDict) && !is_null($this->_propDict['names'])) {
-            $names = [];
-            if (count($this->_propDict['names']) > 0 && is_a($this->_propDict['names'][0], 'WorkbookNamedItem')) {
-                return $this->_propDict['names'];
-            }
-            foreach ($this->_propDict['names'] as $singleValue) {
-                $names []= new WorkbookNamedItem($singleValue);
-            }
-            $this->_propDict['names'] = $names;
-            return $this->_propDict['names'];
+           $names = [];
+           if (count($this->_propDict['names']) > 0 && is_a($this->_propDict['names'][0], 'WorkbookNamedItem')) {
+              return $this->_propDict['names'];
+           }
+           foreach ($this->_propDict['names'] as $singleValue) {
+              $names []= new WorkbookNamedItem($singleValue);
+           }
+           $this->_propDict['names'] = $names;
+           return $this->_propDict['names'];
         }
         return null;
     }
@@ -168,15 +168,15 @@ class Workbook extends Entity
     public function getOperations()
     {
         if (array_key_exists('operations', $this->_propDict) && !is_null($this->_propDict['operations'])) {
-            $operations = [];
-            if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'WorkbookOperation')) {
-                return $this->_propDict['operations'];
-            }
-            foreach ($this->_propDict['operations'] as $singleValue) {
-                $operations []= new WorkbookOperation($singleValue);
-            }
-            $this->_propDict['operations'] = $operations;
-            return $this->_propDict['operations'];
+           $operations = [];
+           if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'WorkbookOperation')) {
+              return $this->_propDict['operations'];
+           }
+           foreach ($this->_propDict['operations'] as $singleValue) {
+              $operations []= new WorkbookOperation($singleValue);
+           }
+           $this->_propDict['operations'] = $operations;
+           return $this->_propDict['operations'];
         }
         return null;
     }
@@ -205,15 +205,15 @@ class Workbook extends Entity
     public function getTables()
     {
         if (array_key_exists('tables', $this->_propDict) && !is_null($this->_propDict['tables'])) {
-            $tables = [];
-            if (count($this->_propDict['tables']) > 0 && is_a($this->_propDict['tables'][0], 'WorkbookTable')) {
-                return $this->_propDict['tables'];
-            }
-            foreach ($this->_propDict['tables'] as $singleValue) {
-                $tables []= new WorkbookTable($singleValue);
-            }
-            $this->_propDict['tables'] = $tables;
-            return $this->_propDict['tables'];
+           $tables = [];
+           if (count($this->_propDict['tables']) > 0 && is_a($this->_propDict['tables'][0], 'WorkbookTable')) {
+              return $this->_propDict['tables'];
+           }
+           foreach ($this->_propDict['tables'] as $singleValue) {
+              $tables []= new WorkbookTable($singleValue);
+           }
+           $this->_propDict['tables'] = $tables;
+           return $this->_propDict['tables'];
         }
         return null;
     }
@@ -242,15 +242,15 @@ class Workbook extends Entity
     public function getWorksheets()
     {
         if (array_key_exists('worksheets', $this->_propDict) && !is_null($this->_propDict['worksheets'])) {
-            $worksheets = [];
-            if (count($this->_propDict['worksheets']) > 0 && is_a($this->_propDict['worksheets'][0], 'WorkbookWorksheet')) {
-                return $this->_propDict['worksheets'];
-            }
-            foreach ($this->_propDict['worksheets'] as $singleValue) {
-                $worksheets []= new WorkbookWorksheet($singleValue);
-            }
-            $this->_propDict['worksheets'] = $worksheets;
-            return $this->_propDict['worksheets'];
+           $worksheets = [];
+           if (count($this->_propDict['worksheets']) > 0 && is_a($this->_propDict['worksheets'][0], 'WorkbookWorksheet')) {
+              return $this->_propDict['worksheets'];
+           }
+           foreach ($this->_propDict['worksheets'] as $singleValue) {
+              $worksheets []= new WorkbookWorksheet($singleValue);
+           }
+           $this->_propDict['worksheets'] = $worksheets;
+           return $this->_propDict['worksheets'];
         }
         return null;
     }

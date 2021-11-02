@@ -212,15 +212,15 @@ class UserAppInstallStatus extends Entity
     public function getDeviceStatuses()
     {
         if (array_key_exists('deviceStatuses', $this->_propDict) && !is_null($this->_propDict['deviceStatuses'])) {
-            $deviceStatuses = [];
-            if (count($this->_propDict['deviceStatuses']) > 0 && is_a($this->_propDict['deviceStatuses'][0], 'MobileAppInstallStatus')) {
-                return $this->_propDict['deviceStatuses'];
-            }
-            foreach ($this->_propDict['deviceStatuses'] as $singleValue) {
-                $deviceStatuses []= new MobileAppInstallStatus($singleValue);
-            }
-            $this->_propDict['deviceStatuses'] = $deviceStatuses;
-            return $this->_propDict['deviceStatuses'];
+           $deviceStatuses = [];
+           if (count($this->_propDict['deviceStatuses']) > 0 && is_a($this->_propDict['deviceStatuses'][0], 'MobileAppInstallStatus')) {
+              return $this->_propDict['deviceStatuses'];
+           }
+           foreach ($this->_propDict['deviceStatuses'] as $singleValue) {
+              $deviceStatuses []= new MobileAppInstallStatus($singleValue);
+           }
+           $this->_propDict['deviceStatuses'] = $deviceStatuses;
+           return $this->_propDict['deviceStatuses'];
         }
         return null;
     }

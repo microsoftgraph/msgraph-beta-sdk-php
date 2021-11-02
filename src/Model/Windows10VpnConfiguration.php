@@ -34,15 +34,15 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration
     public function getAssociatedApps()
     {
         if (array_key_exists('associatedApps', $this->_propDict) && !is_null($this->_propDict['associatedApps'])) {
-            $associatedApps = [];
-            if (count($this->_propDict['associatedApps']) > 0 && is_a($this->_propDict['associatedApps'][0], 'Windows10AssociatedApps')) {
-                return $this->_propDict['associatedApps'];
-            }
-            foreach ($this->_propDict['associatedApps'] as $singleValue) {
-                $associatedApps []= new Windows10AssociatedApps($singleValue);
-            }
-            $this->_propDict['associatedApps'] = $associatedApps;
-            return $this->_propDict['associatedApps'];
+           $associatedApps = [];
+           if (count($this->_propDict['associatedApps']) > 0 && is_a($this->_propDict['associatedApps'][0], 'Windows10AssociatedApps')) {
+              return $this->_propDict['associatedApps'];
+           }
+           foreach ($this->_propDict['associatedApps'] as $singleValue) {
+              $associatedApps []= new Windows10AssociatedApps($singleValue);
+           }
+           $this->_propDict['associatedApps'] = $associatedApps;
+           return $this->_propDict['associatedApps'];
         }
         return null;
     }
@@ -170,15 +170,15 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration
     public function getDnsRules()
     {
         if (array_key_exists('dnsRules', $this->_propDict) && !is_null($this->_propDict['dnsRules'])) {
-            $dnsRules = [];
-            if (count($this->_propDict['dnsRules']) > 0 && is_a($this->_propDict['dnsRules'][0], 'VpnDnsRule')) {
-                return $this->_propDict['dnsRules'];
-            }
-            foreach ($this->_propDict['dnsRules'] as $singleValue) {
-                $dnsRules []= new VpnDnsRule($singleValue);
-            }
-            $this->_propDict['dnsRules'] = $dnsRules;
-            return $this->_propDict['dnsRules'];
+           $dnsRules = [];
+           if (count($this->_propDict['dnsRules']) > 0 && is_a($this->_propDict['dnsRules'][0], 'VpnDnsRule')) {
+              return $this->_propDict['dnsRules'];
+           }
+           foreach ($this->_propDict['dnsRules'] as $singleValue) {
+              $dnsRules []= new VpnDnsRule($singleValue);
+           }
+           $this->_propDict['dnsRules'] = $dnsRules;
+           return $this->_propDict['dnsRules'];
         }
         return null;
     }
@@ -596,15 +596,15 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration
     public function getRoutes()
     {
         if (array_key_exists('routes', $this->_propDict) && !is_null($this->_propDict['routes'])) {
-            $routes = [];
-            if (count($this->_propDict['routes']) > 0 && is_a($this->_propDict['routes'][0], 'VpnRoute')) {
-                return $this->_propDict['routes'];
-            }
-            foreach ($this->_propDict['routes'] as $singleValue) {
-                $routes []= new VpnRoute($singleValue);
-            }
-            $this->_propDict['routes'] = $routes;
-            return $this->_propDict['routes'];
+           $routes = [];
+           if (count($this->_propDict['routes']) > 0 && is_a($this->_propDict['routes'][0], 'VpnRoute')) {
+              return $this->_propDict['routes'];
+           }
+           foreach ($this->_propDict['routes'] as $singleValue) {
+              $routes []= new VpnRoute($singleValue);
+           }
+           $this->_propDict['routes'] = $routes;
+           return $this->_propDict['routes'];
         }
         return null;
     }
@@ -695,15 +695,15 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration
     public function getTrafficRules()
     {
         if (array_key_exists('trafficRules', $this->_propDict) && !is_null($this->_propDict['trafficRules'])) {
-            $trafficRules = [];
-            if (count($this->_propDict['trafficRules']) > 0 && is_a($this->_propDict['trafficRules'][0], 'VpnTrafficRule')) {
-                return $this->_propDict['trafficRules'];
-            }
-            foreach ($this->_propDict['trafficRules'] as $singleValue) {
-                $trafficRules []= new VpnTrafficRule($singleValue);
-            }
-            $this->_propDict['trafficRules'] = $trafficRules;
-            return $this->_propDict['trafficRules'];
+           $trafficRules = [];
+           if (count($this->_propDict['trafficRules']) > 0 && is_a($this->_propDict['trafficRules'][0], 'VpnTrafficRule')) {
+              return $this->_propDict['trafficRules'];
+           }
+           foreach ($this->_propDict['trafficRules'] as $singleValue) {
+              $trafficRules []= new VpnTrafficRule($singleValue);
+           }
+           $this->_propDict['trafficRules'] = $trafficRules;
+           return $this->_propDict['trafficRules'];
         }
         return null;
     }

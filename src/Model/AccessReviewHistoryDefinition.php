@@ -100,15 +100,15 @@ class AccessReviewHistoryDefinition extends Entity
     public function getDecisions()
     {
         if (array_key_exists('decisions', $this->_propDict) && !is_null($this->_propDict['decisions'])) {
-            $decisions = [];
-            if (count($this->_propDict['decisions']) > 0 && is_a($this->_propDict['decisions'][0], 'AccessReviewHistoryDecisionFilter')) {
-                return $this->_propDict['decisions'];
-            }
-            foreach ($this->_propDict['decisions'] as $singleValue) {
-                $decisions []= new AccessReviewHistoryDecisionFilter($singleValue);
-            }
-            $this->_propDict['decisions'] = $decisions;
-            return $this->_propDict['decisions'];
+           $decisions = [];
+           if (count($this->_propDict['decisions']) > 0 && is_a($this->_propDict['decisions'][0], 'AccessReviewHistoryDecisionFilter')) {
+              return $this->_propDict['decisions'];
+           }
+           foreach ($this->_propDict['decisions'] as $singleValue) {
+              $decisions []= new AccessReviewHistoryDecisionFilter($singleValue);
+           }
+           $this->_propDict['decisions'] = $decisions;
+           return $this->_propDict['decisions'];
         }
         return null;
     }
@@ -294,15 +294,15 @@ class AccessReviewHistoryDefinition extends Entity
     public function getScopes()
     {
         if (array_key_exists('scopes', $this->_propDict) && !is_null($this->_propDict['scopes'])) {
-            $scopes = [];
-            if (count($this->_propDict['scopes']) > 0 && is_a($this->_propDict['scopes'][0], 'AccessReviewScope')) {
-                return $this->_propDict['scopes'];
-            }
-            foreach ($this->_propDict['scopes'] as $singleValue) {
-                $scopes []= new AccessReviewScope($singleValue);
-            }
-            $this->_propDict['scopes'] = $scopes;
-            return $this->_propDict['scopes'];
+           $scopes = [];
+           if (count($this->_propDict['scopes']) > 0 && is_a($this->_propDict['scopes'][0], 'AccessReviewScope')) {
+              return $this->_propDict['scopes'];
+           }
+           foreach ($this->_propDict['scopes'] as $singleValue) {
+              $scopes []= new AccessReviewScope($singleValue);
+           }
+           $this->_propDict['scopes'] = $scopes;
+           return $this->_propDict['scopes'];
         }
         return null;
     }

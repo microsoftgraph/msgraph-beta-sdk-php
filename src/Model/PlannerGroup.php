@@ -34,15 +34,15 @@ class PlannerGroup extends Entity
     public function getPlans()
     {
         if (array_key_exists('plans', $this->_propDict) && !is_null($this->_propDict['plans'])) {
-            $plans = [];
-            if (count($this->_propDict['plans']) > 0 && is_a($this->_propDict['plans'][0], 'PlannerPlan')) {
-                return $this->_propDict['plans'];
-            }
-            foreach ($this->_propDict['plans'] as $singleValue) {
-                $plans []= new PlannerPlan($singleValue);
-            }
-            $this->_propDict['plans'] = $plans;
-            return $this->_propDict['plans'];
+           $plans = [];
+           if (count($this->_propDict['plans']) > 0 && is_a($this->_propDict['plans'][0], 'PlannerPlan')) {
+              return $this->_propDict['plans'];
+           }
+           foreach ($this->_propDict['plans'] as $singleValue) {
+              $plans []= new PlannerPlan($singleValue);
+           }
+           $this->_propDict['plans'] = $plans;
+           return $this->_propDict['plans'];
         }
         return null;
     }

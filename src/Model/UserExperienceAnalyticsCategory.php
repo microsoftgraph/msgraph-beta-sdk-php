@@ -34,15 +34,15 @@ class UserExperienceAnalyticsCategory extends Entity
     public function getInsights()
     {
         if (array_key_exists('insights', $this->_propDict) && !is_null($this->_propDict['insights'])) {
-            $insights = [];
-            if (count($this->_propDict['insights']) > 0 && is_a($this->_propDict['insights'][0], 'UserExperienceAnalyticsInsight')) {
-                return $this->_propDict['insights'];
-            }
-            foreach ($this->_propDict['insights'] as $singleValue) {
-                $insights []= new UserExperienceAnalyticsInsight($singleValue);
-            }
-            $this->_propDict['insights'] = $insights;
-            return $this->_propDict['insights'];
+           $insights = [];
+           if (count($this->_propDict['insights']) > 0 && is_a($this->_propDict['insights'][0], 'UserExperienceAnalyticsInsight')) {
+              return $this->_propDict['insights'];
+           }
+           foreach ($this->_propDict['insights'] as $singleValue) {
+              $insights []= new UserExperienceAnalyticsInsight($singleValue);
+           }
+           $this->_propDict['insights'] = $insights;
+           return $this->_propDict['insights'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class UserExperienceAnalyticsCategory extends Entity
     public function getMetricValues()
     {
         if (array_key_exists('metricValues', $this->_propDict) && !is_null($this->_propDict['metricValues'])) {
-            $metricValues = [];
-            if (count($this->_propDict['metricValues']) > 0 && is_a($this->_propDict['metricValues'][0], 'UserExperienceAnalyticsMetric')) {
-                return $this->_propDict['metricValues'];
-            }
-            foreach ($this->_propDict['metricValues'] as $singleValue) {
-                $metricValues []= new UserExperienceAnalyticsMetric($singleValue);
-            }
-            $this->_propDict['metricValues'] = $metricValues;
-            return $this->_propDict['metricValues'];
+           $metricValues = [];
+           if (count($this->_propDict['metricValues']) > 0 && is_a($this->_propDict['metricValues'][0], 'UserExperienceAnalyticsMetric')) {
+              return $this->_propDict['metricValues'];
+           }
+           foreach ($this->_propDict['metricValues'] as $singleValue) {
+              $metricValues []= new UserExperienceAnalyticsMetric($singleValue);
+           }
+           $this->_propDict['metricValues'] = $metricValues;
+           return $this->_propDict['metricValues'];
         }
         return null;
     }

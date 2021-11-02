@@ -353,15 +353,15 @@ class WorkbookRangeView extends Entity
     public function getRows()
     {
         if (array_key_exists('rows', $this->_propDict) && !is_null($this->_propDict['rows'])) {
-            $rows = [];
-            if (count($this->_propDict['rows']) > 0 && is_a($this->_propDict['rows'][0], 'WorkbookRangeView')) {
-                return $this->_propDict['rows'];
-            }
-            foreach ($this->_propDict['rows'] as $singleValue) {
-                $rows []= new WorkbookRangeView($singleValue);
-            }
-            $this->_propDict['rows'] = $rows;
-            return $this->_propDict['rows'];
+           $rows = [];
+           if (count($this->_propDict['rows']) > 0 && is_a($this->_propDict['rows'][0], 'WorkbookRangeView')) {
+              return $this->_propDict['rows'];
+           }
+           foreach ($this->_propDict['rows'] as $singleValue) {
+              $rows []= new WorkbookRangeView($singleValue);
+           }
+           $this->_propDict['rows'] = $rows;
+           return $this->_propDict['rows'];
         }
         return null;
     }

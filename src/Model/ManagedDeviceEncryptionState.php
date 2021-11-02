@@ -290,15 +290,15 @@ class ManagedDeviceEncryptionState extends Entity
     public function getPolicyDetails()
     {
         if (array_key_exists('policyDetails', $this->_propDict) && !is_null($this->_propDict['policyDetails'])) {
-            $policyDetails = [];
-            if (count($this->_propDict['policyDetails']) > 0 && is_a($this->_propDict['policyDetails'][0], 'EncryptionReportPolicyDetails')) {
-                return $this->_propDict['policyDetails'];
-            }
-            foreach ($this->_propDict['policyDetails'] as $singleValue) {
-                $policyDetails []= new EncryptionReportPolicyDetails($singleValue);
-            }
-            $this->_propDict['policyDetails'] = $policyDetails;
-            return $this->_propDict['policyDetails'];
+           $policyDetails = [];
+           if (count($this->_propDict['policyDetails']) > 0 && is_a($this->_propDict['policyDetails'][0], 'EncryptionReportPolicyDetails')) {
+              return $this->_propDict['policyDetails'];
+           }
+           foreach ($this->_propDict['policyDetails'] as $singleValue) {
+              $policyDetails []= new EncryptionReportPolicyDetails($singleValue);
+           }
+           $this->_propDict['policyDetails'] = $policyDetails;
+           return $this->_propDict['policyDetails'];
         }
         return null;
     }

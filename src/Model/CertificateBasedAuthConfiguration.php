@@ -34,15 +34,15 @@ class CertificateBasedAuthConfiguration extends Entity
     public function getCertificateAuthorities()
     {
         if (array_key_exists('certificateAuthorities', $this->_propDict) && !is_null($this->_propDict['certificateAuthorities'])) {
-            $certificateAuthorities = [];
-            if (count($this->_propDict['certificateAuthorities']) > 0 && is_a($this->_propDict['certificateAuthorities'][0], 'CertificateAuthority')) {
-                return $this->_propDict['certificateAuthorities'];
-            }
-            foreach ($this->_propDict['certificateAuthorities'] as $singleValue) {
-                $certificateAuthorities []= new CertificateAuthority($singleValue);
-            }
-            $this->_propDict['certificateAuthorities'] = $certificateAuthorities;
-            return $this->_propDict['certificateAuthorities'];
+           $certificateAuthorities = [];
+           if (count($this->_propDict['certificateAuthorities']) > 0 && is_a($this->_propDict['certificateAuthorities'][0], 'CertificateAuthority')) {
+              return $this->_propDict['certificateAuthorities'];
+           }
+           foreach ($this->_propDict['certificateAuthorities'] as $singleValue) {
+              $certificateAuthorities []= new CertificateAuthority($singleValue);
+           }
+           $this->_propDict['certificateAuthorities'] = $certificateAuthorities;
+           return $this->_propDict['certificateAuthorities'];
         }
         return null;
     }

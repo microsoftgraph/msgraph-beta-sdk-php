@@ -154,15 +154,15 @@ class ManagementAction extends \Beta\Microsoft\Graph\Model\Entity
     public function getWorkloadActions()
     {
         if (array_key_exists('workloadActions', $this->_propDict) && !is_null($this->_propDict['workloadActions'])) {
-            $workloadActions = [];
-            if (count($this->_propDict['workloadActions']) > 0 && is_a($this->_propDict['workloadActions'][0], 'WorkloadAction')) {
-                return $this->_propDict['workloadActions'];
-            }
-            foreach ($this->_propDict['workloadActions'] as $singleValue) {
-                $workloadActions []= new WorkloadAction($singleValue);
-            }
-            $this->_propDict['workloadActions'] = $workloadActions;
-            return $this->_propDict['workloadActions'];
+           $workloadActions = [];
+           if (count($this->_propDict['workloadActions']) > 0 && is_a($this->_propDict['workloadActions'][0], 'WorkloadAction')) {
+              return $this->_propDict['workloadActions'];
+           }
+           foreach ($this->_propDict['workloadActions'] as $singleValue) {
+              $workloadActions []= new WorkloadAction($singleValue);
+           }
+           $this->_propDict['workloadActions'] = $workloadActions;
+           return $this->_propDict['workloadActions'];
         }
         return null;
     }

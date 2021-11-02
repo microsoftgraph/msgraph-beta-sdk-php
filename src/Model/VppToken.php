@@ -489,15 +489,15 @@ class VppToken extends Entity
     public function getTokenActionResults()
     {
         if (array_key_exists('tokenActionResults', $this->_propDict) && !is_null($this->_propDict['tokenActionResults'])) {
-            $tokenActionResults = [];
-            if (count($this->_propDict['tokenActionResults']) > 0 && is_a($this->_propDict['tokenActionResults'][0], 'VppTokenActionResult')) {
-                return $this->_propDict['tokenActionResults'];
-            }
-            foreach ($this->_propDict['tokenActionResults'] as $singleValue) {
-                $tokenActionResults []= new VppTokenActionResult($singleValue);
-            }
-            $this->_propDict['tokenActionResults'] = $tokenActionResults;
-            return $this->_propDict['tokenActionResults'];
+           $tokenActionResults = [];
+           if (count($this->_propDict['tokenActionResults']) > 0 && is_a($this->_propDict['tokenActionResults'][0], 'VppTokenActionResult')) {
+              return $this->_propDict['tokenActionResults'];
+           }
+           foreach ($this->_propDict['tokenActionResults'] as $singleValue) {
+              $tokenActionResults []= new VppTokenActionResult($singleValue);
+           }
+           $this->_propDict['tokenActionResults'] = $tokenActionResults;
+           return $this->_propDict['tokenActionResults'];
         }
         return null;
     }

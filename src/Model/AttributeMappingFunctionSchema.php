@@ -34,15 +34,15 @@ class AttributeMappingFunctionSchema extends Entity
     public function getParameters()
     {
         if (array_key_exists('parameters', $this->_propDict) && !is_null($this->_propDict['parameters'])) {
-            $parameters = [];
-            if (count($this->_propDict['parameters']) > 0 && is_a($this->_propDict['parameters'][0], 'AttributeMappingParameterSchema')) {
-                return $this->_propDict['parameters'];
-            }
-            foreach ($this->_propDict['parameters'] as $singleValue) {
-                $parameters []= new AttributeMappingParameterSchema($singleValue);
-            }
-            $this->_propDict['parameters'] = $parameters;
-            return $this->_propDict['parameters'];
+           $parameters = [];
+           if (count($this->_propDict['parameters']) > 0 && is_a($this->_propDict['parameters'][0], 'AttributeMappingParameterSchema')) {
+              return $this->_propDict['parameters'];
+           }
+           foreach ($this->_propDict['parameters'] as $singleValue) {
+              $parameters []= new AttributeMappingParameterSchema($singleValue);
+           }
+           $this->_propDict['parameters'] = $parameters;
+           return $this->_propDict['parameters'];
         }
         return null;
     }

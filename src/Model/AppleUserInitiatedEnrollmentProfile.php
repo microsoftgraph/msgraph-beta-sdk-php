@@ -34,15 +34,15 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
     public function getAvailableEnrollmentTypeOptions()
     {
         if (array_key_exists('availableEnrollmentTypeOptions', $this->_propDict) && !is_null($this->_propDict['availableEnrollmentTypeOptions'])) {
-            $availableEnrollmentTypeOptions = [];
-            if (count($this->_propDict['availableEnrollmentTypeOptions']) > 0 && is_a($this->_propDict['availableEnrollmentTypeOptions'][0], 'AppleOwnerTypeEnrollmentType')) {
-                return $this->_propDict['availableEnrollmentTypeOptions'];
-            }
-            foreach ($this->_propDict['availableEnrollmentTypeOptions'] as $singleValue) {
-                $availableEnrollmentTypeOptions []= new AppleOwnerTypeEnrollmentType($singleValue);
-            }
-            $this->_propDict['availableEnrollmentTypeOptions'] = $availableEnrollmentTypeOptions;
-            return $this->_propDict['availableEnrollmentTypeOptions'];
+           $availableEnrollmentTypeOptions = [];
+           if (count($this->_propDict['availableEnrollmentTypeOptions']) > 0 && is_a($this->_propDict['availableEnrollmentTypeOptions'][0], 'AppleOwnerTypeEnrollmentType')) {
+              return $this->_propDict['availableEnrollmentTypeOptions'];
+           }
+           foreach ($this->_propDict['availableEnrollmentTypeOptions'] as $singleValue) {
+              $availableEnrollmentTypeOptions []= new AppleOwnerTypeEnrollmentType($singleValue);
+           }
+           $this->_propDict['availableEnrollmentTypeOptions'] = $availableEnrollmentTypeOptions;
+           return $this->_propDict['availableEnrollmentTypeOptions'];
         }
         return null;
     }
@@ -290,15 +290,15 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'AppleEnrollmentProfileAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new AppleEnrollmentProfileAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'AppleEnrollmentProfileAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new AppleEnrollmentProfileAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }

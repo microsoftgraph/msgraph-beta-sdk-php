@@ -91,15 +91,15 @@ class Incident extends Entity
     public function getComments()
     {
         if (array_key_exists('comments', $this->_propDict) && !is_null($this->_propDict['comments'])) {
-            $comments = [];
-            if (count($this->_propDict['comments']) > 0 && is_a($this->_propDict['comments'][0], 'M365AlertComment')) {
-                return $this->_propDict['comments'];
-            }
-            foreach ($this->_propDict['comments'] as $singleValue) {
-                $comments []= new M365AlertComment($singleValue);
-            }
-            $this->_propDict['comments'] = $comments;
-            return $this->_propDict['comments'];
+           $comments = [];
+           if (count($this->_propDict['comments']) > 0 && is_a($this->_propDict['comments'][0], 'M365AlertComment')) {
+              return $this->_propDict['comments'];
+           }
+           foreach ($this->_propDict['comments'] as $singleValue) {
+              $comments []= new M365AlertComment($singleValue);
+           }
+           $this->_propDict['comments'] = $comments;
+           return $this->_propDict['comments'];
         }
         return null;
     }

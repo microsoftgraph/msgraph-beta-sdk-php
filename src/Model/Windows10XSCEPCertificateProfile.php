@@ -129,15 +129,15 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile
     public function getExtendedKeyUsages()
     {
         if (array_key_exists('extendedKeyUsages', $this->_propDict) && !is_null($this->_propDict['extendedKeyUsages'])) {
-            $extendedKeyUsages = [];
-            if (count($this->_propDict['extendedKeyUsages']) > 0 && is_a($this->_propDict['extendedKeyUsages'][0], 'ExtendedKeyUsage')) {
-                return $this->_propDict['extendedKeyUsages'];
-            }
-            foreach ($this->_propDict['extendedKeyUsages'] as $singleValue) {
-                $extendedKeyUsages []= new ExtendedKeyUsage($singleValue);
-            }
-            $this->_propDict['extendedKeyUsages'] = $extendedKeyUsages;
-            return $this->_propDict['extendedKeyUsages'];
+           $extendedKeyUsages = [];
+           if (count($this->_propDict['extendedKeyUsages']) > 0 && is_a($this->_propDict['extendedKeyUsages'][0], 'ExtendedKeyUsage')) {
+              return $this->_propDict['extendedKeyUsages'];
+           }
+           foreach ($this->_propDict['extendedKeyUsages'] as $singleValue) {
+              $extendedKeyUsages []= new ExtendedKeyUsage($singleValue);
+           }
+           $this->_propDict['extendedKeyUsages'] = $extendedKeyUsages;
+           return $this->_propDict['extendedKeyUsages'];
         }
         return null;
     }
@@ -166,15 +166,15 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile
     public function getHashAlgorithm()
     {
         if (array_key_exists('hashAlgorithm', $this->_propDict) && !is_null($this->_propDict['hashAlgorithm'])) {
-            $hashAlgorithm = [];
-            if (count($this->_propDict['hashAlgorithm']) > 0 && is_a($this->_propDict['hashAlgorithm'][0], 'HashAlgorithms')) {
-                return $this->_propDict['hashAlgorithm'];
-            }
-            foreach ($this->_propDict['hashAlgorithm'] as $singleValue) {
-                $hashAlgorithm []= new HashAlgorithms($singleValue);
-            }
-            $this->_propDict['hashAlgorithm'] = $hashAlgorithm;
-            return $this->_propDict['hashAlgorithm'];
+           $hashAlgorithm = [];
+           if (count($this->_propDict['hashAlgorithm']) > 0 && is_a($this->_propDict['hashAlgorithm'][0], 'HashAlgorithms')) {
+              return $this->_propDict['hashAlgorithm'];
+           }
+           foreach ($this->_propDict['hashAlgorithm'] as $singleValue) {
+              $hashAlgorithm []= new HashAlgorithms($singleValue);
+           }
+           $this->_propDict['hashAlgorithm'] = $hashAlgorithm;
+           return $this->_propDict['hashAlgorithm'];
         }
         return null;
     }
@@ -389,15 +389,15 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile
     public function getSubjectAlternativeNameFormats()
     {
         if (array_key_exists('subjectAlternativeNameFormats', $this->_propDict) && !is_null($this->_propDict['subjectAlternativeNameFormats'])) {
-            $subjectAlternativeNameFormats = [];
-            if (count($this->_propDict['subjectAlternativeNameFormats']) > 0 && is_a($this->_propDict['subjectAlternativeNameFormats'][0], 'Windows10XCustomSubjectAlternativeName')) {
-                return $this->_propDict['subjectAlternativeNameFormats'];
-            }
-            foreach ($this->_propDict['subjectAlternativeNameFormats'] as $singleValue) {
-                $subjectAlternativeNameFormats []= new Windows10XCustomSubjectAlternativeName($singleValue);
-            }
-            $this->_propDict['subjectAlternativeNameFormats'] = $subjectAlternativeNameFormats;
-            return $this->_propDict['subjectAlternativeNameFormats'];
+           $subjectAlternativeNameFormats = [];
+           if (count($this->_propDict['subjectAlternativeNameFormats']) > 0 && is_a($this->_propDict['subjectAlternativeNameFormats'][0], 'Windows10XCustomSubjectAlternativeName')) {
+              return $this->_propDict['subjectAlternativeNameFormats'];
+           }
+           foreach ($this->_propDict['subjectAlternativeNameFormats'] as $singleValue) {
+              $subjectAlternativeNameFormats []= new Windows10XCustomSubjectAlternativeName($singleValue);
+           }
+           $this->_propDict['subjectAlternativeNameFormats'] = $subjectAlternativeNameFormats;
+           return $this->_propDict['subjectAlternativeNameFormats'];
         }
         return null;
     }

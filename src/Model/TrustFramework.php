@@ -64,15 +64,15 @@ class TrustFramework implements \JsonSerializable
     public function getKeySets()
     {
         if (array_key_exists('keySets', $this->_propDict) && !is_null($this->_propDict['keySets'])) {
-            $keySets = [];
-            if (count($this->_propDict['keySets']) > 0 && is_a($this->_propDict['keySets'][0], 'TrustFrameworkKeySet')) {
-                return $this->_propDict['keySets'];
-            }
-            foreach ($this->_propDict['keySets'] as $singleValue) {
-                $keySets []= new TrustFrameworkKeySet($singleValue);
-            }
-            $this->_propDict['keySets'] = $keySets;
-            return $this->_propDict['keySets'];
+           $keySets = [];
+           if (count($this->_propDict['keySets']) > 0 && is_a($this->_propDict['keySets'][0], 'TrustFrameworkKeySet')) {
+              return $this->_propDict['keySets'];
+           }
+           foreach ($this->_propDict['keySets'] as $singleValue) {
+              $keySets []= new TrustFrameworkKeySet($singleValue);
+           }
+           $this->_propDict['keySets'] = $keySets;
+           return $this->_propDict['keySets'];
         }
         return null;
     }
@@ -99,15 +99,15 @@ class TrustFramework implements \JsonSerializable
     public function getPolicies()
     {
         if (array_key_exists('policies', $this->_propDict) && !is_null($this->_propDict['policies'])) {
-            $policies = [];
-            if (count($this->_propDict['policies']) > 0 && is_a($this->_propDict['policies'][0], 'TrustFrameworkPolicy')) {
-                return $this->_propDict['policies'];
-            }
-            foreach ($this->_propDict['policies'] as $singleValue) {
-                $policies []= new TrustFrameworkPolicy($singleValue);
-            }
-            $this->_propDict['policies'] = $policies;
-            return $this->_propDict['policies'];
+           $policies = [];
+           if (count($this->_propDict['policies']) > 0 && is_a($this->_propDict['policies'][0], 'TrustFrameworkPolicy')) {
+              return $this->_propDict['policies'];
+           }
+           foreach ($this->_propDict['policies'] as $singleValue) {
+              $policies []= new TrustFrameworkPolicy($singleValue);
+           }
+           $this->_propDict['policies'] = $policies;
+           return $this->_propDict['policies'];
         }
         return null;
     }

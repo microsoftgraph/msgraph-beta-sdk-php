@@ -96,15 +96,15 @@ class Office365ActivationsUserDetail extends Entity
     public function getUserActivationCounts()
     {
         if (array_key_exists('userActivationCounts', $this->_propDict) && !is_null($this->_propDict['userActivationCounts'])) {
-            $userActivationCounts = [];
-            if (count($this->_propDict['userActivationCounts']) > 0 && is_a($this->_propDict['userActivationCounts'][0], 'UserActivationCounts')) {
-                return $this->_propDict['userActivationCounts'];
-            }
-            foreach ($this->_propDict['userActivationCounts'] as $singleValue) {
-                $userActivationCounts []= new UserActivationCounts($singleValue);
-            }
-            $this->_propDict['userActivationCounts'] = $userActivationCounts;
-            return $this->_propDict['userActivationCounts'];
+           $userActivationCounts = [];
+           if (count($this->_propDict['userActivationCounts']) > 0 && is_a($this->_propDict['userActivationCounts'][0], 'UserActivationCounts')) {
+              return $this->_propDict['userActivationCounts'];
+           }
+           foreach ($this->_propDict['userActivationCounts'] as $singleValue) {
+              $userActivationCounts []= new UserActivationCounts($singleValue);
+           }
+           $this->_propDict['userActivationCounts'] = $userActivationCounts;
+           return $this->_propDict['userActivationCounts'];
         }
         return null;
     }

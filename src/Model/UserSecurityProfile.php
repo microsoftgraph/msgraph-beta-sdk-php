@@ -33,15 +33,15 @@ class UserSecurityProfile extends Entity
     public function getAccounts()
     {
         if (array_key_exists('accounts', $this->_propDict) && !is_null($this->_propDict['accounts'])) {
-            $accounts = [];
-            if (count($this->_propDict['accounts']) > 0 && is_a($this->_propDict['accounts'][0], 'UserAccount')) {
-                return $this->_propDict['accounts'];
-            }
-            foreach ($this->_propDict['accounts'] as $singleValue) {
-                $accounts []= new UserAccount($singleValue);
-            }
-            $this->_propDict['accounts'] = $accounts;
-            return $this->_propDict['accounts'];
+           $accounts = [];
+           if (count($this->_propDict['accounts']) > 0 && is_a($this->_propDict['accounts'][0], 'UserAccount')) {
+              return $this->_propDict['accounts'];
+           }
+           foreach ($this->_propDict['accounts'] as $singleValue) {
+              $accounts []= new UserAccount($singleValue);
+           }
+           $this->_propDict['accounts'] = $accounts;
+           return $this->_propDict['accounts'];
         }
         return null;
     }

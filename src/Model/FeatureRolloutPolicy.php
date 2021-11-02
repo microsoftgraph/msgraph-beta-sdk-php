@@ -183,15 +183,15 @@ class FeatureRolloutPolicy extends Entity
     public function getAppliesTo()
     {
         if (array_key_exists('appliesTo', $this->_propDict) && !is_null($this->_propDict['appliesTo'])) {
-            $appliesTo = [];
-            if (count($this->_propDict['appliesTo']) > 0 && is_a($this->_propDict['appliesTo'][0], 'DirectoryObject')) {
-                return $this->_propDict['appliesTo'];
-            }
-            foreach ($this->_propDict['appliesTo'] as $singleValue) {
-                $appliesTo []= new DirectoryObject($singleValue);
-            }
-            $this->_propDict['appliesTo'] = $appliesTo;
-            return $this->_propDict['appliesTo'];
+           $appliesTo = [];
+           if (count($this->_propDict['appliesTo']) > 0 && is_a($this->_propDict['appliesTo'][0], 'DirectoryObject')) {
+              return $this->_propDict['appliesTo'];
+           }
+           foreach ($this->_propDict['appliesTo'] as $singleValue) {
+              $appliesTo []= new DirectoryObject($singleValue);
+           }
+           $this->_propDict['appliesTo'] = $appliesTo;
+           return $this->_propDict['appliesTo'];
         }
         return null;
     }

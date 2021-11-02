@@ -431,15 +431,15 @@ class WindowsAutopilotDeploymentProfile extends Entity
     public function getAssignedDevices()
     {
         if (array_key_exists('assignedDevices', $this->_propDict) && !is_null($this->_propDict['assignedDevices'])) {
-            $assignedDevices = [];
-            if (count($this->_propDict['assignedDevices']) > 0 && is_a($this->_propDict['assignedDevices'][0], 'WindowsAutopilotDeviceIdentity')) {
-                return $this->_propDict['assignedDevices'];
-            }
-            foreach ($this->_propDict['assignedDevices'] as $singleValue) {
-                $assignedDevices []= new WindowsAutopilotDeviceIdentity($singleValue);
-            }
-            $this->_propDict['assignedDevices'] = $assignedDevices;
-            return $this->_propDict['assignedDevices'];
+           $assignedDevices = [];
+           if (count($this->_propDict['assignedDevices']) > 0 && is_a($this->_propDict['assignedDevices'][0], 'WindowsAutopilotDeviceIdentity')) {
+              return $this->_propDict['assignedDevices'];
+           }
+           foreach ($this->_propDict['assignedDevices'] as $singleValue) {
+              $assignedDevices []= new WindowsAutopilotDeviceIdentity($singleValue);
+           }
+           $this->_propDict['assignedDevices'] = $assignedDevices;
+           return $this->_propDict['assignedDevices'];
         }
         return null;
     }
@@ -468,15 +468,15 @@ class WindowsAutopilotDeploymentProfile extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'WindowsAutopilotDeploymentProfileAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new WindowsAutopilotDeploymentProfileAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'WindowsAutopilotDeploymentProfileAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new WindowsAutopilotDeploymentProfileAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }

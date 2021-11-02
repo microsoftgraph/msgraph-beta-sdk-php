@@ -60,15 +60,15 @@ class ApprovalWorkflowProvider extends Entity
     public function getBusinessFlows()
     {
         if (array_key_exists('businessFlows', $this->_propDict) && !is_null($this->_propDict['businessFlows'])) {
-            $businessFlows = [];
-            if (count($this->_propDict['businessFlows']) > 0 && is_a($this->_propDict['businessFlows'][0], 'BusinessFlow')) {
-                return $this->_propDict['businessFlows'];
-            }
-            foreach ($this->_propDict['businessFlows'] as $singleValue) {
-                $businessFlows []= new BusinessFlow($singleValue);
-            }
-            $this->_propDict['businessFlows'] = $businessFlows;
-            return $this->_propDict['businessFlows'];
+           $businessFlows = [];
+           if (count($this->_propDict['businessFlows']) > 0 && is_a($this->_propDict['businessFlows'][0], 'BusinessFlow')) {
+              return $this->_propDict['businessFlows'];
+           }
+           foreach ($this->_propDict['businessFlows'] as $singleValue) {
+              $businessFlows []= new BusinessFlow($singleValue);
+           }
+           $this->_propDict['businessFlows'] = $businessFlows;
+           return $this->_propDict['businessFlows'];
         }
         return null;
     }
@@ -95,15 +95,15 @@ class ApprovalWorkflowProvider extends Entity
     public function getBusinessFlowsWithRequestsAwaitingMyDecision()
     {
         if (array_key_exists('businessFlowsWithRequestsAwaitingMyDecision', $this->_propDict) && !is_null($this->_propDict['businessFlowsWithRequestsAwaitingMyDecision'])) {
-            $businessFlowsWithRequestsAwaitingMyDecision = [];
-            if (count($this->_propDict['businessFlowsWithRequestsAwaitingMyDecision']) > 0 && is_a($this->_propDict['businessFlowsWithRequestsAwaitingMyDecision'][0], 'BusinessFlow')) {
-                return $this->_propDict['businessFlowsWithRequestsAwaitingMyDecision'];
-            }
-            foreach ($this->_propDict['businessFlowsWithRequestsAwaitingMyDecision'] as $singleValue) {
-                $businessFlowsWithRequestsAwaitingMyDecision []= new BusinessFlow($singleValue);
-            }
-            $this->_propDict['businessFlowsWithRequestsAwaitingMyDecision'] = $businessFlowsWithRequestsAwaitingMyDecision;
-            return $this->_propDict['businessFlowsWithRequestsAwaitingMyDecision'];
+           $businessFlowsWithRequestsAwaitingMyDecision = [];
+           if (count($this->_propDict['businessFlowsWithRequestsAwaitingMyDecision']) > 0 && is_a($this->_propDict['businessFlowsWithRequestsAwaitingMyDecision'][0], 'BusinessFlow')) {
+              return $this->_propDict['businessFlowsWithRequestsAwaitingMyDecision'];
+           }
+           foreach ($this->_propDict['businessFlowsWithRequestsAwaitingMyDecision'] as $singleValue) {
+              $businessFlowsWithRequestsAwaitingMyDecision []= new BusinessFlow($singleValue);
+           }
+           $this->_propDict['businessFlowsWithRequestsAwaitingMyDecision'] = $businessFlowsWithRequestsAwaitingMyDecision;
+           return $this->_propDict['businessFlowsWithRequestsAwaitingMyDecision'];
         }
         return null;
     }
@@ -130,15 +130,15 @@ class ApprovalWorkflowProvider extends Entity
     public function getPolicyTemplates()
     {
         if (array_key_exists('policyTemplates', $this->_propDict) && !is_null($this->_propDict['policyTemplates'])) {
-            $policyTemplates = [];
-            if (count($this->_propDict['policyTemplates']) > 0 && is_a($this->_propDict['policyTemplates'][0], 'GovernancePolicyTemplate')) {
-                return $this->_propDict['policyTemplates'];
-            }
-            foreach ($this->_propDict['policyTemplates'] as $singleValue) {
-                $policyTemplates []= new GovernancePolicyTemplate($singleValue);
-            }
-            $this->_propDict['policyTemplates'] = $policyTemplates;
-            return $this->_propDict['policyTemplates'];
+           $policyTemplates = [];
+           if (count($this->_propDict['policyTemplates']) > 0 && is_a($this->_propDict['policyTemplates'][0], 'GovernancePolicyTemplate')) {
+              return $this->_propDict['policyTemplates'];
+           }
+           foreach ($this->_propDict['policyTemplates'] as $singleValue) {
+              $policyTemplates []= new GovernancePolicyTemplate($singleValue);
+           }
+           $this->_propDict['policyTemplates'] = $policyTemplates;
+           return $this->_propDict['policyTemplates'];
         }
         return null;
     }

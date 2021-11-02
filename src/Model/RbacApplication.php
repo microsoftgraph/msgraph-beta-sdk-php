@@ -33,15 +33,15 @@ class RbacApplication extends Entity
     public function getResourceNamespaces()
     {
         if (array_key_exists('resourceNamespaces', $this->_propDict) && !is_null($this->_propDict['resourceNamespaces'])) {
-            $resourceNamespaces = [];
-            if (count($this->_propDict['resourceNamespaces']) > 0 && is_a($this->_propDict['resourceNamespaces'][0], 'UnifiedRbacResourceNamespace')) {
-                return $this->_propDict['resourceNamespaces'];
-            }
-            foreach ($this->_propDict['resourceNamespaces'] as $singleValue) {
-                $resourceNamespaces []= new UnifiedRbacResourceNamespace($singleValue);
-            }
-            $this->_propDict['resourceNamespaces'] = $resourceNamespaces;
-            return $this->_propDict['resourceNamespaces'];
+           $resourceNamespaces = [];
+           if (count($this->_propDict['resourceNamespaces']) > 0 && is_a($this->_propDict['resourceNamespaces'][0], 'UnifiedRbacResourceNamespace')) {
+              return $this->_propDict['resourceNamespaces'];
+           }
+           foreach ($this->_propDict['resourceNamespaces'] as $singleValue) {
+              $resourceNamespaces []= new UnifiedRbacResourceNamespace($singleValue);
+           }
+           $this->_propDict['resourceNamespaces'] = $resourceNamespaces;
+           return $this->_propDict['resourceNamespaces'];
         }
         return null;
     }
@@ -69,15 +69,15 @@ class RbacApplication extends Entity
     public function getRoleAssignments()
     {
         if (array_key_exists('roleAssignments', $this->_propDict) && !is_null($this->_propDict['roleAssignments'])) {
-            $roleAssignments = [];
-            if (count($this->_propDict['roleAssignments']) > 0 && is_a($this->_propDict['roleAssignments'][0], 'UnifiedRoleAssignment')) {
-                return $this->_propDict['roleAssignments'];
-            }
-            foreach ($this->_propDict['roleAssignments'] as $singleValue) {
-                $roleAssignments []= new UnifiedRoleAssignment($singleValue);
-            }
-            $this->_propDict['roleAssignments'] = $roleAssignments;
-            return $this->_propDict['roleAssignments'];
+           $roleAssignments = [];
+           if (count($this->_propDict['roleAssignments']) > 0 && is_a($this->_propDict['roleAssignments'][0], 'UnifiedRoleAssignment')) {
+              return $this->_propDict['roleAssignments'];
+           }
+           foreach ($this->_propDict['roleAssignments'] as $singleValue) {
+              $roleAssignments []= new UnifiedRoleAssignment($singleValue);
+           }
+           $this->_propDict['roleAssignments'] = $roleAssignments;
+           return $this->_propDict['roleAssignments'];
         }
         return null;
     }
@@ -106,15 +106,15 @@ class RbacApplication extends Entity
     public function getRoleDefinitions()
     {
         if (array_key_exists('roleDefinitions', $this->_propDict) && !is_null($this->_propDict['roleDefinitions'])) {
-            $roleDefinitions = [];
-            if (count($this->_propDict['roleDefinitions']) > 0 && is_a($this->_propDict['roleDefinitions'][0], 'UnifiedRoleDefinition')) {
-                return $this->_propDict['roleDefinitions'];
-            }
-            foreach ($this->_propDict['roleDefinitions'] as $singleValue) {
-                $roleDefinitions []= new UnifiedRoleDefinition($singleValue);
-            }
-            $this->_propDict['roleDefinitions'] = $roleDefinitions;
-            return $this->_propDict['roleDefinitions'];
+           $roleDefinitions = [];
+           if (count($this->_propDict['roleDefinitions']) > 0 && is_a($this->_propDict['roleDefinitions'][0], 'UnifiedRoleDefinition')) {
+              return $this->_propDict['roleDefinitions'];
+           }
+           foreach ($this->_propDict['roleDefinitions'] as $singleValue) {
+              $roleDefinitions []= new UnifiedRoleDefinition($singleValue);
+           }
+           $this->_propDict['roleDefinitions'] = $roleDefinitions;
+           return $this->_propDict['roleDefinitions'];
         }
         return null;
     }
@@ -142,15 +142,15 @@ class RbacApplication extends Entity
     public function getRoleAssignmentApprovals()
     {
         if (array_key_exists('roleAssignmentApprovals', $this->_propDict) && !is_null($this->_propDict['roleAssignmentApprovals'])) {
-            $roleAssignmentApprovals = [];
-            if (count($this->_propDict['roleAssignmentApprovals']) > 0 && is_a($this->_propDict['roleAssignmentApprovals'][0], 'Approval')) {
-                return $this->_propDict['roleAssignmentApprovals'];
-            }
-            foreach ($this->_propDict['roleAssignmentApprovals'] as $singleValue) {
-                $roleAssignmentApprovals []= new Approval($singleValue);
-            }
-            $this->_propDict['roleAssignmentApprovals'] = $roleAssignmentApprovals;
-            return $this->_propDict['roleAssignmentApprovals'];
+           $roleAssignmentApprovals = [];
+           if (count($this->_propDict['roleAssignmentApprovals']) > 0 && is_a($this->_propDict['roleAssignmentApprovals'][0], 'Approval')) {
+              return $this->_propDict['roleAssignmentApprovals'];
+           }
+           foreach ($this->_propDict['roleAssignmentApprovals'] as $singleValue) {
+              $roleAssignmentApprovals []= new Approval($singleValue);
+           }
+           $this->_propDict['roleAssignmentApprovals'] = $roleAssignmentApprovals;
+           return $this->_propDict['roleAssignmentApprovals'];
         }
         return null;
     }
@@ -177,15 +177,15 @@ class RbacApplication extends Entity
     public function getRoleAssignmentScheduleInstances()
     {
         if (array_key_exists('roleAssignmentScheduleInstances', $this->_propDict) && !is_null($this->_propDict['roleAssignmentScheduleInstances'])) {
-            $roleAssignmentScheduleInstances = [];
-            if (count($this->_propDict['roleAssignmentScheduleInstances']) > 0 && is_a($this->_propDict['roleAssignmentScheduleInstances'][0], 'UnifiedRoleAssignmentScheduleInstance')) {
-                return $this->_propDict['roleAssignmentScheduleInstances'];
-            }
-            foreach ($this->_propDict['roleAssignmentScheduleInstances'] as $singleValue) {
-                $roleAssignmentScheduleInstances []= new UnifiedRoleAssignmentScheduleInstance($singleValue);
-            }
-            $this->_propDict['roleAssignmentScheduleInstances'] = $roleAssignmentScheduleInstances;
-            return $this->_propDict['roleAssignmentScheduleInstances'];
+           $roleAssignmentScheduleInstances = [];
+           if (count($this->_propDict['roleAssignmentScheduleInstances']) > 0 && is_a($this->_propDict['roleAssignmentScheduleInstances'][0], 'UnifiedRoleAssignmentScheduleInstance')) {
+              return $this->_propDict['roleAssignmentScheduleInstances'];
+           }
+           foreach ($this->_propDict['roleAssignmentScheduleInstances'] as $singleValue) {
+              $roleAssignmentScheduleInstances []= new UnifiedRoleAssignmentScheduleInstance($singleValue);
+           }
+           $this->_propDict['roleAssignmentScheduleInstances'] = $roleAssignmentScheduleInstances;
+           return $this->_propDict['roleAssignmentScheduleInstances'];
         }
         return null;
     }
@@ -212,15 +212,15 @@ class RbacApplication extends Entity
     public function getRoleAssignmentScheduleRequests()
     {
         if (array_key_exists('roleAssignmentScheduleRequests', $this->_propDict) && !is_null($this->_propDict['roleAssignmentScheduleRequests'])) {
-            $roleAssignmentScheduleRequests = [];
-            if (count($this->_propDict['roleAssignmentScheduleRequests']) > 0 && is_a($this->_propDict['roleAssignmentScheduleRequests'][0], 'UnifiedRoleAssignmentScheduleRequest')) {
-                return $this->_propDict['roleAssignmentScheduleRequests'];
-            }
-            foreach ($this->_propDict['roleAssignmentScheduleRequests'] as $singleValue) {
-                $roleAssignmentScheduleRequests []= new UnifiedRoleAssignmentScheduleRequest($singleValue);
-            }
-            $this->_propDict['roleAssignmentScheduleRequests'] = $roleAssignmentScheduleRequests;
-            return $this->_propDict['roleAssignmentScheduleRequests'];
+           $roleAssignmentScheduleRequests = [];
+           if (count($this->_propDict['roleAssignmentScheduleRequests']) > 0 && is_a($this->_propDict['roleAssignmentScheduleRequests'][0], 'UnifiedRoleAssignmentScheduleRequest')) {
+              return $this->_propDict['roleAssignmentScheduleRequests'];
+           }
+           foreach ($this->_propDict['roleAssignmentScheduleRequests'] as $singleValue) {
+              $roleAssignmentScheduleRequests []= new UnifiedRoleAssignmentScheduleRequest($singleValue);
+           }
+           $this->_propDict['roleAssignmentScheduleRequests'] = $roleAssignmentScheduleRequests;
+           return $this->_propDict['roleAssignmentScheduleRequests'];
         }
         return null;
     }
@@ -247,15 +247,15 @@ class RbacApplication extends Entity
     public function getRoleAssignmentSchedules()
     {
         if (array_key_exists('roleAssignmentSchedules', $this->_propDict) && !is_null($this->_propDict['roleAssignmentSchedules'])) {
-            $roleAssignmentSchedules = [];
-            if (count($this->_propDict['roleAssignmentSchedules']) > 0 && is_a($this->_propDict['roleAssignmentSchedules'][0], 'UnifiedRoleAssignmentSchedule')) {
-                return $this->_propDict['roleAssignmentSchedules'];
-            }
-            foreach ($this->_propDict['roleAssignmentSchedules'] as $singleValue) {
-                $roleAssignmentSchedules []= new UnifiedRoleAssignmentSchedule($singleValue);
-            }
-            $this->_propDict['roleAssignmentSchedules'] = $roleAssignmentSchedules;
-            return $this->_propDict['roleAssignmentSchedules'];
+           $roleAssignmentSchedules = [];
+           if (count($this->_propDict['roleAssignmentSchedules']) > 0 && is_a($this->_propDict['roleAssignmentSchedules'][0], 'UnifiedRoleAssignmentSchedule')) {
+              return $this->_propDict['roleAssignmentSchedules'];
+           }
+           foreach ($this->_propDict['roleAssignmentSchedules'] as $singleValue) {
+              $roleAssignmentSchedules []= new UnifiedRoleAssignmentSchedule($singleValue);
+           }
+           $this->_propDict['roleAssignmentSchedules'] = $roleAssignmentSchedules;
+           return $this->_propDict['roleAssignmentSchedules'];
         }
         return null;
     }
@@ -282,15 +282,15 @@ class RbacApplication extends Entity
     public function getRoleEligibilityScheduleInstances()
     {
         if (array_key_exists('roleEligibilityScheduleInstances', $this->_propDict) && !is_null($this->_propDict['roleEligibilityScheduleInstances'])) {
-            $roleEligibilityScheduleInstances = [];
-            if (count($this->_propDict['roleEligibilityScheduleInstances']) > 0 && is_a($this->_propDict['roleEligibilityScheduleInstances'][0], 'UnifiedRoleEligibilityScheduleInstance')) {
-                return $this->_propDict['roleEligibilityScheduleInstances'];
-            }
-            foreach ($this->_propDict['roleEligibilityScheduleInstances'] as $singleValue) {
-                $roleEligibilityScheduleInstances []= new UnifiedRoleEligibilityScheduleInstance($singleValue);
-            }
-            $this->_propDict['roleEligibilityScheduleInstances'] = $roleEligibilityScheduleInstances;
-            return $this->_propDict['roleEligibilityScheduleInstances'];
+           $roleEligibilityScheduleInstances = [];
+           if (count($this->_propDict['roleEligibilityScheduleInstances']) > 0 && is_a($this->_propDict['roleEligibilityScheduleInstances'][0], 'UnifiedRoleEligibilityScheduleInstance')) {
+              return $this->_propDict['roleEligibilityScheduleInstances'];
+           }
+           foreach ($this->_propDict['roleEligibilityScheduleInstances'] as $singleValue) {
+              $roleEligibilityScheduleInstances []= new UnifiedRoleEligibilityScheduleInstance($singleValue);
+           }
+           $this->_propDict['roleEligibilityScheduleInstances'] = $roleEligibilityScheduleInstances;
+           return $this->_propDict['roleEligibilityScheduleInstances'];
         }
         return null;
     }
@@ -317,15 +317,15 @@ class RbacApplication extends Entity
     public function getRoleEligibilityScheduleRequests()
     {
         if (array_key_exists('roleEligibilityScheduleRequests', $this->_propDict) && !is_null($this->_propDict['roleEligibilityScheduleRequests'])) {
-            $roleEligibilityScheduleRequests = [];
-            if (count($this->_propDict['roleEligibilityScheduleRequests']) > 0 && is_a($this->_propDict['roleEligibilityScheduleRequests'][0], 'UnifiedRoleEligibilityScheduleRequest')) {
-                return $this->_propDict['roleEligibilityScheduleRequests'];
-            }
-            foreach ($this->_propDict['roleEligibilityScheduleRequests'] as $singleValue) {
-                $roleEligibilityScheduleRequests []= new UnifiedRoleEligibilityScheduleRequest($singleValue);
-            }
-            $this->_propDict['roleEligibilityScheduleRequests'] = $roleEligibilityScheduleRequests;
-            return $this->_propDict['roleEligibilityScheduleRequests'];
+           $roleEligibilityScheduleRequests = [];
+           if (count($this->_propDict['roleEligibilityScheduleRequests']) > 0 && is_a($this->_propDict['roleEligibilityScheduleRequests'][0], 'UnifiedRoleEligibilityScheduleRequest')) {
+              return $this->_propDict['roleEligibilityScheduleRequests'];
+           }
+           foreach ($this->_propDict['roleEligibilityScheduleRequests'] as $singleValue) {
+              $roleEligibilityScheduleRequests []= new UnifiedRoleEligibilityScheduleRequest($singleValue);
+           }
+           $this->_propDict['roleEligibilityScheduleRequests'] = $roleEligibilityScheduleRequests;
+           return $this->_propDict['roleEligibilityScheduleRequests'];
         }
         return null;
     }
@@ -352,15 +352,15 @@ class RbacApplication extends Entity
     public function getRoleEligibilitySchedules()
     {
         if (array_key_exists('roleEligibilitySchedules', $this->_propDict) && !is_null($this->_propDict['roleEligibilitySchedules'])) {
-            $roleEligibilitySchedules = [];
-            if (count($this->_propDict['roleEligibilitySchedules']) > 0 && is_a($this->_propDict['roleEligibilitySchedules'][0], 'UnifiedRoleEligibilitySchedule')) {
-                return $this->_propDict['roleEligibilitySchedules'];
-            }
-            foreach ($this->_propDict['roleEligibilitySchedules'] as $singleValue) {
-                $roleEligibilitySchedules []= new UnifiedRoleEligibilitySchedule($singleValue);
-            }
-            $this->_propDict['roleEligibilitySchedules'] = $roleEligibilitySchedules;
-            return $this->_propDict['roleEligibilitySchedules'];
+           $roleEligibilitySchedules = [];
+           if (count($this->_propDict['roleEligibilitySchedules']) > 0 && is_a($this->_propDict['roleEligibilitySchedules'][0], 'UnifiedRoleEligibilitySchedule')) {
+              return $this->_propDict['roleEligibilitySchedules'];
+           }
+           foreach ($this->_propDict['roleEligibilitySchedules'] as $singleValue) {
+              $roleEligibilitySchedules []= new UnifiedRoleEligibilitySchedule($singleValue);
+           }
+           $this->_propDict['roleEligibilitySchedules'] = $roleEligibilitySchedules;
+           return $this->_propDict['roleEligibilitySchedules'];
         }
         return null;
     }

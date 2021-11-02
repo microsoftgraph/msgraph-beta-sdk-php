@@ -261,15 +261,15 @@ class EducationRubric extends Entity
     public function getLevels()
     {
         if (array_key_exists('levels', $this->_propDict) && !is_null($this->_propDict['levels'])) {
-            $levels = [];
-            if (count($this->_propDict['levels']) > 0 && is_a($this->_propDict['levels'][0], 'RubricLevel')) {
-                return $this->_propDict['levels'];
-            }
-            foreach ($this->_propDict['levels'] as $singleValue) {
-                $levels []= new RubricLevel($singleValue);
-            }
-            $this->_propDict['levels'] = $levels;
-            return $this->_propDict['levels'];
+           $levels = [];
+           if (count($this->_propDict['levels']) > 0 && is_a($this->_propDict['levels'][0], 'RubricLevel')) {
+              return $this->_propDict['levels'];
+           }
+           foreach ($this->_propDict['levels'] as $singleValue) {
+              $levels []= new RubricLevel($singleValue);
+           }
+           $this->_propDict['levels'] = $levels;
+           return $this->_propDict['levels'];
         }
         return null;
     }
@@ -298,15 +298,15 @@ class EducationRubric extends Entity
     public function getQualities()
     {
         if (array_key_exists('qualities', $this->_propDict) && !is_null($this->_propDict['qualities'])) {
-            $qualities = [];
-            if (count($this->_propDict['qualities']) > 0 && is_a($this->_propDict['qualities'][0], 'RubricQuality')) {
-                return $this->_propDict['qualities'];
-            }
-            foreach ($this->_propDict['qualities'] as $singleValue) {
-                $qualities []= new RubricQuality($singleValue);
-            }
-            $this->_propDict['qualities'] = $qualities;
-            return $this->_propDict['qualities'];
+           $qualities = [];
+           if (count($this->_propDict['qualities']) > 0 && is_a($this->_propDict['qualities'][0], 'RubricQuality')) {
+              return $this->_propDict['qualities'];
+           }
+           foreach ($this->_propDict['qualities'] as $singleValue) {
+              $qualities []= new RubricQuality($singleValue);
+           }
+           $this->_propDict['qualities'] = $qualities;
+           return $this->_propDict['qualities'];
         }
         return null;
     }

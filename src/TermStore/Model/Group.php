@@ -187,15 +187,15 @@ class Group extends \Beta\Microsoft\Graph\Model\Entity
     public function getSets()
     {
         if (array_key_exists('sets', $this->_propDict) && !is_null($this->_propDict['sets'])) {
-            $sets = [];
-            if (count($this->_propDict['sets']) > 0 && is_a($this->_propDict['sets'][0], 'Set')) {
-                return $this->_propDict['sets'];
-            }
-            foreach ($this->_propDict['sets'] as $singleValue) {
-                $sets []= new Set($singleValue);
-            }
-            $this->_propDict['sets'] = $sets;
-            return $this->_propDict['sets'];
+           $sets = [];
+           if (count($this->_propDict['sets']) > 0 && is_a($this->_propDict['sets'][0], 'Set')) {
+              return $this->_propDict['sets'];
+           }
+           foreach ($this->_propDict['sets'] as $singleValue) {
+              $sets []= new Set($singleValue);
+           }
+           $this->_propDict['sets'] = $sets;
+           return $this->_propDict['sets'];
         }
         return null;
     }

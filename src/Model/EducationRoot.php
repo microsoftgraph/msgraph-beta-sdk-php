@@ -64,15 +64,15 @@ class EducationRoot implements \JsonSerializable
     public function getSynchronizationProfiles()
     {
         if (array_key_exists('synchronizationProfiles', $this->_propDict) && !is_null($this->_propDict['synchronizationProfiles'])) {
-            $synchronizationProfiles = [];
-            if (count($this->_propDict['synchronizationProfiles']) > 0 && is_a($this->_propDict['synchronizationProfiles'][0], 'EducationSynchronizationProfile')) {
-                return $this->_propDict['synchronizationProfiles'];
-            }
-            foreach ($this->_propDict['synchronizationProfiles'] as $singleValue) {
-                $synchronizationProfiles []= new EducationSynchronizationProfile($singleValue);
-            }
-            $this->_propDict['synchronizationProfiles'] = $synchronizationProfiles;
-            return $this->_propDict['synchronizationProfiles'];
+           $synchronizationProfiles = [];
+           if (count($this->_propDict['synchronizationProfiles']) > 0 && is_a($this->_propDict['synchronizationProfiles'][0], 'EducationSynchronizationProfile')) {
+              return $this->_propDict['synchronizationProfiles'];
+           }
+           foreach ($this->_propDict['synchronizationProfiles'] as $singleValue) {
+              $synchronizationProfiles []= new EducationSynchronizationProfile($singleValue);
+           }
+           $this->_propDict['synchronizationProfiles'] = $synchronizationProfiles;
+           return $this->_propDict['synchronizationProfiles'];
         }
         return null;
     }
@@ -99,15 +99,15 @@ class EducationRoot implements \JsonSerializable
     public function getClasses()
     {
         if (array_key_exists('classes', $this->_propDict) && !is_null($this->_propDict['classes'])) {
-            $classes = [];
-            if (count($this->_propDict['classes']) > 0 && is_a($this->_propDict['classes'][0], 'EducationClass')) {
-                return $this->_propDict['classes'];
-            }
-            foreach ($this->_propDict['classes'] as $singleValue) {
-                $classes []= new EducationClass($singleValue);
-            }
-            $this->_propDict['classes'] = $classes;
-            return $this->_propDict['classes'];
+           $classes = [];
+           if (count($this->_propDict['classes']) > 0 && is_a($this->_propDict['classes'][0], 'EducationClass')) {
+              return $this->_propDict['classes'];
+           }
+           foreach ($this->_propDict['classes'] as $singleValue) {
+              $classes []= new EducationClass($singleValue);
+           }
+           $this->_propDict['classes'] = $classes;
+           return $this->_propDict['classes'];
         }
         return null;
     }
@@ -165,15 +165,15 @@ class EducationRoot implements \JsonSerializable
     public function getSchools()
     {
         if (array_key_exists('schools', $this->_propDict) && !is_null($this->_propDict['schools'])) {
-            $schools = [];
-            if (count($this->_propDict['schools']) > 0 && is_a($this->_propDict['schools'][0], 'EducationSchool')) {
-                return $this->_propDict['schools'];
-            }
-            foreach ($this->_propDict['schools'] as $singleValue) {
-                $schools []= new EducationSchool($singleValue);
-            }
-            $this->_propDict['schools'] = $schools;
-            return $this->_propDict['schools'];
+           $schools = [];
+           if (count($this->_propDict['schools']) > 0 && is_a($this->_propDict['schools'][0], 'EducationSchool')) {
+              return $this->_propDict['schools'];
+           }
+           foreach ($this->_propDict['schools'] as $singleValue) {
+              $schools []= new EducationSchool($singleValue);
+           }
+           $this->_propDict['schools'] = $schools;
+           return $this->_propDict['schools'];
         }
         return null;
     }
@@ -200,15 +200,15 @@ class EducationRoot implements \JsonSerializable
     public function getUsers()
     {
         if (array_key_exists('users', $this->_propDict) && !is_null($this->_propDict['users'])) {
-            $users = [];
-            if (count($this->_propDict['users']) > 0 && is_a($this->_propDict['users'][0], 'EducationUser')) {
-                return $this->_propDict['users'];
-            }
-            foreach ($this->_propDict['users'] as $singleValue) {
-                $users []= new EducationUser($singleValue);
-            }
-            $this->_propDict['users'] = $users;
-            return $this->_propDict['users'];
+           $users = [];
+           if (count($this->_propDict['users']) > 0 && is_a($this->_propDict['users'][0], 'EducationUser')) {
+              return $this->_propDict['users'];
+           }
+           foreach ($this->_propDict['users'] as $singleValue) {
+              $users []= new EducationUser($singleValue);
+           }
+           $this->_propDict['users'] = $users;
+           return $this->_propDict['users'];
         }
         return null;
     }

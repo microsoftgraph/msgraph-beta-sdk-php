@@ -336,15 +336,15 @@ class AccessPackageResourceEnvironment extends Entity
     public function getAccessPackageResources()
     {
         if (array_key_exists('accessPackageResources', $this->_propDict) && !is_null($this->_propDict['accessPackageResources'])) {
-            $accessPackageResources = [];
-            if (count($this->_propDict['accessPackageResources']) > 0 && is_a($this->_propDict['accessPackageResources'][0], 'AccessPackageResource')) {
-                return $this->_propDict['accessPackageResources'];
-            }
-            foreach ($this->_propDict['accessPackageResources'] as $singleValue) {
-                $accessPackageResources []= new AccessPackageResource($singleValue);
-            }
-            $this->_propDict['accessPackageResources'] = $accessPackageResources;
-            return $this->_propDict['accessPackageResources'];
+           $accessPackageResources = [];
+           if (count($this->_propDict['accessPackageResources']) > 0 && is_a($this->_propDict['accessPackageResources'][0], 'AccessPackageResource')) {
+              return $this->_propDict['accessPackageResources'];
+           }
+           foreach ($this->_propDict['accessPackageResources'] as $singleValue) {
+              $accessPackageResources []= new AccessPackageResource($singleValue);
+           }
+           $this->_propDict['accessPackageResources'] = $accessPackageResources;
+           return $this->_propDict['accessPackageResources'];
         }
         return null;
     }

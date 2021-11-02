@@ -191,15 +191,15 @@ class EducationSynchronizationProfile extends Entity
     public function getLicensesToAssign()
     {
         if (array_key_exists('licensesToAssign', $this->_propDict) && !is_null($this->_propDict['licensesToAssign'])) {
-            $licensesToAssign = [];
-            if (count($this->_propDict['licensesToAssign']) > 0 && is_a($this->_propDict['licensesToAssign'][0], 'EducationSynchronizationLicenseAssignment')) {
-                return $this->_propDict['licensesToAssign'];
-            }
-            foreach ($this->_propDict['licensesToAssign'] as $singleValue) {
-                $licensesToAssign []= new EducationSynchronizationLicenseAssignment($singleValue);
-            }
-            $this->_propDict['licensesToAssign'] = $licensesToAssign;
-            return $this->_propDict['licensesToAssign'];
+           $licensesToAssign = [];
+           if (count($this->_propDict['licensesToAssign']) > 0 && is_a($this->_propDict['licensesToAssign'][0], 'EducationSynchronizationLicenseAssignment')) {
+              return $this->_propDict['licensesToAssign'];
+           }
+           foreach ($this->_propDict['licensesToAssign'] as $singleValue) {
+              $licensesToAssign []= new EducationSynchronizationLicenseAssignment($singleValue);
+           }
+           $this->_propDict['licensesToAssign'] = $licensesToAssign;
+           return $this->_propDict['licensesToAssign'];
         }
         return null;
     }
@@ -261,15 +261,15 @@ class EducationSynchronizationProfile extends Entity
     public function getErrors()
     {
         if (array_key_exists('errors', $this->_propDict) && !is_null($this->_propDict['errors'])) {
-            $errors = [];
-            if (count($this->_propDict['errors']) > 0 && is_a($this->_propDict['errors'][0], 'EducationSynchronizationError')) {
-                return $this->_propDict['errors'];
-            }
-            foreach ($this->_propDict['errors'] as $singleValue) {
-                $errors []= new EducationSynchronizationError($singleValue);
-            }
-            $this->_propDict['errors'] = $errors;
-            return $this->_propDict['errors'];
+           $errors = [];
+           if (count($this->_propDict['errors']) > 0 && is_a($this->_propDict['errors'][0], 'EducationSynchronizationError')) {
+              return $this->_propDict['errors'];
+           }
+           foreach ($this->_propDict['errors'] as $singleValue) {
+              $errors []= new EducationSynchronizationError($singleValue);
+           }
+           $this->_propDict['errors'] = $errors;
+           return $this->_propDict['errors'];
         }
         return null;
     }

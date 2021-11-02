@@ -63,15 +63,15 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment
     public function getRoleScopeTags()
     {
         if (array_key_exists('roleScopeTags', $this->_propDict) && !is_null($this->_propDict['roleScopeTags'])) {
-            $roleScopeTags = [];
-            if (count($this->_propDict['roleScopeTags']) > 0 && is_a($this->_propDict['roleScopeTags'][0], 'RoleScopeTag')) {
-                return $this->_propDict['roleScopeTags'];
-            }
-            foreach ($this->_propDict['roleScopeTags'] as $singleValue) {
-                $roleScopeTags []= new RoleScopeTag($singleValue);
-            }
-            $this->_propDict['roleScopeTags'] = $roleScopeTags;
-            return $this->_propDict['roleScopeTags'];
+           $roleScopeTags = [];
+           if (count($this->_propDict['roleScopeTags']) > 0 && is_a($this->_propDict['roleScopeTags'][0], 'RoleScopeTag')) {
+              return $this->_propDict['roleScopeTags'];
+           }
+           foreach ($this->_propDict['roleScopeTags'] as $singleValue) {
+              $roleScopeTags []= new RoleScopeTag($singleValue);
+           }
+           $this->_propDict['roleScopeTags'] = $roleScopeTags;
+           return $this->_propDict['roleScopeTags'];
         }
         return null;
     }

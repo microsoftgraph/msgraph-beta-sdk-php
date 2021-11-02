@@ -368,15 +368,15 @@ class AccessPackageAssignment extends Entity
     public function getAccessPackageAssignmentRequests()
     {
         if (array_key_exists('accessPackageAssignmentRequests', $this->_propDict) && !is_null($this->_propDict['accessPackageAssignmentRequests'])) {
-            $accessPackageAssignmentRequests = [];
-            if (count($this->_propDict['accessPackageAssignmentRequests']) > 0 && is_a($this->_propDict['accessPackageAssignmentRequests'][0], 'AccessPackageAssignmentRequest')) {
-                return $this->_propDict['accessPackageAssignmentRequests'];
-            }
-            foreach ($this->_propDict['accessPackageAssignmentRequests'] as $singleValue) {
-                $accessPackageAssignmentRequests []= new AccessPackageAssignmentRequest($singleValue);
-            }
-            $this->_propDict['accessPackageAssignmentRequests'] = $accessPackageAssignmentRequests;
-            return $this->_propDict['accessPackageAssignmentRequests'];
+           $accessPackageAssignmentRequests = [];
+           if (count($this->_propDict['accessPackageAssignmentRequests']) > 0 && is_a($this->_propDict['accessPackageAssignmentRequests'][0], 'AccessPackageAssignmentRequest')) {
+              return $this->_propDict['accessPackageAssignmentRequests'];
+           }
+           foreach ($this->_propDict['accessPackageAssignmentRequests'] as $singleValue) {
+              $accessPackageAssignmentRequests []= new AccessPackageAssignmentRequest($singleValue);
+           }
+           $this->_propDict['accessPackageAssignmentRequests'] = $accessPackageAssignmentRequests;
+           return $this->_propDict['accessPackageAssignmentRequests'];
         }
         return null;
     }
@@ -404,15 +404,15 @@ class AccessPackageAssignment extends Entity
     public function getAccessPackageAssignmentResourceRoles()
     {
         if (array_key_exists('accessPackageAssignmentResourceRoles', $this->_propDict) && !is_null($this->_propDict['accessPackageAssignmentResourceRoles'])) {
-            $accessPackageAssignmentResourceRoles = [];
-            if (count($this->_propDict['accessPackageAssignmentResourceRoles']) > 0 && is_a($this->_propDict['accessPackageAssignmentResourceRoles'][0], 'AccessPackageAssignmentResourceRole')) {
-                return $this->_propDict['accessPackageAssignmentResourceRoles'];
-            }
-            foreach ($this->_propDict['accessPackageAssignmentResourceRoles'] as $singleValue) {
-                $accessPackageAssignmentResourceRoles []= new AccessPackageAssignmentResourceRole($singleValue);
-            }
-            $this->_propDict['accessPackageAssignmentResourceRoles'] = $accessPackageAssignmentResourceRoles;
-            return $this->_propDict['accessPackageAssignmentResourceRoles'];
+           $accessPackageAssignmentResourceRoles = [];
+           if (count($this->_propDict['accessPackageAssignmentResourceRoles']) > 0 && is_a($this->_propDict['accessPackageAssignmentResourceRoles'][0], 'AccessPackageAssignmentResourceRole')) {
+              return $this->_propDict['accessPackageAssignmentResourceRoles'];
+           }
+           foreach ($this->_propDict['accessPackageAssignmentResourceRoles'] as $singleValue) {
+              $accessPackageAssignmentResourceRoles []= new AccessPackageAssignmentResourceRole($singleValue);
+           }
+           $this->_propDict['accessPackageAssignmentResourceRoles'] = $accessPackageAssignmentResourceRoles;
+           return $this->_propDict['accessPackageAssignmentResourceRoles'];
         }
         return null;
     }

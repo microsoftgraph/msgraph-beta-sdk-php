@@ -162,15 +162,15 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
     public function getIntendedSettings()
     {
         if (array_key_exists('intendedSettings', $this->_propDict) && !is_null($this->_propDict['intendedSettings'])) {
-            $intendedSettings = [];
-            if (count($this->_propDict['intendedSettings']) > 0 && is_a($this->_propDict['intendedSettings'][0], 'KeyValuePair')) {
-                return $this->_propDict['intendedSettings'];
-            }
-            foreach ($this->_propDict['intendedSettings'] as $singleValue) {
-                $intendedSettings []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['intendedSettings'] = $intendedSettings;
-            return $this->_propDict['intendedSettings'];
+           $intendedSettings = [];
+           if (count($this->_propDict['intendedSettings']) > 0 && is_a($this->_propDict['intendedSettings'][0], 'KeyValuePair')) {
+              return $this->_propDict['intendedSettings'];
+           }
+           foreach ($this->_propDict['intendedSettings'] as $singleValue) {
+              $intendedSettings []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['intendedSettings'] = $intendedSettings;
+           return $this->_propDict['intendedSettings'];
         }
         return null;
     }
@@ -228,15 +228,15 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
     public function getManagedDevices()
     {
         if (array_key_exists('managedDevices', $this->_propDict) && !is_null($this->_propDict['managedDevices'])) {
-            $managedDevices = [];
-            if (count($this->_propDict['managedDevices']) > 0 && is_a($this->_propDict['managedDevices'][0], 'VulnerableManagedDevice')) {
-                return $this->_propDict['managedDevices'];
-            }
-            foreach ($this->_propDict['managedDevices'] as $singleValue) {
-                $managedDevices []= new VulnerableManagedDevice($singleValue);
-            }
-            $this->_propDict['managedDevices'] = $managedDevices;
-            return $this->_propDict['managedDevices'];
+           $managedDevices = [];
+           if (count($this->_propDict['managedDevices']) > 0 && is_a($this->_propDict['managedDevices'][0], 'VulnerableManagedDevice')) {
+              return $this->_propDict['managedDevices'];
+           }
+           foreach ($this->_propDict['managedDevices'] as $singleValue) {
+              $managedDevices []= new VulnerableManagedDevice($singleValue);
+           }
+           $this->_propDict['managedDevices'] = $managedDevices;
+           return $this->_propDict['managedDevices'];
         }
         return null;
     }

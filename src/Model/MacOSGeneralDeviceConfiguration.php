@@ -328,15 +328,15 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     public function getCompliantAppsList()
     {
         if (array_key_exists('compliantAppsList', $this->_propDict) && !is_null($this->_propDict['compliantAppsList'])) {
-            $compliantAppsList = [];
-            if (count($this->_propDict['compliantAppsList']) > 0 && is_a($this->_propDict['compliantAppsList'][0], 'AppListItem')) {
-                return $this->_propDict['compliantAppsList'];
-            }
-            foreach ($this->_propDict['compliantAppsList'] as $singleValue) {
-                $compliantAppsList []= new AppListItem($singleValue);
-            }
-            $this->_propDict['compliantAppsList'] = $compliantAppsList;
-            return $this->_propDict['compliantAppsList'];
+           $compliantAppsList = [];
+           if (count($this->_propDict['compliantAppsList']) > 0 && is_a($this->_propDict['compliantAppsList'][0], 'AppListItem')) {
+              return $this->_propDict['compliantAppsList'];
+           }
+           foreach ($this->_propDict['compliantAppsList'] as $singleValue) {
+              $compliantAppsList []= new AppListItem($singleValue);
+           }
+           $this->_propDict['compliantAppsList'] = $compliantAppsList;
+           return $this->_propDict['compliantAppsList'];
         }
         return null;
     }
@@ -1384,15 +1384,15 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     public function getPrivacyAccessControls()
     {
         if (array_key_exists('privacyAccessControls', $this->_propDict) && !is_null($this->_propDict['privacyAccessControls'])) {
-            $privacyAccessControls = [];
-            if (count($this->_propDict['privacyAccessControls']) > 0 && is_a($this->_propDict['privacyAccessControls'][0], 'MacOSPrivacyAccessControlItem')) {
-                return $this->_propDict['privacyAccessControls'];
-            }
-            foreach ($this->_propDict['privacyAccessControls'] as $singleValue) {
-                $privacyAccessControls []= new MacOSPrivacyAccessControlItem($singleValue);
-            }
-            $this->_propDict['privacyAccessControls'] = $privacyAccessControls;
-            return $this->_propDict['privacyAccessControls'];
+           $privacyAccessControls = [];
+           if (count($this->_propDict['privacyAccessControls']) > 0 && is_a($this->_propDict['privacyAccessControls'][0], 'MacOSPrivacyAccessControlItem')) {
+              return $this->_propDict['privacyAccessControls'];
+           }
+           foreach ($this->_propDict['privacyAccessControls'] as $singleValue) {
+              $privacyAccessControls []= new MacOSPrivacyAccessControlItem($singleValue);
+           }
+           $this->_propDict['privacyAccessControls'] = $privacyAccessControls;
+           return $this->_propDict['privacyAccessControls'];
         }
         return null;
     }

@@ -67,15 +67,15 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity
     public function getNestedSchemaItems()
     {
         if (array_key_exists('nestedSchemaItems', $this->_propDict) && !is_null($this->_propDict['nestedSchemaItems'])) {
-            $nestedSchemaItems = [];
-            if (count($this->_propDict['nestedSchemaItems']) > 0 && is_a($this->_propDict['nestedSchemaItems'][0], 'AndroidManagedStoreAppConfigurationSchemaItem')) {
-                return $this->_propDict['nestedSchemaItems'];
-            }
-            foreach ($this->_propDict['nestedSchemaItems'] as $singleValue) {
-                $nestedSchemaItems []= new AndroidManagedStoreAppConfigurationSchemaItem($singleValue);
-            }
-            $this->_propDict['nestedSchemaItems'] = $nestedSchemaItems;
-            return $this->_propDict['nestedSchemaItems'];
+           $nestedSchemaItems = [];
+           if (count($this->_propDict['nestedSchemaItems']) > 0 && is_a($this->_propDict['nestedSchemaItems'][0], 'AndroidManagedStoreAppConfigurationSchemaItem')) {
+              return $this->_propDict['nestedSchemaItems'];
+           }
+           foreach ($this->_propDict['nestedSchemaItems'] as $singleValue) {
+              $nestedSchemaItems []= new AndroidManagedStoreAppConfigurationSchemaItem($singleValue);
+           }
+           $this->_propDict['nestedSchemaItems'] = $nestedSchemaItems;
+           return $this->_propDict['nestedSchemaItems'];
         }
         return null;
     }
@@ -104,15 +104,15 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity
     public function getSchemaItems()
     {
         if (array_key_exists('schemaItems', $this->_propDict) && !is_null($this->_propDict['schemaItems'])) {
-            $schemaItems = [];
-            if (count($this->_propDict['schemaItems']) > 0 && is_a($this->_propDict['schemaItems'][0], 'AndroidManagedStoreAppConfigurationSchemaItem')) {
-                return $this->_propDict['schemaItems'];
-            }
-            foreach ($this->_propDict['schemaItems'] as $singleValue) {
-                $schemaItems []= new AndroidManagedStoreAppConfigurationSchemaItem($singleValue);
-            }
-            $this->_propDict['schemaItems'] = $schemaItems;
-            return $this->_propDict['schemaItems'];
+           $schemaItems = [];
+           if (count($this->_propDict['schemaItems']) > 0 && is_a($this->_propDict['schemaItems'][0], 'AndroidManagedStoreAppConfigurationSchemaItem')) {
+              return $this->_propDict['schemaItems'];
+           }
+           foreach ($this->_propDict['schemaItems'] as $singleValue) {
+              $schemaItems []= new AndroidManagedStoreAppConfigurationSchemaItem($singleValue);
+           }
+           $this->_propDict['schemaItems'] = $schemaItems;
+           return $this->_propDict['schemaItems'];
         }
         return null;
     }

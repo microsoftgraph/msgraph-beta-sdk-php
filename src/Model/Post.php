@@ -220,15 +220,15 @@ class Post extends OutlookItem
     public function getNewParticipants()
     {
         if (array_key_exists('newParticipants', $this->_propDict) && !is_null($this->_propDict['newParticipants'])) {
-            $newParticipants = [];
-            if (count($this->_propDict['newParticipants']) > 0 && is_a($this->_propDict['newParticipants'][0], 'Recipient')) {
-                return $this->_propDict['newParticipants'];
-            }
-            foreach ($this->_propDict['newParticipants'] as $singleValue) {
-                $newParticipants []= new Recipient($singleValue);
-            }
-            $this->_propDict['newParticipants'] = $newParticipants;
-            return $this->_propDict['newParticipants'];
+           $newParticipants = [];
+           if (count($this->_propDict['newParticipants']) > 0 && is_a($this->_propDict['newParticipants'][0], 'Recipient')) {
+              return $this->_propDict['newParticipants'];
+           }
+           foreach ($this->_propDict['newParticipants'] as $singleValue) {
+              $newParticipants []= new Recipient($singleValue);
+           }
+           $this->_propDict['newParticipants'] = $newParticipants;
+           return $this->_propDict['newParticipants'];
         }
         return null;
     }
@@ -323,15 +323,15 @@ class Post extends OutlookItem
     public function getAttachments()
     {
         if (array_key_exists('attachments', $this->_propDict) && !is_null($this->_propDict['attachments'])) {
-            $attachments = [];
-            if (count($this->_propDict['attachments']) > 0 && is_a($this->_propDict['attachments'][0], 'Attachment')) {
-                return $this->_propDict['attachments'];
-            }
-            foreach ($this->_propDict['attachments'] as $singleValue) {
-                $attachments []= new Attachment($singleValue);
-            }
-            $this->_propDict['attachments'] = $attachments;
-            return $this->_propDict['attachments'];
+           $attachments = [];
+           if (count($this->_propDict['attachments']) > 0 && is_a($this->_propDict['attachments'][0], 'Attachment')) {
+              return $this->_propDict['attachments'];
+           }
+           foreach ($this->_propDict['attachments'] as $singleValue) {
+              $attachments []= new Attachment($singleValue);
+           }
+           $this->_propDict['attachments'] = $attachments;
+           return $this->_propDict['attachments'];
         }
         return null;
     }
@@ -360,15 +360,15 @@ class Post extends OutlookItem
     public function getExtensions()
     {
         if (array_key_exists('extensions', $this->_propDict) && !is_null($this->_propDict['extensions'])) {
-            $extensions = [];
-            if (count($this->_propDict['extensions']) > 0 && is_a($this->_propDict['extensions'][0], 'Extension')) {
-                return $this->_propDict['extensions'];
-            }
-            foreach ($this->_propDict['extensions'] as $singleValue) {
-                $extensions []= new Extension($singleValue);
-            }
-            $this->_propDict['extensions'] = $extensions;
-            return $this->_propDict['extensions'];
+           $extensions = [];
+           if (count($this->_propDict['extensions']) > 0 && is_a($this->_propDict['extensions'][0], 'Extension')) {
+              return $this->_propDict['extensions'];
+           }
+           foreach ($this->_propDict['extensions'] as $singleValue) {
+              $extensions []= new Extension($singleValue);
+           }
+           $this->_propDict['extensions'] = $extensions;
+           return $this->_propDict['extensions'];
         }
         return null;
     }
@@ -429,15 +429,15 @@ class Post extends OutlookItem
     public function getMentions()
     {
         if (array_key_exists('mentions', $this->_propDict) && !is_null($this->_propDict['mentions'])) {
-            $mentions = [];
-            if (count($this->_propDict['mentions']) > 0 && is_a($this->_propDict['mentions'][0], 'Mention')) {
-                return $this->_propDict['mentions'];
-            }
-            foreach ($this->_propDict['mentions'] as $singleValue) {
-                $mentions []= new Mention($singleValue);
-            }
-            $this->_propDict['mentions'] = $mentions;
-            return $this->_propDict['mentions'];
+           $mentions = [];
+           if (count($this->_propDict['mentions']) > 0 && is_a($this->_propDict['mentions'][0], 'Mention')) {
+              return $this->_propDict['mentions'];
+           }
+           foreach ($this->_propDict['mentions'] as $singleValue) {
+              $mentions []= new Mention($singleValue);
+           }
+           $this->_propDict['mentions'] = $mentions;
+           return $this->_propDict['mentions'];
         }
         return null;
     }
@@ -465,15 +465,15 @@ class Post extends OutlookItem
     public function getMultiValueExtendedProperties()
     {
         if (array_key_exists('multiValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['multiValueExtendedProperties'])) {
-            $multiValueExtendedProperties = [];
-            if (count($this->_propDict['multiValueExtendedProperties']) > 0 && is_a($this->_propDict['multiValueExtendedProperties'][0], 'MultiValueLegacyExtendedProperty')) {
-                return $this->_propDict['multiValueExtendedProperties'];
-            }
-            foreach ($this->_propDict['multiValueExtendedProperties'] as $singleValue) {
-                $multiValueExtendedProperties []= new MultiValueLegacyExtendedProperty($singleValue);
-            }
-            $this->_propDict['multiValueExtendedProperties'] = $multiValueExtendedProperties;
-            return $this->_propDict['multiValueExtendedProperties'];
+           $multiValueExtendedProperties = [];
+           if (count($this->_propDict['multiValueExtendedProperties']) > 0 && is_a($this->_propDict['multiValueExtendedProperties'][0], 'MultiValueLegacyExtendedProperty')) {
+              return $this->_propDict['multiValueExtendedProperties'];
+           }
+           foreach ($this->_propDict['multiValueExtendedProperties'] as $singleValue) {
+              $multiValueExtendedProperties []= new MultiValueLegacyExtendedProperty($singleValue);
+           }
+           $this->_propDict['multiValueExtendedProperties'] = $multiValueExtendedProperties;
+           return $this->_propDict['multiValueExtendedProperties'];
         }
         return null;
     }
@@ -502,15 +502,15 @@ class Post extends OutlookItem
     public function getSingleValueExtendedProperties()
     {
         if (array_key_exists('singleValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['singleValueExtendedProperties'])) {
-            $singleValueExtendedProperties = [];
-            if (count($this->_propDict['singleValueExtendedProperties']) > 0 && is_a($this->_propDict['singleValueExtendedProperties'][0], 'SingleValueLegacyExtendedProperty')) {
-                return $this->_propDict['singleValueExtendedProperties'];
-            }
-            foreach ($this->_propDict['singleValueExtendedProperties'] as $singleValue) {
-                $singleValueExtendedProperties []= new SingleValueLegacyExtendedProperty($singleValue);
-            }
-            $this->_propDict['singleValueExtendedProperties'] = $singleValueExtendedProperties;
-            return $this->_propDict['singleValueExtendedProperties'];
+           $singleValueExtendedProperties = [];
+           if (count($this->_propDict['singleValueExtendedProperties']) > 0 && is_a($this->_propDict['singleValueExtendedProperties'][0], 'SingleValueLegacyExtendedProperty')) {
+              return $this->_propDict['singleValueExtendedProperties'];
+           }
+           foreach ($this->_propDict['singleValueExtendedProperties'] as $singleValue) {
+              $singleValueExtendedProperties []= new SingleValueLegacyExtendedProperty($singleValue);
+           }
+           $this->_propDict['singleValueExtendedProperties'] = $singleValueExtendedProperties;
+           return $this->_propDict['singleValueExtendedProperties'];
         }
         return null;
     }

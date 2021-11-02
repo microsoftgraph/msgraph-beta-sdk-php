@@ -34,15 +34,15 @@ class AuditLogRoot extends Entity
     public function getDirectoryAudits()
     {
         if (array_key_exists('directoryAudits', $this->_propDict) && !is_null($this->_propDict['directoryAudits'])) {
-            $directoryAudits = [];
-            if (count($this->_propDict['directoryAudits']) > 0 && is_a($this->_propDict['directoryAudits'][0], 'DirectoryAudit')) {
-                return $this->_propDict['directoryAudits'];
-            }
-            foreach ($this->_propDict['directoryAudits'] as $singleValue) {
-                $directoryAudits []= new DirectoryAudit($singleValue);
-            }
-            $this->_propDict['directoryAudits'] = $directoryAudits;
-            return $this->_propDict['directoryAudits'];
+           $directoryAudits = [];
+           if (count($this->_propDict['directoryAudits']) > 0 && is_a($this->_propDict['directoryAudits'][0], 'DirectoryAudit')) {
+              return $this->_propDict['directoryAudits'];
+           }
+           foreach ($this->_propDict['directoryAudits'] as $singleValue) {
+              $directoryAudits []= new DirectoryAudit($singleValue);
+           }
+           $this->_propDict['directoryAudits'] = $directoryAudits;
+           return $this->_propDict['directoryAudits'];
         }
         return null;
     }
@@ -70,15 +70,15 @@ class AuditLogRoot extends Entity
     public function getDirectoryProvisioning()
     {
         if (array_key_exists('directoryProvisioning', $this->_propDict) && !is_null($this->_propDict['directoryProvisioning'])) {
-            $directoryProvisioning = [];
-            if (count($this->_propDict['directoryProvisioning']) > 0 && is_a($this->_propDict['directoryProvisioning'][0], 'ProvisioningObjectSummary')) {
-                return $this->_propDict['directoryProvisioning'];
-            }
-            foreach ($this->_propDict['directoryProvisioning'] as $singleValue) {
-                $directoryProvisioning []= new ProvisioningObjectSummary($singleValue);
-            }
-            $this->_propDict['directoryProvisioning'] = $directoryProvisioning;
-            return $this->_propDict['directoryProvisioning'];
+           $directoryProvisioning = [];
+           if (count($this->_propDict['directoryProvisioning']) > 0 && is_a($this->_propDict['directoryProvisioning'][0], 'ProvisioningObjectSummary')) {
+              return $this->_propDict['directoryProvisioning'];
+           }
+           foreach ($this->_propDict['directoryProvisioning'] as $singleValue) {
+              $directoryProvisioning []= new ProvisioningObjectSummary($singleValue);
+           }
+           $this->_propDict['directoryProvisioning'] = $directoryProvisioning;
+           return $this->_propDict['directoryProvisioning'];
         }
         return null;
     }
@@ -105,15 +105,15 @@ class AuditLogRoot extends Entity
     public function getProvisioning()
     {
         if (array_key_exists('provisioning', $this->_propDict) && !is_null($this->_propDict['provisioning'])) {
-            $provisioning = [];
-            if (count($this->_propDict['provisioning']) > 0 && is_a($this->_propDict['provisioning'][0], 'ProvisioningObjectSummary')) {
-                return $this->_propDict['provisioning'];
-            }
-            foreach ($this->_propDict['provisioning'] as $singleValue) {
-                $provisioning []= new ProvisioningObjectSummary($singleValue);
-            }
-            $this->_propDict['provisioning'] = $provisioning;
-            return $this->_propDict['provisioning'];
+           $provisioning = [];
+           if (count($this->_propDict['provisioning']) > 0 && is_a($this->_propDict['provisioning'][0], 'ProvisioningObjectSummary')) {
+              return $this->_propDict['provisioning'];
+           }
+           foreach ($this->_propDict['provisioning'] as $singleValue) {
+              $provisioning []= new ProvisioningObjectSummary($singleValue);
+           }
+           $this->_propDict['provisioning'] = $provisioning;
+           return $this->_propDict['provisioning'];
         }
         return null;
     }
@@ -140,15 +140,15 @@ class AuditLogRoot extends Entity
     public function getRestrictedSignIns()
     {
         if (array_key_exists('restrictedSignIns', $this->_propDict) && !is_null($this->_propDict['restrictedSignIns'])) {
-            $restrictedSignIns = [];
-            if (count($this->_propDict['restrictedSignIns']) > 0 && is_a($this->_propDict['restrictedSignIns'][0], 'RestrictedSignIn')) {
-                return $this->_propDict['restrictedSignIns'];
-            }
-            foreach ($this->_propDict['restrictedSignIns'] as $singleValue) {
-                $restrictedSignIns []= new RestrictedSignIn($singleValue);
-            }
-            $this->_propDict['restrictedSignIns'] = $restrictedSignIns;
-            return $this->_propDict['restrictedSignIns'];
+           $restrictedSignIns = [];
+           if (count($this->_propDict['restrictedSignIns']) > 0 && is_a($this->_propDict['restrictedSignIns'][0], 'RestrictedSignIn')) {
+              return $this->_propDict['restrictedSignIns'];
+           }
+           foreach ($this->_propDict['restrictedSignIns'] as $singleValue) {
+              $restrictedSignIns []= new RestrictedSignIn($singleValue);
+           }
+           $this->_propDict['restrictedSignIns'] = $restrictedSignIns;
+           return $this->_propDict['restrictedSignIns'];
         }
         return null;
     }
@@ -176,15 +176,15 @@ class AuditLogRoot extends Entity
     public function getSignIns()
     {
         if (array_key_exists('signIns', $this->_propDict) && !is_null($this->_propDict['signIns'])) {
-            $signIns = [];
-            if (count($this->_propDict['signIns']) > 0 && is_a($this->_propDict['signIns'][0], 'SignIn')) {
-                return $this->_propDict['signIns'];
-            }
-            foreach ($this->_propDict['signIns'] as $singleValue) {
-                $signIns []= new SignIn($singleValue);
-            }
-            $this->_propDict['signIns'] = $signIns;
-            return $this->_propDict['signIns'];
+           $signIns = [];
+           if (count($this->_propDict['signIns']) > 0 && is_a($this->_propDict['signIns'][0], 'SignIn')) {
+              return $this->_propDict['signIns'];
+           }
+           foreach ($this->_propDict['signIns'] as $singleValue) {
+              $signIns []= new SignIn($singleValue);
+           }
+           $this->_propDict['signIns'] = $signIns;
+           return $this->_propDict['signIns'];
         }
         return null;
     }

@@ -220,15 +220,15 @@ class WindowsPhone81SCEPCertificateProfile extends WindowsPhone81CertificateProf
     public function getManagedDeviceCertificateStates()
     {
         if (array_key_exists('managedDeviceCertificateStates', $this->_propDict) && !is_null($this->_propDict['managedDeviceCertificateStates'])) {
-            $managedDeviceCertificateStates = [];
-            if (count($this->_propDict['managedDeviceCertificateStates']) > 0 && is_a($this->_propDict['managedDeviceCertificateStates'][0], 'ManagedDeviceCertificateState')) {
-                return $this->_propDict['managedDeviceCertificateStates'];
-            }
-            foreach ($this->_propDict['managedDeviceCertificateStates'] as $singleValue) {
-                $managedDeviceCertificateStates []= new ManagedDeviceCertificateState($singleValue);
-            }
-            $this->_propDict['managedDeviceCertificateStates'] = $managedDeviceCertificateStates;
-            return $this->_propDict['managedDeviceCertificateStates'];
+           $managedDeviceCertificateStates = [];
+           if (count($this->_propDict['managedDeviceCertificateStates']) > 0 && is_a($this->_propDict['managedDeviceCertificateStates'][0], 'ManagedDeviceCertificateState')) {
+              return $this->_propDict['managedDeviceCertificateStates'];
+           }
+           foreach ($this->_propDict['managedDeviceCertificateStates'] as $singleValue) {
+              $managedDeviceCertificateStates []= new ManagedDeviceCertificateState($singleValue);
+           }
+           $this->_propDict['managedDeviceCertificateStates'] = $managedDeviceCertificateStates;
+           return $this->_propDict['managedDeviceCertificateStates'];
         }
         return null;
     }

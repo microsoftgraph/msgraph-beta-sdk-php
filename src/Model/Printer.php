@@ -185,15 +185,15 @@ class Printer extends PrinterBase
     public function getConnectors()
     {
         if (array_key_exists('connectors', $this->_propDict) && !is_null($this->_propDict['connectors'])) {
-            $connectors = [];
-            if (count($this->_propDict['connectors']) > 0 && is_a($this->_propDict['connectors'][0], 'PrintConnector')) {
-                return $this->_propDict['connectors'];
-            }
-            foreach ($this->_propDict['connectors'] as $singleValue) {
-                $connectors []= new PrintConnector($singleValue);
-            }
-            $this->_propDict['connectors'] = $connectors;
-            return $this->_propDict['connectors'];
+           $connectors = [];
+           if (count($this->_propDict['connectors']) > 0 && is_a($this->_propDict['connectors'][0], 'PrintConnector')) {
+              return $this->_propDict['connectors'];
+           }
+           foreach ($this->_propDict['connectors'] as $singleValue) {
+              $connectors []= new PrintConnector($singleValue);
+           }
+           $this->_propDict['connectors'] = $connectors;
+           return $this->_propDict['connectors'];
         }
         return null;
     }
@@ -253,15 +253,15 @@ class Printer extends PrinterBase
     public function getShares()
     {
         if (array_key_exists('shares', $this->_propDict) && !is_null($this->_propDict['shares'])) {
-            $shares = [];
-            if (count($this->_propDict['shares']) > 0 && is_a($this->_propDict['shares'][0], 'PrinterShare')) {
-                return $this->_propDict['shares'];
-            }
-            foreach ($this->_propDict['shares'] as $singleValue) {
-                $shares []= new PrinterShare($singleValue);
-            }
-            $this->_propDict['shares'] = $shares;
-            return $this->_propDict['shares'];
+           $shares = [];
+           if (count($this->_propDict['shares']) > 0 && is_a($this->_propDict['shares'][0], 'PrinterShare')) {
+              return $this->_propDict['shares'];
+           }
+           foreach ($this->_propDict['shares'] as $singleValue) {
+              $shares []= new PrinterShare($singleValue);
+           }
+           $this->_propDict['shares'] = $shares;
+           return $this->_propDict['shares'];
         }
         return null;
     }
@@ -290,15 +290,15 @@ class Printer extends PrinterBase
     public function getTaskTriggers()
     {
         if (array_key_exists('taskTriggers', $this->_propDict) && !is_null($this->_propDict['taskTriggers'])) {
-            $taskTriggers = [];
-            if (count($this->_propDict['taskTriggers']) > 0 && is_a($this->_propDict['taskTriggers'][0], 'PrintTaskTrigger')) {
-                return $this->_propDict['taskTriggers'];
-            }
-            foreach ($this->_propDict['taskTriggers'] as $singleValue) {
-                $taskTriggers []= new PrintTaskTrigger($singleValue);
-            }
-            $this->_propDict['taskTriggers'] = $taskTriggers;
-            return $this->_propDict['taskTriggers'];
+           $taskTriggers = [];
+           if (count($this->_propDict['taskTriggers']) > 0 && is_a($this->_propDict['taskTriggers'][0], 'PrintTaskTrigger')) {
+              return $this->_propDict['taskTriggers'];
+           }
+           foreach ($this->_propDict['taskTriggers'] as $singleValue) {
+              $taskTriggers []= new PrintTaskTrigger($singleValue);
+           }
+           $this->_propDict['taskTriggers'] = $taskTriggers;
+           return $this->_propDict['taskTriggers'];
         }
         return null;
     }

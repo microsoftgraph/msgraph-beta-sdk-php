@@ -34,15 +34,15 @@ class ManagementActionTenantDeploymentStatus extends \Beta\Microsoft\Graph\Model
     public function getStatuses()
     {
         if (array_key_exists('statuses', $this->_propDict) && !is_null($this->_propDict['statuses'])) {
-            $statuses = [];
-            if (count($this->_propDict['statuses']) > 0 && is_a($this->_propDict['statuses'][0], 'ManagementActionDeploymentStatus')) {
-                return $this->_propDict['statuses'];
-            }
-            foreach ($this->_propDict['statuses'] as $singleValue) {
-                $statuses []= new ManagementActionDeploymentStatus($singleValue);
-            }
-            $this->_propDict['statuses'] = $statuses;
-            return $this->_propDict['statuses'];
+           $statuses = [];
+           if (count($this->_propDict['statuses']) > 0 && is_a($this->_propDict['statuses'][0], 'ManagementActionDeploymentStatus')) {
+              return $this->_propDict['statuses'];
+           }
+           foreach ($this->_propDict['statuses'] as $singleValue) {
+              $statuses []= new ManagementActionDeploymentStatus($singleValue);
+           }
+           $this->_propDict['statuses'] = $statuses;
+           return $this->_propDict['statuses'];
         }
         return null;
     }

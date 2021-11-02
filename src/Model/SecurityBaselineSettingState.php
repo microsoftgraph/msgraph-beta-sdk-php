@@ -34,15 +34,15 @@ class SecurityBaselineSettingState extends Entity
     public function getContributingPolicies()
     {
         if (array_key_exists('contributingPolicies', $this->_propDict) && !is_null($this->_propDict['contributingPolicies'])) {
-            $contributingPolicies = [];
-            if (count($this->_propDict['contributingPolicies']) > 0 && is_a($this->_propDict['contributingPolicies'][0], 'SecurityBaselineContributingPolicy')) {
-                return $this->_propDict['contributingPolicies'];
-            }
-            foreach ($this->_propDict['contributingPolicies'] as $singleValue) {
-                $contributingPolicies []= new SecurityBaselineContributingPolicy($singleValue);
-            }
-            $this->_propDict['contributingPolicies'] = $contributingPolicies;
-            return $this->_propDict['contributingPolicies'];
+           $contributingPolicies = [];
+           if (count($this->_propDict['contributingPolicies']) > 0 && is_a($this->_propDict['contributingPolicies'][0], 'SecurityBaselineContributingPolicy')) {
+              return $this->_propDict['contributingPolicies'];
+           }
+           foreach ($this->_propDict['contributingPolicies'] as $singleValue) {
+              $contributingPolicies []= new SecurityBaselineContributingPolicy($singleValue);
+           }
+           $this->_propDict['contributingPolicies'] = $contributingPolicies;
+           return $this->_propDict['contributingPolicies'];
         }
         return null;
     }
@@ -216,15 +216,15 @@ class SecurityBaselineSettingState extends Entity
     public function getSourcePolicies()
     {
         if (array_key_exists('sourcePolicies', $this->_propDict) && !is_null($this->_propDict['sourcePolicies'])) {
-            $sourcePolicies = [];
-            if (count($this->_propDict['sourcePolicies']) > 0 && is_a($this->_propDict['sourcePolicies'][0], 'SettingSource')) {
-                return $this->_propDict['sourcePolicies'];
-            }
-            foreach ($this->_propDict['sourcePolicies'] as $singleValue) {
-                $sourcePolicies []= new SettingSource($singleValue);
-            }
-            $this->_propDict['sourcePolicies'] = $sourcePolicies;
-            return $this->_propDict['sourcePolicies'];
+           $sourcePolicies = [];
+           if (count($this->_propDict['sourcePolicies']) > 0 && is_a($this->_propDict['sourcePolicies'][0], 'SettingSource')) {
+              return $this->_propDict['sourcePolicies'];
+           }
+           foreach ($this->_propDict['sourcePolicies'] as $singleValue) {
+              $sourcePolicies []= new SettingSource($singleValue);
+           }
+           $this->_propDict['sourcePolicies'] = $sourcePolicies;
+           return $this->_propDict['sourcePolicies'];
         }
         return null;
     }

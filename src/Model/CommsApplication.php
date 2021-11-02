@@ -64,15 +64,15 @@ class CommsApplication implements \JsonSerializable
     public function getCalls()
     {
         if (array_key_exists('calls', $this->_propDict) && !is_null($this->_propDict['calls'])) {
-            $calls = [];
-            if (count($this->_propDict['calls']) > 0 && is_a($this->_propDict['calls'][0], 'Call')) {
-                return $this->_propDict['calls'];
-            }
-            foreach ($this->_propDict['calls'] as $singleValue) {
-                $calls []= new Call($singleValue);
-            }
-            $this->_propDict['calls'] = $calls;
-            return $this->_propDict['calls'];
+           $calls = [];
+           if (count($this->_propDict['calls']) > 0 && is_a($this->_propDict['calls'][0], 'Call')) {
+              return $this->_propDict['calls'];
+           }
+           foreach ($this->_propDict['calls'] as $singleValue) {
+              $calls []= new Call($singleValue);
+           }
+           $this->_propDict['calls'] = $calls;
+           return $this->_propDict['calls'];
         }
         return null;
     }
@@ -99,15 +99,15 @@ class CommsApplication implements \JsonSerializable
     public function getOnlineMeetings()
     {
         if (array_key_exists('onlineMeetings', $this->_propDict) && !is_null($this->_propDict['onlineMeetings'])) {
-            $onlineMeetings = [];
-            if (count($this->_propDict['onlineMeetings']) > 0 && is_a($this->_propDict['onlineMeetings'][0], 'OnlineMeeting')) {
-                return $this->_propDict['onlineMeetings'];
-            }
-            foreach ($this->_propDict['onlineMeetings'] as $singleValue) {
-                $onlineMeetings []= new OnlineMeeting($singleValue);
-            }
-            $this->_propDict['onlineMeetings'] = $onlineMeetings;
-            return $this->_propDict['onlineMeetings'];
+           $onlineMeetings = [];
+           if (count($this->_propDict['onlineMeetings']) > 0 && is_a($this->_propDict['onlineMeetings'][0], 'OnlineMeeting')) {
+              return $this->_propDict['onlineMeetings'];
+           }
+           foreach ($this->_propDict['onlineMeetings'] as $singleValue) {
+              $onlineMeetings []= new OnlineMeeting($singleValue);
+           }
+           $this->_propDict['onlineMeetings'] = $onlineMeetings;
+           return $this->_propDict['onlineMeetings'];
         }
         return null;
     }

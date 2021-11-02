@@ -369,15 +369,15 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity
     public function getSettingTemplates()
     {
         if (array_key_exists('settingTemplates', $this->_propDict) && !is_null($this->_propDict['settingTemplates'])) {
-            $settingTemplates = [];
-            if (count($this->_propDict['settingTemplates']) > 0 && is_a($this->_propDict['settingTemplates'][0], 'DeviceManagementConfigurationSettingTemplate')) {
-                return $this->_propDict['settingTemplates'];
-            }
-            foreach ($this->_propDict['settingTemplates'] as $singleValue) {
-                $settingTemplates []= new DeviceManagementConfigurationSettingTemplate($singleValue);
-            }
-            $this->_propDict['settingTemplates'] = $settingTemplates;
-            return $this->_propDict['settingTemplates'];
+           $settingTemplates = [];
+           if (count($this->_propDict['settingTemplates']) > 0 && is_a($this->_propDict['settingTemplates'][0], 'DeviceManagementConfigurationSettingTemplate')) {
+              return $this->_propDict['settingTemplates'];
+           }
+           foreach ($this->_propDict['settingTemplates'] as $singleValue) {
+              $settingTemplates []= new DeviceManagementConfigurationSettingTemplate($singleValue);
+           }
+           $this->_propDict['settingTemplates'] = $settingTemplates;
+           return $this->_propDict['settingTemplates'];
         }
         return null;
     }

@@ -27,27 +27,29 @@ class BookingCustomer extends BookingPerson
 
      /** 
      * Gets the addresses
+    * Addresses associated with the customer, including home, business and other addresses.
      *
      * @return PhysicalAddress[]|null The addresses
      */
     public function getAddresses()
     {
         if (array_key_exists('addresses', $this->_propDict) && !is_null($this->_propDict['addresses'])) {
-            $addresses = [];
-            if (count($this->_propDict['addresses']) > 0 && is_a($this->_propDict['addresses'][0], 'PhysicalAddress')) {
-                return $this->_propDict['addresses'];
-            }
-            foreach ($this->_propDict['addresses'] as $singleValue) {
-                $addresses []= new PhysicalAddress($singleValue);
-            }
-            $this->_propDict['addresses'] = $addresses;
-            return $this->_propDict['addresses'];
+           $addresses = [];
+           if (count($this->_propDict['addresses']) > 0 && is_a($this->_propDict['addresses'][0], 'PhysicalAddress')) {
+              return $this->_propDict['addresses'];
+           }
+           foreach ($this->_propDict['addresses'] as $singleValue) {
+              $addresses []= new PhysicalAddress($singleValue);
+           }
+           $this->_propDict['addresses'] = $addresses;
+           return $this->_propDict['addresses'];
         }
         return null;
     }
     
     /** 
     * Sets the addresses
+    * Addresses associated with the customer, including home, business and other addresses.
     *
     * @param PhysicalAddress[] $val The addresses
     *
@@ -62,27 +64,29 @@ class BookingCustomer extends BookingPerson
 
      /** 
      * Gets the phones
+    * Phone numbers associated with the customer, including home, business and mobile numbers.
      *
      * @return Phone[]|null The phones
      */
     public function getPhones()
     {
         if (array_key_exists('phones', $this->_propDict) && !is_null($this->_propDict['phones'])) {
-            $phones = [];
-            if (count($this->_propDict['phones']) > 0 && is_a($this->_propDict['phones'][0], 'Phone')) {
-                return $this->_propDict['phones'];
-            }
-            foreach ($this->_propDict['phones'] as $singleValue) {
-                $phones []= new Phone($singleValue);
-            }
-            $this->_propDict['phones'] = $phones;
-            return $this->_propDict['phones'];
+           $phones = [];
+           if (count($this->_propDict['phones']) > 0 && is_a($this->_propDict['phones'][0], 'Phone')) {
+              return $this->_propDict['phones'];
+           }
+           foreach ($this->_propDict['phones'] as $singleValue) {
+              $phones []= new Phone($singleValue);
+           }
+           $this->_propDict['phones'] = $phones;
+           return $this->_propDict['phones'];
         }
         return null;
     }
     
     /** 
     * Sets the phones
+    * Phone numbers associated with the customer, including home, business and mobile numbers.
     *
     * @param Phone[] $val The phones
     *

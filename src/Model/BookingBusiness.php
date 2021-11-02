@@ -67,15 +67,15 @@ class BookingBusiness extends BookingNamedEntity
     public function getBusinessHours()
     {
         if (array_key_exists('businessHours', $this->_propDict) && !is_null($this->_propDict['businessHours'])) {
-            $businessHours = [];
-            if (count($this->_propDict['businessHours']) > 0 && is_a($this->_propDict['businessHours'][0], 'BookingWorkHours')) {
-                return $this->_propDict['businessHours'];
-            }
-            foreach ($this->_propDict['businessHours'] as $singleValue) {
-                $businessHours []= new BookingWorkHours($singleValue);
-            }
-            $this->_propDict['businessHours'] = $businessHours;
-            return $this->_propDict['businessHours'];
+           $businessHours = [];
+           if (count($this->_propDict['businessHours']) > 0 && is_a($this->_propDict['businessHours'][0], 'BookingWorkHours')) {
+              return $this->_propDict['businessHours'];
+           }
+           foreach ($this->_propDict['businessHours'] as $singleValue) {
+              $businessHours []= new BookingWorkHours($singleValue);
+           }
+           $this->_propDict['businessHours'] = $businessHours;
+           return $this->_propDict['businessHours'];
         }
         return null;
     }
@@ -340,15 +340,15 @@ class BookingBusiness extends BookingNamedEntity
     public function getAppointments()
     {
         if (array_key_exists('appointments', $this->_propDict) && !is_null($this->_propDict['appointments'])) {
-            $appointments = [];
-            if (count($this->_propDict['appointments']) > 0 && is_a($this->_propDict['appointments'][0], 'BookingAppointment')) {
-                return $this->_propDict['appointments'];
-            }
-            foreach ($this->_propDict['appointments'] as $singleValue) {
-                $appointments []= new BookingAppointment($singleValue);
-            }
-            $this->_propDict['appointments'] = $appointments;
-            return $this->_propDict['appointments'];
+           $appointments = [];
+           if (count($this->_propDict['appointments']) > 0 && is_a($this->_propDict['appointments'][0], 'BookingAppointment')) {
+              return $this->_propDict['appointments'];
+           }
+           foreach ($this->_propDict['appointments'] as $singleValue) {
+              $appointments []= new BookingAppointment($singleValue);
+           }
+           $this->_propDict['appointments'] = $appointments;
+           return $this->_propDict['appointments'];
         }
         return null;
     }
@@ -377,15 +377,15 @@ class BookingBusiness extends BookingNamedEntity
     public function getCalendarView()
     {
         if (array_key_exists('calendarView', $this->_propDict) && !is_null($this->_propDict['calendarView'])) {
-            $calendarView = [];
-            if (count($this->_propDict['calendarView']) > 0 && is_a($this->_propDict['calendarView'][0], 'BookingAppointment')) {
-                return $this->_propDict['calendarView'];
-            }
-            foreach ($this->_propDict['calendarView'] as $singleValue) {
-                $calendarView []= new BookingAppointment($singleValue);
-            }
-            $this->_propDict['calendarView'] = $calendarView;
-            return $this->_propDict['calendarView'];
+           $calendarView = [];
+           if (count($this->_propDict['calendarView']) > 0 && is_a($this->_propDict['calendarView'][0], 'BookingAppointment')) {
+              return $this->_propDict['calendarView'];
+           }
+           foreach ($this->_propDict['calendarView'] as $singleValue) {
+              $calendarView []= new BookingAppointment($singleValue);
+           }
+           $this->_propDict['calendarView'] = $calendarView;
+           return $this->_propDict['calendarView'];
         }
         return null;
     }
@@ -414,15 +414,15 @@ class BookingBusiness extends BookingNamedEntity
     public function getCustomers()
     {
         if (array_key_exists('customers', $this->_propDict) && !is_null($this->_propDict['customers'])) {
-            $customers = [];
-            if (count($this->_propDict['customers']) > 0 && is_a($this->_propDict['customers'][0], 'BookingCustomer')) {
-                return $this->_propDict['customers'];
-            }
-            foreach ($this->_propDict['customers'] as $singleValue) {
-                $customers []= new BookingCustomer($singleValue);
-            }
-            $this->_propDict['customers'] = $customers;
-            return $this->_propDict['customers'];
+           $customers = [];
+           if (count($this->_propDict['customers']) > 0 && is_a($this->_propDict['customers'][0], 'BookingCustomer')) {
+              return $this->_propDict['customers'];
+           }
+           foreach ($this->_propDict['customers'] as $singleValue) {
+              $customers []= new BookingCustomer($singleValue);
+           }
+           $this->_propDict['customers'] = $customers;
+           return $this->_propDict['customers'];
         }
         return null;
     }
@@ -451,15 +451,15 @@ class BookingBusiness extends BookingNamedEntity
     public function getServices()
     {
         if (array_key_exists('services', $this->_propDict) && !is_null($this->_propDict['services'])) {
-            $services = [];
-            if (count($this->_propDict['services']) > 0 && is_a($this->_propDict['services'][0], 'BookingService')) {
-                return $this->_propDict['services'];
-            }
-            foreach ($this->_propDict['services'] as $singleValue) {
-                $services []= new BookingService($singleValue);
-            }
-            $this->_propDict['services'] = $services;
-            return $this->_propDict['services'];
+           $services = [];
+           if (count($this->_propDict['services']) > 0 && is_a($this->_propDict['services'][0], 'BookingService')) {
+              return $this->_propDict['services'];
+           }
+           foreach ($this->_propDict['services'] as $singleValue) {
+              $services []= new BookingService($singleValue);
+           }
+           $this->_propDict['services'] = $services;
+           return $this->_propDict['services'];
         }
         return null;
     }
@@ -488,15 +488,15 @@ class BookingBusiness extends BookingNamedEntity
     public function getStaffMembers()
     {
         if (array_key_exists('staffMembers', $this->_propDict) && !is_null($this->_propDict['staffMembers'])) {
-            $staffMembers = [];
-            if (count($this->_propDict['staffMembers']) > 0 && is_a($this->_propDict['staffMembers'][0], 'BookingStaffMember')) {
-                return $this->_propDict['staffMembers'];
-            }
-            foreach ($this->_propDict['staffMembers'] as $singleValue) {
-                $staffMembers []= new BookingStaffMember($singleValue);
-            }
-            $this->_propDict['staffMembers'] = $staffMembers;
-            return $this->_propDict['staffMembers'];
+           $staffMembers = [];
+           if (count($this->_propDict['staffMembers']) > 0 && is_a($this->_propDict['staffMembers'][0], 'BookingStaffMember')) {
+              return $this->_propDict['staffMembers'];
+           }
+           foreach ($this->_propDict['staffMembers'] as $singleValue) {
+              $staffMembers []= new BookingStaffMember($singleValue);
+           }
+           $this->_propDict['staffMembers'] = $staffMembers;
+           return $this->_propDict['staffMembers'];
         }
         return null;
     }

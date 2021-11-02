@@ -311,15 +311,15 @@ class DeviceManagementTemplate extends Entity
     public function getCategories()
     {
         if (array_key_exists('categories', $this->_propDict) && !is_null($this->_propDict['categories'])) {
-            $categories = [];
-            if (count($this->_propDict['categories']) > 0 && is_a($this->_propDict['categories'][0], 'DeviceManagementTemplateSettingCategory')) {
-                return $this->_propDict['categories'];
-            }
-            foreach ($this->_propDict['categories'] as $singleValue) {
-                $categories []= new DeviceManagementTemplateSettingCategory($singleValue);
-            }
-            $this->_propDict['categories'] = $categories;
-            return $this->_propDict['categories'];
+           $categories = [];
+           if (count($this->_propDict['categories']) > 0 && is_a($this->_propDict['categories'][0], 'DeviceManagementTemplateSettingCategory')) {
+              return $this->_propDict['categories'];
+           }
+           foreach ($this->_propDict['categories'] as $singleValue) {
+              $categories []= new DeviceManagementTemplateSettingCategory($singleValue);
+           }
+           $this->_propDict['categories'] = $categories;
+           return $this->_propDict['categories'];
         }
         return null;
     }
@@ -348,15 +348,15 @@ class DeviceManagementTemplate extends Entity
     public function getMigratableTo()
     {
         if (array_key_exists('migratableTo', $this->_propDict) && !is_null($this->_propDict['migratableTo'])) {
-            $migratableTo = [];
-            if (count($this->_propDict['migratableTo']) > 0 && is_a($this->_propDict['migratableTo'][0], 'DeviceManagementTemplate')) {
-                return $this->_propDict['migratableTo'];
-            }
-            foreach ($this->_propDict['migratableTo'] as $singleValue) {
-                $migratableTo []= new DeviceManagementTemplate($singleValue);
-            }
-            $this->_propDict['migratableTo'] = $migratableTo;
-            return $this->_propDict['migratableTo'];
+           $migratableTo = [];
+           if (count($this->_propDict['migratableTo']) > 0 && is_a($this->_propDict['migratableTo'][0], 'DeviceManagementTemplate')) {
+              return $this->_propDict['migratableTo'];
+           }
+           foreach ($this->_propDict['migratableTo'] as $singleValue) {
+              $migratableTo []= new DeviceManagementTemplate($singleValue);
+           }
+           $this->_propDict['migratableTo'] = $migratableTo;
+           return $this->_propDict['migratableTo'];
         }
         return null;
     }
@@ -385,15 +385,15 @@ class DeviceManagementTemplate extends Entity
     public function getSettings()
     {
         if (array_key_exists('settings', $this->_propDict) && !is_null($this->_propDict['settings'])) {
-            $settings = [];
-            if (count($this->_propDict['settings']) > 0 && is_a($this->_propDict['settings'][0], 'DeviceManagementSettingInstance')) {
-                return $this->_propDict['settings'];
-            }
-            foreach ($this->_propDict['settings'] as $singleValue) {
-                $settings []= new DeviceManagementSettingInstance($singleValue);
-            }
-            $this->_propDict['settings'] = $settings;
-            return $this->_propDict['settings'];
+           $settings = [];
+           if (count($this->_propDict['settings']) > 0 && is_a($this->_propDict['settings'][0], 'DeviceManagementSettingInstance')) {
+              return $this->_propDict['settings'];
+           }
+           foreach ($this->_propDict['settings'] as $singleValue) {
+              $settings []= new DeviceManagementSettingInstance($singleValue);
+           }
+           $this->_propDict['settings'] = $settings;
+           return $this->_propDict['settings'];
         }
         return null;
     }

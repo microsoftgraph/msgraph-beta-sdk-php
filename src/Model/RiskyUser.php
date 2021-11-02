@@ -282,15 +282,15 @@ class RiskyUser extends Entity
     public function getHistory()
     {
         if (array_key_exists('history', $this->_propDict) && !is_null($this->_propDict['history'])) {
-            $history = [];
-            if (count($this->_propDict['history']) > 0 && is_a($this->_propDict['history'][0], 'RiskyUserHistoryItem')) {
-                return $this->_propDict['history'];
-            }
-            foreach ($this->_propDict['history'] as $singleValue) {
-                $history []= new RiskyUserHistoryItem($singleValue);
-            }
-            $this->_propDict['history'] = $history;
-            return $this->_propDict['history'];
+           $history = [];
+           if (count($this->_propDict['history']) > 0 && is_a($this->_propDict['history'][0], 'RiskyUserHistoryItem')) {
+              return $this->_propDict['history'];
+           }
+           foreach ($this->_propDict['history'] as $singleValue) {
+              $history []= new RiskyUserHistoryItem($singleValue);
+           }
+           $this->_propDict['history'] = $history;
+           return $this->_propDict['history'];
         }
         return null;
     }

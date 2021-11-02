@@ -96,15 +96,15 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration
     public function getExtendedKeyUsages()
     {
         if (array_key_exists('extendedKeyUsages', $this->_propDict) && !is_null($this->_propDict['extendedKeyUsages'])) {
-            $extendedKeyUsages = [];
-            if (count($this->_propDict['extendedKeyUsages']) > 0 && is_a($this->_propDict['extendedKeyUsages'][0], 'ExtendedKeyUsage')) {
-                return $this->_propDict['extendedKeyUsages'];
-            }
-            foreach ($this->_propDict['extendedKeyUsages'] as $singleValue) {
-                $extendedKeyUsages []= new ExtendedKeyUsage($singleValue);
-            }
-            $this->_propDict['extendedKeyUsages'] = $extendedKeyUsages;
-            return $this->_propDict['extendedKeyUsages'];
+           $extendedKeyUsages = [];
+           if (count($this->_propDict['extendedKeyUsages']) > 0 && is_a($this->_propDict['extendedKeyUsages'][0], 'ExtendedKeyUsage')) {
+              return $this->_propDict['extendedKeyUsages'];
+           }
+           foreach ($this->_propDict['extendedKeyUsages'] as $singleValue) {
+              $extendedKeyUsages []= new ExtendedKeyUsage($singleValue);
+           }
+           $this->_propDict['extendedKeyUsages'] = $extendedKeyUsages;
+           return $this->_propDict['extendedKeyUsages'];
         }
         return null;
     }

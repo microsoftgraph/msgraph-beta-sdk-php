@@ -806,15 +806,15 @@ class PurchaseInvoice extends Entity
     public function getPurchaseInvoiceLines()
     {
         if (array_key_exists('purchaseInvoiceLines', $this->_propDict) && !is_null($this->_propDict['purchaseInvoiceLines'])) {
-            $purchaseInvoiceLines = [];
-            if (count($this->_propDict['purchaseInvoiceLines']) > 0 && is_a($this->_propDict['purchaseInvoiceLines'][0], 'PurchaseInvoiceLine')) {
-                return $this->_propDict['purchaseInvoiceLines'];
-            }
-            foreach ($this->_propDict['purchaseInvoiceLines'] as $singleValue) {
-                $purchaseInvoiceLines []= new PurchaseInvoiceLine($singleValue);
-            }
-            $this->_propDict['purchaseInvoiceLines'] = $purchaseInvoiceLines;
-            return $this->_propDict['purchaseInvoiceLines'];
+           $purchaseInvoiceLines = [];
+           if (count($this->_propDict['purchaseInvoiceLines']) > 0 && is_a($this->_propDict['purchaseInvoiceLines'][0], 'PurchaseInvoiceLine')) {
+              return $this->_propDict['purchaseInvoiceLines'];
+           }
+           foreach ($this->_propDict['purchaseInvoiceLines'] as $singleValue) {
+              $purchaseInvoiceLines []= new PurchaseInvoiceLine($singleValue);
+           }
+           $this->_propDict['purchaseInvoiceLines'] = $purchaseInvoiceLines;
+           return $this->_propDict['purchaseInvoiceLines'];
         }
         return null;
     }

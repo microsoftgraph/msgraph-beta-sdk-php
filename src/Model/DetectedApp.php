@@ -150,15 +150,15 @@ class DetectedApp extends Entity
     public function getManagedDevices()
     {
         if (array_key_exists('managedDevices', $this->_propDict) && !is_null($this->_propDict['managedDevices'])) {
-            $managedDevices = [];
-            if (count($this->_propDict['managedDevices']) > 0 && is_a($this->_propDict['managedDevices'][0], 'ManagedDevice')) {
-                return $this->_propDict['managedDevices'];
-            }
-            foreach ($this->_propDict['managedDevices'] as $singleValue) {
-                $managedDevices []= new ManagedDevice($singleValue);
-            }
-            $this->_propDict['managedDevices'] = $managedDevices;
-            return $this->_propDict['managedDevices'];
+           $managedDevices = [];
+           if (count($this->_propDict['managedDevices']) > 0 && is_a($this->_propDict['managedDevices'][0], 'ManagedDevice')) {
+              return $this->_propDict['managedDevices'];
+           }
+           foreach ($this->_propDict['managedDevices'] as $singleValue) {
+              $managedDevices []= new ManagedDevice($singleValue);
+           }
+           $this->_propDict['managedDevices'] = $managedDevices;
+           return $this->_propDict['managedDevices'];
         }
         return null;
     }

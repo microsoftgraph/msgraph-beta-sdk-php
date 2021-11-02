@@ -34,15 +34,15 @@ class ComplianceManagementPartner extends Entity
     public function getAndroidEnrollmentAssignments()
     {
         if (array_key_exists('androidEnrollmentAssignments', $this->_propDict) && !is_null($this->_propDict['androidEnrollmentAssignments'])) {
-            $androidEnrollmentAssignments = [];
-            if (count($this->_propDict['androidEnrollmentAssignments']) > 0 && is_a($this->_propDict['androidEnrollmentAssignments'][0], 'ComplianceManagementPartnerAssignment')) {
-                return $this->_propDict['androidEnrollmentAssignments'];
-            }
-            foreach ($this->_propDict['androidEnrollmentAssignments'] as $singleValue) {
-                $androidEnrollmentAssignments []= new ComplianceManagementPartnerAssignment($singleValue);
-            }
-            $this->_propDict['androidEnrollmentAssignments'] = $androidEnrollmentAssignments;
-            return $this->_propDict['androidEnrollmentAssignments'];
+           $androidEnrollmentAssignments = [];
+           if (count($this->_propDict['androidEnrollmentAssignments']) > 0 && is_a($this->_propDict['androidEnrollmentAssignments'][0], 'ComplianceManagementPartnerAssignment')) {
+              return $this->_propDict['androidEnrollmentAssignments'];
+           }
+           foreach ($this->_propDict['androidEnrollmentAssignments'] as $singleValue) {
+              $androidEnrollmentAssignments []= new ComplianceManagementPartnerAssignment($singleValue);
+           }
+           $this->_propDict['androidEnrollmentAssignments'] = $androidEnrollmentAssignments;
+           return $this->_propDict['androidEnrollmentAssignments'];
         }
         return null;
     }
@@ -129,15 +129,15 @@ class ComplianceManagementPartner extends Entity
     public function getIosEnrollmentAssignments()
     {
         if (array_key_exists('iosEnrollmentAssignments', $this->_propDict) && !is_null($this->_propDict['iosEnrollmentAssignments'])) {
-            $iosEnrollmentAssignments = [];
-            if (count($this->_propDict['iosEnrollmentAssignments']) > 0 && is_a($this->_propDict['iosEnrollmentAssignments'][0], 'ComplianceManagementPartnerAssignment')) {
-                return $this->_propDict['iosEnrollmentAssignments'];
-            }
-            foreach ($this->_propDict['iosEnrollmentAssignments'] as $singleValue) {
-                $iosEnrollmentAssignments []= new ComplianceManagementPartnerAssignment($singleValue);
-            }
-            $this->_propDict['iosEnrollmentAssignments'] = $iosEnrollmentAssignments;
-            return $this->_propDict['iosEnrollmentAssignments'];
+           $iosEnrollmentAssignments = [];
+           if (count($this->_propDict['iosEnrollmentAssignments']) > 0 && is_a($this->_propDict['iosEnrollmentAssignments'][0], 'ComplianceManagementPartnerAssignment')) {
+              return $this->_propDict['iosEnrollmentAssignments'];
+           }
+           foreach ($this->_propDict['iosEnrollmentAssignments'] as $singleValue) {
+              $iosEnrollmentAssignments []= new ComplianceManagementPartnerAssignment($singleValue);
+           }
+           $this->_propDict['iosEnrollmentAssignments'] = $iosEnrollmentAssignments;
+           return $this->_propDict['iosEnrollmentAssignments'];
         }
         return null;
     }
@@ -228,15 +228,15 @@ class ComplianceManagementPartner extends Entity
     public function getMacOsEnrollmentAssignments()
     {
         if (array_key_exists('macOsEnrollmentAssignments', $this->_propDict) && !is_null($this->_propDict['macOsEnrollmentAssignments'])) {
-            $macOsEnrollmentAssignments = [];
-            if (count($this->_propDict['macOsEnrollmentAssignments']) > 0 && is_a($this->_propDict['macOsEnrollmentAssignments'][0], 'ComplianceManagementPartnerAssignment')) {
-                return $this->_propDict['macOsEnrollmentAssignments'];
-            }
-            foreach ($this->_propDict['macOsEnrollmentAssignments'] as $singleValue) {
-                $macOsEnrollmentAssignments []= new ComplianceManagementPartnerAssignment($singleValue);
-            }
-            $this->_propDict['macOsEnrollmentAssignments'] = $macOsEnrollmentAssignments;
-            return $this->_propDict['macOsEnrollmentAssignments'];
+           $macOsEnrollmentAssignments = [];
+           if (count($this->_propDict['macOsEnrollmentAssignments']) > 0 && is_a($this->_propDict['macOsEnrollmentAssignments'][0], 'ComplianceManagementPartnerAssignment')) {
+              return $this->_propDict['macOsEnrollmentAssignments'];
+           }
+           foreach ($this->_propDict['macOsEnrollmentAssignments'] as $singleValue) {
+              $macOsEnrollmentAssignments []= new ComplianceManagementPartnerAssignment($singleValue);
+           }
+           $this->_propDict['macOsEnrollmentAssignments'] = $macOsEnrollmentAssignments;
+           return $this->_propDict['macOsEnrollmentAssignments'];
         }
         return null;
     }
@@ -327,15 +327,15 @@ class ComplianceManagementPartner extends Entity
     public function getWindowsEnrollmentAssignments()
     {
         if (array_key_exists('windowsEnrollmentAssignments', $this->_propDict) && !is_null($this->_propDict['windowsEnrollmentAssignments'])) {
-            $windowsEnrollmentAssignments = [];
-            if (count($this->_propDict['windowsEnrollmentAssignments']) > 0 && is_a($this->_propDict['windowsEnrollmentAssignments'][0], 'ComplianceManagementPartnerAssignment')) {
-                return $this->_propDict['windowsEnrollmentAssignments'];
-            }
-            foreach ($this->_propDict['windowsEnrollmentAssignments'] as $singleValue) {
-                $windowsEnrollmentAssignments []= new ComplianceManagementPartnerAssignment($singleValue);
-            }
-            $this->_propDict['windowsEnrollmentAssignments'] = $windowsEnrollmentAssignments;
-            return $this->_propDict['windowsEnrollmentAssignments'];
+           $windowsEnrollmentAssignments = [];
+           if (count($this->_propDict['windowsEnrollmentAssignments']) > 0 && is_a($this->_propDict['windowsEnrollmentAssignments'][0], 'ComplianceManagementPartnerAssignment')) {
+              return $this->_propDict['windowsEnrollmentAssignments'];
+           }
+           foreach ($this->_propDict['windowsEnrollmentAssignments'] as $singleValue) {
+              $windowsEnrollmentAssignments []= new ComplianceManagementPartnerAssignment($singleValue);
+           }
+           $this->_propDict['windowsEnrollmentAssignments'] = $windowsEnrollmentAssignments;
+           return $this->_propDict['windowsEnrollmentAssignments'];
         }
         return null;
     }

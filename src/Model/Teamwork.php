@@ -33,15 +33,15 @@ class Teamwork extends Entity
     public function getWorkforceIntegrations()
     {
         if (array_key_exists('workforceIntegrations', $this->_propDict) && !is_null($this->_propDict['workforceIntegrations'])) {
-            $workforceIntegrations = [];
-            if (count($this->_propDict['workforceIntegrations']) > 0 && is_a($this->_propDict['workforceIntegrations'][0], 'WorkforceIntegration')) {
-                return $this->_propDict['workforceIntegrations'];
-            }
-            foreach ($this->_propDict['workforceIntegrations'] as $singleValue) {
-                $workforceIntegrations []= new WorkforceIntegration($singleValue);
-            }
-            $this->_propDict['workforceIntegrations'] = $workforceIntegrations;
-            return $this->_propDict['workforceIntegrations'];
+           $workforceIntegrations = [];
+           if (count($this->_propDict['workforceIntegrations']) > 0 && is_a($this->_propDict['workforceIntegrations'][0], 'WorkforceIntegration')) {
+              return $this->_propDict['workforceIntegrations'];
+           }
+           foreach ($this->_propDict['workforceIntegrations'] as $singleValue) {
+              $workforceIntegrations []= new WorkforceIntegration($singleValue);
+           }
+           $this->_propDict['workforceIntegrations'] = $workforceIntegrations;
+           return $this->_propDict['workforceIntegrations'];
         }
         return null;
     }

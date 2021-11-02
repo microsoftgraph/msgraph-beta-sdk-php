@@ -92,15 +92,15 @@ class ManagementIntent extends \Beta\Microsoft\Graph\Model\Entity
     public function getManagementTemplates()
     {
         if (array_key_exists('managementTemplates', $this->_propDict) && !is_null($this->_propDict['managementTemplates'])) {
-            $managementTemplates = [];
-            if (count($this->_propDict['managementTemplates']) > 0 && is_a($this->_propDict['managementTemplates'][0], 'ManagementTemplateDetailedInfo')) {
-                return $this->_propDict['managementTemplates'];
-            }
-            foreach ($this->_propDict['managementTemplates'] as $singleValue) {
-                $managementTemplates []= new ManagementTemplateDetailedInfo($singleValue);
-            }
-            $this->_propDict['managementTemplates'] = $managementTemplates;
-            return $this->_propDict['managementTemplates'];
+           $managementTemplates = [];
+           if (count($this->_propDict['managementTemplates']) > 0 && is_a($this->_propDict['managementTemplates'][0], 'ManagementTemplateDetailedInfo')) {
+              return $this->_propDict['managementTemplates'];
+           }
+           foreach ($this->_propDict['managementTemplates'] as $singleValue) {
+              $managementTemplates []= new ManagementTemplateDetailedInfo($singleValue);
+           }
+           $this->_propDict['managementTemplates'] = $managementTemplates;
+           return $this->_propDict['managementTemplates'];
         }
         return null;
     }

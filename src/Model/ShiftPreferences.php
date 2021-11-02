@@ -34,15 +34,15 @@ class ShiftPreferences extends ChangeTrackedEntity
     public function getAvailability()
     {
         if (array_key_exists('availability', $this->_propDict) && !is_null($this->_propDict['availability'])) {
-            $availability = [];
-            if (count($this->_propDict['availability']) > 0 && is_a($this->_propDict['availability'][0], 'ShiftAvailability')) {
-                return $this->_propDict['availability'];
-            }
-            foreach ($this->_propDict['availability'] as $singleValue) {
-                $availability []= new ShiftAvailability($singleValue);
-            }
-            $this->_propDict['availability'] = $availability;
-            return $this->_propDict['availability'];
+           $availability = [];
+           if (count($this->_propDict['availability']) > 0 && is_a($this->_propDict['availability'][0], 'ShiftAvailability')) {
+              return $this->_propDict['availability'];
+           }
+           foreach ($this->_propDict['availability'] as $singleValue) {
+              $availability []= new ShiftAvailability($singleValue);
+           }
+           $this->_propDict['availability'] = $availability;
+           return $this->_propDict['availability'];
         }
         return null;
     }

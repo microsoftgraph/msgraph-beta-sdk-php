@@ -33,15 +33,15 @@ class ExactMatchDataStoreBase extends Entity
     public function getColumns()
     {
         if (array_key_exists('columns', $this->_propDict) && !is_null($this->_propDict['columns'])) {
-            $columns = [];
-            if (count($this->_propDict['columns']) > 0 && is_a($this->_propDict['columns'][0], 'ExactDataMatchStoreColumn')) {
-                return $this->_propDict['columns'];
-            }
-            foreach ($this->_propDict['columns'] as $singleValue) {
-                $columns []= new ExactDataMatchStoreColumn($singleValue);
-            }
-            $this->_propDict['columns'] = $columns;
-            return $this->_propDict['columns'];
+           $columns = [];
+           if (count($this->_propDict['columns']) > 0 && is_a($this->_propDict['columns'][0], 'ExactDataMatchStoreColumn')) {
+              return $this->_propDict['columns'];
+           }
+           foreach ($this->_propDict['columns'] as $singleValue) {
+              $columns []= new ExactDataMatchStoreColumn($singleValue);
+           }
+           $this->_propDict['columns'] = $columns;
+           return $this->_propDict['columns'];
         }
         return null;
     }

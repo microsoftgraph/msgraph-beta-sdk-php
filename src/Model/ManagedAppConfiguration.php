@@ -34,15 +34,15 @@ class ManagedAppConfiguration extends ManagedAppPolicy
     public function getCustomSettings()
     {
         if (array_key_exists('customSettings', $this->_propDict) && !is_null($this->_propDict['customSettings'])) {
-            $customSettings = [];
-            if (count($this->_propDict['customSettings']) > 0 && is_a($this->_propDict['customSettings'][0], 'KeyValuePair')) {
-                return $this->_propDict['customSettings'];
-            }
-            foreach ($this->_propDict['customSettings'] as $singleValue) {
-                $customSettings []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['customSettings'] = $customSettings;
-            return $this->_propDict['customSettings'];
+           $customSettings = [];
+           if (count($this->_propDict['customSettings']) > 0 && is_a($this->_propDict['customSettings'][0], 'KeyValuePair')) {
+              return $this->_propDict['customSettings'];
+           }
+           foreach ($this->_propDict['customSettings'] as $singleValue) {
+              $customSettings []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['customSettings'] = $customSettings;
+           return $this->_propDict['customSettings'];
         }
         return null;
     }

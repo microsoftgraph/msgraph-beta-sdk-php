@@ -207,15 +207,15 @@ class Qna extends SearchAnswer
     public function getPlatforms()
     {
         if (array_key_exists('platforms', $this->_propDict) && !is_null($this->_propDict['platforms'])) {
-            $platforms = [];
-            if (count($this->_propDict['platforms']) > 0 && is_a($this->_propDict['platforms'][0], '\Beta\Microsoft\Graph\Model\DevicePlatformType')) {
-                return $this->_propDict['platforms'];
-            }
-            foreach ($this->_propDict['platforms'] as $singleValue) {
-                $platforms []= new \Beta\Microsoft\Graph\Model\DevicePlatformType($singleValue);
-            }
-            $this->_propDict['platforms'] = $platforms;
-            return $this->_propDict['platforms'];
+           $platforms = [];
+           if (count($this->_propDict['platforms']) > 0 && is_a($this->_propDict['platforms'][0], '\Beta\Microsoft\Graph\Model\DevicePlatformType')) {
+              return $this->_propDict['platforms'];
+           }
+           foreach ($this->_propDict['platforms'] as $singleValue) {
+              $platforms []= new \Beta\Microsoft\Graph\Model\DevicePlatformType($singleValue);
+           }
+           $this->_propDict['platforms'] = $platforms;
+           return $this->_propDict['platforms'];
         }
         return null;
     }
@@ -273,15 +273,15 @@ class Qna extends SearchAnswer
     public function getTargetedVariations()
     {
         if (array_key_exists('targetedVariations', $this->_propDict) && !is_null($this->_propDict['targetedVariations'])) {
-            $targetedVariations = [];
-            if (count($this->_propDict['targetedVariations']) > 0 && is_a($this->_propDict['targetedVariations'][0], 'AnswerVariant')) {
-                return $this->_propDict['targetedVariations'];
-            }
-            foreach ($this->_propDict['targetedVariations'] as $singleValue) {
-                $targetedVariations []= new AnswerVariant($singleValue);
-            }
-            $this->_propDict['targetedVariations'] = $targetedVariations;
-            return $this->_propDict['targetedVariations'];
+           $targetedVariations = [];
+           if (count($this->_propDict['targetedVariations']) > 0 && is_a($this->_propDict['targetedVariations'][0], 'AnswerVariant')) {
+              return $this->_propDict['targetedVariations'];
+           }
+           foreach ($this->_propDict['targetedVariations'] as $singleValue) {
+              $targetedVariations []= new AnswerVariant($singleValue);
+           }
+           $this->_propDict['targetedVariations'] = $targetedVariations;
+           return $this->_propDict['targetedVariations'];
         }
         return null;
     }

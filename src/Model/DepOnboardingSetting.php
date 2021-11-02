@@ -468,15 +468,15 @@ class DepOnboardingSetting extends Entity
     public function getEnrollmentProfiles()
     {
         if (array_key_exists('enrollmentProfiles', $this->_propDict) && !is_null($this->_propDict['enrollmentProfiles'])) {
-            $enrollmentProfiles = [];
-            if (count($this->_propDict['enrollmentProfiles']) > 0 && is_a($this->_propDict['enrollmentProfiles'][0], 'EnrollmentProfile')) {
-                return $this->_propDict['enrollmentProfiles'];
-            }
-            foreach ($this->_propDict['enrollmentProfiles'] as $singleValue) {
-                $enrollmentProfiles []= new EnrollmentProfile($singleValue);
-            }
-            $this->_propDict['enrollmentProfiles'] = $enrollmentProfiles;
-            return $this->_propDict['enrollmentProfiles'];
+           $enrollmentProfiles = [];
+           if (count($this->_propDict['enrollmentProfiles']) > 0 && is_a($this->_propDict['enrollmentProfiles'][0], 'EnrollmentProfile')) {
+              return $this->_propDict['enrollmentProfiles'];
+           }
+           foreach ($this->_propDict['enrollmentProfiles'] as $singleValue) {
+              $enrollmentProfiles []= new EnrollmentProfile($singleValue);
+           }
+           $this->_propDict['enrollmentProfiles'] = $enrollmentProfiles;
+           return $this->_propDict['enrollmentProfiles'];
         }
         return null;
     }
@@ -505,15 +505,15 @@ class DepOnboardingSetting extends Entity
     public function getImportedAppleDeviceIdentities()
     {
         if (array_key_exists('importedAppleDeviceIdentities', $this->_propDict) && !is_null($this->_propDict['importedAppleDeviceIdentities'])) {
-            $importedAppleDeviceIdentities = [];
-            if (count($this->_propDict['importedAppleDeviceIdentities']) > 0 && is_a($this->_propDict['importedAppleDeviceIdentities'][0], 'ImportedAppleDeviceIdentity')) {
-                return $this->_propDict['importedAppleDeviceIdentities'];
-            }
-            foreach ($this->_propDict['importedAppleDeviceIdentities'] as $singleValue) {
-                $importedAppleDeviceIdentities []= new ImportedAppleDeviceIdentity($singleValue);
-            }
-            $this->_propDict['importedAppleDeviceIdentities'] = $importedAppleDeviceIdentities;
-            return $this->_propDict['importedAppleDeviceIdentities'];
+           $importedAppleDeviceIdentities = [];
+           if (count($this->_propDict['importedAppleDeviceIdentities']) > 0 && is_a($this->_propDict['importedAppleDeviceIdentities'][0], 'ImportedAppleDeviceIdentity')) {
+              return $this->_propDict['importedAppleDeviceIdentities'];
+           }
+           foreach ($this->_propDict['importedAppleDeviceIdentities'] as $singleValue) {
+              $importedAppleDeviceIdentities []= new ImportedAppleDeviceIdentity($singleValue);
+           }
+           $this->_propDict['importedAppleDeviceIdentities'] = $importedAppleDeviceIdentities;
+           return $this->_propDict['importedAppleDeviceIdentities'];
         }
         return null;
     }

@@ -33,15 +33,15 @@ class ExactMatchDataStore extends ExactMatchDataStoreBase
     public function getSessions()
     {
         if (array_key_exists('sessions', $this->_propDict) && !is_null($this->_propDict['sessions'])) {
-            $sessions = [];
-            if (count($this->_propDict['sessions']) > 0 && is_a($this->_propDict['sessions'][0], 'ExactMatchSession')) {
-                return $this->_propDict['sessions'];
-            }
-            foreach ($this->_propDict['sessions'] as $singleValue) {
-                $sessions []= new ExactMatchSession($singleValue);
-            }
-            $this->_propDict['sessions'] = $sessions;
-            return $this->_propDict['sessions'];
+           $sessions = [];
+           if (count($this->_propDict['sessions']) > 0 && is_a($this->_propDict['sessions'][0], 'ExactMatchSession')) {
+              return $this->_propDict['sessions'];
+           }
+           foreach ($this->_propDict['sessions'] as $singleValue) {
+              $sessions []= new ExactMatchSession($singleValue);
+           }
+           $this->_propDict['sessions'] = $sessions;
+           return $this->_propDict['sessions'];
         }
         return null;
     }

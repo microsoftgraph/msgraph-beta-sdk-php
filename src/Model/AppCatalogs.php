@@ -64,15 +64,15 @@ class AppCatalogs implements \JsonSerializable
     public function getTeamsApps()
     {
         if (array_key_exists('teamsApps', $this->_propDict) && !is_null($this->_propDict['teamsApps'])) {
-            $teamsApps = [];
-            if (count($this->_propDict['teamsApps']) > 0 && is_a($this->_propDict['teamsApps'][0], 'TeamsApp')) {
-                return $this->_propDict['teamsApps'];
-            }
-            foreach ($this->_propDict['teamsApps'] as $singleValue) {
-                $teamsApps []= new TeamsApp($singleValue);
-            }
-            $this->_propDict['teamsApps'] = $teamsApps;
-            return $this->_propDict['teamsApps'];
+           $teamsApps = [];
+           if (count($this->_propDict['teamsApps']) > 0 && is_a($this->_propDict['teamsApps'][0], 'TeamsApp')) {
+              return $this->_propDict['teamsApps'];
+           }
+           foreach ($this->_propDict['teamsApps'] as $singleValue) {
+              $teamsApps []= new TeamsApp($singleValue);
+           }
+           $this->_propDict['teamsApps'] = $teamsApps;
+           return $this->_propDict['teamsApps'];
         }
         return null;
     }

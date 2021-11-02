@@ -34,15 +34,15 @@ class AzureADDevice extends UpdatableAsset
     public function getEnrollments()
     {
         if (array_key_exists('enrollments', $this->_propDict) && !is_null($this->_propDict['enrollments'])) {
-            $enrollments = [];
-            if (count($this->_propDict['enrollments']) > 0 && is_a($this->_propDict['enrollments'][0], 'UpdatableAssetEnrollment')) {
-                return $this->_propDict['enrollments'];
-            }
-            foreach ($this->_propDict['enrollments'] as $singleValue) {
-                $enrollments []= new UpdatableAssetEnrollment($singleValue);
-            }
-            $this->_propDict['enrollments'] = $enrollments;
-            return $this->_propDict['enrollments'];
+           $enrollments = [];
+           if (count($this->_propDict['enrollments']) > 0 && is_a($this->_propDict['enrollments'][0], 'UpdatableAssetEnrollment')) {
+              return $this->_propDict['enrollments'];
+           }
+           foreach ($this->_propDict['enrollments'] as $singleValue) {
+              $enrollments []= new UpdatableAssetEnrollment($singleValue);
+           }
+           $this->_propDict['enrollments'] = $enrollments;
+           return $this->_propDict['enrollments'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class AzureADDevice extends UpdatableAsset
     public function getErrors()
     {
         if (array_key_exists('errors', $this->_propDict) && !is_null($this->_propDict['errors'])) {
-            $errors = [];
-            if (count($this->_propDict['errors']) > 0 && is_a($this->_propDict['errors'][0], 'UpdatableAssetError')) {
-                return $this->_propDict['errors'];
-            }
-            foreach ($this->_propDict['errors'] as $singleValue) {
-                $errors []= new UpdatableAssetError($singleValue);
-            }
-            $this->_propDict['errors'] = $errors;
-            return $this->_propDict['errors'];
+           $errors = [];
+           if (count($this->_propDict['errors']) > 0 && is_a($this->_propDict['errors'][0], 'UpdatableAssetError')) {
+              return $this->_propDict['errors'];
+           }
+           foreach ($this->_propDict['errors'] as $singleValue) {
+              $errors []= new UpdatableAssetError($singleValue);
+           }
+           $this->_propDict['errors'] = $errors;
+           return $this->_propDict['errors'];
         }
         return null;
     }

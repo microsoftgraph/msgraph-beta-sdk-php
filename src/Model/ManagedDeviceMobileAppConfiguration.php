@@ -245,15 +245,15 @@ class ManagedDeviceMobileAppConfiguration extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'ManagedDeviceMobileAppConfigurationAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new ManagedDeviceMobileAppConfigurationAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'ManagedDeviceMobileAppConfigurationAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new ManagedDeviceMobileAppConfigurationAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }
@@ -282,15 +282,15 @@ class ManagedDeviceMobileAppConfiguration extends Entity
     public function getDeviceStatuses()
     {
         if (array_key_exists('deviceStatuses', $this->_propDict) && !is_null($this->_propDict['deviceStatuses'])) {
-            $deviceStatuses = [];
-            if (count($this->_propDict['deviceStatuses']) > 0 && is_a($this->_propDict['deviceStatuses'][0], 'ManagedDeviceMobileAppConfigurationDeviceStatus')) {
-                return $this->_propDict['deviceStatuses'];
-            }
-            foreach ($this->_propDict['deviceStatuses'] as $singleValue) {
-                $deviceStatuses []= new ManagedDeviceMobileAppConfigurationDeviceStatus($singleValue);
-            }
-            $this->_propDict['deviceStatuses'] = $deviceStatuses;
-            return $this->_propDict['deviceStatuses'];
+           $deviceStatuses = [];
+           if (count($this->_propDict['deviceStatuses']) > 0 && is_a($this->_propDict['deviceStatuses'][0], 'ManagedDeviceMobileAppConfigurationDeviceStatus')) {
+              return $this->_propDict['deviceStatuses'];
+           }
+           foreach ($this->_propDict['deviceStatuses'] as $singleValue) {
+              $deviceStatuses []= new ManagedDeviceMobileAppConfigurationDeviceStatus($singleValue);
+           }
+           $this->_propDict['deviceStatuses'] = $deviceStatuses;
+           return $this->_propDict['deviceStatuses'];
         }
         return null;
     }
@@ -352,15 +352,15 @@ class ManagedDeviceMobileAppConfiguration extends Entity
     public function getUserStatuses()
     {
         if (array_key_exists('userStatuses', $this->_propDict) && !is_null($this->_propDict['userStatuses'])) {
-            $userStatuses = [];
-            if (count($this->_propDict['userStatuses']) > 0 && is_a($this->_propDict['userStatuses'][0], 'ManagedDeviceMobileAppConfigurationUserStatus')) {
-                return $this->_propDict['userStatuses'];
-            }
-            foreach ($this->_propDict['userStatuses'] as $singleValue) {
-                $userStatuses []= new ManagedDeviceMobileAppConfigurationUserStatus($singleValue);
-            }
-            $this->_propDict['userStatuses'] = $userStatuses;
-            return $this->_propDict['userStatuses'];
+           $userStatuses = [];
+           if (count($this->_propDict['userStatuses']) > 0 && is_a($this->_propDict['userStatuses'][0], 'ManagedDeviceMobileAppConfigurationUserStatus')) {
+              return $this->_propDict['userStatuses'];
+           }
+           foreach ($this->_propDict['userStatuses'] as $singleValue) {
+              $userStatuses []= new ManagedDeviceMobileAppConfigurationUserStatus($singleValue);
+           }
+           $this->_propDict['userStatuses'] = $userStatuses;
+           return $this->_propDict['userStatuses'];
         }
         return null;
     }

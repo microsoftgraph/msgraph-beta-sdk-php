@@ -340,15 +340,15 @@ class DeviceManagementCompliancePolicy extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'DeviceManagementConfigurationPolicyAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new DeviceManagementConfigurationPolicyAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'DeviceManagementConfigurationPolicyAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new DeviceManagementConfigurationPolicyAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }
@@ -377,15 +377,15 @@ class DeviceManagementCompliancePolicy extends Entity
     public function getScheduledActionsForRule()
     {
         if (array_key_exists('scheduledActionsForRule', $this->_propDict) && !is_null($this->_propDict['scheduledActionsForRule'])) {
-            $scheduledActionsForRule = [];
-            if (count($this->_propDict['scheduledActionsForRule']) > 0 && is_a($this->_propDict['scheduledActionsForRule'][0], 'DeviceManagementComplianceScheduledActionForRule')) {
-                return $this->_propDict['scheduledActionsForRule'];
-            }
-            foreach ($this->_propDict['scheduledActionsForRule'] as $singleValue) {
-                $scheduledActionsForRule []= new DeviceManagementComplianceScheduledActionForRule($singleValue);
-            }
-            $this->_propDict['scheduledActionsForRule'] = $scheduledActionsForRule;
-            return $this->_propDict['scheduledActionsForRule'];
+           $scheduledActionsForRule = [];
+           if (count($this->_propDict['scheduledActionsForRule']) > 0 && is_a($this->_propDict['scheduledActionsForRule'][0], 'DeviceManagementComplianceScheduledActionForRule')) {
+              return $this->_propDict['scheduledActionsForRule'];
+           }
+           foreach ($this->_propDict['scheduledActionsForRule'] as $singleValue) {
+              $scheduledActionsForRule []= new DeviceManagementComplianceScheduledActionForRule($singleValue);
+           }
+           $this->_propDict['scheduledActionsForRule'] = $scheduledActionsForRule;
+           return $this->_propDict['scheduledActionsForRule'];
         }
         return null;
     }
@@ -414,15 +414,15 @@ class DeviceManagementCompliancePolicy extends Entity
     public function getSettings()
     {
         if (array_key_exists('settings', $this->_propDict) && !is_null($this->_propDict['settings'])) {
-            $settings = [];
-            if (count($this->_propDict['settings']) > 0 && is_a($this->_propDict['settings'][0], 'DeviceManagementConfigurationSetting')) {
-                return $this->_propDict['settings'];
-            }
-            foreach ($this->_propDict['settings'] as $singleValue) {
-                $settings []= new DeviceManagementConfigurationSetting($singleValue);
-            }
-            $this->_propDict['settings'] = $settings;
-            return $this->_propDict['settings'];
+           $settings = [];
+           if (count($this->_propDict['settings']) > 0 && is_a($this->_propDict['settings'][0], 'DeviceManagementConfigurationSetting')) {
+              return $this->_propDict['settings'];
+           }
+           foreach ($this->_propDict['settings'] as $singleValue) {
+              $settings []= new DeviceManagementConfigurationSetting($singleValue);
+           }
+           $this->_propDict['settings'] = $settings;
+           return $this->_propDict['settings'];
         }
         return null;
     }

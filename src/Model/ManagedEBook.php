@@ -311,15 +311,15 @@ class ManagedEBook extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'ManagedEBookAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new ManagedEBookAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'ManagedEBookAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new ManagedEBookAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }
@@ -348,15 +348,15 @@ class ManagedEBook extends Entity
     public function getCategories()
     {
         if (array_key_exists('categories', $this->_propDict) && !is_null($this->_propDict['categories'])) {
-            $categories = [];
-            if (count($this->_propDict['categories']) > 0 && is_a($this->_propDict['categories'][0], 'ManagedEBookCategory')) {
-                return $this->_propDict['categories'];
-            }
-            foreach ($this->_propDict['categories'] as $singleValue) {
-                $categories []= new ManagedEBookCategory($singleValue);
-            }
-            $this->_propDict['categories'] = $categories;
-            return $this->_propDict['categories'];
+           $categories = [];
+           if (count($this->_propDict['categories']) > 0 && is_a($this->_propDict['categories'][0], 'ManagedEBookCategory')) {
+              return $this->_propDict['categories'];
+           }
+           foreach ($this->_propDict['categories'] as $singleValue) {
+              $categories []= new ManagedEBookCategory($singleValue);
+           }
+           $this->_propDict['categories'] = $categories;
+           return $this->_propDict['categories'];
         }
         return null;
     }
@@ -385,15 +385,15 @@ class ManagedEBook extends Entity
     public function getDeviceStates()
     {
         if (array_key_exists('deviceStates', $this->_propDict) && !is_null($this->_propDict['deviceStates'])) {
-            $deviceStates = [];
-            if (count($this->_propDict['deviceStates']) > 0 && is_a($this->_propDict['deviceStates'][0], 'DeviceInstallState')) {
-                return $this->_propDict['deviceStates'];
-            }
-            foreach ($this->_propDict['deviceStates'] as $singleValue) {
-                $deviceStates []= new DeviceInstallState($singleValue);
-            }
-            $this->_propDict['deviceStates'] = $deviceStates;
-            return $this->_propDict['deviceStates'];
+           $deviceStates = [];
+           if (count($this->_propDict['deviceStates']) > 0 && is_a($this->_propDict['deviceStates'][0], 'DeviceInstallState')) {
+              return $this->_propDict['deviceStates'];
+           }
+           foreach ($this->_propDict['deviceStates'] as $singleValue) {
+              $deviceStates []= new DeviceInstallState($singleValue);
+           }
+           $this->_propDict['deviceStates'] = $deviceStates;
+           return $this->_propDict['deviceStates'];
         }
         return null;
     }
@@ -455,15 +455,15 @@ class ManagedEBook extends Entity
     public function getUserStateSummary()
     {
         if (array_key_exists('userStateSummary', $this->_propDict) && !is_null($this->_propDict['userStateSummary'])) {
-            $userStateSummary = [];
-            if (count($this->_propDict['userStateSummary']) > 0 && is_a($this->_propDict['userStateSummary'][0], 'UserInstallStateSummary')) {
-                return $this->_propDict['userStateSummary'];
-            }
-            foreach ($this->_propDict['userStateSummary'] as $singleValue) {
-                $userStateSummary []= new UserInstallStateSummary($singleValue);
-            }
-            $this->_propDict['userStateSummary'] = $userStateSummary;
-            return $this->_propDict['userStateSummary'];
+           $userStateSummary = [];
+           if (count($this->_propDict['userStateSummary']) > 0 && is_a($this->_propDict['userStateSummary'][0], 'UserInstallStateSummary')) {
+              return $this->_propDict['userStateSummary'];
+           }
+           foreach ($this->_propDict['userStateSummary'] as $singleValue) {
+              $userStateSummary []= new UserInstallStateSummary($singleValue);
+           }
+           $this->_propDict['userStateSummary'] = $userStateSummary;
+           return $this->_propDict['userStateSummary'];
         }
         return null;
     }

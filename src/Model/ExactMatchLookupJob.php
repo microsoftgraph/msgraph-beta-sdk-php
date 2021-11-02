@@ -60,15 +60,15 @@ class ExactMatchLookupJob extends ExactMatchJobBase
     public function getMatchingRows()
     {
         if (array_key_exists('matchingRows', $this->_propDict) && !is_null($this->_propDict['matchingRows'])) {
-            $matchingRows = [];
-            if (count($this->_propDict['matchingRows']) > 0 && is_a($this->_propDict['matchingRows'][0], 'LookupResultRow')) {
-                return $this->_propDict['matchingRows'];
-            }
-            foreach ($this->_propDict['matchingRows'] as $singleValue) {
-                $matchingRows []= new LookupResultRow($singleValue);
-            }
-            $this->_propDict['matchingRows'] = $matchingRows;
-            return $this->_propDict['matchingRows'];
+           $matchingRows = [];
+           if (count($this->_propDict['matchingRows']) > 0 && is_a($this->_propDict['matchingRows'][0], 'LookupResultRow')) {
+              return $this->_propDict['matchingRows'];
+           }
+           foreach ($this->_propDict['matchingRows'] as $singleValue) {
+              $matchingRows []= new LookupResultRow($singleValue);
+           }
+           $this->_propDict['matchingRows'] = $matchingRows;
+           return $this->_propDict['matchingRows'];
         }
         return null;
     }

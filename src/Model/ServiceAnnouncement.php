@@ -34,15 +34,15 @@ class ServiceAnnouncement extends Entity
     public function getHealthOverviews()
     {
         if (array_key_exists('healthOverviews', $this->_propDict) && !is_null($this->_propDict['healthOverviews'])) {
-            $healthOverviews = [];
-            if (count($this->_propDict['healthOverviews']) > 0 && is_a($this->_propDict['healthOverviews'][0], 'ServiceHealth')) {
-                return $this->_propDict['healthOverviews'];
-            }
-            foreach ($this->_propDict['healthOverviews'] as $singleValue) {
-                $healthOverviews []= new ServiceHealth($singleValue);
-            }
-            $this->_propDict['healthOverviews'] = $healthOverviews;
-            return $this->_propDict['healthOverviews'];
+           $healthOverviews = [];
+           if (count($this->_propDict['healthOverviews']) > 0 && is_a($this->_propDict['healthOverviews'][0], 'ServiceHealth')) {
+              return $this->_propDict['healthOverviews'];
+           }
+           foreach ($this->_propDict['healthOverviews'] as $singleValue) {
+              $healthOverviews []= new ServiceHealth($singleValue);
+           }
+           $this->_propDict['healthOverviews'] = $healthOverviews;
+           return $this->_propDict['healthOverviews'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class ServiceAnnouncement extends Entity
     public function getIssues()
     {
         if (array_key_exists('issues', $this->_propDict) && !is_null($this->_propDict['issues'])) {
-            $issues = [];
-            if (count($this->_propDict['issues']) > 0 && is_a($this->_propDict['issues'][0], 'ServiceHealthIssue')) {
-                return $this->_propDict['issues'];
-            }
-            foreach ($this->_propDict['issues'] as $singleValue) {
-                $issues []= new ServiceHealthIssue($singleValue);
-            }
-            $this->_propDict['issues'] = $issues;
-            return $this->_propDict['issues'];
+           $issues = [];
+           if (count($this->_propDict['issues']) > 0 && is_a($this->_propDict['issues'][0], 'ServiceHealthIssue')) {
+              return $this->_propDict['issues'];
+           }
+           foreach ($this->_propDict['issues'] as $singleValue) {
+              $issues []= new ServiceHealthIssue($singleValue);
+           }
+           $this->_propDict['issues'] = $issues;
+           return $this->_propDict['issues'];
         }
         return null;
     }
@@ -108,15 +108,15 @@ class ServiceAnnouncement extends Entity
     public function getMessages()
     {
         if (array_key_exists('messages', $this->_propDict) && !is_null($this->_propDict['messages'])) {
-            $messages = [];
-            if (count($this->_propDict['messages']) > 0 && is_a($this->_propDict['messages'][0], 'ServiceUpdateMessage')) {
-                return $this->_propDict['messages'];
-            }
-            foreach ($this->_propDict['messages'] as $singleValue) {
-                $messages []= new ServiceUpdateMessage($singleValue);
-            }
-            $this->_propDict['messages'] = $messages;
-            return $this->_propDict['messages'];
+           $messages = [];
+           if (count($this->_propDict['messages']) > 0 && is_a($this->_propDict['messages'][0], 'ServiceUpdateMessage')) {
+              return $this->_propDict['messages'];
+           }
+           foreach ($this->_propDict['messages'] as $singleValue) {
+              $messages []= new ServiceUpdateMessage($singleValue);
+           }
+           $this->_propDict['messages'] = $messages;
+           return $this->_propDict['messages'];
         }
         return null;
     }

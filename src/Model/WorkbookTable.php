@@ -324,15 +324,15 @@ class WorkbookTable extends Entity
     public function getColumns()
     {
         if (array_key_exists('columns', $this->_propDict) && !is_null($this->_propDict['columns'])) {
-            $columns = [];
-            if (count($this->_propDict['columns']) > 0 && is_a($this->_propDict['columns'][0], 'WorkbookTableColumn')) {
-                return $this->_propDict['columns'];
-            }
-            foreach ($this->_propDict['columns'] as $singleValue) {
-                $columns []= new WorkbookTableColumn($singleValue);
-            }
-            $this->_propDict['columns'] = $columns;
-            return $this->_propDict['columns'];
+           $columns = [];
+           if (count($this->_propDict['columns']) > 0 && is_a($this->_propDict['columns'][0], 'WorkbookTableColumn')) {
+              return $this->_propDict['columns'];
+           }
+           foreach ($this->_propDict['columns'] as $singleValue) {
+              $columns []= new WorkbookTableColumn($singleValue);
+           }
+           $this->_propDict['columns'] = $columns;
+           return $this->_propDict['columns'];
         }
         return null;
     }
@@ -361,15 +361,15 @@ class WorkbookTable extends Entity
     public function getRows()
     {
         if (array_key_exists('rows', $this->_propDict) && !is_null($this->_propDict['rows'])) {
-            $rows = [];
-            if (count($this->_propDict['rows']) > 0 && is_a($this->_propDict['rows'][0], 'WorkbookTableRow')) {
-                return $this->_propDict['rows'];
-            }
-            foreach ($this->_propDict['rows'] as $singleValue) {
-                $rows []= new WorkbookTableRow($singleValue);
-            }
-            $this->_propDict['rows'] = $rows;
-            return $this->_propDict['rows'];
+           $rows = [];
+           if (count($this->_propDict['rows']) > 0 && is_a($this->_propDict['rows'][0], 'WorkbookTableRow')) {
+              return $this->_propDict['rows'];
+           }
+           foreach ($this->_propDict['rows'] as $singleValue) {
+              $rows []= new WorkbookTableRow($singleValue);
+           }
+           $this->_propDict['rows'] = $rows;
+           return $this->_propDict['rows'];
         }
         return null;
     }

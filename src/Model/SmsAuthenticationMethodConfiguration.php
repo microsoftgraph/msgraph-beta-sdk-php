@@ -34,15 +34,15 @@ class SmsAuthenticationMethodConfiguration extends AuthenticationMethodConfigura
     public function getIncludeTargets()
     {
         if (array_key_exists('includeTargets', $this->_propDict) && !is_null($this->_propDict['includeTargets'])) {
-            $includeTargets = [];
-            if (count($this->_propDict['includeTargets']) > 0 && is_a($this->_propDict['includeTargets'][0], 'SmsAuthenticationMethodTarget')) {
-                return $this->_propDict['includeTargets'];
-            }
-            foreach ($this->_propDict['includeTargets'] as $singleValue) {
-                $includeTargets []= new SmsAuthenticationMethodTarget($singleValue);
-            }
-            $this->_propDict['includeTargets'] = $includeTargets;
-            return $this->_propDict['includeTargets'];
+           $includeTargets = [];
+           if (count($this->_propDict['includeTargets']) > 0 && is_a($this->_propDict['includeTargets'][0], 'SmsAuthenticationMethodTarget')) {
+              return $this->_propDict['includeTargets'];
+           }
+           foreach ($this->_propDict['includeTargets'] as $singleValue) {
+              $includeTargets []= new SmsAuthenticationMethodTarget($singleValue);
+           }
+           $this->_propDict['includeTargets'] = $includeTargets;
+           return $this->_propDict['includeTargets'];
         }
         return null;
     }

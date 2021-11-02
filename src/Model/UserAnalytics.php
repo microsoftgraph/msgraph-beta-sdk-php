@@ -67,15 +67,15 @@ class UserAnalytics extends Entity
     public function getActivityStatistics()
     {
         if (array_key_exists('activityStatistics', $this->_propDict) && !is_null($this->_propDict['activityStatistics'])) {
-            $activityStatistics = [];
-            if (count($this->_propDict['activityStatistics']) > 0 && is_a($this->_propDict['activityStatistics'][0], 'ActivityStatistics')) {
-                return $this->_propDict['activityStatistics'];
-            }
-            foreach ($this->_propDict['activityStatistics'] as $singleValue) {
-                $activityStatistics []= new ActivityStatistics($singleValue);
-            }
-            $this->_propDict['activityStatistics'] = $activityStatistics;
-            return $this->_propDict['activityStatistics'];
+           $activityStatistics = [];
+           if (count($this->_propDict['activityStatistics']) > 0 && is_a($this->_propDict['activityStatistics'][0], 'ActivityStatistics')) {
+              return $this->_propDict['activityStatistics'];
+           }
+           foreach ($this->_propDict['activityStatistics'] as $singleValue) {
+              $activityStatistics []= new ActivityStatistics($singleValue);
+           }
+           $this->_propDict['activityStatistics'] = $activityStatistics;
+           return $this->_propDict['activityStatistics'];
         }
         return null;
     }

@@ -154,15 +154,15 @@ class TodoTaskList extends Entity
     public function getExtensions()
     {
         if (array_key_exists('extensions', $this->_propDict) && !is_null($this->_propDict['extensions'])) {
-            $extensions = [];
-            if (count($this->_propDict['extensions']) > 0 && is_a($this->_propDict['extensions'][0], 'Extension')) {
-                return $this->_propDict['extensions'];
-            }
-            foreach ($this->_propDict['extensions'] as $singleValue) {
-                $extensions []= new Extension($singleValue);
-            }
-            $this->_propDict['extensions'] = $extensions;
-            return $this->_propDict['extensions'];
+           $extensions = [];
+           if (count($this->_propDict['extensions']) > 0 && is_a($this->_propDict['extensions'][0], 'Extension')) {
+              return $this->_propDict['extensions'];
+           }
+           foreach ($this->_propDict['extensions'] as $singleValue) {
+              $extensions []= new Extension($singleValue);
+           }
+           $this->_propDict['extensions'] = $extensions;
+           return $this->_propDict['extensions'];
         }
         return null;
     }
@@ -191,15 +191,15 @@ class TodoTaskList extends Entity
     public function getTasks()
     {
         if (array_key_exists('tasks', $this->_propDict) && !is_null($this->_propDict['tasks'])) {
-            $tasks = [];
-            if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'TodoTask')) {
-                return $this->_propDict['tasks'];
-            }
-            foreach ($this->_propDict['tasks'] as $singleValue) {
-                $tasks []= new TodoTask($singleValue);
-            }
-            $this->_propDict['tasks'] = $tasks;
-            return $this->_propDict['tasks'];
+           $tasks = [];
+           if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'TodoTask')) {
+              return $this->_propDict['tasks'];
+           }
+           foreach ($this->_propDict['tasks'] as $singleValue) {
+              $tasks []= new TodoTask($singleValue);
+           }
+           $this->_propDict['tasks'] = $tasks;
+           return $this->_propDict['tasks'];
         }
         return null;
     }

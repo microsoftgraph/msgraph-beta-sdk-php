@@ -164,15 +164,15 @@ class PolicyRoot implements \JsonSerializable
     public function getActivityBasedTimeoutPolicies()
     {
         if (array_key_exists('activityBasedTimeoutPolicies', $this->_propDict) && !is_null($this->_propDict['activityBasedTimeoutPolicies'])) {
-            $activityBasedTimeoutPolicies = [];
-            if (count($this->_propDict['activityBasedTimeoutPolicies']) > 0 && is_a($this->_propDict['activityBasedTimeoutPolicies'][0], 'ActivityBasedTimeoutPolicy')) {
-                return $this->_propDict['activityBasedTimeoutPolicies'];
-            }
-            foreach ($this->_propDict['activityBasedTimeoutPolicies'] as $singleValue) {
-                $activityBasedTimeoutPolicies []= new ActivityBasedTimeoutPolicy($singleValue);
-            }
-            $this->_propDict['activityBasedTimeoutPolicies'] = $activityBasedTimeoutPolicies;
-            return $this->_propDict['activityBasedTimeoutPolicies'];
+           $activityBasedTimeoutPolicies = [];
+           if (count($this->_propDict['activityBasedTimeoutPolicies']) > 0 && is_a($this->_propDict['activityBasedTimeoutPolicies'][0], 'ActivityBasedTimeoutPolicy')) {
+              return $this->_propDict['activityBasedTimeoutPolicies'];
+           }
+           foreach ($this->_propDict['activityBasedTimeoutPolicies'] as $singleValue) {
+              $activityBasedTimeoutPolicies []= new ActivityBasedTimeoutPolicy($singleValue);
+           }
+           $this->_propDict['activityBasedTimeoutPolicies'] = $activityBasedTimeoutPolicies;
+           return $this->_propDict['activityBasedTimeoutPolicies'];
         }
         return null;
     }
@@ -201,15 +201,15 @@ class PolicyRoot implements \JsonSerializable
     public function getAppManagementPolicies()
     {
         if (array_key_exists('appManagementPolicies', $this->_propDict) && !is_null($this->_propDict['appManagementPolicies'])) {
-            $appManagementPolicies = [];
-            if (count($this->_propDict['appManagementPolicies']) > 0 && is_a($this->_propDict['appManagementPolicies'][0], 'AppManagementPolicy')) {
-                return $this->_propDict['appManagementPolicies'];
-            }
-            foreach ($this->_propDict['appManagementPolicies'] as $singleValue) {
-                $appManagementPolicies []= new AppManagementPolicy($singleValue);
-            }
-            $this->_propDict['appManagementPolicies'] = $appManagementPolicies;
-            return $this->_propDict['appManagementPolicies'];
+           $appManagementPolicies = [];
+           if (count($this->_propDict['appManagementPolicies']) > 0 && is_a($this->_propDict['appManagementPolicies'][0], 'AppManagementPolicy')) {
+              return $this->_propDict['appManagementPolicies'];
+           }
+           foreach ($this->_propDict['appManagementPolicies'] as $singleValue) {
+              $appManagementPolicies []= new AppManagementPolicy($singleValue);
+           }
+           $this->_propDict['appManagementPolicies'] = $appManagementPolicies;
+           return $this->_propDict['appManagementPolicies'];
         }
         return null;
     }
@@ -238,15 +238,15 @@ class PolicyRoot implements \JsonSerializable
     public function getAuthorizationPolicy()
     {
         if (array_key_exists('authorizationPolicy', $this->_propDict) && !is_null($this->_propDict['authorizationPolicy'])) {
-            $authorizationPolicy = [];
-            if (count($this->_propDict['authorizationPolicy']) > 0 && is_a($this->_propDict['authorizationPolicy'][0], 'AuthorizationPolicy')) {
-                return $this->_propDict['authorizationPolicy'];
-            }
-            foreach ($this->_propDict['authorizationPolicy'] as $singleValue) {
-                $authorizationPolicy []= new AuthorizationPolicy($singleValue);
-            }
-            $this->_propDict['authorizationPolicy'] = $authorizationPolicy;
-            return $this->_propDict['authorizationPolicy'];
+           $authorizationPolicy = [];
+           if (count($this->_propDict['authorizationPolicy']) > 0 && is_a($this->_propDict['authorizationPolicy'][0], 'AuthorizationPolicy')) {
+              return $this->_propDict['authorizationPolicy'];
+           }
+           foreach ($this->_propDict['authorizationPolicy'] as $singleValue) {
+              $authorizationPolicy []= new AuthorizationPolicy($singleValue);
+           }
+           $this->_propDict['authorizationPolicy'] = $authorizationPolicy;
+           return $this->_propDict['authorizationPolicy'];
         }
         return null;
     }
@@ -275,15 +275,15 @@ class PolicyRoot implements \JsonSerializable
     public function getClaimsMappingPolicies()
     {
         if (array_key_exists('claimsMappingPolicies', $this->_propDict) && !is_null($this->_propDict['claimsMappingPolicies'])) {
-            $claimsMappingPolicies = [];
-            if (count($this->_propDict['claimsMappingPolicies']) > 0 && is_a($this->_propDict['claimsMappingPolicies'][0], 'ClaimsMappingPolicy')) {
-                return $this->_propDict['claimsMappingPolicies'];
-            }
-            foreach ($this->_propDict['claimsMappingPolicies'] as $singleValue) {
-                $claimsMappingPolicies []= new ClaimsMappingPolicy($singleValue);
-            }
-            $this->_propDict['claimsMappingPolicies'] = $claimsMappingPolicies;
-            return $this->_propDict['claimsMappingPolicies'];
+           $claimsMappingPolicies = [];
+           if (count($this->_propDict['claimsMappingPolicies']) > 0 && is_a($this->_propDict['claimsMappingPolicies'][0], 'ClaimsMappingPolicy')) {
+              return $this->_propDict['claimsMappingPolicies'];
+           }
+           foreach ($this->_propDict['claimsMappingPolicies'] as $singleValue) {
+              $claimsMappingPolicies []= new ClaimsMappingPolicy($singleValue);
+           }
+           $this->_propDict['claimsMappingPolicies'] = $claimsMappingPolicies;
+           return $this->_propDict['claimsMappingPolicies'];
         }
         return null;
     }
@@ -345,15 +345,15 @@ class PolicyRoot implements \JsonSerializable
     public function getHomeRealmDiscoveryPolicies()
     {
         if (array_key_exists('homeRealmDiscoveryPolicies', $this->_propDict) && !is_null($this->_propDict['homeRealmDiscoveryPolicies'])) {
-            $homeRealmDiscoveryPolicies = [];
-            if (count($this->_propDict['homeRealmDiscoveryPolicies']) > 0 && is_a($this->_propDict['homeRealmDiscoveryPolicies'][0], 'HomeRealmDiscoveryPolicy')) {
-                return $this->_propDict['homeRealmDiscoveryPolicies'];
-            }
-            foreach ($this->_propDict['homeRealmDiscoveryPolicies'] as $singleValue) {
-                $homeRealmDiscoveryPolicies []= new HomeRealmDiscoveryPolicy($singleValue);
-            }
-            $this->_propDict['homeRealmDiscoveryPolicies'] = $homeRealmDiscoveryPolicies;
-            return $this->_propDict['homeRealmDiscoveryPolicies'];
+           $homeRealmDiscoveryPolicies = [];
+           if (count($this->_propDict['homeRealmDiscoveryPolicies']) > 0 && is_a($this->_propDict['homeRealmDiscoveryPolicies'][0], 'HomeRealmDiscoveryPolicy')) {
+              return $this->_propDict['homeRealmDiscoveryPolicies'];
+           }
+           foreach ($this->_propDict['homeRealmDiscoveryPolicies'] as $singleValue) {
+              $homeRealmDiscoveryPolicies []= new HomeRealmDiscoveryPolicy($singleValue);
+           }
+           $this->_propDict['homeRealmDiscoveryPolicies'] = $homeRealmDiscoveryPolicies;
+           return $this->_propDict['homeRealmDiscoveryPolicies'];
         }
         return null;
     }
@@ -382,15 +382,15 @@ class PolicyRoot implements \JsonSerializable
     public function getPermissionGrantPolicies()
     {
         if (array_key_exists('permissionGrantPolicies', $this->_propDict) && !is_null($this->_propDict['permissionGrantPolicies'])) {
-            $permissionGrantPolicies = [];
-            if (count($this->_propDict['permissionGrantPolicies']) > 0 && is_a($this->_propDict['permissionGrantPolicies'][0], 'PermissionGrantPolicy')) {
-                return $this->_propDict['permissionGrantPolicies'];
-            }
-            foreach ($this->_propDict['permissionGrantPolicies'] as $singleValue) {
-                $permissionGrantPolicies []= new PermissionGrantPolicy($singleValue);
-            }
-            $this->_propDict['permissionGrantPolicies'] = $permissionGrantPolicies;
-            return $this->_propDict['permissionGrantPolicies'];
+           $permissionGrantPolicies = [];
+           if (count($this->_propDict['permissionGrantPolicies']) > 0 && is_a($this->_propDict['permissionGrantPolicies'][0], 'PermissionGrantPolicy')) {
+              return $this->_propDict['permissionGrantPolicies'];
+           }
+           foreach ($this->_propDict['permissionGrantPolicies'] as $singleValue) {
+              $permissionGrantPolicies []= new PermissionGrantPolicy($singleValue);
+           }
+           $this->_propDict['permissionGrantPolicies'] = $permissionGrantPolicies;
+           return $this->_propDict['permissionGrantPolicies'];
         }
         return null;
     }
@@ -418,15 +418,15 @@ class PolicyRoot implements \JsonSerializable
     public function getServicePrincipalCreationPolicies()
     {
         if (array_key_exists('servicePrincipalCreationPolicies', $this->_propDict) && !is_null($this->_propDict['servicePrincipalCreationPolicies'])) {
-            $servicePrincipalCreationPolicies = [];
-            if (count($this->_propDict['servicePrincipalCreationPolicies']) > 0 && is_a($this->_propDict['servicePrincipalCreationPolicies'][0], 'ServicePrincipalCreationPolicy')) {
-                return $this->_propDict['servicePrincipalCreationPolicies'];
-            }
-            foreach ($this->_propDict['servicePrincipalCreationPolicies'] as $singleValue) {
-                $servicePrincipalCreationPolicies []= new ServicePrincipalCreationPolicy($singleValue);
-            }
-            $this->_propDict['servicePrincipalCreationPolicies'] = $servicePrincipalCreationPolicies;
-            return $this->_propDict['servicePrincipalCreationPolicies'];
+           $servicePrincipalCreationPolicies = [];
+           if (count($this->_propDict['servicePrincipalCreationPolicies']) > 0 && is_a($this->_propDict['servicePrincipalCreationPolicies'][0], 'ServicePrincipalCreationPolicy')) {
+              return $this->_propDict['servicePrincipalCreationPolicies'];
+           }
+           foreach ($this->_propDict['servicePrincipalCreationPolicies'] as $singleValue) {
+              $servicePrincipalCreationPolicies []= new ServicePrincipalCreationPolicy($singleValue);
+           }
+           $this->_propDict['servicePrincipalCreationPolicies'] = $servicePrincipalCreationPolicies;
+           return $this->_propDict['servicePrincipalCreationPolicies'];
         }
         return null;
     }
@@ -454,15 +454,15 @@ class PolicyRoot implements \JsonSerializable
     public function getTokenIssuancePolicies()
     {
         if (array_key_exists('tokenIssuancePolicies', $this->_propDict) && !is_null($this->_propDict['tokenIssuancePolicies'])) {
-            $tokenIssuancePolicies = [];
-            if (count($this->_propDict['tokenIssuancePolicies']) > 0 && is_a($this->_propDict['tokenIssuancePolicies'][0], 'TokenIssuancePolicy')) {
-                return $this->_propDict['tokenIssuancePolicies'];
-            }
-            foreach ($this->_propDict['tokenIssuancePolicies'] as $singleValue) {
-                $tokenIssuancePolicies []= new TokenIssuancePolicy($singleValue);
-            }
-            $this->_propDict['tokenIssuancePolicies'] = $tokenIssuancePolicies;
-            return $this->_propDict['tokenIssuancePolicies'];
+           $tokenIssuancePolicies = [];
+           if (count($this->_propDict['tokenIssuancePolicies']) > 0 && is_a($this->_propDict['tokenIssuancePolicies'][0], 'TokenIssuancePolicy')) {
+              return $this->_propDict['tokenIssuancePolicies'];
+           }
+           foreach ($this->_propDict['tokenIssuancePolicies'] as $singleValue) {
+              $tokenIssuancePolicies []= new TokenIssuancePolicy($singleValue);
+           }
+           $this->_propDict['tokenIssuancePolicies'] = $tokenIssuancePolicies;
+           return $this->_propDict['tokenIssuancePolicies'];
         }
         return null;
     }
@@ -491,15 +491,15 @@ class PolicyRoot implements \JsonSerializable
     public function getTokenLifetimePolicies()
     {
         if (array_key_exists('tokenLifetimePolicies', $this->_propDict) && !is_null($this->_propDict['tokenLifetimePolicies'])) {
-            $tokenLifetimePolicies = [];
-            if (count($this->_propDict['tokenLifetimePolicies']) > 0 && is_a($this->_propDict['tokenLifetimePolicies'][0], 'TokenLifetimePolicy')) {
-                return $this->_propDict['tokenLifetimePolicies'];
-            }
-            foreach ($this->_propDict['tokenLifetimePolicies'] as $singleValue) {
-                $tokenLifetimePolicies []= new TokenLifetimePolicy($singleValue);
-            }
-            $this->_propDict['tokenLifetimePolicies'] = $tokenLifetimePolicies;
-            return $this->_propDict['tokenLifetimePolicies'];
+           $tokenLifetimePolicies = [];
+           if (count($this->_propDict['tokenLifetimePolicies']) > 0 && is_a($this->_propDict['tokenLifetimePolicies'][0], 'TokenLifetimePolicy')) {
+              return $this->_propDict['tokenLifetimePolicies'];
+           }
+           foreach ($this->_propDict['tokenLifetimePolicies'] as $singleValue) {
+              $tokenLifetimePolicies []= new TokenLifetimePolicy($singleValue);
+           }
+           $this->_propDict['tokenLifetimePolicies'] = $tokenLifetimePolicies;
+           return $this->_propDict['tokenLifetimePolicies'];
         }
         return null;
     }
@@ -528,15 +528,15 @@ class PolicyRoot implements \JsonSerializable
     public function getFeatureRolloutPolicies()
     {
         if (array_key_exists('featureRolloutPolicies', $this->_propDict) && !is_null($this->_propDict['featureRolloutPolicies'])) {
-            $featureRolloutPolicies = [];
-            if (count($this->_propDict['featureRolloutPolicies']) > 0 && is_a($this->_propDict['featureRolloutPolicies'][0], 'FeatureRolloutPolicy')) {
-                return $this->_propDict['featureRolloutPolicies'];
-            }
-            foreach ($this->_propDict['featureRolloutPolicies'] as $singleValue) {
-                $featureRolloutPolicies []= new FeatureRolloutPolicy($singleValue);
-            }
-            $this->_propDict['featureRolloutPolicies'] = $featureRolloutPolicies;
-            return $this->_propDict['featureRolloutPolicies'];
+           $featureRolloutPolicies = [];
+           if (count($this->_propDict['featureRolloutPolicies']) > 0 && is_a($this->_propDict['featureRolloutPolicies'][0], 'FeatureRolloutPolicy')) {
+              return $this->_propDict['featureRolloutPolicies'];
+           }
+           foreach ($this->_propDict['featureRolloutPolicies'] as $singleValue) {
+              $featureRolloutPolicies []= new FeatureRolloutPolicy($singleValue);
+           }
+           $this->_propDict['featureRolloutPolicies'] = $featureRolloutPolicies;
+           return $this->_propDict['featureRolloutPolicies'];
         }
         return null;
     }
@@ -662,15 +662,15 @@ class PolicyRoot implements \JsonSerializable
     public function getConditionalAccessPolicies()
     {
         if (array_key_exists('conditionalAccessPolicies', $this->_propDict) && !is_null($this->_propDict['conditionalAccessPolicies'])) {
-            $conditionalAccessPolicies = [];
-            if (count($this->_propDict['conditionalAccessPolicies']) > 0 && is_a($this->_propDict['conditionalAccessPolicies'][0], 'ConditionalAccessPolicy')) {
-                return $this->_propDict['conditionalAccessPolicies'];
-            }
-            foreach ($this->_propDict['conditionalAccessPolicies'] as $singleValue) {
-                $conditionalAccessPolicies []= new ConditionalAccessPolicy($singleValue);
-            }
-            $this->_propDict['conditionalAccessPolicies'] = $conditionalAccessPolicies;
-            return $this->_propDict['conditionalAccessPolicies'];
+           $conditionalAccessPolicies = [];
+           if (count($this->_propDict['conditionalAccessPolicies']) > 0 && is_a($this->_propDict['conditionalAccessPolicies'][0], 'ConditionalAccessPolicy')) {
+              return $this->_propDict['conditionalAccessPolicies'];
+           }
+           foreach ($this->_propDict['conditionalAccessPolicies'] as $singleValue) {
+              $conditionalAccessPolicies []= new ConditionalAccessPolicy($singleValue);
+           }
+           $this->_propDict['conditionalAccessPolicies'] = $conditionalAccessPolicies;
+           return $this->_propDict['conditionalAccessPolicies'];
         }
         return null;
     }
@@ -732,15 +732,15 @@ class PolicyRoot implements \JsonSerializable
     public function getMobileAppManagementPolicies()
     {
         if (array_key_exists('mobileAppManagementPolicies', $this->_propDict) && !is_null($this->_propDict['mobileAppManagementPolicies'])) {
-            $mobileAppManagementPolicies = [];
-            if (count($this->_propDict['mobileAppManagementPolicies']) > 0 && is_a($this->_propDict['mobileAppManagementPolicies'][0], 'MobilityManagementPolicy')) {
-                return $this->_propDict['mobileAppManagementPolicies'];
-            }
-            foreach ($this->_propDict['mobileAppManagementPolicies'] as $singleValue) {
-                $mobileAppManagementPolicies []= new MobilityManagementPolicy($singleValue);
-            }
-            $this->_propDict['mobileAppManagementPolicies'] = $mobileAppManagementPolicies;
-            return $this->_propDict['mobileAppManagementPolicies'];
+           $mobileAppManagementPolicies = [];
+           if (count($this->_propDict['mobileAppManagementPolicies']) > 0 && is_a($this->_propDict['mobileAppManagementPolicies'][0], 'MobilityManagementPolicy')) {
+              return $this->_propDict['mobileAppManagementPolicies'];
+           }
+           foreach ($this->_propDict['mobileAppManagementPolicies'] as $singleValue) {
+              $mobileAppManagementPolicies []= new MobilityManagementPolicy($singleValue);
+           }
+           $this->_propDict['mobileAppManagementPolicies'] = $mobileAppManagementPolicies;
+           return $this->_propDict['mobileAppManagementPolicies'];
         }
         return null;
     }
@@ -768,15 +768,15 @@ class PolicyRoot implements \JsonSerializable
     public function getMobileDeviceManagementPolicies()
     {
         if (array_key_exists('mobileDeviceManagementPolicies', $this->_propDict) && !is_null($this->_propDict['mobileDeviceManagementPolicies'])) {
-            $mobileDeviceManagementPolicies = [];
-            if (count($this->_propDict['mobileDeviceManagementPolicies']) > 0 && is_a($this->_propDict['mobileDeviceManagementPolicies'][0], 'MobilityManagementPolicy')) {
-                return $this->_propDict['mobileDeviceManagementPolicies'];
-            }
-            foreach ($this->_propDict['mobileDeviceManagementPolicies'] as $singleValue) {
-                $mobileDeviceManagementPolicies []= new MobilityManagementPolicy($singleValue);
-            }
-            $this->_propDict['mobileDeviceManagementPolicies'] = $mobileDeviceManagementPolicies;
-            return $this->_propDict['mobileDeviceManagementPolicies'];
+           $mobileDeviceManagementPolicies = [];
+           if (count($this->_propDict['mobileDeviceManagementPolicies']) > 0 && is_a($this->_propDict['mobileDeviceManagementPolicies'][0], 'MobilityManagementPolicy')) {
+              return $this->_propDict['mobileDeviceManagementPolicies'];
+           }
+           foreach ($this->_propDict['mobileDeviceManagementPolicies'] as $singleValue) {
+              $mobileDeviceManagementPolicies []= new MobilityManagementPolicy($singleValue);
+           }
+           $this->_propDict['mobileDeviceManagementPolicies'] = $mobileDeviceManagementPolicies;
+           return $this->_propDict['mobileDeviceManagementPolicies'];
         }
         return null;
     }
@@ -804,15 +804,15 @@ class PolicyRoot implements \JsonSerializable
     public function getRoleManagementPolicies()
     {
         if (array_key_exists('roleManagementPolicies', $this->_propDict) && !is_null($this->_propDict['roleManagementPolicies'])) {
-            $roleManagementPolicies = [];
-            if (count($this->_propDict['roleManagementPolicies']) > 0 && is_a($this->_propDict['roleManagementPolicies'][0], 'UnifiedRoleManagementPolicy')) {
-                return $this->_propDict['roleManagementPolicies'];
-            }
-            foreach ($this->_propDict['roleManagementPolicies'] as $singleValue) {
-                $roleManagementPolicies []= new UnifiedRoleManagementPolicy($singleValue);
-            }
-            $this->_propDict['roleManagementPolicies'] = $roleManagementPolicies;
-            return $this->_propDict['roleManagementPolicies'];
+           $roleManagementPolicies = [];
+           if (count($this->_propDict['roleManagementPolicies']) > 0 && is_a($this->_propDict['roleManagementPolicies'][0], 'UnifiedRoleManagementPolicy')) {
+              return $this->_propDict['roleManagementPolicies'];
+           }
+           foreach ($this->_propDict['roleManagementPolicies'] as $singleValue) {
+              $roleManagementPolicies []= new UnifiedRoleManagementPolicy($singleValue);
+           }
+           $this->_propDict['roleManagementPolicies'] = $roleManagementPolicies;
+           return $this->_propDict['roleManagementPolicies'];
         }
         return null;
     }
@@ -841,15 +841,15 @@ class PolicyRoot implements \JsonSerializable
     public function getRoleManagementPolicyAssignments()
     {
         if (array_key_exists('roleManagementPolicyAssignments', $this->_propDict) && !is_null($this->_propDict['roleManagementPolicyAssignments'])) {
-            $roleManagementPolicyAssignments = [];
-            if (count($this->_propDict['roleManagementPolicyAssignments']) > 0 && is_a($this->_propDict['roleManagementPolicyAssignments'][0], 'UnifiedRoleManagementPolicyAssignment')) {
-                return $this->_propDict['roleManagementPolicyAssignments'];
-            }
-            foreach ($this->_propDict['roleManagementPolicyAssignments'] as $singleValue) {
-                $roleManagementPolicyAssignments []= new UnifiedRoleManagementPolicyAssignment($singleValue);
-            }
-            $this->_propDict['roleManagementPolicyAssignments'] = $roleManagementPolicyAssignments;
-            return $this->_propDict['roleManagementPolicyAssignments'];
+           $roleManagementPolicyAssignments = [];
+           if (count($this->_propDict['roleManagementPolicyAssignments']) > 0 && is_a($this->_propDict['roleManagementPolicyAssignments'][0], 'UnifiedRoleManagementPolicyAssignment')) {
+              return $this->_propDict['roleManagementPolicyAssignments'];
+           }
+           foreach ($this->_propDict['roleManagementPolicyAssignments'] as $singleValue) {
+              $roleManagementPolicyAssignments []= new UnifiedRoleManagementPolicyAssignment($singleValue);
+           }
+           $this->_propDict['roleManagementPolicyAssignments'] = $roleManagementPolicyAssignments;
+           return $this->_propDict['roleManagementPolicyAssignments'];
         }
         return null;
     }

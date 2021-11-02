@@ -237,15 +237,15 @@ class MailFolder extends Entity
     public function getChildFolders()
     {
         if (array_key_exists('childFolders', $this->_propDict) && !is_null($this->_propDict['childFolders'])) {
-            $childFolders = [];
-            if (count($this->_propDict['childFolders']) > 0 && is_a($this->_propDict['childFolders'][0], 'MailFolder')) {
-                return $this->_propDict['childFolders'];
-            }
-            foreach ($this->_propDict['childFolders'] as $singleValue) {
-                $childFolders []= new MailFolder($singleValue);
-            }
-            $this->_propDict['childFolders'] = $childFolders;
-            return $this->_propDict['childFolders'];
+           $childFolders = [];
+           if (count($this->_propDict['childFolders']) > 0 && is_a($this->_propDict['childFolders'][0], 'MailFolder')) {
+              return $this->_propDict['childFolders'];
+           }
+           foreach ($this->_propDict['childFolders'] as $singleValue) {
+              $childFolders []= new MailFolder($singleValue);
+           }
+           $this->_propDict['childFolders'] = $childFolders;
+           return $this->_propDict['childFolders'];
         }
         return null;
     }
@@ -274,15 +274,15 @@ class MailFolder extends Entity
     public function getMessageRules()
     {
         if (array_key_exists('messageRules', $this->_propDict) && !is_null($this->_propDict['messageRules'])) {
-            $messageRules = [];
-            if (count($this->_propDict['messageRules']) > 0 && is_a($this->_propDict['messageRules'][0], 'MessageRule')) {
-                return $this->_propDict['messageRules'];
-            }
-            foreach ($this->_propDict['messageRules'] as $singleValue) {
-                $messageRules []= new MessageRule($singleValue);
-            }
-            $this->_propDict['messageRules'] = $messageRules;
-            return $this->_propDict['messageRules'];
+           $messageRules = [];
+           if (count($this->_propDict['messageRules']) > 0 && is_a($this->_propDict['messageRules'][0], 'MessageRule')) {
+              return $this->_propDict['messageRules'];
+           }
+           foreach ($this->_propDict['messageRules'] as $singleValue) {
+              $messageRules []= new MessageRule($singleValue);
+           }
+           $this->_propDict['messageRules'] = $messageRules;
+           return $this->_propDict['messageRules'];
         }
         return null;
     }
@@ -311,15 +311,15 @@ class MailFolder extends Entity
     public function getMessages()
     {
         if (array_key_exists('messages', $this->_propDict) && !is_null($this->_propDict['messages'])) {
-            $messages = [];
-            if (count($this->_propDict['messages']) > 0 && is_a($this->_propDict['messages'][0], 'Message')) {
-                return $this->_propDict['messages'];
-            }
-            foreach ($this->_propDict['messages'] as $singleValue) {
-                $messages []= new Message($singleValue);
-            }
-            $this->_propDict['messages'] = $messages;
-            return $this->_propDict['messages'];
+           $messages = [];
+           if (count($this->_propDict['messages']) > 0 && is_a($this->_propDict['messages'][0], 'Message')) {
+              return $this->_propDict['messages'];
+           }
+           foreach ($this->_propDict['messages'] as $singleValue) {
+              $messages []= new Message($singleValue);
+           }
+           $this->_propDict['messages'] = $messages;
+           return $this->_propDict['messages'];
         }
         return null;
     }
@@ -348,15 +348,15 @@ class MailFolder extends Entity
     public function getMultiValueExtendedProperties()
     {
         if (array_key_exists('multiValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['multiValueExtendedProperties'])) {
-            $multiValueExtendedProperties = [];
-            if (count($this->_propDict['multiValueExtendedProperties']) > 0 && is_a($this->_propDict['multiValueExtendedProperties'][0], 'MultiValueLegacyExtendedProperty')) {
-                return $this->_propDict['multiValueExtendedProperties'];
-            }
-            foreach ($this->_propDict['multiValueExtendedProperties'] as $singleValue) {
-                $multiValueExtendedProperties []= new MultiValueLegacyExtendedProperty($singleValue);
-            }
-            $this->_propDict['multiValueExtendedProperties'] = $multiValueExtendedProperties;
-            return $this->_propDict['multiValueExtendedProperties'];
+           $multiValueExtendedProperties = [];
+           if (count($this->_propDict['multiValueExtendedProperties']) > 0 && is_a($this->_propDict['multiValueExtendedProperties'][0], 'MultiValueLegacyExtendedProperty')) {
+              return $this->_propDict['multiValueExtendedProperties'];
+           }
+           foreach ($this->_propDict['multiValueExtendedProperties'] as $singleValue) {
+              $multiValueExtendedProperties []= new MultiValueLegacyExtendedProperty($singleValue);
+           }
+           $this->_propDict['multiValueExtendedProperties'] = $multiValueExtendedProperties;
+           return $this->_propDict['multiValueExtendedProperties'];
         }
         return null;
     }
@@ -385,15 +385,15 @@ class MailFolder extends Entity
     public function getSingleValueExtendedProperties()
     {
         if (array_key_exists('singleValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['singleValueExtendedProperties'])) {
-            $singleValueExtendedProperties = [];
-            if (count($this->_propDict['singleValueExtendedProperties']) > 0 && is_a($this->_propDict['singleValueExtendedProperties'][0], 'SingleValueLegacyExtendedProperty')) {
-                return $this->_propDict['singleValueExtendedProperties'];
-            }
-            foreach ($this->_propDict['singleValueExtendedProperties'] as $singleValue) {
-                $singleValueExtendedProperties []= new SingleValueLegacyExtendedProperty($singleValue);
-            }
-            $this->_propDict['singleValueExtendedProperties'] = $singleValueExtendedProperties;
-            return $this->_propDict['singleValueExtendedProperties'];
+           $singleValueExtendedProperties = [];
+           if (count($this->_propDict['singleValueExtendedProperties']) > 0 && is_a($this->_propDict['singleValueExtendedProperties'][0], 'SingleValueLegacyExtendedProperty')) {
+              return $this->_propDict['singleValueExtendedProperties'];
+           }
+           foreach ($this->_propDict['singleValueExtendedProperties'] as $singleValue) {
+              $singleValueExtendedProperties []= new SingleValueLegacyExtendedProperty($singleValue);
+           }
+           $this->_propDict['singleValueExtendedProperties'] = $singleValueExtendedProperties;
+           return $this->_propDict['singleValueExtendedProperties'];
         }
         return null;
     }
@@ -421,15 +421,15 @@ class MailFolder extends Entity
     public function getUserConfigurations()
     {
         if (array_key_exists('userConfigurations', $this->_propDict) && !is_null($this->_propDict['userConfigurations'])) {
-            $userConfigurations = [];
-            if (count($this->_propDict['userConfigurations']) > 0 && is_a($this->_propDict['userConfigurations'][0], 'UserConfiguration')) {
-                return $this->_propDict['userConfigurations'];
-            }
-            foreach ($this->_propDict['userConfigurations'] as $singleValue) {
-                $userConfigurations []= new UserConfiguration($singleValue);
-            }
-            $this->_propDict['userConfigurations'] = $userConfigurations;
-            return $this->_propDict['userConfigurations'];
+           $userConfigurations = [];
+           if (count($this->_propDict['userConfigurations']) > 0 && is_a($this->_propDict['userConfigurations'][0], 'UserConfiguration')) {
+              return $this->_propDict['userConfigurations'];
+           }
+           foreach ($this->_propDict['userConfigurations'] as $singleValue) {
+              $userConfigurations []= new UserConfiguration($singleValue);
+           }
+           $this->_propDict['userConfigurations'] = $userConfigurations;
+           return $this->_propDict['userConfigurations'];
         }
         return null;
     }

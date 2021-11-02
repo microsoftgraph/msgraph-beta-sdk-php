@@ -34,15 +34,15 @@ class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCat
     public function getRecommendedSettings()
     {
         if (array_key_exists('recommendedSettings', $this->_propDict) && !is_null($this->_propDict['recommendedSettings'])) {
-            $recommendedSettings = [];
-            if (count($this->_propDict['recommendedSettings']) > 0 && is_a($this->_propDict['recommendedSettings'][0], 'DeviceManagementSettingInstance')) {
-                return $this->_propDict['recommendedSettings'];
-            }
-            foreach ($this->_propDict['recommendedSettings'] as $singleValue) {
-                $recommendedSettings []= new DeviceManagementSettingInstance($singleValue);
-            }
-            $this->_propDict['recommendedSettings'] = $recommendedSettings;
-            return $this->_propDict['recommendedSettings'];
+           $recommendedSettings = [];
+           if (count($this->_propDict['recommendedSettings']) > 0 && is_a($this->_propDict['recommendedSettings'][0], 'DeviceManagementSettingInstance')) {
+              return $this->_propDict['recommendedSettings'];
+           }
+           foreach ($this->_propDict['recommendedSettings'] as $singleValue) {
+              $recommendedSettings []= new DeviceManagementSettingInstance($singleValue);
+           }
+           $this->_propDict['recommendedSettings'] = $recommendedSettings;
+           return $this->_propDict['recommendedSettings'];
         }
         return null;
     }

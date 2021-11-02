@@ -34,15 +34,15 @@ class ManagementCondition extends Entity
     public function getApplicablePlatforms()
     {
         if (array_key_exists('applicablePlatforms', $this->_propDict) && !is_null($this->_propDict['applicablePlatforms'])) {
-            $applicablePlatforms = [];
-            if (count($this->_propDict['applicablePlatforms']) > 0 && is_a($this->_propDict['applicablePlatforms'][0], 'DevicePlatformType')) {
-                return $this->_propDict['applicablePlatforms'];
-            }
-            foreach ($this->_propDict['applicablePlatforms'] as $singleValue) {
-                $applicablePlatforms []= new DevicePlatformType($singleValue);
-            }
-            $this->_propDict['applicablePlatforms'] = $applicablePlatforms;
-            return $this->_propDict['applicablePlatforms'];
+           $applicablePlatforms = [];
+           if (count($this->_propDict['applicablePlatforms']) > 0 && is_a($this->_propDict['applicablePlatforms'][0], 'DevicePlatformType')) {
+              return $this->_propDict['applicablePlatforms'];
+           }
+           foreach ($this->_propDict['applicablePlatforms'] as $singleValue) {
+              $applicablePlatforms []= new DevicePlatformType($singleValue);
+           }
+           $this->_propDict['applicablePlatforms'] = $applicablePlatforms;
+           return $this->_propDict['applicablePlatforms'];
         }
         return null;
     }
@@ -253,15 +253,15 @@ class ManagementCondition extends Entity
     public function getManagementConditionStatements()
     {
         if (array_key_exists('managementConditionStatements', $this->_propDict) && !is_null($this->_propDict['managementConditionStatements'])) {
-            $managementConditionStatements = [];
-            if (count($this->_propDict['managementConditionStatements']) > 0 && is_a($this->_propDict['managementConditionStatements'][0], 'ManagementConditionStatement')) {
-                return $this->_propDict['managementConditionStatements'];
-            }
-            foreach ($this->_propDict['managementConditionStatements'] as $singleValue) {
-                $managementConditionStatements []= new ManagementConditionStatement($singleValue);
-            }
-            $this->_propDict['managementConditionStatements'] = $managementConditionStatements;
-            return $this->_propDict['managementConditionStatements'];
+           $managementConditionStatements = [];
+           if (count($this->_propDict['managementConditionStatements']) > 0 && is_a($this->_propDict['managementConditionStatements'][0], 'ManagementConditionStatement')) {
+              return $this->_propDict['managementConditionStatements'];
+           }
+           foreach ($this->_propDict['managementConditionStatements'] as $singleValue) {
+              $managementConditionStatements []= new ManagementConditionStatement($singleValue);
+           }
+           $this->_propDict['managementConditionStatements'] = $managementConditionStatements;
+           return $this->_propDict['managementConditionStatements'];
         }
         return null;
     }

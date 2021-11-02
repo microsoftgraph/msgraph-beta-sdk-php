@@ -67,15 +67,15 @@ class Win32LobApp extends MobileLobApp
     public function getDetectionRules()
     {
         if (array_key_exists('detectionRules', $this->_propDict) && !is_null($this->_propDict['detectionRules'])) {
-            $detectionRules = [];
-            if (count($this->_propDict['detectionRules']) > 0 && is_a($this->_propDict['detectionRules'][0], 'Win32LobAppDetection')) {
-                return $this->_propDict['detectionRules'];
-            }
-            foreach ($this->_propDict['detectionRules'] as $singleValue) {
-                $detectionRules []= new Win32LobAppDetection($singleValue);
-            }
-            $this->_propDict['detectionRules'] = $detectionRules;
-            return $this->_propDict['detectionRules'];
+           $detectionRules = [];
+           if (count($this->_propDict['detectionRules']) > 0 && is_a($this->_propDict['detectionRules'][0], 'Win32LobAppDetection')) {
+              return $this->_propDict['detectionRules'];
+           }
+           foreach ($this->_propDict['detectionRules'] as $singleValue) {
+              $detectionRules []= new Win32LobAppDetection($singleValue);
+           }
+           $this->_propDict['detectionRules'] = $detectionRules;
+           return $this->_propDict['detectionRules'];
         }
         return null;
     }
@@ -406,15 +406,15 @@ class Win32LobApp extends MobileLobApp
     public function getRequirementRules()
     {
         if (array_key_exists('requirementRules', $this->_propDict) && !is_null($this->_propDict['requirementRules'])) {
-            $requirementRules = [];
-            if (count($this->_propDict['requirementRules']) > 0 && is_a($this->_propDict['requirementRules'][0], 'Win32LobAppRequirement')) {
-                return $this->_propDict['requirementRules'];
-            }
-            foreach ($this->_propDict['requirementRules'] as $singleValue) {
-                $requirementRules []= new Win32LobAppRequirement($singleValue);
-            }
-            $this->_propDict['requirementRules'] = $requirementRules;
-            return $this->_propDict['requirementRules'];
+           $requirementRules = [];
+           if (count($this->_propDict['requirementRules']) > 0 && is_a($this->_propDict['requirementRules'][0], 'Win32LobAppRequirement')) {
+              return $this->_propDict['requirementRules'];
+           }
+           foreach ($this->_propDict['requirementRules'] as $singleValue) {
+              $requirementRules []= new Win32LobAppRequirement($singleValue);
+           }
+           $this->_propDict['requirementRules'] = $requirementRules;
+           return $this->_propDict['requirementRules'];
         }
         return null;
     }
@@ -443,15 +443,15 @@ class Win32LobApp extends MobileLobApp
     public function getReturnCodes()
     {
         if (array_key_exists('returnCodes', $this->_propDict) && !is_null($this->_propDict['returnCodes'])) {
-            $returnCodes = [];
-            if (count($this->_propDict['returnCodes']) > 0 && is_a($this->_propDict['returnCodes'][0], 'Win32LobAppReturnCode')) {
-                return $this->_propDict['returnCodes'];
-            }
-            foreach ($this->_propDict['returnCodes'] as $singleValue) {
-                $returnCodes []= new Win32LobAppReturnCode($singleValue);
-            }
-            $this->_propDict['returnCodes'] = $returnCodes;
-            return $this->_propDict['returnCodes'];
+           $returnCodes = [];
+           if (count($this->_propDict['returnCodes']) > 0 && is_a($this->_propDict['returnCodes'][0], 'Win32LobAppReturnCode')) {
+              return $this->_propDict['returnCodes'];
+           }
+           foreach ($this->_propDict['returnCodes'] as $singleValue) {
+              $returnCodes []= new Win32LobAppReturnCode($singleValue);
+           }
+           $this->_propDict['returnCodes'] = $returnCodes;
+           return $this->_propDict['returnCodes'];
         }
         return null;
     }
@@ -480,15 +480,15 @@ class Win32LobApp extends MobileLobApp
     public function getRules()
     {
         if (array_key_exists('rules', $this->_propDict) && !is_null($this->_propDict['rules'])) {
-            $rules = [];
-            if (count($this->_propDict['rules']) > 0 && is_a($this->_propDict['rules'][0], 'Win32LobAppRule')) {
-                return $this->_propDict['rules'];
-            }
-            foreach ($this->_propDict['rules'] as $singleValue) {
-                $rules []= new Win32LobAppRule($singleValue);
-            }
-            $this->_propDict['rules'] = $rules;
-            return $this->_propDict['rules'];
+           $rules = [];
+           if (count($this->_propDict['rules']) > 0 && is_a($this->_propDict['rules'][0], 'Win32LobAppRule')) {
+              return $this->_propDict['rules'];
+           }
+           foreach ($this->_propDict['rules'] as $singleValue) {
+              $rules []= new Win32LobAppRule($singleValue);
+           }
+           $this->_propDict['rules'] = $rules;
+           return $this->_propDict['rules'];
         }
         return null;
     }

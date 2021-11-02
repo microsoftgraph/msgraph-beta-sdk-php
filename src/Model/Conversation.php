@@ -183,15 +183,15 @@ class Conversation extends Entity
     public function getThreads()
     {
         if (array_key_exists('threads', $this->_propDict) && !is_null($this->_propDict['threads'])) {
-            $threads = [];
-            if (count($this->_propDict['threads']) > 0 && is_a($this->_propDict['threads'][0], 'ConversationThread')) {
-                return $this->_propDict['threads'];
-            }
-            foreach ($this->_propDict['threads'] as $singleValue) {
-                $threads []= new ConversationThread($singleValue);
-            }
-            $this->_propDict['threads'] = $threads;
-            return $this->_propDict['threads'];
+           $threads = [];
+           if (count($this->_propDict['threads']) > 0 && is_a($this->_propDict['threads'][0], 'ConversationThread')) {
+              return $this->_propDict['threads'];
+           }
+           foreach ($this->_propDict['threads'] as $singleValue) {
+              $threads []= new ConversationThread($singleValue);
+           }
+           $this->_propDict['threads'] = $threads;
+           return $this->_propDict['threads'];
         }
         return null;
     }

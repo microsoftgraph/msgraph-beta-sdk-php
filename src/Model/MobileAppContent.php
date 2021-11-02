@@ -34,15 +34,15 @@ class MobileAppContent extends Entity
     public function getContainedApps()
     {
         if (array_key_exists('containedApps', $this->_propDict) && !is_null($this->_propDict['containedApps'])) {
-            $containedApps = [];
-            if (count($this->_propDict['containedApps']) > 0 && is_a($this->_propDict['containedApps'][0], 'MobileContainedApp')) {
-                return $this->_propDict['containedApps'];
-            }
-            foreach ($this->_propDict['containedApps'] as $singleValue) {
-                $containedApps []= new MobileContainedApp($singleValue);
-            }
-            $this->_propDict['containedApps'] = $containedApps;
-            return $this->_propDict['containedApps'];
+           $containedApps = [];
+           if (count($this->_propDict['containedApps']) > 0 && is_a($this->_propDict['containedApps'][0], 'MobileContainedApp')) {
+              return $this->_propDict['containedApps'];
+           }
+           foreach ($this->_propDict['containedApps'] as $singleValue) {
+              $containedApps []= new MobileContainedApp($singleValue);
+           }
+           $this->_propDict['containedApps'] = $containedApps;
+           return $this->_propDict['containedApps'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class MobileAppContent extends Entity
     public function getFiles()
     {
         if (array_key_exists('files', $this->_propDict) && !is_null($this->_propDict['files'])) {
-            $files = [];
-            if (count($this->_propDict['files']) > 0 && is_a($this->_propDict['files'][0], 'MobileAppContentFile')) {
-                return $this->_propDict['files'];
-            }
-            foreach ($this->_propDict['files'] as $singleValue) {
-                $files []= new MobileAppContentFile($singleValue);
-            }
-            $this->_propDict['files'] = $files;
-            return $this->_propDict['files'];
+           $files = [];
+           if (count($this->_propDict['files']) > 0 && is_a($this->_propDict['files'][0], 'MobileAppContentFile')) {
+              return $this->_propDict['files'];
+           }
+           foreach ($this->_propDict['files'] as $singleValue) {
+              $files []= new MobileAppContentFile($singleValue);
+           }
+           $this->_propDict['files'] = $files;
+           return $this->_propDict['files'];
         }
         return null;
     }

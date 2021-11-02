@@ -67,15 +67,15 @@ class AndroidForWorkAppConfigurationSchema extends Entity
     public function getSchemaItems()
     {
         if (array_key_exists('schemaItems', $this->_propDict) && !is_null($this->_propDict['schemaItems'])) {
-            $schemaItems = [];
-            if (count($this->_propDict['schemaItems']) > 0 && is_a($this->_propDict['schemaItems'][0], 'AndroidForWorkAppConfigurationSchemaItem')) {
-                return $this->_propDict['schemaItems'];
-            }
-            foreach ($this->_propDict['schemaItems'] as $singleValue) {
-                $schemaItems []= new AndroidForWorkAppConfigurationSchemaItem($singleValue);
-            }
-            $this->_propDict['schemaItems'] = $schemaItems;
-            return $this->_propDict['schemaItems'];
+           $schemaItems = [];
+           if (count($this->_propDict['schemaItems']) > 0 && is_a($this->_propDict['schemaItems'][0], 'AndroidForWorkAppConfigurationSchemaItem')) {
+              return $this->_propDict['schemaItems'];
+           }
+           foreach ($this->_propDict['schemaItems'] as $singleValue) {
+              $schemaItems []= new AndroidForWorkAppConfigurationSchemaItem($singleValue);
+           }
+           $this->_propDict['schemaItems'] = $schemaItems;
+           return $this->_propDict['schemaItems'];
         }
         return null;
     }

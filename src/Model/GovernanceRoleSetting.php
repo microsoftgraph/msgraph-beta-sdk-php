@@ -34,15 +34,15 @@ class GovernanceRoleSetting extends Entity
     public function getAdminEligibleSettings()
     {
         if (array_key_exists('adminEligibleSettings', $this->_propDict) && !is_null($this->_propDict['adminEligibleSettings'])) {
-            $adminEligibleSettings = [];
-            if (count($this->_propDict['adminEligibleSettings']) > 0 && is_a($this->_propDict['adminEligibleSettings'][0], 'GovernanceRuleSetting')) {
-                return $this->_propDict['adminEligibleSettings'];
-            }
-            foreach ($this->_propDict['adminEligibleSettings'] as $singleValue) {
-                $adminEligibleSettings []= new GovernanceRuleSetting($singleValue);
-            }
-            $this->_propDict['adminEligibleSettings'] = $adminEligibleSettings;
-            return $this->_propDict['adminEligibleSettings'];
+           $adminEligibleSettings = [];
+           if (count($this->_propDict['adminEligibleSettings']) > 0 && is_a($this->_propDict['adminEligibleSettings'][0], 'GovernanceRuleSetting')) {
+              return $this->_propDict['adminEligibleSettings'];
+           }
+           foreach ($this->_propDict['adminEligibleSettings'] as $singleValue) {
+              $adminEligibleSettings []= new GovernanceRuleSetting($singleValue);
+           }
+           $this->_propDict['adminEligibleSettings'] = $adminEligibleSettings;
+           return $this->_propDict['adminEligibleSettings'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class GovernanceRoleSetting extends Entity
     public function getAdminMemberSettings()
     {
         if (array_key_exists('adminMemberSettings', $this->_propDict) && !is_null($this->_propDict['adminMemberSettings'])) {
-            $adminMemberSettings = [];
-            if (count($this->_propDict['adminMemberSettings']) > 0 && is_a($this->_propDict['adminMemberSettings'][0], 'GovernanceRuleSetting')) {
-                return $this->_propDict['adminMemberSettings'];
-            }
-            foreach ($this->_propDict['adminMemberSettings'] as $singleValue) {
-                $adminMemberSettings []= new GovernanceRuleSetting($singleValue);
-            }
-            $this->_propDict['adminMemberSettings'] = $adminMemberSettings;
-            return $this->_propDict['adminMemberSettings'];
+           $adminMemberSettings = [];
+           if (count($this->_propDict['adminMemberSettings']) > 0 && is_a($this->_propDict['adminMemberSettings'][0], 'GovernanceRuleSetting')) {
+              return $this->_propDict['adminMemberSettings'];
+           }
+           foreach ($this->_propDict['adminMemberSettings'] as $singleValue) {
+              $adminMemberSettings []= new GovernanceRuleSetting($singleValue);
+           }
+           $this->_propDict['adminMemberSettings'] = $adminMemberSettings;
+           return $this->_propDict['adminMemberSettings'];
         }
         return null;
     }
@@ -257,15 +257,15 @@ class GovernanceRoleSetting extends Entity
     public function getUserEligibleSettings()
     {
         if (array_key_exists('userEligibleSettings', $this->_propDict) && !is_null($this->_propDict['userEligibleSettings'])) {
-            $userEligibleSettings = [];
-            if (count($this->_propDict['userEligibleSettings']) > 0 && is_a($this->_propDict['userEligibleSettings'][0], 'GovernanceRuleSetting')) {
-                return $this->_propDict['userEligibleSettings'];
-            }
-            foreach ($this->_propDict['userEligibleSettings'] as $singleValue) {
-                $userEligibleSettings []= new GovernanceRuleSetting($singleValue);
-            }
-            $this->_propDict['userEligibleSettings'] = $userEligibleSettings;
-            return $this->_propDict['userEligibleSettings'];
+           $userEligibleSettings = [];
+           if (count($this->_propDict['userEligibleSettings']) > 0 && is_a($this->_propDict['userEligibleSettings'][0], 'GovernanceRuleSetting')) {
+              return $this->_propDict['userEligibleSettings'];
+           }
+           foreach ($this->_propDict['userEligibleSettings'] as $singleValue) {
+              $userEligibleSettings []= new GovernanceRuleSetting($singleValue);
+           }
+           $this->_propDict['userEligibleSettings'] = $userEligibleSettings;
+           return $this->_propDict['userEligibleSettings'];
         }
         return null;
     }
@@ -294,15 +294,15 @@ class GovernanceRoleSetting extends Entity
     public function getUserMemberSettings()
     {
         if (array_key_exists('userMemberSettings', $this->_propDict) && !is_null($this->_propDict['userMemberSettings'])) {
-            $userMemberSettings = [];
-            if (count($this->_propDict['userMemberSettings']) > 0 && is_a($this->_propDict['userMemberSettings'][0], 'GovernanceRuleSetting')) {
-                return $this->_propDict['userMemberSettings'];
-            }
-            foreach ($this->_propDict['userMemberSettings'] as $singleValue) {
-                $userMemberSettings []= new GovernanceRuleSetting($singleValue);
-            }
-            $this->_propDict['userMemberSettings'] = $userMemberSettings;
-            return $this->_propDict['userMemberSettings'];
+           $userMemberSettings = [];
+           if (count($this->_propDict['userMemberSettings']) > 0 && is_a($this->_propDict['userMemberSettings'][0], 'GovernanceRuleSetting')) {
+              return $this->_propDict['userMemberSettings'];
+           }
+           foreach ($this->_propDict['userMemberSettings'] as $singleValue) {
+              $userMemberSettings []= new GovernanceRuleSetting($singleValue);
+           }
+           $this->_propDict['userMemberSettings'] = $userMemberSettings;
+           return $this->_propDict['userMemberSettings'];
         }
         return null;
     }

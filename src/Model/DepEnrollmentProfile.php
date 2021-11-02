@@ -357,15 +357,15 @@ class DepEnrollmentProfile extends EnrollmentProfile
     public function getManagementCertificates()
     {
         if (array_key_exists('managementCertificates', $this->_propDict) && !is_null($this->_propDict['managementCertificates'])) {
-            $managementCertificates = [];
-            if (count($this->_propDict['managementCertificates']) > 0 && is_a($this->_propDict['managementCertificates'][0], 'ManagementCertificateWithThumbprint')) {
-                return $this->_propDict['managementCertificates'];
-            }
-            foreach ($this->_propDict['managementCertificates'] as $singleValue) {
-                $managementCertificates []= new ManagementCertificateWithThumbprint($singleValue);
-            }
-            $this->_propDict['managementCertificates'] = $managementCertificates;
-            return $this->_propDict['managementCertificates'];
+           $managementCertificates = [];
+           if (count($this->_propDict['managementCertificates']) > 0 && is_a($this->_propDict['managementCertificates'][0], 'ManagementCertificateWithThumbprint')) {
+              return $this->_propDict['managementCertificates'];
+           }
+           foreach ($this->_propDict['managementCertificates'] as $singleValue) {
+              $managementCertificates []= new ManagementCertificateWithThumbprint($singleValue);
+           }
+           $this->_propDict['managementCertificates'] = $managementCertificates;
+           return $this->_propDict['managementCertificates'];
         }
         return null;
     }

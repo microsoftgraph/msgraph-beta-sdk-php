@@ -34,15 +34,15 @@ class DeviceManagementSettingDefinition extends Entity
     public function getConstraints()
     {
         if (array_key_exists('constraints', $this->_propDict) && !is_null($this->_propDict['constraints'])) {
-            $constraints = [];
-            if (count($this->_propDict['constraints']) > 0 && is_a($this->_propDict['constraints'][0], 'DeviceManagementConstraint')) {
-                return $this->_propDict['constraints'];
-            }
-            foreach ($this->_propDict['constraints'] as $singleValue) {
-                $constraints []= new DeviceManagementConstraint($singleValue);
-            }
-            $this->_propDict['constraints'] = $constraints;
-            return $this->_propDict['constraints'];
+           $constraints = [];
+           if (count($this->_propDict['constraints']) > 0 && is_a($this->_propDict['constraints'][0], 'DeviceManagementConstraint')) {
+              return $this->_propDict['constraints'];
+           }
+           foreach ($this->_propDict['constraints'] as $singleValue) {
+              $constraints []= new DeviceManagementConstraint($singleValue);
+           }
+           $this->_propDict['constraints'] = $constraints;
+           return $this->_propDict['constraints'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class DeviceManagementSettingDefinition extends Entity
     public function getDependencies()
     {
         if (array_key_exists('dependencies', $this->_propDict) && !is_null($this->_propDict['dependencies'])) {
-            $dependencies = [];
-            if (count($this->_propDict['dependencies']) > 0 && is_a($this->_propDict['dependencies'][0], 'DeviceManagementSettingDependency')) {
-                return $this->_propDict['dependencies'];
-            }
-            foreach ($this->_propDict['dependencies'] as $singleValue) {
-                $dependencies []= new DeviceManagementSettingDependency($singleValue);
-            }
-            $this->_propDict['dependencies'] = $dependencies;
-            return $this->_propDict['dependencies'];
+           $dependencies = [];
+           if (count($this->_propDict['dependencies']) > 0 && is_a($this->_propDict['dependencies'][0], 'DeviceManagementSettingDependency')) {
+              return $this->_propDict['dependencies'];
+           }
+           foreach ($this->_propDict['dependencies'] as $singleValue) {
+              $dependencies []= new DeviceManagementSettingDependency($singleValue);
+           }
+           $this->_propDict['dependencies'] = $dependencies;
+           return $this->_propDict['dependencies'];
         }
         return null;
     }

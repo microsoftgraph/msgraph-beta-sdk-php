@@ -96,15 +96,15 @@ class DirectoryAudit extends Entity
     public function getAdditionalDetails()
     {
         if (array_key_exists('additionalDetails', $this->_propDict) && !is_null($this->_propDict['additionalDetails'])) {
-            $additionalDetails = [];
-            if (count($this->_propDict['additionalDetails']) > 0 && is_a($this->_propDict['additionalDetails'][0], 'KeyValue')) {
-                return $this->_propDict['additionalDetails'];
-            }
-            foreach ($this->_propDict['additionalDetails'] as $singleValue) {
-                $additionalDetails []= new KeyValue($singleValue);
-            }
-            $this->_propDict['additionalDetails'] = $additionalDetails;
-            return $this->_propDict['additionalDetails'];
+           $additionalDetails = [];
+           if (count($this->_propDict['additionalDetails']) > 0 && is_a($this->_propDict['additionalDetails'][0], 'KeyValue')) {
+              return $this->_propDict['additionalDetails'];
+           }
+           foreach ($this->_propDict['additionalDetails'] as $singleValue) {
+              $additionalDetails []= new KeyValue($singleValue);
+           }
+           $this->_propDict['additionalDetails'] = $additionalDetails;
+           return $this->_propDict['additionalDetails'];
         }
         return null;
     }
@@ -342,15 +342,15 @@ class DirectoryAudit extends Entity
     public function getTargetResources()
     {
         if (array_key_exists('targetResources', $this->_propDict) && !is_null($this->_propDict['targetResources'])) {
-            $targetResources = [];
-            if (count($this->_propDict['targetResources']) > 0 && is_a($this->_propDict['targetResources'][0], 'TargetResource')) {
-                return $this->_propDict['targetResources'];
-            }
-            foreach ($this->_propDict['targetResources'] as $singleValue) {
-                $targetResources []= new TargetResource($singleValue);
-            }
-            $this->_propDict['targetResources'] = $targetResources;
-            return $this->_propDict['targetResources'];
+           $targetResources = [];
+           if (count($this->_propDict['targetResources']) > 0 && is_a($this->_propDict['targetResources'][0], 'TargetResource')) {
+              return $this->_propDict['targetResources'];
+           }
+           foreach ($this->_propDict['targetResources'] as $singleValue) {
+              $targetResources []= new TargetResource($singleValue);
+           }
+           $this->_propDict['targetResources'] = $targetResources;
+           return $this->_propDict['targetResources'];
         }
         return null;
     }
@@ -366,6 +366,33 @@ class DirectoryAudit extends Entity
     public function setTargetResources($val)
     {
         $this->_propDict["targetResources"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the userAgent
+    *
+    * @return string|null The userAgent
+    */
+    public function getUserAgent()
+    {
+        if (array_key_exists("userAgent", $this->_propDict)) {
+            return $this->_propDict["userAgent"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the userAgent
+    *
+    * @param string $val The userAgent
+    *
+    * @return DirectoryAudit
+    */
+    public function setUserAgent($val)
+    {
+        $this->_propDict["userAgent"] = $val;
         return $this;
     }
     

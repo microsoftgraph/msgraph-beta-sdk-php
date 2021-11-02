@@ -634,15 +634,15 @@ class WindowsProtectionState extends Entity
     public function getDetectedMalwareState()
     {
         if (array_key_exists('detectedMalwareState', $this->_propDict) && !is_null($this->_propDict['detectedMalwareState'])) {
-            $detectedMalwareState = [];
-            if (count($this->_propDict['detectedMalwareState']) > 0 && is_a($this->_propDict['detectedMalwareState'][0], 'WindowsDeviceMalwareState')) {
-                return $this->_propDict['detectedMalwareState'];
-            }
-            foreach ($this->_propDict['detectedMalwareState'] as $singleValue) {
-                $detectedMalwareState []= new WindowsDeviceMalwareState($singleValue);
-            }
-            $this->_propDict['detectedMalwareState'] = $detectedMalwareState;
-            return $this->_propDict['detectedMalwareState'];
+           $detectedMalwareState = [];
+           if (count($this->_propDict['detectedMalwareState']) > 0 && is_a($this->_propDict['detectedMalwareState'][0], 'WindowsDeviceMalwareState')) {
+              return $this->_propDict['detectedMalwareState'];
+           }
+           foreach ($this->_propDict['detectedMalwareState'] as $singleValue) {
+              $detectedMalwareState []= new WindowsDeviceMalwareState($singleValue);
+           }
+           $this->_propDict['detectedMalwareState'] = $detectedMalwareState;
+           return $this->_propDict['detectedMalwareState'];
         }
         return null;
     }

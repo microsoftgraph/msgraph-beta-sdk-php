@@ -34,15 +34,15 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity
     public function getAccessRules()
     {
         if (array_key_exists('accessRules', $this->_propDict) && !is_null($this->_propDict['accessRules'])) {
-            $accessRules = [];
-            if (count($this->_propDict['accessRules']) > 0 && is_a($this->_propDict['accessRules'][0], 'DeviceManagementExchangeAccessRule')) {
-                return $this->_propDict['accessRules'];
-            }
-            foreach ($this->_propDict['accessRules'] as $singleValue) {
-                $accessRules []= new DeviceManagementExchangeAccessRule($singleValue);
-            }
-            $this->_propDict['accessRules'] = $accessRules;
-            return $this->_propDict['accessRules'];
+           $accessRules = [];
+           if (count($this->_propDict['accessRules']) > 0 && is_a($this->_propDict['accessRules'][0], 'DeviceManagementExchangeAccessRule')) {
+              return $this->_propDict['accessRules'];
+           }
+           foreach ($this->_propDict['accessRules'] as $singleValue) {
+              $accessRules []= new DeviceManagementExchangeAccessRule($singleValue);
+           }
+           $this->_propDict['accessRules'] = $accessRules;
+           return $this->_propDict['accessRules'];
         }
         return null;
     }
@@ -104,15 +104,15 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity
     public function getKnownDeviceClasses()
     {
         if (array_key_exists('knownDeviceClasses', $this->_propDict) && !is_null($this->_propDict['knownDeviceClasses'])) {
-            $knownDeviceClasses = [];
-            if (count($this->_propDict['knownDeviceClasses']) > 0 && is_a($this->_propDict['knownDeviceClasses'][0], 'DeviceManagementExchangeDeviceClass')) {
-                return $this->_propDict['knownDeviceClasses'];
-            }
-            foreach ($this->_propDict['knownDeviceClasses'] as $singleValue) {
-                $knownDeviceClasses []= new DeviceManagementExchangeDeviceClass($singleValue);
-            }
-            $this->_propDict['knownDeviceClasses'] = $knownDeviceClasses;
-            return $this->_propDict['knownDeviceClasses'];
+           $knownDeviceClasses = [];
+           if (count($this->_propDict['knownDeviceClasses']) > 0 && is_a($this->_propDict['knownDeviceClasses'][0], 'DeviceManagementExchangeDeviceClass')) {
+              return $this->_propDict['knownDeviceClasses'];
+           }
+           foreach ($this->_propDict['knownDeviceClasses'] as $singleValue) {
+              $knownDeviceClasses []= new DeviceManagementExchangeDeviceClass($singleValue);
+           }
+           $this->_propDict['knownDeviceClasses'] = $knownDeviceClasses;
+           return $this->_propDict['knownDeviceClasses'];
         }
         return null;
     }

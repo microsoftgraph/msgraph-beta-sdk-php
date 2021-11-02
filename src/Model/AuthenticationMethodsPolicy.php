@@ -214,15 +214,15 @@ class AuthenticationMethodsPolicy extends Entity
     public function getAuthenticationMethodConfigurations()
     {
         if (array_key_exists('authenticationMethodConfigurations', $this->_propDict) && !is_null($this->_propDict['authenticationMethodConfigurations'])) {
-            $authenticationMethodConfigurations = [];
-            if (count($this->_propDict['authenticationMethodConfigurations']) > 0 && is_a($this->_propDict['authenticationMethodConfigurations'][0], 'AuthenticationMethodConfiguration')) {
-                return $this->_propDict['authenticationMethodConfigurations'];
-            }
-            foreach ($this->_propDict['authenticationMethodConfigurations'] as $singleValue) {
-                $authenticationMethodConfigurations []= new AuthenticationMethodConfiguration($singleValue);
-            }
-            $this->_propDict['authenticationMethodConfigurations'] = $authenticationMethodConfigurations;
-            return $this->_propDict['authenticationMethodConfigurations'];
+           $authenticationMethodConfigurations = [];
+           if (count($this->_propDict['authenticationMethodConfigurations']) > 0 && is_a($this->_propDict['authenticationMethodConfigurations'][0], 'AuthenticationMethodConfiguration')) {
+              return $this->_propDict['authenticationMethodConfigurations'];
+           }
+           foreach ($this->_propDict['authenticationMethodConfigurations'] as $singleValue) {
+              $authenticationMethodConfigurations []= new AuthenticationMethodConfiguration($singleValue);
+           }
+           $this->_propDict['authenticationMethodConfigurations'] = $authenticationMethodConfigurations;
+           return $this->_propDict['authenticationMethodConfigurations'];
         }
         return null;
     }

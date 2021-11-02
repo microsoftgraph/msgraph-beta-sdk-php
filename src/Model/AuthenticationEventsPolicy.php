@@ -34,15 +34,15 @@ class AuthenticationEventsPolicy extends Entity
     public function getOnSignupStart()
     {
         if (array_key_exists('onSignupStart', $this->_propDict) && !is_null($this->_propDict['onSignupStart'])) {
-            $onSignupStart = [];
-            if (count($this->_propDict['onSignupStart']) > 0 && is_a($this->_propDict['onSignupStart'][0], 'AuthenticationListener')) {
-                return $this->_propDict['onSignupStart'];
-            }
-            foreach ($this->_propDict['onSignupStart'] as $singleValue) {
-                $onSignupStart []= new AuthenticationListener($singleValue);
-            }
-            $this->_propDict['onSignupStart'] = $onSignupStart;
-            return $this->_propDict['onSignupStart'];
+           $onSignupStart = [];
+           if (count($this->_propDict['onSignupStart']) > 0 && is_a($this->_propDict['onSignupStart'][0], 'AuthenticationListener')) {
+              return $this->_propDict['onSignupStart'];
+           }
+           foreach ($this->_propDict['onSignupStart'] as $singleValue) {
+              $onSignupStart []= new AuthenticationListener($singleValue);
+           }
+           $this->_propDict['onSignupStart'] = $onSignupStart;
+           return $this->_propDict['onSignupStart'];
         }
         return null;
     }

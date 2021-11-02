@@ -95,15 +95,15 @@ class SensitivityLabel extends Entity
     public function getAssignedPolicies()
     {
         if (array_key_exists('assignedPolicies', $this->_propDict) && !is_null($this->_propDict['assignedPolicies'])) {
-            $assignedPolicies = [];
-            if (count($this->_propDict['assignedPolicies']) > 0 && is_a($this->_propDict['assignedPolicies'][0], 'LabelPolicy')) {
-                return $this->_propDict['assignedPolicies'];
-            }
-            foreach ($this->_propDict['assignedPolicies'] as $singleValue) {
-                $assignedPolicies []= new LabelPolicy($singleValue);
-            }
-            $this->_propDict['assignedPolicies'] = $assignedPolicies;
-            return $this->_propDict['assignedPolicies'];
+           $assignedPolicies = [];
+           if (count($this->_propDict['assignedPolicies']) > 0 && is_a($this->_propDict['assignedPolicies'][0], 'LabelPolicy')) {
+              return $this->_propDict['assignedPolicies'];
+           }
+           foreach ($this->_propDict['assignedPolicies'] as $singleValue) {
+              $assignedPolicies []= new LabelPolicy($singleValue);
+           }
+           $this->_propDict['assignedPolicies'] = $assignedPolicies;
+           return $this->_propDict['assignedPolicies'];
         }
         return null;
     }
@@ -269,15 +269,15 @@ class SensitivityLabel extends Entity
     public function getLabelActions()
     {
         if (array_key_exists('labelActions', $this->_propDict) && !is_null($this->_propDict['labelActions'])) {
-            $labelActions = [];
-            if (count($this->_propDict['labelActions']) > 0 && is_a($this->_propDict['labelActions'][0], 'LabelActionBase')) {
-                return $this->_propDict['labelActions'];
-            }
-            foreach ($this->_propDict['labelActions'] as $singleValue) {
-                $labelActions []= new LabelActionBase($singleValue);
-            }
-            $this->_propDict['labelActions'] = $labelActions;
-            return $this->_propDict['labelActions'];
+           $labelActions = [];
+           if (count($this->_propDict['labelActions']) > 0 && is_a($this->_propDict['labelActions'][0], 'LabelActionBase')) {
+              return $this->_propDict['labelActions'];
+           }
+           foreach ($this->_propDict['labelActions'] as $singleValue) {
+              $labelActions []= new LabelActionBase($singleValue);
+           }
+           $this->_propDict['labelActions'] = $labelActions;
+           return $this->_propDict['labelActions'];
         }
         return null;
     }
@@ -385,15 +385,15 @@ class SensitivityLabel extends Entity
     public function getSublabels()
     {
         if (array_key_exists('sublabels', $this->_propDict) && !is_null($this->_propDict['sublabels'])) {
-            $sublabels = [];
-            if (count($this->_propDict['sublabels']) > 0 && is_a($this->_propDict['sublabels'][0], 'SensitivityLabel')) {
-                return $this->_propDict['sublabels'];
-            }
-            foreach ($this->_propDict['sublabels'] as $singleValue) {
-                $sublabels []= new SensitivityLabel($singleValue);
-            }
-            $this->_propDict['sublabels'] = $sublabels;
-            return $this->_propDict['sublabels'];
+           $sublabels = [];
+           if (count($this->_propDict['sublabels']) > 0 && is_a($this->_propDict['sublabels'][0], 'SensitivityLabel')) {
+              return $this->_propDict['sublabels'];
+           }
+           foreach ($this->_propDict['sublabels'] as $singleValue) {
+              $sublabels []= new SensitivityLabel($singleValue);
+           }
+           $this->_propDict['sublabels'] = $sublabels;
+           return $this->_propDict['sublabels'];
         }
         return null;
     }

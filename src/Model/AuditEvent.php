@@ -332,15 +332,15 @@ class AuditEvent extends Entity
     public function getResources()
     {
         if (array_key_exists('resources', $this->_propDict) && !is_null($this->_propDict['resources'])) {
-            $resources = [];
-            if (count($this->_propDict['resources']) > 0 && is_a($this->_propDict['resources'][0], 'AuditResource')) {
-                return $this->_propDict['resources'];
-            }
-            foreach ($this->_propDict['resources'] as $singleValue) {
-                $resources []= new AuditResource($singleValue);
-            }
-            $this->_propDict['resources'] = $resources;
-            return $this->_propDict['resources'];
+           $resources = [];
+           if (count($this->_propDict['resources']) > 0 && is_a($this->_propDict['resources'][0], 'AuditResource')) {
+              return $this->_propDict['resources'];
+           }
+           foreach ($this->_propDict['resources'] as $singleValue) {
+              $resources []= new AuditResource($singleValue);
+           }
+           $this->_propDict['resources'] = $resources;
+           return $this->_propDict['resources'];
         }
         return null;
     }

@@ -96,15 +96,15 @@ class WorkbookChartSeries extends Entity
     public function getPoints()
     {
         if (array_key_exists('points', $this->_propDict) && !is_null($this->_propDict['points'])) {
-            $points = [];
-            if (count($this->_propDict['points']) > 0 && is_a($this->_propDict['points'][0], 'WorkbookChartPoint')) {
-                return $this->_propDict['points'];
-            }
-            foreach ($this->_propDict['points'] as $singleValue) {
-                $points []= new WorkbookChartPoint($singleValue);
-            }
-            $this->_propDict['points'] = $points;
-            return $this->_propDict['points'];
+           $points = [];
+           if (count($this->_propDict['points']) > 0 && is_a($this->_propDict['points'][0], 'WorkbookChartPoint')) {
+              return $this->_propDict['points'];
+           }
+           foreach ($this->_propDict['points'] as $singleValue) {
+              $points []= new WorkbookChartPoint($singleValue);
+           }
+           $this->_propDict['points'] = $points;
+           return $this->_propDict['points'];
         }
         return null;
     }

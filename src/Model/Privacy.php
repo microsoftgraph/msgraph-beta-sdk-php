@@ -64,15 +64,15 @@ class Privacy implements \JsonSerializable
     public function getSubjectRightsRequests()
     {
         if (array_key_exists('subjectRightsRequests', $this->_propDict) && !is_null($this->_propDict['subjectRightsRequests'])) {
-            $subjectRightsRequests = [];
-            if (count($this->_propDict['subjectRightsRequests']) > 0 && is_a($this->_propDict['subjectRightsRequests'][0], 'SubjectRightsRequest')) {
-                return $this->_propDict['subjectRightsRequests'];
-            }
-            foreach ($this->_propDict['subjectRightsRequests'] as $singleValue) {
-                $subjectRightsRequests []= new SubjectRightsRequest($singleValue);
-            }
-            $this->_propDict['subjectRightsRequests'] = $subjectRightsRequests;
-            return $this->_propDict['subjectRightsRequests'];
+           $subjectRightsRequests = [];
+           if (count($this->_propDict['subjectRightsRequests']) > 0 && is_a($this->_propDict['subjectRightsRequests'][0], 'SubjectRightsRequest')) {
+              return $this->_propDict['subjectRightsRequests'];
+           }
+           foreach ($this->_propDict['subjectRightsRequests'] as $singleValue) {
+              $subjectRightsRequests []= new SubjectRightsRequest($singleValue);
+           }
+           $this->_propDict['subjectRightsRequests'] = $subjectRightsRequests;
+           return $this->_propDict['subjectRightsRequests'];
         }
         return null;
     }

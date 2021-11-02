@@ -216,15 +216,15 @@ class ServiceHealthIssue extends ServiceAnnouncementBase
     public function getPosts()
     {
         if (array_key_exists('posts', $this->_propDict) && !is_null($this->_propDict['posts'])) {
-            $posts = [];
-            if (count($this->_propDict['posts']) > 0 && is_a($this->_propDict['posts'][0], 'ServiceHealthIssuePost')) {
-                return $this->_propDict['posts'];
-            }
-            foreach ($this->_propDict['posts'] as $singleValue) {
-                $posts []= new ServiceHealthIssuePost($singleValue);
-            }
-            $this->_propDict['posts'] = $posts;
-            return $this->_propDict['posts'];
+           $posts = [];
+           if (count($this->_propDict['posts']) > 0 && is_a($this->_propDict['posts'][0], 'ServiceHealthIssuePost')) {
+              return $this->_propDict['posts'];
+           }
+           foreach ($this->_propDict['posts'] as $singleValue) {
+              $posts []= new ServiceHealthIssuePost($singleValue);
+           }
+           $this->_propDict['posts'] = $posts;
+           return $this->_propDict['posts'];
         }
         return null;
     }

@@ -92,15 +92,15 @@ class SchemaExtension extends Entity
     public function getSchemaExtensionProperties()
     {
         if (array_key_exists('properties', $this->_propDict) && !is_null($this->_propDict['properties'])) {
-            $properties = [];
-            if (count($this->_propDict['properties']) > 0 && is_a($this->_propDict['properties'][0], 'ExtensionSchemaProperty')) {
-                return $this->_propDict['properties'];
-            }
-            foreach ($this->_propDict['properties'] as $singleValue) {
-                $properties []= new ExtensionSchemaProperty($singleValue);
-            }
-            $this->_propDict['properties'] = $properties;
-            return $this->_propDict['properties'];
+           $properties = [];
+           if (count($this->_propDict['properties']) > 0 && is_a($this->_propDict['properties'][0], 'ExtensionSchemaProperty')) {
+              return $this->_propDict['properties'];
+           }
+           foreach ($this->_propDict['properties'] as $singleValue) {
+              $properties []= new ExtensionSchemaProperty($singleValue);
+           }
+           $this->_propDict['properties'] = $properties;
+           return $this->_propDict['properties'];
         }
         return null;
     }

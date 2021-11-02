@@ -34,15 +34,15 @@ class MeetingRegistrant extends Entity
     public function getCustomQuestionAnswers()
     {
         if (array_key_exists('customQuestionAnswers', $this->_propDict) && !is_null($this->_propDict['customQuestionAnswers'])) {
-            $customQuestionAnswers = [];
-            if (count($this->_propDict['customQuestionAnswers']) > 0 && is_a($this->_propDict['customQuestionAnswers'][0], 'CustomQuestionAnswer')) {
-                return $this->_propDict['customQuestionAnswers'];
-            }
-            foreach ($this->_propDict['customQuestionAnswers'] as $singleValue) {
-                $customQuestionAnswers []= new CustomQuestionAnswer($singleValue);
-            }
-            $this->_propDict['customQuestionAnswers'] = $customQuestionAnswers;
-            return $this->_propDict['customQuestionAnswers'];
+           $customQuestionAnswers = [];
+           if (count($this->_propDict['customQuestionAnswers']) > 0 && is_a($this->_propDict['customQuestionAnswers'][0], 'CustomQuestionAnswer')) {
+              return $this->_propDict['customQuestionAnswers'];
+           }
+           foreach ($this->_propDict['customQuestionAnswers'] as $singleValue) {
+              $customQuestionAnswers []= new CustomQuestionAnswer($singleValue);
+           }
+           $this->_propDict['customQuestionAnswers'] = $customQuestionAnswers;
+           return $this->_propDict['customQuestionAnswers'];
         }
         return null;
     }

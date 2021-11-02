@@ -60,15 +60,15 @@ class DocumentComment extends Entity
     public function getReplies()
     {
         if (array_key_exists('replies', $this->_propDict) && !is_null($this->_propDict['replies'])) {
-            $replies = [];
-            if (count($this->_propDict['replies']) > 0 && is_a($this->_propDict['replies'][0], 'DocumentCommentReply')) {
-                return $this->_propDict['replies'];
-            }
-            foreach ($this->_propDict['replies'] as $singleValue) {
-                $replies []= new DocumentCommentReply($singleValue);
-            }
-            $this->_propDict['replies'] = $replies;
-            return $this->_propDict['replies'];
+           $replies = [];
+           if (count($this->_propDict['replies']) > 0 && is_a($this->_propDict['replies'][0], 'DocumentCommentReply')) {
+              return $this->_propDict['replies'];
+           }
+           foreach ($this->_propDict['replies'] as $singleValue) {
+              $replies []= new DocumentCommentReply($singleValue);
+           }
+           $this->_propDict['replies'] = $replies;
+           return $this->_propDict['replies'];
         }
         return null;
     }

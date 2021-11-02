@@ -63,15 +63,15 @@ class ManagedAppPolicyDeploymentSummary extends Entity
     public function getConfigurationDeploymentSummaryPerApp()
     {
         if (array_key_exists('configurationDeploymentSummaryPerApp', $this->_propDict) && !is_null($this->_propDict['configurationDeploymentSummaryPerApp'])) {
-            $configurationDeploymentSummaryPerApp = [];
-            if (count($this->_propDict['configurationDeploymentSummaryPerApp']) > 0 && is_a($this->_propDict['configurationDeploymentSummaryPerApp'][0], 'ManagedAppPolicyDeploymentSummaryPerApp')) {
-                return $this->_propDict['configurationDeploymentSummaryPerApp'];
-            }
-            foreach ($this->_propDict['configurationDeploymentSummaryPerApp'] as $singleValue) {
-                $configurationDeploymentSummaryPerApp []= new ManagedAppPolicyDeploymentSummaryPerApp($singleValue);
-            }
-            $this->_propDict['configurationDeploymentSummaryPerApp'] = $configurationDeploymentSummaryPerApp;
-            return $this->_propDict['configurationDeploymentSummaryPerApp'];
+           $configurationDeploymentSummaryPerApp = [];
+           if (count($this->_propDict['configurationDeploymentSummaryPerApp']) > 0 && is_a($this->_propDict['configurationDeploymentSummaryPerApp'][0], 'ManagedAppPolicyDeploymentSummaryPerApp')) {
+              return $this->_propDict['configurationDeploymentSummaryPerApp'];
+           }
+           foreach ($this->_propDict['configurationDeploymentSummaryPerApp'] as $singleValue) {
+              $configurationDeploymentSummaryPerApp []= new ManagedAppPolicyDeploymentSummaryPerApp($singleValue);
+           }
+           $this->_propDict['configurationDeploymentSummaryPerApp'] = $configurationDeploymentSummaryPerApp;
+           return $this->_propDict['configurationDeploymentSummaryPerApp'];
         }
         return null;
     }

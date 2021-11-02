@@ -34,15 +34,15 @@ class UserTeamwork extends Entity
     public function getInstalledApps()
     {
         if (array_key_exists('installedApps', $this->_propDict) && !is_null($this->_propDict['installedApps'])) {
-            $installedApps = [];
-            if (count($this->_propDict['installedApps']) > 0 && is_a($this->_propDict['installedApps'][0], 'UserScopeTeamsAppInstallation')) {
-                return $this->_propDict['installedApps'];
-            }
-            foreach ($this->_propDict['installedApps'] as $singleValue) {
-                $installedApps []= new UserScopeTeamsAppInstallation($singleValue);
-            }
-            $this->_propDict['installedApps'] = $installedApps;
-            return $this->_propDict['installedApps'];
+           $installedApps = [];
+           if (count($this->_propDict['installedApps']) > 0 && is_a($this->_propDict['installedApps'][0], 'UserScopeTeamsAppInstallation')) {
+              return $this->_propDict['installedApps'];
+           }
+           foreach ($this->_propDict['installedApps'] as $singleValue) {
+              $installedApps []= new UserScopeTeamsAppInstallation($singleValue);
+           }
+           $this->_propDict['installedApps'] = $installedApps;
+           return $this->_propDict['installedApps'];
         }
         return null;
     }

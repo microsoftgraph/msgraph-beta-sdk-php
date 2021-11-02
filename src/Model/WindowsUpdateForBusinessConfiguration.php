@@ -1142,15 +1142,15 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
     public function getDeviceUpdateStates()
     {
         if (array_key_exists('deviceUpdateStates', $this->_propDict) && !is_null($this->_propDict['deviceUpdateStates'])) {
-            $deviceUpdateStates = [];
-            if (count($this->_propDict['deviceUpdateStates']) > 0 && is_a($this->_propDict['deviceUpdateStates'][0], 'WindowsUpdateState')) {
-                return $this->_propDict['deviceUpdateStates'];
-            }
-            foreach ($this->_propDict['deviceUpdateStates'] as $singleValue) {
-                $deviceUpdateStates []= new WindowsUpdateState($singleValue);
-            }
-            $this->_propDict['deviceUpdateStates'] = $deviceUpdateStates;
-            return $this->_propDict['deviceUpdateStates'];
+           $deviceUpdateStates = [];
+           if (count($this->_propDict['deviceUpdateStates']) > 0 && is_a($this->_propDict['deviceUpdateStates'][0], 'WindowsUpdateState')) {
+              return $this->_propDict['deviceUpdateStates'];
+           }
+           foreach ($this->_propDict['deviceUpdateStates'] as $singleValue) {
+              $deviceUpdateStates []= new WindowsUpdateState($singleValue);
+           }
+           $this->_propDict['deviceUpdateStates'] = $deviceUpdateStates;
+           return $this->_propDict['deviceUpdateStates'];
         }
         return null;
     }

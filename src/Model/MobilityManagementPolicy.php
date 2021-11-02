@@ -241,15 +241,15 @@ class MobilityManagementPolicy extends Entity
     public function getIncludedGroups()
     {
         if (array_key_exists('includedGroups', $this->_propDict) && !is_null($this->_propDict['includedGroups'])) {
-            $includedGroups = [];
-            if (count($this->_propDict['includedGroups']) > 0 && is_a($this->_propDict['includedGroups'][0], 'Group')) {
-                return $this->_propDict['includedGroups'];
-            }
-            foreach ($this->_propDict['includedGroups'] as $singleValue) {
-                $includedGroups []= new Group($singleValue);
-            }
-            $this->_propDict['includedGroups'] = $includedGroups;
-            return $this->_propDict['includedGroups'];
+           $includedGroups = [];
+           if (count($this->_propDict['includedGroups']) > 0 && is_a($this->_propDict['includedGroups'][0], 'Group')) {
+              return $this->_propDict['includedGroups'];
+           }
+           foreach ($this->_propDict['includedGroups'] as $singleValue) {
+              $includedGroups []= new Group($singleValue);
+           }
+           $this->_propDict['includedGroups'] = $includedGroups;
+           return $this->_propDict['includedGroups'];
         }
         return null;
     }

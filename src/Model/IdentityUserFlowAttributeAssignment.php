@@ -121,15 +121,15 @@ class IdentityUserFlowAttributeAssignment extends Entity
     public function getUserAttributeValues()
     {
         if (array_key_exists('userAttributeValues', $this->_propDict) && !is_null($this->_propDict['userAttributeValues'])) {
-            $userAttributeValues = [];
-            if (count($this->_propDict['userAttributeValues']) > 0 && is_a($this->_propDict['userAttributeValues'][0], 'UserAttributeValuesItem')) {
-                return $this->_propDict['userAttributeValues'];
-            }
-            foreach ($this->_propDict['userAttributeValues'] as $singleValue) {
-                $userAttributeValues []= new UserAttributeValuesItem($singleValue);
-            }
-            $this->_propDict['userAttributeValues'] = $userAttributeValues;
-            return $this->_propDict['userAttributeValues'];
+           $userAttributeValues = [];
+           if (count($this->_propDict['userAttributeValues']) > 0 && is_a($this->_propDict['userAttributeValues'][0], 'UserAttributeValuesItem')) {
+              return $this->_propDict['userAttributeValues'];
+           }
+           foreach ($this->_propDict['userAttributeValues'] as $singleValue) {
+              $userAttributeValues []= new UserAttributeValuesItem($singleValue);
+           }
+           $this->_propDict['userAttributeValues'] = $userAttributeValues;
+           return $this->_propDict['userAttributeValues'];
         }
         return null;
     }

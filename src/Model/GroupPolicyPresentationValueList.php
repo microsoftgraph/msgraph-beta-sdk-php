@@ -34,15 +34,15 @@ class GroupPolicyPresentationValueList extends GroupPolicyPresentationValue
     public function getValues()
     {
         if (array_key_exists('values', $this->_propDict) && !is_null($this->_propDict['values'])) {
-            $values = [];
-            if (count($this->_propDict['values']) > 0 && is_a($this->_propDict['values'][0], 'KeyValuePair')) {
-                return $this->_propDict['values'];
-            }
-            foreach ($this->_propDict['values'] as $singleValue) {
-                $values []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['values'] = $values;
-            return $this->_propDict['values'];
+           $values = [];
+           if (count($this->_propDict['values']) > 0 && is_a($this->_propDict['values'][0], 'KeyValuePair')) {
+              return $this->_propDict['values'];
+           }
+           foreach ($this->_propDict['values'] as $singleValue) {
+              $values []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['values'] = $values;
+           return $this->_propDict['values'];
         }
         return null;
     }

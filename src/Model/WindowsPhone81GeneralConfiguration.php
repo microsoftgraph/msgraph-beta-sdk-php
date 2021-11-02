@@ -212,15 +212,15 @@ class WindowsPhone81GeneralConfiguration extends DeviceConfiguration
     public function getCompliantAppsList()
     {
         if (array_key_exists('compliantAppsList', $this->_propDict) && !is_null($this->_propDict['compliantAppsList'])) {
-            $compliantAppsList = [];
-            if (count($this->_propDict['compliantAppsList']) > 0 && is_a($this->_propDict['compliantAppsList'][0], 'AppListItem')) {
-                return $this->_propDict['compliantAppsList'];
-            }
-            foreach ($this->_propDict['compliantAppsList'] as $singleValue) {
-                $compliantAppsList []= new AppListItem($singleValue);
-            }
-            $this->_propDict['compliantAppsList'] = $compliantAppsList;
-            return $this->_propDict['compliantAppsList'];
+           $compliantAppsList = [];
+           if (count($this->_propDict['compliantAppsList']) > 0 && is_a($this->_propDict['compliantAppsList'][0], 'AppListItem')) {
+              return $this->_propDict['compliantAppsList'];
+           }
+           foreach ($this->_propDict['compliantAppsList'] as $singleValue) {
+              $compliantAppsList []= new AppListItem($singleValue);
+           }
+           $this->_propDict['compliantAppsList'] = $compliantAppsList;
+           return $this->_propDict['compliantAppsList'];
         }
         return null;
     }

@@ -67,15 +67,15 @@ class B2xIdentityUserFlow extends IdentityUserFlow
     public function getIdentityProviders()
     {
         if (array_key_exists('identityProviders', $this->_propDict) && !is_null($this->_propDict['identityProviders'])) {
-            $identityProviders = [];
-            if (count($this->_propDict['identityProviders']) > 0 && is_a($this->_propDict['identityProviders'][0], 'IdentityProvider')) {
-                return $this->_propDict['identityProviders'];
-            }
-            foreach ($this->_propDict['identityProviders'] as $singleValue) {
-                $identityProviders []= new IdentityProvider($singleValue);
-            }
-            $this->_propDict['identityProviders'] = $identityProviders;
-            return $this->_propDict['identityProviders'];
+           $identityProviders = [];
+           if (count($this->_propDict['identityProviders']) > 0 && is_a($this->_propDict['identityProviders'][0], 'IdentityProvider')) {
+              return $this->_propDict['identityProviders'];
+           }
+           foreach ($this->_propDict['identityProviders'] as $singleValue) {
+              $identityProviders []= new IdentityProvider($singleValue);
+           }
+           $this->_propDict['identityProviders'] = $identityProviders;
+           return $this->_propDict['identityProviders'];
         }
         return null;
     }
@@ -104,15 +104,15 @@ class B2xIdentityUserFlow extends IdentityUserFlow
     public function getLanguages()
     {
         if (array_key_exists('languages', $this->_propDict) && !is_null($this->_propDict['languages'])) {
-            $languages = [];
-            if (count($this->_propDict['languages']) > 0 && is_a($this->_propDict['languages'][0], 'UserFlowLanguageConfiguration')) {
-                return $this->_propDict['languages'];
-            }
-            foreach ($this->_propDict['languages'] as $singleValue) {
-                $languages []= new UserFlowLanguageConfiguration($singleValue);
-            }
-            $this->_propDict['languages'] = $languages;
-            return $this->_propDict['languages'];
+           $languages = [];
+           if (count($this->_propDict['languages']) > 0 && is_a($this->_propDict['languages'][0], 'UserFlowLanguageConfiguration')) {
+              return $this->_propDict['languages'];
+           }
+           foreach ($this->_propDict['languages'] as $singleValue) {
+              $languages []= new UserFlowLanguageConfiguration($singleValue);
+           }
+           $this->_propDict['languages'] = $languages;
+           return $this->_propDict['languages'];
         }
         return null;
     }
@@ -141,15 +141,15 @@ class B2xIdentityUserFlow extends IdentityUserFlow
     public function getUserAttributeAssignments()
     {
         if (array_key_exists('userAttributeAssignments', $this->_propDict) && !is_null($this->_propDict['userAttributeAssignments'])) {
-            $userAttributeAssignments = [];
-            if (count($this->_propDict['userAttributeAssignments']) > 0 && is_a($this->_propDict['userAttributeAssignments'][0], 'IdentityUserFlowAttributeAssignment')) {
-                return $this->_propDict['userAttributeAssignments'];
-            }
-            foreach ($this->_propDict['userAttributeAssignments'] as $singleValue) {
-                $userAttributeAssignments []= new IdentityUserFlowAttributeAssignment($singleValue);
-            }
-            $this->_propDict['userAttributeAssignments'] = $userAttributeAssignments;
-            return $this->_propDict['userAttributeAssignments'];
+           $userAttributeAssignments = [];
+           if (count($this->_propDict['userAttributeAssignments']) > 0 && is_a($this->_propDict['userAttributeAssignments'][0], 'IdentityUserFlowAttributeAssignment')) {
+              return $this->_propDict['userAttributeAssignments'];
+           }
+           foreach ($this->_propDict['userAttributeAssignments'] as $singleValue) {
+              $userAttributeAssignments []= new IdentityUserFlowAttributeAssignment($singleValue);
+           }
+           $this->_propDict['userAttributeAssignments'] = $userAttributeAssignments;
+           return $this->_propDict['userAttributeAssignments'];
         }
         return null;
     }
@@ -177,15 +177,15 @@ class B2xIdentityUserFlow extends IdentityUserFlow
     public function getUserFlowIdentityProviders()
     {
         if (array_key_exists('userFlowIdentityProviders', $this->_propDict) && !is_null($this->_propDict['userFlowIdentityProviders'])) {
-            $userFlowIdentityProviders = [];
-            if (count($this->_propDict['userFlowIdentityProviders']) > 0 && is_a($this->_propDict['userFlowIdentityProviders'][0], 'IdentityProviderBase')) {
-                return $this->_propDict['userFlowIdentityProviders'];
-            }
-            foreach ($this->_propDict['userFlowIdentityProviders'] as $singleValue) {
-                $userFlowIdentityProviders []= new IdentityProviderBase($singleValue);
-            }
-            $this->_propDict['userFlowIdentityProviders'] = $userFlowIdentityProviders;
-            return $this->_propDict['userFlowIdentityProviders'];
+           $userFlowIdentityProviders = [];
+           if (count($this->_propDict['userFlowIdentityProviders']) > 0 && is_a($this->_propDict['userFlowIdentityProviders'][0], 'IdentityProviderBase')) {
+              return $this->_propDict['userFlowIdentityProviders'];
+           }
+           foreach ($this->_propDict['userFlowIdentityProviders'] as $singleValue) {
+              $userFlowIdentityProviders []= new IdentityProviderBase($singleValue);
+           }
+           $this->_propDict['userFlowIdentityProviders'] = $userFlowIdentityProviders;
+           return $this->_propDict['userFlowIdentityProviders'];
         }
         return null;
     }

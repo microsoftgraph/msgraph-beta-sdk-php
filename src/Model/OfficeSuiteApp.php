@@ -224,15 +224,15 @@ class OfficeSuiteApp extends MobileApp
     public function getProductIds()
     {
         if (array_key_exists('productIds', $this->_propDict) && !is_null($this->_propDict['productIds'])) {
-            $productIds = [];
-            if (count($this->_propDict['productIds']) > 0 && is_a($this->_propDict['productIds'][0], 'OfficeProductId')) {
-                return $this->_propDict['productIds'];
-            }
-            foreach ($this->_propDict['productIds'] as $singleValue) {
-                $productIds []= new OfficeProductId($singleValue);
-            }
-            $this->_propDict['productIds'] = $productIds;
-            return $this->_propDict['productIds'];
+           $productIds = [];
+           if (count($this->_propDict['productIds']) > 0 && is_a($this->_propDict['productIds'][0], 'OfficeProductId')) {
+              return $this->_propDict['productIds'];
+           }
+           foreach ($this->_propDict['productIds'] as $singleValue) {
+              $productIds []= new OfficeProductId($singleValue);
+           }
+           $this->_propDict['productIds'] = $productIds;
+           return $this->_propDict['productIds'];
         }
         return null;
     }

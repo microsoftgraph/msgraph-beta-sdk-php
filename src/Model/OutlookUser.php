@@ -34,15 +34,15 @@ class OutlookUser extends Entity
     public function getMasterCategories()
     {
         if (array_key_exists('masterCategories', $this->_propDict) && !is_null($this->_propDict['masterCategories'])) {
-            $masterCategories = [];
-            if (count($this->_propDict['masterCategories']) > 0 && is_a($this->_propDict['masterCategories'][0], 'OutlookCategory')) {
-                return $this->_propDict['masterCategories'];
-            }
-            foreach ($this->_propDict['masterCategories'] as $singleValue) {
-                $masterCategories []= new OutlookCategory($singleValue);
-            }
-            $this->_propDict['masterCategories'] = $masterCategories;
-            return $this->_propDict['masterCategories'];
+           $masterCategories = [];
+           if (count($this->_propDict['masterCategories']) > 0 && is_a($this->_propDict['masterCategories'][0], 'OutlookCategory')) {
+              return $this->_propDict['masterCategories'];
+           }
+           foreach ($this->_propDict['masterCategories'] as $singleValue) {
+              $masterCategories []= new OutlookCategory($singleValue);
+           }
+           $this->_propDict['masterCategories'] = $masterCategories;
+           return $this->_propDict['masterCategories'];
         }
         return null;
     }
@@ -70,15 +70,15 @@ class OutlookUser extends Entity
     public function getTaskFolders()
     {
         if (array_key_exists('taskFolders', $this->_propDict) && !is_null($this->_propDict['taskFolders'])) {
-            $taskFolders = [];
-            if (count($this->_propDict['taskFolders']) > 0 && is_a($this->_propDict['taskFolders'][0], 'OutlookTaskFolder')) {
-                return $this->_propDict['taskFolders'];
-            }
-            foreach ($this->_propDict['taskFolders'] as $singleValue) {
-                $taskFolders []= new OutlookTaskFolder($singleValue);
-            }
-            $this->_propDict['taskFolders'] = $taskFolders;
-            return $this->_propDict['taskFolders'];
+           $taskFolders = [];
+           if (count($this->_propDict['taskFolders']) > 0 && is_a($this->_propDict['taskFolders'][0], 'OutlookTaskFolder')) {
+              return $this->_propDict['taskFolders'];
+           }
+           foreach ($this->_propDict['taskFolders'] as $singleValue) {
+              $taskFolders []= new OutlookTaskFolder($singleValue);
+           }
+           $this->_propDict['taskFolders'] = $taskFolders;
+           return $this->_propDict['taskFolders'];
         }
         return null;
     }
@@ -105,15 +105,15 @@ class OutlookUser extends Entity
     public function getTaskGroups()
     {
         if (array_key_exists('taskGroups', $this->_propDict) && !is_null($this->_propDict['taskGroups'])) {
-            $taskGroups = [];
-            if (count($this->_propDict['taskGroups']) > 0 && is_a($this->_propDict['taskGroups'][0], 'OutlookTaskGroup')) {
-                return $this->_propDict['taskGroups'];
-            }
-            foreach ($this->_propDict['taskGroups'] as $singleValue) {
-                $taskGroups []= new OutlookTaskGroup($singleValue);
-            }
-            $this->_propDict['taskGroups'] = $taskGroups;
-            return $this->_propDict['taskGroups'];
+           $taskGroups = [];
+           if (count($this->_propDict['taskGroups']) > 0 && is_a($this->_propDict['taskGroups'][0], 'OutlookTaskGroup')) {
+              return $this->_propDict['taskGroups'];
+           }
+           foreach ($this->_propDict['taskGroups'] as $singleValue) {
+              $taskGroups []= new OutlookTaskGroup($singleValue);
+           }
+           $this->_propDict['taskGroups'] = $taskGroups;
+           return $this->_propDict['taskGroups'];
         }
         return null;
     }
@@ -140,15 +140,15 @@ class OutlookUser extends Entity
     public function getTasks()
     {
         if (array_key_exists('tasks', $this->_propDict) && !is_null($this->_propDict['tasks'])) {
-            $tasks = [];
-            if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'OutlookTask')) {
-                return $this->_propDict['tasks'];
-            }
-            foreach ($this->_propDict['tasks'] as $singleValue) {
-                $tasks []= new OutlookTask($singleValue);
-            }
-            $this->_propDict['tasks'] = $tasks;
-            return $this->_propDict['tasks'];
+           $tasks = [];
+           if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'OutlookTask')) {
+              return $this->_propDict['tasks'];
+           }
+           foreach ($this->_propDict['tasks'] as $singleValue) {
+              $tasks []= new OutlookTask($singleValue);
+           }
+           $this->_propDict['tasks'] = $tasks;
+           return $this->_propDict['tasks'];
         }
         return null;
     }

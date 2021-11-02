@@ -91,15 +91,15 @@ class CalendarSharingMessage extends Message
     public function getSharingMessageActions()
     {
         if (array_key_exists('sharingMessageActions', $this->_propDict) && !is_null($this->_propDict['sharingMessageActions'])) {
-            $sharingMessageActions = [];
-            if (count($this->_propDict['sharingMessageActions']) > 0 && is_a($this->_propDict['sharingMessageActions'][0], 'CalendarSharingMessageAction')) {
-                return $this->_propDict['sharingMessageActions'];
-            }
-            foreach ($this->_propDict['sharingMessageActions'] as $singleValue) {
-                $sharingMessageActions []= new CalendarSharingMessageAction($singleValue);
-            }
-            $this->_propDict['sharingMessageActions'] = $sharingMessageActions;
-            return $this->_propDict['sharingMessageActions'];
+           $sharingMessageActions = [];
+           if (count($this->_propDict['sharingMessageActions']) > 0 && is_a($this->_propDict['sharingMessageActions'][0], 'CalendarSharingMessageAction')) {
+              return $this->_propDict['sharingMessageActions'];
+           }
+           foreach ($this->_propDict['sharingMessageActions'] as $singleValue) {
+              $sharingMessageActions []= new CalendarSharingMessageAction($singleValue);
+           }
+           $this->_propDict['sharingMessageActions'] = $sharingMessageActions;
+           return $this->_propDict['sharingMessageActions'];
         }
         return null;
     }

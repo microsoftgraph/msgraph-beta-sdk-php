@@ -34,15 +34,15 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate
     public function getCategoryDeviceStateSummaries()
     {
         if (array_key_exists('categoryDeviceStateSummaries', $this->_propDict) && !is_null($this->_propDict['categoryDeviceStateSummaries'])) {
-            $categoryDeviceStateSummaries = [];
-            if (count($this->_propDict['categoryDeviceStateSummaries']) > 0 && is_a($this->_propDict['categoryDeviceStateSummaries'][0], 'SecurityBaselineCategoryStateSummary')) {
-                return $this->_propDict['categoryDeviceStateSummaries'];
-            }
-            foreach ($this->_propDict['categoryDeviceStateSummaries'] as $singleValue) {
-                $categoryDeviceStateSummaries []= new SecurityBaselineCategoryStateSummary($singleValue);
-            }
-            $this->_propDict['categoryDeviceStateSummaries'] = $categoryDeviceStateSummaries;
-            return $this->_propDict['categoryDeviceStateSummaries'];
+           $categoryDeviceStateSummaries = [];
+           if (count($this->_propDict['categoryDeviceStateSummaries']) > 0 && is_a($this->_propDict['categoryDeviceStateSummaries'][0], 'SecurityBaselineCategoryStateSummary')) {
+              return $this->_propDict['categoryDeviceStateSummaries'];
+           }
+           foreach ($this->_propDict['categoryDeviceStateSummaries'] as $singleValue) {
+              $categoryDeviceStateSummaries []= new SecurityBaselineCategoryStateSummary($singleValue);
+           }
+           $this->_propDict['categoryDeviceStateSummaries'] = $categoryDeviceStateSummaries;
+           return $this->_propDict['categoryDeviceStateSummaries'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate
     public function getDeviceStates()
     {
         if (array_key_exists('deviceStates', $this->_propDict) && !is_null($this->_propDict['deviceStates'])) {
-            $deviceStates = [];
-            if (count($this->_propDict['deviceStates']) > 0 && is_a($this->_propDict['deviceStates'][0], 'SecurityBaselineDeviceState')) {
-                return $this->_propDict['deviceStates'];
-            }
-            foreach ($this->_propDict['deviceStates'] as $singleValue) {
-                $deviceStates []= new SecurityBaselineDeviceState($singleValue);
-            }
-            $this->_propDict['deviceStates'] = $deviceStates;
-            return $this->_propDict['deviceStates'];
+           $deviceStates = [];
+           if (count($this->_propDict['deviceStates']) > 0 && is_a($this->_propDict['deviceStates'][0], 'SecurityBaselineDeviceState')) {
+              return $this->_propDict['deviceStates'];
+           }
+           foreach ($this->_propDict['deviceStates'] as $singleValue) {
+              $deviceStates []= new SecurityBaselineDeviceState($singleValue);
+           }
+           $this->_propDict['deviceStates'] = $deviceStates;
+           return $this->_propDict['deviceStates'];
         }
         return null;
     }

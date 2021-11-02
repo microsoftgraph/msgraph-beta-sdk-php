@@ -33,15 +33,15 @@ class AppConsentApprovalRoute extends Entity
     public function getAppConsentRequests()
     {
         if (array_key_exists('appConsentRequests', $this->_propDict) && !is_null($this->_propDict['appConsentRequests'])) {
-            $appConsentRequests = [];
-            if (count($this->_propDict['appConsentRequests']) > 0 && is_a($this->_propDict['appConsentRequests'][0], 'AppConsentRequest')) {
-                return $this->_propDict['appConsentRequests'];
-            }
-            foreach ($this->_propDict['appConsentRequests'] as $singleValue) {
-                $appConsentRequests []= new AppConsentRequest($singleValue);
-            }
-            $this->_propDict['appConsentRequests'] = $appConsentRequests;
-            return $this->_propDict['appConsentRequests'];
+           $appConsentRequests = [];
+           if (count($this->_propDict['appConsentRequests']) > 0 && is_a($this->_propDict['appConsentRequests'][0], 'AppConsentRequest')) {
+              return $this->_propDict['appConsentRequests'];
+           }
+           foreach ($this->_propDict['appConsentRequests'] as $singleValue) {
+              $appConsentRequests []= new AppConsentRequest($singleValue);
+           }
+           $this->_propDict['appConsentRequests'] = $appConsentRequests;
+           return $this->_propDict['appConsentRequests'];
         }
         return null;
     }

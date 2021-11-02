@@ -150,15 +150,15 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration
     public function getNetworkAccessConfigurations()
     {
         if (array_key_exists('networkAccessConfigurations', $this->_propDict) && !is_null($this->_propDict['networkAccessConfigurations'])) {
-            $networkAccessConfigurations = [];
-            if (count($this->_propDict['networkAccessConfigurations']) > 0 && is_a($this->_propDict['networkAccessConfigurations'][0], 'DeviceConfiguration')) {
-                return $this->_propDict['networkAccessConfigurations'];
-            }
-            foreach ($this->_propDict['networkAccessConfigurations'] as $singleValue) {
-                $networkAccessConfigurations []= new DeviceConfiguration($singleValue);
-            }
-            $this->_propDict['networkAccessConfigurations'] = $networkAccessConfigurations;
-            return $this->_propDict['networkAccessConfigurations'];
+           $networkAccessConfigurations = [];
+           if (count($this->_propDict['networkAccessConfigurations']) > 0 && is_a($this->_propDict['networkAccessConfigurations'][0], 'DeviceConfiguration')) {
+              return $this->_propDict['networkAccessConfigurations'];
+           }
+           foreach ($this->_propDict['networkAccessConfigurations'] as $singleValue) {
+              $networkAccessConfigurations []= new DeviceConfiguration($singleValue);
+           }
+           $this->_propDict['networkAccessConfigurations'] = $networkAccessConfigurations;
+           return $this->_propDict['networkAccessConfigurations'];
         }
         return null;
     }

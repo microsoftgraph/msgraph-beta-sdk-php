@@ -34,15 +34,15 @@ class Planner extends Entity
     public function getBuckets()
     {
         if (array_key_exists('buckets', $this->_propDict) && !is_null($this->_propDict['buckets'])) {
-            $buckets = [];
-            if (count($this->_propDict['buckets']) > 0 && is_a($this->_propDict['buckets'][0], 'PlannerBucket')) {
-                return $this->_propDict['buckets'];
-            }
-            foreach ($this->_propDict['buckets'] as $singleValue) {
-                $buckets []= new PlannerBucket($singleValue);
-            }
-            $this->_propDict['buckets'] = $buckets;
-            return $this->_propDict['buckets'];
+           $buckets = [];
+           if (count($this->_propDict['buckets']) > 0 && is_a($this->_propDict['buckets'][0], 'PlannerBucket')) {
+              return $this->_propDict['buckets'];
+           }
+           foreach ($this->_propDict['buckets'] as $singleValue) {
+              $buckets []= new PlannerBucket($singleValue);
+           }
+           $this->_propDict['buckets'] = $buckets;
+           return $this->_propDict['buckets'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class Planner extends Entity
     public function getPlans()
     {
         if (array_key_exists('plans', $this->_propDict) && !is_null($this->_propDict['plans'])) {
-            $plans = [];
-            if (count($this->_propDict['plans']) > 0 && is_a($this->_propDict['plans'][0], 'PlannerPlan')) {
-                return $this->_propDict['plans'];
-            }
-            foreach ($this->_propDict['plans'] as $singleValue) {
-                $plans []= new PlannerPlan($singleValue);
-            }
-            $this->_propDict['plans'] = $plans;
-            return $this->_propDict['plans'];
+           $plans = [];
+           if (count($this->_propDict['plans']) > 0 && is_a($this->_propDict['plans'][0], 'PlannerPlan')) {
+              return $this->_propDict['plans'];
+           }
+           foreach ($this->_propDict['plans'] as $singleValue) {
+              $plans []= new PlannerPlan($singleValue);
+           }
+           $this->_propDict['plans'] = $plans;
+           return $this->_propDict['plans'];
         }
         return null;
     }
@@ -108,15 +108,15 @@ class Planner extends Entity
     public function getRosters()
     {
         if (array_key_exists('rosters', $this->_propDict) && !is_null($this->_propDict['rosters'])) {
-            $rosters = [];
-            if (count($this->_propDict['rosters']) > 0 && is_a($this->_propDict['rosters'][0], 'PlannerRoster')) {
-                return $this->_propDict['rosters'];
-            }
-            foreach ($this->_propDict['rosters'] as $singleValue) {
-                $rosters []= new PlannerRoster($singleValue);
-            }
-            $this->_propDict['rosters'] = $rosters;
-            return $this->_propDict['rosters'];
+           $rosters = [];
+           if (count($this->_propDict['rosters']) > 0 && is_a($this->_propDict['rosters'][0], 'PlannerRoster')) {
+              return $this->_propDict['rosters'];
+           }
+           foreach ($this->_propDict['rosters'] as $singleValue) {
+              $rosters []= new PlannerRoster($singleValue);
+           }
+           $this->_propDict['rosters'] = $rosters;
+           return $this->_propDict['rosters'];
         }
         return null;
     }
@@ -145,15 +145,15 @@ class Planner extends Entity
     public function getTasks()
     {
         if (array_key_exists('tasks', $this->_propDict) && !is_null($this->_propDict['tasks'])) {
-            $tasks = [];
-            if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'PlannerTask')) {
-                return $this->_propDict['tasks'];
-            }
-            foreach ($this->_propDict['tasks'] as $singleValue) {
-                $tasks []= new PlannerTask($singleValue);
-            }
-            $this->_propDict['tasks'] = $tasks;
-            return $this->_propDict['tasks'];
+           $tasks = [];
+           if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'PlannerTask')) {
+              return $this->_propDict['tasks'];
+           }
+           foreach ($this->_propDict['tasks'] as $singleValue) {
+              $tasks []= new PlannerTask($singleValue);
+           }
+           $this->_propDict['tasks'] = $tasks;
+           return $this->_propDict['tasks'];
         }
         return null;
     }

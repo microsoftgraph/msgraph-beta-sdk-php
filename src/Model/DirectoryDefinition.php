@@ -129,15 +129,15 @@ class DirectoryDefinition extends Entity
     public function getObjects()
     {
         if (array_key_exists('objects', $this->_propDict) && !is_null($this->_propDict['objects'])) {
-            $objects = [];
-            if (count($this->_propDict['objects']) > 0 && is_a($this->_propDict['objects'][0], 'ObjectDefinition')) {
-                return $this->_propDict['objects'];
-            }
-            foreach ($this->_propDict['objects'] as $singleValue) {
-                $objects []= new ObjectDefinition($singleValue);
-            }
-            $this->_propDict['objects'] = $objects;
-            return $this->_propDict['objects'];
+           $objects = [];
+           if (count($this->_propDict['objects']) > 0 && is_a($this->_propDict['objects'][0], 'ObjectDefinition')) {
+              return $this->_propDict['objects'];
+           }
+           foreach ($this->_propDict['objects'] as $singleValue) {
+              $objects []= new ObjectDefinition($singleValue);
+           }
+           $this->_propDict['objects'] = $objects;
+           return $this->_propDict['objects'];
         }
         return null;
     }

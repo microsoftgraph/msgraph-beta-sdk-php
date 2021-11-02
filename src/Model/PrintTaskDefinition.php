@@ -96,15 +96,15 @@ class PrintTaskDefinition extends Entity
     public function getTasks()
     {
         if (array_key_exists('tasks', $this->_propDict) && !is_null($this->_propDict['tasks'])) {
-            $tasks = [];
-            if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'PrintTask')) {
-                return $this->_propDict['tasks'];
-            }
-            foreach ($this->_propDict['tasks'] as $singleValue) {
-                $tasks []= new PrintTask($singleValue);
-            }
-            $this->_propDict['tasks'] = $tasks;
-            return $this->_propDict['tasks'];
+           $tasks = [];
+           if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'PrintTask')) {
+              return $this->_propDict['tasks'];
+           }
+           foreach ($this->_propDict['tasks'] as $singleValue) {
+              $tasks []= new PrintTask($singleValue);
+           }
+           $this->_propDict['tasks'] = $tasks;
+           return $this->_propDict['tasks'];
         }
         return null;
     }

@@ -394,15 +394,15 @@ class DeviceManagementConfigurationSettingDefinition extends Entity
     public function getReferredSettingInformationList()
     {
         if (array_key_exists('referredSettingInformationList', $this->_propDict) && !is_null($this->_propDict['referredSettingInformationList'])) {
-            $referredSettingInformationList = [];
-            if (count($this->_propDict['referredSettingInformationList']) > 0 && is_a($this->_propDict['referredSettingInformationList'][0], 'DeviceManagementConfigurationReferredSettingInformation')) {
-                return $this->_propDict['referredSettingInformationList'];
-            }
-            foreach ($this->_propDict['referredSettingInformationList'] as $singleValue) {
-                $referredSettingInformationList []= new DeviceManagementConfigurationReferredSettingInformation($singleValue);
-            }
-            $this->_propDict['referredSettingInformationList'] = $referredSettingInformationList;
-            return $this->_propDict['referredSettingInformationList'];
+           $referredSettingInformationList = [];
+           if (count($this->_propDict['referredSettingInformationList']) > 0 && is_a($this->_propDict['referredSettingInformationList'][0], 'DeviceManagementConfigurationReferredSettingInformation')) {
+              return $this->_propDict['referredSettingInformationList'];
+           }
+           foreach ($this->_propDict['referredSettingInformationList'] as $singleValue) {
+              $referredSettingInformationList []= new DeviceManagementConfigurationReferredSettingInformation($singleValue);
+           }
+           $this->_propDict['referredSettingInformationList'] = $referredSettingInformationList;
+           return $this->_propDict['referredSettingInformationList'];
         }
         return null;
     }

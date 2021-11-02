@@ -34,15 +34,15 @@ class PrintService extends Entity
     public function getEndpoints()
     {
         if (array_key_exists('endpoints', $this->_propDict) && !is_null($this->_propDict['endpoints'])) {
-            $endpoints = [];
-            if (count($this->_propDict['endpoints']) > 0 && is_a($this->_propDict['endpoints'][0], 'PrintServiceEndpoint')) {
-                return $this->_propDict['endpoints'];
-            }
-            foreach ($this->_propDict['endpoints'] as $singleValue) {
-                $endpoints []= new PrintServiceEndpoint($singleValue);
-            }
-            $this->_propDict['endpoints'] = $endpoints;
-            return $this->_propDict['endpoints'];
+           $endpoints = [];
+           if (count($this->_propDict['endpoints']) > 0 && is_a($this->_propDict['endpoints'][0], 'PrintServiceEndpoint')) {
+              return $this->_propDict['endpoints'];
+           }
+           foreach ($this->_propDict['endpoints'] as $singleValue) {
+              $endpoints []= new PrintServiceEndpoint($singleValue);
+           }
+           $this->_propDict['endpoints'] = $endpoints;
+           return $this->_propDict['endpoints'];
         }
         return null;
     }

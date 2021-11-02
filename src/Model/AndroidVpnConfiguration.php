@@ -129,15 +129,15 @@ class AndroidVpnConfiguration extends DeviceConfiguration
     public function getCustomData()
     {
         if (array_key_exists('customData', $this->_propDict) && !is_null($this->_propDict['customData'])) {
-            $customData = [];
-            if (count($this->_propDict['customData']) > 0 && is_a($this->_propDict['customData'][0], 'KeyValue')) {
-                return $this->_propDict['customData'];
-            }
-            foreach ($this->_propDict['customData'] as $singleValue) {
-                $customData []= new KeyValue($singleValue);
-            }
-            $this->_propDict['customData'] = $customData;
-            return $this->_propDict['customData'];
+           $customData = [];
+           if (count($this->_propDict['customData']) > 0 && is_a($this->_propDict['customData'][0], 'KeyValue')) {
+              return $this->_propDict['customData'];
+           }
+           foreach ($this->_propDict['customData'] as $singleValue) {
+              $customData []= new KeyValue($singleValue);
+           }
+           $this->_propDict['customData'] = $customData;
+           return $this->_propDict['customData'];
         }
         return null;
     }
@@ -166,15 +166,15 @@ class AndroidVpnConfiguration extends DeviceConfiguration
     public function getCustomKeyValueData()
     {
         if (array_key_exists('customKeyValueData', $this->_propDict) && !is_null($this->_propDict['customKeyValueData'])) {
-            $customKeyValueData = [];
-            if (count($this->_propDict['customKeyValueData']) > 0 && is_a($this->_propDict['customKeyValueData'][0], 'KeyValuePair')) {
-                return $this->_propDict['customKeyValueData'];
-            }
-            foreach ($this->_propDict['customKeyValueData'] as $singleValue) {
-                $customKeyValueData []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['customKeyValueData'] = $customKeyValueData;
-            return $this->_propDict['customKeyValueData'];
+           $customKeyValueData = [];
+           if (count($this->_propDict['customKeyValueData']) > 0 && is_a($this->_propDict['customKeyValueData'][0], 'KeyValuePair')) {
+              return $this->_propDict['customKeyValueData'];
+           }
+           foreach ($this->_propDict['customKeyValueData'] as $singleValue) {
+              $customKeyValueData []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['customKeyValueData'] = $customKeyValueData;
+           return $this->_propDict['customKeyValueData'];
         }
         return null;
     }
@@ -290,15 +290,15 @@ class AndroidVpnConfiguration extends DeviceConfiguration
     public function getServers()
     {
         if (array_key_exists('servers', $this->_propDict) && !is_null($this->_propDict['servers'])) {
-            $servers = [];
-            if (count($this->_propDict['servers']) > 0 && is_a($this->_propDict['servers'][0], 'VpnServer')) {
-                return $this->_propDict['servers'];
-            }
-            foreach ($this->_propDict['servers'] as $singleValue) {
-                $servers []= new VpnServer($singleValue);
-            }
-            $this->_propDict['servers'] = $servers;
-            return $this->_propDict['servers'];
+           $servers = [];
+           if (count($this->_propDict['servers']) > 0 && is_a($this->_propDict['servers'][0], 'VpnServer')) {
+              return $this->_propDict['servers'];
+           }
+           foreach ($this->_propDict['servers'] as $singleValue) {
+              $servers []= new VpnServer($singleValue);
+           }
+           $this->_propDict['servers'] = $servers;
+           return $this->_propDict['servers'];
         }
         return null;
     }

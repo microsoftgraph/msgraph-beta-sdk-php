@@ -34,15 +34,15 @@ class EducationUser extends Entity
     public function getRelatedContacts()
     {
         if (array_key_exists('relatedContacts', $this->_propDict) && !is_null($this->_propDict['relatedContacts'])) {
-            $relatedContacts = [];
-            if (count($this->_propDict['relatedContacts']) > 0 && is_a($this->_propDict['relatedContacts'][0], 'RelatedContact')) {
-                return $this->_propDict['relatedContacts'];
-            }
-            foreach ($this->_propDict['relatedContacts'] as $singleValue) {
-                $relatedContacts []= new RelatedContact($singleValue);
-            }
-            $this->_propDict['relatedContacts'] = $relatedContacts;
-            return $this->_propDict['relatedContacts'];
+           $relatedContacts = [];
+           if (count($this->_propDict['relatedContacts']) > 0 && is_a($this->_propDict['relatedContacts'][0], 'RelatedContact')) {
+              return $this->_propDict['relatedContacts'];
+           }
+           foreach ($this->_propDict['relatedContacts'] as $singleValue) {
+              $relatedContacts []= new RelatedContact($singleValue);
+           }
+           $this->_propDict['relatedContacts'] = $relatedContacts;
+           return $this->_propDict['relatedContacts'];
         }
         return null;
     }
@@ -100,15 +100,15 @@ class EducationUser extends Entity
     public function getAssignedLicenses()
     {
         if (array_key_exists('assignedLicenses', $this->_propDict) && !is_null($this->_propDict['assignedLicenses'])) {
-            $assignedLicenses = [];
-            if (count($this->_propDict['assignedLicenses']) > 0 && is_a($this->_propDict['assignedLicenses'][0], 'AssignedLicense')) {
-                return $this->_propDict['assignedLicenses'];
-            }
-            foreach ($this->_propDict['assignedLicenses'] as $singleValue) {
-                $assignedLicenses []= new AssignedLicense($singleValue);
-            }
-            $this->_propDict['assignedLicenses'] = $assignedLicenses;
-            return $this->_propDict['assignedLicenses'];
+           $assignedLicenses = [];
+           if (count($this->_propDict['assignedLicenses']) > 0 && is_a($this->_propDict['assignedLicenses'][0], 'AssignedLicense')) {
+              return $this->_propDict['assignedLicenses'];
+           }
+           foreach ($this->_propDict['assignedLicenses'] as $singleValue) {
+              $assignedLicenses []= new AssignedLicense($singleValue);
+           }
+           $this->_propDict['assignedLicenses'] = $assignedLicenses;
+           return $this->_propDict['assignedLicenses'];
         }
         return null;
     }
@@ -137,15 +137,15 @@ class EducationUser extends Entity
     public function getAssignedPlans()
     {
         if (array_key_exists('assignedPlans', $this->_propDict) && !is_null($this->_propDict['assignedPlans'])) {
-            $assignedPlans = [];
-            if (count($this->_propDict['assignedPlans']) > 0 && is_a($this->_propDict['assignedPlans'][0], 'AssignedPlan')) {
-                return $this->_propDict['assignedPlans'];
-            }
-            foreach ($this->_propDict['assignedPlans'] as $singleValue) {
-                $assignedPlans []= new AssignedPlan($singleValue);
-            }
-            $this->_propDict['assignedPlans'] = $assignedPlans;
-            return $this->_propDict['assignedPlans'];
+           $assignedPlans = [];
+           if (count($this->_propDict['assignedPlans']) > 0 && is_a($this->_propDict['assignedPlans'][0], 'AssignedPlan')) {
+              return $this->_propDict['assignedPlans'];
+           }
+           foreach ($this->_propDict['assignedPlans'] as $singleValue) {
+              $assignedPlans []= new AssignedPlan($singleValue);
+           }
+           $this->_propDict['assignedPlans'] = $assignedPlans;
+           return $this->_propDict['assignedPlans'];
         }
         return null;
     }
@@ -718,15 +718,15 @@ class EducationUser extends Entity
     public function getProvisionedPlans()
     {
         if (array_key_exists('provisionedPlans', $this->_propDict) && !is_null($this->_propDict['provisionedPlans'])) {
-            $provisionedPlans = [];
-            if (count($this->_propDict['provisionedPlans']) > 0 && is_a($this->_propDict['provisionedPlans'][0], 'ProvisionedPlan')) {
-                return $this->_propDict['provisionedPlans'];
-            }
-            foreach ($this->_propDict['provisionedPlans'] as $singleValue) {
-                $provisionedPlans []= new ProvisionedPlan($singleValue);
-            }
-            $this->_propDict['provisionedPlans'] = $provisionedPlans;
-            return $this->_propDict['provisionedPlans'];
+           $provisionedPlans = [];
+           if (count($this->_propDict['provisionedPlans']) > 0 && is_a($this->_propDict['provisionedPlans'][0], 'ProvisionedPlan')) {
+              return $this->_propDict['provisionedPlans'];
+           }
+           foreach ($this->_propDict['provisionedPlans'] as $singleValue) {
+              $provisionedPlans []= new ProvisionedPlan($singleValue);
+           }
+           $this->_propDict['provisionedPlans'] = $provisionedPlans;
+           return $this->_propDict['provisionedPlans'];
         }
         return null;
     }
@@ -1030,15 +1030,15 @@ class EducationUser extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'EducationAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new EducationAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'EducationAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new EducationAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }
@@ -1066,15 +1066,15 @@ class EducationUser extends Entity
     public function getRubrics()
     {
         if (array_key_exists('rubrics', $this->_propDict) && !is_null($this->_propDict['rubrics'])) {
-            $rubrics = [];
-            if (count($this->_propDict['rubrics']) > 0 && is_a($this->_propDict['rubrics'][0], 'EducationRubric')) {
-                return $this->_propDict['rubrics'];
-            }
-            foreach ($this->_propDict['rubrics'] as $singleValue) {
-                $rubrics []= new EducationRubric($singleValue);
-            }
-            $this->_propDict['rubrics'] = $rubrics;
-            return $this->_propDict['rubrics'];
+           $rubrics = [];
+           if (count($this->_propDict['rubrics']) > 0 && is_a($this->_propDict['rubrics'][0], 'EducationRubric')) {
+              return $this->_propDict['rubrics'];
+           }
+           foreach ($this->_propDict['rubrics'] as $singleValue) {
+              $rubrics []= new EducationRubric($singleValue);
+           }
+           $this->_propDict['rubrics'] = $rubrics;
+           return $this->_propDict['rubrics'];
         }
         return null;
     }
@@ -1102,15 +1102,15 @@ class EducationUser extends Entity
     public function getClasses()
     {
         if (array_key_exists('classes', $this->_propDict) && !is_null($this->_propDict['classes'])) {
-            $classes = [];
-            if (count($this->_propDict['classes']) > 0 && is_a($this->_propDict['classes'][0], 'EducationClass')) {
-                return $this->_propDict['classes'];
-            }
-            foreach ($this->_propDict['classes'] as $singleValue) {
-                $classes []= new EducationClass($singleValue);
-            }
-            $this->_propDict['classes'] = $classes;
-            return $this->_propDict['classes'];
+           $classes = [];
+           if (count($this->_propDict['classes']) > 0 && is_a($this->_propDict['classes'][0], 'EducationClass')) {
+              return $this->_propDict['classes'];
+           }
+           foreach ($this->_propDict['classes'] as $singleValue) {
+              $classes []= new EducationClass($singleValue);
+           }
+           $this->_propDict['classes'] = $classes;
+           return $this->_propDict['classes'];
         }
         return null;
     }
@@ -1139,15 +1139,15 @@ class EducationUser extends Entity
     public function getSchools()
     {
         if (array_key_exists('schools', $this->_propDict) && !is_null($this->_propDict['schools'])) {
-            $schools = [];
-            if (count($this->_propDict['schools']) > 0 && is_a($this->_propDict['schools'][0], 'EducationSchool')) {
-                return $this->_propDict['schools'];
-            }
-            foreach ($this->_propDict['schools'] as $singleValue) {
-                $schools []= new EducationSchool($singleValue);
-            }
-            $this->_propDict['schools'] = $schools;
-            return $this->_propDict['schools'];
+           $schools = [];
+           if (count($this->_propDict['schools']) > 0 && is_a($this->_propDict['schools'][0], 'EducationSchool')) {
+              return $this->_propDict['schools'];
+           }
+           foreach ($this->_propDict['schools'] as $singleValue) {
+              $schools []= new EducationSchool($singleValue);
+           }
+           $this->_propDict['schools'] = $schools;
+           return $this->_propDict['schools'];
         }
         return null;
     }
@@ -1176,15 +1176,15 @@ class EducationUser extends Entity
     public function getTaughtClasses()
     {
         if (array_key_exists('taughtClasses', $this->_propDict) && !is_null($this->_propDict['taughtClasses'])) {
-            $taughtClasses = [];
-            if (count($this->_propDict['taughtClasses']) > 0 && is_a($this->_propDict['taughtClasses'][0], 'EducationClass')) {
-                return $this->_propDict['taughtClasses'];
-            }
-            foreach ($this->_propDict['taughtClasses'] as $singleValue) {
-                $taughtClasses []= new EducationClass($singleValue);
-            }
-            $this->_propDict['taughtClasses'] = $taughtClasses;
-            return $this->_propDict['taughtClasses'];
+           $taughtClasses = [];
+           if (count($this->_propDict['taughtClasses']) > 0 && is_a($this->_propDict['taughtClasses'][0], 'EducationClass')) {
+              return $this->_propDict['taughtClasses'];
+           }
+           foreach ($this->_propDict['taughtClasses'] as $singleValue) {
+              $taughtClasses []= new EducationClass($singleValue);
+           }
+           $this->_propDict['taughtClasses'] = $taughtClasses;
+           return $this->_propDict['taughtClasses'];
         }
         return null;
     }

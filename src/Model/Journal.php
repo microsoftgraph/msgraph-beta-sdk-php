@@ -203,15 +203,15 @@ class Journal extends Entity
     public function getJournalLines()
     {
         if (array_key_exists('journalLines', $this->_propDict) && !is_null($this->_propDict['journalLines'])) {
-            $journalLines = [];
-            if (count($this->_propDict['journalLines']) > 0 && is_a($this->_propDict['journalLines'][0], 'JournalLine')) {
-                return $this->_propDict['journalLines'];
-            }
-            foreach ($this->_propDict['journalLines'] as $singleValue) {
-                $journalLines []= new JournalLine($singleValue);
-            }
-            $this->_propDict['journalLines'] = $journalLines;
-            return $this->_propDict['journalLines'];
+           $journalLines = [];
+           if (count($this->_propDict['journalLines']) > 0 && is_a($this->_propDict['journalLines'][0], 'JournalLine')) {
+              return $this->_propDict['journalLines'];
+           }
+           foreach ($this->_propDict['journalLines'] as $singleValue) {
+              $journalLines []= new JournalLine($singleValue);
+           }
+           $this->_propDict['journalLines'] = $journalLines;
+           return $this->_propDict['journalLines'];
         }
         return null;
     }

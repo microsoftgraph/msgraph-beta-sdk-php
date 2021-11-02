@@ -210,7 +210,7 @@ class OnlineMeeting extends Entity
     
     /**
     * Gets the alternativeRecording
-    * The content stream of the alternative recording of a live event. Read-only.
+    * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The alternativeRecording
     */
@@ -229,7 +229,7 @@ class OnlineMeeting extends Entity
     
     /**
     * Sets the alternativeRecording
-    * The content stream of the alternative recording of a live event. Read-only.
+    * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The alternativeRecording
     *
@@ -243,7 +243,7 @@ class OnlineMeeting extends Entity
     
     /**
     * Gets the attendeeReport
-    * The content stream of the attendee report of a live event. Read-only.
+    * The content stream of the attendee report of a Microsoft Teams live event. Read-only.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The attendeeReport
     */
@@ -262,7 +262,7 @@ class OnlineMeeting extends Entity
     
     /**
     * Sets the attendeeReport
-    * The content stream of the attendee report of a live event. Read-only.
+    * The content stream of the attendee report of a Microsoft Teams live event. Read-only.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The attendeeReport
     *
@@ -380,15 +380,15 @@ class OnlineMeeting extends Entity
     public function getCapabilities()
     {
         if (array_key_exists('capabilities', $this->_propDict) && !is_null($this->_propDict['capabilities'])) {
-            $capabilities = [];
-            if (count($this->_propDict['capabilities']) > 0 && is_a($this->_propDict['capabilities'][0], 'MeetingCapabilities')) {
-                return $this->_propDict['capabilities'];
-            }
-            foreach ($this->_propDict['capabilities'] as $singleValue) {
-                $capabilities []= new MeetingCapabilities($singleValue);
-            }
-            $this->_propDict['capabilities'] = $capabilities;
-            return $this->_propDict['capabilities'];
+           $capabilities = [];
+           if (count($this->_propDict['capabilities']) > 0 && is_a($this->_propDict['capabilities'][0], 'MeetingCapabilities')) {
+              return $this->_propDict['capabilities'];
+           }
+           foreach ($this->_propDict['capabilities'] as $singleValue) {
+              $capabilities []= new MeetingCapabilities($singleValue);
+           }
+           $this->_propDict['capabilities'] = $capabilities;
+           return $this->_propDict['capabilities'];
         }
         return null;
     }
@@ -594,7 +594,7 @@ class OnlineMeeting extends Entity
     
     /**
     * Gets the isBroadcast
-    * Indicates if this is a live event.
+    * Indicates if this is a Teams live event.
     *
     * @return bool|null The isBroadcast
     */
@@ -609,7 +609,7 @@ class OnlineMeeting extends Entity
     
     /**
     * Sets the isBroadcast
-    * Indicates if this is a live event.
+    * Indicates if this is a Teams live event.
     *
     * @param bool $val The isBroadcast
     *
@@ -834,7 +834,7 @@ class OnlineMeeting extends Entity
     
     /**
     * Gets the recording
-    * The content stream of the recording of a live event. Read-only.
+    * The content stream of the recording of a Teams live event. Read-only.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The recording
     */
@@ -853,7 +853,7 @@ class OnlineMeeting extends Entity
     
     /**
     * Sets the recording
-    * The content stream of the recording of a live event. Read-only.
+    * The content stream of the recording of a Teams live event. Read-only.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The recording
     *

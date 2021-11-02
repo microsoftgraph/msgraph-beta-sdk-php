@@ -344,15 +344,15 @@ class DeviceConfiguration extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'DeviceConfigurationAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new DeviceConfigurationAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'DeviceConfigurationAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new DeviceConfigurationAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }
@@ -381,15 +381,15 @@ class DeviceConfiguration extends Entity
     public function getDeviceSettingStateSummaries()
     {
         if (array_key_exists('deviceSettingStateSummaries', $this->_propDict) && !is_null($this->_propDict['deviceSettingStateSummaries'])) {
-            $deviceSettingStateSummaries = [];
-            if (count($this->_propDict['deviceSettingStateSummaries']) > 0 && is_a($this->_propDict['deviceSettingStateSummaries'][0], 'SettingStateDeviceSummary')) {
-                return $this->_propDict['deviceSettingStateSummaries'];
-            }
-            foreach ($this->_propDict['deviceSettingStateSummaries'] as $singleValue) {
-                $deviceSettingStateSummaries []= new SettingStateDeviceSummary($singleValue);
-            }
-            $this->_propDict['deviceSettingStateSummaries'] = $deviceSettingStateSummaries;
-            return $this->_propDict['deviceSettingStateSummaries'];
+           $deviceSettingStateSummaries = [];
+           if (count($this->_propDict['deviceSettingStateSummaries']) > 0 && is_a($this->_propDict['deviceSettingStateSummaries'][0], 'SettingStateDeviceSummary')) {
+              return $this->_propDict['deviceSettingStateSummaries'];
+           }
+           foreach ($this->_propDict['deviceSettingStateSummaries'] as $singleValue) {
+              $deviceSettingStateSummaries []= new SettingStateDeviceSummary($singleValue);
+           }
+           $this->_propDict['deviceSettingStateSummaries'] = $deviceSettingStateSummaries;
+           return $this->_propDict['deviceSettingStateSummaries'];
         }
         return null;
     }
@@ -418,15 +418,15 @@ class DeviceConfiguration extends Entity
     public function getDeviceStatuses()
     {
         if (array_key_exists('deviceStatuses', $this->_propDict) && !is_null($this->_propDict['deviceStatuses'])) {
-            $deviceStatuses = [];
-            if (count($this->_propDict['deviceStatuses']) > 0 && is_a($this->_propDict['deviceStatuses'][0], 'DeviceConfigurationDeviceStatus')) {
-                return $this->_propDict['deviceStatuses'];
-            }
-            foreach ($this->_propDict['deviceStatuses'] as $singleValue) {
-                $deviceStatuses []= new DeviceConfigurationDeviceStatus($singleValue);
-            }
-            $this->_propDict['deviceStatuses'] = $deviceStatuses;
-            return $this->_propDict['deviceStatuses'];
+           $deviceStatuses = [];
+           if (count($this->_propDict['deviceStatuses']) > 0 && is_a($this->_propDict['deviceStatuses'][0], 'DeviceConfigurationDeviceStatus')) {
+              return $this->_propDict['deviceStatuses'];
+           }
+           foreach ($this->_propDict['deviceStatuses'] as $singleValue) {
+              $deviceStatuses []= new DeviceConfigurationDeviceStatus($singleValue);
+           }
+           $this->_propDict['deviceStatuses'] = $deviceStatuses;
+           return $this->_propDict['deviceStatuses'];
         }
         return null;
     }
@@ -488,15 +488,15 @@ class DeviceConfiguration extends Entity
     public function getGroupAssignments()
     {
         if (array_key_exists('groupAssignments', $this->_propDict) && !is_null($this->_propDict['groupAssignments'])) {
-            $groupAssignments = [];
-            if (count($this->_propDict['groupAssignments']) > 0 && is_a($this->_propDict['groupAssignments'][0], 'DeviceConfigurationGroupAssignment')) {
-                return $this->_propDict['groupAssignments'];
-            }
-            foreach ($this->_propDict['groupAssignments'] as $singleValue) {
-                $groupAssignments []= new DeviceConfigurationGroupAssignment($singleValue);
-            }
-            $this->_propDict['groupAssignments'] = $groupAssignments;
-            return $this->_propDict['groupAssignments'];
+           $groupAssignments = [];
+           if (count($this->_propDict['groupAssignments']) > 0 && is_a($this->_propDict['groupAssignments'][0], 'DeviceConfigurationGroupAssignment')) {
+              return $this->_propDict['groupAssignments'];
+           }
+           foreach ($this->_propDict['groupAssignments'] as $singleValue) {
+              $groupAssignments []= new DeviceConfigurationGroupAssignment($singleValue);
+           }
+           $this->_propDict['groupAssignments'] = $groupAssignments;
+           return $this->_propDict['groupAssignments'];
         }
         return null;
     }
@@ -525,15 +525,15 @@ class DeviceConfiguration extends Entity
     public function getUserStatuses()
     {
         if (array_key_exists('userStatuses', $this->_propDict) && !is_null($this->_propDict['userStatuses'])) {
-            $userStatuses = [];
-            if (count($this->_propDict['userStatuses']) > 0 && is_a($this->_propDict['userStatuses'][0], 'DeviceConfigurationUserStatus')) {
-                return $this->_propDict['userStatuses'];
-            }
-            foreach ($this->_propDict['userStatuses'] as $singleValue) {
-                $userStatuses []= new DeviceConfigurationUserStatus($singleValue);
-            }
-            $this->_propDict['userStatuses'] = $userStatuses;
-            return $this->_propDict['userStatuses'];
+           $userStatuses = [];
+           if (count($this->_propDict['userStatuses']) > 0 && is_a($this->_propDict['userStatuses'][0], 'DeviceConfigurationUserStatus')) {
+              return $this->_propDict['userStatuses'];
+           }
+           foreach ($this->_propDict['userStatuses'] as $singleValue) {
+              $userStatuses []= new DeviceConfigurationUserStatus($singleValue);
+           }
+           $this->_propDict['userStatuses'] = $userStatuses;
+           return $this->_propDict['userStatuses'];
         }
         return null;
     }

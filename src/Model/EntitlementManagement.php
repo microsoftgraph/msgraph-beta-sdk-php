@@ -33,15 +33,15 @@ class EntitlementManagement extends Entity
     public function getAccessPackageAssignmentApprovals()
     {
         if (array_key_exists('accessPackageAssignmentApprovals', $this->_propDict) && !is_null($this->_propDict['accessPackageAssignmentApprovals'])) {
-            $accessPackageAssignmentApprovals = [];
-            if (count($this->_propDict['accessPackageAssignmentApprovals']) > 0 && is_a($this->_propDict['accessPackageAssignmentApprovals'][0], 'Approval')) {
-                return $this->_propDict['accessPackageAssignmentApprovals'];
-            }
-            foreach ($this->_propDict['accessPackageAssignmentApprovals'] as $singleValue) {
-                $accessPackageAssignmentApprovals []= new Approval($singleValue);
-            }
-            $this->_propDict['accessPackageAssignmentApprovals'] = $accessPackageAssignmentApprovals;
-            return $this->_propDict['accessPackageAssignmentApprovals'];
+           $accessPackageAssignmentApprovals = [];
+           if (count($this->_propDict['accessPackageAssignmentApprovals']) > 0 && is_a($this->_propDict['accessPackageAssignmentApprovals'][0], 'Approval')) {
+              return $this->_propDict['accessPackageAssignmentApprovals'];
+           }
+           foreach ($this->_propDict['accessPackageAssignmentApprovals'] as $singleValue) {
+              $accessPackageAssignmentApprovals []= new Approval($singleValue);
+           }
+           $this->_propDict['accessPackageAssignmentApprovals'] = $accessPackageAssignmentApprovals;
+           return $this->_propDict['accessPackageAssignmentApprovals'];
         }
         return null;
     }
@@ -68,15 +68,15 @@ class EntitlementManagement extends Entity
     public function getAccessPackageAssignmentPolicies()
     {
         if (array_key_exists('accessPackageAssignmentPolicies', $this->_propDict) && !is_null($this->_propDict['accessPackageAssignmentPolicies'])) {
-            $accessPackageAssignmentPolicies = [];
-            if (count($this->_propDict['accessPackageAssignmentPolicies']) > 0 && is_a($this->_propDict['accessPackageAssignmentPolicies'][0], 'AccessPackageAssignmentPolicy')) {
-                return $this->_propDict['accessPackageAssignmentPolicies'];
-            }
-            foreach ($this->_propDict['accessPackageAssignmentPolicies'] as $singleValue) {
-                $accessPackageAssignmentPolicies []= new AccessPackageAssignmentPolicy($singleValue);
-            }
-            $this->_propDict['accessPackageAssignmentPolicies'] = $accessPackageAssignmentPolicies;
-            return $this->_propDict['accessPackageAssignmentPolicies'];
+           $accessPackageAssignmentPolicies = [];
+           if (count($this->_propDict['accessPackageAssignmentPolicies']) > 0 && is_a($this->_propDict['accessPackageAssignmentPolicies'][0], 'AccessPackageAssignmentPolicy')) {
+              return $this->_propDict['accessPackageAssignmentPolicies'];
+           }
+           foreach ($this->_propDict['accessPackageAssignmentPolicies'] as $singleValue) {
+              $accessPackageAssignmentPolicies []= new AccessPackageAssignmentPolicy($singleValue);
+           }
+           $this->_propDict['accessPackageAssignmentPolicies'] = $accessPackageAssignmentPolicies;
+           return $this->_propDict['accessPackageAssignmentPolicies'];
         }
         return null;
     }
@@ -103,15 +103,15 @@ class EntitlementManagement extends Entity
     public function getAccessPackageAssignmentRequests()
     {
         if (array_key_exists('accessPackageAssignmentRequests', $this->_propDict) && !is_null($this->_propDict['accessPackageAssignmentRequests'])) {
-            $accessPackageAssignmentRequests = [];
-            if (count($this->_propDict['accessPackageAssignmentRequests']) > 0 && is_a($this->_propDict['accessPackageAssignmentRequests'][0], 'AccessPackageAssignmentRequest')) {
-                return $this->_propDict['accessPackageAssignmentRequests'];
-            }
-            foreach ($this->_propDict['accessPackageAssignmentRequests'] as $singleValue) {
-                $accessPackageAssignmentRequests []= new AccessPackageAssignmentRequest($singleValue);
-            }
-            $this->_propDict['accessPackageAssignmentRequests'] = $accessPackageAssignmentRequests;
-            return $this->_propDict['accessPackageAssignmentRequests'];
+           $accessPackageAssignmentRequests = [];
+           if (count($this->_propDict['accessPackageAssignmentRequests']) > 0 && is_a($this->_propDict['accessPackageAssignmentRequests'][0], 'AccessPackageAssignmentRequest')) {
+              return $this->_propDict['accessPackageAssignmentRequests'];
+           }
+           foreach ($this->_propDict['accessPackageAssignmentRequests'] as $singleValue) {
+              $accessPackageAssignmentRequests []= new AccessPackageAssignmentRequest($singleValue);
+           }
+           $this->_propDict['accessPackageAssignmentRequests'] = $accessPackageAssignmentRequests;
+           return $this->_propDict['accessPackageAssignmentRequests'];
         }
         return null;
     }
@@ -138,15 +138,15 @@ class EntitlementManagement extends Entity
     public function getAccessPackageAssignmentResourceRoles()
     {
         if (array_key_exists('accessPackageAssignmentResourceRoles', $this->_propDict) && !is_null($this->_propDict['accessPackageAssignmentResourceRoles'])) {
-            $accessPackageAssignmentResourceRoles = [];
-            if (count($this->_propDict['accessPackageAssignmentResourceRoles']) > 0 && is_a($this->_propDict['accessPackageAssignmentResourceRoles'][0], 'AccessPackageAssignmentResourceRole')) {
-                return $this->_propDict['accessPackageAssignmentResourceRoles'];
-            }
-            foreach ($this->_propDict['accessPackageAssignmentResourceRoles'] as $singleValue) {
-                $accessPackageAssignmentResourceRoles []= new AccessPackageAssignmentResourceRole($singleValue);
-            }
-            $this->_propDict['accessPackageAssignmentResourceRoles'] = $accessPackageAssignmentResourceRoles;
-            return $this->_propDict['accessPackageAssignmentResourceRoles'];
+           $accessPackageAssignmentResourceRoles = [];
+           if (count($this->_propDict['accessPackageAssignmentResourceRoles']) > 0 && is_a($this->_propDict['accessPackageAssignmentResourceRoles'][0], 'AccessPackageAssignmentResourceRole')) {
+              return $this->_propDict['accessPackageAssignmentResourceRoles'];
+           }
+           foreach ($this->_propDict['accessPackageAssignmentResourceRoles'] as $singleValue) {
+              $accessPackageAssignmentResourceRoles []= new AccessPackageAssignmentResourceRole($singleValue);
+           }
+           $this->_propDict['accessPackageAssignmentResourceRoles'] = $accessPackageAssignmentResourceRoles;
+           return $this->_propDict['accessPackageAssignmentResourceRoles'];
         }
         return null;
     }
@@ -173,15 +173,15 @@ class EntitlementManagement extends Entity
     public function getAccessPackageAssignments()
     {
         if (array_key_exists('accessPackageAssignments', $this->_propDict) && !is_null($this->_propDict['accessPackageAssignments'])) {
-            $accessPackageAssignments = [];
-            if (count($this->_propDict['accessPackageAssignments']) > 0 && is_a($this->_propDict['accessPackageAssignments'][0], 'AccessPackageAssignment')) {
-                return $this->_propDict['accessPackageAssignments'];
-            }
-            foreach ($this->_propDict['accessPackageAssignments'] as $singleValue) {
-                $accessPackageAssignments []= new AccessPackageAssignment($singleValue);
-            }
-            $this->_propDict['accessPackageAssignments'] = $accessPackageAssignments;
-            return $this->_propDict['accessPackageAssignments'];
+           $accessPackageAssignments = [];
+           if (count($this->_propDict['accessPackageAssignments']) > 0 && is_a($this->_propDict['accessPackageAssignments'][0], 'AccessPackageAssignment')) {
+              return $this->_propDict['accessPackageAssignments'];
+           }
+           foreach ($this->_propDict['accessPackageAssignments'] as $singleValue) {
+              $accessPackageAssignments []= new AccessPackageAssignment($singleValue);
+           }
+           $this->_propDict['accessPackageAssignments'] = $accessPackageAssignments;
+           return $this->_propDict['accessPackageAssignments'];
         }
         return null;
     }
@@ -208,15 +208,15 @@ class EntitlementManagement extends Entity
     public function getAccessPackageCatalogs()
     {
         if (array_key_exists('accessPackageCatalogs', $this->_propDict) && !is_null($this->_propDict['accessPackageCatalogs'])) {
-            $accessPackageCatalogs = [];
-            if (count($this->_propDict['accessPackageCatalogs']) > 0 && is_a($this->_propDict['accessPackageCatalogs'][0], 'AccessPackageCatalog')) {
-                return $this->_propDict['accessPackageCatalogs'];
-            }
-            foreach ($this->_propDict['accessPackageCatalogs'] as $singleValue) {
-                $accessPackageCatalogs []= new AccessPackageCatalog($singleValue);
-            }
-            $this->_propDict['accessPackageCatalogs'] = $accessPackageCatalogs;
-            return $this->_propDict['accessPackageCatalogs'];
+           $accessPackageCatalogs = [];
+           if (count($this->_propDict['accessPackageCatalogs']) > 0 && is_a($this->_propDict['accessPackageCatalogs'][0], 'AccessPackageCatalog')) {
+              return $this->_propDict['accessPackageCatalogs'];
+           }
+           foreach ($this->_propDict['accessPackageCatalogs'] as $singleValue) {
+              $accessPackageCatalogs []= new AccessPackageCatalog($singleValue);
+           }
+           $this->_propDict['accessPackageCatalogs'] = $accessPackageCatalogs;
+           return $this->_propDict['accessPackageCatalogs'];
         }
         return null;
     }
@@ -243,15 +243,15 @@ class EntitlementManagement extends Entity
     public function getAccessPackageResourceEnvironments()
     {
         if (array_key_exists('accessPackageResourceEnvironments', $this->_propDict) && !is_null($this->_propDict['accessPackageResourceEnvironments'])) {
-            $accessPackageResourceEnvironments = [];
-            if (count($this->_propDict['accessPackageResourceEnvironments']) > 0 && is_a($this->_propDict['accessPackageResourceEnvironments'][0], 'AccessPackageResourceEnvironment')) {
-                return $this->_propDict['accessPackageResourceEnvironments'];
-            }
-            foreach ($this->_propDict['accessPackageResourceEnvironments'] as $singleValue) {
-                $accessPackageResourceEnvironments []= new AccessPackageResourceEnvironment($singleValue);
-            }
-            $this->_propDict['accessPackageResourceEnvironments'] = $accessPackageResourceEnvironments;
-            return $this->_propDict['accessPackageResourceEnvironments'];
+           $accessPackageResourceEnvironments = [];
+           if (count($this->_propDict['accessPackageResourceEnvironments']) > 0 && is_a($this->_propDict['accessPackageResourceEnvironments'][0], 'AccessPackageResourceEnvironment')) {
+              return $this->_propDict['accessPackageResourceEnvironments'];
+           }
+           foreach ($this->_propDict['accessPackageResourceEnvironments'] as $singleValue) {
+              $accessPackageResourceEnvironments []= new AccessPackageResourceEnvironment($singleValue);
+           }
+           $this->_propDict['accessPackageResourceEnvironments'] = $accessPackageResourceEnvironments;
+           return $this->_propDict['accessPackageResourceEnvironments'];
         }
         return null;
     }
@@ -278,15 +278,15 @@ class EntitlementManagement extends Entity
     public function getAccessPackageResourceRequests()
     {
         if (array_key_exists('accessPackageResourceRequests', $this->_propDict) && !is_null($this->_propDict['accessPackageResourceRequests'])) {
-            $accessPackageResourceRequests = [];
-            if (count($this->_propDict['accessPackageResourceRequests']) > 0 && is_a($this->_propDict['accessPackageResourceRequests'][0], 'AccessPackageResourceRequest')) {
-                return $this->_propDict['accessPackageResourceRequests'];
-            }
-            foreach ($this->_propDict['accessPackageResourceRequests'] as $singleValue) {
-                $accessPackageResourceRequests []= new AccessPackageResourceRequest($singleValue);
-            }
-            $this->_propDict['accessPackageResourceRequests'] = $accessPackageResourceRequests;
-            return $this->_propDict['accessPackageResourceRequests'];
+           $accessPackageResourceRequests = [];
+           if (count($this->_propDict['accessPackageResourceRequests']) > 0 && is_a($this->_propDict['accessPackageResourceRequests'][0], 'AccessPackageResourceRequest')) {
+              return $this->_propDict['accessPackageResourceRequests'];
+           }
+           foreach ($this->_propDict['accessPackageResourceRequests'] as $singleValue) {
+              $accessPackageResourceRequests []= new AccessPackageResourceRequest($singleValue);
+           }
+           $this->_propDict['accessPackageResourceRequests'] = $accessPackageResourceRequests;
+           return $this->_propDict['accessPackageResourceRequests'];
         }
         return null;
     }
@@ -313,15 +313,15 @@ class EntitlementManagement extends Entity
     public function getAccessPackageResourceRoleScopes()
     {
         if (array_key_exists('accessPackageResourceRoleScopes', $this->_propDict) && !is_null($this->_propDict['accessPackageResourceRoleScopes'])) {
-            $accessPackageResourceRoleScopes = [];
-            if (count($this->_propDict['accessPackageResourceRoleScopes']) > 0 && is_a($this->_propDict['accessPackageResourceRoleScopes'][0], 'AccessPackageResourceRoleScope')) {
-                return $this->_propDict['accessPackageResourceRoleScopes'];
-            }
-            foreach ($this->_propDict['accessPackageResourceRoleScopes'] as $singleValue) {
-                $accessPackageResourceRoleScopes []= new AccessPackageResourceRoleScope($singleValue);
-            }
-            $this->_propDict['accessPackageResourceRoleScopes'] = $accessPackageResourceRoleScopes;
-            return $this->_propDict['accessPackageResourceRoleScopes'];
+           $accessPackageResourceRoleScopes = [];
+           if (count($this->_propDict['accessPackageResourceRoleScopes']) > 0 && is_a($this->_propDict['accessPackageResourceRoleScopes'][0], 'AccessPackageResourceRoleScope')) {
+              return $this->_propDict['accessPackageResourceRoleScopes'];
+           }
+           foreach ($this->_propDict['accessPackageResourceRoleScopes'] as $singleValue) {
+              $accessPackageResourceRoleScopes []= new AccessPackageResourceRoleScope($singleValue);
+           }
+           $this->_propDict['accessPackageResourceRoleScopes'] = $accessPackageResourceRoleScopes;
+           return $this->_propDict['accessPackageResourceRoleScopes'];
         }
         return null;
     }
@@ -348,15 +348,15 @@ class EntitlementManagement extends Entity
     public function getAccessPackageResources()
     {
         if (array_key_exists('accessPackageResources', $this->_propDict) && !is_null($this->_propDict['accessPackageResources'])) {
-            $accessPackageResources = [];
-            if (count($this->_propDict['accessPackageResources']) > 0 && is_a($this->_propDict['accessPackageResources'][0], 'AccessPackageResource')) {
-                return $this->_propDict['accessPackageResources'];
-            }
-            foreach ($this->_propDict['accessPackageResources'] as $singleValue) {
-                $accessPackageResources []= new AccessPackageResource($singleValue);
-            }
-            $this->_propDict['accessPackageResources'] = $accessPackageResources;
-            return $this->_propDict['accessPackageResources'];
+           $accessPackageResources = [];
+           if (count($this->_propDict['accessPackageResources']) > 0 && is_a($this->_propDict['accessPackageResources'][0], 'AccessPackageResource')) {
+              return $this->_propDict['accessPackageResources'];
+           }
+           foreach ($this->_propDict['accessPackageResources'] as $singleValue) {
+              $accessPackageResources []= new AccessPackageResource($singleValue);
+           }
+           $this->_propDict['accessPackageResources'] = $accessPackageResources;
+           return $this->_propDict['accessPackageResources'];
         }
         return null;
     }
@@ -383,15 +383,15 @@ class EntitlementManagement extends Entity
     public function getAccessPackages()
     {
         if (array_key_exists('accessPackages', $this->_propDict) && !is_null($this->_propDict['accessPackages'])) {
-            $accessPackages = [];
-            if (count($this->_propDict['accessPackages']) > 0 && is_a($this->_propDict['accessPackages'][0], 'AccessPackage')) {
-                return $this->_propDict['accessPackages'];
-            }
-            foreach ($this->_propDict['accessPackages'] as $singleValue) {
-                $accessPackages []= new AccessPackage($singleValue);
-            }
-            $this->_propDict['accessPackages'] = $accessPackages;
-            return $this->_propDict['accessPackages'];
+           $accessPackages = [];
+           if (count($this->_propDict['accessPackages']) > 0 && is_a($this->_propDict['accessPackages'][0], 'AccessPackage')) {
+              return $this->_propDict['accessPackages'];
+           }
+           foreach ($this->_propDict['accessPackages'] as $singleValue) {
+              $accessPackages []= new AccessPackage($singleValue);
+           }
+           $this->_propDict['accessPackages'] = $accessPackages;
+           return $this->_propDict['accessPackages'];
         }
         return null;
     }
@@ -418,15 +418,15 @@ class EntitlementManagement extends Entity
     public function getConnectedOrganizations()
     {
         if (array_key_exists('connectedOrganizations', $this->_propDict) && !is_null($this->_propDict['connectedOrganizations'])) {
-            $connectedOrganizations = [];
-            if (count($this->_propDict['connectedOrganizations']) > 0 && is_a($this->_propDict['connectedOrganizations'][0], 'ConnectedOrganization')) {
-                return $this->_propDict['connectedOrganizations'];
-            }
-            foreach ($this->_propDict['connectedOrganizations'] as $singleValue) {
-                $connectedOrganizations []= new ConnectedOrganization($singleValue);
-            }
-            $this->_propDict['connectedOrganizations'] = $connectedOrganizations;
-            return $this->_propDict['connectedOrganizations'];
+           $connectedOrganizations = [];
+           if (count($this->_propDict['connectedOrganizations']) > 0 && is_a($this->_propDict['connectedOrganizations'][0], 'ConnectedOrganization')) {
+              return $this->_propDict['connectedOrganizations'];
+           }
+           foreach ($this->_propDict['connectedOrganizations'] as $singleValue) {
+              $connectedOrganizations []= new ConnectedOrganization($singleValue);
+           }
+           $this->_propDict['connectedOrganizations'] = $connectedOrganizations;
+           return $this->_propDict['connectedOrganizations'];
         }
         return null;
     }

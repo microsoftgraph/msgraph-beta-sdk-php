@@ -150,15 +150,15 @@ class OutlookTaskGroup extends Entity
     public function getTaskFolders()
     {
         if (array_key_exists('taskFolders', $this->_propDict) && !is_null($this->_propDict['taskFolders'])) {
-            $taskFolders = [];
-            if (count($this->_propDict['taskFolders']) > 0 && is_a($this->_propDict['taskFolders'][0], 'OutlookTaskFolder')) {
-                return $this->_propDict['taskFolders'];
-            }
-            foreach ($this->_propDict['taskFolders'] as $singleValue) {
-                $taskFolders []= new OutlookTaskFolder($singleValue);
-            }
-            $this->_propDict['taskFolders'] = $taskFolders;
-            return $this->_propDict['taskFolders'];
+           $taskFolders = [];
+           if (count($this->_propDict['taskFolders']) > 0 && is_a($this->_propDict['taskFolders'][0], 'OutlookTaskFolder')) {
+              return $this->_propDict['taskFolders'];
+           }
+           foreach ($this->_propDict['taskFolders'] as $singleValue) {
+              $taskFolders []= new OutlookTaskFolder($singleValue);
+           }
+           $this->_propDict['taskFolders'] = $taskFolders;
+           return $this->_propDict['taskFolders'];
         }
         return null;
     }
