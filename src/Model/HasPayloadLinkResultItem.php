@@ -119,11 +119,11 @@ class HasPayloadLinkResultItem extends Entity
         if (array_key_exists("sources", $this->_propDict) && !is_null($this->_propDict["sources"])) {
        
             if (count($this->_propDict['sources']) > 0 && is_a($this->_propDict['sources'][0], 'DeviceAndAppManagementAssignmentSource')) {
-               return $this->_propDict['sources'];
+                return $this->_propDict['sources'];
             }
             $sources = [];
             foreach ($this->_propDict['sources'] as $singleValue) {
-               $sources []= new DeviceAndAppManagementAssignmentSource($singleValue);
+                $sources []= new DeviceAndAppManagementAssignmentSource($singleValue);
             }
             $this->_propDict['sources'] = $sources;
             return $this->_propDict['sources'];

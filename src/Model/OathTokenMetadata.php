@@ -86,11 +86,11 @@ class OathTokenMetadata extends Entity
         if (array_key_exists("manufacturerProperties", $this->_propDict) && !is_null($this->_propDict["manufacturerProperties"])) {
        
             if (count($this->_propDict['manufacturerProperties']) > 0 && is_a($this->_propDict['manufacturerProperties'][0], 'KeyValue')) {
-               return $this->_propDict['manufacturerProperties'];
+                return $this->_propDict['manufacturerProperties'];
             }
             $manufacturerProperties = [];
             foreach ($this->_propDict['manufacturerProperties'] as $singleValue) {
-               $manufacturerProperties []= new KeyValue($singleValue);
+                $manufacturerProperties []= new KeyValue($singleValue);
             }
             $this->_propDict['manufacturerProperties'] = $manufacturerProperties;
             return $this->_propDict['manufacturerProperties'];

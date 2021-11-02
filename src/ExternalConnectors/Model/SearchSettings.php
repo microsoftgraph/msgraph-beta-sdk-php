@@ -35,11 +35,11 @@ class SearchSettings extends \Beta\Microsoft\Graph\Model\Entity
         if (array_key_exists("searchResultTemplates", $this->_propDict) && !is_null($this->_propDict["searchResultTemplates"])) {
        
             if (count($this->_propDict['searchResultTemplates']) > 0 && is_a($this->_propDict['searchResultTemplates'][0], 'DisplayTemplate')) {
-               return $this->_propDict['searchResultTemplates'];
+                return $this->_propDict['searchResultTemplates'];
             }
             $searchResultTemplates = [];
             foreach ($this->_propDict['searchResultTemplates'] as $singleValue) {
-               $searchResultTemplates []= new DisplayTemplate($singleValue);
+                $searchResultTemplates []= new DisplayTemplate($singleValue);
             }
             $this->_propDict['searchResultTemplates'] = $searchResultTemplates;
             return $this->_propDict['searchResultTemplates'];

@@ -35,11 +35,11 @@ class FilterGroup extends Entity
         if (array_key_exists("clauses", $this->_propDict) && !is_null($this->_propDict["clauses"])) {
        
             if (count($this->_propDict['clauses']) > 0 && is_a($this->_propDict['clauses'][0], 'FilterClause')) {
-               return $this->_propDict['clauses'];
+                return $this->_propDict['clauses'];
             }
             $clauses = [];
             foreach ($this->_propDict['clauses'] as $singleValue) {
-               $clauses []= new FilterClause($singleValue);
+                $clauses []= new FilterClause($singleValue);
             }
             $this->_propDict['clauses'] = $clauses;
             return $this->_propDict['clauses'];

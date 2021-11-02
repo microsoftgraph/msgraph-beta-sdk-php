@@ -227,11 +227,11 @@ class SynchronizationStatus extends Entity
         if (array_key_exists("progress", $this->_propDict) && !is_null($this->_propDict["progress"])) {
        
             if (count($this->_propDict['progress']) > 0 && is_a($this->_propDict['progress'][0], 'SynchronizationProgress')) {
-               return $this->_propDict['progress'];
+                return $this->_propDict['progress'];
             }
             $progress = [];
             foreach ($this->_propDict['progress'] as $singleValue) {
-               $progress []= new SynchronizationProgress($singleValue);
+                $progress []= new SynchronizationProgress($singleValue);
             }
             $this->_propDict['progress'] = $progress;
             return $this->_propDict['progress'];
@@ -366,11 +366,11 @@ class SynchronizationStatus extends Entity
         if (array_key_exists("synchronizedEntryCountByType", $this->_propDict) && !is_null($this->_propDict["synchronizedEntryCountByType"])) {
        
             if (count($this->_propDict['synchronizedEntryCountByType']) > 0 && is_a($this->_propDict['synchronizedEntryCountByType'][0], 'StringKeyLongValuePair')) {
-               return $this->_propDict['synchronizedEntryCountByType'];
+                return $this->_propDict['synchronizedEntryCountByType'];
             }
             $synchronizedEntryCountByType = [];
             foreach ($this->_propDict['synchronizedEntryCountByType'] as $singleValue) {
-               $synchronizedEntryCountByType []= new StringKeyLongValuePair($singleValue);
+                $synchronizedEntryCountByType []= new StringKeyLongValuePair($singleValue);
             }
             $this->_propDict['synchronizedEntryCountByType'] = $synchronizedEntryCountByType;
             return $this->_propDict['synchronizedEntryCountByType'];

@@ -46,11 +46,11 @@ class DeviceManagementEnumConstraint extends DeviceManagementConstraint
         if (array_key_exists("values", $this->_propDict) && !is_null($this->_propDict["values"])) {
        
             if (count($this->_propDict['values']) > 0 && is_a($this->_propDict['values'][0], 'DeviceManagementEnumValue')) {
-               return $this->_propDict['values'];
+                return $this->_propDict['values'];
             }
             $values = [];
             foreach ($this->_propDict['values'] as $singleValue) {
-               $values []= new DeviceManagementEnumValue($singleValue);
+                $values []= new DeviceManagementEnumValue($singleValue);
             }
             $this->_propDict['values'] = $values;
             return $this->_propDict['values'];

@@ -35,11 +35,11 @@ class AppManagementConfiguration extends Entity
         if (array_key_exists("keyCredentials", $this->_propDict) && !is_null($this->_propDict["keyCredentials"])) {
        
             if (count($this->_propDict['keyCredentials']) > 0 && is_a($this->_propDict['keyCredentials'][0], 'KeyCredentialConfiguration')) {
-               return $this->_propDict['keyCredentials'];
+                return $this->_propDict['keyCredentials'];
             }
             $keyCredentials = [];
             foreach ($this->_propDict['keyCredentials'] as $singleValue) {
-               $keyCredentials []= new KeyCredentialConfiguration($singleValue);
+                $keyCredentials []= new KeyCredentialConfiguration($singleValue);
             }
             $this->_propDict['keyCredentials'] = $keyCredentials;
             return $this->_propDict['keyCredentials'];
@@ -72,11 +72,11 @@ class AppManagementConfiguration extends Entity
         if (array_key_exists("passwordCredentials", $this->_propDict) && !is_null($this->_propDict["passwordCredentials"])) {
        
             if (count($this->_propDict['passwordCredentials']) > 0 && is_a($this->_propDict['passwordCredentials'][0], 'PasswordCredentialConfiguration')) {
-               return $this->_propDict['passwordCredentials'];
+                return $this->_propDict['passwordCredentials'];
             }
             $passwordCredentials = [];
             foreach ($this->_propDict['passwordCredentials'] as $singleValue) {
-               $passwordCredentials []= new PasswordCredentialConfiguration($singleValue);
+                $passwordCredentials []= new PasswordCredentialConfiguration($singleValue);
             }
             $this->_propDict['passwordCredentials'] = $passwordCredentials;
             return $this->_propDict['passwordCredentials'];

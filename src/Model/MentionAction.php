@@ -35,11 +35,11 @@ class MentionAction extends Entity
         if (array_key_exists("mentionees", $this->_propDict) && !is_null($this->_propDict["mentionees"])) {
        
             if (count($this->_propDict['mentionees']) > 0 && is_a($this->_propDict['mentionees'][0], 'IdentitySet')) {
-               return $this->_propDict['mentionees'];
+                return $this->_propDict['mentionees'];
             }
             $mentionees = [];
             foreach ($this->_propDict['mentionees'] as $singleValue) {
-               $mentionees []= new IdentitySet($singleValue);
+                $mentionees []= new IdentitySet($singleValue);
             }
             $this->_propDict['mentionees'] = $mentionees;
             return $this->_propDict['mentionees'];

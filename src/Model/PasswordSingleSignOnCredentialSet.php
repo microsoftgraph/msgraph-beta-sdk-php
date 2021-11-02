@@ -35,11 +35,11 @@ class PasswordSingleSignOnCredentialSet extends Entity
         if (array_key_exists("credentials", $this->_propDict) && !is_null($this->_propDict["credentials"])) {
        
             if (count($this->_propDict['credentials']) > 0 && is_a($this->_propDict['credentials'][0], 'Credential')) {
-               return $this->_propDict['credentials'];
+                return $this->_propDict['credentials'];
             }
             $credentials = [];
             foreach ($this->_propDict['credentials'] as $singleValue) {
-               $credentials []= new Credential($singleValue);
+                $credentials []= new Credential($singleValue);
             }
             $this->_propDict['credentials'] = $credentials;
             return $this->_propDict['credentials'];

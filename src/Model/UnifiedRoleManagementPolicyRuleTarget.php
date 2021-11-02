@@ -174,11 +174,11 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
         if (array_key_exists("targetObjects", $this->_propDict) && !is_null($this->_propDict["targetObjects"])) {
        
             if (count($this->_propDict['targetObjects']) > 0 && is_a($this->_propDict['targetObjects'][0], 'DirectoryObject')) {
-               return $this->_propDict['targetObjects'];
+                return $this->_propDict['targetObjects'];
             }
             $targetObjects = [];
             foreach ($this->_propDict['targetObjects'] as $singleValue) {
-               $targetObjects []= new DirectoryObject($singleValue);
+                $targetObjects []= new DirectoryObject($singleValue);
             }
             $this->_propDict['targetObjects'] = $targetObjects;
             return $this->_propDict['targetObjects'];

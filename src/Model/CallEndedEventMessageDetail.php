@@ -142,11 +142,11 @@ class CallEndedEventMessageDetail extends EventMessageDetail
         if (array_key_exists("callParticipants", $this->_propDict) && !is_null($this->_propDict["callParticipants"])) {
        
             if (count($this->_propDict['callParticipants']) > 0 && is_a($this->_propDict['callParticipants'][0], 'CallParticipantInfo')) {
-               return $this->_propDict['callParticipants'];
+                return $this->_propDict['callParticipants'];
             }
             $callParticipants = [];
             foreach ($this->_propDict['callParticipants'] as $singleValue) {
-               $callParticipants []= new CallParticipantInfo($singleValue);
+                $callParticipants []= new CallParticipantInfo($singleValue);
             }
             $this->_propDict['callParticipants'] = $callParticipants;
             return $this->_propDict['callParticipants'];

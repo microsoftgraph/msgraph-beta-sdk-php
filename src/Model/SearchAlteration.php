@@ -91,11 +91,11 @@ class SearchAlteration extends Entity
         if (array_key_exists("alteredQueryTokens", $this->_propDict) && !is_null($this->_propDict["alteredQueryTokens"])) {
        
             if (count($this->_propDict['alteredQueryTokens']) > 0 && is_a($this->_propDict['alteredQueryTokens'][0], 'AlteredQueryToken')) {
-               return $this->_propDict['alteredQueryTokens'];
+                return $this->_propDict['alteredQueryTokens'];
             }
             $alteredQueryTokens = [];
             foreach ($this->_propDict['alteredQueryTokens'] as $singleValue) {
-               $alteredQueryTokens []= new AlteredQueryToken($singleValue);
+                $alteredQueryTokens []= new AlteredQueryToken($singleValue);
             }
             $this->_propDict['alteredQueryTokens'] = $alteredQueryTokens;
             return $this->_propDict['alteredQueryTokens'];

@@ -66,11 +66,11 @@ class EvaluateLabelJobResult extends Entity
         if (array_key_exists("responsibleSensitiveTypes", $this->_propDict) && !is_null($this->_propDict["responsibleSensitiveTypes"])) {
        
             if (count($this->_propDict['responsibleSensitiveTypes']) > 0 && is_a($this->_propDict['responsibleSensitiveTypes'][0], 'ResponsibleSensitiveType')) {
-               return $this->_propDict['responsibleSensitiveTypes'];
+                return $this->_propDict['responsibleSensitiveTypes'];
             }
             $responsibleSensitiveTypes = [];
             foreach ($this->_propDict['responsibleSensitiveTypes'] as $singleValue) {
-               $responsibleSensitiveTypes []= new ResponsibleSensitiveType($singleValue);
+                $responsibleSensitiveTypes []= new ResponsibleSensitiveType($singleValue);
             }
             $this->_propDict['responsibleSensitiveTypes'] = $responsibleSensitiveTypes;
             return $this->_propDict['responsibleSensitiveTypes'];

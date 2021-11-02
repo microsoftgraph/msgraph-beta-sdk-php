@@ -69,11 +69,11 @@ class CloudPcOnPremisesConnectionStatusDetails extends Entity
         if (array_key_exists("healthChecks", $this->_propDict) && !is_null($this->_propDict["healthChecks"])) {
        
             if (count($this->_propDict['healthChecks']) > 0 && is_a($this->_propDict['healthChecks'][0], 'CloudPcOnPremisesConnectionHealthCheck')) {
-               return $this->_propDict['healthChecks'];
+                return $this->_propDict['healthChecks'];
             }
             $healthChecks = [];
             foreach ($this->_propDict['healthChecks'] as $singleValue) {
-               $healthChecks []= new CloudPcOnPremisesConnectionHealthCheck($singleValue);
+                $healthChecks []= new CloudPcOnPremisesConnectionHealthCheck($singleValue);
             }
             $this->_propDict['healthChecks'] = $healthChecks;
             return $this->_propDict['healthChecks'];

@@ -46,11 +46,11 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstance extends Devic
         if (array_key_exists("simpleSettingCollectionValue", $this->_propDict) && !is_null($this->_propDict["simpleSettingCollectionValue"])) {
        
             if (count($this->_propDict['simpleSettingCollectionValue']) > 0 && is_a($this->_propDict['simpleSettingCollectionValue'][0], 'DeviceManagementConfigurationSimpleSettingValue')) {
-               return $this->_propDict['simpleSettingCollectionValue'];
+                return $this->_propDict['simpleSettingCollectionValue'];
             }
             $simpleSettingCollectionValue = [];
             foreach ($this->_propDict['simpleSettingCollectionValue'] as $singleValue) {
-               $simpleSettingCollectionValue []= new DeviceManagementConfigurationSimpleSettingValue($singleValue);
+                $simpleSettingCollectionValue []= new DeviceManagementConfigurationSimpleSettingValue($singleValue);
             }
             $this->_propDict['simpleSettingCollectionValue'] = $simpleSettingCollectionValue;
             return $this->_propDict['simpleSettingCollectionValue'];

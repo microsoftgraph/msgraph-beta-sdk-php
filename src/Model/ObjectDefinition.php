@@ -34,11 +34,11 @@ class ObjectDefinition extends Entity
         if (array_key_exists("attributes", $this->_propDict) && !is_null($this->_propDict["attributes"])) {
        
             if (count($this->_propDict['attributes']) > 0 && is_a($this->_propDict['attributes'][0], 'AttributeDefinition')) {
-               return $this->_propDict['attributes'];
+                return $this->_propDict['attributes'];
             }
             $attributes = [];
             foreach ($this->_propDict['attributes'] as $singleValue) {
-               $attributes []= new AttributeDefinition($singleValue);
+                $attributes []= new AttributeDefinition($singleValue);
             }
             $this->_propDict['attributes'] = $attributes;
             return $this->_propDict['attributes'];
@@ -69,11 +69,11 @@ class ObjectDefinition extends Entity
         if (array_key_exists("metadata", $this->_propDict) && !is_null($this->_propDict["metadata"])) {
        
             if (count($this->_propDict['metadata']) > 0 && is_a($this->_propDict['metadata'][0], 'MetadataEntry')) {
-               return $this->_propDict['metadata'];
+                return $this->_propDict['metadata'];
             }
             $metadata = [];
             foreach ($this->_propDict['metadata'] as $singleValue) {
-               $metadata []= new MetadataEntry($singleValue);
+                $metadata []= new MetadataEntry($singleValue);
             }
             $this->_propDict['metadata'] = $metadata;
             return $this->_propDict['metadata'];

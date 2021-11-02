@@ -92,11 +92,11 @@ class DeviceRestrictionAction extends DlpActionInfo
         if (array_key_exists("triggers", $this->_propDict) && !is_null($this->_propDict["triggers"])) {
        
             if (count($this->_propDict['triggers']) > 0 && is_a($this->_propDict['triggers'][0], 'RestrictionTrigger')) {
-               return $this->_propDict['triggers'];
+                return $this->_propDict['triggers'];
             }
             $triggers = [];
             foreach ($this->_propDict['triggers'] as $singleValue) {
-               $triggers []= new RestrictionTrigger($singleValue);
+                $triggers []= new RestrictionTrigger($singleValue);
             }
             $this->_propDict['triggers'] = $triggers;
             return $this->_propDict['triggers'];

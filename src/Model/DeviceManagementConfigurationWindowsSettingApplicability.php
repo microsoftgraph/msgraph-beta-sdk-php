@@ -181,11 +181,11 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
         if (array_key_exists("windowsSkus", $this->_propDict) && !is_null($this->_propDict["windowsSkus"])) {
        
             if (count($this->_propDict['windowsSkus']) > 0 && is_a($this->_propDict['windowsSkus'][0], 'DeviceManagementConfigurationWindowsSkus')) {
-               return $this->_propDict['windowsSkus'];
+                return $this->_propDict['windowsSkus'];
             }
             $windowsSkus = [];
             foreach ($this->_propDict['windowsSkus'] as $singleValue) {
-               $windowsSkus []= new DeviceManagementConfigurationWindowsSkus($singleValue);
+                $windowsSkus []= new DeviceManagementConfigurationWindowsSkus($singleValue);
             }
             $this->_propDict['windowsSkus'] = $windowsSkus;
             return $this->_propDict['windowsSkus'];

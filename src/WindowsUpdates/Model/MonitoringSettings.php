@@ -35,11 +35,11 @@ class MonitoringSettings extends \Beta\Microsoft\Graph\Model\Entity
         if (array_key_exists("monitoringRules", $this->_propDict) && !is_null($this->_propDict["monitoringRules"])) {
        
             if (count($this->_propDict['monitoringRules']) > 0 && is_a($this->_propDict['monitoringRules'][0], 'MonitoringRule')) {
-               return $this->_propDict['monitoringRules'];
+                return $this->_propDict['monitoringRules'];
             }
             $monitoringRules = [];
             foreach ($this->_propDict['monitoringRules'] as $singleValue) {
-               $monitoringRules []= new MonitoringRule($singleValue);
+                $monitoringRules []= new MonitoringRule($singleValue);
             }
             $this->_propDict['monitoringRules'] = $monitoringRules;
             return $this->_propDict['monitoringRules'];

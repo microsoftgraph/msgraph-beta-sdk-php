@@ -60,11 +60,11 @@ class GovernanceNotificationPolicy extends Entity
         if (array_key_exists("notificationTemplates", $this->_propDict) && !is_null($this->_propDict["notificationTemplates"])) {
        
             if (count($this->_propDict['notificationTemplates']) > 0 && is_a($this->_propDict['notificationTemplates'][0], 'GovernanceNotificationTemplate')) {
-               return $this->_propDict['notificationTemplates'];
+                return $this->_propDict['notificationTemplates'];
             }
             $notificationTemplates = [];
             foreach ($this->_propDict['notificationTemplates'] as $singleValue) {
-               $notificationTemplates []= new GovernanceNotificationTemplate($singleValue);
+                $notificationTemplates []= new GovernanceNotificationTemplate($singleValue);
             }
             $this->_propDict['notificationTemplates'] = $notificationTemplates;
             return $this->_propDict['notificationTemplates'];

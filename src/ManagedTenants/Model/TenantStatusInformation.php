@@ -261,11 +261,11 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
         if (array_key_exists("workloadStatuses", $this->_propDict) && !is_null($this->_propDict["workloadStatuses"])) {
        
             if (count($this->_propDict['workloadStatuses']) > 0 && is_a($this->_propDict['workloadStatuses'][0], 'WorkloadStatus')) {
-               return $this->_propDict['workloadStatuses'];
+                return $this->_propDict['workloadStatuses'];
             }
             $workloadStatuses = [];
             foreach ($this->_propDict['workloadStatuses'] as $singleValue) {
-               $workloadStatuses []= new WorkloadStatus($singleValue);
+                $workloadStatuses []= new WorkloadStatus($singleValue);
             }
             $this->_propDict['workloadStatuses'] = $workloadStatuses;
             return $this->_propDict['workloadStatuses'];

@@ -74,11 +74,11 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate exten
         if (array_key_exists("simpleSettingCollectionValueTemplate", $this->_propDict) && !is_null($this->_propDict["simpleSettingCollectionValueTemplate"])) {
        
             if (count($this->_propDict['simpleSettingCollectionValueTemplate']) > 0 && is_a($this->_propDict['simpleSettingCollectionValueTemplate'][0], 'DeviceManagementConfigurationSimpleSettingValueTemplate')) {
-               return $this->_propDict['simpleSettingCollectionValueTemplate'];
+                return $this->_propDict['simpleSettingCollectionValueTemplate'];
             }
             $simpleSettingCollectionValueTemplate = [];
             foreach ($this->_propDict['simpleSettingCollectionValueTemplate'] as $singleValue) {
-               $simpleSettingCollectionValueTemplate []= new DeviceManagementConfigurationSimpleSettingValueTemplate($singleValue);
+                $simpleSettingCollectionValueTemplate []= new DeviceManagementConfigurationSimpleSettingValueTemplate($singleValue);
             }
             $this->_propDict['simpleSettingCollectionValueTemplate'] = $simpleSettingCollectionValueTemplate;
             return $this->_propDict['simpleSettingCollectionValueTemplate'];

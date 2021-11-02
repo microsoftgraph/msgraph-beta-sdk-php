@@ -179,11 +179,11 @@ class WebApplication extends Entity
         if (array_key_exists("redirectUriSettings", $this->_propDict) && !is_null($this->_propDict["redirectUriSettings"])) {
        
             if (count($this->_propDict['redirectUriSettings']) > 0 && is_a($this->_propDict['redirectUriSettings'][0], 'RedirectUriSettings')) {
-               return $this->_propDict['redirectUriSettings'];
+                return $this->_propDict['redirectUriSettings'];
             }
             $redirectUriSettings = [];
             foreach ($this->_propDict['redirectUriSettings'] as $singleValue) {
-               $redirectUriSettings []= new RedirectUriSettings($singleValue);
+                $redirectUriSettings []= new RedirectUriSettings($singleValue);
             }
             $this->_propDict['redirectUriSettings'] = $redirectUriSettings;
             return $this->_propDict['redirectUriSettings'];

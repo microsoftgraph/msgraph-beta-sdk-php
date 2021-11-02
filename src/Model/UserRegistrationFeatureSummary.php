@@ -63,11 +63,11 @@ class UserRegistrationFeatureSummary extends Entity
         if (array_key_exists("userRegistrationFeatureCounts", $this->_propDict) && !is_null($this->_propDict["userRegistrationFeatureCounts"])) {
        
             if (count($this->_propDict['userRegistrationFeatureCounts']) > 0 && is_a($this->_propDict['userRegistrationFeatureCounts'][0], 'UserRegistrationFeatureCount')) {
-               return $this->_propDict['userRegistrationFeatureCounts'];
+                return $this->_propDict['userRegistrationFeatureCounts'];
             }
             $userRegistrationFeatureCounts = [];
             foreach ($this->_propDict['userRegistrationFeatureCounts'] as $singleValue) {
-               $userRegistrationFeatureCounts []= new UserRegistrationFeatureCount($singleValue);
+                $userRegistrationFeatureCounts []= new UserRegistrationFeatureCount($singleValue);
             }
             $this->_propDict['userRegistrationFeatureCounts'] = $userRegistrationFeatureCounts;
             return $this->_propDict['userRegistrationFeatureCounts'];

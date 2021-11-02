@@ -147,11 +147,11 @@ class AssignmentFilterSupportedProperty extends Entity
         if (array_key_exists("supportedOperators", $this->_propDict) && !is_null($this->_propDict["supportedOperators"])) {
        
             if (count($this->_propDict['supportedOperators']) > 0 && is_a($this->_propDict['supportedOperators'][0], 'AssignmentFilterOperator')) {
-               return $this->_propDict['supportedOperators'];
+                return $this->_propDict['supportedOperators'];
             }
             $supportedOperators = [];
             foreach ($this->_propDict['supportedOperators'] as $singleValue) {
-               $supportedOperators []= new AssignmentFilterOperator($singleValue);
+                $supportedOperators []= new AssignmentFilterOperator($singleValue);
             }
             $this->_propDict['supportedOperators'] = $supportedOperators;
             return $this->_propDict['supportedOperators'];

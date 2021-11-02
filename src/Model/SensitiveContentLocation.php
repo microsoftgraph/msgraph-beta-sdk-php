@@ -60,11 +60,11 @@ class SensitiveContentLocation extends Entity
         if (array_key_exists("evidences", $this->_propDict) && !is_null($this->_propDict["evidences"])) {
        
             if (count($this->_propDict['evidences']) > 0 && is_a($this->_propDict['evidences'][0], 'SensitiveContentEvidence')) {
-               return $this->_propDict['evidences'];
+                return $this->_propDict['evidences'];
             }
             $evidences = [];
             foreach ($this->_propDict['evidences'] as $singleValue) {
-               $evidences []= new SensitiveContentEvidence($singleValue);
+                $evidences []= new SensitiveContentEvidence($singleValue);
             }
             $this->_propDict['evidences'] = $evidences;
             return $this->_propDict['evidences'];

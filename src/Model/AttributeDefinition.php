@@ -62,11 +62,11 @@ class AttributeDefinition extends Entity
         if (array_key_exists("apiExpressions", $this->_propDict) && !is_null($this->_propDict["apiExpressions"])) {
        
             if (count($this->_propDict['apiExpressions']) > 0 && is_a($this->_propDict['apiExpressions'][0], 'StringKeyStringValuePair')) {
-               return $this->_propDict['apiExpressions'];
+                return $this->_propDict['apiExpressions'];
             }
             $apiExpressions = [];
             foreach ($this->_propDict['apiExpressions'] as $singleValue) {
-               $apiExpressions []= new StringKeyStringValuePair($singleValue);
+                $apiExpressions []= new StringKeyStringValuePair($singleValue);
             }
             $this->_propDict['apiExpressions'] = $apiExpressions;
             return $this->_propDict['apiExpressions'];
@@ -180,11 +180,11 @@ class AttributeDefinition extends Entity
         if (array_key_exists("metadata", $this->_propDict) && !is_null($this->_propDict["metadata"])) {
        
             if (count($this->_propDict['metadata']) > 0 && is_a($this->_propDict['metadata'][0], 'MetadataEntry')) {
-               return $this->_propDict['metadata'];
+                return $this->_propDict['metadata'];
             }
             $metadata = [];
             foreach ($this->_propDict['metadata'] as $singleValue) {
-               $metadata []= new MetadataEntry($singleValue);
+                $metadata []= new MetadataEntry($singleValue);
             }
             $this->_propDict['metadata'] = $metadata;
             return $this->_propDict['metadata'];
@@ -307,11 +307,11 @@ class AttributeDefinition extends Entity
         if (array_key_exists("referencedObjects", $this->_propDict) && !is_null($this->_propDict["referencedObjects"])) {
        
             if (count($this->_propDict['referencedObjects']) > 0 && is_a($this->_propDict['referencedObjects'][0], 'ReferencedObject')) {
-               return $this->_propDict['referencedObjects'];
+                return $this->_propDict['referencedObjects'];
             }
             $referencedObjects = [];
             foreach ($this->_propDict['referencedObjects'] as $singleValue) {
-               $referencedObjects []= new ReferencedObject($singleValue);
+                $referencedObjects []= new ReferencedObject($singleValue);
             }
             $this->_propDict['referencedObjects'] = $referencedObjects;
             return $this->_propDict['referencedObjects'];

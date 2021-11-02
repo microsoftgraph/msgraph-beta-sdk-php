@@ -63,11 +63,11 @@ class SimulationEventsContent extends Entity
         if (array_key_exists("events", $this->_propDict) && !is_null($this->_propDict["events"])) {
        
             if (count($this->_propDict['events']) > 0 && is_a($this->_propDict['events'][0], 'SimulationEvent')) {
-               return $this->_propDict['events'];
+                return $this->_propDict['events'];
             }
             $events = [];
             foreach ($this->_propDict['events'] as $singleValue) {
-               $events []= new SimulationEvent($singleValue);
+                $events []= new SimulationEvent($singleValue);
             }
             $this->_propDict['events'] = $events;
             return $this->_propDict['events'];

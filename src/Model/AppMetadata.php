@@ -34,11 +34,11 @@ class AppMetadata extends Entity
         if (array_key_exists("data", $this->_propDict) && !is_null($this->_propDict["data"])) {
        
             if (count($this->_propDict['data']) > 0 && is_a($this->_propDict['data'][0], 'AppMetadataEntry')) {
-               return $this->_propDict['data'];
+                return $this->_propDict['data'];
             }
             $data = [];
             foreach ($this->_propDict['data'] as $singleValue) {
-               $data []= new AppMetadataEntry($singleValue);
+                $data []= new AppMetadataEntry($singleValue);
             }
             $this->_propDict['data'] = $data;
             return $this->_propDict['data'];

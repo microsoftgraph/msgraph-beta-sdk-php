@@ -35,11 +35,11 @@ class SimulationReportOverview extends Entity
         if (array_key_exists("recommendedActions", $this->_propDict) && !is_null($this->_propDict["recommendedActions"])) {
        
             if (count($this->_propDict['recommendedActions']) > 0 && is_a($this->_propDict['recommendedActions'][0], 'RecommendedAction')) {
-               return $this->_propDict['recommendedActions'];
+                return $this->_propDict['recommendedActions'];
             }
             $recommendedActions = [];
             foreach ($this->_propDict['recommendedActions'] as $singleValue) {
-               $recommendedActions []= new RecommendedAction($singleValue);
+                $recommendedActions []= new RecommendedAction($singleValue);
             }
             $this->_propDict['recommendedActions'] = $recommendedActions;
             return $this->_propDict['recommendedActions'];

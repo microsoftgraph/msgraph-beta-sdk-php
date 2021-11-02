@@ -34,11 +34,11 @@ class SafeguardSettings extends \Beta\Microsoft\Graph\Model\Entity
         if (array_key_exists("disabledSafeguardProfiles", $this->_propDict) && !is_null($this->_propDict["disabledSafeguardProfiles"])) {
        
             if (count($this->_propDict['disabledSafeguardProfiles']) > 0 && is_a($this->_propDict['disabledSafeguardProfiles'][0], 'SafeguardProfile')) {
-               return $this->_propDict['disabledSafeguardProfiles'];
+                return $this->_propDict['disabledSafeguardProfiles'];
             }
             $disabledSafeguardProfiles = [];
             foreach ($this->_propDict['disabledSafeguardProfiles'] as $singleValue) {
-               $disabledSafeguardProfiles []= new SafeguardProfile($singleValue);
+                $disabledSafeguardProfiles []= new SafeguardProfile($singleValue);
             }
             $this->_propDict['disabledSafeguardProfiles'] = $disabledSafeguardProfiles;
             return $this->_propDict['disabledSafeguardProfiles'];

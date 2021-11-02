@@ -34,11 +34,11 @@ class ClassificationError extends ClassifcationErrorBase
         if (array_key_exists("details", $this->_propDict) && !is_null($this->_propDict["details"])) {
        
             if (count($this->_propDict['details']) > 0 && is_a($this->_propDict['details'][0], 'ClassifcationErrorBase')) {
-               return $this->_propDict['details'];
+                return $this->_propDict['details'];
             }
             $details = [];
             foreach ($this->_propDict['details'] as $singleValue) {
-               $details []= new ClassifcationErrorBase($singleValue);
+                $details []= new ClassifcationErrorBase($singleValue);
             }
             $this->_propDict['details'] = $details;
             return $this->_propDict['details'];

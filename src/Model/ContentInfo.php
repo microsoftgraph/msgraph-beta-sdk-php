@@ -97,11 +97,11 @@ class ContentInfo extends Entity
         if (array_key_exists("metadata", $this->_propDict) && !is_null($this->_propDict["metadata"])) {
        
             if (count($this->_propDict['metadata']) > 0 && is_a($this->_propDict['metadata'][0], 'KeyValuePair')) {
-               return $this->_propDict['metadata'];
+                return $this->_propDict['metadata'];
             }
             $metadata = [];
             foreach ($this->_propDict['metadata'] as $singleValue) {
-               $metadata []= new KeyValuePair($singleValue);
+                $metadata []= new KeyValuePair($singleValue);
             }
             $this->_propDict['metadata'] = $metadata;
             return $this->_propDict['metadata'];

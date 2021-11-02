@@ -46,11 +46,11 @@ class EducationIdentityMatchingConfiguration extends EducationIdentitySynchroniz
         if (array_key_exists("matchingOptions", $this->_propDict) && !is_null($this->_propDict["matchingOptions"])) {
        
             if (count($this->_propDict['matchingOptions']) > 0 && is_a($this->_propDict['matchingOptions'][0], 'EducationIdentityMatchingOptions')) {
-               return $this->_propDict['matchingOptions'];
+                return $this->_propDict['matchingOptions'];
             }
             $matchingOptions = [];
             foreach ($this->_propDict['matchingOptions'] as $singleValue) {
-               $matchingOptions []= new EducationIdentityMatchingOptions($singleValue);
+                $matchingOptions []= new EducationIdentityMatchingOptions($singleValue);
             }
             $this->_propDict['matchingOptions'] = $matchingOptions;
             return $this->_propDict['matchingOptions'];

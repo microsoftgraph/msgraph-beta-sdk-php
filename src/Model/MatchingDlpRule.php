@@ -34,11 +34,11 @@ class MatchingDlpRule extends Entity
         if (array_key_exists("actions", $this->_propDict) && !is_null($this->_propDict["actions"])) {
        
             if (count($this->_propDict['actions']) > 0 && is_a($this->_propDict['actions'][0], 'DlpActionInfo')) {
-               return $this->_propDict['actions'];
+                return $this->_propDict['actions'];
             }
             $actions = [];
             foreach ($this->_propDict['actions'] as $singleValue) {
-               $actions []= new DlpActionInfo($singleValue);
+                $actions []= new DlpActionInfo($singleValue);
             }
             $this->_propDict['actions'] = $actions;
             return $this->_propDict['actions'];

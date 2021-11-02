@@ -91,11 +91,11 @@ class SynchronizationRule extends Entity
         if (array_key_exists("metadata", $this->_propDict) && !is_null($this->_propDict["metadata"])) {
        
             if (count($this->_propDict['metadata']) > 0 && is_a($this->_propDict['metadata'][0], 'StringKeyStringValuePair')) {
-               return $this->_propDict['metadata'];
+                return $this->_propDict['metadata'];
             }
             $metadata = [];
             foreach ($this->_propDict['metadata'] as $singleValue) {
-               $metadata []= new StringKeyStringValuePair($singleValue);
+                $metadata []= new StringKeyStringValuePair($singleValue);
             }
             $this->_propDict['metadata'] = $metadata;
             return $this->_propDict['metadata'];
@@ -156,11 +156,11 @@ class SynchronizationRule extends Entity
         if (array_key_exists("objectMappings", $this->_propDict) && !is_null($this->_propDict["objectMappings"])) {
        
             if (count($this->_propDict['objectMappings']) > 0 && is_a($this->_propDict['objectMappings'][0], 'ObjectMapping')) {
-               return $this->_propDict['objectMappings'];
+                return $this->_propDict['objectMappings'];
             }
             $objectMappings = [];
             foreach ($this->_propDict['objectMappings'] as $singleValue) {
-               $objectMappings []= new ObjectMapping($singleValue);
+                $objectMappings []= new ObjectMapping($singleValue);
             }
             $this->_propDict['objectMappings'] = $objectMappings;
             return $this->_propDict['objectMappings'];

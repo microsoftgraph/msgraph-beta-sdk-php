@@ -74,11 +74,11 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate exten
         if (array_key_exists("choiceSettingCollectionValueTemplate", $this->_propDict) && !is_null($this->_propDict["choiceSettingCollectionValueTemplate"])) {
        
             if (count($this->_propDict['choiceSettingCollectionValueTemplate']) > 0 && is_a($this->_propDict['choiceSettingCollectionValueTemplate'][0], 'DeviceManagementConfigurationChoiceSettingValueTemplate')) {
-               return $this->_propDict['choiceSettingCollectionValueTemplate'];
+                return $this->_propDict['choiceSettingCollectionValueTemplate'];
             }
             $choiceSettingCollectionValueTemplate = [];
             foreach ($this->_propDict['choiceSettingCollectionValueTemplate'] as $singleValue) {
-               $choiceSettingCollectionValueTemplate []= new DeviceManagementConfigurationChoiceSettingValueTemplate($singleValue);
+                $choiceSettingCollectionValueTemplate []= new DeviceManagementConfigurationChoiceSettingValueTemplate($singleValue);
             }
             $this->_propDict['choiceSettingCollectionValueTemplate'] = $choiceSettingCollectionValueTemplate;
             return $this->_propDict['choiceSettingCollectionValueTemplate'];

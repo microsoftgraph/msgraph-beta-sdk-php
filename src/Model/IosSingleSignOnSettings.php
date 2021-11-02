@@ -35,11 +35,11 @@ class IosSingleSignOnSettings extends Entity
         if (array_key_exists("allowedAppsList", $this->_propDict) && !is_null($this->_propDict["allowedAppsList"])) {
        
             if (count($this->_propDict['allowedAppsList']) > 0 && is_a($this->_propDict['allowedAppsList'][0], 'AppListItem')) {
-               return $this->_propDict['allowedAppsList'];
+                return $this->_propDict['allowedAppsList'];
             }
             $allowedAppsList = [];
             foreach ($this->_propDict['allowedAppsList'] as $singleValue) {
-               $allowedAppsList []= new AppListItem($singleValue);
+                $allowedAppsList []= new AppListItem($singleValue);
             }
             $this->_propDict['allowedAppsList'] = $allowedAppsList;
             return $this->_propDict['allowedAppsList'];

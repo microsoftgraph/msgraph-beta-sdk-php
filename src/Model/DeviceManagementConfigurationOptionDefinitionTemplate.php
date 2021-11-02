@@ -35,11 +35,11 @@ class DeviceManagementConfigurationOptionDefinitionTemplate extends Entity
         if (array_key_exists("children", $this->_propDict) && !is_null($this->_propDict["children"])) {
        
             if (count($this->_propDict['children']) > 0 && is_a($this->_propDict['children'][0], 'DeviceManagementConfigurationSettingInstanceTemplate')) {
-               return $this->_propDict['children'];
+                return $this->_propDict['children'];
             }
             $children = [];
             foreach ($this->_propDict['children'] as $singleValue) {
-               $children []= new DeviceManagementConfigurationSettingInstanceTemplate($singleValue);
+                $children []= new DeviceManagementConfigurationSettingInstanceTemplate($singleValue);
             }
             $this->_propDict['children'] = $children;
             return $this->_propDict['children'];

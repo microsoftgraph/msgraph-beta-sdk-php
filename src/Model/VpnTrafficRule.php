@@ -125,11 +125,11 @@ class VpnTrafficRule extends Entity
         if (array_key_exists("localAddressRanges", $this->_propDict) && !is_null($this->_propDict["localAddressRanges"])) {
        
             if (count($this->_propDict['localAddressRanges']) > 0 && is_a($this->_propDict['localAddressRanges'][0], 'IPv4Range')) {
-               return $this->_propDict['localAddressRanges'];
+                return $this->_propDict['localAddressRanges'];
             }
             $localAddressRanges = [];
             foreach ($this->_propDict['localAddressRanges'] as $singleValue) {
-               $localAddressRanges []= new IPv4Range($singleValue);
+                $localAddressRanges []= new IPv4Range($singleValue);
             }
             $this->_propDict['localAddressRanges'] = $localAddressRanges;
             return $this->_propDict['localAddressRanges'];
@@ -162,11 +162,11 @@ class VpnTrafficRule extends Entity
         if (array_key_exists("localPortRanges", $this->_propDict) && !is_null($this->_propDict["localPortRanges"])) {
        
             if (count($this->_propDict['localPortRanges']) > 0 && is_a($this->_propDict['localPortRanges'][0], 'NumberRange')) {
-               return $this->_propDict['localPortRanges'];
+                return $this->_propDict['localPortRanges'];
             }
             $localPortRanges = [];
             foreach ($this->_propDict['localPortRanges'] as $singleValue) {
-               $localPortRanges []= new NumberRange($singleValue);
+                $localPortRanges []= new NumberRange($singleValue);
             }
             $this->_propDict['localPortRanges'] = $localPortRanges;
             return $this->_propDict['localPortRanges'];
@@ -255,11 +255,11 @@ class VpnTrafficRule extends Entity
         if (array_key_exists("remoteAddressRanges", $this->_propDict) && !is_null($this->_propDict["remoteAddressRanges"])) {
        
             if (count($this->_propDict['remoteAddressRanges']) > 0 && is_a($this->_propDict['remoteAddressRanges'][0], 'IPv4Range')) {
-               return $this->_propDict['remoteAddressRanges'];
+                return $this->_propDict['remoteAddressRanges'];
             }
             $remoteAddressRanges = [];
             foreach ($this->_propDict['remoteAddressRanges'] as $singleValue) {
-               $remoteAddressRanges []= new IPv4Range($singleValue);
+                $remoteAddressRanges []= new IPv4Range($singleValue);
             }
             $this->_propDict['remoteAddressRanges'] = $remoteAddressRanges;
             return $this->_propDict['remoteAddressRanges'];
@@ -292,11 +292,11 @@ class VpnTrafficRule extends Entity
         if (array_key_exists("remotePortRanges", $this->_propDict) && !is_null($this->_propDict["remotePortRanges"])) {
        
             if (count($this->_propDict['remotePortRanges']) > 0 && is_a($this->_propDict['remotePortRanges'][0], 'NumberRange')) {
-               return $this->_propDict['remotePortRanges'];
+                return $this->_propDict['remotePortRanges'];
             }
             $remotePortRanges = [];
             foreach ($this->_propDict['remotePortRanges'] as $singleValue) {
-               $remotePortRanges []= new NumberRange($singleValue);
+                $remotePortRanges []= new NumberRange($singleValue);
             }
             $this->_propDict['remotePortRanges'] = $remotePortRanges;
             return $this->_propDict['remotePortRanges'];

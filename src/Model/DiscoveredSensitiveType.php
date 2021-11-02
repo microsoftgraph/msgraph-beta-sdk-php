@@ -34,11 +34,11 @@ class DiscoveredSensitiveType extends Entity
         if (array_key_exists("classificationAttributes", $this->_propDict) && !is_null($this->_propDict["classificationAttributes"])) {
        
             if (count($this->_propDict['classificationAttributes']) > 0 && is_a($this->_propDict['classificationAttributes'][0], 'ClassificationAttribute')) {
-               return $this->_propDict['classificationAttributes'];
+                return $this->_propDict['classificationAttributes'];
             }
             $classificationAttributes = [];
             foreach ($this->_propDict['classificationAttributes'] as $singleValue) {
-               $classificationAttributes []= new ClassificationAttribute($singleValue);
+                $classificationAttributes []= new ClassificationAttribute($singleValue);
             }
             $this->_propDict['classificationAttributes'] = $classificationAttributes;
             return $this->_propDict['classificationAttributes'];

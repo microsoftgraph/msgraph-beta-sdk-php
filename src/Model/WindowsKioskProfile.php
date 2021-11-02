@@ -125,11 +125,11 @@ class WindowsKioskProfile extends Entity
         if (array_key_exists("userAccountsConfiguration", $this->_propDict) && !is_null($this->_propDict["userAccountsConfiguration"])) {
        
             if (count($this->_propDict['userAccountsConfiguration']) > 0 && is_a($this->_propDict['userAccountsConfiguration'][0], 'WindowsKioskUser')) {
-               return $this->_propDict['userAccountsConfiguration'];
+                return $this->_propDict['userAccountsConfiguration'];
             }
             $userAccountsConfiguration = [];
             foreach ($this->_propDict['userAccountsConfiguration'] as $singleValue) {
-               $userAccountsConfiguration []= new WindowsKioskUser($singleValue);
+                $userAccountsConfiguration []= new WindowsKioskUser($singleValue);
             }
             $this->_propDict['userAccountsConfiguration'] = $userAccountsConfiguration;
             return $this->_propDict['userAccountsConfiguration'];

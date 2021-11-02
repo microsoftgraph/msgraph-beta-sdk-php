@@ -321,11 +321,11 @@ class CloudPcAuditActor extends Entity
         if (array_key_exists("userRoleScopeTags", $this->_propDict) && !is_null($this->_propDict["userRoleScopeTags"])) {
        
             if (count($this->_propDict['userRoleScopeTags']) > 0 && is_a($this->_propDict['userRoleScopeTags'][0], 'CloudPcUserRoleScopeTagInfo')) {
-               return $this->_propDict['userRoleScopeTags'];
+                return $this->_propDict['userRoleScopeTags'];
             }
             $userRoleScopeTags = [];
             foreach ($this->_propDict['userRoleScopeTags'] as $singleValue) {
-               $userRoleScopeTags []= new CloudPcUserRoleScopeTagInfo($singleValue);
+                $userRoleScopeTags []= new CloudPcUserRoleScopeTagInfo($singleValue);
             }
             $this->_propDict['userRoleScopeTags'] = $userRoleScopeTags;
             return $this->_propDict['userRoleScopeTags'];

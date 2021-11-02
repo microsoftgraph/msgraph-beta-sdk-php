@@ -35,11 +35,11 @@ class AccessPackageAssignmentRequestRequirements extends Entity
         if (array_key_exists("existingAnswers", $this->_propDict) && !is_null($this->_propDict["existingAnswers"])) {
        
             if (count($this->_propDict['existingAnswers']) > 0 && is_a($this->_propDict['existingAnswers'][0], 'AccessPackageAnswer')) {
-               return $this->_propDict['existingAnswers'];
+                return $this->_propDict['existingAnswers'];
             }
             $existingAnswers = [];
             foreach ($this->_propDict['existingAnswers'] as $singleValue) {
-               $existingAnswers []= new AccessPackageAnswer($singleValue);
+                $existingAnswers []= new AccessPackageAnswer($singleValue);
             }
             $this->_propDict['existingAnswers'] = $existingAnswers;
             return $this->_propDict['existingAnswers'];
@@ -268,11 +268,11 @@ class AccessPackageAssignmentRequestRequirements extends Entity
         if (array_key_exists("questions", $this->_propDict) && !is_null($this->_propDict["questions"])) {
        
             if (count($this->_propDict['questions']) > 0 && is_a($this->_propDict['questions'][0], 'AccessPackageQuestion')) {
-               return $this->_propDict['questions'];
+                return $this->_propDict['questions'];
             }
             $questions = [];
             foreach ($this->_propDict['questions'] as $singleValue) {
-               $questions []= new AccessPackageQuestion($singleValue);
+                $questions []= new AccessPackageQuestion($singleValue);
             }
             $this->_propDict['questions'] = $questions;
             return $this->_propDict['questions'];

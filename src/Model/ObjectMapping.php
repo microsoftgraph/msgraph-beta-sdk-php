@@ -35,11 +35,11 @@ class ObjectMapping extends Entity
         if (array_key_exists("attributeMappings", $this->_propDict) && !is_null($this->_propDict["attributeMappings"])) {
        
             if (count($this->_propDict['attributeMappings']) > 0 && is_a($this->_propDict['attributeMappings'][0], 'AttributeMapping')) {
-               return $this->_propDict['attributeMappings'];
+                return $this->_propDict['attributeMappings'];
             }
             $attributeMappings = [];
             foreach ($this->_propDict['attributeMappings'] as $singleValue) {
-               $attributeMappings []= new AttributeMapping($singleValue);
+                $attributeMappings []= new AttributeMapping($singleValue);
             }
             $this->_propDict['attributeMappings'] = $attributeMappings;
             return $this->_propDict['attributeMappings'];
@@ -134,11 +134,11 @@ class ObjectMapping extends Entity
         if (array_key_exists("metadata", $this->_propDict) && !is_null($this->_propDict["metadata"])) {
        
             if (count($this->_propDict['metadata']) > 0 && is_a($this->_propDict['metadata'][0], 'MetadataEntry')) {
-               return $this->_propDict['metadata'];
+                return $this->_propDict['metadata'];
             }
             $metadata = [];
             foreach ($this->_propDict['metadata'] as $singleValue) {
-               $metadata []= new MetadataEntry($singleValue);
+                $metadata []= new MetadataEntry($singleValue);
             }
             $this->_propDict['metadata'] = $metadata;
             return $this->_propDict['metadata'];
