@@ -62,15 +62,15 @@ class Alert extends Entity
     public function getAlertDetections()
     {
         if (array_key_exists('alertDetections', $this->_propDict) && !is_null($this->_propDict['alertDetections'])) {
-            $alertDetections = [];
-            if (count($this->_propDict['alertDetections']) > 0 && is_a($this->_propDict['alertDetections'][0], 'AlertDetection')) {
-                return $this->_propDict['alertDetections'];
-            }
-            foreach ($this->_propDict['alertDetections'] as $singleValue) {
-                $alertDetections []= new AlertDetection($singleValue);
-            }
-            $this->_propDict['alertDetections'] = $alertDetections;
-            return $this->_propDict['alertDetections'];
+           $alertDetections = [];
+           if (count($this->_propDict['alertDetections']) > 0 && is_a($this->_propDict['alertDetections'][0], 'AlertDetection')) {
+              return $this->_propDict['alertDetections'];
+           }
+           foreach ($this->_propDict['alertDetections'] as $singleValue) {
+              $alertDetections []= new AlertDetection($singleValue);
+           }
+           $this->_propDict['alertDetections'] = $alertDetections;
+           return $this->_propDict['alertDetections'];
         }
         return null;
     }
@@ -247,15 +247,15 @@ class Alert extends Entity
     public function getCloudAppStates()
     {
         if (array_key_exists('cloudAppStates', $this->_propDict) && !is_null($this->_propDict['cloudAppStates'])) {
-            $cloudAppStates = [];
-            if (count($this->_propDict['cloudAppStates']) > 0 && is_a($this->_propDict['cloudAppStates'][0], 'CloudAppSecurityState')) {
-                return $this->_propDict['cloudAppStates'];
-            }
-            foreach ($this->_propDict['cloudAppStates'] as $singleValue) {
-                $cloudAppStates []= new CloudAppSecurityState($singleValue);
-            }
-            $this->_propDict['cloudAppStates'] = $cloudAppStates;
-            return $this->_propDict['cloudAppStates'];
+           $cloudAppStates = [];
+           if (count($this->_propDict['cloudAppStates']) > 0 && is_a($this->_propDict['cloudAppStates'][0], 'CloudAppSecurityState')) {
+              return $this->_propDict['cloudAppStates'];
+           }
+           foreach ($this->_propDict['cloudAppStates'] as $singleValue) {
+              $cloudAppStates []= new CloudAppSecurityState($singleValue);
+           }
+           $this->_propDict['cloudAppStates'] = $cloudAppStates;
+           return $this->_propDict['cloudAppStates'];
         }
         return null;
     }
@@ -499,15 +499,15 @@ class Alert extends Entity
     public function getFileStates()
     {
         if (array_key_exists('fileStates', $this->_propDict) && !is_null($this->_propDict['fileStates'])) {
-            $fileStates = [];
-            if (count($this->_propDict['fileStates']) > 0 && is_a($this->_propDict['fileStates'][0], 'FileSecurityState')) {
-                return $this->_propDict['fileStates'];
-            }
-            foreach ($this->_propDict['fileStates'] as $singleValue) {
-                $fileStates []= new FileSecurityState($singleValue);
-            }
-            $this->_propDict['fileStates'] = $fileStates;
-            return $this->_propDict['fileStates'];
+           $fileStates = [];
+           if (count($this->_propDict['fileStates']) > 0 && is_a($this->_propDict['fileStates'][0], 'FileSecurityState')) {
+              return $this->_propDict['fileStates'];
+           }
+           foreach ($this->_propDict['fileStates'] as $singleValue) {
+              $fileStates []= new FileSecurityState($singleValue);
+           }
+           $this->_propDict['fileStates'] = $fileStates;
+           return $this->_propDict['fileStates'];
         }
         return null;
     }
@@ -536,15 +536,15 @@ class Alert extends Entity
     public function getHistoryStates()
     {
         if (array_key_exists('historyStates', $this->_propDict) && !is_null($this->_propDict['historyStates'])) {
-            $historyStates = [];
-            if (count($this->_propDict['historyStates']) > 0 && is_a($this->_propDict['historyStates'][0], 'AlertHistoryState')) {
-                return $this->_propDict['historyStates'];
-            }
-            foreach ($this->_propDict['historyStates'] as $singleValue) {
-                $historyStates []= new AlertHistoryState($singleValue);
-            }
-            $this->_propDict['historyStates'] = $historyStates;
-            return $this->_propDict['historyStates'];
+           $historyStates = [];
+           if (count($this->_propDict['historyStates']) > 0 && is_a($this->_propDict['historyStates'][0], 'AlertHistoryState')) {
+              return $this->_propDict['historyStates'];
+           }
+           foreach ($this->_propDict['historyStates'] as $singleValue) {
+              $historyStates []= new AlertHistoryState($singleValue);
+           }
+           $this->_propDict['historyStates'] = $historyStates;
+           return $this->_propDict['historyStates'];
         }
         return null;
     }
@@ -573,15 +573,15 @@ class Alert extends Entity
     public function getHostStates()
     {
         if (array_key_exists('hostStates', $this->_propDict) && !is_null($this->_propDict['hostStates'])) {
-            $hostStates = [];
-            if (count($this->_propDict['hostStates']) > 0 && is_a($this->_propDict['hostStates'][0], 'HostSecurityState')) {
-                return $this->_propDict['hostStates'];
-            }
-            foreach ($this->_propDict['hostStates'] as $singleValue) {
-                $hostStates []= new HostSecurityState($singleValue);
-            }
-            $this->_propDict['hostStates'] = $hostStates;
-            return $this->_propDict['hostStates'];
+           $hostStates = [];
+           if (count($this->_propDict['hostStates']) > 0 && is_a($this->_propDict['hostStates'][0], 'HostSecurityState')) {
+              return $this->_propDict['hostStates'];
+           }
+           foreach ($this->_propDict['hostStates'] as $singleValue) {
+              $hostStates []= new HostSecurityState($singleValue);
+           }
+           $this->_propDict['hostStates'] = $hostStates;
+           return $this->_propDict['hostStates'];
         }
         return null;
     }
@@ -638,15 +638,15 @@ class Alert extends Entity
     public function getInvestigationSecurityStates()
     {
         if (array_key_exists('investigationSecurityStates', $this->_propDict) && !is_null($this->_propDict['investigationSecurityStates'])) {
-            $investigationSecurityStates = [];
-            if (count($this->_propDict['investigationSecurityStates']) > 0 && is_a($this->_propDict['investigationSecurityStates'][0], 'InvestigationSecurityState')) {
-                return $this->_propDict['investigationSecurityStates'];
-            }
-            foreach ($this->_propDict['investigationSecurityStates'] as $singleValue) {
-                $investigationSecurityStates []= new InvestigationSecurityState($singleValue);
-            }
-            $this->_propDict['investigationSecurityStates'] = $investigationSecurityStates;
-            return $this->_propDict['investigationSecurityStates'];
+           $investigationSecurityStates = [];
+           if (count($this->_propDict['investigationSecurityStates']) > 0 && is_a($this->_propDict['investigationSecurityStates'][0], 'InvestigationSecurityState')) {
+              return $this->_propDict['investigationSecurityStates'];
+           }
+           foreach ($this->_propDict['investigationSecurityStates'] as $singleValue) {
+              $investigationSecurityStates []= new InvestigationSecurityState($singleValue);
+           }
+           $this->_propDict['investigationSecurityStates'] = $investigationSecurityStates;
+           return $this->_propDict['investigationSecurityStates'];
         }
         return null;
     }
@@ -738,15 +738,15 @@ class Alert extends Entity
     public function getMalwareStates()
     {
         if (array_key_exists('malwareStates', $this->_propDict) && !is_null($this->_propDict['malwareStates'])) {
-            $malwareStates = [];
-            if (count($this->_propDict['malwareStates']) > 0 && is_a($this->_propDict['malwareStates'][0], 'MalwareState')) {
-                return $this->_propDict['malwareStates'];
-            }
-            foreach ($this->_propDict['malwareStates'] as $singleValue) {
-                $malwareStates []= new MalwareState($singleValue);
-            }
-            $this->_propDict['malwareStates'] = $malwareStates;
-            return $this->_propDict['malwareStates'];
+           $malwareStates = [];
+           if (count($this->_propDict['malwareStates']) > 0 && is_a($this->_propDict['malwareStates'][0], 'MalwareState')) {
+              return $this->_propDict['malwareStates'];
+           }
+           foreach ($this->_propDict['malwareStates'] as $singleValue) {
+              $malwareStates []= new MalwareState($singleValue);
+           }
+           $this->_propDict['malwareStates'] = $malwareStates;
+           return $this->_propDict['malwareStates'];
         }
         return null;
     }
@@ -774,15 +774,15 @@ class Alert extends Entity
     public function getMessageSecurityStates()
     {
         if (array_key_exists('messageSecurityStates', $this->_propDict) && !is_null($this->_propDict['messageSecurityStates'])) {
-            $messageSecurityStates = [];
-            if (count($this->_propDict['messageSecurityStates']) > 0 && is_a($this->_propDict['messageSecurityStates'][0], 'MessageSecurityState')) {
-                return $this->_propDict['messageSecurityStates'];
-            }
-            foreach ($this->_propDict['messageSecurityStates'] as $singleValue) {
-                $messageSecurityStates []= new MessageSecurityState($singleValue);
-            }
-            $this->_propDict['messageSecurityStates'] = $messageSecurityStates;
-            return $this->_propDict['messageSecurityStates'];
+           $messageSecurityStates = [];
+           if (count($this->_propDict['messageSecurityStates']) > 0 && is_a($this->_propDict['messageSecurityStates'][0], 'MessageSecurityState')) {
+              return $this->_propDict['messageSecurityStates'];
+           }
+           foreach ($this->_propDict['messageSecurityStates'] as $singleValue) {
+              $messageSecurityStates []= new MessageSecurityState($singleValue);
+           }
+           $this->_propDict['messageSecurityStates'] = $messageSecurityStates;
+           return $this->_propDict['messageSecurityStates'];
         }
         return null;
     }
@@ -810,15 +810,15 @@ class Alert extends Entity
     public function getNetworkConnections()
     {
         if (array_key_exists('networkConnections', $this->_propDict) && !is_null($this->_propDict['networkConnections'])) {
-            $networkConnections = [];
-            if (count($this->_propDict['networkConnections']) > 0 && is_a($this->_propDict['networkConnections'][0], 'NetworkConnection')) {
-                return $this->_propDict['networkConnections'];
-            }
-            foreach ($this->_propDict['networkConnections'] as $singleValue) {
-                $networkConnections []= new NetworkConnection($singleValue);
-            }
-            $this->_propDict['networkConnections'] = $networkConnections;
-            return $this->_propDict['networkConnections'];
+           $networkConnections = [];
+           if (count($this->_propDict['networkConnections']) > 0 && is_a($this->_propDict['networkConnections'][0], 'NetworkConnection')) {
+              return $this->_propDict['networkConnections'];
+           }
+           foreach ($this->_propDict['networkConnections'] as $singleValue) {
+              $networkConnections []= new NetworkConnection($singleValue);
+           }
+           $this->_propDict['networkConnections'] = $networkConnections;
+           return $this->_propDict['networkConnections'];
         }
         return null;
     }
@@ -847,15 +847,15 @@ class Alert extends Entity
     public function getProcesses()
     {
         if (array_key_exists('processes', $this->_propDict) && !is_null($this->_propDict['processes'])) {
-            $processes = [];
-            if (count($this->_propDict['processes']) > 0 && is_a($this->_propDict['processes'][0], 'Process')) {
-                return $this->_propDict['processes'];
-            }
-            foreach ($this->_propDict['processes'] as $singleValue) {
-                $processes []= new Process($singleValue);
-            }
-            $this->_propDict['processes'] = $processes;
-            return $this->_propDict['processes'];
+           $processes = [];
+           if (count($this->_propDict['processes']) > 0 && is_a($this->_propDict['processes'][0], 'Process')) {
+              return $this->_propDict['processes'];
+           }
+           foreach ($this->_propDict['processes'] as $singleValue) {
+              $processes []= new Process($singleValue);
+           }
+           $this->_propDict['processes'] = $processes;
+           return $this->_propDict['processes'];
         }
         return null;
     }
@@ -913,15 +913,15 @@ class Alert extends Entity
     public function getRegistryKeyStates()
     {
         if (array_key_exists('registryKeyStates', $this->_propDict) && !is_null($this->_propDict['registryKeyStates'])) {
-            $registryKeyStates = [];
-            if (count($this->_propDict['registryKeyStates']) > 0 && is_a($this->_propDict['registryKeyStates'][0], 'RegistryKeyState')) {
-                return $this->_propDict['registryKeyStates'];
-            }
-            foreach ($this->_propDict['registryKeyStates'] as $singleValue) {
-                $registryKeyStates []= new RegistryKeyState($singleValue);
-            }
-            $this->_propDict['registryKeyStates'] = $registryKeyStates;
-            return $this->_propDict['registryKeyStates'];
+           $registryKeyStates = [];
+           if (count($this->_propDict['registryKeyStates']) > 0 && is_a($this->_propDict['registryKeyStates'][0], 'RegistryKeyState')) {
+              return $this->_propDict['registryKeyStates'];
+           }
+           foreach ($this->_propDict['registryKeyStates'] as $singleValue) {
+              $registryKeyStates []= new RegistryKeyState($singleValue);
+           }
+           $this->_propDict['registryKeyStates'] = $registryKeyStates;
+           return $this->_propDict['registryKeyStates'];
         }
         return null;
     }
@@ -950,15 +950,15 @@ class Alert extends Entity
     public function getSecurityResources()
     {
         if (array_key_exists('securityResources', $this->_propDict) && !is_null($this->_propDict['securityResources'])) {
-            $securityResources = [];
-            if (count($this->_propDict['securityResources']) > 0 && is_a($this->_propDict['securityResources'][0], 'SecurityResource')) {
-                return $this->_propDict['securityResources'];
-            }
-            foreach ($this->_propDict['securityResources'] as $singleValue) {
-                $securityResources []= new SecurityResource($singleValue);
-            }
-            $this->_propDict['securityResources'] = $securityResources;
-            return $this->_propDict['securityResources'];
+           $securityResources = [];
+           if (count($this->_propDict['securityResources']) > 0 && is_a($this->_propDict['securityResources'][0], 'SecurityResource')) {
+              return $this->_propDict['securityResources'];
+           }
+           foreach ($this->_propDict['securityResources'] as $singleValue) {
+              $securityResources []= new SecurityResource($singleValue);
+           }
+           $this->_propDict['securityResources'] = $securityResources;
+           return $this->_propDict['securityResources'];
         }
         return null;
     }
@@ -1140,15 +1140,15 @@ class Alert extends Entity
     public function getTriggers()
     {
         if (array_key_exists('triggers', $this->_propDict) && !is_null($this->_propDict['triggers'])) {
-            $triggers = [];
-            if (count($this->_propDict['triggers']) > 0 && is_a($this->_propDict['triggers'][0], 'AlertTrigger')) {
-                return $this->_propDict['triggers'];
-            }
-            foreach ($this->_propDict['triggers'] as $singleValue) {
-                $triggers []= new AlertTrigger($singleValue);
-            }
-            $this->_propDict['triggers'] = $triggers;
-            return $this->_propDict['triggers'];
+           $triggers = [];
+           if (count($this->_propDict['triggers']) > 0 && is_a($this->_propDict['triggers'][0], 'AlertTrigger')) {
+              return $this->_propDict['triggers'];
+           }
+           foreach ($this->_propDict['triggers'] as $singleValue) {
+              $triggers []= new AlertTrigger($singleValue);
+           }
+           $this->_propDict['triggers'] = $triggers;
+           return $this->_propDict['triggers'];
         }
         return null;
     }
@@ -1176,15 +1176,15 @@ class Alert extends Entity
     public function getUriClickSecurityStates()
     {
         if (array_key_exists('uriClickSecurityStates', $this->_propDict) && !is_null($this->_propDict['uriClickSecurityStates'])) {
-            $uriClickSecurityStates = [];
-            if (count($this->_propDict['uriClickSecurityStates']) > 0 && is_a($this->_propDict['uriClickSecurityStates'][0], 'UriClickSecurityState')) {
-                return $this->_propDict['uriClickSecurityStates'];
-            }
-            foreach ($this->_propDict['uriClickSecurityStates'] as $singleValue) {
-                $uriClickSecurityStates []= new UriClickSecurityState($singleValue);
-            }
-            $this->_propDict['uriClickSecurityStates'] = $uriClickSecurityStates;
-            return $this->_propDict['uriClickSecurityStates'];
+           $uriClickSecurityStates = [];
+           if (count($this->_propDict['uriClickSecurityStates']) > 0 && is_a($this->_propDict['uriClickSecurityStates'][0], 'UriClickSecurityState')) {
+              return $this->_propDict['uriClickSecurityStates'];
+           }
+           foreach ($this->_propDict['uriClickSecurityStates'] as $singleValue) {
+              $uriClickSecurityStates []= new UriClickSecurityState($singleValue);
+           }
+           $this->_propDict['uriClickSecurityStates'] = $uriClickSecurityStates;
+           return $this->_propDict['uriClickSecurityStates'];
         }
         return null;
     }
@@ -1212,15 +1212,15 @@ class Alert extends Entity
     public function getUserStates()
     {
         if (array_key_exists('userStates', $this->_propDict) && !is_null($this->_propDict['userStates'])) {
-            $userStates = [];
-            if (count($this->_propDict['userStates']) > 0 && is_a($this->_propDict['userStates'][0], 'UserSecurityState')) {
-                return $this->_propDict['userStates'];
-            }
-            foreach ($this->_propDict['userStates'] as $singleValue) {
-                $userStates []= new UserSecurityState($singleValue);
-            }
-            $this->_propDict['userStates'] = $userStates;
-            return $this->_propDict['userStates'];
+           $userStates = [];
+           if (count($this->_propDict['userStates']) > 0 && is_a($this->_propDict['userStates'][0], 'UserSecurityState')) {
+              return $this->_propDict['userStates'];
+           }
+           foreach ($this->_propDict['userStates'] as $singleValue) {
+              $userStates []= new UserSecurityState($singleValue);
+           }
+           $this->_propDict['userStates'] = $userStates;
+           return $this->_propDict['userStates'];
         }
         return null;
     }
@@ -1282,15 +1282,15 @@ class Alert extends Entity
     public function getVulnerabilityStates()
     {
         if (array_key_exists('vulnerabilityStates', $this->_propDict) && !is_null($this->_propDict['vulnerabilityStates'])) {
-            $vulnerabilityStates = [];
-            if (count($this->_propDict['vulnerabilityStates']) > 0 && is_a($this->_propDict['vulnerabilityStates'][0], 'VulnerabilityState')) {
-                return $this->_propDict['vulnerabilityStates'];
-            }
-            foreach ($this->_propDict['vulnerabilityStates'] as $singleValue) {
-                $vulnerabilityStates []= new VulnerabilityState($singleValue);
-            }
-            $this->_propDict['vulnerabilityStates'] = $vulnerabilityStates;
-            return $this->_propDict['vulnerabilityStates'];
+           $vulnerabilityStates = [];
+           if (count($this->_propDict['vulnerabilityStates']) > 0 && is_a($this->_propDict['vulnerabilityStates'][0], 'VulnerabilityState')) {
+              return $this->_propDict['vulnerabilityStates'];
+           }
+           foreach ($this->_propDict['vulnerabilityStates'] as $singleValue) {
+              $vulnerabilityStates []= new VulnerabilityState($singleValue);
+           }
+           $this->_propDict['vulnerabilityStates'] = $vulnerabilityStates;
+           return $this->_propDict['vulnerabilityStates'];
         }
         return null;
     }

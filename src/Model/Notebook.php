@@ -216,15 +216,15 @@ class Notebook extends OnenoteEntityHierarchyModel
     public function getSectionGroups()
     {
         if (array_key_exists('sectionGroups', $this->_propDict) && !is_null($this->_propDict['sectionGroups'])) {
-            $sectionGroups = [];
-            if (count($this->_propDict['sectionGroups']) > 0 && is_a($this->_propDict['sectionGroups'][0], 'SectionGroup')) {
-                return $this->_propDict['sectionGroups'];
-            }
-            foreach ($this->_propDict['sectionGroups'] as $singleValue) {
-                $sectionGroups []= new SectionGroup($singleValue);
-            }
-            $this->_propDict['sectionGroups'] = $sectionGroups;
-            return $this->_propDict['sectionGroups'];
+           $sectionGroups = [];
+           if (count($this->_propDict['sectionGroups']) > 0 && is_a($this->_propDict['sectionGroups'][0], 'SectionGroup')) {
+              return $this->_propDict['sectionGroups'];
+           }
+           foreach ($this->_propDict['sectionGroups'] as $singleValue) {
+              $sectionGroups []= new SectionGroup($singleValue);
+           }
+           $this->_propDict['sectionGroups'] = $sectionGroups;
+           return $this->_propDict['sectionGroups'];
         }
         return null;
     }
@@ -253,15 +253,15 @@ class Notebook extends OnenoteEntityHierarchyModel
     public function getSections()
     {
         if (array_key_exists('sections', $this->_propDict) && !is_null($this->_propDict['sections'])) {
-            $sections = [];
-            if (count($this->_propDict['sections']) > 0 && is_a($this->_propDict['sections'][0], 'OnenoteSection')) {
-                return $this->_propDict['sections'];
-            }
-            foreach ($this->_propDict['sections'] as $singleValue) {
-                $sections []= new OnenoteSection($singleValue);
-            }
-            $this->_propDict['sections'] = $sections;
-            return $this->_propDict['sections'];
+           $sections = [];
+           if (count($this->_propDict['sections']) > 0 && is_a($this->_propDict['sections'][0], 'OnenoteSection')) {
+              return $this->_propDict['sections'];
+           }
+           foreach ($this->_propDict['sections'] as $singleValue) {
+              $sections []= new OnenoteSection($singleValue);
+           }
+           $this->_propDict['sections'] = $sections;
+           return $this->_propDict['sections'];
         }
         return null;
     }

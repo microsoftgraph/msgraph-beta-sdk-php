@@ -311,15 +311,15 @@ class WorkbookChart extends Entity
     public function getSeries()
     {
         if (array_key_exists('series', $this->_propDict) && !is_null($this->_propDict['series'])) {
-            $series = [];
-            if (count($this->_propDict['series']) > 0 && is_a($this->_propDict['series'][0], 'WorkbookChartSeries')) {
-                return $this->_propDict['series'];
-            }
-            foreach ($this->_propDict['series'] as $singleValue) {
-                $series []= new WorkbookChartSeries($singleValue);
-            }
-            $this->_propDict['series'] = $series;
-            return $this->_propDict['series'];
+           $series = [];
+           if (count($this->_propDict['series']) > 0 && is_a($this->_propDict['series'][0], 'WorkbookChartSeries')) {
+              return $this->_propDict['series'];
+           }
+           foreach ($this->_propDict['series'] as $singleValue) {
+              $series []= new WorkbookChartSeries($singleValue);
+           }
+           $this->_propDict['series'] = $series;
+           return $this->_propDict['series'];
         }
         return null;
     }

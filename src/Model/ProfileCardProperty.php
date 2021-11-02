@@ -34,15 +34,15 @@ class ProfileCardProperty extends Entity
     public function getAnnotations()
     {
         if (array_key_exists('annotations', $this->_propDict) && !is_null($this->_propDict['annotations'])) {
-            $annotations = [];
-            if (count($this->_propDict['annotations']) > 0 && is_a($this->_propDict['annotations'][0], 'ProfileCardAnnotation')) {
-                return $this->_propDict['annotations'];
-            }
-            foreach ($this->_propDict['annotations'] as $singleValue) {
-                $annotations []= new ProfileCardAnnotation($singleValue);
-            }
-            $this->_propDict['annotations'] = $annotations;
-            return $this->_propDict['annotations'];
+           $annotations = [];
+           if (count($this->_propDict['annotations']) > 0 && is_a($this->_propDict['annotations'][0], 'ProfileCardAnnotation')) {
+              return $this->_propDict['annotations'];
+           }
+           foreach ($this->_propDict['annotations'] as $singleValue) {
+              $annotations []= new ProfileCardAnnotation($singleValue);
+           }
+           $this->_propDict['annotations'] = $annotations;
+           return $this->_propDict['annotations'];
         }
         return null;
     }

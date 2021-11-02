@@ -187,15 +187,15 @@ class GroupPolicyConfiguration extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'GroupPolicyConfigurationAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new GroupPolicyConfigurationAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'GroupPolicyConfigurationAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new GroupPolicyConfigurationAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }
@@ -224,15 +224,15 @@ class GroupPolicyConfiguration extends Entity
     public function getDefinitionValues()
     {
         if (array_key_exists('definitionValues', $this->_propDict) && !is_null($this->_propDict['definitionValues'])) {
-            $definitionValues = [];
-            if (count($this->_propDict['definitionValues']) > 0 && is_a($this->_propDict['definitionValues'][0], 'GroupPolicyDefinitionValue')) {
-                return $this->_propDict['definitionValues'];
-            }
-            foreach ($this->_propDict['definitionValues'] as $singleValue) {
-                $definitionValues []= new GroupPolicyDefinitionValue($singleValue);
-            }
-            $this->_propDict['definitionValues'] = $definitionValues;
-            return $this->_propDict['definitionValues'];
+           $definitionValues = [];
+           if (count($this->_propDict['definitionValues']) > 0 && is_a($this->_propDict['definitionValues'][0], 'GroupPolicyDefinitionValue')) {
+              return $this->_propDict['definitionValues'];
+           }
+           foreach ($this->_propDict['definitionValues'] as $singleValue) {
+              $definitionValues []= new GroupPolicyDefinitionValue($singleValue);
+           }
+           $this->_propDict['definitionValues'] = $definitionValues;
+           return $this->_propDict['definitionValues'];
         }
         return null;
     }

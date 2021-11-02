@@ -125,15 +125,15 @@ class PublishedResource extends Entity
     public function getAgentGroups()
     {
         if (array_key_exists('agentGroups', $this->_propDict) && !is_null($this->_propDict['agentGroups'])) {
-            $agentGroups = [];
-            if (count($this->_propDict['agentGroups']) > 0 && is_a($this->_propDict['agentGroups'][0], 'OnPremisesAgentGroup')) {
-                return $this->_propDict['agentGroups'];
-            }
-            foreach ($this->_propDict['agentGroups'] as $singleValue) {
-                $agentGroups []= new OnPremisesAgentGroup($singleValue);
-            }
-            $this->_propDict['agentGroups'] = $agentGroups;
-            return $this->_propDict['agentGroups'];
+           $agentGroups = [];
+           if (count($this->_propDict['agentGroups']) > 0 && is_a($this->_propDict['agentGroups'][0], 'OnPremisesAgentGroup')) {
+              return $this->_propDict['agentGroups'];
+           }
+           foreach ($this->_propDict['agentGroups'] as $singleValue) {
+              $agentGroups []= new OnPremisesAgentGroup($singleValue);
+           }
+           $this->_propDict['agentGroups'] = $agentGroups;
+           return $this->_propDict['agentGroups'];
         }
         return null;
     }

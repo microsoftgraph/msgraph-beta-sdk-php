@@ -257,15 +257,15 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection
     public function getApprovedKeyboards()
     {
         if (array_key_exists('approvedKeyboards', $this->_propDict) && !is_null($this->_propDict['approvedKeyboards'])) {
-            $approvedKeyboards = [];
-            if (count($this->_propDict['approvedKeyboards']) > 0 && is_a($this->_propDict['approvedKeyboards'][0], 'KeyValuePair')) {
-                return $this->_propDict['approvedKeyboards'];
-            }
-            foreach ($this->_propDict['approvedKeyboards'] as $singleValue) {
-                $approvedKeyboards []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['approvedKeyboards'] = $approvedKeyboards;
-            return $this->_propDict['approvedKeyboards'];
+           $approvedKeyboards = [];
+           if (count($this->_propDict['approvedKeyboards']) > 0 && is_a($this->_propDict['approvedKeyboards'][0], 'KeyValuePair')) {
+              return $this->_propDict['approvedKeyboards'];
+           }
+           foreach ($this->_propDict['approvedKeyboards'] as $singleValue) {
+              $approvedKeyboards []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['approvedKeyboards'] = $approvedKeyboards;
+           return $this->_propDict['approvedKeyboards'];
         }
         return null;
     }
@@ -613,15 +613,15 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection
     public function getExemptedAppPackages()
     {
         if (array_key_exists('exemptedAppPackages', $this->_propDict) && !is_null($this->_propDict['exemptedAppPackages'])) {
-            $exemptedAppPackages = [];
-            if (count($this->_propDict['exemptedAppPackages']) > 0 && is_a($this->_propDict['exemptedAppPackages'][0], 'KeyValuePair')) {
-                return $this->_propDict['exemptedAppPackages'];
-            }
-            foreach ($this->_propDict['exemptedAppPackages'] as $singleValue) {
-                $exemptedAppPackages []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['exemptedAppPackages'] = $exemptedAppPackages;
-            return $this->_propDict['exemptedAppPackages'];
+           $exemptedAppPackages = [];
+           if (count($this->_propDict['exemptedAppPackages']) > 0 && is_a($this->_propDict['exemptedAppPackages'][0], 'KeyValuePair')) {
+              return $this->_propDict['exemptedAppPackages'];
+           }
+           foreach ($this->_propDict['exemptedAppPackages'] as $singleValue) {
+              $exemptedAppPackages []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['exemptedAppPackages'] = $exemptedAppPackages;
+           return $this->_propDict['exemptedAppPackages'];
         }
         return null;
     }
@@ -1039,15 +1039,15 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection
     public function getApps()
     {
         if (array_key_exists('apps', $this->_propDict) && !is_null($this->_propDict['apps'])) {
-            $apps = [];
-            if (count($this->_propDict['apps']) > 0 && is_a($this->_propDict['apps'][0], 'ManagedMobileApp')) {
-                return $this->_propDict['apps'];
-            }
-            foreach ($this->_propDict['apps'] as $singleValue) {
-                $apps []= new ManagedMobileApp($singleValue);
-            }
-            $this->_propDict['apps'] = $apps;
-            return $this->_propDict['apps'];
+           $apps = [];
+           if (count($this->_propDict['apps']) > 0 && is_a($this->_propDict['apps'][0], 'ManagedMobileApp')) {
+              return $this->_propDict['apps'];
+           }
+           foreach ($this->_propDict['apps'] as $singleValue) {
+              $apps []= new ManagedMobileApp($singleValue);
+           }
+           $this->_propDict['apps'] = $apps;
+           return $this->_propDict['apps'];
         }
         return null;
     }

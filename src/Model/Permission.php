@@ -100,15 +100,15 @@ class Permission extends Entity
     public function getGrantedToIdentities()
     {
         if (array_key_exists('grantedToIdentities', $this->_propDict) && !is_null($this->_propDict['grantedToIdentities'])) {
-            $grantedToIdentities = [];
-            if (count($this->_propDict['grantedToIdentities']) > 0 && is_a($this->_propDict['grantedToIdentities'][0], 'IdentitySet')) {
-                return $this->_propDict['grantedToIdentities'];
-            }
-            foreach ($this->_propDict['grantedToIdentities'] as $singleValue) {
-                $grantedToIdentities []= new IdentitySet($singleValue);
-            }
-            $this->_propDict['grantedToIdentities'] = $grantedToIdentities;
-            return $this->_propDict['grantedToIdentities'];
+           $grantedToIdentities = [];
+           if (count($this->_propDict['grantedToIdentities']) > 0 && is_a($this->_propDict['grantedToIdentities'][0], 'IdentitySet')) {
+              return $this->_propDict['grantedToIdentities'];
+           }
+           foreach ($this->_propDict['grantedToIdentities'] as $singleValue) {
+              $grantedToIdentities []= new IdentitySet($singleValue);
+           }
+           $this->_propDict['grantedToIdentities'] = $grantedToIdentities;
+           return $this->_propDict['grantedToIdentities'];
         }
         return null;
     }
@@ -136,15 +136,15 @@ class Permission extends Entity
     public function getGrantedToIdentitiesV2()
     {
         if (array_key_exists('grantedToIdentitiesV2', $this->_propDict) && !is_null($this->_propDict['grantedToIdentitiesV2'])) {
-            $grantedToIdentitiesV2 = [];
-            if (count($this->_propDict['grantedToIdentitiesV2']) > 0 && is_a($this->_propDict['grantedToIdentitiesV2'][0], 'SharePointIdentitySet')) {
-                return $this->_propDict['grantedToIdentitiesV2'];
-            }
-            foreach ($this->_propDict['grantedToIdentitiesV2'] as $singleValue) {
-                $grantedToIdentitiesV2 []= new SharePointIdentitySet($singleValue);
-            }
-            $this->_propDict['grantedToIdentitiesV2'] = $grantedToIdentitiesV2;
-            return $this->_propDict['grantedToIdentitiesV2'];
+           $grantedToIdentitiesV2 = [];
+           if (count($this->_propDict['grantedToIdentitiesV2']) > 0 && is_a($this->_propDict['grantedToIdentitiesV2'][0], 'SharePointIdentitySet')) {
+              return $this->_propDict['grantedToIdentitiesV2'];
+           }
+           foreach ($this->_propDict['grantedToIdentitiesV2'] as $singleValue) {
+              $grantedToIdentitiesV2 []= new SharePointIdentitySet($singleValue);
+           }
+           $this->_propDict['grantedToIdentitiesV2'] = $grantedToIdentitiesV2;
+           return $this->_propDict['grantedToIdentitiesV2'];
         }
         return null;
     }

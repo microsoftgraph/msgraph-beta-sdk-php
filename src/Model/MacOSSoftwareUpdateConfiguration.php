@@ -133,15 +133,15 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
     public function getCustomUpdateTimeWindows()
     {
         if (array_key_exists('customUpdateTimeWindows', $this->_propDict) && !is_null($this->_propDict['customUpdateTimeWindows'])) {
-            $customUpdateTimeWindows = [];
-            if (count($this->_propDict['customUpdateTimeWindows']) > 0 && is_a($this->_propDict['customUpdateTimeWindows'][0], 'CustomUpdateTimeWindow')) {
-                return $this->_propDict['customUpdateTimeWindows'];
-            }
-            foreach ($this->_propDict['customUpdateTimeWindows'] as $singleValue) {
-                $customUpdateTimeWindows []= new CustomUpdateTimeWindow($singleValue);
-            }
-            $this->_propDict['customUpdateTimeWindows'] = $customUpdateTimeWindows;
-            return $this->_propDict['customUpdateTimeWindows'];
+           $customUpdateTimeWindows = [];
+           if (count($this->_propDict['customUpdateTimeWindows']) > 0 && is_a($this->_propDict['customUpdateTimeWindows'][0], 'CustomUpdateTimeWindow')) {
+              return $this->_propDict['customUpdateTimeWindows'];
+           }
+           foreach ($this->_propDict['customUpdateTimeWindows'] as $singleValue) {
+              $customUpdateTimeWindows []= new CustomUpdateTimeWindow($singleValue);
+           }
+           $this->_propDict['customUpdateTimeWindows'] = $customUpdateTimeWindows;
+           return $this->_propDict['customUpdateTimeWindows'];
         }
         return null;
     }

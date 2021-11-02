@@ -224,15 +224,15 @@ class PlannerPlan extends PlannerDelta
     public function getBuckets()
     {
         if (array_key_exists('buckets', $this->_propDict) && !is_null($this->_propDict['buckets'])) {
-            $buckets = [];
-            if (count($this->_propDict['buckets']) > 0 && is_a($this->_propDict['buckets'][0], 'PlannerBucket')) {
-                return $this->_propDict['buckets'];
-            }
-            foreach ($this->_propDict['buckets'] as $singleValue) {
-                $buckets []= new PlannerBucket($singleValue);
-            }
-            $this->_propDict['buckets'] = $buckets;
-            return $this->_propDict['buckets'];
+           $buckets = [];
+           if (count($this->_propDict['buckets']) > 0 && is_a($this->_propDict['buckets'][0], 'PlannerBucket')) {
+              return $this->_propDict['buckets'];
+           }
+           foreach ($this->_propDict['buckets'] as $singleValue) {
+              $buckets []= new PlannerBucket($singleValue);
+           }
+           $this->_propDict['buckets'] = $buckets;
+           return $this->_propDict['buckets'];
         }
         return null;
     }
@@ -294,15 +294,15 @@ class PlannerPlan extends PlannerDelta
     public function getTasks()
     {
         if (array_key_exists('tasks', $this->_propDict) && !is_null($this->_propDict['tasks'])) {
-            $tasks = [];
-            if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'PlannerTask')) {
-                return $this->_propDict['tasks'];
-            }
-            foreach ($this->_propDict['tasks'] as $singleValue) {
-                $tasks []= new PlannerTask($singleValue);
-            }
-            $this->_propDict['tasks'] = $tasks;
-            return $this->_propDict['tasks'];
+           $tasks = [];
+           if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'PlannerTask')) {
+              return $this->_propDict['tasks'];
+           }
+           foreach ($this->_propDict['tasks'] as $singleValue) {
+              $tasks []= new PlannerTask($singleValue);
+           }
+           $this->_propDict['tasks'] = $tasks;
+           return $this->_propDict['tasks'];
         }
         return null;
     }

@@ -158,15 +158,15 @@ class ConnectorGroup extends Entity
     public function getApplications()
     {
         if (array_key_exists('applications', $this->_propDict) && !is_null($this->_propDict['applications'])) {
-            $applications = [];
-            if (count($this->_propDict['applications']) > 0 && is_a($this->_propDict['applications'][0], 'Application')) {
-                return $this->_propDict['applications'];
-            }
-            foreach ($this->_propDict['applications'] as $singleValue) {
-                $applications []= new Application($singleValue);
-            }
-            $this->_propDict['applications'] = $applications;
-            return $this->_propDict['applications'];
+           $applications = [];
+           if (count($this->_propDict['applications']) > 0 && is_a($this->_propDict['applications'][0], 'Application')) {
+              return $this->_propDict['applications'];
+           }
+           foreach ($this->_propDict['applications'] as $singleValue) {
+              $applications []= new Application($singleValue);
+           }
+           $this->_propDict['applications'] = $applications;
+           return $this->_propDict['applications'];
         }
         return null;
     }
@@ -195,15 +195,15 @@ class ConnectorGroup extends Entity
     public function getMembers()
     {
         if (array_key_exists('members', $this->_propDict) && !is_null($this->_propDict['members'])) {
-            $members = [];
-            if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'Connector')) {
-                return $this->_propDict['members'];
-            }
-            foreach ($this->_propDict['members'] as $singleValue) {
-                $members []= new Connector($singleValue);
-            }
-            $this->_propDict['members'] = $members;
-            return $this->_propDict['members'];
+           $members = [];
+           if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'Connector')) {
+              return $this->_propDict['members'];
+           }
+           foreach ($this->_propDict['members'] as $singleValue) {
+              $members []= new Connector($singleValue);
+           }
+           $this->_propDict['members'] = $members;
+           return $this->_propDict['members'];
         }
         return null;
     }

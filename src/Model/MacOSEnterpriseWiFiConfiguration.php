@@ -290,15 +290,15 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration
     public function getRootCertificatesForServerValidation()
     {
         if (array_key_exists('rootCertificatesForServerValidation', $this->_propDict) && !is_null($this->_propDict['rootCertificatesForServerValidation'])) {
-            $rootCertificatesForServerValidation = [];
-            if (count($this->_propDict['rootCertificatesForServerValidation']) > 0 && is_a($this->_propDict['rootCertificatesForServerValidation'][0], 'MacOSTrustedRootCertificate')) {
-                return $this->_propDict['rootCertificatesForServerValidation'];
-            }
-            foreach ($this->_propDict['rootCertificatesForServerValidation'] as $singleValue) {
-                $rootCertificatesForServerValidation []= new MacOSTrustedRootCertificate($singleValue);
-            }
-            $this->_propDict['rootCertificatesForServerValidation'] = $rootCertificatesForServerValidation;
-            return $this->_propDict['rootCertificatesForServerValidation'];
+           $rootCertificatesForServerValidation = [];
+           if (count($this->_propDict['rootCertificatesForServerValidation']) > 0 && is_a($this->_propDict['rootCertificatesForServerValidation'][0], 'MacOSTrustedRootCertificate')) {
+              return $this->_propDict['rootCertificatesForServerValidation'];
+           }
+           foreach ($this->_propDict['rootCertificatesForServerValidation'] as $singleValue) {
+              $rootCertificatesForServerValidation []= new MacOSTrustedRootCertificate($singleValue);
+           }
+           $this->_propDict['rootCertificatesForServerValidation'] = $rootCertificatesForServerValidation;
+           return $this->_propDict['rootCertificatesForServerValidation'];
         }
         return null;
     }

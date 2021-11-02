@@ -63,15 +63,15 @@ class EmbeddedSIMActivationCodePool extends Entity
     public function getActivationCodes()
     {
         if (array_key_exists('activationCodes', $this->_propDict) && !is_null($this->_propDict['activationCodes'])) {
-            $activationCodes = [];
-            if (count($this->_propDict['activationCodes']) > 0 && is_a($this->_propDict['activationCodes'][0], 'EmbeddedSIMActivationCode')) {
-                return $this->_propDict['activationCodes'];
-            }
-            foreach ($this->_propDict['activationCodes'] as $singleValue) {
-                $activationCodes []= new EmbeddedSIMActivationCode($singleValue);
-            }
-            $this->_propDict['activationCodes'] = $activationCodes;
-            return $this->_propDict['activationCodes'];
+           $activationCodes = [];
+           if (count($this->_propDict['activationCodes']) > 0 && is_a($this->_propDict['activationCodes'][0], 'EmbeddedSIMActivationCode')) {
+              return $this->_propDict['activationCodes'];
+           }
+           foreach ($this->_propDict['activationCodes'] as $singleValue) {
+              $activationCodes []= new EmbeddedSIMActivationCode($singleValue);
+           }
+           $this->_propDict['activationCodes'] = $activationCodes;
+           return $this->_propDict['activationCodes'];
         }
         return null;
     }
@@ -195,15 +195,15 @@ class EmbeddedSIMActivationCodePool extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'EmbeddedSIMActivationCodePoolAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new EmbeddedSIMActivationCodePoolAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'EmbeddedSIMActivationCodePoolAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new EmbeddedSIMActivationCodePoolAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }
@@ -232,15 +232,15 @@ class EmbeddedSIMActivationCodePool extends Entity
     public function getDeviceStates()
     {
         if (array_key_exists('deviceStates', $this->_propDict) && !is_null($this->_propDict['deviceStates'])) {
-            $deviceStates = [];
-            if (count($this->_propDict['deviceStates']) > 0 && is_a($this->_propDict['deviceStates'][0], 'EmbeddedSIMDeviceState')) {
-                return $this->_propDict['deviceStates'];
-            }
-            foreach ($this->_propDict['deviceStates'] as $singleValue) {
-                $deviceStates []= new EmbeddedSIMDeviceState($singleValue);
-            }
-            $this->_propDict['deviceStates'] = $deviceStates;
-            return $this->_propDict['deviceStates'];
+           $deviceStates = [];
+           if (count($this->_propDict['deviceStates']) > 0 && is_a($this->_propDict['deviceStates'][0], 'EmbeddedSIMDeviceState')) {
+              return $this->_propDict['deviceStates'];
+           }
+           foreach ($this->_propDict['deviceStates'] as $singleValue) {
+              $deviceStates []= new EmbeddedSIMDeviceState($singleValue);
+           }
+           $this->_propDict['deviceStates'] = $deviceStates;
+           return $this->_propDict['deviceStates'];
         }
         return null;
     }

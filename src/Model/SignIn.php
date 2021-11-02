@@ -92,15 +92,15 @@ class SignIn extends Entity
     public function getAppliedConditionalAccessPolicies()
     {
         if (array_key_exists('appliedConditionalAccessPolicies', $this->_propDict) && !is_null($this->_propDict['appliedConditionalAccessPolicies'])) {
-            $appliedConditionalAccessPolicies = [];
-            if (count($this->_propDict['appliedConditionalAccessPolicies']) > 0 && is_a($this->_propDict['appliedConditionalAccessPolicies'][0], 'AppliedConditionalAccessPolicy')) {
-                return $this->_propDict['appliedConditionalAccessPolicies'];
-            }
-            foreach ($this->_propDict['appliedConditionalAccessPolicies'] as $singleValue) {
-                $appliedConditionalAccessPolicies []= new AppliedConditionalAccessPolicy($singleValue);
-            }
-            $this->_propDict['appliedConditionalAccessPolicies'] = $appliedConditionalAccessPolicies;
-            return $this->_propDict['appliedConditionalAccessPolicies'];
+           $appliedConditionalAccessPolicies = [];
+           if (count($this->_propDict['appliedConditionalAccessPolicies']) > 0 && is_a($this->_propDict['appliedConditionalAccessPolicies'][0], 'AppliedConditionalAccessPolicy')) {
+              return $this->_propDict['appliedConditionalAccessPolicies'];
+           }
+           foreach ($this->_propDict['appliedConditionalAccessPolicies'] as $singleValue) {
+              $appliedConditionalAccessPolicies []= new AppliedConditionalAccessPolicy($singleValue);
+           }
+           $this->_propDict['appliedConditionalAccessPolicies'] = $appliedConditionalAccessPolicies;
+           return $this->_propDict['appliedConditionalAccessPolicies'];
         }
         return null;
     }
@@ -129,15 +129,15 @@ class SignIn extends Entity
     public function getAuthenticationDetails()
     {
         if (array_key_exists('authenticationDetails', $this->_propDict) && !is_null($this->_propDict['authenticationDetails'])) {
-            $authenticationDetails = [];
-            if (count($this->_propDict['authenticationDetails']) > 0 && is_a($this->_propDict['authenticationDetails'][0], 'AuthenticationDetail')) {
-                return $this->_propDict['authenticationDetails'];
-            }
-            foreach ($this->_propDict['authenticationDetails'] as $singleValue) {
-                $authenticationDetails []= new AuthenticationDetail($singleValue);
-            }
-            $this->_propDict['authenticationDetails'] = $authenticationDetails;
-            return $this->_propDict['authenticationDetails'];
+           $authenticationDetails = [];
+           if (count($this->_propDict['authenticationDetails']) > 0 && is_a($this->_propDict['authenticationDetails'][0], 'AuthenticationDetail')) {
+              return $this->_propDict['authenticationDetails'];
+           }
+           foreach ($this->_propDict['authenticationDetails'] as $singleValue) {
+              $authenticationDetails []= new AuthenticationDetail($singleValue);
+           }
+           $this->_propDict['authenticationDetails'] = $authenticationDetails;
+           return $this->_propDict['authenticationDetails'];
         }
         return null;
     }
@@ -195,15 +195,15 @@ class SignIn extends Entity
     public function getAuthenticationProcessingDetails()
     {
         if (array_key_exists('authenticationProcessingDetails', $this->_propDict) && !is_null($this->_propDict['authenticationProcessingDetails'])) {
-            $authenticationProcessingDetails = [];
-            if (count($this->_propDict['authenticationProcessingDetails']) > 0 && is_a($this->_propDict['authenticationProcessingDetails'][0], 'KeyValue')) {
-                return $this->_propDict['authenticationProcessingDetails'];
-            }
-            foreach ($this->_propDict['authenticationProcessingDetails'] as $singleValue) {
-                $authenticationProcessingDetails []= new KeyValue($singleValue);
-            }
-            $this->_propDict['authenticationProcessingDetails'] = $authenticationProcessingDetails;
-            return $this->_propDict['authenticationProcessingDetails'];
+           $authenticationProcessingDetails = [];
+           if (count($this->_propDict['authenticationProcessingDetails']) > 0 && is_a($this->_propDict['authenticationProcessingDetails'][0], 'KeyValue')) {
+              return $this->_propDict['authenticationProcessingDetails'];
+           }
+           foreach ($this->_propDict['authenticationProcessingDetails'] as $singleValue) {
+              $authenticationProcessingDetails []= new KeyValue($singleValue);
+           }
+           $this->_propDict['authenticationProcessingDetails'] = $authenticationProcessingDetails;
+           return $this->_propDict['authenticationProcessingDetails'];
         }
         return null;
     }
@@ -291,15 +291,15 @@ class SignIn extends Entity
     public function getAuthenticationRequirementPolicies()
     {
         if (array_key_exists('authenticationRequirementPolicies', $this->_propDict) && !is_null($this->_propDict['authenticationRequirementPolicies'])) {
-            $authenticationRequirementPolicies = [];
-            if (count($this->_propDict['authenticationRequirementPolicies']) > 0 && is_a($this->_propDict['authenticationRequirementPolicies'][0], 'AuthenticationRequirementPolicy')) {
-                return $this->_propDict['authenticationRequirementPolicies'];
-            }
-            foreach ($this->_propDict['authenticationRequirementPolicies'] as $singleValue) {
-                $authenticationRequirementPolicies []= new AuthenticationRequirementPolicy($singleValue);
-            }
-            $this->_propDict['authenticationRequirementPolicies'] = $authenticationRequirementPolicies;
-            return $this->_propDict['authenticationRequirementPolicies'];
+           $authenticationRequirementPolicies = [];
+           if (count($this->_propDict['authenticationRequirementPolicies']) > 0 && is_a($this->_propDict['authenticationRequirementPolicies'][0], 'AuthenticationRequirementPolicy')) {
+              return $this->_propDict['authenticationRequirementPolicies'];
+           }
+           foreach ($this->_propDict['authenticationRequirementPolicies'] as $singleValue) {
+              $authenticationRequirementPolicies []= new AuthenticationRequirementPolicy($singleValue);
+           }
+           $this->_propDict['authenticationRequirementPolicies'] = $authenticationRequirementPolicies;
+           return $this->_propDict['authenticationRequirementPolicies'];
         }
         return null;
     }
@@ -830,15 +830,15 @@ class SignIn extends Entity
     public function getNetworkLocationDetails()
     {
         if (array_key_exists('networkLocationDetails', $this->_propDict) && !is_null($this->_propDict['networkLocationDetails'])) {
-            $networkLocationDetails = [];
-            if (count($this->_propDict['networkLocationDetails']) > 0 && is_a($this->_propDict['networkLocationDetails'][0], 'NetworkLocationDetail')) {
-                return $this->_propDict['networkLocationDetails'];
-            }
-            foreach ($this->_propDict['networkLocationDetails'] as $singleValue) {
-                $networkLocationDetails []= new NetworkLocationDetail($singleValue);
-            }
-            $this->_propDict['networkLocationDetails'] = $networkLocationDetails;
-            return $this->_propDict['networkLocationDetails'];
+           $networkLocationDetails = [];
+           if (count($this->_propDict['networkLocationDetails']) > 0 && is_a($this->_propDict['networkLocationDetails'][0], 'NetworkLocationDetail')) {
+              return $this->_propDict['networkLocationDetails'];
+           }
+           foreach ($this->_propDict['networkLocationDetails'] as $singleValue) {
+              $networkLocationDetails []= new NetworkLocationDetail($singleValue);
+           }
+           $this->_propDict['networkLocationDetails'] = $networkLocationDetails;
+           return $this->_propDict['networkLocationDetails'];
         }
         return null;
     }

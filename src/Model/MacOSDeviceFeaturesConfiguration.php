@@ -63,15 +63,15 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     public function getAppAssociatedDomains()
     {
         if (array_key_exists('appAssociatedDomains', $this->_propDict) && !is_null($this->_propDict['appAssociatedDomains'])) {
-            $appAssociatedDomains = [];
-            if (count($this->_propDict['appAssociatedDomains']) > 0 && is_a($this->_propDict['appAssociatedDomains'][0], 'MacOSAssociatedDomainsItem')) {
-                return $this->_propDict['appAssociatedDomains'];
-            }
-            foreach ($this->_propDict['appAssociatedDomains'] as $singleValue) {
-                $appAssociatedDomains []= new MacOSAssociatedDomainsItem($singleValue);
-            }
-            $this->_propDict['appAssociatedDomains'] = $appAssociatedDomains;
-            return $this->_propDict['appAssociatedDomains'];
+           $appAssociatedDomains = [];
+           if (count($this->_propDict['appAssociatedDomains']) > 0 && is_a($this->_propDict['appAssociatedDomains'][0], 'MacOSAssociatedDomainsItem')) {
+              return $this->_propDict['appAssociatedDomains'];
+           }
+           foreach ($this->_propDict['appAssociatedDomains'] as $singleValue) {
+              $appAssociatedDomains []= new MacOSAssociatedDomainsItem($singleValue);
+           }
+           $this->_propDict['appAssociatedDomains'] = $appAssociatedDomains;
+           return $this->_propDict['appAssociatedDomains'];
         }
         return null;
     }
@@ -100,15 +100,15 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     public function getAssociatedDomains()
     {
         if (array_key_exists('associatedDomains', $this->_propDict) && !is_null($this->_propDict['associatedDomains'])) {
-            $associatedDomains = [];
-            if (count($this->_propDict['associatedDomains']) > 0 && is_a($this->_propDict['associatedDomains'][0], 'KeyValuePair')) {
-                return $this->_propDict['associatedDomains'];
-            }
-            foreach ($this->_propDict['associatedDomains'] as $singleValue) {
-                $associatedDomains []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['associatedDomains'] = $associatedDomains;
-            return $this->_propDict['associatedDomains'];
+           $associatedDomains = [];
+           if (count($this->_propDict['associatedDomains']) > 0 && is_a($this->_propDict['associatedDomains'][0], 'KeyValuePair')) {
+              return $this->_propDict['associatedDomains'];
+           }
+           foreach ($this->_propDict['associatedDomains'] as $singleValue) {
+              $associatedDomains []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['associatedDomains'] = $associatedDomains;
+           return $this->_propDict['associatedDomains'];
         }
         return null;
     }
@@ -311,15 +311,15 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     public function getAutoLaunchItems()
     {
         if (array_key_exists('autoLaunchItems', $this->_propDict) && !is_null($this->_propDict['autoLaunchItems'])) {
-            $autoLaunchItems = [];
-            if (count($this->_propDict['autoLaunchItems']) > 0 && is_a($this->_propDict['autoLaunchItems'][0], 'MacOSLaunchItem')) {
-                return $this->_propDict['autoLaunchItems'];
-            }
-            foreach ($this->_propDict['autoLaunchItems'] as $singleValue) {
-                $autoLaunchItems []= new MacOSLaunchItem($singleValue);
-            }
-            $this->_propDict['autoLaunchItems'] = $autoLaunchItems;
-            return $this->_propDict['autoLaunchItems'];
+           $autoLaunchItems = [];
+           if (count($this->_propDict['autoLaunchItems']) > 0 && is_a($this->_propDict['autoLaunchItems'][0], 'MacOSLaunchItem')) {
+              return $this->_propDict['autoLaunchItems'];
+           }
+           foreach ($this->_propDict['autoLaunchItems'] as $singleValue) {
+              $autoLaunchItems []= new MacOSLaunchItem($singleValue);
+           }
+           $this->_propDict['autoLaunchItems'] = $autoLaunchItems;
+           return $this->_propDict['autoLaunchItems'];
         }
         return null;
     }
@@ -406,15 +406,15 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     public function getContentCachingClientListenRanges()
     {
         if (array_key_exists('contentCachingClientListenRanges', $this->_propDict) && !is_null($this->_propDict['contentCachingClientListenRanges'])) {
-            $contentCachingClientListenRanges = [];
-            if (count($this->_propDict['contentCachingClientListenRanges']) > 0 && is_a($this->_propDict['contentCachingClientListenRanges'][0], 'IpRange')) {
-                return $this->_propDict['contentCachingClientListenRanges'];
-            }
-            foreach ($this->_propDict['contentCachingClientListenRanges'] as $singleValue) {
-                $contentCachingClientListenRanges []= new IpRange($singleValue);
-            }
-            $this->_propDict['contentCachingClientListenRanges'] = $contentCachingClientListenRanges;
-            return $this->_propDict['contentCachingClientListenRanges'];
+           $contentCachingClientListenRanges = [];
+           if (count($this->_propDict['contentCachingClientListenRanges']) > 0 && is_a($this->_propDict['contentCachingClientListenRanges'][0], 'IpRange')) {
+              return $this->_propDict['contentCachingClientListenRanges'];
+           }
+           foreach ($this->_propDict['contentCachingClientListenRanges'] as $singleValue) {
+              $contentCachingClientListenRanges []= new IpRange($singleValue);
+           }
+           $this->_propDict['contentCachingClientListenRanges'] = $contentCachingClientListenRanges;
+           return $this->_propDict['contentCachingClientListenRanges'];
         }
         return null;
     }
@@ -741,15 +741,15 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     public function getContentCachingPeerFilterRanges()
     {
         if (array_key_exists('contentCachingPeerFilterRanges', $this->_propDict) && !is_null($this->_propDict['contentCachingPeerFilterRanges'])) {
-            $contentCachingPeerFilterRanges = [];
-            if (count($this->_propDict['contentCachingPeerFilterRanges']) > 0 && is_a($this->_propDict['contentCachingPeerFilterRanges'][0], 'IpRange')) {
-                return $this->_propDict['contentCachingPeerFilterRanges'];
-            }
-            foreach ($this->_propDict['contentCachingPeerFilterRanges'] as $singleValue) {
-                $contentCachingPeerFilterRanges []= new IpRange($singleValue);
-            }
-            $this->_propDict['contentCachingPeerFilterRanges'] = $contentCachingPeerFilterRanges;
-            return $this->_propDict['contentCachingPeerFilterRanges'];
+           $contentCachingPeerFilterRanges = [];
+           if (count($this->_propDict['contentCachingPeerFilterRanges']) > 0 && is_a($this->_propDict['contentCachingPeerFilterRanges'][0], 'IpRange')) {
+              return $this->_propDict['contentCachingPeerFilterRanges'];
+           }
+           foreach ($this->_propDict['contentCachingPeerFilterRanges'] as $singleValue) {
+              $contentCachingPeerFilterRanges []= new IpRange($singleValue);
+           }
+           $this->_propDict['contentCachingPeerFilterRanges'] = $contentCachingPeerFilterRanges;
+           return $this->_propDict['contentCachingPeerFilterRanges'];
         }
         return null;
     }
@@ -778,15 +778,15 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     public function getContentCachingPeerListenRanges()
     {
         if (array_key_exists('contentCachingPeerListenRanges', $this->_propDict) && !is_null($this->_propDict['contentCachingPeerListenRanges'])) {
-            $contentCachingPeerListenRanges = [];
-            if (count($this->_propDict['contentCachingPeerListenRanges']) > 0 && is_a($this->_propDict['contentCachingPeerListenRanges'][0], 'IpRange')) {
-                return $this->_propDict['contentCachingPeerListenRanges'];
-            }
-            foreach ($this->_propDict['contentCachingPeerListenRanges'] as $singleValue) {
-                $contentCachingPeerListenRanges []= new IpRange($singleValue);
-            }
-            $this->_propDict['contentCachingPeerListenRanges'] = $contentCachingPeerListenRanges;
-            return $this->_propDict['contentCachingPeerListenRanges'];
+           $contentCachingPeerListenRanges = [];
+           if (count($this->_propDict['contentCachingPeerListenRanges']) > 0 && is_a($this->_propDict['contentCachingPeerListenRanges'][0], 'IpRange')) {
+              return $this->_propDict['contentCachingPeerListenRanges'];
+           }
+           foreach ($this->_propDict['contentCachingPeerListenRanges'] as $singleValue) {
+              $contentCachingPeerListenRanges []= new IpRange($singleValue);
+           }
+           $this->_propDict['contentCachingPeerListenRanges'] = $contentCachingPeerListenRanges;
+           return $this->_propDict['contentCachingPeerListenRanges'];
         }
         return null;
     }
@@ -877,15 +877,15 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     public function getContentCachingPublicRanges()
     {
         if (array_key_exists('contentCachingPublicRanges', $this->_propDict) && !is_null($this->_propDict['contentCachingPublicRanges'])) {
-            $contentCachingPublicRanges = [];
-            if (count($this->_propDict['contentCachingPublicRanges']) > 0 && is_a($this->_propDict['contentCachingPublicRanges'][0], 'IpRange')) {
-                return $this->_propDict['contentCachingPublicRanges'];
-            }
-            foreach ($this->_propDict['contentCachingPublicRanges'] as $singleValue) {
-                $contentCachingPublicRanges []= new IpRange($singleValue);
-            }
-            $this->_propDict['contentCachingPublicRanges'] = $contentCachingPublicRanges;
-            return $this->_propDict['contentCachingPublicRanges'];
+           $contentCachingPublicRanges = [];
+           if (count($this->_propDict['contentCachingPublicRanges']) > 0 && is_a($this->_propDict['contentCachingPublicRanges'][0], 'IpRange')) {
+              return $this->_propDict['contentCachingPublicRanges'];
+           }
+           foreach ($this->_propDict['contentCachingPublicRanges'] as $singleValue) {
+              $contentCachingPublicRanges []= new IpRange($singleValue);
+           }
+           $this->_propDict['contentCachingPublicRanges'] = $contentCachingPublicRanges;
+           return $this->_propDict['contentCachingPublicRanges'];
         }
         return null;
     }

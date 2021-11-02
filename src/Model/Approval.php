@@ -33,15 +33,15 @@ class Approval extends Entity
     public function getSteps()
     {
         if (array_key_exists('steps', $this->_propDict) && !is_null($this->_propDict['steps'])) {
-            $steps = [];
-            if (count($this->_propDict['steps']) > 0 && is_a($this->_propDict['steps'][0], 'ApprovalStep')) {
-                return $this->_propDict['steps'];
-            }
-            foreach ($this->_propDict['steps'] as $singleValue) {
-                $steps []= new ApprovalStep($singleValue);
-            }
-            $this->_propDict['steps'] = $steps;
-            return $this->_propDict['steps'];
+           $steps = [];
+           if (count($this->_propDict['steps']) > 0 && is_a($this->_propDict['steps'][0], 'ApprovalStep')) {
+              return $this->_propDict['steps'];
+           }
+           foreach ($this->_propDict['steps'] as $singleValue) {
+              $steps []= new ApprovalStep($singleValue);
+           }
+           $this->_propDict['steps'] = $steps;
+           return $this->_propDict['steps'];
         }
         return null;
     }

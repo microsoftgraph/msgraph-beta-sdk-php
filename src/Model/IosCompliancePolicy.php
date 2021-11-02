@@ -539,15 +539,15 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
     public function getRestrictedApps()
     {
         if (array_key_exists('restrictedApps', $this->_propDict) && !is_null($this->_propDict['restrictedApps'])) {
-            $restrictedApps = [];
-            if (count($this->_propDict['restrictedApps']) > 0 && is_a($this->_propDict['restrictedApps'][0], 'AppListItem')) {
-                return $this->_propDict['restrictedApps'];
-            }
-            foreach ($this->_propDict['restrictedApps'] as $singleValue) {
-                $restrictedApps []= new AppListItem($singleValue);
-            }
-            $this->_propDict['restrictedApps'] = $restrictedApps;
-            return $this->_propDict['restrictedApps'];
+           $restrictedApps = [];
+           if (count($this->_propDict['restrictedApps']) > 0 && is_a($this->_propDict['restrictedApps'][0], 'AppListItem')) {
+              return $this->_propDict['restrictedApps'];
+           }
+           foreach ($this->_propDict['restrictedApps'] as $singleValue) {
+              $restrictedApps []= new AppListItem($singleValue);
+           }
+           $this->_propDict['restrictedApps'] = $restrictedApps;
+           return $this->_propDict['restrictedApps'];
         }
         return null;
     }

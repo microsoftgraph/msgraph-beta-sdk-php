@@ -34,15 +34,15 @@ class UnsupportedDeviceConfiguration extends DeviceConfiguration
     public function getDetails()
     {
         if (array_key_exists('details', $this->_propDict) && !is_null($this->_propDict['details'])) {
-            $details = [];
-            if (count($this->_propDict['details']) > 0 && is_a($this->_propDict['details'][0], 'UnsupportedDeviceConfigurationDetail')) {
-                return $this->_propDict['details'];
-            }
-            foreach ($this->_propDict['details'] as $singleValue) {
-                $details []= new UnsupportedDeviceConfigurationDetail($singleValue);
-            }
-            $this->_propDict['details'] = $details;
-            return $this->_propDict['details'];
+           $details = [];
+           if (count($this->_propDict['details']) > 0 && is_a($this->_propDict['details'][0], 'UnsupportedDeviceConfigurationDetail')) {
+              return $this->_propDict['details'];
+           }
+           foreach ($this->_propDict['details'] as $singleValue) {
+              $details []= new UnsupportedDeviceConfigurationDetail($singleValue);
+           }
+           $this->_propDict['details'] = $details;
+           return $this->_propDict['details'];
         }
         return null;
     }

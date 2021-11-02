@@ -118,15 +118,15 @@ class Dimension extends Entity
     public function getDimensionValues()
     {
         if (array_key_exists('dimensionValues', $this->_propDict) && !is_null($this->_propDict['dimensionValues'])) {
-            $dimensionValues = [];
-            if (count($this->_propDict['dimensionValues']) > 0 && is_a($this->_propDict['dimensionValues'][0], 'DimensionValue')) {
-                return $this->_propDict['dimensionValues'];
-            }
-            foreach ($this->_propDict['dimensionValues'] as $singleValue) {
-                $dimensionValues []= new DimensionValue($singleValue);
-            }
-            $this->_propDict['dimensionValues'] = $dimensionValues;
-            return $this->_propDict['dimensionValues'];
+           $dimensionValues = [];
+           if (count($this->_propDict['dimensionValues']) > 0 && is_a($this->_propDict['dimensionValues'][0], 'DimensionValue')) {
+              return $this->_propDict['dimensionValues'];
+           }
+           foreach ($this->_propDict['dimensionValues'] as $singleValue) {
+              $dimensionValues []= new DimensionValue($singleValue);
+           }
+           $this->_propDict['dimensionValues'] = $dimensionValues;
+           return $this->_propDict['dimensionValues'];
         }
         return null;
     }

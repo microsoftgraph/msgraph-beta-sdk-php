@@ -257,15 +257,15 @@ class HostSecurityProfile extends Entity
     public function getLogonUsers()
     {
         if (array_key_exists('logonUsers', $this->_propDict) && !is_null($this->_propDict['logonUsers'])) {
-            $logonUsers = [];
-            if (count($this->_propDict['logonUsers']) > 0 && is_a($this->_propDict['logonUsers'][0], 'LogonUser')) {
-                return $this->_propDict['logonUsers'];
-            }
-            foreach ($this->_propDict['logonUsers'] as $singleValue) {
-                $logonUsers []= new LogonUser($singleValue);
-            }
-            $this->_propDict['logonUsers'] = $logonUsers;
-            return $this->_propDict['logonUsers'];
+           $logonUsers = [];
+           if (count($this->_propDict['logonUsers']) > 0 && is_a($this->_propDict['logonUsers'][0], 'LogonUser')) {
+              return $this->_propDict['logonUsers'];
+           }
+           foreach ($this->_propDict['logonUsers'] as $singleValue) {
+              $logonUsers []= new LogonUser($singleValue);
+           }
+           $this->_propDict['logonUsers'] = $logonUsers;
+           return $this->_propDict['logonUsers'];
         }
         return null;
     }
@@ -319,15 +319,15 @@ class HostSecurityProfile extends Entity
     public function getNetworkInterfaces()
     {
         if (array_key_exists('networkInterfaces', $this->_propDict) && !is_null($this->_propDict['networkInterfaces'])) {
-            $networkInterfaces = [];
-            if (count($this->_propDict['networkInterfaces']) > 0 && is_a($this->_propDict['networkInterfaces'][0], 'NetworkInterface')) {
-                return $this->_propDict['networkInterfaces'];
-            }
-            foreach ($this->_propDict['networkInterfaces'] as $singleValue) {
-                $networkInterfaces []= new NetworkInterface($singleValue);
-            }
-            $this->_propDict['networkInterfaces'] = $networkInterfaces;
-            return $this->_propDict['networkInterfaces'];
+           $networkInterfaces = [];
+           if (count($this->_propDict['networkInterfaces']) > 0 && is_a($this->_propDict['networkInterfaces'][0], 'NetworkInterface')) {
+              return $this->_propDict['networkInterfaces'];
+           }
+           foreach ($this->_propDict['networkInterfaces'] as $singleValue) {
+              $networkInterfaces []= new NetworkInterface($singleValue);
+           }
+           $this->_propDict['networkInterfaces'] = $networkInterfaces;
+           return $this->_propDict['networkInterfaces'];
         }
         return null;
     }

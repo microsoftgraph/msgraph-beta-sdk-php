@@ -63,15 +63,15 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
     public function getHistory()
     {
         if (array_key_exists('history', $this->_propDict) && !is_null($this->_propDict['history'])) {
-            $history = [];
-            if (count($this->_propDict['history']) > 0 && is_a($this->_propDict['history'][0], 'MobileAppTroubleshootingHistoryItem')) {
-                return $this->_propDict['history'];
-            }
-            foreach ($this->_propDict['history'] as $singleValue) {
-                $history []= new MobileAppTroubleshootingHistoryItem($singleValue);
-            }
-            $this->_propDict['history'] = $history;
-            return $this->_propDict['history'];
+           $history = [];
+           if (count($this->_propDict['history']) > 0 && is_a($this->_propDict['history'][0], 'MobileAppTroubleshootingHistoryItem')) {
+              return $this->_propDict['history'];
+           }
+           foreach ($this->_propDict['history'] as $singleValue) {
+              $history []= new MobileAppTroubleshootingHistoryItem($singleValue);
+           }
+           $this->_propDict['history'] = $history;
+           return $this->_propDict['history'];
         }
         return null;
     }
@@ -158,15 +158,15 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
     public function getAppLogCollectionRequests()
     {
         if (array_key_exists('appLogCollectionRequests', $this->_propDict) && !is_null($this->_propDict['appLogCollectionRequests'])) {
-            $appLogCollectionRequests = [];
-            if (count($this->_propDict['appLogCollectionRequests']) > 0 && is_a($this->_propDict['appLogCollectionRequests'][0], 'AppLogCollectionRequest')) {
-                return $this->_propDict['appLogCollectionRequests'];
-            }
-            foreach ($this->_propDict['appLogCollectionRequests'] as $singleValue) {
-                $appLogCollectionRequests []= new AppLogCollectionRequest($singleValue);
-            }
-            $this->_propDict['appLogCollectionRequests'] = $appLogCollectionRequests;
-            return $this->_propDict['appLogCollectionRequests'];
+           $appLogCollectionRequests = [];
+           if (count($this->_propDict['appLogCollectionRequests']) > 0 && is_a($this->_propDict['appLogCollectionRequests'][0], 'AppLogCollectionRequest')) {
+              return $this->_propDict['appLogCollectionRequests'];
+           }
+           foreach ($this->_propDict['appLogCollectionRequests'] as $singleValue) {
+              $appLogCollectionRequests []= new AppLogCollectionRequest($singleValue);
+           }
+           $this->_propDict['appLogCollectionRequests'] = $appLogCollectionRequests;
+           return $this->_propDict['appLogCollectionRequests'];
         }
         return null;
     }

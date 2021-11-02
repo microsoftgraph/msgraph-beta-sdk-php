@@ -96,15 +96,15 @@ class RelyingPartyDetailedSummary extends Entity
     public function getMigrationValidationDetails()
     {
         if (array_key_exists('migrationValidationDetails', $this->_propDict) && !is_null($this->_propDict['migrationValidationDetails'])) {
-            $migrationValidationDetails = [];
-            if (count($this->_propDict['migrationValidationDetails']) > 0 && is_a($this->_propDict['migrationValidationDetails'][0], 'KeyValuePair')) {
-                return $this->_propDict['migrationValidationDetails'];
-            }
-            foreach ($this->_propDict['migrationValidationDetails'] as $singleValue) {
-                $migrationValidationDetails []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['migrationValidationDetails'] = $migrationValidationDetails;
-            return $this->_propDict['migrationValidationDetails'];
+           $migrationValidationDetails = [];
+           if (count($this->_propDict['migrationValidationDetails']) > 0 && is_a($this->_propDict['migrationValidationDetails'][0], 'KeyValuePair')) {
+              return $this->_propDict['migrationValidationDetails'];
+           }
+           foreach ($this->_propDict['migrationValidationDetails'] as $singleValue) {
+              $migrationValidationDetails []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['migrationValidationDetails'] = $migrationValidationDetails;
+           return $this->_propDict['migrationValidationDetails'];
         }
         return null;
     }

@@ -34,15 +34,15 @@ class WindowsPhone81AppXBundle extends WindowsPhone81AppX
     public function getAppXPackageInformationList()
     {
         if (array_key_exists('appXPackageInformationList', $this->_propDict) && !is_null($this->_propDict['appXPackageInformationList'])) {
-            $appXPackageInformationList = [];
-            if (count($this->_propDict['appXPackageInformationList']) > 0 && is_a($this->_propDict['appXPackageInformationList'][0], 'WindowsPackageInformation')) {
-                return $this->_propDict['appXPackageInformationList'];
-            }
-            foreach ($this->_propDict['appXPackageInformationList'] as $singleValue) {
-                $appXPackageInformationList []= new WindowsPackageInformation($singleValue);
-            }
-            $this->_propDict['appXPackageInformationList'] = $appXPackageInformationList;
-            return $this->_propDict['appXPackageInformationList'];
+           $appXPackageInformationList = [];
+           if (count($this->_propDict['appXPackageInformationList']) > 0 && is_a($this->_propDict['appXPackageInformationList'][0], 'WindowsPackageInformation')) {
+              return $this->_propDict['appXPackageInformationList'];
+           }
+           foreach ($this->_propDict['appXPackageInformationList'] as $singleValue) {
+              $appXPackageInformationList []= new WindowsPackageInformation($singleValue);
+           }
+           $this->_propDict['appXPackageInformationList'] = $appXPackageInformationList;
+           return $this->_propDict['appXPackageInformationList'];
         }
         return null;
     }

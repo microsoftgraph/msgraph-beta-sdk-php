@@ -129,15 +129,15 @@ class DeviceHealthScript extends Entity
     public function getDetectionScriptParameters()
     {
         if (array_key_exists('detectionScriptParameters', $this->_propDict) && !is_null($this->_propDict['detectionScriptParameters'])) {
-            $detectionScriptParameters = [];
-            if (count($this->_propDict['detectionScriptParameters']) > 0 && is_a($this->_propDict['detectionScriptParameters'][0], 'DeviceHealthScriptParameter')) {
-                return $this->_propDict['detectionScriptParameters'];
-            }
-            foreach ($this->_propDict['detectionScriptParameters'] as $singleValue) {
-                $detectionScriptParameters []= new DeviceHealthScriptParameter($singleValue);
-            }
-            $this->_propDict['detectionScriptParameters'] = $detectionScriptParameters;
-            return $this->_propDict['detectionScriptParameters'];
+           $detectionScriptParameters = [];
+           if (count($this->_propDict['detectionScriptParameters']) > 0 && is_a($this->_propDict['detectionScriptParameters'][0], 'DeviceHealthScriptParameter')) {
+              return $this->_propDict['detectionScriptParameters'];
+           }
+           foreach ($this->_propDict['detectionScriptParameters'] as $singleValue) {
+              $detectionScriptParameters []= new DeviceHealthScriptParameter($singleValue);
+           }
+           $this->_propDict['detectionScriptParameters'] = $detectionScriptParameters;
+           return $this->_propDict['detectionScriptParameters'];
         }
         return null;
     }
@@ -377,15 +377,15 @@ class DeviceHealthScript extends Entity
     public function getRemediationScriptParameters()
     {
         if (array_key_exists('remediationScriptParameters', $this->_propDict) && !is_null($this->_propDict['remediationScriptParameters'])) {
-            $remediationScriptParameters = [];
-            if (count($this->_propDict['remediationScriptParameters']) > 0 && is_a($this->_propDict['remediationScriptParameters'][0], 'DeviceHealthScriptParameter')) {
-                return $this->_propDict['remediationScriptParameters'];
-            }
-            foreach ($this->_propDict['remediationScriptParameters'] as $singleValue) {
-                $remediationScriptParameters []= new DeviceHealthScriptParameter($singleValue);
-            }
-            $this->_propDict['remediationScriptParameters'] = $remediationScriptParameters;
-            return $this->_propDict['remediationScriptParameters'];
+           $remediationScriptParameters = [];
+           if (count($this->_propDict['remediationScriptParameters']) > 0 && is_a($this->_propDict['remediationScriptParameters'][0], 'DeviceHealthScriptParameter')) {
+              return $this->_propDict['remediationScriptParameters'];
+           }
+           foreach ($this->_propDict['remediationScriptParameters'] as $singleValue) {
+              $remediationScriptParameters []= new DeviceHealthScriptParameter($singleValue);
+           }
+           $this->_propDict['remediationScriptParameters'] = $remediationScriptParameters;
+           return $this->_propDict['remediationScriptParameters'];
         }
         return null;
     }
@@ -534,15 +534,15 @@ class DeviceHealthScript extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'DeviceHealthScriptAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new DeviceHealthScriptAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'DeviceHealthScriptAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new DeviceHealthScriptAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }
@@ -571,15 +571,15 @@ class DeviceHealthScript extends Entity
     public function getDeviceRunStates()
     {
         if (array_key_exists('deviceRunStates', $this->_propDict) && !is_null($this->_propDict['deviceRunStates'])) {
-            $deviceRunStates = [];
-            if (count($this->_propDict['deviceRunStates']) > 0 && is_a($this->_propDict['deviceRunStates'][0], 'DeviceHealthScriptDeviceState')) {
-                return $this->_propDict['deviceRunStates'];
-            }
-            foreach ($this->_propDict['deviceRunStates'] as $singleValue) {
-                $deviceRunStates []= new DeviceHealthScriptDeviceState($singleValue);
-            }
-            $this->_propDict['deviceRunStates'] = $deviceRunStates;
-            return $this->_propDict['deviceRunStates'];
+           $deviceRunStates = [];
+           if (count($this->_propDict['deviceRunStates']) > 0 && is_a($this->_propDict['deviceRunStates'][0], 'DeviceHealthScriptDeviceState')) {
+              return $this->_propDict['deviceRunStates'];
+           }
+           foreach ($this->_propDict['deviceRunStates'] as $singleValue) {
+              $deviceRunStates []= new DeviceHealthScriptDeviceState($singleValue);
+           }
+           $this->_propDict['deviceRunStates'] = $deviceRunStates;
+           return $this->_propDict['deviceRunStates'];
         }
         return null;
     }

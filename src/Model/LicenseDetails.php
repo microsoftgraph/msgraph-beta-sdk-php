@@ -34,15 +34,15 @@ class LicenseDetails extends Entity
     public function getServicePlans()
     {
         if (array_key_exists('servicePlans', $this->_propDict) && !is_null($this->_propDict['servicePlans'])) {
-            $servicePlans = [];
-            if (count($this->_propDict['servicePlans']) > 0 && is_a($this->_propDict['servicePlans'][0], 'ServicePlanInfo')) {
-                return $this->_propDict['servicePlans'];
-            }
-            foreach ($this->_propDict['servicePlans'] as $singleValue) {
-                $servicePlans []= new ServicePlanInfo($singleValue);
-            }
-            $this->_propDict['servicePlans'] = $servicePlans;
-            return $this->_propDict['servicePlans'];
+           $servicePlans = [];
+           if (count($this->_propDict['servicePlans']) > 0 && is_a($this->_propDict['servicePlans'][0], 'ServicePlanInfo')) {
+              return $this->_propDict['servicePlans'];
+           }
+           foreach ($this->_propDict['servicePlans'] as $singleValue) {
+              $servicePlans []= new ServicePlanInfo($singleValue);
+           }
+           $this->_propDict['servicePlans'] = $servicePlans;
+           return $this->_propDict['servicePlans'];
         }
         return null;
     }

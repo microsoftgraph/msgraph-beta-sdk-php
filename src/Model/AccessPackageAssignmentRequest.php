@@ -34,15 +34,15 @@ class AccessPackageAssignmentRequest extends Entity
     public function getAnswers()
     {
         if (array_key_exists('answers', $this->_propDict) && !is_null($this->_propDict['answers'])) {
-            $answers = [];
-            if (count($this->_propDict['answers']) > 0 && is_a($this->_propDict['answers'][0], 'AccessPackageAnswer')) {
-                return $this->_propDict['answers'];
-            }
-            foreach ($this->_propDict['answers'] as $singleValue) {
-                $answers []= new AccessPackageAnswer($singleValue);
-            }
-            $this->_propDict['answers'] = $answers;
-            return $this->_propDict['answers'];
+           $answers = [];
+           if (count($this->_propDict['answers']) > 0 && is_a($this->_propDict['answers'][0], 'AccessPackageAnswer')) {
+              return $this->_propDict['answers'];
+           }
+           foreach ($this->_propDict['answers'] as $singleValue) {
+              $answers []= new AccessPackageAnswer($singleValue);
+           }
+           $this->_propDict['answers'] = $answers;
+           return $this->_propDict['answers'];
         }
         return null;
     }

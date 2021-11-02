@@ -249,15 +249,15 @@ class TenantTag extends \Beta\Microsoft\Graph\Model\Entity
     public function getTenants()
     {
         if (array_key_exists('tenants', $this->_propDict) && !is_null($this->_propDict['tenants'])) {
-            $tenants = [];
-            if (count($this->_propDict['tenants']) > 0 && is_a($this->_propDict['tenants'][0], 'TenantInfo')) {
-                return $this->_propDict['tenants'];
-            }
-            foreach ($this->_propDict['tenants'] as $singleValue) {
-                $tenants []= new TenantInfo($singleValue);
-            }
-            $this->_propDict['tenants'] = $tenants;
-            return $this->_propDict['tenants'];
+           $tenants = [];
+           if (count($this->_propDict['tenants']) > 0 && is_a($this->_propDict['tenants'][0], 'TenantInfo')) {
+              return $this->_propDict['tenants'];
+           }
+           foreach ($this->_propDict['tenants'] as $singleValue) {
+              $tenants []= new TenantInfo($singleValue);
+           }
+           $this->_propDict['tenants'] = $tenants;
+           return $this->_propDict['tenants'];
         }
         return null;
     }

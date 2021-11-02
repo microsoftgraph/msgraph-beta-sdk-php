@@ -253,15 +253,15 @@ class PrintJob extends Entity
     public function getDocuments()
     {
         if (array_key_exists('documents', $this->_propDict) && !is_null($this->_propDict['documents'])) {
-            $documents = [];
-            if (count($this->_propDict['documents']) > 0 && is_a($this->_propDict['documents'][0], 'PrintDocument')) {
-                return $this->_propDict['documents'];
-            }
-            foreach ($this->_propDict['documents'] as $singleValue) {
-                $documents []= new PrintDocument($singleValue);
-            }
-            $this->_propDict['documents'] = $documents;
-            return $this->_propDict['documents'];
+           $documents = [];
+           if (count($this->_propDict['documents']) > 0 && is_a($this->_propDict['documents'][0], 'PrintDocument')) {
+              return $this->_propDict['documents'];
+           }
+           foreach ($this->_propDict['documents'] as $singleValue) {
+              $documents []= new PrintDocument($singleValue);
+           }
+           $this->_propDict['documents'] = $documents;
+           return $this->_propDict['documents'];
         }
         return null;
     }
@@ -290,15 +290,15 @@ class PrintJob extends Entity
     public function getTasks()
     {
         if (array_key_exists('tasks', $this->_propDict) && !is_null($this->_propDict['tasks'])) {
-            $tasks = [];
-            if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'PrintTask')) {
-                return $this->_propDict['tasks'];
-            }
-            foreach ($this->_propDict['tasks'] as $singleValue) {
-                $tasks []= new PrintTask($singleValue);
-            }
-            $this->_propDict['tasks'] = $tasks;
-            return $this->_propDict['tasks'];
+           $tasks = [];
+           if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'PrintTask')) {
+              return $this->_propDict['tasks'];
+           }
+           foreach ($this->_propDict['tasks'] as $singleValue) {
+              $tasks []= new PrintTask($singleValue);
+           }
+           $this->_propDict['tasks'] = $tasks;
+           return $this->_propDict['tasks'];
         }
         return null;
     }

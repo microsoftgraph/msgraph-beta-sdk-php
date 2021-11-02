@@ -34,15 +34,15 @@ class PermissionGrantPolicy extends PolicyBase
     public function getExcludes()
     {
         if (array_key_exists('excludes', $this->_propDict) && !is_null($this->_propDict['excludes'])) {
-            $excludes = [];
-            if (count($this->_propDict['excludes']) > 0 && is_a($this->_propDict['excludes'][0], 'PermissionGrantConditionSet')) {
-                return $this->_propDict['excludes'];
-            }
-            foreach ($this->_propDict['excludes'] as $singleValue) {
-                $excludes []= new PermissionGrantConditionSet($singleValue);
-            }
-            $this->_propDict['excludes'] = $excludes;
-            return $this->_propDict['excludes'];
+           $excludes = [];
+           if (count($this->_propDict['excludes']) > 0 && is_a($this->_propDict['excludes'][0], 'PermissionGrantConditionSet')) {
+              return $this->_propDict['excludes'];
+           }
+           foreach ($this->_propDict['excludes'] as $singleValue) {
+              $excludes []= new PermissionGrantConditionSet($singleValue);
+           }
+           $this->_propDict['excludes'] = $excludes;
+           return $this->_propDict['excludes'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class PermissionGrantPolicy extends PolicyBase
     public function getIncludes()
     {
         if (array_key_exists('includes', $this->_propDict) && !is_null($this->_propDict['includes'])) {
-            $includes = [];
-            if (count($this->_propDict['includes']) > 0 && is_a($this->_propDict['includes'][0], 'PermissionGrantConditionSet')) {
-                return $this->_propDict['includes'];
-            }
-            foreach ($this->_propDict['includes'] as $singleValue) {
-                $includes []= new PermissionGrantConditionSet($singleValue);
-            }
-            $this->_propDict['includes'] = $includes;
-            return $this->_propDict['includes'];
+           $includes = [];
+           if (count($this->_propDict['includes']) > 0 && is_a($this->_propDict['includes'][0], 'PermissionGrantConditionSet')) {
+              return $this->_propDict['includes'];
+           }
+           foreach ($this->_propDict['includes'] as $singleValue) {
+              $includes []= new PermissionGrantConditionSet($singleValue);
+           }
+           $this->_propDict['includes'] = $includes;
+           return $this->_propDict['includes'];
         }
         return null;
     }

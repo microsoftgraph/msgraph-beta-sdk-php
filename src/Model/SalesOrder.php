@@ -1003,15 +1003,15 @@ class SalesOrder extends Entity
     public function getSalesOrderLines()
     {
         if (array_key_exists('salesOrderLines', $this->_propDict) && !is_null($this->_propDict['salesOrderLines'])) {
-            $salesOrderLines = [];
-            if (count($this->_propDict['salesOrderLines']) > 0 && is_a($this->_propDict['salesOrderLines'][0], 'SalesOrderLine')) {
-                return $this->_propDict['salesOrderLines'];
-            }
-            foreach ($this->_propDict['salesOrderLines'] as $singleValue) {
-                $salesOrderLines []= new SalesOrderLine($singleValue);
-            }
-            $this->_propDict['salesOrderLines'] = $salesOrderLines;
-            return $this->_propDict['salesOrderLines'];
+           $salesOrderLines = [];
+           if (count($this->_propDict['salesOrderLines']) > 0 && is_a($this->_propDict['salesOrderLines'][0], 'SalesOrderLine')) {
+              return $this->_propDict['salesOrderLines'];
+           }
+           foreach ($this->_propDict['salesOrderLines'] as $singleValue) {
+              $salesOrderLines []= new SalesOrderLine($singleValue);
+           }
+           $this->_propDict['salesOrderLines'] = $salesOrderLines;
+           return $this->_propDict['salesOrderLines'];
         }
         return null;
     }

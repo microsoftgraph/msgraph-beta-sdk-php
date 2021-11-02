@@ -216,15 +216,15 @@ class MicrosoftStoreForBusinessApp extends MobileApp
     public function getContainedApps()
     {
         if (array_key_exists('containedApps', $this->_propDict) && !is_null($this->_propDict['containedApps'])) {
-            $containedApps = [];
-            if (count($this->_propDict['containedApps']) > 0 && is_a($this->_propDict['containedApps'][0], 'MobileContainedApp')) {
-                return $this->_propDict['containedApps'];
-            }
-            foreach ($this->_propDict['containedApps'] as $singleValue) {
-                $containedApps []= new MobileContainedApp($singleValue);
-            }
-            $this->_propDict['containedApps'] = $containedApps;
-            return $this->_propDict['containedApps'];
+           $containedApps = [];
+           if (count($this->_propDict['containedApps']) > 0 && is_a($this->_propDict['containedApps'][0], 'MobileContainedApp')) {
+              return $this->_propDict['containedApps'];
+           }
+           foreach ($this->_propDict['containedApps'] as $singleValue) {
+              $containedApps []= new MobileContainedApp($singleValue);
+           }
+           $this->_propDict['containedApps'] = $containedApps;
+           return $this->_propDict['containedApps'];
         }
         return null;
     }

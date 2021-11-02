@@ -34,15 +34,15 @@ class MicrosoftTunnelConfiguration extends Entity
     public function getAdvancedSettings()
     {
         if (array_key_exists('advancedSettings', $this->_propDict) && !is_null($this->_propDict['advancedSettings'])) {
-            $advancedSettings = [];
-            if (count($this->_propDict['advancedSettings']) > 0 && is_a($this->_propDict['advancedSettings'][0], 'KeyValuePair')) {
-                return $this->_propDict['advancedSettings'];
-            }
-            foreach ($this->_propDict['advancedSettings'] as $singleValue) {
-                $advancedSettings []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['advancedSettings'] = $advancedSettings;
-            return $this->_propDict['advancedSettings'];
+           $advancedSettings = [];
+           if (count($this->_propDict['advancedSettings']) > 0 && is_a($this->_propDict['advancedSettings'][0], 'KeyValuePair')) {
+              return $this->_propDict['advancedSettings'];
+           }
+           foreach ($this->_propDict['advancedSettings'] as $singleValue) {
+              $advancedSettings []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['advancedSettings'] = $advancedSettings;
+           return $this->_propDict['advancedSettings'];
         }
         return null;
     }

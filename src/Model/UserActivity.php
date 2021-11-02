@@ -431,15 +431,15 @@ class UserActivity extends Entity
     public function getHistoryItems()
     {
         if (array_key_exists('historyItems', $this->_propDict) && !is_null($this->_propDict['historyItems'])) {
-            $historyItems = [];
-            if (count($this->_propDict['historyItems']) > 0 && is_a($this->_propDict['historyItems'][0], 'ActivityHistoryItem')) {
-                return $this->_propDict['historyItems'];
-            }
-            foreach ($this->_propDict['historyItems'] as $singleValue) {
-                $historyItems []= new ActivityHistoryItem($singleValue);
-            }
-            $this->_propDict['historyItems'] = $historyItems;
-            return $this->_propDict['historyItems'];
+           $historyItems = [];
+           if (count($this->_propDict['historyItems']) > 0 && is_a($this->_propDict['historyItems'][0], 'ActivityHistoryItem')) {
+              return $this->_propDict['historyItems'];
+           }
+           foreach ($this->_propDict['historyItems'] as $singleValue) {
+              $historyItems []= new ActivityHistoryItem($singleValue);
+           }
+           $this->_propDict['historyItems'] = $historyItems;
+           return $this->_propDict['historyItems'];
         }
         return null;
     }

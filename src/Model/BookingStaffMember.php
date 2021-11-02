@@ -117,6 +117,7 @@ class BookingStaffMember extends BookingPerson
     
     /**
     * Gets the timeZone
+    * The time zone of the staff member. For a list of possible values, see dateTimeTimeZone.
     *
     * @return string|null The timeZone
     */
@@ -131,6 +132,7 @@ class BookingStaffMember extends BookingPerson
     
     /**
     * Sets the timeZone
+    * The time zone of the staff member. For a list of possible values, see dateTimeTimeZone.
     *
     * @param string $val The timeZone
     *
@@ -181,15 +183,15 @@ class BookingStaffMember extends BookingPerson
     public function getWorkingHours()
     {
         if (array_key_exists('workingHours', $this->_propDict) && !is_null($this->_propDict['workingHours'])) {
-            $workingHours = [];
-            if (count($this->_propDict['workingHours']) > 0 && is_a($this->_propDict['workingHours'][0], 'BookingWorkHours')) {
-                return $this->_propDict['workingHours'];
-            }
-            foreach ($this->_propDict['workingHours'] as $singleValue) {
-                $workingHours []= new BookingWorkHours($singleValue);
-            }
-            $this->_propDict['workingHours'] = $workingHours;
-            return $this->_propDict['workingHours'];
+           $workingHours = [];
+           if (count($this->_propDict['workingHours']) > 0 && is_a($this->_propDict['workingHours'][0], 'BookingWorkHours')) {
+              return $this->_propDict['workingHours'];
+           }
+           foreach ($this->_propDict['workingHours'] as $singleValue) {
+              $workingHours []= new BookingWorkHours($singleValue);
+           }
+           $this->_propDict['workingHours'] = $workingHours;
+           return $this->_propDict['workingHours'];
         }
         return null;
     }

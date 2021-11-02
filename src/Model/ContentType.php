@@ -489,15 +489,15 @@ class ContentType extends Entity
     public function getBaseTypes()
     {
         if (array_key_exists('baseTypes', $this->_propDict) && !is_null($this->_propDict['baseTypes'])) {
-            $baseTypes = [];
-            if (count($this->_propDict['baseTypes']) > 0 && is_a($this->_propDict['baseTypes'][0], 'ContentType')) {
-                return $this->_propDict['baseTypes'];
-            }
-            foreach ($this->_propDict['baseTypes'] as $singleValue) {
-                $baseTypes []= new ContentType($singleValue);
-            }
-            $this->_propDict['baseTypes'] = $baseTypes;
-            return $this->_propDict['baseTypes'];
+           $baseTypes = [];
+           if (count($this->_propDict['baseTypes']) > 0 && is_a($this->_propDict['baseTypes'][0], 'ContentType')) {
+              return $this->_propDict['baseTypes'];
+           }
+           foreach ($this->_propDict['baseTypes'] as $singleValue) {
+              $baseTypes []= new ContentType($singleValue);
+           }
+           $this->_propDict['baseTypes'] = $baseTypes;
+           return $this->_propDict['baseTypes'];
         }
         return null;
     }
@@ -526,15 +526,15 @@ class ContentType extends Entity
     public function getColumnLinks()
     {
         if (array_key_exists('columnLinks', $this->_propDict) && !is_null($this->_propDict['columnLinks'])) {
-            $columnLinks = [];
-            if (count($this->_propDict['columnLinks']) > 0 && is_a($this->_propDict['columnLinks'][0], 'ColumnLink')) {
-                return $this->_propDict['columnLinks'];
-            }
-            foreach ($this->_propDict['columnLinks'] as $singleValue) {
-                $columnLinks []= new ColumnLink($singleValue);
-            }
-            $this->_propDict['columnLinks'] = $columnLinks;
-            return $this->_propDict['columnLinks'];
+           $columnLinks = [];
+           if (count($this->_propDict['columnLinks']) > 0 && is_a($this->_propDict['columnLinks'][0], 'ColumnLink')) {
+              return $this->_propDict['columnLinks'];
+           }
+           foreach ($this->_propDict['columnLinks'] as $singleValue) {
+              $columnLinks []= new ColumnLink($singleValue);
+           }
+           $this->_propDict['columnLinks'] = $columnLinks;
+           return $this->_propDict['columnLinks'];
         }
         return null;
     }
@@ -563,15 +563,15 @@ class ContentType extends Entity
     public function getColumnPositions()
     {
         if (array_key_exists('columnPositions', $this->_propDict) && !is_null($this->_propDict['columnPositions'])) {
-            $columnPositions = [];
-            if (count($this->_propDict['columnPositions']) > 0 && is_a($this->_propDict['columnPositions'][0], 'ColumnDefinition')) {
-                return $this->_propDict['columnPositions'];
-            }
-            foreach ($this->_propDict['columnPositions'] as $singleValue) {
-                $columnPositions []= new ColumnDefinition($singleValue);
-            }
-            $this->_propDict['columnPositions'] = $columnPositions;
-            return $this->_propDict['columnPositions'];
+           $columnPositions = [];
+           if (count($this->_propDict['columnPositions']) > 0 && is_a($this->_propDict['columnPositions'][0], 'ColumnDefinition')) {
+              return $this->_propDict['columnPositions'];
+           }
+           foreach ($this->_propDict['columnPositions'] as $singleValue) {
+              $columnPositions []= new ColumnDefinition($singleValue);
+           }
+           $this->_propDict['columnPositions'] = $columnPositions;
+           return $this->_propDict['columnPositions'];
         }
         return null;
     }
@@ -600,15 +600,15 @@ class ContentType extends Entity
     public function getColumns()
     {
         if (array_key_exists('columns', $this->_propDict) && !is_null($this->_propDict['columns'])) {
-            $columns = [];
-            if (count($this->_propDict['columns']) > 0 && is_a($this->_propDict['columns'][0], 'ColumnDefinition')) {
-                return $this->_propDict['columns'];
-            }
-            foreach ($this->_propDict['columns'] as $singleValue) {
-                $columns []= new ColumnDefinition($singleValue);
-            }
-            $this->_propDict['columns'] = $columns;
-            return $this->_propDict['columns'];
+           $columns = [];
+           if (count($this->_propDict['columns']) > 0 && is_a($this->_propDict['columns'][0], 'ColumnDefinition')) {
+              return $this->_propDict['columns'];
+           }
+           foreach ($this->_propDict['columns'] as $singleValue) {
+              $columns []= new ColumnDefinition($singleValue);
+           }
+           $this->_propDict['columns'] = $columns;
+           return $this->_propDict['columns'];
         }
         return null;
     }

@@ -365,15 +365,15 @@ class MicrosoftTunnelSite extends Entity
     public function getMicrosoftTunnelServers()
     {
         if (array_key_exists('microsoftTunnelServers', $this->_propDict) && !is_null($this->_propDict['microsoftTunnelServers'])) {
-            $microsoftTunnelServers = [];
-            if (count($this->_propDict['microsoftTunnelServers']) > 0 && is_a($this->_propDict['microsoftTunnelServers'][0], 'MicrosoftTunnelServer')) {
-                return $this->_propDict['microsoftTunnelServers'];
-            }
-            foreach ($this->_propDict['microsoftTunnelServers'] as $singleValue) {
-                $microsoftTunnelServers []= new MicrosoftTunnelServer($singleValue);
-            }
-            $this->_propDict['microsoftTunnelServers'] = $microsoftTunnelServers;
-            return $this->_propDict['microsoftTunnelServers'];
+           $microsoftTunnelServers = [];
+           if (count($this->_propDict['microsoftTunnelServers']) > 0 && is_a($this->_propDict['microsoftTunnelServers'][0], 'MicrosoftTunnelServer')) {
+              return $this->_propDict['microsoftTunnelServers'];
+           }
+           foreach ($this->_propDict['microsoftTunnelServers'] as $singleValue) {
+              $microsoftTunnelServers []= new MicrosoftTunnelServer($singleValue);
+           }
+           $this->_propDict['microsoftTunnelServers'] = $microsoftTunnelServers;
+           return $this->_propDict['microsoftTunnelServers'];
         }
         return null;
     }

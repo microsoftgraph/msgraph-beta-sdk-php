@@ -34,15 +34,15 @@ class UserExperienceAnalyticsOverview extends Entity
     public function getInsights()
     {
         if (array_key_exists('insights', $this->_propDict) && !is_null($this->_propDict['insights'])) {
-            $insights = [];
-            if (count($this->_propDict['insights']) > 0 && is_a($this->_propDict['insights'][0], 'UserExperienceAnalyticsInsight')) {
-                return $this->_propDict['insights'];
-            }
-            foreach ($this->_propDict['insights'] as $singleValue) {
-                $insights []= new UserExperienceAnalyticsInsight($singleValue);
-            }
-            $this->_propDict['insights'] = $insights;
-            return $this->_propDict['insights'];
+           $insights = [];
+           if (count($this->_propDict['insights']) > 0 && is_a($this->_propDict['insights'][0], 'UserExperienceAnalyticsInsight')) {
+              return $this->_propDict['insights'];
+           }
+           foreach ($this->_propDict['insights'] as $singleValue) {
+              $insights []= new UserExperienceAnalyticsInsight($singleValue);
+           }
+           $this->_propDict['insights'] = $insights;
+           return $this->_propDict['insights'];
         }
         return null;
     }

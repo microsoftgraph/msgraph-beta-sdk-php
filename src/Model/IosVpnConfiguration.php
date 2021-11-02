@@ -150,15 +150,15 @@ class IosVpnConfiguration extends AppleVpnConfiguration
     public function getTargetedMobileApps()
     {
         if (array_key_exists('targetedMobileApps', $this->_propDict) && !is_null($this->_propDict['targetedMobileApps'])) {
-            $targetedMobileApps = [];
-            if (count($this->_propDict['targetedMobileApps']) > 0 && is_a($this->_propDict['targetedMobileApps'][0], 'AppListItem')) {
-                return $this->_propDict['targetedMobileApps'];
-            }
-            foreach ($this->_propDict['targetedMobileApps'] as $singleValue) {
-                $targetedMobileApps []= new AppListItem($singleValue);
-            }
-            $this->_propDict['targetedMobileApps'] = $targetedMobileApps;
-            return $this->_propDict['targetedMobileApps'];
+           $targetedMobileApps = [];
+           if (count($this->_propDict['targetedMobileApps']) > 0 && is_a($this->_propDict['targetedMobileApps'][0], 'AppListItem')) {
+              return $this->_propDict['targetedMobileApps'];
+           }
+           foreach ($this->_propDict['targetedMobileApps'] as $singleValue) {
+              $targetedMobileApps []= new AppListItem($singleValue);
+           }
+           $this->_propDict['targetedMobileApps'] = $targetedMobileApps;
+           return $this->_propDict['targetedMobileApps'];
         }
         return null;
     }

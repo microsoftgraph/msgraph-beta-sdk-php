@@ -33,15 +33,15 @@ class SearchEntity extends Entity
     public function getAcronyms()
     {
         if (array_key_exists('acronyms', $this->_propDict) && !is_null($this->_propDict['acronyms'])) {
-            $acronyms = [];
-            if (count($this->_propDict['acronyms']) > 0 && is_a($this->_propDict['acronyms'][0], '\Beta\Microsoft\Graph\Search\Model\Acronym')) {
-                return $this->_propDict['acronyms'];
-            }
-            foreach ($this->_propDict['acronyms'] as $singleValue) {
-                $acronyms []= new \Beta\Microsoft\Graph\Search\Model\Acronym($singleValue);
-            }
-            $this->_propDict['acronyms'] = $acronyms;
-            return $this->_propDict['acronyms'];
+           $acronyms = [];
+           if (count($this->_propDict['acronyms']) > 0 && is_a($this->_propDict['acronyms'][0], '\Beta\Microsoft\Graph\Search\Model\Acronym')) {
+              return $this->_propDict['acronyms'];
+           }
+           foreach ($this->_propDict['acronyms'] as $singleValue) {
+              $acronyms []= new \Beta\Microsoft\Graph\Search\Model\Acronym($singleValue);
+           }
+           $this->_propDict['acronyms'] = $acronyms;
+           return $this->_propDict['acronyms'];
         }
         return null;
     }
@@ -68,15 +68,15 @@ class SearchEntity extends Entity
     public function getBookmarks()
     {
         if (array_key_exists('bookmarks', $this->_propDict) && !is_null($this->_propDict['bookmarks'])) {
-            $bookmarks = [];
-            if (count($this->_propDict['bookmarks']) > 0 && is_a($this->_propDict['bookmarks'][0], '\Beta\Microsoft\Graph\Search\Model\Bookmark')) {
-                return $this->_propDict['bookmarks'];
-            }
-            foreach ($this->_propDict['bookmarks'] as $singleValue) {
-                $bookmarks []= new \Beta\Microsoft\Graph\Search\Model\Bookmark($singleValue);
-            }
-            $this->_propDict['bookmarks'] = $bookmarks;
-            return $this->_propDict['bookmarks'];
+           $bookmarks = [];
+           if (count($this->_propDict['bookmarks']) > 0 && is_a($this->_propDict['bookmarks'][0], '\Beta\Microsoft\Graph\Search\Model\Bookmark')) {
+              return $this->_propDict['bookmarks'];
+           }
+           foreach ($this->_propDict['bookmarks'] as $singleValue) {
+              $bookmarks []= new \Beta\Microsoft\Graph\Search\Model\Bookmark($singleValue);
+           }
+           $this->_propDict['bookmarks'] = $bookmarks;
+           return $this->_propDict['bookmarks'];
         }
         return null;
     }
@@ -103,15 +103,15 @@ class SearchEntity extends Entity
     public function getQnas()
     {
         if (array_key_exists('qnas', $this->_propDict) && !is_null($this->_propDict['qnas'])) {
-            $qnas = [];
-            if (count($this->_propDict['qnas']) > 0 && is_a($this->_propDict['qnas'][0], '\Beta\Microsoft\Graph\Search\Model\Qna')) {
-                return $this->_propDict['qnas'];
-            }
-            foreach ($this->_propDict['qnas'] as $singleValue) {
-                $qnas []= new \Beta\Microsoft\Graph\Search\Model\Qna($singleValue);
-            }
-            $this->_propDict['qnas'] = $qnas;
-            return $this->_propDict['qnas'];
+           $qnas = [];
+           if (count($this->_propDict['qnas']) > 0 && is_a($this->_propDict['qnas'][0], '\Beta\Microsoft\Graph\Search\Model\Qna')) {
+              return $this->_propDict['qnas'];
+           }
+           foreach ($this->_propDict['qnas'] as $singleValue) {
+              $qnas []= new \Beta\Microsoft\Graph\Search\Model\Qna($singleValue);
+           }
+           $this->_propDict['qnas'] = $qnas;
+           return $this->_propDict['qnas'];
         }
         return null;
     }

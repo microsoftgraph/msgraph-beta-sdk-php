@@ -125,15 +125,15 @@ class GroupPolicyCategory extends Entity
     public function getChildren()
     {
         if (array_key_exists('children', $this->_propDict) && !is_null($this->_propDict['children'])) {
-            $children = [];
-            if (count($this->_propDict['children']) > 0 && is_a($this->_propDict['children'][0], 'GroupPolicyCategory')) {
-                return $this->_propDict['children'];
-            }
-            foreach ($this->_propDict['children'] as $singleValue) {
-                $children []= new GroupPolicyCategory($singleValue);
-            }
-            $this->_propDict['children'] = $children;
-            return $this->_propDict['children'];
+           $children = [];
+           if (count($this->_propDict['children']) > 0 && is_a($this->_propDict['children'][0], 'GroupPolicyCategory')) {
+              return $this->_propDict['children'];
+           }
+           foreach ($this->_propDict['children'] as $singleValue) {
+              $children []= new GroupPolicyCategory($singleValue);
+           }
+           $this->_propDict['children'] = $children;
+           return $this->_propDict['children'];
         }
         return null;
     }
@@ -195,15 +195,15 @@ class GroupPolicyCategory extends Entity
     public function getDefinitions()
     {
         if (array_key_exists('definitions', $this->_propDict) && !is_null($this->_propDict['definitions'])) {
-            $definitions = [];
-            if (count($this->_propDict['definitions']) > 0 && is_a($this->_propDict['definitions'][0], 'GroupPolicyDefinition')) {
-                return $this->_propDict['definitions'];
-            }
-            foreach ($this->_propDict['definitions'] as $singleValue) {
-                $definitions []= new GroupPolicyDefinition($singleValue);
-            }
-            $this->_propDict['definitions'] = $definitions;
-            return $this->_propDict['definitions'];
+           $definitions = [];
+           if (count($this->_propDict['definitions']) > 0 && is_a($this->_propDict['definitions'][0], 'GroupPolicyDefinition')) {
+              return $this->_propDict['definitions'];
+           }
+           foreach ($this->_propDict['definitions'] as $singleValue) {
+              $definitions []= new GroupPolicyDefinition($singleValue);
+           }
+           $this->_propDict['definitions'] = $definitions;
+           return $this->_propDict['definitions'];
         }
         return null;
     }

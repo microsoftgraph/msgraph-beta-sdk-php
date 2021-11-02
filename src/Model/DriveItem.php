@@ -911,15 +911,15 @@ class DriveItem extends BaseItem
     public function getActivities()
     {
         if (array_key_exists('activities', $this->_propDict) && !is_null($this->_propDict['activities'])) {
-            $activities = [];
-            if (count($this->_propDict['activities']) > 0 && is_a($this->_propDict['activities'][0], 'ItemActivityOLD')) {
-                return $this->_propDict['activities'];
-            }
-            foreach ($this->_propDict['activities'] as $singleValue) {
-                $activities []= new ItemActivityOLD($singleValue);
-            }
-            $this->_propDict['activities'] = $activities;
-            return $this->_propDict['activities'];
+           $activities = [];
+           if (count($this->_propDict['activities']) > 0 && is_a($this->_propDict['activities'][0], 'ItemActivityOLD')) {
+              return $this->_propDict['activities'];
+           }
+           foreach ($this->_propDict['activities'] as $singleValue) {
+              $activities []= new ItemActivityOLD($singleValue);
+           }
+           $this->_propDict['activities'] = $activities;
+           return $this->_propDict['activities'];
         }
         return null;
     }
@@ -981,15 +981,15 @@ class DriveItem extends BaseItem
     public function getChildren()
     {
         if (array_key_exists('children', $this->_propDict) && !is_null($this->_propDict['children'])) {
-            $children = [];
-            if (count($this->_propDict['children']) > 0 && is_a($this->_propDict['children'][0], 'DriveItem')) {
-                return $this->_propDict['children'];
-            }
-            foreach ($this->_propDict['children'] as $singleValue) {
-                $children []= new DriveItem($singleValue);
-            }
-            $this->_propDict['children'] = $children;
-            return $this->_propDict['children'];
+           $children = [];
+           if (count($this->_propDict['children']) > 0 && is_a($this->_propDict['children'][0], 'DriveItem')) {
+              return $this->_propDict['children'];
+           }
+           foreach ($this->_propDict['children'] as $singleValue) {
+              $children []= new DriveItem($singleValue);
+           }
+           $this->_propDict['children'] = $children;
+           return $this->_propDict['children'];
         }
         return null;
     }
@@ -1051,15 +1051,15 @@ class DriveItem extends BaseItem
     public function getPermissions()
     {
         if (array_key_exists('permissions', $this->_propDict) && !is_null($this->_propDict['permissions'])) {
-            $permissions = [];
-            if (count($this->_propDict['permissions']) > 0 && is_a($this->_propDict['permissions'][0], 'Permission')) {
-                return $this->_propDict['permissions'];
-            }
-            foreach ($this->_propDict['permissions'] as $singleValue) {
-                $permissions []= new Permission($singleValue);
-            }
-            $this->_propDict['permissions'] = $permissions;
-            return $this->_propDict['permissions'];
+           $permissions = [];
+           if (count($this->_propDict['permissions']) > 0 && is_a($this->_propDict['permissions'][0], 'Permission')) {
+              return $this->_propDict['permissions'];
+           }
+           foreach ($this->_propDict['permissions'] as $singleValue) {
+              $permissions []= new Permission($singleValue);
+           }
+           $this->_propDict['permissions'] = $permissions;
+           return $this->_propDict['permissions'];
         }
         return null;
     }
@@ -1088,15 +1088,15 @@ class DriveItem extends BaseItem
     public function getSubscriptions()
     {
         if (array_key_exists('subscriptions', $this->_propDict) && !is_null($this->_propDict['subscriptions'])) {
-            $subscriptions = [];
-            if (count($this->_propDict['subscriptions']) > 0 && is_a($this->_propDict['subscriptions'][0], 'Subscription')) {
-                return $this->_propDict['subscriptions'];
-            }
-            foreach ($this->_propDict['subscriptions'] as $singleValue) {
-                $subscriptions []= new Subscription($singleValue);
-            }
-            $this->_propDict['subscriptions'] = $subscriptions;
-            return $this->_propDict['subscriptions'];
+           $subscriptions = [];
+           if (count($this->_propDict['subscriptions']) > 0 && is_a($this->_propDict['subscriptions'][0], 'Subscription')) {
+              return $this->_propDict['subscriptions'];
+           }
+           foreach ($this->_propDict['subscriptions'] as $singleValue) {
+              $subscriptions []= new Subscription($singleValue);
+           }
+           $this->_propDict['subscriptions'] = $subscriptions;
+           return $this->_propDict['subscriptions'];
         }
         return null;
     }
@@ -1125,15 +1125,15 @@ class DriveItem extends BaseItem
     public function getThumbnails()
     {
         if (array_key_exists('thumbnails', $this->_propDict) && !is_null($this->_propDict['thumbnails'])) {
-            $thumbnails = [];
-            if (count($this->_propDict['thumbnails']) > 0 && is_a($this->_propDict['thumbnails'][0], 'ThumbnailSet')) {
-                return $this->_propDict['thumbnails'];
-            }
-            foreach ($this->_propDict['thumbnails'] as $singleValue) {
-                $thumbnails []= new ThumbnailSet($singleValue);
-            }
-            $this->_propDict['thumbnails'] = $thumbnails;
-            return $this->_propDict['thumbnails'];
+           $thumbnails = [];
+           if (count($this->_propDict['thumbnails']) > 0 && is_a($this->_propDict['thumbnails'][0], 'ThumbnailSet')) {
+              return $this->_propDict['thumbnails'];
+           }
+           foreach ($this->_propDict['thumbnails'] as $singleValue) {
+              $thumbnails []= new ThumbnailSet($singleValue);
+           }
+           $this->_propDict['thumbnails'] = $thumbnails;
+           return $this->_propDict['thumbnails'];
         }
         return null;
     }
@@ -1162,15 +1162,15 @@ class DriveItem extends BaseItem
     public function getVersions()
     {
         if (array_key_exists('versions', $this->_propDict) && !is_null($this->_propDict['versions'])) {
-            $versions = [];
-            if (count($this->_propDict['versions']) > 0 && is_a($this->_propDict['versions'][0], 'DriveItemVersion')) {
-                return $this->_propDict['versions'];
-            }
-            foreach ($this->_propDict['versions'] as $singleValue) {
-                $versions []= new DriveItemVersion($singleValue);
-            }
-            $this->_propDict['versions'] = $versions;
-            return $this->_propDict['versions'];
+           $versions = [];
+           if (count($this->_propDict['versions']) > 0 && is_a($this->_propDict['versions'][0], 'DriveItemVersion')) {
+              return $this->_propDict['versions'];
+           }
+           foreach ($this->_propDict['versions'] as $singleValue) {
+              $versions []= new DriveItemVersion($singleValue);
+           }
+           $this->_propDict['versions'] = $versions;
+           return $this->_propDict['versions'];
         }
         return null;
     }

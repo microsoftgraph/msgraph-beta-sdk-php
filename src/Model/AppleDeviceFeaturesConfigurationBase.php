@@ -34,15 +34,15 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration
     public function getAirPrintDestinations()
     {
         if (array_key_exists('airPrintDestinations', $this->_propDict) && !is_null($this->_propDict['airPrintDestinations'])) {
-            $airPrintDestinations = [];
-            if (count($this->_propDict['airPrintDestinations']) > 0 && is_a($this->_propDict['airPrintDestinations'][0], 'AirPrintDestination')) {
-                return $this->_propDict['airPrintDestinations'];
-            }
-            foreach ($this->_propDict['airPrintDestinations'] as $singleValue) {
-                $airPrintDestinations []= new AirPrintDestination($singleValue);
-            }
-            $this->_propDict['airPrintDestinations'] = $airPrintDestinations;
-            return $this->_propDict['airPrintDestinations'];
+           $airPrintDestinations = [];
+           if (count($this->_propDict['airPrintDestinations']) > 0 && is_a($this->_propDict['airPrintDestinations'][0], 'AirPrintDestination')) {
+              return $this->_propDict['airPrintDestinations'];
+           }
+           foreach ($this->_propDict['airPrintDestinations'] as $singleValue) {
+              $airPrintDestinations []= new AirPrintDestination($singleValue);
+           }
+           $this->_propDict['airPrintDestinations'] = $airPrintDestinations;
+           return $this->_propDict['airPrintDestinations'];
         }
         return null;
     }

@@ -132,15 +132,15 @@ class SharedInsight extends Entity
     public function getSharingHistory()
     {
         if (array_key_exists('sharingHistory', $this->_propDict) && !is_null($this->_propDict['sharingHistory'])) {
-            $sharingHistory = [];
-            if (count($this->_propDict['sharingHistory']) > 0 && is_a($this->_propDict['sharingHistory'][0], 'SharingDetail')) {
-                return $this->_propDict['sharingHistory'];
-            }
-            foreach ($this->_propDict['sharingHistory'] as $singleValue) {
-                $sharingHistory []= new SharingDetail($singleValue);
-            }
-            $this->_propDict['sharingHistory'] = $sharingHistory;
-            return $this->_propDict['sharingHistory'];
+           $sharingHistory = [];
+           if (count($this->_propDict['sharingHistory']) > 0 && is_a($this->_propDict['sharingHistory'][0], 'SharingDetail')) {
+              return $this->_propDict['sharingHistory'];
+           }
+           foreach ($this->_propDict['sharingHistory'] as $singleValue) {
+              $sharingHistory []= new SharingDetail($singleValue);
+           }
+           $this->_propDict['sharingHistory'] = $sharingHistory;
+           return $this->_propDict['sharingHistory'];
         }
         return null;
     }

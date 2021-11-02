@@ -469,15 +469,15 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     public function getAppsSingleAppModeList()
     {
         if (array_key_exists('appsSingleAppModeList', $this->_propDict) && !is_null($this->_propDict['appsSingleAppModeList'])) {
-            $appsSingleAppModeList = [];
-            if (count($this->_propDict['appsSingleAppModeList']) > 0 && is_a($this->_propDict['appsSingleAppModeList'][0], 'AppListItem')) {
-                return $this->_propDict['appsSingleAppModeList'];
-            }
-            foreach ($this->_propDict['appsSingleAppModeList'] as $singleValue) {
-                $appsSingleAppModeList []= new AppListItem($singleValue);
-            }
-            $this->_propDict['appsSingleAppModeList'] = $appsSingleAppModeList;
-            return $this->_propDict['appsSingleAppModeList'];
+           $appsSingleAppModeList = [];
+           if (count($this->_propDict['appsSingleAppModeList']) > 0 && is_a($this->_propDict['appsSingleAppModeList'][0], 'AppListItem')) {
+              return $this->_propDict['appsSingleAppModeList'];
+           }
+           foreach ($this->_propDict['appsSingleAppModeList'] as $singleValue) {
+              $appsSingleAppModeList []= new AppListItem($singleValue);
+           }
+           $this->_propDict['appsSingleAppModeList'] = $appsSingleAppModeList;
+           return $this->_propDict['appsSingleAppModeList'];
         }
         return null;
     }
@@ -651,15 +651,15 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     public function getAppsVisibilityList()
     {
         if (array_key_exists('appsVisibilityList', $this->_propDict) && !is_null($this->_propDict['appsVisibilityList'])) {
-            $appsVisibilityList = [];
-            if (count($this->_propDict['appsVisibilityList']) > 0 && is_a($this->_propDict['appsVisibilityList'][0], 'AppListItem')) {
-                return $this->_propDict['appsVisibilityList'];
-            }
-            foreach ($this->_propDict['appsVisibilityList'] as $singleValue) {
-                $appsVisibilityList []= new AppListItem($singleValue);
-            }
-            $this->_propDict['appsVisibilityList'] = $appsVisibilityList;
-            return $this->_propDict['appsVisibilityList'];
+           $appsVisibilityList = [];
+           if (count($this->_propDict['appsVisibilityList']) > 0 && is_a($this->_propDict['appsVisibilityList'][0], 'AppListItem')) {
+              return $this->_propDict['appsVisibilityList'];
+           }
+           foreach ($this->_propDict['appsVisibilityList'] as $singleValue) {
+              $appsVisibilityList []= new AppListItem($singleValue);
+           }
+           $this->_propDict['appsVisibilityList'] = $appsVisibilityList;
+           return $this->_propDict['appsVisibilityList'];
         }
         return null;
     }
@@ -1276,15 +1276,15 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     public function getCompliantAppsList()
     {
         if (array_key_exists('compliantAppsList', $this->_propDict) && !is_null($this->_propDict['compliantAppsList'])) {
-            $compliantAppsList = [];
-            if (count($this->_propDict['compliantAppsList']) > 0 && is_a($this->_propDict['compliantAppsList'][0], 'AppListItem')) {
-                return $this->_propDict['compliantAppsList'];
-            }
-            foreach ($this->_propDict['compliantAppsList'] as $singleValue) {
-                $compliantAppsList []= new AppListItem($singleValue);
-            }
-            $this->_propDict['compliantAppsList'] = $compliantAppsList;
-            return $this->_propDict['compliantAppsList'];
+           $compliantAppsList = [];
+           if (count($this->_propDict['compliantAppsList']) > 0 && is_a($this->_propDict['compliantAppsList'][0], 'AppListItem')) {
+              return $this->_propDict['compliantAppsList'];
+           }
+           foreach ($this->_propDict['compliantAppsList'] as $singleValue) {
+              $compliantAppsList []= new AppListItem($singleValue);
+           }
+           $this->_propDict['compliantAppsList'] = $compliantAppsList;
+           return $this->_propDict['compliantAppsList'];
         }
         return null;
     }
@@ -4054,15 +4054,15 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     public function getNetworkUsageRules()
     {
         if (array_key_exists('networkUsageRules', $this->_propDict) && !is_null($this->_propDict['networkUsageRules'])) {
-            $networkUsageRules = [];
-            if (count($this->_propDict['networkUsageRules']) > 0 && is_a($this->_propDict['networkUsageRules'][0], 'IosNetworkUsageRule')) {
-                return $this->_propDict['networkUsageRules'];
-            }
-            foreach ($this->_propDict['networkUsageRules'] as $singleValue) {
-                $networkUsageRules []= new IosNetworkUsageRule($singleValue);
-            }
-            $this->_propDict['networkUsageRules'] = $networkUsageRules;
-            return $this->_propDict['networkUsageRules'];
+           $networkUsageRules = [];
+           if (count($this->_propDict['networkUsageRules']) > 0 && is_a($this->_propDict['networkUsageRules'][0], 'IosNetworkUsageRule')) {
+              return $this->_propDict['networkUsageRules'];
+           }
+           foreach ($this->_propDict['networkUsageRules'] as $singleValue) {
+              $networkUsageRules []= new IosNetworkUsageRule($singleValue);
+           }
+           $this->_propDict['networkUsageRules'] = $networkUsageRules;
+           return $this->_propDict['networkUsageRules'];
         }
         return null;
     }

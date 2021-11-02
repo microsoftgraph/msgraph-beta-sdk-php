@@ -141,15 +141,15 @@ class Company extends Entity
     public function getAccounts()
     {
         if (array_key_exists('accounts', $this->_propDict) && !is_null($this->_propDict['accounts'])) {
-            $accounts = [];
-            if (count($this->_propDict['accounts']) > 0 && is_a($this->_propDict['accounts'][0], 'Account')) {
-                return $this->_propDict['accounts'];
-            }
-            foreach ($this->_propDict['accounts'] as $singleValue) {
-                $accounts []= new Account($singleValue);
-            }
-            $this->_propDict['accounts'] = $accounts;
-            return $this->_propDict['accounts'];
+           $accounts = [];
+           if (count($this->_propDict['accounts']) > 0 && is_a($this->_propDict['accounts'][0], 'Account')) {
+              return $this->_propDict['accounts'];
+           }
+           foreach ($this->_propDict['accounts'] as $singleValue) {
+              $accounts []= new Account($singleValue);
+           }
+           $this->_propDict['accounts'] = $accounts;
+           return $this->_propDict['accounts'];
         }
         return null;
     }
@@ -176,15 +176,15 @@ class Company extends Entity
     public function getAgedAccountsPayable()
     {
         if (array_key_exists('agedAccountsPayable', $this->_propDict) && !is_null($this->_propDict['agedAccountsPayable'])) {
-            $agedAccountsPayable = [];
-            if (count($this->_propDict['agedAccountsPayable']) > 0 && is_a($this->_propDict['agedAccountsPayable'][0], 'AgedAccountsPayable')) {
-                return $this->_propDict['agedAccountsPayable'];
-            }
-            foreach ($this->_propDict['agedAccountsPayable'] as $singleValue) {
-                $agedAccountsPayable []= new AgedAccountsPayable($singleValue);
-            }
-            $this->_propDict['agedAccountsPayable'] = $agedAccountsPayable;
-            return $this->_propDict['agedAccountsPayable'];
+           $agedAccountsPayable = [];
+           if (count($this->_propDict['agedAccountsPayable']) > 0 && is_a($this->_propDict['agedAccountsPayable'][0], 'AgedAccountsPayable')) {
+              return $this->_propDict['agedAccountsPayable'];
+           }
+           foreach ($this->_propDict['agedAccountsPayable'] as $singleValue) {
+              $agedAccountsPayable []= new AgedAccountsPayable($singleValue);
+           }
+           $this->_propDict['agedAccountsPayable'] = $agedAccountsPayable;
+           return $this->_propDict['agedAccountsPayable'];
         }
         return null;
     }
@@ -211,15 +211,15 @@ class Company extends Entity
     public function getAgedAccountsReceivable()
     {
         if (array_key_exists('agedAccountsReceivable', $this->_propDict) && !is_null($this->_propDict['agedAccountsReceivable'])) {
-            $agedAccountsReceivable = [];
-            if (count($this->_propDict['agedAccountsReceivable']) > 0 && is_a($this->_propDict['agedAccountsReceivable'][0], 'AgedAccountsReceivable')) {
-                return $this->_propDict['agedAccountsReceivable'];
-            }
-            foreach ($this->_propDict['agedAccountsReceivable'] as $singleValue) {
-                $agedAccountsReceivable []= new AgedAccountsReceivable($singleValue);
-            }
-            $this->_propDict['agedAccountsReceivable'] = $agedAccountsReceivable;
-            return $this->_propDict['agedAccountsReceivable'];
+           $agedAccountsReceivable = [];
+           if (count($this->_propDict['agedAccountsReceivable']) > 0 && is_a($this->_propDict['agedAccountsReceivable'][0], 'AgedAccountsReceivable')) {
+              return $this->_propDict['agedAccountsReceivable'];
+           }
+           foreach ($this->_propDict['agedAccountsReceivable'] as $singleValue) {
+              $agedAccountsReceivable []= new AgedAccountsReceivable($singleValue);
+           }
+           $this->_propDict['agedAccountsReceivable'] = $agedAccountsReceivable;
+           return $this->_propDict['agedAccountsReceivable'];
         }
         return null;
     }
@@ -246,15 +246,15 @@ class Company extends Entity
     public function getCompanyInformation()
     {
         if (array_key_exists('companyInformation', $this->_propDict) && !is_null($this->_propDict['companyInformation'])) {
-            $companyInformation = [];
-            if (count($this->_propDict['companyInformation']) > 0 && is_a($this->_propDict['companyInformation'][0], 'CompanyInformation')) {
-                return $this->_propDict['companyInformation'];
-            }
-            foreach ($this->_propDict['companyInformation'] as $singleValue) {
-                $companyInformation []= new CompanyInformation($singleValue);
-            }
-            $this->_propDict['companyInformation'] = $companyInformation;
-            return $this->_propDict['companyInformation'];
+           $companyInformation = [];
+           if (count($this->_propDict['companyInformation']) > 0 && is_a($this->_propDict['companyInformation'][0], 'CompanyInformation')) {
+              return $this->_propDict['companyInformation'];
+           }
+           foreach ($this->_propDict['companyInformation'] as $singleValue) {
+              $companyInformation []= new CompanyInformation($singleValue);
+           }
+           $this->_propDict['companyInformation'] = $companyInformation;
+           return $this->_propDict['companyInformation'];
         }
         return null;
     }
@@ -281,15 +281,15 @@ class Company extends Entity
     public function getCountriesRegions()
     {
         if (array_key_exists('countriesRegions', $this->_propDict) && !is_null($this->_propDict['countriesRegions'])) {
-            $countriesRegions = [];
-            if (count($this->_propDict['countriesRegions']) > 0 && is_a($this->_propDict['countriesRegions'][0], 'CountryRegion')) {
-                return $this->_propDict['countriesRegions'];
-            }
-            foreach ($this->_propDict['countriesRegions'] as $singleValue) {
-                $countriesRegions []= new CountryRegion($singleValue);
-            }
-            $this->_propDict['countriesRegions'] = $countriesRegions;
-            return $this->_propDict['countriesRegions'];
+           $countriesRegions = [];
+           if (count($this->_propDict['countriesRegions']) > 0 && is_a($this->_propDict['countriesRegions'][0], 'CountryRegion')) {
+              return $this->_propDict['countriesRegions'];
+           }
+           foreach ($this->_propDict['countriesRegions'] as $singleValue) {
+              $countriesRegions []= new CountryRegion($singleValue);
+           }
+           $this->_propDict['countriesRegions'] = $countriesRegions;
+           return $this->_propDict['countriesRegions'];
         }
         return null;
     }
@@ -316,15 +316,15 @@ class Company extends Entity
     public function getCurrencies()
     {
         if (array_key_exists('currencies', $this->_propDict) && !is_null($this->_propDict['currencies'])) {
-            $currencies = [];
-            if (count($this->_propDict['currencies']) > 0 && is_a($this->_propDict['currencies'][0], 'Currency')) {
-                return $this->_propDict['currencies'];
-            }
-            foreach ($this->_propDict['currencies'] as $singleValue) {
-                $currencies []= new Currency($singleValue);
-            }
-            $this->_propDict['currencies'] = $currencies;
-            return $this->_propDict['currencies'];
+           $currencies = [];
+           if (count($this->_propDict['currencies']) > 0 && is_a($this->_propDict['currencies'][0], 'Currency')) {
+              return $this->_propDict['currencies'];
+           }
+           foreach ($this->_propDict['currencies'] as $singleValue) {
+              $currencies []= new Currency($singleValue);
+           }
+           $this->_propDict['currencies'] = $currencies;
+           return $this->_propDict['currencies'];
         }
         return null;
     }
@@ -351,15 +351,15 @@ class Company extends Entity
     public function getCustomerPaymentJournals()
     {
         if (array_key_exists('customerPaymentJournals', $this->_propDict) && !is_null($this->_propDict['customerPaymentJournals'])) {
-            $customerPaymentJournals = [];
-            if (count($this->_propDict['customerPaymentJournals']) > 0 && is_a($this->_propDict['customerPaymentJournals'][0], 'CustomerPaymentJournal')) {
-                return $this->_propDict['customerPaymentJournals'];
-            }
-            foreach ($this->_propDict['customerPaymentJournals'] as $singleValue) {
-                $customerPaymentJournals []= new CustomerPaymentJournal($singleValue);
-            }
-            $this->_propDict['customerPaymentJournals'] = $customerPaymentJournals;
-            return $this->_propDict['customerPaymentJournals'];
+           $customerPaymentJournals = [];
+           if (count($this->_propDict['customerPaymentJournals']) > 0 && is_a($this->_propDict['customerPaymentJournals'][0], 'CustomerPaymentJournal')) {
+              return $this->_propDict['customerPaymentJournals'];
+           }
+           foreach ($this->_propDict['customerPaymentJournals'] as $singleValue) {
+              $customerPaymentJournals []= new CustomerPaymentJournal($singleValue);
+           }
+           $this->_propDict['customerPaymentJournals'] = $customerPaymentJournals;
+           return $this->_propDict['customerPaymentJournals'];
         }
         return null;
     }
@@ -386,15 +386,15 @@ class Company extends Entity
     public function getCustomerPayments()
     {
         if (array_key_exists('customerPayments', $this->_propDict) && !is_null($this->_propDict['customerPayments'])) {
-            $customerPayments = [];
-            if (count($this->_propDict['customerPayments']) > 0 && is_a($this->_propDict['customerPayments'][0], 'CustomerPayment')) {
-                return $this->_propDict['customerPayments'];
-            }
-            foreach ($this->_propDict['customerPayments'] as $singleValue) {
-                $customerPayments []= new CustomerPayment($singleValue);
-            }
-            $this->_propDict['customerPayments'] = $customerPayments;
-            return $this->_propDict['customerPayments'];
+           $customerPayments = [];
+           if (count($this->_propDict['customerPayments']) > 0 && is_a($this->_propDict['customerPayments'][0], 'CustomerPayment')) {
+              return $this->_propDict['customerPayments'];
+           }
+           foreach ($this->_propDict['customerPayments'] as $singleValue) {
+              $customerPayments []= new CustomerPayment($singleValue);
+           }
+           $this->_propDict['customerPayments'] = $customerPayments;
+           return $this->_propDict['customerPayments'];
         }
         return null;
     }
@@ -421,15 +421,15 @@ class Company extends Entity
     public function getCustomers()
     {
         if (array_key_exists('customers', $this->_propDict) && !is_null($this->_propDict['customers'])) {
-            $customers = [];
-            if (count($this->_propDict['customers']) > 0 && is_a($this->_propDict['customers'][0], 'Customer')) {
-                return $this->_propDict['customers'];
-            }
-            foreach ($this->_propDict['customers'] as $singleValue) {
-                $customers []= new Customer($singleValue);
-            }
-            $this->_propDict['customers'] = $customers;
-            return $this->_propDict['customers'];
+           $customers = [];
+           if (count($this->_propDict['customers']) > 0 && is_a($this->_propDict['customers'][0], 'Customer')) {
+              return $this->_propDict['customers'];
+           }
+           foreach ($this->_propDict['customers'] as $singleValue) {
+              $customers []= new Customer($singleValue);
+           }
+           $this->_propDict['customers'] = $customers;
+           return $this->_propDict['customers'];
         }
         return null;
     }
@@ -456,15 +456,15 @@ class Company extends Entity
     public function getDimensions()
     {
         if (array_key_exists('dimensions', $this->_propDict) && !is_null($this->_propDict['dimensions'])) {
-            $dimensions = [];
-            if (count($this->_propDict['dimensions']) > 0 && is_a($this->_propDict['dimensions'][0], 'Dimension')) {
-                return $this->_propDict['dimensions'];
-            }
-            foreach ($this->_propDict['dimensions'] as $singleValue) {
-                $dimensions []= new Dimension($singleValue);
-            }
-            $this->_propDict['dimensions'] = $dimensions;
-            return $this->_propDict['dimensions'];
+           $dimensions = [];
+           if (count($this->_propDict['dimensions']) > 0 && is_a($this->_propDict['dimensions'][0], 'Dimension')) {
+              return $this->_propDict['dimensions'];
+           }
+           foreach ($this->_propDict['dimensions'] as $singleValue) {
+              $dimensions []= new Dimension($singleValue);
+           }
+           $this->_propDict['dimensions'] = $dimensions;
+           return $this->_propDict['dimensions'];
         }
         return null;
     }
@@ -491,15 +491,15 @@ class Company extends Entity
     public function getDimensionValues()
     {
         if (array_key_exists('dimensionValues', $this->_propDict) && !is_null($this->_propDict['dimensionValues'])) {
-            $dimensionValues = [];
-            if (count($this->_propDict['dimensionValues']) > 0 && is_a($this->_propDict['dimensionValues'][0], 'DimensionValue')) {
-                return $this->_propDict['dimensionValues'];
-            }
-            foreach ($this->_propDict['dimensionValues'] as $singleValue) {
-                $dimensionValues []= new DimensionValue($singleValue);
-            }
-            $this->_propDict['dimensionValues'] = $dimensionValues;
-            return $this->_propDict['dimensionValues'];
+           $dimensionValues = [];
+           if (count($this->_propDict['dimensionValues']) > 0 && is_a($this->_propDict['dimensionValues'][0], 'DimensionValue')) {
+              return $this->_propDict['dimensionValues'];
+           }
+           foreach ($this->_propDict['dimensionValues'] as $singleValue) {
+              $dimensionValues []= new DimensionValue($singleValue);
+           }
+           $this->_propDict['dimensionValues'] = $dimensionValues;
+           return $this->_propDict['dimensionValues'];
         }
         return null;
     }
@@ -526,15 +526,15 @@ class Company extends Entity
     public function getEmployees()
     {
         if (array_key_exists('employees', $this->_propDict) && !is_null($this->_propDict['employees'])) {
-            $employees = [];
-            if (count($this->_propDict['employees']) > 0 && is_a($this->_propDict['employees'][0], 'Employee')) {
-                return $this->_propDict['employees'];
-            }
-            foreach ($this->_propDict['employees'] as $singleValue) {
-                $employees []= new Employee($singleValue);
-            }
-            $this->_propDict['employees'] = $employees;
-            return $this->_propDict['employees'];
+           $employees = [];
+           if (count($this->_propDict['employees']) > 0 && is_a($this->_propDict['employees'][0], 'Employee')) {
+              return $this->_propDict['employees'];
+           }
+           foreach ($this->_propDict['employees'] as $singleValue) {
+              $employees []= new Employee($singleValue);
+           }
+           $this->_propDict['employees'] = $employees;
+           return $this->_propDict['employees'];
         }
         return null;
     }
@@ -561,15 +561,15 @@ class Company extends Entity
     public function getGeneralLedgerEntries()
     {
         if (array_key_exists('generalLedgerEntries', $this->_propDict) && !is_null($this->_propDict['generalLedgerEntries'])) {
-            $generalLedgerEntries = [];
-            if (count($this->_propDict['generalLedgerEntries']) > 0 && is_a($this->_propDict['generalLedgerEntries'][0], 'GeneralLedgerEntry')) {
-                return $this->_propDict['generalLedgerEntries'];
-            }
-            foreach ($this->_propDict['generalLedgerEntries'] as $singleValue) {
-                $generalLedgerEntries []= new GeneralLedgerEntry($singleValue);
-            }
-            $this->_propDict['generalLedgerEntries'] = $generalLedgerEntries;
-            return $this->_propDict['generalLedgerEntries'];
+           $generalLedgerEntries = [];
+           if (count($this->_propDict['generalLedgerEntries']) > 0 && is_a($this->_propDict['generalLedgerEntries'][0], 'GeneralLedgerEntry')) {
+              return $this->_propDict['generalLedgerEntries'];
+           }
+           foreach ($this->_propDict['generalLedgerEntries'] as $singleValue) {
+              $generalLedgerEntries []= new GeneralLedgerEntry($singleValue);
+           }
+           $this->_propDict['generalLedgerEntries'] = $generalLedgerEntries;
+           return $this->_propDict['generalLedgerEntries'];
         }
         return null;
     }
@@ -596,15 +596,15 @@ class Company extends Entity
     public function getItemCategories()
     {
         if (array_key_exists('itemCategories', $this->_propDict) && !is_null($this->_propDict['itemCategories'])) {
-            $itemCategories = [];
-            if (count($this->_propDict['itemCategories']) > 0 && is_a($this->_propDict['itemCategories'][0], 'ItemCategory')) {
-                return $this->_propDict['itemCategories'];
-            }
-            foreach ($this->_propDict['itemCategories'] as $singleValue) {
-                $itemCategories []= new ItemCategory($singleValue);
-            }
-            $this->_propDict['itemCategories'] = $itemCategories;
-            return $this->_propDict['itemCategories'];
+           $itemCategories = [];
+           if (count($this->_propDict['itemCategories']) > 0 && is_a($this->_propDict['itemCategories'][0], 'ItemCategory')) {
+              return $this->_propDict['itemCategories'];
+           }
+           foreach ($this->_propDict['itemCategories'] as $singleValue) {
+              $itemCategories []= new ItemCategory($singleValue);
+           }
+           $this->_propDict['itemCategories'] = $itemCategories;
+           return $this->_propDict['itemCategories'];
         }
         return null;
     }
@@ -631,15 +631,15 @@ class Company extends Entity
     public function getItems()
     {
         if (array_key_exists('items', $this->_propDict) && !is_null($this->_propDict['items'])) {
-            $items = [];
-            if (count($this->_propDict['items']) > 0 && is_a($this->_propDict['items'][0], 'Item')) {
-                return $this->_propDict['items'];
-            }
-            foreach ($this->_propDict['items'] as $singleValue) {
-                $items []= new Item($singleValue);
-            }
-            $this->_propDict['items'] = $items;
-            return $this->_propDict['items'];
+           $items = [];
+           if (count($this->_propDict['items']) > 0 && is_a($this->_propDict['items'][0], 'Item')) {
+              return $this->_propDict['items'];
+           }
+           foreach ($this->_propDict['items'] as $singleValue) {
+              $items []= new Item($singleValue);
+           }
+           $this->_propDict['items'] = $items;
+           return $this->_propDict['items'];
         }
         return null;
     }
@@ -666,15 +666,15 @@ class Company extends Entity
     public function getJournalLines()
     {
         if (array_key_exists('journalLines', $this->_propDict) && !is_null($this->_propDict['journalLines'])) {
-            $journalLines = [];
-            if (count($this->_propDict['journalLines']) > 0 && is_a($this->_propDict['journalLines'][0], 'JournalLine')) {
-                return $this->_propDict['journalLines'];
-            }
-            foreach ($this->_propDict['journalLines'] as $singleValue) {
-                $journalLines []= new JournalLine($singleValue);
-            }
-            $this->_propDict['journalLines'] = $journalLines;
-            return $this->_propDict['journalLines'];
+           $journalLines = [];
+           if (count($this->_propDict['journalLines']) > 0 && is_a($this->_propDict['journalLines'][0], 'JournalLine')) {
+              return $this->_propDict['journalLines'];
+           }
+           foreach ($this->_propDict['journalLines'] as $singleValue) {
+              $journalLines []= new JournalLine($singleValue);
+           }
+           $this->_propDict['journalLines'] = $journalLines;
+           return $this->_propDict['journalLines'];
         }
         return null;
     }
@@ -701,15 +701,15 @@ class Company extends Entity
     public function getJournals()
     {
         if (array_key_exists('journals', $this->_propDict) && !is_null($this->_propDict['journals'])) {
-            $journals = [];
-            if (count($this->_propDict['journals']) > 0 && is_a($this->_propDict['journals'][0], 'Journal')) {
-                return $this->_propDict['journals'];
-            }
-            foreach ($this->_propDict['journals'] as $singleValue) {
-                $journals []= new Journal($singleValue);
-            }
-            $this->_propDict['journals'] = $journals;
-            return $this->_propDict['journals'];
+           $journals = [];
+           if (count($this->_propDict['journals']) > 0 && is_a($this->_propDict['journals'][0], 'Journal')) {
+              return $this->_propDict['journals'];
+           }
+           foreach ($this->_propDict['journals'] as $singleValue) {
+              $journals []= new Journal($singleValue);
+           }
+           $this->_propDict['journals'] = $journals;
+           return $this->_propDict['journals'];
         }
         return null;
     }
@@ -736,15 +736,15 @@ class Company extends Entity
     public function getPaymentMethods()
     {
         if (array_key_exists('paymentMethods', $this->_propDict) && !is_null($this->_propDict['paymentMethods'])) {
-            $paymentMethods = [];
-            if (count($this->_propDict['paymentMethods']) > 0 && is_a($this->_propDict['paymentMethods'][0], 'PaymentMethod')) {
-                return $this->_propDict['paymentMethods'];
-            }
-            foreach ($this->_propDict['paymentMethods'] as $singleValue) {
-                $paymentMethods []= new PaymentMethod($singleValue);
-            }
-            $this->_propDict['paymentMethods'] = $paymentMethods;
-            return $this->_propDict['paymentMethods'];
+           $paymentMethods = [];
+           if (count($this->_propDict['paymentMethods']) > 0 && is_a($this->_propDict['paymentMethods'][0], 'PaymentMethod')) {
+              return $this->_propDict['paymentMethods'];
+           }
+           foreach ($this->_propDict['paymentMethods'] as $singleValue) {
+              $paymentMethods []= new PaymentMethod($singleValue);
+           }
+           $this->_propDict['paymentMethods'] = $paymentMethods;
+           return $this->_propDict['paymentMethods'];
         }
         return null;
     }
@@ -771,15 +771,15 @@ class Company extends Entity
     public function getPaymentTerms()
     {
         if (array_key_exists('paymentTerms', $this->_propDict) && !is_null($this->_propDict['paymentTerms'])) {
-            $paymentTerms = [];
-            if (count($this->_propDict['paymentTerms']) > 0 && is_a($this->_propDict['paymentTerms'][0], 'PaymentTerm')) {
-                return $this->_propDict['paymentTerms'];
-            }
-            foreach ($this->_propDict['paymentTerms'] as $singleValue) {
-                $paymentTerms []= new PaymentTerm($singleValue);
-            }
-            $this->_propDict['paymentTerms'] = $paymentTerms;
-            return $this->_propDict['paymentTerms'];
+           $paymentTerms = [];
+           if (count($this->_propDict['paymentTerms']) > 0 && is_a($this->_propDict['paymentTerms'][0], 'PaymentTerm')) {
+              return $this->_propDict['paymentTerms'];
+           }
+           foreach ($this->_propDict['paymentTerms'] as $singleValue) {
+              $paymentTerms []= new PaymentTerm($singleValue);
+           }
+           $this->_propDict['paymentTerms'] = $paymentTerms;
+           return $this->_propDict['paymentTerms'];
         }
         return null;
     }
@@ -806,15 +806,15 @@ class Company extends Entity
     public function getPicture()
     {
         if (array_key_exists('picture', $this->_propDict) && !is_null($this->_propDict['picture'])) {
-            $picture = [];
-            if (count($this->_propDict['picture']) > 0 && is_a($this->_propDict['picture'][0], 'Picture')) {
-                return $this->_propDict['picture'];
-            }
-            foreach ($this->_propDict['picture'] as $singleValue) {
-                $picture []= new Picture($singleValue);
-            }
-            $this->_propDict['picture'] = $picture;
-            return $this->_propDict['picture'];
+           $picture = [];
+           if (count($this->_propDict['picture']) > 0 && is_a($this->_propDict['picture'][0], 'Picture')) {
+              return $this->_propDict['picture'];
+           }
+           foreach ($this->_propDict['picture'] as $singleValue) {
+              $picture []= new Picture($singleValue);
+           }
+           $this->_propDict['picture'] = $picture;
+           return $this->_propDict['picture'];
         }
         return null;
     }
@@ -841,15 +841,15 @@ class Company extends Entity
     public function getPurchaseInvoiceLines()
     {
         if (array_key_exists('purchaseInvoiceLines', $this->_propDict) && !is_null($this->_propDict['purchaseInvoiceLines'])) {
-            $purchaseInvoiceLines = [];
-            if (count($this->_propDict['purchaseInvoiceLines']) > 0 && is_a($this->_propDict['purchaseInvoiceLines'][0], 'PurchaseInvoiceLine')) {
-                return $this->_propDict['purchaseInvoiceLines'];
-            }
-            foreach ($this->_propDict['purchaseInvoiceLines'] as $singleValue) {
-                $purchaseInvoiceLines []= new PurchaseInvoiceLine($singleValue);
-            }
-            $this->_propDict['purchaseInvoiceLines'] = $purchaseInvoiceLines;
-            return $this->_propDict['purchaseInvoiceLines'];
+           $purchaseInvoiceLines = [];
+           if (count($this->_propDict['purchaseInvoiceLines']) > 0 && is_a($this->_propDict['purchaseInvoiceLines'][0], 'PurchaseInvoiceLine')) {
+              return $this->_propDict['purchaseInvoiceLines'];
+           }
+           foreach ($this->_propDict['purchaseInvoiceLines'] as $singleValue) {
+              $purchaseInvoiceLines []= new PurchaseInvoiceLine($singleValue);
+           }
+           $this->_propDict['purchaseInvoiceLines'] = $purchaseInvoiceLines;
+           return $this->_propDict['purchaseInvoiceLines'];
         }
         return null;
     }
@@ -876,15 +876,15 @@ class Company extends Entity
     public function getPurchaseInvoices()
     {
         if (array_key_exists('purchaseInvoices', $this->_propDict) && !is_null($this->_propDict['purchaseInvoices'])) {
-            $purchaseInvoices = [];
-            if (count($this->_propDict['purchaseInvoices']) > 0 && is_a($this->_propDict['purchaseInvoices'][0], 'PurchaseInvoice')) {
-                return $this->_propDict['purchaseInvoices'];
-            }
-            foreach ($this->_propDict['purchaseInvoices'] as $singleValue) {
-                $purchaseInvoices []= new PurchaseInvoice($singleValue);
-            }
-            $this->_propDict['purchaseInvoices'] = $purchaseInvoices;
-            return $this->_propDict['purchaseInvoices'];
+           $purchaseInvoices = [];
+           if (count($this->_propDict['purchaseInvoices']) > 0 && is_a($this->_propDict['purchaseInvoices'][0], 'PurchaseInvoice')) {
+              return $this->_propDict['purchaseInvoices'];
+           }
+           foreach ($this->_propDict['purchaseInvoices'] as $singleValue) {
+              $purchaseInvoices []= new PurchaseInvoice($singleValue);
+           }
+           $this->_propDict['purchaseInvoices'] = $purchaseInvoices;
+           return $this->_propDict['purchaseInvoices'];
         }
         return null;
     }
@@ -911,15 +911,15 @@ class Company extends Entity
     public function getSalesCreditMemoLines()
     {
         if (array_key_exists('salesCreditMemoLines', $this->_propDict) && !is_null($this->_propDict['salesCreditMemoLines'])) {
-            $salesCreditMemoLines = [];
-            if (count($this->_propDict['salesCreditMemoLines']) > 0 && is_a($this->_propDict['salesCreditMemoLines'][0], 'SalesCreditMemoLine')) {
-                return $this->_propDict['salesCreditMemoLines'];
-            }
-            foreach ($this->_propDict['salesCreditMemoLines'] as $singleValue) {
-                $salesCreditMemoLines []= new SalesCreditMemoLine($singleValue);
-            }
-            $this->_propDict['salesCreditMemoLines'] = $salesCreditMemoLines;
-            return $this->_propDict['salesCreditMemoLines'];
+           $salesCreditMemoLines = [];
+           if (count($this->_propDict['salesCreditMemoLines']) > 0 && is_a($this->_propDict['salesCreditMemoLines'][0], 'SalesCreditMemoLine')) {
+              return $this->_propDict['salesCreditMemoLines'];
+           }
+           foreach ($this->_propDict['salesCreditMemoLines'] as $singleValue) {
+              $salesCreditMemoLines []= new SalesCreditMemoLine($singleValue);
+           }
+           $this->_propDict['salesCreditMemoLines'] = $salesCreditMemoLines;
+           return $this->_propDict['salesCreditMemoLines'];
         }
         return null;
     }
@@ -946,15 +946,15 @@ class Company extends Entity
     public function getSalesCreditMemos()
     {
         if (array_key_exists('salesCreditMemos', $this->_propDict) && !is_null($this->_propDict['salesCreditMemos'])) {
-            $salesCreditMemos = [];
-            if (count($this->_propDict['salesCreditMemos']) > 0 && is_a($this->_propDict['salesCreditMemos'][0], 'SalesCreditMemo')) {
-                return $this->_propDict['salesCreditMemos'];
-            }
-            foreach ($this->_propDict['salesCreditMemos'] as $singleValue) {
-                $salesCreditMemos []= new SalesCreditMemo($singleValue);
-            }
-            $this->_propDict['salesCreditMemos'] = $salesCreditMemos;
-            return $this->_propDict['salesCreditMemos'];
+           $salesCreditMemos = [];
+           if (count($this->_propDict['salesCreditMemos']) > 0 && is_a($this->_propDict['salesCreditMemos'][0], 'SalesCreditMemo')) {
+              return $this->_propDict['salesCreditMemos'];
+           }
+           foreach ($this->_propDict['salesCreditMemos'] as $singleValue) {
+              $salesCreditMemos []= new SalesCreditMemo($singleValue);
+           }
+           $this->_propDict['salesCreditMemos'] = $salesCreditMemos;
+           return $this->_propDict['salesCreditMemos'];
         }
         return null;
     }
@@ -981,15 +981,15 @@ class Company extends Entity
     public function getSalesInvoiceLines()
     {
         if (array_key_exists('salesInvoiceLines', $this->_propDict) && !is_null($this->_propDict['salesInvoiceLines'])) {
-            $salesInvoiceLines = [];
-            if (count($this->_propDict['salesInvoiceLines']) > 0 && is_a($this->_propDict['salesInvoiceLines'][0], 'SalesInvoiceLine')) {
-                return $this->_propDict['salesInvoiceLines'];
-            }
-            foreach ($this->_propDict['salesInvoiceLines'] as $singleValue) {
-                $salesInvoiceLines []= new SalesInvoiceLine($singleValue);
-            }
-            $this->_propDict['salesInvoiceLines'] = $salesInvoiceLines;
-            return $this->_propDict['salesInvoiceLines'];
+           $salesInvoiceLines = [];
+           if (count($this->_propDict['salesInvoiceLines']) > 0 && is_a($this->_propDict['salesInvoiceLines'][0], 'SalesInvoiceLine')) {
+              return $this->_propDict['salesInvoiceLines'];
+           }
+           foreach ($this->_propDict['salesInvoiceLines'] as $singleValue) {
+              $salesInvoiceLines []= new SalesInvoiceLine($singleValue);
+           }
+           $this->_propDict['salesInvoiceLines'] = $salesInvoiceLines;
+           return $this->_propDict['salesInvoiceLines'];
         }
         return null;
     }
@@ -1016,15 +1016,15 @@ class Company extends Entity
     public function getSalesInvoices()
     {
         if (array_key_exists('salesInvoices', $this->_propDict) && !is_null($this->_propDict['salesInvoices'])) {
-            $salesInvoices = [];
-            if (count($this->_propDict['salesInvoices']) > 0 && is_a($this->_propDict['salesInvoices'][0], 'SalesInvoice')) {
-                return $this->_propDict['salesInvoices'];
-            }
-            foreach ($this->_propDict['salesInvoices'] as $singleValue) {
-                $salesInvoices []= new SalesInvoice($singleValue);
-            }
-            $this->_propDict['salesInvoices'] = $salesInvoices;
-            return $this->_propDict['salesInvoices'];
+           $salesInvoices = [];
+           if (count($this->_propDict['salesInvoices']) > 0 && is_a($this->_propDict['salesInvoices'][0], 'SalesInvoice')) {
+              return $this->_propDict['salesInvoices'];
+           }
+           foreach ($this->_propDict['salesInvoices'] as $singleValue) {
+              $salesInvoices []= new SalesInvoice($singleValue);
+           }
+           $this->_propDict['salesInvoices'] = $salesInvoices;
+           return $this->_propDict['salesInvoices'];
         }
         return null;
     }
@@ -1051,15 +1051,15 @@ class Company extends Entity
     public function getSalesOrderLines()
     {
         if (array_key_exists('salesOrderLines', $this->_propDict) && !is_null($this->_propDict['salesOrderLines'])) {
-            $salesOrderLines = [];
-            if (count($this->_propDict['salesOrderLines']) > 0 && is_a($this->_propDict['salesOrderLines'][0], 'SalesOrderLine')) {
-                return $this->_propDict['salesOrderLines'];
-            }
-            foreach ($this->_propDict['salesOrderLines'] as $singleValue) {
-                $salesOrderLines []= new SalesOrderLine($singleValue);
-            }
-            $this->_propDict['salesOrderLines'] = $salesOrderLines;
-            return $this->_propDict['salesOrderLines'];
+           $salesOrderLines = [];
+           if (count($this->_propDict['salesOrderLines']) > 0 && is_a($this->_propDict['salesOrderLines'][0], 'SalesOrderLine')) {
+              return $this->_propDict['salesOrderLines'];
+           }
+           foreach ($this->_propDict['salesOrderLines'] as $singleValue) {
+              $salesOrderLines []= new SalesOrderLine($singleValue);
+           }
+           $this->_propDict['salesOrderLines'] = $salesOrderLines;
+           return $this->_propDict['salesOrderLines'];
         }
         return null;
     }
@@ -1086,15 +1086,15 @@ class Company extends Entity
     public function getSalesOrders()
     {
         if (array_key_exists('salesOrders', $this->_propDict) && !is_null($this->_propDict['salesOrders'])) {
-            $salesOrders = [];
-            if (count($this->_propDict['salesOrders']) > 0 && is_a($this->_propDict['salesOrders'][0], 'SalesOrder')) {
-                return $this->_propDict['salesOrders'];
-            }
-            foreach ($this->_propDict['salesOrders'] as $singleValue) {
-                $salesOrders []= new SalesOrder($singleValue);
-            }
-            $this->_propDict['salesOrders'] = $salesOrders;
-            return $this->_propDict['salesOrders'];
+           $salesOrders = [];
+           if (count($this->_propDict['salesOrders']) > 0 && is_a($this->_propDict['salesOrders'][0], 'SalesOrder')) {
+              return $this->_propDict['salesOrders'];
+           }
+           foreach ($this->_propDict['salesOrders'] as $singleValue) {
+              $salesOrders []= new SalesOrder($singleValue);
+           }
+           $this->_propDict['salesOrders'] = $salesOrders;
+           return $this->_propDict['salesOrders'];
         }
         return null;
     }
@@ -1121,15 +1121,15 @@ class Company extends Entity
     public function getSalesQuoteLines()
     {
         if (array_key_exists('salesQuoteLines', $this->_propDict) && !is_null($this->_propDict['salesQuoteLines'])) {
-            $salesQuoteLines = [];
-            if (count($this->_propDict['salesQuoteLines']) > 0 && is_a($this->_propDict['salesQuoteLines'][0], 'SalesQuoteLine')) {
-                return $this->_propDict['salesQuoteLines'];
-            }
-            foreach ($this->_propDict['salesQuoteLines'] as $singleValue) {
-                $salesQuoteLines []= new SalesQuoteLine($singleValue);
-            }
-            $this->_propDict['salesQuoteLines'] = $salesQuoteLines;
-            return $this->_propDict['salesQuoteLines'];
+           $salesQuoteLines = [];
+           if (count($this->_propDict['salesQuoteLines']) > 0 && is_a($this->_propDict['salesQuoteLines'][0], 'SalesQuoteLine')) {
+              return $this->_propDict['salesQuoteLines'];
+           }
+           foreach ($this->_propDict['salesQuoteLines'] as $singleValue) {
+              $salesQuoteLines []= new SalesQuoteLine($singleValue);
+           }
+           $this->_propDict['salesQuoteLines'] = $salesQuoteLines;
+           return $this->_propDict['salesQuoteLines'];
         }
         return null;
     }
@@ -1156,15 +1156,15 @@ class Company extends Entity
     public function getSalesQuotes()
     {
         if (array_key_exists('salesQuotes', $this->_propDict) && !is_null($this->_propDict['salesQuotes'])) {
-            $salesQuotes = [];
-            if (count($this->_propDict['salesQuotes']) > 0 && is_a($this->_propDict['salesQuotes'][0], 'SalesQuote')) {
-                return $this->_propDict['salesQuotes'];
-            }
-            foreach ($this->_propDict['salesQuotes'] as $singleValue) {
-                $salesQuotes []= new SalesQuote($singleValue);
-            }
-            $this->_propDict['salesQuotes'] = $salesQuotes;
-            return $this->_propDict['salesQuotes'];
+           $salesQuotes = [];
+           if (count($this->_propDict['salesQuotes']) > 0 && is_a($this->_propDict['salesQuotes'][0], 'SalesQuote')) {
+              return $this->_propDict['salesQuotes'];
+           }
+           foreach ($this->_propDict['salesQuotes'] as $singleValue) {
+              $salesQuotes []= new SalesQuote($singleValue);
+           }
+           $this->_propDict['salesQuotes'] = $salesQuotes;
+           return $this->_propDict['salesQuotes'];
         }
         return null;
     }
@@ -1191,15 +1191,15 @@ class Company extends Entity
     public function getShipmentMethods()
     {
         if (array_key_exists('shipmentMethods', $this->_propDict) && !is_null($this->_propDict['shipmentMethods'])) {
-            $shipmentMethods = [];
-            if (count($this->_propDict['shipmentMethods']) > 0 && is_a($this->_propDict['shipmentMethods'][0], 'ShipmentMethod')) {
-                return $this->_propDict['shipmentMethods'];
-            }
-            foreach ($this->_propDict['shipmentMethods'] as $singleValue) {
-                $shipmentMethods []= new ShipmentMethod($singleValue);
-            }
-            $this->_propDict['shipmentMethods'] = $shipmentMethods;
-            return $this->_propDict['shipmentMethods'];
+           $shipmentMethods = [];
+           if (count($this->_propDict['shipmentMethods']) > 0 && is_a($this->_propDict['shipmentMethods'][0], 'ShipmentMethod')) {
+              return $this->_propDict['shipmentMethods'];
+           }
+           foreach ($this->_propDict['shipmentMethods'] as $singleValue) {
+              $shipmentMethods []= new ShipmentMethod($singleValue);
+           }
+           $this->_propDict['shipmentMethods'] = $shipmentMethods;
+           return $this->_propDict['shipmentMethods'];
         }
         return null;
     }
@@ -1226,15 +1226,15 @@ class Company extends Entity
     public function getTaxAreas()
     {
         if (array_key_exists('taxAreas', $this->_propDict) && !is_null($this->_propDict['taxAreas'])) {
-            $taxAreas = [];
-            if (count($this->_propDict['taxAreas']) > 0 && is_a($this->_propDict['taxAreas'][0], 'TaxArea')) {
-                return $this->_propDict['taxAreas'];
-            }
-            foreach ($this->_propDict['taxAreas'] as $singleValue) {
-                $taxAreas []= new TaxArea($singleValue);
-            }
-            $this->_propDict['taxAreas'] = $taxAreas;
-            return $this->_propDict['taxAreas'];
+           $taxAreas = [];
+           if (count($this->_propDict['taxAreas']) > 0 && is_a($this->_propDict['taxAreas'][0], 'TaxArea')) {
+              return $this->_propDict['taxAreas'];
+           }
+           foreach ($this->_propDict['taxAreas'] as $singleValue) {
+              $taxAreas []= new TaxArea($singleValue);
+           }
+           $this->_propDict['taxAreas'] = $taxAreas;
+           return $this->_propDict['taxAreas'];
         }
         return null;
     }
@@ -1261,15 +1261,15 @@ class Company extends Entity
     public function getTaxGroups()
     {
         if (array_key_exists('taxGroups', $this->_propDict) && !is_null($this->_propDict['taxGroups'])) {
-            $taxGroups = [];
-            if (count($this->_propDict['taxGroups']) > 0 && is_a($this->_propDict['taxGroups'][0], 'TaxGroup')) {
-                return $this->_propDict['taxGroups'];
-            }
-            foreach ($this->_propDict['taxGroups'] as $singleValue) {
-                $taxGroups []= new TaxGroup($singleValue);
-            }
-            $this->_propDict['taxGroups'] = $taxGroups;
-            return $this->_propDict['taxGroups'];
+           $taxGroups = [];
+           if (count($this->_propDict['taxGroups']) > 0 && is_a($this->_propDict['taxGroups'][0], 'TaxGroup')) {
+              return $this->_propDict['taxGroups'];
+           }
+           foreach ($this->_propDict['taxGroups'] as $singleValue) {
+              $taxGroups []= new TaxGroup($singleValue);
+           }
+           $this->_propDict['taxGroups'] = $taxGroups;
+           return $this->_propDict['taxGroups'];
         }
         return null;
     }
@@ -1296,15 +1296,15 @@ class Company extends Entity
     public function getUnitsOfMeasure()
     {
         if (array_key_exists('unitsOfMeasure', $this->_propDict) && !is_null($this->_propDict['unitsOfMeasure'])) {
-            $unitsOfMeasure = [];
-            if (count($this->_propDict['unitsOfMeasure']) > 0 && is_a($this->_propDict['unitsOfMeasure'][0], 'UnitOfMeasure')) {
-                return $this->_propDict['unitsOfMeasure'];
-            }
-            foreach ($this->_propDict['unitsOfMeasure'] as $singleValue) {
-                $unitsOfMeasure []= new UnitOfMeasure($singleValue);
-            }
-            $this->_propDict['unitsOfMeasure'] = $unitsOfMeasure;
-            return $this->_propDict['unitsOfMeasure'];
+           $unitsOfMeasure = [];
+           if (count($this->_propDict['unitsOfMeasure']) > 0 && is_a($this->_propDict['unitsOfMeasure'][0], 'UnitOfMeasure')) {
+              return $this->_propDict['unitsOfMeasure'];
+           }
+           foreach ($this->_propDict['unitsOfMeasure'] as $singleValue) {
+              $unitsOfMeasure []= new UnitOfMeasure($singleValue);
+           }
+           $this->_propDict['unitsOfMeasure'] = $unitsOfMeasure;
+           return $this->_propDict['unitsOfMeasure'];
         }
         return null;
     }
@@ -1331,15 +1331,15 @@ class Company extends Entity
     public function getVendors()
     {
         if (array_key_exists('vendors', $this->_propDict) && !is_null($this->_propDict['vendors'])) {
-            $vendors = [];
-            if (count($this->_propDict['vendors']) > 0 && is_a($this->_propDict['vendors'][0], 'Vendor')) {
-                return $this->_propDict['vendors'];
-            }
-            foreach ($this->_propDict['vendors'] as $singleValue) {
-                $vendors []= new Vendor($singleValue);
-            }
-            $this->_propDict['vendors'] = $vendors;
-            return $this->_propDict['vendors'];
+           $vendors = [];
+           if (count($this->_propDict['vendors']) > 0 && is_a($this->_propDict['vendors'][0], 'Vendor')) {
+              return $this->_propDict['vendors'];
+           }
+           foreach ($this->_propDict['vendors'] as $singleValue) {
+              $vendors []= new Vendor($singleValue);
+           }
+           $this->_propDict['vendors'] = $vendors;
+           return $this->_propDict['vendors'];
         }
         return null;
     }

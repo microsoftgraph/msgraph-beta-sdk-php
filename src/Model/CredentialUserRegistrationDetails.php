@@ -34,15 +34,15 @@ class CredentialUserRegistrationDetails extends Entity
     public function getAuthMethods()
     {
         if (array_key_exists('authMethods', $this->_propDict) && !is_null($this->_propDict['authMethods'])) {
-            $authMethods = [];
-            if (count($this->_propDict['authMethods']) > 0 && is_a($this->_propDict['authMethods'][0], 'RegistrationAuthMethod')) {
-                return $this->_propDict['authMethods'];
-            }
-            foreach ($this->_propDict['authMethods'] as $singleValue) {
-                $authMethods []= new RegistrationAuthMethod($singleValue);
-            }
-            $this->_propDict['authMethods'] = $authMethods;
-            return $this->_propDict['authMethods'];
+           $authMethods = [];
+           if (count($this->_propDict['authMethods']) > 0 && is_a($this->_propDict['authMethods'][0], 'RegistrationAuthMethod')) {
+              return $this->_propDict['authMethods'];
+           }
+           foreach ($this->_propDict['authMethods'] as $singleValue) {
+              $authMethods []= new RegistrationAuthMethod($singleValue);
+           }
+           $this->_propDict['authMethods'] = $authMethods;
+           return $this->_propDict['authMethods'];
         }
         return null;
     }

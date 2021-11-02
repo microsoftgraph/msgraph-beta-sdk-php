@@ -63,15 +63,15 @@ class SecureScore extends Entity
     public function getAverageComparativeScores()
     {
         if (array_key_exists('averageComparativeScores', $this->_propDict) && !is_null($this->_propDict['averageComparativeScores'])) {
-            $averageComparativeScores = [];
-            if (count($this->_propDict['averageComparativeScores']) > 0 && is_a($this->_propDict['averageComparativeScores'][0], 'AverageComparativeScore')) {
-                return $this->_propDict['averageComparativeScores'];
-            }
-            foreach ($this->_propDict['averageComparativeScores'] as $singleValue) {
-                $averageComparativeScores []= new AverageComparativeScore($singleValue);
-            }
-            $this->_propDict['averageComparativeScores'] = $averageComparativeScores;
-            return $this->_propDict['averageComparativeScores'];
+           $averageComparativeScores = [];
+           if (count($this->_propDict['averageComparativeScores']) > 0 && is_a($this->_propDict['averageComparativeScores'][0], 'AverageComparativeScore')) {
+              return $this->_propDict['averageComparativeScores'];
+           }
+           foreach ($this->_propDict['averageComparativeScores'] as $singleValue) {
+              $averageComparativeScores []= new AverageComparativeScore($singleValue);
+           }
+           $this->_propDict['averageComparativeScores'] = $averageComparativeScores;
+           return $this->_propDict['averageComparativeScores'];
         }
         return null;
     }
@@ -129,15 +129,15 @@ class SecureScore extends Entity
     public function getControlScores()
     {
         if (array_key_exists('controlScores', $this->_propDict) && !is_null($this->_propDict['controlScores'])) {
-            $controlScores = [];
-            if (count($this->_propDict['controlScores']) > 0 && is_a($this->_propDict['controlScores'][0], 'ControlScore')) {
-                return $this->_propDict['controlScores'];
-            }
-            foreach ($this->_propDict['controlScores'] as $singleValue) {
-                $controlScores []= new ControlScore($singleValue);
-            }
-            $this->_propDict['controlScores'] = $controlScores;
-            return $this->_propDict['controlScores'];
+           $controlScores = [];
+           if (count($this->_propDict['controlScores']) > 0 && is_a($this->_propDict['controlScores'][0], 'ControlScore')) {
+              return $this->_propDict['controlScores'];
+           }
+           foreach ($this->_propDict['controlScores'] as $singleValue) {
+              $controlScores []= new ControlScore($singleValue);
+           }
+           $this->_propDict['controlScores'] = $controlScores;
+           return $this->_propDict['controlScores'];
         }
         return null;
     }

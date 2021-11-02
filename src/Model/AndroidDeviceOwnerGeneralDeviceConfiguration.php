@@ -725,15 +725,15 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     public function getKioskModeAppPositions()
     {
         if (array_key_exists('kioskModeAppPositions', $this->_propDict) && !is_null($this->_propDict['kioskModeAppPositions'])) {
-            $kioskModeAppPositions = [];
-            if (count($this->_propDict['kioskModeAppPositions']) > 0 && is_a($this->_propDict['kioskModeAppPositions'][0], 'AndroidDeviceOwnerKioskModeAppPositionItem')) {
-                return $this->_propDict['kioskModeAppPositions'];
-            }
-            foreach ($this->_propDict['kioskModeAppPositions'] as $singleValue) {
-                $kioskModeAppPositions []= new AndroidDeviceOwnerKioskModeAppPositionItem($singleValue);
-            }
-            $this->_propDict['kioskModeAppPositions'] = $kioskModeAppPositions;
-            return $this->_propDict['kioskModeAppPositions'];
+           $kioskModeAppPositions = [];
+           if (count($this->_propDict['kioskModeAppPositions']) > 0 && is_a($this->_propDict['kioskModeAppPositions'][0], 'AndroidDeviceOwnerKioskModeAppPositionItem')) {
+              return $this->_propDict['kioskModeAppPositions'];
+           }
+           foreach ($this->_propDict['kioskModeAppPositions'] as $singleValue) {
+              $kioskModeAppPositions []= new AndroidDeviceOwnerKioskModeAppPositionItem($singleValue);
+           }
+           $this->_propDict['kioskModeAppPositions'] = $kioskModeAppPositions;
+           return $this->_propDict['kioskModeAppPositions'];
         }
         return null;
     }
@@ -762,15 +762,15 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     public function getKioskModeApps()
     {
         if (array_key_exists('kioskModeApps', $this->_propDict) && !is_null($this->_propDict['kioskModeApps'])) {
-            $kioskModeApps = [];
-            if (count($this->_propDict['kioskModeApps']) > 0 && is_a($this->_propDict['kioskModeApps'][0], 'AppListItem')) {
-                return $this->_propDict['kioskModeApps'];
-            }
-            foreach ($this->_propDict['kioskModeApps'] as $singleValue) {
-                $kioskModeApps []= new AppListItem($singleValue);
-            }
-            $this->_propDict['kioskModeApps'] = $kioskModeApps;
-            return $this->_propDict['kioskModeApps'];
+           $kioskModeApps = [];
+           if (count($this->_propDict['kioskModeApps']) > 0 && is_a($this->_propDict['kioskModeApps'][0], 'AppListItem')) {
+              return $this->_propDict['kioskModeApps'];
+           }
+           foreach ($this->_propDict['kioskModeApps'] as $singleValue) {
+              $kioskModeApps []= new AppListItem($singleValue);
+           }
+           $this->_propDict['kioskModeApps'] = $kioskModeApps;
+           return $this->_propDict['kioskModeApps'];
         }
         return null;
     }
@@ -1097,15 +1097,15 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     public function getKioskModeManagedFolders()
     {
         if (array_key_exists('kioskModeManagedFolders', $this->_propDict) && !is_null($this->_propDict['kioskModeManagedFolders'])) {
-            $kioskModeManagedFolders = [];
-            if (count($this->_propDict['kioskModeManagedFolders']) > 0 && is_a($this->_propDict['kioskModeManagedFolders'][0], 'AndroidDeviceOwnerKioskModeManagedFolder')) {
-                return $this->_propDict['kioskModeManagedFolders'];
-            }
-            foreach ($this->_propDict['kioskModeManagedFolders'] as $singleValue) {
-                $kioskModeManagedFolders []= new AndroidDeviceOwnerKioskModeManagedFolder($singleValue);
-            }
-            $this->_propDict['kioskModeManagedFolders'] = $kioskModeManagedFolders;
-            return $this->_propDict['kioskModeManagedFolders'];
+           $kioskModeManagedFolders = [];
+           if (count($this->_propDict['kioskModeManagedFolders']) > 0 && is_a($this->_propDict['kioskModeManagedFolders'][0], 'AndroidDeviceOwnerKioskModeManagedFolder')) {
+              return $this->_propDict['kioskModeManagedFolders'];
+           }
+           foreach ($this->_propDict['kioskModeManagedFolders'] as $singleValue) {
+              $kioskModeManagedFolders []= new AndroidDeviceOwnerKioskModeManagedFolder($singleValue);
+           }
+           $this->_propDict['kioskModeManagedFolders'] = $kioskModeManagedFolders;
+           return $this->_propDict['kioskModeManagedFolders'];
         }
         return null;
     }
@@ -2227,15 +2227,15 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     public function getPasswordBlockKeyguardFeatures()
     {
         if (array_key_exists('passwordBlockKeyguardFeatures', $this->_propDict) && !is_null($this->_propDict['passwordBlockKeyguardFeatures'])) {
-            $passwordBlockKeyguardFeatures = [];
-            if (count($this->_propDict['passwordBlockKeyguardFeatures']) > 0 && is_a($this->_propDict['passwordBlockKeyguardFeatures'][0], 'AndroidKeyguardFeature')) {
-                return $this->_propDict['passwordBlockKeyguardFeatures'];
-            }
-            foreach ($this->_propDict['passwordBlockKeyguardFeatures'] as $singleValue) {
-                $passwordBlockKeyguardFeatures []= new AndroidKeyguardFeature($singleValue);
-            }
-            $this->_propDict['passwordBlockKeyguardFeatures'] = $passwordBlockKeyguardFeatures;
-            return $this->_propDict['passwordBlockKeyguardFeatures'];
+           $passwordBlockKeyguardFeatures = [];
+           if (count($this->_propDict['passwordBlockKeyguardFeatures']) > 0 && is_a($this->_propDict['passwordBlockKeyguardFeatures'][0], 'AndroidKeyguardFeature')) {
+              return $this->_propDict['passwordBlockKeyguardFeatures'];
+           }
+           foreach ($this->_propDict['passwordBlockKeyguardFeatures'] as $singleValue) {
+              $passwordBlockKeyguardFeatures []= new AndroidKeyguardFeature($singleValue);
+           }
+           $this->_propDict['passwordBlockKeyguardFeatures'] = $passwordBlockKeyguardFeatures;
+           return $this->_propDict['passwordBlockKeyguardFeatures'];
         }
         return null;
     }
@@ -2910,15 +2910,15 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     public function getStayOnModes()
     {
         if (array_key_exists('stayOnModes', $this->_propDict) && !is_null($this->_propDict['stayOnModes'])) {
-            $stayOnModes = [];
-            if (count($this->_propDict['stayOnModes']) > 0 && is_a($this->_propDict['stayOnModes'][0], 'AndroidDeviceOwnerBatteryPluggedMode')) {
-                return $this->_propDict['stayOnModes'];
-            }
-            foreach ($this->_propDict['stayOnModes'] as $singleValue) {
-                $stayOnModes []= new AndroidDeviceOwnerBatteryPluggedMode($singleValue);
-            }
-            $this->_propDict['stayOnModes'] = $stayOnModes;
-            return $this->_propDict['stayOnModes'];
+           $stayOnModes = [];
+           if (count($this->_propDict['stayOnModes']) > 0 && is_a($this->_propDict['stayOnModes'][0], 'AndroidDeviceOwnerBatteryPluggedMode')) {
+              return $this->_propDict['stayOnModes'];
+           }
+           foreach ($this->_propDict['stayOnModes'] as $singleValue) {
+              $stayOnModes []= new AndroidDeviceOwnerBatteryPluggedMode($singleValue);
+           }
+           $this->_propDict['stayOnModes'] = $stayOnModes;
+           return $this->_propDict['stayOnModes'];
         }
         return null;
     }

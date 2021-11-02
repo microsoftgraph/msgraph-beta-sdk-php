@@ -100,15 +100,15 @@ class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity
     public function getDeviceIdentities()
     {
         if (array_key_exists('deviceIdentities', $this->_propDict) && !is_null($this->_propDict['deviceIdentities'])) {
-            $deviceIdentities = [];
-            if (count($this->_propDict['deviceIdentities']) > 0 && is_a($this->_propDict['deviceIdentities'][0], 'ImportedWindowsAutopilotDeviceIdentity')) {
-                return $this->_propDict['deviceIdentities'];
-            }
-            foreach ($this->_propDict['deviceIdentities'] as $singleValue) {
-                $deviceIdentities []= new ImportedWindowsAutopilotDeviceIdentity($singleValue);
-            }
-            $this->_propDict['deviceIdentities'] = $deviceIdentities;
-            return $this->_propDict['deviceIdentities'];
+           $deviceIdentities = [];
+           if (count($this->_propDict['deviceIdentities']) > 0 && is_a($this->_propDict['deviceIdentities'][0], 'ImportedWindowsAutopilotDeviceIdentity')) {
+              return $this->_propDict['deviceIdentities'];
+           }
+           foreach ($this->_propDict['deviceIdentities'] as $singleValue) {
+              $deviceIdentities []= new ImportedWindowsAutopilotDeviceIdentity($singleValue);
+           }
+           $this->_propDict['deviceIdentities'] = $deviceIdentities;
+           return $this->_propDict['deviceIdentities'];
         }
         return null;
     }

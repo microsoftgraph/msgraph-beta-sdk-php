@@ -99,15 +99,15 @@ class PlannerUser extends PlannerDelta
     public function getAll()
     {
         if (array_key_exists('all', $this->_propDict) && !is_null($this->_propDict['all'])) {
-            $all = [];
-            if (count($this->_propDict['all']) > 0 && is_a($this->_propDict['all'][0], 'PlannerDelta')) {
-                return $this->_propDict['all'];
-            }
-            foreach ($this->_propDict['all'] as $singleValue) {
-                $all []= new PlannerDelta($singleValue);
-            }
-            $this->_propDict['all'] = $all;
-            return $this->_propDict['all'];
+           $all = [];
+           if (count($this->_propDict['all']) > 0 && is_a($this->_propDict['all'][0], 'PlannerDelta')) {
+              return $this->_propDict['all'];
+           }
+           foreach ($this->_propDict['all'] as $singleValue) {
+              $all []= new PlannerDelta($singleValue);
+           }
+           $this->_propDict['all'] = $all;
+           return $this->_propDict['all'];
         }
         return null;
     }
@@ -135,15 +135,15 @@ class PlannerUser extends PlannerDelta
     public function getFavoritePlans()
     {
         if (array_key_exists('favoritePlans', $this->_propDict) && !is_null($this->_propDict['favoritePlans'])) {
-            $favoritePlans = [];
-            if (count($this->_propDict['favoritePlans']) > 0 && is_a($this->_propDict['favoritePlans'][0], 'PlannerPlan')) {
-                return $this->_propDict['favoritePlans'];
-            }
-            foreach ($this->_propDict['favoritePlans'] as $singleValue) {
-                $favoritePlans []= new PlannerPlan($singleValue);
-            }
-            $this->_propDict['favoritePlans'] = $favoritePlans;
-            return $this->_propDict['favoritePlans'];
+           $favoritePlans = [];
+           if (count($this->_propDict['favoritePlans']) > 0 && is_a($this->_propDict['favoritePlans'][0], 'PlannerPlan')) {
+              return $this->_propDict['favoritePlans'];
+           }
+           foreach ($this->_propDict['favoritePlans'] as $singleValue) {
+              $favoritePlans []= new PlannerPlan($singleValue);
+           }
+           $this->_propDict['favoritePlans'] = $favoritePlans;
+           return $this->_propDict['favoritePlans'];
         }
         return null;
     }
@@ -172,15 +172,15 @@ class PlannerUser extends PlannerDelta
     public function getPlans()
     {
         if (array_key_exists('plans', $this->_propDict) && !is_null($this->_propDict['plans'])) {
-            $plans = [];
-            if (count($this->_propDict['plans']) > 0 && is_a($this->_propDict['plans'][0], 'PlannerPlan')) {
-                return $this->_propDict['plans'];
-            }
-            foreach ($this->_propDict['plans'] as $singleValue) {
-                $plans []= new PlannerPlan($singleValue);
-            }
-            $this->_propDict['plans'] = $plans;
-            return $this->_propDict['plans'];
+           $plans = [];
+           if (count($this->_propDict['plans']) > 0 && is_a($this->_propDict['plans'][0], 'PlannerPlan')) {
+              return $this->_propDict['plans'];
+           }
+           foreach ($this->_propDict['plans'] as $singleValue) {
+              $plans []= new PlannerPlan($singleValue);
+           }
+           $this->_propDict['plans'] = $plans;
+           return $this->_propDict['plans'];
         }
         return null;
     }
@@ -209,15 +209,15 @@ class PlannerUser extends PlannerDelta
     public function getRecentPlans()
     {
         if (array_key_exists('recentPlans', $this->_propDict) && !is_null($this->_propDict['recentPlans'])) {
-            $recentPlans = [];
-            if (count($this->_propDict['recentPlans']) > 0 && is_a($this->_propDict['recentPlans'][0], 'PlannerPlan')) {
-                return $this->_propDict['recentPlans'];
-            }
-            foreach ($this->_propDict['recentPlans'] as $singleValue) {
-                $recentPlans []= new PlannerPlan($singleValue);
-            }
-            $this->_propDict['recentPlans'] = $recentPlans;
-            return $this->_propDict['recentPlans'];
+           $recentPlans = [];
+           if (count($this->_propDict['recentPlans']) > 0 && is_a($this->_propDict['recentPlans'][0], 'PlannerPlan')) {
+              return $this->_propDict['recentPlans'];
+           }
+           foreach ($this->_propDict['recentPlans'] as $singleValue) {
+              $recentPlans []= new PlannerPlan($singleValue);
+           }
+           $this->_propDict['recentPlans'] = $recentPlans;
+           return $this->_propDict['recentPlans'];
         }
         return null;
     }
@@ -246,15 +246,15 @@ class PlannerUser extends PlannerDelta
     public function getRosterPlans()
     {
         if (array_key_exists('rosterPlans', $this->_propDict) && !is_null($this->_propDict['rosterPlans'])) {
-            $rosterPlans = [];
-            if (count($this->_propDict['rosterPlans']) > 0 && is_a($this->_propDict['rosterPlans'][0], 'PlannerPlan')) {
-                return $this->_propDict['rosterPlans'];
-            }
-            foreach ($this->_propDict['rosterPlans'] as $singleValue) {
-                $rosterPlans []= new PlannerPlan($singleValue);
-            }
-            $this->_propDict['rosterPlans'] = $rosterPlans;
-            return $this->_propDict['rosterPlans'];
+           $rosterPlans = [];
+           if (count($this->_propDict['rosterPlans']) > 0 && is_a($this->_propDict['rosterPlans'][0], 'PlannerPlan')) {
+              return $this->_propDict['rosterPlans'];
+           }
+           foreach ($this->_propDict['rosterPlans'] as $singleValue) {
+              $rosterPlans []= new PlannerPlan($singleValue);
+           }
+           $this->_propDict['rosterPlans'] = $rosterPlans;
+           return $this->_propDict['rosterPlans'];
         }
         return null;
     }
@@ -283,15 +283,15 @@ class PlannerUser extends PlannerDelta
     public function getTasks()
     {
         if (array_key_exists('tasks', $this->_propDict) && !is_null($this->_propDict['tasks'])) {
-            $tasks = [];
-            if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'PlannerTask')) {
-                return $this->_propDict['tasks'];
-            }
-            foreach ($this->_propDict['tasks'] as $singleValue) {
-                $tasks []= new PlannerTask($singleValue);
-            }
-            $this->_propDict['tasks'] = $tasks;
-            return $this->_propDict['tasks'];
+           $tasks = [];
+           if (count($this->_propDict['tasks']) > 0 && is_a($this->_propDict['tasks'][0], 'PlannerTask')) {
+              return $this->_propDict['tasks'];
+           }
+           foreach ($this->_propDict['tasks'] as $singleValue) {
+              $tasks []= new PlannerTask($singleValue);
+           }
+           $this->_propDict['tasks'] = $tasks;
+           return $this->_propDict['tasks'];
         }
         return null;
     }

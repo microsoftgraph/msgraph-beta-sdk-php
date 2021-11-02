@@ -4322,15 +4322,15 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     public function getFirewallRules()
     {
         if (array_key_exists('firewallRules', $this->_propDict) && !is_null($this->_propDict['firewallRules'])) {
-            $firewallRules = [];
-            if (count($this->_propDict['firewallRules']) > 0 && is_a($this->_propDict['firewallRules'][0], 'WindowsFirewallRule')) {
-                return $this->_propDict['firewallRules'];
-            }
-            foreach ($this->_propDict['firewallRules'] as $singleValue) {
-                $firewallRules []= new WindowsFirewallRule($singleValue);
-            }
-            $this->_propDict['firewallRules'] = $firewallRules;
-            return $this->_propDict['firewallRules'];
+           $firewallRules = [];
+           if (count($this->_propDict['firewallRules']) > 0 && is_a($this->_propDict['firewallRules'][0], 'WindowsFirewallRule')) {
+              return $this->_propDict['firewallRules'];
+           }
+           foreach ($this->_propDict['firewallRules'] as $singleValue) {
+              $firewallRules []= new WindowsFirewallRule($singleValue);
+           }
+           $this->_propDict['firewallRules'] = $firewallRules;
+           return $this->_propDict['firewallRules'];
         }
         return null;
     }

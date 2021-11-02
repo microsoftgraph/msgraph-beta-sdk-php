@@ -100,15 +100,15 @@ class SynchronizationJob extends Entity
     public function getSynchronizationJobSettings()
     {
         if (array_key_exists('synchronizationJobSettings', $this->_propDict) && !is_null($this->_propDict['synchronizationJobSettings'])) {
-            $synchronizationJobSettings = [];
-            if (count($this->_propDict['synchronizationJobSettings']) > 0 && is_a($this->_propDict['synchronizationJobSettings'][0], 'KeyValuePair')) {
-                return $this->_propDict['synchronizationJobSettings'];
-            }
-            foreach ($this->_propDict['synchronizationJobSettings'] as $singleValue) {
-                $synchronizationJobSettings []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['synchronizationJobSettings'] = $synchronizationJobSettings;
-            return $this->_propDict['synchronizationJobSettings'];
+           $synchronizationJobSettings = [];
+           if (count($this->_propDict['synchronizationJobSettings']) > 0 && is_a($this->_propDict['synchronizationJobSettings'][0], 'KeyValuePair')) {
+              return $this->_propDict['synchronizationJobSettings'];
+           }
+           foreach ($this->_propDict['synchronizationJobSettings'] as $singleValue) {
+              $synchronizationJobSettings []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['synchronizationJobSettings'] = $synchronizationJobSettings;
+           return $this->_propDict['synchronizationJobSettings'];
         }
         return null;
     }

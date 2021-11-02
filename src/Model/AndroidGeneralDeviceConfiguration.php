@@ -121,15 +121,15 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration
     public function getAppsHideList()
     {
         if (array_key_exists('appsHideList', $this->_propDict) && !is_null($this->_propDict['appsHideList'])) {
-            $appsHideList = [];
-            if (count($this->_propDict['appsHideList']) > 0 && is_a($this->_propDict['appsHideList'][0], 'AppListItem')) {
-                return $this->_propDict['appsHideList'];
-            }
-            foreach ($this->_propDict['appsHideList'] as $singleValue) {
-                $appsHideList []= new AppListItem($singleValue);
-            }
-            $this->_propDict['appsHideList'] = $appsHideList;
-            return $this->_propDict['appsHideList'];
+           $appsHideList = [];
+           if (count($this->_propDict['appsHideList']) > 0 && is_a($this->_propDict['appsHideList'][0], 'AppListItem')) {
+              return $this->_propDict['appsHideList'];
+           }
+           foreach ($this->_propDict['appsHideList'] as $singleValue) {
+              $appsHideList []= new AppListItem($singleValue);
+           }
+           $this->_propDict['appsHideList'] = $appsHideList;
+           return $this->_propDict['appsHideList'];
         }
         return null;
     }
@@ -158,15 +158,15 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration
     public function getAppsInstallAllowList()
     {
         if (array_key_exists('appsInstallAllowList', $this->_propDict) && !is_null($this->_propDict['appsInstallAllowList'])) {
-            $appsInstallAllowList = [];
-            if (count($this->_propDict['appsInstallAllowList']) > 0 && is_a($this->_propDict['appsInstallAllowList'][0], 'AppListItem')) {
-                return $this->_propDict['appsInstallAllowList'];
-            }
-            foreach ($this->_propDict['appsInstallAllowList'] as $singleValue) {
-                $appsInstallAllowList []= new AppListItem($singleValue);
-            }
-            $this->_propDict['appsInstallAllowList'] = $appsInstallAllowList;
-            return $this->_propDict['appsInstallAllowList'];
+           $appsInstallAllowList = [];
+           if (count($this->_propDict['appsInstallAllowList']) > 0 && is_a($this->_propDict['appsInstallAllowList'][0], 'AppListItem')) {
+              return $this->_propDict['appsInstallAllowList'];
+           }
+           foreach ($this->_propDict['appsInstallAllowList'] as $singleValue) {
+              $appsInstallAllowList []= new AppListItem($singleValue);
+           }
+           $this->_propDict['appsInstallAllowList'] = $appsInstallAllowList;
+           return $this->_propDict['appsInstallAllowList'];
         }
         return null;
     }
@@ -195,15 +195,15 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration
     public function getAppsLaunchBlockList()
     {
         if (array_key_exists('appsLaunchBlockList', $this->_propDict) && !is_null($this->_propDict['appsLaunchBlockList'])) {
-            $appsLaunchBlockList = [];
-            if (count($this->_propDict['appsLaunchBlockList']) > 0 && is_a($this->_propDict['appsLaunchBlockList'][0], 'AppListItem')) {
-                return $this->_propDict['appsLaunchBlockList'];
-            }
-            foreach ($this->_propDict['appsLaunchBlockList'] as $singleValue) {
-                $appsLaunchBlockList []= new AppListItem($singleValue);
-            }
-            $this->_propDict['appsLaunchBlockList'] = $appsLaunchBlockList;
-            return $this->_propDict['appsLaunchBlockList'];
+           $appsLaunchBlockList = [];
+           if (count($this->_propDict['appsLaunchBlockList']) > 0 && is_a($this->_propDict['appsLaunchBlockList'][0], 'AppListItem')) {
+              return $this->_propDict['appsLaunchBlockList'];
+           }
+           foreach ($this->_propDict['appsLaunchBlockList'] as $singleValue) {
+              $appsLaunchBlockList []= new AppListItem($singleValue);
+           }
+           $this->_propDict['appsLaunchBlockList'] = $appsLaunchBlockList;
+           return $this->_propDict['appsLaunchBlockList'];
         }
         return null;
     }
@@ -439,15 +439,15 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration
     public function getCompliantAppsList()
     {
         if (array_key_exists('compliantAppsList', $this->_propDict) && !is_null($this->_propDict['compliantAppsList'])) {
-            $compliantAppsList = [];
-            if (count($this->_propDict['compliantAppsList']) > 0 && is_a($this->_propDict['compliantAppsList'][0], 'AppListItem')) {
-                return $this->_propDict['compliantAppsList'];
-            }
-            foreach ($this->_propDict['compliantAppsList'] as $singleValue) {
-                $compliantAppsList []= new AppListItem($singleValue);
-            }
-            $this->_propDict['compliantAppsList'] = $compliantAppsList;
-            return $this->_propDict['compliantAppsList'];
+           $compliantAppsList = [];
+           if (count($this->_propDict['compliantAppsList']) > 0 && is_a($this->_propDict['compliantAppsList'][0], 'AppListItem')) {
+              return $this->_propDict['compliantAppsList'];
+           }
+           foreach ($this->_propDict['compliantAppsList'] as $singleValue) {
+              $compliantAppsList []= new AppListItem($singleValue);
+           }
+           $this->_propDict['compliantAppsList'] = $compliantAppsList;
+           return $this->_propDict['compliantAppsList'];
         }
         return null;
     }
@@ -650,15 +650,15 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration
     public function getKioskModeApps()
     {
         if (array_key_exists('kioskModeApps', $this->_propDict) && !is_null($this->_propDict['kioskModeApps'])) {
-            $kioskModeApps = [];
-            if (count($this->_propDict['kioskModeApps']) > 0 && is_a($this->_propDict['kioskModeApps'][0], 'AppListItem')) {
-                return $this->_propDict['kioskModeApps'];
-            }
-            foreach ($this->_propDict['kioskModeApps'] as $singleValue) {
-                $kioskModeApps []= new AppListItem($singleValue);
-            }
-            $this->_propDict['kioskModeApps'] = $kioskModeApps;
-            return $this->_propDict['kioskModeApps'];
+           $kioskModeApps = [];
+           if (count($this->_propDict['kioskModeApps']) > 0 && is_a($this->_propDict['kioskModeApps'][0], 'AppListItem')) {
+              return $this->_propDict['kioskModeApps'];
+           }
+           foreach ($this->_propDict['kioskModeApps'] as $singleValue) {
+              $kioskModeApps []= new AppListItem($singleValue);
+           }
+           $this->_propDict['kioskModeApps'] = $kioskModeApps;
+           return $this->_propDict['kioskModeApps'];
         }
         return null;
     }

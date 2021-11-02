@@ -34,15 +34,15 @@ class Calendar extends Entity
     public function getAllowedOnlineMeetingProviders()
     {
         if (array_key_exists('allowedOnlineMeetingProviders', $this->_propDict) && !is_null($this->_propDict['allowedOnlineMeetingProviders'])) {
-            $allowedOnlineMeetingProviders = [];
-            if (count($this->_propDict['allowedOnlineMeetingProviders']) > 0 && is_a($this->_propDict['allowedOnlineMeetingProviders'][0], 'OnlineMeetingProviderType')) {
-                return $this->_propDict['allowedOnlineMeetingProviders'];
-            }
-            foreach ($this->_propDict['allowedOnlineMeetingProviders'] as $singleValue) {
-                $allowedOnlineMeetingProviders []= new OnlineMeetingProviderType($singleValue);
-            }
-            $this->_propDict['allowedOnlineMeetingProviders'] = $allowedOnlineMeetingProviders;
-            return $this->_propDict['allowedOnlineMeetingProviders'];
+           $allowedOnlineMeetingProviders = [];
+           if (count($this->_propDict['allowedOnlineMeetingProviders']) > 0 && is_a($this->_propDict['allowedOnlineMeetingProviders'][0], 'OnlineMeetingProviderType')) {
+              return $this->_propDict['allowedOnlineMeetingProviders'];
+           }
+           foreach ($this->_propDict['allowedOnlineMeetingProviders'] as $singleValue) {
+              $allowedOnlineMeetingProviders []= new OnlineMeetingProviderType($singleValue);
+           }
+           $this->_propDict['allowedOnlineMeetingProviders'] = $allowedOnlineMeetingProviders;
+           return $this->_propDict['allowedOnlineMeetingProviders'];
         }
         return null;
     }
@@ -518,15 +518,15 @@ class Calendar extends Entity
     public function getCalendarPermissions()
     {
         if (array_key_exists('calendarPermissions', $this->_propDict) && !is_null($this->_propDict['calendarPermissions'])) {
-            $calendarPermissions = [];
-            if (count($this->_propDict['calendarPermissions']) > 0 && is_a($this->_propDict['calendarPermissions'][0], 'CalendarPermission')) {
-                return $this->_propDict['calendarPermissions'];
-            }
-            foreach ($this->_propDict['calendarPermissions'] as $singleValue) {
-                $calendarPermissions []= new CalendarPermission($singleValue);
-            }
-            $this->_propDict['calendarPermissions'] = $calendarPermissions;
-            return $this->_propDict['calendarPermissions'];
+           $calendarPermissions = [];
+           if (count($this->_propDict['calendarPermissions']) > 0 && is_a($this->_propDict['calendarPermissions'][0], 'CalendarPermission')) {
+              return $this->_propDict['calendarPermissions'];
+           }
+           foreach ($this->_propDict['calendarPermissions'] as $singleValue) {
+              $calendarPermissions []= new CalendarPermission($singleValue);
+           }
+           $this->_propDict['calendarPermissions'] = $calendarPermissions;
+           return $this->_propDict['calendarPermissions'];
         }
         return null;
     }
@@ -555,15 +555,15 @@ class Calendar extends Entity
     public function getCalendarView()
     {
         if (array_key_exists('calendarView', $this->_propDict) && !is_null($this->_propDict['calendarView'])) {
-            $calendarView = [];
-            if (count($this->_propDict['calendarView']) > 0 && is_a($this->_propDict['calendarView'][0], 'Event')) {
-                return $this->_propDict['calendarView'];
-            }
-            foreach ($this->_propDict['calendarView'] as $singleValue) {
-                $calendarView []= new Event($singleValue);
-            }
-            $this->_propDict['calendarView'] = $calendarView;
-            return $this->_propDict['calendarView'];
+           $calendarView = [];
+           if (count($this->_propDict['calendarView']) > 0 && is_a($this->_propDict['calendarView'][0], 'Event')) {
+              return $this->_propDict['calendarView'];
+           }
+           foreach ($this->_propDict['calendarView'] as $singleValue) {
+              $calendarView []= new Event($singleValue);
+           }
+           $this->_propDict['calendarView'] = $calendarView;
+           return $this->_propDict['calendarView'];
         }
         return null;
     }
@@ -592,15 +592,15 @@ class Calendar extends Entity
     public function getEvents()
     {
         if (array_key_exists('events', $this->_propDict) && !is_null($this->_propDict['events'])) {
-            $events = [];
-            if (count($this->_propDict['events']) > 0 && is_a($this->_propDict['events'][0], 'Event')) {
-                return $this->_propDict['events'];
-            }
-            foreach ($this->_propDict['events'] as $singleValue) {
-                $events []= new Event($singleValue);
-            }
-            $this->_propDict['events'] = $events;
-            return $this->_propDict['events'];
+           $events = [];
+           if (count($this->_propDict['events']) > 0 && is_a($this->_propDict['events'][0], 'Event')) {
+              return $this->_propDict['events'];
+           }
+           foreach ($this->_propDict['events'] as $singleValue) {
+              $events []= new Event($singleValue);
+           }
+           $this->_propDict['events'] = $events;
+           return $this->_propDict['events'];
         }
         return null;
     }
@@ -629,15 +629,15 @@ class Calendar extends Entity
     public function getMultiValueExtendedProperties()
     {
         if (array_key_exists('multiValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['multiValueExtendedProperties'])) {
-            $multiValueExtendedProperties = [];
-            if (count($this->_propDict['multiValueExtendedProperties']) > 0 && is_a($this->_propDict['multiValueExtendedProperties'][0], 'MultiValueLegacyExtendedProperty')) {
-                return $this->_propDict['multiValueExtendedProperties'];
-            }
-            foreach ($this->_propDict['multiValueExtendedProperties'] as $singleValue) {
-                $multiValueExtendedProperties []= new MultiValueLegacyExtendedProperty($singleValue);
-            }
-            $this->_propDict['multiValueExtendedProperties'] = $multiValueExtendedProperties;
-            return $this->_propDict['multiValueExtendedProperties'];
+           $multiValueExtendedProperties = [];
+           if (count($this->_propDict['multiValueExtendedProperties']) > 0 && is_a($this->_propDict['multiValueExtendedProperties'][0], 'MultiValueLegacyExtendedProperty')) {
+              return $this->_propDict['multiValueExtendedProperties'];
+           }
+           foreach ($this->_propDict['multiValueExtendedProperties'] as $singleValue) {
+              $multiValueExtendedProperties []= new MultiValueLegacyExtendedProperty($singleValue);
+           }
+           $this->_propDict['multiValueExtendedProperties'] = $multiValueExtendedProperties;
+           return $this->_propDict['multiValueExtendedProperties'];
         }
         return null;
     }
@@ -666,15 +666,15 @@ class Calendar extends Entity
     public function getSingleValueExtendedProperties()
     {
         if (array_key_exists('singleValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['singleValueExtendedProperties'])) {
-            $singleValueExtendedProperties = [];
-            if (count($this->_propDict['singleValueExtendedProperties']) > 0 && is_a($this->_propDict['singleValueExtendedProperties'][0], 'SingleValueLegacyExtendedProperty')) {
-                return $this->_propDict['singleValueExtendedProperties'];
-            }
-            foreach ($this->_propDict['singleValueExtendedProperties'] as $singleValue) {
-                $singleValueExtendedProperties []= new SingleValueLegacyExtendedProperty($singleValue);
-            }
-            $this->_propDict['singleValueExtendedProperties'] = $singleValueExtendedProperties;
-            return $this->_propDict['singleValueExtendedProperties'];
+           $singleValueExtendedProperties = [];
+           if (count($this->_propDict['singleValueExtendedProperties']) > 0 && is_a($this->_propDict['singleValueExtendedProperties'][0], 'SingleValueLegacyExtendedProperty')) {
+              return $this->_propDict['singleValueExtendedProperties'];
+           }
+           foreach ($this->_propDict['singleValueExtendedProperties'] as $singleValue) {
+              $singleValueExtendedProperties []= new SingleValueLegacyExtendedProperty($singleValue);
+           }
+           $this->_propDict['singleValueExtendedProperties'] = $singleValueExtendedProperties;
+           return $this->_propDict['singleValueExtendedProperties'];
         }
         return null;
     }

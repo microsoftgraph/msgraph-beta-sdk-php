@@ -125,15 +125,15 @@ class WindowsManagementApp extends Entity
     public function getHealthStates()
     {
         if (array_key_exists('healthStates', $this->_propDict) && !is_null($this->_propDict['healthStates'])) {
-            $healthStates = [];
-            if (count($this->_propDict['healthStates']) > 0 && is_a($this->_propDict['healthStates'][0], 'WindowsManagementAppHealthState')) {
-                return $this->_propDict['healthStates'];
-            }
-            foreach ($this->_propDict['healthStates'] as $singleValue) {
-                $healthStates []= new WindowsManagementAppHealthState($singleValue);
-            }
-            $this->_propDict['healthStates'] = $healthStates;
-            return $this->_propDict['healthStates'];
+           $healthStates = [];
+           if (count($this->_propDict['healthStates']) > 0 && is_a($this->_propDict['healthStates'][0], 'WindowsManagementAppHealthState')) {
+              return $this->_propDict['healthStates'];
+           }
+           foreach ($this->_propDict['healthStates'] as $singleValue) {
+              $healthStates []= new WindowsManagementAppHealthState($singleValue);
+           }
+           $this->_propDict['healthStates'] = $healthStates;
+           return $this->_propDict['healthStates'];
         }
         return null;
     }

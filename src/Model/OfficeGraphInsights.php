@@ -34,15 +34,15 @@ class OfficeGraphInsights extends Entity
     public function getShared()
     {
         if (array_key_exists('shared', $this->_propDict) && !is_null($this->_propDict['shared'])) {
-            $shared = [];
-            if (count($this->_propDict['shared']) > 0 && is_a($this->_propDict['shared'][0], 'SharedInsight')) {
-                return $this->_propDict['shared'];
-            }
-            foreach ($this->_propDict['shared'] as $singleValue) {
-                $shared []= new SharedInsight($singleValue);
-            }
-            $this->_propDict['shared'] = $shared;
-            return $this->_propDict['shared'];
+           $shared = [];
+           if (count($this->_propDict['shared']) > 0 && is_a($this->_propDict['shared'][0], 'SharedInsight')) {
+              return $this->_propDict['shared'];
+           }
+           foreach ($this->_propDict['shared'] as $singleValue) {
+              $shared []= new SharedInsight($singleValue);
+           }
+           $this->_propDict['shared'] = $shared;
+           return $this->_propDict['shared'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class OfficeGraphInsights extends Entity
     public function getTrending()
     {
         if (array_key_exists('trending', $this->_propDict) && !is_null($this->_propDict['trending'])) {
-            $trending = [];
-            if (count($this->_propDict['trending']) > 0 && is_a($this->_propDict['trending'][0], 'Trending')) {
-                return $this->_propDict['trending'];
-            }
-            foreach ($this->_propDict['trending'] as $singleValue) {
-                $trending []= new Trending($singleValue);
-            }
-            $this->_propDict['trending'] = $trending;
-            return $this->_propDict['trending'];
+           $trending = [];
+           if (count($this->_propDict['trending']) > 0 && is_a($this->_propDict['trending'][0], 'Trending')) {
+              return $this->_propDict['trending'];
+           }
+           foreach ($this->_propDict['trending'] as $singleValue) {
+              $trending []= new Trending($singleValue);
+           }
+           $this->_propDict['trending'] = $trending;
+           return $this->_propDict['trending'];
         }
         return null;
     }
@@ -108,15 +108,15 @@ class OfficeGraphInsights extends Entity
     public function getUsed()
     {
         if (array_key_exists('used', $this->_propDict) && !is_null($this->_propDict['used'])) {
-            $used = [];
-            if (count($this->_propDict['used']) > 0 && is_a($this->_propDict['used'][0], 'UsedInsight')) {
-                return $this->_propDict['used'];
-            }
-            foreach ($this->_propDict['used'] as $singleValue) {
-                $used []= new UsedInsight($singleValue);
-            }
-            $this->_propDict['used'] = $used;
-            return $this->_propDict['used'];
+           $used = [];
+           if (count($this->_propDict['used']) > 0 && is_a($this->_propDict['used'][0], 'UsedInsight')) {
+              return $this->_propDict['used'];
+           }
+           foreach ($this->_propDict['used'] as $singleValue) {
+              $used []= new UsedInsight($singleValue);
+           }
+           $this->_propDict['used'] = $used;
+           return $this->_propDict['used'];
         }
         return null;
     }

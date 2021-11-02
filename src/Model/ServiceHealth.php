@@ -96,15 +96,15 @@ class ServiceHealth extends Entity
     public function getIssues()
     {
         if (array_key_exists('issues', $this->_propDict) && !is_null($this->_propDict['issues'])) {
-            $issues = [];
-            if (count($this->_propDict['issues']) > 0 && is_a($this->_propDict['issues'][0], 'ServiceHealthIssue')) {
-                return $this->_propDict['issues'];
-            }
-            foreach ($this->_propDict['issues'] as $singleValue) {
-                $issues []= new ServiceHealthIssue($singleValue);
-            }
-            $this->_propDict['issues'] = $issues;
-            return $this->_propDict['issues'];
+           $issues = [];
+           if (count($this->_propDict['issues']) > 0 && is_a($this->_propDict['issues'][0], 'ServiceHealthIssue')) {
+              return $this->_propDict['issues'];
+           }
+           foreach ($this->_propDict['issues'] as $singleValue) {
+              $issues []= new ServiceHealthIssue($singleValue);
+           }
+           $this->_propDict['issues'] = $issues;
+           return $this->_propDict['issues'];
         }
         return null;
     }

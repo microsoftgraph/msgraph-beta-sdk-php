@@ -34,15 +34,15 @@ class Todo extends Entity
     public function getLists()
     {
         if (array_key_exists('lists', $this->_propDict) && !is_null($this->_propDict['lists'])) {
-            $lists = [];
-            if (count($this->_propDict['lists']) > 0 && is_a($this->_propDict['lists'][0], 'TodoTaskList')) {
-                return $this->_propDict['lists'];
-            }
-            foreach ($this->_propDict['lists'] as $singleValue) {
-                $lists []= new TodoTaskList($singleValue);
-            }
-            $this->_propDict['lists'] = $lists;
-            return $this->_propDict['lists'];
+           $lists = [];
+           if (count($this->_propDict['lists']) > 0 && is_a($this->_propDict['lists'][0], 'TodoTaskList')) {
+              return $this->_propDict['lists'];
+           }
+           foreach ($this->_propDict['lists'] as $singleValue) {
+              $lists []= new TodoTaskList($singleValue);
+           }
+           $this->_propDict['lists'] = $lists;
+           return $this->_propDict['lists'];
         }
         return null;
     }

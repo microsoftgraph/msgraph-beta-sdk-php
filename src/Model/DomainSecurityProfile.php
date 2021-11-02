@@ -168,15 +168,15 @@ class DomainSecurityProfile extends Entity
     public function getDomainCategories()
     {
         if (array_key_exists('domainCategories', $this->_propDict) && !is_null($this->_propDict['domainCategories'])) {
-            $domainCategories = [];
-            if (count($this->_propDict['domainCategories']) > 0 && is_a($this->_propDict['domainCategories'][0], 'ReputationCategory')) {
-                return $this->_propDict['domainCategories'];
-            }
-            foreach ($this->_propDict['domainCategories'] as $singleValue) {
-                $domainCategories []= new ReputationCategory($singleValue);
-            }
-            $this->_propDict['domainCategories'] = $domainCategories;
-            return $this->_propDict['domainCategories'];
+           $domainCategories = [];
+           if (count($this->_propDict['domainCategories']) > 0 && is_a($this->_propDict['domainCategories'][0], 'ReputationCategory')) {
+              return $this->_propDict['domainCategories'];
+           }
+           foreach ($this->_propDict['domainCategories'] as $singleValue) {
+              $domainCategories []= new ReputationCategory($singleValue);
+           }
+           $this->_propDict['domainCategories'] = $domainCategories;
+           return $this->_propDict['domainCategories'];
         }
         return null;
     }

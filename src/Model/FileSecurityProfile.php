@@ -226,15 +226,15 @@ class FileSecurityProfile extends Entity
     public function getHashes()
     {
         if (array_key_exists('hashes', $this->_propDict) && !is_null($this->_propDict['hashes'])) {
-            $hashes = [];
-            if (count($this->_propDict['hashes']) > 0 && is_a($this->_propDict['hashes'][0], 'FileHash')) {
-                return $this->_propDict['hashes'];
-            }
-            foreach ($this->_propDict['hashes'] as $singleValue) {
-                $hashes []= new FileHash($singleValue);
-            }
-            $this->_propDict['hashes'] = $hashes;
-            return $this->_propDict['hashes'];
+           $hashes = [];
+           if (count($this->_propDict['hashes']) > 0 && is_a($this->_propDict['hashes'][0], 'FileHash')) {
+              return $this->_propDict['hashes'];
+           }
+           foreach ($this->_propDict['hashes'] as $singleValue) {
+              $hashes []= new FileHash($singleValue);
+           }
+           $this->_propDict['hashes'] = $hashes;
+           return $this->_propDict['hashes'];
         }
         return null;
     }
@@ -292,15 +292,15 @@ class FileSecurityProfile extends Entity
     public function getMalwareStates()
     {
         if (array_key_exists('malwareStates', $this->_propDict) && !is_null($this->_propDict['malwareStates'])) {
-            $malwareStates = [];
-            if (count($this->_propDict['malwareStates']) > 0 && is_a($this->_propDict['malwareStates'][0], 'MalwareState')) {
-                return $this->_propDict['malwareStates'];
-            }
-            foreach ($this->_propDict['malwareStates'] as $singleValue) {
-                $malwareStates []= new MalwareState($singleValue);
-            }
-            $this->_propDict['malwareStates'] = $malwareStates;
-            return $this->_propDict['malwareStates'];
+           $malwareStates = [];
+           if (count($this->_propDict['malwareStates']) > 0 && is_a($this->_propDict['malwareStates'][0], 'MalwareState')) {
+              return $this->_propDict['malwareStates'];
+           }
+           foreach ($this->_propDict['malwareStates'] as $singleValue) {
+              $malwareStates []= new MalwareState($singleValue);
+           }
+           $this->_propDict['malwareStates'] = $malwareStates;
+           return $this->_propDict['malwareStates'];
         }
         return null;
     }
@@ -466,15 +466,15 @@ class FileSecurityProfile extends Entity
     public function getVulnerabilityStates()
     {
         if (array_key_exists('vulnerabilityStates', $this->_propDict) && !is_null($this->_propDict['vulnerabilityStates'])) {
-            $vulnerabilityStates = [];
-            if (count($this->_propDict['vulnerabilityStates']) > 0 && is_a($this->_propDict['vulnerabilityStates'][0], 'VulnerabilityState')) {
-                return $this->_propDict['vulnerabilityStates'];
-            }
-            foreach ($this->_propDict['vulnerabilityStates'] as $singleValue) {
-                $vulnerabilityStates []= new VulnerabilityState($singleValue);
-            }
-            $this->_propDict['vulnerabilityStates'] = $vulnerabilityStates;
-            return $this->_propDict['vulnerabilityStates'];
+           $vulnerabilityStates = [];
+           if (count($this->_propDict['vulnerabilityStates']) > 0 && is_a($this->_propDict['vulnerabilityStates'][0], 'VulnerabilityState')) {
+              return $this->_propDict['vulnerabilityStates'];
+           }
+           foreach ($this->_propDict['vulnerabilityStates'] as $singleValue) {
+              $vulnerabilityStates []= new VulnerabilityState($singleValue);
+           }
+           $this->_propDict['vulnerabilityStates'] = $vulnerabilityStates;
+           return $this->_propDict['vulnerabilityStates'];
         }
         return null;
     }

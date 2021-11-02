@@ -191,15 +191,15 @@ class Tag extends \Beta\Microsoft\Graph\Model\Entity
     public function getChildTags()
     {
         if (array_key_exists('childTags', $this->_propDict) && !is_null($this->_propDict['childTags'])) {
-            $childTags = [];
-            if (count($this->_propDict['childTags']) > 0 && is_a($this->_propDict['childTags'][0], 'Tag')) {
-                return $this->_propDict['childTags'];
-            }
-            foreach ($this->_propDict['childTags'] as $singleValue) {
-                $childTags []= new Tag($singleValue);
-            }
-            $this->_propDict['childTags'] = $childTags;
-            return $this->_propDict['childTags'];
+           $childTags = [];
+           if (count($this->_propDict['childTags']) > 0 && is_a($this->_propDict['childTags'][0], 'Tag')) {
+              return $this->_propDict['childTags'];
+           }
+           foreach ($this->_propDict['childTags'] as $singleValue) {
+              $childTags []= new Tag($singleValue);
+           }
+           $this->_propDict['childTags'] = $childTags;
+           return $this->_propDict['childTags'];
         }
         return null;
     }

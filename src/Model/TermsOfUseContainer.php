@@ -33,15 +33,15 @@ class TermsOfUseContainer extends Entity
     public function getAgreementAcceptances()
     {
         if (array_key_exists('agreementAcceptances', $this->_propDict) && !is_null($this->_propDict['agreementAcceptances'])) {
-            $agreementAcceptances = [];
-            if (count($this->_propDict['agreementAcceptances']) > 0 && is_a($this->_propDict['agreementAcceptances'][0], 'AgreementAcceptance')) {
-                return $this->_propDict['agreementAcceptances'];
-            }
-            foreach ($this->_propDict['agreementAcceptances'] as $singleValue) {
-                $agreementAcceptances []= new AgreementAcceptance($singleValue);
-            }
-            $this->_propDict['agreementAcceptances'] = $agreementAcceptances;
-            return $this->_propDict['agreementAcceptances'];
+           $agreementAcceptances = [];
+           if (count($this->_propDict['agreementAcceptances']) > 0 && is_a($this->_propDict['agreementAcceptances'][0], 'AgreementAcceptance')) {
+              return $this->_propDict['agreementAcceptances'];
+           }
+           foreach ($this->_propDict['agreementAcceptances'] as $singleValue) {
+              $agreementAcceptances []= new AgreementAcceptance($singleValue);
+           }
+           $this->_propDict['agreementAcceptances'] = $agreementAcceptances;
+           return $this->_propDict['agreementAcceptances'];
         }
         return null;
     }
@@ -68,15 +68,15 @@ class TermsOfUseContainer extends Entity
     public function getAgreements()
     {
         if (array_key_exists('agreements', $this->_propDict) && !is_null($this->_propDict['agreements'])) {
-            $agreements = [];
-            if (count($this->_propDict['agreements']) > 0 && is_a($this->_propDict['agreements'][0], 'Agreement')) {
-                return $this->_propDict['agreements'];
-            }
-            foreach ($this->_propDict['agreements'] as $singleValue) {
-                $agreements []= new Agreement($singleValue);
-            }
-            $this->_propDict['agreements'] = $agreements;
-            return $this->_propDict['agreements'];
+           $agreements = [];
+           if (count($this->_propDict['agreements']) > 0 && is_a($this->_propDict['agreements'][0], 'Agreement')) {
+              return $this->_propDict['agreements'];
+           }
+           foreach ($this->_propDict['agreements'] as $singleValue) {
+              $agreements []= new Agreement($singleValue);
+           }
+           $this->_propDict['agreements'] = $agreements;
+           return $this->_propDict['agreements'];
         }
         return null;
     }

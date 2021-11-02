@@ -357,15 +357,15 @@ class Domain extends Entity
     public function getDomainNameReferences()
     {
         if (array_key_exists('domainNameReferences', $this->_propDict) && !is_null($this->_propDict['domainNameReferences'])) {
-            $domainNameReferences = [];
-            if (count($this->_propDict['domainNameReferences']) > 0 && is_a($this->_propDict['domainNameReferences'][0], 'DirectoryObject')) {
-                return $this->_propDict['domainNameReferences'];
-            }
-            foreach ($this->_propDict['domainNameReferences'] as $singleValue) {
-                $domainNameReferences []= new DirectoryObject($singleValue);
-            }
-            $this->_propDict['domainNameReferences'] = $domainNameReferences;
-            return $this->_propDict['domainNameReferences'];
+           $domainNameReferences = [];
+           if (count($this->_propDict['domainNameReferences']) > 0 && is_a($this->_propDict['domainNameReferences'][0], 'DirectoryObject')) {
+              return $this->_propDict['domainNameReferences'];
+           }
+           foreach ($this->_propDict['domainNameReferences'] as $singleValue) {
+              $domainNameReferences []= new DirectoryObject($singleValue);
+           }
+           $this->_propDict['domainNameReferences'] = $domainNameReferences;
+           return $this->_propDict['domainNameReferences'];
         }
         return null;
     }
@@ -394,15 +394,15 @@ class Domain extends Entity
     public function getServiceConfigurationRecords()
     {
         if (array_key_exists('serviceConfigurationRecords', $this->_propDict) && !is_null($this->_propDict['serviceConfigurationRecords'])) {
-            $serviceConfigurationRecords = [];
-            if (count($this->_propDict['serviceConfigurationRecords']) > 0 && is_a($this->_propDict['serviceConfigurationRecords'][0], 'DomainDnsRecord')) {
-                return $this->_propDict['serviceConfigurationRecords'];
-            }
-            foreach ($this->_propDict['serviceConfigurationRecords'] as $singleValue) {
-                $serviceConfigurationRecords []= new DomainDnsRecord($singleValue);
-            }
-            $this->_propDict['serviceConfigurationRecords'] = $serviceConfigurationRecords;
-            return $this->_propDict['serviceConfigurationRecords'];
+           $serviceConfigurationRecords = [];
+           if (count($this->_propDict['serviceConfigurationRecords']) > 0 && is_a($this->_propDict['serviceConfigurationRecords'][0], 'DomainDnsRecord')) {
+              return $this->_propDict['serviceConfigurationRecords'];
+           }
+           foreach ($this->_propDict['serviceConfigurationRecords'] as $singleValue) {
+              $serviceConfigurationRecords []= new DomainDnsRecord($singleValue);
+           }
+           $this->_propDict['serviceConfigurationRecords'] = $serviceConfigurationRecords;
+           return $this->_propDict['serviceConfigurationRecords'];
         }
         return null;
     }
@@ -430,15 +430,15 @@ class Domain extends Entity
     public function getSharedEmailDomainInvitations()
     {
         if (array_key_exists('sharedEmailDomainInvitations', $this->_propDict) && !is_null($this->_propDict['sharedEmailDomainInvitations'])) {
-            $sharedEmailDomainInvitations = [];
-            if (count($this->_propDict['sharedEmailDomainInvitations']) > 0 && is_a($this->_propDict['sharedEmailDomainInvitations'][0], 'SharedEmailDomainInvitation')) {
-                return $this->_propDict['sharedEmailDomainInvitations'];
-            }
-            foreach ($this->_propDict['sharedEmailDomainInvitations'] as $singleValue) {
-                $sharedEmailDomainInvitations []= new SharedEmailDomainInvitation($singleValue);
-            }
-            $this->_propDict['sharedEmailDomainInvitations'] = $sharedEmailDomainInvitations;
-            return $this->_propDict['sharedEmailDomainInvitations'];
+           $sharedEmailDomainInvitations = [];
+           if (count($this->_propDict['sharedEmailDomainInvitations']) > 0 && is_a($this->_propDict['sharedEmailDomainInvitations'][0], 'SharedEmailDomainInvitation')) {
+              return $this->_propDict['sharedEmailDomainInvitations'];
+           }
+           foreach ($this->_propDict['sharedEmailDomainInvitations'] as $singleValue) {
+              $sharedEmailDomainInvitations []= new SharedEmailDomainInvitation($singleValue);
+           }
+           $this->_propDict['sharedEmailDomainInvitations'] = $sharedEmailDomainInvitations;
+           return $this->_propDict['sharedEmailDomainInvitations'];
         }
         return null;
     }
@@ -466,15 +466,15 @@ class Domain extends Entity
     public function getVerificationDnsRecords()
     {
         if (array_key_exists('verificationDnsRecords', $this->_propDict) && !is_null($this->_propDict['verificationDnsRecords'])) {
-            $verificationDnsRecords = [];
-            if (count($this->_propDict['verificationDnsRecords']) > 0 && is_a($this->_propDict['verificationDnsRecords'][0], 'DomainDnsRecord')) {
-                return $this->_propDict['verificationDnsRecords'];
-            }
-            foreach ($this->_propDict['verificationDnsRecords'] as $singleValue) {
-                $verificationDnsRecords []= new DomainDnsRecord($singleValue);
-            }
-            $this->_propDict['verificationDnsRecords'] = $verificationDnsRecords;
-            return $this->_propDict['verificationDnsRecords'];
+           $verificationDnsRecords = [];
+           if (count($this->_propDict['verificationDnsRecords']) > 0 && is_a($this->_propDict['verificationDnsRecords'][0], 'DomainDnsRecord')) {
+              return $this->_propDict['verificationDnsRecords'];
+           }
+           foreach ($this->_propDict['verificationDnsRecords'] as $singleValue) {
+              $verificationDnsRecords []= new DomainDnsRecord($singleValue);
+           }
+           $this->_propDict['verificationDnsRecords'] = $verificationDnsRecords;
+           return $this->_propDict['verificationDnsRecords'];
         }
         return null;
     }

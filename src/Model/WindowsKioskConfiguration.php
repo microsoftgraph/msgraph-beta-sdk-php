@@ -266,15 +266,15 @@ class WindowsKioskConfiguration extends DeviceConfiguration
     public function getKioskProfiles()
     {
         if (array_key_exists('kioskProfiles', $this->_propDict) && !is_null($this->_propDict['kioskProfiles'])) {
-            $kioskProfiles = [];
-            if (count($this->_propDict['kioskProfiles']) > 0 && is_a($this->_propDict['kioskProfiles'][0], 'WindowsKioskProfile')) {
-                return $this->_propDict['kioskProfiles'];
-            }
-            foreach ($this->_propDict['kioskProfiles'] as $singleValue) {
-                $kioskProfiles []= new WindowsKioskProfile($singleValue);
-            }
-            $this->_propDict['kioskProfiles'] = $kioskProfiles;
-            return $this->_propDict['kioskProfiles'];
+           $kioskProfiles = [];
+           if (count($this->_propDict['kioskProfiles']) > 0 && is_a($this->_propDict['kioskProfiles'][0], 'WindowsKioskProfile')) {
+              return $this->_propDict['kioskProfiles'];
+           }
+           foreach ($this->_propDict['kioskProfiles'] as $singleValue) {
+              $kioskProfiles []= new WindowsKioskProfile($singleValue);
+           }
+           $this->_propDict['kioskProfiles'] = $kioskProfiles;
+           return $this->_propDict['kioskProfiles'];
         }
         return null;
     }

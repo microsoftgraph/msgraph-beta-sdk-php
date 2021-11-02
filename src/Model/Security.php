@@ -33,15 +33,15 @@ class Security extends Entity
     public function getProviderStatus()
     {
         if (array_key_exists('providerStatus', $this->_propDict) && !is_null($this->_propDict['providerStatus'])) {
-            $providerStatus = [];
-            if (count($this->_propDict['providerStatus']) > 0 && is_a($this->_propDict['providerStatus'][0], 'SecurityProviderStatus')) {
-                return $this->_propDict['providerStatus'];
-            }
-            foreach ($this->_propDict['providerStatus'] as $singleValue) {
-                $providerStatus []= new SecurityProviderStatus($singleValue);
-            }
-            $this->_propDict['providerStatus'] = $providerStatus;
-            return $this->_propDict['providerStatus'];
+           $providerStatus = [];
+           if (count($this->_propDict['providerStatus']) > 0 && is_a($this->_propDict['providerStatus'][0], 'SecurityProviderStatus')) {
+              return $this->_propDict['providerStatus'];
+           }
+           foreach ($this->_propDict['providerStatus'] as $singleValue) {
+              $providerStatus []= new SecurityProviderStatus($singleValue);
+           }
+           $this->_propDict['providerStatus'] = $providerStatus;
+           return $this->_propDict['providerStatus'];
         }
         return null;
     }
@@ -68,15 +68,15 @@ class Security extends Entity
     public function getIncidents()
     {
         if (array_key_exists('incidents', $this->_propDict) && !is_null($this->_propDict['incidents'])) {
-            $incidents = [];
-            if (count($this->_propDict['incidents']) > 0 && is_a($this->_propDict['incidents'][0], 'Incident')) {
-                return $this->_propDict['incidents'];
-            }
-            foreach ($this->_propDict['incidents'] as $singleValue) {
-                $incidents []= new Incident($singleValue);
-            }
-            $this->_propDict['incidents'] = $incidents;
-            return $this->_propDict['incidents'];
+           $incidents = [];
+           if (count($this->_propDict['incidents']) > 0 && is_a($this->_propDict['incidents'][0], 'Incident')) {
+              return $this->_propDict['incidents'];
+           }
+           foreach ($this->_propDict['incidents'] as $singleValue) {
+              $incidents []= new Incident($singleValue);
+           }
+           $this->_propDict['incidents'] = $incidents;
+           return $this->_propDict['incidents'];
         }
         return null;
     }
@@ -137,15 +137,15 @@ class Security extends Entity
     public function getAlerts()
     {
         if (array_key_exists('alerts', $this->_propDict) && !is_null($this->_propDict['alerts'])) {
-            $alerts = [];
-            if (count($this->_propDict['alerts']) > 0 && is_a($this->_propDict['alerts'][0], 'Alert')) {
-                return $this->_propDict['alerts'];
-            }
-            foreach ($this->_propDict['alerts'] as $singleValue) {
-                $alerts []= new Alert($singleValue);
-            }
-            $this->_propDict['alerts'] = $alerts;
-            return $this->_propDict['alerts'];
+           $alerts = [];
+           if (count($this->_propDict['alerts']) > 0 && is_a($this->_propDict['alerts'][0], 'Alert')) {
+              return $this->_propDict['alerts'];
+           }
+           foreach ($this->_propDict['alerts'] as $singleValue) {
+              $alerts []= new Alert($singleValue);
+           }
+           $this->_propDict['alerts'] = $alerts;
+           return $this->_propDict['alerts'];
         }
         return null;
     }
@@ -173,15 +173,15 @@ class Security extends Entity
     public function getCloudAppSecurityProfiles()
     {
         if (array_key_exists('cloudAppSecurityProfiles', $this->_propDict) && !is_null($this->_propDict['cloudAppSecurityProfiles'])) {
-            $cloudAppSecurityProfiles = [];
-            if (count($this->_propDict['cloudAppSecurityProfiles']) > 0 && is_a($this->_propDict['cloudAppSecurityProfiles'][0], 'CloudAppSecurityProfile')) {
-                return $this->_propDict['cloudAppSecurityProfiles'];
-            }
-            foreach ($this->_propDict['cloudAppSecurityProfiles'] as $singleValue) {
-                $cloudAppSecurityProfiles []= new CloudAppSecurityProfile($singleValue);
-            }
-            $this->_propDict['cloudAppSecurityProfiles'] = $cloudAppSecurityProfiles;
-            return $this->_propDict['cloudAppSecurityProfiles'];
+           $cloudAppSecurityProfiles = [];
+           if (count($this->_propDict['cloudAppSecurityProfiles']) > 0 && is_a($this->_propDict['cloudAppSecurityProfiles'][0], 'CloudAppSecurityProfile')) {
+              return $this->_propDict['cloudAppSecurityProfiles'];
+           }
+           foreach ($this->_propDict['cloudAppSecurityProfiles'] as $singleValue) {
+              $cloudAppSecurityProfiles []= new CloudAppSecurityProfile($singleValue);
+           }
+           $this->_propDict['cloudAppSecurityProfiles'] = $cloudAppSecurityProfiles;
+           return $this->_propDict['cloudAppSecurityProfiles'];
         }
         return null;
     }
@@ -208,15 +208,15 @@ class Security extends Entity
     public function getDomainSecurityProfiles()
     {
         if (array_key_exists('domainSecurityProfiles', $this->_propDict) && !is_null($this->_propDict['domainSecurityProfiles'])) {
-            $domainSecurityProfiles = [];
-            if (count($this->_propDict['domainSecurityProfiles']) > 0 && is_a($this->_propDict['domainSecurityProfiles'][0], 'DomainSecurityProfile')) {
-                return $this->_propDict['domainSecurityProfiles'];
-            }
-            foreach ($this->_propDict['domainSecurityProfiles'] as $singleValue) {
-                $domainSecurityProfiles []= new DomainSecurityProfile($singleValue);
-            }
-            $this->_propDict['domainSecurityProfiles'] = $domainSecurityProfiles;
-            return $this->_propDict['domainSecurityProfiles'];
+           $domainSecurityProfiles = [];
+           if (count($this->_propDict['domainSecurityProfiles']) > 0 && is_a($this->_propDict['domainSecurityProfiles'][0], 'DomainSecurityProfile')) {
+              return $this->_propDict['domainSecurityProfiles'];
+           }
+           foreach ($this->_propDict['domainSecurityProfiles'] as $singleValue) {
+              $domainSecurityProfiles []= new DomainSecurityProfile($singleValue);
+           }
+           $this->_propDict['domainSecurityProfiles'] = $domainSecurityProfiles;
+           return $this->_propDict['domainSecurityProfiles'];
         }
         return null;
     }
@@ -243,15 +243,15 @@ class Security extends Entity
     public function getFileSecurityProfiles()
     {
         if (array_key_exists('fileSecurityProfiles', $this->_propDict) && !is_null($this->_propDict['fileSecurityProfiles'])) {
-            $fileSecurityProfiles = [];
-            if (count($this->_propDict['fileSecurityProfiles']) > 0 && is_a($this->_propDict['fileSecurityProfiles'][0], 'FileSecurityProfile')) {
-                return $this->_propDict['fileSecurityProfiles'];
-            }
-            foreach ($this->_propDict['fileSecurityProfiles'] as $singleValue) {
-                $fileSecurityProfiles []= new FileSecurityProfile($singleValue);
-            }
-            $this->_propDict['fileSecurityProfiles'] = $fileSecurityProfiles;
-            return $this->_propDict['fileSecurityProfiles'];
+           $fileSecurityProfiles = [];
+           if (count($this->_propDict['fileSecurityProfiles']) > 0 && is_a($this->_propDict['fileSecurityProfiles'][0], 'FileSecurityProfile')) {
+              return $this->_propDict['fileSecurityProfiles'];
+           }
+           foreach ($this->_propDict['fileSecurityProfiles'] as $singleValue) {
+              $fileSecurityProfiles []= new FileSecurityProfile($singleValue);
+           }
+           $this->_propDict['fileSecurityProfiles'] = $fileSecurityProfiles;
+           return $this->_propDict['fileSecurityProfiles'];
         }
         return null;
     }
@@ -278,15 +278,15 @@ class Security extends Entity
     public function getHostSecurityProfiles()
     {
         if (array_key_exists('hostSecurityProfiles', $this->_propDict) && !is_null($this->_propDict['hostSecurityProfiles'])) {
-            $hostSecurityProfiles = [];
-            if (count($this->_propDict['hostSecurityProfiles']) > 0 && is_a($this->_propDict['hostSecurityProfiles'][0], 'HostSecurityProfile')) {
-                return $this->_propDict['hostSecurityProfiles'];
-            }
-            foreach ($this->_propDict['hostSecurityProfiles'] as $singleValue) {
-                $hostSecurityProfiles []= new HostSecurityProfile($singleValue);
-            }
-            $this->_propDict['hostSecurityProfiles'] = $hostSecurityProfiles;
-            return $this->_propDict['hostSecurityProfiles'];
+           $hostSecurityProfiles = [];
+           if (count($this->_propDict['hostSecurityProfiles']) > 0 && is_a($this->_propDict['hostSecurityProfiles'][0], 'HostSecurityProfile')) {
+              return $this->_propDict['hostSecurityProfiles'];
+           }
+           foreach ($this->_propDict['hostSecurityProfiles'] as $singleValue) {
+              $hostSecurityProfiles []= new HostSecurityProfile($singleValue);
+           }
+           $this->_propDict['hostSecurityProfiles'] = $hostSecurityProfiles;
+           return $this->_propDict['hostSecurityProfiles'];
         }
         return null;
     }
@@ -313,15 +313,15 @@ class Security extends Entity
     public function getIpSecurityProfiles()
     {
         if (array_key_exists('ipSecurityProfiles', $this->_propDict) && !is_null($this->_propDict['ipSecurityProfiles'])) {
-            $ipSecurityProfiles = [];
-            if (count($this->_propDict['ipSecurityProfiles']) > 0 && is_a($this->_propDict['ipSecurityProfiles'][0], 'IpSecurityProfile')) {
-                return $this->_propDict['ipSecurityProfiles'];
-            }
-            foreach ($this->_propDict['ipSecurityProfiles'] as $singleValue) {
-                $ipSecurityProfiles []= new IpSecurityProfile($singleValue);
-            }
-            $this->_propDict['ipSecurityProfiles'] = $ipSecurityProfiles;
-            return $this->_propDict['ipSecurityProfiles'];
+           $ipSecurityProfiles = [];
+           if (count($this->_propDict['ipSecurityProfiles']) > 0 && is_a($this->_propDict['ipSecurityProfiles'][0], 'IpSecurityProfile')) {
+              return $this->_propDict['ipSecurityProfiles'];
+           }
+           foreach ($this->_propDict['ipSecurityProfiles'] as $singleValue) {
+              $ipSecurityProfiles []= new IpSecurityProfile($singleValue);
+           }
+           $this->_propDict['ipSecurityProfiles'] = $ipSecurityProfiles;
+           return $this->_propDict['ipSecurityProfiles'];
         }
         return null;
     }
@@ -348,15 +348,15 @@ class Security extends Entity
     public function getProviderTenantSettings()
     {
         if (array_key_exists('providerTenantSettings', $this->_propDict) && !is_null($this->_propDict['providerTenantSettings'])) {
-            $providerTenantSettings = [];
-            if (count($this->_propDict['providerTenantSettings']) > 0 && is_a($this->_propDict['providerTenantSettings'][0], 'ProviderTenantSetting')) {
-                return $this->_propDict['providerTenantSettings'];
-            }
-            foreach ($this->_propDict['providerTenantSettings'] as $singleValue) {
-                $providerTenantSettings []= new ProviderTenantSetting($singleValue);
-            }
-            $this->_propDict['providerTenantSettings'] = $providerTenantSettings;
-            return $this->_propDict['providerTenantSettings'];
+           $providerTenantSettings = [];
+           if (count($this->_propDict['providerTenantSettings']) > 0 && is_a($this->_propDict['providerTenantSettings'][0], 'ProviderTenantSetting')) {
+              return $this->_propDict['providerTenantSettings'];
+           }
+           foreach ($this->_propDict['providerTenantSettings'] as $singleValue) {
+              $providerTenantSettings []= new ProviderTenantSetting($singleValue);
+           }
+           $this->_propDict['providerTenantSettings'] = $providerTenantSettings;
+           return $this->_propDict['providerTenantSettings'];
         }
         return null;
     }
@@ -383,15 +383,15 @@ class Security extends Entity
     public function getSecureScoreControlProfiles()
     {
         if (array_key_exists('secureScoreControlProfiles', $this->_propDict) && !is_null($this->_propDict['secureScoreControlProfiles'])) {
-            $secureScoreControlProfiles = [];
-            if (count($this->_propDict['secureScoreControlProfiles']) > 0 && is_a($this->_propDict['secureScoreControlProfiles'][0], 'SecureScoreControlProfile')) {
-                return $this->_propDict['secureScoreControlProfiles'];
-            }
-            foreach ($this->_propDict['secureScoreControlProfiles'] as $singleValue) {
-                $secureScoreControlProfiles []= new SecureScoreControlProfile($singleValue);
-            }
-            $this->_propDict['secureScoreControlProfiles'] = $secureScoreControlProfiles;
-            return $this->_propDict['secureScoreControlProfiles'];
+           $secureScoreControlProfiles = [];
+           if (count($this->_propDict['secureScoreControlProfiles']) > 0 && is_a($this->_propDict['secureScoreControlProfiles'][0], 'SecureScoreControlProfile')) {
+              return $this->_propDict['secureScoreControlProfiles'];
+           }
+           foreach ($this->_propDict['secureScoreControlProfiles'] as $singleValue) {
+              $secureScoreControlProfiles []= new SecureScoreControlProfile($singleValue);
+           }
+           $this->_propDict['secureScoreControlProfiles'] = $secureScoreControlProfiles;
+           return $this->_propDict['secureScoreControlProfiles'];
         }
         return null;
     }
@@ -418,15 +418,15 @@ class Security extends Entity
     public function getSecureScores()
     {
         if (array_key_exists('secureScores', $this->_propDict) && !is_null($this->_propDict['secureScores'])) {
-            $secureScores = [];
-            if (count($this->_propDict['secureScores']) > 0 && is_a($this->_propDict['secureScores'][0], 'SecureScore')) {
-                return $this->_propDict['secureScores'];
-            }
-            foreach ($this->_propDict['secureScores'] as $singleValue) {
-                $secureScores []= new SecureScore($singleValue);
-            }
-            $this->_propDict['secureScores'] = $secureScores;
-            return $this->_propDict['secureScores'];
+           $secureScores = [];
+           if (count($this->_propDict['secureScores']) > 0 && is_a($this->_propDict['secureScores'][0], 'SecureScore')) {
+              return $this->_propDict['secureScores'];
+           }
+           foreach ($this->_propDict['secureScores'] as $singleValue) {
+              $secureScores []= new SecureScore($singleValue);
+           }
+           $this->_propDict['secureScores'] = $secureScores;
+           return $this->_propDict['secureScores'];
         }
         return null;
     }
@@ -453,15 +453,15 @@ class Security extends Entity
     public function getSecurityActions()
     {
         if (array_key_exists('securityActions', $this->_propDict) && !is_null($this->_propDict['securityActions'])) {
-            $securityActions = [];
-            if (count($this->_propDict['securityActions']) > 0 && is_a($this->_propDict['securityActions'][0], 'SecurityAction')) {
-                return $this->_propDict['securityActions'];
-            }
-            foreach ($this->_propDict['securityActions'] as $singleValue) {
-                $securityActions []= new SecurityAction($singleValue);
-            }
-            $this->_propDict['securityActions'] = $securityActions;
-            return $this->_propDict['securityActions'];
+           $securityActions = [];
+           if (count($this->_propDict['securityActions']) > 0 && is_a($this->_propDict['securityActions'][0], 'SecurityAction')) {
+              return $this->_propDict['securityActions'];
+           }
+           foreach ($this->_propDict['securityActions'] as $singleValue) {
+              $securityActions []= new SecurityAction($singleValue);
+           }
+           $this->_propDict['securityActions'] = $securityActions;
+           return $this->_propDict['securityActions'];
         }
         return null;
     }
@@ -488,15 +488,15 @@ class Security extends Entity
     public function getTiIndicators()
     {
         if (array_key_exists('tiIndicators', $this->_propDict) && !is_null($this->_propDict['tiIndicators'])) {
-            $tiIndicators = [];
-            if (count($this->_propDict['tiIndicators']) > 0 && is_a($this->_propDict['tiIndicators'][0], 'TiIndicator')) {
-                return $this->_propDict['tiIndicators'];
-            }
-            foreach ($this->_propDict['tiIndicators'] as $singleValue) {
-                $tiIndicators []= new TiIndicator($singleValue);
-            }
-            $this->_propDict['tiIndicators'] = $tiIndicators;
-            return $this->_propDict['tiIndicators'];
+           $tiIndicators = [];
+           if (count($this->_propDict['tiIndicators']) > 0 && is_a($this->_propDict['tiIndicators'][0], 'TiIndicator')) {
+              return $this->_propDict['tiIndicators'];
+           }
+           foreach ($this->_propDict['tiIndicators'] as $singleValue) {
+              $tiIndicators []= new TiIndicator($singleValue);
+           }
+           $this->_propDict['tiIndicators'] = $tiIndicators;
+           return $this->_propDict['tiIndicators'];
         }
         return null;
     }
@@ -523,15 +523,15 @@ class Security extends Entity
     public function getUserSecurityProfiles()
     {
         if (array_key_exists('userSecurityProfiles', $this->_propDict) && !is_null($this->_propDict['userSecurityProfiles'])) {
-            $userSecurityProfiles = [];
-            if (count($this->_propDict['userSecurityProfiles']) > 0 && is_a($this->_propDict['userSecurityProfiles'][0], 'UserSecurityProfile')) {
-                return $this->_propDict['userSecurityProfiles'];
-            }
-            foreach ($this->_propDict['userSecurityProfiles'] as $singleValue) {
-                $userSecurityProfiles []= new UserSecurityProfile($singleValue);
-            }
-            $this->_propDict['userSecurityProfiles'] = $userSecurityProfiles;
-            return $this->_propDict['userSecurityProfiles'];
+           $userSecurityProfiles = [];
+           if (count($this->_propDict['userSecurityProfiles']) > 0 && is_a($this->_propDict['userSecurityProfiles'][0], 'UserSecurityProfile')) {
+              return $this->_propDict['userSecurityProfiles'];
+           }
+           foreach ($this->_propDict['userSecurityProfiles'] as $singleValue) {
+              $userSecurityProfiles []= new UserSecurityProfile($singleValue);
+           }
+           $this->_propDict['userSecurityProfiles'] = $userSecurityProfiles;
+           return $this->_propDict['userSecurityProfiles'];
         }
         return null;
     }

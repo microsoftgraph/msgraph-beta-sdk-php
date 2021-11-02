@@ -64,15 +64,15 @@ class ItemAnalytics extends Entity
     public function getItemActivityStats()
     {
         if (array_key_exists('itemActivityStats', $this->_propDict) && !is_null($this->_propDict['itemActivityStats'])) {
-            $itemActivityStats = [];
-            if (count($this->_propDict['itemActivityStats']) > 0 && is_a($this->_propDict['itemActivityStats'][0], 'ItemActivityStat')) {
-                return $this->_propDict['itemActivityStats'];
-            }
-            foreach ($this->_propDict['itemActivityStats'] as $singleValue) {
-                $itemActivityStats []= new ItemActivityStat($singleValue);
-            }
-            $this->_propDict['itemActivityStats'] = $itemActivityStats;
-            return $this->_propDict['itemActivityStats'];
+           $itemActivityStats = [];
+           if (count($this->_propDict['itemActivityStats']) > 0 && is_a($this->_propDict['itemActivityStats'][0], 'ItemActivityStat')) {
+              return $this->_propDict['itemActivityStats'];
+           }
+           foreach ($this->_propDict['itemActivityStats'] as $singleValue) {
+              $itemActivityStats []= new ItemActivityStat($singleValue);
+           }
+           $this->_propDict['itemActivityStats'] = $itemActivityStats;
+           return $this->_propDict['itemActivityStats'];
         }
         return null;
     }

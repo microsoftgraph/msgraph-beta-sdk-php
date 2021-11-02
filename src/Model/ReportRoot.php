@@ -33,15 +33,15 @@ class ReportRoot extends Entity
     public function getApplicationSignInDetailedSummary()
     {
         if (array_key_exists('applicationSignInDetailedSummary', $this->_propDict) && !is_null($this->_propDict['applicationSignInDetailedSummary'])) {
-            $applicationSignInDetailedSummary = [];
-            if (count($this->_propDict['applicationSignInDetailedSummary']) > 0 && is_a($this->_propDict['applicationSignInDetailedSummary'][0], 'ApplicationSignInDetailedSummary')) {
-                return $this->_propDict['applicationSignInDetailedSummary'];
-            }
-            foreach ($this->_propDict['applicationSignInDetailedSummary'] as $singleValue) {
-                $applicationSignInDetailedSummary []= new ApplicationSignInDetailedSummary($singleValue);
-            }
-            $this->_propDict['applicationSignInDetailedSummary'] = $applicationSignInDetailedSummary;
-            return $this->_propDict['applicationSignInDetailedSummary'];
+           $applicationSignInDetailedSummary = [];
+           if (count($this->_propDict['applicationSignInDetailedSummary']) > 0 && is_a($this->_propDict['applicationSignInDetailedSummary'][0], 'ApplicationSignInDetailedSummary')) {
+              return $this->_propDict['applicationSignInDetailedSummary'];
+           }
+           foreach ($this->_propDict['applicationSignInDetailedSummary'] as $singleValue) {
+              $applicationSignInDetailedSummary []= new ApplicationSignInDetailedSummary($singleValue);
+           }
+           $this->_propDict['applicationSignInDetailedSummary'] = $applicationSignInDetailedSummary;
+           return $this->_propDict['applicationSignInDetailedSummary'];
         }
         return null;
     }
@@ -99,15 +99,15 @@ class ReportRoot extends Entity
     public function getCredentialUserRegistrationDetails()
     {
         if (array_key_exists('credentialUserRegistrationDetails', $this->_propDict) && !is_null($this->_propDict['credentialUserRegistrationDetails'])) {
-            $credentialUserRegistrationDetails = [];
-            if (count($this->_propDict['credentialUserRegistrationDetails']) > 0 && is_a($this->_propDict['credentialUserRegistrationDetails'][0], 'CredentialUserRegistrationDetails')) {
-                return $this->_propDict['credentialUserRegistrationDetails'];
-            }
-            foreach ($this->_propDict['credentialUserRegistrationDetails'] as $singleValue) {
-                $credentialUserRegistrationDetails []= new CredentialUserRegistrationDetails($singleValue);
-            }
-            $this->_propDict['credentialUserRegistrationDetails'] = $credentialUserRegistrationDetails;
-            return $this->_propDict['credentialUserRegistrationDetails'];
+           $credentialUserRegistrationDetails = [];
+           if (count($this->_propDict['credentialUserRegistrationDetails']) > 0 && is_a($this->_propDict['credentialUserRegistrationDetails'][0], 'CredentialUserRegistrationDetails')) {
+              return $this->_propDict['credentialUserRegistrationDetails'];
+           }
+           foreach ($this->_propDict['credentialUserRegistrationDetails'] as $singleValue) {
+              $credentialUserRegistrationDetails []= new CredentialUserRegistrationDetails($singleValue);
+           }
+           $this->_propDict['credentialUserRegistrationDetails'] = $credentialUserRegistrationDetails;
+           return $this->_propDict['credentialUserRegistrationDetails'];
         }
         return null;
     }
@@ -134,15 +134,15 @@ class ReportRoot extends Entity
     public function getUserCredentialUsageDetails()
     {
         if (array_key_exists('userCredentialUsageDetails', $this->_propDict) && !is_null($this->_propDict['userCredentialUsageDetails'])) {
-            $userCredentialUsageDetails = [];
-            if (count($this->_propDict['userCredentialUsageDetails']) > 0 && is_a($this->_propDict['userCredentialUsageDetails'][0], 'UserCredentialUsageDetails')) {
-                return $this->_propDict['userCredentialUsageDetails'];
-            }
-            foreach ($this->_propDict['userCredentialUsageDetails'] as $singleValue) {
-                $userCredentialUsageDetails []= new UserCredentialUsageDetails($singleValue);
-            }
-            $this->_propDict['userCredentialUsageDetails'] = $userCredentialUsageDetails;
-            return $this->_propDict['userCredentialUsageDetails'];
+           $userCredentialUsageDetails = [];
+           if (count($this->_propDict['userCredentialUsageDetails']) > 0 && is_a($this->_propDict['userCredentialUsageDetails'][0], 'UserCredentialUsageDetails')) {
+              return $this->_propDict['userCredentialUsageDetails'];
+           }
+           foreach ($this->_propDict['userCredentialUsageDetails'] as $singleValue) {
+              $userCredentialUsageDetails []= new UserCredentialUsageDetails($singleValue);
+           }
+           $this->_propDict['userCredentialUsageDetails'] = $userCredentialUsageDetails;
+           return $this->_propDict['userCredentialUsageDetails'];
         }
         return null;
     }
@@ -169,15 +169,15 @@ class ReportRoot extends Entity
     public function getDailyPrintUsageByPrinter()
     {
         if (array_key_exists('dailyPrintUsageByPrinter', $this->_propDict) && !is_null($this->_propDict['dailyPrintUsageByPrinter'])) {
-            $dailyPrintUsageByPrinter = [];
-            if (count($this->_propDict['dailyPrintUsageByPrinter']) > 0 && is_a($this->_propDict['dailyPrintUsageByPrinter'][0], 'PrintUsageByPrinter')) {
-                return $this->_propDict['dailyPrintUsageByPrinter'];
-            }
-            foreach ($this->_propDict['dailyPrintUsageByPrinter'] as $singleValue) {
-                $dailyPrintUsageByPrinter []= new PrintUsageByPrinter($singleValue);
-            }
-            $this->_propDict['dailyPrintUsageByPrinter'] = $dailyPrintUsageByPrinter;
-            return $this->_propDict['dailyPrintUsageByPrinter'];
+           $dailyPrintUsageByPrinter = [];
+           if (count($this->_propDict['dailyPrintUsageByPrinter']) > 0 && is_a($this->_propDict['dailyPrintUsageByPrinter'][0], 'PrintUsageByPrinter')) {
+              return $this->_propDict['dailyPrintUsageByPrinter'];
+           }
+           foreach ($this->_propDict['dailyPrintUsageByPrinter'] as $singleValue) {
+              $dailyPrintUsageByPrinter []= new PrintUsageByPrinter($singleValue);
+           }
+           $this->_propDict['dailyPrintUsageByPrinter'] = $dailyPrintUsageByPrinter;
+           return $this->_propDict['dailyPrintUsageByPrinter'];
         }
         return null;
     }
@@ -204,15 +204,15 @@ class ReportRoot extends Entity
     public function getDailyPrintUsageByUser()
     {
         if (array_key_exists('dailyPrintUsageByUser', $this->_propDict) && !is_null($this->_propDict['dailyPrintUsageByUser'])) {
-            $dailyPrintUsageByUser = [];
-            if (count($this->_propDict['dailyPrintUsageByUser']) > 0 && is_a($this->_propDict['dailyPrintUsageByUser'][0], 'PrintUsageByUser')) {
-                return $this->_propDict['dailyPrintUsageByUser'];
-            }
-            foreach ($this->_propDict['dailyPrintUsageByUser'] as $singleValue) {
-                $dailyPrintUsageByUser []= new PrintUsageByUser($singleValue);
-            }
-            $this->_propDict['dailyPrintUsageByUser'] = $dailyPrintUsageByUser;
-            return $this->_propDict['dailyPrintUsageByUser'];
+           $dailyPrintUsageByUser = [];
+           if (count($this->_propDict['dailyPrintUsageByUser']) > 0 && is_a($this->_propDict['dailyPrintUsageByUser'][0], 'PrintUsageByUser')) {
+              return $this->_propDict['dailyPrintUsageByUser'];
+           }
+           foreach ($this->_propDict['dailyPrintUsageByUser'] as $singleValue) {
+              $dailyPrintUsageByUser []= new PrintUsageByUser($singleValue);
+           }
+           $this->_propDict['dailyPrintUsageByUser'] = $dailyPrintUsageByUser;
+           return $this->_propDict['dailyPrintUsageByUser'];
         }
         return null;
     }
@@ -239,15 +239,15 @@ class ReportRoot extends Entity
     public function getDailyPrintUsageSummariesByPrinter()
     {
         if (array_key_exists('dailyPrintUsageSummariesByPrinter', $this->_propDict) && !is_null($this->_propDict['dailyPrintUsageSummariesByPrinter'])) {
-            $dailyPrintUsageSummariesByPrinter = [];
-            if (count($this->_propDict['dailyPrintUsageSummariesByPrinter']) > 0 && is_a($this->_propDict['dailyPrintUsageSummariesByPrinter'][0], 'PrintUsageByPrinter')) {
-                return $this->_propDict['dailyPrintUsageSummariesByPrinter'];
-            }
-            foreach ($this->_propDict['dailyPrintUsageSummariesByPrinter'] as $singleValue) {
-                $dailyPrintUsageSummariesByPrinter []= new PrintUsageByPrinter($singleValue);
-            }
-            $this->_propDict['dailyPrintUsageSummariesByPrinter'] = $dailyPrintUsageSummariesByPrinter;
-            return $this->_propDict['dailyPrintUsageSummariesByPrinter'];
+           $dailyPrintUsageSummariesByPrinter = [];
+           if (count($this->_propDict['dailyPrintUsageSummariesByPrinter']) > 0 && is_a($this->_propDict['dailyPrintUsageSummariesByPrinter'][0], 'PrintUsageByPrinter')) {
+              return $this->_propDict['dailyPrintUsageSummariesByPrinter'];
+           }
+           foreach ($this->_propDict['dailyPrintUsageSummariesByPrinter'] as $singleValue) {
+              $dailyPrintUsageSummariesByPrinter []= new PrintUsageByPrinter($singleValue);
+           }
+           $this->_propDict['dailyPrintUsageSummariesByPrinter'] = $dailyPrintUsageSummariesByPrinter;
+           return $this->_propDict['dailyPrintUsageSummariesByPrinter'];
         }
         return null;
     }
@@ -274,15 +274,15 @@ class ReportRoot extends Entity
     public function getDailyPrintUsageSummariesByUser()
     {
         if (array_key_exists('dailyPrintUsageSummariesByUser', $this->_propDict) && !is_null($this->_propDict['dailyPrintUsageSummariesByUser'])) {
-            $dailyPrintUsageSummariesByUser = [];
-            if (count($this->_propDict['dailyPrintUsageSummariesByUser']) > 0 && is_a($this->_propDict['dailyPrintUsageSummariesByUser'][0], 'PrintUsageByUser')) {
-                return $this->_propDict['dailyPrintUsageSummariesByUser'];
-            }
-            foreach ($this->_propDict['dailyPrintUsageSummariesByUser'] as $singleValue) {
-                $dailyPrintUsageSummariesByUser []= new PrintUsageByUser($singleValue);
-            }
-            $this->_propDict['dailyPrintUsageSummariesByUser'] = $dailyPrintUsageSummariesByUser;
-            return $this->_propDict['dailyPrintUsageSummariesByUser'];
+           $dailyPrintUsageSummariesByUser = [];
+           if (count($this->_propDict['dailyPrintUsageSummariesByUser']) > 0 && is_a($this->_propDict['dailyPrintUsageSummariesByUser'][0], 'PrintUsageByUser')) {
+              return $this->_propDict['dailyPrintUsageSummariesByUser'];
+           }
+           foreach ($this->_propDict['dailyPrintUsageSummariesByUser'] as $singleValue) {
+              $dailyPrintUsageSummariesByUser []= new PrintUsageByUser($singleValue);
+           }
+           $this->_propDict['dailyPrintUsageSummariesByUser'] = $dailyPrintUsageSummariesByUser;
+           return $this->_propDict['dailyPrintUsageSummariesByUser'];
         }
         return null;
     }
@@ -309,15 +309,15 @@ class ReportRoot extends Entity
     public function getMonthlyPrintUsageByPrinter()
     {
         if (array_key_exists('monthlyPrintUsageByPrinter', $this->_propDict) && !is_null($this->_propDict['monthlyPrintUsageByPrinter'])) {
-            $monthlyPrintUsageByPrinter = [];
-            if (count($this->_propDict['monthlyPrintUsageByPrinter']) > 0 && is_a($this->_propDict['monthlyPrintUsageByPrinter'][0], 'PrintUsageByPrinter')) {
-                return $this->_propDict['monthlyPrintUsageByPrinter'];
-            }
-            foreach ($this->_propDict['monthlyPrintUsageByPrinter'] as $singleValue) {
-                $monthlyPrintUsageByPrinter []= new PrintUsageByPrinter($singleValue);
-            }
-            $this->_propDict['monthlyPrintUsageByPrinter'] = $monthlyPrintUsageByPrinter;
-            return $this->_propDict['monthlyPrintUsageByPrinter'];
+           $monthlyPrintUsageByPrinter = [];
+           if (count($this->_propDict['monthlyPrintUsageByPrinter']) > 0 && is_a($this->_propDict['monthlyPrintUsageByPrinter'][0], 'PrintUsageByPrinter')) {
+              return $this->_propDict['monthlyPrintUsageByPrinter'];
+           }
+           foreach ($this->_propDict['monthlyPrintUsageByPrinter'] as $singleValue) {
+              $monthlyPrintUsageByPrinter []= new PrintUsageByPrinter($singleValue);
+           }
+           $this->_propDict['monthlyPrintUsageByPrinter'] = $monthlyPrintUsageByPrinter;
+           return $this->_propDict['monthlyPrintUsageByPrinter'];
         }
         return null;
     }
@@ -344,15 +344,15 @@ class ReportRoot extends Entity
     public function getMonthlyPrintUsageByUser()
     {
         if (array_key_exists('monthlyPrintUsageByUser', $this->_propDict) && !is_null($this->_propDict['monthlyPrintUsageByUser'])) {
-            $monthlyPrintUsageByUser = [];
-            if (count($this->_propDict['monthlyPrintUsageByUser']) > 0 && is_a($this->_propDict['monthlyPrintUsageByUser'][0], 'PrintUsageByUser')) {
-                return $this->_propDict['monthlyPrintUsageByUser'];
-            }
-            foreach ($this->_propDict['monthlyPrintUsageByUser'] as $singleValue) {
-                $monthlyPrintUsageByUser []= new PrintUsageByUser($singleValue);
-            }
-            $this->_propDict['monthlyPrintUsageByUser'] = $monthlyPrintUsageByUser;
-            return $this->_propDict['monthlyPrintUsageByUser'];
+           $monthlyPrintUsageByUser = [];
+           if (count($this->_propDict['monthlyPrintUsageByUser']) > 0 && is_a($this->_propDict['monthlyPrintUsageByUser'][0], 'PrintUsageByUser')) {
+              return $this->_propDict['monthlyPrintUsageByUser'];
+           }
+           foreach ($this->_propDict['monthlyPrintUsageByUser'] as $singleValue) {
+              $monthlyPrintUsageByUser []= new PrintUsageByUser($singleValue);
+           }
+           $this->_propDict['monthlyPrintUsageByUser'] = $monthlyPrintUsageByUser;
+           return $this->_propDict['monthlyPrintUsageByUser'];
         }
         return null;
     }
@@ -379,15 +379,15 @@ class ReportRoot extends Entity
     public function getMonthlyPrintUsageSummariesByPrinter()
     {
         if (array_key_exists('monthlyPrintUsageSummariesByPrinter', $this->_propDict) && !is_null($this->_propDict['monthlyPrintUsageSummariesByPrinter'])) {
-            $monthlyPrintUsageSummariesByPrinter = [];
-            if (count($this->_propDict['monthlyPrintUsageSummariesByPrinter']) > 0 && is_a($this->_propDict['monthlyPrintUsageSummariesByPrinter'][0], 'PrintUsageByPrinter')) {
-                return $this->_propDict['monthlyPrintUsageSummariesByPrinter'];
-            }
-            foreach ($this->_propDict['monthlyPrintUsageSummariesByPrinter'] as $singleValue) {
-                $monthlyPrintUsageSummariesByPrinter []= new PrintUsageByPrinter($singleValue);
-            }
-            $this->_propDict['monthlyPrintUsageSummariesByPrinter'] = $monthlyPrintUsageSummariesByPrinter;
-            return $this->_propDict['monthlyPrintUsageSummariesByPrinter'];
+           $monthlyPrintUsageSummariesByPrinter = [];
+           if (count($this->_propDict['monthlyPrintUsageSummariesByPrinter']) > 0 && is_a($this->_propDict['monthlyPrintUsageSummariesByPrinter'][0], 'PrintUsageByPrinter')) {
+              return $this->_propDict['monthlyPrintUsageSummariesByPrinter'];
+           }
+           foreach ($this->_propDict['monthlyPrintUsageSummariesByPrinter'] as $singleValue) {
+              $monthlyPrintUsageSummariesByPrinter []= new PrintUsageByPrinter($singleValue);
+           }
+           $this->_propDict['monthlyPrintUsageSummariesByPrinter'] = $monthlyPrintUsageSummariesByPrinter;
+           return $this->_propDict['monthlyPrintUsageSummariesByPrinter'];
         }
         return null;
     }
@@ -414,15 +414,15 @@ class ReportRoot extends Entity
     public function getMonthlyPrintUsageSummariesByUser()
     {
         if (array_key_exists('monthlyPrintUsageSummariesByUser', $this->_propDict) && !is_null($this->_propDict['monthlyPrintUsageSummariesByUser'])) {
-            $monthlyPrintUsageSummariesByUser = [];
-            if (count($this->_propDict['monthlyPrintUsageSummariesByUser']) > 0 && is_a($this->_propDict['monthlyPrintUsageSummariesByUser'][0], 'PrintUsageByUser')) {
-                return $this->_propDict['monthlyPrintUsageSummariesByUser'];
-            }
-            foreach ($this->_propDict['monthlyPrintUsageSummariesByUser'] as $singleValue) {
-                $monthlyPrintUsageSummariesByUser []= new PrintUsageByUser($singleValue);
-            }
-            $this->_propDict['monthlyPrintUsageSummariesByUser'] = $monthlyPrintUsageSummariesByUser;
-            return $this->_propDict['monthlyPrintUsageSummariesByUser'];
+           $monthlyPrintUsageSummariesByUser = [];
+           if (count($this->_propDict['monthlyPrintUsageSummariesByUser']) > 0 && is_a($this->_propDict['monthlyPrintUsageSummariesByUser'][0], 'PrintUsageByUser')) {
+              return $this->_propDict['monthlyPrintUsageSummariesByUser'];
+           }
+           foreach ($this->_propDict['monthlyPrintUsageSummariesByUser'] as $singleValue) {
+              $monthlyPrintUsageSummariesByUser []= new PrintUsageByUser($singleValue);
+           }
+           $this->_propDict['monthlyPrintUsageSummariesByUser'] = $monthlyPrintUsageSummariesByUser;
+           return $this->_propDict['monthlyPrintUsageSummariesByUser'];
         }
         return null;
     }

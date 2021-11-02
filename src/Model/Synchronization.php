@@ -33,15 +33,15 @@ class Synchronization extends Entity
     public function getSecrets()
     {
         if (array_key_exists('secrets', $this->_propDict) && !is_null($this->_propDict['secrets'])) {
-            $secrets = [];
-            if (count($this->_propDict['secrets']) > 0 && is_a($this->_propDict['secrets'][0], 'SynchronizationSecretKeyStringValuePair')) {
-                return $this->_propDict['secrets'];
-            }
-            foreach ($this->_propDict['secrets'] as $singleValue) {
-                $secrets []= new SynchronizationSecretKeyStringValuePair($singleValue);
-            }
-            $this->_propDict['secrets'] = $secrets;
-            return $this->_propDict['secrets'];
+           $secrets = [];
+           if (count($this->_propDict['secrets']) > 0 && is_a($this->_propDict['secrets'][0], 'SynchronizationSecretKeyStringValuePair')) {
+              return $this->_propDict['secrets'];
+           }
+           foreach ($this->_propDict['secrets'] as $singleValue) {
+              $secrets []= new SynchronizationSecretKeyStringValuePair($singleValue);
+           }
+           $this->_propDict['secrets'] = $secrets;
+           return $this->_propDict['secrets'];
         }
         return null;
     }
@@ -68,15 +68,15 @@ class Synchronization extends Entity
     public function getJobs()
     {
         if (array_key_exists('jobs', $this->_propDict) && !is_null($this->_propDict['jobs'])) {
-            $jobs = [];
-            if (count($this->_propDict['jobs']) > 0 && is_a($this->_propDict['jobs'][0], 'SynchronizationJob')) {
-                return $this->_propDict['jobs'];
-            }
-            foreach ($this->_propDict['jobs'] as $singleValue) {
-                $jobs []= new SynchronizationJob($singleValue);
-            }
-            $this->_propDict['jobs'] = $jobs;
-            return $this->_propDict['jobs'];
+           $jobs = [];
+           if (count($this->_propDict['jobs']) > 0 && is_a($this->_propDict['jobs'][0], 'SynchronizationJob')) {
+              return $this->_propDict['jobs'];
+           }
+           foreach ($this->_propDict['jobs'] as $singleValue) {
+              $jobs []= new SynchronizationJob($singleValue);
+           }
+           $this->_propDict['jobs'] = $jobs;
+           return $this->_propDict['jobs'];
         }
         return null;
     }
@@ -103,15 +103,15 @@ class Synchronization extends Entity
     public function getTemplates()
     {
         if (array_key_exists('templates', $this->_propDict) && !is_null($this->_propDict['templates'])) {
-            $templates = [];
-            if (count($this->_propDict['templates']) > 0 && is_a($this->_propDict['templates'][0], 'SynchronizationTemplate')) {
-                return $this->_propDict['templates'];
-            }
-            foreach ($this->_propDict['templates'] as $singleValue) {
-                $templates []= new SynchronizationTemplate($singleValue);
-            }
-            $this->_propDict['templates'] = $templates;
-            return $this->_propDict['templates'];
+           $templates = [];
+           if (count($this->_propDict['templates']) > 0 && is_a($this->_propDict['templates'][0], 'SynchronizationTemplate')) {
+              return $this->_propDict['templates'];
+           }
+           foreach ($this->_propDict['templates'] as $singleValue) {
+              $templates []= new SynchronizationTemplate($singleValue);
+           }
+           $this->_propDict['templates'] = $templates;
+           return $this->_propDict['templates'];
         }
         return null;
     }

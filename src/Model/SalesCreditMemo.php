@@ -918,15 +918,15 @@ class SalesCreditMemo extends Entity
     public function getSalesCreditMemoLines()
     {
         if (array_key_exists('salesCreditMemoLines', $this->_propDict) && !is_null($this->_propDict['salesCreditMemoLines'])) {
-            $salesCreditMemoLines = [];
-            if (count($this->_propDict['salesCreditMemoLines']) > 0 && is_a($this->_propDict['salesCreditMemoLines'][0], 'SalesCreditMemoLine')) {
-                return $this->_propDict['salesCreditMemoLines'];
-            }
-            foreach ($this->_propDict['salesCreditMemoLines'] as $singleValue) {
-                $salesCreditMemoLines []= new SalesCreditMemoLine($singleValue);
-            }
-            $this->_propDict['salesCreditMemoLines'] = $salesCreditMemoLines;
-            return $this->_propDict['salesCreditMemoLines'];
+           $salesCreditMemoLines = [];
+           if (count($this->_propDict['salesCreditMemoLines']) > 0 && is_a($this->_propDict['salesCreditMemoLines'][0], 'SalesCreditMemoLine')) {
+              return $this->_propDict['salesCreditMemoLines'];
+           }
+           foreach ($this->_propDict['salesCreditMemoLines'] as $singleValue) {
+              $salesCreditMemoLines []= new SalesCreditMemoLine($singleValue);
+           }
+           $this->_propDict['salesCreditMemoLines'] = $salesCreditMemoLines;
+           return $this->_propDict['salesCreditMemoLines'];
         }
         return null;
     }

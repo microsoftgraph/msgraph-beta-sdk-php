@@ -67,15 +67,15 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     public function getDependedOnBy()
     {
         if (array_key_exists('dependedOnBy', $this->_propDict) && !is_null($this->_propDict['dependedOnBy'])) {
-            $dependedOnBy = [];
-            if (count($this->_propDict['dependedOnBy']) > 0 && is_a($this->_propDict['dependedOnBy'][0], 'DeviceManagementConfigurationSettingDependedOnBy')) {
-                return $this->_propDict['dependedOnBy'];
-            }
-            foreach ($this->_propDict['dependedOnBy'] as $singleValue) {
-                $dependedOnBy []= new DeviceManagementConfigurationSettingDependedOnBy($singleValue);
-            }
-            $this->_propDict['dependedOnBy'] = $dependedOnBy;
-            return $this->_propDict['dependedOnBy'];
+           $dependedOnBy = [];
+           if (count($this->_propDict['dependedOnBy']) > 0 && is_a($this->_propDict['dependedOnBy'][0], 'DeviceManagementConfigurationSettingDependedOnBy')) {
+              return $this->_propDict['dependedOnBy'];
+           }
+           foreach ($this->_propDict['dependedOnBy'] as $singleValue) {
+              $dependedOnBy []= new DeviceManagementConfigurationSettingDependedOnBy($singleValue);
+           }
+           $this->_propDict['dependedOnBy'] = $dependedOnBy;
+           return $this->_propDict['dependedOnBy'];
         }
         return null;
     }
@@ -104,15 +104,15 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     public function getDependentOn()
     {
         if (array_key_exists('dependentOn', $this->_propDict) && !is_null($this->_propDict['dependentOn'])) {
-            $dependentOn = [];
-            if (count($this->_propDict['dependentOn']) > 0 && is_a($this->_propDict['dependentOn'][0], 'DeviceManagementConfigurationDependentOn')) {
-                return $this->_propDict['dependentOn'];
-            }
-            foreach ($this->_propDict['dependentOn'] as $singleValue) {
-                $dependentOn []= new DeviceManagementConfigurationDependentOn($singleValue);
-            }
-            $this->_propDict['dependentOn'] = $dependentOn;
-            return $this->_propDict['dependentOn'];
+           $dependentOn = [];
+           if (count($this->_propDict['dependentOn']) > 0 && is_a($this->_propDict['dependentOn'][0], 'DeviceManagementConfigurationDependentOn')) {
+              return $this->_propDict['dependentOn'];
+           }
+           foreach ($this->_propDict['dependentOn'] as $singleValue) {
+              $dependentOn []= new DeviceManagementConfigurationDependentOn($singleValue);
+           }
+           $this->_propDict['dependentOn'] = $dependentOn;
+           return $this->_propDict['dependentOn'];
         }
         return null;
     }

@@ -179,15 +179,15 @@ class WorkbookRangeFormat extends Entity
     public function getBorders()
     {
         if (array_key_exists('borders', $this->_propDict) && !is_null($this->_propDict['borders'])) {
-            $borders = [];
-            if (count($this->_propDict['borders']) > 0 && is_a($this->_propDict['borders'][0], 'WorkbookRangeBorder')) {
-                return $this->_propDict['borders'];
-            }
-            foreach ($this->_propDict['borders'] as $singleValue) {
-                $borders []= new WorkbookRangeBorder($singleValue);
-            }
-            $this->_propDict['borders'] = $borders;
-            return $this->_propDict['borders'];
+           $borders = [];
+           if (count($this->_propDict['borders']) > 0 && is_a($this->_propDict['borders'][0], 'WorkbookRangeBorder')) {
+              return $this->_propDict['borders'];
+           }
+           foreach ($this->_propDict['borders'] as $singleValue) {
+              $borders []= new WorkbookRangeBorder($singleValue);
+           }
+           $this->_propDict['borders'] = $borders;
+           return $this->_propDict['borders'];
         }
         return null;
     }

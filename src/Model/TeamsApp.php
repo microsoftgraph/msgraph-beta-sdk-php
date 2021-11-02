@@ -125,15 +125,15 @@ class TeamsApp extends Entity
     public function getAppDefinitions()
     {
         if (array_key_exists('appDefinitions', $this->_propDict) && !is_null($this->_propDict['appDefinitions'])) {
-            $appDefinitions = [];
-            if (count($this->_propDict['appDefinitions']) > 0 && is_a($this->_propDict['appDefinitions'][0], 'TeamsAppDefinition')) {
-                return $this->_propDict['appDefinitions'];
-            }
-            foreach ($this->_propDict['appDefinitions'] as $singleValue) {
-                $appDefinitions []= new TeamsAppDefinition($singleValue);
-            }
-            $this->_propDict['appDefinitions'] = $appDefinitions;
-            return $this->_propDict['appDefinitions'];
+           $appDefinitions = [];
+           if (count($this->_propDict['appDefinitions']) > 0 && is_a($this->_propDict['appDefinitions'][0], 'TeamsAppDefinition')) {
+              return $this->_propDict['appDefinitions'];
+           }
+           foreach ($this->_propDict['appDefinitions'] as $singleValue) {
+              $appDefinitions []= new TeamsAppDefinition($singleValue);
+           }
+           $this->_propDict['appDefinitions'] = $appDefinitions;
+           return $this->_propDict['appDefinitions'];
         }
         return null;
     }

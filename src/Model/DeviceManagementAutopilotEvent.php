@@ -848,15 +848,15 @@ class DeviceManagementAutopilotEvent extends Entity
     public function getPolicyStatusDetails()
     {
         if (array_key_exists('policyStatusDetails', $this->_propDict) && !is_null($this->_propDict['policyStatusDetails'])) {
-            $policyStatusDetails = [];
-            if (count($this->_propDict['policyStatusDetails']) > 0 && is_a($this->_propDict['policyStatusDetails'][0], 'DeviceManagementAutopilotPolicyStatusDetail')) {
-                return $this->_propDict['policyStatusDetails'];
-            }
-            foreach ($this->_propDict['policyStatusDetails'] as $singleValue) {
-                $policyStatusDetails []= new DeviceManagementAutopilotPolicyStatusDetail($singleValue);
-            }
-            $this->_propDict['policyStatusDetails'] = $policyStatusDetails;
-            return $this->_propDict['policyStatusDetails'];
+           $policyStatusDetails = [];
+           if (count($this->_propDict['policyStatusDetails']) > 0 && is_a($this->_propDict['policyStatusDetails'][0], 'DeviceManagementAutopilotPolicyStatusDetail')) {
+              return $this->_propDict['policyStatusDetails'];
+           }
+           foreach ($this->_propDict['policyStatusDetails'] as $singleValue) {
+              $policyStatusDetails []= new DeviceManagementAutopilotPolicyStatusDetail($singleValue);
+           }
+           $this->_propDict['policyStatusDetails'] = $policyStatusDetails;
+           return $this->_propDict['policyStatusDetails'];
         }
         return null;
     }

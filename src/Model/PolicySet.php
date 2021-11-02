@@ -282,15 +282,15 @@ class PolicySet extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'PolicySetAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new PolicySetAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'PolicySetAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new PolicySetAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }
@@ -319,15 +319,15 @@ class PolicySet extends Entity
     public function getItems()
     {
         if (array_key_exists('items', $this->_propDict) && !is_null($this->_propDict['items'])) {
-            $items = [];
-            if (count($this->_propDict['items']) > 0 && is_a($this->_propDict['items'][0], 'PolicySetItem')) {
-                return $this->_propDict['items'];
-            }
-            foreach ($this->_propDict['items'] as $singleValue) {
-                $items []= new PolicySetItem($singleValue);
-            }
-            $this->_propDict['items'] = $items;
-            return $this->_propDict['items'];
+           $items = [];
+           if (count($this->_propDict['items']) > 0 && is_a($this->_propDict['items'][0], 'PolicySetItem')) {
+              return $this->_propDict['items'];
+           }
+           foreach ($this->_propDict['items'] as $singleValue) {
+              $items []= new PolicySetItem($singleValue);
+           }
+           $this->_propDict['items'] = $items;
+           return $this->_propDict['items'];
         }
         return null;
     }

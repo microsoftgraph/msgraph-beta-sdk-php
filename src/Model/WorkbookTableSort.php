@@ -34,15 +34,15 @@ class WorkbookTableSort extends Entity
     public function getFields()
     {
         if (array_key_exists('fields', $this->_propDict) && !is_null($this->_propDict['fields'])) {
-            $fields = [];
-            if (count($this->_propDict['fields']) > 0 && is_a($this->_propDict['fields'][0], 'WorkbookSortField')) {
-                return $this->_propDict['fields'];
-            }
-            foreach ($this->_propDict['fields'] as $singleValue) {
-                $fields []= new WorkbookSortField($singleValue);
-            }
-            $this->_propDict['fields'] = $fields;
-            return $this->_propDict['fields'];
+           $fields = [];
+           if (count($this->_propDict['fields']) > 0 && is_a($this->_propDict['fields'][0], 'WorkbookSortField')) {
+              return $this->_propDict['fields'];
+           }
+           foreach ($this->_propDict['fields'] as $singleValue) {
+              $fields []= new WorkbookSortField($singleValue);
+           }
+           $this->_propDict['fields'] = $fields;
+           return $this->_propDict['fields'];
         }
         return null;
     }

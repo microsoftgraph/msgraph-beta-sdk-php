@@ -121,15 +121,15 @@ class WorkbookWorksheet extends Entity
     public function getCharts()
     {
         if (array_key_exists('charts', $this->_propDict) && !is_null($this->_propDict['charts'])) {
-            $charts = [];
-            if (count($this->_propDict['charts']) > 0 && is_a($this->_propDict['charts'][0], 'WorkbookChart')) {
-                return $this->_propDict['charts'];
-            }
-            foreach ($this->_propDict['charts'] as $singleValue) {
-                $charts []= new WorkbookChart($singleValue);
-            }
-            $this->_propDict['charts'] = $charts;
-            return $this->_propDict['charts'];
+           $charts = [];
+           if (count($this->_propDict['charts']) > 0 && is_a($this->_propDict['charts'][0], 'WorkbookChart')) {
+              return $this->_propDict['charts'];
+           }
+           foreach ($this->_propDict['charts'] as $singleValue) {
+              $charts []= new WorkbookChart($singleValue);
+           }
+           $this->_propDict['charts'] = $charts;
+           return $this->_propDict['charts'];
         }
         return null;
     }
@@ -158,15 +158,15 @@ class WorkbookWorksheet extends Entity
     public function getNames()
     {
         if (array_key_exists('names', $this->_propDict) && !is_null($this->_propDict['names'])) {
-            $names = [];
-            if (count($this->_propDict['names']) > 0 && is_a($this->_propDict['names'][0], 'WorkbookNamedItem')) {
-                return $this->_propDict['names'];
-            }
-            foreach ($this->_propDict['names'] as $singleValue) {
-                $names []= new WorkbookNamedItem($singleValue);
-            }
-            $this->_propDict['names'] = $names;
-            return $this->_propDict['names'];
+           $names = [];
+           if (count($this->_propDict['names']) > 0 && is_a($this->_propDict['names'][0], 'WorkbookNamedItem')) {
+              return $this->_propDict['names'];
+           }
+           foreach ($this->_propDict['names'] as $singleValue) {
+              $names []= new WorkbookNamedItem($singleValue);
+           }
+           $this->_propDict['names'] = $names;
+           return $this->_propDict['names'];
         }
         return null;
     }
@@ -195,15 +195,15 @@ class WorkbookWorksheet extends Entity
     public function getPivotTables()
     {
         if (array_key_exists('pivotTables', $this->_propDict) && !is_null($this->_propDict['pivotTables'])) {
-            $pivotTables = [];
-            if (count($this->_propDict['pivotTables']) > 0 && is_a($this->_propDict['pivotTables'][0], 'WorkbookPivotTable')) {
-                return $this->_propDict['pivotTables'];
-            }
-            foreach ($this->_propDict['pivotTables'] as $singleValue) {
-                $pivotTables []= new WorkbookPivotTable($singleValue);
-            }
-            $this->_propDict['pivotTables'] = $pivotTables;
-            return $this->_propDict['pivotTables'];
+           $pivotTables = [];
+           if (count($this->_propDict['pivotTables']) > 0 && is_a($this->_propDict['pivotTables'][0], 'WorkbookPivotTable')) {
+              return $this->_propDict['pivotTables'];
+           }
+           foreach ($this->_propDict['pivotTables'] as $singleValue) {
+              $pivotTables []= new WorkbookPivotTable($singleValue);
+           }
+           $this->_propDict['pivotTables'] = $pivotTables;
+           return $this->_propDict['pivotTables'];
         }
         return null;
     }
@@ -265,15 +265,15 @@ class WorkbookWorksheet extends Entity
     public function getTables()
     {
         if (array_key_exists('tables', $this->_propDict) && !is_null($this->_propDict['tables'])) {
-            $tables = [];
-            if (count($this->_propDict['tables']) > 0 && is_a($this->_propDict['tables'][0], 'WorkbookTable')) {
-                return $this->_propDict['tables'];
-            }
-            foreach ($this->_propDict['tables'] as $singleValue) {
-                $tables []= new WorkbookTable($singleValue);
-            }
-            $this->_propDict['tables'] = $tables;
-            return $this->_propDict['tables'];
+           $tables = [];
+           if (count($this->_propDict['tables']) > 0 && is_a($this->_propDict['tables'][0], 'WorkbookTable')) {
+              return $this->_propDict['tables'];
+           }
+           foreach ($this->_propDict['tables'] as $singleValue) {
+              $tables []= new WorkbookTable($singleValue);
+           }
+           $this->_propDict['tables'] = $tables;
+           return $this->_propDict['tables'];
         }
         return null;
     }

@@ -67,15 +67,15 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
     public function getCustomSubjectAlternativeNames()
     {
         if (array_key_exists('customSubjectAlternativeNames', $this->_propDict) && !is_null($this->_propDict['customSubjectAlternativeNames'])) {
-            $customSubjectAlternativeNames = [];
-            if (count($this->_propDict['customSubjectAlternativeNames']) > 0 && is_a($this->_propDict['customSubjectAlternativeNames'][0], 'CustomSubjectAlternativeName')) {
-                return $this->_propDict['customSubjectAlternativeNames'];
-            }
-            foreach ($this->_propDict['customSubjectAlternativeNames'] as $singleValue) {
-                $customSubjectAlternativeNames []= new CustomSubjectAlternativeName($singleValue);
-            }
-            $this->_propDict['customSubjectAlternativeNames'] = $customSubjectAlternativeNames;
-            return $this->_propDict['customSubjectAlternativeNames'];
+           $customSubjectAlternativeNames = [];
+           if (count($this->_propDict['customSubjectAlternativeNames']) > 0 && is_a($this->_propDict['customSubjectAlternativeNames'][0], 'CustomSubjectAlternativeName')) {
+              return $this->_propDict['customSubjectAlternativeNames'];
+           }
+           foreach ($this->_propDict['customSubjectAlternativeNames'] as $singleValue) {
+              $customSubjectAlternativeNames []= new CustomSubjectAlternativeName($singleValue);
+           }
+           $this->_propDict['customSubjectAlternativeNames'] = $customSubjectAlternativeNames;
+           return $this->_propDict['customSubjectAlternativeNames'];
         }
         return null;
     }
@@ -104,15 +104,15 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
     public function getExtendedKeyUsages()
     {
         if (array_key_exists('extendedKeyUsages', $this->_propDict) && !is_null($this->_propDict['extendedKeyUsages'])) {
-            $extendedKeyUsages = [];
-            if (count($this->_propDict['extendedKeyUsages']) > 0 && is_a($this->_propDict['extendedKeyUsages'][0], 'ExtendedKeyUsage')) {
-                return $this->_propDict['extendedKeyUsages'];
-            }
-            foreach ($this->_propDict['extendedKeyUsages'] as $singleValue) {
-                $extendedKeyUsages []= new ExtendedKeyUsage($singleValue);
-            }
-            $this->_propDict['extendedKeyUsages'] = $extendedKeyUsages;
-            return $this->_propDict['extendedKeyUsages'];
+           $extendedKeyUsages = [];
+           if (count($this->_propDict['extendedKeyUsages']) > 0 && is_a($this->_propDict['extendedKeyUsages'][0], 'ExtendedKeyUsage')) {
+              return $this->_propDict['extendedKeyUsages'];
+           }
+           foreach ($this->_propDict['extendedKeyUsages'] as $singleValue) {
+              $extendedKeyUsages []= new ExtendedKeyUsage($singleValue);
+           }
+           $this->_propDict['extendedKeyUsages'] = $extendedKeyUsages;
+           return $this->_propDict['extendedKeyUsages'];
         }
         return null;
     }
@@ -294,15 +294,15 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
     public function getManagedDeviceCertificateStates()
     {
         if (array_key_exists('managedDeviceCertificateStates', $this->_propDict) && !is_null($this->_propDict['managedDeviceCertificateStates'])) {
-            $managedDeviceCertificateStates = [];
-            if (count($this->_propDict['managedDeviceCertificateStates']) > 0 && is_a($this->_propDict['managedDeviceCertificateStates'][0], 'ManagedDeviceCertificateState')) {
-                return $this->_propDict['managedDeviceCertificateStates'];
-            }
-            foreach ($this->_propDict['managedDeviceCertificateStates'] as $singleValue) {
-                $managedDeviceCertificateStates []= new ManagedDeviceCertificateState($singleValue);
-            }
-            $this->_propDict['managedDeviceCertificateStates'] = $managedDeviceCertificateStates;
-            return $this->_propDict['managedDeviceCertificateStates'];
+           $managedDeviceCertificateStates = [];
+           if (count($this->_propDict['managedDeviceCertificateStates']) > 0 && is_a($this->_propDict['managedDeviceCertificateStates'][0], 'ManagedDeviceCertificateState')) {
+              return $this->_propDict['managedDeviceCertificateStates'];
+           }
+           foreach ($this->_propDict['managedDeviceCertificateStates'] as $singleValue) {
+              $managedDeviceCertificateStates []= new ManagedDeviceCertificateState($singleValue);
+           }
+           $this->_propDict['managedDeviceCertificateStates'] = $managedDeviceCertificateStates;
+           return $this->_propDict['managedDeviceCertificateStates'];
         }
         return null;
     }

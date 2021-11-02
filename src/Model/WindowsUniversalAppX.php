@@ -278,15 +278,15 @@ class WindowsUniversalAppX extends MobileLobApp
     public function getCommittedContainedApps()
     {
         if (array_key_exists('committedContainedApps', $this->_propDict) && !is_null($this->_propDict['committedContainedApps'])) {
-            $committedContainedApps = [];
-            if (count($this->_propDict['committedContainedApps']) > 0 && is_a($this->_propDict['committedContainedApps'][0], 'MobileContainedApp')) {
-                return $this->_propDict['committedContainedApps'];
-            }
-            foreach ($this->_propDict['committedContainedApps'] as $singleValue) {
-                $committedContainedApps []= new MobileContainedApp($singleValue);
-            }
-            $this->_propDict['committedContainedApps'] = $committedContainedApps;
-            return $this->_propDict['committedContainedApps'];
+           $committedContainedApps = [];
+           if (count($this->_propDict['committedContainedApps']) > 0 && is_a($this->_propDict['committedContainedApps'][0], 'MobileContainedApp')) {
+              return $this->_propDict['committedContainedApps'];
+           }
+           foreach ($this->_propDict['committedContainedApps'] as $singleValue) {
+              $committedContainedApps []= new MobileContainedApp($singleValue);
+           }
+           $this->_propDict['committedContainedApps'] = $committedContainedApps;
+           return $this->_propDict['committedContainedApps'];
         }
         return null;
     }

@@ -92,15 +92,15 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
     public function getKernelExtensionsAllowed()
     {
         if (array_key_exists('kernelExtensionsAllowed', $this->_propDict) && !is_null($this->_propDict['kernelExtensionsAllowed'])) {
-            $kernelExtensionsAllowed = [];
-            if (count($this->_propDict['kernelExtensionsAllowed']) > 0 && is_a($this->_propDict['kernelExtensionsAllowed'][0], 'MacOSKernelExtension')) {
-                return $this->_propDict['kernelExtensionsAllowed'];
-            }
-            foreach ($this->_propDict['kernelExtensionsAllowed'] as $singleValue) {
-                $kernelExtensionsAllowed []= new MacOSKernelExtension($singleValue);
-            }
-            $this->_propDict['kernelExtensionsAllowed'] = $kernelExtensionsAllowed;
-            return $this->_propDict['kernelExtensionsAllowed'];
+           $kernelExtensionsAllowed = [];
+           if (count($this->_propDict['kernelExtensionsAllowed']) > 0 && is_a($this->_propDict['kernelExtensionsAllowed'][0], 'MacOSKernelExtension')) {
+              return $this->_propDict['kernelExtensionsAllowed'];
+           }
+           foreach ($this->_propDict['kernelExtensionsAllowed'] as $singleValue) {
+              $kernelExtensionsAllowed []= new MacOSKernelExtension($singleValue);
+           }
+           $this->_propDict['kernelExtensionsAllowed'] = $kernelExtensionsAllowed;
+           return $this->_propDict['kernelExtensionsAllowed'];
         }
         return null;
     }
@@ -129,15 +129,15 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
     public function getSystemExtensionsAllowed()
     {
         if (array_key_exists('systemExtensionsAllowed', $this->_propDict) && !is_null($this->_propDict['systemExtensionsAllowed'])) {
-            $systemExtensionsAllowed = [];
-            if (count($this->_propDict['systemExtensionsAllowed']) > 0 && is_a($this->_propDict['systemExtensionsAllowed'][0], 'MacOSSystemExtension')) {
-                return $this->_propDict['systemExtensionsAllowed'];
-            }
-            foreach ($this->_propDict['systemExtensionsAllowed'] as $singleValue) {
-                $systemExtensionsAllowed []= new MacOSSystemExtension($singleValue);
-            }
-            $this->_propDict['systemExtensionsAllowed'] = $systemExtensionsAllowed;
-            return $this->_propDict['systemExtensionsAllowed'];
+           $systemExtensionsAllowed = [];
+           if (count($this->_propDict['systemExtensionsAllowed']) > 0 && is_a($this->_propDict['systemExtensionsAllowed'][0], 'MacOSSystemExtension')) {
+              return $this->_propDict['systemExtensionsAllowed'];
+           }
+           foreach ($this->_propDict['systemExtensionsAllowed'] as $singleValue) {
+              $systemExtensionsAllowed []= new MacOSSystemExtension($singleValue);
+           }
+           $this->_propDict['systemExtensionsAllowed'] = $systemExtensionsAllowed;
+           return $this->_propDict['systemExtensionsAllowed'];
         }
         return null;
     }
@@ -195,15 +195,15 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
     public function getSystemExtensionsAllowedTypes()
     {
         if (array_key_exists('systemExtensionsAllowedTypes', $this->_propDict) && !is_null($this->_propDict['systemExtensionsAllowedTypes'])) {
-            $systemExtensionsAllowedTypes = [];
-            if (count($this->_propDict['systemExtensionsAllowedTypes']) > 0 && is_a($this->_propDict['systemExtensionsAllowedTypes'][0], 'MacOSSystemExtensionTypeMapping')) {
-                return $this->_propDict['systemExtensionsAllowedTypes'];
-            }
-            foreach ($this->_propDict['systemExtensionsAllowedTypes'] as $singleValue) {
-                $systemExtensionsAllowedTypes []= new MacOSSystemExtensionTypeMapping($singleValue);
-            }
-            $this->_propDict['systemExtensionsAllowedTypes'] = $systemExtensionsAllowedTypes;
-            return $this->_propDict['systemExtensionsAllowedTypes'];
+           $systemExtensionsAllowedTypes = [];
+           if (count($this->_propDict['systemExtensionsAllowedTypes']) > 0 && is_a($this->_propDict['systemExtensionsAllowedTypes'][0], 'MacOSSystemExtensionTypeMapping')) {
+              return $this->_propDict['systemExtensionsAllowedTypes'];
+           }
+           foreach ($this->_propDict['systemExtensionsAllowedTypes'] as $singleValue) {
+              $systemExtensionsAllowedTypes []= new MacOSSystemExtensionTypeMapping($singleValue);
+           }
+           $this->_propDict['systemExtensionsAllowedTypes'] = $systemExtensionsAllowedTypes;
+           return $this->_propDict['systemExtensionsAllowedTypes'];
         }
         return null;
     }

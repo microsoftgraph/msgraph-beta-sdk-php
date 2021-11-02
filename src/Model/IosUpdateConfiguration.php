@@ -100,15 +100,15 @@ class IosUpdateConfiguration extends DeviceConfiguration
     public function getCustomUpdateTimeWindows()
     {
         if (array_key_exists('customUpdateTimeWindows', $this->_propDict) && !is_null($this->_propDict['customUpdateTimeWindows'])) {
-            $customUpdateTimeWindows = [];
-            if (count($this->_propDict['customUpdateTimeWindows']) > 0 && is_a($this->_propDict['customUpdateTimeWindows'][0], 'CustomUpdateTimeWindow')) {
-                return $this->_propDict['customUpdateTimeWindows'];
-            }
-            foreach ($this->_propDict['customUpdateTimeWindows'] as $singleValue) {
-                $customUpdateTimeWindows []= new CustomUpdateTimeWindow($singleValue);
-            }
-            $this->_propDict['customUpdateTimeWindows'] = $customUpdateTimeWindows;
-            return $this->_propDict['customUpdateTimeWindows'];
+           $customUpdateTimeWindows = [];
+           if (count($this->_propDict['customUpdateTimeWindows']) > 0 && is_a($this->_propDict['customUpdateTimeWindows'][0], 'CustomUpdateTimeWindow')) {
+              return $this->_propDict['customUpdateTimeWindows'];
+           }
+           foreach ($this->_propDict['customUpdateTimeWindows'] as $singleValue) {
+              $customUpdateTimeWindows []= new CustomUpdateTimeWindow($singleValue);
+           }
+           $this->_propDict['customUpdateTimeWindows'] = $customUpdateTimeWindows;
+           return $this->_propDict['customUpdateTimeWindows'];
         }
         return null;
     }
@@ -224,15 +224,15 @@ class IosUpdateConfiguration extends DeviceConfiguration
     public function getScheduledInstallDays()
     {
         if (array_key_exists('scheduledInstallDays', $this->_propDict) && !is_null($this->_propDict['scheduledInstallDays'])) {
-            $scheduledInstallDays = [];
-            if (count($this->_propDict['scheduledInstallDays']) > 0 && is_a($this->_propDict['scheduledInstallDays'][0], 'DayOfWeek')) {
-                return $this->_propDict['scheduledInstallDays'];
-            }
-            foreach ($this->_propDict['scheduledInstallDays'] as $singleValue) {
-                $scheduledInstallDays []= new DayOfWeek($singleValue);
-            }
-            $this->_propDict['scheduledInstallDays'] = $scheduledInstallDays;
-            return $this->_propDict['scheduledInstallDays'];
+           $scheduledInstallDays = [];
+           if (count($this->_propDict['scheduledInstallDays']) > 0 && is_a($this->_propDict['scheduledInstallDays'][0], 'DayOfWeek')) {
+              return $this->_propDict['scheduledInstallDays'];
+           }
+           foreach ($this->_propDict['scheduledInstallDays'] as $singleValue) {
+              $scheduledInstallDays []= new DayOfWeek($singleValue);
+           }
+           $this->_propDict['scheduledInstallDays'] = $scheduledInstallDays;
+           return $this->_propDict['scheduledInstallDays'];
         }
         return null;
     }

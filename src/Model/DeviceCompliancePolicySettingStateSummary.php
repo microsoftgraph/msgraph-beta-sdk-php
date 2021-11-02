@@ -328,15 +328,15 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
     public function getDeviceComplianceSettingStates()
     {
         if (array_key_exists('deviceComplianceSettingStates', $this->_propDict) && !is_null($this->_propDict['deviceComplianceSettingStates'])) {
-            $deviceComplianceSettingStates = [];
-            if (count($this->_propDict['deviceComplianceSettingStates']) > 0 && is_a($this->_propDict['deviceComplianceSettingStates'][0], 'DeviceComplianceSettingState')) {
-                return $this->_propDict['deviceComplianceSettingStates'];
-            }
-            foreach ($this->_propDict['deviceComplianceSettingStates'] as $singleValue) {
-                $deviceComplianceSettingStates []= new DeviceComplianceSettingState($singleValue);
-            }
-            $this->_propDict['deviceComplianceSettingStates'] = $deviceComplianceSettingStates;
-            return $this->_propDict['deviceComplianceSettingStates'];
+           $deviceComplianceSettingStates = [];
+           if (count($this->_propDict['deviceComplianceSettingStates']) > 0 && is_a($this->_propDict['deviceComplianceSettingStates'][0], 'DeviceComplianceSettingState')) {
+              return $this->_propDict['deviceComplianceSettingStates'];
+           }
+           foreach ($this->_propDict['deviceComplianceSettingStates'] as $singleValue) {
+              $deviceComplianceSettingStates []= new DeviceComplianceSettingState($singleValue);
+           }
+           $this->_propDict['deviceComplianceSettingStates'] = $deviceComplianceSettingStates;
+           return $this->_propDict['deviceComplianceSettingStates'];
         }
         return null;
     }

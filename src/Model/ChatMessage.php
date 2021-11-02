@@ -34,15 +34,15 @@ class ChatMessage extends Entity
     public function getAttachments()
     {
         if (array_key_exists('attachments', $this->_propDict) && !is_null($this->_propDict['attachments'])) {
-            $attachments = [];
-            if (count($this->_propDict['attachments']) > 0 && is_a($this->_propDict['attachments'][0], 'ChatMessageAttachment')) {
-                return $this->_propDict['attachments'];
-            }
-            foreach ($this->_propDict['attachments'] as $singleValue) {
-                $attachments []= new ChatMessageAttachment($singleValue);
-            }
-            $this->_propDict['attachments'] = $attachments;
-            return $this->_propDict['attachments'];
+           $attachments = [];
+           if (count($this->_propDict['attachments']) > 0 && is_a($this->_propDict['attachments'][0], 'ChatMessageAttachment')) {
+              return $this->_propDict['attachments'];
+           }
+           foreach ($this->_propDict['attachments'] as $singleValue) {
+              $attachments []= new ChatMessageAttachment($singleValue);
+           }
+           $this->_propDict['attachments'] = $attachments;
+           return $this->_propDict['attachments'];
         }
         return null;
     }
@@ -455,15 +455,15 @@ class ChatMessage extends Entity
     public function getMentions()
     {
         if (array_key_exists('mentions', $this->_propDict) && !is_null($this->_propDict['mentions'])) {
-            $mentions = [];
-            if (count($this->_propDict['mentions']) > 0 && is_a($this->_propDict['mentions'][0], 'ChatMessageMention')) {
-                return $this->_propDict['mentions'];
-            }
-            foreach ($this->_propDict['mentions'] as $singleValue) {
-                $mentions []= new ChatMessageMention($singleValue);
-            }
-            $this->_propDict['mentions'] = $mentions;
-            return $this->_propDict['mentions'];
+           $mentions = [];
+           if (count($this->_propDict['mentions']) > 0 && is_a($this->_propDict['mentions'][0], 'ChatMessageMention')) {
+              return $this->_propDict['mentions'];
+           }
+           foreach ($this->_propDict['mentions'] as $singleValue) {
+              $mentions []= new ChatMessageMention($singleValue);
+           }
+           $this->_propDict['mentions'] = $mentions;
+           return $this->_propDict['mentions'];
         }
         return null;
     }
@@ -558,15 +558,15 @@ class ChatMessage extends Entity
     public function getReactions()
     {
         if (array_key_exists('reactions', $this->_propDict) && !is_null($this->_propDict['reactions'])) {
-            $reactions = [];
-            if (count($this->_propDict['reactions']) > 0 && is_a($this->_propDict['reactions'][0], 'ChatMessageReaction')) {
-                return $this->_propDict['reactions'];
-            }
-            foreach ($this->_propDict['reactions'] as $singleValue) {
-                $reactions []= new ChatMessageReaction($singleValue);
-            }
-            $this->_propDict['reactions'] = $reactions;
-            return $this->_propDict['reactions'];
+           $reactions = [];
+           if (count($this->_propDict['reactions']) > 0 && is_a($this->_propDict['reactions'][0], 'ChatMessageReaction')) {
+              return $this->_propDict['reactions'];
+           }
+           foreach ($this->_propDict['reactions'] as $singleValue) {
+              $reactions []= new ChatMessageReaction($singleValue);
+           }
+           $this->_propDict['reactions'] = $reactions;
+           return $this->_propDict['reactions'];
         }
         return null;
     }
@@ -711,15 +711,15 @@ class ChatMessage extends Entity
     public function getHostedContents()
     {
         if (array_key_exists('hostedContents', $this->_propDict) && !is_null($this->_propDict['hostedContents'])) {
-            $hostedContents = [];
-            if (count($this->_propDict['hostedContents']) > 0 && is_a($this->_propDict['hostedContents'][0], 'ChatMessageHostedContent')) {
-                return $this->_propDict['hostedContents'];
-            }
-            foreach ($this->_propDict['hostedContents'] as $singleValue) {
-                $hostedContents []= new ChatMessageHostedContent($singleValue);
-            }
-            $this->_propDict['hostedContents'] = $hostedContents;
-            return $this->_propDict['hostedContents'];
+           $hostedContents = [];
+           if (count($this->_propDict['hostedContents']) > 0 && is_a($this->_propDict['hostedContents'][0], 'ChatMessageHostedContent')) {
+              return $this->_propDict['hostedContents'];
+           }
+           foreach ($this->_propDict['hostedContents'] as $singleValue) {
+              $hostedContents []= new ChatMessageHostedContent($singleValue);
+           }
+           $this->_propDict['hostedContents'] = $hostedContents;
+           return $this->_propDict['hostedContents'];
         }
         return null;
     }
@@ -748,15 +748,15 @@ class ChatMessage extends Entity
     public function getReplies()
     {
         if (array_key_exists('replies', $this->_propDict) && !is_null($this->_propDict['replies'])) {
-            $replies = [];
-            if (count($this->_propDict['replies']) > 0 && is_a($this->_propDict['replies'][0], 'ChatMessage')) {
-                return $this->_propDict['replies'];
-            }
-            foreach ($this->_propDict['replies'] as $singleValue) {
-                $replies []= new ChatMessage($singleValue);
-            }
-            $this->_propDict['replies'] = $replies;
-            return $this->_propDict['replies'];
+           $replies = [];
+           if (count($this->_propDict['replies']) > 0 && is_a($this->_propDict['replies'][0], 'ChatMessage')) {
+              return $this->_propDict['replies'];
+           }
+           foreach ($this->_propDict['replies'] as $singleValue) {
+              $replies []= new ChatMessage($singleValue);
+           }
+           $this->_propDict['replies'] = $replies;
+           return $this->_propDict['replies'];
         }
         return null;
     }

@@ -96,15 +96,15 @@ class PrinterShare extends PrinterBase
     public function getAllowedGroups()
     {
         if (array_key_exists('allowedGroups', $this->_propDict) && !is_null($this->_propDict['allowedGroups'])) {
-            $allowedGroups = [];
-            if (count($this->_propDict['allowedGroups']) > 0 && is_a($this->_propDict['allowedGroups'][0], 'Group')) {
-                return $this->_propDict['allowedGroups'];
-            }
-            foreach ($this->_propDict['allowedGroups'] as $singleValue) {
-                $allowedGroups []= new Group($singleValue);
-            }
-            $this->_propDict['allowedGroups'] = $allowedGroups;
-            return $this->_propDict['allowedGroups'];
+           $allowedGroups = [];
+           if (count($this->_propDict['allowedGroups']) > 0 && is_a($this->_propDict['allowedGroups'][0], 'Group')) {
+              return $this->_propDict['allowedGroups'];
+           }
+           foreach ($this->_propDict['allowedGroups'] as $singleValue) {
+              $allowedGroups []= new Group($singleValue);
+           }
+           $this->_propDict['allowedGroups'] = $allowedGroups;
+           return $this->_propDict['allowedGroups'];
         }
         return null;
     }
@@ -133,15 +133,15 @@ class PrinterShare extends PrinterBase
     public function getAllowedUsers()
     {
         if (array_key_exists('allowedUsers', $this->_propDict) && !is_null($this->_propDict['allowedUsers'])) {
-            $allowedUsers = [];
-            if (count($this->_propDict['allowedUsers']) > 0 && is_a($this->_propDict['allowedUsers'][0], 'User')) {
-                return $this->_propDict['allowedUsers'];
-            }
-            foreach ($this->_propDict['allowedUsers'] as $singleValue) {
-                $allowedUsers []= new User($singleValue);
-            }
-            $this->_propDict['allowedUsers'] = $allowedUsers;
-            return $this->_propDict['allowedUsers'];
+           $allowedUsers = [];
+           if (count($this->_propDict['allowedUsers']) > 0 && is_a($this->_propDict['allowedUsers'][0], 'User')) {
+              return $this->_propDict['allowedUsers'];
+           }
+           foreach ($this->_propDict['allowedUsers'] as $singleValue) {
+              $allowedUsers []= new User($singleValue);
+           }
+           $this->_propDict['allowedUsers'] = $allowedUsers;
+           return $this->_propDict['allowedUsers'];
         }
         return null;
     }

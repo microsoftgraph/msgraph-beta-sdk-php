@@ -92,15 +92,15 @@ class Program extends Entity
     public function getControls()
     {
         if (array_key_exists('controls', $this->_propDict) && !is_null($this->_propDict['controls'])) {
-            $controls = [];
-            if (count($this->_propDict['controls']) > 0 && is_a($this->_propDict['controls'][0], 'ProgramControl')) {
-                return $this->_propDict['controls'];
-            }
-            foreach ($this->_propDict['controls'] as $singleValue) {
-                $controls []= new ProgramControl($singleValue);
-            }
-            $this->_propDict['controls'] = $controls;
-            return $this->_propDict['controls'];
+           $controls = [];
+           if (count($this->_propDict['controls']) > 0 && is_a($this->_propDict['controls'][0], 'ProgramControl')) {
+              return $this->_propDict['controls'];
+           }
+           foreach ($this->_propDict['controls'] as $singleValue) {
+              $controls []= new ProgramControl($singleValue);
+           }
+           $this->_propDict['controls'] = $controls;
+           return $this->_propDict['controls'];
         }
         return null;
     }

@@ -34,15 +34,15 @@ class IpNamedLocation extends NamedLocation
     public function getIpRanges()
     {
         if (array_key_exists('ipRanges', $this->_propDict) && !is_null($this->_propDict['ipRanges'])) {
-            $ipRanges = [];
-            if (count($this->_propDict['ipRanges']) > 0 && is_a($this->_propDict['ipRanges'][0], 'IpRange')) {
-                return $this->_propDict['ipRanges'];
-            }
-            foreach ($this->_propDict['ipRanges'] as $singleValue) {
-                $ipRanges []= new IpRange($singleValue);
-            }
-            $this->_propDict['ipRanges'] = $ipRanges;
-            return $this->_propDict['ipRanges'];
+           $ipRanges = [];
+           if (count($this->_propDict['ipRanges']) > 0 && is_a($this->_propDict['ipRanges'][0], 'IpRange')) {
+              return $this->_propDict['ipRanges'];
+           }
+           foreach ($this->_propDict['ipRanges'] as $singleValue) {
+              $ipRanges []= new IpRange($singleValue);
+           }
+           $this->_propDict['ipRanges'] = $ipRanges;
+           return $this->_propDict['ipRanges'];
         }
         return null;
     }

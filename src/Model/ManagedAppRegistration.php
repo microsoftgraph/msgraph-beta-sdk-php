@@ -303,15 +303,15 @@ class ManagedAppRegistration extends Entity
     public function getFlaggedReasons()
     {
         if (array_key_exists('flaggedReasons', $this->_propDict) && !is_null($this->_propDict['flaggedReasons'])) {
-            $flaggedReasons = [];
-            if (count($this->_propDict['flaggedReasons']) > 0 && is_a($this->_propDict['flaggedReasons'][0], 'ManagedAppFlaggedReason')) {
-                return $this->_propDict['flaggedReasons'];
-            }
-            foreach ($this->_propDict['flaggedReasons'] as $singleValue) {
-                $flaggedReasons []= new ManagedAppFlaggedReason($singleValue);
-            }
-            $this->_propDict['flaggedReasons'] = $flaggedReasons;
-            return $this->_propDict['flaggedReasons'];
+           $flaggedReasons = [];
+           if (count($this->_propDict['flaggedReasons']) > 0 && is_a($this->_propDict['flaggedReasons'][0], 'ManagedAppFlaggedReason')) {
+              return $this->_propDict['flaggedReasons'];
+           }
+           foreach ($this->_propDict['flaggedReasons'] as $singleValue) {
+              $flaggedReasons []= new ManagedAppFlaggedReason($singleValue);
+           }
+           $this->_propDict['flaggedReasons'] = $flaggedReasons;
+           return $this->_propDict['flaggedReasons'];
         }
         return null;
     }
@@ -518,15 +518,15 @@ class ManagedAppRegistration extends Entity
     public function getAppliedPolicies()
     {
         if (array_key_exists('appliedPolicies', $this->_propDict) && !is_null($this->_propDict['appliedPolicies'])) {
-            $appliedPolicies = [];
-            if (count($this->_propDict['appliedPolicies']) > 0 && is_a($this->_propDict['appliedPolicies'][0], 'ManagedAppPolicy')) {
-                return $this->_propDict['appliedPolicies'];
-            }
-            foreach ($this->_propDict['appliedPolicies'] as $singleValue) {
-                $appliedPolicies []= new ManagedAppPolicy($singleValue);
-            }
-            $this->_propDict['appliedPolicies'] = $appliedPolicies;
-            return $this->_propDict['appliedPolicies'];
+           $appliedPolicies = [];
+           if (count($this->_propDict['appliedPolicies']) > 0 && is_a($this->_propDict['appliedPolicies'][0], 'ManagedAppPolicy')) {
+              return $this->_propDict['appliedPolicies'];
+           }
+           foreach ($this->_propDict['appliedPolicies'] as $singleValue) {
+              $appliedPolicies []= new ManagedAppPolicy($singleValue);
+           }
+           $this->_propDict['appliedPolicies'] = $appliedPolicies;
+           return $this->_propDict['appliedPolicies'];
         }
         return null;
     }
@@ -555,15 +555,15 @@ class ManagedAppRegistration extends Entity
     public function getIntendedPolicies()
     {
         if (array_key_exists('intendedPolicies', $this->_propDict) && !is_null($this->_propDict['intendedPolicies'])) {
-            $intendedPolicies = [];
-            if (count($this->_propDict['intendedPolicies']) > 0 && is_a($this->_propDict['intendedPolicies'][0], 'ManagedAppPolicy')) {
-                return $this->_propDict['intendedPolicies'];
-            }
-            foreach ($this->_propDict['intendedPolicies'] as $singleValue) {
-                $intendedPolicies []= new ManagedAppPolicy($singleValue);
-            }
-            $this->_propDict['intendedPolicies'] = $intendedPolicies;
-            return $this->_propDict['intendedPolicies'];
+           $intendedPolicies = [];
+           if (count($this->_propDict['intendedPolicies']) > 0 && is_a($this->_propDict['intendedPolicies'][0], 'ManagedAppPolicy')) {
+              return $this->_propDict['intendedPolicies'];
+           }
+           foreach ($this->_propDict['intendedPolicies'] as $singleValue) {
+              $intendedPolicies []= new ManagedAppPolicy($singleValue);
+           }
+           $this->_propDict['intendedPolicies'] = $intendedPolicies;
+           return $this->_propDict['intendedPolicies'];
         }
         return null;
     }
@@ -592,15 +592,15 @@ class ManagedAppRegistration extends Entity
     public function getOperations()
     {
         if (array_key_exists('operations', $this->_propDict) && !is_null($this->_propDict['operations'])) {
-            $operations = [];
-            if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'ManagedAppOperation')) {
-                return $this->_propDict['operations'];
-            }
-            foreach ($this->_propDict['operations'] as $singleValue) {
-                $operations []= new ManagedAppOperation($singleValue);
-            }
-            $this->_propDict['operations'] = $operations;
-            return $this->_propDict['operations'];
+           $operations = [];
+           if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'ManagedAppOperation')) {
+              return $this->_propDict['operations'];
+           }
+           foreach ($this->_propDict['operations'] as $singleValue) {
+              $operations []= new ManagedAppOperation($singleValue);
+           }
+           $this->_propDict['operations'] = $operations;
+           return $this->_propDict['operations'];
         }
         return null;
     }

@@ -63,15 +63,15 @@ class DeviceManagementPartner extends Entity
     public function getGroupsRequiringPartnerEnrollment()
     {
         if (array_key_exists('groupsRequiringPartnerEnrollment', $this->_propDict) && !is_null($this->_propDict['groupsRequiringPartnerEnrollment'])) {
-            $groupsRequiringPartnerEnrollment = [];
-            if (count($this->_propDict['groupsRequiringPartnerEnrollment']) > 0 && is_a($this->_propDict['groupsRequiringPartnerEnrollment'][0], 'DeviceManagementPartnerAssignment')) {
-                return $this->_propDict['groupsRequiringPartnerEnrollment'];
-            }
-            foreach ($this->_propDict['groupsRequiringPartnerEnrollment'] as $singleValue) {
-                $groupsRequiringPartnerEnrollment []= new DeviceManagementPartnerAssignment($singleValue);
-            }
-            $this->_propDict['groupsRequiringPartnerEnrollment'] = $groupsRequiringPartnerEnrollment;
-            return $this->_propDict['groupsRequiringPartnerEnrollment'];
+           $groupsRequiringPartnerEnrollment = [];
+           if (count($this->_propDict['groupsRequiringPartnerEnrollment']) > 0 && is_a($this->_propDict['groupsRequiringPartnerEnrollment'][0], 'DeviceManagementPartnerAssignment')) {
+              return $this->_propDict['groupsRequiringPartnerEnrollment'];
+           }
+           foreach ($this->_propDict['groupsRequiringPartnerEnrollment'] as $singleValue) {
+              $groupsRequiringPartnerEnrollment []= new DeviceManagementPartnerAssignment($singleValue);
+           }
+           $this->_propDict['groupsRequiringPartnerEnrollment'] = $groupsRequiringPartnerEnrollment;
+           return $this->_propDict['groupsRequiringPartnerEnrollment'];
         }
         return null;
     }

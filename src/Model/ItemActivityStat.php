@@ -327,15 +327,15 @@ class ItemActivityStat extends Entity
     public function getActivities()
     {
         if (array_key_exists('activities', $this->_propDict) && !is_null($this->_propDict['activities'])) {
-            $activities = [];
-            if (count($this->_propDict['activities']) > 0 && is_a($this->_propDict['activities'][0], 'ItemActivity')) {
-                return $this->_propDict['activities'];
-            }
-            foreach ($this->_propDict['activities'] as $singleValue) {
-                $activities []= new ItemActivity($singleValue);
-            }
-            $this->_propDict['activities'] = $activities;
-            return $this->_propDict['activities'];
+           $activities = [];
+           if (count($this->_propDict['activities']) > 0 && is_a($this->_propDict['activities'][0], 'ItemActivity')) {
+              return $this->_propDict['activities'];
+           }
+           foreach ($this->_propDict['activities'] as $singleValue) {
+              $activities []= new ItemActivity($singleValue);
+           }
+           $this->_propDict['activities'] = $activities;
+           return $this->_propDict['activities'];
         }
         return null;
     }

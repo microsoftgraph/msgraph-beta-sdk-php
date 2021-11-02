@@ -34,15 +34,15 @@ class Catalog extends \Beta\Microsoft\Graph\Model\Entity
     public function getEntries()
     {
         if (array_key_exists('entries', $this->_propDict) && !is_null($this->_propDict['entries'])) {
-            $entries = [];
-            if (count($this->_propDict['entries']) > 0 && is_a($this->_propDict['entries'][0], 'CatalogEntry')) {
-                return $this->_propDict['entries'];
-            }
-            foreach ($this->_propDict['entries'] as $singleValue) {
-                $entries []= new CatalogEntry($singleValue);
-            }
-            $this->_propDict['entries'] = $entries;
-            return $this->_propDict['entries'];
+           $entries = [];
+           if (count($this->_propDict['entries']) > 0 && is_a($this->_propDict['entries'][0], 'CatalogEntry')) {
+              return $this->_propDict['entries'];
+           }
+           foreach ($this->_propDict['entries'] as $singleValue) {
+              $entries []= new CatalogEntry($singleValue);
+           }
+           $this->_propDict['entries'] = $entries;
+           return $this->_propDict['entries'];
         }
         return null;
     }

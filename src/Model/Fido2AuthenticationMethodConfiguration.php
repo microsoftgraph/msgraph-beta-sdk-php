@@ -125,15 +125,15 @@ class Fido2AuthenticationMethodConfiguration extends AuthenticationMethodConfigu
     public function getIncludeTargets()
     {
         if (array_key_exists('includeTargets', $this->_propDict) && !is_null($this->_propDict['includeTargets'])) {
-            $includeTargets = [];
-            if (count($this->_propDict['includeTargets']) > 0 && is_a($this->_propDict['includeTargets'][0], 'AuthenticationMethodTarget')) {
-                return $this->_propDict['includeTargets'];
-            }
-            foreach ($this->_propDict['includeTargets'] as $singleValue) {
-                $includeTargets []= new AuthenticationMethodTarget($singleValue);
-            }
-            $this->_propDict['includeTargets'] = $includeTargets;
-            return $this->_propDict['includeTargets'];
+           $includeTargets = [];
+           if (count($this->_propDict['includeTargets']) > 0 && is_a($this->_propDict['includeTargets'][0], 'AuthenticationMethodTarget')) {
+              return $this->_propDict['includeTargets'];
+           }
+           foreach ($this->_propDict['includeTargets'] as $singleValue) {
+              $includeTargets []= new AuthenticationMethodTarget($singleValue);
+           }
+           $this->_propDict['includeTargets'] = $includeTargets;
+           return $this->_propDict['includeTargets'];
         }
         return null;
     }

@@ -369,15 +369,15 @@ class AccessPackageAssignmentPolicy extends Entity
     public function getQuestions()
     {
         if (array_key_exists('questions', $this->_propDict) && !is_null($this->_propDict['questions'])) {
-            $questions = [];
-            if (count($this->_propDict['questions']) > 0 && is_a($this->_propDict['questions'][0], 'AccessPackageQuestion')) {
-                return $this->_propDict['questions'];
-            }
-            foreach ($this->_propDict['questions'] as $singleValue) {
-                $questions []= new AccessPackageQuestion($singleValue);
-            }
-            $this->_propDict['questions'] = $questions;
-            return $this->_propDict['questions'];
+           $questions = [];
+           if (count($this->_propDict['questions']) > 0 && is_a($this->_propDict['questions'][0], 'AccessPackageQuestion')) {
+              return $this->_propDict['questions'];
+           }
+           foreach ($this->_propDict['questions'] as $singleValue) {
+              $questions []= new AccessPackageQuestion($singleValue);
+           }
+           $this->_propDict['questions'] = $questions;
+           return $this->_propDict['questions'];
         }
         return null;
     }

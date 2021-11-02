@@ -34,15 +34,15 @@ class ConversationThread extends Entity
     public function getCcRecipients()
     {
         if (array_key_exists('ccRecipients', $this->_propDict) && !is_null($this->_propDict['ccRecipients'])) {
-            $ccRecipients = [];
-            if (count($this->_propDict['ccRecipients']) > 0 && is_a($this->_propDict['ccRecipients'][0], 'Recipient')) {
-                return $this->_propDict['ccRecipients'];
-            }
-            foreach ($this->_propDict['ccRecipients'] as $singleValue) {
-                $ccRecipients []= new Recipient($singleValue);
-            }
-            $this->_propDict['ccRecipients'] = $ccRecipients;
-            return $this->_propDict['ccRecipients'];
+           $ccRecipients = [];
+           if (count($this->_propDict['ccRecipients']) > 0 && is_a($this->_propDict['ccRecipients'][0], 'Recipient')) {
+              return $this->_propDict['ccRecipients'];
+           }
+           foreach ($this->_propDict['ccRecipients'] as $singleValue) {
+              $ccRecipients []= new Recipient($singleValue);
+           }
+           $this->_propDict['ccRecipients'] = $ccRecipients;
+           return $this->_propDict['ccRecipients'];
         }
         return null;
     }
@@ -220,15 +220,15 @@ class ConversationThread extends Entity
     public function getToRecipients()
     {
         if (array_key_exists('toRecipients', $this->_propDict) && !is_null($this->_propDict['toRecipients'])) {
-            $toRecipients = [];
-            if (count($this->_propDict['toRecipients']) > 0 && is_a($this->_propDict['toRecipients'][0], 'Recipient')) {
-                return $this->_propDict['toRecipients'];
-            }
-            foreach ($this->_propDict['toRecipients'] as $singleValue) {
-                $toRecipients []= new Recipient($singleValue);
-            }
-            $this->_propDict['toRecipients'] = $toRecipients;
-            return $this->_propDict['toRecipients'];
+           $toRecipients = [];
+           if (count($this->_propDict['toRecipients']) > 0 && is_a($this->_propDict['toRecipients'][0], 'Recipient')) {
+              return $this->_propDict['toRecipients'];
+           }
+           foreach ($this->_propDict['toRecipients'] as $singleValue) {
+              $toRecipients []= new Recipient($singleValue);
+           }
+           $this->_propDict['toRecipients'] = $toRecipients;
+           return $this->_propDict['toRecipients'];
         }
         return null;
     }
@@ -286,15 +286,15 @@ class ConversationThread extends Entity
     public function getPosts()
     {
         if (array_key_exists('posts', $this->_propDict) && !is_null($this->_propDict['posts'])) {
-            $posts = [];
-            if (count($this->_propDict['posts']) > 0 && is_a($this->_propDict['posts'][0], 'Post')) {
-                return $this->_propDict['posts'];
-            }
-            foreach ($this->_propDict['posts'] as $singleValue) {
-                $posts []= new Post($singleValue);
-            }
-            $this->_propDict['posts'] = $posts;
-            return $this->_propDict['posts'];
+           $posts = [];
+           if (count($this->_propDict['posts']) > 0 && is_a($this->_propDict['posts'][0], 'Post')) {
+              return $this->_propDict['posts'];
+           }
+           foreach ($this->_propDict['posts'] as $singleValue) {
+              $posts []= new Post($singleValue);
+           }
+           $this->_propDict['posts'] = $posts;
+           return $this->_propDict['posts'];
         }
         return null;
     }

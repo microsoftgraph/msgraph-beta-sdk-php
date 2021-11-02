@@ -336,15 +336,15 @@ class TermsAndConditions extends Entity
     public function getAcceptanceStatuses()
     {
         if (array_key_exists('acceptanceStatuses', $this->_propDict) && !is_null($this->_propDict['acceptanceStatuses'])) {
-            $acceptanceStatuses = [];
-            if (count($this->_propDict['acceptanceStatuses']) > 0 && is_a($this->_propDict['acceptanceStatuses'][0], 'TermsAndConditionsAcceptanceStatus')) {
-                return $this->_propDict['acceptanceStatuses'];
-            }
-            foreach ($this->_propDict['acceptanceStatuses'] as $singleValue) {
-                $acceptanceStatuses []= new TermsAndConditionsAcceptanceStatus($singleValue);
-            }
-            $this->_propDict['acceptanceStatuses'] = $acceptanceStatuses;
-            return $this->_propDict['acceptanceStatuses'];
+           $acceptanceStatuses = [];
+           if (count($this->_propDict['acceptanceStatuses']) > 0 && is_a($this->_propDict['acceptanceStatuses'][0], 'TermsAndConditionsAcceptanceStatus')) {
+              return $this->_propDict['acceptanceStatuses'];
+           }
+           foreach ($this->_propDict['acceptanceStatuses'] as $singleValue) {
+              $acceptanceStatuses []= new TermsAndConditionsAcceptanceStatus($singleValue);
+           }
+           $this->_propDict['acceptanceStatuses'] = $acceptanceStatuses;
+           return $this->_propDict['acceptanceStatuses'];
         }
         return null;
     }
@@ -373,15 +373,15 @@ class TermsAndConditions extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'TermsAndConditionsAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new TermsAndConditionsAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'TermsAndConditionsAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new TermsAndConditionsAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }
@@ -410,15 +410,15 @@ class TermsAndConditions extends Entity
     public function getGroupAssignments()
     {
         if (array_key_exists('groupAssignments', $this->_propDict) && !is_null($this->_propDict['groupAssignments'])) {
-            $groupAssignments = [];
-            if (count($this->_propDict['groupAssignments']) > 0 && is_a($this->_propDict['groupAssignments'][0], 'TermsAndConditionsGroupAssignment')) {
-                return $this->_propDict['groupAssignments'];
-            }
-            foreach ($this->_propDict['groupAssignments'] as $singleValue) {
-                $groupAssignments []= new TermsAndConditionsGroupAssignment($singleValue);
-            }
-            $this->_propDict['groupAssignments'] = $groupAssignments;
-            return $this->_propDict['groupAssignments'];
+           $groupAssignments = [];
+           if (count($this->_propDict['groupAssignments']) > 0 && is_a($this->_propDict['groupAssignments'][0], 'TermsAndConditionsGroupAssignment')) {
+              return $this->_propDict['groupAssignments'];
+           }
+           foreach ($this->_propDict['groupAssignments'] as $singleValue) {
+              $groupAssignments []= new TermsAndConditionsGroupAssignment($singleValue);
+           }
+           $this->_propDict['groupAssignments'] = $groupAssignments;
+           return $this->_propDict['groupAssignments'];
         }
         return null;
     }

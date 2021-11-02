@@ -162,15 +162,15 @@ class GraphList extends BaseItem
     public function getActivities()
     {
         if (array_key_exists('activities', $this->_propDict) && !is_null($this->_propDict['activities'])) {
-            $activities = [];
-            if (count($this->_propDict['activities']) > 0 && is_a($this->_propDict['activities'][0], 'ItemActivityOLD')) {
-                return $this->_propDict['activities'];
-            }
-            foreach ($this->_propDict['activities'] as $singleValue) {
-                $activities []= new ItemActivityOLD($singleValue);
-            }
-            $this->_propDict['activities'] = $activities;
-            return $this->_propDict['activities'];
+           $activities = [];
+           if (count($this->_propDict['activities']) > 0 && is_a($this->_propDict['activities'][0], 'ItemActivityOLD')) {
+              return $this->_propDict['activities'];
+           }
+           foreach ($this->_propDict['activities'] as $singleValue) {
+              $activities []= new ItemActivityOLD($singleValue);
+           }
+           $this->_propDict['activities'] = $activities;
+           return $this->_propDict['activities'];
         }
         return null;
     }
@@ -199,15 +199,15 @@ class GraphList extends BaseItem
     public function getColumns()
     {
         if (array_key_exists('columns', $this->_propDict) && !is_null($this->_propDict['columns'])) {
-            $columns = [];
-            if (count($this->_propDict['columns']) > 0 && is_a($this->_propDict['columns'][0], 'ColumnDefinition')) {
-                return $this->_propDict['columns'];
-            }
-            foreach ($this->_propDict['columns'] as $singleValue) {
-                $columns []= new ColumnDefinition($singleValue);
-            }
-            $this->_propDict['columns'] = $columns;
-            return $this->_propDict['columns'];
+           $columns = [];
+           if (count($this->_propDict['columns']) > 0 && is_a($this->_propDict['columns'][0], 'ColumnDefinition')) {
+              return $this->_propDict['columns'];
+           }
+           foreach ($this->_propDict['columns'] as $singleValue) {
+              $columns []= new ColumnDefinition($singleValue);
+           }
+           $this->_propDict['columns'] = $columns;
+           return $this->_propDict['columns'];
         }
         return null;
     }
@@ -236,15 +236,15 @@ class GraphList extends BaseItem
     public function getContentTypes()
     {
         if (array_key_exists('contentTypes', $this->_propDict) && !is_null($this->_propDict['contentTypes'])) {
-            $contentTypes = [];
-            if (count($this->_propDict['contentTypes']) > 0 && is_a($this->_propDict['contentTypes'][0], 'ContentType')) {
-                return $this->_propDict['contentTypes'];
-            }
-            foreach ($this->_propDict['contentTypes'] as $singleValue) {
-                $contentTypes []= new ContentType($singleValue);
-            }
-            $this->_propDict['contentTypes'] = $contentTypes;
-            return $this->_propDict['contentTypes'];
+           $contentTypes = [];
+           if (count($this->_propDict['contentTypes']) > 0 && is_a($this->_propDict['contentTypes'][0], 'ContentType')) {
+              return $this->_propDict['contentTypes'];
+           }
+           foreach ($this->_propDict['contentTypes'] as $singleValue) {
+              $contentTypes []= new ContentType($singleValue);
+           }
+           $this->_propDict['contentTypes'] = $contentTypes;
+           return $this->_propDict['contentTypes'];
         }
         return null;
     }
@@ -306,15 +306,15 @@ class GraphList extends BaseItem
     public function getItems()
     {
         if (array_key_exists('items', $this->_propDict) && !is_null($this->_propDict['items'])) {
-            $items = [];
-            if (count($this->_propDict['items']) > 0 && is_a($this->_propDict['items'][0], 'ListItem')) {
-                return $this->_propDict['items'];
-            }
-            foreach ($this->_propDict['items'] as $singleValue) {
-                $items []= new ListItem($singleValue);
-            }
-            $this->_propDict['items'] = $items;
-            return $this->_propDict['items'];
+           $items = [];
+           if (count($this->_propDict['items']) > 0 && is_a($this->_propDict['items'][0], 'ListItem')) {
+              return $this->_propDict['items'];
+           }
+           foreach ($this->_propDict['items'] as $singleValue) {
+              $items []= new ListItem($singleValue);
+           }
+           $this->_propDict['items'] = $items;
+           return $this->_propDict['items'];
         }
         return null;
     }
@@ -343,15 +343,15 @@ class GraphList extends BaseItem
     public function getSubscriptions()
     {
         if (array_key_exists('subscriptions', $this->_propDict) && !is_null($this->_propDict['subscriptions'])) {
-            $subscriptions = [];
-            if (count($this->_propDict['subscriptions']) > 0 && is_a($this->_propDict['subscriptions'][0], 'Subscription')) {
-                return $this->_propDict['subscriptions'];
-            }
-            foreach ($this->_propDict['subscriptions'] as $singleValue) {
-                $subscriptions []= new Subscription($singleValue);
-            }
-            $this->_propDict['subscriptions'] = $subscriptions;
-            return $this->_propDict['subscriptions'];
+           $subscriptions = [];
+           if (count($this->_propDict['subscriptions']) > 0 && is_a($this->_propDict['subscriptions'][0], 'Subscription')) {
+              return $this->_propDict['subscriptions'];
+           }
+           foreach ($this->_propDict['subscriptions'] as $singleValue) {
+              $subscriptions []= new Subscription($singleValue);
+           }
+           $this->_propDict['subscriptions'] = $subscriptions;
+           return $this->_propDict['subscriptions'];
         }
         return null;
     }

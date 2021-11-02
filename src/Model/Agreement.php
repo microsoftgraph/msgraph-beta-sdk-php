@@ -187,15 +187,15 @@ class Agreement extends Entity
     public function getAcceptances()
     {
         if (array_key_exists('acceptances', $this->_propDict) && !is_null($this->_propDict['acceptances'])) {
-            $acceptances = [];
-            if (count($this->_propDict['acceptances']) > 0 && is_a($this->_propDict['acceptances'][0], 'AgreementAcceptance')) {
-                return $this->_propDict['acceptances'];
-            }
-            foreach ($this->_propDict['acceptances'] as $singleValue) {
-                $acceptances []= new AgreementAcceptance($singleValue);
-            }
-            $this->_propDict['acceptances'] = $acceptances;
-            return $this->_propDict['acceptances'];
+           $acceptances = [];
+           if (count($this->_propDict['acceptances']) > 0 && is_a($this->_propDict['acceptances'][0], 'AgreementAcceptance')) {
+              return $this->_propDict['acceptances'];
+           }
+           foreach ($this->_propDict['acceptances'] as $singleValue) {
+              $acceptances []= new AgreementAcceptance($singleValue);
+           }
+           $this->_propDict['acceptances'] = $acceptances;
+           return $this->_propDict['acceptances'];
         }
         return null;
     }
@@ -257,15 +257,15 @@ class Agreement extends Entity
     public function getFiles()
     {
         if (array_key_exists('files', $this->_propDict) && !is_null($this->_propDict['files'])) {
-            $files = [];
-            if (count($this->_propDict['files']) > 0 && is_a($this->_propDict['files'][0], 'AgreementFileLocalization')) {
-                return $this->_propDict['files'];
-            }
-            foreach ($this->_propDict['files'] as $singleValue) {
-                $files []= new AgreementFileLocalization($singleValue);
-            }
-            $this->_propDict['files'] = $files;
-            return $this->_propDict['files'];
+           $files = [];
+           if (count($this->_propDict['files']) > 0 && is_a($this->_propDict['files'][0], 'AgreementFileLocalization')) {
+              return $this->_propDict['files'];
+           }
+           foreach ($this->_propDict['files'] as $singleValue) {
+              $files []= new AgreementFileLocalization($singleValue);
+           }
+           $this->_propDict['files'] = $files;
+           return $this->_propDict['files'];
         }
         return null;
     }

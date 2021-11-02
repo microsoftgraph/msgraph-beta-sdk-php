@@ -96,15 +96,15 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
     public function getCompanyCodes()
     {
         if (array_key_exists('companyCodes', $this->_propDict) && !is_null($this->_propDict['companyCodes'])) {
-            $companyCodes = [];
-            if (count($this->_propDict['companyCodes']) > 0 && is_a($this->_propDict['companyCodes'][0], 'AndroidEnrollmentCompanyCode')) {
-                return $this->_propDict['companyCodes'];
-            }
-            foreach ($this->_propDict['companyCodes'] as $singleValue) {
-                $companyCodes []= new AndroidEnrollmentCompanyCode($singleValue);
-            }
-            $this->_propDict['companyCodes'] = $companyCodes;
-            return $this->_propDict['companyCodes'];
+           $companyCodes = [];
+           if (count($this->_propDict['companyCodes']) > 0 && is_a($this->_propDict['companyCodes'][0], 'AndroidEnrollmentCompanyCode')) {
+              return $this->_propDict['companyCodes'];
+           }
+           foreach ($this->_propDict['companyCodes'] as $singleValue) {
+              $companyCodes []= new AndroidEnrollmentCompanyCode($singleValue);
+           }
+           $this->_propDict['companyCodes'] = $companyCodes;
+           return $this->_propDict['companyCodes'];
         }
         return null;
     }

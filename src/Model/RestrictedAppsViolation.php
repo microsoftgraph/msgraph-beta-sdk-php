@@ -183,15 +183,15 @@ class RestrictedAppsViolation extends Entity
     public function getRestrictedApps()
     {
         if (array_key_exists('restrictedApps', $this->_propDict) && !is_null($this->_propDict['restrictedApps'])) {
-            $restrictedApps = [];
-            if (count($this->_propDict['restrictedApps']) > 0 && is_a($this->_propDict['restrictedApps'][0], 'ManagedDeviceReportedApp')) {
-                return $this->_propDict['restrictedApps'];
-            }
-            foreach ($this->_propDict['restrictedApps'] as $singleValue) {
-                $restrictedApps []= new ManagedDeviceReportedApp($singleValue);
-            }
-            $this->_propDict['restrictedApps'] = $restrictedApps;
-            return $this->_propDict['restrictedApps'];
+           $restrictedApps = [];
+           if (count($this->_propDict['restrictedApps']) > 0 && is_a($this->_propDict['restrictedApps'][0], 'ManagedDeviceReportedApp')) {
+              return $this->_propDict['restrictedApps'];
+           }
+           foreach ($this->_propDict['restrictedApps'] as $singleValue) {
+              $restrictedApps []= new ManagedDeviceReportedApp($singleValue);
+           }
+           $this->_propDict['restrictedApps'] = $restrictedApps;
+           return $this->_propDict['restrictedApps'];
         }
         return null;
     }

@@ -397,15 +397,15 @@ class EducationClass extends Entity
     public function getAssignmentCategories()
     {
         if (array_key_exists('assignmentCategories', $this->_propDict) && !is_null($this->_propDict['assignmentCategories'])) {
-            $assignmentCategories = [];
-            if (count($this->_propDict['assignmentCategories']) > 0 && is_a($this->_propDict['assignmentCategories'][0], 'EducationCategory')) {
-                return $this->_propDict['assignmentCategories'];
-            }
-            foreach ($this->_propDict['assignmentCategories'] as $singleValue) {
-                $assignmentCategories []= new EducationCategory($singleValue);
-            }
-            $this->_propDict['assignmentCategories'] = $assignmentCategories;
-            return $this->_propDict['assignmentCategories'];
+           $assignmentCategories = [];
+           if (count($this->_propDict['assignmentCategories']) > 0 && is_a($this->_propDict['assignmentCategories'][0], 'EducationCategory')) {
+              return $this->_propDict['assignmentCategories'];
+           }
+           foreach ($this->_propDict['assignmentCategories'] as $singleValue) {
+              $assignmentCategories []= new EducationCategory($singleValue);
+           }
+           $this->_propDict['assignmentCategories'] = $assignmentCategories;
+           return $this->_propDict['assignmentCategories'];
         }
         return null;
     }
@@ -464,15 +464,15 @@ class EducationClass extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'EducationAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new EducationAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'EducationAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new EducationAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }
@@ -565,15 +565,15 @@ class EducationClass extends Entity
     public function getMembers()
     {
         if (array_key_exists('members', $this->_propDict) && !is_null($this->_propDict['members'])) {
-            $members = [];
-            if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'EducationUser')) {
-                return $this->_propDict['members'];
-            }
-            foreach ($this->_propDict['members'] as $singleValue) {
-                $members []= new EducationUser($singleValue);
-            }
-            $this->_propDict['members'] = $members;
-            return $this->_propDict['members'];
+           $members = [];
+           if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'EducationUser')) {
+              return $this->_propDict['members'];
+           }
+           foreach ($this->_propDict['members'] as $singleValue) {
+              $members []= new EducationUser($singleValue);
+           }
+           $this->_propDict['members'] = $members;
+           return $this->_propDict['members'];
         }
         return null;
     }
@@ -602,15 +602,15 @@ class EducationClass extends Entity
     public function getSchools()
     {
         if (array_key_exists('schools', $this->_propDict) && !is_null($this->_propDict['schools'])) {
-            $schools = [];
-            if (count($this->_propDict['schools']) > 0 && is_a($this->_propDict['schools'][0], 'EducationSchool')) {
-                return $this->_propDict['schools'];
-            }
-            foreach ($this->_propDict['schools'] as $singleValue) {
-                $schools []= new EducationSchool($singleValue);
-            }
-            $this->_propDict['schools'] = $schools;
-            return $this->_propDict['schools'];
+           $schools = [];
+           if (count($this->_propDict['schools']) > 0 && is_a($this->_propDict['schools'][0], 'EducationSchool')) {
+              return $this->_propDict['schools'];
+           }
+           foreach ($this->_propDict['schools'] as $singleValue) {
+              $schools []= new EducationSchool($singleValue);
+           }
+           $this->_propDict['schools'] = $schools;
+           return $this->_propDict['schools'];
         }
         return null;
     }
@@ -639,15 +639,15 @@ class EducationClass extends Entity
     public function getTeachers()
     {
         if (array_key_exists('teachers', $this->_propDict) && !is_null($this->_propDict['teachers'])) {
-            $teachers = [];
-            if (count($this->_propDict['teachers']) > 0 && is_a($this->_propDict['teachers'][0], 'EducationUser')) {
-                return $this->_propDict['teachers'];
-            }
-            foreach ($this->_propDict['teachers'] as $singleValue) {
-                $teachers []= new EducationUser($singleValue);
-            }
-            $this->_propDict['teachers'] = $teachers;
-            return $this->_propDict['teachers'];
+           $teachers = [];
+           if (count($this->_propDict['teachers']) > 0 && is_a($this->_propDict['teachers'][0], 'EducationUser')) {
+              return $this->_propDict['teachers'];
+           }
+           foreach ($this->_propDict['teachers'] as $singleValue) {
+              $teachers []= new EducationUser($singleValue);
+           }
+           $this->_propDict['teachers'] = $teachers;
+           return $this->_propDict['teachers'];
         }
         return null;
     }

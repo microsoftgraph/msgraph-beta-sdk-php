@@ -945,15 +945,15 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
     public function getValidOperatingSystemBuildRanges()
     {
         if (array_key_exists('validOperatingSystemBuildRanges', $this->_propDict) && !is_null($this->_propDict['validOperatingSystemBuildRanges'])) {
-            $validOperatingSystemBuildRanges = [];
-            if (count($this->_propDict['validOperatingSystemBuildRanges']) > 0 && is_a($this->_propDict['validOperatingSystemBuildRanges'][0], 'OperatingSystemVersionRange')) {
-                return $this->_propDict['validOperatingSystemBuildRanges'];
-            }
-            foreach ($this->_propDict['validOperatingSystemBuildRanges'] as $singleValue) {
-                $validOperatingSystemBuildRanges []= new OperatingSystemVersionRange($singleValue);
-            }
-            $this->_propDict['validOperatingSystemBuildRanges'] = $validOperatingSystemBuildRanges;
-            return $this->_propDict['validOperatingSystemBuildRanges'];
+           $validOperatingSystemBuildRanges = [];
+           if (count($this->_propDict['validOperatingSystemBuildRanges']) > 0 && is_a($this->_propDict['validOperatingSystemBuildRanges'][0], 'OperatingSystemVersionRange')) {
+              return $this->_propDict['validOperatingSystemBuildRanges'];
+           }
+           foreach ($this->_propDict['validOperatingSystemBuildRanges'] as $singleValue) {
+              $validOperatingSystemBuildRanges []= new OperatingSystemVersionRange($singleValue);
+           }
+           $this->_propDict['validOperatingSystemBuildRanges'] = $validOperatingSystemBuildRanges;
+           return $this->_propDict['validOperatingSystemBuildRanges'];
         }
         return null;
     }

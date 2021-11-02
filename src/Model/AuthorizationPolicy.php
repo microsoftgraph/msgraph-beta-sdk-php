@@ -302,15 +302,15 @@ class AuthorizationPolicy extends PolicyBase
     public function getDefaultUserRoleOverrides()
     {
         if (array_key_exists('defaultUserRoleOverrides', $this->_propDict) && !is_null($this->_propDict['defaultUserRoleOverrides'])) {
-            $defaultUserRoleOverrides = [];
-            if (count($this->_propDict['defaultUserRoleOverrides']) > 0 && is_a($this->_propDict['defaultUserRoleOverrides'][0], 'DefaultUserRoleOverride')) {
-                return $this->_propDict['defaultUserRoleOverrides'];
-            }
-            foreach ($this->_propDict['defaultUserRoleOverrides'] as $singleValue) {
-                $defaultUserRoleOverrides []= new DefaultUserRoleOverride($singleValue);
-            }
-            $this->_propDict['defaultUserRoleOverrides'] = $defaultUserRoleOverrides;
-            return $this->_propDict['defaultUserRoleOverrides'];
+           $defaultUserRoleOverrides = [];
+           if (count($this->_propDict['defaultUserRoleOverrides']) > 0 && is_a($this->_propDict['defaultUserRoleOverrides'][0], 'DefaultUserRoleOverride')) {
+              return $this->_propDict['defaultUserRoleOverrides'];
+           }
+           foreach ($this->_propDict['defaultUserRoleOverrides'] as $singleValue) {
+              $defaultUserRoleOverrides []= new DefaultUserRoleOverride($singleValue);
+           }
+           $this->_propDict['defaultUserRoleOverrides'] = $defaultUserRoleOverrides;
+           return $this->_propDict['defaultUserRoleOverrides'];
         }
         return null;
     }

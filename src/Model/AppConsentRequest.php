@@ -121,15 +121,15 @@ class AppConsentRequest extends Entity
     public function getPendingScopes()
     {
         if (array_key_exists('pendingScopes', $this->_propDict) && !is_null($this->_propDict['pendingScopes'])) {
-            $pendingScopes = [];
-            if (count($this->_propDict['pendingScopes']) > 0 && is_a($this->_propDict['pendingScopes'][0], 'AppConsentRequestScope')) {
-                return $this->_propDict['pendingScopes'];
-            }
-            foreach ($this->_propDict['pendingScopes'] as $singleValue) {
-                $pendingScopes []= new AppConsentRequestScope($singleValue);
-            }
-            $this->_propDict['pendingScopes'] = $pendingScopes;
-            return $this->_propDict['pendingScopes'];
+           $pendingScopes = [];
+           if (count($this->_propDict['pendingScopes']) > 0 && is_a($this->_propDict['pendingScopes'][0], 'AppConsentRequestScope')) {
+              return $this->_propDict['pendingScopes'];
+           }
+           foreach ($this->_propDict['pendingScopes'] as $singleValue) {
+              $pendingScopes []= new AppConsentRequestScope($singleValue);
+           }
+           $this->_propDict['pendingScopes'] = $pendingScopes;
+           return $this->_propDict['pendingScopes'];
         }
         return null;
     }
@@ -158,15 +158,15 @@ class AppConsentRequest extends Entity
     public function getUserConsentRequests()
     {
         if (array_key_exists('userConsentRequests', $this->_propDict) && !is_null($this->_propDict['userConsentRequests'])) {
-            $userConsentRequests = [];
-            if (count($this->_propDict['userConsentRequests']) > 0 && is_a($this->_propDict['userConsentRequests'][0], 'UserConsentRequest')) {
-                return $this->_propDict['userConsentRequests'];
-            }
-            foreach ($this->_propDict['userConsentRequests'] as $singleValue) {
-                $userConsentRequests []= new UserConsentRequest($singleValue);
-            }
-            $this->_propDict['userConsentRequests'] = $userConsentRequests;
-            return $this->_propDict['userConsentRequests'];
+           $userConsentRequests = [];
+           if (count($this->_propDict['userConsentRequests']) > 0 && is_a($this->_propDict['userConsentRequests'][0], 'UserConsentRequest')) {
+              return $this->_propDict['userConsentRequests'];
+           }
+           foreach ($this->_propDict['userConsentRequests'] as $singleValue) {
+              $userConsentRequests []= new UserConsentRequest($singleValue);
+           }
+           $this->_propDict['userConsentRequests'] = $userConsentRequests;
+           return $this->_propDict['userConsentRequests'];
         }
         return null;
     }

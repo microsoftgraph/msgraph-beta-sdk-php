@@ -33,15 +33,15 @@ class AzureADUserFeatureUsage extends Entity
     public function getFeatureUsageDetails()
     {
         if (array_key_exists('featureUsageDetails', $this->_propDict) && !is_null($this->_propDict['featureUsageDetails'])) {
-            $featureUsageDetails = [];
-            if (count($this->_propDict['featureUsageDetails']) > 0 && is_a($this->_propDict['featureUsageDetails'][0], 'FeatureUsageDetail')) {
-                return $this->_propDict['featureUsageDetails'];
-            }
-            foreach ($this->_propDict['featureUsageDetails'] as $singleValue) {
-                $featureUsageDetails []= new FeatureUsageDetail($singleValue);
-            }
-            $this->_propDict['featureUsageDetails'] = $featureUsageDetails;
-            return $this->_propDict['featureUsageDetails'];
+           $featureUsageDetails = [];
+           if (count($this->_propDict['featureUsageDetails']) > 0 && is_a($this->_propDict['featureUsageDetails'][0], 'FeatureUsageDetail')) {
+              return $this->_propDict['featureUsageDetails'];
+           }
+           foreach ($this->_propDict['featureUsageDetails'] as $singleValue) {
+              $featureUsageDetails []= new FeatureUsageDetail($singleValue);
+           }
+           $this->_propDict['featureUsageDetails'] = $featureUsageDetails;
+           return $this->_propDict['featureUsageDetails'];
         }
         return null;
     }

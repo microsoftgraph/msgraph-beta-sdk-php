@@ -67,15 +67,15 @@ class AccessReviewInstance extends Entity
     public function getErrors()
     {
         if (array_key_exists('errors', $this->_propDict) && !is_null($this->_propDict['errors'])) {
-            $errors = [];
-            if (count($this->_propDict['errors']) > 0 && is_a($this->_propDict['errors'][0], 'AccessReviewError')) {
-                return $this->_propDict['errors'];
-            }
-            foreach ($this->_propDict['errors'] as $singleValue) {
-                $errors []= new AccessReviewError($singleValue);
-            }
-            $this->_propDict['errors'] = $errors;
-            return $this->_propDict['errors'];
+           $errors = [];
+           if (count($this->_propDict['errors']) > 0 && is_a($this->_propDict['errors'][0], 'AccessReviewError')) {
+              return $this->_propDict['errors'];
+           }
+           foreach ($this->_propDict['errors'] as $singleValue) {
+              $errors []= new AccessReviewError($singleValue);
+           }
+           $this->_propDict['errors'] = $errors;
+           return $this->_propDict['errors'];
         }
         return null;
     }
@@ -104,15 +104,15 @@ class AccessReviewInstance extends Entity
     public function getFallbackReviewers()
     {
         if (array_key_exists('fallbackReviewers', $this->_propDict) && !is_null($this->_propDict['fallbackReviewers'])) {
-            $fallbackReviewers = [];
-            if (count($this->_propDict['fallbackReviewers']) > 0 && is_a($this->_propDict['fallbackReviewers'][0], 'AccessReviewReviewerScope')) {
-                return $this->_propDict['fallbackReviewers'];
-            }
-            foreach ($this->_propDict['fallbackReviewers'] as $singleValue) {
-                $fallbackReviewers []= new AccessReviewReviewerScope($singleValue);
-            }
-            $this->_propDict['fallbackReviewers'] = $fallbackReviewers;
-            return $this->_propDict['fallbackReviewers'];
+           $fallbackReviewers = [];
+           if (count($this->_propDict['fallbackReviewers']) > 0 && is_a($this->_propDict['fallbackReviewers'][0], 'AccessReviewReviewerScope')) {
+              return $this->_propDict['fallbackReviewers'];
+           }
+           foreach ($this->_propDict['fallbackReviewers'] as $singleValue) {
+              $fallbackReviewers []= new AccessReviewReviewerScope($singleValue);
+           }
+           $this->_propDict['fallbackReviewers'] = $fallbackReviewers;
+           return $this->_propDict['fallbackReviewers'];
         }
         return null;
     }
@@ -141,15 +141,15 @@ class AccessReviewInstance extends Entity
     public function getReviewers()
     {
         if (array_key_exists('reviewers', $this->_propDict) && !is_null($this->_propDict['reviewers'])) {
-            $reviewers = [];
-            if (count($this->_propDict['reviewers']) > 0 && is_a($this->_propDict['reviewers'][0], 'AccessReviewReviewerScope')) {
-                return $this->_propDict['reviewers'];
-            }
-            foreach ($this->_propDict['reviewers'] as $singleValue) {
-                $reviewers []= new AccessReviewReviewerScope($singleValue);
-            }
-            $this->_propDict['reviewers'] = $reviewers;
-            return $this->_propDict['reviewers'];
+           $reviewers = [];
+           if (count($this->_propDict['reviewers']) > 0 && is_a($this->_propDict['reviewers'][0], 'AccessReviewReviewerScope')) {
+              return $this->_propDict['reviewers'];
+           }
+           foreach ($this->_propDict['reviewers'] as $singleValue) {
+              $reviewers []= new AccessReviewReviewerScope($singleValue);
+           }
+           $this->_propDict['reviewers'] = $reviewers;
+           return $this->_propDict['reviewers'];
         }
         return null;
     }
@@ -273,15 +273,15 @@ class AccessReviewInstance extends Entity
     public function getContactedReviewers()
     {
         if (array_key_exists('contactedReviewers', $this->_propDict) && !is_null($this->_propDict['contactedReviewers'])) {
-            $contactedReviewers = [];
-            if (count($this->_propDict['contactedReviewers']) > 0 && is_a($this->_propDict['contactedReviewers'][0], 'AccessReviewReviewer')) {
-                return $this->_propDict['contactedReviewers'];
-            }
-            foreach ($this->_propDict['contactedReviewers'] as $singleValue) {
-                $contactedReviewers []= new AccessReviewReviewer($singleValue);
-            }
-            $this->_propDict['contactedReviewers'] = $contactedReviewers;
-            return $this->_propDict['contactedReviewers'];
+           $contactedReviewers = [];
+           if (count($this->_propDict['contactedReviewers']) > 0 && is_a($this->_propDict['contactedReviewers'][0], 'AccessReviewReviewer')) {
+              return $this->_propDict['contactedReviewers'];
+           }
+           foreach ($this->_propDict['contactedReviewers'] as $singleValue) {
+              $contactedReviewers []= new AccessReviewReviewer($singleValue);
+           }
+           $this->_propDict['contactedReviewers'] = $contactedReviewers;
+           return $this->_propDict['contactedReviewers'];
         }
         return null;
     }
@@ -310,15 +310,15 @@ class AccessReviewInstance extends Entity
     public function getDecisions()
     {
         if (array_key_exists('decisions', $this->_propDict) && !is_null($this->_propDict['decisions'])) {
-            $decisions = [];
-            if (count($this->_propDict['decisions']) > 0 && is_a($this->_propDict['decisions'][0], 'AccessReviewInstanceDecisionItem')) {
-                return $this->_propDict['decisions'];
-            }
-            foreach ($this->_propDict['decisions'] as $singleValue) {
-                $decisions []= new AccessReviewInstanceDecisionItem($singleValue);
-            }
-            $this->_propDict['decisions'] = $decisions;
-            return $this->_propDict['decisions'];
+           $decisions = [];
+           if (count($this->_propDict['decisions']) > 0 && is_a($this->_propDict['decisions'][0], 'AccessReviewInstanceDecisionItem')) {
+              return $this->_propDict['decisions'];
+           }
+           foreach ($this->_propDict['decisions'] as $singleValue) {
+              $decisions []= new AccessReviewInstanceDecisionItem($singleValue);
+           }
+           $this->_propDict['decisions'] = $decisions;
+           return $this->_propDict['decisions'];
         }
         return null;
     }

@@ -91,15 +91,15 @@ class MessageRecipient extends Entity
     public function getEvents()
     {
         if (array_key_exists('events', $this->_propDict) && !is_null($this->_propDict['events'])) {
-            $events = [];
-            if (count($this->_propDict['events']) > 0 && is_a($this->_propDict['events'][0], 'MessageEvent')) {
-                return $this->_propDict['events'];
-            }
-            foreach ($this->_propDict['events'] as $singleValue) {
-                $events []= new MessageEvent($singleValue);
-            }
-            $this->_propDict['events'] = $events;
-            return $this->_propDict['events'];
+           $events = [];
+           if (count($this->_propDict['events']) > 0 && is_a($this->_propDict['events'][0], 'MessageEvent')) {
+              return $this->_propDict['events'];
+           }
+           foreach ($this->_propDict['events'] as $singleValue) {
+              $events []= new MessageEvent($singleValue);
+           }
+           $this->_propDict['events'] = $events;
+           return $this->_propDict['events'];
         }
         return null;
     }

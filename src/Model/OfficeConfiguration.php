@@ -65,15 +65,15 @@ class OfficeConfiguration implements \JsonSerializable
     public function getTenantCheckinStatuses()
     {
         if (array_key_exists('tenantCheckinStatuses', $this->_propDict) && !is_null($this->_propDict['tenantCheckinStatuses'])) {
-            $tenantCheckinStatuses = [];
-            if (count($this->_propDict['tenantCheckinStatuses']) > 0 && is_a($this->_propDict['tenantCheckinStatuses'][0], 'OfficeClientCheckinStatus')) {
-                return $this->_propDict['tenantCheckinStatuses'];
-            }
-            foreach ($this->_propDict['tenantCheckinStatuses'] as $singleValue) {
-                $tenantCheckinStatuses []= new OfficeClientCheckinStatus($singleValue);
-            }
-            $this->_propDict['tenantCheckinStatuses'] = $tenantCheckinStatuses;
-            return $this->_propDict['tenantCheckinStatuses'];
+           $tenantCheckinStatuses = [];
+           if (count($this->_propDict['tenantCheckinStatuses']) > 0 && is_a($this->_propDict['tenantCheckinStatuses'][0], 'OfficeClientCheckinStatus')) {
+              return $this->_propDict['tenantCheckinStatuses'];
+           }
+           foreach ($this->_propDict['tenantCheckinStatuses'] as $singleValue) {
+              $tenantCheckinStatuses []= new OfficeClientCheckinStatus($singleValue);
+           }
+           $this->_propDict['tenantCheckinStatuses'] = $tenantCheckinStatuses;
+           return $this->_propDict['tenantCheckinStatuses'];
         }
         return null;
     }
@@ -135,15 +135,15 @@ class OfficeConfiguration implements \JsonSerializable
     public function getClientConfigurations()
     {
         if (array_key_exists('clientConfigurations', $this->_propDict) && !is_null($this->_propDict['clientConfigurations'])) {
-            $clientConfigurations = [];
-            if (count($this->_propDict['clientConfigurations']) > 0 && is_a($this->_propDict['clientConfigurations'][0], 'OfficeClientConfiguration')) {
-                return $this->_propDict['clientConfigurations'];
-            }
-            foreach ($this->_propDict['clientConfigurations'] as $singleValue) {
-                $clientConfigurations []= new OfficeClientConfiguration($singleValue);
-            }
-            $this->_propDict['clientConfigurations'] = $clientConfigurations;
-            return $this->_propDict['clientConfigurations'];
+           $clientConfigurations = [];
+           if (count($this->_propDict['clientConfigurations']) > 0 && is_a($this->_propDict['clientConfigurations'][0], 'OfficeClientConfiguration')) {
+              return $this->_propDict['clientConfigurations'];
+           }
+           foreach ($this->_propDict['clientConfigurations'] as $singleValue) {
+              $clientConfigurations []= new OfficeClientConfiguration($singleValue);
+           }
+           $this->_propDict['clientConfigurations'] = $clientConfigurations;
+           return $this->_propDict['clientConfigurations'];
         }
         return null;
     }

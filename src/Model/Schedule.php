@@ -356,15 +356,15 @@ class Schedule extends Entity
     public function getOfferShiftRequests()
     {
         if (array_key_exists('offerShiftRequests', $this->_propDict) && !is_null($this->_propDict['offerShiftRequests'])) {
-            $offerShiftRequests = [];
-            if (count($this->_propDict['offerShiftRequests']) > 0 && is_a($this->_propDict['offerShiftRequests'][0], 'OfferShiftRequest')) {
-                return $this->_propDict['offerShiftRequests'];
-            }
-            foreach ($this->_propDict['offerShiftRequests'] as $singleValue) {
-                $offerShiftRequests []= new OfferShiftRequest($singleValue);
-            }
-            $this->_propDict['offerShiftRequests'] = $offerShiftRequests;
-            return $this->_propDict['offerShiftRequests'];
+           $offerShiftRequests = [];
+           if (count($this->_propDict['offerShiftRequests']) > 0 && is_a($this->_propDict['offerShiftRequests'][0], 'OfferShiftRequest')) {
+              return $this->_propDict['offerShiftRequests'];
+           }
+           foreach ($this->_propDict['offerShiftRequests'] as $singleValue) {
+              $offerShiftRequests []= new OfferShiftRequest($singleValue);
+           }
+           $this->_propDict['offerShiftRequests'] = $offerShiftRequests;
+           return $this->_propDict['offerShiftRequests'];
         }
         return null;
     }
@@ -391,15 +391,15 @@ class Schedule extends Entity
     public function getOpenShiftChangeRequests()
     {
         if (array_key_exists('openShiftChangeRequests', $this->_propDict) && !is_null($this->_propDict['openShiftChangeRequests'])) {
-            $openShiftChangeRequests = [];
-            if (count($this->_propDict['openShiftChangeRequests']) > 0 && is_a($this->_propDict['openShiftChangeRequests'][0], 'OpenShiftChangeRequest')) {
-                return $this->_propDict['openShiftChangeRequests'];
-            }
-            foreach ($this->_propDict['openShiftChangeRequests'] as $singleValue) {
-                $openShiftChangeRequests []= new OpenShiftChangeRequest($singleValue);
-            }
-            $this->_propDict['openShiftChangeRequests'] = $openShiftChangeRequests;
-            return $this->_propDict['openShiftChangeRequests'];
+           $openShiftChangeRequests = [];
+           if (count($this->_propDict['openShiftChangeRequests']) > 0 && is_a($this->_propDict['openShiftChangeRequests'][0], 'OpenShiftChangeRequest')) {
+              return $this->_propDict['openShiftChangeRequests'];
+           }
+           foreach ($this->_propDict['openShiftChangeRequests'] as $singleValue) {
+              $openShiftChangeRequests []= new OpenShiftChangeRequest($singleValue);
+           }
+           $this->_propDict['openShiftChangeRequests'] = $openShiftChangeRequests;
+           return $this->_propDict['openShiftChangeRequests'];
         }
         return null;
     }
@@ -426,15 +426,15 @@ class Schedule extends Entity
     public function getOpenShifts()
     {
         if (array_key_exists('openShifts', $this->_propDict) && !is_null($this->_propDict['openShifts'])) {
-            $openShifts = [];
-            if (count($this->_propDict['openShifts']) > 0 && is_a($this->_propDict['openShifts'][0], 'OpenShift')) {
-                return $this->_propDict['openShifts'];
-            }
-            foreach ($this->_propDict['openShifts'] as $singleValue) {
-                $openShifts []= new OpenShift($singleValue);
-            }
-            $this->_propDict['openShifts'] = $openShifts;
-            return $this->_propDict['openShifts'];
+           $openShifts = [];
+           if (count($this->_propDict['openShifts']) > 0 && is_a($this->_propDict['openShifts'][0], 'OpenShift')) {
+              return $this->_propDict['openShifts'];
+           }
+           foreach ($this->_propDict['openShifts'] as $singleValue) {
+              $openShifts []= new OpenShift($singleValue);
+           }
+           $this->_propDict['openShifts'] = $openShifts;
+           return $this->_propDict['openShifts'];
         }
         return null;
     }
@@ -462,15 +462,15 @@ class Schedule extends Entity
     public function getSchedulingGroups()
     {
         if (array_key_exists('schedulingGroups', $this->_propDict) && !is_null($this->_propDict['schedulingGroups'])) {
-            $schedulingGroups = [];
-            if (count($this->_propDict['schedulingGroups']) > 0 && is_a($this->_propDict['schedulingGroups'][0], 'SchedulingGroup')) {
-                return $this->_propDict['schedulingGroups'];
-            }
-            foreach ($this->_propDict['schedulingGroups'] as $singleValue) {
-                $schedulingGroups []= new SchedulingGroup($singleValue);
-            }
-            $this->_propDict['schedulingGroups'] = $schedulingGroups;
-            return $this->_propDict['schedulingGroups'];
+           $schedulingGroups = [];
+           if (count($this->_propDict['schedulingGroups']) > 0 && is_a($this->_propDict['schedulingGroups'][0], 'SchedulingGroup')) {
+              return $this->_propDict['schedulingGroups'];
+           }
+           foreach ($this->_propDict['schedulingGroups'] as $singleValue) {
+              $schedulingGroups []= new SchedulingGroup($singleValue);
+           }
+           $this->_propDict['schedulingGroups'] = $schedulingGroups;
+           return $this->_propDict['schedulingGroups'];
         }
         return null;
     }
@@ -499,15 +499,15 @@ class Schedule extends Entity
     public function getShifts()
     {
         if (array_key_exists('shifts', $this->_propDict) && !is_null($this->_propDict['shifts'])) {
-            $shifts = [];
-            if (count($this->_propDict['shifts']) > 0 && is_a($this->_propDict['shifts'][0], 'Shift')) {
-                return $this->_propDict['shifts'];
-            }
-            foreach ($this->_propDict['shifts'] as $singleValue) {
-                $shifts []= new Shift($singleValue);
-            }
-            $this->_propDict['shifts'] = $shifts;
-            return $this->_propDict['shifts'];
+           $shifts = [];
+           if (count($this->_propDict['shifts']) > 0 && is_a($this->_propDict['shifts'][0], 'Shift')) {
+              return $this->_propDict['shifts'];
+           }
+           foreach ($this->_propDict['shifts'] as $singleValue) {
+              $shifts []= new Shift($singleValue);
+           }
+           $this->_propDict['shifts'] = $shifts;
+           return $this->_propDict['shifts'];
         }
         return null;
     }
@@ -535,15 +535,15 @@ class Schedule extends Entity
     public function getSwapShiftsChangeRequests()
     {
         if (array_key_exists('swapShiftsChangeRequests', $this->_propDict) && !is_null($this->_propDict['swapShiftsChangeRequests'])) {
-            $swapShiftsChangeRequests = [];
-            if (count($this->_propDict['swapShiftsChangeRequests']) > 0 && is_a($this->_propDict['swapShiftsChangeRequests'][0], 'SwapShiftsChangeRequest')) {
-                return $this->_propDict['swapShiftsChangeRequests'];
-            }
-            foreach ($this->_propDict['swapShiftsChangeRequests'] as $singleValue) {
-                $swapShiftsChangeRequests []= new SwapShiftsChangeRequest($singleValue);
-            }
-            $this->_propDict['swapShiftsChangeRequests'] = $swapShiftsChangeRequests;
-            return $this->_propDict['swapShiftsChangeRequests'];
+           $swapShiftsChangeRequests = [];
+           if (count($this->_propDict['swapShiftsChangeRequests']) > 0 && is_a($this->_propDict['swapShiftsChangeRequests'][0], 'SwapShiftsChangeRequest')) {
+              return $this->_propDict['swapShiftsChangeRequests'];
+           }
+           foreach ($this->_propDict['swapShiftsChangeRequests'] as $singleValue) {
+              $swapShiftsChangeRequests []= new SwapShiftsChangeRequest($singleValue);
+           }
+           $this->_propDict['swapShiftsChangeRequests'] = $swapShiftsChangeRequests;
+           return $this->_propDict['swapShiftsChangeRequests'];
         }
         return null;
     }
@@ -570,15 +570,15 @@ class Schedule extends Entity
     public function getTimeCards()
     {
         if (array_key_exists('timeCards', $this->_propDict) && !is_null($this->_propDict['timeCards'])) {
-            $timeCards = [];
-            if (count($this->_propDict['timeCards']) > 0 && is_a($this->_propDict['timeCards'][0], 'TimeCard')) {
-                return $this->_propDict['timeCards'];
-            }
-            foreach ($this->_propDict['timeCards'] as $singleValue) {
-                $timeCards []= new TimeCard($singleValue);
-            }
-            $this->_propDict['timeCards'] = $timeCards;
-            return $this->_propDict['timeCards'];
+           $timeCards = [];
+           if (count($this->_propDict['timeCards']) > 0 && is_a($this->_propDict['timeCards'][0], 'TimeCard')) {
+              return $this->_propDict['timeCards'];
+           }
+           foreach ($this->_propDict['timeCards'] as $singleValue) {
+              $timeCards []= new TimeCard($singleValue);
+           }
+           $this->_propDict['timeCards'] = $timeCards;
+           return $this->_propDict['timeCards'];
         }
         return null;
     }
@@ -606,15 +606,15 @@ class Schedule extends Entity
     public function getTimeOffReasons()
     {
         if (array_key_exists('timeOffReasons', $this->_propDict) && !is_null($this->_propDict['timeOffReasons'])) {
-            $timeOffReasons = [];
-            if (count($this->_propDict['timeOffReasons']) > 0 && is_a($this->_propDict['timeOffReasons'][0], 'TimeOffReason')) {
-                return $this->_propDict['timeOffReasons'];
-            }
-            foreach ($this->_propDict['timeOffReasons'] as $singleValue) {
-                $timeOffReasons []= new TimeOffReason($singleValue);
-            }
-            $this->_propDict['timeOffReasons'] = $timeOffReasons;
-            return $this->_propDict['timeOffReasons'];
+           $timeOffReasons = [];
+           if (count($this->_propDict['timeOffReasons']) > 0 && is_a($this->_propDict['timeOffReasons'][0], 'TimeOffReason')) {
+              return $this->_propDict['timeOffReasons'];
+           }
+           foreach ($this->_propDict['timeOffReasons'] as $singleValue) {
+              $timeOffReasons []= new TimeOffReason($singleValue);
+           }
+           $this->_propDict['timeOffReasons'] = $timeOffReasons;
+           return $this->_propDict['timeOffReasons'];
         }
         return null;
     }
@@ -642,15 +642,15 @@ class Schedule extends Entity
     public function getTimeOffRequests()
     {
         if (array_key_exists('timeOffRequests', $this->_propDict) && !is_null($this->_propDict['timeOffRequests'])) {
-            $timeOffRequests = [];
-            if (count($this->_propDict['timeOffRequests']) > 0 && is_a($this->_propDict['timeOffRequests'][0], 'TimeOffRequest')) {
-                return $this->_propDict['timeOffRequests'];
-            }
-            foreach ($this->_propDict['timeOffRequests'] as $singleValue) {
-                $timeOffRequests []= new TimeOffRequest($singleValue);
-            }
-            $this->_propDict['timeOffRequests'] = $timeOffRequests;
-            return $this->_propDict['timeOffRequests'];
+           $timeOffRequests = [];
+           if (count($this->_propDict['timeOffRequests']) > 0 && is_a($this->_propDict['timeOffRequests'][0], 'TimeOffRequest')) {
+              return $this->_propDict['timeOffRequests'];
+           }
+           foreach ($this->_propDict['timeOffRequests'] as $singleValue) {
+              $timeOffRequests []= new TimeOffRequest($singleValue);
+           }
+           $this->_propDict['timeOffRequests'] = $timeOffRequests;
+           return $this->_propDict['timeOffRequests'];
         }
         return null;
     }
@@ -678,15 +678,15 @@ class Schedule extends Entity
     public function getTimesOff()
     {
         if (array_key_exists('timesOff', $this->_propDict) && !is_null($this->_propDict['timesOff'])) {
-            $timesOff = [];
-            if (count($this->_propDict['timesOff']) > 0 && is_a($this->_propDict['timesOff'][0], 'TimeOff')) {
-                return $this->_propDict['timesOff'];
-            }
-            foreach ($this->_propDict['timesOff'] as $singleValue) {
-                $timesOff []= new TimeOff($singleValue);
-            }
-            $this->_propDict['timesOff'] = $timesOff;
-            return $this->_propDict['timesOff'];
+           $timesOff = [];
+           if (count($this->_propDict['timesOff']) > 0 && is_a($this->_propDict['timesOff'][0], 'TimeOff')) {
+              return $this->_propDict['timesOff'];
+           }
+           foreach ($this->_propDict['timesOff'] as $singleValue) {
+              $timesOff []= new TimeOff($singleValue);
+           }
+           $this->_propDict['timesOff'] = $timesOff;
+           return $this->_propDict['timesOff'];
         }
         return null;
     }

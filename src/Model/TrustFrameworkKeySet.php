@@ -34,15 +34,15 @@ class TrustFrameworkKeySet extends Entity
     public function getKeys()
     {
         if (array_key_exists('keys', $this->_propDict) && !is_null($this->_propDict['keys'])) {
-            $keys = [];
-            if (count($this->_propDict['keys']) > 0 && is_a($this->_propDict['keys'][0], 'TrustFrameworkKey')) {
-                return $this->_propDict['keys'];
-            }
-            foreach ($this->_propDict['keys'] as $singleValue) {
-                $keys []= new TrustFrameworkKey($singleValue);
-            }
-            $this->_propDict['keys'] = $keys;
-            return $this->_propDict['keys'];
+           $keys = [];
+           if (count($this->_propDict['keys']) > 0 && is_a($this->_propDict['keys'][0], 'TrustFrameworkKey')) {
+              return $this->_propDict['keys'];
+           }
+           foreach ($this->_propDict['keys'] as $singleValue) {
+              $keys []= new TrustFrameworkKey($singleValue);
+           }
+           $this->_propDict['keys'] = $keys;
+           return $this->_propDict['keys'];
         }
         return null;
     }

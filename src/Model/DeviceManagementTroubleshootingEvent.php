@@ -34,15 +34,15 @@ class DeviceManagementTroubleshootingEvent extends Entity
     public function getAdditionalInformation()
     {
         if (array_key_exists('additionalInformation', $this->_propDict) && !is_null($this->_propDict['additionalInformation'])) {
-            $additionalInformation = [];
-            if (count($this->_propDict['additionalInformation']) > 0 && is_a($this->_propDict['additionalInformation'][0], 'KeyValuePair')) {
-                return $this->_propDict['additionalInformation'];
-            }
-            foreach ($this->_propDict['additionalInformation'] as $singleValue) {
-                $additionalInformation []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['additionalInformation'] = $additionalInformation;
-            return $this->_propDict['additionalInformation'];
+           $additionalInformation = [];
+           if (count($this->_propDict['additionalInformation']) > 0 && is_a($this->_propDict['additionalInformation'][0], 'KeyValuePair')) {
+              return $this->_propDict['additionalInformation'];
+           }
+           foreach ($this->_propDict['additionalInformation'] as $singleValue) {
+              $additionalInformation []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['additionalInformation'] = $additionalInformation;
+           return $this->_propDict['additionalInformation'];
         }
         return null;
     }

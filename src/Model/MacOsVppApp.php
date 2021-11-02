@@ -158,15 +158,15 @@ class MacOsVppApp extends MobileApp
     public function getRevokeLicenseActionResults()
     {
         if (array_key_exists('revokeLicenseActionResults', $this->_propDict) && !is_null($this->_propDict['revokeLicenseActionResults'])) {
-            $revokeLicenseActionResults = [];
-            if (count($this->_propDict['revokeLicenseActionResults']) > 0 && is_a($this->_propDict['revokeLicenseActionResults'][0], 'MacOsVppAppRevokeLicensesActionResult')) {
-                return $this->_propDict['revokeLicenseActionResults'];
-            }
-            foreach ($this->_propDict['revokeLicenseActionResults'] as $singleValue) {
-                $revokeLicenseActionResults []= new MacOsVppAppRevokeLicensesActionResult($singleValue);
-            }
-            $this->_propDict['revokeLicenseActionResults'] = $revokeLicenseActionResults;
-            return $this->_propDict['revokeLicenseActionResults'];
+           $revokeLicenseActionResults = [];
+           if (count($this->_propDict['revokeLicenseActionResults']) > 0 && is_a($this->_propDict['revokeLicenseActionResults'][0], 'MacOsVppAppRevokeLicensesActionResult')) {
+              return $this->_propDict['revokeLicenseActionResults'];
+           }
+           foreach ($this->_propDict['revokeLicenseActionResults'] as $singleValue) {
+              $revokeLicenseActionResults []= new MacOsVppAppRevokeLicensesActionResult($singleValue);
+           }
+           $this->_propDict['revokeLicenseActionResults'] = $revokeLicenseActionResults;
+           return $this->_propDict['revokeLicenseActionResults'];
         }
         return null;
     }
@@ -373,15 +373,15 @@ class MacOsVppApp extends MobileApp
     public function getAssignedLicenses()
     {
         if (array_key_exists('assignedLicenses', $this->_propDict) && !is_null($this->_propDict['assignedLicenses'])) {
-            $assignedLicenses = [];
-            if (count($this->_propDict['assignedLicenses']) > 0 && is_a($this->_propDict['assignedLicenses'][0], 'MacOsVppAppAssignedLicense')) {
-                return $this->_propDict['assignedLicenses'];
-            }
-            foreach ($this->_propDict['assignedLicenses'] as $singleValue) {
-                $assignedLicenses []= new MacOsVppAppAssignedLicense($singleValue);
-            }
-            $this->_propDict['assignedLicenses'] = $assignedLicenses;
-            return $this->_propDict['assignedLicenses'];
+           $assignedLicenses = [];
+           if (count($this->_propDict['assignedLicenses']) > 0 && is_a($this->_propDict['assignedLicenses'][0], 'MacOsVppAppAssignedLicense')) {
+              return $this->_propDict['assignedLicenses'];
+           }
+           foreach ($this->_propDict['assignedLicenses'] as $singleValue) {
+              $assignedLicenses []= new MacOsVppAppAssignedLicense($singleValue);
+           }
+           $this->_propDict['assignedLicenses'] = $assignedLicenses;
+           return $this->_propDict['assignedLicenses'];
         }
         return null;
     }

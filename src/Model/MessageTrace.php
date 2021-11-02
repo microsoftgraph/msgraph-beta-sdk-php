@@ -226,15 +226,15 @@ class MessageTrace extends Entity
     public function getRecipients()
     {
         if (array_key_exists('recipients', $this->_propDict) && !is_null($this->_propDict['recipients'])) {
-            $recipients = [];
-            if (count($this->_propDict['recipients']) > 0 && is_a($this->_propDict['recipients'][0], 'MessageRecipient')) {
-                return $this->_propDict['recipients'];
-            }
-            foreach ($this->_propDict['recipients'] as $singleValue) {
-                $recipients []= new MessageRecipient($singleValue);
-            }
-            $this->_propDict['recipients'] = $recipients;
-            return $this->_propDict['recipients'];
+           $recipients = [];
+           if (count($this->_propDict['recipients']) > 0 && is_a($this->_propDict['recipients'][0], 'MessageRecipient')) {
+              return $this->_propDict['recipients'];
+           }
+           foreach ($this->_propDict['recipients'] as $singleValue) {
+              $recipients []= new MessageRecipient($singleValue);
+           }
+           $this->_propDict['recipients'] = $recipients;
+           return $this->_propDict['recipients'];
         }
         return null;
     }

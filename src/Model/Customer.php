@@ -620,15 +620,15 @@ class Customer extends Entity
     public function getPicture()
     {
         if (array_key_exists('picture', $this->_propDict) && !is_null($this->_propDict['picture'])) {
-            $picture = [];
-            if (count($this->_propDict['picture']) > 0 && is_a($this->_propDict['picture'][0], 'Picture')) {
-                return $this->_propDict['picture'];
-            }
-            foreach ($this->_propDict['picture'] as $singleValue) {
-                $picture []= new Picture($singleValue);
-            }
-            $this->_propDict['picture'] = $picture;
-            return $this->_propDict['picture'];
+           $picture = [];
+           if (count($this->_propDict['picture']) > 0 && is_a($this->_propDict['picture'][0], 'Picture')) {
+              return $this->_propDict['picture'];
+           }
+           foreach ($this->_propDict['picture'] as $singleValue) {
+              $picture []= new Picture($singleValue);
+           }
+           $this->_propDict['picture'] = $picture;
+           return $this->_propDict['picture'];
         }
         return null;
     }

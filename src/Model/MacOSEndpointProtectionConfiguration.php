@@ -580,15 +580,15 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     public function getFirewallApplications()
     {
         if (array_key_exists('firewallApplications', $this->_propDict) && !is_null($this->_propDict['firewallApplications'])) {
-            $firewallApplications = [];
-            if (count($this->_propDict['firewallApplications']) > 0 && is_a($this->_propDict['firewallApplications'][0], 'MacOSFirewallApplication')) {
-                return $this->_propDict['firewallApplications'];
-            }
-            foreach ($this->_propDict['firewallApplications'] as $singleValue) {
-                $firewallApplications []= new MacOSFirewallApplication($singleValue);
-            }
-            $this->_propDict['firewallApplications'] = $firewallApplications;
-            return $this->_propDict['firewallApplications'];
+           $firewallApplications = [];
+           if (count($this->_propDict['firewallApplications']) > 0 && is_a($this->_propDict['firewallApplications'][0], 'MacOSFirewallApplication')) {
+              return $this->_propDict['firewallApplications'];
+           }
+           foreach ($this->_propDict['firewallApplications'] as $singleValue) {
+              $firewallApplications []= new MacOSFirewallApplication($singleValue);
+           }
+           $this->_propDict['firewallApplications'] = $firewallApplications;
+           return $this->_propDict['firewallApplications'];
         }
         return null;
     }

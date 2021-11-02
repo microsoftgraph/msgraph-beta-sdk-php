@@ -92,15 +92,15 @@ class TenantGroup extends \Beta\Microsoft\Graph\Model\Entity
     public function getManagementActions()
     {
         if (array_key_exists('managementActions', $this->_propDict) && !is_null($this->_propDict['managementActions'])) {
-            $managementActions = [];
-            if (count($this->_propDict['managementActions']) > 0 && is_a($this->_propDict['managementActions'][0], 'ManagementActionInfo')) {
-                return $this->_propDict['managementActions'];
-            }
-            foreach ($this->_propDict['managementActions'] as $singleValue) {
-                $managementActions []= new ManagementActionInfo($singleValue);
-            }
-            $this->_propDict['managementActions'] = $managementActions;
-            return $this->_propDict['managementActions'];
+           $managementActions = [];
+           if (count($this->_propDict['managementActions']) > 0 && is_a($this->_propDict['managementActions'][0], 'ManagementActionInfo')) {
+              return $this->_propDict['managementActions'];
+           }
+           foreach ($this->_propDict['managementActions'] as $singleValue) {
+              $managementActions []= new ManagementActionInfo($singleValue);
+           }
+           $this->_propDict['managementActions'] = $managementActions;
+           return $this->_propDict['managementActions'];
         }
         return null;
     }
@@ -129,15 +129,15 @@ class TenantGroup extends \Beta\Microsoft\Graph\Model\Entity
     public function getManagementIntents()
     {
         if (array_key_exists('managementIntents', $this->_propDict) && !is_null($this->_propDict['managementIntents'])) {
-            $managementIntents = [];
-            if (count($this->_propDict['managementIntents']) > 0 && is_a($this->_propDict['managementIntents'][0], 'ManagementIntentInfo')) {
-                return $this->_propDict['managementIntents'];
-            }
-            foreach ($this->_propDict['managementIntents'] as $singleValue) {
-                $managementIntents []= new ManagementIntentInfo($singleValue);
-            }
-            $this->_propDict['managementIntents'] = $managementIntents;
-            return $this->_propDict['managementIntents'];
+           $managementIntents = [];
+           if (count($this->_propDict['managementIntents']) > 0 && is_a($this->_propDict['managementIntents'][0], 'ManagementIntentInfo')) {
+              return $this->_propDict['managementIntents'];
+           }
+           foreach ($this->_propDict['managementIntents'] as $singleValue) {
+              $managementIntents []= new ManagementIntentInfo($singleValue);
+           }
+           $this->_propDict['managementIntents'] = $managementIntents;
+           return $this->_propDict['managementIntents'];
         }
         return null;
     }

@@ -34,15 +34,15 @@ class Windows81CertificateProfileBase extends WindowsCertificateProfileBase
     public function getCustomSubjectAlternativeNames()
     {
         if (array_key_exists('customSubjectAlternativeNames', $this->_propDict) && !is_null($this->_propDict['customSubjectAlternativeNames'])) {
-            $customSubjectAlternativeNames = [];
-            if (count($this->_propDict['customSubjectAlternativeNames']) > 0 && is_a($this->_propDict['customSubjectAlternativeNames'][0], 'CustomSubjectAlternativeName')) {
-                return $this->_propDict['customSubjectAlternativeNames'];
-            }
-            foreach ($this->_propDict['customSubjectAlternativeNames'] as $singleValue) {
-                $customSubjectAlternativeNames []= new CustomSubjectAlternativeName($singleValue);
-            }
-            $this->_propDict['customSubjectAlternativeNames'] = $customSubjectAlternativeNames;
-            return $this->_propDict['customSubjectAlternativeNames'];
+           $customSubjectAlternativeNames = [];
+           if (count($this->_propDict['customSubjectAlternativeNames']) > 0 && is_a($this->_propDict['customSubjectAlternativeNames'][0], 'CustomSubjectAlternativeName')) {
+              return $this->_propDict['customSubjectAlternativeNames'];
+           }
+           foreach ($this->_propDict['customSubjectAlternativeNames'] as $singleValue) {
+              $customSubjectAlternativeNames []= new CustomSubjectAlternativeName($singleValue);
+           }
+           $this->_propDict['customSubjectAlternativeNames'] = $customSubjectAlternativeNames;
+           return $this->_propDict['customSubjectAlternativeNames'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class Windows81CertificateProfileBase extends WindowsCertificateProfileBase
     public function getExtendedKeyUsages()
     {
         if (array_key_exists('extendedKeyUsages', $this->_propDict) && !is_null($this->_propDict['extendedKeyUsages'])) {
-            $extendedKeyUsages = [];
-            if (count($this->_propDict['extendedKeyUsages']) > 0 && is_a($this->_propDict['extendedKeyUsages'][0], 'ExtendedKeyUsage')) {
-                return $this->_propDict['extendedKeyUsages'];
-            }
-            foreach ($this->_propDict['extendedKeyUsages'] as $singleValue) {
-                $extendedKeyUsages []= new ExtendedKeyUsage($singleValue);
-            }
-            $this->_propDict['extendedKeyUsages'] = $extendedKeyUsages;
-            return $this->_propDict['extendedKeyUsages'];
+           $extendedKeyUsages = [];
+           if (count($this->_propDict['extendedKeyUsages']) > 0 && is_a($this->_propDict['extendedKeyUsages'][0], 'ExtendedKeyUsage')) {
+              return $this->_propDict['extendedKeyUsages'];
+           }
+           foreach ($this->_propDict['extendedKeyUsages'] as $singleValue) {
+              $extendedKeyUsages []= new ExtendedKeyUsage($singleValue);
+           }
+           $this->_propDict['extendedKeyUsages'] = $extendedKeyUsages;
+           return $this->_propDict['extendedKeyUsages'];
         }
         return null;
     }

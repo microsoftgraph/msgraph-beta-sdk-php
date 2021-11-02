@@ -129,15 +129,15 @@ class CallRecord extends \Beta\Microsoft\Graph\Model\Entity
     public function getModalities()
     {
         if (array_key_exists('modalities', $this->_propDict) && !is_null($this->_propDict['modalities'])) {
-            $modalities = [];
-            if (count($this->_propDict['modalities']) > 0 && is_a($this->_propDict['modalities'][0], 'Modality')) {
-                return $this->_propDict['modalities'];
-            }
-            foreach ($this->_propDict['modalities'] as $singleValue) {
-                $modalities []= new Modality($singleValue);
-            }
-            $this->_propDict['modalities'] = $modalities;
-            return $this->_propDict['modalities'];
+           $modalities = [];
+           if (count($this->_propDict['modalities']) > 0 && is_a($this->_propDict['modalities'][0], 'Modality')) {
+              return $this->_propDict['modalities'];
+           }
+           foreach ($this->_propDict['modalities'] as $singleValue) {
+              $modalities []= new Modality($singleValue);
+           }
+           $this->_propDict['modalities'] = $modalities;
+           return $this->_propDict['modalities'];
         }
         return null;
     }
@@ -199,15 +199,15 @@ class CallRecord extends \Beta\Microsoft\Graph\Model\Entity
     public function getParticipants()
     {
         if (array_key_exists('participants', $this->_propDict) && !is_null($this->_propDict['participants'])) {
-            $participants = [];
-            if (count($this->_propDict['participants']) > 0 && is_a($this->_propDict['participants'][0], '\Beta\Microsoft\Graph\Model\IdentitySet')) {
-                return $this->_propDict['participants'];
-            }
-            foreach ($this->_propDict['participants'] as $singleValue) {
-                $participants []= new \Beta\Microsoft\Graph\Model\IdentitySet($singleValue);
-            }
-            $this->_propDict['participants'] = $participants;
-            return $this->_propDict['participants'];
+           $participants = [];
+           if (count($this->_propDict['participants']) > 0 && is_a($this->_propDict['participants'][0], '\Beta\Microsoft\Graph\Model\IdentitySet')) {
+              return $this->_propDict['participants'];
+           }
+           foreach ($this->_propDict['participants'] as $singleValue) {
+              $participants []= new \Beta\Microsoft\Graph\Model\IdentitySet($singleValue);
+           }
+           $this->_propDict['participants'] = $participants;
+           return $this->_propDict['participants'];
         }
         return null;
     }
@@ -331,15 +331,15 @@ class CallRecord extends \Beta\Microsoft\Graph\Model\Entity
     public function getSessions()
     {
         if (array_key_exists('sessions', $this->_propDict) && !is_null($this->_propDict['sessions'])) {
-            $sessions = [];
-            if (count($this->_propDict['sessions']) > 0 && is_a($this->_propDict['sessions'][0], 'Session')) {
-                return $this->_propDict['sessions'];
-            }
-            foreach ($this->_propDict['sessions'] as $singleValue) {
-                $sessions []= new Session($singleValue);
-            }
-            $this->_propDict['sessions'] = $sessions;
-            return $this->_propDict['sessions'];
+           $sessions = [];
+           if (count($this->_propDict['sessions']) > 0 && is_a($this->_propDict['sessions'][0], 'Session')) {
+              return $this->_propDict['sessions'];
+           }
+           foreach ($this->_propDict['sessions'] as $singleValue) {
+              $sessions []= new Session($singleValue);
+           }
+           $this->_propDict['sessions'] = $sessions;
+           return $this->_propDict['sessions'];
         }
         return null;
     }

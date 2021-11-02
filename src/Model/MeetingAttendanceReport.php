@@ -34,15 +34,15 @@ class MeetingAttendanceReport extends Entity
     public function getAttendanceRecords()
     {
         if (array_key_exists('attendanceRecords', $this->_propDict) && !is_null($this->_propDict['attendanceRecords'])) {
-            $attendanceRecords = [];
-            if (count($this->_propDict['attendanceRecords']) > 0 && is_a($this->_propDict['attendanceRecords'][0], 'AttendanceRecord')) {
-                return $this->_propDict['attendanceRecords'];
-            }
-            foreach ($this->_propDict['attendanceRecords'] as $singleValue) {
-                $attendanceRecords []= new AttendanceRecord($singleValue);
-            }
-            $this->_propDict['attendanceRecords'] = $attendanceRecords;
-            return $this->_propDict['attendanceRecords'];
+           $attendanceRecords = [];
+           if (count($this->_propDict['attendanceRecords']) > 0 && is_a($this->_propDict['attendanceRecords'][0], 'AttendanceRecord')) {
+              return $this->_propDict['attendanceRecords'];
+           }
+           foreach ($this->_propDict['attendanceRecords'] as $singleValue) {
+              $attendanceRecords []= new AttendanceRecord($singleValue);
+           }
+           $this->_propDict['attendanceRecords'] = $attendanceRecords;
+           return $this->_propDict['attendanceRecords'];
         }
         return null;
     }

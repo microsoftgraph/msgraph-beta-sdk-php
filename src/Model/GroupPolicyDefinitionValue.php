@@ -195,15 +195,15 @@ class GroupPolicyDefinitionValue extends Entity
     public function getPresentationValues()
     {
         if (array_key_exists('presentationValues', $this->_propDict) && !is_null($this->_propDict['presentationValues'])) {
-            $presentationValues = [];
-            if (count($this->_propDict['presentationValues']) > 0 && is_a($this->_propDict['presentationValues'][0], 'GroupPolicyPresentationValue')) {
-                return $this->_propDict['presentationValues'];
-            }
-            foreach ($this->_propDict['presentationValues'] as $singleValue) {
-                $presentationValues []= new GroupPolicyPresentationValue($singleValue);
-            }
-            $this->_propDict['presentationValues'] = $presentationValues;
-            return $this->_propDict['presentationValues'];
+           $presentationValues = [];
+           if (count($this->_propDict['presentationValues']) > 0 && is_a($this->_propDict['presentationValues'][0], 'GroupPolicyPresentationValue')) {
+              return $this->_propDict['presentationValues'];
+           }
+           foreach ($this->_propDict['presentationValues'] as $singleValue) {
+              $presentationValues []= new GroupPolicyPresentationValue($singleValue);
+           }
+           $this->_propDict['presentationValues'] = $presentationValues;
+           return $this->_propDict['presentationValues'];
         }
         return null;
     }

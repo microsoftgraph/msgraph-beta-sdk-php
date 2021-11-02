@@ -100,15 +100,15 @@ class FilterOperatorSchema extends Entity
     public function getSupportedAttributeTypes()
     {
         if (array_key_exists('supportedAttributeTypes', $this->_propDict) && !is_null($this->_propDict['supportedAttributeTypes'])) {
-            $supportedAttributeTypes = [];
-            if (count($this->_propDict['supportedAttributeTypes']) > 0 && is_a($this->_propDict['supportedAttributeTypes'][0], 'AttributeType')) {
-                return $this->_propDict['supportedAttributeTypes'];
-            }
-            foreach ($this->_propDict['supportedAttributeTypes'] as $singleValue) {
-                $supportedAttributeTypes []= new AttributeType($singleValue);
-            }
-            $this->_propDict['supportedAttributeTypes'] = $supportedAttributeTypes;
-            return $this->_propDict['supportedAttributeTypes'];
+           $supportedAttributeTypes = [];
+           if (count($this->_propDict['supportedAttributeTypes']) > 0 && is_a($this->_propDict['supportedAttributeTypes'][0], 'AttributeType')) {
+              return $this->_propDict['supportedAttributeTypes'];
+           }
+           foreach ($this->_propDict['supportedAttributeTypes'] as $singleValue) {
+              $supportedAttributeTypes []= new AttributeType($singleValue);
+           }
+           $this->_propDict['supportedAttributeTypes'] = $supportedAttributeTypes;
+           return $this->_propDict['supportedAttributeTypes'];
         }
         return null;
     }

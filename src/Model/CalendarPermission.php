@@ -34,15 +34,15 @@ class CalendarPermission extends Entity
     public function getAllowedRoles()
     {
         if (array_key_exists('allowedRoles', $this->_propDict) && !is_null($this->_propDict['allowedRoles'])) {
-            $allowedRoles = [];
-            if (count($this->_propDict['allowedRoles']) > 0 && is_a($this->_propDict['allowedRoles'][0], 'CalendarRoleType')) {
-                return $this->_propDict['allowedRoles'];
-            }
-            foreach ($this->_propDict['allowedRoles'] as $singleValue) {
-                $allowedRoles []= new CalendarRoleType($singleValue);
-            }
-            $this->_propDict['allowedRoles'] = $allowedRoles;
-            return $this->_propDict['allowedRoles'];
+           $allowedRoles = [];
+           if (count($this->_propDict['allowedRoles']) > 0 && is_a($this->_propDict['allowedRoles'][0], 'CalendarRoleType')) {
+              return $this->_propDict['allowedRoles'];
+           }
+           foreach ($this->_propDict['allowedRoles'] as $singleValue) {
+              $allowedRoles []= new CalendarRoleType($singleValue);
+           }
+           $this->_propDict['allowedRoles'] = $allowedRoles;
+           return $this->_propDict['allowedRoles'];
         }
         return null;
     }

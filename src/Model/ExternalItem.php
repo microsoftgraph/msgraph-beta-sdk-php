@@ -33,15 +33,15 @@ class ExternalItem extends Entity
     public function getAcl()
     {
         if (array_key_exists('acl', $this->_propDict) && !is_null($this->_propDict['acl'])) {
-            $acl = [];
-            if (count($this->_propDict['acl']) > 0 && is_a($this->_propDict['acl'][0], 'Acl')) {
-                return $this->_propDict['acl'];
-            }
-            foreach ($this->_propDict['acl'] as $singleValue) {
-                $acl []= new Acl($singleValue);
-            }
-            $this->_propDict['acl'] = $acl;
-            return $this->_propDict['acl'];
+           $acl = [];
+           if (count($this->_propDict['acl']) > 0 && is_a($this->_propDict['acl'][0], 'Acl')) {
+              return $this->_propDict['acl'];
+           }
+           foreach ($this->_propDict['acl'] as $singleValue) {
+              $acl []= new Acl($singleValue);
+           }
+           $this->_propDict['acl'] = $acl;
+           return $this->_propDict['acl'];
         }
         return null;
     }

@@ -1015,15 +1015,15 @@ class SalesQuote extends Entity
     public function getSalesQuoteLines()
     {
         if (array_key_exists('salesQuoteLines', $this->_propDict) && !is_null($this->_propDict['salesQuoteLines'])) {
-            $salesQuoteLines = [];
-            if (count($this->_propDict['salesQuoteLines']) > 0 && is_a($this->_propDict['salesQuoteLines'][0], 'SalesQuoteLine')) {
-                return $this->_propDict['salesQuoteLines'];
-            }
-            foreach ($this->_propDict['salesQuoteLines'] as $singleValue) {
-                $salesQuoteLines []= new SalesQuoteLine($singleValue);
-            }
-            $this->_propDict['salesQuoteLines'] = $salesQuoteLines;
-            return $this->_propDict['salesQuoteLines'];
+           $salesQuoteLines = [];
+           if (count($this->_propDict['salesQuoteLines']) > 0 && is_a($this->_propDict['salesQuoteLines'][0], 'SalesQuoteLine')) {
+              return $this->_propDict['salesQuoteLines'];
+           }
+           foreach ($this->_propDict['salesQuoteLines'] as $singleValue) {
+              $salesQuoteLines []= new SalesQuoteLine($singleValue);
+           }
+           $this->_propDict['salesQuoteLines'] = $salesQuoteLines;
+           return $this->_propDict['salesQuoteLines'];
         }
         return null;
     }

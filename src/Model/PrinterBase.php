@@ -309,15 +309,15 @@ class PrinterBase extends Entity
     public function getJobs()
     {
         if (array_key_exists('jobs', $this->_propDict) && !is_null($this->_propDict['jobs'])) {
-            $jobs = [];
-            if (count($this->_propDict['jobs']) > 0 && is_a($this->_propDict['jobs'][0], 'PrintJob')) {
-                return $this->_propDict['jobs'];
-            }
-            foreach ($this->_propDict['jobs'] as $singleValue) {
-                $jobs []= new PrintJob($singleValue);
-            }
-            $this->_propDict['jobs'] = $jobs;
-            return $this->_propDict['jobs'];
+           $jobs = [];
+           if (count($this->_propDict['jobs']) > 0 && is_a($this->_propDict['jobs'][0], 'PrintJob')) {
+              return $this->_propDict['jobs'];
+           }
+           foreach ($this->_propDict['jobs'] as $singleValue) {
+              $jobs []= new PrintJob($singleValue);
+           }
+           $this->_propDict['jobs'] = $jobs;
+           return $this->_propDict['jobs'];
         }
         return null;
     }

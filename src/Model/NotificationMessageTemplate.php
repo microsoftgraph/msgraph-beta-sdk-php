@@ -187,15 +187,15 @@ class NotificationMessageTemplate extends Entity
     public function getLocalizedNotificationMessages()
     {
         if (array_key_exists('localizedNotificationMessages', $this->_propDict) && !is_null($this->_propDict['localizedNotificationMessages'])) {
-            $localizedNotificationMessages = [];
-            if (count($this->_propDict['localizedNotificationMessages']) > 0 && is_a($this->_propDict['localizedNotificationMessages'][0], 'LocalizedNotificationMessage')) {
-                return $this->_propDict['localizedNotificationMessages'];
-            }
-            foreach ($this->_propDict['localizedNotificationMessages'] as $singleValue) {
-                $localizedNotificationMessages []= new LocalizedNotificationMessage($singleValue);
-            }
-            $this->_propDict['localizedNotificationMessages'] = $localizedNotificationMessages;
-            return $this->_propDict['localizedNotificationMessages'];
+           $localizedNotificationMessages = [];
+           if (count($this->_propDict['localizedNotificationMessages']) > 0 && is_a($this->_propDict['localizedNotificationMessages'][0], 'LocalizedNotificationMessage')) {
+              return $this->_propDict['localizedNotificationMessages'];
+           }
+           foreach ($this->_propDict['localizedNotificationMessages'] as $singleValue) {
+              $localizedNotificationMessages []= new LocalizedNotificationMessage($singleValue);
+           }
+           $this->_propDict['localizedNotificationMessages'] = $localizedNotificationMessages;
+           return $this->_propDict['localizedNotificationMessages'];
         }
         return null;
     }

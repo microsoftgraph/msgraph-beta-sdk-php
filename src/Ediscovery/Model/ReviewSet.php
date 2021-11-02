@@ -129,15 +129,15 @@ class ReviewSet extends \Beta\Microsoft\Graph\Model\Entity
     public function getQueries()
     {
         if (array_key_exists('queries', $this->_propDict) && !is_null($this->_propDict['queries'])) {
-            $queries = [];
-            if (count($this->_propDict['queries']) > 0 && is_a($this->_propDict['queries'][0], 'ReviewSetQuery')) {
-                return $this->_propDict['queries'];
-            }
-            foreach ($this->_propDict['queries'] as $singleValue) {
-                $queries []= new ReviewSetQuery($singleValue);
-            }
-            $this->_propDict['queries'] = $queries;
-            return $this->_propDict['queries'];
+           $queries = [];
+           if (count($this->_propDict['queries']) > 0 && is_a($this->_propDict['queries'][0], 'ReviewSetQuery')) {
+              return $this->_propDict['queries'];
+           }
+           foreach ($this->_propDict['queries'] as $singleValue) {
+              $queries []= new ReviewSetQuery($singleValue);
+           }
+           $this->_propDict['queries'] = $queries;
+           return $this->_propDict['queries'];
         }
         return null;
     }

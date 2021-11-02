@@ -92,15 +92,15 @@ class UserFlowLanguageConfiguration extends Entity
     public function getDefaultPages()
     {
         if (array_key_exists('defaultPages', $this->_propDict) && !is_null($this->_propDict['defaultPages'])) {
-            $defaultPages = [];
-            if (count($this->_propDict['defaultPages']) > 0 && is_a($this->_propDict['defaultPages'][0], 'UserFlowLanguagePage')) {
-                return $this->_propDict['defaultPages'];
-            }
-            foreach ($this->_propDict['defaultPages'] as $singleValue) {
-                $defaultPages []= new UserFlowLanguagePage($singleValue);
-            }
-            $this->_propDict['defaultPages'] = $defaultPages;
-            return $this->_propDict['defaultPages'];
+           $defaultPages = [];
+           if (count($this->_propDict['defaultPages']) > 0 && is_a($this->_propDict['defaultPages'][0], 'UserFlowLanguagePage')) {
+              return $this->_propDict['defaultPages'];
+           }
+           foreach ($this->_propDict['defaultPages'] as $singleValue) {
+              $defaultPages []= new UserFlowLanguagePage($singleValue);
+           }
+           $this->_propDict['defaultPages'] = $defaultPages;
+           return $this->_propDict['defaultPages'];
         }
         return null;
     }
@@ -129,15 +129,15 @@ class UserFlowLanguageConfiguration extends Entity
     public function getOverridesPages()
     {
         if (array_key_exists('overridesPages', $this->_propDict) && !is_null($this->_propDict['overridesPages'])) {
-            $overridesPages = [];
-            if (count($this->_propDict['overridesPages']) > 0 && is_a($this->_propDict['overridesPages'][0], 'UserFlowLanguagePage')) {
-                return $this->_propDict['overridesPages'];
-            }
-            foreach ($this->_propDict['overridesPages'] as $singleValue) {
-                $overridesPages []= new UserFlowLanguagePage($singleValue);
-            }
-            $this->_propDict['overridesPages'] = $overridesPages;
-            return $this->_propDict['overridesPages'];
+           $overridesPages = [];
+           if (count($this->_propDict['overridesPages']) > 0 && is_a($this->_propDict['overridesPages'][0], 'UserFlowLanguagePage')) {
+              return $this->_propDict['overridesPages'];
+           }
+           foreach ($this->_propDict['overridesPages'] as $singleValue) {
+              $overridesPages []= new UserFlowLanguagePage($singleValue);
+           }
+           $this->_propDict['overridesPages'] = $overridesPages;
+           return $this->_propDict['overridesPages'];
         }
         return null;
     }

@@ -63,15 +63,15 @@ class Event extends OutlookItem
     public function getAttendees()
     {
         if (array_key_exists('attendees', $this->_propDict) && !is_null($this->_propDict['attendees'])) {
-            $attendees = [];
-            if (count($this->_propDict['attendees']) > 0 && is_a($this->_propDict['attendees'][0], 'Attendee')) {
-                return $this->_propDict['attendees'];
-            }
-            foreach ($this->_propDict['attendees'] as $singleValue) {
-                $attendees []= new Attendee($singleValue);
-            }
-            $this->_propDict['attendees'] = $attendees;
-            return $this->_propDict['attendees'];
+           $attendees = [];
+           if (count($this->_propDict['attendees']) > 0 && is_a($this->_propDict['attendees'][0], 'Attendee')) {
+              return $this->_propDict['attendees'];
+           }
+           foreach ($this->_propDict['attendees'] as $singleValue) {
+              $attendees []= new Attendee($singleValue);
+           }
+           $this->_propDict['attendees'] = $attendees;
+           return $this->_propDict['attendees'];
         }
         return null;
     }
@@ -505,15 +505,15 @@ class Event extends OutlookItem
     public function getLocations()
     {
         if (array_key_exists('locations', $this->_propDict) && !is_null($this->_propDict['locations'])) {
-            $locations = [];
-            if (count($this->_propDict['locations']) > 0 && is_a($this->_propDict['locations'][0], 'Location')) {
-                return $this->_propDict['locations'];
-            }
-            foreach ($this->_propDict['locations'] as $singleValue) {
-                $locations []= new Location($singleValue);
-            }
-            $this->_propDict['locations'] = $locations;
-            return $this->_propDict['locations'];
+           $locations = [];
+           if (count($this->_propDict['locations']) > 0 && is_a($this->_propDict['locations'][0], 'Location')) {
+              return $this->_propDict['locations'];
+           }
+           foreach ($this->_propDict['locations'] as $singleValue) {
+              $locations []= new Location($singleValue);
+           }
+           $this->_propDict['locations'] = $locations;
+           return $this->_propDict['locations'];
         }
         return null;
     }
@@ -1148,15 +1148,15 @@ class Event extends OutlookItem
     public function getAttachments()
     {
         if (array_key_exists('attachments', $this->_propDict) && !is_null($this->_propDict['attachments'])) {
-            $attachments = [];
-            if (count($this->_propDict['attachments']) > 0 && is_a($this->_propDict['attachments'][0], 'Attachment')) {
-                return $this->_propDict['attachments'];
-            }
-            foreach ($this->_propDict['attachments'] as $singleValue) {
-                $attachments []= new Attachment($singleValue);
-            }
-            $this->_propDict['attachments'] = $attachments;
-            return $this->_propDict['attachments'];
+           $attachments = [];
+           if (count($this->_propDict['attachments']) > 0 && is_a($this->_propDict['attachments'][0], 'Attachment')) {
+              return $this->_propDict['attachments'];
+           }
+           foreach ($this->_propDict['attachments'] as $singleValue) {
+              $attachments []= new Attachment($singleValue);
+           }
+           $this->_propDict['attachments'] = $attachments;
+           return $this->_propDict['attachments'];
         }
         return null;
     }
@@ -1217,15 +1217,15 @@ class Event extends OutlookItem
     public function getExceptionOccurrences()
     {
         if (array_key_exists('exceptionOccurrences', $this->_propDict) && !is_null($this->_propDict['exceptionOccurrences'])) {
-            $exceptionOccurrences = [];
-            if (count($this->_propDict['exceptionOccurrences']) > 0 && is_a($this->_propDict['exceptionOccurrences'][0], 'Event')) {
-                return $this->_propDict['exceptionOccurrences'];
-            }
-            foreach ($this->_propDict['exceptionOccurrences'] as $singleValue) {
-                $exceptionOccurrences []= new Event($singleValue);
-            }
-            $this->_propDict['exceptionOccurrences'] = $exceptionOccurrences;
-            return $this->_propDict['exceptionOccurrences'];
+           $exceptionOccurrences = [];
+           if (count($this->_propDict['exceptionOccurrences']) > 0 && is_a($this->_propDict['exceptionOccurrences'][0], 'Event')) {
+              return $this->_propDict['exceptionOccurrences'];
+           }
+           foreach ($this->_propDict['exceptionOccurrences'] as $singleValue) {
+              $exceptionOccurrences []= new Event($singleValue);
+           }
+           $this->_propDict['exceptionOccurrences'] = $exceptionOccurrences;
+           return $this->_propDict['exceptionOccurrences'];
         }
         return null;
     }
@@ -1253,15 +1253,15 @@ class Event extends OutlookItem
     public function getExtensions()
     {
         if (array_key_exists('extensions', $this->_propDict) && !is_null($this->_propDict['extensions'])) {
-            $extensions = [];
-            if (count($this->_propDict['extensions']) > 0 && is_a($this->_propDict['extensions'][0], 'Extension')) {
-                return $this->_propDict['extensions'];
-            }
-            foreach ($this->_propDict['extensions'] as $singleValue) {
-                $extensions []= new Extension($singleValue);
-            }
-            $this->_propDict['extensions'] = $extensions;
-            return $this->_propDict['extensions'];
+           $extensions = [];
+           if (count($this->_propDict['extensions']) > 0 && is_a($this->_propDict['extensions'][0], 'Extension')) {
+              return $this->_propDict['extensions'];
+           }
+           foreach ($this->_propDict['extensions'] as $singleValue) {
+              $extensions []= new Extension($singleValue);
+           }
+           $this->_propDict['extensions'] = $extensions;
+           return $this->_propDict['extensions'];
         }
         return null;
     }
@@ -1290,15 +1290,15 @@ class Event extends OutlookItem
     public function getInstances()
     {
         if (array_key_exists('instances', $this->_propDict) && !is_null($this->_propDict['instances'])) {
-            $instances = [];
-            if (count($this->_propDict['instances']) > 0 && is_a($this->_propDict['instances'][0], 'Event')) {
-                return $this->_propDict['instances'];
-            }
-            foreach ($this->_propDict['instances'] as $singleValue) {
-                $instances []= new Event($singleValue);
-            }
-            $this->_propDict['instances'] = $instances;
-            return $this->_propDict['instances'];
+           $instances = [];
+           if (count($this->_propDict['instances']) > 0 && is_a($this->_propDict['instances'][0], 'Event')) {
+              return $this->_propDict['instances'];
+           }
+           foreach ($this->_propDict['instances'] as $singleValue) {
+              $instances []= new Event($singleValue);
+           }
+           $this->_propDict['instances'] = $instances;
+           return $this->_propDict['instances'];
         }
         return null;
     }
@@ -1327,15 +1327,15 @@ class Event extends OutlookItem
     public function getMultiValueExtendedProperties()
     {
         if (array_key_exists('multiValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['multiValueExtendedProperties'])) {
-            $multiValueExtendedProperties = [];
-            if (count($this->_propDict['multiValueExtendedProperties']) > 0 && is_a($this->_propDict['multiValueExtendedProperties'][0], 'MultiValueLegacyExtendedProperty')) {
-                return $this->_propDict['multiValueExtendedProperties'];
-            }
-            foreach ($this->_propDict['multiValueExtendedProperties'] as $singleValue) {
-                $multiValueExtendedProperties []= new MultiValueLegacyExtendedProperty($singleValue);
-            }
-            $this->_propDict['multiValueExtendedProperties'] = $multiValueExtendedProperties;
-            return $this->_propDict['multiValueExtendedProperties'];
+           $multiValueExtendedProperties = [];
+           if (count($this->_propDict['multiValueExtendedProperties']) > 0 && is_a($this->_propDict['multiValueExtendedProperties'][0], 'MultiValueLegacyExtendedProperty')) {
+              return $this->_propDict['multiValueExtendedProperties'];
+           }
+           foreach ($this->_propDict['multiValueExtendedProperties'] as $singleValue) {
+              $multiValueExtendedProperties []= new MultiValueLegacyExtendedProperty($singleValue);
+           }
+           $this->_propDict['multiValueExtendedProperties'] = $multiValueExtendedProperties;
+           return $this->_propDict['multiValueExtendedProperties'];
         }
         return null;
     }
@@ -1364,15 +1364,15 @@ class Event extends OutlookItem
     public function getSingleValueExtendedProperties()
     {
         if (array_key_exists('singleValueExtendedProperties', $this->_propDict) && !is_null($this->_propDict['singleValueExtendedProperties'])) {
-            $singleValueExtendedProperties = [];
-            if (count($this->_propDict['singleValueExtendedProperties']) > 0 && is_a($this->_propDict['singleValueExtendedProperties'][0], 'SingleValueLegacyExtendedProperty')) {
-                return $this->_propDict['singleValueExtendedProperties'];
-            }
-            foreach ($this->_propDict['singleValueExtendedProperties'] as $singleValue) {
-                $singleValueExtendedProperties []= new SingleValueLegacyExtendedProperty($singleValue);
-            }
-            $this->_propDict['singleValueExtendedProperties'] = $singleValueExtendedProperties;
-            return $this->_propDict['singleValueExtendedProperties'];
+           $singleValueExtendedProperties = [];
+           if (count($this->_propDict['singleValueExtendedProperties']) > 0 && is_a($this->_propDict['singleValueExtendedProperties'][0], 'SingleValueLegacyExtendedProperty')) {
+              return $this->_propDict['singleValueExtendedProperties'];
+           }
+           foreach ($this->_propDict['singleValueExtendedProperties'] as $singleValue) {
+              $singleValueExtendedProperties []= new SingleValueLegacyExtendedProperty($singleValue);
+           }
+           $this->_propDict['singleValueExtendedProperties'] = $singleValueExtendedProperties;
+           return $this->_propDict['singleValueExtendedProperties'];
         }
         return null;
     }

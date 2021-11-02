@@ -63,15 +63,15 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
     public function getOptions()
     {
         if (array_key_exists('options', $this->_propDict) && !is_null($this->_propDict['options'])) {
-            $options = [];
-            if (count($this->_propDict['options']) > 0 && is_a($this->_propDict['options'][0], 'DeviceManagementConfigurationOptionDefinition')) {
-                return $this->_propDict['options'];
-            }
-            foreach ($this->_propDict['options'] as $singleValue) {
-                $options []= new DeviceManagementConfigurationOptionDefinition($singleValue);
-            }
-            $this->_propDict['options'] = $options;
-            return $this->_propDict['options'];
+           $options = [];
+           if (count($this->_propDict['options']) > 0 && is_a($this->_propDict['options'][0], 'DeviceManagementConfigurationOptionDefinition')) {
+              return $this->_propDict['options'];
+           }
+           foreach ($this->_propDict['options'] as $singleValue) {
+              $options []= new DeviceManagementConfigurationOptionDefinition($singleValue);
+           }
+           $this->_propDict['options'] = $options;
+           return $this->_propDict['options'];
         }
         return null;
     }

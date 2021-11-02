@@ -121,15 +121,15 @@ class SecureScoreControlProfile extends Entity
     public function getComplianceInformation()
     {
         if (array_key_exists('complianceInformation', $this->_propDict) && !is_null($this->_propDict['complianceInformation'])) {
-            $complianceInformation = [];
-            if (count($this->_propDict['complianceInformation']) > 0 && is_a($this->_propDict['complianceInformation'][0], 'ComplianceInformation')) {
-                return $this->_propDict['complianceInformation'];
-            }
-            foreach ($this->_propDict['complianceInformation'] as $singleValue) {
-                $complianceInformation []= new ComplianceInformation($singleValue);
-            }
-            $this->_propDict['complianceInformation'] = $complianceInformation;
-            return $this->_propDict['complianceInformation'];
+           $complianceInformation = [];
+           if (count($this->_propDict['complianceInformation']) > 0 && is_a($this->_propDict['complianceInformation'][0], 'ComplianceInformation')) {
+              return $this->_propDict['complianceInformation'];
+           }
+           foreach ($this->_propDict['complianceInformation'] as $singleValue) {
+              $complianceInformation []= new ComplianceInformation($singleValue);
+           }
+           $this->_propDict['complianceInformation'] = $complianceInformation;
+           return $this->_propDict['complianceInformation'];
         }
         return null;
     }
@@ -187,15 +187,15 @@ class SecureScoreControlProfile extends Entity
     public function getControlStateUpdates()
     {
         if (array_key_exists('controlStateUpdates', $this->_propDict) && !is_null($this->_propDict['controlStateUpdates'])) {
-            $controlStateUpdates = [];
-            if (count($this->_propDict['controlStateUpdates']) > 0 && is_a($this->_propDict['controlStateUpdates'][0], 'SecureScoreControlStateUpdate')) {
-                return $this->_propDict['controlStateUpdates'];
-            }
-            foreach ($this->_propDict['controlStateUpdates'] as $singleValue) {
-                $controlStateUpdates []= new SecureScoreControlStateUpdate($singleValue);
-            }
-            $this->_propDict['controlStateUpdates'] = $controlStateUpdates;
-            return $this->_propDict['controlStateUpdates'];
+           $controlStateUpdates = [];
+           if (count($this->_propDict['controlStateUpdates']) > 0 && is_a($this->_propDict['controlStateUpdates'][0], 'SecureScoreControlStateUpdate')) {
+              return $this->_propDict['controlStateUpdates'];
+           }
+           foreach ($this->_propDict['controlStateUpdates'] as $singleValue) {
+              $controlStateUpdates []= new SecureScoreControlStateUpdate($singleValue);
+           }
+           $this->_propDict['controlStateUpdates'] = $controlStateUpdates;
+           return $this->_propDict['controlStateUpdates'];
         }
         return null;
     }

@@ -226,15 +226,15 @@ class IpSecurityProfile extends Entity
     public function getIpCategories()
     {
         if (array_key_exists('ipCategories', $this->_propDict) && !is_null($this->_propDict['ipCategories'])) {
-            $ipCategories = [];
-            if (count($this->_propDict['ipCategories']) > 0 && is_a($this->_propDict['ipCategories'][0], 'IpCategory')) {
-                return $this->_propDict['ipCategories'];
-            }
-            foreach ($this->_propDict['ipCategories'] as $singleValue) {
-                $ipCategories []= new IpCategory($singleValue);
-            }
-            $this->_propDict['ipCategories'] = $ipCategories;
-            return $this->_propDict['ipCategories'];
+           $ipCategories = [];
+           if (count($this->_propDict['ipCategories']) > 0 && is_a($this->_propDict['ipCategories'][0], 'IpCategory')) {
+              return $this->_propDict['ipCategories'];
+           }
+           foreach ($this->_propDict['ipCategories'] as $singleValue) {
+              $ipCategories []= new IpCategory($singleValue);
+           }
+           $this->_propDict['ipCategories'] = $ipCategories;
+           return $this->_propDict['ipCategories'];
         }
         return null;
     }
@@ -261,15 +261,15 @@ class IpSecurityProfile extends Entity
     public function getIpReferenceData()
     {
         if (array_key_exists('ipReferenceData', $this->_propDict) && !is_null($this->_propDict['ipReferenceData'])) {
-            $ipReferenceData = [];
-            if (count($this->_propDict['ipReferenceData']) > 0 && is_a($this->_propDict['ipReferenceData'][0], 'IpReferenceData')) {
-                return $this->_propDict['ipReferenceData'];
-            }
-            foreach ($this->_propDict['ipReferenceData'] as $singleValue) {
-                $ipReferenceData []= new IpReferenceData($singleValue);
-            }
-            $this->_propDict['ipReferenceData'] = $ipReferenceData;
-            return $this->_propDict['ipReferenceData'];
+           $ipReferenceData = [];
+           if (count($this->_propDict['ipReferenceData']) > 0 && is_a($this->_propDict['ipReferenceData'][0], 'IpReferenceData')) {
+              return $this->_propDict['ipReferenceData'];
+           }
+           foreach ($this->_propDict['ipReferenceData'] as $singleValue) {
+              $ipReferenceData []= new IpReferenceData($singleValue);
+           }
+           $this->_propDict['ipReferenceData'] = $ipReferenceData;
+           return $this->_propDict['ipReferenceData'];
         }
         return null;
     }

@@ -63,15 +63,15 @@ class DeviceManagementComplianceScheduledActionForRule extends Entity
     public function getScheduledActionConfigurations()
     {
         if (array_key_exists('scheduledActionConfigurations', $this->_propDict) && !is_null($this->_propDict['scheduledActionConfigurations'])) {
-            $scheduledActionConfigurations = [];
-            if (count($this->_propDict['scheduledActionConfigurations']) > 0 && is_a($this->_propDict['scheduledActionConfigurations'][0], 'DeviceManagementComplianceActionItem')) {
-                return $this->_propDict['scheduledActionConfigurations'];
-            }
-            foreach ($this->_propDict['scheduledActionConfigurations'] as $singleValue) {
-                $scheduledActionConfigurations []= new DeviceManagementComplianceActionItem($singleValue);
-            }
-            $this->_propDict['scheduledActionConfigurations'] = $scheduledActionConfigurations;
-            return $this->_propDict['scheduledActionConfigurations'];
+           $scheduledActionConfigurations = [];
+           if (count($this->_propDict['scheduledActionConfigurations']) > 0 && is_a($this->_propDict['scheduledActionConfigurations'][0], 'DeviceManagementComplianceActionItem')) {
+              return $this->_propDict['scheduledActionConfigurations'];
+           }
+           foreach ($this->_propDict['scheduledActionConfigurations'] as $singleValue) {
+              $scheduledActionConfigurations []= new DeviceManagementComplianceActionItem($singleValue);
+           }
+           $this->_propDict['scheduledActionConfigurations'] = $scheduledActionConfigurations;
+           return $this->_propDict['scheduledActionConfigurations'];
         }
         return null;
     }

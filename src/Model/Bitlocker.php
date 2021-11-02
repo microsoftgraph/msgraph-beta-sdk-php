@@ -34,15 +34,15 @@ class Bitlocker extends Entity
     public function getRecoveryKeys()
     {
         if (array_key_exists('recoveryKeys', $this->_propDict) && !is_null($this->_propDict['recoveryKeys'])) {
-            $recoveryKeys = [];
-            if (count($this->_propDict['recoveryKeys']) > 0 && is_a($this->_propDict['recoveryKeys'][0], 'BitlockerRecoveryKey')) {
-                return $this->_propDict['recoveryKeys'];
-            }
-            foreach ($this->_propDict['recoveryKeys'] as $singleValue) {
-                $recoveryKeys []= new BitlockerRecoveryKey($singleValue);
-            }
-            $this->_propDict['recoveryKeys'] = $recoveryKeys;
-            return $this->_propDict['recoveryKeys'];
+           $recoveryKeys = [];
+           if (count($this->_propDict['recoveryKeys']) > 0 && is_a($this->_propDict['recoveryKeys'][0], 'BitlockerRecoveryKey')) {
+              return $this->_propDict['recoveryKeys'];
+           }
+           foreach ($this->_propDict['recoveryKeys'] as $singleValue) {
+              $recoveryKeys []= new BitlockerRecoveryKey($singleValue);
+           }
+           $this->_propDict['recoveryKeys'] = $recoveryKeys;
+           return $this->_propDict['recoveryKeys'];
         }
         return null;
     }

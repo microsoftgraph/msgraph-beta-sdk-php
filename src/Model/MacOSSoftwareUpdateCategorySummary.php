@@ -274,15 +274,15 @@ class MacOSSoftwareUpdateCategorySummary extends Entity
     public function getUpdateStateSummaries()
     {
         if (array_key_exists('updateStateSummaries', $this->_propDict) && !is_null($this->_propDict['updateStateSummaries'])) {
-            $updateStateSummaries = [];
-            if (count($this->_propDict['updateStateSummaries']) > 0 && is_a($this->_propDict['updateStateSummaries'][0], 'MacOSSoftwareUpdateStateSummary')) {
-                return $this->_propDict['updateStateSummaries'];
-            }
-            foreach ($this->_propDict['updateStateSummaries'] as $singleValue) {
-                $updateStateSummaries []= new MacOSSoftwareUpdateStateSummary($singleValue);
-            }
-            $this->_propDict['updateStateSummaries'] = $updateStateSummaries;
-            return $this->_propDict['updateStateSummaries'];
+           $updateStateSummaries = [];
+           if (count($this->_propDict['updateStateSummaries']) > 0 && is_a($this->_propDict['updateStateSummaries'][0], 'MacOSSoftwareUpdateStateSummary')) {
+              return $this->_propDict['updateStateSummaries'];
+           }
+           foreach ($this->_propDict['updateStateSummaries'] as $singleValue) {
+              $updateStateSummaries []= new MacOSSoftwareUpdateStateSummary($singleValue);
+           }
+           $this->_propDict['updateStateSummaries'] = $updateStateSummaries;
+           return $this->_propDict['updateStateSummaries'];
         }
         return null;
     }

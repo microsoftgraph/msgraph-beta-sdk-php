@@ -96,15 +96,15 @@ class Application extends DirectoryObject
     public function getAppRoles()
     {
         if (array_key_exists('appRoles', $this->_propDict) && !is_null($this->_propDict['appRoles'])) {
-            $appRoles = [];
-            if (count($this->_propDict['appRoles']) > 0 && is_a($this->_propDict['appRoles'][0], 'AppRole')) {
-                return $this->_propDict['appRoles'];
-            }
-            foreach ($this->_propDict['appRoles'] as $singleValue) {
-                $appRoles []= new AppRole($singleValue);
-            }
-            $this->_propDict['appRoles'] = $appRoles;
-            return $this->_propDict['appRoles'];
+           $appRoles = [];
+           if (count($this->_propDict['appRoles']) > 0 && is_a($this->_propDict['appRoles'][0], 'AppRole')) {
+              return $this->_propDict['appRoles'];
+           }
+           foreach ($this->_propDict['appRoles'] as $singleValue) {
+              $appRoles []= new AppRole($singleValue);
+           }
+           $this->_propDict['appRoles'] = $appRoles;
+           return $this->_propDict['appRoles'];
         }
         return null;
     }
@@ -303,7 +303,7 @@ class Application extends DirectoryObject
     
     /**
     * Gets the identifierUris
-    * The URIs that identify the application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant. For more information see Application Objects and Service Principal Objects. The any operator is required for filter expressions on multi-valued properties. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).
+    * Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form api://&amp;lt;application-client-id&amp;gt;, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Azure AD application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).
     *
     * @return string|null The identifierUris
     */
@@ -318,7 +318,7 @@ class Application extends DirectoryObject
     
     /**
     * Sets the identifierUris
-    * The URIs that identify the application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant. For more information see Application Objects and Service Principal Objects. The any operator is required for filter expressions on multi-valued properties. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).
+    * Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form api://&amp;lt;application-client-id&amp;gt;, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Azure AD application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).
     *
     * @param string $val The identifierUris
     *
@@ -431,15 +431,15 @@ class Application extends DirectoryObject
     public function getKeyCredentials()
     {
         if (array_key_exists('keyCredentials', $this->_propDict) && !is_null($this->_propDict['keyCredentials'])) {
-            $keyCredentials = [];
-            if (count($this->_propDict['keyCredentials']) > 0 && is_a($this->_propDict['keyCredentials'][0], 'KeyCredential')) {
-                return $this->_propDict['keyCredentials'];
-            }
-            foreach ($this->_propDict['keyCredentials'] as $singleValue) {
-                $keyCredentials []= new KeyCredential($singleValue);
-            }
-            $this->_propDict['keyCredentials'] = $keyCredentials;
-            return $this->_propDict['keyCredentials'];
+           $keyCredentials = [];
+           if (count($this->_propDict['keyCredentials']) > 0 && is_a($this->_propDict['keyCredentials'][0], 'KeyCredential')) {
+              return $this->_propDict['keyCredentials'];
+           }
+           foreach ($this->_propDict['keyCredentials'] as $singleValue) {
+              $keyCredentials []= new KeyCredential($singleValue);
+           }
+           $this->_propDict['keyCredentials'] = $keyCredentials;
+           return $this->_propDict['keyCredentials'];
         }
         return null;
     }
@@ -596,15 +596,15 @@ class Application extends DirectoryObject
     public function getPasswordCredentials()
     {
         if (array_key_exists('passwordCredentials', $this->_propDict) && !is_null($this->_propDict['passwordCredentials'])) {
-            $passwordCredentials = [];
-            if (count($this->_propDict['passwordCredentials']) > 0 && is_a($this->_propDict['passwordCredentials'][0], 'PasswordCredential')) {
-                return $this->_propDict['passwordCredentials'];
-            }
-            foreach ($this->_propDict['passwordCredentials'] as $singleValue) {
-                $passwordCredentials []= new PasswordCredential($singleValue);
-            }
-            $this->_propDict['passwordCredentials'] = $passwordCredentials;
-            return $this->_propDict['passwordCredentials'];
+           $passwordCredentials = [];
+           if (count($this->_propDict['passwordCredentials']) > 0 && is_a($this->_propDict['passwordCredentials'][0], 'PasswordCredential')) {
+              return $this->_propDict['passwordCredentials'];
+           }
+           foreach ($this->_propDict['passwordCredentials'] as $singleValue) {
+              $passwordCredentials []= new PasswordCredential($singleValue);
+           }
+           $this->_propDict['passwordCredentials'] = $passwordCredentials;
+           return $this->_propDict['passwordCredentials'];
         }
         return null;
     }
@@ -695,15 +695,15 @@ class Application extends DirectoryObject
     public function getRequiredResourceAccess()
     {
         if (array_key_exists('requiredResourceAccess', $this->_propDict) && !is_null($this->_propDict['requiredResourceAccess'])) {
-            $requiredResourceAccess = [];
-            if (count($this->_propDict['requiredResourceAccess']) > 0 && is_a($this->_propDict['requiredResourceAccess'][0], 'RequiredResourceAccess')) {
-                return $this->_propDict['requiredResourceAccess'];
-            }
-            foreach ($this->_propDict['requiredResourceAccess'] as $singleValue) {
-                $requiredResourceAccess []= new RequiredResourceAccess($singleValue);
-            }
-            $this->_propDict['requiredResourceAccess'] = $requiredResourceAccess;
-            return $this->_propDict['requiredResourceAccess'];
+           $requiredResourceAccess = [];
+           if (count($this->_propDict['requiredResourceAccess']) > 0 && is_a($this->_propDict['requiredResourceAccess'][0], 'RequiredResourceAccess')) {
+              return $this->_propDict['requiredResourceAccess'];
+           }
+           foreach ($this->_propDict['requiredResourceAccess'] as $singleValue) {
+              $requiredResourceAccess []= new RequiredResourceAccess($singleValue);
+           }
+           $this->_propDict['requiredResourceAccess'] = $requiredResourceAccess;
+           return $this->_propDict['requiredResourceAccess'];
         }
         return null;
     }
@@ -980,15 +980,15 @@ class Application extends DirectoryObject
     public function getAppManagementPolicies()
     {
         if (array_key_exists('appManagementPolicies', $this->_propDict) && !is_null($this->_propDict['appManagementPolicies'])) {
-            $appManagementPolicies = [];
-            if (count($this->_propDict['appManagementPolicies']) > 0 && is_a($this->_propDict['appManagementPolicies'][0], 'AppManagementPolicy')) {
-                return $this->_propDict['appManagementPolicies'];
-            }
-            foreach ($this->_propDict['appManagementPolicies'] as $singleValue) {
-                $appManagementPolicies []= new AppManagementPolicy($singleValue);
-            }
-            $this->_propDict['appManagementPolicies'] = $appManagementPolicies;
-            return $this->_propDict['appManagementPolicies'];
+           $appManagementPolicies = [];
+           if (count($this->_propDict['appManagementPolicies']) > 0 && is_a($this->_propDict['appManagementPolicies'][0], 'AppManagementPolicy')) {
+              return $this->_propDict['appManagementPolicies'];
+           }
+           foreach ($this->_propDict['appManagementPolicies'] as $singleValue) {
+              $appManagementPolicies []= new AppManagementPolicy($singleValue);
+           }
+           $this->_propDict['appManagementPolicies'] = $appManagementPolicies;
+           return $this->_propDict['appManagementPolicies'];
         }
         return null;
     }
@@ -1050,15 +1050,15 @@ class Application extends DirectoryObject
     public function getExtensionProperties()
     {
         if (array_key_exists('extensionProperties', $this->_propDict) && !is_null($this->_propDict['extensionProperties'])) {
-            $extensionProperties = [];
-            if (count($this->_propDict['extensionProperties']) > 0 && is_a($this->_propDict['extensionProperties'][0], 'ExtensionProperty')) {
-                return $this->_propDict['extensionProperties'];
-            }
-            foreach ($this->_propDict['extensionProperties'] as $singleValue) {
-                $extensionProperties []= new ExtensionProperty($singleValue);
-            }
-            $this->_propDict['extensionProperties'] = $extensionProperties;
-            return $this->_propDict['extensionProperties'];
+           $extensionProperties = [];
+           if (count($this->_propDict['extensionProperties']) > 0 && is_a($this->_propDict['extensionProperties'][0], 'ExtensionProperty')) {
+              return $this->_propDict['extensionProperties'];
+           }
+           foreach ($this->_propDict['extensionProperties'] as $singleValue) {
+              $extensionProperties []= new ExtensionProperty($singleValue);
+           }
+           $this->_propDict['extensionProperties'] = $extensionProperties;
+           return $this->_propDict['extensionProperties'];
         }
         return null;
     }
@@ -1087,15 +1087,15 @@ class Application extends DirectoryObject
     public function getFederatedIdentityCredentials()
     {
         if (array_key_exists('federatedIdentityCredentials', $this->_propDict) && !is_null($this->_propDict['federatedIdentityCredentials'])) {
-            $federatedIdentityCredentials = [];
-            if (count($this->_propDict['federatedIdentityCredentials']) > 0 && is_a($this->_propDict['federatedIdentityCredentials'][0], 'FederatedIdentityCredential')) {
-                return $this->_propDict['federatedIdentityCredentials'];
-            }
-            foreach ($this->_propDict['federatedIdentityCredentials'] as $singleValue) {
-                $federatedIdentityCredentials []= new FederatedIdentityCredential($singleValue);
-            }
-            $this->_propDict['federatedIdentityCredentials'] = $federatedIdentityCredentials;
-            return $this->_propDict['federatedIdentityCredentials'];
+           $federatedIdentityCredentials = [];
+           if (count($this->_propDict['federatedIdentityCredentials']) > 0 && is_a($this->_propDict['federatedIdentityCredentials'][0], 'FederatedIdentityCredential')) {
+              return $this->_propDict['federatedIdentityCredentials'];
+           }
+           foreach ($this->_propDict['federatedIdentityCredentials'] as $singleValue) {
+              $federatedIdentityCredentials []= new FederatedIdentityCredential($singleValue);
+           }
+           $this->_propDict['federatedIdentityCredentials'] = $federatedIdentityCredentials;
+           return $this->_propDict['federatedIdentityCredentials'];
         }
         return null;
     }
@@ -1123,15 +1123,15 @@ class Application extends DirectoryObject
     public function getHomeRealmDiscoveryPolicies()
     {
         if (array_key_exists('homeRealmDiscoveryPolicies', $this->_propDict) && !is_null($this->_propDict['homeRealmDiscoveryPolicies'])) {
-            $homeRealmDiscoveryPolicies = [];
-            if (count($this->_propDict['homeRealmDiscoveryPolicies']) > 0 && is_a($this->_propDict['homeRealmDiscoveryPolicies'][0], 'HomeRealmDiscoveryPolicy')) {
-                return $this->_propDict['homeRealmDiscoveryPolicies'];
-            }
-            foreach ($this->_propDict['homeRealmDiscoveryPolicies'] as $singleValue) {
-                $homeRealmDiscoveryPolicies []= new HomeRealmDiscoveryPolicy($singleValue);
-            }
-            $this->_propDict['homeRealmDiscoveryPolicies'] = $homeRealmDiscoveryPolicies;
-            return $this->_propDict['homeRealmDiscoveryPolicies'];
+           $homeRealmDiscoveryPolicies = [];
+           if (count($this->_propDict['homeRealmDiscoveryPolicies']) > 0 && is_a($this->_propDict['homeRealmDiscoveryPolicies'][0], 'HomeRealmDiscoveryPolicy')) {
+              return $this->_propDict['homeRealmDiscoveryPolicies'];
+           }
+           foreach ($this->_propDict['homeRealmDiscoveryPolicies'] as $singleValue) {
+              $homeRealmDiscoveryPolicies []= new HomeRealmDiscoveryPolicy($singleValue);
+           }
+           $this->_propDict['homeRealmDiscoveryPolicies'] = $homeRealmDiscoveryPolicies;
+           return $this->_propDict['homeRealmDiscoveryPolicies'];
         }
         return null;
     }
@@ -1159,15 +1159,15 @@ class Application extends DirectoryObject
     public function getOwners()
     {
         if (array_key_exists('owners', $this->_propDict) && !is_null($this->_propDict['owners'])) {
-            $owners = [];
-            if (count($this->_propDict['owners']) > 0 && is_a($this->_propDict['owners'][0], 'DirectoryObject')) {
-                return $this->_propDict['owners'];
-            }
-            foreach ($this->_propDict['owners'] as $singleValue) {
-                $owners []= new DirectoryObject($singleValue);
-            }
-            $this->_propDict['owners'] = $owners;
-            return $this->_propDict['owners'];
+           $owners = [];
+           if (count($this->_propDict['owners']) > 0 && is_a($this->_propDict['owners'][0], 'DirectoryObject')) {
+              return $this->_propDict['owners'];
+           }
+           foreach ($this->_propDict['owners'] as $singleValue) {
+              $owners []= new DirectoryObject($singleValue);
+           }
+           $this->_propDict['owners'] = $owners;
+           return $this->_propDict['owners'];
         }
         return null;
     }
@@ -1195,15 +1195,15 @@ class Application extends DirectoryObject
     public function getTokenIssuancePolicies()
     {
         if (array_key_exists('tokenIssuancePolicies', $this->_propDict) && !is_null($this->_propDict['tokenIssuancePolicies'])) {
-            $tokenIssuancePolicies = [];
-            if (count($this->_propDict['tokenIssuancePolicies']) > 0 && is_a($this->_propDict['tokenIssuancePolicies'][0], 'TokenIssuancePolicy')) {
-                return $this->_propDict['tokenIssuancePolicies'];
-            }
-            foreach ($this->_propDict['tokenIssuancePolicies'] as $singleValue) {
-                $tokenIssuancePolicies []= new TokenIssuancePolicy($singleValue);
-            }
-            $this->_propDict['tokenIssuancePolicies'] = $tokenIssuancePolicies;
-            return $this->_propDict['tokenIssuancePolicies'];
+           $tokenIssuancePolicies = [];
+           if (count($this->_propDict['tokenIssuancePolicies']) > 0 && is_a($this->_propDict['tokenIssuancePolicies'][0], 'TokenIssuancePolicy')) {
+              return $this->_propDict['tokenIssuancePolicies'];
+           }
+           foreach ($this->_propDict['tokenIssuancePolicies'] as $singleValue) {
+              $tokenIssuancePolicies []= new TokenIssuancePolicy($singleValue);
+           }
+           $this->_propDict['tokenIssuancePolicies'] = $tokenIssuancePolicies;
+           return $this->_propDict['tokenIssuancePolicies'];
         }
         return null;
     }
@@ -1231,15 +1231,15 @@ class Application extends DirectoryObject
     public function getTokenLifetimePolicies()
     {
         if (array_key_exists('tokenLifetimePolicies', $this->_propDict) && !is_null($this->_propDict['tokenLifetimePolicies'])) {
-            $tokenLifetimePolicies = [];
-            if (count($this->_propDict['tokenLifetimePolicies']) > 0 && is_a($this->_propDict['tokenLifetimePolicies'][0], 'TokenLifetimePolicy')) {
-                return $this->_propDict['tokenLifetimePolicies'];
-            }
-            foreach ($this->_propDict['tokenLifetimePolicies'] as $singleValue) {
-                $tokenLifetimePolicies []= new TokenLifetimePolicy($singleValue);
-            }
-            $this->_propDict['tokenLifetimePolicies'] = $tokenLifetimePolicies;
-            return $this->_propDict['tokenLifetimePolicies'];
+           $tokenLifetimePolicies = [];
+           if (count($this->_propDict['tokenLifetimePolicies']) > 0 && is_a($this->_propDict['tokenLifetimePolicies'][0], 'TokenLifetimePolicy')) {
+              return $this->_propDict['tokenLifetimePolicies'];
+           }
+           foreach ($this->_propDict['tokenLifetimePolicies'] as $singleValue) {
+              $tokenLifetimePolicies []= new TokenLifetimePolicy($singleValue);
+           }
+           $this->_propDict['tokenLifetimePolicies'] = $tokenLifetimePolicies;
+           return $this->_propDict['tokenLifetimePolicies'];
         }
         return null;
     }

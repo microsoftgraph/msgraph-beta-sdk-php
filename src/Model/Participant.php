@@ -125,15 +125,15 @@ class Participant extends Entity
     public function getMediaStreams()
     {
         if (array_key_exists('mediaStreams', $this->_propDict) && !is_null($this->_propDict['mediaStreams'])) {
-            $mediaStreams = [];
-            if (count($this->_propDict['mediaStreams']) > 0 && is_a($this->_propDict['mediaStreams'][0], 'MediaStream')) {
-                return $this->_propDict['mediaStreams'];
-            }
-            foreach ($this->_propDict['mediaStreams'] as $singleValue) {
-                $mediaStreams []= new MediaStream($singleValue);
-            }
-            $this->_propDict['mediaStreams'] = $mediaStreams;
-            return $this->_propDict['mediaStreams'];
+           $mediaStreams = [];
+           if (count($this->_propDict['mediaStreams']) > 0 && is_a($this->_propDict['mediaStreams'][0], 'MediaStream')) {
+              return $this->_propDict['mediaStreams'];
+           }
+           foreach ($this->_propDict['mediaStreams'] as $singleValue) {
+              $mediaStreams []= new MediaStream($singleValue);
+           }
+           $this->_propDict['mediaStreams'] = $mediaStreams;
+           return $this->_propDict['mediaStreams'];
         }
         return null;
     }

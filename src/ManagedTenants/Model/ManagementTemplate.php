@@ -125,15 +125,15 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
     public function getParameters()
     {
         if (array_key_exists('parameters', $this->_propDict) && !is_null($this->_propDict['parameters'])) {
-            $parameters = [];
-            if (count($this->_propDict['parameters']) > 0 && is_a($this->_propDict['parameters'][0], 'TemplateParameter')) {
-                return $this->_propDict['parameters'];
-            }
-            foreach ($this->_propDict['parameters'] as $singleValue) {
-                $parameters []= new TemplateParameter($singleValue);
-            }
-            $this->_propDict['parameters'] = $parameters;
-            return $this->_propDict['parameters'];
+           $parameters = [];
+           if (count($this->_propDict['parameters']) > 0 && is_a($this->_propDict['parameters'][0], 'TemplateParameter')) {
+              return $this->_propDict['parameters'];
+           }
+           foreach ($this->_propDict['parameters'] as $singleValue) {
+              $parameters []= new TemplateParameter($singleValue);
+           }
+           $this->_propDict['parameters'] = $parameters;
+           return $this->_propDict['parameters'];
         }
         return null;
     }
@@ -162,15 +162,15 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
     public function getWorkloadActions()
     {
         if (array_key_exists('workloadActions', $this->_propDict) && !is_null($this->_propDict['workloadActions'])) {
-            $workloadActions = [];
-            if (count($this->_propDict['workloadActions']) > 0 && is_a($this->_propDict['workloadActions'][0], 'WorkloadAction')) {
-                return $this->_propDict['workloadActions'];
-            }
-            foreach ($this->_propDict['workloadActions'] as $singleValue) {
-                $workloadActions []= new WorkloadAction($singleValue);
-            }
-            $this->_propDict['workloadActions'] = $workloadActions;
-            return $this->_propDict['workloadActions'];
+           $workloadActions = [];
+           if (count($this->_propDict['workloadActions']) > 0 && is_a($this->_propDict['workloadActions'][0], 'WorkloadAction')) {
+              return $this->_propDict['workloadActions'];
+           }
+           foreach ($this->_propDict['workloadActions'] as $singleValue) {
+              $workloadActions []= new WorkloadAction($singleValue);
+           }
+           $this->_propDict['workloadActions'] = $workloadActions;
+           return $this->_propDict['workloadActions'];
         }
         return null;
     }

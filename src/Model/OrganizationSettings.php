@@ -67,15 +67,15 @@ class OrganizationSettings extends Entity
     public function getProfileCardProperties()
     {
         if (array_key_exists('profileCardProperties', $this->_propDict) && !is_null($this->_propDict['profileCardProperties'])) {
-            $profileCardProperties = [];
-            if (count($this->_propDict['profileCardProperties']) > 0 && is_a($this->_propDict['profileCardProperties'][0], 'ProfileCardProperty')) {
-                return $this->_propDict['profileCardProperties'];
-            }
-            foreach ($this->_propDict['profileCardProperties'] as $singleValue) {
-                $profileCardProperties []= new ProfileCardProperty($singleValue);
-            }
-            $this->_propDict['profileCardProperties'] = $profileCardProperties;
-            return $this->_propDict['profileCardProperties'];
+           $profileCardProperties = [];
+           if (count($this->_propDict['profileCardProperties']) > 0 && is_a($this->_propDict['profileCardProperties'][0], 'ProfileCardProperty')) {
+              return $this->_propDict['profileCardProperties'];
+           }
+           foreach ($this->_propDict['profileCardProperties'] as $singleValue) {
+              $profileCardProperties []= new ProfileCardProperty($singleValue);
+           }
+           $this->_propDict['profileCardProperties'] = $profileCardProperties;
+           return $this->_propDict['profileCardProperties'];
         }
         return null;
     }

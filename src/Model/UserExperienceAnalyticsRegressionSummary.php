@@ -34,15 +34,15 @@ class UserExperienceAnalyticsRegressionSummary extends Entity
     public function getManufacturerRegression()
     {
         if (array_key_exists('manufacturerRegression', $this->_propDict) && !is_null($this->_propDict['manufacturerRegression'])) {
-            $manufacturerRegression = [];
-            if (count($this->_propDict['manufacturerRegression']) > 0 && is_a($this->_propDict['manufacturerRegression'][0], 'UserExperienceAnalyticsMetric')) {
-                return $this->_propDict['manufacturerRegression'];
-            }
-            foreach ($this->_propDict['manufacturerRegression'] as $singleValue) {
-                $manufacturerRegression []= new UserExperienceAnalyticsMetric($singleValue);
-            }
-            $this->_propDict['manufacturerRegression'] = $manufacturerRegression;
-            return $this->_propDict['manufacturerRegression'];
+           $manufacturerRegression = [];
+           if (count($this->_propDict['manufacturerRegression']) > 0 && is_a($this->_propDict['manufacturerRegression'][0], 'UserExperienceAnalyticsMetric')) {
+              return $this->_propDict['manufacturerRegression'];
+           }
+           foreach ($this->_propDict['manufacturerRegression'] as $singleValue) {
+              $manufacturerRegression []= new UserExperienceAnalyticsMetric($singleValue);
+           }
+           $this->_propDict['manufacturerRegression'] = $manufacturerRegression;
+           return $this->_propDict['manufacturerRegression'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class UserExperienceAnalyticsRegressionSummary extends Entity
     public function getModelRegression()
     {
         if (array_key_exists('modelRegression', $this->_propDict) && !is_null($this->_propDict['modelRegression'])) {
-            $modelRegression = [];
-            if (count($this->_propDict['modelRegression']) > 0 && is_a($this->_propDict['modelRegression'][0], 'UserExperienceAnalyticsMetric')) {
-                return $this->_propDict['modelRegression'];
-            }
-            foreach ($this->_propDict['modelRegression'] as $singleValue) {
-                $modelRegression []= new UserExperienceAnalyticsMetric($singleValue);
-            }
-            $this->_propDict['modelRegression'] = $modelRegression;
-            return $this->_propDict['modelRegression'];
+           $modelRegression = [];
+           if (count($this->_propDict['modelRegression']) > 0 && is_a($this->_propDict['modelRegression'][0], 'UserExperienceAnalyticsMetric')) {
+              return $this->_propDict['modelRegression'];
+           }
+           foreach ($this->_propDict['modelRegression'] as $singleValue) {
+              $modelRegression []= new UserExperienceAnalyticsMetric($singleValue);
+           }
+           $this->_propDict['modelRegression'] = $modelRegression;
+           return $this->_propDict['modelRegression'];
         }
         return null;
     }
@@ -108,15 +108,15 @@ class UserExperienceAnalyticsRegressionSummary extends Entity
     public function getOperatingSystemRegression()
     {
         if (array_key_exists('operatingSystemRegression', $this->_propDict) && !is_null($this->_propDict['operatingSystemRegression'])) {
-            $operatingSystemRegression = [];
-            if (count($this->_propDict['operatingSystemRegression']) > 0 && is_a($this->_propDict['operatingSystemRegression'][0], 'UserExperienceAnalyticsMetric')) {
-                return $this->_propDict['operatingSystemRegression'];
-            }
-            foreach ($this->_propDict['operatingSystemRegression'] as $singleValue) {
-                $operatingSystemRegression []= new UserExperienceAnalyticsMetric($singleValue);
-            }
-            $this->_propDict['operatingSystemRegression'] = $operatingSystemRegression;
-            return $this->_propDict['operatingSystemRegression'];
+           $operatingSystemRegression = [];
+           if (count($this->_propDict['operatingSystemRegression']) > 0 && is_a($this->_propDict['operatingSystemRegression'][0], 'UserExperienceAnalyticsMetric')) {
+              return $this->_propDict['operatingSystemRegression'];
+           }
+           foreach ($this->_propDict['operatingSystemRegression'] as $singleValue) {
+              $operatingSystemRegression []= new UserExperienceAnalyticsMetric($singleValue);
+           }
+           $this->_propDict['operatingSystemRegression'] = $operatingSystemRegression;
+           return $this->_propDict['operatingSystemRegression'];
         }
         return null;
     }

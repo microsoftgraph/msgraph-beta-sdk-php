@@ -290,15 +290,15 @@ class SubjectRightsRequest extends Entity
     public function getHistory()
     {
         if (array_key_exists('history', $this->_propDict) && !is_null($this->_propDict['history'])) {
-            $history = [];
-            if (count($this->_propDict['history']) > 0 && is_a($this->_propDict['history'][0], 'SubjectRightsRequestHistory')) {
-                return $this->_propDict['history'];
-            }
-            foreach ($this->_propDict['history'] as $singleValue) {
-                $history []= new SubjectRightsRequestHistory($singleValue);
-            }
-            $this->_propDict['history'] = $history;
-            return $this->_propDict['history'];
+           $history = [];
+           if (count($this->_propDict['history']) > 0 && is_a($this->_propDict['history'][0], 'SubjectRightsRequestHistory')) {
+              return $this->_propDict['history'];
+           }
+           foreach ($this->_propDict['history'] as $singleValue) {
+              $history []= new SubjectRightsRequestHistory($singleValue);
+           }
+           $this->_propDict['history'] = $history;
+           return $this->_propDict['history'];
         }
         return null;
     }
@@ -488,15 +488,15 @@ class SubjectRightsRequest extends Entity
     public function getStages()
     {
         if (array_key_exists('stages', $this->_propDict) && !is_null($this->_propDict['stages'])) {
-            $stages = [];
-            if (count($this->_propDict['stages']) > 0 && is_a($this->_propDict['stages'][0], 'SubjectRightsRequestStageDetail')) {
-                return $this->_propDict['stages'];
-            }
-            foreach ($this->_propDict['stages'] as $singleValue) {
-                $stages []= new SubjectRightsRequestStageDetail($singleValue);
-            }
-            $this->_propDict['stages'] = $stages;
-            return $this->_propDict['stages'];
+           $stages = [];
+           if (count($this->_propDict['stages']) > 0 && is_a($this->_propDict['stages'][0], 'SubjectRightsRequestStageDetail')) {
+              return $this->_propDict['stages'];
+           }
+           foreach ($this->_propDict['stages'] as $singleValue) {
+              $stages []= new SubjectRightsRequestStageDetail($singleValue);
+           }
+           $this->_propDict['stages'] = $stages;
+           return $this->_propDict['stages'];
         }
         return null;
     }
@@ -591,15 +591,15 @@ class SubjectRightsRequest extends Entity
     public function getNotes()
     {
         if (array_key_exists('notes', $this->_propDict) && !is_null($this->_propDict['notes'])) {
-            $notes = [];
-            if (count($this->_propDict['notes']) > 0 && is_a($this->_propDict['notes'][0], 'AuthoredNote')) {
-                return $this->_propDict['notes'];
-            }
-            foreach ($this->_propDict['notes'] as $singleValue) {
-                $notes []= new AuthoredNote($singleValue);
-            }
-            $this->_propDict['notes'] = $notes;
-            return $this->_propDict['notes'];
+           $notes = [];
+           if (count($this->_propDict['notes']) > 0 && is_a($this->_propDict['notes'][0], 'AuthoredNote')) {
+              return $this->_propDict['notes'];
+           }
+           foreach ($this->_propDict['notes'] as $singleValue) {
+              $notes []= new AuthoredNote($singleValue);
+           }
+           $this->_propDict['notes'] = $notes;
+           return $this->_propDict['notes'];
         }
         return null;
     }

@@ -121,15 +121,15 @@ class AndroidForWorkMobileAppConfiguration extends ManagedDeviceMobileAppConfigu
     public function getPermissionActions()
     {
         if (array_key_exists('permissionActions', $this->_propDict) && !is_null($this->_propDict['permissionActions'])) {
-            $permissionActions = [];
-            if (count($this->_propDict['permissionActions']) > 0 && is_a($this->_propDict['permissionActions'][0], 'AndroidPermissionAction')) {
-                return $this->_propDict['permissionActions'];
-            }
-            foreach ($this->_propDict['permissionActions'] as $singleValue) {
-                $permissionActions []= new AndroidPermissionAction($singleValue);
-            }
-            $this->_propDict['permissionActions'] = $permissionActions;
-            return $this->_propDict['permissionActions'];
+           $permissionActions = [];
+           if (count($this->_propDict['permissionActions']) > 0 && is_a($this->_propDict['permissionActions'][0], 'AndroidPermissionAction')) {
+              return $this->_propDict['permissionActions'];
+           }
+           foreach ($this->_propDict['permissionActions'] as $singleValue) {
+              $permissionActions []= new AndroidPermissionAction($singleValue);
+           }
+           $this->_propDict['permissionActions'] = $permissionActions;
+           return $this->_propDict['permissionActions'];
         }
         return null;
     }

@@ -121,15 +121,15 @@ class AccessPackageAssignmentResourceRole extends Entity
     public function getAccessPackageAssignments()
     {
         if (array_key_exists('accessPackageAssignments', $this->_propDict) && !is_null($this->_propDict['accessPackageAssignments'])) {
-            $accessPackageAssignments = [];
-            if (count($this->_propDict['accessPackageAssignments']) > 0 && is_a($this->_propDict['accessPackageAssignments'][0], 'AccessPackageAssignment')) {
-                return $this->_propDict['accessPackageAssignments'];
-            }
-            foreach ($this->_propDict['accessPackageAssignments'] as $singleValue) {
-                $accessPackageAssignments []= new AccessPackageAssignment($singleValue);
-            }
-            $this->_propDict['accessPackageAssignments'] = $accessPackageAssignments;
-            return $this->_propDict['accessPackageAssignments'];
+           $accessPackageAssignments = [];
+           if (count($this->_propDict['accessPackageAssignments']) > 0 && is_a($this->_propDict['accessPackageAssignments'][0], 'AccessPackageAssignment')) {
+              return $this->_propDict['accessPackageAssignments'];
+           }
+           foreach ($this->_propDict['accessPackageAssignments'] as $singleValue) {
+              $accessPackageAssignments []= new AccessPackageAssignment($singleValue);
+           }
+           $this->_propDict['accessPackageAssignments'] = $accessPackageAssignments;
+           return $this->_propDict['accessPackageAssignments'];
         }
         return null;
     }

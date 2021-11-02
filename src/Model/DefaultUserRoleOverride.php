@@ -60,15 +60,15 @@ class DefaultUserRoleOverride extends Entity
     public function getRolePermissions()
     {
         if (array_key_exists('rolePermissions', $this->_propDict) && !is_null($this->_propDict['rolePermissions'])) {
-            $rolePermissions = [];
-            if (count($this->_propDict['rolePermissions']) > 0 && is_a($this->_propDict['rolePermissions'][0], 'UnifiedRolePermission')) {
-                return $this->_propDict['rolePermissions'];
-            }
-            foreach ($this->_propDict['rolePermissions'] as $singleValue) {
-                $rolePermissions []= new UnifiedRolePermission($singleValue);
-            }
-            $this->_propDict['rolePermissions'] = $rolePermissions;
-            return $this->_propDict['rolePermissions'];
+           $rolePermissions = [];
+           if (count($this->_propDict['rolePermissions']) > 0 && is_a($this->_propDict['rolePermissions'][0], 'UnifiedRolePermission')) {
+              return $this->_propDict['rolePermissions'];
+           }
+           foreach ($this->_propDict['rolePermissions'] as $singleValue) {
+              $rolePermissions []= new UnifiedRolePermission($singleValue);
+           }
+           $this->_propDict['rolePermissions'] = $rolePermissions;
+           return $this->_propDict['rolePermissions'];
         }
         return null;
     }

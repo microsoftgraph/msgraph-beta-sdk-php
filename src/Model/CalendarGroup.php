@@ -121,15 +121,15 @@ class CalendarGroup extends Entity
     public function getCalendars()
     {
         if (array_key_exists('calendars', $this->_propDict) && !is_null($this->_propDict['calendars'])) {
-            $calendars = [];
-            if (count($this->_propDict['calendars']) > 0 && is_a($this->_propDict['calendars'][0], 'Calendar')) {
-                return $this->_propDict['calendars'];
-            }
-            foreach ($this->_propDict['calendars'] as $singleValue) {
-                $calendars []= new Calendar($singleValue);
-            }
-            $this->_propDict['calendars'] = $calendars;
-            return $this->_propDict['calendars'];
+           $calendars = [];
+           if (count($this->_propDict['calendars']) > 0 && is_a($this->_propDict['calendars'][0], 'Calendar')) {
+              return $this->_propDict['calendars'];
+           }
+           foreach ($this->_propDict['calendars'] as $singleValue) {
+              $calendars []= new Calendar($singleValue);
+           }
+           $this->_propDict['calendars'] = $calendars;
+           return $this->_propDict['calendars'];
         }
         return null;
     }

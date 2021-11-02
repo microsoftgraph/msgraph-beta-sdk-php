@@ -154,15 +154,15 @@ class VpnConfiguration extends DeviceConfiguration
     public function getServers()
     {
         if (array_key_exists('servers', $this->_propDict) && !is_null($this->_propDict['servers'])) {
-            $servers = [];
-            if (count($this->_propDict['servers']) > 0 && is_a($this->_propDict['servers'][0], 'VpnServer')) {
-                return $this->_propDict['servers'];
-            }
-            foreach ($this->_propDict['servers'] as $singleValue) {
-                $servers []= new VpnServer($singleValue);
-            }
-            $this->_propDict['servers'] = $servers;
-            return $this->_propDict['servers'];
+           $servers = [];
+           if (count($this->_propDict['servers']) > 0 && is_a($this->_propDict['servers'][0], 'VpnServer')) {
+              return $this->_propDict['servers'];
+           }
+           foreach ($this->_propDict['servers'] as $singleValue) {
+              $servers []= new VpnServer($singleValue);
+           }
+           $this->_propDict['servers'] = $servers;
+           return $this->_propDict['servers'];
         }
         return null;
     }

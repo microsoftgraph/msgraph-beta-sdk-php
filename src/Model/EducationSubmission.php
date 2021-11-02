@@ -393,15 +393,15 @@ class EducationSubmission extends Entity
     public function getOutcomes()
     {
         if (array_key_exists('outcomes', $this->_propDict) && !is_null($this->_propDict['outcomes'])) {
-            $outcomes = [];
-            if (count($this->_propDict['outcomes']) > 0 && is_a($this->_propDict['outcomes'][0], 'EducationOutcome')) {
-                return $this->_propDict['outcomes'];
-            }
-            foreach ($this->_propDict['outcomes'] as $singleValue) {
-                $outcomes []= new EducationOutcome($singleValue);
-            }
-            $this->_propDict['outcomes'] = $outcomes;
-            return $this->_propDict['outcomes'];
+           $outcomes = [];
+           if (count($this->_propDict['outcomes']) > 0 && is_a($this->_propDict['outcomes'][0], 'EducationOutcome')) {
+              return $this->_propDict['outcomes'];
+           }
+           foreach ($this->_propDict['outcomes'] as $singleValue) {
+              $outcomes []= new EducationOutcome($singleValue);
+           }
+           $this->_propDict['outcomes'] = $outcomes;
+           return $this->_propDict['outcomes'];
         }
         return null;
     }
@@ -430,15 +430,15 @@ class EducationSubmission extends Entity
     public function getResources()
     {
         if (array_key_exists('resources', $this->_propDict) && !is_null($this->_propDict['resources'])) {
-            $resources = [];
-            if (count($this->_propDict['resources']) > 0 && is_a($this->_propDict['resources'][0], 'EducationSubmissionResource')) {
-                return $this->_propDict['resources'];
-            }
-            foreach ($this->_propDict['resources'] as $singleValue) {
-                $resources []= new EducationSubmissionResource($singleValue);
-            }
-            $this->_propDict['resources'] = $resources;
-            return $this->_propDict['resources'];
+           $resources = [];
+           if (count($this->_propDict['resources']) > 0 && is_a($this->_propDict['resources'][0], 'EducationSubmissionResource')) {
+              return $this->_propDict['resources'];
+           }
+           foreach ($this->_propDict['resources'] as $singleValue) {
+              $resources []= new EducationSubmissionResource($singleValue);
+           }
+           $this->_propDict['resources'] = $resources;
+           return $this->_propDict['resources'];
         }
         return null;
     }
@@ -467,15 +467,15 @@ class EducationSubmission extends Entity
     public function getSubmittedResources()
     {
         if (array_key_exists('submittedResources', $this->_propDict) && !is_null($this->_propDict['submittedResources'])) {
-            $submittedResources = [];
-            if (count($this->_propDict['submittedResources']) > 0 && is_a($this->_propDict['submittedResources'][0], 'EducationSubmissionResource')) {
-                return $this->_propDict['submittedResources'];
-            }
-            foreach ($this->_propDict['submittedResources'] as $singleValue) {
-                $submittedResources []= new EducationSubmissionResource($singleValue);
-            }
-            $this->_propDict['submittedResources'] = $submittedResources;
-            return $this->_propDict['submittedResources'];
+           $submittedResources = [];
+           if (count($this->_propDict['submittedResources']) > 0 && is_a($this->_propDict['submittedResources'][0], 'EducationSubmissionResource')) {
+              return $this->_propDict['submittedResources'];
+           }
+           foreach ($this->_propDict['submittedResources'] as $singleValue) {
+              $submittedResources []= new EducationSubmissionResource($singleValue);
+           }
+           $this->_propDict['submittedResources'] = $submittedResources;
+           return $this->_propDict['submittedResources'];
         }
         return null;
     }

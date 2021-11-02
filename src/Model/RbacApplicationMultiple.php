@@ -33,15 +33,15 @@ class RbacApplicationMultiple extends Entity
     public function getResourceNamespaces()
     {
         if (array_key_exists('resourceNamespaces', $this->_propDict) && !is_null($this->_propDict['resourceNamespaces'])) {
-            $resourceNamespaces = [];
-            if (count($this->_propDict['resourceNamespaces']) > 0 && is_a($this->_propDict['resourceNamespaces'][0], 'UnifiedRbacResourceNamespace')) {
-                return $this->_propDict['resourceNamespaces'];
-            }
-            foreach ($this->_propDict['resourceNamespaces'] as $singleValue) {
-                $resourceNamespaces []= new UnifiedRbacResourceNamespace($singleValue);
-            }
-            $this->_propDict['resourceNamespaces'] = $resourceNamespaces;
-            return $this->_propDict['resourceNamespaces'];
+           $resourceNamespaces = [];
+           if (count($this->_propDict['resourceNamespaces']) > 0 && is_a($this->_propDict['resourceNamespaces'][0], 'UnifiedRbacResourceNamespace')) {
+              return $this->_propDict['resourceNamespaces'];
+           }
+           foreach ($this->_propDict['resourceNamespaces'] as $singleValue) {
+              $resourceNamespaces []= new UnifiedRbacResourceNamespace($singleValue);
+           }
+           $this->_propDict['resourceNamespaces'] = $resourceNamespaces;
+           return $this->_propDict['resourceNamespaces'];
         }
         return null;
     }
@@ -68,15 +68,15 @@ class RbacApplicationMultiple extends Entity
     public function getRoleAssignments()
     {
         if (array_key_exists('roleAssignments', $this->_propDict) && !is_null($this->_propDict['roleAssignments'])) {
-            $roleAssignments = [];
-            if (count($this->_propDict['roleAssignments']) > 0 && is_a($this->_propDict['roleAssignments'][0], 'UnifiedRoleAssignmentMultiple')) {
-                return $this->_propDict['roleAssignments'];
-            }
-            foreach ($this->_propDict['roleAssignments'] as $singleValue) {
-                $roleAssignments []= new UnifiedRoleAssignmentMultiple($singleValue);
-            }
-            $this->_propDict['roleAssignments'] = $roleAssignments;
-            return $this->_propDict['roleAssignments'];
+           $roleAssignments = [];
+           if (count($this->_propDict['roleAssignments']) > 0 && is_a($this->_propDict['roleAssignments'][0], 'UnifiedRoleAssignmentMultiple')) {
+              return $this->_propDict['roleAssignments'];
+           }
+           foreach ($this->_propDict['roleAssignments'] as $singleValue) {
+              $roleAssignments []= new UnifiedRoleAssignmentMultiple($singleValue);
+           }
+           $this->_propDict['roleAssignments'] = $roleAssignments;
+           return $this->_propDict['roleAssignments'];
         }
         return null;
     }
@@ -103,15 +103,15 @@ class RbacApplicationMultiple extends Entity
     public function getRoleDefinitions()
     {
         if (array_key_exists('roleDefinitions', $this->_propDict) && !is_null($this->_propDict['roleDefinitions'])) {
-            $roleDefinitions = [];
-            if (count($this->_propDict['roleDefinitions']) > 0 && is_a($this->_propDict['roleDefinitions'][0], 'UnifiedRoleDefinition')) {
-                return $this->_propDict['roleDefinitions'];
-            }
-            foreach ($this->_propDict['roleDefinitions'] as $singleValue) {
-                $roleDefinitions []= new UnifiedRoleDefinition($singleValue);
-            }
-            $this->_propDict['roleDefinitions'] = $roleDefinitions;
-            return $this->_propDict['roleDefinitions'];
+           $roleDefinitions = [];
+           if (count($this->_propDict['roleDefinitions']) > 0 && is_a($this->_propDict['roleDefinitions'][0], 'UnifiedRoleDefinition')) {
+              return $this->_propDict['roleDefinitions'];
+           }
+           foreach ($this->_propDict['roleDefinitions'] as $singleValue) {
+              $roleDefinitions []= new UnifiedRoleDefinition($singleValue);
+           }
+           $this->_propDict['roleDefinitions'] = $roleDefinitions;
+           return $this->_propDict['roleDefinitions'];
         }
         return null;
     }

@@ -34,15 +34,15 @@ class SamlOrWsFedExternalDomainFederation extends SamlOrWsFedProvider
     public function getDomains()
     {
         if (array_key_exists('domains', $this->_propDict) && !is_null($this->_propDict['domains'])) {
-            $domains = [];
-            if (count($this->_propDict['domains']) > 0 && is_a($this->_propDict['domains'][0], 'ExternalDomainName')) {
-                return $this->_propDict['domains'];
-            }
-            foreach ($this->_propDict['domains'] as $singleValue) {
-                $domains []= new ExternalDomainName($singleValue);
-            }
-            $this->_propDict['domains'] = $domains;
-            return $this->_propDict['domains'];
+           $domains = [];
+           if (count($this->_propDict['domains']) > 0 && is_a($this->_propDict['domains'][0], 'ExternalDomainName')) {
+              return $this->_propDict['domains'];
+           }
+           foreach ($this->_propDict['domains'] as $singleValue) {
+              $domains []= new ExternalDomainName($singleValue);
+           }
+           $this->_propDict['domains'] = $domains;
+           return $this->_propDict['domains'];
         }
         return null;
     }

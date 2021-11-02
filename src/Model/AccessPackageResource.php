@@ -95,15 +95,15 @@ class AccessPackageResource extends Entity
     public function getAttributes()
     {
         if (array_key_exists('attributes', $this->_propDict) && !is_null($this->_propDict['attributes'])) {
-            $attributes = [];
-            if (count($this->_propDict['attributes']) > 0 && is_a($this->_propDict['attributes'][0], 'AccessPackageResourceAttribute')) {
-                return $this->_propDict['attributes'];
-            }
-            foreach ($this->_propDict['attributes'] as $singleValue) {
-                $attributes []= new AccessPackageResourceAttribute($singleValue);
-            }
-            $this->_propDict['attributes'] = $attributes;
-            return $this->_propDict['attributes'];
+           $attributes = [];
+           if (count($this->_propDict['attributes']) > 0 && is_a($this->_propDict['attributes'][0], 'AccessPackageResourceAttribute')) {
+              return $this->_propDict['attributes'];
+           }
+           foreach ($this->_propDict['attributes'] as $singleValue) {
+              $attributes []= new AccessPackageResourceAttribute($singleValue);
+           }
+           $this->_propDict['attributes'] = $attributes;
+           return $this->_propDict['attributes'];
         }
         return null;
     }
@@ -367,15 +367,15 @@ class AccessPackageResource extends Entity
     public function getAccessPackageResourceRoles()
     {
         if (array_key_exists('accessPackageResourceRoles', $this->_propDict) && !is_null($this->_propDict['accessPackageResourceRoles'])) {
-            $accessPackageResourceRoles = [];
-            if (count($this->_propDict['accessPackageResourceRoles']) > 0 && is_a($this->_propDict['accessPackageResourceRoles'][0], 'AccessPackageResourceRole')) {
-                return $this->_propDict['accessPackageResourceRoles'];
-            }
-            foreach ($this->_propDict['accessPackageResourceRoles'] as $singleValue) {
-                $accessPackageResourceRoles []= new AccessPackageResourceRole($singleValue);
-            }
-            $this->_propDict['accessPackageResourceRoles'] = $accessPackageResourceRoles;
-            return $this->_propDict['accessPackageResourceRoles'];
+           $accessPackageResourceRoles = [];
+           if (count($this->_propDict['accessPackageResourceRoles']) > 0 && is_a($this->_propDict['accessPackageResourceRoles'][0], 'AccessPackageResourceRole')) {
+              return $this->_propDict['accessPackageResourceRoles'];
+           }
+           foreach ($this->_propDict['accessPackageResourceRoles'] as $singleValue) {
+              $accessPackageResourceRoles []= new AccessPackageResourceRole($singleValue);
+           }
+           $this->_propDict['accessPackageResourceRoles'] = $accessPackageResourceRoles;
+           return $this->_propDict['accessPackageResourceRoles'];
         }
         return null;
     }
@@ -404,15 +404,15 @@ class AccessPackageResource extends Entity
     public function getAccessPackageResourceScopes()
     {
         if (array_key_exists('accessPackageResourceScopes', $this->_propDict) && !is_null($this->_propDict['accessPackageResourceScopes'])) {
-            $accessPackageResourceScopes = [];
-            if (count($this->_propDict['accessPackageResourceScopes']) > 0 && is_a($this->_propDict['accessPackageResourceScopes'][0], 'AccessPackageResourceScope')) {
-                return $this->_propDict['accessPackageResourceScopes'];
-            }
-            foreach ($this->_propDict['accessPackageResourceScopes'] as $singleValue) {
-                $accessPackageResourceScopes []= new AccessPackageResourceScope($singleValue);
-            }
-            $this->_propDict['accessPackageResourceScopes'] = $accessPackageResourceScopes;
-            return $this->_propDict['accessPackageResourceScopes'];
+           $accessPackageResourceScopes = [];
+           if (count($this->_propDict['accessPackageResourceScopes']) > 0 && is_a($this->_propDict['accessPackageResourceScopes'][0], 'AccessPackageResourceScope')) {
+              return $this->_propDict['accessPackageResourceScopes'];
+           }
+           foreach ($this->_propDict['accessPackageResourceScopes'] as $singleValue) {
+              $accessPackageResourceScopes []= new AccessPackageResourceScope($singleValue);
+           }
+           $this->_propDict['accessPackageResourceScopes'] = $accessPackageResourceScopes;
+           return $this->_propDict['accessPackageResourceScopes'];
         }
         return null;
     }

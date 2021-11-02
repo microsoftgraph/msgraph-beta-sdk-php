@@ -34,15 +34,15 @@ class ConditionalAccessRoot extends Entity
     public function getAuthenticationContextClassReferences()
     {
         if (array_key_exists('authenticationContextClassReferences', $this->_propDict) && !is_null($this->_propDict['authenticationContextClassReferences'])) {
-            $authenticationContextClassReferences = [];
-            if (count($this->_propDict['authenticationContextClassReferences']) > 0 && is_a($this->_propDict['authenticationContextClassReferences'][0], 'AuthenticationContextClassReference')) {
-                return $this->_propDict['authenticationContextClassReferences'];
-            }
-            foreach ($this->_propDict['authenticationContextClassReferences'] as $singleValue) {
-                $authenticationContextClassReferences []= new AuthenticationContextClassReference($singleValue);
-            }
-            $this->_propDict['authenticationContextClassReferences'] = $authenticationContextClassReferences;
-            return $this->_propDict['authenticationContextClassReferences'];
+           $authenticationContextClassReferences = [];
+           if (count($this->_propDict['authenticationContextClassReferences']) > 0 && is_a($this->_propDict['authenticationContextClassReferences'][0], 'AuthenticationContextClassReference')) {
+              return $this->_propDict['authenticationContextClassReferences'];
+           }
+           foreach ($this->_propDict['authenticationContextClassReferences'] as $singleValue) {
+              $authenticationContextClassReferences []= new AuthenticationContextClassReference($singleValue);
+           }
+           $this->_propDict['authenticationContextClassReferences'] = $authenticationContextClassReferences;
+           return $this->_propDict['authenticationContextClassReferences'];
         }
         return null;
     }
@@ -71,15 +71,15 @@ class ConditionalAccessRoot extends Entity
     public function getNamedLocations()
     {
         if (array_key_exists('namedLocations', $this->_propDict) && !is_null($this->_propDict['namedLocations'])) {
-            $namedLocations = [];
-            if (count($this->_propDict['namedLocations']) > 0 && is_a($this->_propDict['namedLocations'][0], 'NamedLocation')) {
-                return $this->_propDict['namedLocations'];
-            }
-            foreach ($this->_propDict['namedLocations'] as $singleValue) {
-                $namedLocations []= new NamedLocation($singleValue);
-            }
-            $this->_propDict['namedLocations'] = $namedLocations;
-            return $this->_propDict['namedLocations'];
+           $namedLocations = [];
+           if (count($this->_propDict['namedLocations']) > 0 && is_a($this->_propDict['namedLocations'][0], 'NamedLocation')) {
+              return $this->_propDict['namedLocations'];
+           }
+           foreach ($this->_propDict['namedLocations'] as $singleValue) {
+              $namedLocations []= new NamedLocation($singleValue);
+           }
+           $this->_propDict['namedLocations'] = $namedLocations;
+           return $this->_propDict['namedLocations'];
         }
         return null;
     }
@@ -108,15 +108,15 @@ class ConditionalAccessRoot extends Entity
     public function getPolicies()
     {
         if (array_key_exists('policies', $this->_propDict) && !is_null($this->_propDict['policies'])) {
-            $policies = [];
-            if (count($this->_propDict['policies']) > 0 && is_a($this->_propDict['policies'][0], 'ConditionalAccessPolicy')) {
-                return $this->_propDict['policies'];
-            }
-            foreach ($this->_propDict['policies'] as $singleValue) {
-                $policies []= new ConditionalAccessPolicy($singleValue);
-            }
-            $this->_propDict['policies'] = $policies;
-            return $this->_propDict['policies'];
+           $policies = [];
+           if (count($this->_propDict['policies']) > 0 && is_a($this->_propDict['policies'][0], 'ConditionalAccessPolicy')) {
+              return $this->_propDict['policies'];
+           }
+           foreach ($this->_propDict['policies'] as $singleValue) {
+              $policies []= new ConditionalAccessPolicy($singleValue);
+           }
+           $this->_propDict['policies'] = $policies;
+           return $this->_propDict['policies'];
         }
         return null;
     }

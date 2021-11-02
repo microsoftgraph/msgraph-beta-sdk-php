@@ -166,15 +166,15 @@ class Segment extends \Beta\Microsoft\Graph\Model\Entity
     public function getMedia()
     {
         if (array_key_exists('media', $this->_propDict) && !is_null($this->_propDict['media'])) {
-            $media = [];
-            if (count($this->_propDict['media']) > 0 && is_a($this->_propDict['media'][0], 'Media')) {
-                return $this->_propDict['media'];
-            }
-            foreach ($this->_propDict['media'] as $singleValue) {
-                $media []= new Media($singleValue);
-            }
-            $this->_propDict['media'] = $media;
-            return $this->_propDict['media'];
+           $media = [];
+           if (count($this->_propDict['media']) > 0 && is_a($this->_propDict['media'][0], 'Media')) {
+              return $this->_propDict['media'];
+           }
+           foreach ($this->_propDict['media'] as $singleValue) {
+              $media []= new Media($singleValue);
+           }
+           $this->_propDict['media'] = $media;
+           return $this->_propDict['media'];
         }
         return null;
     }

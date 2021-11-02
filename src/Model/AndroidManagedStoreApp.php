@@ -92,15 +92,15 @@ class AndroidManagedStoreApp extends MobileApp
     public function getAppTracks()
     {
         if (array_key_exists('appTracks', $this->_propDict) && !is_null($this->_propDict['appTracks'])) {
-            $appTracks = [];
-            if (count($this->_propDict['appTracks']) > 0 && is_a($this->_propDict['appTracks'][0], 'AndroidManagedStoreAppTrack')) {
-                return $this->_propDict['appTracks'];
-            }
-            foreach ($this->_propDict['appTracks'] as $singleValue) {
-                $appTracks []= new AndroidManagedStoreAppTrack($singleValue);
-            }
-            $this->_propDict['appTracks'] = $appTracks;
-            return $this->_propDict['appTracks'];
+           $appTracks = [];
+           if (count($this->_propDict['appTracks']) > 0 && is_a($this->_propDict['appTracks'][0], 'AndroidManagedStoreAppTrack')) {
+              return $this->_propDict['appTracks'];
+           }
+           foreach ($this->_propDict['appTracks'] as $singleValue) {
+              $appTracks []= new AndroidManagedStoreAppTrack($singleValue);
+           }
+           $this->_propDict['appTracks'] = $appTracks;
+           return $this->_propDict['appTracks'];
         }
         return null;
     }

@@ -613,15 +613,15 @@ class DefaultManagedAppProtection extends ManagedAppProtection
     public function getCustomSettings()
     {
         if (array_key_exists('customSettings', $this->_propDict) && !is_null($this->_propDict['customSettings'])) {
-            $customSettings = [];
-            if (count($this->_propDict['customSettings']) > 0 && is_a($this->_propDict['customSettings'][0], 'KeyValuePair')) {
-                return $this->_propDict['customSettings'];
-            }
-            foreach ($this->_propDict['customSettings'] as $singleValue) {
-                $customSettings []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['customSettings'] = $customSettings;
-            return $this->_propDict['customSettings'];
+           $customSettings = [];
+           if (count($this->_propDict['customSettings']) > 0 && is_a($this->_propDict['customSettings'][0], 'KeyValuePair')) {
+              return $this->_propDict['customSettings'];
+           }
+           foreach ($this->_propDict['customSettings'] as $singleValue) {
+              $customSettings []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['customSettings'] = $customSettings;
+           return $this->_propDict['customSettings'];
         }
         return null;
     }
@@ -795,15 +795,15 @@ class DefaultManagedAppProtection extends ManagedAppProtection
     public function getExemptedAppPackages()
     {
         if (array_key_exists('exemptedAppPackages', $this->_propDict) && !is_null($this->_propDict['exemptedAppPackages'])) {
-            $exemptedAppPackages = [];
-            if (count($this->_propDict['exemptedAppPackages']) > 0 && is_a($this->_propDict['exemptedAppPackages'][0], 'KeyValuePair')) {
-                return $this->_propDict['exemptedAppPackages'];
-            }
-            foreach ($this->_propDict['exemptedAppPackages'] as $singleValue) {
-                $exemptedAppPackages []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['exemptedAppPackages'] = $exemptedAppPackages;
-            return $this->_propDict['exemptedAppPackages'];
+           $exemptedAppPackages = [];
+           if (count($this->_propDict['exemptedAppPackages']) > 0 && is_a($this->_propDict['exemptedAppPackages'][0], 'KeyValuePair')) {
+              return $this->_propDict['exemptedAppPackages'];
+           }
+           foreach ($this->_propDict['exemptedAppPackages'] as $singleValue) {
+              $exemptedAppPackages []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['exemptedAppPackages'] = $exemptedAppPackages;
+           return $this->_propDict['exemptedAppPackages'];
         }
         return null;
     }
@@ -832,15 +832,15 @@ class DefaultManagedAppProtection extends ManagedAppProtection
     public function getExemptedAppProtocols()
     {
         if (array_key_exists('exemptedAppProtocols', $this->_propDict) && !is_null($this->_propDict['exemptedAppProtocols'])) {
-            $exemptedAppProtocols = [];
-            if (count($this->_propDict['exemptedAppProtocols']) > 0 && is_a($this->_propDict['exemptedAppProtocols'][0], 'KeyValuePair')) {
-                return $this->_propDict['exemptedAppProtocols'];
-            }
-            foreach ($this->_propDict['exemptedAppProtocols'] as $singleValue) {
-                $exemptedAppProtocols []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['exemptedAppProtocols'] = $exemptedAppProtocols;
-            return $this->_propDict['exemptedAppProtocols'];
+           $exemptedAppProtocols = [];
+           if (count($this->_propDict['exemptedAppProtocols']) > 0 && is_a($this->_propDict['exemptedAppProtocols'][0], 'KeyValuePair')) {
+              return $this->_propDict['exemptedAppProtocols'];
+           }
+           foreach ($this->_propDict['exemptedAppProtocols'] as $singleValue) {
+              $exemptedAppProtocols []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['exemptedAppProtocols'] = $exemptedAppProtocols;
+           return $this->_propDict['exemptedAppProtocols'];
         }
         return null;
     }
@@ -1403,15 +1403,15 @@ class DefaultManagedAppProtection extends ManagedAppProtection
     public function getApps()
     {
         if (array_key_exists('apps', $this->_propDict) && !is_null($this->_propDict['apps'])) {
-            $apps = [];
-            if (count($this->_propDict['apps']) > 0 && is_a($this->_propDict['apps'][0], 'ManagedMobileApp')) {
-                return $this->_propDict['apps'];
-            }
-            foreach ($this->_propDict['apps'] as $singleValue) {
-                $apps []= new ManagedMobileApp($singleValue);
-            }
-            $this->_propDict['apps'] = $apps;
-            return $this->_propDict['apps'];
+           $apps = [];
+           if (count($this->_propDict['apps']) > 0 && is_a($this->_propDict['apps'][0], 'ManagedMobileApp')) {
+              return $this->_propDict['apps'];
+           }
+           foreach ($this->_propDict['apps'] as $singleValue) {
+              $apps []= new ManagedMobileApp($singleValue);
+           }
+           $this->_propDict['apps'] = $apps;
+           return $this->_propDict['apps'];
         }
         return null;
     }

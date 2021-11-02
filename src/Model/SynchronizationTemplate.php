@@ -179,15 +179,15 @@ class SynchronizationTemplate extends Entity
     public function getMetadata()
     {
         if (array_key_exists('metadata', $this->_propDict) && !is_null($this->_propDict['metadata'])) {
-            $metadata = [];
-            if (count($this->_propDict['metadata']) > 0 && is_a($this->_propDict['metadata'][0], 'MetadataEntry')) {
-                return $this->_propDict['metadata'];
-            }
-            foreach ($this->_propDict['metadata'] as $singleValue) {
-                $metadata []= new MetadataEntry($singleValue);
-            }
-            $this->_propDict['metadata'] = $metadata;
-            return $this->_propDict['metadata'];
+           $metadata = [];
+           if (count($this->_propDict['metadata']) > 0 && is_a($this->_propDict['metadata'][0], 'MetadataEntry')) {
+              return $this->_propDict['metadata'];
+           }
+           foreach ($this->_propDict['metadata'] as $singleValue) {
+              $metadata []= new MetadataEntry($singleValue);
+           }
+           $this->_propDict['metadata'] = $metadata;
+           return $this->_propDict['metadata'];
         }
         return null;
     }

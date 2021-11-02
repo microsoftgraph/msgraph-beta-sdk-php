@@ -33,15 +33,15 @@ class AzureADLicenseUsage extends Entity
     public function getLicenseInfoDetails()
     {
         if (array_key_exists('licenseInfoDetails', $this->_propDict) && !is_null($this->_propDict['licenseInfoDetails'])) {
-            $licenseInfoDetails = [];
-            if (count($this->_propDict['licenseInfoDetails']) > 0 && is_a($this->_propDict['licenseInfoDetails'][0], 'LicenseInfoDetail')) {
-                return $this->_propDict['licenseInfoDetails'];
-            }
-            foreach ($this->_propDict['licenseInfoDetails'] as $singleValue) {
-                $licenseInfoDetails []= new LicenseInfoDetail($singleValue);
-            }
-            $this->_propDict['licenseInfoDetails'] = $licenseInfoDetails;
-            return $this->_propDict['licenseInfoDetails'];
+           $licenseInfoDetails = [];
+           if (count($this->_propDict['licenseInfoDetails']) > 0 && is_a($this->_propDict['licenseInfoDetails'][0], 'LicenseInfoDetail')) {
+              return $this->_propDict['licenseInfoDetails'];
+           }
+           foreach ($this->_propDict['licenseInfoDetails'] as $singleValue) {
+              $licenseInfoDetails []= new LicenseInfoDetail($singleValue);
+           }
+           $this->_propDict['licenseInfoDetails'] = $licenseInfoDetails;
+           return $this->_propDict['licenseInfoDetails'];
         }
         return null;
     }

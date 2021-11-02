@@ -226,15 +226,15 @@ class Site extends BaseItem
     public function getColumns()
     {
         if (array_key_exists('columns', $this->_propDict) && !is_null($this->_propDict['columns'])) {
-            $columns = [];
-            if (count($this->_propDict['columns']) > 0 && is_a($this->_propDict['columns'][0], 'ColumnDefinition')) {
-                return $this->_propDict['columns'];
-            }
-            foreach ($this->_propDict['columns'] as $singleValue) {
-                $columns []= new ColumnDefinition($singleValue);
-            }
-            $this->_propDict['columns'] = $columns;
-            return $this->_propDict['columns'];
+           $columns = [];
+           if (count($this->_propDict['columns']) > 0 && is_a($this->_propDict['columns'][0], 'ColumnDefinition')) {
+              return $this->_propDict['columns'];
+           }
+           foreach ($this->_propDict['columns'] as $singleValue) {
+              $columns []= new ColumnDefinition($singleValue);
+           }
+           $this->_propDict['columns'] = $columns;
+           return $this->_propDict['columns'];
         }
         return null;
     }
@@ -263,15 +263,15 @@ class Site extends BaseItem
     public function getContentTypes()
     {
         if (array_key_exists('contentTypes', $this->_propDict) && !is_null($this->_propDict['contentTypes'])) {
-            $contentTypes = [];
-            if (count($this->_propDict['contentTypes']) > 0 && is_a($this->_propDict['contentTypes'][0], 'ContentType')) {
-                return $this->_propDict['contentTypes'];
-            }
-            foreach ($this->_propDict['contentTypes'] as $singleValue) {
-                $contentTypes []= new ContentType($singleValue);
-            }
-            $this->_propDict['contentTypes'] = $contentTypes;
-            return $this->_propDict['contentTypes'];
+           $contentTypes = [];
+           if (count($this->_propDict['contentTypes']) > 0 && is_a($this->_propDict['contentTypes'][0], 'ContentType')) {
+              return $this->_propDict['contentTypes'];
+           }
+           foreach ($this->_propDict['contentTypes'] as $singleValue) {
+              $contentTypes []= new ContentType($singleValue);
+           }
+           $this->_propDict['contentTypes'] = $contentTypes;
+           return $this->_propDict['contentTypes'];
         }
         return null;
     }
@@ -333,15 +333,15 @@ class Site extends BaseItem
     public function getDrives()
     {
         if (array_key_exists('drives', $this->_propDict) && !is_null($this->_propDict['drives'])) {
-            $drives = [];
-            if (count($this->_propDict['drives']) > 0 && is_a($this->_propDict['drives'][0], 'Drive')) {
-                return $this->_propDict['drives'];
-            }
-            foreach ($this->_propDict['drives'] as $singleValue) {
-                $drives []= new Drive($singleValue);
-            }
-            $this->_propDict['drives'] = $drives;
-            return $this->_propDict['drives'];
+           $drives = [];
+           if (count($this->_propDict['drives']) > 0 && is_a($this->_propDict['drives'][0], 'Drive')) {
+              return $this->_propDict['drives'];
+           }
+           foreach ($this->_propDict['drives'] as $singleValue) {
+              $drives []= new Drive($singleValue);
+           }
+           $this->_propDict['drives'] = $drives;
+           return $this->_propDict['drives'];
         }
         return null;
     }
@@ -370,15 +370,15 @@ class Site extends BaseItem
     public function getExternalColumns()
     {
         if (array_key_exists('externalColumns', $this->_propDict) && !is_null($this->_propDict['externalColumns'])) {
-            $externalColumns = [];
-            if (count($this->_propDict['externalColumns']) > 0 && is_a($this->_propDict['externalColumns'][0], 'ColumnDefinition')) {
-                return $this->_propDict['externalColumns'];
-            }
-            foreach ($this->_propDict['externalColumns'] as $singleValue) {
-                $externalColumns []= new ColumnDefinition($singleValue);
-            }
-            $this->_propDict['externalColumns'] = $externalColumns;
-            return $this->_propDict['externalColumns'];
+           $externalColumns = [];
+           if (count($this->_propDict['externalColumns']) > 0 && is_a($this->_propDict['externalColumns'][0], 'ColumnDefinition')) {
+              return $this->_propDict['externalColumns'];
+           }
+           foreach ($this->_propDict['externalColumns'] as $singleValue) {
+              $externalColumns []= new ColumnDefinition($singleValue);
+           }
+           $this->_propDict['externalColumns'] = $externalColumns;
+           return $this->_propDict['externalColumns'];
         }
         return null;
     }
@@ -407,15 +407,15 @@ class Site extends BaseItem
     public function getItems()
     {
         if (array_key_exists('items', $this->_propDict) && !is_null($this->_propDict['items'])) {
-            $items = [];
-            if (count($this->_propDict['items']) > 0 && is_a($this->_propDict['items'][0], 'BaseItem')) {
-                return $this->_propDict['items'];
-            }
-            foreach ($this->_propDict['items'] as $singleValue) {
-                $items []= new BaseItem($singleValue);
-            }
-            $this->_propDict['items'] = $items;
-            return $this->_propDict['items'];
+           $items = [];
+           if (count($this->_propDict['items']) > 0 && is_a($this->_propDict['items'][0], 'BaseItem')) {
+              return $this->_propDict['items'];
+           }
+           foreach ($this->_propDict['items'] as $singleValue) {
+              $items []= new BaseItem($singleValue);
+           }
+           $this->_propDict['items'] = $items;
+           return $this->_propDict['items'];
         }
         return null;
     }
@@ -444,15 +444,15 @@ class Site extends BaseItem
     public function getLists()
     {
         if (array_key_exists('lists', $this->_propDict) && !is_null($this->_propDict['lists'])) {
-            $lists = [];
-            if (count($this->_propDict['lists']) > 0 && is_a($this->_propDict['lists'][0], 'GraphList')) {
-                return $this->_propDict['lists'];
-            }
-            foreach ($this->_propDict['lists'] as $singleValue) {
-                $lists []= new GraphList($singleValue);
-            }
-            $this->_propDict['lists'] = $lists;
-            return $this->_propDict['lists'];
+           $lists = [];
+           if (count($this->_propDict['lists']) > 0 && is_a($this->_propDict['lists'][0], 'GraphList')) {
+              return $this->_propDict['lists'];
+           }
+           foreach ($this->_propDict['lists'] as $singleValue) {
+              $lists []= new GraphList($singleValue);
+           }
+           $this->_propDict['lists'] = $lists;
+           return $this->_propDict['lists'];
         }
         return null;
     }
@@ -481,15 +481,15 @@ class Site extends BaseItem
     public function getPages()
     {
         if (array_key_exists('pages', $this->_propDict) && !is_null($this->_propDict['pages'])) {
-            $pages = [];
-            if (count($this->_propDict['pages']) > 0 && is_a($this->_propDict['pages'][0], 'SitePage')) {
-                return $this->_propDict['pages'];
-            }
-            foreach ($this->_propDict['pages'] as $singleValue) {
-                $pages []= new SitePage($singleValue);
-            }
-            $this->_propDict['pages'] = $pages;
-            return $this->_propDict['pages'];
+           $pages = [];
+           if (count($this->_propDict['pages']) > 0 && is_a($this->_propDict['pages'][0], 'SitePage')) {
+              return $this->_propDict['pages'];
+           }
+           foreach ($this->_propDict['pages'] as $singleValue) {
+              $pages []= new SitePage($singleValue);
+           }
+           $this->_propDict['pages'] = $pages;
+           return $this->_propDict['pages'];
         }
         return null;
     }
@@ -518,15 +518,15 @@ class Site extends BaseItem
     public function getPermissions()
     {
         if (array_key_exists('permissions', $this->_propDict) && !is_null($this->_propDict['permissions'])) {
-            $permissions = [];
-            if (count($this->_propDict['permissions']) > 0 && is_a($this->_propDict['permissions'][0], 'Permission')) {
-                return $this->_propDict['permissions'];
-            }
-            foreach ($this->_propDict['permissions'] as $singleValue) {
-                $permissions []= new Permission($singleValue);
-            }
-            $this->_propDict['permissions'] = $permissions;
-            return $this->_propDict['permissions'];
+           $permissions = [];
+           if (count($this->_propDict['permissions']) > 0 && is_a($this->_propDict['permissions'][0], 'Permission')) {
+              return $this->_propDict['permissions'];
+           }
+           foreach ($this->_propDict['permissions'] as $singleValue) {
+              $permissions []= new Permission($singleValue);
+           }
+           $this->_propDict['permissions'] = $permissions;
+           return $this->_propDict['permissions'];
         }
         return null;
     }
@@ -555,15 +555,15 @@ class Site extends BaseItem
     public function getSites()
     {
         if (array_key_exists('sites', $this->_propDict) && !is_null($this->_propDict['sites'])) {
-            $sites = [];
-            if (count($this->_propDict['sites']) > 0 && is_a($this->_propDict['sites'][0], 'Site')) {
-                return $this->_propDict['sites'];
-            }
-            foreach ($this->_propDict['sites'] as $singleValue) {
-                $sites []= new Site($singleValue);
-            }
-            $this->_propDict['sites'] = $sites;
-            return $this->_propDict['sites'];
+           $sites = [];
+           if (count($this->_propDict['sites']) > 0 && is_a($this->_propDict['sites'][0], 'Site')) {
+              return $this->_propDict['sites'];
+           }
+           foreach ($this->_propDict['sites'] as $singleValue) {
+              $sites []= new Site($singleValue);
+           }
+           $this->_propDict['sites'] = $sites;
+           return $this->_propDict['sites'];
         }
         return null;
     }

@@ -212,15 +212,15 @@ class DeviceManagementIntent extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'DeviceManagementIntentAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new DeviceManagementIntentAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'DeviceManagementIntentAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new DeviceManagementIntentAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }
@@ -249,15 +249,15 @@ class DeviceManagementIntent extends Entity
     public function getCategories()
     {
         if (array_key_exists('categories', $this->_propDict) && !is_null($this->_propDict['categories'])) {
-            $categories = [];
-            if (count($this->_propDict['categories']) > 0 && is_a($this->_propDict['categories'][0], 'DeviceManagementIntentSettingCategory')) {
-                return $this->_propDict['categories'];
-            }
-            foreach ($this->_propDict['categories'] as $singleValue) {
-                $categories []= new DeviceManagementIntentSettingCategory($singleValue);
-            }
-            $this->_propDict['categories'] = $categories;
-            return $this->_propDict['categories'];
+           $categories = [];
+           if (count($this->_propDict['categories']) > 0 && is_a($this->_propDict['categories'][0], 'DeviceManagementIntentSettingCategory')) {
+              return $this->_propDict['categories'];
+           }
+           foreach ($this->_propDict['categories'] as $singleValue) {
+              $categories []= new DeviceManagementIntentSettingCategory($singleValue);
+           }
+           $this->_propDict['categories'] = $categories;
+           return $this->_propDict['categories'];
         }
         return null;
     }
@@ -286,15 +286,15 @@ class DeviceManagementIntent extends Entity
     public function getDeviceSettingStateSummaries()
     {
         if (array_key_exists('deviceSettingStateSummaries', $this->_propDict) && !is_null($this->_propDict['deviceSettingStateSummaries'])) {
-            $deviceSettingStateSummaries = [];
-            if (count($this->_propDict['deviceSettingStateSummaries']) > 0 && is_a($this->_propDict['deviceSettingStateSummaries'][0], 'DeviceManagementIntentDeviceSettingStateSummary')) {
-                return $this->_propDict['deviceSettingStateSummaries'];
-            }
-            foreach ($this->_propDict['deviceSettingStateSummaries'] as $singleValue) {
-                $deviceSettingStateSummaries []= new DeviceManagementIntentDeviceSettingStateSummary($singleValue);
-            }
-            $this->_propDict['deviceSettingStateSummaries'] = $deviceSettingStateSummaries;
-            return $this->_propDict['deviceSettingStateSummaries'];
+           $deviceSettingStateSummaries = [];
+           if (count($this->_propDict['deviceSettingStateSummaries']) > 0 && is_a($this->_propDict['deviceSettingStateSummaries'][0], 'DeviceManagementIntentDeviceSettingStateSummary')) {
+              return $this->_propDict['deviceSettingStateSummaries'];
+           }
+           foreach ($this->_propDict['deviceSettingStateSummaries'] as $singleValue) {
+              $deviceSettingStateSummaries []= new DeviceManagementIntentDeviceSettingStateSummary($singleValue);
+           }
+           $this->_propDict['deviceSettingStateSummaries'] = $deviceSettingStateSummaries;
+           return $this->_propDict['deviceSettingStateSummaries'];
         }
         return null;
     }
@@ -323,15 +323,15 @@ class DeviceManagementIntent extends Entity
     public function getDeviceStates()
     {
         if (array_key_exists('deviceStates', $this->_propDict) && !is_null($this->_propDict['deviceStates'])) {
-            $deviceStates = [];
-            if (count($this->_propDict['deviceStates']) > 0 && is_a($this->_propDict['deviceStates'][0], 'DeviceManagementIntentDeviceState')) {
-                return $this->_propDict['deviceStates'];
-            }
-            foreach ($this->_propDict['deviceStates'] as $singleValue) {
-                $deviceStates []= new DeviceManagementIntentDeviceState($singleValue);
-            }
-            $this->_propDict['deviceStates'] = $deviceStates;
-            return $this->_propDict['deviceStates'];
+           $deviceStates = [];
+           if (count($this->_propDict['deviceStates']) > 0 && is_a($this->_propDict['deviceStates'][0], 'DeviceManagementIntentDeviceState')) {
+              return $this->_propDict['deviceStates'];
+           }
+           foreach ($this->_propDict['deviceStates'] as $singleValue) {
+              $deviceStates []= new DeviceManagementIntentDeviceState($singleValue);
+           }
+           $this->_propDict['deviceStates'] = $deviceStates;
+           return $this->_propDict['deviceStates'];
         }
         return null;
     }
@@ -393,15 +393,15 @@ class DeviceManagementIntent extends Entity
     public function getSettings()
     {
         if (array_key_exists('settings', $this->_propDict) && !is_null($this->_propDict['settings'])) {
-            $settings = [];
-            if (count($this->_propDict['settings']) > 0 && is_a($this->_propDict['settings'][0], 'DeviceManagementSettingInstance')) {
-                return $this->_propDict['settings'];
-            }
-            foreach ($this->_propDict['settings'] as $singleValue) {
-                $settings []= new DeviceManagementSettingInstance($singleValue);
-            }
-            $this->_propDict['settings'] = $settings;
-            return $this->_propDict['settings'];
+           $settings = [];
+           if (count($this->_propDict['settings']) > 0 && is_a($this->_propDict['settings'][0], 'DeviceManagementSettingInstance')) {
+              return $this->_propDict['settings'];
+           }
+           foreach ($this->_propDict['settings'] as $singleValue) {
+              $settings []= new DeviceManagementSettingInstance($singleValue);
+           }
+           $this->_propDict['settings'] = $settings;
+           return $this->_propDict['settings'];
         }
         return null;
     }
@@ -430,15 +430,15 @@ class DeviceManagementIntent extends Entity
     public function getUserStates()
     {
         if (array_key_exists('userStates', $this->_propDict) && !is_null($this->_propDict['userStates'])) {
-            $userStates = [];
-            if (count($this->_propDict['userStates']) > 0 && is_a($this->_propDict['userStates'][0], 'DeviceManagementIntentUserState')) {
-                return $this->_propDict['userStates'];
-            }
-            foreach ($this->_propDict['userStates'] as $singleValue) {
-                $userStates []= new DeviceManagementIntentUserState($singleValue);
-            }
-            $this->_propDict['userStates'] = $userStates;
-            return $this->_propDict['userStates'];
+           $userStates = [];
+           if (count($this->_propDict['userStates']) > 0 && is_a($this->_propDict['userStates'][0], 'DeviceManagementIntentUserState')) {
+              return $this->_propDict['userStates'];
+           }
+           foreach ($this->_propDict['userStates'] as $singleValue) {
+              $userStates []= new DeviceManagementIntentUserState($singleValue);
+           }
+           $this->_propDict['userStates'] = $userStates;
+           return $this->_propDict['userStates'];
         }
         return null;
     }

@@ -151,15 +151,15 @@ class SitePage extends BaseItem
     public function getWebParts()
     {
         if (array_key_exists('webParts', $this->_propDict) && !is_null($this->_propDict['webParts'])) {
-            $webParts = [];
-            if (count($this->_propDict['webParts']) > 0 && is_a($this->_propDict['webParts'][0], 'WebPart')) {
-                return $this->_propDict['webParts'];
-            }
-            foreach ($this->_propDict['webParts'] as $singleValue) {
-                $webParts []= new WebPart($singleValue);
-            }
-            $this->_propDict['webParts'] = $webParts;
-            return $this->_propDict['webParts'];
+           $webParts = [];
+           if (count($this->_propDict['webParts']) > 0 && is_a($this->_propDict['webParts'][0], 'WebPart')) {
+              return $this->_propDict['webParts'];
+           }
+           foreach ($this->_propDict['webParts'] as $singleValue) {
+              $webParts []= new WebPart($singleValue);
+           }
+           $this->_propDict['webParts'] = $webParts;
+           return $this->_propDict['webParts'];
         }
         return null;
     }

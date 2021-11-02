@@ -303,15 +303,15 @@ class AccessPackage extends Entity
     public function getAccessPackageAssignmentPolicies()
     {
         if (array_key_exists('accessPackageAssignmentPolicies', $this->_propDict) && !is_null($this->_propDict['accessPackageAssignmentPolicies'])) {
-            $accessPackageAssignmentPolicies = [];
-            if (count($this->_propDict['accessPackageAssignmentPolicies']) > 0 && is_a($this->_propDict['accessPackageAssignmentPolicies'][0], 'AccessPackageAssignmentPolicy')) {
-                return $this->_propDict['accessPackageAssignmentPolicies'];
-            }
-            foreach ($this->_propDict['accessPackageAssignmentPolicies'] as $singleValue) {
-                $accessPackageAssignmentPolicies []= new AccessPackageAssignmentPolicy($singleValue);
-            }
-            $this->_propDict['accessPackageAssignmentPolicies'] = $accessPackageAssignmentPolicies;
-            return $this->_propDict['accessPackageAssignmentPolicies'];
+           $accessPackageAssignmentPolicies = [];
+           if (count($this->_propDict['accessPackageAssignmentPolicies']) > 0 && is_a($this->_propDict['accessPackageAssignmentPolicies'][0], 'AccessPackageAssignmentPolicy')) {
+              return $this->_propDict['accessPackageAssignmentPolicies'];
+           }
+           foreach ($this->_propDict['accessPackageAssignmentPolicies'] as $singleValue) {
+              $accessPackageAssignmentPolicies []= new AccessPackageAssignmentPolicy($singleValue);
+           }
+           $this->_propDict['accessPackageAssignmentPolicies'] = $accessPackageAssignmentPolicies;
+           return $this->_propDict['accessPackageAssignmentPolicies'];
         }
         return null;
     }
@@ -373,15 +373,15 @@ class AccessPackage extends Entity
     public function getAccessPackageResourceRoleScopes()
     {
         if (array_key_exists('accessPackageResourceRoleScopes', $this->_propDict) && !is_null($this->_propDict['accessPackageResourceRoleScopes'])) {
-            $accessPackageResourceRoleScopes = [];
-            if (count($this->_propDict['accessPackageResourceRoleScopes']) > 0 && is_a($this->_propDict['accessPackageResourceRoleScopes'][0], 'AccessPackageResourceRoleScope')) {
-                return $this->_propDict['accessPackageResourceRoleScopes'];
-            }
-            foreach ($this->_propDict['accessPackageResourceRoleScopes'] as $singleValue) {
-                $accessPackageResourceRoleScopes []= new AccessPackageResourceRoleScope($singleValue);
-            }
-            $this->_propDict['accessPackageResourceRoleScopes'] = $accessPackageResourceRoleScopes;
-            return $this->_propDict['accessPackageResourceRoleScopes'];
+           $accessPackageResourceRoleScopes = [];
+           if (count($this->_propDict['accessPackageResourceRoleScopes']) > 0 && is_a($this->_propDict['accessPackageResourceRoleScopes'][0], 'AccessPackageResourceRoleScope')) {
+              return $this->_propDict['accessPackageResourceRoleScopes'];
+           }
+           foreach ($this->_propDict['accessPackageResourceRoleScopes'] as $singleValue) {
+              $accessPackageResourceRoleScopes []= new AccessPackageResourceRoleScope($singleValue);
+           }
+           $this->_propDict['accessPackageResourceRoleScopes'] = $accessPackageResourceRoleScopes;
+           return $this->_propDict['accessPackageResourceRoleScopes'];
         }
         return null;
     }
@@ -410,15 +410,15 @@ class AccessPackage extends Entity
     public function getAccessPackagesIncompatibleWith()
     {
         if (array_key_exists('accessPackagesIncompatibleWith', $this->_propDict) && !is_null($this->_propDict['accessPackagesIncompatibleWith'])) {
-            $accessPackagesIncompatibleWith = [];
-            if (count($this->_propDict['accessPackagesIncompatibleWith']) > 0 && is_a($this->_propDict['accessPackagesIncompatibleWith'][0], 'AccessPackage')) {
-                return $this->_propDict['accessPackagesIncompatibleWith'];
-            }
-            foreach ($this->_propDict['accessPackagesIncompatibleWith'] as $singleValue) {
-                $accessPackagesIncompatibleWith []= new AccessPackage($singleValue);
-            }
-            $this->_propDict['accessPackagesIncompatibleWith'] = $accessPackagesIncompatibleWith;
-            return $this->_propDict['accessPackagesIncompatibleWith'];
+           $accessPackagesIncompatibleWith = [];
+           if (count($this->_propDict['accessPackagesIncompatibleWith']) > 0 && is_a($this->_propDict['accessPackagesIncompatibleWith'][0], 'AccessPackage')) {
+              return $this->_propDict['accessPackagesIncompatibleWith'];
+           }
+           foreach ($this->_propDict['accessPackagesIncompatibleWith'] as $singleValue) {
+              $accessPackagesIncompatibleWith []= new AccessPackage($singleValue);
+           }
+           $this->_propDict['accessPackagesIncompatibleWith'] = $accessPackagesIncompatibleWith;
+           return $this->_propDict['accessPackagesIncompatibleWith'];
         }
         return null;
     }
@@ -447,15 +447,15 @@ class AccessPackage extends Entity
     public function getIncompatibleAccessPackages()
     {
         if (array_key_exists('incompatibleAccessPackages', $this->_propDict) && !is_null($this->_propDict['incompatibleAccessPackages'])) {
-            $incompatibleAccessPackages = [];
-            if (count($this->_propDict['incompatibleAccessPackages']) > 0 && is_a($this->_propDict['incompatibleAccessPackages'][0], 'AccessPackage')) {
-                return $this->_propDict['incompatibleAccessPackages'];
-            }
-            foreach ($this->_propDict['incompatibleAccessPackages'] as $singleValue) {
-                $incompatibleAccessPackages []= new AccessPackage($singleValue);
-            }
-            $this->_propDict['incompatibleAccessPackages'] = $incompatibleAccessPackages;
-            return $this->_propDict['incompatibleAccessPackages'];
+           $incompatibleAccessPackages = [];
+           if (count($this->_propDict['incompatibleAccessPackages']) > 0 && is_a($this->_propDict['incompatibleAccessPackages'][0], 'AccessPackage')) {
+              return $this->_propDict['incompatibleAccessPackages'];
+           }
+           foreach ($this->_propDict['incompatibleAccessPackages'] as $singleValue) {
+              $incompatibleAccessPackages []= new AccessPackage($singleValue);
+           }
+           $this->_propDict['incompatibleAccessPackages'] = $incompatibleAccessPackages;
+           return $this->_propDict['incompatibleAccessPackages'];
         }
         return null;
     }
@@ -484,15 +484,15 @@ class AccessPackage extends Entity
     public function getIncompatibleGroups()
     {
         if (array_key_exists('incompatibleGroups', $this->_propDict) && !is_null($this->_propDict['incompatibleGroups'])) {
-            $incompatibleGroups = [];
-            if (count($this->_propDict['incompatibleGroups']) > 0 && is_a($this->_propDict['incompatibleGroups'][0], 'Group')) {
-                return $this->_propDict['incompatibleGroups'];
-            }
-            foreach ($this->_propDict['incompatibleGroups'] as $singleValue) {
-                $incompatibleGroups []= new Group($singleValue);
-            }
-            $this->_propDict['incompatibleGroups'] = $incompatibleGroups;
-            return $this->_propDict['incompatibleGroups'];
+           $incompatibleGroups = [];
+           if (count($this->_propDict['incompatibleGroups']) > 0 && is_a($this->_propDict['incompatibleGroups'][0], 'Group')) {
+              return $this->_propDict['incompatibleGroups'];
+           }
+           foreach ($this->_propDict['incompatibleGroups'] as $singleValue) {
+              $incompatibleGroups []= new Group($singleValue);
+           }
+           $this->_propDict['incompatibleGroups'] = $incompatibleGroups;
+           return $this->_propDict['incompatibleGroups'];
         }
         return null;
     }

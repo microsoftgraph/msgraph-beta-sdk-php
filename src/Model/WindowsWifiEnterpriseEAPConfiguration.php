@@ -816,15 +816,15 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration
     public function getRootCertificatesForServerValidation()
     {
         if (array_key_exists('rootCertificatesForServerValidation', $this->_propDict) && !is_null($this->_propDict['rootCertificatesForServerValidation'])) {
-            $rootCertificatesForServerValidation = [];
-            if (count($this->_propDict['rootCertificatesForServerValidation']) > 0 && is_a($this->_propDict['rootCertificatesForServerValidation'][0], 'Windows81TrustedRootCertificate')) {
-                return $this->_propDict['rootCertificatesForServerValidation'];
-            }
-            foreach ($this->_propDict['rootCertificatesForServerValidation'] as $singleValue) {
-                $rootCertificatesForServerValidation []= new Windows81TrustedRootCertificate($singleValue);
-            }
-            $this->_propDict['rootCertificatesForServerValidation'] = $rootCertificatesForServerValidation;
-            return $this->_propDict['rootCertificatesForServerValidation'];
+           $rootCertificatesForServerValidation = [];
+           if (count($this->_propDict['rootCertificatesForServerValidation']) > 0 && is_a($this->_propDict['rootCertificatesForServerValidation'][0], 'Windows81TrustedRootCertificate')) {
+              return $this->_propDict['rootCertificatesForServerValidation'];
+           }
+           foreach ($this->_propDict['rootCertificatesForServerValidation'] as $singleValue) {
+              $rootCertificatesForServerValidation []= new Windows81TrustedRootCertificate($singleValue);
+           }
+           $this->_propDict['rootCertificatesForServerValidation'] = $rootCertificatesForServerValidation;
+           return $this->_propDict['rootCertificatesForServerValidation'];
         }
         return null;
     }

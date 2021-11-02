@@ -125,15 +125,15 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration
     public function getCustomData()
     {
         if (array_key_exists('customData', $this->_propDict) && !is_null($this->_propDict['customData'])) {
-            $customData = [];
-            if (count($this->_propDict['customData']) > 0 && is_a($this->_propDict['customData'][0], 'KeyValue')) {
-                return $this->_propDict['customData'];
-            }
-            foreach ($this->_propDict['customData'] as $singleValue) {
-                $customData []= new KeyValue($singleValue);
-            }
-            $this->_propDict['customData'] = $customData;
-            return $this->_propDict['customData'];
+           $customData = [];
+           if (count($this->_propDict['customData']) > 0 && is_a($this->_propDict['customData'][0], 'KeyValue')) {
+              return $this->_propDict['customData'];
+           }
+           foreach ($this->_propDict['customData'] as $singleValue) {
+              $customData []= new KeyValue($singleValue);
+           }
+           $this->_propDict['customData'] = $customData;
+           return $this->_propDict['customData'];
         }
         return null;
     }
@@ -162,15 +162,15 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration
     public function getCustomKeyValueData()
     {
         if (array_key_exists('customKeyValueData', $this->_propDict) && !is_null($this->_propDict['customKeyValueData'])) {
-            $customKeyValueData = [];
-            if (count($this->_propDict['customKeyValueData']) > 0 && is_a($this->_propDict['customKeyValueData'][0], 'KeyValuePair')) {
-                return $this->_propDict['customKeyValueData'];
-            }
-            foreach ($this->_propDict['customKeyValueData'] as $singleValue) {
-                $customKeyValueData []= new KeyValuePair($singleValue);
-            }
-            $this->_propDict['customKeyValueData'] = $customKeyValueData;
-            return $this->_propDict['customKeyValueData'];
+           $customKeyValueData = [];
+           if (count($this->_propDict['customKeyValueData']) > 0 && is_a($this->_propDict['customKeyValueData'][0], 'KeyValuePair')) {
+              return $this->_propDict['customKeyValueData'];
+           }
+           foreach ($this->_propDict['customKeyValueData'] as $singleValue) {
+              $customKeyValueData []= new KeyValuePair($singleValue);
+           }
+           $this->_propDict['customKeyValueData'] = $customKeyValueData;
+           return $this->_propDict['customKeyValueData'];
         }
         return null;
     }
@@ -261,15 +261,15 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration
     public function getTargetedMobileApps()
     {
         if (array_key_exists('targetedMobileApps', $this->_propDict) && !is_null($this->_propDict['targetedMobileApps'])) {
-            $targetedMobileApps = [];
-            if (count($this->_propDict['targetedMobileApps']) > 0 && is_a($this->_propDict['targetedMobileApps'][0], 'AppListItem')) {
-                return $this->_propDict['targetedMobileApps'];
-            }
-            foreach ($this->_propDict['targetedMobileApps'] as $singleValue) {
-                $targetedMobileApps []= new AppListItem($singleValue);
-            }
-            $this->_propDict['targetedMobileApps'] = $targetedMobileApps;
-            return $this->_propDict['targetedMobileApps'];
+           $targetedMobileApps = [];
+           if (count($this->_propDict['targetedMobileApps']) > 0 && is_a($this->_propDict['targetedMobileApps'][0], 'AppListItem')) {
+              return $this->_propDict['targetedMobileApps'];
+           }
+           foreach ($this->_propDict['targetedMobileApps'] as $singleValue) {
+              $targetedMobileApps []= new AppListItem($singleValue);
+           }
+           $this->_propDict['targetedMobileApps'] = $targetedMobileApps;
+           return $this->_propDict['targetedMobileApps'];
         }
         return null;
     }

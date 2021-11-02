@@ -34,15 +34,15 @@ class RegionalAndLanguageSettings extends Entity
     public function getAuthoringLanguages()
     {
         if (array_key_exists('authoringLanguages', $this->_propDict) && !is_null($this->_propDict['authoringLanguages'])) {
-            $authoringLanguages = [];
-            if (count($this->_propDict['authoringLanguages']) > 0 && is_a($this->_propDict['authoringLanguages'][0], 'LocaleInfo')) {
-                return $this->_propDict['authoringLanguages'];
-            }
-            foreach ($this->_propDict['authoringLanguages'] as $singleValue) {
-                $authoringLanguages []= new LocaleInfo($singleValue);
-            }
-            $this->_propDict['authoringLanguages'] = $authoringLanguages;
-            return $this->_propDict['authoringLanguages'];
+           $authoringLanguages = [];
+           if (count($this->_propDict['authoringLanguages']) > 0 && is_a($this->_propDict['authoringLanguages'][0], 'LocaleInfo')) {
+              return $this->_propDict['authoringLanguages'];
+           }
+           foreach ($this->_propDict['authoringLanguages'] as $singleValue) {
+              $authoringLanguages []= new LocaleInfo($singleValue);
+           }
+           $this->_propDict['authoringLanguages'] = $authoringLanguages;
+           return $this->_propDict['authoringLanguages'];
         }
         return null;
     }

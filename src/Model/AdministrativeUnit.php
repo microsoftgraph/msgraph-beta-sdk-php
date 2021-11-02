@@ -121,15 +121,15 @@ class AdministrativeUnit extends DirectoryObject
     public function getMembers()
     {
         if (array_key_exists('members', $this->_propDict) && !is_null($this->_propDict['members'])) {
-            $members = [];
-            if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'DirectoryObject')) {
-                return $this->_propDict['members'];
-            }
-            foreach ($this->_propDict['members'] as $singleValue) {
-                $members []= new DirectoryObject($singleValue);
-            }
-            $this->_propDict['members'] = $members;
-            return $this->_propDict['members'];
+           $members = [];
+           if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'DirectoryObject')) {
+              return $this->_propDict['members'];
+           }
+           foreach ($this->_propDict['members'] as $singleValue) {
+              $members []= new DirectoryObject($singleValue);
+           }
+           $this->_propDict['members'] = $members;
+           return $this->_propDict['members'];
         }
         return null;
     }
@@ -158,15 +158,15 @@ class AdministrativeUnit extends DirectoryObject
     public function getScopedRoleMembers()
     {
         if (array_key_exists('scopedRoleMembers', $this->_propDict) && !is_null($this->_propDict['scopedRoleMembers'])) {
-            $scopedRoleMembers = [];
-            if (count($this->_propDict['scopedRoleMembers']) > 0 && is_a($this->_propDict['scopedRoleMembers'][0], 'ScopedRoleMembership')) {
-                return $this->_propDict['scopedRoleMembers'];
-            }
-            foreach ($this->_propDict['scopedRoleMembers'] as $singleValue) {
-                $scopedRoleMembers []= new ScopedRoleMembership($singleValue);
-            }
-            $this->_propDict['scopedRoleMembers'] = $scopedRoleMembers;
-            return $this->_propDict['scopedRoleMembers'];
+           $scopedRoleMembers = [];
+           if (count($this->_propDict['scopedRoleMembers']) > 0 && is_a($this->_propDict['scopedRoleMembers'][0], 'ScopedRoleMembership')) {
+              return $this->_propDict['scopedRoleMembers'];
+           }
+           foreach ($this->_propDict['scopedRoleMembers'] as $singleValue) {
+              $scopedRoleMembers []= new ScopedRoleMembership($singleValue);
+           }
+           $this->_propDict['scopedRoleMembers'] = $scopedRoleMembers;
+           return $this->_propDict['scopedRoleMembers'];
         }
         return null;
     }
@@ -195,15 +195,15 @@ class AdministrativeUnit extends DirectoryObject
     public function getExtensions()
     {
         if (array_key_exists('extensions', $this->_propDict) && !is_null($this->_propDict['extensions'])) {
-            $extensions = [];
-            if (count($this->_propDict['extensions']) > 0 && is_a($this->_propDict['extensions'][0], 'Extension')) {
-                return $this->_propDict['extensions'];
-            }
-            foreach ($this->_propDict['extensions'] as $singleValue) {
-                $extensions []= new Extension($singleValue);
-            }
-            $this->_propDict['extensions'] = $extensions;
-            return $this->_propDict['extensions'];
+           $extensions = [];
+           if (count($this->_propDict['extensions']) > 0 && is_a($this->_propDict['extensions'][0], 'Extension')) {
+              return $this->_propDict['extensions'];
+           }
+           foreach ($this->_propDict['extensions'] as $singleValue) {
+              $extensions []= new Extension($singleValue);
+           }
+           $this->_propDict['extensions'] = $extensions;
+           return $this->_propDict['extensions'];
         }
         return null;
     }

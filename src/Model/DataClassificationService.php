@@ -33,15 +33,15 @@ class DataClassificationService extends Entity
     public function getExactMatchDataStores()
     {
         if (array_key_exists('exactMatchDataStores', $this->_propDict) && !is_null($this->_propDict['exactMatchDataStores'])) {
-            $exactMatchDataStores = [];
-            if (count($this->_propDict['exactMatchDataStores']) > 0 && is_a($this->_propDict['exactMatchDataStores'][0], 'ExactMatchDataStore')) {
-                return $this->_propDict['exactMatchDataStores'];
-            }
-            foreach ($this->_propDict['exactMatchDataStores'] as $singleValue) {
-                $exactMatchDataStores []= new ExactMatchDataStore($singleValue);
-            }
-            $this->_propDict['exactMatchDataStores'] = $exactMatchDataStores;
-            return $this->_propDict['exactMatchDataStores'];
+           $exactMatchDataStores = [];
+           if (count($this->_propDict['exactMatchDataStores']) > 0 && is_a($this->_propDict['exactMatchDataStores'][0], 'ExactMatchDataStore')) {
+              return $this->_propDict['exactMatchDataStores'];
+           }
+           foreach ($this->_propDict['exactMatchDataStores'] as $singleValue) {
+              $exactMatchDataStores []= new ExactMatchDataStore($singleValue);
+           }
+           $this->_propDict['exactMatchDataStores'] = $exactMatchDataStores;
+           return $this->_propDict['exactMatchDataStores'];
         }
         return null;
     }
@@ -68,15 +68,15 @@ class DataClassificationService extends Entity
     public function getClassifyFileJobs()
     {
         if (array_key_exists('classifyFileJobs', $this->_propDict) && !is_null($this->_propDict['classifyFileJobs'])) {
-            $classifyFileJobs = [];
-            if (count($this->_propDict['classifyFileJobs']) > 0 && is_a($this->_propDict['classifyFileJobs'][0], 'JobResponseBase')) {
-                return $this->_propDict['classifyFileJobs'];
-            }
-            foreach ($this->_propDict['classifyFileJobs'] as $singleValue) {
-                $classifyFileJobs []= new JobResponseBase($singleValue);
-            }
-            $this->_propDict['classifyFileJobs'] = $classifyFileJobs;
-            return $this->_propDict['classifyFileJobs'];
+           $classifyFileJobs = [];
+           if (count($this->_propDict['classifyFileJobs']) > 0 && is_a($this->_propDict['classifyFileJobs'][0], 'JobResponseBase')) {
+              return $this->_propDict['classifyFileJobs'];
+           }
+           foreach ($this->_propDict['classifyFileJobs'] as $singleValue) {
+              $classifyFileJobs []= new JobResponseBase($singleValue);
+           }
+           $this->_propDict['classifyFileJobs'] = $classifyFileJobs;
+           return $this->_propDict['classifyFileJobs'];
         }
         return null;
     }
@@ -103,15 +103,15 @@ class DataClassificationService extends Entity
     public function getClassifyTextJobs()
     {
         if (array_key_exists('classifyTextJobs', $this->_propDict) && !is_null($this->_propDict['classifyTextJobs'])) {
-            $classifyTextJobs = [];
-            if (count($this->_propDict['classifyTextJobs']) > 0 && is_a($this->_propDict['classifyTextJobs'][0], 'JobResponseBase')) {
-                return $this->_propDict['classifyTextJobs'];
-            }
-            foreach ($this->_propDict['classifyTextJobs'] as $singleValue) {
-                $classifyTextJobs []= new JobResponseBase($singleValue);
-            }
-            $this->_propDict['classifyTextJobs'] = $classifyTextJobs;
-            return $this->_propDict['classifyTextJobs'];
+           $classifyTextJobs = [];
+           if (count($this->_propDict['classifyTextJobs']) > 0 && is_a($this->_propDict['classifyTextJobs'][0], 'JobResponseBase')) {
+              return $this->_propDict['classifyTextJobs'];
+           }
+           foreach ($this->_propDict['classifyTextJobs'] as $singleValue) {
+              $classifyTextJobs []= new JobResponseBase($singleValue);
+           }
+           $this->_propDict['classifyTextJobs'] = $classifyTextJobs;
+           return $this->_propDict['classifyTextJobs'];
         }
         return null;
     }
@@ -138,15 +138,15 @@ class DataClassificationService extends Entity
     public function getEvaluateDlpPoliciesJobs()
     {
         if (array_key_exists('evaluateDlpPoliciesJobs', $this->_propDict) && !is_null($this->_propDict['evaluateDlpPoliciesJobs'])) {
-            $evaluateDlpPoliciesJobs = [];
-            if (count($this->_propDict['evaluateDlpPoliciesJobs']) > 0 && is_a($this->_propDict['evaluateDlpPoliciesJobs'][0], 'JobResponseBase')) {
-                return $this->_propDict['evaluateDlpPoliciesJobs'];
-            }
-            foreach ($this->_propDict['evaluateDlpPoliciesJobs'] as $singleValue) {
-                $evaluateDlpPoliciesJobs []= new JobResponseBase($singleValue);
-            }
-            $this->_propDict['evaluateDlpPoliciesJobs'] = $evaluateDlpPoliciesJobs;
-            return $this->_propDict['evaluateDlpPoliciesJobs'];
+           $evaluateDlpPoliciesJobs = [];
+           if (count($this->_propDict['evaluateDlpPoliciesJobs']) > 0 && is_a($this->_propDict['evaluateDlpPoliciesJobs'][0], 'JobResponseBase')) {
+              return $this->_propDict['evaluateDlpPoliciesJobs'];
+           }
+           foreach ($this->_propDict['evaluateDlpPoliciesJobs'] as $singleValue) {
+              $evaluateDlpPoliciesJobs []= new JobResponseBase($singleValue);
+           }
+           $this->_propDict['evaluateDlpPoliciesJobs'] = $evaluateDlpPoliciesJobs;
+           return $this->_propDict['evaluateDlpPoliciesJobs'];
         }
         return null;
     }
@@ -173,15 +173,15 @@ class DataClassificationService extends Entity
     public function getEvaluateLabelJobs()
     {
         if (array_key_exists('evaluateLabelJobs', $this->_propDict) && !is_null($this->_propDict['evaluateLabelJobs'])) {
-            $evaluateLabelJobs = [];
-            if (count($this->_propDict['evaluateLabelJobs']) > 0 && is_a($this->_propDict['evaluateLabelJobs'][0], 'JobResponseBase')) {
-                return $this->_propDict['evaluateLabelJobs'];
-            }
-            foreach ($this->_propDict['evaluateLabelJobs'] as $singleValue) {
-                $evaluateLabelJobs []= new JobResponseBase($singleValue);
-            }
-            $this->_propDict['evaluateLabelJobs'] = $evaluateLabelJobs;
-            return $this->_propDict['evaluateLabelJobs'];
+           $evaluateLabelJobs = [];
+           if (count($this->_propDict['evaluateLabelJobs']) > 0 && is_a($this->_propDict['evaluateLabelJobs'][0], 'JobResponseBase')) {
+              return $this->_propDict['evaluateLabelJobs'];
+           }
+           foreach ($this->_propDict['evaluateLabelJobs'] as $singleValue) {
+              $evaluateLabelJobs []= new JobResponseBase($singleValue);
+           }
+           $this->_propDict['evaluateLabelJobs'] = $evaluateLabelJobs;
+           return $this->_propDict['evaluateLabelJobs'];
         }
         return null;
     }
@@ -208,15 +208,15 @@ class DataClassificationService extends Entity
     public function getJobs()
     {
         if (array_key_exists('jobs', $this->_propDict) && !is_null($this->_propDict['jobs'])) {
-            $jobs = [];
-            if (count($this->_propDict['jobs']) > 0 && is_a($this->_propDict['jobs'][0], 'JobResponseBase')) {
-                return $this->_propDict['jobs'];
-            }
-            foreach ($this->_propDict['jobs'] as $singleValue) {
-                $jobs []= new JobResponseBase($singleValue);
-            }
-            $this->_propDict['jobs'] = $jobs;
-            return $this->_propDict['jobs'];
+           $jobs = [];
+           if (count($this->_propDict['jobs']) > 0 && is_a($this->_propDict['jobs'][0], 'JobResponseBase')) {
+              return $this->_propDict['jobs'];
+           }
+           foreach ($this->_propDict['jobs'] as $singleValue) {
+              $jobs []= new JobResponseBase($singleValue);
+           }
+           $this->_propDict['jobs'] = $jobs;
+           return $this->_propDict['jobs'];
         }
         return null;
     }
@@ -243,15 +243,15 @@ class DataClassificationService extends Entity
     public function getSensitiveTypes()
     {
         if (array_key_exists('sensitiveTypes', $this->_propDict) && !is_null($this->_propDict['sensitiveTypes'])) {
-            $sensitiveTypes = [];
-            if (count($this->_propDict['sensitiveTypes']) > 0 && is_a($this->_propDict['sensitiveTypes'][0], 'SensitiveType')) {
-                return $this->_propDict['sensitiveTypes'];
-            }
-            foreach ($this->_propDict['sensitiveTypes'] as $singleValue) {
-                $sensitiveTypes []= new SensitiveType($singleValue);
-            }
-            $this->_propDict['sensitiveTypes'] = $sensitiveTypes;
-            return $this->_propDict['sensitiveTypes'];
+           $sensitiveTypes = [];
+           if (count($this->_propDict['sensitiveTypes']) > 0 && is_a($this->_propDict['sensitiveTypes'][0], 'SensitiveType')) {
+              return $this->_propDict['sensitiveTypes'];
+           }
+           foreach ($this->_propDict['sensitiveTypes'] as $singleValue) {
+              $sensitiveTypes []= new SensitiveType($singleValue);
+           }
+           $this->_propDict['sensitiveTypes'] = $sensitiveTypes;
+           return $this->_propDict['sensitiveTypes'];
         }
         return null;
     }
@@ -278,15 +278,15 @@ class DataClassificationService extends Entity
     public function getSensitivityLabels()
     {
         if (array_key_exists('sensitivityLabels', $this->_propDict) && !is_null($this->_propDict['sensitivityLabels'])) {
-            $sensitivityLabels = [];
-            if (count($this->_propDict['sensitivityLabels']) > 0 && is_a($this->_propDict['sensitivityLabels'][0], 'SensitivityLabel')) {
-                return $this->_propDict['sensitivityLabels'];
-            }
-            foreach ($this->_propDict['sensitivityLabels'] as $singleValue) {
-                $sensitivityLabels []= new SensitivityLabel($singleValue);
-            }
-            $this->_propDict['sensitivityLabels'] = $sensitivityLabels;
-            return $this->_propDict['sensitivityLabels'];
+           $sensitivityLabels = [];
+           if (count($this->_propDict['sensitivityLabels']) > 0 && is_a($this->_propDict['sensitivityLabels'][0], 'SensitivityLabel')) {
+              return $this->_propDict['sensitivityLabels'];
+           }
+           foreach ($this->_propDict['sensitivityLabels'] as $singleValue) {
+              $sensitivityLabels []= new SensitivityLabel($singleValue);
+           }
+           $this->_propDict['sensitivityLabels'] = $sensitivityLabels;
+           return $this->_propDict['sensitivityLabels'];
         }
         return null;
     }
@@ -313,15 +313,15 @@ class DataClassificationService extends Entity
     public function getExactMatchUploadAgents()
     {
         if (array_key_exists('exactMatchUploadAgents', $this->_propDict) && !is_null($this->_propDict['exactMatchUploadAgents'])) {
-            $exactMatchUploadAgents = [];
-            if (count($this->_propDict['exactMatchUploadAgents']) > 0 && is_a($this->_propDict['exactMatchUploadAgents'][0], 'ExactMatchUploadAgent')) {
-                return $this->_propDict['exactMatchUploadAgents'];
-            }
-            foreach ($this->_propDict['exactMatchUploadAgents'] as $singleValue) {
-                $exactMatchUploadAgents []= new ExactMatchUploadAgent($singleValue);
-            }
-            $this->_propDict['exactMatchUploadAgents'] = $exactMatchUploadAgents;
-            return $this->_propDict['exactMatchUploadAgents'];
+           $exactMatchUploadAgents = [];
+           if (count($this->_propDict['exactMatchUploadAgents']) > 0 && is_a($this->_propDict['exactMatchUploadAgents'][0], 'ExactMatchUploadAgent')) {
+              return $this->_propDict['exactMatchUploadAgents'];
+           }
+           foreach ($this->_propDict['exactMatchUploadAgents'] as $singleValue) {
+              $exactMatchUploadAgents []= new ExactMatchUploadAgent($singleValue);
+           }
+           $this->_propDict['exactMatchUploadAgents'] = $exactMatchUploadAgents;
+           return $this->_propDict['exactMatchUploadAgents'];
         }
         return null;
     }

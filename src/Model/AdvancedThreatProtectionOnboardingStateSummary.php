@@ -266,15 +266,15 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
     public function getAdvancedThreatProtectionOnboardingDeviceSettingStates()
     {
         if (array_key_exists('advancedThreatProtectionOnboardingDeviceSettingStates', $this->_propDict) && !is_null($this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'])) {
-            $advancedThreatProtectionOnboardingDeviceSettingStates = [];
-            if (count($this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates']) > 0 && is_a($this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'][0], 'AdvancedThreatProtectionOnboardingDeviceSettingState')) {
-                return $this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'];
-            }
-            foreach ($this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'] as $singleValue) {
-                $advancedThreatProtectionOnboardingDeviceSettingStates []= new AdvancedThreatProtectionOnboardingDeviceSettingState($singleValue);
-            }
-            $this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'] = $advancedThreatProtectionOnboardingDeviceSettingStates;
-            return $this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'];
+           $advancedThreatProtectionOnboardingDeviceSettingStates = [];
+           if (count($this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates']) > 0 && is_a($this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'][0], 'AdvancedThreatProtectionOnboardingDeviceSettingState')) {
+              return $this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'];
+           }
+           foreach ($this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'] as $singleValue) {
+              $advancedThreatProtectionOnboardingDeviceSettingStates []= new AdvancedThreatProtectionOnboardingDeviceSettingState($singleValue);
+           }
+           $this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'] = $advancedThreatProtectionOnboardingDeviceSettingStates;
+           return $this->_propDict['advancedThreatProtectionOnboardingDeviceSettingStates'];
         }
         return null;
     }

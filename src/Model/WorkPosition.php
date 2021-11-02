@@ -63,15 +63,15 @@ class WorkPosition extends ItemFacet
     public function getColleagues()
     {
         if (array_key_exists('colleagues', $this->_propDict) && !is_null($this->_propDict['colleagues'])) {
-            $colleagues = [];
-            if (count($this->_propDict['colleagues']) > 0 && is_a($this->_propDict['colleagues'][0], 'RelatedPerson')) {
-                return $this->_propDict['colleagues'];
-            }
-            foreach ($this->_propDict['colleagues'] as $singleValue) {
-                $colleagues []= new RelatedPerson($singleValue);
-            }
-            $this->_propDict['colleagues'] = $colleagues;
-            return $this->_propDict['colleagues'];
+           $colleagues = [];
+           if (count($this->_propDict['colleagues']) > 0 && is_a($this->_propDict['colleagues'][0], 'RelatedPerson')) {
+              return $this->_propDict['colleagues'];
+           }
+           foreach ($this->_propDict['colleagues'] as $singleValue) {
+              $colleagues []= new RelatedPerson($singleValue);
+           }
+           $this->_propDict['colleagues'] = $colleagues;
+           return $this->_propDict['colleagues'];
         }
         return null;
     }

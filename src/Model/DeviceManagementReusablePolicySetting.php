@@ -278,15 +278,15 @@ class DeviceManagementReusablePolicySetting extends Entity
     public function getReferencingConfigurationPolicies()
     {
         if (array_key_exists('referencingConfigurationPolicies', $this->_propDict) && !is_null($this->_propDict['referencingConfigurationPolicies'])) {
-            $referencingConfigurationPolicies = [];
-            if (count($this->_propDict['referencingConfigurationPolicies']) > 0 && is_a($this->_propDict['referencingConfigurationPolicies'][0], 'DeviceManagementConfigurationPolicy')) {
-                return $this->_propDict['referencingConfigurationPolicies'];
-            }
-            foreach ($this->_propDict['referencingConfigurationPolicies'] as $singleValue) {
-                $referencingConfigurationPolicies []= new DeviceManagementConfigurationPolicy($singleValue);
-            }
-            $this->_propDict['referencingConfigurationPolicies'] = $referencingConfigurationPolicies;
-            return $this->_propDict['referencingConfigurationPolicies'];
+           $referencingConfigurationPolicies = [];
+           if (count($this->_propDict['referencingConfigurationPolicies']) > 0 && is_a($this->_propDict['referencingConfigurationPolicies'][0], 'DeviceManagementConfigurationPolicy')) {
+              return $this->_propDict['referencingConfigurationPolicies'];
+           }
+           foreach ($this->_propDict['referencingConfigurationPolicies'] as $singleValue) {
+              $referencingConfigurationPolicies []= new DeviceManagementConfigurationPolicy($singleValue);
+           }
+           $this->_propDict['referencingConfigurationPolicies'] = $referencingConfigurationPolicies;
+           return $this->_propDict['referencingConfigurationPolicies'];
         }
         return null;
     }

@@ -34,15 +34,15 @@ class OfficeClientConfiguration extends Entity
     public function getCheckinStatuses()
     {
         if (array_key_exists('checkinStatuses', $this->_propDict) && !is_null($this->_propDict['checkinStatuses'])) {
-            $checkinStatuses = [];
-            if (count($this->_propDict['checkinStatuses']) > 0 && is_a($this->_propDict['checkinStatuses'][0], 'OfficeClientCheckinStatus')) {
-                return $this->_propDict['checkinStatuses'];
-            }
-            foreach ($this->_propDict['checkinStatuses'] as $singleValue) {
-                $checkinStatuses []= new OfficeClientCheckinStatus($singleValue);
-            }
-            $this->_propDict['checkinStatuses'] = $checkinStatuses;
-            return $this->_propDict['checkinStatuses'];
+           $checkinStatuses = [];
+           if (count($this->_propDict['checkinStatuses']) > 0 && is_a($this->_propDict['checkinStatuses'][0], 'OfficeClientCheckinStatus')) {
+              return $this->_propDict['checkinStatuses'];
+           }
+           foreach ($this->_propDict['checkinStatuses'] as $singleValue) {
+              $checkinStatuses []= new OfficeClientCheckinStatus($singleValue);
+           }
+           $this->_propDict['checkinStatuses'] = $checkinStatuses;
+           return $this->_propDict['checkinStatuses'];
         }
         return null;
     }
@@ -257,15 +257,15 @@ class OfficeClientConfiguration extends Entity
     public function getAssignments()
     {
         if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
-            $assignments = [];
-            if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'OfficeClientConfigurationAssignment')) {
-                return $this->_propDict['assignments'];
-            }
-            foreach ($this->_propDict['assignments'] as $singleValue) {
-                $assignments []= new OfficeClientConfigurationAssignment($singleValue);
-            }
-            $this->_propDict['assignments'] = $assignments;
-            return $this->_propDict['assignments'];
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'OfficeClientConfigurationAssignment')) {
+              return $this->_propDict['assignments'];
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new OfficeClientConfigurationAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
         return null;
     }

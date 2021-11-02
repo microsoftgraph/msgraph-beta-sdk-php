@@ -1057,15 +1057,15 @@ class SalesInvoice extends Entity
     public function getSalesInvoiceLines()
     {
         if (array_key_exists('salesInvoiceLines', $this->_propDict) && !is_null($this->_propDict['salesInvoiceLines'])) {
-            $salesInvoiceLines = [];
-            if (count($this->_propDict['salesInvoiceLines']) > 0 && is_a($this->_propDict['salesInvoiceLines'][0], 'SalesInvoiceLine')) {
-                return $this->_propDict['salesInvoiceLines'];
-            }
-            foreach ($this->_propDict['salesInvoiceLines'] as $singleValue) {
-                $salesInvoiceLines []= new SalesInvoiceLine($singleValue);
-            }
-            $this->_propDict['salesInvoiceLines'] = $salesInvoiceLines;
-            return $this->_propDict['salesInvoiceLines'];
+           $salesInvoiceLines = [];
+           if (count($this->_propDict['salesInvoiceLines']) > 0 && is_a($this->_propDict['salesInvoiceLines'][0], 'SalesInvoiceLine')) {
+              return $this->_propDict['salesInvoiceLines'];
+           }
+           foreach ($this->_propDict['salesInvoiceLines'] as $singleValue) {
+              $salesInvoiceLines []= new SalesInvoiceLine($singleValue);
+           }
+           $this->_propDict['salesInvoiceLines'] = $salesInvoiceLines;
+           return $this->_propDict['salesInvoiceLines'];
         }
         return null;
     }

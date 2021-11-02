@@ -265,15 +265,15 @@ class ThreatAssessmentRequest extends Entity
     public function getResults()
     {
         if (array_key_exists('results', $this->_propDict) && !is_null($this->_propDict['results'])) {
-            $results = [];
-            if (count($this->_propDict['results']) > 0 && is_a($this->_propDict['results'][0], 'ThreatAssessmentResult')) {
-                return $this->_propDict['results'];
-            }
-            foreach ($this->_propDict['results'] as $singleValue) {
-                $results []= new ThreatAssessmentResult($singleValue);
-            }
-            $this->_propDict['results'] = $results;
-            return $this->_propDict['results'];
+           $results = [];
+           if (count($this->_propDict['results']) > 0 && is_a($this->_propDict['results'][0], 'ThreatAssessmentResult')) {
+              return $this->_propDict['results'];
+           }
+           foreach ($this->_propDict['results'] as $singleValue) {
+              $results []= new ThreatAssessmentResult($singleValue);
+           }
+           $this->_propDict['results'] = $results;
+           return $this->_propDict['results'];
         }
         return null;
     }

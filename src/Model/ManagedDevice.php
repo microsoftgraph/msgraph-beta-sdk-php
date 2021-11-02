@@ -33,15 +33,15 @@ class ManagedDevice extends Entity
     public function getCloudPcRemoteActionResults()
     {
         if (array_key_exists('cloudPcRemoteActionResults', $this->_propDict) && !is_null($this->_propDict['cloudPcRemoteActionResults'])) {
-            $cloudPcRemoteActionResults = [];
-            if (count($this->_propDict['cloudPcRemoteActionResults']) > 0 && is_a($this->_propDict['cloudPcRemoteActionResults'][0], 'CloudPcRemoteActionResult')) {
-                return $this->_propDict['cloudPcRemoteActionResults'];
-            }
-            foreach ($this->_propDict['cloudPcRemoteActionResults'] as $singleValue) {
-                $cloudPcRemoteActionResults []= new CloudPcRemoteActionResult($singleValue);
-            }
-            $this->_propDict['cloudPcRemoteActionResults'] = $cloudPcRemoteActionResults;
-            return $this->_propDict['cloudPcRemoteActionResults'];
+           $cloudPcRemoteActionResults = [];
+           if (count($this->_propDict['cloudPcRemoteActionResults']) > 0 && is_a($this->_propDict['cloudPcRemoteActionResults'][0], 'CloudPcRemoteActionResult')) {
+              return $this->_propDict['cloudPcRemoteActionResults'];
+           }
+           foreach ($this->_propDict['cloudPcRemoteActionResults'] as $singleValue) {
+              $cloudPcRemoteActionResults []= new CloudPcRemoteActionResult($singleValue);
+           }
+           $this->_propDict['cloudPcRemoteActionResults'] = $cloudPcRemoteActionResults;
+           return $this->_propDict['cloudPcRemoteActionResults'];
         }
         return null;
     }
@@ -305,15 +305,15 @@ class ManagedDevice extends Entity
     public function getChromeOSDeviceInfo()
     {
         if (array_key_exists('chromeOSDeviceInfo', $this->_propDict) && !is_null($this->_propDict['chromeOSDeviceInfo'])) {
-            $chromeOSDeviceInfo = [];
-            if (count($this->_propDict['chromeOSDeviceInfo']) > 0 && is_a($this->_propDict['chromeOSDeviceInfo'][0], 'ChromeOSDeviceProperty')) {
-                return $this->_propDict['chromeOSDeviceInfo'];
-            }
-            foreach ($this->_propDict['chromeOSDeviceInfo'] as $singleValue) {
-                $chromeOSDeviceInfo []= new ChromeOSDeviceProperty($singleValue);
-            }
-            $this->_propDict['chromeOSDeviceInfo'] = $chromeOSDeviceInfo;
-            return $this->_propDict['chromeOSDeviceInfo'];
+           $chromeOSDeviceInfo = [];
+           if (count($this->_propDict['chromeOSDeviceInfo']) > 0 && is_a($this->_propDict['chromeOSDeviceInfo'][0], 'ChromeOSDeviceProperty')) {
+              return $this->_propDict['chromeOSDeviceInfo'];
+           }
+           foreach ($this->_propDict['chromeOSDeviceInfo'] as $singleValue) {
+              $chromeOSDeviceInfo []= new ChromeOSDeviceProperty($singleValue);
+           }
+           $this->_propDict['chromeOSDeviceInfo'] = $chromeOSDeviceInfo;
+           return $this->_propDict['chromeOSDeviceInfo'];
         }
         return null;
     }
@@ -507,15 +507,15 @@ class ManagedDevice extends Entity
     public function getDeviceActionResults()
     {
         if (array_key_exists('deviceActionResults', $this->_propDict) && !is_null($this->_propDict['deviceActionResults'])) {
-            $deviceActionResults = [];
-            if (count($this->_propDict['deviceActionResults']) > 0 && is_a($this->_propDict['deviceActionResults'][0], 'DeviceActionResult')) {
-                return $this->_propDict['deviceActionResults'];
-            }
-            foreach ($this->_propDict['deviceActionResults'] as $singleValue) {
-                $deviceActionResults []= new DeviceActionResult($singleValue);
-            }
-            $this->_propDict['deviceActionResults'] = $deviceActionResults;
-            return $this->_propDict['deviceActionResults'];
+           $deviceActionResults = [];
+           if (count($this->_propDict['deviceActionResults']) > 0 && is_a($this->_propDict['deviceActionResults'][0], 'DeviceActionResult')) {
+              return $this->_propDict['deviceActionResults'];
+           }
+           foreach ($this->_propDict['deviceActionResults'] as $singleValue) {
+              $deviceActionResults []= new DeviceActionResult($singleValue);
+           }
+           $this->_propDict['deviceActionResults'] = $deviceActionResults;
+           return $this->_propDict['deviceActionResults'];
         }
         return null;
     }
@@ -2347,15 +2347,15 @@ class ManagedDevice extends Entity
     public function getUsersLoggedOn()
     {
         if (array_key_exists('usersLoggedOn', $this->_propDict) && !is_null($this->_propDict['usersLoggedOn'])) {
-            $usersLoggedOn = [];
-            if (count($this->_propDict['usersLoggedOn']) > 0 && is_a($this->_propDict['usersLoggedOn'][0], 'LoggedOnUser')) {
-                return $this->_propDict['usersLoggedOn'];
-            }
-            foreach ($this->_propDict['usersLoggedOn'] as $singleValue) {
-                $usersLoggedOn []= new LoggedOnUser($singleValue);
-            }
-            $this->_propDict['usersLoggedOn'] = $usersLoggedOn;
-            return $this->_propDict['usersLoggedOn'];
+           $usersLoggedOn = [];
+           if (count($this->_propDict['usersLoggedOn']) > 0 && is_a($this->_propDict['usersLoggedOn'][0], 'LoggedOnUser')) {
+              return $this->_propDict['usersLoggedOn'];
+           }
+           foreach ($this->_propDict['usersLoggedOn'] as $singleValue) {
+              $usersLoggedOn []= new LoggedOnUser($singleValue);
+           }
+           $this->_propDict['usersLoggedOn'] = $usersLoggedOn;
+           return $this->_propDict['usersLoggedOn'];
         }
         return null;
     }
@@ -2471,15 +2471,15 @@ class ManagedDevice extends Entity
     public function getAssignmentFilterEvaluationStatusDetails()
     {
         if (array_key_exists('assignmentFilterEvaluationStatusDetails', $this->_propDict) && !is_null($this->_propDict['assignmentFilterEvaluationStatusDetails'])) {
-            $assignmentFilterEvaluationStatusDetails = [];
-            if (count($this->_propDict['assignmentFilterEvaluationStatusDetails']) > 0 && is_a($this->_propDict['assignmentFilterEvaluationStatusDetails'][0], 'AssignmentFilterEvaluationStatusDetails')) {
-                return $this->_propDict['assignmentFilterEvaluationStatusDetails'];
-            }
-            foreach ($this->_propDict['assignmentFilterEvaluationStatusDetails'] as $singleValue) {
-                $assignmentFilterEvaluationStatusDetails []= new AssignmentFilterEvaluationStatusDetails($singleValue);
-            }
-            $this->_propDict['assignmentFilterEvaluationStatusDetails'] = $assignmentFilterEvaluationStatusDetails;
-            return $this->_propDict['assignmentFilterEvaluationStatusDetails'];
+           $assignmentFilterEvaluationStatusDetails = [];
+           if (count($this->_propDict['assignmentFilterEvaluationStatusDetails']) > 0 && is_a($this->_propDict['assignmentFilterEvaluationStatusDetails'][0], 'AssignmentFilterEvaluationStatusDetails')) {
+              return $this->_propDict['assignmentFilterEvaluationStatusDetails'];
+           }
+           foreach ($this->_propDict['assignmentFilterEvaluationStatusDetails'] as $singleValue) {
+              $assignmentFilterEvaluationStatusDetails []= new AssignmentFilterEvaluationStatusDetails($singleValue);
+           }
+           $this->_propDict['assignmentFilterEvaluationStatusDetails'] = $assignmentFilterEvaluationStatusDetails;
+           return $this->_propDict['assignmentFilterEvaluationStatusDetails'];
         }
         return null;
     }
@@ -2508,15 +2508,15 @@ class ManagedDevice extends Entity
     public function getDeviceCompliancePolicyStates()
     {
         if (array_key_exists('deviceCompliancePolicyStates', $this->_propDict) && !is_null($this->_propDict['deviceCompliancePolicyStates'])) {
-            $deviceCompliancePolicyStates = [];
-            if (count($this->_propDict['deviceCompliancePolicyStates']) > 0 && is_a($this->_propDict['deviceCompliancePolicyStates'][0], 'DeviceCompliancePolicyState')) {
-                return $this->_propDict['deviceCompliancePolicyStates'];
-            }
-            foreach ($this->_propDict['deviceCompliancePolicyStates'] as $singleValue) {
-                $deviceCompliancePolicyStates []= new DeviceCompliancePolicyState($singleValue);
-            }
-            $this->_propDict['deviceCompliancePolicyStates'] = $deviceCompliancePolicyStates;
-            return $this->_propDict['deviceCompliancePolicyStates'];
+           $deviceCompliancePolicyStates = [];
+           if (count($this->_propDict['deviceCompliancePolicyStates']) > 0 && is_a($this->_propDict['deviceCompliancePolicyStates'][0], 'DeviceCompliancePolicyState')) {
+              return $this->_propDict['deviceCompliancePolicyStates'];
+           }
+           foreach ($this->_propDict['deviceCompliancePolicyStates'] as $singleValue) {
+              $deviceCompliancePolicyStates []= new DeviceCompliancePolicyState($singleValue);
+           }
+           $this->_propDict['deviceCompliancePolicyStates'] = $deviceCompliancePolicyStates;
+           return $this->_propDict['deviceCompliancePolicyStates'];
         }
         return null;
     }
@@ -2545,15 +2545,15 @@ class ManagedDevice extends Entity
     public function getDeviceConfigurationStates()
     {
         if (array_key_exists('deviceConfigurationStates', $this->_propDict) && !is_null($this->_propDict['deviceConfigurationStates'])) {
-            $deviceConfigurationStates = [];
-            if (count($this->_propDict['deviceConfigurationStates']) > 0 && is_a($this->_propDict['deviceConfigurationStates'][0], 'DeviceConfigurationState')) {
-                return $this->_propDict['deviceConfigurationStates'];
-            }
-            foreach ($this->_propDict['deviceConfigurationStates'] as $singleValue) {
-                $deviceConfigurationStates []= new DeviceConfigurationState($singleValue);
-            }
-            $this->_propDict['deviceConfigurationStates'] = $deviceConfigurationStates;
-            return $this->_propDict['deviceConfigurationStates'];
+           $deviceConfigurationStates = [];
+           if (count($this->_propDict['deviceConfigurationStates']) > 0 && is_a($this->_propDict['deviceConfigurationStates'][0], 'DeviceConfigurationState')) {
+              return $this->_propDict['deviceConfigurationStates'];
+           }
+           foreach ($this->_propDict['deviceConfigurationStates'] as $singleValue) {
+              $deviceConfigurationStates []= new DeviceConfigurationState($singleValue);
+           }
+           $this->_propDict['deviceConfigurationStates'] = $deviceConfigurationStates;
+           return $this->_propDict['deviceConfigurationStates'];
         }
         return null;
     }
@@ -2582,15 +2582,15 @@ class ManagedDevice extends Entity
     public function getManagedDeviceMobileAppConfigurationStates()
     {
         if (array_key_exists('managedDeviceMobileAppConfigurationStates', $this->_propDict) && !is_null($this->_propDict['managedDeviceMobileAppConfigurationStates'])) {
-            $managedDeviceMobileAppConfigurationStates = [];
-            if (count($this->_propDict['managedDeviceMobileAppConfigurationStates']) > 0 && is_a($this->_propDict['managedDeviceMobileAppConfigurationStates'][0], 'ManagedDeviceMobileAppConfigurationState')) {
-                return $this->_propDict['managedDeviceMobileAppConfigurationStates'];
-            }
-            foreach ($this->_propDict['managedDeviceMobileAppConfigurationStates'] as $singleValue) {
-                $managedDeviceMobileAppConfigurationStates []= new ManagedDeviceMobileAppConfigurationState($singleValue);
-            }
-            $this->_propDict['managedDeviceMobileAppConfigurationStates'] = $managedDeviceMobileAppConfigurationStates;
-            return $this->_propDict['managedDeviceMobileAppConfigurationStates'];
+           $managedDeviceMobileAppConfigurationStates = [];
+           if (count($this->_propDict['managedDeviceMobileAppConfigurationStates']) > 0 && is_a($this->_propDict['managedDeviceMobileAppConfigurationStates'][0], 'ManagedDeviceMobileAppConfigurationState')) {
+              return $this->_propDict['managedDeviceMobileAppConfigurationStates'];
+           }
+           foreach ($this->_propDict['managedDeviceMobileAppConfigurationStates'] as $singleValue) {
+              $managedDeviceMobileAppConfigurationStates []= new ManagedDeviceMobileAppConfigurationState($singleValue);
+           }
+           $this->_propDict['managedDeviceMobileAppConfigurationStates'] = $managedDeviceMobileAppConfigurationStates;
+           return $this->_propDict['managedDeviceMobileAppConfigurationStates'];
         }
         return null;
     }
@@ -2619,15 +2619,15 @@ class ManagedDevice extends Entity
     public function getSecurityBaselineStates()
     {
         if (array_key_exists('securityBaselineStates', $this->_propDict) && !is_null($this->_propDict['securityBaselineStates'])) {
-            $securityBaselineStates = [];
-            if (count($this->_propDict['securityBaselineStates']) > 0 && is_a($this->_propDict['securityBaselineStates'][0], 'SecurityBaselineState')) {
-                return $this->_propDict['securityBaselineStates'];
-            }
-            foreach ($this->_propDict['securityBaselineStates'] as $singleValue) {
-                $securityBaselineStates []= new SecurityBaselineState($singleValue);
-            }
-            $this->_propDict['securityBaselineStates'] = $securityBaselineStates;
-            return $this->_propDict['securityBaselineStates'];
+           $securityBaselineStates = [];
+           if (count($this->_propDict['securityBaselineStates']) > 0 && is_a($this->_propDict['securityBaselineStates'][0], 'SecurityBaselineState')) {
+              return $this->_propDict['securityBaselineStates'];
+           }
+           foreach ($this->_propDict['securityBaselineStates'] as $singleValue) {
+              $securityBaselineStates []= new SecurityBaselineState($singleValue);
+           }
+           $this->_propDict['securityBaselineStates'] = $securityBaselineStates;
+           return $this->_propDict['securityBaselineStates'];
         }
         return null;
     }
@@ -2656,15 +2656,15 @@ class ManagedDevice extends Entity
     public function getDetectedApps()
     {
         if (array_key_exists('detectedApps', $this->_propDict) && !is_null($this->_propDict['detectedApps'])) {
-            $detectedApps = [];
-            if (count($this->_propDict['detectedApps']) > 0 && is_a($this->_propDict['detectedApps'][0], 'DetectedApp')) {
-                return $this->_propDict['detectedApps'];
-            }
-            foreach ($this->_propDict['detectedApps'] as $singleValue) {
-                $detectedApps []= new DetectedApp($singleValue);
-            }
-            $this->_propDict['detectedApps'] = $detectedApps;
-            return $this->_propDict['detectedApps'];
+           $detectedApps = [];
+           if (count($this->_propDict['detectedApps']) > 0 && is_a($this->_propDict['detectedApps'][0], 'DetectedApp')) {
+              return $this->_propDict['detectedApps'];
+           }
+           foreach ($this->_propDict['detectedApps'] as $singleValue) {
+              $detectedApps []= new DetectedApp($singleValue);
+           }
+           $this->_propDict['detectedApps'] = $detectedApps;
+           return $this->_propDict['detectedApps'];
         }
         return null;
     }
@@ -2726,15 +2726,15 @@ class ManagedDevice extends Entity
     public function getLogCollectionRequests()
     {
         if (array_key_exists('logCollectionRequests', $this->_propDict) && !is_null($this->_propDict['logCollectionRequests'])) {
-            $logCollectionRequests = [];
-            if (count($this->_propDict['logCollectionRequests']) > 0 && is_a($this->_propDict['logCollectionRequests'][0], 'DeviceLogCollectionResponse')) {
-                return $this->_propDict['logCollectionRequests'];
-            }
-            foreach ($this->_propDict['logCollectionRequests'] as $singleValue) {
-                $logCollectionRequests []= new DeviceLogCollectionResponse($singleValue);
-            }
-            $this->_propDict['logCollectionRequests'] = $logCollectionRequests;
-            return $this->_propDict['logCollectionRequests'];
+           $logCollectionRequests = [];
+           if (count($this->_propDict['logCollectionRequests']) > 0 && is_a($this->_propDict['logCollectionRequests'][0], 'DeviceLogCollectionResponse')) {
+              return $this->_propDict['logCollectionRequests'];
+           }
+           foreach ($this->_propDict['logCollectionRequests'] as $singleValue) {
+              $logCollectionRequests []= new DeviceLogCollectionResponse($singleValue);
+           }
+           $this->_propDict['logCollectionRequests'] = $logCollectionRequests;
+           return $this->_propDict['logCollectionRequests'];
         }
         return null;
     }
@@ -2763,15 +2763,15 @@ class ManagedDevice extends Entity
     public function getUsers()
     {
         if (array_key_exists('users', $this->_propDict) && !is_null($this->_propDict['users'])) {
-            $users = [];
-            if (count($this->_propDict['users']) > 0 && is_a($this->_propDict['users'][0], 'User')) {
-                return $this->_propDict['users'];
-            }
-            foreach ($this->_propDict['users'] as $singleValue) {
-                $users []= new User($singleValue);
-            }
-            $this->_propDict['users'] = $users;
-            return $this->_propDict['users'];
+           $users = [];
+           if (count($this->_propDict['users']) > 0 && is_a($this->_propDict['users'][0], 'User')) {
+              return $this->_propDict['users'];
+           }
+           foreach ($this->_propDict['users'] as $singleValue) {
+              $users []= new User($singleValue);
+           }
+           $this->_propDict['users'] = $users;
+           return $this->_propDict['users'];
         }
         return null;
     }

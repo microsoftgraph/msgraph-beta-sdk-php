@@ -64,15 +64,15 @@ class IdentityProtectionRoot implements \JsonSerializable
     public function getRiskDetections()
     {
         if (array_key_exists('riskDetections', $this->_propDict) && !is_null($this->_propDict['riskDetections'])) {
-            $riskDetections = [];
-            if (count($this->_propDict['riskDetections']) > 0 && is_a($this->_propDict['riskDetections'][0], 'RiskDetection')) {
-                return $this->_propDict['riskDetections'];
-            }
-            foreach ($this->_propDict['riskDetections'] as $singleValue) {
-                $riskDetections []= new RiskDetection($singleValue);
-            }
-            $this->_propDict['riskDetections'] = $riskDetections;
-            return $this->_propDict['riskDetections'];
+           $riskDetections = [];
+           if (count($this->_propDict['riskDetections']) > 0 && is_a($this->_propDict['riskDetections'][0], 'RiskDetection')) {
+              return $this->_propDict['riskDetections'];
+           }
+           foreach ($this->_propDict['riskDetections'] as $singleValue) {
+              $riskDetections []= new RiskDetection($singleValue);
+           }
+           $this->_propDict['riskDetections'] = $riskDetections;
+           return $this->_propDict['riskDetections'];
         }
         return null;
     }
@@ -99,15 +99,15 @@ class IdentityProtectionRoot implements \JsonSerializable
     public function getRiskyUsers()
     {
         if (array_key_exists('riskyUsers', $this->_propDict) && !is_null($this->_propDict['riskyUsers'])) {
-            $riskyUsers = [];
-            if (count($this->_propDict['riskyUsers']) > 0 && is_a($this->_propDict['riskyUsers'][0], 'RiskyUser')) {
-                return $this->_propDict['riskyUsers'];
-            }
-            foreach ($this->_propDict['riskyUsers'] as $singleValue) {
-                $riskyUsers []= new RiskyUser($singleValue);
-            }
-            $this->_propDict['riskyUsers'] = $riskyUsers;
-            return $this->_propDict['riskyUsers'];
+           $riskyUsers = [];
+           if (count($this->_propDict['riskyUsers']) > 0 && is_a($this->_propDict['riskyUsers'][0], 'RiskyUser')) {
+              return $this->_propDict['riskyUsers'];
+           }
+           foreach ($this->_propDict['riskyUsers'] as $singleValue) {
+              $riskyUsers []= new RiskyUser($singleValue);
+           }
+           $this->_propDict['riskyUsers'] = $riskyUsers;
+           return $this->_propDict['riskyUsers'];
         }
         return null;
     }

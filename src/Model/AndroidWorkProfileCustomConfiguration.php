@@ -34,15 +34,15 @@ class AndroidWorkProfileCustomConfiguration extends DeviceConfiguration
     public function getOmaSettings()
     {
         if (array_key_exists('omaSettings', $this->_propDict) && !is_null($this->_propDict['omaSettings'])) {
-            $omaSettings = [];
-            if (count($this->_propDict['omaSettings']) > 0 && is_a($this->_propDict['omaSettings'][0], 'OmaSetting')) {
-                return $this->_propDict['omaSettings'];
-            }
-            foreach ($this->_propDict['omaSettings'] as $singleValue) {
-                $omaSettings []= new OmaSetting($singleValue);
-            }
-            $this->_propDict['omaSettings'] = $omaSettings;
-            return $this->_propDict['omaSettings'];
+           $omaSettings = [];
+           if (count($this->_propDict['omaSettings']) > 0 && is_a($this->_propDict['omaSettings'][0], 'OmaSetting')) {
+              return $this->_propDict['omaSettings'];
+           }
+           foreach ($this->_propDict['omaSettings'] as $singleValue) {
+              $omaSettings []= new OmaSetting($singleValue);
+           }
+           $this->_propDict['omaSettings'] = $omaSettings;
+           return $this->_propDict['omaSettings'];
         }
         return null;
     }

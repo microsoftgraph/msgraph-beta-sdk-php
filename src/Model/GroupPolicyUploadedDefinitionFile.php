@@ -125,15 +125,15 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
     public function getGroupPolicyUploadedLanguageFiles()
     {
         if (array_key_exists('groupPolicyUploadedLanguageFiles', $this->_propDict) && !is_null($this->_propDict['groupPolicyUploadedLanguageFiles'])) {
-            $groupPolicyUploadedLanguageFiles = [];
-            if (count($this->_propDict['groupPolicyUploadedLanguageFiles']) > 0 && is_a($this->_propDict['groupPolicyUploadedLanguageFiles'][0], 'GroupPolicyUploadedLanguageFile')) {
-                return $this->_propDict['groupPolicyUploadedLanguageFiles'];
-            }
-            foreach ($this->_propDict['groupPolicyUploadedLanguageFiles'] as $singleValue) {
-                $groupPolicyUploadedLanguageFiles []= new GroupPolicyUploadedLanguageFile($singleValue);
-            }
-            $this->_propDict['groupPolicyUploadedLanguageFiles'] = $groupPolicyUploadedLanguageFiles;
-            return $this->_propDict['groupPolicyUploadedLanguageFiles'];
+           $groupPolicyUploadedLanguageFiles = [];
+           if (count($this->_propDict['groupPolicyUploadedLanguageFiles']) > 0 && is_a($this->_propDict['groupPolicyUploadedLanguageFiles'][0], 'GroupPolicyUploadedLanguageFile')) {
+              return $this->_propDict['groupPolicyUploadedLanguageFiles'];
+           }
+           foreach ($this->_propDict['groupPolicyUploadedLanguageFiles'] as $singleValue) {
+              $groupPolicyUploadedLanguageFiles []= new GroupPolicyUploadedLanguageFile($singleValue);
+           }
+           $this->_propDict['groupPolicyUploadedLanguageFiles'] = $groupPolicyUploadedLanguageFiles;
+           return $this->_propDict['groupPolicyUploadedLanguageFiles'];
         }
         return null;
     }
@@ -228,15 +228,15 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
     public function getGroupPolicyOperations()
     {
         if (array_key_exists('groupPolicyOperations', $this->_propDict) && !is_null($this->_propDict['groupPolicyOperations'])) {
-            $groupPolicyOperations = [];
-            if (count($this->_propDict['groupPolicyOperations']) > 0 && is_a($this->_propDict['groupPolicyOperations'][0], 'GroupPolicyOperation')) {
-                return $this->_propDict['groupPolicyOperations'];
-            }
-            foreach ($this->_propDict['groupPolicyOperations'] as $singleValue) {
-                $groupPolicyOperations []= new GroupPolicyOperation($singleValue);
-            }
-            $this->_propDict['groupPolicyOperations'] = $groupPolicyOperations;
-            return $this->_propDict['groupPolicyOperations'];
+           $groupPolicyOperations = [];
+           if (count($this->_propDict['groupPolicyOperations']) > 0 && is_a($this->_propDict['groupPolicyOperations'][0], 'GroupPolicyOperation')) {
+              return $this->_propDict['groupPolicyOperations'];
+           }
+           foreach ($this->_propDict['groupPolicyOperations'] as $singleValue) {
+              $groupPolicyOperations []= new GroupPolicyOperation($singleValue);
+           }
+           $this->_propDict['groupPolicyOperations'] = $groupPolicyOperations;
+           return $this->_propDict['groupPolicyOperations'];
         }
         return null;
     }

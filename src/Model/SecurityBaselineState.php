@@ -154,15 +154,15 @@ class SecurityBaselineState extends Entity
     public function getSettingStates()
     {
         if (array_key_exists('settingStates', $this->_propDict) && !is_null($this->_propDict['settingStates'])) {
-            $settingStates = [];
-            if (count($this->_propDict['settingStates']) > 0 && is_a($this->_propDict['settingStates'][0], 'SecurityBaselineSettingState')) {
-                return $this->_propDict['settingStates'];
-            }
-            foreach ($this->_propDict['settingStates'] as $singleValue) {
-                $settingStates []= new SecurityBaselineSettingState($singleValue);
-            }
-            $this->_propDict['settingStates'] = $settingStates;
-            return $this->_propDict['settingStates'];
+           $settingStates = [];
+           if (count($this->_propDict['settingStates']) > 0 && is_a($this->_propDict['settingStates'][0], 'SecurityBaselineSettingState')) {
+              return $this->_propDict['settingStates'];
+           }
+           foreach ($this->_propDict['settingStates'] as $singleValue) {
+              $settingStates []= new SecurityBaselineSettingState($singleValue);
+           }
+           $this->_propDict['settingStates'] = $settingStates;
+           return $this->_propDict['settingStates'];
         }
         return null;
     }

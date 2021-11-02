@@ -319,15 +319,15 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     public function getCustodians()
     {
         if (array_key_exists('custodians', $this->_propDict) && !is_null($this->_propDict['custodians'])) {
-            $custodians = [];
-            if (count($this->_propDict['custodians']) > 0 && is_a($this->_propDict['custodians'][0], 'Custodian')) {
-                return $this->_propDict['custodians'];
-            }
-            foreach ($this->_propDict['custodians'] as $singleValue) {
-                $custodians []= new Custodian($singleValue);
-            }
-            $this->_propDict['custodians'] = $custodians;
-            return $this->_propDict['custodians'];
+           $custodians = [];
+           if (count($this->_propDict['custodians']) > 0 && is_a($this->_propDict['custodians'][0], 'Custodian')) {
+              return $this->_propDict['custodians'];
+           }
+           foreach ($this->_propDict['custodians'] as $singleValue) {
+              $custodians []= new Custodian($singleValue);
+           }
+           $this->_propDict['custodians'] = $custodians;
+           return $this->_propDict['custodians'];
         }
         return null;
     }
@@ -356,15 +356,15 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     public function getLegalHolds()
     {
         if (array_key_exists('legalHolds', $this->_propDict) && !is_null($this->_propDict['legalHolds'])) {
-            $legalHolds = [];
-            if (count($this->_propDict['legalHolds']) > 0 && is_a($this->_propDict['legalHolds'][0], 'LegalHold')) {
-                return $this->_propDict['legalHolds'];
-            }
-            foreach ($this->_propDict['legalHolds'] as $singleValue) {
-                $legalHolds []= new LegalHold($singleValue);
-            }
-            $this->_propDict['legalHolds'] = $legalHolds;
-            return $this->_propDict['legalHolds'];
+           $legalHolds = [];
+           if (count($this->_propDict['legalHolds']) > 0 && is_a($this->_propDict['legalHolds'][0], 'LegalHold')) {
+              return $this->_propDict['legalHolds'];
+           }
+           foreach ($this->_propDict['legalHolds'] as $singleValue) {
+              $legalHolds []= new LegalHold($singleValue);
+           }
+           $this->_propDict['legalHolds'] = $legalHolds;
+           return $this->_propDict['legalHolds'];
         }
         return null;
     }
@@ -393,15 +393,15 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     public function getNoncustodialDataSources()
     {
         if (array_key_exists('noncustodialDataSources', $this->_propDict) && !is_null($this->_propDict['noncustodialDataSources'])) {
-            $noncustodialDataSources = [];
-            if (count($this->_propDict['noncustodialDataSources']) > 0 && is_a($this->_propDict['noncustodialDataSources'][0], 'NoncustodialDataSource')) {
-                return $this->_propDict['noncustodialDataSources'];
-            }
-            foreach ($this->_propDict['noncustodialDataSources'] as $singleValue) {
-                $noncustodialDataSources []= new NoncustodialDataSource($singleValue);
-            }
-            $this->_propDict['noncustodialDataSources'] = $noncustodialDataSources;
-            return $this->_propDict['noncustodialDataSources'];
+           $noncustodialDataSources = [];
+           if (count($this->_propDict['noncustodialDataSources']) > 0 && is_a($this->_propDict['noncustodialDataSources'][0], 'NoncustodialDataSource')) {
+              return $this->_propDict['noncustodialDataSources'];
+           }
+           foreach ($this->_propDict['noncustodialDataSources'] as $singleValue) {
+              $noncustodialDataSources []= new NoncustodialDataSource($singleValue);
+           }
+           $this->_propDict['noncustodialDataSources'] = $noncustodialDataSources;
+           return $this->_propDict['noncustodialDataSources'];
         }
         return null;
     }
@@ -430,15 +430,15 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     public function getOperations()
     {
         if (array_key_exists('operations', $this->_propDict) && !is_null($this->_propDict['operations'])) {
-            $operations = [];
-            if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'CaseOperation')) {
-                return $this->_propDict['operations'];
-            }
-            foreach ($this->_propDict['operations'] as $singleValue) {
-                $operations []= new CaseOperation($singleValue);
-            }
-            $this->_propDict['operations'] = $operations;
-            return $this->_propDict['operations'];
+           $operations = [];
+           if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'CaseOperation')) {
+              return $this->_propDict['operations'];
+           }
+           foreach ($this->_propDict['operations'] as $singleValue) {
+              $operations []= new CaseOperation($singleValue);
+           }
+           $this->_propDict['operations'] = $operations;
+           return $this->_propDict['operations'];
         }
         return null;
     }
@@ -467,15 +467,15 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     public function getReviewSets()
     {
         if (array_key_exists('reviewSets', $this->_propDict) && !is_null($this->_propDict['reviewSets'])) {
-            $reviewSets = [];
-            if (count($this->_propDict['reviewSets']) > 0 && is_a($this->_propDict['reviewSets'][0], 'ReviewSet')) {
-                return $this->_propDict['reviewSets'];
-            }
-            foreach ($this->_propDict['reviewSets'] as $singleValue) {
-                $reviewSets []= new ReviewSet($singleValue);
-            }
-            $this->_propDict['reviewSets'] = $reviewSets;
-            return $this->_propDict['reviewSets'];
+           $reviewSets = [];
+           if (count($this->_propDict['reviewSets']) > 0 && is_a($this->_propDict['reviewSets'][0], 'ReviewSet')) {
+              return $this->_propDict['reviewSets'];
+           }
+           foreach ($this->_propDict['reviewSets'] as $singleValue) {
+              $reviewSets []= new ReviewSet($singleValue);
+           }
+           $this->_propDict['reviewSets'] = $reviewSets;
+           return $this->_propDict['reviewSets'];
         }
         return null;
     }
@@ -535,15 +535,15 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     public function getSourceCollections()
     {
         if (array_key_exists('sourceCollections', $this->_propDict) && !is_null($this->_propDict['sourceCollections'])) {
-            $sourceCollections = [];
-            if (count($this->_propDict['sourceCollections']) > 0 && is_a($this->_propDict['sourceCollections'][0], 'SourceCollection')) {
-                return $this->_propDict['sourceCollections'];
-            }
-            foreach ($this->_propDict['sourceCollections'] as $singleValue) {
-                $sourceCollections []= new SourceCollection($singleValue);
-            }
-            $this->_propDict['sourceCollections'] = $sourceCollections;
-            return $this->_propDict['sourceCollections'];
+           $sourceCollections = [];
+           if (count($this->_propDict['sourceCollections']) > 0 && is_a($this->_propDict['sourceCollections'][0], 'SourceCollection')) {
+              return $this->_propDict['sourceCollections'];
+           }
+           foreach ($this->_propDict['sourceCollections'] as $singleValue) {
+              $sourceCollections []= new SourceCollection($singleValue);
+           }
+           $this->_propDict['sourceCollections'] = $sourceCollections;
+           return $this->_propDict['sourceCollections'];
         }
         return null;
     }
@@ -572,15 +572,15 @@ class GraphCase extends \Beta\Microsoft\Graph\Model\Entity
     public function getTags()
     {
         if (array_key_exists('tags', $this->_propDict) && !is_null($this->_propDict['tags'])) {
-            $tags = [];
-            if (count($this->_propDict['tags']) > 0 && is_a($this->_propDict['tags'][0], 'Tag')) {
-                return $this->_propDict['tags'];
-            }
-            foreach ($this->_propDict['tags'] as $singleValue) {
-                $tags []= new Tag($singleValue);
-            }
-            $this->_propDict['tags'] = $tags;
-            return $this->_propDict['tags'];
+           $tags = [];
+           if (count($this->_propDict['tags']) > 0 && is_a($this->_propDict['tags'][0], 'Tag')) {
+              return $this->_propDict['tags'];
+           }
+           foreach ($this->_propDict['tags'] as $singleValue) {
+              $tags []= new Tag($singleValue);
+           }
+           $this->_propDict['tags'] = $tags;
+           return $this->_propDict['tags'];
         }
         return null;
     }
