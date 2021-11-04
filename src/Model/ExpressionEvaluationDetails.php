@@ -63,11 +63,11 @@ class ExpressionEvaluationDetails extends Entity
         if (array_key_exists("expressionEvaluationDetails", $this->_propDict) && !is_null($this->_propDict["expressionEvaluationDetails"])) {
        
             if (count($this->_propDict['expressionEvaluationDetails']) > 0 && is_a($this->_propDict['expressionEvaluationDetails'][0], 'ExpressionEvaluationDetails')) {
-               return $this->_propDict['expressionEvaluationDetails'];
+                return $this->_propDict['expressionEvaluationDetails'];
             }
             $expressionEvaluationDetails = [];
             foreach ($this->_propDict['expressionEvaluationDetails'] as $singleValue) {
-               $expressionEvaluationDetails []= new ExpressionEvaluationDetails($singleValue);
+                $expressionEvaluationDetails []= new ExpressionEvaluationDetails($singleValue);
             }
             $this->_propDict['expressionEvaluationDetails'] = $expressionEvaluationDetails;
             return $this->_propDict['expressionEvaluationDetails'];

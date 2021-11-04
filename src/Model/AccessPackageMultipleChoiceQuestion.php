@@ -74,11 +74,11 @@ class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion
         if (array_key_exists("choices", $this->_propDict) && !is_null($this->_propDict["choices"])) {
        
             if (count($this->_propDict['choices']) > 0 && is_a($this->_propDict['choices'][0], 'AccessPackageAnswerChoice')) {
-               return $this->_propDict['choices'];
+                return $this->_propDict['choices'];
             }
             $choices = [];
             foreach ($this->_propDict['choices'] as $singleValue) {
-               $choices []= new AccessPackageAnswerChoice($singleValue);
+                $choices []= new AccessPackageAnswerChoice($singleValue);
             }
             $this->_propDict['choices'] = $choices;
             return $this->_propDict['choices'];

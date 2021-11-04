@@ -35,11 +35,11 @@ class MetadataAction extends InformationProtectionAction
         if (array_key_exists("metadataToAdd", $this->_propDict) && !is_null($this->_propDict["metadataToAdd"])) {
        
             if (count($this->_propDict['metadataToAdd']) > 0 && is_a($this->_propDict['metadataToAdd'][0], 'KeyValuePair')) {
-               return $this->_propDict['metadataToAdd'];
+                return $this->_propDict['metadataToAdd'];
             }
             $metadataToAdd = [];
             foreach ($this->_propDict['metadataToAdd'] as $singleValue) {
-               $metadataToAdd []= new KeyValuePair($singleValue);
+                $metadataToAdd []= new KeyValuePair($singleValue);
             }
             $this->_propDict['metadataToAdd'] = $metadataToAdd;
             return $this->_propDict['metadataToAdd'];

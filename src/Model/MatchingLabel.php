@@ -170,11 +170,11 @@ class MatchingLabel extends Entity
         if (array_key_exists("labelActions", $this->_propDict) && !is_null($this->_propDict["labelActions"])) {
        
             if (count($this->_propDict['labelActions']) > 0 && is_a($this->_propDict['labelActions'][0], 'LabelActionBase')) {
-               return $this->_propDict['labelActions'];
+                return $this->_propDict['labelActions'];
             }
             $labelActions = [];
             foreach ($this->_propDict['labelActions'] as $singleValue) {
-               $labelActions []= new LabelActionBase($singleValue);
+                $labelActions []= new LabelActionBase($singleValue);
             }
             $this->_propDict['labelActions'] = $labelActions;
             return $this->_propDict['labelActions'];

@@ -221,11 +221,11 @@ class LogonUser extends Entity
         if (array_key_exists("logonTypes", $this->_propDict) && !is_null($this->_propDict["logonTypes"])) {
        
             if (count($this->_propDict['logonTypes']) > 0 && is_a($this->_propDict['logonTypes'][0], 'LogonType')) {
-               return $this->_propDict['logonTypes'];
+                return $this->_propDict['logonTypes'];
             }
             $logonTypes = [];
             foreach ($this->_propDict['logonTypes'] as $singleValue) {
-               $logonTypes []= new LogonType($singleValue);
+                $logonTypes []= new LogonType($singleValue);
             }
             $this->_propDict['logonTypes'] = $logonTypes;
             return $this->_propDict['logonTypes'];

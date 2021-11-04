@@ -35,11 +35,11 @@ class TrainingEventsContent extends Entity
         if (array_key_exists("assignedTrainingsInfos", $this->_propDict) && !is_null($this->_propDict["assignedTrainingsInfos"])) {
        
             if (count($this->_propDict['assignedTrainingsInfos']) > 0 && is_a($this->_propDict['assignedTrainingsInfos'][0], 'AssignedTrainingInfo')) {
-               return $this->_propDict['assignedTrainingsInfos'];
+                return $this->_propDict['assignedTrainingsInfos'];
             }
             $assignedTrainingsInfos = [];
             foreach ($this->_propDict['assignedTrainingsInfos'] as $singleValue) {
-               $assignedTrainingsInfos []= new AssignedTrainingInfo($singleValue);
+                $assignedTrainingsInfos []= new AssignedTrainingInfo($singleValue);
             }
             $this->_propDict['assignedTrainingsInfos'] = $assignedTrainingsInfos;
             return $this->_propDict['assignedTrainingsInfos'];

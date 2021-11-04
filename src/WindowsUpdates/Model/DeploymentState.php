@@ -35,11 +35,11 @@ class DeploymentState extends \Beta\Microsoft\Graph\Model\Entity
         if (array_key_exists("reasons", $this->_propDict) && !is_null($this->_propDict["reasons"])) {
        
             if (count($this->_propDict['reasons']) > 0 && is_a($this->_propDict['reasons'][0], 'DeploymentStateReason')) {
-               return $this->_propDict['reasons'];
+                return $this->_propDict['reasons'];
             }
             $reasons = [];
             foreach ($this->_propDict['reasons'] as $singleValue) {
-               $reasons []= new DeploymentStateReason($singleValue);
+                $reasons []= new DeploymentStateReason($singleValue);
             }
             $this->_propDict['reasons'] = $reasons;
             return $this->_propDict['reasons'];

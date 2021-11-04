@@ -321,11 +321,11 @@ class AndroidManagedStoreAppConfigurationSchemaItem extends Entity
         if (array_key_exists("selections", $this->_propDict) && !is_null($this->_propDict["selections"])) {
        
             if (count($this->_propDict['selections']) > 0 && is_a($this->_propDict['selections'][0], 'KeyValuePair')) {
-               return $this->_propDict['selections'];
+                return $this->_propDict['selections'];
             }
             $selections = [];
             foreach ($this->_propDict['selections'] as $singleValue) {
-               $selections []= new KeyValuePair($singleValue);
+                $selections []= new KeyValuePair($singleValue);
             }
             $this->_propDict['selections'] = $selections;
             return $this->_propDict['selections'];

@@ -103,11 +103,11 @@ class MacOSPrivacyAccessControlItem extends Entity
         if (array_key_exists("appleEventsAllowedReceivers", $this->_propDict) && !is_null($this->_propDict["appleEventsAllowedReceivers"])) {
        
             if (count($this->_propDict['appleEventsAllowedReceivers']) > 0 && is_a($this->_propDict['appleEventsAllowedReceivers'][0], 'MacOSAppleEventReceiver')) {
-               return $this->_propDict['appleEventsAllowedReceivers'];
+                return $this->_propDict['appleEventsAllowedReceivers'];
             }
             $appleEventsAllowedReceivers = [];
             foreach ($this->_propDict['appleEventsAllowedReceivers'] as $singleValue) {
-               $appleEventsAllowedReceivers []= new MacOSAppleEventReceiver($singleValue);
+                $appleEventsAllowedReceivers []= new MacOSAppleEventReceiver($singleValue);
             }
             $this->_propDict['appleEventsAllowedReceivers'] = $appleEventsAllowedReceivers;
             return $this->_propDict['appleEventsAllowedReceivers'];

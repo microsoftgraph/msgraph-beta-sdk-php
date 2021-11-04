@@ -725,11 +725,11 @@ class HardwareInformation extends Entity
         if (array_key_exists("sharedDeviceCachedUsers", $this->_propDict) && !is_null($this->_propDict["sharedDeviceCachedUsers"])) {
        
             if (count($this->_propDict['sharedDeviceCachedUsers']) > 0 && is_a($this->_propDict['sharedDeviceCachedUsers'][0], 'SharedAppleDeviceUser')) {
-               return $this->_propDict['sharedDeviceCachedUsers'];
+                return $this->_propDict['sharedDeviceCachedUsers'];
             }
             $sharedDeviceCachedUsers = [];
             foreach ($this->_propDict['sharedDeviceCachedUsers'] as $singleValue) {
-               $sharedDeviceCachedUsers []= new SharedAppleDeviceUser($singleValue);
+                $sharedDeviceCachedUsers []= new SharedAppleDeviceUser($singleValue);
             }
             $this->_propDict['sharedDeviceCachedUsers'] = $sharedDeviceCachedUsers;
             return $this->_propDict['sharedDeviceCachedUsers'];

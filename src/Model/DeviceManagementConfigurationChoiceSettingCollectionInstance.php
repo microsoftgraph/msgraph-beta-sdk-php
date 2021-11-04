@@ -46,11 +46,11 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstance extends Devic
         if (array_key_exists("choiceSettingCollectionValue", $this->_propDict) && !is_null($this->_propDict["choiceSettingCollectionValue"])) {
        
             if (count($this->_propDict['choiceSettingCollectionValue']) > 0 && is_a($this->_propDict['choiceSettingCollectionValue'][0], 'DeviceManagementConfigurationChoiceSettingValue')) {
-               return $this->_propDict['choiceSettingCollectionValue'];
+                return $this->_propDict['choiceSettingCollectionValue'];
             }
             $choiceSettingCollectionValue = [];
             foreach ($this->_propDict['choiceSettingCollectionValue'] as $singleValue) {
-               $choiceSettingCollectionValue []= new DeviceManagementConfigurationChoiceSettingValue($singleValue);
+                $choiceSettingCollectionValue []= new DeviceManagementConfigurationChoiceSettingValue($singleValue);
             }
             $this->_propDict['choiceSettingCollectionValue'] = $choiceSettingCollectionValue;
             return $this->_propDict['choiceSettingCollectionValue'];

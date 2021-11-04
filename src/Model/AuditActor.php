@@ -315,11 +315,11 @@ class AuditActor extends Entity
         if (array_key_exists("userRoleScopeTags", $this->_propDict) && !is_null($this->_propDict["userRoleScopeTags"])) {
        
             if (count($this->_propDict['userRoleScopeTags']) > 0 && is_a($this->_propDict['userRoleScopeTags'][0], 'RoleScopeTagInfo')) {
-               return $this->_propDict['userRoleScopeTags'];
+                return $this->_propDict['userRoleScopeTags'];
             }
             $userRoleScopeTags = [];
             foreach ($this->_propDict['userRoleScopeTags'] as $singleValue) {
-               $userRoleScopeTags []= new RoleScopeTagInfo($singleValue);
+                $userRoleScopeTags []= new RoleScopeTagInfo($singleValue);
             }
             $this->_propDict['userRoleScopeTags'] = $userRoleScopeTags;
             return $this->_propDict['userRoleScopeTags'];

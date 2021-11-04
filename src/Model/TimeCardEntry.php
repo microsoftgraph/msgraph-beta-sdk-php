@@ -35,11 +35,11 @@ class TimeCardEntry extends Entity
         if (array_key_exists("breaks", $this->_propDict) && !is_null($this->_propDict["breaks"])) {
        
             if (count($this->_propDict['breaks']) > 0 && is_a($this->_propDict['breaks'][0], 'TimeCardBreak')) {
-               return $this->_propDict['breaks'];
+                return $this->_propDict['breaks'];
             }
             $breaks = [];
             foreach ($this->_propDict['breaks'] as $singleValue) {
-               $breaks []= new TimeCardBreak($singleValue);
+                $breaks []= new TimeCardBreak($singleValue);
             }
             $this->_propDict['breaks'] = $breaks;
             return $this->_propDict['breaks'];

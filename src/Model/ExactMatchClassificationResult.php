@@ -34,11 +34,11 @@ class ExactMatchClassificationResult extends Entity
         if (array_key_exists("classification", $this->_propDict) && !is_null($this->_propDict["classification"])) {
        
             if (count($this->_propDict['classification']) > 0 && is_a($this->_propDict['classification'][0], 'ExactMatchDetectedSensitiveContent')) {
-               return $this->_propDict['classification'];
+                return $this->_propDict['classification'];
             }
             $classification = [];
             foreach ($this->_propDict['classification'] as $singleValue) {
-               $classification []= new ExactMatchDetectedSensitiveContent($singleValue);
+                $classification []= new ExactMatchDetectedSensitiveContent($singleValue);
             }
             $this->_propDict['classification'] = $classification;
             return $this->_propDict['classification'];
@@ -69,11 +69,11 @@ class ExactMatchClassificationResult extends Entity
         if (array_key_exists("errors", $this->_propDict) && !is_null($this->_propDict["errors"])) {
        
             if (count($this->_propDict['errors']) > 0 && is_a($this->_propDict['errors'][0], 'ClassificationError')) {
-               return $this->_propDict['errors'];
+                return $this->_propDict['errors'];
             }
             $errors = [];
             foreach ($this->_propDict['errors'] as $singleValue) {
-               $errors []= new ClassificationError($singleValue);
+                $errors []= new ClassificationError($singleValue);
             }
             $this->_propDict['errors'] = $errors;
             return $this->_propDict['errors'];

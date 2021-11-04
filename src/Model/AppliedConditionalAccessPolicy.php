@@ -218,11 +218,11 @@ class AppliedConditionalAccessPolicy extends Entity
         if (array_key_exists("excludeRulesSatisfied", $this->_propDict) && !is_null($this->_propDict["excludeRulesSatisfied"])) {
        
             if (count($this->_propDict['excludeRulesSatisfied']) > 0 && is_a($this->_propDict['excludeRulesSatisfied'][0], 'ConditionalAccessRuleSatisfied')) {
-               return $this->_propDict['excludeRulesSatisfied'];
+                return $this->_propDict['excludeRulesSatisfied'];
             }
             $excludeRulesSatisfied = [];
             foreach ($this->_propDict['excludeRulesSatisfied'] as $singleValue) {
-               $excludeRulesSatisfied []= new ConditionalAccessRuleSatisfied($singleValue);
+                $excludeRulesSatisfied []= new ConditionalAccessRuleSatisfied($singleValue);
             }
             $this->_propDict['excludeRulesSatisfied'] = $excludeRulesSatisfied;
             return $this->_propDict['excludeRulesSatisfied'];
@@ -281,11 +281,11 @@ class AppliedConditionalAccessPolicy extends Entity
         if (array_key_exists("includeRulesSatisfied", $this->_propDict) && !is_null($this->_propDict["includeRulesSatisfied"])) {
        
             if (count($this->_propDict['includeRulesSatisfied']) > 0 && is_a($this->_propDict['includeRulesSatisfied'][0], 'ConditionalAccessRuleSatisfied')) {
-               return $this->_propDict['includeRulesSatisfied'];
+                return $this->_propDict['includeRulesSatisfied'];
             }
             $includeRulesSatisfied = [];
             foreach ($this->_propDict['includeRulesSatisfied'] as $singleValue) {
-               $includeRulesSatisfied []= new ConditionalAccessRuleSatisfied($singleValue);
+                $includeRulesSatisfied []= new ConditionalAccessRuleSatisfied($singleValue);
             }
             $this->_propDict['includeRulesSatisfied'] = $includeRulesSatisfied;
             return $this->_propDict['includeRulesSatisfied'];

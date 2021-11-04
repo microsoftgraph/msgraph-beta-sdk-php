@@ -112,11 +112,11 @@ class OverallPrintUsageSummary extends Entity
         if (array_key_exists("topPrinters", $this->_propDict) && !is_null($this->_propDict["topPrinters"])) {
        
             if (count($this->_propDict['topPrinters']) > 0 && is_a($this->_propDict['topPrinters'][0], 'PrinterUsageSummary')) {
-               return $this->_propDict['topPrinters'];
+                return $this->_propDict['topPrinters'];
             }
             $topPrinters = [];
             foreach ($this->_propDict['topPrinters'] as $singleValue) {
-               $topPrinters []= new PrinterUsageSummary($singleValue);
+                $topPrinters []= new PrinterUsageSummary($singleValue);
             }
             $this->_propDict['topPrinters'] = $topPrinters;
             return $this->_propDict['topPrinters'];
@@ -147,11 +147,11 @@ class OverallPrintUsageSummary extends Entity
         if (array_key_exists("topUsers", $this->_propDict) && !is_null($this->_propDict["topUsers"])) {
        
             if (count($this->_propDict['topUsers']) > 0 && is_a($this->_propDict['topUsers'][0], 'UserPrintUsageSummary')) {
-               return $this->_propDict['topUsers'];
+                return $this->_propDict['topUsers'];
             }
             $topUsers = [];
             foreach ($this->_propDict['topUsers'] as $singleValue) {
-               $topUsers []= new UserPrintUsageSummary($singleValue);
+                $topUsers []= new UserPrintUsageSummary($singleValue);
             }
             $this->_propDict['topUsers'] = $topUsers;
             return $this->_propDict['topUsers'];

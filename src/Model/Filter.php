@@ -35,11 +35,11 @@ class Filter extends Entity
         if (array_key_exists("categoryFilterGroups", $this->_propDict) && !is_null($this->_propDict["categoryFilterGroups"])) {
        
             if (count($this->_propDict['categoryFilterGroups']) > 0 && is_a($this->_propDict['categoryFilterGroups'][0], 'FilterGroup')) {
-               return $this->_propDict['categoryFilterGroups'];
+                return $this->_propDict['categoryFilterGroups'];
             }
             $categoryFilterGroups = [];
             foreach ($this->_propDict['categoryFilterGroups'] as $singleValue) {
-               $categoryFilterGroups []= new FilterGroup($singleValue);
+                $categoryFilterGroups []= new FilterGroup($singleValue);
             }
             $this->_propDict['categoryFilterGroups'] = $categoryFilterGroups;
             return $this->_propDict['categoryFilterGroups'];
@@ -72,11 +72,11 @@ class Filter extends Entity
         if (array_key_exists("groups", $this->_propDict) && !is_null($this->_propDict["groups"])) {
        
             if (count($this->_propDict['groups']) > 0 && is_a($this->_propDict['groups'][0], 'FilterGroup')) {
-               return $this->_propDict['groups'];
+                return $this->_propDict['groups'];
             }
             $groups = [];
             foreach ($this->_propDict['groups'] as $singleValue) {
-               $groups []= new FilterGroup($singleValue);
+                $groups []= new FilterGroup($singleValue);
             }
             $this->_propDict['groups'] = $groups;
             return $this->_propDict['groups'];
@@ -109,11 +109,11 @@ class Filter extends Entity
         if (array_key_exists("inputFilterGroups", $this->_propDict) && !is_null($this->_propDict["inputFilterGroups"])) {
        
             if (count($this->_propDict['inputFilterGroups']) > 0 && is_a($this->_propDict['inputFilterGroups'][0], 'FilterGroup')) {
-               return $this->_propDict['inputFilterGroups'];
+                return $this->_propDict['inputFilterGroups'];
             }
             $inputFilterGroups = [];
             foreach ($this->_propDict['inputFilterGroups'] as $singleValue) {
-               $inputFilterGroups []= new FilterGroup($singleValue);
+                $inputFilterGroups []= new FilterGroup($singleValue);
             }
             $this->_propDict['inputFilterGroups'] = $inputFilterGroups;
             return $this->_propDict['inputFilterGroups'];

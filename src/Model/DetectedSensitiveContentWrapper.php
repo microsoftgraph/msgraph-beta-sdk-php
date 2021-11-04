@@ -34,11 +34,11 @@ class DetectedSensitiveContentWrapper extends Entity
         if (array_key_exists("classification", $this->_propDict) && !is_null($this->_propDict["classification"])) {
        
             if (count($this->_propDict['classification']) > 0 && is_a($this->_propDict['classification'][0], 'DetectedSensitiveContent')) {
-               return $this->_propDict['classification'];
+                return $this->_propDict['classification'];
             }
             $classification = [];
             foreach ($this->_propDict['classification'] as $singleValue) {
-               $classification []= new DetectedSensitiveContent($singleValue);
+                $classification []= new DetectedSensitiveContent($singleValue);
             }
             $this->_propDict['classification'] = $classification;
             return $this->_propDict['classification'];

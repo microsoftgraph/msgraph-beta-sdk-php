@@ -125,11 +125,11 @@ class UserExperienceAnalyticsInsight extends Entity
         if (array_key_exists("values", $this->_propDict) && !is_null($this->_propDict["values"])) {
        
             if (count($this->_propDict['values']) > 0 && is_a($this->_propDict['values'][0], 'UserExperienceAnalyticsInsightValue')) {
-               return $this->_propDict['values'];
+                return $this->_propDict['values'];
             }
             $values = [];
             foreach ($this->_propDict['values'] as $singleValue) {
-               $values []= new UserExperienceAnalyticsInsightValue($singleValue);
+                $values []= new UserExperienceAnalyticsInsightValue($singleValue);
             }
             $this->_propDict['values'] = $values;
             return $this->_propDict['values'];

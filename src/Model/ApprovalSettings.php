@@ -63,11 +63,11 @@ class ApprovalSettings extends Entity
         if (array_key_exists("approvalStages", $this->_propDict) && !is_null($this->_propDict["approvalStages"])) {
        
             if (count($this->_propDict['approvalStages']) > 0 && is_a($this->_propDict['approvalStages'][0], 'ApprovalStage')) {
-               return $this->_propDict['approvalStages'];
+                return $this->_propDict['approvalStages'];
             }
             $approvalStages = [];
             foreach ($this->_propDict['approvalStages'] as $singleValue) {
-               $approvalStages []= new ApprovalStage($singleValue);
+                $approvalStages []= new ApprovalStage($singleValue);
             }
             $this->_propDict['approvalStages'] = $approvalStages;
             return $this->_propDict['approvalStages'];

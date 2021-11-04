@@ -35,11 +35,11 @@ class ShareAction extends Entity
         if (array_key_exists("recipients", $this->_propDict) && !is_null($this->_propDict["recipients"])) {
        
             if (count($this->_propDict['recipients']) > 0 && is_a($this->_propDict['recipients'][0], 'IdentitySet')) {
-               return $this->_propDict['recipients'];
+                return $this->_propDict['recipients'];
             }
             $recipients = [];
             foreach ($this->_propDict['recipients'] as $singleValue) {
-               $recipients []= new IdentitySet($singleValue);
+                $recipients []= new IdentitySet($singleValue);
             }
             $this->_propDict['recipients'] = $recipients;
             return $this->_propDict['recipients'];

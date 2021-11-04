@@ -35,11 +35,11 @@ class DeviceComplianceScriptValidationResult extends Entity
         if (array_key_exists("ruleErrors", $this->_propDict) && !is_null($this->_propDict["ruleErrors"])) {
        
             if (count($this->_propDict['ruleErrors']) > 0 && is_a($this->_propDict['ruleErrors'][0], 'DeviceComplianceScriptRuleError')) {
-               return $this->_propDict['ruleErrors'];
+                return $this->_propDict['ruleErrors'];
             }
             $ruleErrors = [];
             foreach ($this->_propDict['ruleErrors'] as $singleValue) {
-               $ruleErrors []= new DeviceComplianceScriptRuleError($singleValue);
+                $ruleErrors []= new DeviceComplianceScriptRuleError($singleValue);
             }
             $this->_propDict['ruleErrors'] = $ruleErrors;
             return $this->_propDict['ruleErrors'];
@@ -72,11 +72,11 @@ class DeviceComplianceScriptValidationResult extends Entity
         if (array_key_exists("rules", $this->_propDict) && !is_null($this->_propDict["rules"])) {
        
             if (count($this->_propDict['rules']) > 0 && is_a($this->_propDict['rules'][0], 'DeviceComplianceScriptRule')) {
-               return $this->_propDict['rules'];
+                return $this->_propDict['rules'];
             }
             $rules = [];
             foreach ($this->_propDict['rules'] as $singleValue) {
-               $rules []= new DeviceComplianceScriptRule($singleValue);
+                $rules []= new DeviceComplianceScriptRule($singleValue);
             }
             $this->_propDict['rules'] = $rules;
             return $this->_propDict['rules'];
@@ -109,11 +109,11 @@ class DeviceComplianceScriptValidationResult extends Entity
         if (array_key_exists("scriptErrors", $this->_propDict) && !is_null($this->_propDict["scriptErrors"])) {
        
             if (count($this->_propDict['scriptErrors']) > 0 && is_a($this->_propDict['scriptErrors'][0], 'DeviceComplianceScriptError')) {
-               return $this->_propDict['scriptErrors'];
+                return $this->_propDict['scriptErrors'];
             }
             $scriptErrors = [];
             foreach ($this->_propDict['scriptErrors'] as $singleValue) {
-               $scriptErrors []= new DeviceComplianceScriptError($singleValue);
+                $scriptErrors []= new DeviceComplianceScriptError($singleValue);
             }
             $this->_propDict['scriptErrors'] = $scriptErrors;
             return $this->_propDict['scriptErrors'];

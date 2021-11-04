@@ -35,11 +35,11 @@ class DeviceManagementSettingDependency extends Entity
         if (array_key_exists("constraints", $this->_propDict) && !is_null($this->_propDict["constraints"])) {
        
             if (count($this->_propDict['constraints']) > 0 && is_a($this->_propDict['constraints'][0], 'DeviceManagementConstraint')) {
-               return $this->_propDict['constraints'];
+                return $this->_propDict['constraints'];
             }
             $constraints = [];
             foreach ($this->_propDict['constraints'] as $singleValue) {
-               $constraints []= new DeviceManagementConstraint($singleValue);
+                $constraints []= new DeviceManagementConstraint($singleValue);
             }
             $this->_propDict['constraints'] = $constraints;
             return $this->_propDict['constraints'];

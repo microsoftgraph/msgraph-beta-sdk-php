@@ -69,11 +69,11 @@ class RiskUserActivity extends Entity
         if (array_key_exists("eventTypes", $this->_propDict) && !is_null($this->_propDict["eventTypes"])) {
        
             if (count($this->_propDict['eventTypes']) > 0 && is_a($this->_propDict['eventTypes'][0], 'RiskEventType')) {
-               return $this->_propDict['eventTypes'];
+                return $this->_propDict['eventTypes'];
             }
             $eventTypes = [];
             foreach ($this->_propDict['eventTypes'] as $singleValue) {
-               $eventTypes []= new RiskEventType($singleValue);
+                $eventTypes []= new RiskEventType($singleValue);
             }
             $this->_propDict['eventTypes'] = $eventTypes;
             return $this->_propDict['eventTypes'];

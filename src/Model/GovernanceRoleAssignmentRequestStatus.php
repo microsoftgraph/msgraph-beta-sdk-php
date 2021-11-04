@@ -60,11 +60,11 @@ class GovernanceRoleAssignmentRequestStatus extends Entity
         if (array_key_exists("statusDetails", $this->_propDict) && !is_null($this->_propDict["statusDetails"])) {
        
             if (count($this->_propDict['statusDetails']) > 0 && is_a($this->_propDict['statusDetails'][0], 'KeyValue')) {
-               return $this->_propDict['statusDetails'];
+                return $this->_propDict['statusDetails'];
             }
             $statusDetails = [];
             foreach ($this->_propDict['statusDetails'] as $singleValue) {
-               $statusDetails []= new KeyValue($singleValue);
+                $statusDetails []= new KeyValue($singleValue);
             }
             $this->_propDict['statusDetails'] = $statusDetails;
             return $this->_propDict['statusDetails'];

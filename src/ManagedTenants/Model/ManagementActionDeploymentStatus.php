@@ -125,11 +125,11 @@ class ManagementActionDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entit
         if (array_key_exists("workloadActionDeploymentStatuses", $this->_propDict) && !is_null($this->_propDict["workloadActionDeploymentStatuses"])) {
        
             if (count($this->_propDict['workloadActionDeploymentStatuses']) > 0 && is_a($this->_propDict['workloadActionDeploymentStatuses'][0], 'WorkloadActionDeploymentStatus')) {
-               return $this->_propDict['workloadActionDeploymentStatuses'];
+                return $this->_propDict['workloadActionDeploymentStatuses'];
             }
             $workloadActionDeploymentStatuses = [];
             foreach ($this->_propDict['workloadActionDeploymentStatuses'] as $singleValue) {
-               $workloadActionDeploymentStatuses []= new WorkloadActionDeploymentStatus($singleValue);
+                $workloadActionDeploymentStatuses []= new WorkloadActionDeploymentStatus($singleValue);
             }
             $this->_propDict['workloadActionDeploymentStatuses'] = $workloadActionDeploymentStatuses;
             return $this->_propDict['workloadActionDeploymentStatuses'];

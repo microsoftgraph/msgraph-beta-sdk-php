@@ -35,11 +35,11 @@ class AuthenticationMethodsRegistrationCampaign extends Entity
         if (array_key_exists("excludeTargets", $this->_propDict) && !is_null($this->_propDict["excludeTargets"])) {
        
             if (count($this->_propDict['excludeTargets']) > 0 && is_a($this->_propDict['excludeTargets'][0], 'ExcludeTarget')) {
-               return $this->_propDict['excludeTargets'];
+                return $this->_propDict['excludeTargets'];
             }
             $excludeTargets = [];
             foreach ($this->_propDict['excludeTargets'] as $singleValue) {
-               $excludeTargets []= new ExcludeTarget($singleValue);
+                $excludeTargets []= new ExcludeTarget($singleValue);
             }
             $this->_propDict['excludeTargets'] = $excludeTargets;
             return $this->_propDict['excludeTargets'];
@@ -72,11 +72,11 @@ class AuthenticationMethodsRegistrationCampaign extends Entity
         if (array_key_exists("includeTargets", $this->_propDict) && !is_null($this->_propDict["includeTargets"])) {
        
             if (count($this->_propDict['includeTargets']) > 0 && is_a($this->_propDict['includeTargets'][0], 'AuthenticationMethodsRegistrationCampaignIncludeTarget')) {
-               return $this->_propDict['includeTargets'];
+                return $this->_propDict['includeTargets'];
             }
             $includeTargets = [];
             foreach ($this->_propDict['includeTargets'] as $singleValue) {
-               $includeTargets []= new AuthenticationMethodsRegistrationCampaignIncludeTarget($singleValue);
+                $includeTargets []= new AuthenticationMethodsRegistrationCampaignIncludeTarget($singleValue);
             }
             $this->_propDict['includeTargets'] = $includeTargets;
             return $this->_propDict['includeTargets'];

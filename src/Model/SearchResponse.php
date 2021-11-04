@@ -69,11 +69,11 @@ class SearchResponse extends Entity
         if (array_key_exists("value", $this->_propDict) && !is_null($this->_propDict["value"])) {
        
             if (count($this->_propDict['value']) > 0 && is_a($this->_propDict['value'][0], 'SearchResultSet')) {
-               return $this->_propDict['value'];
+                return $this->_propDict['value'];
             }
             $value = [];
             foreach ($this->_propDict['value'] as $singleValue) {
-               $value []= new SearchResultSet($singleValue);
+                $value []= new SearchResultSet($singleValue);
             }
             $this->_propDict['value'] = $value;
             return $this->_propDict['value'];

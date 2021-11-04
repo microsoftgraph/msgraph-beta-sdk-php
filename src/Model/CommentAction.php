@@ -97,11 +97,11 @@ class CommentAction extends Entity
         if (array_key_exists("participants", $this->_propDict) && !is_null($this->_propDict["participants"])) {
        
             if (count($this->_propDict['participants']) > 0 && is_a($this->_propDict['participants'][0], 'IdentitySet')) {
-               return $this->_propDict['participants'];
+                return $this->_propDict['participants'];
             }
             $participants = [];
             foreach ($this->_propDict['participants'] as $singleValue) {
-               $participants []= new IdentitySet($singleValue);
+                $participants []= new IdentitySet($singleValue);
             }
             $this->_propDict['participants'] = $participants;
             return $this->_propDict['participants'];

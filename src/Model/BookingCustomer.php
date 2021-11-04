@@ -27,6 +27,7 @@ class BookingCustomer extends BookingPerson
 
      /** 
      * Gets the addresses
+    * Addresses associated with the customer, including home, business and other addresses.
      *
      * @return PhysicalAddress[]|null The addresses
      */
@@ -48,6 +49,7 @@ class BookingCustomer extends BookingPerson
     
     /** 
     * Sets the addresses
+    * Addresses associated with the customer, including home, business and other addresses.
     *
     * @param PhysicalAddress[] $val The addresses
     *
@@ -62,6 +64,7 @@ class BookingCustomer extends BookingPerson
 
      /** 
      * Gets the phones
+    * Phone numbers associated with the customer, including home, business and mobile numbers.
      *
      * @return Phone[]|null The phones
      */
@@ -83,6 +86,7 @@ class BookingCustomer extends BookingPerson
     
     /** 
     * Sets the phones
+    * Phone numbers associated with the customer, including home, business and mobile numbers.
     *
     * @param Phone[] $val The phones
     *

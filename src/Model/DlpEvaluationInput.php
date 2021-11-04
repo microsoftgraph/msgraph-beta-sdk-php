@@ -98,11 +98,11 @@ class DlpEvaluationInput extends Entity
         if (array_key_exists("discoveredSensitiveTypes", $this->_propDict) && !is_null($this->_propDict["discoveredSensitiveTypes"])) {
        
             if (count($this->_propDict['discoveredSensitiveTypes']) > 0 && is_a($this->_propDict['discoveredSensitiveTypes'][0], 'DiscoveredSensitiveType')) {
-               return $this->_propDict['discoveredSensitiveTypes'];
+                return $this->_propDict['discoveredSensitiveTypes'];
             }
             $discoveredSensitiveTypes = [];
             foreach ($this->_propDict['discoveredSensitiveTypes'] as $singleValue) {
-               $discoveredSensitiveTypes []= new DiscoveredSensitiveType($singleValue);
+                $discoveredSensitiveTypes []= new DiscoveredSensitiveType($singleValue);
             }
             $this->_propDict['discoveredSensitiveTypes'] = $discoveredSensitiveTypes;
             return $this->_propDict['discoveredSensitiveTypes'];

@@ -35,11 +35,11 @@ class DeviceHealthScriptRemediationHistory extends Entity
         if (array_key_exists("historyData", $this->_propDict) && !is_null($this->_propDict["historyData"])) {
        
             if (count($this->_propDict['historyData']) > 0 && is_a($this->_propDict['historyData'][0], 'DeviceHealthScriptRemediationHistoryData')) {
-               return $this->_propDict['historyData'];
+                return $this->_propDict['historyData'];
             }
             $historyData = [];
             foreach ($this->_propDict['historyData'] as $singleValue) {
-               $historyData []= new DeviceHealthScriptRemediationHistoryData($singleValue);
+                $historyData []= new DeviceHealthScriptRemediationHistoryData($singleValue);
             }
             $this->_propDict['historyData'] = $historyData;
             return $this->_propDict['historyData'];

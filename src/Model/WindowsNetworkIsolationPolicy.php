@@ -35,11 +35,11 @@ class WindowsNetworkIsolationPolicy extends Entity
         if (array_key_exists("enterpriseCloudResources", $this->_propDict) && !is_null($this->_propDict["enterpriseCloudResources"])) {
        
             if (count($this->_propDict['enterpriseCloudResources']) > 0 && is_a($this->_propDict['enterpriseCloudResources'][0], 'ProxiedDomain')) {
-               return $this->_propDict['enterpriseCloudResources'];
+                return $this->_propDict['enterpriseCloudResources'];
             }
             $enterpriseCloudResources = [];
             foreach ($this->_propDict['enterpriseCloudResources'] as $singleValue) {
-               $enterpriseCloudResources []= new ProxiedDomain($singleValue);
+                $enterpriseCloudResources []= new ProxiedDomain($singleValue);
             }
             $this->_propDict['enterpriseCloudResources'] = $enterpriseCloudResources;
             return $this->_propDict['enterpriseCloudResources'];
@@ -100,11 +100,11 @@ class WindowsNetworkIsolationPolicy extends Entity
         if (array_key_exists("enterpriseIPRanges", $this->_propDict) && !is_null($this->_propDict["enterpriseIPRanges"])) {
        
             if (count($this->_propDict['enterpriseIPRanges']) > 0 && is_a($this->_propDict['enterpriseIPRanges'][0], 'IpRange')) {
-               return $this->_propDict['enterpriseIPRanges'];
+                return $this->_propDict['enterpriseIPRanges'];
             }
             $enterpriseIPRanges = [];
             foreach ($this->_propDict['enterpriseIPRanges'] as $singleValue) {
-               $enterpriseIPRanges []= new IpRange($singleValue);
+                $enterpriseIPRanges []= new IpRange($singleValue);
             }
             $this->_propDict['enterpriseIPRanges'] = $enterpriseIPRanges;
             return $this->_propDict['enterpriseIPRanges'];

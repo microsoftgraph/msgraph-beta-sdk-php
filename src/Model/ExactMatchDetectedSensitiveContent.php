@@ -34,11 +34,11 @@ class ExactMatchDetectedSensitiveContent extends DetectedSensitiveContentBase
         if (array_key_exists("matches", $this->_propDict) && !is_null($this->_propDict["matches"])) {
        
             if (count($this->_propDict['matches']) > 0 && is_a($this->_propDict['matches'][0], 'SensitiveContentLocation')) {
-               return $this->_propDict['matches'];
+                return $this->_propDict['matches'];
             }
             $matches = [];
             foreach ($this->_propDict['matches'] as $singleValue) {
-               $matches []= new SensitiveContentLocation($singleValue);
+                $matches []= new SensitiveContentLocation($singleValue);
             }
             $this->_propDict['matches'] = $matches;
             return $this->_propDict['matches'];
