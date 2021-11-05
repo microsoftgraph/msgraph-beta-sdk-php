@@ -46,11 +46,11 @@ class DeviceManagementConfigurationGroupSettingCollectionInstance extends Device
         if (array_key_exists("groupSettingCollectionValue", $this->_propDict) && !is_null($this->_propDict["groupSettingCollectionValue"])) {
        
             if (count($this->_propDict['groupSettingCollectionValue']) > 0 && is_a($this->_propDict['groupSettingCollectionValue'][0], 'DeviceManagementConfigurationGroupSettingValue')) {
-               return $this->_propDict['groupSettingCollectionValue'];
+                return $this->_propDict['groupSettingCollectionValue'];
             }
             $groupSettingCollectionValue = [];
             foreach ($this->_propDict['groupSettingCollectionValue'] as $singleValue) {
-               $groupSettingCollectionValue []= new DeviceManagementConfigurationGroupSettingValue($singleValue);
+                $groupSettingCollectionValue []= new DeviceManagementConfigurationGroupSettingValue($singleValue);
             }
             $this->_propDict['groupSettingCollectionValue'] = $groupSettingCollectionValue;
             return $this->_propDict['groupSettingCollectionValue'];

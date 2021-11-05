@@ -34,11 +34,11 @@ class GovernancePolicy extends Entity
         if (array_key_exists("decisionMakerCriteria", $this->_propDict) && !is_null($this->_propDict["decisionMakerCriteria"])) {
        
             if (count($this->_propDict['decisionMakerCriteria']) > 0 && is_a($this->_propDict['decisionMakerCriteria'][0], 'GovernanceCriteria')) {
-               return $this->_propDict['decisionMakerCriteria'];
+                return $this->_propDict['decisionMakerCriteria'];
             }
             $decisionMakerCriteria = [];
             foreach ($this->_propDict['decisionMakerCriteria'] as $singleValue) {
-               $decisionMakerCriteria []= new GovernanceCriteria($singleValue);
+                $decisionMakerCriteria []= new GovernanceCriteria($singleValue);
             }
             $this->_propDict['decisionMakerCriteria'] = $decisionMakerCriteria;
             return $this->_propDict['decisionMakerCriteria'];

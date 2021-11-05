@@ -63,6 +63,76 @@ class Directory extends Entity
     
 
      /** 
+     * Gets the attributeSets
+     *
+     * @return AttributeSet[]|null The attributeSets
+     */
+    public function getAttributeSets()
+    {
+        if (array_key_exists('attributeSets', $this->_propDict) && !is_null($this->_propDict['attributeSets'])) {
+            $attributeSets = [];
+            if (count($this->_propDict['attributeSets']) > 0 && is_a($this->_propDict['attributeSets'][0], 'AttributeSet')) {
+                return $this->_propDict['attributeSets'];
+            }
+            foreach ($this->_propDict['attributeSets'] as $singleValue) {
+                $attributeSets []= new AttributeSet($singleValue);
+            }
+            $this->_propDict['attributeSets'] = $attributeSets;
+            return $this->_propDict['attributeSets'];
+        }
+        return null;
+    }
+    
+    /** 
+    * Sets the attributeSets
+    *
+    * @param AttributeSet[] $val The attributeSets
+    *
+    * @return Directory
+    */
+    public function setAttributeSets($val)
+    {
+        $this->_propDict["attributeSets"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the customSecurityAttributeDefinitions
+     *
+     * @return CustomSecurityAttributeDefinition[]|null The customSecurityAttributeDefinitions
+     */
+    public function getCustomSecurityAttributeDefinitions()
+    {
+        if (array_key_exists('customSecurityAttributeDefinitions', $this->_propDict) && !is_null($this->_propDict['customSecurityAttributeDefinitions'])) {
+            $customSecurityAttributeDefinitions = [];
+            if (count($this->_propDict['customSecurityAttributeDefinitions']) > 0 && is_a($this->_propDict['customSecurityAttributeDefinitions'][0], 'CustomSecurityAttributeDefinition')) {
+                return $this->_propDict['customSecurityAttributeDefinitions'];
+            }
+            foreach ($this->_propDict['customSecurityAttributeDefinitions'] as $singleValue) {
+                $customSecurityAttributeDefinitions []= new CustomSecurityAttributeDefinition($singleValue);
+            }
+            $this->_propDict['customSecurityAttributeDefinitions'] = $customSecurityAttributeDefinitions;
+            return $this->_propDict['customSecurityAttributeDefinitions'];
+        }
+        return null;
+    }
+    
+    /** 
+    * Sets the customSecurityAttributeDefinitions
+    *
+    * @param CustomSecurityAttributeDefinition[] $val The customSecurityAttributeDefinitions
+    *
+    * @return Directory
+    */
+    public function setCustomSecurityAttributeDefinitions($val)
+    {
+        $this->_propDict["customSecurityAttributeDefinitions"] = $val;
+        return $this;
+    }
+    
+
+     /** 
      * Gets the deletedItems
     * Recently deleted items. Read-only. Nullable.
      *

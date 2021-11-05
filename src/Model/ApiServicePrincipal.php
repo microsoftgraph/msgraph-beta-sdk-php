@@ -34,11 +34,11 @@ class ApiServicePrincipal extends Entity
         if (array_key_exists("resourceSpecificApplicationPermissions", $this->_propDict) && !is_null($this->_propDict["resourceSpecificApplicationPermissions"])) {
        
             if (count($this->_propDict['resourceSpecificApplicationPermissions']) > 0 && is_a($this->_propDict['resourceSpecificApplicationPermissions'][0], 'ResourceSpecificPermission')) {
-               return $this->_propDict['resourceSpecificApplicationPermissions'];
+                return $this->_propDict['resourceSpecificApplicationPermissions'];
             }
             $resourceSpecificApplicationPermissions = [];
             foreach ($this->_propDict['resourceSpecificApplicationPermissions'] as $singleValue) {
-               $resourceSpecificApplicationPermissions []= new ResourceSpecificPermission($singleValue);
+                $resourceSpecificApplicationPermissions []= new ResourceSpecificPermission($singleValue);
             }
             $this->_propDict['resourceSpecificApplicationPermissions'] = $resourceSpecificApplicationPermissions;
             return $this->_propDict['resourceSpecificApplicationPermissions'];

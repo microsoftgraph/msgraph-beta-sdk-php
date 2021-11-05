@@ -215,11 +215,11 @@ class UserSimulationDetails extends Entity
         if (array_key_exists("simulationEvents", $this->_propDict) && !is_null($this->_propDict["simulationEvents"])) {
        
             if (count($this->_propDict['simulationEvents']) > 0 && is_a($this->_propDict['simulationEvents'][0], 'UserSimulationEventInfo')) {
-               return $this->_propDict['simulationEvents'];
+                return $this->_propDict['simulationEvents'];
             }
             $simulationEvents = [];
             foreach ($this->_propDict['simulationEvents'] as $singleValue) {
-               $simulationEvents []= new UserSimulationEventInfo($singleValue);
+                $simulationEvents []= new UserSimulationEventInfo($singleValue);
             }
             $this->_propDict['simulationEvents'] = $simulationEvents;
             return $this->_propDict['simulationEvents'];
@@ -286,11 +286,11 @@ class UserSimulationDetails extends Entity
         if (array_key_exists("trainingEvents", $this->_propDict) && !is_null($this->_propDict["trainingEvents"])) {
        
             if (count($this->_propDict['trainingEvents']) > 0 && is_a($this->_propDict['trainingEvents'][0], 'UserTrainingEventInfo')) {
-               return $this->_propDict['trainingEvents'];
+                return $this->_propDict['trainingEvents'];
             }
             $trainingEvents = [];
             foreach ($this->_propDict['trainingEvents'] as $singleValue) {
-               $trainingEvents []= new UserTrainingEventInfo($singleValue);
+                $trainingEvents []= new UserTrainingEventInfo($singleValue);
             }
             $this->_propDict['trainingEvents'] = $trainingEvents;
             return $this->_propDict['trainingEvents'];

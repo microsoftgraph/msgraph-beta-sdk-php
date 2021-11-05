@@ -34,11 +34,11 @@ class PasswordSingleSignOnSettings extends Entity
         if (array_key_exists("fields", $this->_propDict) && !is_null($this->_propDict["fields"])) {
        
             if (count($this->_propDict['fields']) > 0 && is_a($this->_propDict['fields'][0], 'PasswordSingleSignOnField')) {
-               return $this->_propDict['fields'];
+                return $this->_propDict['fields'];
             }
             $fields = [];
             foreach ($this->_propDict['fields'] as $singleValue) {
-               $fields []= new PasswordSingleSignOnField($singleValue);
+                $fields []= new PasswordSingleSignOnField($singleValue);
             }
             $this->_propDict['fields'] = $fields;
             return $this->_propDict['fields'];

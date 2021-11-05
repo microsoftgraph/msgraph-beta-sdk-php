@@ -34,11 +34,11 @@ class DlpPoliciesJobResult extends Entity
         if (array_key_exists("matchingRules", $this->_propDict) && !is_null($this->_propDict["matchingRules"])) {
        
             if (count($this->_propDict['matchingRules']) > 0 && is_a($this->_propDict['matchingRules'][0], 'MatchingDlpRule')) {
-               return $this->_propDict['matchingRules'];
+                return $this->_propDict['matchingRules'];
             }
             $matchingRules = [];
             foreach ($this->_propDict['matchingRules'] as $singleValue) {
-               $matchingRules []= new MatchingDlpRule($singleValue);
+                $matchingRules []= new MatchingDlpRule($singleValue);
             }
             $this->_propDict['matchingRules'] = $matchingRules;
             return $this->_propDict['matchingRules'];

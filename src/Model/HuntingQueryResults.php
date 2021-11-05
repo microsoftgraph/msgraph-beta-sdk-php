@@ -34,11 +34,11 @@ class HuntingQueryResults extends Entity
         if (array_key_exists("results", $this->_propDict) && !is_null($this->_propDict["results"])) {
        
             if (count($this->_propDict['results']) > 0 && is_a($this->_propDict['results'][0], 'HuntingRowResult')) {
-               return $this->_propDict['results'];
+                return $this->_propDict['results'];
             }
             $results = [];
             foreach ($this->_propDict['results'] as $singleValue) {
-               $results []= new HuntingRowResult($singleValue);
+                $results []= new HuntingRowResult($singleValue);
             }
             $this->_propDict['results'] = $results;
             return $this->_propDict['results'];
@@ -69,11 +69,11 @@ class HuntingQueryResults extends Entity
         if (array_key_exists("schema", $this->_propDict) && !is_null($this->_propDict["schema"])) {
        
             if (count($this->_propDict['schema']) > 0 && is_a($this->_propDict['schema'][0], 'SinglePropertySchema')) {
-               return $this->_propDict['schema'];
+                return $this->_propDict['schema'];
             }
             $schema = [];
             foreach ($this->_propDict['schema'] as $singleValue) {
-               $schema []= new SinglePropertySchema($singleValue);
+                $schema []= new SinglePropertySchema($singleValue);
             }
             $this->_propDict['schema'] = $schema;
             return $this->_propDict['schema'];

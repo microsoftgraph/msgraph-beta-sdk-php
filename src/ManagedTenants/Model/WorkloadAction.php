@@ -181,11 +181,11 @@ class WorkloadAction extends \Beta\Microsoft\Graph\Model\Entity
         if (array_key_exists("settings", $this->_propDict) && !is_null($this->_propDict["settings"])) {
        
             if (count($this->_propDict['settings']) > 0 && is_a($this->_propDict['settings'][0], 'Setting')) {
-               return $this->_propDict['settings'];
+                return $this->_propDict['settings'];
             }
             $settings = [];
             foreach ($this->_propDict['settings'] as $singleValue) {
-               $settings []= new Setting($singleValue);
+                $settings []= new Setting($singleValue);
             }
             $this->_propDict['settings'] = $settings;
             return $this->_propDict['settings'];

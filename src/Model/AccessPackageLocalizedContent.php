@@ -63,11 +63,11 @@ class AccessPackageLocalizedContent extends Entity
         if (array_key_exists("localizedTexts", $this->_propDict) && !is_null($this->_propDict["localizedTexts"])) {
        
             if (count($this->_propDict['localizedTexts']) > 0 && is_a($this->_propDict['localizedTexts'][0], 'AccessPackageLocalizedText')) {
-               return $this->_propDict['localizedTexts'];
+                return $this->_propDict['localizedTexts'];
             }
             $localizedTexts = [];
             foreach ($this->_propDict['localizedTexts'] as $singleValue) {
-               $localizedTexts []= new AccessPackageLocalizedText($singleValue);
+                $localizedTexts []= new AccessPackageLocalizedText($singleValue);
             }
             $this->_propDict['localizedTexts'] = $localizedTexts;
             return $this->_propDict['localizedTexts'];

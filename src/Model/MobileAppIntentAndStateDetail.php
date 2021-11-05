@@ -187,11 +187,11 @@ class MobileAppIntentAndStateDetail extends Entity
         if (array_key_exists("supportedDeviceTypes", $this->_propDict) && !is_null($this->_propDict["supportedDeviceTypes"])) {
        
             if (count($this->_propDict['supportedDeviceTypes']) > 0 && is_a($this->_propDict['supportedDeviceTypes'][0], 'MobileAppSupportedDeviceType')) {
-               return $this->_propDict['supportedDeviceTypes'];
+                return $this->_propDict['supportedDeviceTypes'];
             }
             $supportedDeviceTypes = [];
             foreach ($this->_propDict['supportedDeviceTypes'] as $singleValue) {
-               $supportedDeviceTypes []= new MobileAppSupportedDeviceType($singleValue);
+                $supportedDeviceTypes []= new MobileAppSupportedDeviceType($singleValue);
             }
             $this->_propDict['supportedDeviceTypes'] = $supportedDeviceTypes;
             return $this->_propDict['supportedDeviceTypes'];

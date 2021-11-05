@@ -209,11 +209,11 @@ class AssignmentReviewSettings extends Entity
         if (array_key_exists("reviewers", $this->_propDict) && !is_null($this->_propDict["reviewers"])) {
        
             if (count($this->_propDict['reviewers']) > 0 && is_a($this->_propDict['reviewers'][0], 'UserSet')) {
-               return $this->_propDict['reviewers'];
+                return $this->_propDict['reviewers'];
             }
             $reviewers = [];
             foreach ($this->_propDict['reviewers'] as $singleValue) {
-               $reviewers []= new UserSet($singleValue);
+                $reviewers []= new UserSet($singleValue);
             }
             $this->_propDict['reviewers'] = $reviewers;
             return $this->_propDict['reviewers'];

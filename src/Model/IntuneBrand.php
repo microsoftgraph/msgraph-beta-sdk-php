@@ -35,11 +35,11 @@ class IntuneBrand extends Entity
         if (array_key_exists("companyPortalBlockedActions", $this->_propDict) && !is_null($this->_propDict["companyPortalBlockedActions"])) {
        
             if (count($this->_propDict['companyPortalBlockedActions']) > 0 && is_a($this->_propDict['companyPortalBlockedActions'][0], 'CompanyPortalBlockedAction')) {
-               return $this->_propDict['companyPortalBlockedActions'];
+                return $this->_propDict['companyPortalBlockedActions'];
             }
             $companyPortalBlockedActions = [];
             foreach ($this->_propDict['companyPortalBlockedActions'] as $singleValue) {
-               $companyPortalBlockedActions []= new CompanyPortalBlockedAction($singleValue);
+                $companyPortalBlockedActions []= new CompanyPortalBlockedAction($singleValue);
             }
             $this->_propDict['companyPortalBlockedActions'] = $companyPortalBlockedActions;
             return $this->_propDict['companyPortalBlockedActions'];

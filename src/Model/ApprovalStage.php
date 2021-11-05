@@ -63,11 +63,11 @@ class ApprovalStage extends Entity
         if (array_key_exists("escalationApprovers", $this->_propDict) && !is_null($this->_propDict["escalationApprovers"])) {
        
             if (count($this->_propDict['escalationApprovers']) > 0 && is_a($this->_propDict['escalationApprovers'][0], 'UserSet')) {
-               return $this->_propDict['escalationApprovers'];
+                return $this->_propDict['escalationApprovers'];
             }
             $escalationApprovers = [];
             foreach ($this->_propDict['escalationApprovers'] as $singleValue) {
-               $escalationApprovers []= new UserSet($singleValue);
+                $escalationApprovers []= new UserSet($singleValue);
             }
             $this->_propDict['escalationApprovers'] = $escalationApprovers;
             return $this->_propDict['escalationApprovers'];
@@ -184,11 +184,11 @@ class ApprovalStage extends Entity
         if (array_key_exists("primaryApprovers", $this->_propDict) && !is_null($this->_propDict["primaryApprovers"])) {
        
             if (count($this->_propDict['primaryApprovers']) > 0 && is_a($this->_propDict['primaryApprovers'][0], 'UserSet')) {
-               return $this->_propDict['primaryApprovers'];
+                return $this->_propDict['primaryApprovers'];
             }
             $primaryApprovers = [];
             foreach ($this->_propDict['primaryApprovers'] as $singleValue) {
-               $primaryApprovers []= new UserSet($singleValue);
+                $primaryApprovers []= new UserSet($singleValue);
             }
             $this->_propDict['primaryApprovers'] = $primaryApprovers;
             return $this->_propDict['primaryApprovers'];

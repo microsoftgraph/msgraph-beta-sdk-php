@@ -276,6 +276,7 @@ class BookingService extends BookingNamedEntity
     
     /**
     * Gets the isLocationOnline
+    * True indicates that the appointments for the service will be held online. Default value is false.
     *
     * @return bool|null The isLocationOnline
     */
@@ -290,6 +291,7 @@ class BookingService extends BookingNamedEntity
     
     /**
     * Sets the isLocationOnline
+    * True indicates that the appointments for the service will be held online. Default value is false.
     *
     * @param bool $val The isLocationOnline
     *
@@ -431,6 +433,7 @@ class BookingService extends BookingNamedEntity
     
     /**
     * Gets the smsNotificationsEnabled
+    * True indicates SMS notifications can be sent to the customers for the appointment of the service. Default value is false.
     *
     * @return bool|null The smsNotificationsEnabled
     */
@@ -445,6 +448,7 @@ class BookingService extends BookingNamedEntity
     
     /**
     * Sets the smsNotificationsEnabled
+    * True indicates SMS notifications can be sent to the customers for the appointment of the service. Default value is false.
     *
     * @param bool $val The smsNotificationsEnabled
     *
@@ -487,7 +491,7 @@ class BookingService extends BookingNamedEntity
     
     /**
     * Gets the webUrl
-    * The URL of the booking service.
+    * The URL a customer uses to access the service.
     *
     * @return string|null The webUrl
     */
@@ -502,7 +506,7 @@ class BookingService extends BookingNamedEntity
     
     /**
     * Sets the webUrl
-    * The URL of the booking service.
+    * The URL a customer uses to access the service.
     *
     * @param string $val The webUrl
     *

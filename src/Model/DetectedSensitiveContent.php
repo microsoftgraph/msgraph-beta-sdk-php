@@ -34,11 +34,11 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase
         if (array_key_exists("classificationAttributes", $this->_propDict) && !is_null($this->_propDict["classificationAttributes"])) {
        
             if (count($this->_propDict['classificationAttributes']) > 0 && is_a($this->_propDict['classificationAttributes'][0], 'ClassificationAttribute')) {
-               return $this->_propDict['classificationAttributes'];
+                return $this->_propDict['classificationAttributes'];
             }
             $classificationAttributes = [];
             foreach ($this->_propDict['classificationAttributes'] as $singleValue) {
-               $classificationAttributes []= new ClassificationAttribute($singleValue);
+                $classificationAttributes []= new ClassificationAttribute($singleValue);
             }
             $this->_propDict['classificationAttributes'] = $classificationAttributes;
             return $this->_propDict['classificationAttributes'];
@@ -101,11 +101,11 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase
         if (array_key_exists("matches", $this->_propDict) && !is_null($this->_propDict["matches"])) {
        
             if (count($this->_propDict['matches']) > 0 && is_a($this->_propDict['matches'][0], 'SensitiveContentLocation')) {
-               return $this->_propDict['matches'];
+                return $this->_propDict['matches'];
             }
             $matches = [];
             foreach ($this->_propDict['matches'] as $singleValue) {
-               $matches []= new SensitiveContentLocation($singleValue);
+                $matches []= new SensitiveContentLocation($singleValue);
             }
             $this->_propDict['matches'] = $matches;
             return $this->_propDict['matches'];

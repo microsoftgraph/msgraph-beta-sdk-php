@@ -86,11 +86,11 @@ class AttributeMappingSource extends Entity
         if (array_key_exists("parameters", $this->_propDict) && !is_null($this->_propDict["parameters"])) {
        
             if (count($this->_propDict['parameters']) > 0 && is_a($this->_propDict['parameters'][0], 'StringKeyAttributeMappingSourceValuePair')) {
-               return $this->_propDict['parameters'];
+                return $this->_propDict['parameters'];
             }
             $parameters = [];
             foreach ($this->_propDict['parameters'] as $singleValue) {
-               $parameters []= new StringKeyAttributeMappingSourceValuePair($singleValue);
+                $parameters []= new StringKeyAttributeMappingSourceValuePair($singleValue);
             }
             $this->_propDict['parameters'] = $parameters;
             return $this->_propDict['parameters'];

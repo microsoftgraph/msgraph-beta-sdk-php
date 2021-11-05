@@ -69,11 +69,11 @@ class SimulationReport extends Entity
         if (array_key_exists("simulationUsers", $this->_propDict) && !is_null($this->_propDict["simulationUsers"])) {
        
             if (count($this->_propDict['simulationUsers']) > 0 && is_a($this->_propDict['simulationUsers'][0], 'UserSimulationDetails')) {
-               return $this->_propDict['simulationUsers'];
+                return $this->_propDict['simulationUsers'];
             }
             $simulationUsers = [];
             foreach ($this->_propDict['simulationUsers'] as $singleValue) {
-               $simulationUsers []= new UserSimulationDetails($singleValue);
+                $simulationUsers []= new UserSimulationDetails($singleValue);
             }
             $this->_propDict['simulationUsers'] = $simulationUsers;
             return $this->_propDict['simulationUsers'];

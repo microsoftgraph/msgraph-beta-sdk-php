@@ -35,11 +35,11 @@ class MeetingParticipants extends Entity
         if (array_key_exists("attendees", $this->_propDict) && !is_null($this->_propDict["attendees"])) {
        
             if (count($this->_propDict['attendees']) > 0 && is_a($this->_propDict['attendees'][0], 'MeetingParticipantInfo')) {
-               return $this->_propDict['attendees'];
+                return $this->_propDict['attendees'];
             }
             $attendees = [];
             foreach ($this->_propDict['attendees'] as $singleValue) {
-               $attendees []= new MeetingParticipantInfo($singleValue);
+                $attendees []= new MeetingParticipantInfo($singleValue);
             }
             $this->_propDict['attendees'] = $attendees;
             return $this->_propDict['attendees'];
@@ -71,11 +71,11 @@ class MeetingParticipants extends Entity
         if (array_key_exists("contributors", $this->_propDict) && !is_null($this->_propDict["contributors"])) {
        
             if (count($this->_propDict['contributors']) > 0 && is_a($this->_propDict['contributors'][0], 'MeetingParticipantInfo')) {
-               return $this->_propDict['contributors'];
+                return $this->_propDict['contributors'];
             }
             $contributors = [];
             foreach ($this->_propDict['contributors'] as $singleValue) {
-               $contributors []= new MeetingParticipantInfo($singleValue);
+                $contributors []= new MeetingParticipantInfo($singleValue);
             }
             $this->_propDict['contributors'] = $contributors;
             return $this->_propDict['contributors'];
@@ -140,11 +140,11 @@ class MeetingParticipants extends Entity
         if (array_key_exists("producers", $this->_propDict) && !is_null($this->_propDict["producers"])) {
        
             if (count($this->_propDict['producers']) > 0 && is_a($this->_propDict['producers'][0], 'MeetingParticipantInfo')) {
-               return $this->_propDict['producers'];
+                return $this->_propDict['producers'];
             }
             $producers = [];
             foreach ($this->_propDict['producers'] as $singleValue) {
-               $producers []= new MeetingParticipantInfo($singleValue);
+                $producers []= new MeetingParticipantInfo($singleValue);
             }
             $this->_propDict['producers'] = $producers;
             return $this->_propDict['producers'];

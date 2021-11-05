@@ -46,11 +46,11 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
         if (array_key_exists("children", $this->_propDict) && !is_null($this->_propDict["children"])) {
        
             if (count($this->_propDict['children']) > 0 && is_a($this->_propDict['children'][0], 'DeviceManagementConfigurationSettingInstance')) {
-               return $this->_propDict['children'];
+                return $this->_propDict['children'];
             }
             $children = [];
             foreach ($this->_propDict['children'] as $singleValue) {
-               $children []= new DeviceManagementConfigurationSettingInstance($singleValue);
+                $children []= new DeviceManagementConfigurationSettingInstance($singleValue);
             }
             $this->_propDict['children'] = $children;
             return $this->_propDict['children'];

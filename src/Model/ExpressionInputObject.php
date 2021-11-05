@@ -69,11 +69,11 @@ class ExpressionInputObject extends Entity
         if (array_key_exists("properties", $this->_propDict) && !is_null($this->_propDict["properties"])) {
        
             if (count($this->_propDict['properties']) > 0 && is_a($this->_propDict['properties'][0], 'StringKeyObjectValuePair')) {
-               return $this->_propDict['properties'];
+                return $this->_propDict['properties'];
             }
             $properties = [];
             foreach ($this->_propDict['properties'] as $singleValue) {
-               $properties []= new StringKeyObjectValuePair($singleValue);
+                $properties []= new StringKeyObjectValuePair($singleValue);
             }
             $this->_propDict['properties'] = $properties;
             return $this->_propDict['properties'];

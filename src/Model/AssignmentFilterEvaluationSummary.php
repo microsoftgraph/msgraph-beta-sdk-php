@@ -193,11 +193,11 @@ class AssignmentFilterEvaluationSummary extends Entity
         if (array_key_exists("assignmentFilterTypeAndEvaluationResults", $this->_propDict) && !is_null($this->_propDict["assignmentFilterTypeAndEvaluationResults"])) {
        
             if (count($this->_propDict['assignmentFilterTypeAndEvaluationResults']) > 0 && is_a($this->_propDict['assignmentFilterTypeAndEvaluationResults'][0], 'AssignmentFilterTypeAndEvaluationResult')) {
-               return $this->_propDict['assignmentFilterTypeAndEvaluationResults'];
+                return $this->_propDict['assignmentFilterTypeAndEvaluationResults'];
             }
             $assignmentFilterTypeAndEvaluationResults = [];
             foreach ($this->_propDict['assignmentFilterTypeAndEvaluationResults'] as $singleValue) {
-               $assignmentFilterTypeAndEvaluationResults []= new AssignmentFilterTypeAndEvaluationResult($singleValue);
+                $assignmentFilterTypeAndEvaluationResults []= new AssignmentFilterTypeAndEvaluationResult($singleValue);
             }
             $this->_propDict['assignmentFilterTypeAndEvaluationResults'] = $assignmentFilterTypeAndEvaluationResults;
             return $this->_propDict['assignmentFilterTypeAndEvaluationResults'];

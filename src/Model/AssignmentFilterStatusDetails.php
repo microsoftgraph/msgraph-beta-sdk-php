@@ -35,11 +35,11 @@ class AssignmentFilterStatusDetails extends Entity
         if (array_key_exists("deviceProperties", $this->_propDict) && !is_null($this->_propDict["deviceProperties"])) {
        
             if (count($this->_propDict['deviceProperties']) > 0 && is_a($this->_propDict['deviceProperties'][0], 'KeyValuePair')) {
-               return $this->_propDict['deviceProperties'];
+                return $this->_propDict['deviceProperties'];
             }
             $deviceProperties = [];
             foreach ($this->_propDict['deviceProperties'] as $singleValue) {
-               $deviceProperties []= new KeyValuePair($singleValue);
+                $deviceProperties []= new KeyValuePair($singleValue);
             }
             $this->_propDict['deviceProperties'] = $deviceProperties;
             return $this->_propDict['deviceProperties'];
@@ -72,11 +72,11 @@ class AssignmentFilterStatusDetails extends Entity
         if (array_key_exists("evalutionSummaries", $this->_propDict) && !is_null($this->_propDict["evalutionSummaries"])) {
        
             if (count($this->_propDict['evalutionSummaries']) > 0 && is_a($this->_propDict['evalutionSummaries'][0], 'AssignmentFilterEvaluationSummary')) {
-               return $this->_propDict['evalutionSummaries'];
+                return $this->_propDict['evalutionSummaries'];
             }
             $evalutionSummaries = [];
             foreach ($this->_propDict['evalutionSummaries'] as $singleValue) {
-               $evalutionSummaries []= new AssignmentFilterEvaluationSummary($singleValue);
+                $evalutionSummaries []= new AssignmentFilterEvaluationSummary($singleValue);
             }
             $this->_propDict['evalutionSummaries'] = $evalutionSummaries;
             return $this->_propDict['evalutionSummaries'];

@@ -69,11 +69,11 @@ class AttackSimulationTrainingUserCoverage extends Entity
         if (array_key_exists("userTrainings", $this->_propDict) && !is_null($this->_propDict["userTrainings"])) {
        
             if (count($this->_propDict['userTrainings']) > 0 && is_a($this->_propDict['userTrainings'][0], 'UserTrainingStatusInfo')) {
-               return $this->_propDict['userTrainings'];
+                return $this->_propDict['userTrainings'];
             }
             $userTrainings = [];
             foreach ($this->_propDict['userTrainings'] as $singleValue) {
-               $userTrainings []= new UserTrainingStatusInfo($singleValue);
+                $userTrainings []= new UserTrainingStatusInfo($singleValue);
             }
             $this->_propDict['userTrainings'] = $userTrainings;
             return $this->_propDict['userTrainings'];

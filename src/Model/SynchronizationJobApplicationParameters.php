@@ -63,11 +63,11 @@ class SynchronizationJobApplicationParameters extends Entity
         if (array_key_exists("subjects", $this->_propDict) && !is_null($this->_propDict["subjects"])) {
        
             if (count($this->_propDict['subjects']) > 0 && is_a($this->_propDict['subjects'][0], 'SynchronizationJobSubject')) {
-               return $this->_propDict['subjects'];
+                return $this->_propDict['subjects'];
             }
             $subjects = [];
             foreach ($this->_propDict['subjects'] as $singleValue) {
-               $subjects []= new SynchronizationJobSubject($singleValue);
+                $subjects []= new SynchronizationJobSubject($singleValue);
             }
             $this->_propDict['subjects'] = $subjects;
             return $this->_propDict['subjects'];

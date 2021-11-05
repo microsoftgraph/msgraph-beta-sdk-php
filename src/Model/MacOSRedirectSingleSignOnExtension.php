@@ -46,11 +46,11 @@ class MacOSRedirectSingleSignOnExtension extends MacOSSingleSignOnExtension
         if (array_key_exists("configurations", $this->_propDict) && !is_null($this->_propDict["configurations"])) {
        
             if (count($this->_propDict['configurations']) > 0 && is_a($this->_propDict['configurations'][0], 'KeyTypedValuePair')) {
-               return $this->_propDict['configurations'];
+                return $this->_propDict['configurations'];
             }
             $configurations = [];
             foreach ($this->_propDict['configurations'] as $singleValue) {
-               $configurations []= new KeyTypedValuePair($singleValue);
+                $configurations []= new KeyTypedValuePair($singleValue);
             }
             $this->_propDict['configurations'] = $configurations;
             return $this->_propDict['configurations'];

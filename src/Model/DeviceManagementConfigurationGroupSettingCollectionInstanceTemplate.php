@@ -74,11 +74,11 @@ class DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate extend
         if (array_key_exists("groupSettingCollectionValueTemplate", $this->_propDict) && !is_null($this->_propDict["groupSettingCollectionValueTemplate"])) {
        
             if (count($this->_propDict['groupSettingCollectionValueTemplate']) > 0 && is_a($this->_propDict['groupSettingCollectionValueTemplate'][0], 'DeviceManagementConfigurationGroupSettingValueTemplate')) {
-               return $this->_propDict['groupSettingCollectionValueTemplate'];
+                return $this->_propDict['groupSettingCollectionValueTemplate'];
             }
             $groupSettingCollectionValueTemplate = [];
             foreach ($this->_propDict['groupSettingCollectionValueTemplate'] as $singleValue) {
-               $groupSettingCollectionValueTemplate []= new DeviceManagementConfigurationGroupSettingValueTemplate($singleValue);
+                $groupSettingCollectionValueTemplate []= new DeviceManagementConfigurationGroupSettingValueTemplate($singleValue);
             }
             $this->_propDict['groupSettingCollectionValueTemplate'] = $groupSettingCollectionValueTemplate;
             return $this->_propDict['groupSettingCollectionValueTemplate'];

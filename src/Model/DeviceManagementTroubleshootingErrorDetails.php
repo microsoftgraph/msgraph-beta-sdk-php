@@ -147,11 +147,11 @@ class DeviceManagementTroubleshootingErrorDetails extends Entity
         if (array_key_exists("resources", $this->_propDict) && !is_null($this->_propDict["resources"])) {
        
             if (count($this->_propDict['resources']) > 0 && is_a($this->_propDict['resources'][0], 'DeviceManagementTroubleshootingErrorResource')) {
-               return $this->_propDict['resources'];
+                return $this->_propDict['resources'];
             }
             $resources = [];
             foreach ($this->_propDict['resources'] as $singleValue) {
-               $resources []= new DeviceManagementTroubleshootingErrorResource($singleValue);
+                $resources []= new DeviceManagementTroubleshootingErrorResource($singleValue);
             }
             $this->_propDict['resources'] = $resources;
             return $this->_propDict['resources'];

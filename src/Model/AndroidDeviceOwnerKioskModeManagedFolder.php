@@ -91,11 +91,11 @@ class AndroidDeviceOwnerKioskModeManagedFolder extends Entity
         if (array_key_exists("items", $this->_propDict) && !is_null($this->_propDict["items"])) {
        
             if (count($this->_propDict['items']) > 0 && is_a($this->_propDict['items'][0], 'AndroidDeviceOwnerKioskModeFolderItem')) {
-               return $this->_propDict['items'];
+                return $this->_propDict['items'];
             }
             $items = [];
             foreach ($this->_propDict['items'] as $singleValue) {
-               $items []= new AndroidDeviceOwnerKioskModeFolderItem($singleValue);
+                $items []= new AndroidDeviceOwnerKioskModeFolderItem($singleValue);
             }
             $this->_propDict['items'] = $items;
             return $this->_propDict['items'];

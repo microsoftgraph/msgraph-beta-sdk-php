@@ -35,11 +35,11 @@ class TranslationPreferences extends Entity
         if (array_key_exists("languageOverrides", $this->_propDict) && !is_null($this->_propDict["languageOverrides"])) {
        
             if (count($this->_propDict['languageOverrides']) > 0 && is_a($this->_propDict['languageOverrides'][0], 'TranslationLanguageOverride')) {
-               return $this->_propDict['languageOverrides'];
+                return $this->_propDict['languageOverrides'];
             }
             $languageOverrides = [];
             foreach ($this->_propDict['languageOverrides'] as $singleValue) {
-               $languageOverrides []= new TranslationLanguageOverride($singleValue);
+                $languageOverrides []= new TranslationLanguageOverride($singleValue);
             }
             $this->_propDict['languageOverrides'] = $languageOverrides;
             return $this->_propDict['languageOverrides'];

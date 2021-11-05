@@ -35,11 +35,11 @@ class DeviceManagementUserRightsSetting extends Entity
         if (array_key_exists("localUsersOrGroups", $this->_propDict) && !is_null($this->_propDict["localUsersOrGroups"])) {
        
             if (count($this->_propDict['localUsersOrGroups']) > 0 && is_a($this->_propDict['localUsersOrGroups'][0], 'DeviceManagementUserRightsLocalUserOrGroup')) {
-               return $this->_propDict['localUsersOrGroups'];
+                return $this->_propDict['localUsersOrGroups'];
             }
             $localUsersOrGroups = [];
             foreach ($this->_propDict['localUsersOrGroups'] as $singleValue) {
-               $localUsersOrGroups []= new DeviceManagementUserRightsLocalUserOrGroup($singleValue);
+                $localUsersOrGroups []= new DeviceManagementUserRightsLocalUserOrGroup($singleValue);
             }
             $this->_propDict['localUsersOrGroups'] = $localUsersOrGroups;
             return $this->_propDict['localUsersOrGroups'];

@@ -63,11 +63,11 @@ class DeviceManagementApplicabilityRuleOsEdition extends Entity
         if (array_key_exists("osEditionTypes", $this->_propDict) && !is_null($this->_propDict["osEditionTypes"])) {
        
             if (count($this->_propDict['osEditionTypes']) > 0 && is_a($this->_propDict['osEditionTypes'][0], 'Windows10EditionType')) {
-               return $this->_propDict['osEditionTypes'];
+                return $this->_propDict['osEditionTypes'];
             }
             $osEditionTypes = [];
             foreach ($this->_propDict['osEditionTypes'] as $singleValue) {
-               $osEditionTypes []= new Windows10EditionType($singleValue);
+                $osEditionTypes []= new Windows10EditionType($singleValue);
             }
             $this->_propDict['osEditionTypes'] = $osEditionTypes;
             return $this->_propDict['osEditionTypes'];

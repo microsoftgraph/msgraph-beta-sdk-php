@@ -63,11 +63,11 @@ class ProfileCardAnnotation extends Entity
         if (array_key_exists("localizations", $this->_propDict) && !is_null($this->_propDict["localizations"])) {
        
             if (count($this->_propDict['localizations']) > 0 && is_a($this->_propDict['localizations'][0], 'DisplayNameLocalization')) {
-               return $this->_propDict['localizations'];
+                return $this->_propDict['localizations'];
             }
             $localizations = [];
             foreach ($this->_propDict['localizations'] as $singleValue) {
-               $localizations []= new DisplayNameLocalization($singleValue);
+                $localizations []= new DisplayNameLocalization($singleValue);
             }
             $this->_propDict['localizations'] = $localizations;
             return $this->_propDict['localizations'];

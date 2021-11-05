@@ -63,11 +63,11 @@ class UserRegistrationMethodSummary extends Entity
         if (array_key_exists("userRegistrationMethodCounts", $this->_propDict) && !is_null($this->_propDict["userRegistrationMethodCounts"])) {
        
             if (count($this->_propDict['userRegistrationMethodCounts']) > 0 && is_a($this->_propDict['userRegistrationMethodCounts'][0], 'UserRegistrationMethodCount')) {
-               return $this->_propDict['userRegistrationMethodCounts'];
+                return $this->_propDict['userRegistrationMethodCounts'];
             }
             $userRegistrationMethodCounts = [];
             foreach ($this->_propDict['userRegistrationMethodCounts'] as $singleValue) {
-               $userRegistrationMethodCounts []= new UserRegistrationMethodCount($singleValue);
+                $userRegistrationMethodCounts []= new UserRegistrationMethodCount($singleValue);
             }
             $this->_propDict['userRegistrationMethodCounts'] = $userRegistrationMethodCounts;
             return $this->_propDict['userRegistrationMethodCounts'];

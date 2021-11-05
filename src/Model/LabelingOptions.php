@@ -103,11 +103,11 @@ class LabelingOptions extends Entity
         if (array_key_exists("extendedProperties", $this->_propDict) && !is_null($this->_propDict["extendedProperties"])) {
        
             if (count($this->_propDict['extendedProperties']) > 0 && is_a($this->_propDict['extendedProperties'][0], 'KeyValuePair')) {
-               return $this->_propDict['extendedProperties'];
+                return $this->_propDict['extendedProperties'];
             }
             $extendedProperties = [];
             foreach ($this->_propDict['extendedProperties'] as $singleValue) {
-               $extendedProperties []= new KeyValuePair($singleValue);
+                $extendedProperties []= new KeyValuePair($singleValue);
             }
             $this->_propDict['extendedProperties'] = $extendedProperties;
             return $this->_propDict['extendedProperties'];

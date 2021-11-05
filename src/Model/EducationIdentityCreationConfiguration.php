@@ -45,11 +45,11 @@ class EducationIdentityCreationConfiguration extends EducationIdentitySynchroniz
         if (array_key_exists("userDomains", $this->_propDict) && !is_null($this->_propDict["userDomains"])) {
        
             if (count($this->_propDict['userDomains']) > 0 && is_a($this->_propDict['userDomains'][0], 'EducationIdentityDomain')) {
-               return $this->_propDict['userDomains'];
+                return $this->_propDict['userDomains'];
             }
             $userDomains = [];
             foreach ($this->_propDict['userDomains'] as $singleValue) {
-               $userDomains []= new EducationIdentityDomain($singleValue);
+                $userDomains []= new EducationIdentityDomain($singleValue);
             }
             $this->_propDict['userDomains'] = $userDomains;
             return $this->_propDict['userDomains'];

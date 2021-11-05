@@ -35,11 +35,11 @@ class DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate extends 
         if (array_key_exists("allowedOptions", $this->_propDict) && !is_null($this->_propDict["allowedOptions"])) {
        
             if (count($this->_propDict['allowedOptions']) > 0 && is_a($this->_propDict['allowedOptions'][0], 'DeviceManagementConfigurationOptionDefinitionTemplate')) {
-               return $this->_propDict['allowedOptions'];
+                return $this->_propDict['allowedOptions'];
             }
             $allowedOptions = [];
             foreach ($this->_propDict['allowedOptions'] as $singleValue) {
-               $allowedOptions []= new DeviceManagementConfigurationOptionDefinitionTemplate($singleValue);
+                $allowedOptions []= new DeviceManagementConfigurationOptionDefinitionTemplate($singleValue);
             }
             $this->_propDict['allowedOptions'] = $allowedOptions;
             return $this->_propDict['allowedOptions'];

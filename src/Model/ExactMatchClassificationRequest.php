@@ -34,11 +34,11 @@ class ExactMatchClassificationRequest extends Entity
         if (array_key_exists("contentClassifications", $this->_propDict) && !is_null($this->_propDict["contentClassifications"])) {
        
             if (count($this->_propDict['contentClassifications']) > 0 && is_a($this->_propDict['contentClassifications'][0], 'ContentClassification')) {
-               return $this->_propDict['contentClassifications'];
+                return $this->_propDict['contentClassifications'];
             }
             $contentClassifications = [];
             foreach ($this->_propDict['contentClassifications'] as $singleValue) {
-               $contentClassifications []= new ContentClassification($singleValue);
+                $contentClassifications []= new ContentClassification($singleValue);
             }
             $this->_propDict['contentClassifications'] = $contentClassifications;
             return $this->_propDict['contentClassifications'];

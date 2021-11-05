@@ -46,11 +46,11 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase
         if (array_key_exists("specificWebsitesOnly", $this->_propDict) && !is_null($this->_propDict["specificWebsitesOnly"])) {
        
             if (count($this->_propDict['specificWebsitesOnly']) > 0 && is_a($this->_propDict['specificWebsitesOnly'][0], 'IosBookmark')) {
-               return $this->_propDict['specificWebsitesOnly'];
+                return $this->_propDict['specificWebsitesOnly'];
             }
             $specificWebsitesOnly = [];
             foreach ($this->_propDict['specificWebsitesOnly'] as $singleValue) {
-               $specificWebsitesOnly []= new IosBookmark($singleValue);
+                $specificWebsitesOnly []= new IosBookmark($singleValue);
             }
             $this->_propDict['specificWebsitesOnly'] = $specificWebsitesOnly;
             return $this->_propDict['specificWebsitesOnly'];
@@ -83,11 +83,11 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase
         if (array_key_exists("websiteList", $this->_propDict) && !is_null($this->_propDict["websiteList"])) {
        
             if (count($this->_propDict['websiteList']) > 0 && is_a($this->_propDict['websiteList'][0], 'IosBookmark')) {
-               return $this->_propDict['websiteList'];
+                return $this->_propDict['websiteList'];
             }
             $websiteList = [];
             foreach ($this->_propDict['websiteList'] as $singleValue) {
-               $websiteList []= new IosBookmark($singleValue);
+                $websiteList []= new IosBookmark($singleValue);
             }
             $this->_propDict['websiteList'] = $websiteList;
             return $this->_propDict['websiteList'];

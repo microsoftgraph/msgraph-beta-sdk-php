@@ -119,11 +119,11 @@ class DisplayTemplate extends \Beta\Microsoft\Graph\Model\Entity
         if (array_key_exists("rules", $this->_propDict) && !is_null($this->_propDict["rules"])) {
        
             if (count($this->_propDict['rules']) > 0 && is_a($this->_propDict['rules'][0], 'PropertyRule')) {
-               return $this->_propDict['rules'];
+                return $this->_propDict['rules'];
             }
             $rules = [];
             foreach ($this->_propDict['rules'] as $singleValue) {
-               $rules []= new PropertyRule($singleValue);
+                $rules []= new PropertyRule($singleValue);
             }
             $this->_propDict['rules'] = $rules;
             return $this->_propDict['rules'];

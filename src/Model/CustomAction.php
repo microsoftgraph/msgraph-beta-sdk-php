@@ -63,11 +63,11 @@ class CustomAction extends InformationProtectionAction
         if (array_key_exists("properties", $this->_propDict) && !is_null($this->_propDict["properties"])) {
        
             if (count($this->_propDict['properties']) > 0 && is_a($this->_propDict['properties'][0], 'KeyValuePair')) {
-               return $this->_propDict['properties'];
+                return $this->_propDict['properties'];
             }
             $properties = [];
             foreach ($this->_propDict['properties'] as $singleValue) {
-               $properties []= new KeyValuePair($singleValue);
+                $properties []= new KeyValuePair($singleValue);
             }
             $this->_propDict['properties'] = $properties;
             return $this->_propDict['properties'];

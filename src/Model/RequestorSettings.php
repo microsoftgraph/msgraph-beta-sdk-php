@@ -63,11 +63,11 @@ class RequestorSettings extends Entity
         if (array_key_exists("allowedRequestors", $this->_propDict) && !is_null($this->_propDict["allowedRequestors"])) {
        
             if (count($this->_propDict['allowedRequestors']) > 0 && is_a($this->_propDict['allowedRequestors'][0], 'UserSet')) {
-               return $this->_propDict['allowedRequestors'];
+                return $this->_propDict['allowedRequestors'];
             }
             $allowedRequestors = [];
             foreach ($this->_propDict['allowedRequestors'] as $singleValue) {
-               $allowedRequestors []= new UserSet($singleValue);
+                $allowedRequestors []= new UserSet($singleValue);
             }
             $this->_propDict['allowedRequestors'] = $allowedRequestors;
             return $this->_propDict['allowedRequestors'];
