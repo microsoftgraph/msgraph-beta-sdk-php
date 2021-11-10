@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
 class UpdatableAssetGroup extends UpdatableAsset
 {
 
-     /** 
+     /**
      * Gets the members
     * Members of the group. Read-only.
      *
@@ -46,8 +46,8 @@ class UpdatableAssetGroup extends UpdatableAsset
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the members
     * Members of the group. Read-only.
     *
@@ -60,5 +60,5 @@ class UpdatableAssetGroup extends UpdatableAsset
         $this->_propDict["members"] = $val;
         return $this;
     }
-    
+
 }

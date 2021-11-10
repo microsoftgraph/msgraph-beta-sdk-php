@@ -37,7 +37,7 @@ class ExactMatchLookupJob extends ExactMatchJobBase
             return null;
         }
     }
-    
+
     /**
     * Sets the state
     *
@@ -50,9 +50,9 @@ class ExactMatchLookupJob extends ExactMatchJobBase
         $this->_propDict["state"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the matchingRows
      *
      * @return LookupResultRow[]|null The matchingRows
@@ -72,8 +72,8 @@ class ExactMatchLookupJob extends ExactMatchJobBase
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the matchingRows
     *
     * @param LookupResultRow[] $val The matchingRows
@@ -85,5 +85,5 @@ class ExactMatchLookupJob extends ExactMatchJobBase
         $this->_propDict["matchingRows"] = $val;
         return $this;
     }
-    
+
 }

@@ -38,7 +38,7 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
             return null;
         }
     }
-    
+
     /**
     * Sets the defaultOptionId
     * Default option for choice setting
@@ -52,9 +52,9 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
         $this->_propDict["defaultOptionId"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the options
     * Options for the setting that can be selected
      *
@@ -75,8 +75,8 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the options
     * Options for the setting that can be selected
     *
@@ -89,5 +89,5 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
         $this->_propDict["options"] = $val;
         return $this;
     }
-    
+
 }

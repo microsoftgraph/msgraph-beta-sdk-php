@@ -42,7 +42,7 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the category
     * The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
@@ -56,7 +56,7 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["category"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * The description for the management template. Optional. Read-only.
@@ -71,7 +71,7 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * The description for the management template. Optional. Read-only.
@@ -85,7 +85,7 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The display name for the management template. Required. Read-only.
@@ -100,7 +100,7 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The display name for the management template. Required. Read-only.
@@ -114,9 +114,9 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the parameters
     * The collection of parameters used by the management template. Optional. Read-only.
      *
@@ -137,8 +137,8 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the parameters
     * The collection of parameters used by the management template. Optional. Read-only.
     *
@@ -151,9 +151,36 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["parameters"] = $val;
         return $this;
     }
-    
 
-     /** 
+    /**
+    * Gets the version
+    *
+    * @return int|null The version
+    */
+    public function getVersion()
+    {
+        if (array_key_exists("version", $this->_propDict)) {
+            return $this->_propDict["version"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the version
+    *
+    * @param int $val The version
+    *
+    * @return ManagementTemplate
+    */
+    public function setVersion($val)
+    {
+        $this->_propDict["version"] = intval($val);
+        return $this;
+    }
+
+
+     /**
      * Gets the workloadActions
     * The collection of workload actions associated with the management template. Optional. Read-only.
      *
@@ -174,8 +201,8 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the workloadActions
     * The collection of workload actions associated with the management template. Optional. Read-only.
     *
@@ -188,5 +215,75 @@ class ManagementTemplate extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["workloadActions"] = $val;
         return $this;
     }
-    
+
+
+     /**
+     * Gets the managementTemplateCollections
+     *
+     * @return ManagementTemplateCollection[]|null The managementTemplateCollections
+     */
+    public function getManagementTemplateCollections()
+    {
+        if (array_key_exists('managementTemplateCollections', $this->_propDict) && !is_null($this->_propDict['managementTemplateCollections'])) {
+            $managementTemplateCollections = [];
+            if (count($this->_propDict['managementTemplateCollections']) > 0 && is_a($this->_propDict['managementTemplateCollections'][0], 'ManagementTemplateCollection')) {
+                return $this->_propDict['managementTemplateCollections'];
+            }
+            foreach ($this->_propDict['managementTemplateCollections'] as $singleValue) {
+                $managementTemplateCollections []= new ManagementTemplateCollection($singleValue);
+            }
+            $this->_propDict['managementTemplateCollections'] = $managementTemplateCollections;
+            return $this->_propDict['managementTemplateCollections'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the managementTemplateCollections
+    *
+    * @param ManagementTemplateCollection[] $val The managementTemplateCollections
+    *
+    * @return ManagementTemplate
+    */
+    public function setManagementTemplateCollections($val)
+    {
+        $this->_propDict["managementTemplateCollections"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the managementTemplateSteps
+     *
+     * @return ManagementTemplateStep[]|null The managementTemplateSteps
+     */
+    public function getManagementTemplateSteps()
+    {
+        if (array_key_exists('managementTemplateSteps', $this->_propDict) && !is_null($this->_propDict['managementTemplateSteps'])) {
+            $managementTemplateSteps = [];
+            if (count($this->_propDict['managementTemplateSteps']) > 0 && is_a($this->_propDict['managementTemplateSteps'][0], 'ManagementTemplateStep')) {
+                return $this->_propDict['managementTemplateSteps'];
+            }
+            foreach ($this->_propDict['managementTemplateSteps'] as $singleValue) {
+                $managementTemplateSteps []= new ManagementTemplateStep($singleValue);
+            }
+            $this->_propDict['managementTemplateSteps'] = $managementTemplateSteps;
+            return $this->_propDict['managementTemplateSteps'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the managementTemplateSteps
+    *
+    * @param ManagementTemplateStep[] $val The managementTemplateSteps
+    *
+    * @return ManagementTemplate
+    */
+    public function setManagementTemplateSteps($val)
+    {
+        $this->_propDict["managementTemplateSteps"] = $val;
+        return $this;
+    }
+
 }

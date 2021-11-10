@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\ManagedTenants\Model;
 class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
 {
 
-     /** 
+     /**
      * Gets the contacts
     * The collection of contacts for the managed tenant. Optional.
      *
@@ -46,8 +46,8 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the contacts
     * The collection of contacts for the managed tenant. Optional.
     *
@@ -60,7 +60,7 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["contacts"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The display name for the managed tenant. Required. Read-only.
@@ -75,7 +75,7 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The display name for the managed tenant. Required. Read-only.
@@ -89,7 +89,7 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the tenantId
     * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
@@ -104,7 +104,7 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the tenantId
     * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
@@ -118,7 +118,7 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["tenantId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the website
     * The website for the managed tenant. Required.
@@ -133,7 +133,7 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the website
     * The website for the managed tenant. Required.
@@ -147,5 +147,5 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["website"] = $val;
         return $this;
     }
-    
+
 }

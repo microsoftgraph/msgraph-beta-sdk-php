@@ -37,7 +37,7 @@ class AttributeSet extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     *
@@ -50,7 +50,7 @@ class AttributeSet extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the maxAttributesPerSet
     *
@@ -64,7 +64,7 @@ class AttributeSet extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the maxAttributesPerSet
     *
@@ -77,5 +77,5 @@ class AttributeSet extends Entity
         $this->_propDict["maxAttributesPerSet"] = intval($val);
         return $this;
     }
-    
+
 }

@@ -37,7 +37,7 @@ class Incident extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the assignedTo
     *
@@ -50,7 +50,7 @@ class Incident extends Entity
         $this->_propDict["assignedTo"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the classification
     *
@@ -68,7 +68,7 @@ class Incident extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the classification
     *
@@ -81,9 +81,9 @@ class Incident extends Entity
         $this->_propDict["classification"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the comments
      *
      * @return M365AlertComment[]|null The comments
@@ -103,8 +103,8 @@ class Incident extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the comments
     *
     * @param M365AlertComment[] $val The comments
@@ -116,7 +116,7 @@ class Incident extends Entity
         $this->_propDict["comments"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdDateTime
     *
@@ -134,7 +134,7 @@ class Incident extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     *
@@ -147,7 +147,7 @@ class Incident extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the determination
     *
@@ -165,7 +165,7 @@ class Incident extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the determination
     *
@@ -178,7 +178,7 @@ class Incident extends Entity
         $this->_propDict["determination"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     *
@@ -192,7 +192,7 @@ class Incident extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     *
@@ -205,7 +205,7 @@ class Incident extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the incidentWebUrl
     *
@@ -219,7 +219,7 @@ class Incident extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the incidentWebUrl
     *
@@ -232,7 +232,7 @@ class Incident extends Entity
         $this->_propDict["incidentWebUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastUpdateDateTime
     *
@@ -250,7 +250,7 @@ class Incident extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastUpdateDateTime
     *
@@ -263,7 +263,7 @@ class Incident extends Entity
         $this->_propDict["lastUpdateDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the redirectIncidentId
     *
@@ -277,7 +277,7 @@ class Incident extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the redirectIncidentId
     *
@@ -290,7 +290,7 @@ class Incident extends Entity
         $this->_propDict["redirectIncidentId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the severity
     *
@@ -308,7 +308,7 @@ class Incident extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the severity
     *
@@ -321,7 +321,7 @@ class Incident extends Entity
         $this->_propDict["severity"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
     *
@@ -339,7 +339,7 @@ class Incident extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the status
     *
@@ -352,7 +352,7 @@ class Incident extends Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the tags
     *
@@ -366,7 +366,7 @@ class Incident extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the tags
     *
@@ -379,5 +379,5 @@ class Incident extends Entity
         $this->_propDict["tags"] = $val;
         return $this;
     }
-    
+
 }

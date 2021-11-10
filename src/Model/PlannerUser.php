@@ -42,7 +42,7 @@ class PlannerUser extends PlannerDelta
         }
         return null;
     }
-    
+
     /**
     * Sets the favoritePlanReferences
     * A collection containing the references to the plans that the user has marked as favorites.
@@ -56,7 +56,7 @@ class PlannerUser extends PlannerDelta
         $this->_propDict["favoritePlanReferences"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the recentPlanReferences
     * A collection containing references to the plans that were viewed recently by the user in apps that support recent plans.
@@ -75,7 +75,7 @@ class PlannerUser extends PlannerDelta
         }
         return null;
     }
-    
+
     /**
     * Sets the recentPlanReferences
     * A collection containing references to the plans that were viewed recently by the user in apps that support recent plans.
@@ -89,9 +89,9 @@ class PlannerUser extends PlannerDelta
         $this->_propDict["recentPlanReferences"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the all
      *
      * @return PlannerDelta[]|null The all
@@ -111,8 +111,8 @@ class PlannerUser extends PlannerDelta
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the all
     *
     * @param PlannerDelta[] $val The all
@@ -124,9 +124,9 @@ class PlannerUser extends PlannerDelta
         $this->_propDict["all"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the favoritePlans
     * Read-only. Nullable. Returns the plannerPlans that the user marked as favorites.
      *
@@ -147,8 +147,8 @@ class PlannerUser extends PlannerDelta
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the favoritePlans
     * Read-only. Nullable. Returns the plannerPlans that the user marked as favorites.
     *
@@ -161,9 +161,9 @@ class PlannerUser extends PlannerDelta
         $this->_propDict["favoritePlans"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the plans
     * Read-only. Nullable. Returns the plannerTasks assigned to the user.
      *
@@ -184,8 +184,8 @@ class PlannerUser extends PlannerDelta
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the plans
     * Read-only. Nullable. Returns the plannerTasks assigned to the user.
     *
@@ -198,9 +198,9 @@ class PlannerUser extends PlannerDelta
         $this->_propDict["plans"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the recentPlans
     * Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
      *
@@ -221,8 +221,8 @@ class PlannerUser extends PlannerDelta
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the recentPlans
     * Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
     *
@@ -235,9 +235,9 @@ class PlannerUser extends PlannerDelta
         $this->_propDict["recentPlans"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the rosterPlans
     * Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member.
      *
@@ -258,8 +258,8 @@ class PlannerUser extends PlannerDelta
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the rosterPlans
     * Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member.
     *
@@ -272,9 +272,9 @@ class PlannerUser extends PlannerDelta
         $this->_propDict["rosterPlans"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the tasks
     * Read-only. Nullable. Returns the plannerPlans shared with the user.
      *
@@ -295,8 +295,8 @@ class PlannerUser extends PlannerDelta
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the tasks
     * Read-only. Nullable. Returns the plannerPlans shared with the user.
     *
@@ -309,5 +309,5 @@ class PlannerUser extends PlannerDelta
         $this->_propDict["tasks"] = $val;
         return $this;
     }
-    
+
 }

@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class AzureADUserFeatureUsage extends Entity
 {
 
-     /** 
+     /**
      * Gets the featureUsageDetails
      *
      * @return FeatureUsageDetail[]|null The featureUsageDetails
@@ -45,8 +45,8 @@ class AzureADUserFeatureUsage extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the featureUsageDetails
     *
     * @param FeatureUsageDetail[] $val The featureUsageDetails
@@ -58,7 +58,7 @@ class AzureADUserFeatureUsage extends Entity
         $this->_propDict["featureUsageDetails"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastUpdatedDateTime
     *
@@ -76,7 +76,7 @@ class AzureADUserFeatureUsage extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastUpdatedDateTime
     *
@@ -89,7 +89,7 @@ class AzureADUserFeatureUsage extends Entity
         $this->_propDict["lastUpdatedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the licenseAssigned
     *
@@ -107,7 +107,7 @@ class AzureADUserFeatureUsage extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the licenseAssigned
     *
@@ -120,7 +120,7 @@ class AzureADUserFeatureUsage extends Entity
         $this->_propDict["licenseAssigned"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the licenseRecommended
     *
@@ -138,7 +138,7 @@ class AzureADUserFeatureUsage extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the licenseRecommended
     *
@@ -151,7 +151,7 @@ class AzureADUserFeatureUsage extends Entity
         $this->_propDict["licenseRecommended"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userDisplayName
     *
@@ -165,7 +165,7 @@ class AzureADUserFeatureUsage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userDisplayName
     *
@@ -178,7 +178,7 @@ class AzureADUserFeatureUsage extends Entity
         $this->_propDict["userDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userId
     *
@@ -192,7 +192,7 @@ class AzureADUserFeatureUsage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userId
     *
@@ -205,7 +205,7 @@ class AzureADUserFeatureUsage extends Entity
         $this->_propDict["userId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userPrincipalName
     *
@@ -219,7 +219,7 @@ class AzureADUserFeatureUsage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userPrincipalName
     *
@@ -232,5 +232,5 @@ class AzureADUserFeatureUsage extends Entity
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-    
+
 }

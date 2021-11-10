@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
 class DeploymentAudience extends \Beta\Microsoft\Graph\Model\Entity
 {
 
-     /** 
+     /**
      * Gets the exclusions
     * Specifies the assets to exclude from the audience.
      *
@@ -46,8 +46,8 @@ class DeploymentAudience extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the exclusions
     * Specifies the assets to exclude from the audience.
     *
@@ -60,9 +60,9 @@ class DeploymentAudience extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["exclusions"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the members
     * Specifies the assets to include in the audience.
      *
@@ -83,8 +83,8 @@ class DeploymentAudience extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the members
     * Specifies the assets to include in the audience.
     *
@@ -97,5 +97,5 @@ class DeploymentAudience extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["members"] = $val;
         return $this;
     }
-    
+
 }

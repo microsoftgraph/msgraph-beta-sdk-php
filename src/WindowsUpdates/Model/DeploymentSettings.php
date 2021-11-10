@@ -94,6 +94,7 @@ class DeploymentSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the safeguard
+    * Settings governing safeguard holds on offering content.
     *
     * @return SafeguardSettings|null The safeguard
     */
@@ -113,6 +114,7 @@ class DeploymentSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the safeguard
+    * Settings governing safeguard holds on offering content.
     *
     * @param SafeguardSettings $val The value to assign to the safeguard
     *

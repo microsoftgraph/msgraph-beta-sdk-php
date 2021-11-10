@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class SecurityBaselineSettingState extends Entity
 {
 
-     /** 
+     /**
      * Gets the contributingPolicies
     * The policies that contribute to this setting instance
      *
@@ -46,8 +46,8 @@ class SecurityBaselineSettingState extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the contributingPolicies
     * The policies that contribute to this setting instance
     *
@@ -60,7 +60,7 @@ class SecurityBaselineSettingState extends Entity
         $this->_propDict["contributingPolicies"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the errorCode
     * The error code if the setting is in error state
@@ -75,7 +75,7 @@ class SecurityBaselineSettingState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the errorCode
     * The error code if the setting is in error state
@@ -89,7 +89,7 @@ class SecurityBaselineSettingState extends Entity
         $this->_propDict["errorCode"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingCategoryId
     * The setting category id which this setting belongs to
@@ -104,7 +104,7 @@ class SecurityBaselineSettingState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the settingCategoryId
     * The setting category id which this setting belongs to
@@ -118,7 +118,7 @@ class SecurityBaselineSettingState extends Entity
         $this->_propDict["settingCategoryId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingCategoryName
     * The setting category name which this setting belongs to
@@ -133,7 +133,7 @@ class SecurityBaselineSettingState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the settingCategoryName
     * The setting category name which this setting belongs to
@@ -147,7 +147,7 @@ class SecurityBaselineSettingState extends Entity
         $this->_propDict["settingCategoryName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingId
     * The setting id guid
@@ -162,7 +162,7 @@ class SecurityBaselineSettingState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the settingId
     * The setting id guid
@@ -176,7 +176,7 @@ class SecurityBaselineSettingState extends Entity
         $this->_propDict["settingId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingName
     * The setting name that is being reported
@@ -191,7 +191,7 @@ class SecurityBaselineSettingState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the settingName
     * The setting name that is being reported
@@ -205,9 +205,9 @@ class SecurityBaselineSettingState extends Entity
         $this->_propDict["settingName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the sourcePolicies
     * The policies that contribute to this setting instance
      *
@@ -228,8 +228,8 @@ class SecurityBaselineSettingState extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the sourcePolicies
     * The policies that contribute to this setting instance
     *
@@ -242,7 +242,7 @@ class SecurityBaselineSettingState extends Entity
         $this->_propDict["sourcePolicies"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the state
     * The compliance state of the security baseline setting
@@ -261,7 +261,7 @@ class SecurityBaselineSettingState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the state
     * The compliance state of the security baseline setting
@@ -275,5 +275,5 @@ class SecurityBaselineSettingState extends Entity
         $this->_propDict["state"] = $val;
         return $this;
     }
-    
+
 }

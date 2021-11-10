@@ -42,7 +42,7 @@ class EducationSynchronizationProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the dataProvider
     * The data provider used for the profile.
@@ -56,7 +56,7 @@ class EducationSynchronizationProfile extends Entity
         $this->_propDict["dataProvider"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Name of the configuration profile for syncing identities.
@@ -71,7 +71,7 @@ class EducationSynchronizationProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Name of the configuration profile for syncing identities.
@@ -85,7 +85,7 @@ class EducationSynchronizationProfile extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the expirationDate
     * The date the profile should be considered expired and cease syncing. When null. the profile will never expire. (optional)
@@ -104,7 +104,7 @@ class EducationSynchronizationProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the expirationDate
     * The date the profile should be considered expired and cease syncing. When null. the profile will never expire. (optional)
@@ -118,7 +118,7 @@ class EducationSynchronizationProfile extends Entity
         $this->_propDict["expirationDate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the handleSpecialCharacterConstraint
     * Determines if School Data Sync should automatically replace unsupported special characters while syncing from source.
@@ -133,7 +133,7 @@ class EducationSynchronizationProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the handleSpecialCharacterConstraint
     * Determines if School Data Sync should automatically replace unsupported special characters while syncing from source.
@@ -147,7 +147,7 @@ class EducationSynchronizationProfile extends Entity
         $this->_propDict["handleSpecialCharacterConstraint"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the identitySynchronizationConfiguration
     * Determines how the Profile should [create new][fullsync] or [match existing][dirsync] AAD Users.
@@ -166,7 +166,7 @@ class EducationSynchronizationProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the identitySynchronizationConfiguration
     * Determines how the Profile should [create new][fullsync] or [match existing][dirsync] AAD Users.
@@ -180,9 +180,9 @@ class EducationSynchronizationProfile extends Entity
         $this->_propDict["identitySynchronizationConfiguration"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the licensesToAssign
     * License setup configuration.
      *
@@ -203,8 +203,8 @@ class EducationSynchronizationProfile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the licensesToAssign
     * License setup configuration.
     *
@@ -217,7 +217,7 @@ class EducationSynchronizationProfile extends Entity
         $this->_propDict["licensesToAssign"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the state
     * The state of the profile. Possible values are: provisioning, provisioned, provisioningFailed, deleting, deletionFailed.
@@ -236,7 +236,7 @@ class EducationSynchronizationProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the state
     * The state of the profile. Possible values are: provisioning, provisioned, provisioningFailed, deleting, deletionFailed.
@@ -250,9 +250,9 @@ class EducationSynchronizationProfile extends Entity
         $this->_propDict["state"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the errors
     * All errors associated with this synchronization profile.
      *
@@ -273,8 +273,8 @@ class EducationSynchronizationProfile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the errors
     * All errors associated with this synchronization profile.
     *
@@ -287,7 +287,7 @@ class EducationSynchronizationProfile extends Entity
         $this->_propDict["errors"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the profileStatus
     * The synchronization status.
@@ -306,7 +306,7 @@ class EducationSynchronizationProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the profileStatus
     * The synchronization status.
@@ -320,5 +320,5 @@ class EducationSynchronizationProfile extends Entity
         $this->_propDict["profileStatus"] = $val;
         return $this;
     }
-    
+
 }

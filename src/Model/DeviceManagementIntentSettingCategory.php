@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCategory
 {
 
-     /** 
+     /**
      * Gets the settings
     * The settings this category contains
      *
@@ -46,8 +46,8 @@ class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCateg
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the settings
     * The settings this category contains
     *
@@ -60,5 +60,5 @@ class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCateg
         $this->_propDict["settings"] = $val;
         return $this;
     }
-    
+
 }

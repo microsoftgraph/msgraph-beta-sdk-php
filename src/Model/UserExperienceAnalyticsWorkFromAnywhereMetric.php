@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity
 {
 
-     /** 
+     /**
      * Gets the metricDevices
     * The work from anywhere metric devices.
      *
@@ -46,8 +46,8 @@ class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the metricDevices
     * The work from anywhere metric devices.
     *
@@ -60,5 +60,5 @@ class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity
         $this->_propDict["metricDevices"] = $val;
         return $this;
     }
-    
+
 }

@@ -38,7 +38,7 @@ class Office365ActivationsUserDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates.
@@ -52,7 +52,7 @@ class Office365ActivationsUserDetail extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reportRefreshDate
     * The latest date of the content.
@@ -71,7 +71,7 @@ class Office365ActivationsUserDetail extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the reportRefreshDate
     * The latest date of the content.
@@ -85,9 +85,9 @@ class Office365ActivationsUserDetail extends Entity
         $this->_propDict["reportRefreshDate"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the userActivationCounts
     * The user's latest product activation counts on all the platforms for all the assigned product types.
      *
@@ -108,8 +108,8 @@ class Office365ActivationsUserDetail extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the userActivationCounts
     * The user's latest product activation counts on all the platforms for all the assigned product types.
     *
@@ -122,7 +122,7 @@ class Office365ActivationsUserDetail extends Entity
         $this->_propDict["userActivationCounts"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userPrincipalName
     * The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant’s collection of verified domains. This property is required when a user is created.
@@ -137,7 +137,7 @@ class Office365ActivationsUserDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userPrincipalName
     * The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant’s collection of verified domains. This property is required when a user is created.
@@ -151,5 +151,5 @@ class Office365ActivationsUserDetail extends Entity
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-    
+
 }

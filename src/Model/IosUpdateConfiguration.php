@@ -42,7 +42,7 @@ class IosUpdateConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the activeHoursEnd
     * Active Hours End (active hours mean the time window when updates install should not happen)
@@ -56,7 +56,7 @@ class IosUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["activeHoursEnd"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the activeHoursStart
     * Active Hours Start (active hours mean the time window when updates install should not happen)
@@ -75,7 +75,7 @@ class IosUpdateConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the activeHoursStart
     * Active Hours Start (active hours mean the time window when updates install should not happen)
@@ -89,9 +89,9 @@ class IosUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["activeHoursStart"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the customUpdateTimeWindows
     * If update schedule type is set to use time window scheduling, custom time windows when updates will be scheduled. This collection can contain a maximum of 20 elements.
      *
@@ -112,8 +112,8 @@ class IosUpdateConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the customUpdateTimeWindows
     * If update schedule type is set to use time window scheduling, custom time windows when updates will be scheduled. This collection can contain a maximum of 20 elements.
     *
@@ -126,7 +126,7 @@ class IosUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["customUpdateTimeWindows"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the desiredOsVersion
     * If left unspecified, devices will update to the latest version of the OS.
@@ -141,7 +141,7 @@ class IosUpdateConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the desiredOsVersion
     * If left unspecified, devices will update to the latest version of the OS.
@@ -155,7 +155,7 @@ class IosUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["desiredOsVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the enforcedSoftwareUpdateDelayInDays
     * Days before software updates are visible to iOS devices ranging from 0 to 90 inclusive
@@ -170,7 +170,7 @@ class IosUpdateConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the enforcedSoftwareUpdateDelayInDays
     * Days before software updates are visible to iOS devices ranging from 0 to 90 inclusive
@@ -184,7 +184,7 @@ class IosUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["enforcedSoftwareUpdateDelayInDays"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isEnabled
     * Is setting enabled in UI
@@ -199,7 +199,7 @@ class IosUpdateConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the isEnabled
     * Is setting enabled in UI
@@ -213,9 +213,9 @@ class IosUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["isEnabled"] = boolval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the scheduledInstallDays
     * Days in week for which active hours are configured. This collection can contain a maximum of 7 elements.
      *
@@ -236,8 +236,8 @@ class IosUpdateConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the scheduledInstallDays
     * Days in week for which active hours are configured. This collection can contain a maximum of 7 elements.
     *
@@ -250,7 +250,7 @@ class IosUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["scheduledInstallDays"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the updateScheduleType
     * Update schedule type. Possible values are: updateOutsideOfActiveHours, alwaysUpdate, updateDuringTimeWindows, updateOutsideOfTimeWindows.
@@ -269,7 +269,7 @@ class IosUpdateConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the updateScheduleType
     * Update schedule type. Possible values are: updateOutsideOfActiveHours, alwaysUpdate, updateDuringTimeWindows, updateOutsideOfTimeWindows.
@@ -283,7 +283,7 @@ class IosUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["updateScheduleType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the utcTimeOffsetInMinutes
     * UTC Time Offset indicated in minutes
@@ -298,7 +298,7 @@ class IosUpdateConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the utcTimeOffsetInMinutes
     * UTC Time Offset indicated in minutes
@@ -312,5 +312,5 @@ class IosUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["utcTimeOffsetInMinutes"] = intval($val);
         return $this;
     }
-    
+
 }

@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class DataClassificationService extends Entity
 {
 
-     /** 
+     /**
      * Gets the exactMatchDataStores
      *
      * @return ExactMatchDataStore[]|null The exactMatchDataStores
@@ -45,8 +45,8 @@ class DataClassificationService extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the exactMatchDataStores
     *
     * @param ExactMatchDataStore[] $val The exactMatchDataStores
@@ -58,9 +58,9 @@ class DataClassificationService extends Entity
         $this->_propDict["exactMatchDataStores"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the classifyFileJobs
      *
      * @return JobResponseBase[]|null The classifyFileJobs
@@ -80,8 +80,8 @@ class DataClassificationService extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the classifyFileJobs
     *
     * @param JobResponseBase[] $val The classifyFileJobs
@@ -93,9 +93,9 @@ class DataClassificationService extends Entity
         $this->_propDict["classifyFileJobs"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the classifyTextJobs
      *
      * @return JobResponseBase[]|null The classifyTextJobs
@@ -115,8 +115,8 @@ class DataClassificationService extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the classifyTextJobs
     *
     * @param JobResponseBase[] $val The classifyTextJobs
@@ -128,9 +128,9 @@ class DataClassificationService extends Entity
         $this->_propDict["classifyTextJobs"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the evaluateDlpPoliciesJobs
      *
      * @return JobResponseBase[]|null The evaluateDlpPoliciesJobs
@@ -150,8 +150,8 @@ class DataClassificationService extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the evaluateDlpPoliciesJobs
     *
     * @param JobResponseBase[] $val The evaluateDlpPoliciesJobs
@@ -163,9 +163,9 @@ class DataClassificationService extends Entity
         $this->_propDict["evaluateDlpPoliciesJobs"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the evaluateLabelJobs
      *
      * @return JobResponseBase[]|null The evaluateLabelJobs
@@ -185,8 +185,8 @@ class DataClassificationService extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the evaluateLabelJobs
     *
     * @param JobResponseBase[] $val The evaluateLabelJobs
@@ -198,9 +198,9 @@ class DataClassificationService extends Entity
         $this->_propDict["evaluateLabelJobs"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the jobs
      *
      * @return JobResponseBase[]|null The jobs
@@ -220,8 +220,8 @@ class DataClassificationService extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the jobs
     *
     * @param JobResponseBase[] $val The jobs
@@ -233,9 +233,9 @@ class DataClassificationService extends Entity
         $this->_propDict["jobs"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the sensitiveTypes
      *
      * @return SensitiveType[]|null The sensitiveTypes
@@ -255,8 +255,8 @@ class DataClassificationService extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the sensitiveTypes
     *
     * @param SensitiveType[] $val The sensitiveTypes
@@ -268,9 +268,9 @@ class DataClassificationService extends Entity
         $this->_propDict["sensitiveTypes"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the sensitivityLabels
      *
      * @return SensitivityLabel[]|null The sensitivityLabels
@@ -290,8 +290,8 @@ class DataClassificationService extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the sensitivityLabels
     *
     * @param SensitivityLabel[] $val The sensitivityLabels
@@ -303,9 +303,9 @@ class DataClassificationService extends Entity
         $this->_propDict["sensitivityLabels"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the exactMatchUploadAgents
      *
      * @return ExactMatchUploadAgent[]|null The exactMatchUploadAgents
@@ -325,8 +325,8 @@ class DataClassificationService extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the exactMatchUploadAgents
     *
     * @param ExactMatchUploadAgent[] $val The exactMatchUploadAgents
@@ -338,5 +338,5 @@ class DataClassificationService extends Entity
         $this->_propDict["exactMatchUploadAgents"] = $val;
         return $this;
     }
-    
+
 }

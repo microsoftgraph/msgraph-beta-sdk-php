@@ -38,7 +38,7 @@ class RoleDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Description of the Role definition.
@@ -52,7 +52,7 @@ class RoleDefinition extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Display Name of the Role definition.
@@ -67,7 +67,7 @@ class RoleDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Display Name of the Role definition.
@@ -81,7 +81,7 @@ class RoleDefinition extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isBuiltIn
     * Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.
@@ -96,7 +96,7 @@ class RoleDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isBuiltIn
     * Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.
@@ -110,7 +110,7 @@ class RoleDefinition extends Entity
         $this->_propDict["isBuiltIn"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isBuiltInRoleDefinition
     * Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.
@@ -125,7 +125,7 @@ class RoleDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isBuiltInRoleDefinition
     * Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.
@@ -139,9 +139,9 @@ class RoleDefinition extends Entity
         $this->_propDict["isBuiltInRoleDefinition"] = boolval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the permissions
     * List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission.
      *
@@ -162,8 +162,8 @@ class RoleDefinition extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the permissions
     * List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission.
     *
@@ -176,9 +176,9 @@ class RoleDefinition extends Entity
         $this->_propDict["permissions"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the rolePermissions
     * List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission.
      *
@@ -199,8 +199,8 @@ class RoleDefinition extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the rolePermissions
     * List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission.
     *
@@ -213,7 +213,7 @@ class RoleDefinition extends Entity
         $this->_propDict["rolePermissions"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the roleScopeTagIds
     * List of Scope Tags for this Entity instance.
@@ -228,7 +228,7 @@ class RoleDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the roleScopeTagIds
     * List of Scope Tags for this Entity instance.
@@ -242,9 +242,9 @@ class RoleDefinition extends Entity
         $this->_propDict["roleScopeTagIds"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the roleAssignments
     * List of Role assignments for this role definition.
      *
@@ -265,8 +265,8 @@ class RoleDefinition extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the roleAssignments
     * List of Role assignments for this role definition.
     *
@@ -279,5 +279,5 @@ class RoleDefinition extends Entity
         $this->_propDict["roleAssignments"] = $val;
         return $this;
     }
-    
+
 }

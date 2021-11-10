@@ -42,7 +42,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the content
     * The WindowsDefenderApplicationControl supplemental policy content in byte array format.
@@ -56,7 +56,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         $this->_propDict["content"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the contentFileName
     * The WindowsDefenderApplicationControl supplemental policy content's file name.
@@ -71,7 +71,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the contentFileName
     * The WindowsDefenderApplicationControl supplemental policy content's file name.
@@ -85,7 +85,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         $this->_propDict["contentFileName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the creationDateTime
     * The date and time when the WindowsDefenderApplicationControl supplemental policy was uploaded.
@@ -104,7 +104,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the creationDateTime
     * The date and time when the WindowsDefenderApplicationControl supplemental policy was uploaded.
@@ -118,7 +118,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         $this->_propDict["creationDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * The description of WindowsDefenderApplicationControl supplemental policy.
@@ -133,7 +133,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * The description of WindowsDefenderApplicationControl supplemental policy.
@@ -147,7 +147,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The display name of WindowsDefenderApplicationControl supplemental policy.
@@ -162,7 +162,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The display name of WindowsDefenderApplicationControl supplemental policy.
@@ -176,7 +176,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     * The date and time when the WindowsDefenderApplicationControl supplemental policy was last modified.
@@ -195,7 +195,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     * The date and time when the WindowsDefenderApplicationControl supplemental policy was last modified.
@@ -209,7 +209,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the roleScopeTagIds
     * List of Scope Tags for this WindowsDefenderApplicationControl supplemental policy entity.
@@ -224,7 +224,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the roleScopeTagIds
     * List of Scope Tags for this WindowsDefenderApplicationControl supplemental policy entity.
@@ -238,7 +238,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         $this->_propDict["roleScopeTagIds"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the version
     * The WindowsDefenderApplicationControl supplemental policy's version.
@@ -253,7 +253,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the version
     * The WindowsDefenderApplicationControl supplemental policy's version.
@@ -267,9 +267,9 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         $this->_propDict["version"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the assignments
     * The associated group assignments for this WindowsDefenderApplicationControl supplemental policy.
      *
@@ -290,8 +290,8 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the assignments
     * The associated group assignments for this WindowsDefenderApplicationControl supplemental policy.
     *
@@ -304,7 +304,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         $this->_propDict["assignments"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deploySummary
     * WindowsDefenderApplicationControl supplemental policy deployment summary.
@@ -323,7 +323,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the deploySummary
     * WindowsDefenderApplicationControl supplemental policy deployment summary.
@@ -337,9 +337,9 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         $this->_propDict["deploySummary"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the deviceStatuses
     * The list of device deployment states for this WindowsDefenderApplicationControl supplemental policy.
      *
@@ -360,8 +360,8 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the deviceStatuses
     * The list of device deployment states for this WindowsDefenderApplicationControl supplemental policy.
     *
@@ -374,5 +374,5 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
         $this->_propDict["deviceStatuses"] = $val;
         return $this;
     }
-    
+
 }

@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class Security extends Entity
 {
 
-     /** 
+     /**
      * Gets the providerStatus
      *
      * @return SecurityProviderStatus[]|null The providerStatus
@@ -45,8 +45,8 @@ class Security extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the providerStatus
     *
     * @param SecurityProviderStatus[] $val The providerStatus
@@ -58,9 +58,9 @@ class Security extends Entity
         $this->_propDict["providerStatus"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the incidents
      *
      * @return Incident[]|null The incidents
@@ -80,8 +80,8 @@ class Security extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the incidents
     *
     * @param Incident[] $val The incidents
@@ -93,7 +93,7 @@ class Security extends Entity
         $this->_propDict["incidents"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the attackSimulation
     * Provides tenants capability to launch a simulated and realistic phishing attack and learn from it.
@@ -112,7 +112,7 @@ class Security extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the attackSimulation
     * Provides tenants capability to launch a simulated and realistic phishing attack and learn from it.
@@ -126,9 +126,9 @@ class Security extends Entity
         $this->_propDict["attackSimulation"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the alerts
     * Read-only. Nullable.
      *
@@ -149,8 +149,8 @@ class Security extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the alerts
     * Read-only. Nullable.
     *
@@ -163,9 +163,9 @@ class Security extends Entity
         $this->_propDict["alerts"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the cloudAppSecurityProfiles
      *
      * @return CloudAppSecurityProfile[]|null The cloudAppSecurityProfiles
@@ -185,8 +185,8 @@ class Security extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the cloudAppSecurityProfiles
     *
     * @param CloudAppSecurityProfile[] $val The cloudAppSecurityProfiles
@@ -198,9 +198,9 @@ class Security extends Entity
         $this->_propDict["cloudAppSecurityProfiles"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the domainSecurityProfiles
      *
      * @return DomainSecurityProfile[]|null The domainSecurityProfiles
@@ -220,8 +220,8 @@ class Security extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the domainSecurityProfiles
     *
     * @param DomainSecurityProfile[] $val The domainSecurityProfiles
@@ -233,9 +233,9 @@ class Security extends Entity
         $this->_propDict["domainSecurityProfiles"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the fileSecurityProfiles
      *
      * @return FileSecurityProfile[]|null The fileSecurityProfiles
@@ -255,8 +255,8 @@ class Security extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the fileSecurityProfiles
     *
     * @param FileSecurityProfile[] $val The fileSecurityProfiles
@@ -268,9 +268,9 @@ class Security extends Entity
         $this->_propDict["fileSecurityProfiles"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the hostSecurityProfiles
      *
      * @return HostSecurityProfile[]|null The hostSecurityProfiles
@@ -290,8 +290,8 @@ class Security extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the hostSecurityProfiles
     *
     * @param HostSecurityProfile[] $val The hostSecurityProfiles
@@ -303,9 +303,9 @@ class Security extends Entity
         $this->_propDict["hostSecurityProfiles"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the ipSecurityProfiles
      *
      * @return IpSecurityProfile[]|null The ipSecurityProfiles
@@ -325,8 +325,8 @@ class Security extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the ipSecurityProfiles
     *
     * @param IpSecurityProfile[] $val The ipSecurityProfiles
@@ -338,9 +338,9 @@ class Security extends Entity
         $this->_propDict["ipSecurityProfiles"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the providerTenantSettings
      *
      * @return ProviderTenantSetting[]|null The providerTenantSettings
@@ -360,8 +360,8 @@ class Security extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the providerTenantSettings
     *
     * @param ProviderTenantSetting[] $val The providerTenantSettings
@@ -373,9 +373,9 @@ class Security extends Entity
         $this->_propDict["providerTenantSettings"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the secureScoreControlProfiles
      *
      * @return SecureScoreControlProfile[]|null The secureScoreControlProfiles
@@ -395,8 +395,8 @@ class Security extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the secureScoreControlProfiles
     *
     * @param SecureScoreControlProfile[] $val The secureScoreControlProfiles
@@ -408,9 +408,9 @@ class Security extends Entity
         $this->_propDict["secureScoreControlProfiles"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the secureScores
      *
      * @return SecureScore[]|null The secureScores
@@ -430,8 +430,8 @@ class Security extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the secureScores
     *
     * @param SecureScore[] $val The secureScores
@@ -443,9 +443,9 @@ class Security extends Entity
         $this->_propDict["secureScores"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the securityActions
      *
      * @return SecurityAction[]|null The securityActions
@@ -465,8 +465,8 @@ class Security extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the securityActions
     *
     * @param SecurityAction[] $val The securityActions
@@ -478,9 +478,9 @@ class Security extends Entity
         $this->_propDict["securityActions"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the tiIndicators
      *
      * @return TiIndicator[]|null The tiIndicators
@@ -500,8 +500,8 @@ class Security extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the tiIndicators
     *
     * @param TiIndicator[] $val The tiIndicators
@@ -513,9 +513,9 @@ class Security extends Entity
         $this->_propDict["tiIndicators"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the userSecurityProfiles
      *
      * @return UserSecurityProfile[]|null The userSecurityProfiles
@@ -535,8 +535,8 @@ class Security extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the userSecurityProfiles
     *
     * @param UserSecurityProfile[] $val The userSecurityProfiles
@@ -548,5 +548,5 @@ class Security extends Entity
         $this->_propDict["userSecurityProfiles"] = $val;
         return $this;
     }
-    
+
 }

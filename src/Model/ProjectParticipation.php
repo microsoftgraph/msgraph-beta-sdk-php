@@ -38,7 +38,7 @@ class ProjectParticipation extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the categories
     * Contains categories a user has associated with the project (for example, digital transformation, oil rig).
@@ -52,7 +52,7 @@ class ProjectParticipation extends ItemFacet
         $this->_propDict["categories"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the client
     * Contains detailed information about the client the project was for.
@@ -71,7 +71,7 @@ class ProjectParticipation extends ItemFacet
         }
         return null;
     }
-    
+
     /**
     * Sets the client
     * Contains detailed information about the client the project was for.
@@ -85,7 +85,7 @@ class ProjectParticipation extends ItemFacet
         $this->_propDict["client"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the collaborationTags
     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
@@ -100,7 +100,7 @@ class ProjectParticipation extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the collaborationTags
     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
@@ -114,9 +114,9 @@ class ProjectParticipation extends ItemFacet
         $this->_propDict["collaborationTags"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the colleagues
     * Lists people that also worked on the project.
      *
@@ -137,8 +137,8 @@ class ProjectParticipation extends ItemFacet
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the colleagues
     * Lists people that also worked on the project.
     *
@@ -151,7 +151,7 @@ class ProjectParticipation extends ItemFacet
         $this->_propDict["colleagues"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the detail
     * Contains detail about the user's role on the project.
@@ -170,7 +170,7 @@ class ProjectParticipation extends ItemFacet
         }
         return null;
     }
-    
+
     /**
     * Sets the detail
     * Contains detail about the user's role on the project.
@@ -184,7 +184,7 @@ class ProjectParticipation extends ItemFacet
         $this->_propDict["detail"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Contains a friendly name for the project.
@@ -199,7 +199,7 @@ class ProjectParticipation extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Contains a friendly name for the project.
@@ -213,9 +213,9 @@ class ProjectParticipation extends ItemFacet
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the sponsors
     * The Person or people who sponsored the project.
      *
@@ -236,8 +236,8 @@ class ProjectParticipation extends ItemFacet
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the sponsors
     * The Person or people who sponsored the project.
     *
@@ -250,7 +250,7 @@ class ProjectParticipation extends ItemFacet
         $this->_propDict["sponsors"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the thumbnailUrl
     *
@@ -264,7 +264,7 @@ class ProjectParticipation extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the thumbnailUrl
     *
@@ -277,5 +277,5 @@ class ProjectParticipation extends ItemFacet
         $this->_propDict["thumbnailUrl"] = $val;
         return $this;
     }
-    
+
 }
