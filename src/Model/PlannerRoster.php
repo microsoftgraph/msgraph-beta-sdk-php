@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class PlannerRoster extends Entity
 {
 
-     /** 
+     /**
      * Gets the members
     * Retrieves the members of the plannerRoster.
      *
@@ -46,8 +46,8 @@ class PlannerRoster extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the members
     * Retrieves the members of the plannerRoster.
     *
@@ -60,9 +60,9 @@ class PlannerRoster extends Entity
         $this->_propDict["members"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the plans
     * Retrieves the plans contained by the plannerRoster.
      *
@@ -83,8 +83,8 @@ class PlannerRoster extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the plans
     * Retrieves the plans contained by the plannerRoster.
     *
@@ -97,5 +97,5 @@ class PlannerRoster extends Entity
         $this->_propDict["plans"] = $val;
         return $this;
     }
-    
+
 }

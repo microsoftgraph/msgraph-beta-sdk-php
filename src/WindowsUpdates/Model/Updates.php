@@ -42,7 +42,7 @@ class Updates extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the catalog
     * Catalog of content that can be approved for deployment by the deployment service. Read-only.
@@ -56,9 +56,9 @@ class Updates extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["catalog"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the deployments
     * Deployments created using the deployment service. Read-only.
      *
@@ -79,8 +79,8 @@ class Updates extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the deployments
     * Deployments created using the deployment service. Read-only.
     *
@@ -93,9 +93,9 @@ class Updates extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["deployments"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the updatableAssets
     * Assets registered with the deployment service that can receive updates. Read-only.
      *
@@ -116,8 +116,8 @@ class Updates extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the updatableAssets
     * Assets registered with the deployment service that can receive updates. Read-only.
     *
@@ -130,5 +130,5 @@ class Updates extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["updatableAssets"] = $val;
         return $this;
     }
-    
+
 }

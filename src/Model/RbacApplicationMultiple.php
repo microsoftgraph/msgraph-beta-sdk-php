@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class RbacApplicationMultiple extends Entity
 {
 
-     /** 
+     /**
      * Gets the resourceNamespaces
      *
      * @return UnifiedRbacResourceNamespace[]|null The resourceNamespaces
@@ -45,8 +45,8 @@ class RbacApplicationMultiple extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the resourceNamespaces
     *
     * @param UnifiedRbacResourceNamespace[] $val The resourceNamespaces
@@ -58,9 +58,9 @@ class RbacApplicationMultiple extends Entity
         $this->_propDict["resourceNamespaces"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the roleAssignments
      *
      * @return UnifiedRoleAssignmentMultiple[]|null The roleAssignments
@@ -80,8 +80,8 @@ class RbacApplicationMultiple extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the roleAssignments
     *
     * @param UnifiedRoleAssignmentMultiple[] $val The roleAssignments
@@ -93,9 +93,9 @@ class RbacApplicationMultiple extends Entity
         $this->_propDict["roleAssignments"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the roleDefinitions
      *
      * @return UnifiedRoleDefinition[]|null The roleDefinitions
@@ -115,8 +115,8 @@ class RbacApplicationMultiple extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the roleDefinitions
     *
     * @param UnifiedRoleDefinition[] $val The roleDefinitions
@@ -128,5 +128,5 @@ class RbacApplicationMultiple extends Entity
         $this->_propDict["roleDefinitions"] = $val;
         return $this;
     }
-    
+
 }

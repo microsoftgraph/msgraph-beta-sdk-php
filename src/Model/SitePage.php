@@ -42,7 +42,7 @@ class SitePage extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the contentType
     * The content type of the page.
@@ -56,7 +56,7 @@ class SitePage extends BaseItem
         $this->_propDict["contentType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the pageLayoutType
     *
@@ -70,7 +70,7 @@ class SitePage extends BaseItem
             return null;
         }
     }
-    
+
     /**
     * Sets the pageLayoutType
     *
@@ -83,7 +83,7 @@ class SitePage extends BaseItem
         $this->_propDict["pageLayoutType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the publishingState
     *
@@ -101,7 +101,7 @@ class SitePage extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the publishingState
     *
@@ -114,7 +114,7 @@ class SitePage extends BaseItem
         $this->_propDict["publishingState"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the title
     *
@@ -128,7 +128,7 @@ class SitePage extends BaseItem
             return null;
         }
     }
-    
+
     /**
     * Sets the title
     *
@@ -141,9 +141,9 @@ class SitePage extends BaseItem
         $this->_propDict["title"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the webParts
      *
      * @return WebPart[]|null The webParts
@@ -163,8 +163,8 @@ class SitePage extends BaseItem
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the webParts
     *
     * @param WebPart[] $val The webParts
@@ -176,5 +176,5 @@ class SitePage extends BaseItem
         $this->_propDict["webParts"] = $val;
         return $this;
     }
-    
+
 }

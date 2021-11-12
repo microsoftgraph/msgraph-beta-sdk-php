@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class Authentication extends Entity
 {
 
-     /** 
+     /**
      * Gets the emailMethods
      *
      * @return EmailAuthenticationMethod[]|null The emailMethods
@@ -45,8 +45,8 @@ class Authentication extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the emailMethods
     *
     * @param EmailAuthenticationMethod[] $val The emailMethods
@@ -58,9 +58,9 @@ class Authentication extends Entity
         $this->_propDict["emailMethods"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the fido2Methods
      *
      * @return Fido2AuthenticationMethod[]|null The fido2Methods
@@ -80,8 +80,8 @@ class Authentication extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the fido2Methods
     *
     * @param Fido2AuthenticationMethod[] $val The fido2Methods
@@ -93,9 +93,9 @@ class Authentication extends Entity
         $this->_propDict["fido2Methods"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the methods
      *
      * @return AuthenticationMethod[]|null The methods
@@ -115,8 +115,8 @@ class Authentication extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the methods
     *
     * @param AuthenticationMethod[] $val The methods
@@ -128,9 +128,9 @@ class Authentication extends Entity
         $this->_propDict["methods"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the microsoftAuthenticatorMethods
      *
      * @return MicrosoftAuthenticatorAuthenticationMethod[]|null The microsoftAuthenticatorMethods
@@ -150,8 +150,8 @@ class Authentication extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the microsoftAuthenticatorMethods
     *
     * @param MicrosoftAuthenticatorAuthenticationMethod[] $val The microsoftAuthenticatorMethods
@@ -163,9 +163,9 @@ class Authentication extends Entity
         $this->_propDict["microsoftAuthenticatorMethods"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the operations
      *
      * @return LongRunningOperation[]|null The operations
@@ -185,8 +185,8 @@ class Authentication extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the operations
     *
     * @param LongRunningOperation[] $val The operations
@@ -198,9 +198,9 @@ class Authentication extends Entity
         $this->_propDict["operations"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the passwordlessMicrosoftAuthenticatorMethods
      *
      * @return PasswordlessMicrosoftAuthenticatorAuthenticationMethod[]|null The passwordlessMicrosoftAuthenticatorMethods
@@ -220,8 +220,8 @@ class Authentication extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the passwordlessMicrosoftAuthenticatorMethods
     *
     * @param PasswordlessMicrosoftAuthenticatorAuthenticationMethod[] $val The passwordlessMicrosoftAuthenticatorMethods
@@ -233,9 +233,9 @@ class Authentication extends Entity
         $this->_propDict["passwordlessMicrosoftAuthenticatorMethods"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the passwordMethods
      *
      * @return PasswordAuthenticationMethod[]|null The passwordMethods
@@ -255,8 +255,8 @@ class Authentication extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the passwordMethods
     *
     * @param PasswordAuthenticationMethod[] $val The passwordMethods
@@ -268,9 +268,9 @@ class Authentication extends Entity
         $this->_propDict["passwordMethods"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the phoneMethods
      *
      * @return PhoneAuthenticationMethod[]|null The phoneMethods
@@ -290,8 +290,8 @@ class Authentication extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the phoneMethods
     *
     * @param PhoneAuthenticationMethod[] $val The phoneMethods
@@ -303,9 +303,9 @@ class Authentication extends Entity
         $this->_propDict["phoneMethods"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the softwareOathMethods
      *
      * @return SoftwareOathAuthenticationMethod[]|null The softwareOathMethods
@@ -325,8 +325,8 @@ class Authentication extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the softwareOathMethods
     *
     * @param SoftwareOathAuthenticationMethod[] $val The softwareOathMethods
@@ -338,9 +338,9 @@ class Authentication extends Entity
         $this->_propDict["softwareOathMethods"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the temporaryAccessPassMethods
      *
      * @return TemporaryAccessPassAuthenticationMethod[]|null The temporaryAccessPassMethods
@@ -360,8 +360,8 @@ class Authentication extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the temporaryAccessPassMethods
     *
     * @param TemporaryAccessPassAuthenticationMethod[] $val The temporaryAccessPassMethods
@@ -373,9 +373,9 @@ class Authentication extends Entity
         $this->_propDict["temporaryAccessPassMethods"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the windowsHelloForBusinessMethods
      *
      * @return WindowsHelloForBusinessAuthenticationMethod[]|null The windowsHelloForBusinessMethods
@@ -395,8 +395,8 @@ class Authentication extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the windowsHelloForBusinessMethods
     *
     * @param WindowsHelloForBusinessAuthenticationMethod[] $val The windowsHelloForBusinessMethods
@@ -408,5 +408,5 @@ class Authentication extends Entity
         $this->_propDict["windowsHelloForBusinessMethods"] = $val;
         return $this;
     }
-    
+
 }

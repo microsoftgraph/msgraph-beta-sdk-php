@@ -38,7 +38,7 @@ class EmbeddedSIMActivationCodePool extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the activationCodeCount
     * The total count of activation codes which belong to this pool.
@@ -52,9 +52,9 @@ class EmbeddedSIMActivationCodePool extends Entity
         $this->_propDict["activationCodeCount"] = intval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the activationCodes
     * The activation codes which belong to this pool. This navigation property is used to post activation codes to Intune but cannot be used to read activation codes from Intune.
      *
@@ -75,8 +75,8 @@ class EmbeddedSIMActivationCodePool extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the activationCodes
     * The activation codes which belong to this pool. This navigation property is used to post activation codes to Intune but cannot be used to read activation codes from Intune.
     *
@@ -89,7 +89,7 @@ class EmbeddedSIMActivationCodePool extends Entity
         $this->_propDict["activationCodes"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdDateTime
     * The time the embedded SIM activation code pool was created. Generated service side.
@@ -108,7 +108,7 @@ class EmbeddedSIMActivationCodePool extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * The time the embedded SIM activation code pool was created. Generated service side.
@@ -122,7 +122,7 @@ class EmbeddedSIMActivationCodePool extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The admin defined name of the embedded SIM activation code pool.
@@ -137,7 +137,7 @@ class EmbeddedSIMActivationCodePool extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The admin defined name of the embedded SIM activation code pool.
@@ -151,7 +151,7 @@ class EmbeddedSIMActivationCodePool extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the modifiedDateTime
     * The time the embedded SIM activation code pool was last modified. Updated service side.
@@ -170,7 +170,7 @@ class EmbeddedSIMActivationCodePool extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the modifiedDateTime
     * The time the embedded SIM activation code pool was last modified. Updated service side.
@@ -184,9 +184,9 @@ class EmbeddedSIMActivationCodePool extends Entity
         $this->_propDict["modifiedDateTime"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the assignments
     * Navigational property to a list of targets to which this pool is assigned.
      *
@@ -207,8 +207,8 @@ class EmbeddedSIMActivationCodePool extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the assignments
     * Navigational property to a list of targets to which this pool is assigned.
     *
@@ -221,9 +221,9 @@ class EmbeddedSIMActivationCodePool extends Entity
         $this->_propDict["assignments"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the deviceStates
     * Navigational property to a list of device states for this pool.
      *
@@ -244,8 +244,8 @@ class EmbeddedSIMActivationCodePool extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the deviceStates
     * Navigational property to a list of device states for this pool.
     *
@@ -258,5 +258,5 @@ class EmbeddedSIMActivationCodePool extends Entity
         $this->_propDict["deviceStates"] = $val;
         return $this;
     }
-    
+
 }

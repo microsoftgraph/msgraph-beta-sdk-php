@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class TimeCard extends ChangeTrackedEntity
 {
 
-     /** 
+     /**
      * Gets the breaks
     * The list of breaks associated with the timeCard.
      *
@@ -46,8 +46,8 @@ class TimeCard extends ChangeTrackedEntity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the breaks
     * The list of breaks associated with the timeCard.
     *
@@ -60,7 +60,7 @@ class TimeCard extends ChangeTrackedEntity
         $this->_propDict["breaks"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the clockInEvent
     * The clock-in event of the timeCard.
@@ -79,7 +79,7 @@ class TimeCard extends ChangeTrackedEntity
         }
         return null;
     }
-    
+
     /**
     * Sets the clockInEvent
     * The clock-in event of the timeCard.
@@ -93,7 +93,7 @@ class TimeCard extends ChangeTrackedEntity
         $this->_propDict["clockInEvent"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the clockOutEvent
     * The clock-out event of the timeCard.
@@ -112,7 +112,7 @@ class TimeCard extends ChangeTrackedEntity
         }
         return null;
     }
-    
+
     /**
     * Sets the clockOutEvent
     * The clock-out event of the timeCard.
@@ -126,7 +126,7 @@ class TimeCard extends ChangeTrackedEntity
         $this->_propDict["clockOutEvent"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the confirmedBy
     * Indicate if this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
@@ -145,7 +145,7 @@ class TimeCard extends ChangeTrackedEntity
         }
         return null;
     }
-    
+
     /**
     * Sets the confirmedBy
     * Indicate if this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
@@ -159,7 +159,7 @@ class TimeCard extends ChangeTrackedEntity
         $this->_propDict["confirmedBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the notes
     * Notes about the timeCard.
@@ -178,7 +178,7 @@ class TimeCard extends ChangeTrackedEntity
         }
         return null;
     }
-    
+
     /**
     * Sets the notes
     * Notes about the timeCard.
@@ -192,7 +192,7 @@ class TimeCard extends ChangeTrackedEntity
         $this->_propDict["notes"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the originalEntry
     * The original timeCardEntry of the timeCard, before user edits.
@@ -211,7 +211,7 @@ class TimeCard extends ChangeTrackedEntity
         }
         return null;
     }
-    
+
     /**
     * Sets the originalEntry
     * The original timeCardEntry of the timeCard, before user edits.
@@ -225,7 +225,7 @@ class TimeCard extends ChangeTrackedEntity
         $this->_propDict["originalEntry"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the state
     * The current state of the timeCard during its life cycle.Possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue.
@@ -244,7 +244,7 @@ class TimeCard extends ChangeTrackedEntity
         }
         return null;
     }
-    
+
     /**
     * Sets the state
     * The current state of the timeCard during its life cycle.Possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue.
@@ -258,7 +258,7 @@ class TimeCard extends ChangeTrackedEntity
         $this->_propDict["state"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userId
     * User ID to which  the timeCard belongs.
@@ -273,7 +273,7 @@ class TimeCard extends ChangeTrackedEntity
             return null;
         }
     }
-    
+
     /**
     * Sets the userId
     * User ID to which  the timeCard belongs.
@@ -287,5 +287,5 @@ class TimeCard extends ChangeTrackedEntity
         $this->_propDict["userId"] = $val;
         return $this;
     }
-    
+
 }

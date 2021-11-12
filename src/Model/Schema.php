@@ -37,7 +37,7 @@ class Schema extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the baseType
     *
@@ -50,9 +50,9 @@ class Schema extends Entity
         $this->_propDict["baseType"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the schemaProperties
      *
      * @return Property[]|null The schemaProperties
@@ -72,8 +72,8 @@ class Schema extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the schemaProperties
     *
     * @param Property[] $val The schemaProperties
@@ -85,5 +85,5 @@ class Schema extends Entity
         $this->_propDict["properties"] = $val;
         return $this;
     }
-    
+
 }

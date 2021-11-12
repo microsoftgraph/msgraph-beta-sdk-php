@@ -41,7 +41,7 @@ class InformationProtection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the bitlocker
     *
@@ -54,9 +54,9 @@ class InformationProtection extends Entity
         $this->_propDict["bitlocker"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the dataLossPreventionPolicies
      *
      * @return DataLossPreventionPolicy[]|null The dataLossPreventionPolicies
@@ -76,8 +76,8 @@ class InformationProtection extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the dataLossPreventionPolicies
     *
     * @param DataLossPreventionPolicy[] $val The dataLossPreventionPolicies
@@ -89,9 +89,9 @@ class InformationProtection extends Entity
         $this->_propDict["dataLossPreventionPolicies"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the sensitivityLabels
      *
      * @return SensitivityLabel[]|null The sensitivityLabels
@@ -111,8 +111,8 @@ class InformationProtection extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the sensitivityLabels
     *
     * @param SensitivityLabel[] $val The sensitivityLabels
@@ -124,7 +124,7 @@ class InformationProtection extends Entity
         $this->_propDict["sensitivityLabels"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the sensitivityPolicySettings
     *
@@ -142,7 +142,7 @@ class InformationProtection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the sensitivityPolicySettings
     *
@@ -155,7 +155,7 @@ class InformationProtection extends Entity
         $this->_propDict["sensitivityPolicySettings"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the policy
     *
@@ -173,7 +173,7 @@ class InformationProtection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the policy
     *
@@ -186,9 +186,9 @@ class InformationProtection extends Entity
         $this->_propDict["policy"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the threatAssessmentRequests
      *
      * @return ThreatAssessmentRequest[]|null The threatAssessmentRequests
@@ -208,8 +208,8 @@ class InformationProtection extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the threatAssessmentRequests
     *
     * @param ThreatAssessmentRequest[] $val The threatAssessmentRequests
@@ -221,5 +221,5 @@ class InformationProtection extends Entity
         $this->_propDict["threatAssessmentRequests"] = $val;
         return $this;
     }
-    
+
 }

@@ -38,7 +38,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the kernelExtensionAllowedTeamIdentifiers
     * All kernel extensions validly signed by the team identifiers in this list will be allowed to load.
@@ -52,7 +52,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
         $this->_propDict["kernelExtensionAllowedTeamIdentifiers"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the kernelExtensionOverridesAllowed
     * If set to true, users can approve additional kernel extensions not explicitly allowed by configurations profiles.
@@ -67,7 +67,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the kernelExtensionOverridesAllowed
     * If set to true, users can approve additional kernel extensions not explicitly allowed by configurations profiles.
@@ -81,9 +81,9 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
         $this->_propDict["kernelExtensionOverridesAllowed"] = boolval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the kernelExtensionsAllowed
     * A list of kernel extensions that will be allowed to load. . This collection can contain a maximum of 500 elements.
      *
@@ -104,8 +104,8 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the kernelExtensionsAllowed
     * A list of kernel extensions that will be allowed to load. . This collection can contain a maximum of 500 elements.
     *
@@ -118,9 +118,9 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
         $this->_propDict["kernelExtensionsAllowed"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the systemExtensionsAllowed
     * Gets or sets a list of allowed macOS system extensions. This collection can contain a maximum of 500 elements.
      *
@@ -141,8 +141,8 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the systemExtensionsAllowed
     * Gets or sets a list of allowed macOS system extensions. This collection can contain a maximum of 500 elements.
     *
@@ -155,7 +155,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
         $this->_propDict["systemExtensionsAllowed"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the systemExtensionsAllowedTeamIdentifiers
     * Gets or sets a list of allowed team identifiers. Any system extension signed with any of the specified team identifiers will be approved.
@@ -170,7 +170,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the systemExtensionsAllowedTeamIdentifiers
     * Gets or sets a list of allowed team identifiers. Any system extension signed with any of the specified team identifiers will be approved.
@@ -184,9 +184,9 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
         $this->_propDict["systemExtensionsAllowedTeamIdentifiers"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the systemExtensionsAllowedTypes
     * Gets or sets a list of allowed macOS system extension types. This collection can contain a maximum of 500 elements.
      *
@@ -207,8 +207,8 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the systemExtensionsAllowedTypes
     * Gets or sets a list of allowed macOS system extension types. This collection can contain a maximum of 500 elements.
     *
@@ -221,7 +221,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
         $this->_propDict["systemExtensionsAllowedTypes"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the systemExtensionsBlockOverride
     * Gets or sets whether to allow the user to approve additional system extensions not explicitly allowed by configuration profiles.
@@ -236,7 +236,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the systemExtensionsBlockOverride
     * Gets or sets whether to allow the user to approve additional system extensions not explicitly allowed by configuration profiles.
@@ -250,5 +250,5 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
         $this->_propDict["systemExtensionsBlockOverride"] = boolval($val);
         return $this;
     }
-    
+
 }

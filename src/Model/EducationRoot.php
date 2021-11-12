@@ -31,7 +31,7 @@ class EducationRoot implements \JsonSerializable
     * @var array $_propDict
     */
     protected $_propDict;
-    
+
     /**
     * Construct a new EducationRoot
     *
@@ -54,9 +54,9 @@ class EducationRoot implements \JsonSerializable
     {
         return $this->_propDict;
     }
-    
 
-     /** 
+
+     /**
      * Gets the synchronizationProfiles
      *
      * @return EducationSynchronizationProfile[]|null The synchronizationProfiles
@@ -76,8 +76,8 @@ class EducationRoot implements \JsonSerializable
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the synchronizationProfiles
     *
     * @param EducationSynchronizationProfile[] $val The synchronizationProfiles
@@ -89,9 +89,9 @@ class EducationRoot implements \JsonSerializable
         $this->_propDict["synchronizationProfiles"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the classes
      *
      * @return EducationClass[]|null The classes
@@ -111,8 +111,8 @@ class EducationRoot implements \JsonSerializable
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the classes
     *
     * @param EducationClass[] $val The classes
@@ -124,7 +124,7 @@ class EducationRoot implements \JsonSerializable
         $this->_propDict["classes"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the me
     *
@@ -142,7 +142,7 @@ class EducationRoot implements \JsonSerializable
         }
         return null;
     }
-    
+
     /**
     * Sets the me
     *
@@ -155,9 +155,9 @@ class EducationRoot implements \JsonSerializable
         $this->_propDict["me"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the schools
      *
      * @return EducationSchool[]|null The schools
@@ -177,8 +177,8 @@ class EducationRoot implements \JsonSerializable
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the schools
     *
     * @param EducationSchool[] $val The schools
@@ -190,9 +190,9 @@ class EducationRoot implements \JsonSerializable
         $this->_propDict["schools"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the users
      *
      * @return EducationUser[]|null The users
@@ -212,8 +212,8 @@ class EducationRoot implements \JsonSerializable
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the users
     *
     * @param EducationUser[] $val The users
@@ -225,7 +225,7 @@ class EducationRoot implements \JsonSerializable
         $this->_propDict["users"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the ODataType
     *
@@ -238,7 +238,7 @@ class EducationRoot implements \JsonSerializable
         }
         return null;
     }
-    
+
     /**
     * Sets the ODataType
     *
@@ -251,7 +251,7 @@ class EducationRoot implements \JsonSerializable
         $this->_propDict["@odata.type"] = $val;
         return $this;
     }
-    
+
     /**
     * Serializes the object by property array
     * Manually serialize DateTime into RFC3339 format
@@ -262,24 +262,32 @@ class EducationRoot implements \JsonSerializable
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, '\DateTime')) {
-                $serializableProperties[$property] = $val->format(\DateTimeInterface::RFC3339);
-            } else if (is_a($val, '\Microsoft\Graph\Core\Enum')) {
-                $serializableProperties[$property] = $val->value();
-            } else if (is_array($val)) {
-                $values = [];
-                if (count($val) > 0 && is_a($val[0], '\DateTime')) {
-                   foreach ($values as $propertyValue) {
-                       $values []= $propertyValue->format(\DateTimeInterface::RFC3339);
-                   }
-                } else if(count($val) > 0 && is_a($val[0], '\Microsoft\Graph\Core\Enum')) {
-                    foreach ($values as $propertyValue) {
-                       $values []= $propertyValue->value();
-                   }
-                }
-                $serializableProperties[$property] = $values;
+            if (is_array($val) && !empty($val)) {
+                $serializableProperties[$property] = array_map(function ($element) {
+                    return $this->serializeUniqueTypes($element);
+                }, $val);
+                continue;
             }
+            $serializableProperties[$property] = $this->serializeUniqueTypes($val);
         }
         return $serializableProperties;
+    }
+
+    /**
+    * Returns serialized value of \DateTime, \Microsoft\Graph\Core\Enum & \Microsoft\Graph\Entity types
+    *
+    * @return mixed
+    **/
+    private function serializeUniqueTypes($val)
+    {
+        if (is_a($val, '\DateTime')) {
+            return $val->format(\DateTimeInterface::RFC3339);
+        } else if (is_a($val, '\Microsoft\Graph\Core\Enum')) {
+            return $val->value();
+        } else if (is_a($val, "\Entity")) {
+            return $val->jsonSerialize();
+        } else {
+            return $val;
+        }
     }
 }

@@ -42,7 +42,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the certificateValidityPeriodScale
     * Scale for the Certificate Validity Period. Possible values are: days, months, years.
@@ -56,7 +56,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         $this->_propDict["certificateValidityPeriodScale"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the certificateValidityPeriodValue
     * Value for the Certificate Validtiy Period.
@@ -71,7 +71,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the certificateValidityPeriodValue
     * Value for the Certificate Validtiy Period.
@@ -85,9 +85,9 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         $this->_propDict["certificateValidityPeriodValue"] = intval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the extendedKeyUsages
     * Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
      *
@@ -108,8 +108,8 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the extendedKeyUsages
     * Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
     *
@@ -122,7 +122,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         $this->_propDict["extendedKeyUsages"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the keyStorageProvider
     * Key Storage Provider (KSP). Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
@@ -141,7 +141,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the keyStorageProvider
     * Key Storage Provider (KSP). Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
@@ -155,7 +155,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         $this->_propDict["keyStorageProvider"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the renewalThresholdPercentage
     * Certificate renewal threshold percentage.
@@ -170,7 +170,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the renewalThresholdPercentage
     * Certificate renewal threshold percentage.
@@ -184,7 +184,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         $this->_propDict["renewalThresholdPercentage"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the subjectAlternativeNameType
     * Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
@@ -203,7 +203,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the subjectAlternativeNameType
     * Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
@@ -217,7 +217,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         $this->_propDict["subjectAlternativeNameType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the subjectNameFormat
     * Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
@@ -236,7 +236,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the subjectNameFormat
     * Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
@@ -250,5 +250,5 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         $this->_propDict["subjectNameFormat"] = $val;
         return $this;
     }
-    
+
 }

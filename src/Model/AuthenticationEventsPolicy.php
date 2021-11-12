@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class AuthenticationEventsPolicy extends Entity
 {
 
-     /** 
+     /**
      * Gets the onSignupStart
     * A list of applicable actions to be taken on sign-up.
      *
@@ -46,8 +46,8 @@ class AuthenticationEventsPolicy extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the onSignupStart
     * A list of applicable actions to be taken on sign-up.
     *
@@ -60,5 +60,5 @@ class AuthenticationEventsPolicy extends Entity
         $this->_propDict["onSignupStart"] = $val;
         return $this;
     }
-    
+
 }

@@ -37,7 +37,7 @@ class FileSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the activityGroupNames
     *
@@ -50,7 +50,7 @@ class FileSecurityProfile extends Entity
         $this->_propDict["activityGroupNames"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the azureSubscriptionId
     *
@@ -64,7 +64,7 @@ class FileSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the azureSubscriptionId
     *
@@ -77,7 +77,7 @@ class FileSecurityProfile extends Entity
         $this->_propDict["azureSubscriptionId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the azureTenantId
     *
@@ -91,7 +91,7 @@ class FileSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the azureTenantId
     *
@@ -104,7 +104,7 @@ class FileSecurityProfile extends Entity
         $this->_propDict["azureTenantId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the certificateThumbprint
     *
@@ -118,7 +118,7 @@ class FileSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the certificateThumbprint
     *
@@ -131,7 +131,7 @@ class FileSecurityProfile extends Entity
         $this->_propDict["certificateThumbprint"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the extensions
     *
@@ -145,7 +145,7 @@ class FileSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the extensions
     *
@@ -158,7 +158,7 @@ class FileSecurityProfile extends Entity
         $this->_propDict["extensions"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the fileType
     *
@@ -172,7 +172,7 @@ class FileSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the fileType
     *
@@ -185,7 +185,7 @@ class FileSecurityProfile extends Entity
         $this->_propDict["fileType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the firstSeenDateTime
     *
@@ -203,7 +203,7 @@ class FileSecurityProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the firstSeenDateTime
     *
@@ -216,9 +216,9 @@ class FileSecurityProfile extends Entity
         $this->_propDict["firstSeenDateTime"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the hashes
      *
      * @return FileHash[]|null The hashes
@@ -238,8 +238,8 @@ class FileSecurityProfile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the hashes
     *
     * @param FileHash[] $val The hashes
@@ -251,7 +251,7 @@ class FileSecurityProfile extends Entity
         $this->_propDict["hashes"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastSeenDateTime
     *
@@ -269,7 +269,7 @@ class FileSecurityProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastSeenDateTime
     *
@@ -282,9 +282,9 @@ class FileSecurityProfile extends Entity
         $this->_propDict["lastSeenDateTime"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the malwareStates
      *
      * @return MalwareState[]|null The malwareStates
@@ -304,8 +304,8 @@ class FileSecurityProfile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the malwareStates
     *
     * @param MalwareState[] $val The malwareStates
@@ -317,7 +317,7 @@ class FileSecurityProfile extends Entity
         $this->_propDict["malwareStates"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the names
     *
@@ -331,7 +331,7 @@ class FileSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the names
     *
@@ -344,7 +344,7 @@ class FileSecurityProfile extends Entity
         $this->_propDict["names"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the riskScore
     *
@@ -358,7 +358,7 @@ class FileSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the riskScore
     *
@@ -371,7 +371,7 @@ class FileSecurityProfile extends Entity
         $this->_propDict["riskScore"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the size
     *
@@ -385,7 +385,7 @@ class FileSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the size
     *
@@ -398,7 +398,7 @@ class FileSecurityProfile extends Entity
         $this->_propDict["size"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the tags
     *
@@ -412,7 +412,7 @@ class FileSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the tags
     *
@@ -425,7 +425,7 @@ class FileSecurityProfile extends Entity
         $this->_propDict["tags"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the vendorInformation
     *
@@ -443,7 +443,7 @@ class FileSecurityProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the vendorInformation
     *
@@ -456,9 +456,9 @@ class FileSecurityProfile extends Entity
         $this->_propDict["vendorInformation"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the vulnerabilityStates
      *
      * @return VulnerabilityState[]|null The vulnerabilityStates
@@ -478,8 +478,8 @@ class FileSecurityProfile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the vulnerabilityStates
     *
     * @param VulnerabilityState[] $val The vulnerabilityStates
@@ -491,5 +491,5 @@ class FileSecurityProfile extends Entity
         $this->_propDict["vulnerabilityStates"] = $val;
         return $this;
     }
-    
+
 }

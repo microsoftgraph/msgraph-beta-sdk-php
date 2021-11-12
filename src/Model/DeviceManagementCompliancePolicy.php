@@ -42,7 +42,7 @@ class DeviceManagementCompliancePolicy extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * Policy creation date and time. This property is read-only.
@@ -56,7 +56,7 @@ class DeviceManagementCompliancePolicy extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the creationSource
     * Policy creation source
@@ -71,7 +71,7 @@ class DeviceManagementCompliancePolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the creationSource
     * Policy creation source
@@ -85,7 +85,7 @@ class DeviceManagementCompliancePolicy extends Entity
         $this->_propDict["creationSource"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * Policy description
@@ -100,7 +100,7 @@ class DeviceManagementCompliancePolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Policy description
@@ -114,7 +114,7 @@ class DeviceManagementCompliancePolicy extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isAssigned
     * Policy assignment status. This property is read-only.
@@ -129,7 +129,7 @@ class DeviceManagementCompliancePolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isAssigned
     * Policy assignment status. This property is read-only.
@@ -143,7 +143,7 @@ class DeviceManagementCompliancePolicy extends Entity
         $this->_propDict["isAssigned"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     * Policy last modification date and time. This property is read-only.
@@ -162,7 +162,7 @@ class DeviceManagementCompliancePolicy extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     * Policy last modification date and time. This property is read-only.
@@ -176,7 +176,7 @@ class DeviceManagementCompliancePolicy extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the name
     * Policy name
@@ -191,7 +191,7 @@ class DeviceManagementCompliancePolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the name
     * Policy name
@@ -205,7 +205,7 @@ class DeviceManagementCompliancePolicy extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the platforms
     * Platforms for this policy. Possible values are: none, android, iOS, macOS, windows10X, windows10.
@@ -224,7 +224,7 @@ class DeviceManagementCompliancePolicy extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the platforms
     * Platforms for this policy. Possible values are: none, android, iOS, macOS, windows10X, windows10.
@@ -238,7 +238,7 @@ class DeviceManagementCompliancePolicy extends Entity
         $this->_propDict["platforms"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the roleScopeTagIds
     * List of Scope Tags for this Entity instance.
@@ -253,7 +253,7 @@ class DeviceManagementCompliancePolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the roleScopeTagIds
     * List of Scope Tags for this Entity instance.
@@ -267,7 +267,7 @@ class DeviceManagementCompliancePolicy extends Entity
         $this->_propDict["roleScopeTagIds"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingCount
     * Number of settings. This property is read-only.
@@ -282,7 +282,7 @@ class DeviceManagementCompliancePolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the settingCount
     * Number of settings. This property is read-only.
@@ -296,7 +296,7 @@ class DeviceManagementCompliancePolicy extends Entity
         $this->_propDict["settingCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the technologies
     * Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
@@ -315,7 +315,7 @@ class DeviceManagementCompliancePolicy extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the technologies
     * Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
@@ -329,9 +329,9 @@ class DeviceManagementCompliancePolicy extends Entity
         $this->_propDict["technologies"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the assignments
     * Policy assignments
      *
@@ -352,8 +352,8 @@ class DeviceManagementCompliancePolicy extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the assignments
     * Policy assignments
     *
@@ -366,9 +366,9 @@ class DeviceManagementCompliancePolicy extends Entity
         $this->_propDict["assignments"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the scheduledActionsForRule
     * The list of scheduled action for this rule
      *
@@ -389,8 +389,8 @@ class DeviceManagementCompliancePolicy extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the scheduledActionsForRule
     * The list of scheduled action for this rule
     *
@@ -403,9 +403,9 @@ class DeviceManagementCompliancePolicy extends Entity
         $this->_propDict["scheduledActionsForRule"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the settings
     * Policy settings
      *
@@ -426,8 +426,8 @@ class DeviceManagementCompliancePolicy extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the settings
     * Policy settings
     *
@@ -440,5 +440,5 @@ class DeviceManagementCompliancePolicy extends Entity
         $this->_propDict["settings"] = $val;
         return $this;
     }
-    
+
 }

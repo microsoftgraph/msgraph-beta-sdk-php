@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class ExactMatchDataStoreBase extends Entity
 {
 
-     /** 
+     /**
      * Gets the columns
      *
      * @return ExactDataMatchStoreColumn[]|null The columns
@@ -45,8 +45,8 @@ class ExactMatchDataStoreBase extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the columns
     *
     * @param ExactDataMatchStoreColumn[] $val The columns
@@ -58,7 +58,7 @@ class ExactMatchDataStoreBase extends Entity
         $this->_propDict["columns"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the dataLastUpdatedDateTime
     *
@@ -76,7 +76,7 @@ class ExactMatchDataStoreBase extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the dataLastUpdatedDateTime
     *
@@ -89,7 +89,7 @@ class ExactMatchDataStoreBase extends Entity
         $this->_propDict["dataLastUpdatedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     *
@@ -103,7 +103,7 @@ class ExactMatchDataStoreBase extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     *
@@ -116,7 +116,7 @@ class ExactMatchDataStoreBase extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     *
@@ -130,7 +130,7 @@ class ExactMatchDataStoreBase extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     *
@@ -143,5 +143,5 @@ class ExactMatchDataStoreBase extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
 }

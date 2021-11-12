@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class DeviceManagementTroubleshootingEvent extends Entity
 {
 
-     /** 
+     /**
      * Gets the additionalInformation
     * A set of string key and string value pairs which provides additional information on the Troubleshooting event
      *
@@ -46,8 +46,8 @@ class DeviceManagementTroubleshootingEvent extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the additionalInformation
     * A set of string key and string value pairs which provides additional information on the Troubleshooting event
     *
@@ -60,7 +60,7 @@ class DeviceManagementTroubleshootingEvent extends Entity
         $this->_propDict["additionalInformation"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the correlationId
     * Id used for tracing the failure in the service.
@@ -75,7 +75,7 @@ class DeviceManagementTroubleshootingEvent extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the correlationId
     * Id used for tracing the failure in the service.
@@ -89,7 +89,7 @@ class DeviceManagementTroubleshootingEvent extends Entity
         $this->_propDict["correlationId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the eventDateTime
     * Time when the event occurred .
@@ -108,7 +108,7 @@ class DeviceManagementTroubleshootingEvent extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the eventDateTime
     * Time when the event occurred .
@@ -122,7 +122,7 @@ class DeviceManagementTroubleshootingEvent extends Entity
         $this->_propDict["eventDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the eventName
     * Event Name corresponding to the Troubleshooting Event. It is an Optional field
@@ -137,7 +137,7 @@ class DeviceManagementTroubleshootingEvent extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the eventName
     * Event Name corresponding to the Troubleshooting Event. It is an Optional field
@@ -151,7 +151,7 @@ class DeviceManagementTroubleshootingEvent extends Entity
         $this->_propDict["eventName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the troubleshootingErrorDetails
     * Object containing detailed information about the error and its remediation.
@@ -170,7 +170,7 @@ class DeviceManagementTroubleshootingEvent extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the troubleshootingErrorDetails
     * Object containing detailed information about the error and its remediation.
@@ -184,5 +184,5 @@ class DeviceManagementTroubleshootingEvent extends Entity
         $this->_propDict["troubleshootingErrorDetails"] = $val;
         return $this;
     }
-    
+
 }

@@ -41,7 +41,7 @@ class MessageRecipient extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the deliveryStatus
     *
@@ -54,7 +54,7 @@ class MessageRecipient extends Entity
         $this->_propDict["deliveryStatus"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the recipientEmail
     *
@@ -68,7 +68,7 @@ class MessageRecipient extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the recipientEmail
     *
@@ -81,9 +81,9 @@ class MessageRecipient extends Entity
         $this->_propDict["recipientEmail"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the events
      *
      * @return MessageEvent[]|null The events
@@ -103,8 +103,8 @@ class MessageRecipient extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the events
     *
     * @param MessageEvent[] $val The events
@@ -116,5 +116,5 @@ class MessageRecipient extends Entity
         $this->_propDict["events"] = $val;
         return $this;
     }
-    
+
 }

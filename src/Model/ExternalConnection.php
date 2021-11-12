@@ -41,7 +41,7 @@ class ExternalConnection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the configuration
     *
@@ -54,7 +54,7 @@ class ExternalConnection extends Entity
         $this->_propDict["configuration"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     *
@@ -68,7 +68,7 @@ class ExternalConnection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     *
@@ -81,7 +81,7 @@ class ExternalConnection extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the name
     *
@@ -95,7 +95,7 @@ class ExternalConnection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the name
     *
@@ -108,7 +108,7 @@ class ExternalConnection extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the state
     *
@@ -126,7 +126,7 @@ class ExternalConnection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the state
     *
@@ -139,9 +139,9 @@ class ExternalConnection extends Entity
         $this->_propDict["state"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the groups
      *
      * @return ExternalGroup[]|null The groups
@@ -161,8 +161,8 @@ class ExternalConnection extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the groups
     *
     * @param ExternalGroup[] $val The groups
@@ -174,9 +174,9 @@ class ExternalConnection extends Entity
         $this->_propDict["groups"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the items
      *
      * @return ExternalItem[]|null The items
@@ -196,8 +196,8 @@ class ExternalConnection extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the items
     *
     * @param ExternalItem[] $val The items
@@ -209,9 +209,9 @@ class ExternalConnection extends Entity
         $this->_propDict["items"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the operations
      *
      * @return ConnectionOperation[]|null The operations
@@ -231,8 +231,8 @@ class ExternalConnection extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the operations
     *
     * @param ConnectionOperation[] $val The operations
@@ -244,7 +244,7 @@ class ExternalConnection extends Entity
         $this->_propDict["operations"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the schema
     *
@@ -262,7 +262,7 @@ class ExternalConnection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the schema
     *
@@ -275,5 +275,5 @@ class ExternalConnection extends Entity
         $this->_propDict["schema"] = $val;
         return $this;
     }
-    
+
 }

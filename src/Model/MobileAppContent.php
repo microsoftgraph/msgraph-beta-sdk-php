@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class MobileAppContent extends Entity
 {
 
-     /** 
+     /**
      * Gets the containedApps
     * The collection of contained apps in a MobileLobApp acting as a package.
      *
@@ -46,8 +46,8 @@ class MobileAppContent extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the containedApps
     * The collection of contained apps in a MobileLobApp acting as a package.
     *
@@ -60,9 +60,9 @@ class MobileAppContent extends Entity
         $this->_propDict["containedApps"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the files
     * The list of files for this app content version.
      *
@@ -83,8 +83,8 @@ class MobileAppContent extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the files
     * The list of files for this app content version.
     *
@@ -97,5 +97,5 @@ class MobileAppContent extends Entity
         $this->_propDict["files"] = $val;
         return $this;
     }
-    
+
 }

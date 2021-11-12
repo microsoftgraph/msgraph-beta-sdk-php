@@ -42,7 +42,7 @@ class IosVppApp extends MobileApp
         }
         return null;
     }
-    
+
     /**
     * Sets the applicableDeviceType
     * The applicable iOS Device Type.
@@ -56,7 +56,7 @@ class IosVppApp extends MobileApp
         $this->_propDict["applicableDeviceType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the appStoreUrl
     * The store URL.
@@ -71,7 +71,7 @@ class IosVppApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the appStoreUrl
     * The store URL.
@@ -85,7 +85,7 @@ class IosVppApp extends MobileApp
         $this->_propDict["appStoreUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the bundleId
     * The Identity Name.
@@ -100,7 +100,7 @@ class IosVppApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the bundleId
     * The Identity Name.
@@ -114,7 +114,7 @@ class IosVppApp extends MobileApp
         $this->_propDict["bundleId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the licensingType
     * The supported License Type.
@@ -133,7 +133,7 @@ class IosVppApp extends MobileApp
         }
         return null;
     }
-    
+
     /**
     * Sets the licensingType
     * The supported License Type.
@@ -147,7 +147,7 @@ class IosVppApp extends MobileApp
         $this->_propDict["licensingType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the releaseDateTime
     * The VPP application release date and time.
@@ -166,7 +166,7 @@ class IosVppApp extends MobileApp
         }
         return null;
     }
-    
+
     /**
     * Sets the releaseDateTime
     * The VPP application release date and time.
@@ -180,9 +180,9 @@ class IosVppApp extends MobileApp
         $this->_propDict["releaseDateTime"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the revokeLicenseActionResults
     * Results of revoke license actions on this app.
      *
@@ -203,8 +203,8 @@ class IosVppApp extends MobileApp
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the revokeLicenseActionResults
     * Results of revoke license actions on this app.
     *
@@ -217,7 +217,7 @@ class IosVppApp extends MobileApp
         $this->_propDict["revokeLicenseActionResults"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the totalLicenseCount
     * The total number of VPP licenses.
@@ -232,7 +232,7 @@ class IosVppApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the totalLicenseCount
     * The total number of VPP licenses.
@@ -246,7 +246,7 @@ class IosVppApp extends MobileApp
         $this->_propDict["totalLicenseCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the usedLicenseCount
     * The number of VPP licenses in use.
@@ -261,7 +261,7 @@ class IosVppApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the usedLicenseCount
     * The number of VPP licenses in use.
@@ -275,7 +275,7 @@ class IosVppApp extends MobileApp
         $this->_propDict["usedLicenseCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the vppTokenAccountType
     * The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: business, education. Possible values are: business, education.
@@ -294,7 +294,7 @@ class IosVppApp extends MobileApp
         }
         return null;
     }
-    
+
     /**
     * Sets the vppTokenAccountType
     * The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: business, education. Possible values are: business, education.
@@ -308,7 +308,7 @@ class IosVppApp extends MobileApp
         $this->_propDict["vppTokenAccountType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the vppTokenAppleId
     * The Apple Id associated with the given Apple Volume Purchase Program Token.
@@ -323,7 +323,7 @@ class IosVppApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the vppTokenAppleId
     * The Apple Id associated with the given Apple Volume Purchase Program Token.
@@ -337,7 +337,7 @@ class IosVppApp extends MobileApp
         $this->_propDict["vppTokenAppleId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the vppTokenId
     * Identifier of the VPP token associated with this app.
@@ -352,7 +352,7 @@ class IosVppApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the vppTokenId
     * Identifier of the VPP token associated with this app.
@@ -366,7 +366,7 @@ class IosVppApp extends MobileApp
         $this->_propDict["vppTokenId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the vppTokenOrganizationName
     * The organization associated with the Apple Volume Purchase Program Token
@@ -381,7 +381,7 @@ class IosVppApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the vppTokenOrganizationName
     * The organization associated with the Apple Volume Purchase Program Token
@@ -395,9 +395,9 @@ class IosVppApp extends MobileApp
         $this->_propDict["vppTokenOrganizationName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the assignedLicenses
     * The licenses assigned to this app.
      *
@@ -418,8 +418,8 @@ class IosVppApp extends MobileApp
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the assignedLicenses
     * The licenses assigned to this app.
     *
@@ -432,5 +432,5 @@ class IosVppApp extends MobileApp
         $this->_propDict["assignedLicenses"] = $val;
         return $this;
     }
-    
+
 }

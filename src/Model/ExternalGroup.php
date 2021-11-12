@@ -37,7 +37,7 @@ class ExternalGroup extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     *
@@ -50,7 +50,7 @@ class ExternalGroup extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     *
@@ -64,7 +64,7 @@ class ExternalGroup extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     *
@@ -77,9 +77,9 @@ class ExternalGroup extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the members
      *
      * @return ExternalGroupMember[]|null The members
@@ -99,8 +99,8 @@ class ExternalGroup extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the members
     *
     * @param ExternalGroupMember[] $val The members
@@ -112,5 +112,5 @@ class ExternalGroup extends Entity
         $this->_propDict["members"] = $val;
         return $this;
     }
-    
+
 }

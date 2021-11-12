@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class CredentialUserRegistrationDetails extends Entity
 {
 
-     /** 
+     /**
      * Gets the authMethods
     * Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
      *
@@ -46,8 +46,8 @@ class CredentialUserRegistrationDetails extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the authMethods
     * Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
     *
@@ -60,7 +60,7 @@ class CredentialUserRegistrationDetails extends Entity
         $this->_propDict["authMethods"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isCapable
     * Indicates whether the user is ready to perform self-service password reset or MFA.
@@ -75,7 +75,7 @@ class CredentialUserRegistrationDetails extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isCapable
     * Indicates whether the user is ready to perform self-service password reset or MFA.
@@ -89,7 +89,7 @@ class CredentialUserRegistrationDetails extends Entity
         $this->_propDict["isCapable"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isEnabled
     * Indicates whether the user enabled to perform self-service password reset.
@@ -104,7 +104,7 @@ class CredentialUserRegistrationDetails extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isEnabled
     * Indicates whether the user enabled to perform self-service password reset.
@@ -118,7 +118,7 @@ class CredentialUserRegistrationDetails extends Entity
         $this->_propDict["isEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isMfaRegistered
     * Indicates whether the user is registered for MFA.
@@ -133,7 +133,7 @@ class CredentialUserRegistrationDetails extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isMfaRegistered
     * Indicates whether the user is registered for MFA.
@@ -147,7 +147,7 @@ class CredentialUserRegistrationDetails extends Entity
         $this->_propDict["isMfaRegistered"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isRegistered
     * Indicates whether the user has registered any authentication methods for self-service password reset.
@@ -162,7 +162,7 @@ class CredentialUserRegistrationDetails extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isRegistered
     * Indicates whether the user has registered any authentication methods for self-service password reset.
@@ -176,7 +176,7 @@ class CredentialUserRegistrationDetails extends Entity
         $this->_propDict["isRegistered"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the userDisplayName
     * Provides the user name of the corresponding user.
@@ -191,7 +191,7 @@ class CredentialUserRegistrationDetails extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userDisplayName
     * Provides the user name of the corresponding user.
@@ -205,7 +205,7 @@ class CredentialUserRegistrationDetails extends Entity
         $this->_propDict["userDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userPrincipalName
     * Provides the user principal name of the corresponding user.
@@ -220,7 +220,7 @@ class CredentialUserRegistrationDetails extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userPrincipalName
     * Provides the user principal name of the corresponding user.
@@ -234,5 +234,5 @@ class CredentialUserRegistrationDetails extends Entity
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-    
+
 }

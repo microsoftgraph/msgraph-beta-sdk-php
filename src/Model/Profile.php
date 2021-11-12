@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class Profile extends Entity
 {
 
-     /** 
+     /**
      * Gets the account
      *
      * @return UserAccountInformation[]|null The account
@@ -45,8 +45,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the account
     *
     * @param UserAccountInformation[] $val The account
@@ -58,9 +58,9 @@ class Profile extends Entity
         $this->_propDict["account"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the addresses
     * Represents details of addresses associated with the user.
      *
@@ -81,8 +81,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the addresses
     * Represents details of addresses associated with the user.
     *
@@ -95,9 +95,9 @@ class Profile extends Entity
         $this->_propDict["addresses"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the anniversaries
     * Represents the details of meaningful dates associated with a person.
      *
@@ -118,8 +118,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the anniversaries
     * Represents the details of meaningful dates associated with a person.
     *
@@ -132,9 +132,9 @@ class Profile extends Entity
         $this->_propDict["anniversaries"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the awards
     * Represents the details of awards or honors associated with a person.
      *
@@ -155,8 +155,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the awards
     * Represents the details of awards or honors associated with a person.
     *
@@ -169,9 +169,9 @@ class Profile extends Entity
         $this->_propDict["awards"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the certifications
     * Represents the details of certifications associated with a person.
      *
@@ -192,8 +192,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the certifications
     * Represents the details of certifications associated with a person.
     *
@@ -206,9 +206,9 @@ class Profile extends Entity
         $this->_propDict["certifications"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the educationalActivities
     * Represents data that a user has supplied related to undergraduate, graduate, postgraduate or other educational activities.
      *
@@ -229,8 +229,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the educationalActivities
     * Represents data that a user has supplied related to undergraduate, graduate, postgraduate or other educational activities.
     *
@@ -243,9 +243,9 @@ class Profile extends Entity
         $this->_propDict["educationalActivities"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the emails
     * Represents detailed information about email addresses associated with the user.
      *
@@ -266,8 +266,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the emails
     * Represents detailed information about email addresses associated with the user.
     *
@@ -280,9 +280,9 @@ class Profile extends Entity
         $this->_propDict["emails"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the interests
     * Provides detailed information about interests the user has associated with themselves in various services.
      *
@@ -303,8 +303,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the interests
     * Provides detailed information about interests the user has associated with themselves in various services.
     *
@@ -317,9 +317,9 @@ class Profile extends Entity
         $this->_propDict["interests"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the languages
     * Represents detailed information about languages that a user has added to their profile.
      *
@@ -340,8 +340,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the languages
     * Represents detailed information about languages that a user has added to their profile.
     *
@@ -354,9 +354,9 @@ class Profile extends Entity
         $this->_propDict["languages"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the names
     * Represents the names a user has added to their profile.
      *
@@ -377,8 +377,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the names
     * Represents the names a user has added to their profile.
     *
@@ -391,9 +391,9 @@ class Profile extends Entity
         $this->_propDict["names"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the notes
     * Represents notes that a user has added to their profile.
      *
@@ -414,8 +414,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the notes
     * Represents notes that a user has added to their profile.
     *
@@ -428,9 +428,9 @@ class Profile extends Entity
         $this->_propDict["notes"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the patents
     * Represents patents that a user has added to their profile.
      *
@@ -451,8 +451,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the patents
     * Represents patents that a user has added to their profile.
     *
@@ -465,9 +465,9 @@ class Profile extends Entity
         $this->_propDict["patents"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the phones
     * Represents detailed information about phone numbers associated with a user in various services.
      *
@@ -488,8 +488,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the phones
     * Represents detailed information about phone numbers associated with a user in various services.
     *
@@ -502,9 +502,9 @@ class Profile extends Entity
         $this->_propDict["phones"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the positions
     * Represents detailed information about work positions associated with a user's profile.
      *
@@ -525,8 +525,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the positions
     * Represents detailed information about work positions associated with a user's profile.
     *
@@ -539,9 +539,9 @@ class Profile extends Entity
         $this->_propDict["positions"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the projects
     * Represents detailed information about projects associated with a user.
      *
@@ -562,8 +562,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the projects
     * Represents detailed information about projects associated with a user.
     *
@@ -576,9 +576,9 @@ class Profile extends Entity
         $this->_propDict["projects"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the publications
     * Represents details of any publications a user has added to their profile.
      *
@@ -599,8 +599,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the publications
     * Represents details of any publications a user has added to their profile.
     *
@@ -613,9 +613,9 @@ class Profile extends Entity
         $this->_propDict["publications"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the skills
     * Represents detailed information about skills associated with a user in various services.
      *
@@ -636,8 +636,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the skills
     * Represents detailed information about skills associated with a user in various services.
     *
@@ -650,9 +650,9 @@ class Profile extends Entity
         $this->_propDict["skills"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the webAccounts
     * Represents web accounts the user has indicated they use or has added to their user profile.
      *
@@ -673,8 +673,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the webAccounts
     * Represents web accounts the user has indicated they use or has added to their user profile.
     *
@@ -687,9 +687,9 @@ class Profile extends Entity
         $this->_propDict["webAccounts"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the websites
     * Represents detailed information about websites associated with a user in various services.
      *
@@ -710,8 +710,8 @@ class Profile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the websites
     * Represents detailed information about websites associated with a user in various services.
     *
@@ -724,5 +724,5 @@ class Profile extends Entity
         $this->_propDict["websites"] = $val;
         return $this;
     }
-    
+
 }

@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class AppleUserInitiatedEnrollmentProfile extends Entity
 {
 
-     /** 
+     /**
      * Gets the availableEnrollmentTypeOptions
     * List of available enrollment type options
      *
@@ -46,8 +46,8 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the availableEnrollmentTypeOptions
     * List of available enrollment type options
     *
@@ -60,7 +60,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         $this->_propDict["availableEnrollmentTypeOptions"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdDateTime
     * Profile creation time
@@ -79,7 +79,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * Profile creation time
@@ -93,7 +93,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defaultEnrollmentType
     * The default profile enrollment type. Possible values are: unknown, device, user.
@@ -112,7 +112,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the defaultEnrollmentType
     * The default profile enrollment type. Possible values are: unknown, device, user.
@@ -126,7 +126,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         $this->_propDict["defaultEnrollmentType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * Description of the profile
@@ -141,7 +141,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Description of the profile
@@ -155,7 +155,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Name of the profile
@@ -170,7 +170,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Name of the profile
@@ -184,7 +184,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     * Profile last modified time
@@ -203,7 +203,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     * Profile last modified time
@@ -217,7 +217,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the platform
     * The platform of the Device. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
@@ -236,7 +236,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the platform
     * The platform of the Device. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
@@ -250,7 +250,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         $this->_propDict["platform"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the priority
     * Priority, 0 is highest
@@ -265,7 +265,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the priority
     * Priority, 0 is highest
@@ -279,9 +279,9 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         $this->_propDict["priority"] = intval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the assignments
     * The list of assignments for this profile.
      *
@@ -302,8 +302,8 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the assignments
     * The list of assignments for this profile.
     *
@@ -316,5 +316,5 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         $this->_propDict["assignments"] = $val;
         return $this;
     }
-    
+
 }

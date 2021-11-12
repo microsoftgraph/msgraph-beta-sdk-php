@@ -42,7 +42,7 @@ class AndroidForWorkAppConfigurationSchema extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the exampleJson
     * UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
@@ -56,9 +56,9 @@ class AndroidForWorkAppConfigurationSchema extends Entity
         $this->_propDict["exampleJson"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the schemaItems
     * Collection of items each representing a named configuration option in the schema
      *
@@ -79,8 +79,8 @@ class AndroidForWorkAppConfigurationSchema extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the schemaItems
     * Collection of items each representing a named configuration option in the schema
     *
@@ -93,5 +93,5 @@ class AndroidForWorkAppConfigurationSchema extends Entity
         $this->_propDict["schemaItems"] = $val;
         return $this;
     }
-    
+
 }

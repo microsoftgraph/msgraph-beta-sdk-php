@@ -37,7 +37,7 @@ class Company extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the businessProfileId
     *
@@ -50,7 +50,7 @@ class Company extends Entity
         $this->_propDict["businessProfileId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     *
@@ -64,7 +64,7 @@ class Company extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     *
@@ -77,7 +77,7 @@ class Company extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the name
     *
@@ -91,7 +91,7 @@ class Company extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the name
     *
@@ -104,7 +104,7 @@ class Company extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the systemVersion
     *
@@ -118,7 +118,7 @@ class Company extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the systemVersion
     *
@@ -131,9 +131,9 @@ class Company extends Entity
         $this->_propDict["systemVersion"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accounts
      *
      * @return Account[]|null The accounts
@@ -153,8 +153,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the accounts
     *
     * @param Account[] $val The accounts
@@ -166,9 +166,9 @@ class Company extends Entity
         $this->_propDict["accounts"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the agedAccountsPayable
      *
      * @return AgedAccountsPayable[]|null The agedAccountsPayable
@@ -188,8 +188,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the agedAccountsPayable
     *
     * @param AgedAccountsPayable[] $val The agedAccountsPayable
@@ -201,9 +201,9 @@ class Company extends Entity
         $this->_propDict["agedAccountsPayable"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the agedAccountsReceivable
      *
      * @return AgedAccountsReceivable[]|null The agedAccountsReceivable
@@ -223,8 +223,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the agedAccountsReceivable
     *
     * @param AgedAccountsReceivable[] $val The agedAccountsReceivable
@@ -236,9 +236,9 @@ class Company extends Entity
         $this->_propDict["agedAccountsReceivable"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the companyInformation
      *
      * @return CompanyInformation[]|null The companyInformation
@@ -258,8 +258,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the companyInformation
     *
     * @param CompanyInformation[] $val The companyInformation
@@ -271,9 +271,9 @@ class Company extends Entity
         $this->_propDict["companyInformation"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the countriesRegions
      *
      * @return CountryRegion[]|null The countriesRegions
@@ -293,8 +293,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the countriesRegions
     *
     * @param CountryRegion[] $val The countriesRegions
@@ -306,9 +306,9 @@ class Company extends Entity
         $this->_propDict["countriesRegions"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the currencies
      *
      * @return Currency[]|null The currencies
@@ -328,8 +328,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the currencies
     *
     * @param Currency[] $val The currencies
@@ -341,9 +341,9 @@ class Company extends Entity
         $this->_propDict["currencies"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the customerPaymentJournals
      *
      * @return CustomerPaymentJournal[]|null The customerPaymentJournals
@@ -363,8 +363,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the customerPaymentJournals
     *
     * @param CustomerPaymentJournal[] $val The customerPaymentJournals
@@ -376,9 +376,9 @@ class Company extends Entity
         $this->_propDict["customerPaymentJournals"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the customerPayments
      *
      * @return CustomerPayment[]|null The customerPayments
@@ -398,8 +398,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the customerPayments
     *
     * @param CustomerPayment[] $val The customerPayments
@@ -411,9 +411,9 @@ class Company extends Entity
         $this->_propDict["customerPayments"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the customers
      *
      * @return Customer[]|null The customers
@@ -433,8 +433,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the customers
     *
     * @param Customer[] $val The customers
@@ -446,9 +446,9 @@ class Company extends Entity
         $this->_propDict["customers"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the dimensions
      *
      * @return Dimension[]|null The dimensions
@@ -468,8 +468,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the dimensions
     *
     * @param Dimension[] $val The dimensions
@@ -481,9 +481,9 @@ class Company extends Entity
         $this->_propDict["dimensions"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the dimensionValues
      *
      * @return DimensionValue[]|null The dimensionValues
@@ -503,8 +503,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the dimensionValues
     *
     * @param DimensionValue[] $val The dimensionValues
@@ -516,9 +516,9 @@ class Company extends Entity
         $this->_propDict["dimensionValues"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the employees
      *
      * @return Employee[]|null The employees
@@ -538,8 +538,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the employees
     *
     * @param Employee[] $val The employees
@@ -551,9 +551,9 @@ class Company extends Entity
         $this->_propDict["employees"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the generalLedgerEntries
      *
      * @return GeneralLedgerEntry[]|null The generalLedgerEntries
@@ -573,8 +573,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the generalLedgerEntries
     *
     * @param GeneralLedgerEntry[] $val The generalLedgerEntries
@@ -586,9 +586,9 @@ class Company extends Entity
         $this->_propDict["generalLedgerEntries"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the itemCategories
      *
      * @return ItemCategory[]|null The itemCategories
@@ -608,8 +608,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the itemCategories
     *
     * @param ItemCategory[] $val The itemCategories
@@ -621,9 +621,9 @@ class Company extends Entity
         $this->_propDict["itemCategories"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the items
      *
      * @return Item[]|null The items
@@ -643,8 +643,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the items
     *
     * @param Item[] $val The items
@@ -656,9 +656,9 @@ class Company extends Entity
         $this->_propDict["items"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the journalLines
      *
      * @return JournalLine[]|null The journalLines
@@ -678,8 +678,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the journalLines
     *
     * @param JournalLine[] $val The journalLines
@@ -691,9 +691,9 @@ class Company extends Entity
         $this->_propDict["journalLines"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the journals
      *
      * @return Journal[]|null The journals
@@ -713,8 +713,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the journals
     *
     * @param Journal[] $val The journals
@@ -726,9 +726,9 @@ class Company extends Entity
         $this->_propDict["journals"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the paymentMethods
      *
      * @return PaymentMethod[]|null The paymentMethods
@@ -748,8 +748,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the paymentMethods
     *
     * @param PaymentMethod[] $val The paymentMethods
@@ -761,9 +761,9 @@ class Company extends Entity
         $this->_propDict["paymentMethods"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the paymentTerms
      *
      * @return PaymentTerm[]|null The paymentTerms
@@ -783,8 +783,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the paymentTerms
     *
     * @param PaymentTerm[] $val The paymentTerms
@@ -796,9 +796,9 @@ class Company extends Entity
         $this->_propDict["paymentTerms"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the picture
      *
      * @return Picture[]|null The picture
@@ -818,8 +818,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the picture
     *
     * @param Picture[] $val The picture
@@ -831,9 +831,9 @@ class Company extends Entity
         $this->_propDict["picture"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the purchaseInvoiceLines
      *
      * @return PurchaseInvoiceLine[]|null The purchaseInvoiceLines
@@ -853,8 +853,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the purchaseInvoiceLines
     *
     * @param PurchaseInvoiceLine[] $val The purchaseInvoiceLines
@@ -866,9 +866,9 @@ class Company extends Entity
         $this->_propDict["purchaseInvoiceLines"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the purchaseInvoices
      *
      * @return PurchaseInvoice[]|null The purchaseInvoices
@@ -888,8 +888,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the purchaseInvoices
     *
     * @param PurchaseInvoice[] $val The purchaseInvoices
@@ -901,9 +901,9 @@ class Company extends Entity
         $this->_propDict["purchaseInvoices"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the salesCreditMemoLines
      *
      * @return SalesCreditMemoLine[]|null The salesCreditMemoLines
@@ -923,8 +923,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the salesCreditMemoLines
     *
     * @param SalesCreditMemoLine[] $val The salesCreditMemoLines
@@ -936,9 +936,9 @@ class Company extends Entity
         $this->_propDict["salesCreditMemoLines"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the salesCreditMemos
      *
      * @return SalesCreditMemo[]|null The salesCreditMemos
@@ -958,8 +958,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the salesCreditMemos
     *
     * @param SalesCreditMemo[] $val The salesCreditMemos
@@ -971,9 +971,9 @@ class Company extends Entity
         $this->_propDict["salesCreditMemos"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the salesInvoiceLines
      *
      * @return SalesInvoiceLine[]|null The salesInvoiceLines
@@ -993,8 +993,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the salesInvoiceLines
     *
     * @param SalesInvoiceLine[] $val The salesInvoiceLines
@@ -1006,9 +1006,9 @@ class Company extends Entity
         $this->_propDict["salesInvoiceLines"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the salesInvoices
      *
      * @return SalesInvoice[]|null The salesInvoices
@@ -1028,8 +1028,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the salesInvoices
     *
     * @param SalesInvoice[] $val The salesInvoices
@@ -1041,9 +1041,9 @@ class Company extends Entity
         $this->_propDict["salesInvoices"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the salesOrderLines
      *
      * @return SalesOrderLine[]|null The salesOrderLines
@@ -1063,8 +1063,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the salesOrderLines
     *
     * @param SalesOrderLine[] $val The salesOrderLines
@@ -1076,9 +1076,9 @@ class Company extends Entity
         $this->_propDict["salesOrderLines"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the salesOrders
      *
      * @return SalesOrder[]|null The salesOrders
@@ -1098,8 +1098,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the salesOrders
     *
     * @param SalesOrder[] $val The salesOrders
@@ -1111,9 +1111,9 @@ class Company extends Entity
         $this->_propDict["salesOrders"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the salesQuoteLines
      *
      * @return SalesQuoteLine[]|null The salesQuoteLines
@@ -1133,8 +1133,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the salesQuoteLines
     *
     * @param SalesQuoteLine[] $val The salesQuoteLines
@@ -1146,9 +1146,9 @@ class Company extends Entity
         $this->_propDict["salesQuoteLines"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the salesQuotes
      *
      * @return SalesQuote[]|null The salesQuotes
@@ -1168,8 +1168,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the salesQuotes
     *
     * @param SalesQuote[] $val The salesQuotes
@@ -1181,9 +1181,9 @@ class Company extends Entity
         $this->_propDict["salesQuotes"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the shipmentMethods
      *
      * @return ShipmentMethod[]|null The shipmentMethods
@@ -1203,8 +1203,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the shipmentMethods
     *
     * @param ShipmentMethod[] $val The shipmentMethods
@@ -1216,9 +1216,9 @@ class Company extends Entity
         $this->_propDict["shipmentMethods"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the taxAreas
      *
      * @return TaxArea[]|null The taxAreas
@@ -1238,8 +1238,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the taxAreas
     *
     * @param TaxArea[] $val The taxAreas
@@ -1251,9 +1251,9 @@ class Company extends Entity
         $this->_propDict["taxAreas"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the taxGroups
      *
      * @return TaxGroup[]|null The taxGroups
@@ -1273,8 +1273,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the taxGroups
     *
     * @param TaxGroup[] $val The taxGroups
@@ -1286,9 +1286,9 @@ class Company extends Entity
         $this->_propDict["taxGroups"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the unitsOfMeasure
      *
      * @return UnitOfMeasure[]|null The unitsOfMeasure
@@ -1308,8 +1308,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the unitsOfMeasure
     *
     * @param UnitOfMeasure[] $val The unitsOfMeasure
@@ -1321,9 +1321,9 @@ class Company extends Entity
         $this->_propDict["unitsOfMeasure"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the vendors
      *
      * @return Vendor[]|null The vendors
@@ -1343,8 +1343,8 @@ class Company extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the vendors
     *
     * @param Vendor[] $val The vendors
@@ -1356,5 +1356,5 @@ class Company extends Entity
         $this->_propDict["vendors"] = $val;
         return $this;
     }
-    
+
 }
