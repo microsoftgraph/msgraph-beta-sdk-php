@@ -26,7 +26,7 @@ class ExpeditedQualityUpdateReference extends QualityUpdateReference
 
     /**
     * Gets the equivalentContent
-    * Specifies other content to consider as equivalent. Supports a subset of the values for equivalentContentOption. Default value is latestSecurity. Possible values are: latestSecurity.
+    * Specifies other content to consider as equivalent. Supports a subset of the values for equivalentContentOption. Default value is latestSecurity. Possible values are: latestSecurity, unknownFutureValue.
     *
     * @return EquivalentContentOption|null The equivalentContent
     */
@@ -46,7 +46,7 @@ class ExpeditedQualityUpdateReference extends QualityUpdateReference
 
     /**
     * Sets the equivalentContent
-    * Specifies other content to consider as equivalent. Supports a subset of the values for equivalentContentOption. Default value is latestSecurity. Possible values are: latestSecurity.
+    * Specifies other content to consider as equivalent. Supports a subset of the values for equivalentContentOption. Default value is latestSecurity. Possible values are: latestSecurity, unknownFutureValue.
     *
     * @param EquivalentContentOption $val The value to assign to the equivalentContent
     *
