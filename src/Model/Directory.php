@@ -207,6 +207,76 @@ class Directory extends Entity
 
 
      /**
+     * Gets the inboundSharedUserProfiles
+     *
+     * @return InboundSharedUserProfile[]|null The inboundSharedUserProfiles
+     */
+    public function getInboundSharedUserProfiles()
+    {
+        if (array_key_exists('inboundSharedUserProfiles', $this->_propDict) && !is_null($this->_propDict['inboundSharedUserProfiles'])) {
+            $inboundSharedUserProfiles = [];
+            if (count($this->_propDict['inboundSharedUserProfiles']) > 0 && is_a($this->_propDict['inboundSharedUserProfiles'][0], 'InboundSharedUserProfile')) {
+                return $this->_propDict['inboundSharedUserProfiles'];
+            }
+            foreach ($this->_propDict['inboundSharedUserProfiles'] as $singleValue) {
+                $inboundSharedUserProfiles []= new InboundSharedUserProfile($singleValue);
+            }
+            $this->_propDict['inboundSharedUserProfiles'] = $inboundSharedUserProfiles;
+            return $this->_propDict['inboundSharedUserProfiles'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the inboundSharedUserProfiles
+    *
+    * @param InboundSharedUserProfile[] $val The inboundSharedUserProfiles
+    *
+    * @return Directory
+    */
+    public function setInboundSharedUserProfiles($val)
+    {
+        $this->_propDict["inboundSharedUserProfiles"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the outboundSharedUserProfiles
+     *
+     * @return OutboundSharedUserProfile[]|null The outboundSharedUserProfiles
+     */
+    public function getOutboundSharedUserProfiles()
+    {
+        if (array_key_exists('outboundSharedUserProfiles', $this->_propDict) && !is_null($this->_propDict['outboundSharedUserProfiles'])) {
+            $outboundSharedUserProfiles = [];
+            if (count($this->_propDict['outboundSharedUserProfiles']) > 0 && is_a($this->_propDict['outboundSharedUserProfiles'][0], 'OutboundSharedUserProfile')) {
+                return $this->_propDict['outboundSharedUserProfiles'];
+            }
+            foreach ($this->_propDict['outboundSharedUserProfiles'] as $singleValue) {
+                $outboundSharedUserProfiles []= new OutboundSharedUserProfile($singleValue);
+            }
+            $this->_propDict['outboundSharedUserProfiles'] = $outboundSharedUserProfiles;
+            return $this->_propDict['outboundSharedUserProfiles'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the outboundSharedUserProfiles
+    *
+    * @param OutboundSharedUserProfile[] $val The outboundSharedUserProfiles
+    *
+    * @return Directory
+    */
+    public function setOutboundSharedUserProfiles($val)
+    {
+        $this->_propDict["outboundSharedUserProfiles"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the sharedEmailDomains
      *
      * @return SharedEmailDomain[]|null The sharedEmailDomains

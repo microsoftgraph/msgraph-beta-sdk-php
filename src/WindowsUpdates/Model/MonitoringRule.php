@@ -26,7 +26,7 @@ class MonitoringRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the action
-    * The action triggered when the threshold for the given signal is met. Possible values are: alertError, pauseDeployment.
+    * The action triggered when the threshold for the given signal is met. Possible values are: alertError, pauseDeployment, unknownFutureValue.
     *
     * @return MonitoringAction|null The action
     */
@@ -46,7 +46,7 @@ class MonitoringRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the action
-    * The action triggered when the threshold for the given signal is met. Possible values are: alertError, pauseDeployment.
+    * The action triggered when the threshold for the given signal is met. Possible values are: alertError, pauseDeployment, unknownFutureValue.
     *
     * @param MonitoringAction $val The value to assign to the action
     *
@@ -60,7 +60,7 @@ class MonitoringRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the signal
-    * The signal to monitor. Possible values are: rollback.
+    * The signal to monitor. Possible values are: rollback, unknownFutureValue.
     *
     * @return MonitoringSignal|null The signal
     */
@@ -80,7 +80,7 @@ class MonitoringRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the signal
-    * The signal to monitor. Possible values are: rollback.
+    * The signal to monitor. Possible values are: rollback, unknownFutureValue.
     *
     * @param MonitoringSignal $val The value to assign to the signal
     *
