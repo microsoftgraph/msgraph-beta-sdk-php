@@ -41,7 +41,7 @@ class Bookmark extends SearchAnswer
         }
         return null;
     }
-    
+
     /**
     * Sets the availabilityEndDateTime
     *
@@ -54,7 +54,7 @@ class Bookmark extends SearchAnswer
         $this->_propDict["availabilityEndDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the availabilityStartDateTime
     *
@@ -72,7 +72,7 @@ class Bookmark extends SearchAnswer
         }
         return null;
     }
-    
+
     /**
     * Sets the availabilityStartDateTime
     *
@@ -85,7 +85,7 @@ class Bookmark extends SearchAnswer
         $this->_propDict["availabilityStartDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the categories
     *
@@ -99,7 +99,7 @@ class Bookmark extends SearchAnswer
             return null;
         }
     }
-    
+
     /**
     * Sets the categories
     *
@@ -112,7 +112,7 @@ class Bookmark extends SearchAnswer
         $this->_propDict["categories"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the groupIds
     *
@@ -126,7 +126,7 @@ class Bookmark extends SearchAnswer
             return null;
         }
     }
-    
+
     /**
     * Sets the groupIds
     *
@@ -139,7 +139,7 @@ class Bookmark extends SearchAnswer
         $this->_propDict["groupIds"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isSuggested
     *
@@ -153,7 +153,7 @@ class Bookmark extends SearchAnswer
             return null;
         }
     }
-    
+
     /**
     * Sets the isSuggested
     *
@@ -166,7 +166,7 @@ class Bookmark extends SearchAnswer
         $this->_propDict["isSuggested"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the keywords
     *
@@ -184,7 +184,7 @@ class Bookmark extends SearchAnswer
         }
         return null;
     }
-    
+
     /**
     * Sets the keywords
     *
@@ -197,7 +197,7 @@ class Bookmark extends SearchAnswer
         $this->_propDict["keywords"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the languageTags
     *
@@ -211,7 +211,7 @@ class Bookmark extends SearchAnswer
             return null;
         }
     }
-    
+
     /**
     * Sets the languageTags
     *
@@ -224,9 +224,9 @@ class Bookmark extends SearchAnswer
         $this->_propDict["languageTags"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the platforms
      *
      * @return \Beta\Microsoft\Graph\Model\DevicePlatformType[]|null The platforms
@@ -246,8 +246,8 @@ class Bookmark extends SearchAnswer
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the platforms
     *
     * @param \Beta\Microsoft\Graph\Model\DevicePlatformType[] $val The platforms
@@ -259,7 +259,7 @@ class Bookmark extends SearchAnswer
         $this->_propDict["platforms"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the powerAppIds
     *
@@ -273,7 +273,7 @@ class Bookmark extends SearchAnswer
             return null;
         }
     }
-    
+
     /**
     * Sets the powerAppIds
     *
@@ -286,7 +286,7 @@ class Bookmark extends SearchAnswer
         $this->_propDict["powerAppIds"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the state
     *
@@ -304,7 +304,7 @@ class Bookmark extends SearchAnswer
         }
         return null;
     }
-    
+
     /**
     * Sets the state
     *
@@ -317,9 +317,9 @@ class Bookmark extends SearchAnswer
         $this->_propDict["state"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the targetedVariations
      *
      * @return AnswerVariant[]|null The targetedVariations
@@ -339,8 +339,8 @@ class Bookmark extends SearchAnswer
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the targetedVariations
     *
     * @param AnswerVariant[] $val The targetedVariations
@@ -352,5 +352,5 @@ class Bookmark extends SearchAnswer
         $this->_propDict["targetedVariations"] = $val;
         return $this;
     }
-    
+
 }

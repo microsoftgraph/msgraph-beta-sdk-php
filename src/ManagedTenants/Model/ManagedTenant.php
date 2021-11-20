@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\ManagedTenants\Model;
 class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
 {
 
-     /** 
+     /**
      * Gets the aggregatedPolicyCompliances
     * Aggregate view of device compliance policies across managed tenants.
      *
@@ -46,8 +46,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the aggregatedPolicyCompliances
     * Aggregate view of device compliance policies across managed tenants.
     *
@@ -60,9 +60,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["aggregatedPolicyCompliances"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the cloudPcConnections
     * The collection of cloud PC connections across managed tenants.
      *
@@ -83,8 +83,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the cloudPcConnections
     * The collection of cloud PC connections across managed tenants.
     *
@@ -97,9 +97,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["cloudPcConnections"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the cloudPcDevices
     * The collection of cloud PC devices across managed tenants.
      *
@@ -120,8 +120,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the cloudPcDevices
     * The collection of cloud PC devices across managed tenants.
     *
@@ -134,9 +134,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["cloudPcDevices"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the cloudPcsOverview
     * Overview of cloud PC information across managed tenants.
      *
@@ -157,8 +157,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the cloudPcsOverview
     * Overview of cloud PC information across managed tenants.
     *
@@ -171,9 +171,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["cloudPcsOverview"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the conditionalAccessPolicyCoverages
     * Aggregate view of conditional access policy coverage across managed tenants.
      *
@@ -194,8 +194,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the conditionalAccessPolicyCoverages
     * Aggregate view of conditional access policy coverage across managed tenants.
     *
@@ -208,9 +208,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["conditionalAccessPolicyCoverages"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the credentialUserRegistrationsSummaries
     * Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.
      *
@@ -231,8 +231,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the credentialUserRegistrationsSummaries
     * Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.
     *
@@ -245,9 +245,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["credentialUserRegistrationsSummaries"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the deviceCompliancePolicySettingStateSummaries
     * Summary information for device compliance policy setting states across managed tenants.
      *
@@ -268,8 +268,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the deviceCompliancePolicySettingStateSummaries
     * Summary information for device compliance policy setting states across managed tenants.
     *
@@ -282,9 +282,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["deviceCompliancePolicySettingStateSummaries"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the managedDeviceCompliances
     * The collection of compliance for managed devices across managed tenants.
      *
@@ -305,8 +305,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the managedDeviceCompliances
     * The collection of compliance for managed devices across managed tenants.
     *
@@ -319,9 +319,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["managedDeviceCompliances"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the managedDeviceComplianceTrends
     * Trend insights for device compliance across managed tenants.
      *
@@ -342,8 +342,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the managedDeviceComplianceTrends
     * Trend insights for device compliance across managed tenants.
     *
@@ -356,9 +356,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["managedDeviceComplianceTrends"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the managementActions
     * The collection of baseline management actions across managed tenants.
      *
@@ -379,8 +379,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the managementActions
     * The collection of baseline management actions across managed tenants.
     *
@@ -393,9 +393,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["managementActions"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the managementActionTenantDeploymentStatuses
     * The tenant level status of management actions across managed tenants.
      *
@@ -416,8 +416,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the managementActionTenantDeploymentStatuses
     * The tenant level status of management actions across managed tenants.
     *
@@ -430,9 +430,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["managementActionTenantDeploymentStatuses"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the managementIntents
     * The collection of baseline management intents across managed tenants.
      *
@@ -453,8 +453,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the managementIntents
     * The collection of baseline management intents across managed tenants.
     *
@@ -467,9 +467,44 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["managementIntents"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
+     * Gets the managementTemplateCollections
+     *
+     * @return ManagementTemplateCollection[]|null The managementTemplateCollections
+     */
+    public function getManagementTemplateCollections()
+    {
+        if (array_key_exists('managementTemplateCollections', $this->_propDict) && !is_null($this->_propDict['managementTemplateCollections'])) {
+            $managementTemplateCollections = [];
+            if (count($this->_propDict['managementTemplateCollections']) > 0 && is_a($this->_propDict['managementTemplateCollections'][0], 'ManagementTemplateCollection')) {
+                return $this->_propDict['managementTemplateCollections'];
+            }
+            foreach ($this->_propDict['managementTemplateCollections'] as $singleValue) {
+                $managementTemplateCollections []= new ManagementTemplateCollection($singleValue);
+            }
+            $this->_propDict['managementTemplateCollections'] = $managementTemplateCollections;
+            return $this->_propDict['managementTemplateCollections'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the managementTemplateCollections
+    *
+    * @param ManagementTemplateCollection[] $val The managementTemplateCollections
+    *
+    * @return ManagedTenant
+    */
+    public function setManagementTemplateCollections($val)
+    {
+        $this->_propDict["managementTemplateCollections"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the managementTemplates
     * The collection of baseline management templates across managed tenants.
      *
@@ -490,8 +525,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the managementTemplates
     * The collection of baseline management templates across managed tenants.
     *
@@ -504,9 +539,79 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["managementTemplates"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
+     * Gets the managementTemplateSteps
+     *
+     * @return ManagementTemplateStep[]|null The managementTemplateSteps
+     */
+    public function getManagementTemplateSteps()
+    {
+        if (array_key_exists('managementTemplateSteps', $this->_propDict) && !is_null($this->_propDict['managementTemplateSteps'])) {
+            $managementTemplateSteps = [];
+            if (count($this->_propDict['managementTemplateSteps']) > 0 && is_a($this->_propDict['managementTemplateSteps'][0], 'ManagementTemplateStep')) {
+                return $this->_propDict['managementTemplateSteps'];
+            }
+            foreach ($this->_propDict['managementTemplateSteps'] as $singleValue) {
+                $managementTemplateSteps []= new ManagementTemplateStep($singleValue);
+            }
+            $this->_propDict['managementTemplateSteps'] = $managementTemplateSteps;
+            return $this->_propDict['managementTemplateSteps'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the managementTemplateSteps
+    *
+    * @param ManagementTemplateStep[] $val The managementTemplateSteps
+    *
+    * @return ManagedTenant
+    */
+    public function setManagementTemplateSteps($val)
+    {
+        $this->_propDict["managementTemplateSteps"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the managementTemplateStepVersions
+     *
+     * @return ManagementTemplateStepVersion[]|null The managementTemplateStepVersions
+     */
+    public function getManagementTemplateStepVersions()
+    {
+        if (array_key_exists('managementTemplateStepVersions', $this->_propDict) && !is_null($this->_propDict['managementTemplateStepVersions'])) {
+            $managementTemplateStepVersions = [];
+            if (count($this->_propDict['managementTemplateStepVersions']) > 0 && is_a($this->_propDict['managementTemplateStepVersions'][0], 'ManagementTemplateStepVersion')) {
+                return $this->_propDict['managementTemplateStepVersions'];
+            }
+            foreach ($this->_propDict['managementTemplateStepVersions'] as $singleValue) {
+                $managementTemplateStepVersions []= new ManagementTemplateStepVersion($singleValue);
+            }
+            $this->_propDict['managementTemplateStepVersions'] = $managementTemplateStepVersions;
+            return $this->_propDict['managementTemplateStepVersions'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the managementTemplateStepVersions
+    *
+    * @param ManagementTemplateStepVersion[] $val The managementTemplateStepVersions
+    *
+    * @return ManagedTenant
+    */
+    public function setManagementTemplateStepVersions($val)
+    {
+        $this->_propDict["managementTemplateStepVersions"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the tenantGroups
     * The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
      *
@@ -527,8 +632,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the tenantGroups
     * The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
     *
@@ -541,9 +646,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["tenantGroups"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the tenants
     * The collection of tenants associated with the managing entity.
      *
@@ -564,8 +669,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the tenants
     * The collection of tenants associated with the managing entity.
     *
@@ -578,9 +683,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["tenants"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the tenantsCustomizedInformation
     * The collection of tenant level customized information across managed tenants.
      *
@@ -601,8 +706,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the tenantsCustomizedInformation
     * The collection of tenant level customized information across managed tenants.
     *
@@ -615,9 +720,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["tenantsCustomizedInformation"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the tenantsDetailedInformation
     * The collection tenant level detailed information across managed tenants.
      *
@@ -638,8 +743,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the tenantsDetailedInformation
     * The collection tenant level detailed information across managed tenants.
     *
@@ -652,9 +757,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["tenantsDetailedInformation"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the tenantTags
     * The collection of tenant tags across managed tenants.
      *
@@ -675,8 +780,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the tenantTags
     * The collection of tenant tags across managed tenants.
     *
@@ -689,9 +794,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["tenantTags"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the windowsDeviceMalwareStates
     * The state of malware for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.
      *
@@ -712,8 +817,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the windowsDeviceMalwareStates
     * The state of malware for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.
     *
@@ -726,9 +831,9 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["windowsDeviceMalwareStates"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the windowsProtectionStates
     * The protection state for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.
      *
@@ -749,8 +854,8 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the windowsProtectionStates
     * The protection state for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.
     *
@@ -763,5 +868,5 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["windowsProtectionStates"] = $val;
         return $this;
     }
-    
+
 }

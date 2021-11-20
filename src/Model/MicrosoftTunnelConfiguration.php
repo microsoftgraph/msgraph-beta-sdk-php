@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class MicrosoftTunnelConfiguration extends Entity
 {
 
-     /** 
+     /**
      * Gets the advancedSettings
     * Additional settings that may be applied to the server
      *
@@ -46,8 +46,8 @@ class MicrosoftTunnelConfiguration extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the advancedSettings
     * Additional settings that may be applied to the server
     *
@@ -60,7 +60,7 @@ class MicrosoftTunnelConfiguration extends Entity
         $this->_propDict["advancedSettings"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defaultDomainSuffix
     * The Default Domain appendix that will be used by the clients
@@ -75,7 +75,7 @@ class MicrosoftTunnelConfiguration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the defaultDomainSuffix
     * The Default Domain appendix that will be used by the clients
@@ -89,7 +89,7 @@ class MicrosoftTunnelConfiguration extends Entity
         $this->_propDict["defaultDomainSuffix"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * The MicrosoftTunnelConfiguration's description
@@ -104,7 +104,7 @@ class MicrosoftTunnelConfiguration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * The MicrosoftTunnelConfiguration's description
@@ -118,7 +118,7 @@ class MicrosoftTunnelConfiguration extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the disableUDPConnections
     * When DisableUDPConnections is set, the clients and VPN server will not use DTLS connctions to tansfer data.
@@ -133,7 +133,7 @@ class MicrosoftTunnelConfiguration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the disableUDPConnections
     * When DisableUDPConnections is set, the clients and VPN server will not use DTLS connctions to tansfer data.
@@ -147,7 +147,7 @@ class MicrosoftTunnelConfiguration extends Entity
         $this->_propDict["disableUDPConnections"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The MicrosoftTunnelConfiguration's display name
@@ -162,7 +162,7 @@ class MicrosoftTunnelConfiguration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The MicrosoftTunnelConfiguration's display name
@@ -176,7 +176,7 @@ class MicrosoftTunnelConfiguration extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the dnsServers
     * The DNS servers that will be used by the clients
@@ -191,7 +191,7 @@ class MicrosoftTunnelConfiguration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the dnsServers
     * The DNS servers that will be used by the clients
@@ -205,7 +205,7 @@ class MicrosoftTunnelConfiguration extends Entity
         $this->_propDict["dnsServers"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastUpdateDateTime
     * When the MicrosoftTunnelConfiguration was last updated
@@ -224,7 +224,7 @@ class MicrosoftTunnelConfiguration extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastUpdateDateTime
     * When the MicrosoftTunnelConfiguration was last updated
@@ -238,7 +238,7 @@ class MicrosoftTunnelConfiguration extends Entity
         $this->_propDict["lastUpdateDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the listenPort
     * The port that both TCP and UPD will listen over on the server
@@ -253,7 +253,7 @@ class MicrosoftTunnelConfiguration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the listenPort
     * The port that both TCP and UPD will listen over on the server
@@ -267,7 +267,7 @@ class MicrosoftTunnelConfiguration extends Entity
         $this->_propDict["listenPort"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the network
     * The subnet that will be used to allocate virtual address for the clients
@@ -282,7 +282,7 @@ class MicrosoftTunnelConfiguration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the network
     * The subnet that will be used to allocate virtual address for the clients
@@ -296,7 +296,7 @@ class MicrosoftTunnelConfiguration extends Entity
         $this->_propDict["network"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the roleScopeTagIds
     * List of Scope Tags for this Entity instance.
@@ -311,7 +311,7 @@ class MicrosoftTunnelConfiguration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the roleScopeTagIds
     * List of Scope Tags for this Entity instance.
@@ -325,7 +325,7 @@ class MicrosoftTunnelConfiguration extends Entity
         $this->_propDict["roleScopeTagIds"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the routesExclude
     * Subsets of the routes that will not be routed by the server
@@ -340,7 +340,7 @@ class MicrosoftTunnelConfiguration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the routesExclude
     * Subsets of the routes that will not be routed by the server
@@ -354,7 +354,7 @@ class MicrosoftTunnelConfiguration extends Entity
         $this->_propDict["routesExclude"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the routesInclude
     * The routs that will be routed by the server
@@ -369,7 +369,7 @@ class MicrosoftTunnelConfiguration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the routesInclude
     * The routs that will be routed by the server
@@ -383,7 +383,7 @@ class MicrosoftTunnelConfiguration extends Entity
         $this->_propDict["routesInclude"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the splitDNS
     * The domains that will be resolved using the provided dns servers
@@ -398,7 +398,7 @@ class MicrosoftTunnelConfiguration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the splitDNS
     * The domains that will be resolved using the provided dns servers
@@ -412,5 +412,5 @@ class MicrosoftTunnelConfiguration extends Entity
         $this->_propDict["splitDNS"] = $val;
         return $this;
     }
-    
+
 }

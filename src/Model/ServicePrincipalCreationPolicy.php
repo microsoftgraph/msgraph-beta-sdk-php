@@ -37,7 +37,7 @@ class ServicePrincipalCreationPolicy extends PolicyBase
             return null;
         }
     }
-    
+
     /**
     * Sets the isBuiltIn
     *
@@ -50,9 +50,9 @@ class ServicePrincipalCreationPolicy extends PolicyBase
         $this->_propDict["isBuiltIn"] = boolval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the excludes
      *
      * @return ServicePrincipalCreationConditionSet[]|null The excludes
@@ -72,8 +72,8 @@ class ServicePrincipalCreationPolicy extends PolicyBase
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the excludes
     *
     * @param ServicePrincipalCreationConditionSet[] $val The excludes
@@ -85,9 +85,9 @@ class ServicePrincipalCreationPolicy extends PolicyBase
         $this->_propDict["excludes"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the includes
      *
      * @return ServicePrincipalCreationConditionSet[]|null The includes
@@ -107,8 +107,8 @@ class ServicePrincipalCreationPolicy extends PolicyBase
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the includes
     *
     * @param ServicePrincipalCreationConditionSet[] $val The includes
@@ -120,5 +120,5 @@ class ServicePrincipalCreationPolicy extends PolicyBase
         $this->_propDict["includes"] = $val;
         return $this;
     }
-    
+
 }

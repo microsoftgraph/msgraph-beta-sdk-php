@@ -42,7 +42,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
         }
         return null;
     }
-    
+
     /**
     * Sets the content
     * The contents of the uploaded ADMX file.
@@ -56,7 +56,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
         $this->_propDict["content"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defaultLanguageCode
     * The default language of the uploaded ADMX file.
@@ -71,7 +71,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
             return null;
         }
     }
-    
+
     /**
     * Sets the defaultLanguageCode
     * The default language of the uploaded ADMX file.
@@ -85,7 +85,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
         $this->_propDict["defaultLanguageCode"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the fileName
     * The file name of the uploaded ADML file.
@@ -100,7 +100,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
             return null;
         }
     }
-    
+
     /**
     * Sets the fileName
     * The file name of the uploaded ADML file.
@@ -114,9 +114,9 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
         $this->_propDict["fileName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the groupPolicyUploadedLanguageFiles
     * The list of ADML files associated with the uploaded ADMX file.
      *
@@ -137,8 +137,8 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the groupPolicyUploadedLanguageFiles
     * The list of ADML files associated with the uploaded ADMX file.
     *
@@ -151,7 +151,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
         $this->_propDict["groupPolicyUploadedLanguageFiles"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
     * The upload status of the uploaded ADMX file. Possible values are: none, uploadInProgress, available, assigned, removalInProgress, uploadFailed, removalFailed.
@@ -170,7 +170,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
         }
         return null;
     }
-    
+
     /**
     * Sets the status
     * The upload status of the uploaded ADMX file. Possible values are: none, uploadInProgress, available, assigned, removalInProgress, uploadFailed, removalFailed.
@@ -184,7 +184,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the uploadDateTime
     * The uploaded time of the uploaded ADMX file.
@@ -203,7 +203,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
         }
         return null;
     }
-    
+
     /**
     * Sets the uploadDateTime
     * The uploaded time of the uploaded ADMX file.
@@ -217,9 +217,9 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
         $this->_propDict["uploadDateTime"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the groupPolicyOperations
     * The list of operations on the uploaded ADMX file.
      *
@@ -240,8 +240,8 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the groupPolicyOperations
     * The list of operations on the uploaded ADMX file.
     *
@@ -254,5 +254,5 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile
         $this->_propDict["groupPolicyOperations"] = $val;
         return $this;
     }
-    
+
 }

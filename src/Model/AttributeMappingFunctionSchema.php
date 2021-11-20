@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class AttributeMappingFunctionSchema extends Entity
 {
 
-     /** 
+     /**
      * Gets the parameters
     * Collection of function parameters.
      *
@@ -46,8 +46,8 @@ class AttributeMappingFunctionSchema extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the parameters
     * Collection of function parameters.
     *
@@ -60,5 +60,5 @@ class AttributeMappingFunctionSchema extends Entity
         $this->_propDict["parameters"] = $val;
         return $this;
     }
-    
+
 }

@@ -38,7 +38,7 @@ class OnPremisesAgent extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the externalIp
     * The external IP address as detected by the service for the agent machine. Read-only
@@ -52,7 +52,7 @@ class OnPremisesAgent extends Entity
         $this->_propDict["externalIp"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the machineName
     * The name of the machine that the aggent is running on. Read-only
@@ -67,7 +67,7 @@ class OnPremisesAgent extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the machineName
     * The name of the machine that the aggent is running on. Read-only
@@ -81,7 +81,7 @@ class OnPremisesAgent extends Entity
         $this->_propDict["machineName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
     * Possible values are: active, inactive.
@@ -100,7 +100,7 @@ class OnPremisesAgent extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the status
     * Possible values are: active, inactive.
@@ -114,9 +114,9 @@ class OnPremisesAgent extends Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the supportedPublishingTypes
      *
      * @return OnPremisesPublishingType[]|null The supportedPublishingTypes
@@ -136,8 +136,8 @@ class OnPremisesAgent extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the supportedPublishingTypes
     *
     * @param OnPremisesPublishingType[] $val The supportedPublishingTypes
@@ -149,9 +149,9 @@ class OnPremisesAgent extends Entity
         $this->_propDict["supportedPublishingTypes"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the agentGroups
     * List of onPremisesAgentGroups that an onPremisesAgent is assigned to. Read-only. Nullable.
      *
@@ -172,8 +172,8 @@ class OnPremisesAgent extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the agentGroups
     * List of onPremisesAgentGroups that an onPremisesAgent is assigned to. Read-only. Nullable.
     *
@@ -186,5 +186,5 @@ class OnPremisesAgent extends Entity
         $this->_propDict["agentGroups"] = $val;
         return $this;
     }
-    
+
 }

@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class Directory extends Entity
 {
 
-     /** 
+     /**
      * Gets the administrativeUnits
     * Conceptual container for user and group directory objects.
      *
@@ -46,8 +46,8 @@ class Directory extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the administrativeUnits
     * Conceptual container for user and group directory objects.
     *
@@ -60,9 +60,9 @@ class Directory extends Entity
         $this->_propDict["administrativeUnits"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the attributeSets
      *
      * @return AttributeSet[]|null The attributeSets
@@ -82,8 +82,8 @@ class Directory extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the attributeSets
     *
     * @param AttributeSet[] $val The attributeSets
@@ -95,9 +95,9 @@ class Directory extends Entity
         $this->_propDict["attributeSets"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the customSecurityAttributeDefinitions
      *
      * @return CustomSecurityAttributeDefinition[]|null The customSecurityAttributeDefinitions
@@ -117,8 +117,8 @@ class Directory extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the customSecurityAttributeDefinitions
     *
     * @param CustomSecurityAttributeDefinition[] $val The customSecurityAttributeDefinitions
@@ -130,9 +130,9 @@ class Directory extends Entity
         $this->_propDict["customSecurityAttributeDefinitions"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the deletedItems
     * Recently deleted items. Read-only. Nullable.
      *
@@ -153,8 +153,8 @@ class Directory extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the deletedItems
     * Recently deleted items. Read-only. Nullable.
     *
@@ -167,9 +167,9 @@ class Directory extends Entity
         $this->_propDict["deletedItems"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the federationConfigurations
     * Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol.
      *
@@ -190,8 +190,8 @@ class Directory extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the federationConfigurations
     * Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol.
     *
@@ -204,9 +204,79 @@ class Directory extends Entity
         $this->_propDict["federationConfigurations"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
+     * Gets the inboundSharedUserProfiles
+     *
+     * @return InboundSharedUserProfile[]|null The inboundSharedUserProfiles
+     */
+    public function getInboundSharedUserProfiles()
+    {
+        if (array_key_exists('inboundSharedUserProfiles', $this->_propDict) && !is_null($this->_propDict['inboundSharedUserProfiles'])) {
+            $inboundSharedUserProfiles = [];
+            if (count($this->_propDict['inboundSharedUserProfiles']) > 0 && is_a($this->_propDict['inboundSharedUserProfiles'][0], 'InboundSharedUserProfile')) {
+                return $this->_propDict['inboundSharedUserProfiles'];
+            }
+            foreach ($this->_propDict['inboundSharedUserProfiles'] as $singleValue) {
+                $inboundSharedUserProfiles []= new InboundSharedUserProfile($singleValue);
+            }
+            $this->_propDict['inboundSharedUserProfiles'] = $inboundSharedUserProfiles;
+            return $this->_propDict['inboundSharedUserProfiles'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the inboundSharedUserProfiles
+    *
+    * @param InboundSharedUserProfile[] $val The inboundSharedUserProfiles
+    *
+    * @return Directory
+    */
+    public function setInboundSharedUserProfiles($val)
+    {
+        $this->_propDict["inboundSharedUserProfiles"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the outboundSharedUserProfiles
+     *
+     * @return OutboundSharedUserProfile[]|null The outboundSharedUserProfiles
+     */
+    public function getOutboundSharedUserProfiles()
+    {
+        if (array_key_exists('outboundSharedUserProfiles', $this->_propDict) && !is_null($this->_propDict['outboundSharedUserProfiles'])) {
+            $outboundSharedUserProfiles = [];
+            if (count($this->_propDict['outboundSharedUserProfiles']) > 0 && is_a($this->_propDict['outboundSharedUserProfiles'][0], 'OutboundSharedUserProfile')) {
+                return $this->_propDict['outboundSharedUserProfiles'];
+            }
+            foreach ($this->_propDict['outboundSharedUserProfiles'] as $singleValue) {
+                $outboundSharedUserProfiles []= new OutboundSharedUserProfile($singleValue);
+            }
+            $this->_propDict['outboundSharedUserProfiles'] = $outboundSharedUserProfiles;
+            return $this->_propDict['outboundSharedUserProfiles'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the outboundSharedUserProfiles
+    *
+    * @param OutboundSharedUserProfile[] $val The outboundSharedUserProfiles
+    *
+    * @return Directory
+    */
+    public function setOutboundSharedUserProfiles($val)
+    {
+        $this->_propDict["outboundSharedUserProfiles"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the sharedEmailDomains
      *
      * @return SharedEmailDomain[]|null The sharedEmailDomains
@@ -226,8 +296,8 @@ class Directory extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the sharedEmailDomains
     *
     * @param SharedEmailDomain[] $val The sharedEmailDomains
@@ -239,9 +309,9 @@ class Directory extends Entity
         $this->_propDict["sharedEmailDomains"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the featureRolloutPolicies
     * Nullable.
      *
@@ -262,8 +332,8 @@ class Directory extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the featureRolloutPolicies
     * Nullable.
     *
@@ -276,5 +346,5 @@ class Directory extends Entity
         $this->_propDict["featureRolloutPolicies"] = $val;
         return $this;
     }
-    
+
 }

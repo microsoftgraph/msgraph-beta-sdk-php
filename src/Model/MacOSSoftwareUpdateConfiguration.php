@@ -42,7 +42,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the allOtherUpdateBehavior
     * Update behavior for all other updates. Possible values are: notConfigured, default.
@@ -56,7 +56,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["allOtherUpdateBehavior"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the configDataUpdateBehavior
     * Update behavior for configuration data file updates. Possible values are: notConfigured, default.
@@ -75,7 +75,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the configDataUpdateBehavior
     * Update behavior for configuration data file updates. Possible values are: notConfigured, default.
@@ -89,7 +89,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["configDataUpdateBehavior"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the criticalUpdateBehavior
     * Update behavior for critical updates. Possible values are: notConfigured, default.
@@ -108,7 +108,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the criticalUpdateBehavior
     * Update behavior for critical updates. Possible values are: notConfigured, default.
@@ -122,9 +122,9 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["criticalUpdateBehavior"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the customUpdateTimeWindows
     * Custom Time windows when updates will be allowed or blocked. This collection can contain a maximum of 20 elements.
      *
@@ -145,8 +145,8 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the customUpdateTimeWindows
     * Custom Time windows when updates will be allowed or blocked. This collection can contain a maximum of 20 elements.
     *
@@ -159,7 +159,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["customUpdateTimeWindows"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the firmwareUpdateBehavior
     * Update behavior for firmware updates. Possible values are: notConfigured, default.
@@ -178,7 +178,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the firmwareUpdateBehavior
     * Update behavior for firmware updates. Possible values are: notConfigured, default.
@@ -192,7 +192,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["firmwareUpdateBehavior"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the updateScheduleType
     * Update schedule type. Possible values are: alwaysUpdate, updateDuringTimeWindows, updateOutsideOfTimeWindows.
@@ -211,7 +211,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the updateScheduleType
     * Update schedule type. Possible values are: alwaysUpdate, updateDuringTimeWindows, updateOutsideOfTimeWindows.
@@ -225,7 +225,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["updateScheduleType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the updateTimeWindowUtcOffsetInMinutes
     * Minutes indicating UTC offset for each update time window
@@ -240,7 +240,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the updateTimeWindowUtcOffsetInMinutes
     * Minutes indicating UTC offset for each update time window
@@ -254,5 +254,5 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
         $this->_propDict["updateTimeWindowUtcOffsetInMinutes"] = intval($val);
         return $this;
     }
-    
+
 }

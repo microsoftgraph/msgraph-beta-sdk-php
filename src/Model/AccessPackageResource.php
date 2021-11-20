@@ -38,7 +38,7 @@ class AccessPackageResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the addedBy
     * Read-only.
@@ -52,7 +52,7 @@ class AccessPackageResource extends Entity
         $this->_propDict["addedBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the addedOn
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -71,7 +71,7 @@ class AccessPackageResource extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the addedOn
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -85,9 +85,9 @@ class AccessPackageResource extends Entity
         $this->_propDict["addedOn"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the attributes
      *
      * @return AccessPackageResourceAttribute[]|null The attributes
@@ -107,8 +107,8 @@ class AccessPackageResource extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the attributes
     *
     * @param AccessPackageResourceAttribute[] $val The attributes
@@ -120,7 +120,7 @@ class AccessPackageResource extends Entity
         $this->_propDict["attributes"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * A description for the resource.
@@ -135,7 +135,7 @@ class AccessPackageResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * A description for the resource.
@@ -149,7 +149,7 @@ class AccessPackageResource extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The display name of the resource, such as the application name, group name or site name.
@@ -164,7 +164,7 @@ class AccessPackageResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The display name of the resource, such as the application name, group name or site name.
@@ -178,7 +178,7 @@ class AccessPackageResource extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isPendingOnboarding
     * True if the resource is not yet available for assignment.
@@ -193,7 +193,7 @@ class AccessPackageResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isPendingOnboarding
     * True if the resource is not yet available for assignment.
@@ -207,7 +207,7 @@ class AccessPackageResource extends Entity
         $this->_propDict["isPendingOnboarding"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the originId
     * The unique identifier of the resource in the origin system. In the case of an Azure AD group, this is the identifier of the group.
@@ -222,7 +222,7 @@ class AccessPackageResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the originId
     * The unique identifier of the resource in the origin system. In the case of an Azure AD group, this is the identifier of the group.
@@ -236,7 +236,7 @@ class AccessPackageResource extends Entity
         $this->_propDict["originId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the originSystem
     * The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup.
@@ -251,7 +251,7 @@ class AccessPackageResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the originSystem
     * The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup.
@@ -265,7 +265,7 @@ class AccessPackageResource extends Entity
         $this->_propDict["originSystem"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the resourceType
     * The type of the resource, such as Application if it is an Azure AD connected application, or SharePoint Online Site for a SharePoint Online site.
@@ -280,7 +280,7 @@ class AccessPackageResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the resourceType
     * The type of the resource, such as Application if it is an Azure AD connected application, or SharePoint Online Site for a SharePoint Online site.
@@ -294,7 +294,7 @@ class AccessPackageResource extends Entity
         $this->_propDict["resourceType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the url
     * A unique resource locator for the resource, such as the URL for signing a user into an application.
@@ -309,7 +309,7 @@ class AccessPackageResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the url
     * A unique resource locator for the resource, such as the URL for signing a user into an application.
@@ -323,7 +323,7 @@ class AccessPackageResource extends Entity
         $this->_propDict["url"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the accessPackageResourceEnvironment
     * Contains the environment information for the resource. This can be set using either the @odata.bind annotation or the environment's originId.
@@ -342,7 +342,7 @@ class AccessPackageResource extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the accessPackageResourceEnvironment
     * Contains the environment information for the resource. This can be set using either the @odata.bind annotation or the environment's originId.
@@ -356,9 +356,9 @@ class AccessPackageResource extends Entity
         $this->_propDict["accessPackageResourceEnvironment"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackageResourceRoles
     * Read-only. Nullable. Supports $expand.
      *
@@ -379,8 +379,8 @@ class AccessPackageResource extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageResourceRoles
     * Read-only. Nullable. Supports $expand.
     *
@@ -393,9 +393,9 @@ class AccessPackageResource extends Entity
         $this->_propDict["accessPackageResourceRoles"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackageResourceScopes
     * Read-only. Nullable. Supports $expand.
      *
@@ -416,8 +416,8 @@ class AccessPackageResource extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageResourceScopes
     * Read-only. Nullable. Supports $expand.
     *
@@ -430,5 +430,5 @@ class AccessPackageResource extends Entity
         $this->_propDict["accessPackageResourceScopes"] = $val;
         return $this;
     }
-    
+
 }

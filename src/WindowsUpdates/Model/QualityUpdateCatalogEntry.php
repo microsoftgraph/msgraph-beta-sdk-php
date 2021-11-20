@@ -38,7 +38,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry
             return null;
         }
     }
-    
+
     /**
     * Sets the isExpeditable
     * Indicates whether the content can be deployed as an expedited quality update. Read-only.
@@ -52,10 +52,10 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry
         $this->_propDict["isExpeditable"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the qualityUpdateClassification
-    * The classification on the quality update. Supports a subset of the values for qualityUpdateClassification. Possible values are: all, security, nonSecurity. Read-only.
+    * The classification on the quality update. Possible values are: all, security, nonSecurity, unknownFutureValue. Read-only.
     *
     * @return QualityUpdateClassification|null The qualityUpdateClassification
     */
@@ -71,10 +71,10 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry
         }
         return null;
     }
-    
+
     /**
     * Sets the qualityUpdateClassification
-    * The classification on the quality update. Supports a subset of the values for qualityUpdateClassification. Possible values are: all, security, nonSecurity. Read-only.
+    * The classification on the quality update. Possible values are: all, security, nonSecurity, unknownFutureValue. Read-only.
     *
     * @param QualityUpdateClassification $val The qualityUpdateClassification
     *
@@ -85,5 +85,5 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry
         $this->_propDict["qualityUpdateClassification"] = $val;
         return $this;
     }
-    
+
 }

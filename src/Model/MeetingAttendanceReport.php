@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class MeetingAttendanceReport extends Entity
 {
 
-     /** 
+     /**
      * Gets the attendanceRecords
     * The list of attendance records.
      *
@@ -46,8 +46,8 @@ class MeetingAttendanceReport extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the attendanceRecords
     * The list of attendance records.
     *
@@ -60,7 +60,7 @@ class MeetingAttendanceReport extends Entity
         $this->_propDict["attendanceRecords"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the totalParticipantCount
     * Total number of participants.
@@ -75,7 +75,7 @@ class MeetingAttendanceReport extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the totalParticipantCount
     * Total number of participants.
@@ -89,5 +89,5 @@ class MeetingAttendanceReport extends Entity
         $this->_propDict["totalParticipantCount"] = intval($val);
         return $this;
     }
-    
+
 }

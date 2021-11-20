@@ -37,7 +37,7 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the activityGroupNames
     *
@@ -50,7 +50,7 @@ class DomainSecurityProfile extends Entity
         $this->_propDict["activityGroupNames"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the azureSubscriptionId
     *
@@ -64,7 +64,7 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the azureSubscriptionId
     *
@@ -77,7 +77,7 @@ class DomainSecurityProfile extends Entity
         $this->_propDict["azureSubscriptionId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the azureTenantId
     *
@@ -91,7 +91,7 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the azureTenantId
     *
@@ -104,7 +104,7 @@ class DomainSecurityProfile extends Entity
         $this->_propDict["azureTenantId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the countHits
     *
@@ -118,7 +118,7 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the countHits
     *
@@ -131,7 +131,7 @@ class DomainSecurityProfile extends Entity
         $this->_propDict["countHits"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the countInOrg
     *
@@ -145,7 +145,7 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the countInOrg
     *
@@ -158,9 +158,9 @@ class DomainSecurityProfile extends Entity
         $this->_propDict["countInOrg"] = intval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the domainCategories
      *
      * @return ReputationCategory[]|null The domainCategories
@@ -180,8 +180,8 @@ class DomainSecurityProfile extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the domainCategories
     *
     * @param ReputationCategory[] $val The domainCategories
@@ -193,7 +193,7 @@ class DomainSecurityProfile extends Entity
         $this->_propDict["domainCategories"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the domainRegisteredDateTime
     *
@@ -211,7 +211,7 @@ class DomainSecurityProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the domainRegisteredDateTime
     *
@@ -224,7 +224,7 @@ class DomainSecurityProfile extends Entity
         $this->_propDict["domainRegisteredDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the firstSeenDateTime
     *
@@ -242,7 +242,7 @@ class DomainSecurityProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the firstSeenDateTime
     *
@@ -255,7 +255,7 @@ class DomainSecurityProfile extends Entity
         $this->_propDict["firstSeenDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastSeenDateTime
     *
@@ -273,7 +273,7 @@ class DomainSecurityProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastSeenDateTime
     *
@@ -286,7 +286,7 @@ class DomainSecurityProfile extends Entity
         $this->_propDict["lastSeenDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the name
     *
@@ -300,7 +300,7 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the name
     *
@@ -313,7 +313,7 @@ class DomainSecurityProfile extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the registrant
     *
@@ -331,7 +331,7 @@ class DomainSecurityProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the registrant
     *
@@ -344,7 +344,7 @@ class DomainSecurityProfile extends Entity
         $this->_propDict["registrant"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the riskScore
     *
@@ -358,7 +358,7 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the riskScore
     *
@@ -371,7 +371,7 @@ class DomainSecurityProfile extends Entity
         $this->_propDict["riskScore"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the tags
     *
@@ -385,7 +385,7 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the tags
     *
@@ -398,7 +398,7 @@ class DomainSecurityProfile extends Entity
         $this->_propDict["tags"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the vendorInformation
     *
@@ -416,7 +416,7 @@ class DomainSecurityProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the vendorInformation
     *
@@ -429,5 +429,5 @@ class DomainSecurityProfile extends Entity
         $this->_propDict["vendorInformation"] = $val;
         return $this;
     }
-    
+
 }

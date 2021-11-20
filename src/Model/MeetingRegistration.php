@@ -42,7 +42,7 @@ class MeetingRegistration extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the allowedRegistrant
     * Specifies who can register for the meeting.
@@ -56,7 +56,7 @@ class MeetingRegistration extends Entity
         $this->_propDict["allowedRegistrant"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * The description of the meeting.
@@ -71,7 +71,7 @@ class MeetingRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * The description of the meeting.
@@ -85,7 +85,7 @@ class MeetingRegistration extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the endDateTime
     * The meeting end time in UTC.
@@ -104,7 +104,7 @@ class MeetingRegistration extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the endDateTime
     * The meeting end time in UTC.
@@ -118,7 +118,7 @@ class MeetingRegistration extends Entity
         $this->_propDict["endDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the registrationPageViewCount
     * The number of times the registration page has been visited. Read-only.
@@ -133,7 +133,7 @@ class MeetingRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the registrationPageViewCount
     * The number of times the registration page has been visited. Read-only.
@@ -147,7 +147,7 @@ class MeetingRegistration extends Entity
         $this->_propDict["registrationPageViewCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the registrationPageWebUrl
     * The URL of the registration page. Read-only.
@@ -162,7 +162,7 @@ class MeetingRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the registrationPageWebUrl
     * The URL of the registration page. Read-only.
@@ -176,9 +176,9 @@ class MeetingRegistration extends Entity
         $this->_propDict["registrationPageWebUrl"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the speakers
     * The meeting speaker's information.
      *
@@ -199,8 +199,8 @@ class MeetingRegistration extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the speakers
     * The meeting speaker's information.
     *
@@ -213,7 +213,7 @@ class MeetingRegistration extends Entity
         $this->_propDict["speakers"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the startDateTime
     * The meeting start time in UTC.
@@ -232,7 +232,7 @@ class MeetingRegistration extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the startDateTime
     * The meeting start time in UTC.
@@ -246,7 +246,7 @@ class MeetingRegistration extends Entity
         $this->_propDict["startDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the subject
     * The subject of the meeting.
@@ -261,7 +261,7 @@ class MeetingRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the subject
     * The subject of the meeting.
@@ -275,9 +275,9 @@ class MeetingRegistration extends Entity
         $this->_propDict["subject"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the customQuestions
     * Custom registration questions.
      *
@@ -298,8 +298,8 @@ class MeetingRegistration extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the customQuestions
     * Custom registration questions.
     *
@@ -312,9 +312,9 @@ class MeetingRegistration extends Entity
         $this->_propDict["customQuestions"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the registrants
     * Registrants of the online meeting.
      *
@@ -335,8 +335,8 @@ class MeetingRegistration extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the registrants
     * Registrants of the online meeting.
     *
@@ -349,5 +349,5 @@ class MeetingRegistration extends Entity
         $this->_propDict["registrants"] = $val;
         return $this;
     }
-    
+
 }

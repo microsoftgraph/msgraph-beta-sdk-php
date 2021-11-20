@@ -38,7 +38,7 @@ class DeviceManagementComplianceScheduledActionForRule extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the ruleName
     * Name of the rule which this scheduled action applies to.
@@ -52,9 +52,9 @@ class DeviceManagementComplianceScheduledActionForRule extends Entity
         $this->_propDict["ruleName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the scheduledActionConfigurations
     * The list of scheduled action configurations for this compliance policy. This collection can contain a maximum of 100 elements.
      *
@@ -75,8 +75,8 @@ class DeviceManagementComplianceScheduledActionForRule extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the scheduledActionConfigurations
     * The list of scheduled action configurations for this compliance policy. This collection can contain a maximum of 100 elements.
     *
@@ -89,5 +89,5 @@ class DeviceManagementComplianceScheduledActionForRule extends Entity
         $this->_propDict["scheduledActionConfigurations"] = $val;
         return $this;
     }
-    
+
 }

@@ -37,7 +37,7 @@ class AllowedValue extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isActive
     *
@@ -50,5 +50,5 @@ class AllowedValue extends Entity
         $this->_propDict["isActive"] = boolval($val);
         return $this;
     }
-    
+
 }

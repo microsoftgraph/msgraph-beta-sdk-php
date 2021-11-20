@@ -42,7 +42,7 @@ class DeviceManagementConfigurationSetting extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the settingInstance
     * Setting Instance
@@ -56,9 +56,9 @@ class DeviceManagementConfigurationSetting extends Entity
         $this->_propDict["settingInstance"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the settingDefinitions
     * List of related Setting Definitions. This property is read-only.
      *
@@ -79,8 +79,8 @@ class DeviceManagementConfigurationSetting extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the settingDefinitions
     * List of related Setting Definitions. This property is read-only.
     *
@@ -93,5 +93,5 @@ class DeviceManagementConfigurationSetting extends Entity
         $this->_propDict["settingDefinitions"] = $val;
         return $this;
     }
-    
+
 }

@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class ExternalItem extends Entity
 {
 
-     /** 
+     /**
      * Gets the acl
      *
      * @return Acl[]|null The acl
@@ -45,8 +45,8 @@ class ExternalItem extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the acl
     *
     * @param Acl[] $val The acl
@@ -58,7 +58,7 @@ class ExternalItem extends Entity
         $this->_propDict["acl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the content
     *
@@ -76,7 +76,7 @@ class ExternalItem extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the content
     *
@@ -89,7 +89,7 @@ class ExternalItem extends Entity
         $this->_propDict["content"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the externalItemProperties
     *
@@ -107,7 +107,7 @@ class ExternalItem extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the externalItemProperties
     *
@@ -120,5 +120,5 @@ class ExternalItem extends Entity
         $this->_propDict["properties"] = $val;
         return $this;
     }
-    
+
 }

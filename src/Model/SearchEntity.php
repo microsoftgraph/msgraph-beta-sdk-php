@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class SearchEntity extends Entity
 {
 
-     /** 
+     /**
      * Gets the acronyms
      *
      * @return \Beta\Microsoft\Graph\Search\Model\Acronym[]|null The acronyms
@@ -45,8 +45,8 @@ class SearchEntity extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the acronyms
     *
     * @param \Beta\Microsoft\Graph\Search\Model\Acronym[] $val The acronyms
@@ -58,9 +58,9 @@ class SearchEntity extends Entity
         $this->_propDict["acronyms"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the bookmarks
      *
      * @return \Beta\Microsoft\Graph\Search\Model\Bookmark[]|null The bookmarks
@@ -80,8 +80,8 @@ class SearchEntity extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the bookmarks
     *
     * @param \Beta\Microsoft\Graph\Search\Model\Bookmark[] $val The bookmarks
@@ -93,9 +93,9 @@ class SearchEntity extends Entity
         $this->_propDict["bookmarks"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the qnas
      *
      * @return \Beta\Microsoft\Graph\Search\Model\Qna[]|null The qnas
@@ -115,8 +115,8 @@ class SearchEntity extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the qnas
     *
     * @param \Beta\Microsoft\Graph\Search\Model\Qna[] $val The qnas
@@ -128,5 +128,5 @@ class SearchEntity extends Entity
         $this->_propDict["qnas"] = $val;
         return $this;
     }
-    
+
 }

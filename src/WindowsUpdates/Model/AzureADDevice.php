@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
 class AzureADDevice extends UpdatableAsset
 {
 
-     /** 
+     /**
      * Gets the enrollments
     * Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.
      *
@@ -46,8 +46,8 @@ class AzureADDevice extends UpdatableAsset
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the enrollments
     * Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.
     *
@@ -60,9 +60,9 @@ class AzureADDevice extends UpdatableAsset
         $this->_propDict["enrollments"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the errors
     * Specifies any errors that prevent the device from being enrolled in update management or receving deployed content. Read-only. Returned by default.
      *
@@ -83,8 +83,8 @@ class AzureADDevice extends UpdatableAsset
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the errors
     * Specifies any errors that prevent the device from being enrolled in update management or receving deployed content. Read-only. Returned by default.
     *
@@ -97,5 +97,5 @@ class AzureADDevice extends UpdatableAsset
         $this->_propDict["errors"] = $val;
         return $this;
     }
-    
+
 }

@@ -70,7 +70,7 @@ class TeamsAppRemovedEventMessageDetail extends EventMessageDetail
     }
     /**
     * Gets the teamsAppDisplayName
-    * Display name of the teamApp.
+    * Display name of the teamsApp.
     *
     * @return string|null The teamsAppDisplayName
     */
@@ -85,7 +85,7 @@ class TeamsAppRemovedEventMessageDetail extends EventMessageDetail
 
     /**
     * Sets the teamsAppDisplayName
-    * Display name of the teamApp.
+    * Display name of the teamsApp.
     *
     * @param string $val The value of the teamsAppDisplayName
     *

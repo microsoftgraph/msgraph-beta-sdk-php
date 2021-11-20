@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class UnsupportedDeviceConfiguration extends DeviceConfiguration
 {
 
-     /** 
+     /**
      * Gets the details
     * Details describing why the entity is unsupported. This collection can contain a maximum of 1000 elements.
      *
@@ -46,8 +46,8 @@ class UnsupportedDeviceConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the details
     * Details describing why the entity is unsupported. This collection can contain a maximum of 1000 elements.
     *
@@ -60,7 +60,7 @@ class UnsupportedDeviceConfiguration extends DeviceConfiguration
         $this->_propDict["details"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the originalEntityTypeName
     * The type of entity that would be returned otherwise.
@@ -75,7 +75,7 @@ class UnsupportedDeviceConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the originalEntityTypeName
     * The type of entity that would be returned otherwise.
@@ -89,5 +89,5 @@ class UnsupportedDeviceConfiguration extends DeviceConfiguration
         $this->_propDict["originalEntityTypeName"] = $val;
         return $this;
     }
-    
+
 }

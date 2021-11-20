@@ -230,6 +230,41 @@ class AccessReviewScheduleSettings extends Entity
     }
 
     /**
+    * Gets the recommendationInsightSettings
+    *
+    * @return AccessReviewRecommendationInsightSetting[]|null The recommendationInsightSettings
+    */
+    public function getRecommendationInsightSettings()
+    {
+        if (array_key_exists("recommendationInsightSettings", $this->_propDict) && !is_null($this->_propDict["recommendationInsightSettings"])) {
+       
+            if (count($this->_propDict['recommendationInsightSettings']) > 0 && is_a($this->_propDict['recommendationInsightSettings'][0], 'AccessReviewRecommendationInsightSetting')) {
+                return $this->_propDict['recommendationInsightSettings'];
+            }
+            $recommendationInsightSettings = [];
+            foreach ($this->_propDict['recommendationInsightSettings'] as $singleValue) {
+                $recommendationInsightSettings []= new AccessReviewRecommendationInsightSetting($singleValue);
+            }
+            $this->_propDict['recommendationInsightSettings'] = $recommendationInsightSettings;
+            return $this->_propDict['recommendationInsightSettings'];
+            }
+        return null;
+    }
+
+    /**
+    * Sets the recommendationInsightSettings
+    *
+    * @param AccessReviewRecommendationInsightSetting[] $val The value to assign to the recommendationInsightSettings
+    *
+    * @return AccessReviewScheduleSettings The AccessReviewScheduleSettings
+    */
+    public function setRecommendationInsightSettings($val)
+    {
+        $this->_propDict["recommendationInsightSettings"] = $val;
+         return $this;
+    }
+
+    /**
     * Gets the recommendationLookBackDuration
     * Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. For reviews of groups and Azure AD roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days.
     *

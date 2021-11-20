@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class Synchronization extends Entity
 {
 
-     /** 
+     /**
      * Gets the secrets
      *
      * @return SynchronizationSecretKeyStringValuePair[]|null The secrets
@@ -45,8 +45,8 @@ class Synchronization extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the secrets
     *
     * @param SynchronizationSecretKeyStringValuePair[] $val The secrets
@@ -58,9 +58,9 @@ class Synchronization extends Entity
         $this->_propDict["secrets"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the jobs
      *
      * @return SynchronizationJob[]|null The jobs
@@ -80,8 +80,8 @@ class Synchronization extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the jobs
     *
     * @param SynchronizationJob[] $val The jobs
@@ -93,9 +93,9 @@ class Synchronization extends Entity
         $this->_propDict["jobs"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the templates
      *
      * @return SynchronizationTemplate[]|null The templates
@@ -115,8 +115,8 @@ class Synchronization extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the templates
     *
     * @param SynchronizationTemplate[] $val The templates
@@ -128,5 +128,5 @@ class Synchronization extends Entity
         $this->_propDict["templates"] = $val;
         return $this;
     }
-    
+
 }

@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class OutlookUser extends Entity
 {
 
-     /** 
+     /**
      * Gets the masterCategories
     * A list of categories defined for the user.
      *
@@ -46,8 +46,8 @@ class OutlookUser extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the masterCategories
     * A list of categories defined for the user.
     *
@@ -60,9 +60,9 @@ class OutlookUser extends Entity
         $this->_propDict["masterCategories"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the taskFolders
      *
      * @return OutlookTaskFolder[]|null The taskFolders
@@ -82,8 +82,8 @@ class OutlookUser extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the taskFolders
     *
     * @param OutlookTaskFolder[] $val The taskFolders
@@ -95,9 +95,9 @@ class OutlookUser extends Entity
         $this->_propDict["taskFolders"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the taskGroups
      *
      * @return OutlookTaskGroup[]|null The taskGroups
@@ -117,8 +117,8 @@ class OutlookUser extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the taskGroups
     *
     * @param OutlookTaskGroup[] $val The taskGroups
@@ -130,9 +130,9 @@ class OutlookUser extends Entity
         $this->_propDict["taskGroups"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the tasks
      *
      * @return OutlookTask[]|null The tasks
@@ -152,8 +152,8 @@ class OutlookUser extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the tasks
     *
     * @param OutlookTask[] $val The tasks
@@ -165,5 +165,5 @@ class OutlookUser extends Entity
         $this->_propDict["tasks"] = $val;
         return $this;
     }
-    
+
 }

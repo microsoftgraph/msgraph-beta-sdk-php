@@ -37,7 +37,7 @@ class CustomSecurityAttributeDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the attributeSet
     *
@@ -50,7 +50,7 @@ class CustomSecurityAttributeDefinition extends Entity
         $this->_propDict["attributeSet"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     *
@@ -64,7 +64,7 @@ class CustomSecurityAttributeDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     *
@@ -77,7 +77,7 @@ class CustomSecurityAttributeDefinition extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isCollection
     *
@@ -91,7 +91,7 @@ class CustomSecurityAttributeDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isCollection
     *
@@ -104,7 +104,7 @@ class CustomSecurityAttributeDefinition extends Entity
         $this->_propDict["isCollection"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isSearchable
     *
@@ -118,7 +118,7 @@ class CustomSecurityAttributeDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isSearchable
     *
@@ -131,7 +131,7 @@ class CustomSecurityAttributeDefinition extends Entity
         $this->_propDict["isSearchable"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the name
     *
@@ -145,7 +145,7 @@ class CustomSecurityAttributeDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the name
     *
@@ -158,7 +158,7 @@ class CustomSecurityAttributeDefinition extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
     *
@@ -172,7 +172,7 @@ class CustomSecurityAttributeDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the status
     *
@@ -185,7 +185,7 @@ class CustomSecurityAttributeDefinition extends Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the type
     *
@@ -199,7 +199,7 @@ class CustomSecurityAttributeDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the type
     *
@@ -212,7 +212,7 @@ class CustomSecurityAttributeDefinition extends Entity
         $this->_propDict["type"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the usePreDefinedValuesOnly
     *
@@ -226,7 +226,7 @@ class CustomSecurityAttributeDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the usePreDefinedValuesOnly
     *
@@ -239,9 +239,9 @@ class CustomSecurityAttributeDefinition extends Entity
         $this->_propDict["usePreDefinedValuesOnly"] = boolval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the allowedValues
      *
      * @return AllowedValue[]|null The allowedValues
@@ -261,8 +261,8 @@ class CustomSecurityAttributeDefinition extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the allowedValues
     *
     * @param AllowedValue[] $val The allowedValues
@@ -274,5 +274,5 @@ class CustomSecurityAttributeDefinition extends Entity
         $this->_propDict["allowedValues"] = $val;
         return $this;
     }
-    
+
 }

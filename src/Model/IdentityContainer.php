@@ -31,7 +31,7 @@ class IdentityContainer implements \JsonSerializable
     * @var array $_propDict
     */
     protected $_propDict;
-    
+
     /**
     * Construct a new IdentityContainer
     *
@@ -54,7 +54,7 @@ class IdentityContainer implements \JsonSerializable
     {
         return $this->_propDict;
     }
-    
+
     /**
     * Gets the conditionalAccess
     * the entry point for the Conditional Access (CA) object model.
@@ -73,7 +73,7 @@ class IdentityContainer implements \JsonSerializable
         }
         return null;
     }
-    
+
     /**
     * Sets the conditionalAccess
     * the entry point for the Conditional Access (CA) object model.
@@ -87,9 +87,9 @@ class IdentityContainer implements \JsonSerializable
         $this->_propDict["conditionalAccess"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the apiConnectors
     * Represents entry point for API connectors.
      *
@@ -110,8 +110,8 @@ class IdentityContainer implements \JsonSerializable
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the apiConnectors
     * Represents entry point for API connectors.
     *
@@ -124,9 +124,9 @@ class IdentityContainer implements \JsonSerializable
         $this->_propDict["apiConnectors"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the b2cUserFlows
     * Represents entry point for B2C identity userflows.
      *
@@ -147,8 +147,8 @@ class IdentityContainer implements \JsonSerializable
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the b2cUserFlows
     * Represents entry point for B2C identity userflows.
     *
@@ -161,9 +161,9 @@ class IdentityContainer implements \JsonSerializable
         $this->_propDict["b2cUserFlows"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the b2xUserFlows
     * Represents entry point for B2X/self-service sign-up identity userflows.
      *
@@ -184,8 +184,8 @@ class IdentityContainer implements \JsonSerializable
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the b2xUserFlows
     * Represents entry point for B2X/self-service sign-up identity userflows.
     *
@@ -198,9 +198,9 @@ class IdentityContainer implements \JsonSerializable
         $this->_propDict["b2xUserFlows"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the identityProviders
     * Represents entry point for identity provider base.
      *
@@ -221,8 +221,8 @@ class IdentityContainer implements \JsonSerializable
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the identityProviders
     * Represents entry point for identity provider base.
     *
@@ -235,9 +235,9 @@ class IdentityContainer implements \JsonSerializable
         $this->_propDict["identityProviders"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the userFlowAttributes
     * Represents entry point for identity userflow attributes.
      *
@@ -258,8 +258,8 @@ class IdentityContainer implements \JsonSerializable
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the userFlowAttributes
     * Represents entry point for identity userflow attributes.
     *
@@ -272,9 +272,9 @@ class IdentityContainer implements \JsonSerializable
         $this->_propDict["userFlowAttributes"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the userFlows
      *
      * @return IdentityUserFlow[]|null The userFlows
@@ -294,8 +294,8 @@ class IdentityContainer implements \JsonSerializable
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the userFlows
     *
     * @param IdentityUserFlow[] $val The userFlows
@@ -307,7 +307,7 @@ class IdentityContainer implements \JsonSerializable
         $this->_propDict["userFlows"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the continuousAccessEvaluationPolicy
     * Represents entry point for continuous access evaluation policy.
@@ -326,7 +326,7 @@ class IdentityContainer implements \JsonSerializable
         }
         return null;
     }
-    
+
     /**
     * Sets the continuousAccessEvaluationPolicy
     * Represents entry point for continuous access evaluation policy.
@@ -340,7 +340,7 @@ class IdentityContainer implements \JsonSerializable
         $this->_propDict["continuousAccessEvaluationPolicy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the ODataType
     *
@@ -353,7 +353,7 @@ class IdentityContainer implements \JsonSerializable
         }
         return null;
     }
-    
+
     /**
     * Sets the ODataType
     *
@@ -366,7 +366,7 @@ class IdentityContainer implements \JsonSerializable
         $this->_propDict["@odata.type"] = $val;
         return $this;
     }
-    
+
     /**
     * Serializes the object by property array
     * Manually serialize DateTime into RFC3339 format
@@ -377,24 +377,32 @@ class IdentityContainer implements \JsonSerializable
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, '\DateTime')) {
-                $serializableProperties[$property] = $val->format(\DateTimeInterface::RFC3339);
-            } else if (is_a($val, '\Microsoft\Graph\Core\Enum')) {
-                $serializableProperties[$property] = $val->value();
-            } else if (is_array($val)) {
-                $values = [];
-                if (count($val) > 0 && is_a($val[0], '\DateTime')) {
-                   foreach ($values as $propertyValue) {
-                       $values []= $propertyValue->format(\DateTimeInterface::RFC3339);
-                   }
-                } else if(count($val) > 0 && is_a($val[0], '\Microsoft\Graph\Core\Enum')) {
-                    foreach ($values as $propertyValue) {
-                       $values []= $propertyValue->value();
-                   }
-                }
-                $serializableProperties[$property] = $values;
+            if (is_array($val) && !empty($val)) {
+                $serializableProperties[$property] = array_map(function ($element) {
+                    return $this->serializeUniqueTypes($element);
+                }, $val);
+                continue;
             }
+            $serializableProperties[$property] = $this->serializeUniqueTypes($val);
         }
         return $serializableProperties;
+    }
+
+    /**
+    * Returns serialized value of \DateTime, \Microsoft\Graph\Core\Enum & \Microsoft\Graph\Entity types
+    *
+    * @return mixed
+    **/
+    private function serializeUniqueTypes($val)
+    {
+        if (is_a($val, '\DateTime')) {
+            return $val->format(\DateTimeInterface::RFC3339);
+        } else if (is_a($val, '\Microsoft\Graph\Core\Enum')) {
+            return $val->value();
+        } else if (is_a($val, "\Entity")) {
+            return $val->jsonSerialize();
+        } else {
+            return $val;
+        }
     }
 }

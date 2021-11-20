@@ -25,7 +25,7 @@ namespace Beta\Microsoft\Graph\Model;
 class DeviceManagementSettingDefinition extends Entity
 {
 
-     /** 
+     /**
      * Gets the constraints
     * Collection of constraints for the setting value
      *
@@ -46,8 +46,8 @@ class DeviceManagementSettingDefinition extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the constraints
     * Collection of constraints for the setting value
     *
@@ -60,9 +60,9 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["constraints"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the dependencies
     * Collection of dependencies on other settings
      *
@@ -83,8 +83,8 @@ class DeviceManagementSettingDefinition extends Entity
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the dependencies
     * Collection of dependencies on other settings
     *
@@ -97,7 +97,7 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["dependencies"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * The setting's description
@@ -112,7 +112,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * The setting's description
@@ -126,7 +126,7 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The setting's display name
@@ -141,7 +141,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The setting's display name
@@ -155,7 +155,7 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the documentationUrl
     * Url to setting documentation
@@ -170,7 +170,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the documentationUrl
     * Url to setting documentation
@@ -184,7 +184,7 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["documentationUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the headerSubtitle
     * subtitle of the setting header for more details about the category/section
@@ -199,7 +199,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the headerSubtitle
     * subtitle of the setting header for more details about the category/section
@@ -213,7 +213,7 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["headerSubtitle"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the headerTitle
     * title of the setting header represents a category/section of a setting/settings
@@ -228,7 +228,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the headerTitle
     * title of the setting header represents a category/section of a setting/settings
@@ -242,7 +242,7 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["headerTitle"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isTopLevel
     * If the setting is top level, it can be configured without the need to be wrapped in a collection or complex setting
@@ -257,7 +257,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isTopLevel
     * If the setting is top level, it can be configured without the need to be wrapped in a collection or complex setting
@@ -271,7 +271,7 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["isTopLevel"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the keywords
     * Keywords associated with the setting
@@ -286,7 +286,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the keywords
     * Keywords associated with the setting
@@ -300,7 +300,7 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["keywords"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the placeholderText
     * Placeholder text as an example of valid input
@@ -315,7 +315,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the placeholderText
     * Placeholder text as an example of valid input
@@ -329,7 +329,7 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["placeholderText"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the valueType
     * The data type of the value. Possible values are: integer, boolean, string, complex, collection, abstractComplex.
@@ -348,7 +348,7 @@ class DeviceManagementSettingDefinition extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the valueType
     * The data type of the value. Possible values are: integer, boolean, string, complex, collection, abstractComplex.
@@ -362,5 +362,5 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["valueType"] = $val;
         return $this;
     }
-    
+
 }

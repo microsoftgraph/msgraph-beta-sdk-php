@@ -38,7 +38,7 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
             return null;
         }
     }
-    
+
     /**
     * Sets the implementationId
     * The definition ID for the chosen implementation of this complex setting
@@ -52,9 +52,9 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
         $this->_propDict["implementationId"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the value
     * The values that make up the complex setting
      *
@@ -75,8 +75,8 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
         }
         return null;
     }
-    
-    /** 
+
+    /**
     * Sets the value
     * The values that make up the complex setting
     *
@@ -89,5 +89,5 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
         $this->_propDict["value"] = $val;
         return $this;
     }
-    
+
 }
