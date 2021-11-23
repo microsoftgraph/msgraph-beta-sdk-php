@@ -26,6 +26,76 @@ class Directory extends Entity
 {
 
      /**
+     * Gets the impactedResources
+     *
+     * @return RecommendationResource[]|null The impactedResources
+     */
+    public function getImpactedResources()
+    {
+        if (array_key_exists('impactedResources', $this->_propDict) && !is_null($this->_propDict['impactedResources'])) {
+            $impactedResources = [];
+            if (count($this->_propDict['impactedResources']) > 0 && is_a($this->_propDict['impactedResources'][0], 'RecommendationResource')) {
+                return $this->_propDict['impactedResources'];
+            }
+            foreach ($this->_propDict['impactedResources'] as $singleValue) {
+                $impactedResources []= new RecommendationResource($singleValue);
+            }
+            $this->_propDict['impactedResources'] = $impactedResources;
+            return $this->_propDict['impactedResources'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the impactedResources
+    *
+    * @param RecommendationResource[] $val The impactedResources
+    *
+    * @return Directory
+    */
+    public function setImpactedResources($val)
+    {
+        $this->_propDict["impactedResources"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the recommendations
+     *
+     * @return Recommendation[]|null The recommendations
+     */
+    public function getRecommendations()
+    {
+        if (array_key_exists('recommendations', $this->_propDict) && !is_null($this->_propDict['recommendations'])) {
+            $recommendations = [];
+            if (count($this->_propDict['recommendations']) > 0 && is_a($this->_propDict['recommendations'][0], 'Recommendation')) {
+                return $this->_propDict['recommendations'];
+            }
+            foreach ($this->_propDict['recommendations'] as $singleValue) {
+                $recommendations []= new Recommendation($singleValue);
+            }
+            $this->_propDict['recommendations'] = $recommendations;
+            return $this->_propDict['recommendations'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the recommendations
+    *
+    * @param Recommendation[] $val The recommendations
+    *
+    * @return Directory
+    */
+    public function setRecommendations($val)
+    {
+        $this->_propDict["recommendations"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the administrativeUnits
     * Conceptual container for user and group directory objects.
      *
@@ -64,6 +134,7 @@ class Directory extends Entity
 
      /**
      * Gets the attributeSets
+    * Group of related custom security attribute definitions.
      *
      * @return AttributeSet[]|null The attributeSets
      */
@@ -85,6 +156,7 @@ class Directory extends Entity
 
     /**
     * Sets the attributeSets
+    * Group of related custom security attribute definitions.
     *
     * @param AttributeSet[] $val The attributeSets
     *
@@ -99,6 +171,7 @@ class Directory extends Entity
 
      /**
      * Gets the customSecurityAttributeDefinitions
+    * Schema of a custom security attributes (key-value pairs).
      *
      * @return CustomSecurityAttributeDefinition[]|null The customSecurityAttributeDefinitions
      */
@@ -120,6 +193,7 @@ class Directory extends Entity
 
     /**
     * Sets the customSecurityAttributeDefinitions
+    * Schema of a custom security attributes (key-value pairs).
     *
     * @param CustomSecurityAttributeDefinition[] $val The customSecurityAttributeDefinitions
     *
