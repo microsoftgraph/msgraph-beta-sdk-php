@@ -12,6 +12,7 @@
 * @link      https://graph.microsoft.com
 */
 namespace Beta\Microsoft\Graph\Model;
+
 /**
 * AttendanceRecord class
 *
@@ -24,26 +25,25 @@ namespace Beta\Microsoft\Graph\Model;
 class AttendanceRecord extends Entity
 {
 
-    /**
-    * Gets the attendanceIntervals
+     /**
+     * Gets the attendanceIntervals
     * List of time periods between joining and leaving.
-    *
-    * @return AttendanceInterval[]|null The attendanceIntervals
-    */
+     *
+     * @return AttendanceInterval[]|null The attendanceIntervals
+     */
     public function getAttendanceIntervals()
     {
-        if (array_key_exists("attendanceIntervals", $this->_propDict) && !is_null($this->_propDict["attendanceIntervals"])) {
-       
+        if (array_key_exists('attendanceIntervals', $this->_propDict) && !is_null($this->_propDict['attendanceIntervals'])) {
+            $attendanceIntervals = [];
             if (count($this->_propDict['attendanceIntervals']) > 0 && is_a($this->_propDict['attendanceIntervals'][0], 'AttendanceInterval')) {
                 return $this->_propDict['attendanceIntervals'];
             }
-            $attendanceIntervals = [];
             foreach ($this->_propDict['attendanceIntervals'] as $singleValue) {
                 $attendanceIntervals []= new AttendanceInterval($singleValue);
             }
             $this->_propDict['attendanceIntervals'] = $attendanceIntervals;
             return $this->_propDict['attendanceIntervals'];
-            }
+        }
         return null;
     }
 
@@ -51,15 +51,16 @@ class AttendanceRecord extends Entity
     * Sets the attendanceIntervals
     * List of time periods between joining and leaving.
     *
-    * @param AttendanceInterval[] $val The value to assign to the attendanceIntervals
+    * @param AttendanceInterval[] $val The attendanceIntervals
     *
-    * @return AttendanceRecord The AttendanceRecord
+    * @return AttendanceRecord
     */
     public function setAttendanceIntervals($val)
     {
         $this->_propDict["attendanceIntervals"] = $val;
-         return $this;
+        return $this;
     }
+
     /**
     * Gets the emailAddress
     * Email address.
@@ -79,7 +80,7 @@ class AttendanceRecord extends Entity
     * Sets the emailAddress
     * Email address.
     *
-    * @param string $val The value of the emailAddress
+    * @param string $val The emailAddress
     *
     * @return AttendanceRecord
     */
@@ -98,7 +99,6 @@ class AttendanceRecord extends Entity
     public function getIdentity()
     {
         if (array_key_exists("identity", $this->_propDict) && !is_null($this->_propDict["identity"])) {
-     
             if (is_a($this->_propDict["identity"], "\Beta\Microsoft\Graph\Model\Identity")) {
                 return $this->_propDict["identity"];
             } else {
@@ -113,15 +113,16 @@ class AttendanceRecord extends Entity
     * Sets the identity
     * Identifier, such as display name.
     *
-    * @param Identity $val The value to assign to the identity
+    * @param Identity $val The identity
     *
-    * @return AttendanceRecord The AttendanceRecord
+    * @return AttendanceRecord
     */
     public function setIdentity($val)
     {
         $this->_propDict["identity"] = $val;
-         return $this;
+        return $this;
     }
+
     /**
     * Gets the role
     * Role of the attendee. Possible values are None, Attendee, Presenter, and Organizer.
@@ -141,7 +142,7 @@ class AttendanceRecord extends Entity
     * Sets the role
     * Role of the attendee. Possible values are None, Attendee, Presenter, and Organizer.
     *
-    * @param string $val The value of the role
+    * @param string $val The role
     *
     * @return AttendanceRecord
     */
@@ -150,6 +151,7 @@ class AttendanceRecord extends Entity
         $this->_propDict["role"] = $val;
         return $this;
     }
+
     /**
     * Gets the totalAttendanceInSeconds
     * Total duration of the attendances in seconds.
@@ -169,13 +171,14 @@ class AttendanceRecord extends Entity
     * Sets the totalAttendanceInSeconds
     * Total duration of the attendances in seconds.
     *
-    * @param int $val The value of the totalAttendanceInSeconds
+    * @param int $val The totalAttendanceInSeconds
     *
     * @return AttendanceRecord
     */
     public function setTotalAttendanceInSeconds($val)
     {
-        $this->_propDict["totalAttendanceInSeconds"] = $val;
+        $this->_propDict["totalAttendanceInSeconds"] = intval($val);
         return $this;
     }
+
 }
