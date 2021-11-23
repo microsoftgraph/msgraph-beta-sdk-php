@@ -956,9 +956,45 @@ class OnlineMeeting extends Entity
         return $this;
     }
 
+
+     /**
+     * Gets the attendanceReports
+    * The attendance reports of an online meeting. Read-only.
+     *
+     * @return MeetingAttendanceReport[]|null The attendanceReports
+     */
+    public function getAttendanceReports()
+    {
+        if (array_key_exists('attendanceReports', $this->_propDict) && !is_null($this->_propDict['attendanceReports'])) {
+            $attendanceReports = [];
+            if (count($this->_propDict['attendanceReports']) > 0 && is_a($this->_propDict['attendanceReports'][0], 'MeetingAttendanceReport')) {
+                return $this->_propDict['attendanceReports'];
+            }
+            foreach ($this->_propDict['attendanceReports'] as $singleValue) {
+                $attendanceReports []= new MeetingAttendanceReport($singleValue);
+            }
+            $this->_propDict['attendanceReports'] = $attendanceReports;
+            return $this->_propDict['attendanceReports'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the attendanceReports
+    * The attendance reports of an online meeting. Read-only.
+    *
+    * @param MeetingAttendanceReport[] $val The attendanceReports
+    *
+    * @return OnlineMeeting
+    */
+    public function setAttendanceReports($val)
+    {
+        $this->_propDict["attendanceReports"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the meetingAttendanceReport
-    * The attendance report of an online meeting. Read-only.
     *
     * @return MeetingAttendanceReport|null The meetingAttendanceReport
     */
@@ -977,7 +1013,6 @@ class OnlineMeeting extends Entity
 
     /**
     * Sets the meetingAttendanceReport
-    * The attendance report of an online meeting. Read-only.
     *
     * @param MeetingAttendanceReport $val The meetingAttendanceReport
     *
