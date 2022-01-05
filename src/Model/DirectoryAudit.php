@@ -371,6 +371,7 @@ class DirectoryAudit extends Entity
 
     /**
     * Gets the userAgent
+    * Type of user agent used by a user in the activity.
     *
     * @return string|null The userAgent
     */
@@ -385,6 +386,7 @@ class DirectoryAudit extends Entity
 
     /**
     * Sets the userAgent
+    * Type of user agent used by a user in the activity.
     *
     * @param string $val The userAgent
     *

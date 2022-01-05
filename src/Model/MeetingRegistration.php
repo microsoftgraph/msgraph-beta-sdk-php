@@ -22,41 +22,8 @@ namespace Beta\Microsoft\Graph\Model;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class MeetingRegistration extends Entity
+class MeetingRegistration extends MeetingRegistrationBase
 {
-    /**
-    * Gets the allowedRegistrant
-    * Specifies who can register for the meeting.
-    *
-    * @return MeetingAudience|null The allowedRegistrant
-    */
-    public function getAllowedRegistrant()
-    {
-        if (array_key_exists("allowedRegistrant", $this->_propDict) && !is_null($this->_propDict["allowedRegistrant"])) {
-            if (is_a($this->_propDict["allowedRegistrant"], "\Beta\Microsoft\Graph\Model\MeetingAudience")) {
-                return $this->_propDict["allowedRegistrant"];
-            } else {
-                $this->_propDict["allowedRegistrant"] = new MeetingAudience($this->_propDict["allowedRegistrant"]);
-                return $this->_propDict["allowedRegistrant"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the allowedRegistrant
-    * Specifies who can register for the meeting.
-    *
-    * @param MeetingAudience $val The allowedRegistrant
-    *
-    * @return MeetingRegistration
-    */
-    public function setAllowedRegistrant($val)
-    {
-        $this->_propDict["allowedRegistrant"] = $val;
-        return $this;
-    }
-
     /**
     * Gets the description
     * The description of the meeting.
@@ -310,43 +277,6 @@ class MeetingRegistration extends Entity
     public function setCustomQuestions($val)
     {
         $this->_propDict["customQuestions"] = $val;
-        return $this;
-    }
-
-
-     /**
-     * Gets the registrants
-    * Registrants of the online meeting.
-     *
-     * @return MeetingRegistrant[]|null The registrants
-     */
-    public function getRegistrants()
-    {
-        if (array_key_exists('registrants', $this->_propDict) && !is_null($this->_propDict['registrants'])) {
-            $registrants = [];
-            if (count($this->_propDict['registrants']) > 0 && is_a($this->_propDict['registrants'][0], 'MeetingRegistrant')) {
-                return $this->_propDict['registrants'];
-            }
-            foreach ($this->_propDict['registrants'] as $singleValue) {
-                $registrants []= new MeetingRegistrant($singleValue);
-            }
-            $this->_propDict['registrants'] = $registrants;
-            return $this->_propDict['registrants'];
-        }
-        return null;
-    }
-
-    /**
-    * Sets the registrants
-    * Registrants of the online meeting.
-    *
-    * @param MeetingRegistrant[] $val The registrants
-    *
-    * @return MeetingRegistration
-    */
-    public function setRegistrants($val)
-    {
-        $this->_propDict["registrants"] = $val;
         return $this;
     }
 

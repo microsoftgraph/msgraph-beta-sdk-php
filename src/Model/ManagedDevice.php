@@ -2107,7 +2107,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the skuNumber
-    * Device sku number, see also: https://docs.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo. Valid values 0 to 2147483647. This property is read-only.
+    * Device sku number, see also: GetProductInfo. Valid values 0 to 2147483647. This property is read-only.
     *
     * @return int|null The skuNumber
     */
@@ -2122,7 +2122,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the skuNumber
-    * Device sku number, see also: https://docs.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo. Valid values 0 to 2147483647. This property is read-only.
+    * Device sku number, see also: GetProductInfo. Valid values 0 to 2147483647. This property is read-only.
     *
     * @param int $val The skuNumber
     *
@@ -2792,7 +2792,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the windowsProtectionState
-    * The device protection status.
+    * The device protection status. This property is read-only.
     *
     * @return WindowsProtectionState|null The windowsProtectionState
     */
@@ -2811,7 +2811,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the windowsProtectionState
-    * The device protection status.
+    * The device protection status. This property is read-only.
     *
     * @param WindowsProtectionState $val The windowsProtectionState
     *

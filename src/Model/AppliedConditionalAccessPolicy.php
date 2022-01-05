@@ -26,6 +26,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Gets the authenticationStrength
+    * The custom authentication strength enforced in a Conditional Access policy.
     *
     * @return AuthenticationStrength|null The authenticationStrength
     */
@@ -45,6 +46,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Sets the authenticationStrength
+    * The custom authentication strength enforced in a Conditional Access policy.
     *
     * @param AuthenticationStrength $val The value to assign to the authenticationStrength
     *
@@ -58,7 +60,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Gets the conditionsNotSatisfied
-    * Refers to the conditional access policy conditions that are not satisfied. Possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client.
+    * Refers to the conditional access policy conditions that are not satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk.
     *
     * @return ConditionalAccessConditions|null The conditionsNotSatisfied
     */
@@ -78,7 +80,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Sets the conditionsNotSatisfied
-    * Refers to the conditional access policy conditions that are not satisfied. Possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client.
+    * Refers to the conditional access policy conditions that are not satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk.
     *
     * @param ConditionalAccessConditions $val The value to assign to the conditionsNotSatisfied
     *
@@ -92,7 +94,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Gets the conditionsSatisfied
-    * Refers to the conditional access policy conditions that are satisfied. Possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client.
+    * Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk.
     *
     * @return ConditionalAccessConditions|null The conditionsSatisfied
     */
@@ -112,7 +114,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Sets the conditionsSatisfied
-    * Refers to the conditional access policy conditions that are satisfied. Possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client.
+    * Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk.
     *
     * @param ConditionalAccessConditions $val The value to assign to the conditionsSatisfied
     *
@@ -210,6 +212,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Gets the excludeRulesSatisfied
+    * List of key-value pairs containing each matched exclude condition in the conditional access policy. Example: [{'devicePlatform' : 'DevicePlatform'}] means the policy didn’t apply, because the DevicePlatform condition was a match.
     *
     * @return ConditionalAccessRuleSatisfied[]|null The excludeRulesSatisfied
     */
@@ -232,6 +235,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Sets the excludeRulesSatisfied
+    * List of key-value pairs containing each matched exclude condition in the conditional access policy. Example: [{'devicePlatform' : 'DevicePlatform'}] means the policy didn’t apply, because the DevicePlatform condition was a match.
     *
     * @param ConditionalAccessRuleSatisfied[] $val The value to assign to the excludeRulesSatisfied
     *
@@ -273,6 +277,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Gets the includeRulesSatisfied
+    * List of key-value pairs containing each matched include condition in the conditional access policy. Example: [{ 'application' : 'AllApps'}, {'users': 'Group'}], meaning Application condition was a match because AllApps are included and Users condition was a match because the user was part of the included Group rule.
     *
     * @return ConditionalAccessRuleSatisfied[]|null The includeRulesSatisfied
     */
@@ -295,6 +300,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Sets the includeRulesSatisfied
+    * List of key-value pairs containing each matched include condition in the conditional access policy. Example: [{ 'application' : 'AllApps'}, {'users': 'Group'}], meaning Application condition was a match because AllApps are included and Users condition was a match because the user was part of the included Group rule.
     *
     * @param ConditionalAccessRuleSatisfied[] $val The value to assign to the includeRulesSatisfied
     *

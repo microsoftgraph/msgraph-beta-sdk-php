@@ -252,6 +252,7 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the tenantOnboardingEligibilityReason
+    * Organization's onboarding eligibility reason in Microsoft 365 Lighthouse.. Possible values are: none, contractType, delegatedAdminPrivileges,usersCount,license and unknownFutureValue. Optional. Read-only.
     *
     * @return TenantOnboardingEligibilityReason|null The tenantOnboardingEligibilityReason
     */
@@ -271,6 +272,7 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the tenantOnboardingEligibilityReason
+    * Organization's onboarding eligibility reason in Microsoft 365 Lighthouse.. Possible values are: none, contractType, delegatedAdminPrivileges,usersCount,license and unknownFutureValue. Optional. Read-only.
     *
     * @param TenantOnboardingEligibilityReason $val The value to assign to the tenantOnboardingEligibilityReason
     *

@@ -328,7 +328,7 @@ class AccessReviewScheduleSettings extends Entity
 
     /**
     * Gets the recurrence
-    * Detailed settings for recurrence using the standard Outlook recurrence object. Only weekly and absoluteMonthly on recurrencePattern are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
+    * Detailed settings for recurrence using the standard Outlook recurrence object.  Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
     *
     * @return PatternedRecurrence|null The recurrence
     */
@@ -348,7 +348,7 @@ class AccessReviewScheduleSettings extends Entity
 
     /**
     * Sets the recurrence
-    * Detailed settings for recurrence using the standard Outlook recurrence object. Only weekly and absoluteMonthly on recurrencePattern are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
+    * Detailed settings for recurrence using the standard Outlook recurrence object.  Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
     *
     * @param PatternedRecurrence $val The value to assign to the recurrence
     *

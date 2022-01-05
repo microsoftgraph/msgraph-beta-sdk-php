@@ -335,6 +335,41 @@ class GraphList extends BaseItem
 
 
      /**
+     * Gets the operations
+     *
+     * @return RichLongRunningOperation[]|null The operations
+     */
+    public function getOperations()
+    {
+        if (array_key_exists('operations', $this->_propDict) && !is_null($this->_propDict['operations'])) {
+            $operations = [];
+            if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'RichLongRunningOperation')) {
+                return $this->_propDict['operations'];
+            }
+            foreach ($this->_propDict['operations'] as $singleValue) {
+                $operations []= new RichLongRunningOperation($singleValue);
+            }
+            $this->_propDict['operations'] = $operations;
+            return $this->_propDict['operations'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the operations
+    *
+    * @param RichLongRunningOperation[] $val The operations
+    *
+    * @return GraphList
+    */
+    public function setOperations($val)
+    {
+        $this->_propDict["operations"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the subscriptions
     * The set of subscriptions on the list.
      *

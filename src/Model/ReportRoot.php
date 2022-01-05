@@ -27,6 +27,7 @@ class ReportRoot extends Entity
 
      /**
      * Gets the applicationSignInDetailedSummary
+    * Represents a detailed summary of an application sign-in.
      *
      * @return ApplicationSignInDetailedSummary[]|null The applicationSignInDetailedSummary
      */
@@ -48,6 +49,7 @@ class ReportRoot extends Entity
 
     /**
     * Sets the applicationSignInDetailedSummary
+    * Represents a detailed summary of an application sign-in.
     *
     * @param ApplicationSignInDetailedSummary[] $val The applicationSignInDetailedSummary
     *
@@ -61,6 +63,7 @@ class ReportRoot extends Entity
 
     /**
     * Gets the authenticationMethods
+    * Container for navigation properties for Azure AD authentication methods resources.
     *
     * @return AuthenticationMethodsRoot|null The authenticationMethods
     */
@@ -79,6 +82,7 @@ class ReportRoot extends Entity
 
     /**
     * Sets the authenticationMethods
+    * Container for navigation properties for Azure AD authentication methods resources.
     *
     * @param AuthenticationMethodsRoot $val The authenticationMethods
     *
@@ -93,6 +97,7 @@ class ReportRoot extends Entity
 
      /**
      * Gets the credentialUserRegistrationDetails
+    * Details of the usage of self-service password reset and multi-factor authentication (MFA) for all registered users.
      *
      * @return CredentialUserRegistrationDetails[]|null The credentialUserRegistrationDetails
      */
@@ -114,6 +119,7 @@ class ReportRoot extends Entity
 
     /**
     * Sets the credentialUserRegistrationDetails
+    * Details of the usage of self-service password reset and multi-factor authentication (MFA) for all registered users.
     *
     * @param CredentialUserRegistrationDetails[] $val The credentialUserRegistrationDetails
     *
@@ -128,6 +134,7 @@ class ReportRoot extends Entity
 
      /**
      * Gets the userCredentialUsageDetails
+    * Represents the self-service password reset (SSPR) usage for a given tenant.
      *
      * @return UserCredentialUsageDetails[]|null The userCredentialUsageDetails
      */
@@ -149,6 +156,7 @@ class ReportRoot extends Entity
 
     /**
     * Sets the userCredentialUsageDetails
+    * Represents the self-service password reset (SSPR) usage for a given tenant.
     *
     * @param UserCredentialUsageDetails[] $val The userCredentialUsageDetails
     *

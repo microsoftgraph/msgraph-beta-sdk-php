@@ -26,6 +26,7 @@ class BookingAppointment extends Entity
 {
     /**
     * Gets the additionalInformation
+    * Additional information that is sent to the customer when an appointment is confirmed.
     *
     * @return string|null The additionalInformation
     */
@@ -40,6 +41,7 @@ class BookingAppointment extends Entity
 
     /**
     * Sets the additionalInformation
+    * Additional information that is sent to the customer when an appointment is confirmed.
     *
     * @param string $val The additionalInformation
     *
@@ -229,6 +231,43 @@ class BookingAppointment extends Entity
         return $this;
     }
 
+
+     /**
+     * Gets the customers
+    * It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.
+     *
+     * @return BookingCustomerInformationBase[]|null The customers
+     */
+    public function getCustomers()
+    {
+        if (array_key_exists('customers', $this->_propDict) && !is_null($this->_propDict['customers'])) {
+            $customers = [];
+            if (count($this->_propDict['customers']) > 0 && is_a($this->_propDict['customers'][0], 'BookingCustomerInformationBase')) {
+                return $this->_propDict['customers'];
+            }
+            foreach ($this->_propDict['customers'] as $singleValue) {
+                $customers []= new BookingCustomerInformationBase($singleValue);
+            }
+            $this->_propDict['customers'] = $customers;
+            return $this->_propDict['customers'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the customers
+    * It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.
+    *
+    * @param BookingCustomerInformationBase[] $val The customers
+    *
+    * @return BookingAppointment
+    */
+    public function setCustomers($val)
+    {
+        $this->_propDict["customers"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the customerTimeZone
     * The time zone of the customer. For a list of possible values, see dateTimeTimeZone.
@@ -321,6 +360,35 @@ class BookingAppointment extends Entity
     public function setEnd($val)
     {
         $this->_propDict["end"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the filledAttendeesCount
+    * The current number of customers in the appointment
+    *
+    * @return int|null The filledAttendeesCount
+    */
+    public function getFilledAttendeesCount()
+    {
+        if (array_key_exists("filledAttendeesCount", $this->_propDict)) {
+            return $this->_propDict["filledAttendeesCount"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the filledAttendeesCount
+    * The current number of customers in the appointment
+    *
+    * @param int $val The filledAttendeesCount
+    *
+    * @return BookingAppointment
+    */
+    public function setFilledAttendeesCount($val)
+    {
+        $this->_propDict["filledAttendeesCount"] = intval($val);
         return $this;
     }
 
@@ -479,7 +547,7 @@ class BookingAppointment extends Entity
 
     /**
     * Gets the isLocationOnline
-    * True indicates that the appointment will be held online. Default value is false.
+    * If true, indicates that the appointment will be held online. Default value is false.
     *
     * @return bool|null The isLocationOnline
     */
@@ -494,7 +562,7 @@ class BookingAppointment extends Entity
 
     /**
     * Sets the isLocationOnline
-    * True indicates that the appointment will be held online. Default value is false.
+    * If true, indicates that the appointment will be held online. Default value is false.
     *
     * @param bool $val The isLocationOnline
     *
@@ -536,6 +604,35 @@ class BookingAppointment extends Entity
     }
 
     /**
+    * Gets the maximumAttendeesCount
+    * The maximum number of customers allowed in an appointment.
+    *
+    * @return int|null The maximumAttendeesCount
+    */
+    public function getMaximumAttendeesCount()
+    {
+        if (array_key_exists("maximumAttendeesCount", $this->_propDict)) {
+            return $this->_propDict["maximumAttendeesCount"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the maximumAttendeesCount
+    * The maximum number of customers allowed in an appointment.
+    *
+    * @param int $val The maximumAttendeesCount
+    *
+    * @return BookingAppointment
+    */
+    public function setMaximumAttendeesCount($val)
+    {
+        $this->_propDict["maximumAttendeesCount"] = intval($val);
+        return $this;
+    }
+
+    /**
     * Gets the onlineMeetingUrl
     *
     * @return string|null The onlineMeetingUrl
@@ -564,7 +661,7 @@ class BookingAppointment extends Entity
 
     /**
     * Gets the optOutOfCustomerEmail
-    * True indicates that the bookingCustomer for this appointment does not wish to receive a confirmation for this appointment.
+    * If true indicates that the bookingCustomer for this appointment does not wish to receive a confirmation for this appointment.
     *
     * @return bool|null The optOutOfCustomerEmail
     */
@@ -579,7 +676,7 @@ class BookingAppointment extends Entity
 
     /**
     * Sets the optOutOfCustomerEmail
-    * True indicates that the bookingCustomer for this appointment does not wish to receive a confirmation for this appointment.
+    * If true indicates that the bookingCustomer for this appointment does not wish to receive a confirmation for this appointment.
     *
     * @param bool $val The optOutOfCustomerEmail
     *
@@ -688,7 +785,7 @@ class BookingAppointment extends Entity
 
     /**
     * Gets the priceType
-    * A setting to provide flexibility for the pricing structure of services. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet.
+    * A setting to provide flexibility for the pricing structure of services. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue.
     *
     * @return BookingPriceType|null The priceType
     */
@@ -707,7 +804,7 @@ class BookingAppointment extends Entity
 
     /**
     * Sets the priceType
-    * A setting to provide flexibility for the pricing structure of services. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet.
+    * A setting to provide flexibility for the pricing structure of services. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue.
     *
     * @param BookingPriceType $val The priceType
     *
@@ -758,7 +855,7 @@ class BookingAppointment extends Entity
 
     /**
     * Gets the selfServiceAppointmentId
-    * An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer.
+    * An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer. Only supported for appointment if maxAttendeeCount is 1.
     *
     * @return string|null The selfServiceAppointmentId
     */
@@ -773,7 +870,7 @@ class BookingAppointment extends Entity
 
     /**
     * Sets the selfServiceAppointmentId
-    * An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer.
+    * An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer. Only supported for appointment if maxAttendeeCount is 1.
     *
     * @param string $val The selfServiceAppointmentId
     *
@@ -907,7 +1004,7 @@ class BookingAppointment extends Entity
 
     /**
     * Gets the smsNotificationsEnabled
-    * True indicates SMS notifications will be sent to the customers for the appointment. Default value is false.
+    * If true, indicates SMS notifications will be sent to the customers for the appointment. Default value is false.
     *
     * @return bool|null The smsNotificationsEnabled
     */
@@ -922,7 +1019,7 @@ class BookingAppointment extends Entity
 
     /**
     * Sets the smsNotificationsEnabled
-    * True indicates SMS notifications will be sent to the customers for the appointment. Default value is false.
+    * If true, indicates SMS notifications will be sent to the customers for the appointment. Default value is false.
     *
     * @param bool $val The smsNotificationsEnabled
     *
