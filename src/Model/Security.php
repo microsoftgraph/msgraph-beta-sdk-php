@@ -61,6 +61,41 @@ class Security extends Entity
 
 
      /**
+     * Gets the alertsV2
+     *
+     * @return Alert_v2[]|null The alertsV2
+     */
+    public function getAlertsV2()
+    {
+        if (array_key_exists('alertsV2', $this->_propDict) && !is_null($this->_propDict['alertsV2'])) {
+            $alertsV2 = [];
+            if (count($this->_propDict['alertsV2']) > 0 && is_a($this->_propDict['alertsV2'][0], 'Alert_v2')) {
+                return $this->_propDict['alertsV2'];
+            }
+            foreach ($this->_propDict['alertsV2'] as $singleValue) {
+                $alertsV2 []= new Alert_v2($singleValue);
+            }
+            $this->_propDict['alertsV2'] = $alertsV2;
+            return $this->_propDict['alertsV2'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the alertsV2
+    *
+    * @param Alert_v2[] $val The alertsV2
+    *
+    * @return Security
+    */
+    public function setAlertsV2($val)
+    {
+        $this->_propDict["alertsV2"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the incidents
      *
      * @return Incident[]|null The incidents
@@ -130,7 +165,7 @@ class Security extends Entity
 
      /**
      * Gets the alerts
-    * Read-only. Nullable.
+    * Notifications for suspicious or potential security issues in a customer’s tenant.
      *
      * @return Alert[]|null The alerts
      */
@@ -152,7 +187,7 @@ class Security extends Entity
 
     /**
     * Sets the alerts
-    * Read-only. Nullable.
+    * Notifications for suspicious or potential security issues in a customer’s tenant.
     *
     * @param Alert[] $val The alerts
     *

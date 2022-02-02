@@ -86,4 +86,33 @@ class UserSource extends DataSource
         return $this;
     }
 
+    /**
+    * Gets the siteWebUrl
+    * The URL of the user's OneDrive for Business site. Read-only.
+    *
+    * @return string|null The siteWebUrl
+    */
+    public function getSiteWebUrl()
+    {
+        if (array_key_exists("siteWebUrl", $this->_propDict)) {
+            return $this->_propDict["siteWebUrl"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the siteWebUrl
+    * The URL of the user's OneDrive for Business site. Read-only.
+    *
+    * @param string $val The siteWebUrl
+    *
+    * @return UserSource
+    */
+    public function setSiteWebUrl($val)
+    {
+        $this->_propDict["siteWebUrl"] = $val;
+        return $this;
+    }
+
 }

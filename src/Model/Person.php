@@ -324,7 +324,7 @@ class Person extends Entity
 
     /**
     * Gets the personType
-    * The type of person.
+    * The type of person, for example distribution list.
     *
     * @return string|null The personType
     */
@@ -339,7 +339,7 @@ class Person extends Entity
 
     /**
     * Sets the personType
-    * The type of person.
+    * The type of person, for example distribution list.
     *
     * @param string $val The personType
     *

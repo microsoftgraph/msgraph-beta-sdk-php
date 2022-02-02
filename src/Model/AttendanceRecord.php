@@ -27,7 +27,7 @@ class AttendanceRecord extends Entity
 
      /**
      * Gets the attendanceIntervals
-    * List of time periods between joining and leaving.
+    * List of time periods between joining and leaving a meeting.
      *
      * @return AttendanceInterval[]|null The attendanceIntervals
      */
@@ -49,7 +49,7 @@ class AttendanceRecord extends Entity
 
     /**
     * Sets the attendanceIntervals
-    * List of time periods between joining and leaving.
+    * List of time periods between joining and leaving a meeting.
     *
     * @param AttendanceInterval[] $val The attendanceIntervals
     *
@@ -63,7 +63,7 @@ class AttendanceRecord extends Entity
 
     /**
     * Gets the emailAddress
-    * Email address.
+    * Email address of the user associated with this atttendance record.
     *
     * @return string|null The emailAddress
     */
@@ -78,7 +78,7 @@ class AttendanceRecord extends Entity
 
     /**
     * Sets the emailAddress
-    * Email address.
+    * Email address of the user associated with this atttendance record.
     *
     * @param string $val The emailAddress
     *
@@ -92,7 +92,7 @@ class AttendanceRecord extends Entity
 
     /**
     * Gets the identity
-    * Identifier, such as display name.
+    * Identity of the user associated with this atttendance record.
     *
     * @return Identity|null The identity
     */
@@ -111,7 +111,7 @@ class AttendanceRecord extends Entity
 
     /**
     * Sets the identity
-    * Identifier, such as display name.
+    * Identity of the user associated with this atttendance record.
     *
     * @param Identity $val The identity
     *
@@ -125,7 +125,7 @@ class AttendanceRecord extends Entity
 
     /**
     * Gets the role
-    * Role of the attendee. Possible values are None, Attendee, Presenter, and Organizer.
+    * Role of the attendee. Possible values are: None, Attendee, Presenter, and Organizer.
     *
     * @return string|null The role
     */
@@ -140,7 +140,7 @@ class AttendanceRecord extends Entity
 
     /**
     * Sets the role
-    * Role of the attendee. Possible values are None, Attendee, Presenter, and Organizer.
+    * Role of the attendee. Possible values are: None, Attendee, Presenter, and Organizer.
     *
     * @param string $val The role
     *

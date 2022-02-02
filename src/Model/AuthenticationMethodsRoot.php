@@ -24,4 +24,41 @@ namespace Beta\Microsoft\Graph\Model;
 */
 class AuthenticationMethodsRoot extends Entity
 {
+
+     /**
+     * Gets the userRegistrationDetails
+    * Represents the state of a user's authentication methods, including which methods are registered and which features the user is registered and capable of (such as multi-factor authentication, self-service password reset, and passwordless authentication).
+     *
+     * @return UserRegistrationDetails[]|null The userRegistrationDetails
+     */
+    public function getUserRegistrationDetails()
+    {
+        if (array_key_exists('userRegistrationDetails', $this->_propDict) && !is_null($this->_propDict['userRegistrationDetails'])) {
+            $userRegistrationDetails = [];
+            if (count($this->_propDict['userRegistrationDetails']) > 0 && is_a($this->_propDict['userRegistrationDetails'][0], 'UserRegistrationDetails')) {
+                return $this->_propDict['userRegistrationDetails'];
+            }
+            foreach ($this->_propDict['userRegistrationDetails'] as $singleValue) {
+                $userRegistrationDetails []= new UserRegistrationDetails($singleValue);
+            }
+            $this->_propDict['userRegistrationDetails'] = $userRegistrationDetails;
+            return $this->_propDict['userRegistrationDetails'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the userRegistrationDetails
+    * Represents the state of a user's authentication methods, including which methods are registered and which features the user is registered and capable of (such as multi-factor authentication, self-service password reset, and passwordless authentication).
+    *
+    * @param UserRegistrationDetails[] $val The userRegistrationDetails
+    *
+    * @return AuthenticationMethodsRoot
+    */
+    public function setUserRegistrationDetails($val)
+    {
+        $this->_propDict["userRegistrationDetails"] = $val;
+        return $this;
+    }
+
 }

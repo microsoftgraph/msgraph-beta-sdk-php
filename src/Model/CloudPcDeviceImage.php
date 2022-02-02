@@ -55,6 +55,7 @@ class CloudPcDeviceImage extends Entity
 
     /**
     * Gets the expirationDate
+    * The date the image became unavailable.
     *
     * @return \DateTime|null The expirationDate
     */
@@ -73,6 +74,7 @@ class CloudPcDeviceImage extends Entity
 
     /**
     * Sets the expirationDate
+    * The date the image became unavailable.
     *
     * @param \DateTime $val The expirationDate
     *
@@ -177,6 +179,7 @@ class CloudPcDeviceImage extends Entity
 
     /**
     * Gets the osStatus
+    * The OS status of this image. Possible values are: supported, supportedWithWarning, unknownFutureValue.
     *
     * @return CloudPcDeviceImageOsStatus|null The osStatus
     */
@@ -195,6 +198,7 @@ class CloudPcDeviceImage extends Entity
 
     /**
     * Sets the osStatus
+    * The OS status of this image. Possible values are: supported, supportedWithWarning, unknownFutureValue.
     *
     * @param CloudPcDeviceImageOsStatus $val The osStatus
     *
@@ -270,7 +274,7 @@ class CloudPcDeviceImage extends Entity
 
     /**
     * Gets the statusDetails
-    * The details of the image's status, which indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, and sourceImageInvalid.
+    * The details of the image's status, which indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, and sourceImageNotGeneralized.
     *
     * @return CloudPcDeviceImageStatusDetails|null The statusDetails
     */
@@ -289,7 +293,7 @@ class CloudPcDeviceImage extends Entity
 
     /**
     * Sets the statusDetails
-    * The details of the image's status, which indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, and sourceImageInvalid.
+    * The details of the image's status, which indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, and sourceImageNotGeneralized.
     *
     * @param CloudPcDeviceImageStatusDetails $val The statusDetails
     *

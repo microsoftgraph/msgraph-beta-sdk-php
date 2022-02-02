@@ -27,6 +27,7 @@ class Teamwork extends Entity
 
      /**
      * Gets the workforceIntegrations
+    * A workforce integration with shifts.
      *
      * @return WorkforceIntegration[]|null The workforceIntegrations
      */
@@ -48,6 +49,7 @@ class Teamwork extends Entity
 
     /**
     * Sets the workforceIntegrations
+    * A workforce integration with shifts.
     *
     * @param WorkforceIntegration[] $val The workforceIntegrations
     *
@@ -56,6 +58,43 @@ class Teamwork extends Entity
     public function setWorkforceIntegrations($val)
     {
         $this->_propDict["workforceIntegrations"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the devices
+    * The Teams devices provisioned for the tenant.
+     *
+     * @return TeamworkDevice[]|null The devices
+     */
+    public function getDevices()
+    {
+        if (array_key_exists('devices', $this->_propDict) && !is_null($this->_propDict['devices'])) {
+            $devices = [];
+            if (count($this->_propDict['devices']) > 0 && is_a($this->_propDict['devices'][0], 'TeamworkDevice')) {
+                return $this->_propDict['devices'];
+            }
+            foreach ($this->_propDict['devices'] as $singleValue) {
+                $devices []= new TeamworkDevice($singleValue);
+            }
+            $this->_propDict['devices'] = $devices;
+            return $this->_propDict['devices'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the devices
+    * The Teams devices provisioned for the tenant.
+    *
+    * @param TeamworkDevice[] $val The devices
+    *
+    * @return Teamwork
+    */
+    public function setDevices($val)
+    {
+        $this->_propDict["devices"] = $val;
         return $this;
     }
 

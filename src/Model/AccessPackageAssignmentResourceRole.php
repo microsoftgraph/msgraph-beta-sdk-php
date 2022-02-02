@@ -216,7 +216,7 @@ class AccessPackageAssignmentResourceRole extends Entity
 
     /**
     * Gets the accessPackageSubject
-    * Read-only. Nullable.
+    * Read-only. Nullable. Supports $filter (eq) on objectId and $expand query parameters.
     *
     * @return AccessPackageSubject|null The accessPackageSubject
     */
@@ -235,7 +235,7 @@ class AccessPackageAssignmentResourceRole extends Entity
 
     /**
     * Sets the accessPackageSubject
-    * Read-only. Nullable.
+    * Read-only. Nullable. Supports $filter (eq) on objectId and $expand query parameters.
     *
     * @param AccessPackageSubject $val The accessPackageSubject
     *

@@ -209,6 +209,39 @@ class VirtualEndpoint extends Entity
         return $this;
     }
 
+    /**
+    * Gets the organizationSettings
+    * The Cloud PC organization settings for a tenant.
+    *
+    * @return CloudPcOrganizationSettings|null The organizationSettings
+    */
+    public function getOrganizationSettings()
+    {
+        if (array_key_exists("organizationSettings", $this->_propDict) && !is_null($this->_propDict["organizationSettings"])) {
+            if (is_a($this->_propDict["organizationSettings"], "\Beta\Microsoft\Graph\Model\CloudPcOrganizationSettings")) {
+                return $this->_propDict["organizationSettings"];
+            } else {
+                $this->_propDict["organizationSettings"] = new CloudPcOrganizationSettings($this->_propDict["organizationSettings"]);
+                return $this->_propDict["organizationSettings"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the organizationSettings
+    * The Cloud PC organization settings for a tenant.
+    *
+    * @param CloudPcOrganizationSettings $val The organizationSettings
+    *
+    * @return VirtualEndpoint
+    */
+    public function setOrganizationSettings($val)
+    {
+        $this->_propDict["organizationSettings"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the provisioningPolicies
@@ -280,6 +313,41 @@ class VirtualEndpoint extends Entity
     public function setServicePlans($val)
     {
         $this->_propDict["servicePlans"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the snapshots
+     *
+     * @return CloudPcSnapshot[]|null The snapshots
+     */
+    public function getSnapshots()
+    {
+        if (array_key_exists('snapshots', $this->_propDict) && !is_null($this->_propDict['snapshots'])) {
+            $snapshots = [];
+            if (count($this->_propDict['snapshots']) > 0 && is_a($this->_propDict['snapshots'][0], 'CloudPcSnapshot')) {
+                return $this->_propDict['snapshots'];
+            }
+            foreach ($this->_propDict['snapshots'] as $singleValue) {
+                $snapshots []= new CloudPcSnapshot($singleValue);
+            }
+            $this->_propDict['snapshots'] = $snapshots;
+            return $this->_propDict['snapshots'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the snapshots
+    *
+    * @param CloudPcSnapshot[] $val The snapshots
+    *
+    * @return VirtualEndpoint
+    */
+    public function setSnapshots($val)
+    {
+        $this->_propDict["snapshots"] = $val;
         return $this;
     }
 

@@ -26,6 +26,7 @@ class PermissionGrantConditionSet extends Entity
 {
     /**
     * Gets the certifiedClientApplicationsOnly
+    * Set to true to only match on client applications that are Microsoft 365 certified. Set to false to match on any other client app. Default is false.
     *
     * @return bool|null The certifiedClientApplicationsOnly
     */
@@ -40,6 +41,7 @@ class PermissionGrantConditionSet extends Entity
 
     /**
     * Sets the certifiedClientApplicationsOnly
+    * Set to true to only match on client applications that are Microsoft 365 certified. Set to false to match on any other client app. Default is false.
     *
     * @param bool $val The certifiedClientApplicationsOnly
     *
@@ -198,7 +200,7 @@ class PermissionGrantConditionSet extends Entity
 
     /**
     * Gets the permissions
-    * The list of id values for the specific permissions to match with, or a list with the single value all to match with any permission. The id of delegated permissions can be found in the oauth2PermissionScopes property of the API's **servicePrincipal** object. The id of application permissions can be found in the appRoles property of the API's **servicePrincipal** object. The id of resource-specific application permissions can be found in the resourceSpecificApplicationPermissions property of the API's **servicePrincipal** object. Default is the single value all.
+    * The list of id values for the specific permissions to match with, or a list with the single value all to match with any permission. The id of delegated permissions can be found in the publishedPermissionScopes property of the API's **servicePrincipal** object. The id of application permissions can be found in the appRoles property of the API's **servicePrincipal** object. The id of resource-specific application permissions can be found in the resourceSpecificApplicationPermissions property of the API's **servicePrincipal** object. Default is the single value all.
     *
     * @return string|null The permissions
     */
@@ -213,7 +215,7 @@ class PermissionGrantConditionSet extends Entity
 
     /**
     * Sets the permissions
-    * The list of id values for the specific permissions to match with, or a list with the single value all to match with any permission. The id of delegated permissions can be found in the oauth2PermissionScopes property of the API's **servicePrincipal** object. The id of application permissions can be found in the appRoles property of the API's **servicePrincipal** object. The id of resource-specific application permissions can be found in the resourceSpecificApplicationPermissions property of the API's **servicePrincipal** object. Default is the single value all.
+    * The list of id values for the specific permissions to match with, or a list with the single value all to match with any permission. The id of delegated permissions can be found in the publishedPermissionScopes property of the API's **servicePrincipal** object. The id of application permissions can be found in the appRoles property of the API's **servicePrincipal** object. The id of resource-specific application permissions can be found in the resourceSpecificApplicationPermissions property of the API's **servicePrincipal** object. Default is the single value all.
     *
     * @param string $val The permissions
     *
