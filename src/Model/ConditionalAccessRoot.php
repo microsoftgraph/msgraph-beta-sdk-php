@@ -101,7 +101,7 @@ class ConditionalAccessRoot extends Entity
 
      /**
      * Gets the policies
-    * Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+    * Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
      *
      * @return ConditionalAccessPolicy[]|null The policies
      */
@@ -123,7 +123,7 @@ class ConditionalAccessRoot extends Entity
 
     /**
     * Sets the policies
-    * Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+    * Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
     *
     * @param ConditionalAccessPolicy[] $val The policies
     *

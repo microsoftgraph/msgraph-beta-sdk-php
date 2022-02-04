@@ -60,7 +60,7 @@ class RecordingInfo extends Entity
 
     /**
     * Gets the initiator
-    * The identities of the recording initiator.
+    * The identities of recording initiator.
     *
     * @return IdentitySet|null The initiator
     */
@@ -80,7 +80,7 @@ class RecordingInfo extends Entity
 
     /**
     * Sets the initiator
-    * The identities of the recording initiator.
+    * The identities of recording initiator.
     *
     * @param IdentitySet $val The value to assign to the initiator
     *

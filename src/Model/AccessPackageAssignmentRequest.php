@@ -338,7 +338,7 @@ class AccessPackageAssignmentRequest extends Entity
 
     /**
     * Gets the accessPackage
-    * The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.
+    * The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand.
     *
     * @return AccessPackage|null The accessPackage
     */
@@ -357,7 +357,7 @@ class AccessPackageAssignmentRequest extends Entity
 
     /**
     * Sets the accessPackage
-    * The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.
+    * The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand.
     *
     * @param AccessPackage $val The accessPackage
     *
@@ -371,7 +371,7 @@ class AccessPackageAssignmentRequest extends Entity
 
     /**
     * Gets the accessPackageAssignment
-    * For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
+    * For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.  Supports $expand.
     *
     * @return AccessPackageAssignment|null The accessPackageAssignment
     */
@@ -390,7 +390,7 @@ class AccessPackageAssignmentRequest extends Entity
 
     /**
     * Sets the accessPackageAssignment
-    * For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
+    * For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.  Supports $expand.
     *
     * @param AccessPackageAssignment $val The accessPackageAssignment
     *

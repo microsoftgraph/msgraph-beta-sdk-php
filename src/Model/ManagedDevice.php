@@ -565,7 +565,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the deviceEnrollmentType
-    * Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount.
+    * Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
     *
     * @return DeviceEnrollmentType|null The deviceEnrollmentType
     */
@@ -584,7 +584,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the deviceEnrollmentType
-    * Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount.
+    * Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
     *
     * @param DeviceEnrollmentType $val The deviceEnrollmentType
     *
@@ -1404,7 +1404,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the managementAgent
-    * Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
+    * Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
     *
     * @return ManagementAgentType|null The managementAgent
     */
@@ -1423,7 +1423,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the managementAgent
-    * Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
+    * Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
     *
     * @param ManagementAgentType $val The managementAgent
     *
@@ -2107,7 +2107,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the skuNumber
-    * Device sku number, see also: https://docs.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo. Valid values 0 to 2147483647. This property is read-only.
+    * Device sku number, see also: GetProductInfo function. Valid values 0 to 2147483647. This property is read-only.
     *
     * @return int|null The skuNumber
     */
@@ -2122,7 +2122,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the skuNumber
-    * Device sku number, see also: https://docs.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo. Valid values 0 to 2147483647. This property is read-only.
+    * Device sku number, see also: GetProductInfo function. Valid values 0 to 2147483647. This property is read-only.
     *
     * @param int $val The skuNumber
     *
@@ -2792,7 +2792,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the windowsProtectionState
-    * The device protection status.
+    * The device protection status. This property is read-only.
     *
     * @return WindowsProtectionState|null The windowsProtectionState
     */
@@ -2811,7 +2811,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the windowsProtectionState
-    * The device protection status.
+    * The device protection status. This property is read-only.
     *
     * @param WindowsProtectionState $val The windowsProtectionState
     *

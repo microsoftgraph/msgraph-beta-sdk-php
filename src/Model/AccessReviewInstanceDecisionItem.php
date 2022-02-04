@@ -241,7 +241,7 @@ class AccessReviewInstanceDecisionItem extends Entity
 
     /**
     * Gets the principalLink
-    * A link to the principal object. For example, https://graph.microsoft.com/v1.0/users/a6c7aecb-cbfd-4763-87ef-e91b4bd509d9. Read-only.
+    * Link to the principal object. For example: https://graph.microsoft.com/v1.0/users/a6c7aecb-cbfd-4763-87ef-e91b4bd509d9. Read-only.
     *
     * @return string|null The principalLink
     */
@@ -256,7 +256,7 @@ class AccessReviewInstanceDecisionItem extends Entity
 
     /**
     * Sets the principalLink
-    * A link to the principal object. For example, https://graph.microsoft.com/v1.0/users/a6c7aecb-cbfd-4763-87ef-e91b4bd509d9. Read-only.
+    * Link to the principal object. For example: https://graph.microsoft.com/v1.0/users/a6c7aecb-cbfd-4763-87ef-e91b4bd509d9. Read-only.
     *
     * @param string $val The principalLink
     *
@@ -265,6 +265,37 @@ class AccessReviewInstanceDecisionItem extends Entity
     public function setPrincipalLink($val)
     {
         $this->_propDict["principalLink"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the principalResourceMembership
+    *
+    * @return DecisionItemPrincipalResourceMembership|null The principalResourceMembership
+    */
+    public function getPrincipalResourceMembership()
+    {
+        if (array_key_exists("principalResourceMembership", $this->_propDict) && !is_null($this->_propDict["principalResourceMembership"])) {
+            if (is_a($this->_propDict["principalResourceMembership"], "\Beta\Microsoft\Graph\Model\DecisionItemPrincipalResourceMembership")) {
+                return $this->_propDict["principalResourceMembership"];
+            } else {
+                $this->_propDict["principalResourceMembership"] = new DecisionItemPrincipalResourceMembership($this->_propDict["principalResourceMembership"]);
+                return $this->_propDict["principalResourceMembership"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the principalResourceMembership
+    *
+    * @param DecisionItemPrincipalResourceMembership $val The principalResourceMembership
+    *
+    * @return AccessReviewInstanceDecisionItem
+    */
+    public function setPrincipalResourceMembership($val)
+    {
+        $this->_propDict["principalResourceMembership"] = $val;
         return $this;
     }
 
@@ -427,7 +458,7 @@ class AccessReviewInstanceDecisionItem extends Entity
 
     /**
     * Gets the target
-    * The target of this specific decision. Decision targets can be of different types – each one with its own specific properties. See accessReviewInstanceDecisionItemTarget. Read-only.
+    * The target of this specific decision. Decision targets can be of different types – each one with its own specific properties. See accessReviewInstanceDecisionItemTarget. Read-only.  This property has been replaced by the principal and resource properties in v1.0.
     *
     * @return AccessReviewInstanceDecisionItemTarget|null The target
     */
@@ -446,7 +477,7 @@ class AccessReviewInstanceDecisionItem extends Entity
 
     /**
     * Sets the target
-    * The target of this specific decision. Decision targets can be of different types – each one with its own specific properties. See accessReviewInstanceDecisionItemTarget. Read-only.
+    * The target of this specific decision. Decision targets can be of different types – each one with its own specific properties. See accessReviewInstanceDecisionItemTarget. Read-only.  This property has been replaced by the principal and resource properties in v1.0.
     *
     * @param AccessReviewInstanceDecisionItemTarget $val The target
     *
@@ -461,6 +492,7 @@ class AccessReviewInstanceDecisionItem extends Entity
 
      /**
      * Gets the insights
+    * Insights are recommendations to reviewers on whether to approve or deny a decision. There can be multiple insights associated with an accessReviewInstanceDecisionItem.
      *
      * @return GovernanceInsight[]|null The insights
      */
@@ -482,6 +514,7 @@ class AccessReviewInstanceDecisionItem extends Entity
 
     /**
     * Sets the insights
+    * Insights are recommendations to reviewers on whether to approve or deny a decision. There can be multiple insights associated with an accessReviewInstanceDecisionItem.
     *
     * @param GovernanceInsight[] $val The insights
     *
@@ -490,6 +523,39 @@ class AccessReviewInstanceDecisionItem extends Entity
     public function setInsights($val)
     {
         $this->_propDict["insights"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the instance
+    * There is exactly one accessReviewInstance associated with each decision. The instance is the parent of the decision item, representing the recurrence of the access review the decision is made on.
+    *
+    * @return AccessReviewInstance|null The instance
+    */
+    public function getInstance()
+    {
+        if (array_key_exists("instance", $this->_propDict) && !is_null($this->_propDict["instance"])) {
+            if (is_a($this->_propDict["instance"], "\Beta\Microsoft\Graph\Model\AccessReviewInstance")) {
+                return $this->_propDict["instance"];
+            } else {
+                $this->_propDict["instance"] = new AccessReviewInstance($this->_propDict["instance"]);
+                return $this->_propDict["instance"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the instance
+    * There is exactly one accessReviewInstance associated with each decision. The instance is the parent of the decision item, representing the recurrence of the access review the decision is made on.
+    *
+    * @param AccessReviewInstance $val The instance
+    *
+    * @return AccessReviewInstanceDecisionItem
+    */
+    public function setInstance($val)
+    {
+        $this->_propDict["instance"] = $val;
         return $this;
     }
 

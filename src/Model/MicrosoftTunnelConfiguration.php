@@ -121,7 +121,7 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Gets the disableUDPConnections
-    * When DisableUDPConnections is set, the clients and VPN server will not use DTLS connctions to tansfer data.
+    * When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to tansfer data.
     *
     * @return bool|null The disableUDPConnections
     */
@@ -136,7 +136,7 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Sets the disableUDPConnections
-    * When DisableUDPConnections is set, the clients and VPN server will not use DTLS connctions to tansfer data.
+    * When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to tansfer data.
     *
     * @param bool $val The disableUDPConnections
     *

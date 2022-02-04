@@ -26,6 +26,7 @@ class AccessPackageResourceAttributeQuestion extends AccessPackageResourceAttrib
 
     /**
     * Gets the question
+    * The question asked in order to get the value of the attribute
     *
     * @return AccessPackageQuestion|null The question
     */
@@ -45,6 +46,7 @@ class AccessPackageResourceAttributeQuestion extends AccessPackageResourceAttrib
 
     /**
     * Sets the question
+    * The question asked in order to get the value of the attribute
     *
     * @param AccessPackageQuestion $val The value to assign to the question
     *

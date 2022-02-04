@@ -26,7 +26,45 @@ class AccessReviewSet extends Entity
 {
 
      /**
+     * Gets the decisions
+    * Represents an Azure AD access review decision on an instance of a review.
+     *
+     * @return AccessReviewInstanceDecisionItem[]|null The decisions
+     */
+    public function getDecisions()
+    {
+        if (array_key_exists('decisions', $this->_propDict) && !is_null($this->_propDict['decisions'])) {
+            $decisions = [];
+            if (count($this->_propDict['decisions']) > 0 && is_a($this->_propDict['decisions'][0], 'AccessReviewInstanceDecisionItem')) {
+                return $this->_propDict['decisions'];
+            }
+            foreach ($this->_propDict['decisions'] as $singleValue) {
+                $decisions []= new AccessReviewInstanceDecisionItem($singleValue);
+            }
+            $this->_propDict['decisions'] = $decisions;
+            return $this->_propDict['decisions'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the decisions
+    * Represents an Azure AD access review decision on an instance of a review.
+    *
+    * @param AccessReviewInstanceDecisionItem[] $val The decisions
+    *
+    * @return AccessReviewSet
+    */
+    public function setDecisions($val)
+    {
+        $this->_propDict["decisions"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the definitions
+    * Represents the template and scheduling for an access review.
      *
      * @return AccessReviewScheduleDefinition[]|null The definitions
      */
@@ -48,6 +86,7 @@ class AccessReviewSet extends Entity
 
     /**
     * Sets the definitions
+    * Represents the template and scheduling for an access review.
     *
     * @param AccessReviewScheduleDefinition[] $val The definitions
     *
@@ -62,6 +101,7 @@ class AccessReviewSet extends Entity
 
      /**
      * Gets the historyDefinitions
+    * Represents a collection of access review history data and the scopes used to collect that data.
      *
      * @return AccessReviewHistoryDefinition[]|null The historyDefinitions
      */
@@ -83,6 +123,7 @@ class AccessReviewSet extends Entity
 
     /**
     * Sets the historyDefinitions
+    * Represents a collection of access review history data and the scopes used to collect that data.
     *
     * @param AccessReviewHistoryDefinition[] $val The historyDefinitions
     *
@@ -96,6 +137,7 @@ class AccessReviewSet extends Entity
 
     /**
     * Gets the policy
+    * Resource that enables administrators to manage directory-level access review policies in their tenant.
     *
     * @return AccessReviewPolicy|null The policy
     */
@@ -114,6 +156,7 @@ class AccessReviewSet extends Entity
 
     /**
     * Sets the policy
+    * Resource that enables administrators to manage directory-level access review policies in their tenant.
     *
     * @param AccessReviewPolicy $val The policy
     *

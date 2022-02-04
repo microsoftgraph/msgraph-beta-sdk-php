@@ -316,7 +316,7 @@ class Post extends OutlookItem
 
      /**
      * Gets the attachments
-    * Read-only. Nullable. Supports $expand.
+    * The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.
      *
      * @return Attachment[]|null The attachments
      */
@@ -338,7 +338,7 @@ class Post extends OutlookItem
 
     /**
     * Sets the attachments
-    * Read-only. Nullable. Supports $expand.
+    * The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.
     *
     * @param Attachment[] $val The attachments
     *
@@ -389,7 +389,7 @@ class Post extends OutlookItem
 
     /**
     * Gets the inReplyTo
-    * Read-only. Supports $expand.
+    * The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
     *
     * @return Post|null The inReplyTo
     */
@@ -408,7 +408,7 @@ class Post extends OutlookItem
 
     /**
     * Sets the inReplyTo
-    * Read-only. Supports $expand.
+    * The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
     *
     * @param Post $val The inReplyTo
     *

@@ -26,6 +26,41 @@ class AttackSimulationRoot extends Entity
 {
 
      /**
+     * Gets the simulationAutomations
+     *
+     * @return SimulationAutomation[]|null The simulationAutomations
+     */
+    public function getSimulationAutomations()
+    {
+        if (array_key_exists('simulationAutomations', $this->_propDict) && !is_null($this->_propDict['simulationAutomations'])) {
+            $simulationAutomations = [];
+            if (count($this->_propDict['simulationAutomations']) > 0 && is_a($this->_propDict['simulationAutomations'][0], 'SimulationAutomation')) {
+                return $this->_propDict['simulationAutomations'];
+            }
+            foreach ($this->_propDict['simulationAutomations'] as $singleValue) {
+                $simulationAutomations []= new SimulationAutomation($singleValue);
+            }
+            $this->_propDict['simulationAutomations'] = $simulationAutomations;
+            return $this->_propDict['simulationAutomations'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the simulationAutomations
+    *
+    * @param SimulationAutomation[] $val The simulationAutomations
+    *
+    * @return AttackSimulationRoot
+    */
+    public function setSimulationAutomations($val)
+    {
+        $this->_propDict["simulationAutomations"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the simulations
     * Represent attack simulation and training campaign of a tenant.
      *
