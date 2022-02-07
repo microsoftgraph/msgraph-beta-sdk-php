@@ -118,6 +118,37 @@ class Site extends BaseItem
     }
 
     /**
+    * Gets the settings
+    *
+    * @return SiteSettings|null The settings
+    */
+    public function getSettings()
+    {
+        if (array_key_exists("settings", $this->_propDict) && !is_null($this->_propDict["settings"])) {
+            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\SiteSettings")) {
+                return $this->_propDict["settings"];
+            } else {
+                $this->_propDict["settings"] = new SiteSettings($this->_propDict["settings"]);
+                return $this->_propDict["settings"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the settings
+    *
+    * @param SiteSettings $val The settings
+    *
+    * @return Site
+    */
+    public function setSettings($val)
+    {
+        $this->_propDict["settings"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the sharepointIds
     * Returns identifiers useful for SharePoint REST compatibility. Read-only.
     *
@@ -400,7 +431,7 @@ class Site extends BaseItem
 
      /**
      * Gets the items
-    * Used to address any item contained in this site. This collection can't be enumerated.
+    * Used to address any item contained in this site. This collection cannot be enumerated.
      *
      * @return BaseItem[]|null The items
      */
@@ -422,7 +453,7 @@ class Site extends BaseItem
 
     /**
     * Sets the items
-    * Used to address any item contained in this site. This collection can't be enumerated.
+    * Used to address any item contained in this site. This collection cannot be enumerated.
     *
     * @param BaseItem[] $val The items
     *
@@ -468,6 +499,43 @@ class Site extends BaseItem
     public function setLists($val)
     {
         $this->_propDict["lists"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the operations
+    * The collection of long running operations for the site.
+     *
+     * @return RichLongRunningOperation[]|null The operations
+     */
+    public function getOperations()
+    {
+        if (array_key_exists('operations', $this->_propDict) && !is_null($this->_propDict['operations'])) {
+            $operations = [];
+            if (count($this->_propDict['operations']) > 0 && is_a($this->_propDict['operations'][0], 'RichLongRunningOperation')) {
+                return $this->_propDict['operations'];
+            }
+            foreach ($this->_propDict['operations'] as $singleValue) {
+                $operations []= new RichLongRunningOperation($singleValue);
+            }
+            $this->_propDict['operations'] = $operations;
+            return $this->_propDict['operations'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the operations
+    * The collection of long running operations for the site.
+    *
+    * @param RichLongRunningOperation[] $val The operations
+    *
+    * @return Site
+    */
+    public function setOperations($val)
+    {
+        $this->_propDict["operations"] = $val;
         return $this;
     }
 
@@ -584,7 +652,7 @@ class Site extends BaseItem
 
     /**
     * Gets the termStore
-    * The default termStore under this site.
+    * The termStore under this site.
     *
     * @return \Beta\Microsoft\Graph\TermStore\Model\Store|null The termStore
     */
@@ -603,7 +671,7 @@ class Site extends BaseItem
 
     /**
     * Sets the termStore
-    * The default termStore under this site.
+    * The termStore under this site.
     *
     * @param \Beta\Microsoft\Graph\TermStore\Model\Store $val The termStore
     *

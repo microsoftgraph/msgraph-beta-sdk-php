@@ -54,15 +54,15 @@ class Incident extends Entity
     /**
     * Gets the classification
     *
-    * @return M365AlertClassification|null The classification
+    * @return AlertClassification_v2|null The classification
     */
     public function getClassification()
     {
         if (array_key_exists("classification", $this->_propDict) && !is_null($this->_propDict["classification"])) {
-            if (is_a($this->_propDict["classification"], "\Beta\Microsoft\Graph\Model\M365AlertClassification")) {
+            if (is_a($this->_propDict["classification"], "\Beta\Microsoft\Graph\Model\AlertClassification_v2")) {
                 return $this->_propDict["classification"];
             } else {
-                $this->_propDict["classification"] = new M365AlertClassification($this->_propDict["classification"]);
+                $this->_propDict["classification"] = new AlertClassification_v2($this->_propDict["classification"]);
                 return $this->_propDict["classification"];
             }
         }
@@ -72,7 +72,7 @@ class Incident extends Entity
     /**
     * Sets the classification
     *
-    * @param M365AlertClassification $val The classification
+    * @param AlertClassification_v2 $val The classification
     *
     * @return Incident
     */
@@ -86,17 +86,17 @@ class Incident extends Entity
      /**
      * Gets the comments
      *
-     * @return M365AlertComment[]|null The comments
+     * @return AlertComment_v2[]|null The comments
      */
     public function getComments()
     {
         if (array_key_exists('comments', $this->_propDict) && !is_null($this->_propDict['comments'])) {
             $comments = [];
-            if (count($this->_propDict['comments']) > 0 && is_a($this->_propDict['comments'][0], 'M365AlertComment')) {
+            if (count($this->_propDict['comments']) > 0 && is_a($this->_propDict['comments'][0], 'AlertComment_v2')) {
                 return $this->_propDict['comments'];
             }
             foreach ($this->_propDict['comments'] as $singleValue) {
-                $comments []= new M365AlertComment($singleValue);
+                $comments []= new AlertComment_v2($singleValue);
             }
             $this->_propDict['comments'] = $comments;
             return $this->_propDict['comments'];
@@ -107,7 +107,7 @@ class Incident extends Entity
     /**
     * Sets the comments
     *
-    * @param M365AlertComment[] $val The comments
+    * @param AlertComment_v2[] $val The comments
     *
     * @return Incident
     */
@@ -151,15 +151,15 @@ class Incident extends Entity
     /**
     * Gets the determination
     *
-    * @return M365AlertDetermination|null The determination
+    * @return AlertDetermination_v2|null The determination
     */
     public function getDetermination()
     {
         if (array_key_exists("determination", $this->_propDict) && !is_null($this->_propDict["determination"])) {
-            if (is_a($this->_propDict["determination"], "\Beta\Microsoft\Graph\Model\M365AlertDetermination")) {
+            if (is_a($this->_propDict["determination"], "\Beta\Microsoft\Graph\Model\AlertDetermination_v2")) {
                 return $this->_propDict["determination"];
             } else {
-                $this->_propDict["determination"] = new M365AlertDetermination($this->_propDict["determination"]);
+                $this->_propDict["determination"] = new AlertDetermination_v2($this->_propDict["determination"]);
                 return $this->_propDict["determination"];
             }
         }
@@ -169,7 +169,7 @@ class Incident extends Entity
     /**
     * Sets the determination
     *
-    * @param M365AlertDetermination $val The determination
+    * @param AlertDetermination_v2 $val The determination
     *
     * @return Incident
     */
@@ -294,15 +294,15 @@ class Incident extends Entity
     /**
     * Gets the severity
     *
-    * @return M365AlertSeverity|null The severity
+    * @return AlertSeverity_v2|null The severity
     */
     public function getSeverity()
     {
         if (array_key_exists("severity", $this->_propDict) && !is_null($this->_propDict["severity"])) {
-            if (is_a($this->_propDict["severity"], "\Beta\Microsoft\Graph\Model\M365AlertSeverity")) {
+            if (is_a($this->_propDict["severity"], "\Beta\Microsoft\Graph\Model\AlertSeverity_v2")) {
                 return $this->_propDict["severity"];
             } else {
-                $this->_propDict["severity"] = new M365AlertSeverity($this->_propDict["severity"]);
+                $this->_propDict["severity"] = new AlertSeverity_v2($this->_propDict["severity"]);
                 return $this->_propDict["severity"];
             }
         }
@@ -312,7 +312,7 @@ class Incident extends Entity
     /**
     * Sets the severity
     *
-    * @param M365AlertSeverity $val The severity
+    * @param AlertSeverity_v2 $val The severity
     *
     * @return Incident
     */
@@ -377,6 +377,41 @@ class Incident extends Entity
     public function setTags($val)
     {
         $this->_propDict["tags"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the alerts
+     *
+     * @return Alert_v2[]|null The alerts
+     */
+    public function getAlerts()
+    {
+        if (array_key_exists('alerts', $this->_propDict) && !is_null($this->_propDict['alerts'])) {
+            $alerts = [];
+            if (count($this->_propDict['alerts']) > 0 && is_a($this->_propDict['alerts'][0], 'Alert_v2')) {
+                return $this->_propDict['alerts'];
+            }
+            foreach ($this->_propDict['alerts'] as $singleValue) {
+                $alerts []= new Alert_v2($singleValue);
+            }
+            $this->_propDict['alerts'] = $alerts;
+            return $this->_propDict['alerts'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the alerts
+    *
+    * @param Alert_v2[] $val The alerts
+    *
+    * @return Incident
+    */
+    public function setAlerts($val)
+    {
+        $this->_propDict["alerts"] = $val;
         return $this;
     }
 

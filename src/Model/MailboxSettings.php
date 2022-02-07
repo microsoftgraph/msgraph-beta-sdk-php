@@ -25,7 +25,7 @@ class MailboxSettings extends Entity
 {
     /**
     * Gets the archiveFolder
-    * Folder ID of an archive folder for the user.
+    * Folder ID of an archive folder for the user. Read only.
     *
     * @return string|null The archiveFolder
     */
@@ -40,7 +40,7 @@ class MailboxSettings extends Entity
 
     /**
     * Sets the archiveFolder
-    * Folder ID of an archive folder for the user.
+    * Folder ID of an archive folder for the user. Read only.
     *
     * @param string $val The value of the archiveFolder
     *
@@ -116,7 +116,7 @@ class MailboxSettings extends Entity
 
     /**
     * Gets the delegateMeetingMessageDeliveryOptions
-    * If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.
+    * If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.
     *
     * @return DelegateMeetingMessageDeliveryOptions|null The delegateMeetingMessageDeliveryOptions
     */
@@ -136,7 +136,7 @@ class MailboxSettings extends Entity
 
     /**
     * Sets the delegateMeetingMessageDeliveryOptions
-    * If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.
+    * If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.
     *
     * @param DelegateMeetingMessageDeliveryOptions $val The value to assign to the delegateMeetingMessageDeliveryOptions
     *
@@ -236,6 +236,40 @@ class MailboxSettings extends Entity
     {
         $this->_propDict["timeZone"] = $val;
         return $this;
+    }
+
+    /**
+    * Gets the userPurpose
+    * The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.
+    *
+    * @return UserPurpose|null The userPurpose
+    */
+    public function getUserPurpose()
+    {
+        if (array_key_exists("userPurpose", $this->_propDict) && !is_null($this->_propDict["userPurpose"])) {
+     
+            if (is_a($this->_propDict["userPurpose"], "\Beta\Microsoft\Graph\Model\UserPurpose")) {
+                return $this->_propDict["userPurpose"];
+            } else {
+                $this->_propDict["userPurpose"] = new UserPurpose($this->_propDict["userPurpose"]);
+                return $this->_propDict["userPurpose"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the userPurpose
+    * The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.
+    *
+    * @param UserPurpose $val The value to assign to the userPurpose
+    *
+    * @return MailboxSettings The MailboxSettings
+    */
+    public function setUserPurpose($val)
+    {
+        $this->_propDict["userPurpose"] = $val;
+         return $this;
     }
 
     /**

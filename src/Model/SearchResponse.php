@@ -25,6 +25,43 @@ class SearchResponse extends Entity
 {
 
     /**
+    * Gets the hitsContainers
+    * A collection of search results.
+    *
+    * @return SearchHitsContainer[]|null The hitsContainers
+    */
+    public function getHitsContainers()
+    {
+        if (array_key_exists("hitsContainers", $this->_propDict) && !is_null($this->_propDict["hitsContainers"])) {
+       
+            if (count($this->_propDict['hitsContainers']) > 0 && is_a($this->_propDict['hitsContainers'][0], 'SearchHitsContainer')) {
+                return $this->_propDict['hitsContainers'];
+            }
+            $hitsContainers = [];
+            foreach ($this->_propDict['hitsContainers'] as $singleValue) {
+                $hitsContainers []= new SearchHitsContainer($singleValue);
+            }
+            $this->_propDict['hitsContainers'] = $hitsContainers;
+            return $this->_propDict['hitsContainers'];
+            }
+        return null;
+    }
+
+    /**
+    * Sets the hitsContainers
+    * A collection of search results.
+    *
+    * @param SearchHitsContainer[] $val The value to assign to the hitsContainers
+    *
+    * @return SearchResponse The SearchResponse
+    */
+    public function setHitsContainers($val)
+    {
+        $this->_propDict["hitsContainers"] = $val;
+         return $this;
+    }
+
+    /**
     * Gets the queryAlterationResponse
     * Provides details of query alteration response for spelling correction.
     *
@@ -59,39 +96,64 @@ class SearchResponse extends Entity
     }
 
     /**
-    * Gets the value
-    * Represents results from a search query, and the terms used for the query.
+    * Gets the resultTemplates
+    * A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates.
     *
-    * @return SearchResultSet[]|null The value
+    * @return ResultTemplateDictionary|null The resultTemplates
     */
-    public function getValue()
+    public function getResultTemplates()
     {
-        if (array_key_exists("value", $this->_propDict) && !is_null($this->_propDict["value"])) {
-       
-            if (count($this->_propDict['value']) > 0 && is_a($this->_propDict['value'][0], 'SearchResultSet')) {
-                return $this->_propDict['value'];
+        if (array_key_exists("resultTemplates", $this->_propDict) && !is_null($this->_propDict["resultTemplates"])) {
+     
+            if (is_a($this->_propDict["resultTemplates"], "\Beta\Microsoft\Graph\Model\ResultTemplateDictionary")) {
+                return $this->_propDict["resultTemplates"];
+            } else {
+                $this->_propDict["resultTemplates"] = new ResultTemplateDictionary($this->_propDict["resultTemplates"]);
+                return $this->_propDict["resultTemplates"];
             }
-            $value = [];
-            foreach ($this->_propDict['value'] as $singleValue) {
-                $value []= new SearchResultSet($singleValue);
-            }
-            $this->_propDict['value'] = $value;
-            return $this->_propDict['value'];
-            }
+        }
         return null;
     }
 
     /**
-    * Sets the value
-    * Represents results from a search query, and the terms used for the query.
+    * Sets the resultTemplates
+    * A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates.
     *
-    * @param SearchResultSet[] $val The value to assign to the value
+    * @param ResultTemplateDictionary $val The value to assign to the resultTemplates
     *
     * @return SearchResponse The SearchResponse
     */
-    public function setValue($val)
+    public function setResultTemplates($val)
     {
-        $this->_propDict["value"] = $val;
+        $this->_propDict["resultTemplates"] = $val;
          return $this;
+    }
+    /**
+    * Gets the searchTerms
+    * Contains the search terms sent in the initial search query.
+    *
+    * @return string|null The searchTerms
+    */
+    public function getSearchTerms()
+    {
+        if (array_key_exists("searchTerms", $this->_propDict)) {
+            return $this->_propDict["searchTerms"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the searchTerms
+    * Contains the search terms sent in the initial search query.
+    *
+    * @param string[] $val The value of the searchTerms
+    *
+    * @return SearchResponse
+    */
+    public function setSearchTerms($val)
+    {
+        $this->_propDict["searchTerms"] = $val;
+        return $this;
     }
 }

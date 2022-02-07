@@ -58,6 +58,7 @@ class IdentityProtectionRoot implements \JsonSerializable
 
      /**
      * Gets the riskDetections
+    * Risk detection in Azure AD Identity Protection and the associated information about the detection.
      *
      * @return RiskDetection[]|null The riskDetections
      */
@@ -79,6 +80,7 @@ class IdentityProtectionRoot implements \JsonSerializable
 
     /**
     * Sets the riskDetections
+    * Risk detection in Azure AD Identity Protection and the associated information about the detection.
     *
     * @param RiskDetection[] $val The riskDetections
     *
@@ -93,6 +95,7 @@ class IdentityProtectionRoot implements \JsonSerializable
 
      /**
      * Gets the riskyUsers
+    * Users that are flagged as at-risk by Azure AD Identity Protection.
      *
      * @return RiskyUser[]|null The riskyUsers
      */
@@ -114,6 +117,7 @@ class IdentityProtectionRoot implements \JsonSerializable
 
     /**
     * Sets the riskyUsers
+    * Users that are flagged as at-risk by Azure AD Identity Protection.
     *
     * @param RiskyUser[] $val The riskyUsers
     *

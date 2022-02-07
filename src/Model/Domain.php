@@ -320,7 +320,7 @@ class Domain extends Entity
 
     /**
     * Gets the supportedServices
-    * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable
+    * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable
     *
     * @return string|null The supportedServices
     */
@@ -335,7 +335,7 @@ class Domain extends Entity
 
     /**
     * Sets the supportedServices
-    * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable
+    * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable
     *
     * @param string $val The supportedServices
     *
@@ -381,6 +381,41 @@ class Domain extends Entity
     public function setDomainNameReferences($val)
     {
         $this->_propDict["domainNameReferences"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the federationConfiguration
+     *
+     * @return InternalDomainFederation[]|null The federationConfiguration
+     */
+    public function getFederationConfiguration()
+    {
+        if (array_key_exists('federationConfiguration', $this->_propDict) && !is_null($this->_propDict['federationConfiguration'])) {
+            $federationConfiguration = [];
+            if (count($this->_propDict['federationConfiguration']) > 0 && is_a($this->_propDict['federationConfiguration'][0], 'InternalDomainFederation')) {
+                return $this->_propDict['federationConfiguration'];
+            }
+            foreach ($this->_propDict['federationConfiguration'] as $singleValue) {
+                $federationConfiguration []= new InternalDomainFederation($singleValue);
+            }
+            $this->_propDict['federationConfiguration'] = $federationConfiguration;
+            return $this->_propDict['federationConfiguration'];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the federationConfiguration
+    *
+    * @param InternalDomainFederation[] $val The federationConfiguration
+    *
+    * @return Domain
+    */
+    public function setFederationConfiguration($val)
+    {
+        $this->_propDict["federationConfiguration"] = $val;
         return $this;
     }
 

@@ -89,6 +89,7 @@ class AccessPackageResource extends Entity
 
      /**
      * Gets the attributes
+    * Contains attribute information for the resource.
      *
      * @return AccessPackageResourceAttribute[]|null The attributes
      */
@@ -110,6 +111,7 @@ class AccessPackageResource extends Entity
 
     /**
     * Sets the attributes
+    * Contains attribute information for the resource.
     *
     * @param AccessPackageResourceAttribute[] $val The attributes
     *
