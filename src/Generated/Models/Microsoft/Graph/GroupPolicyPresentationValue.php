@@ -1,0 +1,129 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph;
+
+use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+class GroupPolicyPresentationValue extends Entity 
+{
+    /** @var DateTime|null $createdDateTime The date and time the object was created. */
+    private ?DateTime $createdDateTime = null;
+    
+    /** @var GroupPolicyDefinitionValue|null $definitionValue The group policy definition value associated with the presentation value. */
+    private ?GroupPolicyDefinitionValue $definitionValue = null;
+    
+    /** @var DateTime|null $lastModifiedDateTime The date and time the object was last modified. */
+    private ?DateTime $lastModifiedDateTime = null;
+    
+    /** @var GroupPolicyPresentation|null $presentation The group policy presentation associated with the presentation value. */
+    private ?GroupPolicyPresentation $presentation = null;
+    
+    /**
+     * Instantiates a new groupPolicyPresentationValue and sets the default values.
+    */
+    public function __construct() {
+        parent::__construct();
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return GroupPolicyPresentationValue
+    */
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyPresentationValue {
+        return new GroupPolicyPresentationValue();
+    }
+
+    /**
+     * Gets the createdDateTime property value. The date and time the object was created.
+     * @return DateTime|null
+    */
+    public function getCreatedDateTime(): ?DateTime {
+        return $this->createdDateTime;
+    }
+
+    /**
+     * Gets the definitionValue property value. The group policy definition value associated with the presentation value.
+     * @return GroupPolicyDefinitionValue|null
+    */
+    public function getDefinitionValue(): ?GroupPolicyDefinitionValue {
+        return $this->definitionValue;
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable>
+    */
+    public function getFieldDeserializers(): array {
+        return array_merge(parent::getFieldDeserializers(), [
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'definitionValue' => function (self $o, ParseNode $n) { $o->setDefinitionValue($n->getObjectValue(GroupPolicyDefinitionValue::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'presentation' => function (self $o, ParseNode $n) { $o->setPresentation($n->getObjectValue(GroupPolicyPresentation::class)); },
+        ]);
+    }
+
+    /**
+     * Gets the lastModifiedDateTime property value. The date and time the object was last modified.
+     * @return DateTime|null
+    */
+    public function getLastModifiedDateTime(): ?DateTime {
+        return $this->lastModifiedDateTime;
+    }
+
+    /**
+     * Gets the presentation property value. The group policy presentation associated with the presentation value.
+     * @return GroupPolicyPresentation|null
+    */
+    public function getPresentation(): ?GroupPolicyPresentation {
+        return $this->presentation;
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
+        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
+        $writer->writeObjectValue('definitionValue', $this->definitionValue);
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
+        $writer->writeObjectValue('presentation', $this->presentation);
+    }
+
+    /**
+     * Sets the createdDateTime property value. The date and time the object was created.
+     *  @param DateTime|null $value Value to set for the createdDateTime property.
+    */
+    public function setCreatedDateTime(?DateTime $value ): void {
+        $this->createdDateTime = $value;
+    }
+
+    /**
+     * Sets the definitionValue property value. The group policy definition value associated with the presentation value.
+     *  @param GroupPolicyDefinitionValue|null $value Value to set for the definitionValue property.
+    */
+    public function setDefinitionValue(?GroupPolicyDefinitionValue $value ): void {
+        $this->definitionValue = $value;
+    }
+
+    /**
+     * Sets the lastModifiedDateTime property value. The date and time the object was last modified.
+     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+    */
+    public function setLastModifiedDateTime(?DateTime $value ): void {
+        $this->lastModifiedDateTime = $value;
+    }
+
+    /**
+     * Sets the presentation property value. The group policy presentation associated with the presentation value.
+     *  @param GroupPolicyPresentation|null $value Value to set for the presentation property.
+    */
+    public function setPresentation(?GroupPolicyPresentation $value ): void {
+        $this->presentation = $value;
+    }
+
+}

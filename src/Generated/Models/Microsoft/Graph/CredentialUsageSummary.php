@@ -1,0 +1,128 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph;
+
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+class CredentialUsageSummary extends Entity 
+{
+    /** @var UsageAuthMethod|null $authMethod Represents the authentication method that the user used. Possible values are:email, mobileSMS, mobileCall, officePhone, securityQuestion (only used for self-service password reset), appNotification, appCode, alternateMobileCall (supported only in registration), fido, appPassword, unknownFutureValue. */
+    private ?UsageAuthMethod $authMethod = null;
+    
+    /** @var int|null $failureActivityCount Provides the count of failed resets or registration data. */
+    private ?int $failureActivityCount = null;
+    
+    /** @var FeatureType|null $feature Defines the feature to report. Possible values are: registration, reset, unknownFutureValue. */
+    private ?FeatureType $feature = null;
+    
+    /** @var int|null $successfulActivityCount Provides the count of successful registrations or resets. */
+    private ?int $successfulActivityCount = null;
+    
+    /**
+     * Instantiates a new credentialUsageSummary and sets the default values.
+    */
+    public function __construct() {
+        parent::__construct();
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return CredentialUsageSummary
+    */
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CredentialUsageSummary {
+        return new CredentialUsageSummary();
+    }
+
+    /**
+     * Gets the authMethod property value. Represents the authentication method that the user used. Possible values are:email, mobileSMS, mobileCall, officePhone, securityQuestion (only used for self-service password reset), appNotification, appCode, alternateMobileCall (supported only in registration), fido, appPassword, unknownFutureValue.
+     * @return UsageAuthMethod|null
+    */
+    public function getAuthMethod(): ?UsageAuthMethod {
+        return $this->authMethod;
+    }
+
+    /**
+     * Gets the failureActivityCount property value. Provides the count of failed resets or registration data.
+     * @return int|null
+    */
+    public function getFailureActivityCount(): ?int {
+        return $this->failureActivityCount;
+    }
+
+    /**
+     * Gets the feature property value. Defines the feature to report. Possible values are: registration, reset, unknownFutureValue.
+     * @return FeatureType|null
+    */
+    public function getFeature(): ?FeatureType {
+        return $this->feature;
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable>
+    */
+    public function getFieldDeserializers(): array {
+        return array_merge(parent::getFieldDeserializers(), [
+            'authMethod' => function (self $o, ParseNode $n) { $o->setAuthMethod($n->getEnumValue(UsageAuthMethod::class)); },
+            'failureActivityCount' => function (self $o, ParseNode $n) { $o->setFailureActivityCount($n->getIntegerValue()); },
+            'feature' => function (self $o, ParseNode $n) { $o->setFeature($n->getEnumValue(FeatureType::class)); },
+            'successfulActivityCount' => function (self $o, ParseNode $n) { $o->setSuccessfulActivityCount($n->getIntegerValue()); },
+        ]);
+    }
+
+    /**
+     * Gets the successfulActivityCount property value. Provides the count of successful registrations or resets.
+     * @return int|null
+    */
+    public function getSuccessfulActivityCount(): ?int {
+        return $this->successfulActivityCount;
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
+        $writer->writeEnumValue('authMethod', $this->authMethod);
+        $writer->writeIntegerValue('failureActivityCount', $this->failureActivityCount);
+        $writer->writeEnumValue('feature', $this->feature);
+        $writer->writeIntegerValue('successfulActivityCount', $this->successfulActivityCount);
+    }
+
+    /**
+     * Sets the authMethod property value. Represents the authentication method that the user used. Possible values are:email, mobileSMS, mobileCall, officePhone, securityQuestion (only used for self-service password reset), appNotification, appCode, alternateMobileCall (supported only in registration), fido, appPassword, unknownFutureValue.
+     *  @param UsageAuthMethod|null $value Value to set for the authMethod property.
+    */
+    public function setAuthMethod(?UsageAuthMethod $value ): void {
+        $this->authMethod = $value;
+    }
+
+    /**
+     * Sets the failureActivityCount property value. Provides the count of failed resets or registration data.
+     *  @param int|null $value Value to set for the failureActivityCount property.
+    */
+    public function setFailureActivityCount(?int $value ): void {
+        $this->failureActivityCount = $value;
+    }
+
+    /**
+     * Sets the feature property value. Defines the feature to report. Possible values are: registration, reset, unknownFutureValue.
+     *  @param FeatureType|null $value Value to set for the feature property.
+    */
+    public function setFeature(?FeatureType $value ): void {
+        $this->feature = $value;
+    }
+
+    /**
+     * Sets the successfulActivityCount property value. Provides the count of successful registrations or resets.
+     *  @param int|null $value Value to set for the successfulActivityCount property.
+    */
+    public function setSuccessfulActivityCount(?int $value ): void {
+        $this->successfulActivityCount = $value;
+    }
+
+}
