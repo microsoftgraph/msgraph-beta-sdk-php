@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagedDevice;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagedDeviceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ManagedDevice;
+use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\BulkReprovisionCloudPc\BulkReprovisionCloudPcRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\BulkRestoreCloudPc\BulkRestoreCloudPcRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Count\CountRequestBuilder;
@@ -23,22 +23,37 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ManagedDevicesRequestBuilder 
 {
+    /**
+     * The bulkReprovisionCloudPc property
+    */
     public function bulkReprovisionCloudPc(): BulkReprovisionCloudPcRequestBuilder {
         return new BulkReprovisionCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The bulkRestoreCloudPc property
+    */
     public function bulkRestoreCloudPc(): BulkRestoreCloudPcRequestBuilder {
         return new BulkRestoreCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The executeAction property
+    */
     public function executeAction(): ExecuteActionRequestBuilder {
         return new ExecuteActionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The moveDevicesToOU property
+    */
     public function moveDevicesToOU(): MoveDevicesToOURequestBuilder {
         return new MoveDevicesToOURequestBuilder($this->pathParameters, $this->requestAdapter);
     }

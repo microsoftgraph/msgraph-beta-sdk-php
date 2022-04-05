@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Programs\Item\Controls\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ProgramControl;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ProgramControl;
 use Microsoft\Graph\Beta\Generated\Programs\Item\Controls\Item\Program\ProgramRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -21,6 +21,9 @@ class ProgramControlItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The program property
+    */
     public function program(): ProgramRequestBuilder {
         return new ProgramRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

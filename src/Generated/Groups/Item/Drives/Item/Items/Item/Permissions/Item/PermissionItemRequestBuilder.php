@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Items\Item\Permissions\Item\Grant\GrantRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Items\Item\Permissions\Item\RevokeGrants\RevokeGrantsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Permission;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Permission;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PermissionItemRequestBuilder 
 {
+    /**
+     * The grant property
+    */
     public function grant(): GrantRequestBuilder {
         return new GrantRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -29,6 +32,9 @@ class PermissionItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The revokeGrants property
+    */
     public function revokeGrants(): RevokeGrantsRequestBuilder {
         return new RevokeGrantsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

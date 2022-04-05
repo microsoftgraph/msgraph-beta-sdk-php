@@ -7,9 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\EducationAssignment;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\EducationAssignmentCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\EducationAssignment;
+use Microsoft\Graph\Beta\Generated\Models\EducationAssignmentCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AssignmentsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

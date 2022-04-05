@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Chats\Item\MarkChatReadForUser;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TeamworkUserIdentity;
+use Microsoft\Graph\Beta\Generated\Models\TeamworkUserIdentity;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,10 +13,10 @@ class MarkChatReadForUserRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $tenantId  */
+    /** @var string|null $tenantId The tenantId property */
     private ?string $tenantId = null;
     
-    /** @var TeamworkUserIdentity|null $user  */
+    /** @var TeamworkUserIdentity|null $user The user property */
     private ?TeamworkUserIdentity $user = null;
     
     /**
@@ -55,7 +55,7 @@ class MarkChatReadForUserRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the tenantId property value. 
+     * Gets the tenantId property value. The tenantId property
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -63,7 +63,7 @@ class MarkChatReadForUserRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the user property value. 
+     * Gets the user property value. The user property
      * @return TeamworkUserIdentity|null
     */
     public function getUser(): ?TeamworkUserIdentity {
@@ -89,7 +89,7 @@ class MarkChatReadForUserRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the tenantId property value. 
+     * Sets the tenantId property value. The tenantId property
      *  @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value ): void {
@@ -97,7 +97,7 @@ class MarkChatReadForUserRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the user property value. 
+     * Sets the user property value. The user property
      *  @param TeamworkUserIdentity|null $value Value to set for the user property.
     */
     public function setUser(?TeamworkUserIdentity $value ): void {

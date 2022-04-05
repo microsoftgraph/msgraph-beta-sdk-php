@@ -8,9 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\GetOrder\GetOrderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\SetOrder\SetOrderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\IdentityUserFlowAttributeAssignment;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\IdentityUserFlowAttributeAssignmentCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\IdentityUserFlowAttributeAssignment;
+use Microsoft\Graph\Beta\Generated\Models\IdentityUserFlowAttributeAssignmentCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class UserAttributeAssignmentsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -31,6 +34,9 @@ class UserAttributeAssignmentsRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The setOrder property
+    */
     public function setOrder(): SetOrderRequestBuilder {
         return new SetOrderRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

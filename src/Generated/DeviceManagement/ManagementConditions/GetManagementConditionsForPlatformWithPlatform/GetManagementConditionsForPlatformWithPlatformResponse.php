@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagementConditions\GetManagementConditionsForPlatformWithPlatform;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagementCondition;
+use Microsoft\Graph\Beta\Generated\Models\ManagementCondition;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class GetManagementConditionsForPlatformWithPlatformResponse implements Addition
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<ManagementCondition>|null $value  */
+    /** @var array<ManagementCondition>|null $value The value property */
     private ?array $value = null;
     
     /**
@@ -51,7 +51,7 @@ class GetManagementConditionsForPlatformWithPlatformResponse implements Addition
     }
 
     /**
-     * Gets the value property value. 
+     * Gets the value property value. The value property
      * @return array<ManagementCondition>|null
     */
     public function getValue(): ?array {
@@ -76,7 +76,7 @@ class GetManagementConditionsForPlatformWithPlatformResponse implements Addition
     }
 
     /**
-     * Sets the value property value. 
+     * Sets the value property value. The value property
      *  @param array<ManagementCondition>|null $value Value to set for the value property.
     */
     public function setValue(?array $value ): void {

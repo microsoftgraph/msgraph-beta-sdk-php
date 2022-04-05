@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Search;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SearchEntity;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SearchEntity;
 use Microsoft\Graph\Beta\Generated\Search\Acronyms\AcronymsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Search\Acronyms\Item\AcronymItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Search\Bookmarks\BookmarksRequestBuilder;
@@ -24,10 +24,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SearchRequestBuilder 
 {
+    /**
+     * The acronyms property
+    */
     public function acronyms(): AcronymsRequestBuilder {
         return new AcronymsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The bookmarks property
+    */
     public function bookmarks(): BookmarksRequestBuilder {
         return new BookmarksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -35,10 +41,16 @@ class SearchRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The qnas property
+    */
     public function qnas(): QnasRequestBuilder {
         return new QnasRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The query property
+    */
     public function query(): QueryRequestBuilder {
         return new QueryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

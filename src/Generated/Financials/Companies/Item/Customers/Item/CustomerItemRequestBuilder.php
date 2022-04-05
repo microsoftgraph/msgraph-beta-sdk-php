@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Customers\Item\Paym
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Customers\Item\Picture\Item\PictureItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Customers\Item\Picture\PictureRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Customers\Item\ShipmentMethod\ShipmentMethodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Customer;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Customer;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,6 +23,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class CustomerItemRequestBuilder 
 {
+    /**
+     * The currency property
+    */
     public function currency(): CurrencyRequestBuilder {
         return new CurrencyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -30,14 +33,23 @@ class CustomerItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The paymentMethod property
+    */
     public function paymentMethod(): PaymentMethodRequestBuilder {
         return new PaymentMethodRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The paymentTerm property
+    */
     public function paymentTerm(): PaymentTermRequestBuilder {
         return new PaymentTermRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The picture property
+    */
     public function picture(): PictureRequestBuilder {
         return new PictureRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -45,6 +57,9 @@ class CustomerItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The shipmentMethod property
+    */
     public function shipmentMethod(): ShipmentMethodRequestBuilder {
         return new ShipmentMethodRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Assign;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementIntentAssignment;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntentAssignment;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<DeviceManagementIntentAssignment>|null $assignments  */
+    /** @var array<DeviceManagementIntentAssignment>|null $assignments The assignments property */
     private ?array $assignments = null;
     
     /**
@@ -41,7 +41,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the assignments property value. 
+     * Gets the assignments property value. The assignments property
      * @return array<DeviceManagementIntentAssignment>|null
     */
     public function getAssignments(): ?array {
@@ -76,7 +76,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the assignments property value. 
+     * Sets the assignments property value. The assignments property
      *  @param array<DeviceManagementIntentAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value ): void {

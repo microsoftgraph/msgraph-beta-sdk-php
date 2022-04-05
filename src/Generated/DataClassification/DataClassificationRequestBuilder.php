@@ -26,8 +26,8 @@ use Microsoft\Graph\Beta\Generated\DataClassification\SensitiveTypes\Item\Sensit
 use Microsoft\Graph\Beta\Generated\DataClassification\SensitiveTypes\SensitiveTypesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\Item\SensitivityLabelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\SensitivityLabelsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DataClassificationService;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DataClassificationService;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -38,42 +38,72 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DataClassificationRequestBuilder 
 {
+    /**
+     * The classifyExactMatches property
+    */
     public function classifyExactMatches(): ClassifyExactMatchesRequestBuilder {
         return new ClassifyExactMatchesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The classifyFile property
+    */
     public function classifyFile(): ClassifyFileRequestBuilder {
         return new ClassifyFileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The classifyFileJobs property
+    */
     public function classifyFileJobs(): ClassifyFileJobsRequestBuilder {
         return new ClassifyFileJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The classifyText property
+    */
     public function classifyText(): ClassifyTextRequestBuilder {
         return new ClassifyTextRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The classifyTextJobs property
+    */
     public function classifyTextJobs(): ClassifyTextJobsRequestBuilder {
         return new ClassifyTextJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The evaluateDlpPoliciesJobs property
+    */
     public function evaluateDlpPoliciesJobs(): EvaluateDlpPoliciesJobsRequestBuilder {
         return new EvaluateDlpPoliciesJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The evaluateLabelJobs property
+    */
     public function evaluateLabelJobs(): EvaluateLabelJobsRequestBuilder {
         return new EvaluateLabelJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The exactMatchDataStores property
+    */
     public function exactMatchDataStores(): ExactMatchDataStoresRequestBuilder {
         return new ExactMatchDataStoresRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The exactMatchUploadAgents property
+    */
     public function exactMatchUploadAgents(): ExactMatchUploadAgentsRequestBuilder {
         return new ExactMatchUploadAgentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The jobs property
+    */
     public function jobs(): JobsRequestBuilder {
         return new JobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -84,10 +114,16 @@ class DataClassificationRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The sensitiveTypes property
+    */
     public function sensitiveTypes(): SensitiveTypesRequestBuilder {
         return new SensitiveTypesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The sensitivityLabels property
+    */
     public function sensitivityLabels(): SensitivityLabelsRequestBuilder {
         return new SensitivityLabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

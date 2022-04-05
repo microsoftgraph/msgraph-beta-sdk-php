@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\UnenrollAssetsById;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsUpdates\UpdateCategory;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdateCategory;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,13 +13,13 @@ class UnenrollAssetsByIdRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $ids  */
+    /** @var array<string>|null $ids The ids property */
     private ?array $ids = null;
     
-    /** @var string|null $memberEntityType  */
+    /** @var string|null $memberEntityType The memberEntityType property */
     private ?string $memberEntityType = null;
     
-    /** @var UpdateCategory|null $updateCategory  */
+    /** @var UpdateCategory|null $updateCategory The updateCategory property */
     private ?UpdateCategory $updateCategory = null;
     
     /**
@@ -59,7 +59,7 @@ class UnenrollAssetsByIdRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the ids property value. 
+     * Gets the ids property value. The ids property
      * @return array<string>|null
     */
     public function getIds(): ?array {
@@ -67,7 +67,7 @@ class UnenrollAssetsByIdRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the memberEntityType property value. 
+     * Gets the memberEntityType property value. The memberEntityType property
      * @return string|null
     */
     public function getMemberEntityType(): ?string {
@@ -75,7 +75,7 @@ class UnenrollAssetsByIdRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the updateCategory property value. 
+     * Gets the updateCategory property value. The updateCategory property
      * @return UpdateCategory|null
     */
     public function getUpdateCategory(): ?UpdateCategory {
@@ -102,7 +102,7 @@ class UnenrollAssetsByIdRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ids property value. 
+     * Sets the ids property value. The ids property
      *  @param array<string>|null $value Value to set for the ids property.
     */
     public function setIds(?array $value ): void {
@@ -110,7 +110,7 @@ class UnenrollAssetsByIdRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the memberEntityType property value. 
+     * Sets the memberEntityType property value. The memberEntityType property
      *  @param string|null $value Value to set for the memberEntityType property.
     */
     public function setMemberEntityType(?string $value ): void {
@@ -118,7 +118,7 @@ class UnenrollAssetsByIdRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the updateCategory property value. 
+     * Sets the updateCategory property value. The updateCategory property
      *  @param UpdateCategory|null $value Value to set for the updateCategory property.
     */
     public function setUpdateCategory(?UpdateCategory $value ): void {

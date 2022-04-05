@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\UpdateAudience;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsUpdates\UpdatableAsset;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAsset;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -10,19 +10,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UpdateAudienceRequestBody implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<UpdatableAsset>|null $addExclusions  */
+    /** @var array<UpdatableAsset>|null $addExclusions The addExclusions property */
     private ?array $addExclusions = null;
     
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<UpdatableAsset>|null $addMembers  */
+    /** @var array<UpdatableAsset>|null $addMembers The addMembers property */
     private ?array $addMembers = null;
     
-    /** @var array<UpdatableAsset>|null $removeExclusions  */
+    /** @var array<UpdatableAsset>|null $removeExclusions The removeExclusions property */
     private ?array $removeExclusions = null;
     
-    /** @var array<UpdatableAsset>|null $removeMembers  */
+    /** @var array<UpdatableAsset>|null $removeMembers The removeMembers property */
     private ?array $removeMembers = null;
     
     /**
@@ -42,7 +42,7 @@ class UpdateAudienceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the addExclusions property value. 
+     * Gets the addExclusions property value. The addExclusions property
      * @return array<UpdatableAsset>|null
     */
     public function getAddExclusions(): ?array {
@@ -58,7 +58,7 @@ class UpdateAudienceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the addMembers property value. 
+     * Gets the addMembers property value. The addMembers property
      * @return array<UpdatableAsset>|null
     */
     public function getAddMembers(): ?array {
@@ -79,7 +79,7 @@ class UpdateAudienceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the removeExclusions property value. 
+     * Gets the removeExclusions property value. The removeExclusions property
      * @return array<UpdatableAsset>|null
     */
     public function getRemoveExclusions(): ?array {
@@ -87,7 +87,7 @@ class UpdateAudienceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the removeMembers property value. 
+     * Gets the removeMembers property value. The removeMembers property
      * @return array<UpdatableAsset>|null
     */
     public function getRemoveMembers(): ?array {
@@ -107,7 +107,7 @@ class UpdateAudienceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the addExclusions property value. 
+     * Sets the addExclusions property value. The addExclusions property
      *  @param array<UpdatableAsset>|null $value Value to set for the addExclusions property.
     */
     public function setAddExclusions(?array $value ): void {
@@ -123,7 +123,7 @@ class UpdateAudienceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the addMembers property value. 
+     * Sets the addMembers property value. The addMembers property
      *  @param array<UpdatableAsset>|null $value Value to set for the addMembers property.
     */
     public function setAddMembers(?array $value ): void {
@@ -131,7 +131,7 @@ class UpdateAudienceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the removeExclusions property value. 
+     * Sets the removeExclusions property value. The removeExclusions property
      *  @param array<UpdatableAsset>|null $value Value to set for the removeExclusions property.
     */
     public function setRemoveExclusions(?array $value ): void {
@@ -139,7 +139,7 @@ class UpdateAudienceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the removeMembers property value. 
+     * Sets the removeMembers property value. The removeMembers property
      *  @param array<UpdatableAsset>|null $value Value to set for the removeMembers property.
     */
     public function setRemoveMembers(?array $value ): void {

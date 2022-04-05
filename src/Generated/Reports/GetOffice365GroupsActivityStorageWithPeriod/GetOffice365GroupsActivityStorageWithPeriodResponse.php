@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Reports\GetOffice365GroupsActivityStorageWithPeriod;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Office365GroupsActivityStorage;
+use Microsoft\Graph\Beta\Generated\Models\Office365GroupsActivityStorage;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class GetOffice365GroupsActivityStorageWithPeriodResponse implements AdditionalD
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<Office365GroupsActivityStorage>|null $value  */
+    /** @var array<Office365GroupsActivityStorage>|null $value The value property */
     private ?array $value = null;
     
     /**
@@ -51,7 +51,7 @@ class GetOffice365GroupsActivityStorageWithPeriodResponse implements AdditionalD
     }
 
     /**
-     * Gets the value property value. 
+     * Gets the value property value. The value property
      * @return array<Office365GroupsActivityStorage>|null
     */
     public function getValue(): ?array {
@@ -76,7 +76,7 @@ class GetOffice365GroupsActivityStorageWithPeriodResponse implements AdditionalD
     }
 
     /**
-     * Sets the value property value. 
+     * Sets the value property value. The value property
      *  @param array<Office365GroupsActivityStorage>|null $value Value to set for the value property.
     */
     public function setValue(?array $value ): void {

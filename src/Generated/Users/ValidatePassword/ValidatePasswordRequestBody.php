@@ -12,7 +12,7 @@ class ValidatePasswordRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $password  */
+    /** @var string|null $password The password property */
     private ?string $password = null;
     
     /**
@@ -50,7 +50,7 @@ class ValidatePasswordRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the password property value. 
+     * Gets the password property value. The password property
      * @return string|null
     */
     public function getPassword(): ?string {
@@ -75,7 +75,7 @@ class ValidatePasswordRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the password property value. 
+     * Sets the password property value. The password property
      *  @param string|null $value Value to set for the password property.
     */
     public function setPassword(?string $value ): void {

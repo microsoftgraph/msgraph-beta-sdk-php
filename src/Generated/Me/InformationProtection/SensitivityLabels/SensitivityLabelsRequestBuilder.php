@@ -7,9 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\SensitivityLabels\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\SensitivityLabels\Evaluate\EvaluateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SensitivityLabel;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SensitivityLabelCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SensitivityLabel;
+use Microsoft\Graph\Beta\Generated\Models\SensitivityLabelCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,10 +20,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SensitivityLabelsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The evaluate property
+    */
     public function evaluate(): EvaluateRequestBuilder {
         return new EvaluateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

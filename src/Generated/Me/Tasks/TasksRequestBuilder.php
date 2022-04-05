@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\Me\Tasks\Alltasks\AlltasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Tasks\Alltasks\Item\BaseTaskItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Tasks\Lists\Item\BaseTaskListItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Tasks\Lists\ListsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Tasks;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Tasks;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TasksRequestBuilder 
 {
+    /**
+     * The alltasks property
+    */
     public function alltasks(): AlltasksRequestBuilder {
         return new AlltasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The lists property
+    */
     public function lists(): ListsRequestBuilder {
         return new ListsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\SetScheduledRetireState;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ScheduledRetireState;
+use Microsoft\Graph\Beta\Generated\Models\ScheduledRetireState;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,10 +13,10 @@ class SetScheduledRetireStateRequestBody implements AdditionalDataHolder, Parsab
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $managedDeviceIds  */
+    /** @var array<string>|null $managedDeviceIds The managedDeviceIds property */
     private ?array $managedDeviceIds = null;
     
-    /** @var ScheduledRetireState|null $state  */
+    /** @var ScheduledRetireState|null $state The state property */
     private ?ScheduledRetireState $state = null;
     
     /**
@@ -55,7 +55,7 @@ class SetScheduledRetireStateRequestBody implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Gets the managedDeviceIds property value. 
+     * Gets the managedDeviceIds property value. The managedDeviceIds property
      * @return array<string>|null
     */
     public function getManagedDeviceIds(): ?array {
@@ -63,7 +63,7 @@ class SetScheduledRetireStateRequestBody implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Gets the state property value. 
+     * Gets the state property value. The state property
      * @return ScheduledRetireState|null
     */
     public function getState(): ?ScheduledRetireState {
@@ -89,7 +89,7 @@ class SetScheduledRetireStateRequestBody implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Sets the managedDeviceIds property value. 
+     * Sets the managedDeviceIds property value. The managedDeviceIds property
      *  @param array<string>|null $value Value to set for the managedDeviceIds property.
     */
     public function setManagedDeviceIds(?array $value ): void {
@@ -97,7 +97,7 @@ class SetScheduledRetireStateRequestBody implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Sets the state property value. 
+     * Sets the state property value. The state property
      *  @param ScheduledRetireState|null $value Value to set for the state property.
     */
     public function setState(?ScheduledRetireState $value ): void {

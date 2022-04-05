@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\Item\PresentationValues\Item\DefinitionValue\DefinitionValueRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\Item\PresentationValues\Item\Presentation\PresentationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupPolicyPresentationValue;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GroupPolicyPresentationValue;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class GroupPolicyPresentationValueItemRequestBuilder 
 {
+    /**
+     * The definitionValue property
+    */
     public function definitionValue(): DefinitionValueRequestBuilder {
         return new DefinitionValueRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -26,6 +29,9 @@ class GroupPolicyPresentationValueItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The presentation property
+    */
     public function presentation(): PresentationRequestBuilder {
         return new PresentationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

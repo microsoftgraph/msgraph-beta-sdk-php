@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\Accou
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\JournalLines\Item\JournalLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\JournalLines\JournalLinesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\Post\PostRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Journal;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Journal;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class JournalItemRequestBuilder 
 {
+    /**
+     * The account property
+    */
     public function account(): AccountRequestBuilder {
         return new AccountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The journalLines property
+    */
     public function journalLines(): JournalLinesRequestBuilder {
         return new JournalLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -32,6 +38,9 @@ class JournalItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The post property
+    */
     public function post(): PostRequestBuilder {
         return new PostRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

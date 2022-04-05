@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Search\Acronyms;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Search\Acronym;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Search\AcronymCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Search\Acronym;
+use Microsoft\Graph\Beta\Generated\Models\Search\AcronymCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Search\Acronyms\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AcronymsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

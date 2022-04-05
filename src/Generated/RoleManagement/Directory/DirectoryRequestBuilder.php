@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RbacApplication;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\RbacApplication;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\ResourceNamespaces\Item\UnifiedRbacResourceNamespaceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\ResourceNamespaces\ResourceNamespacesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleAssignmentApprovals\Item\ApprovalItemRequestBuilder;
@@ -47,46 +47,79 @@ class DirectoryRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resourceNamespaces property
+    */
     public function resourceNamespaces(): ResourceNamespacesRequestBuilder {
         return new ResourceNamespacesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleAssignmentApprovals property
+    */
     public function roleAssignmentApprovals(): RoleAssignmentApprovalsRequestBuilder {
         return new RoleAssignmentApprovalsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleAssignments property
+    */
     public function roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleAssignmentScheduleInstances property
+    */
     public function roleAssignmentScheduleInstances(): RoleAssignmentScheduleInstancesRequestBuilder {
         return new RoleAssignmentScheduleInstancesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleAssignmentScheduleRequests property
+    */
     public function roleAssignmentScheduleRequests(): RoleAssignmentScheduleRequestsRequestBuilder {
         return new RoleAssignmentScheduleRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleAssignmentSchedules property
+    */
     public function roleAssignmentSchedules(): RoleAssignmentSchedulesRequestBuilder {
         return new RoleAssignmentSchedulesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleDefinitions property
+    */
     public function roleDefinitions(): RoleDefinitionsRequestBuilder {
         return new RoleDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleEligibilityScheduleInstances property
+    */
     public function roleEligibilityScheduleInstances(): RoleEligibilityScheduleInstancesRequestBuilder {
         return new RoleEligibilityScheduleInstancesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleEligibilityScheduleRequests property
+    */
     public function roleEligibilityScheduleRequests(): RoleEligibilityScheduleRequestsRequestBuilder {
         return new RoleEligibilityScheduleRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleEligibilitySchedules property
+    */
     public function roleEligibilitySchedules(): RoleEligibilitySchedulesRequestBuilder {
         return new RoleEligibilitySchedulesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The transitiveRoleAssignments property
+    */
     public function transitiveRoleAssignments(): TransitiveRoleAssignmentsRequestBuilder {
         return new TransitiveRoleAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

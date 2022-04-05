@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ServicePrincipal;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ServicePrincipal;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AddTokenSigningCertificate\AddTokenSigningCertificateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppManagementPolicies\AppManagementPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppManagementPolicies\Item\AppManagementPolicyItemRequestBuilder;
@@ -62,90 +62,156 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ServicePrincipalItemRequestBuilder 
 {
+    /**
+     * The addTokenSigningCertificate property
+    */
     public function addTokenSigningCertificate(): AddTokenSigningCertificateRequestBuilder {
         return new AddTokenSigningCertificateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The appManagementPolicies property
+    */
     public function appManagementPolicies(): AppManagementPoliciesRequestBuilder {
         return new AppManagementPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The appRoleAssignedTo property
+    */
     public function appRoleAssignedTo(): AppRoleAssignedToRequestBuilder {
         return new AppRoleAssignedToRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The appRoleAssignments property
+    */
     public function appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The checkMemberGroups property
+    */
     public function checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The checkMemberObjects property
+    */
     public function checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The claimsMappingPolicies property
+    */
     public function claimsMappingPolicies(): ClaimsMappingPoliciesRequestBuilder {
         return new ClaimsMappingPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The createdObjects property
+    */
     public function createdObjects(): CreatedObjectsRequestBuilder {
         return new CreatedObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The createPasswordSingleSignOnCredentials property
+    */
     public function createPasswordSingleSignOnCredentials(): CreatePasswordSingleSignOnCredentialsRequestBuilder {
         return new CreatePasswordSingleSignOnCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The delegatedPermissionClassifications property
+    */
     public function delegatedPermissionClassifications(): DelegatedPermissionClassificationsRequestBuilder {
         return new DelegatedPermissionClassificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deletePasswordSingleSignOnCredentials property
+    */
     public function deletePasswordSingleSignOnCredentials(): DeletePasswordSingleSignOnCredentialsRequestBuilder {
         return new DeletePasswordSingleSignOnCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The endpoints property
+    */
     public function endpoints(): EndpointsRequestBuilder {
         return new EndpointsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The federatedIdentityCredentials property
+    */
     public function federatedIdentityCredentials(): FederatedIdentityCredentialsRequestBuilder {
         return new FederatedIdentityCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getMemberGroups property
+    */
     public function getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getMemberObjects property
+    */
     public function getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getPasswordSingleSignOnCredentials property
+    */
     public function getPasswordSingleSignOnCredentials(): GetPasswordSingleSignOnCredentialsRequestBuilder {
         return new GetPasswordSingleSignOnCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The homeRealmDiscoveryPolicies property
+    */
     public function homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The licenseDetails property
+    */
     public function licenseDetails(): LicenseDetailsRequestBuilder {
         return new LicenseDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The memberOf property
+    */
     public function memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The oauth2PermissionGrants property
+    */
     public function oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
         return new Oauth2PermissionGrantsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The ownedObjects property
+    */
     public function ownedObjects(): OwnedObjectsRequestBuilder {
         return new OwnedObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The owners property
+    */
     public function owners(): OwnersRequestBuilder {
         return new OwnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -156,26 +222,44 @@ class ServicePrincipalItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The restore property
+    */
     public function restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The synchronization property
+    */
     public function synchronization(): SynchronizationRequestBuilder {
         return new SynchronizationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tokenIssuancePolicies property
+    */
     public function tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tokenLifetimePolicies property
+    */
     public function tokenLifetimePolicies(): TokenLifetimePoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The transitiveMemberOf property
+    */
     public function transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The updatePasswordSingleSignOnCredentials property
+    */
     public function updatePasswordSingleSignOnCredentials(): UpdatePasswordSingleSignOnCredentialsRequestBuilder {
         return new UpdatePasswordSingleSignOnCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

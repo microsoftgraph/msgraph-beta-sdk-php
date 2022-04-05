@@ -9,9 +9,9 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Count\C
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\GetIosAvailableUpdateVersions\GetIosAvailableUpdateVersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\GetTargetedUsersAndDevices\GetTargetedUsersAndDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\HasPayloadLinks\HasPayloadLinksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceConfigurationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,14 +22,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeviceConfigurationsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getTargetedUsersAndDevices property
+    */
     public function getTargetedUsersAndDevices(): GetTargetedUsersAndDevicesRequestBuilder {
         return new GetTargetedUsersAndDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The hasPayloadLinks property
+    */
     public function hasPayloadLinks(): HasPayloadLinksRequestBuilder {
         return new HasPayloadLinksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

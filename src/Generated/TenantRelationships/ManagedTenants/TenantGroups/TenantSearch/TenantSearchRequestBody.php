@@ -12,7 +12,7 @@ class TenantSearchRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $tenantId  */
+    /** @var string|null $tenantId The tenantId property */
     private ?string $tenantId = null;
     
     /**
@@ -50,7 +50,7 @@ class TenantSearchRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the tenantId property value. 
+     * Gets the tenantId property value. The tenantId property
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -75,7 +75,7 @@ class TenantSearchRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the tenantId property value. 
+     * Sets the tenantId property value. The tenantId property
      *  @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value ): void {

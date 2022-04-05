@@ -16,8 +16,8 @@ use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item\OutlookTaskGroupIt
 use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\TaskGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\Tasks\Item\OutlookTaskItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\Tasks\TasksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OutlookUser;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OutlookUser;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -28,6 +28,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class OutlookRequestBuilder 
 {
+    /**
+     * The masterCategories property
+    */
     public function masterCategories(): MasterCategoriesRequestBuilder {
         return new MasterCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -38,14 +41,23 @@ class OutlookRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The taskFolders property
+    */
     public function taskFolders(): TaskFoldersRequestBuilder {
         return new TaskFoldersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The taskGroups property
+    */
     public function taskGroups(): TaskGroupsRequestBuilder {
         return new TaskGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tasks property
+    */
     public function tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

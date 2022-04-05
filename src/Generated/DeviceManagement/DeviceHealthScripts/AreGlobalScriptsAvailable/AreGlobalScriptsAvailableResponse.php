@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\AreGlobalScriptsAvailable;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GlobalDeviceHealthScriptState;
+use Microsoft\Graph\Beta\Generated\Models\GlobalDeviceHealthScriptState;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

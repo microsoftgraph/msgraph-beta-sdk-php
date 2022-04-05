@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Plans\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PlannerPlan;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PlannerPlan;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\Buckets\BucketsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\Buckets\Item\PlannerBucketItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\Details\DetailsRequestBuilder;
@@ -22,10 +22,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PlannerPlanItemRequestBuilder 
 {
+    /**
+     * The buckets property
+    */
     public function buckets(): BucketsRequestBuilder {
         return new BucketsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The details property
+    */
     public function details(): DetailsRequestBuilder {
         return new DetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -36,6 +42,9 @@ class PlannerPlanItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The tasks property
+    */
     public function tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

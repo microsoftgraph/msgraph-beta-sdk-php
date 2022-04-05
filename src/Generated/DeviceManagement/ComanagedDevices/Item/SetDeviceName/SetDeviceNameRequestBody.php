@@ -12,7 +12,7 @@ class SetDeviceNameRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $deviceName  */
+    /** @var string|null $deviceName The deviceName property */
     private ?string $deviceName = null;
     
     /**
@@ -40,7 +40,7 @@ class SetDeviceNameRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceName property value. 
+     * Gets the deviceName property value. The deviceName property
      * @return string|null
     */
     public function getDeviceName(): ?string {
@@ -75,7 +75,7 @@ class SetDeviceNameRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceName property value. 
+     * Sets the deviceName property value. The deviceName property
      *  @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value ): void {

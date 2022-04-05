@@ -13,8 +13,8 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Acce
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackageAssignmentResourceRoles\Item\AccessPackageAssignmentResourceRoleItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\Reprocess\ReprocessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\Target\TargetRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessPackageAssignment;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessPackageAssignment;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -25,18 +25,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AccessPackageAssignmentItemRequestBuilder 
 {
+    /**
+     * The accessPackage property
+    */
     public function accessPackage(): AccessPackageRequestBuilder {
         return new AccessPackageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageAssignmentPolicy property
+    */
     public function accessPackageAssignmentPolicy(): AccessPackageAssignmentPolicyRequestBuilder {
         return new AccessPackageAssignmentPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageAssignmentRequests property
+    */
     public function accessPackageAssignmentRequests(): AccessPackageAssignmentRequestsRequestBuilder {
         return new AccessPackageAssignmentRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageAssignmentResourceRoles property
+    */
     public function accessPackageAssignmentResourceRoles(): AccessPackageAssignmentResourceRolesRequestBuilder {
         return new AccessPackageAssignmentResourceRolesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -44,6 +56,9 @@ class AccessPackageAssignmentItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The reprocess property
+    */
     public function reprocess(): ReprocessRequestBuilder {
         return new ReprocessRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -51,6 +66,9 @@ class AccessPackageAssignmentItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The target property
+    */
     public function target(): TargetRequestBuilder {
         return new TargetRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

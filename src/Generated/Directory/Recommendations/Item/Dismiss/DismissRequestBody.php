@@ -12,7 +12,7 @@ class DismissRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $dismissReason  */
+    /** @var string|null $dismissReason The dismissReason property */
     private ?string $dismissReason = null;
     
     /**
@@ -40,7 +40,7 @@ class DismissRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the dismissReason property value. 
+     * Gets the dismissReason property value. The dismissReason property
      * @return string|null
     */
     public function getDismissReason(): ?string {
@@ -75,7 +75,7 @@ class DismissRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the dismissReason property value. 
+     * Sets the dismissReason property value. The dismissReason property
      *  @param string|null $value Value to set for the dismissReason property.
     */
     public function setDismissReason(?string $value ): void {

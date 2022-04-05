@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceLines\Item\Account\AccountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceLines\Item\Item\ItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SalesInvoiceLine;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SalesInvoiceLine;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,10 +19,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SalesInvoiceLineItemRequestBuilder 
 {
+    /**
+     * The account property
+    */
     public function account(): AccountRequestBuilder {
         return new AccountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The item property
+    */
     public function item(): ItemRequestBuilder {
         return new ItemRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

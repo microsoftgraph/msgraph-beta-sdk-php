@@ -13,8 +13,8 @@ use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\Sa
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\SalesQuoteLines\SalesQuoteLinesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\Send\SendRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\ShipmentMethod\ShipmentMethodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SalesQuote;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SalesQuote;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -25,14 +25,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SalesQuoteItemRequestBuilder 
 {
+    /**
+     * The currency property
+    */
     public function currency(): CurrencyRequestBuilder {
         return new CurrencyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The customer property
+    */
     public function customer(): CustomerRequestBuilder {
         return new CustomerRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The makeInvoice property
+    */
     public function makeInvoice(): MakeInvoiceRequestBuilder {
         return new MakeInvoiceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -40,6 +49,9 @@ class SalesQuoteItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The paymentTerm property
+    */
     public function paymentTerm(): PaymentTermRequestBuilder {
         return new PaymentTermRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -47,14 +59,23 @@ class SalesQuoteItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The salesQuoteLines property
+    */
     public function salesQuoteLines(): SalesQuoteLinesRequestBuilder {
         return new SalesQuoteLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The send property
+    */
     public function send(): SendRequestBuilder {
         return new SendRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The shipmentMethod property
+    */
     public function shipmentMethod(): ShipmentMethodRequestBuilder {
         return new ShipmentMethodRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

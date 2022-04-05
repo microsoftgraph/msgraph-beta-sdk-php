@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCustomAttributeShellScripts\Item\Assign;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementScriptAssignment;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementScriptGroupAssignment;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementScriptAssignment;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementScriptGroupAssignment;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,10 +14,10 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<DeviceManagementScriptAssignment>|null $deviceManagementScriptAssignments  */
+    /** @var array<DeviceManagementScriptAssignment>|null $deviceManagementScriptAssignments The deviceManagementScriptAssignments property */
     private ?array $deviceManagementScriptAssignments = null;
     
-    /** @var array<DeviceManagementScriptGroupAssignment>|null $deviceManagementScriptGroupAssignments  */
+    /** @var array<DeviceManagementScriptGroupAssignment>|null $deviceManagementScriptGroupAssignments The deviceManagementScriptGroupAssignments property */
     private ?array $deviceManagementScriptGroupAssignments = null;
     
     /**
@@ -45,7 +45,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceManagementScriptAssignments property value. 
+     * Gets the deviceManagementScriptAssignments property value. The deviceManagementScriptAssignments property
      * @return array<DeviceManagementScriptAssignment>|null
     */
     public function getDeviceManagementScriptAssignments(): ?array {
@@ -53,7 +53,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceManagementScriptGroupAssignments property value. 
+     * Gets the deviceManagementScriptGroupAssignments property value. The deviceManagementScriptGroupAssignments property
      * @return array<DeviceManagementScriptGroupAssignment>|null
     */
     public function getDeviceManagementScriptGroupAssignments(): ?array {
@@ -90,7 +90,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceManagementScriptAssignments property value. 
+     * Sets the deviceManagementScriptAssignments property value. The deviceManagementScriptAssignments property
      *  @param array<DeviceManagementScriptAssignment>|null $value Value to set for the deviceManagementScriptAssignments property.
     */
     public function setDeviceManagementScriptAssignments(?array $value ): void {
@@ -98,7 +98,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceManagementScriptGroupAssignments property value. 
+     * Sets the deviceManagementScriptGroupAssignments property value. The deviceManagementScriptGroupAssignments property
      *  @param array<DeviceManagementScriptGroupAssignment>|null $value Value to set for the deviceManagementScriptGroupAssignments property.
     */
     public function setDeviceManagementScriptGroupAssignments(?array $value ): void {

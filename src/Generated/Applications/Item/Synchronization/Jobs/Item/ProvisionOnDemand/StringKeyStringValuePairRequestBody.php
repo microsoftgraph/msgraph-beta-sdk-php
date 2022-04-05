@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\ProvisionOnDemand;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SynchronizationJobApplicationParameters;
+use Microsoft\Graph\Beta\Generated\Models\SynchronizationJobApplicationParameters;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class StringKeyStringValuePairRequestBody implements AdditionalDataHolder, Parsa
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<SynchronizationJobApplicationParameters>|null $parameters  */
+    /** @var array<SynchronizationJobApplicationParameters>|null $parameters The parameters property */
     private ?array $parameters = null;
     
     /**
@@ -51,7 +51,7 @@ class StringKeyStringValuePairRequestBody implements AdditionalDataHolder, Parsa
     }
 
     /**
-     * Gets the parameters property value. 
+     * Gets the parameters property value. The parameters property
      * @return array<SynchronizationJobApplicationParameters>|null
     */
     public function getParameters(): ?array {
@@ -76,7 +76,7 @@ class StringKeyStringValuePairRequestBody implements AdditionalDataHolder, Parsa
     }
 
     /**
-     * Sets the parameters property value. 
+     * Sets the parameters property value. The parameters property
      *  @param array<SynchronizationJobApplicationParameters>|null $value Value to set for the parameters property.
     */
     public function setParameters(?array $value ): void {

@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\TrustFramework;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TrustFramework;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TrustFramework;
 use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\TrustFrameworkKeySetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\KeySetsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TrustFramework\Policies\Item\TrustFrameworkPolicyItemRequestBuilder;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TrustFrameworkRequestBuilder 
 {
+    /**
+     * The keySets property
+    */
     public function keySets(): KeySetsRequestBuilder {
         return new KeySetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -28,6 +31,9 @@ class TrustFrameworkRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The policies property
+    */
     public function policies(): PoliciesRequestBuilder {
         return new PoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

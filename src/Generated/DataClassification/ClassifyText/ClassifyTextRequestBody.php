@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\DataClassification\ClassifyText;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MlClassificationMatchTolerance;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SensitiveTypeScope;
+use Microsoft\Graph\Beta\Generated\Models\MlClassificationMatchTolerance;
+use Microsoft\Graph\Beta\Generated\Models\SensitiveTypeScope;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,19 +14,19 @@ class ClassifyTextRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $fileExtension  */
+    /** @var string|null $fileExtension The fileExtension property */
     private ?string $fileExtension = null;
     
-    /** @var MlClassificationMatchTolerance|null $matchTolerancesToInclude  */
+    /** @var MlClassificationMatchTolerance|null $matchTolerancesToInclude The matchTolerancesToInclude property */
     private ?MlClassificationMatchTolerance $matchTolerancesToInclude = null;
     
-    /** @var SensitiveTypeScope|null $scopesToRun  */
+    /** @var SensitiveTypeScope|null $scopesToRun The scopesToRun property */
     private ?SensitiveTypeScope $scopesToRun = null;
     
-    /** @var array<string>|null $sensitiveTypeIds  */
+    /** @var array<string>|null $sensitiveTypeIds The sensitiveTypeIds property */
     private ?array $sensitiveTypeIds = null;
     
-    /** @var string|null $text  */
+    /** @var string|null $text The text property */
     private ?string $text = null;
     
     /**
@@ -68,7 +68,7 @@ class ClassifyTextRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the fileExtension property value. 
+     * Gets the fileExtension property value. The fileExtension property
      * @return string|null
     */
     public function getFileExtension(): ?string {
@@ -76,7 +76,7 @@ class ClassifyTextRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the matchTolerancesToInclude property value. 
+     * Gets the matchTolerancesToInclude property value. The matchTolerancesToInclude property
      * @return MlClassificationMatchTolerance|null
     */
     public function getMatchTolerancesToInclude(): ?MlClassificationMatchTolerance {
@@ -84,7 +84,7 @@ class ClassifyTextRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the scopesToRun property value. 
+     * Gets the scopesToRun property value. The scopesToRun property
      * @return SensitiveTypeScope|null
     */
     public function getScopesToRun(): ?SensitiveTypeScope {
@@ -92,7 +92,7 @@ class ClassifyTextRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the sensitiveTypeIds property value. 
+     * Gets the sensitiveTypeIds property value. The sensitiveTypeIds property
      * @return array<string>|null
     */
     public function getSensitiveTypeIds(): ?array {
@@ -100,7 +100,7 @@ class ClassifyTextRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the text property value. 
+     * Gets the text property value. The text property
      * @return string|null
     */
     public function getText(): ?string {
@@ -129,7 +129,7 @@ class ClassifyTextRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the fileExtension property value. 
+     * Sets the fileExtension property value. The fileExtension property
      *  @param string|null $value Value to set for the fileExtension property.
     */
     public function setFileExtension(?string $value ): void {
@@ -137,7 +137,7 @@ class ClassifyTextRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the matchTolerancesToInclude property value. 
+     * Sets the matchTolerancesToInclude property value. The matchTolerancesToInclude property
      *  @param MlClassificationMatchTolerance|null $value Value to set for the matchTolerancesToInclude property.
     */
     public function setMatchTolerancesToInclude(?MlClassificationMatchTolerance $value ): void {
@@ -145,7 +145,7 @@ class ClassifyTextRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the scopesToRun property value. 
+     * Sets the scopesToRun property value. The scopesToRun property
      *  @param SensitiveTypeScope|null $value Value to set for the scopesToRun property.
     */
     public function setScopesToRun(?SensitiveTypeScope $value ): void {
@@ -153,7 +153,7 @@ class ClassifyTextRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the sensitiveTypeIds property value. 
+     * Sets the sensitiveTypeIds property value. The sensitiveTypeIds property
      *  @param array<string>|null $value Value to set for the sensitiveTypeIds property.
     */
     public function setSensitiveTypeIds(?array $value ): void {
@@ -161,7 +161,7 @@ class ClassifyTextRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the text property value. 
+     * Sets the text property value. The text property
      *  @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value ): void {

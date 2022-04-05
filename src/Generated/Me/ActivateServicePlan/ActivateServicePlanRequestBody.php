@@ -12,10 +12,10 @@ class ActivateServicePlanRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $servicePlanId  */
+    /** @var string|null $servicePlanId The servicePlanId property */
     private ?string $servicePlanId = null;
     
-    /** @var string|null $skuId  */
+    /** @var string|null $skuId The skuId property */
     private ?string $skuId = null;
     
     /**
@@ -54,7 +54,7 @@ class ActivateServicePlanRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the servicePlanId property value. 
+     * Gets the servicePlanId property value. The servicePlanId property
      * @return string|null
     */
     public function getServicePlanId(): ?string {
@@ -62,7 +62,7 @@ class ActivateServicePlanRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the skuId property value. 
+     * Gets the skuId property value. The skuId property
      * @return string|null
     */
     public function getSkuId(): ?string {
@@ -88,7 +88,7 @@ class ActivateServicePlanRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the servicePlanId property value. 
+     * Sets the servicePlanId property value. The servicePlanId property
      *  @param string|null $value Value to set for the servicePlanId property.
     */
     public function setServicePlanId(?string $value ): void {
@@ -96,7 +96,7 @@ class ActivateServicePlanRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the skuId property value. 
+     * Sets the skuId property value. The skuId property
      *  @param string|null $value Value to set for the skuId property.
     */
     public function setSkuId(?string $value ): void {

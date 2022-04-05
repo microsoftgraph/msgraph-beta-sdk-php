@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagedTenants\ManagedTenant;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedTenant;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AggregatedPolicyCompliances\AggregatedPolicyCompliancesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AggregatedPolicyCompliances\Item\AggregatedPolicyComplianceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AuditEvents\AuditEventsRequestBuilder;
@@ -65,70 +65,121 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ManagedTenantsRequestBuilder 
 {
+    /**
+     * The aggregatedPolicyCompliances property
+    */
     public function aggregatedPolicyCompliances(): AggregatedPolicyCompliancesRequestBuilder {
         return new AggregatedPolicyCompliancesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The auditEvents property
+    */
     public function auditEvents(): AuditEventsRequestBuilder {
         return new AuditEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The cloudPcConnections property
+    */
     public function cloudPcConnections(): CloudPcConnectionsRequestBuilder {
         return new CloudPcConnectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The cloudPcDevices property
+    */
     public function cloudPcDevices(): CloudPcDevicesRequestBuilder {
         return new CloudPcDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The cloudPcsOverview property
+    */
     public function cloudPcsOverview(): CloudPcsOverviewRequestBuilder {
         return new CloudPcsOverviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The conditionalAccessPolicyCoverages property
+    */
     public function conditionalAccessPolicyCoverages(): ConditionalAccessPolicyCoveragesRequestBuilder {
         return new ConditionalAccessPolicyCoveragesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The credentialUserRegistrationsSummaries property
+    */
     public function credentialUserRegistrationsSummaries(): CredentialUserRegistrationsSummariesRequestBuilder {
         return new CredentialUserRegistrationsSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceCompliancePolicySettingStateSummaries property
+    */
     public function deviceCompliancePolicySettingStateSummaries(): DeviceCompliancePolicySettingStateSummariesRequestBuilder {
         return new DeviceCompliancePolicySettingStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managedDeviceCompliances property
+    */
     public function managedDeviceCompliances(): ManagedDeviceCompliancesRequestBuilder {
         return new ManagedDeviceCompliancesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managedDeviceComplianceTrends property
+    */
     public function managedDeviceComplianceTrends(): ManagedDeviceComplianceTrendsRequestBuilder {
         return new ManagedDeviceComplianceTrendsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managementActions property
+    */
     public function managementActions(): ManagementActionsRequestBuilder {
         return new ManagementActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managementActionTenantDeploymentStatuses property
+    */
     public function managementActionTenantDeploymentStatuses(): ManagementActionTenantDeploymentStatusesRequestBuilder {
         return new ManagementActionTenantDeploymentStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managementIntents property
+    */
     public function managementIntents(): ManagementIntentsRequestBuilder {
         return new ManagementIntentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managementTemplateCollections property
+    */
     public function managementTemplateCollections(): ManagementTemplateCollectionsRequestBuilder {
         return new ManagementTemplateCollectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managementTemplates property
+    */
     public function managementTemplates(): ManagementTemplatesRequestBuilder {
         return new ManagementTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managementTemplateSteps property
+    */
     public function managementTemplateSteps(): ManagementTemplateStepsRequestBuilder {
         return new ManagementTemplateStepsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managementTemplateStepVersions property
+    */
     public function managementTemplateStepVersions(): ManagementTemplateStepVersionsRequestBuilder {
         return new ManagementTemplateStepVersionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -139,22 +190,37 @@ class ManagedTenantsRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The tenantGroups property
+    */
     public function tenantGroups(): TenantGroupsRequestBuilder {
         return new TenantGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tenants property
+    */
     public function tenants(): TenantsRequestBuilder {
         return new TenantsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tenantsCustomizedInformation property
+    */
     public function tenantsCustomizedInformation(): TenantsCustomizedInformationRequestBuilder {
         return new TenantsCustomizedInformationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tenantsDetailedInformation property
+    */
     public function tenantsDetailedInformation(): TenantsDetailedInformationRequestBuilder {
         return new TenantsDetailedInformationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tenantTags property
+    */
     public function tenantTags(): TenantTagsRequestBuilder {
         return new TenantTagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -162,10 +228,16 @@ class ManagedTenantsRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The windowsDeviceMalwareStates property
+    */
     public function windowsDeviceMalwareStates(): WindowsDeviceMalwareStatesRequestBuilder {
         return new WindowsDeviceMalwareStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsProtectionStates property
+    */
     public function windowsProtectionStates(): WindowsProtectionStatesRequestBuilder {
         return new WindowsProtectionStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

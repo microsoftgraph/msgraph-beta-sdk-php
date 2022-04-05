@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\ServiceAnnouncementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\WindowsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Admin;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Admin;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -25,6 +25,9 @@ class AdminRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The serviceAnnouncement property
+    */
     public function serviceAnnouncement(): ServiceAnnouncementRequestBuilder {
         return new ServiceAnnouncementRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -32,6 +35,9 @@ class AdminRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The windows property
+    */
     public function windows(): WindowsRequestBuilder {
         return new WindowsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

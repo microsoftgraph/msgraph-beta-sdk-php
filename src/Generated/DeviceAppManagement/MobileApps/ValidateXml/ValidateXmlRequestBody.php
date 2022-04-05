@@ -13,7 +13,7 @@ class ValidateXmlRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var StreamInterface|null $officeConfigurationXml  */
+    /** @var StreamInterface|null $officeConfigurationXml The officeConfigurationXml property */
     private ?StreamInterface $officeConfigurationXml = null;
     
     /**
@@ -51,7 +51,7 @@ class ValidateXmlRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the officeConfigurationXml property value. 
+     * Gets the officeConfigurationXml property value. The officeConfigurationXml property
      * @return StreamInterface|null
     */
     public function getOfficeConfigurationXml(): ?StreamInterface {
@@ -76,7 +76,7 @@ class ValidateXmlRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the officeConfigurationXml property value. 
+     * Sets the officeConfigurationXml property value. The officeConfigurationXml property
      *  @param StreamInterface|null $value Value to set for the officeConfigurationXml property.
     */
     public function setOfficeConfigurationXml(?StreamInterface $value ): void {

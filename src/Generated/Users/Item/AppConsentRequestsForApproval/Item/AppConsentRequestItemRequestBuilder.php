@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApprova
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AppConsentRequest;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AppConsentRequest;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\Item\UserConsentRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\UserConsentRequestsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -28,6 +28,9 @@ class AppConsentRequestItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userConsentRequests property
+    */
     public function userConsentRequests(): UserConsentRequestsRequestBuilder {
         return new UserConsentRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

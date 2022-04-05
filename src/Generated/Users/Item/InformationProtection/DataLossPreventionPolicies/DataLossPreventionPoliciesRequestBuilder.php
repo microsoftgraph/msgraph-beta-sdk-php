@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\DataLo
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DataLossPreventionPolicy;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DataLossPreventionPolicyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DataLossPreventionPolicy;
+use Microsoft\Graph\Beta\Generated\Models\DataLossPreventionPolicyCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\DataLossPreventionPolicies\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\DataLossPreventionPolicies\Evaluate\EvaluateRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -20,10 +20,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DataLossPreventionPoliciesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The evaluate property
+    */
     public function evaluate(): EvaluateRequestBuilder {
         return new EvaluateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

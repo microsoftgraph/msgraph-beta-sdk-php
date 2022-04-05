@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Tags\Item\Members;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TeamworkTagMember;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TeamworkTagMemberCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TeamworkTagMember;
+use Microsoft\Graph\Beta\Generated\Models\TeamworkTagMemberCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Tags\Item\Members\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class MembersRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

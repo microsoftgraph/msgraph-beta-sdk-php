@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\MessageTraces\Item\Recipients\Item\MessageRecipientItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\MessageTraces\Item\Recipients\RecipientsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MessageTrace;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\MessageTrace;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,6 +22,9 @@ class MessageTraceItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The recipients property
+    */
     public function recipients(): RecipientsRequestBuilder {
         return new RecipientsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

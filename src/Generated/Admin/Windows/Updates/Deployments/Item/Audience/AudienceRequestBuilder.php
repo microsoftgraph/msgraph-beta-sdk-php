@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audien
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\UpdateAudience\UpdateAudienceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\UpdateAudienceById\UpdateAudienceByIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsUpdates\DeploymentAudience;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\DeploymentAudience;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,10 +23,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AudienceRequestBuilder 
 {
+    /**
+     * The exclusions property
+    */
     public function exclusions(): ExclusionsRequestBuilder {
         return new ExclusionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The members property
+    */
     public function members(): MembersRequestBuilder {
         return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -37,10 +43,16 @@ class AudienceRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The updateAudience property
+    */
     public function updateAudience(): UpdateAudienceRequestBuilder {
         return new UpdateAudienceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The updateAudienceById property
+    */
     public function updateAudienceById(): UpdateAudienceByIdRequestBuilder {
         return new UpdateAudienceByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

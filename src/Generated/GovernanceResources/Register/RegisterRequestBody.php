@@ -12,7 +12,7 @@ class RegisterRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $externalId  */
+    /** @var string|null $externalId The externalId property */
     private ?string $externalId = null;
     
     /**
@@ -40,7 +40,7 @@ class RegisterRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the externalId property value. 
+     * Gets the externalId property value. The externalId property
      * @return string|null
     */
     public function getExternalId(): ?string {
@@ -75,7 +75,7 @@ class RegisterRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the externalId property value. 
+     * Sets the externalId property value. The externalId property
      *  @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value ): void {

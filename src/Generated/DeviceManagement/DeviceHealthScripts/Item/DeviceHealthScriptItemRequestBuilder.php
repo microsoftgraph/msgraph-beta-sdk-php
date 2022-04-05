@@ -14,8 +14,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\Get
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\GetRemediationHistory\GetRemediationHistoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\RunSummary\RunSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\UpdateGlobalScript\UpdateGlobalScriptRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceHealthScript;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScript;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -26,18 +26,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeviceHealthScriptItemRequestBuilder 
 {
+    /**
+     * The assign property
+    */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceRunStates property
+    */
     public function deviceRunStates(): DeviceRunStatesRequestBuilder {
         return new DeviceRunStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getGlobalScriptHighestAvailableVersion property
+    */
     public function getGlobalScriptHighestAvailableVersion(): GetGlobalScriptHighestAvailableVersionRequestBuilder {
         return new GetGlobalScriptHighestAvailableVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -48,10 +60,16 @@ class DeviceHealthScriptItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The runSummary property
+    */
     public function runSummary(): RunSummaryRequestBuilder {
         return new RunSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The updateGlobalScript property
+    */
     public function updateGlobalScript(): UpdateGlobalScriptRequestBuilder {
         return new UpdateGlobalScriptRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

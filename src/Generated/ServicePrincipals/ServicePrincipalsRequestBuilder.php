@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ServicePrincipal;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ServicePrincipalCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ServicePrincipal;
+use Microsoft\Graph\Beta\Generated\Models\ServicePrincipalCollectionResponse;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\GetByIds\GetByIdsRequestBuilder;
@@ -23,14 +23,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ServicePrincipalsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getByIds property
+    */
     public function getByIds(): GetByIdsRequestBuilder {
         return new GetByIdsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getUserOwnedObjects property
+    */
     public function getUserOwnedObjects(): GetUserOwnedObjectsRequestBuilder {
         return new GetUserOwnedObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -44,6 +53,9 @@ class ServicePrincipalsRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The validateProperties property
+    */
     public function validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

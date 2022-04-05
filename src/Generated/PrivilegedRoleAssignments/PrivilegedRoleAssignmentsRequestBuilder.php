@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PrivilegedRoleAssignment;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PrivilegedRoleAssignmentCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegedRoleAssignment;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegedRoleAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments\My\MyRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PrivilegedRoleAssignmentsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

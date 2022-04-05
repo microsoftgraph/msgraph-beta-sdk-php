@@ -12,7 +12,7 @@ class UpdateAdDomainPasswordRequestBody implements AdditionalDataHolder, Parsabl
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $adDomainPassword  */
+    /** @var string|null $adDomainPassword The adDomainPassword property */
     private ?string $adDomainPassword = null;
     
     /**
@@ -40,7 +40,7 @@ class UpdateAdDomainPasswordRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the adDomainPassword property value. 
+     * Gets the adDomainPassword property value. The adDomainPassword property
      * @return string|null
     */
     public function getAdDomainPassword(): ?string {
@@ -75,7 +75,7 @@ class UpdateAdDomainPasswordRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the adDomainPassword property value. 
+     * Sets the adDomainPassword property value. The adDomainPassword property
      *  @param string|null $value Value to set for the adDomainPassword property.
     */
     public function setAdDomainPassword(?string $value ): void {

@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\It
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\DefinitionValuesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\Item\GroupPolicyDefinitionValueItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\UpdateDefinitionValues\UpdateDefinitionValuesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupPolicyConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GroupPolicyConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,14 +23,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class GroupPolicyConfigurationItemRequestBuilder 
 {
+    /**
+     * The assign property
+    */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The definitionValues property
+    */
     public function definitionValues(): DefinitionValuesRequestBuilder {
         return new DefinitionValuesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -41,6 +50,9 @@ class GroupPolicyConfigurationItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The updateDefinitionValues property
+    */
     public function updateDefinitionValues(): UpdateDefinitionValuesRequestBuilder {
         return new UpdateDefinitionValuesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

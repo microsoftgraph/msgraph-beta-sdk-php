@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Tena
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagedTenants\Tenant;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\Tenant;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Tenants\Item\OffboardTenant\OffboardTenantRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Tenants\Item\ResetTenantOnboardingStatus\ResetTenantOnboardingStatusRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TenantItemRequestBuilder 
 {
+    /**
+     * The offboardTenant property
+    */
     public function offboardTenant(): OffboardTenantRequestBuilder {
         return new OffboardTenantRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -29,6 +32,9 @@ class TenantItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resetTenantOnboardingStatus property
+    */
     public function resetTenantOnboardingStatus(): ResetTenantOnboardingStatusRequestBuilder {
         return new ResetTenantOnboardingStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

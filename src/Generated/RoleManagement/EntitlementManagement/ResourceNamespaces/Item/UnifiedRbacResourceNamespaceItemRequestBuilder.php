@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\Re
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UnifiedRbacResourceNamespace;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacResourceNamespace;
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\ResourceNamespaces\Item\ImportResourceActions\ImportResourceActionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\ResourceNamespaces\Item\ResourceActions\Item\UnifiedRbacResourceActionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\ResourceNamespaces\Item\ResourceActions\ResourceActionsRequestBuilder;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class UnifiedRbacResourceNamespaceItemRequestBuilder 
 {
+    /**
+     * The importResourceActions property
+    */
     public function importResourceActions(): ImportResourceActionsRequestBuilder {
         return new ImportResourceActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -30,6 +33,9 @@ class UnifiedRbacResourceNamespaceItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resourceActions property
+    */
     public function resourceActions(): ResourceActionsRequestBuilder {
         return new ResourceActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

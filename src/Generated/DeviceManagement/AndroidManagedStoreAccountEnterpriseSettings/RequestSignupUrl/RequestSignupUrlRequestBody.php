@@ -12,7 +12,7 @@ class RequestSignupUrlRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $hostName  */
+    /** @var string|null $hostName The hostName property */
     private ?string $hostName = null;
     
     /**
@@ -50,7 +50,7 @@ class RequestSignupUrlRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the hostName property value. 
+     * Gets the hostName property value. The hostName property
      * @return string|null
     */
     public function getHostName(): ?string {
@@ -75,7 +75,7 @@ class RequestSignupUrlRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the hostName property value. 
+     * Sets the hostName property value. The hostName property
      *  @param string|null $value Value to set for the hostName property.
     */
     public function setHostName(?string $value ): void {

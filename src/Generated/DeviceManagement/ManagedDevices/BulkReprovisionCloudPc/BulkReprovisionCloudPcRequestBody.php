@@ -12,7 +12,7 @@ class BulkReprovisionCloudPcRequestBody implements AdditionalDataHolder, Parsabl
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $managedDeviceIds  */
+    /** @var array<string>|null $managedDeviceIds The managedDeviceIds property */
     private ?array $managedDeviceIds = null;
     
     /**
@@ -50,7 +50,7 @@ class BulkReprovisionCloudPcRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the managedDeviceIds property value. 
+     * Gets the managedDeviceIds property value. The managedDeviceIds property
      * @return array<string>|null
     */
     public function getManagedDeviceIds(): ?array {
@@ -75,7 +75,7 @@ class BulkReprovisionCloudPcRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the managedDeviceIds property value. 
+     * Sets the managedDeviceIds property value. The managedDeviceIds property
      *  @param array<string>|null $value Value to set for the managedDeviceIds property.
     */
     public function setManagedDeviceIds(?array $value ): void {

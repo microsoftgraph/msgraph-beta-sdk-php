@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TenantRelationship;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TenantRelationship;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminCustomers\DelegatedAdminCustomersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminCustomers\Item\DelegatedAdminCustomerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelationships\DelegatedAdminRelationshipsRequestBuilder;
@@ -22,14 +22,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TenantRelationshipsRequestBuilder 
 {
+    /**
+     * The delegatedAdminCustomers property
+    */
     public function delegatedAdminCustomers(): DelegatedAdminCustomersRequestBuilder {
         return new DelegatedAdminCustomersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The delegatedAdminRelationships property
+    */
     public function delegatedAdminRelationships(): DelegatedAdminRelationshipsRequestBuilder {
         return new DelegatedAdminRelationshipsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managedTenants property
+    */
     public function managedTenants(): ManagedTenantsRequestBuilder {
         return new ManagedTenantsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

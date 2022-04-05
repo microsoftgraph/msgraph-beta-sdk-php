@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Notebooks\Item\Secti
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OnenoteSection;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OnenoteSectionCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OnenoteSection;
+use Microsoft\Graph\Beta\Generated\Models\OnenoteSectionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Notebooks\Item\SectionGroups\Item\Sections\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SectionsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -17,8 +17,8 @@ use Microsoft\Graph\Beta\Generated\Domains\Item\SharedEmailDomainInvitations\Sha
 use Microsoft\Graph\Beta\Generated\Domains\Item\VerificationDnsRecords\Item\DomainDnsRecordItemRequestBuilder as MicrosoftGraphBetaGeneratedDomainsItemVerificationDnsRecordsItemDomainDnsRecordItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\VerificationDnsRecords\VerificationDnsRecordsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\Verify\VerifyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Domain;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Domain;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -29,14 +29,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DomainItemRequestBuilder 
 {
+    /**
+     * The domainNameReferences property
+    */
     public function domainNameReferences(): DomainNameReferencesRequestBuilder {
         return new DomainNameReferencesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The federationConfiguration property
+    */
     public function federationConfiguration(): FederationConfigurationRequestBuilder {
         return new FederationConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The forceDelete property
+    */
     public function forceDelete(): ForceDeleteRequestBuilder {
         return new ForceDeleteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -47,10 +56,16 @@ class DomainItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The serviceConfigurationRecords property
+    */
     public function serviceConfigurationRecords(): ServiceConfigurationRecordsRequestBuilder {
         return new ServiceConfigurationRecordsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The sharedEmailDomainInvitations property
+    */
     public function sharedEmailDomainInvitations(): SharedEmailDomainInvitationsRequestBuilder {
         return new SharedEmailDomainInvitationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -58,10 +73,16 @@ class DomainItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The verificationDnsRecords property
+    */
     public function verificationDnsRecords(): VerificationDnsRecordsRequestBuilder {
         return new VerificationDnsRecordsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The verify property
+    */
     public function verify(): VerifyRequestBuilder {
         return new VerifyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

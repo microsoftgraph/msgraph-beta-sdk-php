@@ -18,8 +18,8 @@ use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Schools\Item\Education
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Schools\SchoolsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Teachers\Item\EducationUserItemRequestBuilder as MicrosoftGraphBetaGeneratedEducationClassesItemTeachersItemEducationUserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Teachers\TeachersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\EducationClass;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\EducationClass;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -30,26 +30,44 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class EducationClassItemRequestBuilder 
 {
+    /**
+     * The assignmentCategories property
+    */
     public function assignmentCategories(): AssignmentCategoriesRequestBuilder {
         return new AssignmentCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignmentDefaults property
+    */
     public function assignmentDefaults(): AssignmentDefaultsRequestBuilder {
         return new AssignmentDefaultsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignmentSettings property
+    */
     public function assignmentSettings(): AssignmentSettingsRequestBuilder {
         return new AssignmentSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The group property
+    */
     public function group(): GroupRequestBuilder {
         return new GroupRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The members property
+    */
     public function members(): MembersRequestBuilder {
         return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -60,10 +78,16 @@ class EducationClassItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The schools property
+    */
     public function schools(): SchoolsRequestBuilder {
         return new SchoolsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The teachers property
+    */
     public function teachers(): TeachersRequestBuilder {
         return new TeachersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

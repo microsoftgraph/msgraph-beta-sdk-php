@@ -12,8 +12,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitio
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\Item\RemoveLanguageFiles\RemoveLanguageFilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\Item\UpdateLanguageFiles\UpdateLanguageFilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\Item\UploadNewVersion\UploadNewVersionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupPolicyUploadedDefinitionFile;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GroupPolicyUploadedDefinitionFile;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -24,10 +24,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class GroupPolicyUploadedDefinitionFileItemRequestBuilder 
 {
+    /**
+     * The addLanguageFiles property
+    */
     public function addLanguageFiles(): AddLanguageFilesRequestBuilder {
         return new AddLanguageFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The groupPolicyOperations property
+    */
     public function groupPolicyOperations(): GroupPolicyOperationsRequestBuilder {
         return new GroupPolicyOperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -35,10 +41,16 @@ class GroupPolicyUploadedDefinitionFileItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The remove property
+    */
     public function remove(): RemoveRequestBuilder {
         return new RemoveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The removeLanguageFiles property
+    */
     public function removeLanguageFiles(): RemoveLanguageFilesRequestBuilder {
         return new RemoveLanguageFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -46,10 +58,16 @@ class GroupPolicyUploadedDefinitionFileItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The updateLanguageFiles property
+    */
     public function updateLanguageFiles(): UpdateLanguageFilesRequestBuilder {
         return new UpdateLanguageFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The uploadNewVersion property
+    */
     public function uploadNewVersion(): UploadNewVersionRequestBuilder {
         return new UploadNewVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

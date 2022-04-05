@@ -8,8 +8,8 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\Item\CreateServerLogCollectionRequest\CreateServerLogCollectionRequestRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\Item\GetHealthMetrics\GetHealthMetricsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\Item\GetHealthMetricTimeSeries\GetHealthMetricTimeSeriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MicrosoftTunnelServer;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelServer;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,14 +20,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class MicrosoftTunnelServerItemRequestBuilder 
 {
+    /**
+     * The createServerLogCollectionRequest property
+    */
     public function createServerLogCollectionRequest(): CreateServerLogCollectionRequestRequestBuilder {
         return new CreateServerLogCollectionRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getHealthMetrics property
+    */
     public function getHealthMetrics(): GetHealthMetricsRequestBuilder {
         return new GetHealthMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getHealthMetricTimeSeries property
+    */
     public function getHealthMetricTimeSeries(): GetHealthMetricTimeSeriesRequestBuilder {
         return new GetHealthMetricTimeSeriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

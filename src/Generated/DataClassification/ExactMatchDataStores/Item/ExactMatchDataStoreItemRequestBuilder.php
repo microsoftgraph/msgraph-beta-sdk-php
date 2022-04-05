@@ -8,8 +8,8 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Lookup\LookupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\ExactMatchSessionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\SessionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ExactMatchDataStore;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ExactMatchDataStore;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ExactMatchDataStoreItemRequestBuilder 
 {
+    /**
+     * The lookup property
+    */
     public function lookup(): LookupRequestBuilder {
         return new LookupRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -30,6 +33,9 @@ class ExactMatchDataStoreItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The sessions property
+    */
     public function sessions(): SessionsRequestBuilder {
         return new SessionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

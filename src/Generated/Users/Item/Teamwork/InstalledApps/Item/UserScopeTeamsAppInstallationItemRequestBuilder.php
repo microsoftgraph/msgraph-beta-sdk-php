@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\InstalledApps\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UserScopeTeamsAppInstallation;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UserScopeTeamsAppInstallation;
 use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\InstalledApps\Item\Chat\ChatRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -18,6 +18,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class UserScopeTeamsAppInstallationItemRequestBuilder 
 {
+    /**
+     * The chat property
+    */
     public function chat(): ChatRequestBuilder {
         return new ChatRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

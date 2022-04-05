@@ -12,10 +12,10 @@ class ResetPasswordRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $newPassword  */
+    /** @var string|null $newPassword The newPassword property */
     private ?string $newPassword = null;
     
-    /** @var bool|null $requireChangeOnNextSignIn  */
+    /** @var bool|null $requireChangeOnNextSignIn The requireChangeOnNextSignIn property */
     private ?bool $requireChangeOnNextSignIn = null;
     
     /**
@@ -54,7 +54,7 @@ class ResetPasswordRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the newPassword property value. 
+     * Gets the newPassword property value. The newPassword property
      * @return string|null
     */
     public function getNewPassword(): ?string {
@@ -62,7 +62,7 @@ class ResetPasswordRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the requireChangeOnNextSignIn property value. 
+     * Gets the requireChangeOnNextSignIn property value. The requireChangeOnNextSignIn property
      * @return bool|null
     */
     public function getRequireChangeOnNextSignIn(): ?bool {
@@ -88,7 +88,7 @@ class ResetPasswordRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the newPassword property value. 
+     * Sets the newPassword property value. The newPassword property
      *  @param string|null $value Value to set for the newPassword property.
     */
     public function setNewPassword(?string $value ): void {
@@ -96,7 +96,7 @@ class ResetPasswordRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the requireChangeOnNextSignIn property value. 
+     * Sets the requireChangeOnNextSignIn property value. The requireChangeOnNextSignIn property
      *  @param bool|null $value Value to set for the requireChangeOnNextSignIn property.
     */
     public function setRequireChangeOnNextSignIn(?bool $value ): void {

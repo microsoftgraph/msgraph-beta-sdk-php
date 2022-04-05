@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\IncludedGroups\IncludedGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\IncludedGroups\Item\GroupItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MobilityManagementPolicy;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\MobilityManagementPolicy;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class MobilityManagementPolicyItemRequestBuilder 
 {
+    /**
+     * The includedGroups property
+    */
     public function includedGroups(): IncludedGroupsRequestBuilder {
         return new IncludedGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

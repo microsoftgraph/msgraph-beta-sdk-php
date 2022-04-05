@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByUser;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PrintUsageByUser;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PrintUsageByUserCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PrintUsageByUser;
+use Microsoft\Graph\Beta\Generated\Models\PrintUsageByUserCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByUser\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DailyPrintUsageByUserRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

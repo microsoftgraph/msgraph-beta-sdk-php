@@ -12,8 +12,8 @@ use Microsoft\Graph\Beta\Generated\Me\ContactFolders\Item\MultiValueExtendedProp
 use Microsoft\Graph\Beta\Generated\Me\ContactFolders\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\ContactFolders\Item\SingleValueExtendedProperties\Item\SingleValueLegacyExtendedPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\ContactFolders\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ContactFolder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ContactFolder;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -24,14 +24,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ContactFolderItemRequestBuilder 
 {
+    /**
+     * The childFolders property
+    */
     public function childFolders(): ChildFoldersRequestBuilder {
         return new ChildFoldersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The contacts property
+    */
     public function contacts(): ContactsRequestBuilder {
         return new ContactsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The multiValueExtendedProperties property
+    */
     public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -42,6 +51,9 @@ class ContactFolderItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The singleValueExtendedProperties property
+    */
     public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

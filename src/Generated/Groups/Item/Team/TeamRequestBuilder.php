@@ -28,8 +28,8 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\ScheduleRequestBuil
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Tags\Item\TeamworkTagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Tags\TagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Template\TemplateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Team;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Team;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -40,34 +40,58 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TeamRequestBuilder 
 {
+    /**
+     * The allChannels property
+    */
     public function allChannels(): AllChannelsRequestBuilder {
         return new AllChannelsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The channels property
+    */
     public function channels(): ChannelsRequestBuilder {
         return new ChannelsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The group property
+    */
     public function group(): GroupRequestBuilder {
         return new GroupRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The incomingChannels property
+    */
     public function incomingChannels(): IncomingChannelsRequestBuilder {
         return new IncomingChannelsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The installedApps property
+    */
     public function installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The members property
+    */
     public function members(): MembersRequestBuilder {
         return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The operations property
+    */
     public function operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The owners property
+    */
     public function owners(): OwnersRequestBuilder {
         return new OwnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -75,14 +99,23 @@ class TeamRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The permissionGrants property
+    */
     public function permissionGrants(): PermissionGrantsRequestBuilder {
         return new PermissionGrantsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The photo property
+    */
     public function photo(): PhotoRequestBuilder {
         return new PhotoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The primaryChannel property
+    */
     public function primaryChannel(): PrimaryChannelRequestBuilder {
         return new PrimaryChannelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -90,14 +123,23 @@ class TeamRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The schedule property
+    */
     public function schedule(): ScheduleRequestBuilder {
         return new ScheduleRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tags property
+    */
     public function tags(): TagsRequestBuilder {
         return new TagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The template property
+    */
     public function template(): TemplateRequestBuilder {
         return new TemplateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

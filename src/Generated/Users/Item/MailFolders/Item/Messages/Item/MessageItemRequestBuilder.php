@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Messages\It
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Message;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Message;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Messages\Item\Attachments\AttachmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Messages\Item\Attachments\Item\AttachmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Messages\Item\CalendarSharingMessage\CalendarSharingMessageRequestBuilder;
@@ -40,54 +40,93 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class MessageItemRequestBuilder 
 {
+    /**
+     * The attachments property
+    */
     public function attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The calendarSharingMessage property
+    */
     public function calendarSharingMessage(): CalendarSharingMessageRequestBuilder {
         return new CalendarSharingMessageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The Content property
+    */
     public function content(): ContentRequestBuilder {
         return new ContentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The copy property
+    */
     public function copy(): CopyRequestBuilder {
         return new CopyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The createForward property
+    */
     public function createForward(): CreateForwardRequestBuilder {
         return new CreateForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The createReply property
+    */
     public function createReply(): CreateReplyRequestBuilder {
         return new CreateReplyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The createReplyAll property
+    */
     public function createReplyAll(): CreateReplyAllRequestBuilder {
         return new CreateReplyAllRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The eventMessageRequest property
+    */
     public function eventMessageRequest(): EventMessageRequestRequestBuilder {
         return new EventMessageRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The extensions property
+    */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The forward property
+    */
     public function forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The mentions property
+    */
     public function mentions(): MentionsRequestBuilder {
         return new MentionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The move property
+    */
     public function move(): MoveRequestBuilder {
         return new MoveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The multiValueExtendedProperties property
+    */
     public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -95,10 +134,16 @@ class MessageItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The reply property
+    */
     public function reply(): ReplyRequestBuilder {
         return new ReplyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The replyAll property
+    */
     public function replyAll(): ReplyAllRequestBuilder {
         return new ReplyAllRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -106,14 +151,23 @@ class MessageItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The send property
+    */
     public function send(): SendRequestBuilder {
         return new SendRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The singleValueExtendedProperties property
+    */
     public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The unsubscribe property
+    */
     public function unsubscribe(): UnsubscribeRequestBuilder {
         return new UnsubscribeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

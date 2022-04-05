@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\Item\Assign;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OfficeClientConfigurationAssignment;
+use Microsoft\Graph\Beta\Generated\Models\OfficeClientConfigurationAssignment;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<OfficeClientConfigurationAssignment>|null $officeConfigurationAssignments  */
+    /** @var array<OfficeClientConfigurationAssignment>|null $officeConfigurationAssignments The officeConfigurationAssignments property */
     private ?array $officeConfigurationAssignments = null;
     
     /**
@@ -51,7 +51,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the officeConfigurationAssignments property value. 
+     * Gets the officeConfigurationAssignments property value. The officeConfigurationAssignments property
      * @return array<OfficeClientConfigurationAssignment>|null
     */
     public function getOfficeConfigurationAssignments(): ?array {
@@ -76,7 +76,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the officeConfigurationAssignments property value. 
+     * Sets the officeConfigurationAssignments property value. The officeConfigurationAssignments property
      *  @param array<OfficeClientConfigurationAssignment>|null $value Value to set for the officeConfigurationAssignments property.
     */
     public function setOfficeConfigurationAssignments(?array $value ): void {

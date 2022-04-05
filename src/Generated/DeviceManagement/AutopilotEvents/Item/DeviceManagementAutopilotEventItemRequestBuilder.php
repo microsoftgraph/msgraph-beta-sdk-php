@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Item\PolicyStatusDetails\Item\DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Item\PolicyStatusDetails\PolicyStatusDetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementAutopilotEvent;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementAutopilotEvent;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,6 +22,9 @@ class DeviceManagementAutopilotEventItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The policyStatusDetails property
+    */
     public function policyStatusDetails(): PolicyStatusDetailsRequestBuilder {
         return new PolicyStatusDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

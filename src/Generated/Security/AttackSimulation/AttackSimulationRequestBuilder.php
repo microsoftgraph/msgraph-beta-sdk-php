@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AttackSimulationRoot;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AttackSimulationRoot;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\SimulationAutomations\Item\SimulationAutomationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\SimulationAutomations\SimulationAutomationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Simulations\Item\SimulationItemRequestBuilder;
@@ -27,10 +27,16 @@ class AttackSimulationRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The simulationAutomations property
+    */
     public function simulationAutomations(): SimulationAutomationsRequestBuilder {
         return new SimulationAutomationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The simulations property
+    */
     public function simulations(): SimulationsRequestBuilder {
         return new SimulationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

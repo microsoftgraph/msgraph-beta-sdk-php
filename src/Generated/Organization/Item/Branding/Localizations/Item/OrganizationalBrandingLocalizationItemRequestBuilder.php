@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localization
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OrganizationalBrandingLocalization;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OrganizationalBrandingLocalization;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\BackgroundImage\BackgroundImageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\BannerLogo\BannerLogoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\Favicon\FaviconRequestBuilder;
@@ -21,14 +21,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class OrganizationalBrandingLocalizationItemRequestBuilder 
 {
+    /**
+     * The backgroundImage property
+    */
     public function backgroundImage(): BackgroundImageRequestBuilder {
         return new BackgroundImageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The bannerLogo property
+    */
     public function bannerLogo(): BannerLogoRequestBuilder {
         return new BannerLogoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The favicon property
+    */
     public function favicon(): FaviconRequestBuilder {
         return new FaviconRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -39,6 +48,9 @@ class OrganizationalBrandingLocalizationItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The squareLogo property
+    */
     public function squareLogo(): SquareLogoRequestBuilder {
         return new SquareLogoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

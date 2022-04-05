@@ -12,10 +12,10 @@ class EvaluateDynamicMembershipRequestBody implements AdditionalDataHolder, Pars
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $memberId  */
+    /** @var string|null $memberId The memberId property */
     private ?string $memberId = null;
     
-    /** @var string|null $membershipRule  */
+    /** @var string|null $membershipRule The membershipRule property */
     private ?string $membershipRule = null;
     
     /**
@@ -54,7 +54,7 @@ class EvaluateDynamicMembershipRequestBody implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Gets the memberId property value. 
+     * Gets the memberId property value. The memberId property
      * @return string|null
     */
     public function getMemberId(): ?string {
@@ -62,7 +62,7 @@ class EvaluateDynamicMembershipRequestBody implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Gets the membershipRule property value. 
+     * Gets the membershipRule property value. The membershipRule property
      * @return string|null
     */
     public function getMembershipRule(): ?string {
@@ -88,7 +88,7 @@ class EvaluateDynamicMembershipRequestBody implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Sets the memberId property value. 
+     * Sets the memberId property value. The memberId property
      *  @param string|null $value Value to set for the memberId property.
     */
     public function setMemberId(?string $value ): void {
@@ -96,7 +96,7 @@ class EvaluateDynamicMembershipRequestBody implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Sets the membershipRule property value. 
+     * Sets the membershipRule property value. The membershipRule property
      *  @param string|null $value Value to set for the membershipRule property.
     */
     public function setMembershipRule(?string $value ): void {

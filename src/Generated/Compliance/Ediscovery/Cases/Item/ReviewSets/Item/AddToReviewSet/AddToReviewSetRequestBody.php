@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\AddToReviewSet;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Ediscovery\AdditionalDataOptions;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Ediscovery\SourceCollection;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\AdditionalDataOptions;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\SourceCollection;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,10 +14,10 @@ class AddToReviewSetRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var AdditionalDataOptions|null $additionalDataOptions  */
+    /** @var AdditionalDataOptions|null $additionalDataOptions The additionalDataOptions property */
     private ?AdditionalDataOptions $additionalDataOptions = null;
     
-    /** @var SourceCollection|null $sourceCollection  */
+    /** @var SourceCollection|null $sourceCollection The sourceCollection property */
     private ?SourceCollection $sourceCollection = null;
     
     /**
@@ -45,7 +45,7 @@ class AddToReviewSetRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the additionalDataOptions property value. 
+     * Gets the additionalDataOptions property value. The additionalDataOptions property
      * @return AdditionalDataOptions|null
     */
     public function getAdditionalDataOptions(): ?AdditionalDataOptions {
@@ -64,7 +64,7 @@ class AddToReviewSetRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the sourceCollection property value. 
+     * Gets the sourceCollection property value. The sourceCollection property
      * @return SourceCollection|null
     */
     public function getSourceCollection(): ?SourceCollection {
@@ -90,7 +90,7 @@ class AddToReviewSetRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the additionalDataOptions property value. 
+     * Sets the additionalDataOptions property value. The additionalDataOptions property
      *  @param AdditionalDataOptions|null $value Value to set for the additionalDataOptions property.
     */
     public function setAdditionalDataOptions(?AdditionalDataOptions $value ): void {
@@ -98,7 +98,7 @@ class AddToReviewSetRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the sourceCollection property value. 
+     * Sets the sourceCollection property value. The sourceCollection property
      *  @param SourceCollection|null $value Value to set for the sourceCollection property.
     */
     public function setSourceCollection(?SourceCollection $value ): void {

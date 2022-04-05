@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\Ite
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\NamedLocationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Policies\Item\ConditionalAccessPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Policies\PoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ConditionalAccessRoot;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ConditionalAccessRoot;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,10 +23,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ConditionalAccessRequestBuilder 
 {
+    /**
+     * The authenticationContextClassReferences property
+    */
     public function authenticationContextClassReferences(): AuthenticationContextClassReferencesRequestBuilder {
         return new AuthenticationContextClassReferencesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The namedLocations property
+    */
     public function namedLocations(): NamedLocationsRequestBuilder {
         return new NamedLocationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -34,6 +40,9 @@ class ConditionalAccessRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The policies property
+    */
     public function policies(): PoliciesRequestBuilder {
         return new PoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

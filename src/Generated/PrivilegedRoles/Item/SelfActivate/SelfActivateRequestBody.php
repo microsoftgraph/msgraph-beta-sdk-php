@@ -12,16 +12,16 @@ class SelfActivateRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $duration  */
+    /** @var string|null $duration The duration property */
     private ?string $duration = null;
     
-    /** @var string|null $reason  */
+    /** @var string|null $reason The reason property */
     private ?string $reason = null;
     
-    /** @var string|null $ticketNumber  */
+    /** @var string|null $ticketNumber The ticketNumber property */
     private ?string $ticketNumber = null;
     
-    /** @var string|null $ticketSystem  */
+    /** @var string|null $ticketSystem The ticketSystem property */
     private ?string $ticketSystem = null;
     
     /**
@@ -49,7 +49,7 @@ class SelfActivateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the duration property value. 
+     * Gets the duration property value. The duration property
      * @return string|null
     */
     public function getDuration(): ?string {
@@ -70,7 +70,7 @@ class SelfActivateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the reason property value. 
+     * Gets the reason property value. The reason property
      * @return string|null
     */
     public function getReason(): ?string {
@@ -78,7 +78,7 @@ class SelfActivateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the ticketNumber property value. 
+     * Gets the ticketNumber property value. The ticketNumber property
      * @return string|null
     */
     public function getTicketNumber(): ?string {
@@ -86,7 +86,7 @@ class SelfActivateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the ticketSystem property value. 
+     * Gets the ticketSystem property value. The ticketSystem property
      * @return string|null
     */
     public function getTicketSystem(): ?string {
@@ -114,7 +114,7 @@ class SelfActivateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the duration property value. 
+     * Sets the duration property value. The duration property
      *  @param string|null $value Value to set for the duration property.
     */
     public function setDuration(?string $value ): void {
@@ -122,7 +122,7 @@ class SelfActivateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the reason property value. 
+     * Sets the reason property value. The reason property
      *  @param string|null $value Value to set for the reason property.
     */
     public function setReason(?string $value ): void {
@@ -130,7 +130,7 @@ class SelfActivateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ticketNumber property value. 
+     * Sets the ticketNumber property value. The ticketNumber property
      *  @param string|null $value Value to set for the ticketNumber property.
     */
     public function setTicketNumber(?string $value ): void {
@@ -138,7 +138,7 @@ class SelfActivateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ticketSystem property value. 
+     * Sets the ticketSystem property value. The ticketSystem property
      *  @param string|null $value Value to set for the ticketSystem property.
     */
     public function setTicketSystem(?string $value ): void {

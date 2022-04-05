@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\SimulationAut
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SimulationAutomation;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SimulationAutomation;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\SimulationAutomations\Item\Runs\Item\SimulationAutomationRunItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\SimulationAutomations\Item\Runs\RunsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -25,6 +25,9 @@ class SimulationAutomationItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The runs property
+    */
     public function runs(): RunsRequestBuilder {
         return new RunsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

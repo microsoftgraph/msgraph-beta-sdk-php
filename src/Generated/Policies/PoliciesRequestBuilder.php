@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Policies;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PolicyRoot;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PolicyRoot;
 use Microsoft\Graph\Beta\Generated\Policies\AccessReviewPolicy\AccessReviewPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\ActivityBasedTimeoutPolicies\ActivityBasedTimeoutPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\ActivityBasedTimeoutPolicies\Item\ActivityBasedTimeoutPolicyItemRequestBuilder;
@@ -57,78 +57,135 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PoliciesRequestBuilder 
 {
+    /**
+     * The accessReviewPolicy property
+    */
     public function accessReviewPolicy(): AccessReviewPolicyRequestBuilder {
         return new AccessReviewPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The activityBasedTimeoutPolicies property
+    */
     public function activityBasedTimeoutPolicies(): ActivityBasedTimeoutPoliciesRequestBuilder {
         return new ActivityBasedTimeoutPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The adminConsentRequestPolicy property
+    */
     public function adminConsentRequestPolicy(): AdminConsentRequestPolicyRequestBuilder {
         return new AdminConsentRequestPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The appManagementPolicies property
+    */
     public function appManagementPolicies(): AppManagementPoliciesRequestBuilder {
         return new AppManagementPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The authenticationFlowsPolicy property
+    */
     public function authenticationFlowsPolicy(): AuthenticationFlowsPolicyRequestBuilder {
         return new AuthenticationFlowsPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The authenticationMethodsPolicy property
+    */
     public function authenticationMethodsPolicy(): AuthenticationMethodsPolicyRequestBuilder {
         return new AuthenticationMethodsPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The authorizationPolicy property
+    */
     public function authorizationPolicy(): AuthorizationPolicyRequestBuilder {
         return new AuthorizationPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The b2cAuthenticationMethodsPolicy property
+    */
     public function b2cAuthenticationMethodsPolicy(): B2cAuthenticationMethodsPolicyRequestBuilder {
         return new B2cAuthenticationMethodsPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The claimsMappingPolicies property
+    */
     public function claimsMappingPolicies(): ClaimsMappingPoliciesRequestBuilder {
         return new ClaimsMappingPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The conditionalAccessPolicies property
+    */
     public function conditionalAccessPolicies(): ConditionalAccessPoliciesRequestBuilder {
         return new ConditionalAccessPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The crossTenantAccessPolicy property
+    */
     public function crossTenantAccessPolicy(): CrossTenantAccessPolicyRequestBuilder {
         return new CrossTenantAccessPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The defaultAppManagementPolicy property
+    */
     public function defaultAppManagementPolicy(): DefaultAppManagementPolicyRequestBuilder {
         return new DefaultAppManagementPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The directoryRoleAccessReviewPolicy property
+    */
     public function directoryRoleAccessReviewPolicy(): DirectoryRoleAccessReviewPolicyRequestBuilder {
         return new DirectoryRoleAccessReviewPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The externalIdentitiesPolicy property
+    */
     public function externalIdentitiesPolicy(): ExternalIdentitiesPolicyRequestBuilder {
         return new ExternalIdentitiesPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The featureRolloutPolicies property
+    */
     public function featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder {
         return new FeatureRolloutPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The homeRealmDiscoveryPolicies property
+    */
     public function homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The identitySecurityDefaultsEnforcementPolicy property
+    */
     public function identitySecurityDefaultsEnforcementPolicy(): IdentitySecurityDefaultsEnforcementPolicyRequestBuilder {
         return new IdentitySecurityDefaultsEnforcementPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The mobileAppManagementPolicies property
+    */
     public function mobileAppManagementPolicies(): MobileAppManagementPoliciesRequestBuilder {
         return new MobileAppManagementPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The mobileDeviceManagementPolicies property
+    */
     public function mobileDeviceManagementPolicies(): MobileDeviceManagementPoliciesRequestBuilder {
         return new MobileDeviceManagementPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -136,6 +193,9 @@ class PoliciesRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The permissionGrantPolicies property
+    */
     public function permissionGrantPolicies(): PermissionGrantPoliciesRequestBuilder {
         return new PermissionGrantPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -143,22 +203,37 @@ class PoliciesRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The roleManagementPolicies property
+    */
     public function roleManagementPolicies(): RoleManagementPoliciesRequestBuilder {
         return new RoleManagementPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleManagementPolicyAssignments property
+    */
     public function roleManagementPolicyAssignments(): RoleManagementPolicyAssignmentsRequestBuilder {
         return new RoleManagementPolicyAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The servicePrincipalCreationPolicies property
+    */
     public function servicePrincipalCreationPolicies(): ServicePrincipalCreationPoliciesRequestBuilder {
         return new ServicePrincipalCreationPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tokenIssuancePolicies property
+    */
     public function tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tokenLifetimePolicies property
+    */
     public function tokenLifetimePolicies(): TokenLifetimePoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

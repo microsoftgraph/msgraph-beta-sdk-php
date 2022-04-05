@@ -9,10 +9,16 @@ use Microsoft\Kiota\Abstractions\RequestAdapter;
 
 class EventMessageRequestRequestBuilder 
 {
+    /**
+     * The accept property
+    */
     public function accept(): AcceptRequestBuilder {
         return new AcceptRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The decline property
+    */
     public function decline(): DeclineRequestBuilder {
         return new DeclineRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -23,6 +29,9 @@ class EventMessageRequestRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The tentativelyAccept property
+    */
     public function tentativelyAccept(): TentativelyAcceptRequestBuilder {
         return new TentativelyAcceptRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -13,8 +13,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\Sche
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\SetScheduledActions\SetScheduledActionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\Settings\Item\DeviceManagementConfigurationSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\Settings\SettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementCompliancePolicy;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementCompliancePolicy;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -25,10 +25,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeviceManagementCompliancePolicyItemRequestBuilder 
 {
+    /**
+     * The assign property
+    */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -39,14 +45,23 @@ class DeviceManagementCompliancePolicyItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The scheduledActionsForRule property
+    */
     public function scheduledActionsForRule(): ScheduledActionsForRuleRequestBuilder {
         return new ScheduledActionsForRuleRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The setScheduledActions property
+    */
     public function setScheduledActions(): SetScheduledActionsRequestBuilder {
         return new SetScheduledActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The settings property
+    */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

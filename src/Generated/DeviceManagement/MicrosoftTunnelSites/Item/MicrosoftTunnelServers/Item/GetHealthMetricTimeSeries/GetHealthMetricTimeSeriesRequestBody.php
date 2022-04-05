@@ -13,13 +13,13 @@ class GetHealthMetricTimeSeriesRequestBody implements AdditionalDataHolder, Pars
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var DateTime|null $endDateTime  */
+    /** @var DateTime|null $endDateTime The endDateTime property */
     private ?DateTime $endDateTime = null;
     
-    /** @var string|null $metricName  */
+    /** @var string|null $metricName The metricName property */
     private ?string $metricName = null;
     
-    /** @var DateTime|null $startDateTime  */
+    /** @var DateTime|null $startDateTime The startDateTime property */
     private ?DateTime $startDateTime = null;
     
     /**
@@ -47,7 +47,7 @@ class GetHealthMetricTimeSeriesRequestBody implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Gets the endDateTime property value. 
+     * Gets the endDateTime property value. The endDateTime property
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
@@ -67,7 +67,7 @@ class GetHealthMetricTimeSeriesRequestBody implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Gets the metricName property value. 
+     * Gets the metricName property value. The metricName property
      * @return string|null
     */
     public function getMetricName(): ?string {
@@ -75,7 +75,7 @@ class GetHealthMetricTimeSeriesRequestBody implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Gets the startDateTime property value. 
+     * Gets the startDateTime property value. The startDateTime property
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
@@ -102,7 +102,7 @@ class GetHealthMetricTimeSeriesRequestBody implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Sets the endDateTime property value. 
+     * Sets the endDateTime property value. The endDateTime property
      *  @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value ): void {
@@ -110,7 +110,7 @@ class GetHealthMetricTimeSeriesRequestBody implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Sets the metricName property value. 
+     * Sets the metricName property value. The metricName property
      *  @param string|null $value Value to set for the metricName property.
     */
     public function setMetricName(?string $value ): void {
@@ -118,7 +118,7 @@ class GetHealthMetricTimeSeriesRequestBody implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Sets the startDateTime property value. 
+     * Sets the startDateTime property value. The startDateTime property
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value ): void {

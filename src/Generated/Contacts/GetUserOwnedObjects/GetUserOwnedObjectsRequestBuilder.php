@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Contacts\GetUserOwnedObjects;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DirectoryObject;
+use Microsoft\Graph\Beta\Generated\Models\DirectoryObject;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

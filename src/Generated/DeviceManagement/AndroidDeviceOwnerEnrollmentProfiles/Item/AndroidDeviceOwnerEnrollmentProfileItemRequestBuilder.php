@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\CreateToken\CreateTokenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\RevokeToken\RevokeTokenRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AndroidDeviceOwnerEnrollmentProfile;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AndroidDeviceOwnerEnrollmentProfile;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder 
 {
+    /**
+     * The createToken property
+    */
     public function createToken(): CreateTokenRequestBuilder {
         return new CreateTokenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -29,6 +32,9 @@ class AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The revokeToken property
+    */
     public function revokeToken(): RevokeTokenRequestBuilder {
         return new RevokeTokenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

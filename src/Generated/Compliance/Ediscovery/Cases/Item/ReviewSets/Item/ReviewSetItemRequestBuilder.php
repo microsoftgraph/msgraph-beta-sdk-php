@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\I
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\Export\ExportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\Queries\Item\ReviewSetQueryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\Queries\QueriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Ediscovery\ReviewSet;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\ReviewSet;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ReviewSetItemRequestBuilder 
 {
+    /**
+     * The addToReviewSet property
+    */
     public function addToReviewSet(): AddToReviewSetRequestBuilder {
         return new AddToReviewSetRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The export property
+    */
     public function export(): ExportRequestBuilder {
         return new ExportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -32,6 +38,9 @@ class ReviewSetItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The queries property
+    */
     public function queries(): QueriesRequestBuilder {
         return new QueriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

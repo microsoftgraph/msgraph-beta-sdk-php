@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Rosters\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PlannerRoster;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PlannerRoster;
 use Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\Members\Item\PlannerRosterMemberItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\Plans\Item\PlannerPlanItemRequestBuilder;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PlannerRosterItemRequestBuilder 
 {
+    /**
+     * The members property
+    */
     public function members(): MembersRequestBuilder {
         return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -28,6 +31,9 @@ class PlannerRosterItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The plans property
+    */
     public function plans(): PlansRequestBuilder {
         return new PlansRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

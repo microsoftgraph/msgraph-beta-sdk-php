@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\Me\InformationProtection\Policy\Labels\EvaluateClassificationResults;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ClassificationResult;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ContentInfo;
+use Microsoft\Graph\Beta\Generated\Models\ClassificationResult;
+use Microsoft\Graph\Beta\Generated\Models\ContentInfo;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,10 +14,10 @@ class EvaluateClassificationResultsRequestBody implements AdditionalDataHolder, 
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<ClassificationResult>|null $classificationResults  */
+    /** @var array<ClassificationResult>|null $classificationResults The classificationResults property */
     private ?array $classificationResults = null;
     
-    /** @var ContentInfo|null $contentInfo  */
+    /** @var ContentInfo|null $contentInfo The contentInfo property */
     private ?ContentInfo $contentInfo = null;
     
     /**
@@ -45,7 +45,7 @@ class EvaluateClassificationResultsRequestBody implements AdditionalDataHolder, 
     }
 
     /**
-     * Gets the classificationResults property value. 
+     * Gets the classificationResults property value. The classificationResults property
      * @return array<ClassificationResult>|null
     */
     public function getClassificationResults(): ?array {
@@ -53,7 +53,7 @@ class EvaluateClassificationResultsRequestBody implements AdditionalDataHolder, 
     }
 
     /**
-     * Gets the contentInfo property value. 
+     * Gets the contentInfo property value. The contentInfo property
      * @return ContentInfo|null
     */
     public function getContentInfo(): ?ContentInfo {
@@ -90,7 +90,7 @@ class EvaluateClassificationResultsRequestBody implements AdditionalDataHolder, 
     }
 
     /**
-     * Sets the classificationResults property value. 
+     * Sets the classificationResults property value. The classificationResults property
      *  @param array<ClassificationResult>|null $value Value to set for the classificationResults property.
     */
     public function setClassificationResults(?array $value ): void {
@@ -98,7 +98,7 @@ class EvaluateClassificationResultsRequestBody implements AdditionalDataHolder, 
     }
 
     /**
-     * Sets the contentInfo property value. 
+     * Sets the contentInfo property value. The contentInfo property
      *  @param ContentInfo|null $value Value to set for the contentInfo property.
     */
     public function setContentInfo(?ContentInfo $value ): void {

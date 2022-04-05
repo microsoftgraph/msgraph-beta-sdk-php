@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\Mi
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\Item\MicrosoftTunnelServerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\MicrosoftTunnelServersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\RequestUpgrade\RequestUpgradeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MicrosoftTunnelSite;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelSite;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class MicrosoftTunnelSiteItemRequestBuilder 
 {
+    /**
+     * The microsoftTunnelConfiguration property
+    */
     public function microsoftTunnelConfiguration(): MicrosoftTunnelConfigurationRequestBuilder {
         return new MicrosoftTunnelConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The microsoftTunnelServers property
+    */
     public function microsoftTunnelServers(): MicrosoftTunnelServersRequestBuilder {
         return new MicrosoftTunnelServersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -35,6 +41,9 @@ class MicrosoftTunnelSiteItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The requestUpgrade property
+    */
     public function requestUpgrade(): RequestUpgradeRequestBuilder {
         return new RequestUpgradeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

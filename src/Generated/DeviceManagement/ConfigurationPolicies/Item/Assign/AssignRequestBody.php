@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\Assign;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementConfigurationPolicyAssignment;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementConfigurationPolicyAssignment;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<DeviceManagementConfigurationPolicyAssignment>|null $assignments  */
+    /** @var array<DeviceManagementConfigurationPolicyAssignment>|null $assignments The assignments property */
     private ?array $assignments = null;
     
     /**
@@ -41,7 +41,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the assignments property value. 
+     * Gets the assignments property value. The assignments property
      * @return array<DeviceManagementConfigurationPolicyAssignment>|null
     */
     public function getAssignments(): ?array {
@@ -76,7 +76,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the assignments property value. 
+     * Sets the assignments property value. The assignments property
      *  @param array<DeviceManagementConfigurationPolicyAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value ): void {

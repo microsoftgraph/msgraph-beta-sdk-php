@@ -10,8 +10,8 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Acce
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignmentResourceRoles\Item\AccessPackageResourceRole\AccessPackageResourceRoleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignmentResourceRoles\Item\AccessPackageResourceScope\AccessPackageResourceScopeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignmentResourceRoles\Item\AccessPackageSubject\AccessPackageSubjectRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessPackageAssignmentResourceRole;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessPackageAssignmentResourceRole;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,18 +22,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AccessPackageAssignmentResourceRoleItemRequestBuilder 
 {
+    /**
+     * The accessPackageAssignments property
+    */
     public function accessPackageAssignments(): AccessPackageAssignmentsRequestBuilder {
         return new AccessPackageAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageResourceRole property
+    */
     public function accessPackageResourceRole(): AccessPackageResourceRoleRequestBuilder {
         return new AccessPackageResourceRoleRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageResourceScope property
+    */
     public function accessPackageResourceScope(): AccessPackageResourceScopeRequestBuilder {
         return new AccessPackageResourceScopeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageSubject property
+    */
     public function accessPackageSubject(): AccessPackageSubjectRequestBuilder {
         return new AccessPackageSubjectRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

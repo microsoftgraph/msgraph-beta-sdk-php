@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\Item\UserAttribute\UserAttributeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\IdentityUserFlowAttributeAssignment;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\IdentityUserFlowAttributeAssignment;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -27,6 +27,9 @@ class IdentityUserFlowAttributeAssignmentItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userAttribute property
+    */
     public function userAttribute(): UserAttributeRequestBuilder {
         return new UserAttributeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

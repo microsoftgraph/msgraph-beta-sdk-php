@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackageAssignmentPolicy\CustomExtensionHandlers\Item\CustomExtension\CustomExtensionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CustomExtensionHandler;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\CustomExtensionHandler;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -18,6 +18,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class CustomExtensionHandlerItemRequestBuilder 
 {
+    /**
+     * The customExtension property
+    */
     public function customExtension(): CustomExtensionRequestBuilder {
         return new CustomExtensionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\Assign;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceConfigurationAssignment;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceConfigurationGroupAssignment;
+use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationAssignment;
+use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationGroupAssignment;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,10 +14,10 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<DeviceConfigurationAssignment>|null $assignments  */
+    /** @var array<DeviceConfigurationAssignment>|null $assignments The assignments property */
     private ?array $assignments = null;
     
-    /** @var array<DeviceConfigurationGroupAssignment>|null $deviceConfigurationGroupAssignments  */
+    /** @var array<DeviceConfigurationGroupAssignment>|null $deviceConfigurationGroupAssignments The deviceConfigurationGroupAssignments property */
     private ?array $deviceConfigurationGroupAssignments = null;
     
     /**
@@ -45,7 +45,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the assignments property value. 
+     * Gets the assignments property value. The assignments property
      * @return array<DeviceConfigurationAssignment>|null
     */
     public function getAssignments(): ?array {
@@ -53,7 +53,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceConfigurationGroupAssignments property value. 
+     * Gets the deviceConfigurationGroupAssignments property value. The deviceConfigurationGroupAssignments property
      * @return array<DeviceConfigurationGroupAssignment>|null
     */
     public function getDeviceConfigurationGroupAssignments(): ?array {
@@ -90,7 +90,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the assignments property value. 
+     * Sets the assignments property value. The assignments property
      *  @param array<DeviceConfigurationAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value ): void {
@@ -98,7 +98,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceConfigurationGroupAssignments property value. 
+     * Sets the deviceConfigurationGroupAssignments property value. The deviceConfigurationGroupAssignments property
      *  @param array<DeviceConfigurationGroupAssignment>|null $value Value to set for the deviceConfigurationGroupAssignments property.
     */
     public function setDeviceConfigurationGroupAssignments(?array $value ): void {

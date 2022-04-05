@@ -15,8 +15,8 @@ use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\Shares\Item\Printe
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\Shares\SharesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\TaskTriggers\Item\PrintTaskTriggerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\TaskTriggers\TaskTriggersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Printer;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Printer;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -27,6 +27,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PrinterItemRequestBuilder 
 {
+    /**
+     * The connectors property
+    */
     public function connectors(): ConnectorsRequestBuilder {
         return new ConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -37,22 +40,37 @@ class PrinterItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resetDefaults property
+    */
     public function resetDefaults(): ResetDefaultsRequestBuilder {
         return new ResetDefaultsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The restoreFactoryDefaults property
+    */
     public function restoreFactoryDefaults(): RestoreFactoryDefaultsRequestBuilder {
         return new RestoreFactoryDefaultsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The share property
+    */
     public function share(): ShareRequestBuilder {
         return new ShareRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The shares property
+    */
     public function shares(): SharesRequestBuilder {
         return new SharesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The taskTriggers property
+    */
     public function taskTriggers(): TaskTriggersRequestBuilder {
         return new TaskTriggersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\Export;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Ediscovery\ExportFileStructure;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Ediscovery\ExportOptions;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\ExportFileStructure;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\ExportOptions;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,22 +14,22 @@ class ExportRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $azureBlobContainer  */
+    /** @var string|null $azureBlobContainer The azureBlobContainer property */
     private ?string $azureBlobContainer = null;
     
-    /** @var string|null $azureBlobToken  */
+    /** @var string|null $azureBlobToken The azureBlobToken property */
     private ?string $azureBlobToken = null;
     
-    /** @var string|null $description  */
+    /** @var string|null $description The description property */
     private ?string $description = null;
     
-    /** @var ExportOptions|null $exportOptions  */
+    /** @var ExportOptions|null $exportOptions The exportOptions property */
     private ?ExportOptions $exportOptions = null;
     
-    /** @var ExportFileStructure|null $exportStructure  */
+    /** @var ExportFileStructure|null $exportStructure The exportStructure property */
     private ?ExportFileStructure $exportStructure = null;
     
-    /** @var string|null $outputName  */
+    /** @var string|null $outputName The outputName property */
     private ?string $outputName = null;
     
     /**
@@ -57,7 +57,7 @@ class ExportRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the azureBlobContainer property value. 
+     * Gets the azureBlobContainer property value. The azureBlobContainer property
      * @return string|null
     */
     public function getAzureBlobContainer(): ?string {
@@ -65,7 +65,7 @@ class ExportRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the azureBlobToken property value. 
+     * Gets the azureBlobToken property value. The azureBlobToken property
      * @return string|null
     */
     public function getAzureBlobToken(): ?string {
@@ -73,7 +73,7 @@ class ExportRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the description property value. 
+     * Gets the description property value. The description property
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -81,7 +81,7 @@ class ExportRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the exportOptions property value. 
+     * Gets the exportOptions property value. The exportOptions property
      * @return ExportOptions|null
     */
     public function getExportOptions(): ?ExportOptions {
@@ -89,7 +89,7 @@ class ExportRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the exportStructure property value. 
+     * Gets the exportStructure property value. The exportStructure property
      * @return ExportFileStructure|null
     */
     public function getExportStructure(): ?ExportFileStructure {
@@ -112,7 +112,7 @@ class ExportRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the outputName property value. 
+     * Gets the outputName property value. The outputName property
      * @return string|null
     */
     public function getOutputName(): ?string {
@@ -142,7 +142,7 @@ class ExportRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the azureBlobContainer property value. 
+     * Sets the azureBlobContainer property value. The azureBlobContainer property
      *  @param string|null $value Value to set for the azureBlobContainer property.
     */
     public function setAzureBlobContainer(?string $value ): void {
@@ -150,7 +150,7 @@ class ExportRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the azureBlobToken property value. 
+     * Sets the azureBlobToken property value. The azureBlobToken property
      *  @param string|null $value Value to set for the azureBlobToken property.
     */
     public function setAzureBlobToken(?string $value ): void {
@@ -158,7 +158,7 @@ class ExportRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the description property value. 
+     * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -166,7 +166,7 @@ class ExportRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the exportOptions property value. 
+     * Sets the exportOptions property value. The exportOptions property
      *  @param ExportOptions|null $value Value to set for the exportOptions property.
     */
     public function setExportOptions(?ExportOptions $value ): void {
@@ -174,7 +174,7 @@ class ExportRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the exportStructure property value. 
+     * Sets the exportStructure property value. The exportStructure property
      *  @param ExportFileStructure|null $value Value to set for the exportStructure property.
     */
     public function setExportStructure(?ExportFileStructure $value ): void {
@@ -182,7 +182,7 @@ class ExportRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the outputName property value. 
+     * Sets the outputName property value. The outputName property
      *  @param string|null $value Value to set for the outputName property.
     */
     public function setOutputName(?string $value ): void {

@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item\UpdateRequest;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GovernanceSchedule;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceSchedule;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,16 +13,16 @@ class UpdateRequestRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $assignmentState  */
+    /** @var string|null $assignmentState The assignmentState property */
     private ?string $assignmentState = null;
     
-    /** @var string|null $decision  */
+    /** @var string|null $decision The decision property */
     private ?string $decision = null;
     
-    /** @var string|null $reason  */
+    /** @var string|null $reason The reason property */
     private ?string $reason = null;
     
-    /** @var GovernanceSchedule|null $schedule  */
+    /** @var GovernanceSchedule|null $schedule The schedule property */
     private ?GovernanceSchedule $schedule = null;
     
     /**
@@ -50,7 +50,7 @@ class UpdateRequestRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the assignmentState property value. 
+     * Gets the assignmentState property value. The assignmentState property
      * @return string|null
     */
     public function getAssignmentState(): ?string {
@@ -58,7 +58,7 @@ class UpdateRequestRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the decision property value. 
+     * Gets the decision property value. The decision property
      * @return string|null
     */
     public function getDecision(): ?string {
@@ -79,7 +79,7 @@ class UpdateRequestRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the reason property value. 
+     * Gets the reason property value. The reason property
      * @return string|null
     */
     public function getReason(): ?string {
@@ -87,7 +87,7 @@ class UpdateRequestRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the schedule property value. 
+     * Gets the schedule property value. The schedule property
      * @return GovernanceSchedule|null
     */
     public function getSchedule(): ?GovernanceSchedule {
@@ -115,7 +115,7 @@ class UpdateRequestRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the assignmentState property value. 
+     * Sets the assignmentState property value. The assignmentState property
      *  @param string|null $value Value to set for the assignmentState property.
     */
     public function setAssignmentState(?string $value ): void {
@@ -123,7 +123,7 @@ class UpdateRequestRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the decision property value. 
+     * Sets the decision property value. The decision property
      *  @param string|null $value Value to set for the decision property.
     */
     public function setDecision(?string $value ): void {
@@ -131,7 +131,7 @@ class UpdateRequestRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the reason property value. 
+     * Sets the reason property value. The reason property
      *  @param string|null $value Value to set for the reason property.
     */
     public function setReason(?string $value ): void {
@@ -139,7 +139,7 @@ class UpdateRequestRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the schedule property value. 
+     * Sets the schedule property value. The schedule property
      *  @param GovernanceSchedule|null $value Value to set for the schedule property.
     */
     public function setSchedule(?GovernanceSchedule $value ): void {

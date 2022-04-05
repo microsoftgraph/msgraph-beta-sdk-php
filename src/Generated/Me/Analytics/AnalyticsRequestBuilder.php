@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Analytics\ActivityStatistics\ActivityStatisticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Analytics\ActivityStatistics\Item\ActivityStatisticsItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UserAnalytics;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UserAnalytics;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AnalyticsRequestBuilder 
 {
+    /**
+     * The activityStatistics property
+    */
     public function activityStatistics(): ActivityStatisticsRequestBuilder {
         return new ActivityStatisticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

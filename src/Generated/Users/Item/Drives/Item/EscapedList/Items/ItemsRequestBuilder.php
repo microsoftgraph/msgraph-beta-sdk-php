@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\Item
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ListItem;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ListItemCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ListItem;
+use Microsoft\Graph\Beta\Generated\Models\ListItemCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\Items\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\Items\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\Items\DeltaWithToken\DeltaWithTokenRequestBuilder;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ItemsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

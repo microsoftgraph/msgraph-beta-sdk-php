@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages\Item
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ChatMessage;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ChatMessage;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages\Item\Replies\Item\HostedContents\HostedContentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages\Item\Replies\Item\HostedContents\Item\ChatMessageHostedContentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages\Item\Replies\Item\SoftDelete\SoftDeleteRequestBuilder;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ChatMessageItemRequestBuilder 
 {
+    /**
+     * The hostedContents property
+    */
     public function hostedContents(): HostedContentsRequestBuilder {
         return new HostedContentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -31,10 +34,16 @@ class ChatMessageItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The softDelete property
+    */
     public function softDelete(): SoftDeleteRequestBuilder {
         return new SoftDeleteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The undoSoftDelete property
+    */
     public function undoSoftDelete(): UndoSoftDeleteRequestBuilder {
         return new UndoSoftDeleteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

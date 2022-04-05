@@ -10,8 +10,8 @@ use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Deployments
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\DeploymentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\Item\UpdatableAssetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\UpdatableAssetsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsUpdates\Updates;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Updates;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,10 +22,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class UpdatesRequestBuilder 
 {
+    /**
+     * The catalog property
+    */
     public function catalog(): CatalogRequestBuilder {
         return new CatalogRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deployments property
+    */
     public function deployments(): DeploymentsRequestBuilder {
         return new DeploymentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -36,6 +42,9 @@ class UpdatesRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The updatableAssets property
+    */
     public function updatableAssets(): UpdatableAssetsRequestBuilder {
         return new UpdatableAssetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

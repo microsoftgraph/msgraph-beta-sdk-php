@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PrivilegedSignupStatus;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PrivilegedSignupStatusCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegedSignupStatus;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegedSignupStatusCollectionResponse;
 use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\CanSignUp\CanSignUpRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\CompleteSetup\CompleteSetupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\Count\CountRequestBuilder;
@@ -23,10 +23,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PrivilegedSignupStatusRequestBuilder 
 {
+    /**
+     * The completeSetup property
+    */
     public function completeSetup(): CompleteSetupRequestBuilder {
         return new CompleteSetupRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -37,6 +43,9 @@ class PrivilegedSignupStatusRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The signUp property
+    */
     public function signUp(): SignUpRequestBuilder {
         return new SignUpRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

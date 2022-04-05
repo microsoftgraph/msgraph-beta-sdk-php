@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\Presentations\Item\GroupPolicyPresentationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\Presentations\PresentationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\PreviousVersionDefinition\PreviousVersionDefinitionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupPolicyDefinition;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GroupPolicyDefinition;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,14 +23,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class GroupPolicyDefinitionItemRequestBuilder 
 {
+    /**
+     * The category property
+    */
     public function category(): CategoryRequestBuilder {
         return new CategoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The definitionFile property
+    */
     public function definitionFile(): DefinitionFileRequestBuilder {
         return new DefinitionFileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The nextVersionDefinition property
+    */
     public function nextVersionDefinition(): NextVersionDefinitionRequestBuilder {
         return new NextVersionDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -38,10 +47,16 @@ class GroupPolicyDefinitionItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The presentations property
+    */
     public function presentations(): PresentationsRequestBuilder {
         return new PresentationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The previousVersionDefinition property
+    */
     public function previousVersionDefinition(): PreviousVersionDefinitionRequestBuilder {
         return new PreviousVersionDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

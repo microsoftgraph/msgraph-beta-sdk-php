@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\Escape
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CrossTenantAccessPolicyConfigurationDefault;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\CrossTenantAccessPolicyConfigurationDefault;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\EscapedDefault\ResetToSystemDefault\ResetToSystemDefaultRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -24,6 +24,9 @@ class DefaultRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resetToSystemDefault property
+    */
     public function resetToSystemDefault(): ResetToSystemDefaultRequestBuilder {
         return new ResetToSystemDefaultRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

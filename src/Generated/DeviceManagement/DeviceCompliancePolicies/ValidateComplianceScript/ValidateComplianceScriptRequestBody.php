@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\ValidateComplianceScript;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceCompliancePolicyScript;
+use Microsoft\Graph\Beta\Generated\Models\DeviceCompliancePolicyScript;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class ValidateComplianceScriptRequestBody implements AdditionalDataHolder, Parsa
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var DeviceCompliancePolicyScript|null $deviceCompliancePolicyScript  */
+    /** @var DeviceCompliancePolicyScript|null $deviceCompliancePolicyScript The deviceCompliancePolicyScript property */
     private ?DeviceCompliancePolicyScript $deviceCompliancePolicyScript = null;
     
     /**
@@ -41,7 +41,7 @@ class ValidateComplianceScriptRequestBody implements AdditionalDataHolder, Parsa
     }
 
     /**
-     * Gets the deviceCompliancePolicyScript property value. 
+     * Gets the deviceCompliancePolicyScript property value. The deviceCompliancePolicyScript property
      * @return DeviceCompliancePolicyScript|null
     */
     public function getDeviceCompliancePolicyScript(): ?DeviceCompliancePolicyScript {
@@ -76,7 +76,7 @@ class ValidateComplianceScriptRequestBody implements AdditionalDataHolder, Parsa
     }
 
     /**
-     * Sets the deviceCompliancePolicyScript property value. 
+     * Sets the deviceCompliancePolicyScript property value. The deviceCompliancePolicyScript property
      *  @param DeviceCompliancePolicyScript|null $value Value to set for the deviceCompliancePolicyScript property.
     */
     public function setDeviceCompliancePolicyScript(?DeviceCompliancePolicyScript $value ): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\InformationProtection\DecryptBuffer;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\BufferDecryptionResult;
+use Microsoft\Graph\Beta\Generated\Models\BufferDecryptionResult;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

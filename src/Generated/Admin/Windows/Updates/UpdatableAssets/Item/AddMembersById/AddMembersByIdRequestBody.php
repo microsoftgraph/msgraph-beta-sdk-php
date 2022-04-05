@@ -12,10 +12,10 @@ class AddMembersByIdRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $ids  */
+    /** @var array<string>|null $ids The ids property */
     private ?array $ids = null;
     
-    /** @var string|null $memberEntityType  */
+    /** @var string|null $memberEntityType The memberEntityType property */
     private ?string $memberEntityType = null;
     
     /**
@@ -54,7 +54,7 @@ class AddMembersByIdRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the ids property value. 
+     * Gets the ids property value. The ids property
      * @return array<string>|null
     */
     public function getIds(): ?array {
@@ -62,7 +62,7 @@ class AddMembersByIdRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the memberEntityType property value. 
+     * Gets the memberEntityType property value. The memberEntityType property
      * @return string|null
     */
     public function getMemberEntityType(): ?string {
@@ -88,7 +88,7 @@ class AddMembersByIdRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ids property value. 
+     * Sets the ids property value. The ids property
      *  @param array<string>|null $value Value to set for the ids property.
     */
     public function setIds(?array $value ): void {
@@ -96,7 +96,7 @@ class AddMembersByIdRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the memberEntityType property value. 
+     * Sets the memberEntityType property value. The memberEntityType property
      *  @param string|null $value Value to set for the memberEntityType property.
     */
     public function setMemberEntityType(?string $value ): void {

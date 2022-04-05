@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RoleManagement;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\RoleManagement;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\CloudPCRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\DeviceManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\DirectoryRequestBuilder;
@@ -21,18 +21,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class RoleManagementRequestBuilder 
 {
+    /**
+     * The cloudPC property
+    */
     public function cloudPC(): CloudPCRequestBuilder {
         return new CloudPCRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceManagement property
+    */
     public function deviceManagement(): DeviceManagementRequestBuilder {
         return new DeviceManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The directory property
+    */
     public function directory(): DirectoryRequestBuilder {
         return new DirectoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The entitlementManagement property
+    */
     public function entitlementManagement(): EntitlementManagementRequestBuilder {
         return new EntitlementManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

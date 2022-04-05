@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\UpdateSoftware;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TeamworkSoftwareType;
+use Microsoft\Graph\Beta\Generated\Models\TeamworkSoftwareType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,10 +13,10 @@ class UpdateSoftwareRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var TeamworkSoftwareType|null $softwareType  */
+    /** @var TeamworkSoftwareType|null $softwareType The softwareType property */
     private ?TeamworkSoftwareType $softwareType = null;
     
-    /** @var string|null $softwareVersion  */
+    /** @var string|null $softwareVersion The softwareVersion property */
     private ?string $softwareVersion = null;
     
     /**
@@ -55,7 +55,7 @@ class UpdateSoftwareRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the softwareType property value. 
+     * Gets the softwareType property value. The softwareType property
      * @return TeamworkSoftwareType|null
     */
     public function getSoftwareType(): ?TeamworkSoftwareType {
@@ -63,7 +63,7 @@ class UpdateSoftwareRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the softwareVersion property value. 
+     * Gets the softwareVersion property value. The softwareVersion property
      * @return string|null
     */
     public function getSoftwareVersion(): ?string {
@@ -89,7 +89,7 @@ class UpdateSoftwareRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the softwareType property value. 
+     * Sets the softwareType property value. The softwareType property
      *  @param TeamworkSoftwareType|null $value Value to set for the softwareType property.
     */
     public function setSoftwareType(?TeamworkSoftwareType $value ): void {
@@ -97,7 +97,7 @@ class UpdateSoftwareRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the softwareVersion property value. 
+     * Sets the softwareVersion property value. The softwareVersion property
      *  @param string|null $value Value to set for the softwareVersion property.
     */
     public function setSoftwareVersion(?string $value ): void {

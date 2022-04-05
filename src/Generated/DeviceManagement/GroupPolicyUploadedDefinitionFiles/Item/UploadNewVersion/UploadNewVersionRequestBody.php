@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\Item\UploadNewVersion;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupPolicyUploadedLanguageFile;
+use Microsoft\Graph\Beta\Generated\Models\GroupPolicyUploadedLanguageFile;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,10 +14,10 @@ class UploadNewVersionRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var StreamInterface|null $content  */
+    /** @var StreamInterface|null $content The content property */
     private ?StreamInterface $content = null;
     
-    /** @var array<GroupPolicyUploadedLanguageFile>|null $groupPolicyUploadedLanguageFiles  */
+    /** @var array<GroupPolicyUploadedLanguageFile>|null $groupPolicyUploadedLanguageFiles The groupPolicyUploadedLanguageFiles property */
     private ?array $groupPolicyUploadedLanguageFiles = null;
     
     /**
@@ -45,7 +45,7 @@ class UploadNewVersionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the content property value. 
+     * Gets the content property value. The content property
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -64,7 +64,7 @@ class UploadNewVersionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the groupPolicyUploadedLanguageFiles property value. 
+     * Gets the groupPolicyUploadedLanguageFiles property value. The groupPolicyUploadedLanguageFiles property
      * @return array<GroupPolicyUploadedLanguageFile>|null
     */
     public function getGroupPolicyUploadedLanguageFiles(): ?array {
@@ -90,7 +90,7 @@ class UploadNewVersionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the content property value. 
+     * Sets the content property value. The content property
      *  @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value ): void {
@@ -98,7 +98,7 @@ class UploadNewVersionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the groupPolicyUploadedLanguageFiles property value. 
+     * Sets the groupPolicyUploadedLanguageFiles property value. The groupPolicyUploadedLanguageFiles property
      *  @param array<GroupPolicyUploadedLanguageFile>|null $value Value to set for the groupPolicyUploadedLanguageFiles property.
     */
     public function setGroupPolicyUploadedLanguageFiles(?array $value ): void {

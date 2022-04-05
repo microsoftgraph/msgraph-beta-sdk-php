@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\App\Calls\Item\Participants\Item\Mute;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MuteParticipantOperation;
+use Microsoft\Graph\Beta\Generated\Models\MuteParticipantOperation;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

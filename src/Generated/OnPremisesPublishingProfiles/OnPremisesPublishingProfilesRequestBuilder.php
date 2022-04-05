@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OnPremisesPublishingProfile;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OnPremisesPublishingProfileCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OnPremisesPublishingProfile;
+use Microsoft\Graph\Beta\Generated\Models\OnPremisesPublishingProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class OnPremisesPublishingProfilesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

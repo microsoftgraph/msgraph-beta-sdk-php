@@ -8,10 +8,16 @@ use Microsoft\Kiota\Abstractions\RequestAdapter;
 
 class WindowsUpdateForBusinessConfigurationRequestBuilder 
 {
+    /**
+     * The extendFeatureUpdatesPause property
+    */
     public function extendFeatureUpdatesPause(): ExtendFeatureUpdatesPauseRequestBuilder {
         return new ExtendFeatureUpdatesPauseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The extendQualityUpdatesPause property
+    */
     public function extendQualityUpdatesPause(): ExtendQualityUpdatesPauseRequestBuilder {
         return new ExtendQualityUpdatesPauseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

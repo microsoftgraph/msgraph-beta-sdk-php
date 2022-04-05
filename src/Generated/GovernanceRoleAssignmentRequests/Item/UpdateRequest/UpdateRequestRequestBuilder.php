@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item\U
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GovernanceRoleAssignmentRequest;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleAssignmentRequest;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

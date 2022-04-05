@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Mana
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagedTenants\ManagementActionTenantDeploymentStatus;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagedTenants\ManagementActionTenantDeploymentStatusCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementActionTenantDeploymentStatus;
+use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementActionTenantDeploymentStatusCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActionTenantDeploymentStatuses\ChangeDeploymentStatus\ChangeDeploymentStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActionTenantDeploymentStatuses\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -20,10 +20,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ManagementActionTenantDeploymentStatusesRequestBuilder 
 {
+    /**
+     * The changeDeploymentStatus property
+    */
     public function changeDeploymentStatus(): ChangeDeploymentStatusRequestBuilder {
         return new ChangeDeploymentStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\SwapShiftsChangeReq
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SwapShiftsChangeRequest;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SwapShiftsChangeRequestCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SwapShiftsChangeRequest;
+use Microsoft\Graph\Beta\Generated\Models\SwapShiftsChangeRequestCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\SwapShiftsChangeRequests\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SwapShiftsChangeRequestsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

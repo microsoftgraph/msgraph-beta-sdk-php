@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Reports\GetAzureADApplicationSignInSummaryWithPeriod;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ApplicationSignInSummary;
+use Microsoft\Graph\Beta\Generated\Models\ApplicationSignInSummary;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class GetAzureADApplicationSignInSummaryWithPeriodResponse implements Additional
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<ApplicationSignInSummary>|null $value  */
+    /** @var array<ApplicationSignInSummary>|null $value The value property */
     private ?array $value = null;
     
     /**
@@ -51,7 +51,7 @@ class GetAzureADApplicationSignInSummaryWithPeriodResponse implements Additional
     }
 
     /**
-     * Gets the value property value. 
+     * Gets the value property value. The value property
      * @return array<ApplicationSignInSummary>|null
     */
     public function getValue(): ?array {
@@ -76,7 +76,7 @@ class GetAzureADApplicationSignInSummaryWithPeriodResponse implements Additional
     }
 
     /**
-     * Sets the value property value. 
+     * Sets the value property value. The value property
      *  @param array<ApplicationSignInSummary>|null $value Value to set for the value property.
     */
     public function setValue(?array $value ): void {

@@ -75,8 +75,8 @@ use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\UnitsOfMeasure\Item
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\UnitsOfMeasure\UnitsOfMeasureRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Vendors\Item\VendorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Vendors\VendorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Company;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Company;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -87,70 +87,121 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class CompanyItemRequestBuilder 
 {
+    /**
+     * The accounts property
+    */
     public function accounts(): AccountsRequestBuilder {
         return new AccountsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The agedAccountsPayable property
+    */
     public function agedAccountsPayable(): AgedAccountsPayableRequestBuilder {
         return new AgedAccountsPayableRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The agedAccountsReceivable property
+    */
     public function agedAccountsReceivable(): AgedAccountsReceivableRequestBuilder {
         return new AgedAccountsReceivableRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The companyInformation property
+    */
     public function companyInformation(): CompanyInformationRequestBuilder {
         return new CompanyInformationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The countriesRegions property
+    */
     public function countriesRegions(): CountriesRegionsRequestBuilder {
         return new CountriesRegionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The currencies property
+    */
     public function currencies(): CurrenciesRequestBuilder {
         return new CurrenciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The customerPaymentJournals property
+    */
     public function customerPaymentJournals(): CustomerPaymentJournalsRequestBuilder {
         return new CustomerPaymentJournalsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The customerPayments property
+    */
     public function customerPayments(): CustomerPaymentsRequestBuilder {
         return new CustomerPaymentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The customers property
+    */
     public function customers(): CustomersRequestBuilder {
         return new CustomersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The dimensions property
+    */
     public function dimensions(): DimensionsRequestBuilder {
         return new DimensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The dimensionValues property
+    */
     public function dimensionValues(): DimensionValuesRequestBuilder {
         return new DimensionValuesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The employees property
+    */
     public function employees(): EmployeesRequestBuilder {
         return new EmployeesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The generalLedgerEntries property
+    */
     public function generalLedgerEntries(): GeneralLedgerEntriesRequestBuilder {
         return new GeneralLedgerEntriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The itemCategories property
+    */
     public function itemCategories(): ItemCategoriesRequestBuilder {
         return new ItemCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The items property
+    */
     public function items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The journalLines property
+    */
     public function journalLines(): JournalLinesRequestBuilder {
         return new JournalLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The journals property
+    */
     public function journals(): JournalsRequestBuilder {
         return new JournalsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -158,22 +209,37 @@ class CompanyItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The paymentMethods property
+    */
     public function paymentMethods(): PaymentMethodsRequestBuilder {
         return new PaymentMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The paymentTerms property
+    */
     public function paymentTerms(): PaymentTermsRequestBuilder {
         return new PaymentTermsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The picture property
+    */
     public function picture(): PictureRequestBuilder {
         return new PictureRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The purchaseInvoiceLines property
+    */
     public function purchaseInvoiceLines(): PurchaseInvoiceLinesRequestBuilder {
         return new PurchaseInvoiceLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The purchaseInvoices property
+    */
     public function purchaseInvoices(): PurchaseInvoicesRequestBuilder {
         return new PurchaseInvoicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -181,50 +247,86 @@ class CompanyItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The salesCreditMemoLines property
+    */
     public function salesCreditMemoLines(): SalesCreditMemoLinesRequestBuilder {
         return new SalesCreditMemoLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The salesCreditMemos property
+    */
     public function salesCreditMemos(): SalesCreditMemosRequestBuilder {
         return new SalesCreditMemosRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The salesInvoiceLines property
+    */
     public function salesInvoiceLines(): SalesInvoiceLinesRequestBuilder {
         return new SalesInvoiceLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The salesInvoices property
+    */
     public function salesInvoices(): SalesInvoicesRequestBuilder {
         return new SalesInvoicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The salesOrderLines property
+    */
     public function salesOrderLines(): SalesOrderLinesRequestBuilder {
         return new SalesOrderLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The salesOrders property
+    */
     public function salesOrders(): SalesOrdersRequestBuilder {
         return new SalesOrdersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The salesQuoteLines property
+    */
     public function salesQuoteLines(): SalesQuoteLinesRequestBuilder {
         return new SalesQuoteLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The salesQuotes property
+    */
     public function salesQuotes(): SalesQuotesRequestBuilder {
         return new SalesQuotesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The shipmentMethods property
+    */
     public function shipmentMethods(): ShipmentMethodsRequestBuilder {
         return new ShipmentMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The taxAreas property
+    */
     public function taxAreas(): TaxAreasRequestBuilder {
         return new TaxAreasRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The taxGroups property
+    */
     public function taxGroups(): TaxGroupsRequestBuilder {
         return new TaxGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The unitsOfMeasure property
+    */
     public function unitsOfMeasure(): UnitsOfMeasureRequestBuilder {
         return new UnitsOfMeasureRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -232,6 +334,9 @@ class CompanyItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The vendors property
+    */
     public function vendors(): VendorsRequestBuilder {
         return new VendorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

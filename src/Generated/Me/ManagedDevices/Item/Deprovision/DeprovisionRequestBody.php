@@ -12,7 +12,7 @@ class DeprovisionRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $deprovisionReason  */
+    /** @var string|null $deprovisionReason The deprovisionReason property */
     private ?string $deprovisionReason = null;
     
     /**
@@ -40,7 +40,7 @@ class DeprovisionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deprovisionReason property value. 
+     * Gets the deprovisionReason property value. The deprovisionReason property
      * @return string|null
     */
     public function getDeprovisionReason(): ?string {
@@ -75,7 +75,7 @@ class DeprovisionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deprovisionReason property value. 
+     * Sets the deprovisionReason property value. The deprovisionReason property
      *  @param string|null $value Value to set for the deprovisionReason property.
     */
     public function setDeprovisionReason(?string $value ): void {

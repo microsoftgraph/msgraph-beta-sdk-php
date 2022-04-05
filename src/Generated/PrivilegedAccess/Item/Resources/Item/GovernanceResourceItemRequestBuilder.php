@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GovernanceResource;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceResource;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Item\Parent\ParentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Item\RoleAssignmentRequests\Item\GovernanceRoleAssignmentRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Item\RoleAssignmentRequests\RoleAssignmentRequestsRequestBuilder;
@@ -26,6 +26,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class GovernanceResourceItemRequestBuilder 
 {
+    /**
+     * The parent property
+    */
     public function parent(): ParentRequestBuilder {
         return new ParentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -36,18 +39,30 @@ class GovernanceResourceItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The roleAssignmentRequests property
+    */
     public function roleAssignmentRequests(): RoleAssignmentRequestsRequestBuilder {
         return new RoleAssignmentRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleAssignments property
+    */
     public function roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleDefinitions property
+    */
     public function roleDefinitions(): RoleDefinitionsRequestBuilder {
         return new RoleDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleSettings property
+    */
     public function roleSettings(): RoleSettingsRequestBuilder {
         return new RoleSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

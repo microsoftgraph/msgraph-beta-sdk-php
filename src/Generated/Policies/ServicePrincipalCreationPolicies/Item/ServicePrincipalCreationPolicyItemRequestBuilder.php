@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolici
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ServicePrincipalCreationPolicy;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ServicePrincipalCreationPolicy;
 use Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\ExcludesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder as MicrosoftGraphBetaGeneratedPoliciesServicePrincipalCreationPoliciesItemExcludesItemServicePrincipalCreationConditionSetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Includes\IncludesRequestBuilder;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ServicePrincipalCreationPolicyItemRequestBuilder 
 {
+    /**
+     * The excludes property
+    */
     public function excludes(): ExcludesRequestBuilder {
         return new ExcludesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The includes property
+    */
     public function includes(): IncludesRequestBuilder {
         return new IncludesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

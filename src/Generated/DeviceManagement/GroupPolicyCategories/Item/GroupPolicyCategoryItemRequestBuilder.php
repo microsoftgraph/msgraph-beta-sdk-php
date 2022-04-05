@@ -10,8 +10,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\D
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Definitions\DefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Definitions\Item\GroupPolicyDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Parent\ParentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupPolicyCategory;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GroupPolicyCategory;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,18 +22,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class GroupPolicyCategoryItemRequestBuilder 
 {
+    /**
+     * The children property
+    */
     public function children(): ChildrenRequestBuilder {
         return new ChildrenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The definitionFile property
+    */
     public function definitionFile(): DefinitionFileRequestBuilder {
         return new DefinitionFileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The definitions property
+    */
     public function definitions(): DefinitionsRequestBuilder {
         return new DefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The parent property
+    */
     public function parent(): ParentRequestBuilder {
         return new ParentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

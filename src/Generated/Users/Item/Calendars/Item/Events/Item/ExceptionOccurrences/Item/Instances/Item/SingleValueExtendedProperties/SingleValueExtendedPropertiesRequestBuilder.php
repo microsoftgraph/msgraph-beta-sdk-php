@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Calendars\Item\Events\Item\E
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SingleValueLegacyExtendedProperty;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SingleValueLegacyExtendedPropertyCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SingleValueLegacyExtendedProperty;
+use Microsoft\Graph\Beta\Generated\Models\SingleValueLegacyExtendedPropertyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\Calendars\Item\Events\Item\ExceptionOccurrences\Item\Instances\Item\SingleValueExtendedProperties\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SingleValueExtendedPropertiesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

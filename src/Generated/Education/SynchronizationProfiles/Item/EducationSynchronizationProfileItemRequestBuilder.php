@@ -13,8 +13,8 @@ use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\Reset\
 use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\Resume\ResumeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\Start\StartRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\UploadUrl\UploadUrlRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\EducationSynchronizationProfile;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\EducationSynchronizationProfile;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -25,6 +25,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class EducationSynchronizationProfileItemRequestBuilder 
 {
+    /**
+     * The errors property
+    */
     public function errors(): ErrorsRequestBuilder {
         return new ErrorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -32,10 +35,16 @@ class EducationSynchronizationProfileItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The pause property
+    */
     public function pause(): PauseRequestBuilder {
         return new PauseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The profileStatus property
+    */
     public function profileStatus(): ProfileStatusRequestBuilder {
         return new ProfileStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -43,14 +52,23 @@ class EducationSynchronizationProfileItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The reset property
+    */
     public function reset(): ResetRequestBuilder {
         return new ResetRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The resume property
+    */
     public function resume(): ResumeRequestBuilder {
         return new ResumeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The start property
+    */
     public function start(): StartRequestBuilder {
         return new StartRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

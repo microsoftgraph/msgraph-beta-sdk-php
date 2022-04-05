@@ -12,7 +12,7 @@ class GetTargetedUsersAndDevicesRequestBody implements AdditionalDataHolder, Par
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $deviceConfigurationIds  */
+    /** @var array<string>|null $deviceConfigurationIds The deviceConfigurationIds property */
     private ?array $deviceConfigurationIds = null;
     
     /**
@@ -40,7 +40,7 @@ class GetTargetedUsersAndDevicesRequestBody implements AdditionalDataHolder, Par
     }
 
     /**
-     * Gets the deviceConfigurationIds property value. 
+     * Gets the deviceConfigurationIds property value. The deviceConfigurationIds property
      * @return array<string>|null
     */
     public function getDeviceConfigurationIds(): ?array {
@@ -75,7 +75,7 @@ class GetTargetedUsersAndDevicesRequestBody implements AdditionalDataHolder, Par
     }
 
     /**
-     * Sets the deviceConfigurationIds property value. 
+     * Sets the deviceConfigurationIds property value. The deviceConfigurationIds property
      *  @param array<string>|null $value Value to set for the deviceConfigurationIds property.
     */
     public function setDeviceConfigurationIds(?array $value ): void {

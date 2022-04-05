@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Registration\CustomQuestions\CustomQuestionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Registration\CustomQuestions\Item\MeetingRegistrationQuestionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MeetingRegistration;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\MeetingRegistration;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class RegistrationRequestBuilder 
 {
+    /**
+     * The customQuestions property
+    */
     public function customQuestions(): CustomQuestionsRequestBuilder {
         return new CustomQuestionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

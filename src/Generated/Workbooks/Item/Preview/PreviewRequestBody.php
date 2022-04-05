@@ -12,19 +12,19 @@ class PreviewRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var bool|null $allowEdit  */
+    /** @var bool|null $allowEdit The allowEdit property */
     private ?bool $allowEdit = null;
     
-    /** @var bool|null $chromeless  */
+    /** @var bool|null $chromeless The chromeless property */
     private ?bool $chromeless = null;
     
-    /** @var string|null $page  */
+    /** @var string|null $page The page property */
     private ?string $page = null;
     
-    /** @var string|null $viewer  */
+    /** @var string|null $viewer The viewer property */
     private ?string $viewer = null;
     
-    /** @var float|null $zoom  */
+    /** @var float|null $zoom The zoom property */
     private ?float $zoom = null;
     
     /**
@@ -52,7 +52,7 @@ class PreviewRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the allowEdit property value. 
+     * Gets the allowEdit property value. The allowEdit property
      * @return bool|null
     */
     public function getAllowEdit(): ?bool {
@@ -60,7 +60,7 @@ class PreviewRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the chromeless property value. 
+     * Gets the chromeless property value. The chromeless property
      * @return bool|null
     */
     public function getChromeless(): ?bool {
@@ -82,7 +82,7 @@ class PreviewRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the page property value. 
+     * Gets the page property value. The page property
      * @return string|null
     */
     public function getPage(): ?string {
@@ -90,7 +90,7 @@ class PreviewRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the viewer property value. 
+     * Gets the viewer property value. The viewer property
      * @return string|null
     */
     public function getViewer(): ?string {
@@ -98,7 +98,7 @@ class PreviewRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the zoom property value. 
+     * Gets the zoom property value. The zoom property
      * @return float|null
     */
     public function getZoom(): ?float {
@@ -127,7 +127,7 @@ class PreviewRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the allowEdit property value. 
+     * Sets the allowEdit property value. The allowEdit property
      *  @param bool|null $value Value to set for the allowEdit property.
     */
     public function setAllowEdit(?bool $value ): void {
@@ -135,7 +135,7 @@ class PreviewRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the chromeless property value. 
+     * Sets the chromeless property value. The chromeless property
      *  @param bool|null $value Value to set for the chromeless property.
     */
     public function setChromeless(?bool $value ): void {
@@ -143,7 +143,7 @@ class PreviewRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the page property value. 
+     * Sets the page property value. The page property
      *  @param string|null $value Value to set for the page property.
     */
     public function setPage(?string $value ): void {
@@ -151,7 +151,7 @@ class PreviewRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the viewer property value. 
+     * Sets the viewer property value. The viewer property
      *  @param string|null $value Value to set for the viewer property.
     */
     public function setViewer(?string $value ): void {
@@ -159,7 +159,7 @@ class PreviewRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the zoom property value. 
+     * Sets the zoom property value. The zoom property
      *  @param float|null $value Value to set for the zoom property.
     */
     public function setZoom(?float $value ): void {

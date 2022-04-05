@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\AcquireAccessToken;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SynchronizationSecretKeyStringValuePair;
+use Microsoft\Graph\Beta\Generated\Models\SynchronizationSecretKeyStringValuePair;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class AcquireAccessTokenRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<SynchronizationSecretKeyStringValuePair>|null $credentials  */
+    /** @var array<SynchronizationSecretKeyStringValuePair>|null $credentials The credentials property */
     private ?array $credentials = null;
     
     /**
@@ -41,7 +41,7 @@ class AcquireAccessTokenRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the credentials property value. 
+     * Gets the credentials property value. The credentials property
      * @return array<SynchronizationSecretKeyStringValuePair>|null
     */
     public function getCredentials(): ?array {
@@ -76,7 +76,7 @@ class AcquireAccessTokenRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the credentials property value. 
+     * Sets the credentials property value. The credentials property
      *  @param array<SynchronizationSecretKeyStringValuePair>|null $value Value to set for the credentials property.
     */
     public function setCredentials(?array $value ): void {

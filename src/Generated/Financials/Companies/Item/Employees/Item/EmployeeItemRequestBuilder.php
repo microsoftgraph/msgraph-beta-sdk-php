@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Employees\Item\Picture\Item\PictureItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Employees\Item\Picture\PictureRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Employee;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Employee;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,6 +22,9 @@ class EmployeeItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The picture property
+    */
     public function picture(): PictureRequestBuilder {
         return new PictureRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

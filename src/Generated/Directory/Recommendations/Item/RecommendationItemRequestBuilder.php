@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResour
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\Item\RecommendationResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Postpone\PostponeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Reactivate\ReactivateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Recommendation;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Recommendation;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,14 +23,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class RecommendationItemRequestBuilder 
 {
+    /**
+     * The complete property
+    */
     public function complete(): CompleteRequestBuilder {
         return new CompleteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The dismiss property
+    */
     public function dismiss(): DismissRequestBuilder {
         return new DismissRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The impactedResources property
+    */
     public function impactedResources(): ImpactedResourcesRequestBuilder {
         return new ImpactedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -38,10 +47,16 @@ class RecommendationItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The postpone property
+    */
     public function postpone(): PostponeRequestBuilder {
         return new PostponeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The reactivate property
+    */
     public function reactivate(): ReactivateRequestBuilder {
         return new ReactivateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

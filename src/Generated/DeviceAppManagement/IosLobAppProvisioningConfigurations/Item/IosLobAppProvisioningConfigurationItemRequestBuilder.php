@@ -14,8 +14,8 @@ use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConf
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\GroupAssignments\Item\MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\UserStatuses\Item\ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\UserStatuses\UserStatusesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\IosLobAppProvisioningConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\IosLobAppProvisioningConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -26,18 +26,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class IosLobAppProvisioningConfigurationItemRequestBuilder 
 {
+    /**
+     * The assign property
+    */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceStatuses property
+    */
     public function deviceStatuses(): DeviceStatusesRequestBuilder {
         return new DeviceStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The groupAssignments property
+    */
     public function groupAssignments(): GroupAssignmentsRequestBuilder {
         return new GroupAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -51,6 +63,9 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userStatuses property
+    */
     public function userStatuses(): UserStatusesRequestBuilder {
         return new UserStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\RiskyUsers\Item\History;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RiskyUserHistoryItem;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RiskyUserHistoryItemCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\RiskyUserHistoryItem;
+use Microsoft\Graph\Beta\Generated\Models\RiskyUserHistoryItemCollectionResponse;
 use Microsoft\Graph\Beta\Generated\RiskyUsers\Item\History\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class HistoryRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

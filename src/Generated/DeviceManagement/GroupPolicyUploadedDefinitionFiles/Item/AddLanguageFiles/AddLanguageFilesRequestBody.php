@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\Item\AddLanguageFiles;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupPolicyUploadedLanguageFile;
+use Microsoft\Graph\Beta\Generated\Models\GroupPolicyUploadedLanguageFile;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class AddLanguageFilesRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<GroupPolicyUploadedLanguageFile>|null $groupPolicyUploadedLanguageFiles  */
+    /** @var array<GroupPolicyUploadedLanguageFile>|null $groupPolicyUploadedLanguageFiles The groupPolicyUploadedLanguageFiles property */
     private ?array $groupPolicyUploadedLanguageFiles = null;
     
     /**
@@ -51,7 +51,7 @@ class AddLanguageFilesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the groupPolicyUploadedLanguageFiles property value. 
+     * Gets the groupPolicyUploadedLanguageFiles property value. The groupPolicyUploadedLanguageFiles property
      * @return array<GroupPolicyUploadedLanguageFile>|null
     */
     public function getGroupPolicyUploadedLanguageFiles(): ?array {
@@ -76,7 +76,7 @@ class AddLanguageFilesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the groupPolicyUploadedLanguageFiles property value. 
+     * Sets the groupPolicyUploadedLanguageFiles property value. The groupPolicyUploadedLanguageFiles property
      *  @param array<GroupPolicyUploadedLanguageFile>|null $value Value to set for the groupPolicyUploadedLanguageFiles property.
     */
     public function setGroupPolicyUploadedLanguageFiles(?array $value ): void {

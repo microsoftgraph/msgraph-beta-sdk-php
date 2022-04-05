@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfiguration
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OfficeClientConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OfficeClientConfiguration;
 use Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\Item\Assignments\Item\OfficeClientConfigurationAssignmentItemRequestBuilder;
@@ -22,10 +22,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class OfficeClientConfigurationItemRequestBuilder 
 {
+    /**
+     * The assign property
+    */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -33,6 +39,9 @@ class OfficeClientConfigurationItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The policyPayload property
+    */
     public function policyPayload(): PolicyPayloadRequestBuilder {
         return new PolicyPayloadRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -43,6 +52,9 @@ class OfficeClientConfigurationItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userPreferencePayload property
+    */
     public function userPreferencePayload(): UserPreferencePayloadRequestBuilder {
         return new UserPreferencePayloadRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

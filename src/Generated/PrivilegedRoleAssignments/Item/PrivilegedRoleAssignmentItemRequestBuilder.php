@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PrivilegedRoleAssignment;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegedRoleAssignment;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments\Item\MakeEligible\MakeEligibleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments\Item\MakePermanent\MakePermanentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments\Item\RoleInfo\RoleInfoRequestBuilder;
@@ -20,10 +20,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PrivilegedRoleAssignmentItemRequestBuilder 
 {
+    /**
+     * The makeEligible property
+    */
     public function makeEligible(): MakeEligibleRequestBuilder {
         return new MakeEligibleRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The makePermanent property
+    */
     public function makePermanent(): MakePermanentRequestBuilder {
         return new MakePermanentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -34,6 +40,9 @@ class PrivilegedRoleAssignmentItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The roleInfo property
+    */
     public function roleInfo(): RoleInfoRequestBuilder {
         return new RoleInfoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

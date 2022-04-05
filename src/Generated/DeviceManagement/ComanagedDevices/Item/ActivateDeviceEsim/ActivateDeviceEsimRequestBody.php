@@ -12,7 +12,7 @@ class ActivateDeviceEsimRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $carrierUrl  */
+    /** @var string|null $carrierUrl The carrierUrl property */
     private ?string $carrierUrl = null;
     
     /**
@@ -40,7 +40,7 @@ class ActivateDeviceEsimRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the carrierUrl property value. 
+     * Gets the carrierUrl property value. The carrierUrl property
      * @return string|null
     */
     public function getCarrierUrl(): ?string {
@@ -75,7 +75,7 @@ class ActivateDeviceEsimRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the carrierUrl property value. 
+     * Sets the carrierUrl property value. The carrierUrl property
      *  @param string|null $value Value to set for the carrierUrl property.
     */
     public function setCarrierUrl(?string $value ): void {

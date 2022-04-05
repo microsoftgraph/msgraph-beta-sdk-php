@@ -8,9 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings\Connect\ConnectRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings\Disconnect\DisconnectRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ChromeOSOnboardingSettings;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ChromeOSOnboardingSettingsCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ChromeOSOnboardingSettings;
+use Microsoft\Graph\Beta\Generated\Models\ChromeOSOnboardingSettingsCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,14 +21,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ChromeOSOnboardingSettingsRequestBuilder 
 {
+    /**
+     * The connect property
+    */
     public function connect(): ConnectRequestBuilder {
         return new ConnectRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The disconnect property
+    */
     public function disconnect(): DisconnectRequestBuilder {
         return new DisconnectRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

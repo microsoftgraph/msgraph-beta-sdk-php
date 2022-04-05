@@ -12,7 +12,7 @@ class SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBody implements Add
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var bool|null $enabled  */
+    /** @var bool|null $enabled The enabled property */
     private ?bool $enabled = null;
     
     /**
@@ -40,7 +40,7 @@ class SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBody implements Add
     }
 
     /**
-     * Gets the enabled property value. 
+     * Gets the enabled property value. The enabled property
      * @return bool|null
     */
     public function getEnabled(): ?bool {
@@ -75,7 +75,7 @@ class SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBody implements Add
     }
 
     /**
-     * Sets the enabled property value. 
+     * Sets the enabled property value. The enabled property
      *  @param bool|null $value Value to set for the enabled property.
     */
     public function setEnabled(?bool $value ): void {

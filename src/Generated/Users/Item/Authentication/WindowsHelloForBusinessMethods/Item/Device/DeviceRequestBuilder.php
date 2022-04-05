@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\WindowsHelloF
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Device;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Device;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\WindowsHelloForBusinessMethods\Item\Device\Commands\CommandsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\WindowsHelloForBusinessMethods\Item\Device\Commands\Item\CommandItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\WindowsHelloForBusinessMethods\Item\Device\Extensions\ExtensionsRequestBuilder;
@@ -31,14 +31,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeviceRequestBuilder 
 {
+    /**
+     * The commands property
+    */
     public function commands(): CommandsRequestBuilder {
         return new CommandsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The extensions property
+    */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The memberOf property
+    */
     public function memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -46,10 +55,16 @@ class DeviceRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The registeredOwners property
+    */
     public function registeredOwners(): RegisteredOwnersRequestBuilder {
         return new RegisteredOwnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The registeredUsers property
+    */
     public function registeredUsers(): RegisteredUsersRequestBuilder {
         return new RegisteredUsersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -57,6 +72,9 @@ class DeviceRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The transitiveMemberOf property
+    */
     public function transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -64,6 +82,9 @@ class DeviceRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The usageRights property
+    */
     public function usageRights(): UsageRightsRequestBuilder {
         return new UsageRightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

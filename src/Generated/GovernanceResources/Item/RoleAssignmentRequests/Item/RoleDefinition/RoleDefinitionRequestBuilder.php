@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleAssignmentRequests\Item\RoleDefinition\Resource\ResourceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleAssignmentRequests\Item\RoleDefinition\RoleSetting\RoleSettingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GovernanceRoleDefinition;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleDefinition;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -25,10 +25,16 @@ class RoleDefinitionRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resource property
+    */
     public function resource(): ResourceRequestBuilder {
         return new ResourceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleSetting property
+    */
     public function roleSetting(): RoleSettingRequestBuilder {
         return new RoleSettingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

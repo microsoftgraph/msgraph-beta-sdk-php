@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\CompaniesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CompanyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Financials;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Financials;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class FinancialsRequestBuilder 
 {
+    /**
+     * The companies property
+    */
     public function companies(): CompaniesRequestBuilder {
         return new CompaniesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

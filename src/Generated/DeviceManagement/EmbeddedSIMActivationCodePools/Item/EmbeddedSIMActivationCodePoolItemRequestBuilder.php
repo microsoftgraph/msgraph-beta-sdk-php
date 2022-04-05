@@ -10,8 +10,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePoo
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Item\Assignments\Item\EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Item\DeviceStates\DeviceStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Item\DeviceStates\Item\EmbeddedSIMDeviceStateItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\EmbeddedSIMActivationCodePool;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\EmbeddedSIMActivationCodePool;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,14 +22,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class EmbeddedSIMActivationCodePoolItemRequestBuilder 
 {
+    /**
+     * The assign property
+    */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceStates property
+    */
     public function deviceStates(): DeviceStatesRequestBuilder {
         return new DeviceStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

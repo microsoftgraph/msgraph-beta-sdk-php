@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\GetCapabilit
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PrinterCapabilities;
+use Microsoft\Graph\Beta\Generated\Models\PrinterCapabilities;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

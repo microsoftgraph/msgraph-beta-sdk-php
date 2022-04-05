@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\TiIndicators;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TiIndicator;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TiIndicatorCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TiIndicator;
+use Microsoft\Graph\Beta\Generated\Models\TiIndicatorCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\TiIndicators\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\TiIndicators\DeleteTiIndicators\DeleteTiIndicatorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\TiIndicators\DeleteTiIndicatorsByExternalId\DeleteTiIndicatorsByExternalIdRequestBuilder;
@@ -23,14 +23,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TiIndicatorsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deleteTiIndicators property
+    */
     public function deleteTiIndicators(): DeleteTiIndicatorsRequestBuilder {
         return new DeleteTiIndicatorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deleteTiIndicatorsByExternalId property
+    */
     public function deleteTiIndicatorsByExternalId(): DeleteTiIndicatorsByExternalIdRequestBuilder {
         return new DeleteTiIndicatorsByExternalIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -41,10 +50,16 @@ class TiIndicatorsRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The submitTiIndicators property
+    */
     public function submitTiIndicators(): SubmitTiIndicatorsRequestBuilder {
         return new SubmitTiIndicatorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The updateTiIndicators property
+    */
     public function updateTiIndicators(): UpdateTiIndicatorsRequestBuilder {
         return new UpdateTiIndicatorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

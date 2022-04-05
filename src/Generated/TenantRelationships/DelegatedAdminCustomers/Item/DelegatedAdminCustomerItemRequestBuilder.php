@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminCusto
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DelegatedAdminCustomer;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DelegatedAdminCustomer;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminCustomers\Item\ServiceManagementDetails\Item\DelegatedAdminServiceManagementDetailItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminCustomers\Item\ServiceManagementDetails\ServiceManagementDetailsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -25,6 +25,9 @@ class DelegatedAdminCustomerItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The serviceManagementDetails property
+    */
     public function serviceManagementDetails(): ServiceManagementDetailsRequestBuilder {
         return new ServiceManagementDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -64,7 +67,7 @@ class DelegatedAdminCustomerItemRequestBuilder
     }
 
     /**
-     * Get delegatedAdminCustomers from tenantRelationships
+     * The customer who has a delegated admin relationship with a Microsoft partner.
      * @param array|null $queryParameters Request query parameters
      * @param array<string, mixed>|null $headers Request headers
      * @param array<string, RequestOption>|null $options Request options
@@ -126,7 +129,7 @@ class DelegatedAdminCustomerItemRequestBuilder
     }
 
     /**
-     * Get delegatedAdminCustomers from tenantRelationships
+     * The customer who has a delegated admin relationship with a Microsoft partner.
      * @param array|null $queryParameters Request query parameters
      * @param array<string, mixed>|null $headers Request headers
      * @param array<string, RequestOption>|null $options Request options

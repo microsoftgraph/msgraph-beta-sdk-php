@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PrivilegedRoleAssignmentRequest;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegedRoleAssignmentRequest;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item\Cancel\CancelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item\RoleInfo\RoleInfoRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PrivilegedRoleAssignmentRequestItemRequestBuilder 
 {
+    /**
+     * The cancel property
+    */
     public function cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -29,6 +32,9 @@ class PrivilegedRoleAssignmentRequestItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The roleInfo property
+    */
     public function roleInfo(): RoleInfoRequestBuilder {
         return new RoleInfoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

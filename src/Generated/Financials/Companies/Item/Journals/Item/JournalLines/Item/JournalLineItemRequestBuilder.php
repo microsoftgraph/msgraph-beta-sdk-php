@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\JournalLines\Item\Account\AccountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\JournalLine;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\JournalLine;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -18,6 +18,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class JournalLineItemRequestBuilder 
 {
+    /**
+     * The account property
+    */
     public function account(): AccountRequestBuilder {
         return new AccountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

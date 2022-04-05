@@ -10,8 +10,8 @@ use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\Cu
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\PaymentTerm\PaymentTermRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\SalesOrderLines\Item\SalesOrderLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\SalesOrderLines\SalesOrderLinesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SalesOrder;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SalesOrder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,10 +22,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SalesOrderItemRequestBuilder 
 {
+    /**
+     * The currency property
+    */
     public function currency(): CurrencyRequestBuilder {
         return new CurrencyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The customer property
+    */
     public function customer(): CustomerRequestBuilder {
         return new CustomerRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -33,6 +39,9 @@ class SalesOrderItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The paymentTerm property
+    */
     public function paymentTerm(): PaymentTermRequestBuilder {
         return new PaymentTermRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -40,6 +49,9 @@ class SalesOrderItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The salesOrderLines property
+    */
     public function salesOrderLines(): SalesOrderLinesRequestBuilder {
         return new SalesOrderLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

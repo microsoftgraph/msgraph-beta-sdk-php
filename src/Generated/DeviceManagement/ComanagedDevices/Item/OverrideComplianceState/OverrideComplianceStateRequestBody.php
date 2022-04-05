@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\OverrideComplianceState;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AdministratorConfiguredDeviceComplianceState;
+use Microsoft\Graph\Beta\Generated\Models\AdministratorConfiguredDeviceComplianceState;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,10 +13,10 @@ class OverrideComplianceStateRequestBody implements AdditionalDataHolder, Parsab
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var AdministratorConfiguredDeviceComplianceState|null $complianceState  */
+    /** @var AdministratorConfiguredDeviceComplianceState|null $complianceState The complianceState property */
     private ?AdministratorConfiguredDeviceComplianceState $complianceState = null;
     
-    /** @var string|null $remediationUrl  */
+    /** @var string|null $remediationUrl The remediationUrl property */
     private ?string $remediationUrl = null;
     
     /**
@@ -44,7 +44,7 @@ class OverrideComplianceStateRequestBody implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Gets the complianceState property value. 
+     * Gets the complianceState property value. The complianceState property
      * @return AdministratorConfiguredDeviceComplianceState|null
     */
     public function getComplianceState(): ?AdministratorConfiguredDeviceComplianceState {
@@ -63,7 +63,7 @@ class OverrideComplianceStateRequestBody implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Gets the remediationUrl property value. 
+     * Gets the remediationUrl property value. The remediationUrl property
      * @return string|null
     */
     public function getRemediationUrl(): ?string {
@@ -89,7 +89,7 @@ class OverrideComplianceStateRequestBody implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Sets the complianceState property value. 
+     * Sets the complianceState property value. The complianceState property
      *  @param AdministratorConfiguredDeviceComplianceState|null $value Value to set for the complianceState property.
     */
     public function setComplianceState(?AdministratorConfiguredDeviceComplianceState $value ): void {
@@ -97,7 +97,7 @@ class OverrideComplianceStateRequestBody implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Sets the remediationUrl property value. 
+     * Sets the remediationUrl property value. The remediationUrl property
      *  @param string|null $value Value to set for the remediationUrl property.
     */
     public function setRemediationUrl(?string $value ): void {

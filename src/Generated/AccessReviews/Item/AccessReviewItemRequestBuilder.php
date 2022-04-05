@@ -16,8 +16,8 @@ use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Reviewers\Item\AccessRevie
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Reviewers\ReviewersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\SendReminder\SendReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Stop\StopRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessReview;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessReview;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -28,18 +28,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AccessReviewItemRequestBuilder 
 {
+    /**
+     * The applyDecisions property
+    */
     public function applyDecisions(): ApplyDecisionsRequestBuilder {
         return new ApplyDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The decisions property
+    */
     public function decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The instances property
+    */
     public function instances(): InstancesRequestBuilder {
         return new InstancesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The myDecisions property
+    */
     public function myDecisions(): MyDecisionsRequestBuilder {
         return new MyDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -50,18 +62,30 @@ class AccessReviewItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resetDecisions property
+    */
     public function resetDecisions(): ResetDecisionsRequestBuilder {
         return new ResetDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The reviewers property
+    */
     public function reviewers(): ReviewersRequestBuilder {
         return new ReviewersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The sendReminder property
+    */
     public function sendReminder(): SendReminderRequestBuilder {
         return new SendReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The stop property
+    */
     public function stop(): StopRequestBuilder {
         return new StopRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

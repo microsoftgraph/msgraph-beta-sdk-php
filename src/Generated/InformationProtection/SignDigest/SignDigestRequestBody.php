@@ -13,7 +13,7 @@ class SignDigestRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var StreamInterface|null $digest  */
+    /** @var StreamInterface|null $digest The digest property */
     private ?StreamInterface $digest = null;
     
     /**
@@ -41,7 +41,7 @@ class SignDigestRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the digest property value. 
+     * Gets the digest property value. The digest property
      * @return StreamInterface|null
     */
     public function getDigest(): ?StreamInterface {
@@ -76,7 +76,7 @@ class SignDigestRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the digest property value. 
+     * Sets the digest property value. The digest property
      *  @param StreamInterface|null $value Value to set for the digest property.
     */
     public function setDigest(?StreamInterface $value ): void {

@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\MobileAppTroubleshootingEvents\Item\AppLogCollectionRequests\Item\CreateDownloadUrl\CreateDownloadUrlRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AppLogCollectionRequest;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AppLogCollectionRequest;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -18,6 +18,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AppLogCollectionRequestItemRequestBuilder 
 {
+    /**
+     * The createDownloadUrl property
+    */
     public function createDownloadUrl(): CreateDownloadUrlRequestBuilder {
         return new CreateDownloadUrlRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

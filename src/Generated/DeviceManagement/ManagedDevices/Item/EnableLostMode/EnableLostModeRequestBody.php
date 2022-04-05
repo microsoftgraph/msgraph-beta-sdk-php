@@ -12,13 +12,13 @@ class EnableLostModeRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $footer  */
+    /** @var string|null $footer The footer property */
     private ?string $footer = null;
     
-    /** @var string|null $message  */
+    /** @var string|null $message The message property */
     private ?string $message = null;
     
-    /** @var string|null $phoneNumber  */
+    /** @var string|null $phoneNumber The phoneNumber property */
     private ?string $phoneNumber = null;
     
     /**
@@ -58,7 +58,7 @@ class EnableLostModeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the footer property value. 
+     * Gets the footer property value. The footer property
      * @return string|null
     */
     public function getFooter(): ?string {
@@ -66,7 +66,7 @@ class EnableLostModeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the message property value. 
+     * Gets the message property value. The message property
      * @return string|null
     */
     public function getMessage(): ?string {
@@ -74,7 +74,7 @@ class EnableLostModeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the phoneNumber property value. 
+     * Gets the phoneNumber property value. The phoneNumber property
      * @return string|null
     */
     public function getPhoneNumber(): ?string {
@@ -101,7 +101,7 @@ class EnableLostModeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the footer property value. 
+     * Sets the footer property value. The footer property
      *  @param string|null $value Value to set for the footer property.
     */
     public function setFooter(?string $value ): void {
@@ -109,7 +109,7 @@ class EnableLostModeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the message property value. 
+     * Sets the message property value. The message property
      *  @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value ): void {
@@ -117,7 +117,7 @@ class EnableLostModeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the phoneNumber property value. 
+     * Sets the phoneNumber property value. The phoneNumber property
      *  @param string|null $value Value to set for the phoneNumber property.
     */
     public function setPhoneNumber(?string $value ): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\DataLo
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DlpEvaluatePoliciesJobResponse;
+use Microsoft\Graph\Beta\Generated\Models\DlpEvaluatePoliciesJobResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

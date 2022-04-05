@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\DataLossPreventionPolicies\Evaluate;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DlpEvaluationInput;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DlpNotification;
+use Microsoft\Graph\Beta\Generated\Models\DlpEvaluationInput;
+use Microsoft\Graph\Beta\Generated\Models\DlpNotification;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,13 +14,13 @@ class EvaluateRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var DlpEvaluationInput|null $evaluationInput  */
+    /** @var DlpEvaluationInput|null $evaluationInput The evaluationInput property */
     private ?DlpEvaluationInput $evaluationInput = null;
     
-    /** @var DlpNotification|null $notificationInfo  */
+    /** @var DlpNotification|null $notificationInfo The notificationInfo property */
     private ?DlpNotification $notificationInfo = null;
     
-    /** @var string|null $target  */
+    /** @var string|null $target The target property */
     private ?string $target = null;
     
     /**
@@ -48,7 +48,7 @@ class EvaluateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the evaluationInput property value. 
+     * Gets the evaluationInput property value. The evaluationInput property
      * @return DlpEvaluationInput|null
     */
     public function getEvaluationInput(): ?DlpEvaluationInput {
@@ -68,7 +68,7 @@ class EvaluateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the notificationInfo property value. 
+     * Gets the notificationInfo property value. The notificationInfo property
      * @return DlpNotification|null
     */
     public function getNotificationInfo(): ?DlpNotification {
@@ -76,7 +76,7 @@ class EvaluateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the target property value. 
+     * Gets the target property value. The target property
      * @return string|null
     */
     public function getTarget(): ?string {
@@ -103,7 +103,7 @@ class EvaluateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the evaluationInput property value. 
+     * Sets the evaluationInput property value. The evaluationInput property
      *  @param DlpEvaluationInput|null $value Value to set for the evaluationInput property.
     */
     public function setEvaluationInput(?DlpEvaluationInput $value ): void {
@@ -111,7 +111,7 @@ class EvaluateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the notificationInfo property value. 
+     * Sets the notificationInfo property value. The notificationInfo property
      *  @param DlpNotification|null $value Value to set for the notificationInfo property.
     */
     public function setNotificationInfo(?DlpNotification $value ): void {
@@ -119,7 +119,7 @@ class EvaluateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the target property value. 
+     * Sets the target property value. The target property
      *  @param string|null $value Value to set for the target property.
     */
     public function setTarget(?string $value ): void {

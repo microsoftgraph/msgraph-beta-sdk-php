@@ -12,7 +12,7 @@ class EnableRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var bool|null $enable  */
+    /** @var bool|null $enable The enable property */
     private ?bool $enable = null;
     
     /**
@@ -40,7 +40,7 @@ class EnableRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the enable property value. 
+     * Gets the enable property value. The enable property
      * @return bool|null
     */
     public function getEnable(): ?bool {
@@ -75,7 +75,7 @@ class EnableRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the enable property value. 
+     * Sets the enable property value. The enable property
      *  @param bool|null $value Value to set for the enable property.
     */
     public function setEnable(?bool $value ): void {

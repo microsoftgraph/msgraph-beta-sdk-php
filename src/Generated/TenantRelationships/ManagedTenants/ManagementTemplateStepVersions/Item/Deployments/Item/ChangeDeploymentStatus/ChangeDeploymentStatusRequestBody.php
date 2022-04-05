@@ -12,13 +12,13 @@ class ChangeDeploymentStatusRequestBody implements AdditionalDataHolder, Parsabl
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $managementTemplateStepId  */
+    /** @var string|null $managementTemplateStepId The managementTemplateStepId property */
     private ?string $managementTemplateStepId = null;
     
-    /** @var string|null $status  */
+    /** @var string|null $status The status property */
     private ?string $status = null;
     
-    /** @var string|null $tenantId  */
+    /** @var string|null $tenantId The tenantId property */
     private ?string $tenantId = null;
     
     /**
@@ -58,7 +58,7 @@ class ChangeDeploymentStatusRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the managementTemplateStepId property value. 
+     * Gets the managementTemplateStepId property value. The managementTemplateStepId property
      * @return string|null
     */
     public function getManagementTemplateStepId(): ?string {
@@ -66,7 +66,7 @@ class ChangeDeploymentStatusRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the status property value. 
+     * Gets the status property value. The status property
      * @return string|null
     */
     public function getStatus(): ?string {
@@ -74,7 +74,7 @@ class ChangeDeploymentStatusRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the tenantId property value. 
+     * Gets the tenantId property value. The tenantId property
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -101,7 +101,7 @@ class ChangeDeploymentStatusRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the managementTemplateStepId property value. 
+     * Sets the managementTemplateStepId property value. The managementTemplateStepId property
      *  @param string|null $value Value to set for the managementTemplateStepId property.
     */
     public function setManagementTemplateStepId(?string $value ): void {
@@ -109,7 +109,7 @@ class ChangeDeploymentStatusRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the status property value. 
+     * Sets the status property value. The status property
      *  @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value ): void {
@@ -117,7 +117,7 @@ class ChangeDeploymentStatusRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the tenantId property value. 
+     * Sets the tenantId property value. The tenantId property
      *  @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value ): void {

@@ -12,7 +12,7 @@ class UploadCertificateRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $key  */
+    /** @var string|null $key The key property */
     private ?string $key = null;
     
     /**
@@ -50,7 +50,7 @@ class UploadCertificateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the key property value. 
+     * Gets the key property value. The key property
      * @return string|null
     */
     public function getKey(): ?string {
@@ -75,7 +75,7 @@ class UploadCertificateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the key property value. 
+     * Sets the key property value. The key property
      *  @param string|null $value Value to set for the key property.
     */
     public function setKey(?string $value ): void {

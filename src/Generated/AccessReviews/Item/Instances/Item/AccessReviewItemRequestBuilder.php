@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\MyDecisions
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\MyDecisions\MyDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Reviewers\Item\AccessReviewReviewerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Reviewers\ReviewersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessReview;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessReview;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,10 +23,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AccessReviewItemRequestBuilder 
 {
+    /**
+     * The decisions property
+    */
     public function decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The myDecisions property
+    */
     public function myDecisions(): MyDecisionsRequestBuilder {
         return new MyDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -37,6 +43,9 @@ class AccessReviewItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The reviewers property
+    */
     public function reviewers(): ReviewersRequestBuilder {
         return new ReviewersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

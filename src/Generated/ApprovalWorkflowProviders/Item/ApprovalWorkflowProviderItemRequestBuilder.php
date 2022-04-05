@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlowsW
 use Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlowsWithRequestsAwaitingMyDecision\Item\BusinessFlowItemRequestBuilder as MicrosoftGraphBetaGeneratedApprovalWorkflowProvidersItemBusinessFlowsWithRequestsAwaitingMyDecisionItemBusinessFlowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\PolicyTemplates\Item\GovernancePolicyTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\PolicyTemplates\PolicyTemplatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ApprovalWorkflowProvider;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ApprovalWorkflowProvider;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,10 +23,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ApprovalWorkflowProviderItemRequestBuilder 
 {
+    /**
+     * The businessFlows property
+    */
     public function businessFlows(): BusinessFlowsRequestBuilder {
         return new BusinessFlowsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The businessFlowsWithRequestsAwaitingMyDecision property
+    */
     public function businessFlowsWithRequestsAwaitingMyDecision(): BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilder {
         return new BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -34,6 +40,9 @@ class ApprovalWorkflowProviderItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The policyTemplates property
+    */
     public function policyTemplates(): PolicyTemplatesRequestBuilder {
         return new PolicyTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

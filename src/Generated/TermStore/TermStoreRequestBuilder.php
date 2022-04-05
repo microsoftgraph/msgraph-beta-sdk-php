@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\TermStore;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TermStore\Store;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TermStore\Store;
 use Microsoft\Graph\Beta\Generated\TermStore\Groups\GroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\GroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TermStore\Sets\Item\SetItemRequestBuilder;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TermStoreRequestBuilder 
 {
+    /**
+     * The groups property
+    */
     public function groups(): GroupsRequestBuilder {
         return new GroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -31,6 +34,9 @@ class TermStoreRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The sets property
+    */
     public function sets(): SetsRequestBuilder {
         return new SetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

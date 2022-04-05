@@ -12,10 +12,10 @@ class ConnectRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $ownerAccessToken  */
+    /** @var string|null $ownerAccessToken The ownerAccessToken property */
     private ?string $ownerAccessToken = null;
     
-    /** @var string|null $ownerUserPrincipalName  */
+    /** @var string|null $ownerUserPrincipalName The ownerUserPrincipalName property */
     private ?string $ownerUserPrincipalName = null;
     
     /**
@@ -54,7 +54,7 @@ class ConnectRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the ownerAccessToken property value. 
+     * Gets the ownerAccessToken property value. The ownerAccessToken property
      * @return string|null
     */
     public function getOwnerAccessToken(): ?string {
@@ -62,7 +62,7 @@ class ConnectRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the ownerUserPrincipalName property value. 
+     * Gets the ownerUserPrincipalName property value. The ownerUserPrincipalName property
      * @return string|null
     */
     public function getOwnerUserPrincipalName(): ?string {
@@ -88,7 +88,7 @@ class ConnectRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ownerAccessToken property value. 
+     * Sets the ownerAccessToken property value. The ownerAccessToken property
      *  @param string|null $value Value to set for the ownerAccessToken property.
     */
     public function setOwnerAccessToken(?string $value ): void {
@@ -96,7 +96,7 @@ class ConnectRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ownerUserPrincipalName property value. 
+     * Sets the ownerUserPrincipalName property value. The ownerUserPrincipalName property
      *  @param string|null $value Value to set for the ownerUserPrincipalName property.
     */
     public function setOwnerUserPrincipalName(?string $value ): void {

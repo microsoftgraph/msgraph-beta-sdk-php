@@ -7,9 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\ImportOffice365DeviceConfigurationPolicies\ImportOffice365DeviceConfigurationPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementTemplate;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementTemplateCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplate;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplateCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,10 +20,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class MigratableToRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The importOffice365DeviceConfigurationPolicies property
+    */
     public function importOffice365DeviceConfigurationPolicies(): ImportOffice365DeviceConfigurationPoliciesRequestBuilder {
         return new ImportOffice365DeviceConfigurationPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

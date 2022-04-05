@@ -12,7 +12,7 @@ class GetPolicySetsRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $policySetIds  */
+    /** @var array<string>|null $policySetIds The policySetIds property */
     private ?array $policySetIds = null;
     
     /**
@@ -50,7 +50,7 @@ class GetPolicySetsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the policySetIds property value. 
+     * Gets the policySetIds property value. The policySetIds property
      * @return array<string>|null
     */
     public function getPolicySetIds(): ?array {
@@ -75,7 +75,7 @@ class GetPolicySetsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the policySetIds property value. 
+     * Sets the policySetIds property value. The policySetIds property
      *  @param array<string>|null $value Value to set for the policySetIds property.
     */
     public function setPolicySetIds(?array $value ): void {

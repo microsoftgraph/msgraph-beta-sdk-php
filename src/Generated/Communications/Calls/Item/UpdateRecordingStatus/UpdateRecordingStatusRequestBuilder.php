@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\UpdateRecordi
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UpdateRecordingStatusOperation;
+use Microsoft\Graph\Beta\Generated\Models\UpdateRecordingStatusOperation;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

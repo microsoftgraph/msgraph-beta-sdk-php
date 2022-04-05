@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\Me\InformationProtection\Policy\Labels\EvaluateApplication;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ContentInfo;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\LabelingOptions;
+use Microsoft\Graph\Beta\Generated\Models\ContentInfo;
+use Microsoft\Graph\Beta\Generated\Models\LabelingOptions;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,10 +14,10 @@ class EvaluateApplicationRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var ContentInfo|null $contentInfo  */
+    /** @var ContentInfo|null $contentInfo The contentInfo property */
     private ?ContentInfo $contentInfo = null;
     
-    /** @var LabelingOptions|null $labelingOptions  */
+    /** @var LabelingOptions|null $labelingOptions The labelingOptions property */
     private ?LabelingOptions $labelingOptions = null;
     
     /**
@@ -45,7 +45,7 @@ class EvaluateApplicationRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the contentInfo property value. 
+     * Gets the contentInfo property value. The contentInfo property
      * @return ContentInfo|null
     */
     public function getContentInfo(): ?ContentInfo {
@@ -64,7 +64,7 @@ class EvaluateApplicationRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the labelingOptions property value. 
+     * Gets the labelingOptions property value. The labelingOptions property
      * @return LabelingOptions|null
     */
     public function getLabelingOptions(): ?LabelingOptions {
@@ -90,7 +90,7 @@ class EvaluateApplicationRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the contentInfo property value. 
+     * Sets the contentInfo property value. The contentInfo property
      *  @param ContentInfo|null $value Value to set for the contentInfo property.
     */
     public function setContentInfo(?ContentInfo $value ): void {
@@ -98,7 +98,7 @@ class EvaluateApplicationRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the labelingOptions property value. 
+     * Sets the labelingOptions property value. The labelingOptions property
      *  @param LabelingOptions|null $value Value to set for the labelingOptions property.
     */
     public function setLabelingOptions(?LabelingOptions $value ): void {

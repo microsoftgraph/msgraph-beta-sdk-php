@@ -12,7 +12,7 @@ class PlayLostModeSoundRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $durationInMinutes  */
+    /** @var string|null $durationInMinutes The durationInMinutes property */
     private ?string $durationInMinutes = null;
     
     /**
@@ -40,7 +40,7 @@ class PlayLostModeSoundRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the durationInMinutes property value. 
+     * Gets the durationInMinutes property value. The durationInMinutes property
      * @return string|null
     */
     public function getDurationInMinutes(): ?string {
@@ -75,7 +75,7 @@ class PlayLostModeSoundRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the durationInMinutes property value. 
+     * Sets the durationInMinutes property value. The durationInMinutes property
      *  @param string|null $value Value to set for the durationInMinutes property.
     */
     public function setDurationInMinutes(?string $value ): void {

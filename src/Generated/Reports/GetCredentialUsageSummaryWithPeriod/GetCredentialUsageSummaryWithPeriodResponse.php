@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Reports\GetCredentialUsageSummaryWithPeriod;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CredentialUsageSummary;
+use Microsoft\Graph\Beta\Generated\Models\CredentialUsageSummary;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class GetCredentialUsageSummaryWithPeriodResponse implements AdditionalDataHolde
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<CredentialUsageSummary>|null $value  */
+    /** @var array<CredentialUsageSummary>|null $value The value property */
     private ?array $value = null;
     
     /**
@@ -51,7 +51,7 @@ class GetCredentialUsageSummaryWithPeriodResponse implements AdditionalDataHolde
     }
 
     /**
-     * Gets the value property value. 
+     * Gets the value property value. The value property
      * @return array<CredentialUsageSummary>|null
     */
     public function getValue(): ?array {
@@ -76,7 +76,7 @@ class GetCredentialUsageSummaryWithPeriodResponse implements AdditionalDataHolde
     }
 
     /**
-     * Sets the value property value. 
+     * Sets the value property value. The value property
      *  @param array<CredentialUsageSummary>|null $value Value to set for the value property.
     */
     public function setValue(?array $value ): void {

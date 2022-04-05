@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedApproval\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PrivilegedApproval;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegedApproval;
 use Microsoft\Graph\Beta\Generated\PrivilegedApproval\Item\Request\RequestRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedApproval\Item\RoleInfo\RoleInfoRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -22,6 +22,9 @@ class PrivilegedApprovalItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The request property
+    */
     public function request(): RequestRequestBuilder {
         return new RequestRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -29,6 +32,9 @@ class PrivilegedApprovalItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The roleInfo property
+    */
     public function roleInfo(): RoleInfoRequestBuilder {
         return new RoleInfoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

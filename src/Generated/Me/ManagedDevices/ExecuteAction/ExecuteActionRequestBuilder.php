@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\ManagedDevices\ExecuteAction;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\BulkManagedDeviceActionResult;
+use Microsoft\Graph\Beta\Generated\Models\BulkManagedDeviceActionResult;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

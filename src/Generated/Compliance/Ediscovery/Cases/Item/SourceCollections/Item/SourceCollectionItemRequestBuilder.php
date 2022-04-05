@@ -15,8 +15,8 @@ use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollec
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\NoncustodialSources\Item\NoncustodialDataSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\NoncustodialSources\NoncustodialSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\PurgeData\PurgeDataRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Ediscovery\SourceCollection;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\SourceCollection;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -27,26 +27,44 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SourceCollectionItemRequestBuilder 
 {
+    /**
+     * The additionalSources property
+    */
     public function additionalSources(): AdditionalSourcesRequestBuilder {
         return new AdditionalSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The addToReviewSetOperation property
+    */
     public function addToReviewSetOperation(): AddToReviewSetOperationRequestBuilder {
         return new AddToReviewSetOperationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The custodianSources property
+    */
     public function custodianSources(): CustodianSourcesRequestBuilder {
         return new CustodianSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The estimateStatistics property
+    */
     public function estimateStatistics(): EstimateStatisticsRequestBuilder {
         return new EstimateStatisticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The lastEstimateStatisticsOperation property
+    */
     public function lastEstimateStatisticsOperation(): LastEstimateStatisticsOperationRequestBuilder {
         return new LastEstimateStatisticsOperationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The noncustodialSources property
+    */
     public function noncustodialSources(): NoncustodialSourcesRequestBuilder {
         return new NoncustodialSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -54,6 +72,9 @@ class SourceCollectionItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The purgeData property
+    */
     public function purgeData(): PurgeDataRequestBuilder {
         return new PurgeDataRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

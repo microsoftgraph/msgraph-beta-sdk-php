@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Tasks;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Tasks;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Tasks;
 use Microsoft\Graph\Beta\Generated\Users\Item\Tasks\Alltasks\AlltasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Tasks\Alltasks\Item\BaseTaskItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Tasks\Lists\Item\BaseTaskListItemRequestBuilder;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TasksRequestBuilder 
 {
+    /**
+     * The alltasks property
+    */
     public function alltasks(): AlltasksRequestBuilder {
         return new AlltasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The lists property
+    */
     public function lists(): ListsRequestBuilder {
         return new ListsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

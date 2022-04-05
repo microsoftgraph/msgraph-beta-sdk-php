@@ -12,7 +12,7 @@ class GetHealthMetricsRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $metricNames  */
+    /** @var array<string>|null $metricNames The metricNames property */
     private ?array $metricNames = null;
     
     /**
@@ -50,7 +50,7 @@ class GetHealthMetricsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the metricNames property value. 
+     * Gets the metricNames property value. The metricNames property
      * @return array<string>|null
     */
     public function getMetricNames(): ?array {
@@ -75,7 +75,7 @@ class GetHealthMetricsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the metricNames property value. 
+     * Sets the metricNames property value. The metricNames property
      *  @param array<string>|null $value Value to set for the metricNames property.
     */
     public function setMetricNames(?array $value ): void {

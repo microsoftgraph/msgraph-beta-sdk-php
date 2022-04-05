@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\InferenceClassification\Overrides\Item\InferenceClassificationOverrideItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InferenceClassification\Overrides\OverridesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\InferenceClassification;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\InferenceClassification;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class InferenceClassificationRequestBuilder 
 {
+    /**
+     * The overrides property
+    */
     public function overrides(): OverridesRequestBuilder {
         return new OverridesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

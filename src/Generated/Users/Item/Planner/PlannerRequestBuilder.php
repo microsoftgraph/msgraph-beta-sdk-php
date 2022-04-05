@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PlannerUser;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PlannerUser;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\All\AllRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\All\Item\PlannerDeltaItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\FavoritePlans\FavoritePlansRequestBuilder;
@@ -29,10 +29,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PlannerRequestBuilder 
 {
+    /**
+     * The all property
+    */
     public function all(): AllRequestBuilder {
         return new AllRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The favoritePlans property
+    */
     public function favoritePlans(): FavoritePlansRequestBuilder {
         return new FavoritePlansRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -40,10 +46,16 @@ class PlannerRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The plans property
+    */
     public function plans(): PlansRequestBuilder {
         return new PlansRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The recentPlans property
+    */
     public function recentPlans(): RecentPlansRequestBuilder {
         return new RecentPlansRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -51,10 +63,16 @@ class PlannerRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The rosterPlans property
+    */
     public function rosterPlans(): RosterPlansRequestBuilder {
         return new RosterPlansRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tasks property
+    */
     public function tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

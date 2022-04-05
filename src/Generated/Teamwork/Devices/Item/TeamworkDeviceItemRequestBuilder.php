@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TeamworkDevice;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TeamworkDevice;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Activity\ActivityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Configuration\ConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Health\HealthRequestBuilder;
@@ -25,18 +25,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TeamworkDeviceItemRequestBuilder 
 {
+    /**
+     * The activity property
+    */
     public function activity(): ActivityRequestBuilder {
         return new ActivityRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The configuration property
+    */
     public function configuration(): ConfigurationRequestBuilder {
         return new ConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The health property
+    */
     public function health(): HealthRequestBuilder {
         return new HealthRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The operations property
+    */
     public function operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -47,14 +59,23 @@ class TeamworkDeviceItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The restart property
+    */
     public function restart(): RestartRequestBuilder {
         return new RestartRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The runDiagnostics property
+    */
     public function runDiagnostics(): RunDiagnosticsRequestBuilder {
         return new RunDiagnosticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The updateSoftware property
+    */
     public function updateSoftware(): UpdateSoftwareRequestBuilder {
         return new UpdateSoftwareRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

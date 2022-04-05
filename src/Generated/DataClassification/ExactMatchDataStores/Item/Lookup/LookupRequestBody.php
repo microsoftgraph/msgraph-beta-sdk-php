@@ -12,13 +12,13 @@ class LookupRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $key  */
+    /** @var string|null $key The key property */
     private ?string $key = null;
     
-    /** @var array<string>|null $resultColumnNames  */
+    /** @var array<string>|null $resultColumnNames The resultColumnNames property */
     private ?array $resultColumnNames = null;
     
-    /** @var array<string>|null $values  */
+    /** @var array<string>|null $values The values property */
     private ?array $values = null;
     
     /**
@@ -58,7 +58,7 @@ class LookupRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the key property value. 
+     * Gets the key property value. The key property
      * @return string|null
     */
     public function getKey(): ?string {
@@ -66,7 +66,7 @@ class LookupRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the resultColumnNames property value. 
+     * Gets the resultColumnNames property value. The resultColumnNames property
      * @return array<string>|null
     */
     public function getResultColumnNames(): ?array {
@@ -74,7 +74,7 @@ class LookupRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the values property value. 
+     * Gets the values property value. The values property
      * @return array<string>|null
     */
     public function getValues(): ?array {
@@ -101,7 +101,7 @@ class LookupRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the key property value. 
+     * Sets the key property value. The key property
      *  @param string|null $value Value to set for the key property.
     */
     public function setKey(?string $value ): void {
@@ -109,7 +109,7 @@ class LookupRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the resultColumnNames property value. 
+     * Sets the resultColumnNames property value. The resultColumnNames property
      *  @param array<string>|null $value Value to set for the resultColumnNames property.
     */
     public function setResultColumnNames(?array $value ): void {
@@ -117,7 +117,7 @@ class LookupRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the values property value. 
+     * Sets the values property value. The values property
      *  @param array<string>|null $value Value to set for the values property.
     */
     public function setValues(?array $value ): void {

@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\RemoveMembers;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsUpdates\UpdatableAsset;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAsset;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class RemoveMembersRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<UpdatableAsset>|null $assets  */
+    /** @var array<UpdatableAsset>|null $assets The assets property */
     private ?array $assets = null;
     
     /**
@@ -41,7 +41,7 @@ class RemoveMembersRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the assets property value. 
+     * Gets the assets property value. The assets property
      * @return array<UpdatableAsset>|null
     */
     public function getAssets(): ?array {
@@ -76,7 +76,7 @@ class RemoveMembersRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the assets property value. 
+     * Sets the assets property value. The assets property
      *  @param array<UpdatableAsset>|null $value Value to set for the assets property.
     */
     public function setAssets(?array $value ): void {

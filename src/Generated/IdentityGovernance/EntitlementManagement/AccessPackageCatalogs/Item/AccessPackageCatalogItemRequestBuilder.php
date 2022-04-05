@@ -15,8 +15,8 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Acce
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\AccessPackageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\CustomAccessPackageWorkflowExtensions\CustomAccessPackageWorkflowExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\CustomAccessPackageWorkflowExtensions\Item\CustomAccessPackageWorkflowExtensionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessPackageCatalog;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessPackageCatalog;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -27,22 +27,37 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AccessPackageCatalogItemRequestBuilder 
 {
+    /**
+     * The accessPackageResourceRoles property
+    */
     public function accessPackageResourceRoles(): AccessPackageResourceRolesRequestBuilder {
         return new AccessPackageResourceRolesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageResources property
+    */
     public function accessPackageResources(): AccessPackageResourcesRequestBuilder {
         return new AccessPackageResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageResourceScopes property
+    */
     public function accessPackageResourceScopes(): AccessPackageResourceScopesRequestBuilder {
         return new AccessPackageResourceScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackages property
+    */
     public function accessPackages(): AccessPackagesRequestBuilder {
         return new AccessPackagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The customAccessPackageWorkflowExtensions property
+    */
     public function customAccessPackageWorkflowExtensions(): CustomAccessPackageWorkflowExtensionsRequestBuilder {
         return new CustomAccessPackageWorkflowExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

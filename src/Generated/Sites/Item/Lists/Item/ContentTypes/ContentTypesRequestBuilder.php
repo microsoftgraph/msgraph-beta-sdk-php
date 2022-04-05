@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\ContentTypes;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ContentType;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ContentTypeCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ContentType;
+use Microsoft\Graph\Beta\Generated\Models\ContentTypeCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\ContentTypes\AddCopy\AddCopyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\ContentTypes\AddCopyFromContentTypeHub\AddCopyFromContentTypeHubRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\ContentTypes\Count\CountRequestBuilder;
@@ -22,14 +22,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ContentTypesRequestBuilder 
 {
+    /**
+     * The addCopy property
+    */
     public function addCopy(): AddCopyRequestBuilder {
         return new AddCopyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The addCopyFromContentTypeHub property
+    */
     public function addCopyFromContentTypeHub(): AddCopyFromContentTypeHubRequestBuilder {
         return new AddCopyFromContentTypeHubRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

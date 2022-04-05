@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OnPremisesPublishingProfile;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OnPremisesPublishingProfile;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\AgentGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\OnPremisesAgentGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Agents\AgentsRequestBuilder;
@@ -27,18 +27,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class OnPremisesPublishingProfileItemRequestBuilder 
 {
+    /**
+     * The agentGroups property
+    */
     public function agentGroups(): AgentGroupsRequestBuilder {
         return new AgentGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The agents property
+    */
     public function agents(): AgentsRequestBuilder {
         return new AgentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The connectorGroups property
+    */
     public function connectorGroups(): ConnectorGroupsRequestBuilder {
         return new ConnectorGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The connectors property
+    */
     public function connectors(): ConnectorsRequestBuilder {
         return new ConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -46,6 +58,9 @@ class OnPremisesPublishingProfileItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The publishedResources property
+    */
     public function publishedResources(): PublishedResourcesRequestBuilder {
         return new PublishedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

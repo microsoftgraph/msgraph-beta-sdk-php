@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\Security
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SecurityBaselineState;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SecurityBaselineState;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\Item\SettingStates\Item\SecurityBaselineSettingStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\Item\SettingStates\SettingStatesRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -25,6 +25,9 @@ class SecurityBaselineStateItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The settingStates property
+    */
     public function settingStates(): SettingStatesRequestBuilder {
         return new SettingStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

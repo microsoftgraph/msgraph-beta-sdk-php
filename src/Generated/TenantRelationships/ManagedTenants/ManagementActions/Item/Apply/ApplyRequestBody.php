@@ -12,22 +12,22 @@ class ApplyRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $excludeGroups  */
+    /** @var array<string>|null $excludeGroups The excludeGroups property */
     private ?array $excludeGroups = null;
     
-    /** @var bool|null $includeAllUsers  */
+    /** @var bool|null $includeAllUsers The includeAllUsers property */
     private ?bool $includeAllUsers = null;
     
-    /** @var array<string>|null $includeGroups  */
+    /** @var array<string>|null $includeGroups The includeGroups property */
     private ?array $includeGroups = null;
     
-    /** @var string|null $managementTemplateId  */
+    /** @var string|null $managementTemplateId The managementTemplateId property */
     private ?string $managementTemplateId = null;
     
-    /** @var string|null $tenantGroupId  */
+    /** @var string|null $tenantGroupId The tenantGroupId property */
     private ?string $tenantGroupId = null;
     
-    /** @var string|null $tenantId  */
+    /** @var string|null $tenantId The tenantId property */
     private ?string $tenantId = null;
     
     /**
@@ -55,7 +55,7 @@ class ApplyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the excludeGroups property value. 
+     * Gets the excludeGroups property value. The excludeGroups property
      * @return array<string>|null
     */
     public function getExcludeGroups(): ?array {
@@ -78,7 +78,7 @@ class ApplyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the includeAllUsers property value. 
+     * Gets the includeAllUsers property value. The includeAllUsers property
      * @return bool|null
     */
     public function getIncludeAllUsers(): ?bool {
@@ -86,7 +86,7 @@ class ApplyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the includeGroups property value. 
+     * Gets the includeGroups property value. The includeGroups property
      * @return array<string>|null
     */
     public function getIncludeGroups(): ?array {
@@ -94,7 +94,7 @@ class ApplyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the managementTemplateId property value. 
+     * Gets the managementTemplateId property value. The managementTemplateId property
      * @return string|null
     */
     public function getManagementTemplateId(): ?string {
@@ -102,7 +102,7 @@ class ApplyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the tenantGroupId property value. 
+     * Gets the tenantGroupId property value. The tenantGroupId property
      * @return string|null
     */
     public function getTenantGroupId(): ?string {
@@ -110,7 +110,7 @@ class ApplyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the tenantId property value. 
+     * Gets the tenantId property value. The tenantId property
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -140,7 +140,7 @@ class ApplyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the excludeGroups property value. 
+     * Sets the excludeGroups property value. The excludeGroups property
      *  @param array<string>|null $value Value to set for the excludeGroups property.
     */
     public function setExcludeGroups(?array $value ): void {
@@ -148,7 +148,7 @@ class ApplyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the includeAllUsers property value. 
+     * Sets the includeAllUsers property value. The includeAllUsers property
      *  @param bool|null $value Value to set for the includeAllUsers property.
     */
     public function setIncludeAllUsers(?bool $value ): void {
@@ -156,7 +156,7 @@ class ApplyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the includeGroups property value. 
+     * Sets the includeGroups property value. The includeGroups property
      *  @param array<string>|null $value Value to set for the includeGroups property.
     */
     public function setIncludeGroups(?array $value ): void {
@@ -164,7 +164,7 @@ class ApplyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the managementTemplateId property value. 
+     * Sets the managementTemplateId property value. The managementTemplateId property
      *  @param string|null $value Value to set for the managementTemplateId property.
     */
     public function setManagementTemplateId(?string $value ): void {
@@ -172,7 +172,7 @@ class ApplyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the tenantGroupId property value. 
+     * Sets the tenantGroupId property value. The tenantGroupId property
      *  @param string|null $value Value to set for the tenantGroupId property.
     */
     public function setTenantGroupId(?string $value ): void {
@@ -180,7 +180,7 @@ class ApplyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the tenantId property value. 
+     * Sets the tenantId property value. The tenantId property
      *  @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value ): void {

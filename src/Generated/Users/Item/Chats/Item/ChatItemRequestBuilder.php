@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Chat;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Chat;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\InstalledApps\InstalledAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\InstalledApps\Item\TeamsAppInstallationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\LastMessagePreview\LastMessagePreviewRequestBuilder;
@@ -30,22 +30,37 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ChatItemRequestBuilder 
 {
+    /**
+     * The installedApps property
+    */
     public function installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The lastMessagePreview property
+    */
     public function lastMessagePreview(): LastMessagePreviewRequestBuilder {
         return new LastMessagePreviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The members property
+    */
     public function members(): MembersRequestBuilder {
         return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The messages property
+    */
     public function messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The operations property
+    */
     public function operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -53,6 +68,9 @@ class ChatItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The permissionGrants property
+    */
     public function permissionGrants(): PermissionGrantsRequestBuilder {
         return new PermissionGrantsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -60,6 +78,9 @@ class ChatItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The tabs property
+    */
     public function tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

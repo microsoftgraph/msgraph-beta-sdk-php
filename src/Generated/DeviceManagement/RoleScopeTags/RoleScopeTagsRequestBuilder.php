@@ -8,9 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\GetRoleScopeTagsById\GetRoleScopeTagsByIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\HasCustomRoleScopeTag\HasCustomRoleScopeTagRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RoleScopeTag;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RoleScopeTagCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\RoleScopeTag;
+use Microsoft\Graph\Beta\Generated\Models\RoleScopeTagCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class RoleScopeTagsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getRoleScopeTagsById property
+    */
     public function getRoleScopeTagsById(): GetRoleScopeTagsByIdRequestBuilder {
         return new GetRoleScopeTagsByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

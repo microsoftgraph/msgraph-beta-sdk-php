@@ -19,8 +19,8 @@ use Microsoft\Graph\Beta\Generated\Identity\UserFlowAttributes\Item\IdentityUser
 use Microsoft\Graph\Beta\Generated\Identity\UserFlowAttributes\UserFlowAttributesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\UserFlows\Item\IdentityUserFlowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\UserFlows\UserFlowsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\IdentityContainer;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\IdentityContainer;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -31,26 +31,44 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class IdentityRequestBuilder 
 {
+    /**
+     * The apiConnectors property
+    */
     public function apiConnectors(): ApiConnectorsRequestBuilder {
         return new ApiConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The b2cUserFlows property
+    */
     public function b2cUserFlows(): B2cUserFlowsRequestBuilder {
         return new B2cUserFlowsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The b2xUserFlows property
+    */
     public function b2xUserFlows(): B2xUserFlowsRequestBuilder {
         return new B2xUserFlowsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The conditionalAccess property
+    */
     public function conditionalAccess(): ConditionalAccessRequestBuilder {
         return new ConditionalAccessRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The continuousAccessEvaluationPolicy property
+    */
     public function continuousAccessEvaluationPolicy(): ContinuousAccessEvaluationPolicyRequestBuilder {
         return new ContinuousAccessEvaluationPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The identityProviders property
+    */
     public function identityProviders(): IdentityProvidersRequestBuilder {
         return new IdentityProvidersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -64,10 +82,16 @@ class IdentityRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userFlowAttributes property
+    */
     public function userFlowAttributes(): UserFlowAttributesRequestBuilder {
         return new UserFlowAttributesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userFlows property
+    */
     public function userFlows(): UserFlowsRequestBuilder {
         return new UserFlowsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

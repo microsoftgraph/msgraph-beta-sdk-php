@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Security;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Security\Security;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Security\Security;
 use Microsoft\Graph\Beta\Generated\Security\Alerts\AlertsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Alerts\Item\AlertItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\AttackSimulationRequestBuilder;
@@ -43,34 +43,58 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SecurityRequestBuilder 
 {
+    /**
+     * The alerts property
+    */
     public function alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The attackSimulation property
+    */
     public function attackSimulation(): AttackSimulationRequestBuilder {
         return new AttackSimulationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The cloudAppSecurityProfiles property
+    */
     public function cloudAppSecurityProfiles(): CloudAppSecurityProfilesRequestBuilder {
         return new CloudAppSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The domainSecurityProfiles property
+    */
     public function domainSecurityProfiles(): DomainSecurityProfilesRequestBuilder {
         return new DomainSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The fileSecurityProfiles property
+    */
     public function fileSecurityProfiles(): FileSecurityProfilesRequestBuilder {
         return new FileSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The hostSecurityProfiles property
+    */
     public function hostSecurityProfiles(): HostSecurityProfilesRequestBuilder {
         return new HostSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The informationProtection property
+    */
     public function informationProtection(): InformationProtectionRequestBuilder {
         return new InformationProtectionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The ipSecurityProfiles property
+    */
     public function ipSecurityProfiles(): IpSecurityProfilesRequestBuilder {
         return new IpSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -78,6 +102,9 @@ class SecurityRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The providerTenantSettings property
+    */
     public function providerTenantSettings(): ProviderTenantSettingsRequestBuilder {
         return new ProviderTenantSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -85,18 +112,30 @@ class SecurityRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The secureScoreControlProfiles property
+    */
     public function secureScoreControlProfiles(): SecureScoreControlProfilesRequestBuilder {
         return new SecureScoreControlProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The secureScores property
+    */
     public function secureScores(): SecureScoresRequestBuilder {
         return new SecureScoresRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The securityActions property
+    */
     public function securityActions(): SecurityActionsRequestBuilder {
         return new SecurityActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tiIndicators property
+    */
     public function tiIndicators(): TiIndicatorsRequestBuilder {
         return new TiIndicatorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -104,6 +143,9 @@ class SecurityRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userSecurityProfiles property
+    */
     public function userSecurityProfiles(): UserSecurityProfilesRequestBuilder {
         return new UserSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

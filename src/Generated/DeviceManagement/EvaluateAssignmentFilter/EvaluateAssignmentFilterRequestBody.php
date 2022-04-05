@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\EvaluateAssignmentFilter;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AssignmentFilterEvaluateRequest;
+use Microsoft\Graph\Beta\Generated\Models\AssignmentFilterEvaluateRequest;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class EvaluateAssignmentFilterRequestBody implements AdditionalDataHolder, Parsa
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var AssignmentFilterEvaluateRequest|null $data  */
+    /** @var AssignmentFilterEvaluateRequest|null $data The data property */
     private ?AssignmentFilterEvaluateRequest $data = null;
     
     /**
@@ -41,7 +41,7 @@ class EvaluateAssignmentFilterRequestBody implements AdditionalDataHolder, Parsa
     }
 
     /**
-     * Gets the data property value. 
+     * Gets the data property value. The data property
      * @return AssignmentFilterEvaluateRequest|null
     */
     public function getData(): ?AssignmentFilterEvaluateRequest {
@@ -76,7 +76,7 @@ class EvaluateAssignmentFilterRequestBody implements AdditionalDataHolder, Parsa
     }
 
     /**
-     * Sets the data property value. 
+     * Sets the data property value. The data property
      *  @param AssignmentFilterEvaluateRequest|null $value Value to set for the data property.
     */
     public function setData(?AssignmentFilterEvaluateRequest $value ): void {

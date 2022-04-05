@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OnPremisesConnections\Item\RunHealthChecks\RunHealthChecksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OnPremisesConnections\Item\UpdateAdDomainPassword\UpdateAdDomainPasswordRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CloudPcOnPremisesConnection;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\CloudPcOnPremisesConnection;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -25,10 +25,16 @@ class CloudPcOnPremisesConnectionItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The runHealthChecks property
+    */
     public function runHealthChecks(): RunHealthChecksRequestBuilder {
         return new RunHealthChecksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The updateAdDomainPassword property
+    */
     public function updateAdDomainPassword(): UpdateAdDomainPasswordRequestBuilder {
         return new UpdateAdDomainPasswordRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

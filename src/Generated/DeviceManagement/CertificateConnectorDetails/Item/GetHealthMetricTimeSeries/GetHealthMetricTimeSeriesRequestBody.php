@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CertificateConnectorDetails\Item\GetHealthMetricTimeSeries;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TimeSeriesParameter;
+use Microsoft\Graph\Beta\Generated\Models\TimeSeriesParameter;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class GetHealthMetricTimeSeriesRequestBody implements AdditionalDataHolder, Pars
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var TimeSeriesParameter|null $timeSeries  */
+    /** @var TimeSeriesParameter|null $timeSeries The timeSeries property */
     private ?TimeSeriesParameter $timeSeries = null;
     
     /**
@@ -51,7 +51,7 @@ class GetHealthMetricTimeSeriesRequestBody implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Gets the timeSeries property value. 
+     * Gets the timeSeries property value. The timeSeries property
      * @return TimeSeriesParameter|null
     */
     public function getTimeSeries(): ?TimeSeriesParameter {
@@ -76,7 +76,7 @@ class GetHealthMetricTimeSeriesRequestBody implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Sets the timeSeries property value. 
+     * Sets the timeSeries property value. The timeSeries property
      *  @param TimeSeriesParameter|null $value Value to set for the timeSeries property.
     */
     public function setTimeSeries(?TimeSeriesParameter $value ): void {

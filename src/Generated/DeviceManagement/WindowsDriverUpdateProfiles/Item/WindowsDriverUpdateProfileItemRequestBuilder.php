@@ -12,8 +12,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\DriverInventories\Item\WindowsDriverUpdateInventoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\ExecuteAction\ExecuteActionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\SyncInventory\SyncInventoryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsDriverUpdateProfile;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\WindowsDriverUpdateProfile;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -24,18 +24,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class WindowsDriverUpdateProfileItemRequestBuilder 
 {
+    /**
+     * The assign property
+    */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The driverInventories property
+    */
     public function driverInventories(): DriverInventoriesRequestBuilder {
         return new DriverInventoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The executeAction property
+    */
     public function executeAction(): ExecuteActionRequestBuilder {
         return new ExecuteActionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -46,6 +58,9 @@ class WindowsDriverUpdateProfileItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The syncInventory property
+    */
     public function syncInventory(): SyncInventoryRequestBuilder {
         return new SyncInventoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

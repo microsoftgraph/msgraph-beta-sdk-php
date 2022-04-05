@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Settings;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OrganizationSettings;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OrganizationSettings;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ItemInsights\ItemInsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\MicrosoftApplicationDataAccess\MicrosoftApplicationDataAccessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\PeopleInsights\PeopleInsightsRequestBuilder;
@@ -22,10 +22,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SettingsRequestBuilder 
 {
+    /**
+     * The itemInsights property
+    */
     public function itemInsights(): ItemInsightsRequestBuilder {
         return new ItemInsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The microsoftApplicationDataAccess property
+    */
     public function microsoftApplicationDataAccess(): MicrosoftApplicationDataAccessRequestBuilder {
         return new MicrosoftApplicationDataAccessRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -33,10 +39,16 @@ class SettingsRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The peopleInsights property
+    */
     public function peopleInsights(): PeopleInsightsRequestBuilder {
         return new PeopleInsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The profileCardProperties property
+    */
     public function profileCardProperties(): ProfileCardPropertiesRequestBuilder {
         return new ProfileCardPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

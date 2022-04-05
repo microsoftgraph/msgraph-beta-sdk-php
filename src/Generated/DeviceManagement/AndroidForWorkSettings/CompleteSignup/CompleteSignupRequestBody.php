@@ -12,7 +12,7 @@ class CompleteSignupRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $enterpriseToken  */
+    /** @var string|null $enterpriseToken The enterpriseToken property */
     private ?string $enterpriseToken = null;
     
     /**
@@ -40,7 +40,7 @@ class CompleteSignupRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the enterpriseToken property value. 
+     * Gets the enterpriseToken property value. The enterpriseToken property
      * @return string|null
     */
     public function getEnterpriseToken(): ?string {
@@ -75,7 +75,7 @@ class CompleteSignupRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the enterpriseToken property value. 
+     * Sets the enterpriseToken property value. The enterpriseToken property
      *  @param string|null $value Value to set for the enterpriseToken property.
     */
     public function setEnterpriseToken(?string $value ): void {

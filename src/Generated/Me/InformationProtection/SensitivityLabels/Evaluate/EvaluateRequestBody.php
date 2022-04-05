@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\Me\InformationProtection\SensitivityLabels\Evaluate;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CurrentLabel;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DiscoveredSensitiveType;
+use Microsoft\Graph\Beta\Generated\Models\CurrentLabel;
+use Microsoft\Graph\Beta\Generated\Models\DiscoveredSensitiveType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,10 +14,10 @@ class EvaluateRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var CurrentLabel|null $currentLabel  */
+    /** @var CurrentLabel|null $currentLabel The currentLabel property */
     private ?CurrentLabel $currentLabel = null;
     
-    /** @var array<DiscoveredSensitiveType>|null $discoveredSensitiveTypes  */
+    /** @var array<DiscoveredSensitiveType>|null $discoveredSensitiveTypes The discoveredSensitiveTypes property */
     private ?array $discoveredSensitiveTypes = null;
     
     /**
@@ -45,7 +45,7 @@ class EvaluateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the currentLabel property value. 
+     * Gets the currentLabel property value. The currentLabel property
      * @return CurrentLabel|null
     */
     public function getCurrentLabel(): ?CurrentLabel {
@@ -53,7 +53,7 @@ class EvaluateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the discoveredSensitiveTypes property value. 
+     * Gets the discoveredSensitiveTypes property value. The discoveredSensitiveTypes property
      * @return array<DiscoveredSensitiveType>|null
     */
     public function getDiscoveredSensitiveTypes(): ?array {
@@ -90,7 +90,7 @@ class EvaluateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the currentLabel property value. 
+     * Sets the currentLabel property value. The currentLabel property
      *  @param CurrentLabel|null $value Value to set for the currentLabel property.
     */
     public function setCurrentLabel(?CurrentLabel $value ): void {
@@ -98,7 +98,7 @@ class EvaluateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the discoveredSensitiveTypes property value. 
+     * Sets the discoveredSensitiveTypes property value. The discoveredSensitiveTypes property
      *  @param array<DiscoveredSensitiveType>|null $value Value to set for the discoveredSensitiveTypes property.
     */
     public function setDiscoveredSensitiveTypes(?array $value ): void {

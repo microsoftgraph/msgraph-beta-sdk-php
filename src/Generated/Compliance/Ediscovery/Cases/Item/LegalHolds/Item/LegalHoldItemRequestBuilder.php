@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\I
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UnifiedGroupSources\UnifiedGroupSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UserSources\Item\UserSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UserSources\UserSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Ediscovery\LegalHold;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\LegalHold;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -29,10 +29,16 @@ class LegalHoldItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The siteSources property
+    */
     public function siteSources(): SiteSourcesRequestBuilder {
         return new SiteSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The unifiedGroupSources property
+    */
     public function unifiedGroupSources(): UnifiedGroupSourcesRequestBuilder {
         return new UnifiedGroupSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -40,6 +46,9 @@ class LegalHoldItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userSources property
+    */
     public function userSources(): UserSourcesRequestBuilder {
         return new UserSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

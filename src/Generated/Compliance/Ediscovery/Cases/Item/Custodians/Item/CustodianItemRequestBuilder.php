@@ -16,8 +16,8 @@ use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\I
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\UpdateIndex\UpdateIndexRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\UserSources\Item\UserSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\UserSources\UserSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Ediscovery\Custodian;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Custodian;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -28,10 +28,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class CustodianItemRequestBuilder 
 {
+    /**
+     * The activate property
+    */
     public function activate(): ActivateRequestBuilder {
         return new ActivateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The applyHold property
+    */
     public function applyHold(): ApplyHoldRequestBuilder {
         return new ApplyHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -39,10 +45,16 @@ class CustodianItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The release property
+    */
     public function release(): ReleaseRequestBuilder {
         return new ReleaseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The removeHold property
+    */
     public function removeHold(): RemoveHoldRequestBuilder {
         return new RemoveHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -50,14 +62,23 @@ class CustodianItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The siteSources property
+    */
     public function siteSources(): SiteSourcesRequestBuilder {
         return new SiteSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The unifiedGroupSources property
+    */
     public function unifiedGroupSources(): UnifiedGroupSourcesRequestBuilder {
         return new UnifiedGroupSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The updateIndex property
+    */
     public function updateIndex(): UpdateIndexRequestBuilder {
         return new UpdateIndexRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -65,6 +86,9 @@ class CustodianItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userSources property
+    */
     public function userSources(): UserSourcesRequestBuilder {
         return new UserSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

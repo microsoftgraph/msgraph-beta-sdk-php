@@ -12,10 +12,10 @@ class UploadDepTokenRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $appleId  */
+    /** @var string|null $appleId The appleId property */
     private ?string $appleId = null;
     
-    /** @var string|null $depToken  */
+    /** @var string|null $depToken The depToken property */
     private ?string $depToken = null;
     
     /**
@@ -43,7 +43,7 @@ class UploadDepTokenRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the appleId property value. 
+     * Gets the appleId property value. The appleId property
      * @return string|null
     */
     public function getAppleId(): ?string {
@@ -51,7 +51,7 @@ class UploadDepTokenRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the depToken property value. 
+     * Gets the depToken property value. The depToken property
      * @return string|null
     */
     public function getDepToken(): ?string {
@@ -88,7 +88,7 @@ class UploadDepTokenRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the appleId property value. 
+     * Sets the appleId property value. The appleId property
      *  @param string|null $value Value to set for the appleId property.
     */
     public function setAppleId(?string $value ): void {
@@ -96,7 +96,7 @@ class UploadDepTokenRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the depToken property value. 
+     * Sets the depToken property value. The depToken property
      *  @param string|null $value Value to set for the depToken property.
     */
     public function setDepToken(?string $value ): void {

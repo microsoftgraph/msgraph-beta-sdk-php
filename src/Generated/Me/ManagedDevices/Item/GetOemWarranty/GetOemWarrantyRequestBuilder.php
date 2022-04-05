@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\ManagedDevices\Item\GetOemWarranty;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OemWarranty;
+use Microsoft\Graph\Beta\Generated\Models\OemWarranty;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

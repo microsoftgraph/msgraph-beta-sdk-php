@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkSettings\Compl
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkSettings\RequestSignupUrl\RequestSignupUrlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkSettings\SyncApps\SyncAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkSettings\Unbind\UnbindRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AndroidForWorkSettings;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AndroidForWorkSettings;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AndroidForWorkSettingsRequestBuilder 
 {
+    /**
+     * The completeSignup property
+    */
     public function completeSignup(): CompleteSignupRequestBuilder {
         return new CompleteSignupRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -31,14 +34,23 @@ class AndroidForWorkSettingsRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The requestSignupUrl property
+    */
     public function requestSignupUrl(): RequestSignupUrlRequestBuilder {
         return new RequestSignupUrlRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The syncApps property
+    */
     public function syncApps(): SyncAppsRequestBuilder {
         return new SyncAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The unbind property
+    */
     public function unbind(): UnbindRequestBuilder {
         return new UnbindRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

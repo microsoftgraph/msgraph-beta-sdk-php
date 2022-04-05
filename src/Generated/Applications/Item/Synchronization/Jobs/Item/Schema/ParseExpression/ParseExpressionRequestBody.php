@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\Schema\ParseExpression;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AttributeDefinition;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ExpressionInputObject;
+use Microsoft\Graph\Beta\Generated\Models\AttributeDefinition;
+use Microsoft\Graph\Beta\Generated\Models\ExpressionInputObject;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,13 +14,13 @@ class ParseExpressionRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $expression  */
+    /** @var string|null $expression The expression property */
     private ?string $expression = null;
     
-    /** @var AttributeDefinition|null $targetAttributeDefinition  */
+    /** @var AttributeDefinition|null $targetAttributeDefinition The targetAttributeDefinition property */
     private ?AttributeDefinition $targetAttributeDefinition = null;
     
-    /** @var ExpressionInputObject|null $testInputObject  */
+    /** @var ExpressionInputObject|null $testInputObject The testInputObject property */
     private ?ExpressionInputObject $testInputObject = null;
     
     /**
@@ -48,7 +48,7 @@ class ParseExpressionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the expression property value. 
+     * Gets the expression property value. The expression property
      * @return string|null
     */
     public function getExpression(): ?string {
@@ -68,7 +68,7 @@ class ParseExpressionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the targetAttributeDefinition property value. 
+     * Gets the targetAttributeDefinition property value. The targetAttributeDefinition property
      * @return AttributeDefinition|null
     */
     public function getTargetAttributeDefinition(): ?AttributeDefinition {
@@ -76,7 +76,7 @@ class ParseExpressionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the testInputObject property value. 
+     * Gets the testInputObject property value. The testInputObject property
      * @return ExpressionInputObject|null
     */
     public function getTestInputObject(): ?ExpressionInputObject {
@@ -103,7 +103,7 @@ class ParseExpressionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the expression property value. 
+     * Sets the expression property value. The expression property
      *  @param string|null $value Value to set for the expression property.
     */
     public function setExpression(?string $value ): void {
@@ -111,7 +111,7 @@ class ParseExpressionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the targetAttributeDefinition property value. 
+     * Sets the targetAttributeDefinition property value. The targetAttributeDefinition property
      *  @param AttributeDefinition|null $value Value to set for the targetAttributeDefinition property.
     */
     public function setTargetAttributeDefinition(?AttributeDefinition $value ): void {
@@ -119,7 +119,7 @@ class ParseExpressionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the testInputObject property value. 
+     * Sets the testInputObject property value. The testInputObject property
      *  @param ExpressionInputObject|null $value Value to set for the testInputObject property.
     */
     public function setTestInputObject(?ExpressionInputObject $value ): void {

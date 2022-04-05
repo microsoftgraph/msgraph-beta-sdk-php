@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CertificateConnectorDetails\Item\GetHealthMetrics\GetHealthMetricsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CertificateConnectorDetails\Item\GetHealthMetricTimeSeries\GetHealthMetricTimeSeriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CertificateConnectorDetails;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\CertificateConnectorDetails;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,10 +19,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class CertificateConnectorDetailsItemRequestBuilder 
 {
+    /**
+     * The getHealthMetrics property
+    */
     public function getHealthMetrics(): GetHealthMetricsRequestBuilder {
         return new GetHealthMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getHealthMetricTimeSeries property
+    */
     public function getHealthMetricTimeSeries(): GetHealthMetricTimeSeriesRequestBuilder {
         return new GetHealthMetricTimeSeriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

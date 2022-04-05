@@ -12,10 +12,10 @@ class UpdatePrioritiesRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $officeConfigurationPolicyIds  */
+    /** @var array<string>|null $officeConfigurationPolicyIds The officeConfigurationPolicyIds property */
     private ?array $officeConfigurationPolicyIds = null;
     
-    /** @var array<int>|null $officeConfigurationPriorities  */
+    /** @var array<int>|null $officeConfigurationPriorities The officeConfigurationPriorities property */
     private ?array $officeConfigurationPriorities = null;
     
     /**
@@ -54,7 +54,7 @@ class UpdatePrioritiesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the officeConfigurationPolicyIds property value. 
+     * Gets the officeConfigurationPolicyIds property value. The officeConfigurationPolicyIds property
      * @return array<string>|null
     */
     public function getOfficeConfigurationPolicyIds(): ?array {
@@ -62,7 +62,7 @@ class UpdatePrioritiesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the officeConfigurationPriorities property value. 
+     * Gets the officeConfigurationPriorities property value. The officeConfigurationPriorities property
      * @return array<int>|null
     */
     public function getOfficeConfigurationPriorities(): ?array {
@@ -88,7 +88,7 @@ class UpdatePrioritiesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the officeConfigurationPolicyIds property value. 
+     * Sets the officeConfigurationPolicyIds property value. The officeConfigurationPolicyIds property
      *  @param array<string>|null $value Value to set for the officeConfigurationPolicyIds property.
     */
     public function setOfficeConfigurationPolicyIds(?array $value ): void {
@@ -96,7 +96,7 @@ class UpdatePrioritiesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the officeConfigurationPriorities property value. 
+     * Sets the officeConfigurationPriorities property value. The officeConfigurationPriorities property
      *  @param array<int>|null $value Value to set for the officeConfigurationPriorities property.
     */
     public function setOfficeConfigurationPriorities(?array $value ): void {

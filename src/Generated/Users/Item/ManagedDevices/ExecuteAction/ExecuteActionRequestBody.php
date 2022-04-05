@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\ExecuteAction;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagedDeviceRemoteAction;
+use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceRemoteAction;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -10,40 +10,40 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable 
 {
-    /** @var ManagedDeviceRemoteAction|null $actionName  */
+    /** @var ManagedDeviceRemoteAction|null $actionName The actionName property */
     private ?ManagedDeviceRemoteAction $actionName = null;
     
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $carrierUrl  */
+    /** @var string|null $carrierUrl The carrierUrl property */
     private ?string $carrierUrl = null;
     
-    /** @var string|null $deprovisionReason  */
+    /** @var string|null $deprovisionReason The deprovisionReason property */
     private ?string $deprovisionReason = null;
     
-    /** @var array<string>|null $deviceIds  */
+    /** @var array<string>|null $deviceIds The deviceIds property */
     private ?array $deviceIds = null;
     
-    /** @var string|null $deviceName  */
+    /** @var string|null $deviceName The deviceName property */
     private ?string $deviceName = null;
     
-    /** @var bool|null $keepEnrollmentData  */
+    /** @var bool|null $keepEnrollmentData The keepEnrollmentData property */
     private ?bool $keepEnrollmentData = null;
     
-    /** @var bool|null $keepUserData  */
+    /** @var bool|null $keepUserData The keepUserData property */
     private ?bool $keepUserData = null;
     
-    /** @var string|null $notificationBody  */
+    /** @var string|null $notificationBody The notificationBody property */
     private ?string $notificationBody = null;
     
-    /** @var string|null $notificationTitle  */
+    /** @var string|null $notificationTitle The notificationTitle property */
     private ?string $notificationTitle = null;
     
-    /** @var string|null $organizationalUnitPath  */
+    /** @var string|null $organizationalUnitPath The organizationalUnitPath property */
     private ?string $organizationalUnitPath = null;
     
-    /** @var bool|null $persistEsimDataPlan  */
+    /** @var bool|null $persistEsimDataPlan The persistEsimDataPlan property */
     private ?bool $persistEsimDataPlan = null;
     
     /**
@@ -63,7 +63,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the actionName property value. 
+     * Gets the actionName property value. The actionName property
      * @return ManagedDeviceRemoteAction|null
     */
     public function getActionName(): ?ManagedDeviceRemoteAction {
@@ -79,7 +79,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the carrierUrl property value. 
+     * Gets the carrierUrl property value. The carrierUrl property
      * @return string|null
     */
     public function getCarrierUrl(): ?string {
@@ -87,7 +87,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deprovisionReason property value. 
+     * Gets the deprovisionReason property value. The deprovisionReason property
      * @return string|null
     */
     public function getDeprovisionReason(): ?string {
@@ -95,7 +95,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceIds property value. 
+     * Gets the deviceIds property value. The deviceIds property
      * @return array<string>|null
     */
     public function getDeviceIds(): ?array {
@@ -103,7 +103,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceName property value. 
+     * Gets the deviceName property value. The deviceName property
      * @return string|null
     */
     public function getDeviceName(): ?string {
@@ -131,7 +131,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the keepEnrollmentData property value. 
+     * Gets the keepEnrollmentData property value. The keepEnrollmentData property
      * @return bool|null
     */
     public function getKeepEnrollmentData(): ?bool {
@@ -139,7 +139,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the keepUserData property value. 
+     * Gets the keepUserData property value. The keepUserData property
      * @return bool|null
     */
     public function getKeepUserData(): ?bool {
@@ -147,7 +147,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the notificationBody property value. 
+     * Gets the notificationBody property value. The notificationBody property
      * @return string|null
     */
     public function getNotificationBody(): ?string {
@@ -155,7 +155,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the notificationTitle property value. 
+     * Gets the notificationTitle property value. The notificationTitle property
      * @return string|null
     */
     public function getNotificationTitle(): ?string {
@@ -163,7 +163,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the organizationalUnitPath property value. 
+     * Gets the organizationalUnitPath property value. The organizationalUnitPath property
      * @return string|null
     */
     public function getOrganizationalUnitPath(): ?string {
@@ -171,7 +171,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the persistEsimDataPlan property value. 
+     * Gets the persistEsimDataPlan property value. The persistEsimDataPlan property
      * @return bool|null
     */
     public function getPersistEsimDataPlan(): ?bool {
@@ -198,7 +198,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the actionName property value. 
+     * Sets the actionName property value. The actionName property
      *  @param ManagedDeviceRemoteAction|null $value Value to set for the actionName property.
     */
     public function setActionName(?ManagedDeviceRemoteAction $value ): void {
@@ -214,7 +214,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the carrierUrl property value. 
+     * Sets the carrierUrl property value. The carrierUrl property
      *  @param string|null $value Value to set for the carrierUrl property.
     */
     public function setCarrierUrl(?string $value ): void {
@@ -222,7 +222,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deprovisionReason property value. 
+     * Sets the deprovisionReason property value. The deprovisionReason property
      *  @param string|null $value Value to set for the deprovisionReason property.
     */
     public function setDeprovisionReason(?string $value ): void {
@@ -230,7 +230,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceIds property value. 
+     * Sets the deviceIds property value. The deviceIds property
      *  @param array<string>|null $value Value to set for the deviceIds property.
     */
     public function setDeviceIds(?array $value ): void {
@@ -238,7 +238,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceName property value. 
+     * Sets the deviceName property value. The deviceName property
      *  @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value ): void {
@@ -246,7 +246,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the keepEnrollmentData property value. 
+     * Sets the keepEnrollmentData property value. The keepEnrollmentData property
      *  @param bool|null $value Value to set for the keepEnrollmentData property.
     */
     public function setKeepEnrollmentData(?bool $value ): void {
@@ -254,7 +254,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the keepUserData property value. 
+     * Sets the keepUserData property value. The keepUserData property
      *  @param bool|null $value Value to set for the keepUserData property.
     */
     public function setKeepUserData(?bool $value ): void {
@@ -262,7 +262,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the notificationBody property value. 
+     * Sets the notificationBody property value. The notificationBody property
      *  @param string|null $value Value to set for the notificationBody property.
     */
     public function setNotificationBody(?string $value ): void {
@@ -270,7 +270,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the notificationTitle property value. 
+     * Sets the notificationTitle property value. The notificationTitle property
      *  @param string|null $value Value to set for the notificationTitle property.
     */
     public function setNotificationTitle(?string $value ): void {
@@ -278,7 +278,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the organizationalUnitPath property value. 
+     * Sets the organizationalUnitPath property value. The organizationalUnitPath property
      *  @param string|null $value Value to set for the organizationalUnitPath property.
     */
     public function setOrganizationalUnitPath(?string $value ): void {
@@ -286,7 +286,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the persistEsimDataPlan property value. 
+     * Sets the persistEsimDataPlan property value. The persistEsimDataPlan property
      *  @param bool|null $value Value to set for the persistEsimDataPlan property.
     */
     public function setPersistEsimDataPlan(?bool $value ): void {

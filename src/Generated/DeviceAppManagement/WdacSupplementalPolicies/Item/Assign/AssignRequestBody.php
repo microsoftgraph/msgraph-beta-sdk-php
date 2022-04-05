@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\Assign;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsDefenderApplicationControlSupplementalPolicyAssignment;
+use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyAssignment;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null $wdacPolicyAssignments  */
+    /** @var array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null $wdacPolicyAssignments The wdacPolicyAssignments property */
     private ?array $wdacPolicyAssignments = null;
     
     /**
@@ -51,7 +51,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the wdacPolicyAssignments property value. 
+     * Gets the wdacPolicyAssignments property value. The wdacPolicyAssignments property
      * @return array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null
     */
     public function getWdacPolicyAssignments(): ?array {
@@ -76,7 +76,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the wdacPolicyAssignments property value. 
+     * Sets the wdacPolicyAssignments property value. The wdacPolicyAssignments property
      *  @param array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null $value Value to set for the wdacPolicyAssignments property.
     */
     public function setWdacPolicyAssignments(?array $value ): void {

@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Methods\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AuthenticationMethod;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AuthenticationMethod;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Methods\Item\DisableSmsSignIn\DisableSmsSignInRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Methods\Item\EnableSmsSignIn\EnableSmsSignInRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Methods\Item\ResetPassword\ResetPasswordRequestBuilder;
@@ -20,10 +20,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AuthenticationMethodItemRequestBuilder 
 {
+    /**
+     * The disableSmsSignIn property
+    */
     public function disableSmsSignIn(): DisableSmsSignInRequestBuilder {
         return new DisableSmsSignInRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The enableSmsSignIn property
+    */
     public function enableSmsSignIn(): EnableSmsSignInRequestBuilder {
         return new EnableSmsSignInRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -34,6 +40,9 @@ class AuthenticationMethodItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resetPassword property
+    */
     public function resetPassword(): ResetPasswordRequestBuilder {
         return new ResetPasswordRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

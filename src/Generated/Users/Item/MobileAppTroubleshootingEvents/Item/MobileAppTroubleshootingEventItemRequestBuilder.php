@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\MobileAppTroubleshootingEven
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MobileAppTroubleshootingEvent;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\MobileAppTroubleshootingEvent;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\MobileAppTroubleshootingEvents\Item\AppLogCollectionRequests\AppLogCollectionRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MobileAppTroubleshootingEvents\Item\AppLogCollectionRequests\Item\AppLogCollectionRequestItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class MobileAppTroubleshootingEventItemRequestBuilder 
 {
+    /**
+     * The appLogCollectionRequests property
+    */
     public function appLogCollectionRequests(): AppLogCollectionRequestsRequestBuilder {
         return new AppLogCollectionRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

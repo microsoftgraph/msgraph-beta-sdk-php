@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\Queries\Item\ApplyTags;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Ediscovery\Tag;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,10 +13,10 @@ class ApplyTagsRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<Tag>|null $tagsToAdd  */
+    /** @var array<Tag>|null $tagsToAdd The tagsToAdd property */
     private ?array $tagsToAdd = null;
     
-    /** @var array<Tag>|null $tagsToRemove  */
+    /** @var array<Tag>|null $tagsToRemove The tagsToRemove property */
     private ?array $tagsToRemove = null;
     
     /**
@@ -55,7 +55,7 @@ class ApplyTagsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the tagsToAdd property value. 
+     * Gets the tagsToAdd property value. The tagsToAdd property
      * @return array<Tag>|null
     */
     public function getTagsToAdd(): ?array {
@@ -63,7 +63,7 @@ class ApplyTagsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the tagsToRemove property value. 
+     * Gets the tagsToRemove property value. The tagsToRemove property
      * @return array<Tag>|null
     */
     public function getTagsToRemove(): ?array {
@@ -89,7 +89,7 @@ class ApplyTagsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the tagsToAdd property value. 
+     * Sets the tagsToAdd property value. The tagsToAdd property
      *  @param array<Tag>|null $value Value to set for the tagsToAdd property.
     */
     public function setTagsToAdd(?array $value ): void {
@@ -97,7 +97,7 @@ class ApplyTagsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the tagsToRemove property value. 
+     * Sets the tagsToRemove property value. The tagsToRemove property
      *  @param array<Tag>|null $value Value to set for the tagsToRemove property.
     */
     public function setTagsToRemove(?array $value ): void {

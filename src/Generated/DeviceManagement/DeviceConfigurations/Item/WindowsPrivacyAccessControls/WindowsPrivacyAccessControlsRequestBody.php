@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\WindowsPrivacyAccessControls;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsPrivacyDataAccessControlItem;
+use Microsoft\Graph\Beta\Generated\Models\WindowsPrivacyDataAccessControlItem;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class WindowsPrivacyAccessControlsRequestBody implements AdditionalDataHolder, P
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<WindowsPrivacyDataAccessControlItem>|null $windowsPrivacyAccessControls  */
+    /** @var array<WindowsPrivacyDataAccessControlItem>|null $windowsPrivacyAccessControls The windowsPrivacyAccessControls property */
     private ?array $windowsPrivacyAccessControls = null;
     
     /**
@@ -51,7 +51,7 @@ class WindowsPrivacyAccessControlsRequestBody implements AdditionalDataHolder, P
     }
 
     /**
-     * Gets the windowsPrivacyAccessControls property value. 
+     * Gets the windowsPrivacyAccessControls property value. The windowsPrivacyAccessControls property
      * @return array<WindowsPrivacyDataAccessControlItem>|null
     */
     public function getWindowsPrivacyAccessControls(): ?array {
@@ -76,7 +76,7 @@ class WindowsPrivacyAccessControlsRequestBody implements AdditionalDataHolder, P
     }
 
     /**
-     * Sets the windowsPrivacyAccessControls property value. 
+     * Sets the windowsPrivacyAccessControls property value. The windowsPrivacyAccessControls property
      *  @param array<WindowsPrivacyDataAccessControlItem>|null $value Value to set for the windowsPrivacyAccessControls property.
     */
     public function setWindowsPrivacyAccessControls(?array $value ): void {

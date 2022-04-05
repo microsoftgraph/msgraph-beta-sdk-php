@@ -8,8 +8,8 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagementConditionStatements\Item\GetManagementConditionStatementExpressionString\GetManagementConditionStatementExpressionStringRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagementConditionStatements\Item\ManagementConditions\Item\ManagementConditionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagementConditionStatements\Item\ManagementConditions\ManagementConditionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagementConditionStatement;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ManagementConditionStatement;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ManagementConditionStatementItemRequestBuilder 
 {
+    /**
+     * The managementConditions property
+    */
     public function managementConditions(): ManagementConditionsRequestBuilder {
         return new ManagementConditionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

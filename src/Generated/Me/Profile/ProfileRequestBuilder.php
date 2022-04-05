@@ -43,8 +43,8 @@ use Microsoft\Graph\Beta\Generated\Me\Profile\WebAccounts\Item\WebAccountItemReq
 use Microsoft\Graph\Beta\Generated\Me\Profile\WebAccounts\WebAccountsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Profile\Websites\Item\PersonWebsiteItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Profile\Websites\WebsitesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Profile;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Profile;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -55,50 +55,86 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ProfileRequestBuilder 
 {
+    /**
+     * The account property
+    */
     public function account(): AccountRequestBuilder {
         return new AccountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The addresses property
+    */
     public function addresses(): AddressesRequestBuilder {
         return new AddressesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The anniversaries property
+    */
     public function anniversaries(): AnniversariesRequestBuilder {
         return new AnniversariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The awards property
+    */
     public function awards(): AwardsRequestBuilder {
         return new AwardsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The certifications property
+    */
     public function certifications(): CertificationsRequestBuilder {
         return new CertificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The educationalActivities property
+    */
     public function educationalActivities(): EducationalActivitiesRequestBuilder {
         return new EducationalActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The emails property
+    */
     public function emails(): EmailsRequestBuilder {
         return new EmailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The interests property
+    */
     public function interests(): InterestsRequestBuilder {
         return new InterestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The languages property
+    */
     public function languages(): LanguagesRequestBuilder {
         return new LanguagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The names property
+    */
     public function names(): NamesRequestBuilder {
         return new NamesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The notes property
+    */
     public function notes(): NotesRequestBuilder {
         return new NotesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The patents property
+    */
     public function patents(): PatentsRequestBuilder {
         return new PatentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -106,18 +142,30 @@ class ProfileRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The phones property
+    */
     public function phones(): PhonesRequestBuilder {
         return new PhonesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The positions property
+    */
     public function positions(): PositionsRequestBuilder {
         return new PositionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The projects property
+    */
     public function projects(): ProjectsRequestBuilder {
         return new ProjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The publications property
+    */
     public function publications(): PublicationsRequestBuilder {
         return new PublicationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -125,6 +173,9 @@ class ProfileRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The skills property
+    */
     public function skills(): SkillsRequestBuilder {
         return new SkillsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -132,10 +183,16 @@ class ProfileRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The webAccounts property
+    */
     public function webAccounts(): WebAccountsRequestBuilder {
         return new WebAccountsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The websites property
+    */
     public function websites(): WebsitesRequestBuilder {
         return new WebsitesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

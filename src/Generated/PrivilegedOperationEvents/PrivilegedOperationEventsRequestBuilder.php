@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedOperationEvents;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PrivilegedOperationEvent;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PrivilegedOperationEventCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegedOperationEvent;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegedOperationEventCollectionResponse;
 use Microsoft\Graph\Beta\Generated\PrivilegedOperationEvents\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PrivilegedOperationEventsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

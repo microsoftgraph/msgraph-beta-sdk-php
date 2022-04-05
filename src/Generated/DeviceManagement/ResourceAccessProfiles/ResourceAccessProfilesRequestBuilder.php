@@ -7,9 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles\QueryByPlatformType\QueryByPlatformTypeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementResourceAccessProfileBase;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementResourceAccessProfileBaseCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementResourceAccessProfileBase;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementResourceAccessProfileBaseCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ResourceAccessProfilesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -27,6 +30,9 @@ class ResourceAccessProfilesRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The queryByPlatformType property
+    */
     public function queryByPlatformType(): QueryByPlatformTypeRequestBuilder {
         return new QueryByPlatformTypeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

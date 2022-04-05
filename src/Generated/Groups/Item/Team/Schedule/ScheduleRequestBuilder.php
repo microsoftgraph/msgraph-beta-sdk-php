@@ -26,8 +26,8 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimeOffRequests\Ite
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimeOffRequests\TimeOffRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimesOff\Item\TimeOffItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimesOff\TimesOffRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Schedule;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Schedule;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -38,14 +38,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ScheduleRequestBuilder 
 {
+    /**
+     * The offerShiftRequests property
+    */
     public function offerShiftRequests(): OfferShiftRequestsRequestBuilder {
         return new OfferShiftRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The openShiftChangeRequests property
+    */
     public function openShiftChangeRequests(): OpenShiftChangeRequestsRequestBuilder {
         return new OpenShiftChangeRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The openShifts property
+    */
     public function openShifts(): OpenShiftsRequestBuilder {
         return new OpenShiftsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -56,34 +65,58 @@ class ScheduleRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The schedulingGroups property
+    */
     public function schedulingGroups(): SchedulingGroupsRequestBuilder {
         return new SchedulingGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The share property
+    */
     public function share(): ShareRequestBuilder {
         return new ShareRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The shifts property
+    */
     public function shifts(): ShiftsRequestBuilder {
         return new ShiftsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The swapShiftsChangeRequests property
+    */
     public function swapShiftsChangeRequests(): SwapShiftsChangeRequestsRequestBuilder {
         return new SwapShiftsChangeRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The timeCards property
+    */
     public function timeCards(): TimeCardsRequestBuilder {
         return new TimeCardsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The timeOffReasons property
+    */
     public function timeOffReasons(): TimeOffReasonsRequestBuilder {
         return new TimeOffReasonsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The timeOffRequests property
+    */
     public function timeOffRequests(): TimeOffRequestsRequestBuilder {
         return new TimeOffRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The timesOff property
+    */
     public function timesOff(): TimesOffRequestBuilder {
         return new TimesOffRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

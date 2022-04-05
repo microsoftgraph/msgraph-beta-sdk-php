@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\Item\Update;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PolicySetAssignment;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PolicySetItem;
+use Microsoft\Graph\Beta\Generated\Models\PolicySetAssignment;
+use Microsoft\Graph\Beta\Generated\Models\PolicySetItem;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -11,19 +11,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UpdateRequestBody implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<PolicySetItem>|null $addedPolicySetItems  */
+    /** @var array<PolicySetItem>|null $addedPolicySetItems The addedPolicySetItems property */
     private ?array $addedPolicySetItems = null;
     
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<PolicySetAssignment>|null $assignments  */
+    /** @var array<PolicySetAssignment>|null $assignments The assignments property */
     private ?array $assignments = null;
     
-    /** @var array<string>|null $deletedPolicySetItems  */
+    /** @var array<string>|null $deletedPolicySetItems The deletedPolicySetItems property */
     private ?array $deletedPolicySetItems = null;
     
-    /** @var array<PolicySetItem>|null $updatedPolicySetItems  */
+    /** @var array<PolicySetItem>|null $updatedPolicySetItems The updatedPolicySetItems property */
     private ?array $updatedPolicySetItems = null;
     
     /**
@@ -43,7 +43,7 @@ class UpdateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the addedPolicySetItems property value. 
+     * Gets the addedPolicySetItems property value. The addedPolicySetItems property
      * @return array<PolicySetItem>|null
     */
     public function getAddedPolicySetItems(): ?array {
@@ -59,7 +59,7 @@ class UpdateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the assignments property value. 
+     * Gets the assignments property value. The assignments property
      * @return array<PolicySetAssignment>|null
     */
     public function getAssignments(): ?array {
@@ -67,7 +67,7 @@ class UpdateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deletedPolicySetItems property value. 
+     * Gets the deletedPolicySetItems property value. The deletedPolicySetItems property
      * @return array<string>|null
     */
     public function getDeletedPolicySetItems(): ?array {
@@ -88,7 +88,7 @@ class UpdateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the updatedPolicySetItems property value. 
+     * Gets the updatedPolicySetItems property value. The updatedPolicySetItems property
      * @return array<PolicySetItem>|null
     */
     public function getUpdatedPolicySetItems(): ?array {
@@ -108,7 +108,7 @@ class UpdateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the addedPolicySetItems property value. 
+     * Sets the addedPolicySetItems property value. The addedPolicySetItems property
      *  @param array<PolicySetItem>|null $value Value to set for the addedPolicySetItems property.
     */
     public function setAddedPolicySetItems(?array $value ): void {
@@ -124,7 +124,7 @@ class UpdateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the assignments property value. 
+     * Sets the assignments property value. The assignments property
      *  @param array<PolicySetAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value ): void {
@@ -132,7 +132,7 @@ class UpdateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deletedPolicySetItems property value. 
+     * Sets the deletedPolicySetItems property value. The deletedPolicySetItems property
      *  @param array<string>|null $value Value to set for the deletedPolicySetItems property.
     */
     public function setDeletedPolicySetItems(?array $value ): void {
@@ -140,7 +140,7 @@ class UpdateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the updatedPolicySetItems property value. 
+     * Sets the updatedPolicySetItems property value. The updatedPolicySetItems property
      *  @param array<PolicySetItem>|null $value Value to set for the updatedPolicySetItems property.
     */
     public function setUpdatedPolicySetItems(?array $value ): void {

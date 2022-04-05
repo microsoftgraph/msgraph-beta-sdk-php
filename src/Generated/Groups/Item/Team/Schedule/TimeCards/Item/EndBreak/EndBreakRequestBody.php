@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimeCards\Item\EndBreak;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ItemBody;
+use Microsoft\Graph\Beta\Generated\Models\ItemBody;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,10 +13,10 @@ class EndBreakRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var bool|null $atApprovedLocation  */
+    /** @var bool|null $atApprovedLocation The atApprovedLocation property */
     private ?bool $atApprovedLocation = null;
     
-    /** @var ItemBody|null $notes  */
+    /** @var ItemBody|null $notes The notes property */
     private ?ItemBody $notes = null;
     
     /**
@@ -44,7 +44,7 @@ class EndBreakRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the atApprovedLocation property value. 
+     * Gets the atApprovedLocation property value. The atApprovedLocation property
      * @return bool|null
     */
     public function getAtApprovedLocation(): ?bool {
@@ -63,7 +63,7 @@ class EndBreakRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the notes property value. 
+     * Gets the notes property value. The notes property
      * @return ItemBody|null
     */
     public function getNotes(): ?ItemBody {
@@ -89,7 +89,7 @@ class EndBreakRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the atApprovedLocation property value. 
+     * Sets the atApprovedLocation property value. The atApprovedLocation property
      *  @param bool|null $value Value to set for the atApprovedLocation property.
     */
     public function setAtApprovedLocation(?bool $value ): void {
@@ -97,7 +97,7 @@ class EndBreakRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the notes property value. 
+     * Sets the notes property value. The notes property
      *  @param ItemBody|null $value Value to set for the notes property.
     */
     public function setNotes(?ItemBody $value ): void {

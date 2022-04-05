@@ -13,8 +13,8 @@ use Microsoft\Graph\Beta\Generated\Connections\Item\Operations\Item\ConnectionOp
 use Microsoft\Graph\Beta\Generated\Connections\Item\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Connections\Item\Quota\QuotaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Connections\Item\Schema\SchemaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ExternalConnectors\ExternalConnection;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\ExternalConnection;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -25,14 +25,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ExternalConnectionItemRequestBuilder 
 {
+    /**
+     * The groups property
+    */
     public function groups(): GroupsRequestBuilder {
         return new GroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The items property
+    */
     public function items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The operations property
+    */
     public function operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -40,6 +49,9 @@ class ExternalConnectionItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The quota property
+    */
     public function quota(): QuotaRequestBuilder {
         return new QuotaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -47,6 +59,9 @@ class ExternalConnectionItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The schema property
+    */
     public function schema(): SchemaRequestBuilder {
         return new SchemaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

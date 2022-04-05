@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsResourcePerformance\SummarizeDeviceResourcePerformanceWithSummarizeBy;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UserExperienceAnalyticsResourcePerformance;
+use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsResourcePerformance;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class SummarizeDeviceResourcePerformanceWithSummarizeByResponse implements Addit
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<UserExperienceAnalyticsResourcePerformance>|null $value  */
+    /** @var array<UserExperienceAnalyticsResourcePerformance>|null $value The value property */
     private ?array $value = null;
     
     /**
@@ -51,7 +51,7 @@ class SummarizeDeviceResourcePerformanceWithSummarizeByResponse implements Addit
     }
 
     /**
-     * Gets the value property value. 
+     * Gets the value property value. The value property
      * @return array<UserExperienceAnalyticsResourcePerformance>|null
     */
     public function getValue(): ?array {
@@ -76,7 +76,7 @@ class SummarizeDeviceResourcePerformanceWithSummarizeByResponse implements Addit
     }
 
     /**
-     * Sets the value property value. 
+     * Sets the value property value. The value property
      *  @param array<UserExperienceAnalyticsResourcePerformance>|null $value Value to set for the value property.
     */
     public function setValue(?array $value ): void {

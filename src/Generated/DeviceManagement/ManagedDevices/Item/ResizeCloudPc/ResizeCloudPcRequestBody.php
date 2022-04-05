@@ -12,7 +12,7 @@ class ResizeCloudPcRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $targetServicePlanId  */
+    /** @var string|null $targetServicePlanId The targetServicePlanId property */
     private ?string $targetServicePlanId = null;
     
     /**
@@ -50,7 +50,7 @@ class ResizeCloudPcRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the targetServicePlanId property value. 
+     * Gets the targetServicePlanId property value. The targetServicePlanId property
      * @return string|null
     */
     public function getTargetServicePlanId(): ?string {
@@ -75,7 +75,7 @@ class ResizeCloudPcRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the targetServicePlanId property value. 
+     * Sets the targetServicePlanId property value. The targetServicePlanId property
      *  @param string|null $value Value to set for the targetServicePlanId property.
     */
     public function setTargetServicePlanId(?string $value ): void {

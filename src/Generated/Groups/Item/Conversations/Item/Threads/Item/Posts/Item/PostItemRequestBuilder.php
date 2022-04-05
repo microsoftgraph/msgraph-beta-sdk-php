@@ -18,8 +18,8 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\Item\P
 use Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\Item\Posts\Item\Reply\ReplyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\Item\Posts\Item\SingleValueExtendedProperties\Item\SingleValueLegacyExtendedPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\Item\Posts\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Post;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Post;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -30,26 +30,44 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PostItemRequestBuilder 
 {
+    /**
+     * The attachments property
+    */
     public function attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The extensions property
+    */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The forward property
+    */
     public function forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The inReplyTo property
+    */
     public function inReplyTo(): InReplyToRequestBuilder {
         return new InReplyToRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The mentions property
+    */
     public function mentions(): MentionsRequestBuilder {
         return new MentionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The multiValueExtendedProperties property
+    */
     public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -57,6 +75,9 @@ class PostItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The reply property
+    */
     public function reply(): ReplyRequestBuilder {
         return new ReplyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -64,6 +85,9 @@ class PostItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The singleValueExtendedProperties property
+    */
     public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

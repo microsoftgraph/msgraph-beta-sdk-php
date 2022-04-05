@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Security\SecurityActions\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SecurityAction;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SecurityAction;
 use Microsoft\Graph\Beta\Generated\Security\SecurityActions\Item\CancelSecurityAction\CancelSecurityActionRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -18,6 +18,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SecurityActionItemRequestBuilder 
 {
+    /**
+     * The cancelSecurityAction property
+    */
     public function cancelSecurityAction(): CancelSecurityActionRequestBuilder {
         return new CancelSecurityActionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\MessageRecipients\Item\Events\EventsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\MessageRecipients\Item\Events\Item\MessageEventItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MessageRecipient;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\MessageRecipient;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class MessageRecipientItemRequestBuilder 
 {
+    /**
+     * The events property
+    */
     public function events(): EventsRequestBuilder {
         return new EventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

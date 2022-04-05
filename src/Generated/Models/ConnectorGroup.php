@@ -1,0 +1,170 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models;
+
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+class ConnectorGroup extends Entity 
+{
+    /** @var array<Application>|null $applications Read-only. Nullable. */
+    private ?array $applications = null;
+    
+    /** @var ConnectorGroupType|null $connectorGroupType Indicates the type of hybrid agent. This pre-set by the system. Possible values are: applicationProxy. Read-only. */
+    private ?ConnectorGroupType $connectorGroupType = null;
+    
+    /** @var bool|null $isDefault Indicates if the connectorGroup is the default connectorGroup. Only a single connector group can be the default connectorGroup and this is pre-set by the system. Read-only. */
+    private ?bool $isDefault = null;
+    
+    /** @var array<Connector>|null $members Read-only. Nullable. */
+    private ?array $members = null;
+    
+    /** @var string|null $name The name associated with the connectorGroup. */
+    private ?string $name = null;
+    
+    /** @var ConnectorGroupRegion|null $region The region the connectorGroup is assigned to and will optimize traffic for. This region can only be set if no connectors or applications are assigned to the connectorGroup. The possible values are: nam (for North America), eur (for Europe), aus (for Australia), asia (for Asia), ind (for India), and unknownFutureValue. */
+    private ?ConnectorGroupRegion $region = null;
+    
+    /**
+     * Instantiates a new connectorGroup and sets the default values.
+    */
+    public function __construct() {
+        parent::__construct();
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return ConnectorGroup
+    */
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ConnectorGroup {
+        return new ConnectorGroup();
+    }
+
+    /**
+     * Gets the applications property value. Read-only. Nullable.
+     * @return array<Application>|null
+    */
+    public function getApplications(): ?array {
+        return $this->applications;
+    }
+
+    /**
+     * Gets the connectorGroupType property value. Indicates the type of hybrid agent. This pre-set by the system. Possible values are: applicationProxy. Read-only.
+     * @return ConnectorGroupType|null
+    */
+    public function getConnectorGroupType(): ?ConnectorGroupType {
+        return $this->connectorGroupType;
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable>
+    */
+    public function getFieldDeserializers(): array {
+        return array_merge(parent::getFieldDeserializers(), [
+            'applications' => function (self $o, ParseNode $n) { $o->setApplications($n->getCollectionOfObjectValues(Application::class)); },
+            'connectorGroupType' => function (self $o, ParseNode $n) { $o->setConnectorGroupType($n->getEnumValue(ConnectorGroupType::class)); },
+            'isDefault' => function (self $o, ParseNode $n) { $o->setIsDefault($n->getBooleanValue()); },
+            'members' => function (self $o, ParseNode $n) { $o->setMembers($n->getCollectionOfObjectValues(Connector::class)); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'region' => function (self $o, ParseNode $n) { $o->setRegion($n->getEnumValue(ConnectorGroupRegion::class)); },
+        ]);
+    }
+
+    /**
+     * Gets the isDefault property value. Indicates if the connectorGroup is the default connectorGroup. Only a single connector group can be the default connectorGroup and this is pre-set by the system. Read-only.
+     * @return bool|null
+    */
+    public function getIsDefault(): ?bool {
+        return $this->isDefault;
+    }
+
+    /**
+     * Gets the members property value. Read-only. Nullable.
+     * @return array<Connector>|null
+    */
+    public function getMembers(): ?array {
+        return $this->members;
+    }
+
+    /**
+     * Gets the name property value. The name associated with the connectorGroup.
+     * @return string|null
+    */
+    public function getName(): ?string {
+        return $this->name;
+    }
+
+    /**
+     * Gets the region property value. The region the connectorGroup is assigned to and will optimize traffic for. This region can only be set if no connectors or applications are assigned to the connectorGroup. The possible values are: nam (for North America), eur (for Europe), aus (for Australia), asia (for Asia), ind (for India), and unknownFutureValue.
+     * @return ConnectorGroupRegion|null
+    */
+    public function getRegion(): ?ConnectorGroupRegion {
+        return $this->region;
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('applications', $this->applications);
+        $writer->writeEnumValue('connectorGroupType', $this->connectorGroupType);
+        $writer->writeBooleanValue('isDefault', $this->isDefault);
+        $writer->writeCollectionOfObjectValues('members', $this->members);
+        $writer->writeStringValue('name', $this->name);
+        $writer->writeEnumValue('region', $this->region);
+    }
+
+    /**
+     * Sets the applications property value. Read-only. Nullable.
+     *  @param array<Application>|null $value Value to set for the applications property.
+    */
+    public function setApplications(?array $value ): void {
+        $this->applications = $value;
+    }
+
+    /**
+     * Sets the connectorGroupType property value. Indicates the type of hybrid agent. This pre-set by the system. Possible values are: applicationProxy. Read-only.
+     *  @param ConnectorGroupType|null $value Value to set for the connectorGroupType property.
+    */
+    public function setConnectorGroupType(?ConnectorGroupType $value ): void {
+        $this->connectorGroupType = $value;
+    }
+
+    /**
+     * Sets the isDefault property value. Indicates if the connectorGroup is the default connectorGroup. Only a single connector group can be the default connectorGroup and this is pre-set by the system. Read-only.
+     *  @param bool|null $value Value to set for the isDefault property.
+    */
+    public function setIsDefault(?bool $value ): void {
+        $this->isDefault = $value;
+    }
+
+    /**
+     * Sets the members property value. Read-only. Nullable.
+     *  @param array<Connector>|null $value Value to set for the members property.
+    */
+    public function setMembers(?array $value ): void {
+        $this->members = $value;
+    }
+
+    /**
+     * Sets the name property value. The name associated with the connectorGroup.
+     *  @param string|null $value Value to set for the name property.
+    */
+    public function setName(?string $value ): void {
+        $this->name = $value;
+    }
+
+    /**
+     * Sets the region property value. The region the connectorGroup is assigned to and will optimize traffic for. This region can only be set if no connectors or applications are assigned to the connectorGroup. The possible values are: nam (for North America), eur (for Europe), aus (for Australia), asia (for Asia), ind (for India), and unknownFutureValue.
+     *  @param ConnectorGroupRegion|null $value Value to set for the region property.
+    */
+    public function setRegion(?ConnectorGroupRegion $value ): void {
+        $this->region = $value;
+    }
+
+}

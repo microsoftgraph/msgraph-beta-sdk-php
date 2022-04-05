@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\UpdateRelationships;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MobileAppRelationship;
+use Microsoft\Graph\Beta\Generated\Models\MobileAppRelationship;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class UpdateRelationshipsRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<MobileAppRelationship>|null $relationships  */
+    /** @var array<MobileAppRelationship>|null $relationships The relationships property */
     private ?array $relationships = null;
     
     /**
@@ -51,7 +51,7 @@ class UpdateRelationshipsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the relationships property value. 
+     * Gets the relationships property value. The relationships property
      * @return array<MobileAppRelationship>|null
     */
     public function getRelationships(): ?array {
@@ -76,7 +76,7 @@ class UpdateRelationshipsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the relationships property value. 
+     * Sets the relationships property value. The relationships property
      *  @param array<MobileAppRelationship>|null $value Value to set for the relationships property.
     */
     public function setRelationships(?array $value ): void {

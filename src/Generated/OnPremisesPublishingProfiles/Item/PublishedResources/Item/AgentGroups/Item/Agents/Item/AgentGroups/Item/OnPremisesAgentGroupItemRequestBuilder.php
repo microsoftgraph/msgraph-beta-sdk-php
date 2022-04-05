@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Publi
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OnPremisesAgentGroup;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OnPremisesAgentGroup;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\PublishedResources\Item\AgentGroups\Item\Agents\Item\AgentGroups\Item\PublishedResources\Item\PublishedResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\PublishedResources\Item\AgentGroups\Item\Agents\Item\AgentGroups\Item\PublishedResources\PublishedResourcesRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -22,6 +22,9 @@ class OnPremisesAgentGroupItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The publishedResources property
+    */
     public function publishedResources(): PublishedResourcesRequestBuilder {
         return new PublishedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

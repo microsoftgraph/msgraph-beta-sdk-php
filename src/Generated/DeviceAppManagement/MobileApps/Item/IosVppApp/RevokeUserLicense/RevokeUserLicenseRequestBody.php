@@ -12,10 +12,10 @@ class RevokeUserLicenseRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var bool|null $notifyManagedDevices  */
+    /** @var bool|null $notifyManagedDevices The notifyManagedDevices property */
     private ?bool $notifyManagedDevices = null;
     
-    /** @var string|null $userId  */
+    /** @var string|null $userId The userId property */
     private ?string $userId = null;
     
     /**
@@ -54,7 +54,7 @@ class RevokeUserLicenseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the notifyManagedDevices property value. 
+     * Gets the notifyManagedDevices property value. The notifyManagedDevices property
      * @return bool|null
     */
     public function getNotifyManagedDevices(): ?bool {
@@ -62,7 +62,7 @@ class RevokeUserLicenseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the userId property value. 
+     * Gets the userId property value. The userId property
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -88,7 +88,7 @@ class RevokeUserLicenseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the notifyManagedDevices property value. 
+     * Sets the notifyManagedDevices property value. The notifyManagedDevices property
      *  @param bool|null $value Value to set for the notifyManagedDevices property.
     */
     public function setNotifyManagedDevices(?bool $value ): void {
@@ -96,7 +96,7 @@ class RevokeUserLicenseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the userId property value. 
+     * Sets the userId property value. The userId property
      *  @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value ): void {

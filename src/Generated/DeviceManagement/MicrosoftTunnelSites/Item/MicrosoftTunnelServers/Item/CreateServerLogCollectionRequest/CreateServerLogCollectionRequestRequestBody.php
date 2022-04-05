@@ -13,10 +13,10 @@ class CreateServerLogCollectionRequestRequestBody implements AdditionalDataHolde
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var DateTime|null $endDateTime  */
+    /** @var DateTime|null $endDateTime The endDateTime property */
     private ?DateTime $endDateTime = null;
     
-    /** @var DateTime|null $startDateTime  */
+    /** @var DateTime|null $startDateTime The startDateTime property */
     private ?DateTime $startDateTime = null;
     
     /**
@@ -44,7 +44,7 @@ class CreateServerLogCollectionRequestRequestBody implements AdditionalDataHolde
     }
 
     /**
-     * Gets the endDateTime property value. 
+     * Gets the endDateTime property value. The endDateTime property
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
@@ -63,7 +63,7 @@ class CreateServerLogCollectionRequestRequestBody implements AdditionalDataHolde
     }
 
     /**
-     * Gets the startDateTime property value. 
+     * Gets the startDateTime property value. The startDateTime property
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
@@ -89,7 +89,7 @@ class CreateServerLogCollectionRequestRequestBody implements AdditionalDataHolde
     }
 
     /**
-     * Sets the endDateTime property value. 
+     * Sets the endDateTime property value. The endDateTime property
      *  @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value ): void {
@@ -97,7 +97,7 @@ class CreateServerLogCollectionRequestRequestBody implements AdditionalDataHolde
     }
 
     /**
-     * Sets the startDateTime property value. 
+     * Sets the startDateTime property value. The startDateTime property
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value ): void {

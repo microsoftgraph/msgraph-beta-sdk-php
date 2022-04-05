@@ -3,7 +3,7 @@
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\ExecuteAction;
 
 use DateTime;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DriverApprovalAction;
+use Microsoft\Graph\Beta\Generated\Models\DriverApprovalAction;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -11,16 +11,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable 
 {
-    /** @var DriverApprovalAction|null $actionName  */
+    /** @var DriverApprovalAction|null $actionName The actionName property */
     private ?DriverApprovalAction $actionName = null;
     
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var DateTime|null $deploymentDate  */
+    /** @var DateTime|null $deploymentDate The deploymentDate property */
     private ?DateTime $deploymentDate = null;
     
-    /** @var array<string>|null $driverIds  */
+    /** @var array<string>|null $driverIds The driverIds property */
     private ?array $driverIds = null;
     
     /**
@@ -40,7 +40,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the actionName property value. 
+     * Gets the actionName property value. The actionName property
      * @return DriverApprovalAction|null
     */
     public function getActionName(): ?DriverApprovalAction {
@@ -56,7 +56,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deploymentDate property value. 
+     * Gets the deploymentDate property value. The deploymentDate property
      * @return DateTime|null
     */
     public function getDeploymentDate(): ?DateTime {
@@ -64,7 +64,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the driverIds property value. 
+     * Gets the driverIds property value. The driverIds property
      * @return array<string>|null
     */
     public function getDriverIds(): ?array {
@@ -95,7 +95,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the actionName property value. 
+     * Sets the actionName property value. The actionName property
      *  @param DriverApprovalAction|null $value Value to set for the actionName property.
     */
     public function setActionName(?DriverApprovalAction $value ): void {
@@ -111,7 +111,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deploymentDate property value. 
+     * Sets the deploymentDate property value. The deploymentDate property
      *  @param DateTime|null $value Value to set for the deploymentDate property.
     */
     public function setDeploymentDate(?DateTime $value ): void {
@@ -119,7 +119,7 @@ class ExecuteActionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the driverIds property value. 
+     * Sets the driverIds property value. The driverIds property
      *  @param array<string>|null $value Value to set for the driverIds property.
     */
     public function setDriverIds(?array $value ): void {

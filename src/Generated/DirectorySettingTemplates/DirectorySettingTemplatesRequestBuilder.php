@@ -9,9 +9,9 @@ use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\Count\CountRequestB
 use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\GetByIds\GetByIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\ValidateProperties\ValidatePropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DirectorySettingTemplate;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DirectorySettingTemplateCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DirectorySettingTemplate;
+use Microsoft\Graph\Beta\Generated\Models\DirectorySettingTemplateCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,14 +22,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DirectorySettingTemplatesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getByIds property
+    */
     public function getByIds(): GetByIdsRequestBuilder {
         return new GetByIdsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getUserOwnedObjects property
+    */
     public function getUserOwnedObjects(): GetUserOwnedObjectsRequestBuilder {
         return new GetUserOwnedObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -43,6 +52,9 @@ class DirectorySettingTemplatesRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The validateProperties property
+    */
     public function validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

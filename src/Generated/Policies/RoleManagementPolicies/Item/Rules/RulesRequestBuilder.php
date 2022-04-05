@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\Ru
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UnifiedRoleManagementPolicyRule;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UnifiedRoleManagementPolicyRuleCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleManagementPolicyRule;
+use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleManagementPolicyRuleCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\Rules\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class RulesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

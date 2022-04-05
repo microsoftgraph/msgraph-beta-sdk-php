@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\CreateInstance;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementSettingInstance;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementSettingInstance;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,16 +13,16 @@ class CreateInstanceRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $description  */
+    /** @var string|null $description The description property */
     private ?string $description = null;
     
-    /** @var string|null $displayName  */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /** @var array<string>|null $roleScopeTagIds  */
+    /** @var array<string>|null $roleScopeTagIds The roleScopeTagIds property */
     private ?array $roleScopeTagIds = null;
     
-    /** @var array<DeviceManagementSettingInstance>|null $settingsDelta  */
+    /** @var array<DeviceManagementSettingInstance>|null $settingsDelta The settingsDelta property */
     private ?array $settingsDelta = null;
     
     /**
@@ -50,7 +50,7 @@ class CreateInstanceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the description property value. 
+     * Gets the description property value. The description property
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -58,7 +58,7 @@ class CreateInstanceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the displayName property value. 
+     * Gets the displayName property value. The displayName property
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -79,7 +79,7 @@ class CreateInstanceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the roleScopeTagIds property value. 
+     * Gets the roleScopeTagIds property value. The roleScopeTagIds property
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
@@ -87,7 +87,7 @@ class CreateInstanceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the settingsDelta property value. 
+     * Gets the settingsDelta property value. The settingsDelta property
      * @return array<DeviceManagementSettingInstance>|null
     */
     public function getSettingsDelta(): ?array {
@@ -115,7 +115,7 @@ class CreateInstanceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the description property value. 
+     * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -123,7 +123,7 @@ class CreateInstanceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the displayName property value. 
+     * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -131,7 +131,7 @@ class CreateInstanceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the roleScopeTagIds property value. 
+     * Sets the roleScopeTagIds property value. The roleScopeTagIds property
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value ): void {
@@ -139,7 +139,7 @@ class CreateInstanceRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the settingsDelta property value. 
+     * Sets the settingsDelta property value. The settingsDelta property
      *  @param array<DeviceManagementSettingInstance>|null $value Value to set for the settingsDelta property.
     */
     public function setSettingsDelta(?array $value ): void {

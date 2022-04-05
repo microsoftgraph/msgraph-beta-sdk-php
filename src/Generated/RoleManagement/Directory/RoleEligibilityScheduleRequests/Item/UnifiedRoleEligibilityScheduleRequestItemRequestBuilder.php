@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilit
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UnifiedRoleEligibilityScheduleRequest;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleEligibilityScheduleRequest;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilityScheduleRequests\Item\AppScope\AppScopeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilityScheduleRequests\Item\Cancel\CancelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilityScheduleRequests\Item\DirectoryScope\DirectoryScopeRequestBuilder;
@@ -23,14 +23,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class UnifiedRoleEligibilityScheduleRequestItemRequestBuilder 
 {
+    /**
+     * The appScope property
+    */
     public function appScope(): AppScopeRequestBuilder {
         return new AppScopeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The cancel property
+    */
     public function cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The directoryScope property
+    */
     public function directoryScope(): DirectoryScopeRequestBuilder {
         return new DirectoryScopeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -38,6 +47,9 @@ class UnifiedRoleEligibilityScheduleRequestItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The principal property
+    */
     public function principal(): PrincipalRequestBuilder {
         return new PrincipalRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -45,10 +57,16 @@ class UnifiedRoleEligibilityScheduleRequestItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The roleDefinition property
+    */
     public function roleDefinition(): RoleDefinitionRequestBuilder {
         return new RoleDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The targetSchedule property
+    */
     public function targetSchedule(): TargetScheduleRequestBuilder {
         return new TargetScheduleRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

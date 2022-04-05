@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\UnenrollAssets;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsUpdates\UpdatableAsset;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsUpdates\UpdateCategory;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAsset;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdateCategory;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,10 +14,10 @@ class UnenrollAssetsRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<UpdatableAsset>|null $assets  */
+    /** @var array<UpdatableAsset>|null $assets The assets property */
     private ?array $assets = null;
     
-    /** @var UpdateCategory|null $updateCategory  */
+    /** @var UpdateCategory|null $updateCategory The updateCategory property */
     private ?UpdateCategory $updateCategory = null;
     
     /**
@@ -45,7 +45,7 @@ class UnenrollAssetsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the assets property value. 
+     * Gets the assets property value. The assets property
      * @return array<UpdatableAsset>|null
     */
     public function getAssets(): ?array {
@@ -64,7 +64,7 @@ class UnenrollAssetsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the updateCategory property value. 
+     * Gets the updateCategory property value. The updateCategory property
      * @return UpdateCategory|null
     */
     public function getUpdateCategory(): ?UpdateCategory {
@@ -90,7 +90,7 @@ class UnenrollAssetsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the assets property value. 
+     * Sets the assets property value. The assets property
      *  @param array<UpdatableAsset>|null $value Value to set for the assets property.
     */
     public function setAssets(?array $value ): void {
@@ -98,7 +98,7 @@ class UnenrollAssetsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the updateCategory property value. 
+     * Sets the updateCategory property value. The updateCategory property
      *  @param UpdateCategory|null $value Value to set for the updateCategory property.
     */
     public function setUpdateCategory(?UpdateCategory $value ): void {
