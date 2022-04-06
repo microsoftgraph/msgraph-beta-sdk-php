@@ -12,7 +12,7 @@ class GetRoleScopeTagsByIdRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $roleScopeTagIds  */
+    /** @var array<string>|null $roleScopeTagIds The roleScopeTagIds property */
     private ?array $roleScopeTagIds = null;
     
     /**
@@ -50,7 +50,7 @@ class GetRoleScopeTagsByIdRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the roleScopeTagIds property value. 
+     * Gets the roleScopeTagIds property value. The roleScopeTagIds property
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
@@ -75,7 +75,7 @@ class GetRoleScopeTagsByIdRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the roleScopeTagIds property value. 
+     * Sets the roleScopeTagIds property value. The roleScopeTagIds property
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value ): void {

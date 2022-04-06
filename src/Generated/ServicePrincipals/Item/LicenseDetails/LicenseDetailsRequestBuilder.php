@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\LicenseDetails;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\LicenseDetails;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\LicenseDetailsCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\LicenseDetails;
+use Microsoft\Graph\Beta\Generated\Models\LicenseDetailsCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\LicenseDetails\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class LicenseDetailsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

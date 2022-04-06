@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audien
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\AddMembersById\AddMembersByIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\RemoveMembers\RemoveMembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\RemoveMembersById\RemoveMembersByIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsUpdates\UpdatableAsset;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAsset;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class UpdatableAssetItemRequestBuilder 
 {
+    /**
+     * The addMembers property
+    */
     public function addMembers(): AddMembersRequestBuilder {
         return new AddMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The addMembersById property
+    */
     public function addMembersById(): AddMembersByIdRequestBuilder {
         return new AddMembersByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -32,10 +38,16 @@ class UpdatableAssetItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The removeMembers property
+    */
     public function removeMembers(): RemoveMembersRequestBuilder {
         return new RemoveMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The removeMembersById property
+    */
     public function removeMembersById(): RemoveMembersByIdRequestBuilder {
         return new RemoveMembersByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

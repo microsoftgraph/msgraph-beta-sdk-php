@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OemWarrantyInformationOnboarding\Item\Disable\DisableRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OemWarrantyInformationOnboarding\Item\Enable\EnableRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OemWarrantyInformationOnboarding;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OemWarrantyInformationOnboarding;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,10 +19,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class OemWarrantyInformationOnboardingItemRequestBuilder 
 {
+    /**
+     * The disable property
+    */
     public function disable(): DisableRequestBuilder {
         return new DisableRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The enable property
+    */
     public function enable(): EnableRequestBuilder {
         return new EnableRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

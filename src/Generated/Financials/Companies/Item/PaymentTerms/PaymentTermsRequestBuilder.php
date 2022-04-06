@@ -6,9 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PaymentTerms\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PaymentTerm;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PaymentTermCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PaymentTerm;
+use Microsoft\Graph\Beta\Generated\Models\PaymentTermCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PaymentTermsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

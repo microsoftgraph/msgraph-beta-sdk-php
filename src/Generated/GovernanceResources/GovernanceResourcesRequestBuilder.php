@@ -7,9 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\GovernanceResources\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\GovernanceResources\Register\RegisterRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GovernanceResource;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GovernanceResourceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceResource;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceResourceCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class GovernanceResourcesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -27,6 +30,9 @@ class GovernanceResourcesRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The register property
+    */
     public function register(): RegisterRequestBuilder {
         return new RegisterRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

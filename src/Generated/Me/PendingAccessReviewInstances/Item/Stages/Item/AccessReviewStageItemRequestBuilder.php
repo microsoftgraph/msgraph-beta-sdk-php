@@ -8,8 +8,8 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\PendingAccessReviewInstances\Item\Stages\Item\Decisions\DecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\PendingAccessReviewInstances\Item\Stages\Item\Decisions\Item\AccessReviewInstanceDecisionItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\PendingAccessReviewInstances\Item\Stages\Item\Stop\StopRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessReviewStage;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessReviewStage;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AccessReviewStageItemRequestBuilder 
 {
+    /**
+     * The decisions property
+    */
     public function decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -30,6 +33,9 @@ class AccessReviewStageItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The stop property
+    */
     public function stop(): StopRequestBuilder {
         return new StopRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

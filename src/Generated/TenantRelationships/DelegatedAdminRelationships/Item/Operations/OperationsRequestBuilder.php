@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelat
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DelegatedAdminRelationshipOperation;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DelegatedAdminRelationshipOperationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DelegatedAdminRelationshipOperation;
+use Microsoft\Graph\Beta\Generated\Models\DelegatedAdminRelationshipOperationCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelationships\Item\Operations\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class OperationsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -44,7 +47,7 @@ class OperationsRequestBuilder
     }
 
     /**
-     * Get operations from tenantRelationships
+     * The long running operations associated with the delegated admin relationship.
      * @param array|null $queryParameters Request query parameters
      * @param array<string, mixed>|null $headers Request headers
      * @param array<string, RequestOption>|null $options Request options
@@ -90,7 +93,7 @@ class OperationsRequestBuilder
     }
 
     /**
-     * Get operations from tenantRelationships
+     * The long running operations associated with the delegated admin relationship.
      * @param array|null $queryParameters Request query parameters
      * @param array<string, mixed>|null $headers Request headers
      * @param array<string, RequestOption>|null $options Request options

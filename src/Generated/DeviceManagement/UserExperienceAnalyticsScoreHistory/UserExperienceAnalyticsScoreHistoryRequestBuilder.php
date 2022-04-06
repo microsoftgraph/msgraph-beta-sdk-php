@@ -6,9 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsScoreHistory\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UserExperienceAnalyticsScoreHistory;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UserExperienceAnalyticsScoreHistoryCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsScoreHistory;
+use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsScoreHistoryCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class UserExperienceAnalyticsScoreHistoryRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

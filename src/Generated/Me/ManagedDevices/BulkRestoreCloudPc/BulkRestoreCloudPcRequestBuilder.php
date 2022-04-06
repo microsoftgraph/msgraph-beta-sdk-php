@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\ManagedDevices\BulkRestoreCloudPc;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CloudPcBulkRemoteActionResult;
+use Microsoft\Graph\Beta\Generated\Models\CloudPcBulkRemoteActionResult;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

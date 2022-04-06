@@ -54,8 +54,8 @@ use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsInformationProtect
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsInformationProtectionWipeActions\Item\WindowsInformationProtectionWipeActionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsInformationProtectionWipeActions\WindowsInformationProtectionWipeActionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsManagementApp\WindowsManagementAppRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceAppManagement;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceAppManagement;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -66,62 +66,107 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeviceAppManagementRequestBuilder 
 {
+    /**
+     * The androidManagedAppProtections property
+    */
     public function androidManagedAppProtections(): AndroidManagedAppProtectionsRequestBuilder {
         return new AndroidManagedAppProtectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The defaultManagedAppProtections property
+    */
     public function defaultManagedAppProtections(): DefaultManagedAppProtectionsRequestBuilder {
         return new DefaultManagedAppProtectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceAppManagementTasks property
+    */
     public function deviceAppManagementTasks(): DeviceAppManagementTasksRequestBuilder {
         return new DeviceAppManagementTasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The enterpriseCodeSigningCertificates property
+    */
     public function enterpriseCodeSigningCertificates(): EnterpriseCodeSigningCertificatesRequestBuilder {
         return new EnterpriseCodeSigningCertificatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The iosLobAppProvisioningConfigurations property
+    */
     public function iosLobAppProvisioningConfigurations(): IosLobAppProvisioningConfigurationsRequestBuilder {
         return new IosLobAppProvisioningConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The iosManagedAppProtections property
+    */
     public function iosManagedAppProtections(): IosManagedAppProtectionsRequestBuilder {
         return new IosManagedAppProtectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managedAppPolicies property
+    */
     public function managedAppPolicies(): ManagedAppPoliciesRequestBuilder {
         return new ManagedAppPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managedAppRegistrations property
+    */
     public function managedAppRegistrations(): ManagedAppRegistrationsRequestBuilder {
         return new ManagedAppRegistrationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managedAppStatuses property
+    */
     public function managedAppStatuses(): ManagedAppStatusesRequestBuilder {
         return new ManagedAppStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managedEBookCategories property
+    */
     public function managedEBookCategories(): ManagedEBookCategoriesRequestBuilder {
         return new ManagedEBookCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managedEBooks property
+    */
     public function managedEBooks(): ManagedEBooksRequestBuilder {
         return new ManagedEBooksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The mdmWindowsInformationProtectionPolicies property
+    */
     public function mdmWindowsInformationProtectionPolicies(): MdmWindowsInformationProtectionPoliciesRequestBuilder {
         return new MdmWindowsInformationProtectionPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The mobileAppCategories property
+    */
     public function mobileAppCategories(): MobileAppCategoriesRequestBuilder {
         return new MobileAppCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The mobileAppConfigurations property
+    */
     public function mobileAppConfigurations(): MobileAppConfigurationsRequestBuilder {
         return new MobileAppConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The mobileApps property
+    */
     public function mobileApps(): MobileAppsRequestBuilder {
         return new MobileAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -129,6 +174,9 @@ class DeviceAppManagementRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The policySets property
+    */
     public function policySets(): PolicySetsRequestBuilder {
         return new PolicySetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -136,18 +184,30 @@ class DeviceAppManagementRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The sideLoadingKeys property
+    */
     public function sideLoadingKeys(): SideLoadingKeysRequestBuilder {
         return new SideLoadingKeysRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The symantecCodeSigningCertificate property
+    */
     public function symantecCodeSigningCertificate(): SymantecCodeSigningCertificateRequestBuilder {
         return new SymantecCodeSigningCertificateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The syncMicrosoftStoreForBusinessApps property
+    */
     public function syncMicrosoftStoreForBusinessApps(): SyncMicrosoftStoreForBusinessAppsRequestBuilder {
         return new SyncMicrosoftStoreForBusinessAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The targetedManagedAppConfigurations property
+    */
     public function targetedManagedAppConfigurations(): TargetedManagedAppConfigurationsRequestBuilder {
         return new TargetedManagedAppConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -155,26 +215,44 @@ class DeviceAppManagementRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The vppTokens property
+    */
     public function vppTokens(): VppTokensRequestBuilder {
         return new VppTokensRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The wdacSupplementalPolicies property
+    */
     public function wdacSupplementalPolicies(): WdacSupplementalPoliciesRequestBuilder {
         return new WdacSupplementalPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsInformationProtectionDeviceRegistrations property
+    */
     public function windowsInformationProtectionDeviceRegistrations(): WindowsInformationProtectionDeviceRegistrationsRequestBuilder {
         return new WindowsInformationProtectionDeviceRegistrationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsInformationProtectionPolicies property
+    */
     public function windowsInformationProtectionPolicies(): WindowsInformationProtectionPoliciesRequestBuilder {
         return new WindowsInformationProtectionPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsInformationProtectionWipeActions property
+    */
     public function windowsInformationProtectionWipeActions(): WindowsInformationProtectionWipeActionsRequestBuilder {
         return new WindowsInformationProtectionWipeActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsManagementApp property
+    */
     public function windowsManagementApp(): WindowsManagementAppRequestBuilder {
         return new WindowsManagementAppRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

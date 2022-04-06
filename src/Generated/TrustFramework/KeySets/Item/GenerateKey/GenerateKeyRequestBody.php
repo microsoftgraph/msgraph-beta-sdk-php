@@ -12,16 +12,16 @@ class GenerateKeyRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $EscapedUse  */
+    /** @var string|null $EscapedUse The use property */
     private ?string $escapedUse = null;
     
-    /** @var int|null $exp  */
+    /** @var int|null $exp The exp property */
     private ?int $exp = null;
     
-    /** @var string|null $kty  */
+    /** @var string|null $kty The kty property */
     private ?string $kty = null;
     
-    /** @var int|null $nbf  */
+    /** @var int|null $nbf The nbf property */
     private ?int $nbf = null;
     
     /**
@@ -49,7 +49,7 @@ class GenerateKeyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the exp property value. 
+     * Gets the exp property value. The exp property
      * @return int|null
     */
     public function getExp(): ?int {
@@ -70,7 +70,7 @@ class GenerateKeyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the kty property value. 
+     * Gets the kty property value. The kty property
      * @return string|null
     */
     public function getKty(): ?string {
@@ -78,7 +78,7 @@ class GenerateKeyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the nbf property value. 
+     * Gets the nbf property value. The nbf property
      * @return int|null
     */
     public function getNbf(): ?int {
@@ -86,7 +86,7 @@ class GenerateKeyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the use property value. 
+     * Gets the use property value. The use property
      * @return string|null
     */
     public function getUse(): ?string {
@@ -114,7 +114,7 @@ class GenerateKeyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the exp property value. 
+     * Sets the exp property value. The exp property
      *  @param int|null $value Value to set for the exp property.
     */
     public function setExp(?int $value ): void {
@@ -122,7 +122,7 @@ class GenerateKeyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the kty property value. 
+     * Sets the kty property value. The kty property
      *  @param string|null $value Value to set for the kty property.
     */
     public function setKty(?string $value ): void {
@@ -130,7 +130,7 @@ class GenerateKeyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the nbf property value. 
+     * Sets the nbf property value. The nbf property
      *  @param int|null $value Value to set for the nbf property.
     */
     public function setNbf(?int $value ): void {
@@ -138,7 +138,7 @@ class GenerateKeyRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the use property value. 
+     * Sets the use property value. The use property
      *  @param string|null $value Value to set for the EscapedUse property.
     */
     public function setUse(?string $value ): void {

@@ -61,8 +61,8 @@ use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\Item\WindowsDefenderScan\Wi
 use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\Item\WindowsDefenderUpdateSignatures\WindowsDefenderUpdateSignaturesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\Item\WindowsProtectionState\WindowsProtectionStateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\Item\Wipe\WipeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagedDevice;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ManagedDevice;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -73,78 +73,135 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ManagedDeviceItemRequestBuilder 
 {
+    /**
+     * The activateDeviceEsim property
+    */
     public function activateDeviceEsim(): ActivateDeviceEsimRequestBuilder {
         return new ActivateDeviceEsimRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignmentFilterEvaluationStatusDetails property
+    */
     public function assignmentFilterEvaluationStatusDetails(): AssignmentFilterEvaluationStatusDetailsRequestBuilder {
         return new AssignmentFilterEvaluationStatusDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The bypassActivationLock property
+    */
     public function bypassActivationLock(): BypassActivationLockRequestBuilder {
         return new BypassActivationLockRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The cleanWindowsDevice property
+    */
     public function cleanWindowsDevice(): CleanWindowsDeviceRequestBuilder {
         return new CleanWindowsDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The createDeviceLogCollectionRequest property
+    */
     public function createDeviceLogCollectionRequest(): CreateDeviceLogCollectionRequestRequestBuilder {
         return new CreateDeviceLogCollectionRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deleteUserFromSharedAppleDevice property
+    */
     public function deleteUserFromSharedAppleDevice(): DeleteUserFromSharedAppleDeviceRequestBuilder {
         return new DeleteUserFromSharedAppleDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deprovision property
+    */
     public function deprovision(): DeprovisionRequestBuilder {
         return new DeprovisionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The detectedApps property
+    */
     public function detectedApps(): DetectedAppsRequestBuilder {
         return new DetectedAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceCategory property
+    */
     public function deviceCategory(): DeviceCategoryRequestBuilder {
         return new DeviceCategoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceCompliancePolicyStates property
+    */
     public function deviceCompliancePolicyStates(): DeviceCompliancePolicyStatesRequestBuilder {
         return new DeviceCompliancePolicyStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceConfigurationStates property
+    */
     public function deviceConfigurationStates(): DeviceConfigurationStatesRequestBuilder {
         return new DeviceConfigurationStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The disable property
+    */
     public function disable(): DisableRequestBuilder {
         return new DisableRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The disableLostMode property
+    */
     public function disableLostMode(): DisableLostModeRequestBuilder {
         return new DisableLostModeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The enableLostMode property
+    */
     public function enableLostMode(): EnableLostModeRequestBuilder {
         return new EnableLostModeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The locateDevice property
+    */
     public function locateDevice(): LocateDeviceRequestBuilder {
         return new LocateDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The logCollectionRequests property
+    */
     public function logCollectionRequests(): LogCollectionRequestsRequestBuilder {
         return new LogCollectionRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The logoutSharedAppleDeviceActiveUser property
+    */
     public function logoutSharedAppleDeviceActiveUser(): LogoutSharedAppleDeviceActiveUserRequestBuilder {
         return new LogoutSharedAppleDeviceActiveUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managedDeviceMobileAppConfigurationStates property
+    */
     public function managedDeviceMobileAppConfigurationStates(): ManagedDeviceMobileAppConfigurationStatesRequestBuilder {
         return new ManagedDeviceMobileAppConfigurationStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The overrideComplianceState property
+    */
     public function overrideComplianceState(): OverrideComplianceStateRequestBuilder {
         return new OverrideComplianceStateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -152,26 +209,44 @@ class ManagedDeviceItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The playLostModeSound property
+    */
     public function playLostModeSound(): PlayLostModeSoundRequestBuilder {
         return new PlayLostModeSoundRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The rebootNow property
+    */
     public function rebootNow(): RebootNowRequestBuilder {
         return new RebootNowRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The recoverPasscode property
+    */
     public function recoverPasscode(): RecoverPasscodeRequestBuilder {
         return new RecoverPasscodeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The reenable property
+    */
     public function reenable(): ReenableRequestBuilder {
         return new ReenableRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The remoteLock property
+    */
     public function remoteLock(): RemoteLockRequestBuilder {
         return new RemoteLockRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The reprovisionCloudPc property
+    */
     public function reprovisionCloudPc(): ReprovisionCloudPcRequestBuilder {
         return new ReprovisionCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -179,62 +254,107 @@ class ManagedDeviceItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The requestRemoteAssistance property
+    */
     public function requestRemoteAssistance(): RequestRemoteAssistanceRequestBuilder {
         return new RequestRemoteAssistanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The resetPasscode property
+    */
     public function resetPasscode(): ResetPasscodeRequestBuilder {
         return new ResetPasscodeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The resizeCloudPc property
+    */
     public function resizeCloudPc(): ResizeCloudPcRequestBuilder {
         return new ResizeCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The restoreCloudPc property
+    */
     public function restoreCloudPc(): RestoreCloudPcRequestBuilder {
         return new RestoreCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The retire property
+    */
     public function retire(): RetireRequestBuilder {
         return new RetireRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The revokeAppleVppLicenses property
+    */
     public function revokeAppleVppLicenses(): RevokeAppleVppLicensesRequestBuilder {
         return new RevokeAppleVppLicensesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The rotateBitLockerKeys property
+    */
     public function rotateBitLockerKeys(): RotateBitLockerKeysRequestBuilder {
         return new RotateBitLockerKeysRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The rotateFileVaultKey property
+    */
     public function rotateFileVaultKey(): RotateFileVaultKeyRequestBuilder {
         return new RotateFileVaultKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The securityBaselineStates property
+    */
     public function securityBaselineStates(): SecurityBaselineStatesRequestBuilder {
         return new SecurityBaselineStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The sendCustomNotificationToCompanyPortal property
+    */
     public function sendCustomNotificationToCompanyPortal(): SendCustomNotificationToCompanyPortalRequestBuilder {
         return new SendCustomNotificationToCompanyPortalRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The setDeviceName property
+    */
     public function setDeviceName(): SetDeviceNameRequestBuilder {
         return new SetDeviceNameRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The shutDown property
+    */
     public function shutDown(): ShutDownRequestBuilder {
         return new ShutDownRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The syncDevice property
+    */
     public function syncDevice(): SyncDeviceRequestBuilder {
         return new SyncDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The triggerConfigurationManagerAction property
+    */
     public function triggerConfigurationManagerAction(): TriggerConfigurationManagerActionRequestBuilder {
         return new TriggerConfigurationManagerActionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The updateWindowsDeviceAccount property
+    */
     public function updateWindowsDeviceAccount(): UpdateWindowsDeviceAccountRequestBuilder {
         return new UpdateWindowsDeviceAccountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -242,22 +362,37 @@ class ManagedDeviceItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The users property
+    */
     public function users(): UsersRequestBuilder {
         return new UsersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsDefenderScan property
+    */
     public function windowsDefenderScan(): WindowsDefenderScanRequestBuilder {
         return new WindowsDefenderScanRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsDefenderUpdateSignatures property
+    */
     public function windowsDefenderUpdateSignatures(): WindowsDefenderUpdateSignaturesRequestBuilder {
         return new WindowsDefenderUpdateSignaturesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsProtectionState property
+    */
     public function windowsProtectionState(): WindowsProtectionStateRequestBuilder {
         return new WindowsProtectionStateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The wipe property
+    */
     public function wipe(): WipeRequestBuilder {
         return new WipeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

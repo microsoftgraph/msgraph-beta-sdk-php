@@ -10,8 +10,8 @@ use Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item\Resourc
 use Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item\RoleDefinition\RoleDefinitionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item\Subject\SubjectRequestBuilder;
 use Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item\UpdateRequest\UpdateRequestRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GovernanceRoleAssignmentRequest;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleAssignmentRequest;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,6 +22,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class GovernanceRoleAssignmentRequestItemRequestBuilder 
 {
+    /**
+     * The cancel property
+    */
     public function cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -32,18 +35,30 @@ class GovernanceRoleAssignmentRequestItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resource property
+    */
     public function resource(): ResourceRequestBuilder {
         return new ResourceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleDefinition property
+    */
     public function roleDefinition(): RoleDefinitionRequestBuilder {
         return new RoleDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The subject property
+    */
     public function subject(): SubjectRequestBuilder {
         return new SubjectRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The updateRequest property
+    */
     public function updateRequest(): UpdateRequestRequestBuilder {
         return new UpdateRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Alerts;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Alert;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AlertCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Alert;
+use Microsoft\Graph\Beta\Generated\Models\AlertCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Security\Alerts\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Alerts\UpdateAlerts\UpdateAlertsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AlertsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -30,6 +33,9 @@ class AlertsRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The updateAlerts property
+    */
     public function updateAlerts(): UpdateAlertsRequestBuilder {
         return new UpdateAlertsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

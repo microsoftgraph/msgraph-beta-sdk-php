@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PhoneMethods;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PhoneAuthenticationMethod;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PhoneAuthenticationMethodCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PhoneAuthenticationMethod;
+use Microsoft\Graph\Beta\Generated\Models\PhoneAuthenticationMethodCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PhoneMethods\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PhoneMethodsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

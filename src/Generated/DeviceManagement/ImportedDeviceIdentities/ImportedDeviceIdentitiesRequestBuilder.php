@@ -8,9 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities\ImportDeviceIdentityList\ImportDeviceIdentityListRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities\SearchExistingIdentities\SearchExistingIdentitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ImportedDeviceIdentity;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ImportedDeviceIdentityCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ImportedDeviceIdentity;
+use Microsoft\Graph\Beta\Generated\Models\ImportedDeviceIdentityCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ImportedDeviceIdentitiesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The importDeviceIdentityList property
+    */
     public function importDeviceIdentityList(): ImportDeviceIdentityListRequestBuilder {
         return new ImportDeviceIdentityListRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -35,6 +41,9 @@ class ImportedDeviceIdentitiesRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The searchExistingIdentities property
+    */
     public function searchExistingIdentities(): SearchExistingIdentitiesRequestBuilder {
         return new SearchExistingIdentitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

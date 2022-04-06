@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\ResourceNamesp
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UnifiedRbacResourceAction;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacResourceAction;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\ResourceNamespaces\Item\ResourceActions\Item\ResourceScope\ResourceScopeRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -24,6 +24,9 @@ class UnifiedRbacResourceActionItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resourceScope property
+    */
     public function resourceScope(): ResourceScopeRequestBuilder {
         return new ResourceScopeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

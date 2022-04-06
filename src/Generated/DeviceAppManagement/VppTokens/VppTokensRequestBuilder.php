@@ -8,9 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\GetLicensesForAppWithBundleId\GetLicensesForAppWithBundleIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\SyncLicenseCounts\SyncLicenseCountsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\VppToken;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\VppTokenCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\VppToken;
+use Microsoft\Graph\Beta\Generated\Models\VppTokenCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class VppTokensRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -31,6 +34,9 @@ class VppTokensRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The syncLicenseCounts property
+    */
     public function syncLicenseCounts(): SyncLicenseCountsRequestBuilder {
         return new SyncLicenseCountsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

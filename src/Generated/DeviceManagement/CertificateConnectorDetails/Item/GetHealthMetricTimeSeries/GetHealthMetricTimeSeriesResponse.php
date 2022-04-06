@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CertificateConnectorDetails\Item\GetHealthMetricTimeSeries;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CertificateConnectorHealthMetricValue;
+use Microsoft\Graph\Beta\Generated\Models\CertificateConnectorHealthMetricValue;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class GetHealthMetricTimeSeriesResponse implements AdditionalDataHolder, Parsabl
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<CertificateConnectorHealthMetricValue>|null $value  */
+    /** @var array<CertificateConnectorHealthMetricValue>|null $value The value property */
     private ?array $value = null;
     
     /**
@@ -51,7 +51,7 @@ class GetHealthMetricTimeSeriesResponse implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the value property value. 
+     * Gets the value property value. The value property
      * @return array<CertificateConnectorHealthMetricValue>|null
     */
     public function getValue(): ?array {
@@ -76,7 +76,7 @@ class GetHealthMetricTimeSeriesResponse implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the value property value. 
+     * Sets the value property value. The value property
      *  @param array<CertificateConnectorHealthMetricValue>|null $value Value to set for the value property.
     */
     public function setValue(?array $value ): void {

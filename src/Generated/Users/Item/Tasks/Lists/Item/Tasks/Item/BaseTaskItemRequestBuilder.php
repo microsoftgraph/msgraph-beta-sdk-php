@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Tasks\Lists\Item\Tasks\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\BaseTask;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\BaseTask;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Tasks\Lists\Item\Tasks\Item\ChecklistItems\ChecklistItemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Tasks\Lists\Item\Tasks\Item\ChecklistItems\Item\ChecklistItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Tasks\Lists\Item\Tasks\Item\Extensions\ExtensionsRequestBuilder;
@@ -25,22 +25,37 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class BaseTaskItemRequestBuilder 
 {
+    /**
+     * The checklistItems property
+    */
     public function checklistItems(): ChecklistItemsRequestBuilder {
         return new ChecklistItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The extensions property
+    */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The linkedResources property
+    */
     public function linkedResources(): LinkedResourcesRequestBuilder {
         return new LinkedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The move property
+    */
     public function move(): MoveRequestBuilder {
         return new MoveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The parentList property
+    */
     public function parentList(): ParentListRequestBuilder {
         return new ParentListRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessReviewInstanceDecisionItem;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessReviewInstanceDecisionItemCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstanceDecisionItem;
+use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstanceDecisionItemCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\Stages\Item\Decisions\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\Stages\Item\Decisions\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\Stages\Item\Decisions\RecordAllDecisions\RecordAllDecisionsRequestBuilder;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DecisionsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -28,6 +31,9 @@ class DecisionsRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The recordAllDecisions property
+    */
     public function recordAllDecisions(): RecordAllDecisionsRequestBuilder {
         return new RecordAllDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

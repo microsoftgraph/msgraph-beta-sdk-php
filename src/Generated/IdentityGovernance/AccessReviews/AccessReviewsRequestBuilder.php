@@ -12,8 +12,8 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\HistoryDefinitions\HistoryDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\HistoryDefinitions\Item\AccessReviewHistoryDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Policy\PolicyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessReviewSet;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessReviewSet;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -24,14 +24,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AccessReviewsRequestBuilder 
 {
+    /**
+     * The decisions property
+    */
     public function decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The definitions property
+    */
     public function definitions(): DefinitionsRequestBuilder {
         return new DefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The historyDefinitions property
+    */
     public function historyDefinitions(): HistoryDefinitionsRequestBuilder {
         return new HistoryDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -39,6 +48,9 @@ class AccessReviewsRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The policy property
+    */
     public function policy(): PolicyRequestBuilder {
         return new PolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ApplicationSignInDetailedSummar
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ApplicationSignInDetailedSummary;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ApplicationSignInDetailedSummaryCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ApplicationSignInDetailedSummary;
+use Microsoft\Graph\Beta\Generated\Models\ApplicationSignInDetailedSummaryCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Reports\ApplicationSignInDetailedSummary\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ApplicationSignInDetailedSummaryRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

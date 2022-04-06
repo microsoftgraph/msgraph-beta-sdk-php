@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\Assign;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceHealthScriptAssignment;
+use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScriptAssignment;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<DeviceHealthScriptAssignment>|null $deviceHealthScriptAssignments  */
+    /** @var array<DeviceHealthScriptAssignment>|null $deviceHealthScriptAssignments The deviceHealthScriptAssignments property */
     private ?array $deviceHealthScriptAssignments = null;
     
     /**
@@ -41,7 +41,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceHealthScriptAssignments property value. 
+     * Gets the deviceHealthScriptAssignments property value. The deviceHealthScriptAssignments property
      * @return array<DeviceHealthScriptAssignment>|null
     */
     public function getDeviceHealthScriptAssignments(): ?array {
@@ -76,7 +76,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceHealthScriptAssignments property value. 
+     * Sets the deviceHealthScriptAssignments property value. The deviceHealthScriptAssignments property
      *  @param array<DeviceHealthScriptAssignment>|null $value Value to set for the deviceHealthScriptAssignments property.
     */
     public function setDeviceHealthScriptAssignments(?array $value ): void {

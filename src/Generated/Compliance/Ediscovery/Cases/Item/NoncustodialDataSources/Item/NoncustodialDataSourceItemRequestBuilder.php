@@ -10,8 +10,8 @@ use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Noncustodial
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\Release\ReleaseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\RemoveHold\RemoveHoldRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\UpdateIndex\UpdateIndexRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Ediscovery\NoncustodialDataSource;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\NoncustodialDataSource;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,10 +22,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class NoncustodialDataSourceItemRequestBuilder 
 {
+    /**
+     * The applyHold property
+    */
     public function applyHold(): ApplyHoldRequestBuilder {
         return new ApplyHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The dataSource property
+    */
     public function dataSource(): DataSourceRequestBuilder {
         return new DataSourceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -33,10 +39,16 @@ class NoncustodialDataSourceItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The release property
+    */
     public function release(): ReleaseRequestBuilder {
         return new ReleaseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The removeHold property
+    */
     public function removeHold(): RemoveHoldRequestBuilder {
         return new RemoveHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -44,6 +56,9 @@ class NoncustodialDataSourceItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The updateIndex property
+    */
     public function updateIndex(): UpdateIndexRequestBuilder {
         return new UpdateIndexRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

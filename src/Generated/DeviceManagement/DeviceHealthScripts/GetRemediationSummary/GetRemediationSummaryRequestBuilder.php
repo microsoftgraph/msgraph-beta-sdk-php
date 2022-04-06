@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Ge
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceHealthScriptRemediationSummary;
+use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScriptRemediationSummary;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

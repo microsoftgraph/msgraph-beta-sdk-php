@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\WindowsProtectionState\DetectedMalwareState\DetectedMalwareStateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\WindowsProtectionState\DetectedMalwareState\Item\WindowsDeviceMalwareStateItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsProtectionState;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\WindowsProtectionState;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class WindowsProtectionStateRequestBuilder 
 {
+    /**
+     * The detectedMalwareState property
+    */
     public function detectedMalwareState(): DetectedMalwareStateRequestBuilder {
         return new DetectedMalwareStateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

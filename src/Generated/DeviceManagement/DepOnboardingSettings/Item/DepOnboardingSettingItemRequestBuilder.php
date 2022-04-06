@@ -17,8 +17,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\S
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\SyncWithAppleDeviceEnrollmentProgram\SyncWithAppleDeviceEnrollmentProgramRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\UnshareForSchoolDataSyncService\UnshareForSchoolDataSyncServiceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\UploadDepToken\UploadDepTokenRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DepOnboardingSetting;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DepOnboardingSetting;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -29,22 +29,37 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DepOnboardingSettingItemRequestBuilder 
 {
+    /**
+     * The defaultIosEnrollmentProfile property
+    */
     public function defaultIosEnrollmentProfile(): DefaultIosEnrollmentProfileRequestBuilder {
         return new DefaultIosEnrollmentProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The defaultMacOsEnrollmentProfile property
+    */
     public function defaultMacOsEnrollmentProfile(): DefaultMacOsEnrollmentProfileRequestBuilder {
         return new DefaultMacOsEnrollmentProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The enrollmentProfiles property
+    */
     public function enrollmentProfiles(): EnrollmentProfilesRequestBuilder {
         return new EnrollmentProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The generateEncryptionPublicKey property
+    */
     public function generateEncryptionPublicKey(): GenerateEncryptionPublicKeyRequestBuilder {
         return new GenerateEncryptionPublicKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The importedAppleDeviceIdentities property
+    */
     public function importedAppleDeviceIdentities(): ImportedAppleDeviceIdentitiesRequestBuilder {
         return new ImportedAppleDeviceIdentitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -55,18 +70,30 @@ class DepOnboardingSettingItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The shareForSchoolDataSyncService property
+    */
     public function shareForSchoolDataSyncService(): ShareForSchoolDataSyncServiceRequestBuilder {
         return new ShareForSchoolDataSyncServiceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The syncWithAppleDeviceEnrollmentProgram property
+    */
     public function syncWithAppleDeviceEnrollmentProgram(): SyncWithAppleDeviceEnrollmentProgramRequestBuilder {
         return new SyncWithAppleDeviceEnrollmentProgramRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The unshareForSchoolDataSyncService property
+    */
     public function unshareForSchoolDataSyncService(): UnshareForSchoolDataSyncServiceRequestBuilder {
         return new UnshareForSchoolDataSyncServiceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The uploadDepToken property
+    */
     public function uploadDepToken(): UploadDepTokenRequestBuilder {
         return new UploadDepTokenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

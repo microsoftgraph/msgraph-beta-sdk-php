@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtection\SensitivityLabels\ExtractContentLabel;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Security\ContentInfo;
+use Microsoft\Graph\Beta\Generated\Models\Security\ContentInfo;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class ExtractContentLabelRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var ContentInfo|null $contentInfo  */
+    /** @var ContentInfo|null $contentInfo The contentInfo property */
     private ?ContentInfo $contentInfo = null;
     
     /**
@@ -41,7 +41,7 @@ class ExtractContentLabelRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the contentInfo property value. 
+     * Gets the contentInfo property value. The contentInfo property
      * @return ContentInfo|null
     */
     public function getContentInfo(): ?ContentInfo {
@@ -76,7 +76,7 @@ class ExtractContentLabelRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the contentInfo property value. 
+     * Sets the contentInfo property value. The contentInfo property
      *  @param ContentInfo|null $value Value to set for the contentInfo property.
     */
     public function setContentInfo(?ContentInfo $value ): void {

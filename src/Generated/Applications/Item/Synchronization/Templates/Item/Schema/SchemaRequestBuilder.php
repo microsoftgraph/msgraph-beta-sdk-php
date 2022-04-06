@@ -10,8 +10,8 @@ use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\I
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\Schema\FilterOperators\FilterOperatorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\Schema\Functions\FunctionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\Schema\ParseExpression\ParseExpressionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SynchronizationSchema;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SynchronizationSchema;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,10 +22,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SchemaRequestBuilder 
 {
+    /**
+     * The directories property
+    */
     public function directories(): DirectoriesRequestBuilder {
         return new DirectoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The parseExpression property
+    */
     public function parseExpression(): ParseExpressionRequestBuilder {
         return new ParseExpressionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

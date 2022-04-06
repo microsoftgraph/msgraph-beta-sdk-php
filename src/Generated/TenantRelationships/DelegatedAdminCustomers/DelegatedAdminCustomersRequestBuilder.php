@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminCusto
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DelegatedAdminCustomer;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DelegatedAdminCustomerCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DelegatedAdminCustomer;
+use Microsoft\Graph\Beta\Generated\Models\DelegatedAdminCustomerCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminCustomers\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DelegatedAdminCustomersRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -44,7 +47,7 @@ class DelegatedAdminCustomersRequestBuilder
     }
 
     /**
-     * Get delegatedAdminCustomers from tenantRelationships
+     * The customer who has a delegated admin relationship with a Microsoft partner.
      * @param array|null $queryParameters Request query parameters
      * @param array<string, mixed>|null $headers Request headers
      * @param array<string, RequestOption>|null $options Request options
@@ -90,7 +93,7 @@ class DelegatedAdminCustomersRequestBuilder
     }
 
     /**
-     * Get delegatedAdminCustomers from tenantRelationships
+     * The customer who has a delegated admin relationship with a Microsoft partner.
      * @param array|null $queryParameters Request query parameters
      * @param array<string, mixed>|null $headers Request headers
      * @param array<string, RequestOption>|null $options Request options

@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Todo\Lists\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TodoTaskList;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TodoTaskList;
 use Microsoft\Graph\Beta\Generated\Users\Item\Todo\Lists\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Todo\Lists\Item\Extensions\Item\ExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Todo\Lists\Item\Tasks\Item\TodoTaskItemRequestBuilder;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TodoTaskListItemRequestBuilder 
 {
+    /**
+     * The extensions property
+    */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -31,6 +34,9 @@ class TodoTaskListItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The tasks property
+    */
     public function tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

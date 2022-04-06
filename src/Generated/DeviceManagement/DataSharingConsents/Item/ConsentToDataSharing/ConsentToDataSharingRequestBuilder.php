@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DataSharingConsents\It
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DataSharingConsent;
+use Microsoft\Graph\Beta\Generated\Models\DataSharingConsent;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

@@ -12,8 +12,8 @@ use Microsoft\Graph\Beta\Generated\Me\CloudPCs\Item\Reboot\RebootRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CloudPCs\Item\Rename\RenameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CloudPCs\Item\Reprovision\ReprovisionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CloudPCs\Item\Troubleshoot\TroubleshootRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CloudPC;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\CloudPC;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -24,10 +24,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class CloudPCItemRequestBuilder 
 {
+    /**
+     * The changeUserAccountType property
+    */
     public function changeUserAccountType(): ChangeUserAccountTypeRequestBuilder {
         return new ChangeUserAccountTypeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The endGracePeriod property
+    */
     public function endGracePeriod(): EndGracePeriodRequestBuilder {
         return new EndGracePeriodRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -35,14 +41,23 @@ class CloudPCItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The reboot property
+    */
     public function reboot(): RebootRequestBuilder {
         return new RebootRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The rename property
+    */
     public function rename(): RenameRequestBuilder {
         return new RenameRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The reprovision property
+    */
     public function reprovision(): ReprovisionRequestBuilder {
         return new ReprovisionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -50,6 +65,9 @@ class CloudPCItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The troubleshoot property
+    */
     public function troubleshoot(): TroubleshootRequestBuilder {
         return new TroubleshootRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

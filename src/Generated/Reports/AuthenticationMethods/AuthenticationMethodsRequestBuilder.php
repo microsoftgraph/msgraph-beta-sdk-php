@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AuthenticationMethodsRoot;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AuthenticationMethodsRoot;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserRegistrationDetails\Item\UserRegistrationDetailsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserRegistrationDetails\UserRegistrationDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UsersRegisteredByFeature\UsersRegisteredByFeatureRequestBuilder;
@@ -32,6 +32,9 @@ class AuthenticationMethodsRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userRegistrationDetails property
+    */
     public function userRegistrationDetails(): UserRegistrationDetailsRequestBuilder {
         return new UserRegistrationDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

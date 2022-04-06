@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\UpdateSettings;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementSettingInstance;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementSettingInstance;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class UpdateSettingsRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<DeviceManagementSettingInstance>|null $settings  */
+    /** @var array<DeviceManagementSettingInstance>|null $settings The settings property */
     private ?array $settings = null;
     
     /**
@@ -51,7 +51,7 @@ class UpdateSettingsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the settings property value. 
+     * Gets the settings property value. The settings property
      * @return array<DeviceManagementSettingInstance>|null
     */
     public function getSettings(): ?array {
@@ -76,7 +76,7 @@ class UpdateSettingsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the settings property value. 
+     * Sets the settings property value. The settings property
      *  @param array<DeviceManagementSettingInstance>|null $value Value to set for the settings property.
     */
     public function setSettings(?array $value ): void {

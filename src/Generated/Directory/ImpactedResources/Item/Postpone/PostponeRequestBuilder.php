@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Item\Postpo
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RecommendationResource;
+use Microsoft\Graph\Beta\Generated\Models\RecommendationResource;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

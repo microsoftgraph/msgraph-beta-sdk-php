@@ -11,9 +11,9 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Has
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\RefreshDeviceComplianceReportSummarization\RefreshDeviceComplianceReportSummarizationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\SetScheduledRetireState\SetScheduledRetireStateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\ValidateComplianceScript\ValidateComplianceScriptRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceCompliancePolicy;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceCompliancePolicyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceCompliancePolicy;
+use Microsoft\Graph\Beta\Generated\Models\DeviceCompliancePolicyCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -24,14 +24,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeviceCompliancePoliciesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getDevicesScheduledToRetire property
+    */
     public function getDevicesScheduledToRetire(): GetDevicesScheduledToRetireRequestBuilder {
         return new GetDevicesScheduledToRetireRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The hasPayloadLinks property
+    */
     public function hasPayloadLinks(): HasPayloadLinksRequestBuilder {
         return new HasPayloadLinksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -39,6 +48,9 @@ class DeviceCompliancePoliciesRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The refreshDeviceComplianceReportSummarization property
+    */
     public function refreshDeviceComplianceReportSummarization(): RefreshDeviceComplianceReportSummarizationRequestBuilder {
         return new RefreshDeviceComplianceReportSummarizationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -46,6 +58,9 @@ class DeviceCompliancePoliciesRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The setScheduledRetireState property
+    */
     public function setScheduledRetireState(): SetScheduledRetireStateRequestBuilder {
         return new SetScheduledRetireStateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -53,6 +68,9 @@ class DeviceCompliancePoliciesRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The validateComplianceScript property
+    */
     public function validateComplianceScript(): ValidateComplianceScriptRequestBuilder {
         return new ValidateComplianceScriptRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

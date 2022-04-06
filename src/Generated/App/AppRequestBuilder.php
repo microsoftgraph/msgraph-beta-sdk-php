@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\App\Calls\CallsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\CallItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\OnlineMeetingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\OnlineMeetingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CommsApplication;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\CommsApplication;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AppRequestBuilder 
 {
+    /**
+     * The calls property
+    */
     public function calls(): CallsRequestBuilder {
         return new CallsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The onlineMeetings property
+    */
     public function onlineMeetings(): OnlineMeetingsRequestBuilder {
         return new OnlineMeetingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\User;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UserCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\User;
+use Microsoft\Graph\Beta\Generated\Models\UserCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\GetByIds\GetByIdsRequestBuilder;
@@ -25,14 +25,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class UsersRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getByIds property
+    */
     public function getByIds(): GetByIdsRequestBuilder {
         return new GetByIdsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getUserOwnedObjects property
+    */
     public function getUserOwnedObjects(): GetUserOwnedObjectsRequestBuilder {
         return new GetUserOwnedObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -46,10 +55,16 @@ class UsersRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The validatePassword property
+    */
     public function validatePassword(): ValidatePasswordRequestBuilder {
         return new ValidatePasswordRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The validateProperties property
+    */
     public function validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

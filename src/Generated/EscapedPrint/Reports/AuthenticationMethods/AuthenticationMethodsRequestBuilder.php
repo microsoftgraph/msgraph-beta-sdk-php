@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\AuthenticationMethods\Us
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\AuthenticationMethods\UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRoles\UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\AuthenticationMethods\UsersRegisteredByMethod\UsersRegisteredByMethodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\AuthenticationMethods\UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRoles\UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AuthenticationMethodsRoot;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AuthenticationMethodsRoot;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -32,6 +32,9 @@ class AuthenticationMethodsRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userRegistrationDetails property
+    */
     public function userRegistrationDetails(): UserRegistrationDetailsRequestBuilder {
         return new UserRegistrationDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

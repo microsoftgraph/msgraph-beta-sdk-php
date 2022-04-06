@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OutlookTaskFolder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OutlookTaskFolderCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OutlookTaskFolder;
+use Microsoft\Graph\Beta\Generated\Models\OutlookTaskFolderCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TaskFoldersRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

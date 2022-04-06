@@ -8,8 +8,8 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsFeatureUpdateProfiles\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsFeatureUpdateProfiles\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsFeatureUpdateProfiles\Item\Assignments\Item\WindowsFeatureUpdateProfileAssignmentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsFeatureUpdateProfile;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\WindowsFeatureUpdateProfile;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,10 +20,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class WindowsFeatureUpdateProfileItemRequestBuilder 
 {
+    /**
+     * The assign property
+    */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

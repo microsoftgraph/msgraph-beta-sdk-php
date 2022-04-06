@@ -8,8 +8,8 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Item\AppDefinitions\Item\Bot\BotRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Item\AppDefinitions\Item\ColorIcon\ColorIconRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Item\AppDefinitions\Item\OutlineIcon\OutlineIconRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TeamsAppDefinition;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TeamsAppDefinition;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,14 +20,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TeamsAppDefinitionItemRequestBuilder 
 {
+    /**
+     * The bot property
+    */
     public function bot(): BotRequestBuilder {
         return new BotRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The colorIcon property
+    */
     public function colorIcon(): ColorIconRequestBuilder {
         return new ColorIconRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The outlineIcon property
+    */
     public function outlineIcon(): OutlineIconRequestBuilder {
         return new OutlineIconRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

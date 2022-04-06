@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RbacApplicationMultiple;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\RbacApplicationMultiple;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\ResourceNamespaces\Item\UnifiedRbacResourceNamespaceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\ResourceNamespaces\ResourceNamespacesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\UnifiedRoleAssignmentMultipleItemRequestBuilder;
@@ -29,14 +29,23 @@ class CloudPCRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resourceNamespaces property
+    */
     public function resourceNamespaces(): ResourceNamespacesRequestBuilder {
         return new ResourceNamespacesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleAssignments property
+    */
     public function roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleDefinitions property
+    */
     public function roleDefinitions(): RoleDefinitionsRequestBuilder {
         return new RoleDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

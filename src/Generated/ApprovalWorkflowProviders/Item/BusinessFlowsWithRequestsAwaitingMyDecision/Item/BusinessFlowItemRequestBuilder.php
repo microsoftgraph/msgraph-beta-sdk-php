@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlowsWithRequestsAwaitingMyDecision\Item\RecordDecisions\RecordDecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\BusinessFlow;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\BusinessFlow;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,6 +21,9 @@ class BusinessFlowItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The recordDecisions property
+    */
     public function recordDecisions(): RecordDecisionsRequestBuilder {
         return new RecordDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

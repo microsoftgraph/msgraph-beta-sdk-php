@@ -15,8 +15,8 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Acce
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\IncompatibleAccessPackages\IncompatibleAccessPackagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\IncompatibleGroups\IncompatibleGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\IncompatibleGroups\Item\GroupItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessPackage;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessPackage;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -27,30 +27,51 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AccessPackageItemRequestBuilder 
 {
+    /**
+     * The accessPackageAssignmentPolicies property
+    */
     public function accessPackageAssignmentPolicies(): AccessPackageAssignmentPoliciesRequestBuilder {
         return new AccessPackageAssignmentPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageCatalog property
+    */
     public function accessPackageCatalog(): AccessPackageCatalogRequestBuilder {
         return new AccessPackageCatalogRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageResourceRoleScopes property
+    */
     public function accessPackageResourceRoleScopes(): AccessPackageResourceRoleScopesRequestBuilder {
         return new AccessPackageResourceRoleScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackagesIncompatibleWith property
+    */
     public function accessPackagesIncompatibleWith(): AccessPackagesIncompatibleWithRequestBuilder {
         return new AccessPackagesIncompatibleWithRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getApplicablePolicyRequirements property
+    */
     public function getApplicablePolicyRequirements(): GetApplicablePolicyRequirementsRequestBuilder {
         return new GetApplicablePolicyRequirementsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The incompatibleAccessPackages property
+    */
     public function incompatibleAccessPackages(): IncompatibleAccessPackagesRequestBuilder {
         return new IncompatibleAccessPackagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The incompatibleGroups property
+    */
     public function incompatibleGroups(): IncompatibleGroupsRequestBuilder {
         return new IncompatibleGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

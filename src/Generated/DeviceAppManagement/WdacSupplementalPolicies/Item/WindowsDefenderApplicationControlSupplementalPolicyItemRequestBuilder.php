@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\DeploySummary\DeploySummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\DeviceStatuses\DeviceStatusesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\DeviceStatuses\Item\WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsDefenderApplicationControlSupplementalPolicy;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicy;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,18 +23,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder 
 {
+    /**
+     * The assign property
+    */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deploySummary property
+    */
     public function deploySummary(): DeploySummaryRequestBuilder {
         return new DeploySummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceStatuses property
+    */
     public function deviceStatuses(): DeviceStatusesRequestBuilder {
         return new DeviceStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

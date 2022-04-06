@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TimeCard;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TimeCard;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards\Item\ClockOut\ClockOutRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards\Item\Confirm\ConfirmRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards\Item\EndBreak\EndBreakRequestBuilder;
@@ -21,14 +21,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TimeCardItemRequestBuilder 
 {
+    /**
+     * The clockOut property
+    */
     public function clockOut(): ClockOutRequestBuilder {
         return new ClockOutRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The confirm property
+    */
     public function confirm(): ConfirmRequestBuilder {
         return new ConfirmRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The endBreak property
+    */
     public function endBreak(): EndBreakRequestBuilder {
         return new EndBreakRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -39,6 +48,9 @@ class TimeCardItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The startBreak property
+    */
     public function startBreak(): StartBreakRequestBuilder {
         return new StartBreakRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

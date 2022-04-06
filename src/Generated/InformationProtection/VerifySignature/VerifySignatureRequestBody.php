@@ -13,13 +13,13 @@ class VerifySignatureRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var StreamInterface|null $digest  */
+    /** @var StreamInterface|null $digest The digest property */
     private ?StreamInterface $digest = null;
     
-    /** @var StreamInterface|null $signature  */
+    /** @var StreamInterface|null $signature The signature property */
     private ?StreamInterface $signature = null;
     
-    /** @var string|null $signingKeyId  */
+    /** @var string|null $signingKeyId The signingKeyId property */
     private ?string $signingKeyId = null;
     
     /**
@@ -47,7 +47,7 @@ class VerifySignatureRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the digest property value. 
+     * Gets the digest property value. The digest property
      * @return StreamInterface|null
     */
     public function getDigest(): ?StreamInterface {
@@ -67,7 +67,7 @@ class VerifySignatureRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the signature property value. 
+     * Gets the signature property value. The signature property
      * @return StreamInterface|null
     */
     public function getSignature(): ?StreamInterface {
@@ -75,7 +75,7 @@ class VerifySignatureRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the signingKeyId property value. 
+     * Gets the signingKeyId property value. The signingKeyId property
      * @return string|null
     */
     public function getSigningKeyId(): ?string {
@@ -102,7 +102,7 @@ class VerifySignatureRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the digest property value. 
+     * Sets the digest property value. The digest property
      *  @param StreamInterface|null $value Value to set for the digest property.
     */
     public function setDigest(?StreamInterface $value ): void {
@@ -110,7 +110,7 @@ class VerifySignatureRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the signature property value. 
+     * Sets the signature property value. The signature property
      *  @param StreamInterface|null $value Value to set for the signature property.
     */
     public function setSignature(?StreamInterface $value ): void {
@@ -118,7 +118,7 @@ class VerifySignatureRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the signingKeyId property value. 
+     * Sets the signingKeyId property value. The signingKeyId property
      *  @param string|null $value Value to set for the signingKeyId property.
     */
     public function setSigningKeyId(?string $value ): void {

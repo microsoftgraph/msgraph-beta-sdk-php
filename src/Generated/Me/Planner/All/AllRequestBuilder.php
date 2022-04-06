@@ -7,9 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Planner\All\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Planner\All\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PlannerDelta;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PlannerDeltaCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PlannerDelta;
+use Microsoft\Graph\Beta\Generated\Models\PlannerDeltaCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AllRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\CancelMediaPr
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CancelMediaProcessingOperation;
+use Microsoft\Graph\Beta\Generated\Models\CancelMediaProcessingOperation;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

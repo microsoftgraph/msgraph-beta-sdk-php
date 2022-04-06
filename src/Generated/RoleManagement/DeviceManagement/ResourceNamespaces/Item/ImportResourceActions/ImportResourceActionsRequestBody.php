@@ -12,13 +12,13 @@ class ImportResourceActionsRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $format  */
+    /** @var string|null $format The format property */
     private ?string $format = null;
     
-    /** @var bool|null $overwriteResourceNamespace  */
+    /** @var bool|null $overwriteResourceNamespace The overwriteResourceNamespace property */
     private ?bool $overwriteResourceNamespace = null;
     
-    /** @var string|null $value  */
+    /** @var string|null $value The value property */
     private ?string $value = null;
     
     /**
@@ -58,7 +58,7 @@ class ImportResourceActionsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the format property value. 
+     * Gets the format property value. The format property
      * @return string|null
     */
     public function getFormat(): ?string {
@@ -66,7 +66,7 @@ class ImportResourceActionsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the overwriteResourceNamespace property value. 
+     * Gets the overwriteResourceNamespace property value. The overwriteResourceNamespace property
      * @return bool|null
     */
     public function getOverwriteResourceNamespace(): ?bool {
@@ -74,7 +74,7 @@ class ImportResourceActionsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the value property value. 
+     * Gets the value property value. The value property
      * @return string|null
     */
     public function getValue(): ?string {
@@ -101,7 +101,7 @@ class ImportResourceActionsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the format property value. 
+     * Sets the format property value. The format property
      *  @param string|null $value Value to set for the format property.
     */
     public function setFormat(?string $value ): void {
@@ -109,7 +109,7 @@ class ImportResourceActionsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the overwriteResourceNamespace property value. 
+     * Sets the overwriteResourceNamespace property value. The overwriteResourceNamespace property
      *  @param bool|null $value Value to set for the overwriteResourceNamespace property.
     */
     public function setOverwriteResourceNamespace(?bool $value ): void {
@@ -117,7 +117,7 @@ class ImportResourceActionsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the value property value. 
+     * Sets the value property value. The value property
      *  @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value ): void {

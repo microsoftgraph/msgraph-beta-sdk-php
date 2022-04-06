@@ -12,10 +12,10 @@ class MuteAllRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $clientContext  */
+    /** @var string|null $clientContext The clientContext property */
     private ?string $clientContext = null;
     
-    /** @var array<string>|null $participants  */
+    /** @var array<string>|null $participants The participants property */
     private ?array $participants = null;
     
     /**
@@ -43,7 +43,7 @@ class MuteAllRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the clientContext property value. 
+     * Gets the clientContext property value. The clientContext property
      * @return string|null
     */
     public function getClientContext(): ?string {
@@ -62,7 +62,7 @@ class MuteAllRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the participants property value. 
+     * Gets the participants property value. The participants property
      * @return array<string>|null
     */
     public function getParticipants(): ?array {
@@ -88,7 +88,7 @@ class MuteAllRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the clientContext property value. 
+     * Sets the clientContext property value. The clientContext property
      *  @param string|null $value Value to set for the clientContext property.
     */
     public function setClientContext(?string $value ): void {
@@ -96,7 +96,7 @@ class MuteAllRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the participants property value. 
+     * Sets the participants property value. The participants property
      *  @param array<string>|null $value Value to set for the participants property.
     */
     public function setParticipants(?array $value ): void {

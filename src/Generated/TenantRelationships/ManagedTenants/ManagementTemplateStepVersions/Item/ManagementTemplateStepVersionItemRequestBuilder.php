@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Mana
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagedTenants\ManagementTemplateStepVersion;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementTemplateStepVersion;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Item\AcceptedFor\AcceptedForRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Item\Deployments\DeploymentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Item\Deployments\Item\ManagementTemplateStepDeploymentItemRequestBuilder;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ManagementTemplateStepVersionItemRequestBuilder 
 {
+    /**
+     * The acceptedFor property
+    */
     public function acceptedFor(): AcceptedForRequestBuilder {
         return new AcceptedForRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deployments property
+    */
     public function deployments(): DeploymentsRequestBuilder {
         return new DeploymentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -35,6 +41,9 @@ class ManagementTemplateStepVersionItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The templateStep property
+    */
     public function templateStep(): TemplateStepRequestBuilder {
         return new TemplateStepRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

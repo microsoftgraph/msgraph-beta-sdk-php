@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Categories\Item\RecommendedSettings\Item\DeviceManagementSettingInstanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Categories\Item\RecommendedSettings\RecommendedSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementTemplateSettingCategory;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplateSettingCategory;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,6 +22,9 @@ class DeviceManagementTemplateSettingCategoryItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The recommendedSettings property
+    */
     public function recommendedSettings(): RecommendedSettingsRequestBuilder {
         return new RecommendedSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

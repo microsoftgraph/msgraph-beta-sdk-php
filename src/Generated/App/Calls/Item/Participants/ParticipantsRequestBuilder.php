@@ -8,9 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\Participants\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\Participants\Invite\InviteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\Participants\MuteAll\MuteAllRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Participant;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ParticipantCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Participant;
+use Microsoft\Graph\Beta\Generated\Models\ParticipantCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,14 +21,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ParticipantsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The invite property
+    */
     public function invite(): InviteRequestBuilder {
         return new InviteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The muteAll property
+    */
     public function muteAll(): MuteAllRequestBuilder {
         return new MuteAllRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

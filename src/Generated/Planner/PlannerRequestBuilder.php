@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Planner;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Planner;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Planner;
 use Microsoft\Graph\Beta\Generated\Planner\Buckets\BucketsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Buckets\Item\PlannerBucketItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\PlannerPlanItemRequestBuilder;
@@ -25,6 +25,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PlannerRequestBuilder 
 {
+    /**
+     * The buckets property
+    */
     public function buckets(): BucketsRequestBuilder {
         return new BucketsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -32,6 +35,9 @@ class PlannerRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The plans property
+    */
     public function plans(): PlansRequestBuilder {
         return new PlansRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -39,10 +45,16 @@ class PlannerRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The rosters property
+    */
     public function rosters(): RostersRequestBuilder {
         return new RostersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tasks property
+    */
     public function tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

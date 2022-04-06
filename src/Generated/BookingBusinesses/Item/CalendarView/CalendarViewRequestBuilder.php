@@ -6,9 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CalendarView\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\BookingAppointment;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\BookingAppointmentCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\BookingAppointment;
+use Microsoft\Graph\Beta\Generated\Models\BookingAppointmentCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class CalendarViewRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

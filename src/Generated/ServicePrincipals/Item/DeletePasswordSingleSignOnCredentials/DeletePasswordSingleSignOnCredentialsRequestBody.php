@@ -12,7 +12,7 @@ class DeletePasswordSingleSignOnCredentialsRequestBody implements AdditionalData
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $id  */
+    /** @var string|null $id The id property */
     private ?string $id = null;
     
     /**
@@ -50,7 +50,7 @@ class DeletePasswordSingleSignOnCredentialsRequestBody implements AdditionalData
     }
 
     /**
-     * Gets the id property value. 
+     * Gets the id property value. The id property
      * @return string|null
     */
     public function getId(): ?string {
@@ -75,7 +75,7 @@ class DeletePasswordSingleSignOnCredentialsRequestBody implements AdditionalData
     }
 
     /**
-     * Sets the id property value. 
+     * Sets the id property value. The id property
      *  @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value ): void {

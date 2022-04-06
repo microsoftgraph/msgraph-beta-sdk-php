@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SynchronizationSchema;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SynchronizationSchema;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Templates\Item\Schema\Directories\DirectoriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Templates\Item\Schema\Directories\Item\DirectoryDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Templates\Item\Schema\FilterOperators\FilterOperatorsRequestBuilder;
@@ -22,10 +22,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SchemaRequestBuilder 
 {
+    /**
+     * The directories property
+    */
     public function directories(): DirectoriesRequestBuilder {
         return new DirectoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The parseExpression property
+    */
     public function parseExpression(): ParseExpressionRequestBuilder {
         return new ParseExpressionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\ValidateFilter;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceAndAppManagementAssignmentFilter;
+use Microsoft\Graph\Beta\Generated\Models\DeviceAndAppManagementAssignmentFilter;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class ValidateFilterRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var DeviceAndAppManagementAssignmentFilter|null $deviceAndAppManagementAssignmentFilter  */
+    /** @var DeviceAndAppManagementAssignmentFilter|null $deviceAndAppManagementAssignmentFilter The deviceAndAppManagementAssignmentFilter property */
     private ?DeviceAndAppManagementAssignmentFilter $deviceAndAppManagementAssignmentFilter = null;
     
     /**
@@ -41,7 +41,7 @@ class ValidateFilterRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceAndAppManagementAssignmentFilter property value. 
+     * Gets the deviceAndAppManagementAssignmentFilter property value. The deviceAndAppManagementAssignmentFilter property
      * @return DeviceAndAppManagementAssignmentFilter|null
     */
     public function getDeviceAndAppManagementAssignmentFilter(): ?DeviceAndAppManagementAssignmentFilter {
@@ -76,7 +76,7 @@ class ValidateFilterRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceAndAppManagementAssignmentFilter property value. 
+     * Sets the deviceAndAppManagementAssignmentFilter property value. The deviceAndAppManagementAssignmentFilter property
      *  @param DeviceAndAppManagementAssignmentFilter|null $value Value to set for the deviceAndAppManagementAssignmentFilter property.
     */
     public function setDeviceAndAppManagementAssignmentFilter(?DeviceAndAppManagementAssignmentFilter $value ): void {

@@ -8,8 +8,8 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\Stages\Item\Decisions\Item\Insights\InsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\Stages\Item\Decisions\Item\Insights\Item\GovernanceInsightItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\Stages\Item\Decisions\Item\Instance\InstanceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessReviewInstanceDecisionItem;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstanceDecisionItem;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,10 +20,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AccessReviewInstanceDecisionItemItemRequestBuilder 
 {
+    /**
+     * The insights property
+    */
     public function insights(): InsightsRequestBuilder {
         return new InsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The instance property
+    */
     public function instance(): InstanceRequestBuilder {
         return new InstanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

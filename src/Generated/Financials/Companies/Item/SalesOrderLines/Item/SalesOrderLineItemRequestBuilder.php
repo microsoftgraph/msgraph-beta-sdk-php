@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrderLines\Item\Account\AccountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrderLines\Item\Item\ItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SalesOrderLine;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SalesOrderLine;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,10 +19,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SalesOrderLineItemRequestBuilder 
 {
+    /**
+     * The account property
+    */
     public function account(): AccountRequestBuilder {
         return new AccountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The item property
+    */
     public function item(): ItemRequestBuilder {
         return new ItemRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

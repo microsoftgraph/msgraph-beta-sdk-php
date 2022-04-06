@@ -7,9 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\App\Calls\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\LogTeleconferenceDeviceQuality\LogTeleconferenceDeviceQualityRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Call;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CallCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Call;
+use Microsoft\Graph\Beta\Generated\Models\CallCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,10 +20,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class CallsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The logTeleconferenceDeviceQuality property
+    */
     public function logTeleconferenceDeviceQuality(): LogTeleconferenceDeviceQualityRequestBuilder {
         return new LogTeleconferenceDeviceQualityRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

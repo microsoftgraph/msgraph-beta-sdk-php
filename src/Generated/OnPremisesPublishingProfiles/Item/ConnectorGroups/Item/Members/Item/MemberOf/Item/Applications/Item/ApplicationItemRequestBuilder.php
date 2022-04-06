@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Conne
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Application;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Application;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\Members\Item\MemberOf\Item\Applications\Item\Logo\LogoRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -18,6 +18,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ApplicationItemRequestBuilder 
 {
+    /**
+     * The logo property
+    */
     public function logo(): LogoRequestBuilder {
         return new LogoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

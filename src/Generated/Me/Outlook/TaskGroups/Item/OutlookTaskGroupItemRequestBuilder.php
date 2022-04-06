@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item\TaskFolders\Item\OutlookTaskFolderItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item\TaskFolders\TaskFoldersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OutlookTaskGroup;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OutlookTaskGroup;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -25,6 +25,9 @@ class OutlookTaskGroupItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The taskFolders property
+    */
     public function taskFolders(): TaskFoldersRequestBuilder {
         return new TaskFoldersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

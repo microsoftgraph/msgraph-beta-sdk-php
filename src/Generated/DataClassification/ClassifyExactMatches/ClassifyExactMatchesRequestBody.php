@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DataClassification\ClassifyExactMatches;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ContentClassification;
+use Microsoft\Graph\Beta\Generated\Models\ContentClassification;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,16 +13,16 @@ class ClassifyExactMatchesRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<ContentClassification>|null $contentClassifications  */
+    /** @var array<ContentClassification>|null $contentClassifications The contentClassifications property */
     private ?array $contentClassifications = null;
     
-    /** @var array<string>|null $sensitiveTypeIds  */
+    /** @var array<string>|null $sensitiveTypeIds The sensitiveTypeIds property */
     private ?array $sensitiveTypeIds = null;
     
-    /** @var string|null $text  */
+    /** @var string|null $text The text property */
     private ?string $text = null;
     
-    /** @var string|null $timeoutInMs  */
+    /** @var string|null $timeoutInMs The timeoutInMs property */
     private ?string $timeoutInMs = null;
     
     /**
@@ -50,7 +50,7 @@ class ClassifyExactMatchesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the contentClassifications property value. 
+     * Gets the contentClassifications property value. The contentClassifications property
      * @return array<ContentClassification>|null
     */
     public function getContentClassifications(): ?array {
@@ -71,7 +71,7 @@ class ClassifyExactMatchesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the sensitiveTypeIds property value. 
+     * Gets the sensitiveTypeIds property value. The sensitiveTypeIds property
      * @return array<string>|null
     */
     public function getSensitiveTypeIds(): ?array {
@@ -79,7 +79,7 @@ class ClassifyExactMatchesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the text property value. 
+     * Gets the text property value. The text property
      * @return string|null
     */
     public function getText(): ?string {
@@ -87,7 +87,7 @@ class ClassifyExactMatchesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the timeoutInMs property value. 
+     * Gets the timeoutInMs property value. The timeoutInMs property
      * @return string|null
     */
     public function getTimeoutInMs(): ?string {
@@ -115,7 +115,7 @@ class ClassifyExactMatchesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the contentClassifications property value. 
+     * Sets the contentClassifications property value. The contentClassifications property
      *  @param array<ContentClassification>|null $value Value to set for the contentClassifications property.
     */
     public function setContentClassifications(?array $value ): void {
@@ -123,7 +123,7 @@ class ClassifyExactMatchesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the sensitiveTypeIds property value. 
+     * Sets the sensitiveTypeIds property value. The sensitiveTypeIds property
      *  @param array<string>|null $value Value to set for the sensitiveTypeIds property.
     */
     public function setSensitiveTypeIds(?array $value ): void {
@@ -131,7 +131,7 @@ class ClassifyExactMatchesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the text property value. 
+     * Sets the text property value. The text property
      *  @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value ): void {
@@ -139,7 +139,7 @@ class ClassifyExactMatchesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the timeoutInMs property value. 
+     * Sets the timeoutInMs property value. The timeoutInMs property
      *  @param string|null $value Value to set for the timeoutInMs property.
     */
     public function setTimeoutInMs(?string $value ): void {

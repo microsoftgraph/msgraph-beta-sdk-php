@@ -22,8 +22,8 @@ use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollec
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\SourceCollectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\TagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\TagsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Ediscovery\EscapedCase;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\EscapedCase;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -34,22 +34,37 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class CaseItemRequestBuilder 
 {
+    /**
+     * The close property
+    */
     public function close(): CloseRequestBuilder {
         return new CloseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The custodians property
+    */
     public function custodians(): CustodiansRequestBuilder {
         return new CustodiansRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The legalHolds property
+    */
     public function legalHolds(): LegalHoldsRequestBuilder {
         return new LegalHoldsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The noncustodialDataSources property
+    */
     public function noncustodialDataSources(): NoncustodialDataSourcesRequestBuilder {
         return new NoncustodialDataSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The operations property
+    */
     public function operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -57,6 +72,9 @@ class CaseItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The reopen property
+    */
     public function reopen(): ReopenRequestBuilder {
         return new ReopenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -64,18 +82,30 @@ class CaseItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The reviewSets property
+    */
     public function reviewSets(): ReviewSetsRequestBuilder {
         return new ReviewSetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The settings property
+    */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The sourceCollections property
+    */
     public function sourceCollections(): SourceCollectionsRequestBuilder {
         return new SourceCollectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tags property
+    */
     public function tags(): TagsRequestBuilder {
         return new TagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

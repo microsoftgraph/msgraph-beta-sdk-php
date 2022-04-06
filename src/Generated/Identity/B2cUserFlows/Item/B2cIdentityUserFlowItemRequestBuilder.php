@@ -13,8 +13,8 @@ use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserAttributeAssig
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\UserAttributeAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserFlowIdentityProviders\Item\IdentityProviderBaseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserFlowIdentityProviders\UserFlowIdentityProvidersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\B2cIdentityUserFlow;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\B2cIdentityUserFlow;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -25,10 +25,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class B2cIdentityUserFlowItemRequestBuilder 
 {
+    /**
+     * The identityProviders property
+    */
     public function identityProviders(): IdentityProvidersRequestBuilder {
         return new IdentityProvidersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The languages property
+    */
     public function languages(): LanguagesRequestBuilder {
         return new LanguagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -42,10 +48,16 @@ class B2cIdentityUserFlowItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userAttributeAssignments property
+    */
     public function userAttributeAssignments(): UserAttributeAssignmentsRequestBuilder {
         return new UserAttributeAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userFlowIdentityProviders property
+    */
     public function userFlowIdentityProviders(): UserFlowIdentityProvidersRequestBuilder {
         return new UserFlowIdentityProvidersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

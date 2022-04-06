@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\UpdateDefinitionValues;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupPolicyDefinitionValue;
+use Microsoft\Graph\Beta\Generated\Models\GroupPolicyDefinitionValue;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -10,16 +10,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UpdateDefinitionValuesRequestBody implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<GroupPolicyDefinitionValue>|null $added  */
+    /** @var array<GroupPolicyDefinitionValue>|null $added The added property */
     private ?array $added = null;
     
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $deletedIds  */
+    /** @var array<string>|null $deletedIds The deletedIds property */
     private ?array $deletedIds = null;
     
-    /** @var array<GroupPolicyDefinitionValue>|null $updated  */
+    /** @var array<GroupPolicyDefinitionValue>|null $updated The updated property */
     private ?array $updated = null;
     
     /**
@@ -39,7 +39,7 @@ class UpdateDefinitionValuesRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the added property value. 
+     * Gets the added property value. The added property
      * @return array<GroupPolicyDefinitionValue>|null
     */
     public function getAdded(): ?array {
@@ -55,7 +55,7 @@ class UpdateDefinitionValuesRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the deletedIds property value. 
+     * Gets the deletedIds property value. The deletedIds property
      * @return array<string>|null
     */
     public function getDeletedIds(): ?array {
@@ -75,7 +75,7 @@ class UpdateDefinitionValuesRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the updated property value. 
+     * Gets the updated property value. The updated property
      * @return array<GroupPolicyDefinitionValue>|null
     */
     public function getUpdated(): ?array {
@@ -94,7 +94,7 @@ class UpdateDefinitionValuesRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the added property value. 
+     * Sets the added property value. The added property
      *  @param array<GroupPolicyDefinitionValue>|null $value Value to set for the added property.
     */
     public function setAdded(?array $value ): void {
@@ -110,7 +110,7 @@ class UpdateDefinitionValuesRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the deletedIds property value. 
+     * Sets the deletedIds property value. The deletedIds property
      *  @param array<string>|null $value Value to set for the deletedIds property.
     */
     public function setDeletedIds(?array $value ): void {
@@ -118,7 +118,7 @@ class UpdateDefinitionValuesRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the updated property value. 
+     * Sets the updated property value. The updated property
      *  @param array<GroupPolicyDefinitionValue>|null $value Value to set for the updated property.
     */
     public function setUpdated(?array $value ): void {

@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item\TaskFolders\Item\S
 use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item\TaskFolders\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item\TaskFolders\Item\Tasks\Item\OutlookTaskItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item\TaskFolders\Item\Tasks\TasksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OutlookTaskFolder;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OutlookTaskFolder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,6 +23,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class OutlookTaskFolderItemRequestBuilder 
 {
+    /**
+     * The multiValueExtendedProperties property
+    */
     public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -33,10 +36,16 @@ class OutlookTaskFolderItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The singleValueExtendedProperties property
+    */
     public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tasks property
+    */
     public function tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

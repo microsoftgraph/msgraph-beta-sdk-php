@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\Assi
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\Assignments\Item\TermsAndConditionsAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\GroupAssignments\GroupAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\GroupAssignments\Item\TermsAndConditionsGroupAssignmentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TermsAndConditions;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TermsAndConditions;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,14 +23,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TermsAndConditionsItemRequestBuilder 
 {
+    /**
+     * The acceptanceStatuses property
+    */
     public function acceptanceStatuses(): AcceptanceStatusesRequestBuilder {
         return new AcceptanceStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The groupAssignments property
+    */
     public function groupAssignments(): GroupAssignmentsRequestBuilder {
         return new GroupAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

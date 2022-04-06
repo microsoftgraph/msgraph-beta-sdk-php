@@ -6,9 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\GroupAssignments\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceConfigurationGroupAssignment;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceConfigurationGroupAssignmentCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationGroupAssignment;
+use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationGroupAssignmentCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class GroupAssignmentsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Tena
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagedTenants\TenantTag;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\TenantTag;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags\Item\AssignTag\AssignTagRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags\Item\UnassignTag\UnassignTagRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TenantTagItemRequestBuilder 
 {
+    /**
+     * The assignTag property
+    */
     public function assignTag(): AssignTagRequestBuilder {
         return new AssignTagRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -29,6 +32,9 @@ class TenantTagItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The unassignTag property
+    */
     public function unassignTag(): UnassignTagRequestBuilder {
         return new UnassignTagRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

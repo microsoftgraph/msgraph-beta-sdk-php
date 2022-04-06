@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\InformationProtection\VerifySignature;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\VerificationResult;
+use Microsoft\Graph\Beta\Generated\Models\VerificationResult;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

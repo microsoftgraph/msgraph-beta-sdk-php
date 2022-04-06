@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\DeviceAppManagementTasks\Item\UpdateStatus\UpdateStatusRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceAppManagementTask;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceAppManagementTask;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -24,6 +24,9 @@ class DeviceAppManagementTaskItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The updateStatus property
+    */
     public function updateStatus(): UpdateStatusRequestBuilder {
         return new UpdateStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

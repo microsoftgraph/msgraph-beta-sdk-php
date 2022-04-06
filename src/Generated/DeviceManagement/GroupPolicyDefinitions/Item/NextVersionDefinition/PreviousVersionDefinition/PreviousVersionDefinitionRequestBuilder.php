@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\NextVersionDefinition\PreviousVersionDefinition\DefinitionFile\DefinitionFileRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\NextVersionDefinition\PreviousVersionDefinition\Presentations\Item\GroupPolicyPresentationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\NextVersionDefinition\PreviousVersionDefinition\Presentations\PresentationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupPolicyDefinition;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GroupPolicyDefinition;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PreviousVersionDefinitionRequestBuilder 
 {
+    /**
+     * The category property
+    */
     public function category(): CategoryRequestBuilder {
         return new CategoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The definitionFile property
+    */
     public function definitionFile(): DefinitionFileRequestBuilder {
         return new DefinitionFileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -32,6 +38,9 @@ class PreviousVersionDefinitionRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The presentations property
+    */
     public function presentations(): PresentationsRequestBuilder {
         return new PresentationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

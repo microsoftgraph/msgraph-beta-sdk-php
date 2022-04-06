@@ -7,9 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\GroupLifecyclePolicies\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\GroupLifecyclePolicies\RenewGroup\RenewGroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupLifecyclePolicy;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupLifecyclePolicyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GroupLifecyclePolicy;
+use Microsoft\Graph\Beta\Generated\Models\GroupLifecyclePolicyCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class GroupLifecyclePoliciesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -27,6 +30,9 @@ class GroupLifecyclePoliciesRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The renewGroup property
+    */
     public function renewGroup(): RenewGroupRequestBuilder {
         return new RenewGroupRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

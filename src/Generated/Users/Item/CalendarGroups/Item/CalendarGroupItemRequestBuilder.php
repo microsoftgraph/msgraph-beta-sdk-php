@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\CalendarGroups\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CalendarGroup;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\CalendarGroup;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\CalendarGroups\Item\Calendars\CalendarsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CalendarGroups\Item\Calendars\Item\CalendarItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class CalendarGroupItemRequestBuilder 
 {
+    /**
+     * The calendars property
+    */
     public function calendars(): CalendarsRequestBuilder {
         return new CalendarsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

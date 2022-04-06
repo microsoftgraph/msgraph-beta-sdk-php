@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\Commit\CommitRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\Renew\RenewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\UploadAgent\UploadAgentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ExactMatchSession;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ExactMatchSession;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ExactMatchSessionItemRequestBuilder 
 {
+    /**
+     * The cancel property
+    */
     public function cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The commit property
+    */
     public function commit(): CommitRequestBuilder {
         return new CommitRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -32,6 +38,9 @@ class ExactMatchSessionItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The renew property
+    */
     public function renew(): RenewRequestBuilder {
         return new RenewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -39,6 +48,9 @@ class ExactMatchSessionItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The uploadAgent property
+    */
     public function uploadAgent(): UploadAgentRequestBuilder {
         return new UploadAgentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

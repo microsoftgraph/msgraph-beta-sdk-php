@@ -203,6 +203,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\DeviceManagem
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\TemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TemplateSettings\Item\DeviceManagementConfigurationSettingTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TemplateSettings\TemplateSettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\TenantAttachRBAC\TenantAttachRBACRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\TermsAndConditionsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\TermsAndConditionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TroubleshootingEvents\Item\DeviceManagementTroubleshootingEventItemRequestBuilder;
@@ -303,8 +304,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdateProfiles
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdateProfiles\WindowsQualityUpdateProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsUpdateCatalogItems\Item\WindowsUpdateCatalogItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsUpdateCatalogItems\WindowsUpdateCatalogItemsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagement;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagement;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -315,350 +316,611 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeviceManagementRequestBuilder 
 {
+    /**
+     * The advancedThreatProtectionOnboardingStateSummary property
+    */
     public function advancedThreatProtectionOnboardingStateSummary(): AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder {
         return new AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The androidDeviceOwnerEnrollmentProfiles property
+    */
     public function androidDeviceOwnerEnrollmentProfiles(): AndroidDeviceOwnerEnrollmentProfilesRequestBuilder {
         return new AndroidDeviceOwnerEnrollmentProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The androidForWorkAppConfigurationSchemas property
+    */
     public function androidForWorkAppConfigurationSchemas(): AndroidForWorkAppConfigurationSchemasRequestBuilder {
         return new AndroidForWorkAppConfigurationSchemasRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The androidForWorkEnrollmentProfiles property
+    */
     public function androidForWorkEnrollmentProfiles(): AndroidForWorkEnrollmentProfilesRequestBuilder {
         return new AndroidForWorkEnrollmentProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The androidForWorkSettings property
+    */
     public function androidForWorkSettings(): AndroidForWorkSettingsRequestBuilder {
         return new AndroidForWorkSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The androidManagedStoreAccountEnterpriseSettings property
+    */
     public function androidManagedStoreAccountEnterpriseSettings(): AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder {
         return new AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The androidManagedStoreAppConfigurationSchemas property
+    */
     public function androidManagedStoreAppConfigurationSchemas(): AndroidManagedStoreAppConfigurationSchemasRequestBuilder {
         return new AndroidManagedStoreAppConfigurationSchemasRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The applePushNotificationCertificate property
+    */
     public function applePushNotificationCertificate(): ApplePushNotificationCertificateRequestBuilder {
         return new ApplePushNotificationCertificateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The appleUserInitiatedEnrollmentProfiles property
+    */
     public function appleUserInitiatedEnrollmentProfiles(): AppleUserInitiatedEnrollmentProfilesRequestBuilder {
         return new AppleUserInitiatedEnrollmentProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignmentFilters property
+    */
     public function assignmentFilters(): AssignmentFiltersRequestBuilder {
         return new AssignmentFiltersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The auditEvents property
+    */
     public function auditEvents(): AuditEventsRequestBuilder {
         return new AuditEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The autopilotEvents property
+    */
     public function autopilotEvents(): AutopilotEventsRequestBuilder {
         return new AutopilotEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The cartToClassAssociations property
+    */
     public function cartToClassAssociations(): CartToClassAssociationsRequestBuilder {
         return new CartToClassAssociationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The categories property
+    */
     public function categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The certificateConnectorDetails property
+    */
     public function certificateConnectorDetails(): CertificateConnectorDetailsRequestBuilder {
         return new CertificateConnectorDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The chromeOSOnboardingSettings property
+    */
     public function chromeOSOnboardingSettings(): ChromeOSOnboardingSettingsRequestBuilder {
         return new ChromeOSOnboardingSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The cloudPCConnectivityIssues property
+    */
     public function cloudPCConnectivityIssues(): CloudPCConnectivityIssuesRequestBuilder {
         return new CloudPCConnectivityIssuesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The comanagedDevices property
+    */
     public function comanagedDevices(): ComanagedDevicesRequestBuilder {
         return new ComanagedDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The comanagementEligibleDevices property
+    */
     public function comanagementEligibleDevices(): ComanagementEligibleDevicesRequestBuilder {
         return new ComanagementEligibleDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The complianceCategories property
+    */
     public function complianceCategories(): ComplianceCategoriesRequestBuilder {
         return new ComplianceCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The complianceManagementPartners property
+    */
     public function complianceManagementPartners(): ComplianceManagementPartnersRequestBuilder {
         return new ComplianceManagementPartnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The compliancePolicies property
+    */
     public function compliancePolicies(): CompliancePoliciesRequestBuilder {
         return new CompliancePoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The complianceSettings property
+    */
     public function complianceSettings(): ComplianceSettingsRequestBuilder {
         return new ComplianceSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The conditionalAccessSettings property
+    */
     public function conditionalAccessSettings(): ConditionalAccessSettingsRequestBuilder {
         return new ConditionalAccessSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The configManagerCollections property
+    */
     public function configManagerCollections(): ConfigManagerCollectionsRequestBuilder {
         return new ConfigManagerCollectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The configurationCategories property
+    */
     public function configurationCategories(): ConfigurationCategoriesRequestBuilder {
         return new ConfigurationCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The configurationPolicies property
+    */
     public function configurationPolicies(): ConfigurationPoliciesRequestBuilder {
         return new ConfigurationPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The configurationPolicyTemplates property
+    */
     public function configurationPolicyTemplates(): ConfigurationPolicyTemplatesRequestBuilder {
         return new ConfigurationPolicyTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The configurationSettings property
+    */
     public function configurationSettings(): ConfigurationSettingsRequestBuilder {
         return new ConfigurationSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The dataSharingConsents property
+    */
     public function dataSharingConsents(): DataSharingConsentsRequestBuilder {
         return new DataSharingConsentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The depOnboardingSettings property
+    */
     public function depOnboardingSettings(): DepOnboardingSettingsRequestBuilder {
         return new DepOnboardingSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The derivedCredentials property
+    */
     public function derivedCredentials(): DerivedCredentialsRequestBuilder {
         return new DerivedCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The detectedApps property
+    */
     public function detectedApps(): DetectedAppsRequestBuilder {
         return new DetectedAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceCategories property
+    */
     public function deviceCategories(): DeviceCategoriesRequestBuilder {
         return new DeviceCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceCompliancePolicies property
+    */
     public function deviceCompliancePolicies(): DeviceCompliancePoliciesRequestBuilder {
         return new DeviceCompliancePoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceCompliancePolicyDeviceStateSummary property
+    */
     public function deviceCompliancePolicyDeviceStateSummary(): DeviceCompliancePolicyDeviceStateSummaryRequestBuilder {
         return new DeviceCompliancePolicyDeviceStateSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceCompliancePolicySettingStateSummaries property
+    */
     public function deviceCompliancePolicySettingStateSummaries(): DeviceCompliancePolicySettingStateSummariesRequestBuilder {
         return new DeviceCompliancePolicySettingStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceComplianceScripts property
+    */
     public function deviceComplianceScripts(): DeviceComplianceScriptsRequestBuilder {
         return new DeviceComplianceScriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceConfigurationConflictSummary property
+    */
     public function deviceConfigurationConflictSummary(): DeviceConfigurationConflictSummaryRequestBuilder {
         return new DeviceConfigurationConflictSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceConfigurationDeviceStateSummaries property
+    */
     public function deviceConfigurationDeviceStateSummaries(): DeviceConfigurationDeviceStateSummariesRequestBuilder {
         return new DeviceConfigurationDeviceStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceConfigurationRestrictedAppsViolations property
+    */
     public function deviceConfigurationRestrictedAppsViolations(): DeviceConfigurationRestrictedAppsViolationsRequestBuilder {
         return new DeviceConfigurationRestrictedAppsViolationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceConfigurations property
+    */
     public function deviceConfigurations(): DeviceConfigurationsRequestBuilder {
         return new DeviceConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceConfigurationsAllManagedDeviceCertificateStates property
+    */
     public function deviceConfigurationsAllManagedDeviceCertificateStates(): DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilder {
         return new DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceConfigurationUserStateSummaries property
+    */
     public function deviceConfigurationUserStateSummaries(): DeviceConfigurationUserStateSummariesRequestBuilder {
         return new DeviceConfigurationUserStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceCustomAttributeShellScripts property
+    */
     public function deviceCustomAttributeShellScripts(): DeviceCustomAttributeShellScriptsRequestBuilder {
         return new DeviceCustomAttributeShellScriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceEnrollmentConfigurations property
+    */
     public function deviceEnrollmentConfigurations(): DeviceEnrollmentConfigurationsRequestBuilder {
         return new DeviceEnrollmentConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceHealthScripts property
+    */
     public function deviceHealthScripts(): DeviceHealthScriptsRequestBuilder {
         return new DeviceHealthScriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceManagementPartners property
+    */
     public function deviceManagementPartners(): DeviceManagementPartnersRequestBuilder {
         return new DeviceManagementPartnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceManagementScripts property
+    */
     public function deviceManagementScripts(): DeviceManagementScriptsRequestBuilder {
         return new DeviceManagementScriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceShellScripts property
+    */
     public function deviceShellScripts(): DeviceShellScriptsRequestBuilder {
         return new DeviceShellScriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The domainJoinConnectors property
+    */
     public function domainJoinConnectors(): DomainJoinConnectorsRequestBuilder {
         return new DomainJoinConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The embeddedSIMActivationCodePools property
+    */
     public function embeddedSIMActivationCodePools(): EmbeddedSIMActivationCodePoolsRequestBuilder {
         return new EmbeddedSIMActivationCodePoolsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The enableAndroidDeviceAdministratorEnrollment property
+    */
     public function enableAndroidDeviceAdministratorEnrollment(): EnableAndroidDeviceAdministratorEnrollmentRequestBuilder {
         return new EnableAndroidDeviceAdministratorEnrollmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The enableLegacyPcManagement property
+    */
     public function enableLegacyPcManagement(): EnableLegacyPcManagementRequestBuilder {
         return new EnableLegacyPcManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The enableUnlicensedAdminstrators property
+    */
     public function enableUnlicensedAdminstrators(): EnableUnlicensedAdminstratorsRequestBuilder {
         return new EnableUnlicensedAdminstratorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The evaluateAssignmentFilter property
+    */
     public function evaluateAssignmentFilter(): EvaluateAssignmentFilterRequestBuilder {
         return new EvaluateAssignmentFilterRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The exchangeConnectors property
+    */
     public function exchangeConnectors(): ExchangeConnectorsRequestBuilder {
         return new ExchangeConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The exchangeOnPremisesPolicies property
+    */
     public function exchangeOnPremisesPolicies(): ExchangeOnPremisesPoliciesRequestBuilder {
         return new ExchangeOnPremisesPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The exchangeOnPremisesPolicy property
+    */
     public function exchangeOnPremisesPolicy(): ExchangeOnPremisesPolicyRequestBuilder {
         return new ExchangeOnPremisesPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getAssignmentFiltersStatusDetails property
+    */
     public function getAssignmentFiltersStatusDetails(): GetAssignmentFiltersStatusDetailsRequestBuilder {
         return new GetAssignmentFiltersStatusDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The groupPolicyCategories property
+    */
     public function groupPolicyCategories(): GroupPolicyCategoriesRequestBuilder {
         return new GroupPolicyCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The groupPolicyConfigurations property
+    */
     public function groupPolicyConfigurations(): GroupPolicyConfigurationsRequestBuilder {
         return new GroupPolicyConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The groupPolicyDefinitionFiles property
+    */
     public function groupPolicyDefinitionFiles(): GroupPolicyDefinitionFilesRequestBuilder {
         return new GroupPolicyDefinitionFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The groupPolicyDefinitions property
+    */
     public function groupPolicyDefinitions(): GroupPolicyDefinitionsRequestBuilder {
         return new GroupPolicyDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The groupPolicyMigrationReports property
+    */
     public function groupPolicyMigrationReports(): GroupPolicyMigrationReportsRequestBuilder {
         return new GroupPolicyMigrationReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The groupPolicyObjectFiles property
+    */
     public function groupPolicyObjectFiles(): GroupPolicyObjectFilesRequestBuilder {
         return new GroupPolicyObjectFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The groupPolicyUploadedDefinitionFiles property
+    */
     public function groupPolicyUploadedDefinitionFiles(): GroupPolicyUploadedDefinitionFilesRequestBuilder {
         return new GroupPolicyUploadedDefinitionFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The importedDeviceIdentities property
+    */
     public function importedDeviceIdentities(): ImportedDeviceIdentitiesRequestBuilder {
         return new ImportedDeviceIdentitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The importedWindowsAutopilotDeviceIdentities property
+    */
     public function importedWindowsAutopilotDeviceIdentities(): ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
         return new ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The intents property
+    */
     public function intents(): IntentsRequestBuilder {
         return new IntentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The intuneBrandingProfiles property
+    */
     public function intuneBrandingProfiles(): IntuneBrandingProfilesRequestBuilder {
         return new IntuneBrandingProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The iosUpdateStatuses property
+    */
     public function iosUpdateStatuses(): IosUpdateStatusesRequestBuilder {
         return new IosUpdateStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The macOSSoftwareUpdateAccountSummaries property
+    */
     public function macOSSoftwareUpdateAccountSummaries(): MacOSSoftwareUpdateAccountSummariesRequestBuilder {
         return new MacOSSoftwareUpdateAccountSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managedDeviceEncryptionStates property
+    */
     public function managedDeviceEncryptionStates(): ManagedDeviceEncryptionStatesRequestBuilder {
         return new ManagedDeviceEncryptionStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managedDeviceOverview property
+    */
     public function managedDeviceOverview(): ManagedDeviceOverviewRequestBuilder {
         return new ManagedDeviceOverviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managedDevices property
+    */
     public function managedDevices(): ManagedDevicesRequestBuilder {
         return new ManagedDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managementConditions property
+    */
     public function managementConditions(): ManagementConditionsRequestBuilder {
         return new ManagementConditionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managementConditionStatements property
+    */
     public function managementConditionStatements(): ManagementConditionStatementsRequestBuilder {
         return new ManagementConditionStatementsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The microsoftTunnelConfigurations property
+    */
     public function microsoftTunnelConfigurations(): MicrosoftTunnelConfigurationsRequestBuilder {
         return new MicrosoftTunnelConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The microsoftTunnelHealthThresholds property
+    */
     public function microsoftTunnelHealthThresholds(): MicrosoftTunnelHealthThresholdsRequestBuilder {
         return new MicrosoftTunnelHealthThresholdsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The microsoftTunnelServerLogCollectionResponses property
+    */
     public function microsoftTunnelServerLogCollectionResponses(): MicrosoftTunnelServerLogCollectionResponsesRequestBuilder {
         return new MicrosoftTunnelServerLogCollectionResponsesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The microsoftTunnelSites property
+    */
     public function microsoftTunnelSites(): MicrosoftTunnelSitesRequestBuilder {
         return new MicrosoftTunnelSitesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The mobileAppTroubleshootingEvents property
+    */
     public function mobileAppTroubleshootingEvents(): MobileAppTroubleshootingEventsRequestBuilder {
         return new MobileAppTroubleshootingEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The mobileThreatDefenseConnectors property
+    */
     public function mobileThreatDefenseConnectors(): MobileThreatDefenseConnectorsRequestBuilder {
         return new MobileThreatDefenseConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The ndesConnectors property
+    */
     public function ndesConnectors(): NdesConnectorsRequestBuilder {
         return new NdesConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The notificationMessageTemplates property
+    */
     public function notificationMessageTemplates(): NotificationMessageTemplatesRequestBuilder {
         return new NotificationMessageTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The oemWarrantyInformationOnboarding property
+    */
     public function oemWarrantyInformationOnboarding(): OemWarrantyInformationOnboardingRequestBuilder {
         return new OemWarrantyInformationOnboardingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -666,18 +928,30 @@ class DeviceManagementRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The remoteActionAudits property
+    */
     public function remoteActionAudits(): RemoteActionAuditsRequestBuilder {
         return new RemoteActionAuditsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The remoteAssistancePartners property
+    */
     public function remoteAssistancePartners(): RemoteAssistancePartnersRequestBuilder {
         return new RemoteAssistancePartnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The remoteAssistanceSettings property
+    */
     public function remoteAssistanceSettings(): RemoteAssistanceSettingsRequestBuilder {
         return new RemoteAssistanceSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The reports property
+    */
     public function reports(): ReportsRequestBuilder {
         return new ReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -685,62 +959,114 @@ class DeviceManagementRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resourceAccessProfiles property
+    */
     public function resourceAccessProfiles(): ResourceAccessProfilesRequestBuilder {
         return new ResourceAccessProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The resourceOperations property
+    */
     public function resourceOperations(): ResourceOperationsRequestBuilder {
         return new ResourceOperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The reusablePolicySettings property
+    */
     public function reusablePolicySettings(): ReusablePolicySettingsRequestBuilder {
         return new ReusablePolicySettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The reusableSettings property
+    */
     public function reusableSettings(): ReusableSettingsRequestBuilder {
         return new ReusableSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleAssignments property
+    */
     public function roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleDefinitions property
+    */
     public function roleDefinitions(): RoleDefinitionsRequestBuilder {
         return new RoleDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleScopeTags property
+    */
     public function roleScopeTags(): RoleScopeTagsRequestBuilder {
         return new RoleScopeTagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The sendCustomNotificationToCompanyPortal property
+    */
     public function sendCustomNotificationToCompanyPortal(): SendCustomNotificationToCompanyPortalRequestBuilder {
         return new SendCustomNotificationToCompanyPortalRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The settingDefinitions property
+    */
     public function settingDefinitions(): SettingDefinitionsRequestBuilder {
         return new SettingDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The softwareUpdateStatusSummary property
+    */
     public function softwareUpdateStatusSummary(): SoftwareUpdateStatusSummaryRequestBuilder {
         return new SoftwareUpdateStatusSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The telecomExpenseManagementPartners property
+    */
     public function telecomExpenseManagementPartners(): TelecomExpenseManagementPartnersRequestBuilder {
         return new TelecomExpenseManagementPartnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The templates property
+    */
     public function templates(): TemplatesRequestBuilder {
         return new TemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The templateSettings property
+    */
     public function templateSettings(): TemplateSettingsRequestBuilder {
         return new TemplateSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tenantAttachRBAC property
+    */
+    public function tenantAttachRBAC(): TenantAttachRBACRequestBuilder {
+        return new TenantAttachRBACRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The termsAndConditions property
+    */
     public function termsAndConditions(): TermsAndConditionsRequestBuilder {
         return new TermsAndConditionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The troubleshootingEvents property
+    */
     public function troubleshootingEvents(): TroubleshootingEventsRequestBuilder {
         return new TroubleshootingEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -748,206 +1074,359 @@ class DeviceManagementRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userExperienceAnalyticsAppHealthApplicationPerformance property
+    */
     public function userExperienceAnalyticsAppHealthApplicationPerformance(): UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder {
         return new UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion property
+    */
     public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion(): UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilder {
         return new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property
+    */
     public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails(): UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder {
         return new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property
+    */
     public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId(): UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder {
         return new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property
+    */
     public function userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion(): UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder {
         return new UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsAppHealthDeviceModelPerformance property
+    */
     public function userExperienceAnalyticsAppHealthDeviceModelPerformance(): UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder {
         return new UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsAppHealthDevicePerformance property
+    */
     public function userExperienceAnalyticsAppHealthDevicePerformance(): UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder {
         return new UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsAppHealthDevicePerformanceDetails property
+    */
     public function userExperienceAnalyticsAppHealthDevicePerformanceDetails(): UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder {
         return new UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsAppHealthOSVersionPerformance property
+    */
     public function userExperienceAnalyticsAppHealthOSVersionPerformance(): UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder {
         return new UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsAppHealthOverview property
+    */
     public function userExperienceAnalyticsAppHealthOverview(): UserExperienceAnalyticsAppHealthOverviewRequestBuilder {
         return new UserExperienceAnalyticsAppHealthOverviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsBaselines property
+    */
     public function userExperienceAnalyticsBaselines(): UserExperienceAnalyticsBaselinesRequestBuilder {
         return new UserExperienceAnalyticsBaselinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsBatteryHealthAppImpact property
+    */
     public function userExperienceAnalyticsBatteryHealthAppImpact(): UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsBatteryHealthCapacityDetails property
+    */
     public function userExperienceAnalyticsBatteryHealthCapacityDetails(): UserExperienceAnalyticsBatteryHealthCapacityDetailsRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthCapacityDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsBatteryHealthDeviceAppImpact property
+    */
     public function userExperienceAnalyticsBatteryHealthDeviceAppImpact(): UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsBatteryHealthDevicePerformance property
+    */
     public function userExperienceAnalyticsBatteryHealthDevicePerformance(): UserExperienceAnalyticsBatteryHealthDevicePerformanceRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthDevicePerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory property
+    */
     public function userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory(): UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsBatteryHealthModelPerformance property
+    */
     public function userExperienceAnalyticsBatteryHealthModelPerformance(): UserExperienceAnalyticsBatteryHealthModelPerformanceRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthModelPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsBatteryHealthOsPerformance property
+    */
     public function userExperienceAnalyticsBatteryHealthOsPerformance(): UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsBatteryHealthRuntimeDetails property
+    */
     public function userExperienceAnalyticsBatteryHealthRuntimeDetails(): UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsCategories property
+    */
     public function userExperienceAnalyticsCategories(): UserExperienceAnalyticsCategoriesRequestBuilder {
         return new UserExperienceAnalyticsCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsDeviceMetricHistory property
+    */
     public function userExperienceAnalyticsDeviceMetricHistory(): UserExperienceAnalyticsDeviceMetricHistoryRequestBuilder {
         return new UserExperienceAnalyticsDeviceMetricHistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsDevicePerformance property
+    */
     public function userExperienceAnalyticsDevicePerformance(): UserExperienceAnalyticsDevicePerformanceRequestBuilder {
         return new UserExperienceAnalyticsDevicePerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsDeviceScores property
+    */
     public function userExperienceAnalyticsDeviceScores(): UserExperienceAnalyticsDeviceScoresRequestBuilder {
         return new UserExperienceAnalyticsDeviceScoresRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsDeviceStartupHistory property
+    */
     public function userExperienceAnalyticsDeviceStartupHistory(): UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder {
         return new UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsDeviceStartupProcesses property
+    */
     public function userExperienceAnalyticsDeviceStartupProcesses(): UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder {
         return new UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsDeviceStartupProcessPerformance property
+    */
     public function userExperienceAnalyticsDeviceStartupProcessPerformance(): UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder {
         return new UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsDevicesWithoutCloudIdentity property
+    */
     public function userExperienceAnalyticsDevicesWithoutCloudIdentity(): UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder {
         return new UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsImpactingProcess property
+    */
     public function userExperienceAnalyticsImpactingProcess(): UserExperienceAnalyticsImpactingProcessRequestBuilder {
         return new UserExperienceAnalyticsImpactingProcessRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsMetricHistory property
+    */
     public function userExperienceAnalyticsMetricHistory(): UserExperienceAnalyticsMetricHistoryRequestBuilder {
         return new UserExperienceAnalyticsMetricHistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsModelScores property
+    */
     public function userExperienceAnalyticsModelScores(): UserExperienceAnalyticsModelScoresRequestBuilder {
         return new UserExperienceAnalyticsModelScoresRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsNotAutopilotReadyDevice property
+    */
     public function userExperienceAnalyticsNotAutopilotReadyDevice(): UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder {
         return new UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsOverview property
+    */
     public function userExperienceAnalyticsOverview(): UserExperienceAnalyticsOverviewRequestBuilder {
         return new UserExperienceAnalyticsOverviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsRegressionSummary property
+    */
     public function userExperienceAnalyticsRegressionSummary(): UserExperienceAnalyticsRegressionSummaryRequestBuilder {
         return new UserExperienceAnalyticsRegressionSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsRemoteConnection property
+    */
     public function userExperienceAnalyticsRemoteConnection(): UserExperienceAnalyticsRemoteConnectionRequestBuilder {
         return new UserExperienceAnalyticsRemoteConnectionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsResourcePerformance property
+    */
     public function userExperienceAnalyticsResourcePerformance(): UserExperienceAnalyticsResourcePerformanceRequestBuilder {
         return new UserExperienceAnalyticsResourcePerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsScoreHistory property
+    */
     public function userExperienceAnalyticsScoreHistory(): UserExperienceAnalyticsScoreHistoryRequestBuilder {
         return new UserExperienceAnalyticsScoreHistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric property
+    */
     public function userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric(): UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder {
         return new UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsWorkFromAnywhereMetrics property
+    */
     public function userExperienceAnalyticsWorkFromAnywhereMetrics(): UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder {
         return new UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userExperienceAnalyticsWorkFromAnywhereModelPerformance property
+    */
     public function userExperienceAnalyticsWorkFromAnywhereModelPerformance(): UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder {
         return new UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userPfxCertificates property
+    */
     public function userPfxCertificates(): UserPfxCertificatesRequestBuilder {
         return new UserPfxCertificatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The virtualEndpoint property
+    */
     public function virtualEndpoint(): VirtualEndpointRequestBuilder {
         return new VirtualEndpointRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsAutopilotDeploymentProfiles property
+    */
     public function windowsAutopilotDeploymentProfiles(): WindowsAutopilotDeploymentProfilesRequestBuilder {
         return new WindowsAutopilotDeploymentProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsAutopilotDeviceIdentities property
+    */
     public function windowsAutopilotDeviceIdentities(): WindowsAutopilotDeviceIdentitiesRequestBuilder {
         return new WindowsAutopilotDeviceIdentitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsAutopilotSettings property
+    */
     public function windowsAutopilotSettings(): WindowsAutopilotSettingsRequestBuilder {
         return new WindowsAutopilotSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsDriverUpdateProfiles property
+    */
     public function windowsDriverUpdateProfiles(): WindowsDriverUpdateProfilesRequestBuilder {
         return new WindowsDriverUpdateProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsFeatureUpdateProfiles property
+    */
     public function windowsFeatureUpdateProfiles(): WindowsFeatureUpdateProfilesRequestBuilder {
         return new WindowsFeatureUpdateProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsInformationProtectionAppLearningSummaries property
+    */
     public function windowsInformationProtectionAppLearningSummaries(): WindowsInformationProtectionAppLearningSummariesRequestBuilder {
         return new WindowsInformationProtectionAppLearningSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsInformationProtectionNetworkLearningSummaries property
+    */
     public function windowsInformationProtectionNetworkLearningSummaries(): WindowsInformationProtectionNetworkLearningSummariesRequestBuilder {
         return new WindowsInformationProtectionNetworkLearningSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsMalwareInformation property
+    */
     public function windowsMalwareInformation(): WindowsMalwareInformationRequestBuilder {
         return new WindowsMalwareInformationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsQualityUpdateProfiles property
+    */
     public function windowsQualityUpdateProfiles(): WindowsQualityUpdateProfilesRequestBuilder {
         return new WindowsQualityUpdateProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsUpdateCatalogItems property
+    */
     public function windowsUpdateCatalogItems(): WindowsUpdateCatalogItemsRequestBuilder {
         return new WindowsUpdateCatalogItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

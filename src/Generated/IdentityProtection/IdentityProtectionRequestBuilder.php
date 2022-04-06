@@ -13,8 +13,8 @@ use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\Item\RiskyUserI
 use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\RiskyUsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\ServicePrincipalRiskDetections\Item\ServicePrincipalRiskDetectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\ServicePrincipalRiskDetections\ServicePrincipalRiskDetectionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\IdentityProtectionRoot;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\IdentityProtectionRoot;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -31,18 +31,30 @@ class IdentityProtectionRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The riskDetections property
+    */
     public function riskDetections(): RiskDetectionsRequestBuilder {
         return new RiskDetectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The riskyServicePrincipals property
+    */
     public function riskyServicePrincipals(): RiskyServicePrincipalsRequestBuilder {
         return new RiskyServicePrincipalsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The riskyUsers property
+    */
     public function riskyUsers(): RiskyUsersRequestBuilder {
         return new RiskyUsersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The servicePrincipalRiskDetections property
+    */
     public function servicePrincipalRiskDetections(): ServicePrincipalRiskDetectionsRequestBuilder {
         return new ServicePrincipalRiskDetectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

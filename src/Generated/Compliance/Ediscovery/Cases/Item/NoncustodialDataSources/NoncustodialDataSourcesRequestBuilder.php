@@ -8,9 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\ApplyHold\ApplyHoldRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\RemoveHold\RemoveHoldRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Ediscovery\NoncustodialDataSource;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Ediscovery\NoncustodialDataSourceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\NoncustodialDataSource;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\NoncustodialDataSourceCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class NoncustodialDataSourcesRequestBuilder 
 {
+    /**
+     * The applyHold property
+    */
     public function applyHold(): ApplyHoldRequestBuilder {
         return new ApplyHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -32,6 +38,9 @@ class NoncustodialDataSourcesRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The removeHold property
+    */
     public function removeHold(): RemoveHoldRequestBuilder {
         return new RemoveHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

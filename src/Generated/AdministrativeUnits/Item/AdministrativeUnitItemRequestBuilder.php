@@ -16,8 +16,8 @@ use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\MembersReque
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\ScopedRoleMembers\Item\ScopedRoleMembershipItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\ScopedRoleMembers\ScopedRoleMembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AdministrativeUnit;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AdministrativeUnit;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -28,26 +28,44 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AdministrativeUnitItemRequestBuilder 
 {
+    /**
+     * The checkMemberGroups property
+    */
     public function checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The checkMemberObjects property
+    */
     public function checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The extensions property
+    */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getMemberGroups property
+    */
     public function getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getMemberObjects property
+    */
     public function getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The members property
+    */
     public function members(): MembersRequestBuilder {
         return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -58,10 +76,16 @@ class AdministrativeUnitItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The restore property
+    */
     public function restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The scopedRoleMembers property
+    */
     public function scopedRoleMembers(): ScopedRoleMembersRequestBuilder {
         return new ScopedRoleMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

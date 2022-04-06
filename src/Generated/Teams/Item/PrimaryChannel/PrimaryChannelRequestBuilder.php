@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Channel;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Channel;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\CompleteMigration\CompleteMigrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalName\DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\FilesFolder\FilesFolderRequestBuilder;
@@ -30,18 +30,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PrimaryChannelRequestBuilder 
 {
+    /**
+     * The completeMigration property
+    */
     public function completeMigration(): CompleteMigrationRequestBuilder {
         return new CompleteMigrationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The filesFolder property
+    */
     public function filesFolder(): FilesFolderRequestBuilder {
         return new FilesFolderRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The members property
+    */
     public function members(): MembersRequestBuilder {
         return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The messages property
+    */
     public function messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -49,10 +61,16 @@ class PrimaryChannelRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The provisionEmail property
+    */
     public function provisionEmail(): ProvisionEmailRequestBuilder {
         return new ProvisionEmailRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The removeEmail property
+    */
     public function removeEmail(): RemoveEmailRequestBuilder {
         return new RemoveEmailRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -60,10 +78,16 @@ class PrimaryChannelRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The sharedWithTeams property
+    */
     public function sharedWithTeams(): SharedWithTeamsRequestBuilder {
         return new SharedWithTeamsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tabs property
+    */
     public function tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

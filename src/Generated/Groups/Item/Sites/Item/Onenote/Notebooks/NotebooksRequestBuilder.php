@@ -8,9 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Onenote\Notebooks\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Onenote\Notebooks\GetNotebookFromWebUrl\GetNotebookFromWebUrlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Onenote\Notebooks\GetRecentNotebooksWithIncludePersonalNotebooks\GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Notebook;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\NotebookCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Notebook;
+use Microsoft\Graph\Beta\Generated\Models\NotebookCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class NotebooksRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getNotebookFromWebUrl property
+    */
     public function getNotebookFromWebUrl(): GetNotebookFromWebUrlRequestBuilder {
         return new GetNotebookFromWebUrlRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

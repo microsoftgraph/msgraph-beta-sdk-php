@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\CreateDeviceLogCollectionRequest;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceLogCollectionRequest;
+use Microsoft\Graph\Beta\Generated\Models\DeviceLogCollectionRequest;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class CreateDeviceLogCollectionRequestRequestBody implements AdditionalDataHolde
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var DeviceLogCollectionRequest|null $templateType  */
+    /** @var DeviceLogCollectionRequest|null $templateType The templateType property */
     private ?DeviceLogCollectionRequest $templateType = null;
     
     /**
@@ -51,7 +51,7 @@ class CreateDeviceLogCollectionRequestRequestBody implements AdditionalDataHolde
     }
 
     /**
-     * Gets the templateType property value. 
+     * Gets the templateType property value. The templateType property
      * @return DeviceLogCollectionRequest|null
     */
     public function getTemplateType(): ?DeviceLogCollectionRequest {
@@ -76,7 +76,7 @@ class CreateDeviceLogCollectionRequestRequestBody implements AdditionalDataHolde
     }
 
     /**
-     * Sets the templateType property value. 
+     * Sets the templateType property value. The templateType property
      *  @param DeviceLogCollectionRequest|null $value Value to set for the templateType property.
     */
     public function setTemplateType(?DeviceLogCollectionRequest $value ): void {

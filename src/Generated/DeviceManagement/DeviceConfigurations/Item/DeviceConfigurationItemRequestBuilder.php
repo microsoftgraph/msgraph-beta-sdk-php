@@ -22,8 +22,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\Us
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\UserStatusOverview\UserStatusOverviewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\WindowsPrivacyAccessControls\WindowsPrivacyAccessControlsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\WindowsUpdateForBusinessConfiguration\WindowsUpdateForBusinessConfigurationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -34,30 +34,51 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeviceConfigurationItemRequestBuilder 
 {
+    /**
+     * The assign property
+    */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignedAccessMultiModeProfiles property
+    */
     public function assignedAccessMultiModeProfiles(): AssignedAccessMultiModeProfilesRequestBuilder {
         return new AssignedAccessMultiModeProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceSettingStateSummaries property
+    */
     public function deviceSettingStateSummaries(): DeviceSettingStateSummariesRequestBuilder {
         return new DeviceSettingStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceStatuses property
+    */
     public function deviceStatuses(): DeviceStatusesRequestBuilder {
         return new DeviceStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceStatusOverview property
+    */
     public function deviceStatusOverview(): DeviceStatusOverviewRequestBuilder {
         return new DeviceStatusOverviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The groupAssignments property
+    */
     public function groupAssignments(): GroupAssignmentsRequestBuilder {
         return new GroupAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -71,18 +92,30 @@ class DeviceConfigurationItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userStatuses property
+    */
     public function userStatuses(): UserStatusesRequestBuilder {
         return new UserStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userStatusOverview property
+    */
     public function userStatusOverview(): UserStatusOverviewRequestBuilder {
         return new UserStatusOverviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsPrivacyAccessControls property
+    */
     public function windowsPrivacyAccessControls(): WindowsPrivacyAccessControlsRequestBuilder {
         return new WindowsPrivacyAccessControlsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The windowsUpdateForBusinessConfiguration property
+    */
     public function windowsUpdateForBusinessConfiguration(): WindowsUpdateForBusinessConfigurationRequestBuilder {
         return new WindowsUpdateForBusinessConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -16,8 +16,8 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\Stages\Item\Decisions\Item\Instance\ResetDecisions\ResetDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\Stages\Item\Decisions\Item\Instance\SendReminder\SendReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\Stages\Item\Decisions\Item\Instance\Stop\StopRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessReviewInstance;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstance;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -28,26 +28,44 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class InstanceRequestBuilder 
 {
+    /**
+     * The acceptRecommendations property
+    */
     public function acceptRecommendations(): AcceptRecommendationsRequestBuilder {
         return new AcceptRecommendationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The applyDecisions property
+    */
     public function applyDecisions(): ApplyDecisionsRequestBuilder {
         return new ApplyDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The batchRecordDecisions property
+    */
     public function batchRecordDecisions(): BatchRecordDecisionsRequestBuilder {
         return new BatchRecordDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The contactedReviewers property
+    */
     public function contactedReviewers(): ContactedReviewersRequestBuilder {
         return new ContactedReviewersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The decisions property
+    */
     public function decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The definition property
+    */
     public function definition(): DefinitionRequestBuilder {
         return new DefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -58,14 +76,23 @@ class InstanceRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resetDecisions property
+    */
     public function resetDecisions(): ResetDecisionsRequestBuilder {
         return new ResetDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The sendReminder property
+    */
     public function sendReminder(): SendReminderRequestBuilder {
         return new SendReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The stop property
+    */
     public function stop(): StopRequestBuilder {
         return new StopRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

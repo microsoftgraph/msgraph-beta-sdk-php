@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolder
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MailFolder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MailFolderCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\MailFolder;
+use Microsoft\Graph\Beta\Generated\Models\MailFolderCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Delta\DeltaRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ChildFoldersRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

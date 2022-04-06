@@ -8,8 +8,8 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\EnrollmentProfiles\Item\ExportMobileConfig\ExportMobileConfigRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\EnrollmentProfiles\Item\SetDefaultProfile\SetDefaultProfileRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\EnrollmentProfiles\Item\UpdateDeviceProfileAssignment\UpdateDeviceProfileAssignmentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\EnrollmentProfile;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\EnrollmentProfile;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -26,10 +26,16 @@ class EnrollmentProfileItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The setDefaultProfile property
+    */
     public function setDefaultProfile(): SetDefaultProfileRequestBuilder {
         return new SetDefaultProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The updateDeviceProfileAssignment property
+    */
     public function updateDeviceProfileAssignment(): UpdateDeviceProfileAssignmentRequestBuilder {
         return new UpdateDeviceProfileAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -12,7 +12,7 @@ class HasPayloadLinksRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $payloadIds  */
+    /** @var array<string>|null $payloadIds The payloadIds property */
     private ?array $payloadIds = null;
     
     /**
@@ -50,7 +50,7 @@ class HasPayloadLinksRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the payloadIds property value. 
+     * Gets the payloadIds property value. The payloadIds property
      * @return array<string>|null
     */
     public function getPayloadIds(): ?array {
@@ -75,7 +75,7 @@ class HasPayloadLinksRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the payloadIds property value. 
+     * Sets the payloadIds property value. The payloadIds property
      *  @param array<string>|null $value Value to set for the payloadIds property.
     */
     public function setPayloadIds(?array $value ): void {

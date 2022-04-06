@@ -1,0 +1,127 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models;
+
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+class DeviceManagementConfigurationSettingInstanceTemplate implements AdditionalDataHolder, Parsable 
+{
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    private array $additionalData;
+    
+    /** @var bool|null $isRequired Indicates if a policy must specify this setting. */
+    private ?bool $isRequired = null;
+    
+    /** @var string|null $settingDefinitionId Setting Definition Id */
+    private ?string $settingDefinitionId = null;
+    
+    /** @var string|null $settingInstanceTemplateId Setting Instance Template Id */
+    private ?string $settingInstanceTemplateId = null;
+    
+    /**
+     * Instantiates a new deviceManagementConfigurationSettingInstanceTemplate and sets the default values.
+    */
+    public function __construct() {
+        $this->additionalData = [];
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return DeviceManagementConfigurationSettingInstanceTemplate
+    */
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingInstanceTemplate {
+        return new DeviceManagementConfigurationSettingInstanceTemplate();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable>
+    */
+    public function getFieldDeserializers(): array {
+        return  [
+            'isRequired' => function (self $o, ParseNode $n) { $o->setIsRequired($n->getBooleanValue()); },
+            'settingDefinitionId' => function (self $o, ParseNode $n) { $o->setSettingDefinitionId($n->getStringValue()); },
+            'settingInstanceTemplateId' => function (self $o, ParseNode $n) { $o->setSettingInstanceTemplateId($n->getStringValue()); },
+        ];
+    }
+
+    /**
+     * Gets the isRequired property value. Indicates if a policy must specify this setting.
+     * @return bool|null
+    */
+    public function getIsRequired(): ?bool {
+        return $this->isRequired;
+    }
+
+    /**
+     * Gets the settingDefinitionId property value. Setting Definition Id
+     * @return string|null
+    */
+    public function getSettingDefinitionId(): ?string {
+        return $this->settingDefinitionId;
+    }
+
+    /**
+     * Gets the settingInstanceTemplateId property value. Setting Instance Template Id
+     * @return string|null
+    */
+    public function getSettingInstanceTemplateId(): ?string {
+        return $this->settingInstanceTemplateId;
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        $writer->writeBooleanValue('isRequired', $this->isRequired);
+        $writer->writeStringValue('settingDefinitionId', $this->settingDefinitionId);
+        $writer->writeStringValue('settingInstanceTemplateId', $this->settingInstanceTemplateId);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the isRequired property value. Indicates if a policy must specify this setting.
+     *  @param bool|null $value Value to set for the isRequired property.
+    */
+    public function setIsRequired(?bool $value ): void {
+        $this->isRequired = $value;
+    }
+
+    /**
+     * Sets the settingDefinitionId property value. Setting Definition Id
+     *  @param string|null $value Value to set for the settingDefinitionId property.
+    */
+    public function setSettingDefinitionId(?string $value ): void {
+        $this->settingDefinitionId = $value;
+    }
+
+    /**
+     * Sets the settingInstanceTemplateId property value. Setting Instance Template Id
+     *  @param string|null $value Value to set for the settingInstanceTemplateId property.
+    */
+    public function setSettingInstanceTemplateId(?string $value ): void {
+        $this->settingInstanceTemplateId = $value;
+    }
+
+}

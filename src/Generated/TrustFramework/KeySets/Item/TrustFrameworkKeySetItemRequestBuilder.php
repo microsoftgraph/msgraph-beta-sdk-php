@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TrustFrameworkKeySet;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TrustFrameworkKeySet;
 use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\GenerateKey\GenerateKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\GetActiveKey\GetActiveKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\UploadCertificate\UploadCertificateRequestBuilder;
@@ -22,6 +22,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TrustFrameworkKeySetItemRequestBuilder 
 {
+    /**
+     * The generateKey property
+    */
     public function generateKey(): GenerateKeyRequestBuilder {
         return new GenerateKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -32,14 +35,23 @@ class TrustFrameworkKeySetItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The uploadCertificate property
+    */
     public function uploadCertificate(): UploadCertificateRequestBuilder {
         return new UploadCertificateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The uploadPkcs12 property
+    */
     public function uploadPkcs12(): UploadPkcs12RequestBuilder {
         return new UploadPkcs12RequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The uploadSecret property
+    */
     public function uploadSecret(): UploadSecretRequestBuilder {
         return new UploadSecretRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

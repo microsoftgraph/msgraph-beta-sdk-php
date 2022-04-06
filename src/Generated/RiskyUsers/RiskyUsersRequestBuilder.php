@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\RiskyUsers;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RiskyUser;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RiskyUserCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\RiskyUser;
+use Microsoft\Graph\Beta\Generated\Models\RiskyUserCollectionResponse;
 use Microsoft\Graph\Beta\Generated\RiskyUsers\ConfirmCompromised\ConfirmCompromisedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RiskyUsers\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RiskyUsers\Dismiss\DismissRequestBuilder;
@@ -21,14 +21,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class RiskyUsersRequestBuilder 
 {
+    /**
+     * The confirmCompromised property
+    */
     public function confirmCompromised(): ConfirmCompromisedRequestBuilder {
         return new ConfirmCompromisedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The dismiss property
+    */
     public function dismiss(): DismissRequestBuilder {
         return new DismissRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

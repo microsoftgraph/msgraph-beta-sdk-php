@@ -12,8 +12,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsRegre
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsRegressionSummary\OperatingSystemRegression\Item\UserExperienceAnalyticsMetricItemRequestBuilder as MicrosoftGraphBetaGeneratedDeviceManagementUserExperienceAnalyticsRegressionSummaryOperatingSystemRegressionItemUserExperienceAnalyticsMetricItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsRegressionSummary\OperatingSystemRegression\OperatingSystemRegressionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsRegressionSummary\SummarizeDeviceRegressionPerformanceWithSummarizeBy\SummarizeDeviceRegressionPerformanceWithSummarizeByRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UserExperienceAnalyticsRegressionSummary;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsRegressionSummary;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -24,14 +24,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class UserExperienceAnalyticsRegressionSummaryRequestBuilder 
 {
+    /**
+     * The manufacturerRegression property
+    */
     public function manufacturerRegression(): ManufacturerRegressionRequestBuilder {
         return new ManufacturerRegressionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The modelRegression property
+    */
     public function modelRegression(): ModelRegressionRequestBuilder {
         return new ModelRegressionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The operatingSystemRegression property
+    */
     public function operatingSystemRegression(): OperatingSystemRegressionRequestBuilder {
         return new OperatingSystemRegressionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

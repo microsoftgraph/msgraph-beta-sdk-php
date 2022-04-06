@@ -18,8 +18,8 @@ use Microsoft\Graph\Beta\Generated\InformationProtection\SignDigest\SignDigestRe
 use Microsoft\Graph\Beta\Generated\InformationProtection\ThreatAssessmentRequests\Item\ThreatAssessmentRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\InformationProtection\ThreatAssessmentRequests\ThreatAssessmentRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\InformationProtection\VerifySignature\VerifySignatureRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\InformationProtection;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\InformationProtection;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -30,18 +30,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class InformationProtectionRequestBuilder 
 {
+    /**
+     * The bitlocker property
+    */
     public function bitlocker(): BitlockerRequestBuilder {
         return new BitlockerRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The dataLossPreventionPolicies property
+    */
     public function dataLossPreventionPolicies(): DataLossPreventionPoliciesRequestBuilder {
         return new DataLossPreventionPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The decryptBuffer property
+    */
     public function decryptBuffer(): DecryptBufferRequestBuilder {
         return new DecryptBufferRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The encryptBuffer property
+    */
     public function encryptBuffer(): EncryptBufferRequestBuilder {
         return new EncryptBufferRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -49,6 +61,9 @@ class InformationProtectionRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The policy property
+    */
     public function policy(): PolicyRequestBuilder {
         return new PolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -56,18 +71,30 @@ class InformationProtectionRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The sensitivityLabels property
+    */
     public function sensitivityLabels(): SensitivityLabelsRequestBuilder {
         return new SensitivityLabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The sensitivityPolicySettings property
+    */
     public function sensitivityPolicySettings(): SensitivityPolicySettingsRequestBuilder {
         return new SensitivityPolicySettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The signDigest property
+    */
     public function signDigest(): SignDigestRequestBuilder {
         return new SignDigestRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The threatAssessmentRequests property
+    */
     public function threatAssessmentRequests(): ThreatAssessmentRequestsRequestBuilder {
         return new ThreatAssessmentRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -75,6 +102,9 @@ class InformationProtectionRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The verifySignature property
+    */
     public function verifySignature(): VerifySignatureRequestBuilder {
         return new VerifySignatureRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

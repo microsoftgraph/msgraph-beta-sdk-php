@@ -17,8 +17,8 @@ use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\SingleV
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\UserConfigurations\Item\UserConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\UserConfigurations\UserConfigurationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MailFolder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\MailFolder;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -29,22 +29,37 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class MailFolderItemRequestBuilder 
 {
+    /**
+     * The copy property
+    */
     public function copy(): CopyRequestBuilder {
         return new CopyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The messageRules property
+    */
     public function messageRules(): MessageRulesRequestBuilder {
         return new MessageRulesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The messages property
+    */
     public function messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The move property
+    */
     public function move(): MoveRequestBuilder {
         return new MoveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The multiValueExtendedProperties property
+    */
     public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -55,6 +70,9 @@ class MailFolderItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The singleValueExtendedProperties property
+    */
     public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -62,6 +80,9 @@ class MailFolderItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userConfigurations property
+    */
     public function userConfigurations(): UserConfigurationsRequestBuilder {
         return new UserConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -12,19 +12,19 @@ class WipeRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var bool|null $keepEnrollmentData  */
+    /** @var bool|null $keepEnrollmentData The keepEnrollmentData property */
     private ?bool $keepEnrollmentData = null;
     
-    /** @var bool|null $keepUserData  */
+    /** @var bool|null $keepUserData The keepUserData property */
     private ?bool $keepUserData = null;
     
-    /** @var string|null $macOsUnlockCode  */
+    /** @var string|null $macOsUnlockCode The macOsUnlockCode property */
     private ?string $macOsUnlockCode = null;
     
-    /** @var bool|null $persistEsimDataPlan  */
+    /** @var bool|null $persistEsimDataPlan The persistEsimDataPlan property */
     private ?bool $persistEsimDataPlan = null;
     
-    /** @var bool|null $useProtectedWipe  */
+    /** @var bool|null $useProtectedWipe The useProtectedWipe property */
     private ?bool $useProtectedWipe = null;
     
     /**
@@ -66,7 +66,7 @@ class WipeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the keepEnrollmentData property value. 
+     * Gets the keepEnrollmentData property value. The keepEnrollmentData property
      * @return bool|null
     */
     public function getKeepEnrollmentData(): ?bool {
@@ -74,7 +74,7 @@ class WipeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the keepUserData property value. 
+     * Gets the keepUserData property value. The keepUserData property
      * @return bool|null
     */
     public function getKeepUserData(): ?bool {
@@ -82,7 +82,7 @@ class WipeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the macOsUnlockCode property value. 
+     * Gets the macOsUnlockCode property value. The macOsUnlockCode property
      * @return string|null
     */
     public function getMacOsUnlockCode(): ?string {
@@ -90,7 +90,7 @@ class WipeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the persistEsimDataPlan property value. 
+     * Gets the persistEsimDataPlan property value. The persistEsimDataPlan property
      * @return bool|null
     */
     public function getPersistEsimDataPlan(): ?bool {
@@ -98,7 +98,7 @@ class WipeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the useProtectedWipe property value. 
+     * Gets the useProtectedWipe property value. The useProtectedWipe property
      * @return bool|null
     */
     public function getUseProtectedWipe(): ?bool {
@@ -127,7 +127,7 @@ class WipeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the keepEnrollmentData property value. 
+     * Sets the keepEnrollmentData property value. The keepEnrollmentData property
      *  @param bool|null $value Value to set for the keepEnrollmentData property.
     */
     public function setKeepEnrollmentData(?bool $value ): void {
@@ -135,7 +135,7 @@ class WipeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the keepUserData property value. 
+     * Sets the keepUserData property value. The keepUserData property
      *  @param bool|null $value Value to set for the keepUserData property.
     */
     public function setKeepUserData(?bool $value ): void {
@@ -143,7 +143,7 @@ class WipeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the macOsUnlockCode property value. 
+     * Sets the macOsUnlockCode property value. The macOsUnlockCode property
      *  @param string|null $value Value to set for the macOsUnlockCode property.
     */
     public function setMacOsUnlockCode(?string $value ): void {
@@ -151,7 +151,7 @@ class WipeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the persistEsimDataPlan property value. 
+     * Sets the persistEsimDataPlan property value. The persistEsimDataPlan property
      *  @param bool|null $value Value to set for the persistEsimDataPlan property.
     */
     public function setPersistEsimDataPlan(?bool $value ): void {
@@ -159,7 +159,7 @@ class WipeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the useProtectedWipe property value. 
+     * Sets the useProtectedWipe property value. The useProtectedWipe property
      *  @param bool|null $value Value to set for the useProtectedWipe property.
     */
     public function setUseProtectedWipe(?bool $value ): void {

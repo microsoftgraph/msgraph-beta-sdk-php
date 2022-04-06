@@ -12,7 +12,7 @@ class AssignTagRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $tenantIds  */
+    /** @var array<string>|null $tenantIds The tenantIds property */
     private ?array $tenantIds = null;
     
     /**
@@ -50,7 +50,7 @@ class AssignTagRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the tenantIds property value. 
+     * Gets the tenantIds property value. The tenantIds property
      * @return array<string>|null
     */
     public function getTenantIds(): ?array {
@@ -75,7 +75,7 @@ class AssignTagRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the tenantIds property value. 
+     * Sets the tenantIds property value. The tenantIds property
      *  @param array<string>|null $value Value to set for the tenantIds property.
     */
     public function setTenantIds(?array $value ): void {

@@ -12,16 +12,25 @@ class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, Parsabl
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $addressableUserName  */
+    /** @var string|null $addressableUserName The addressableUserName property */
     private ?string $addressableUserName = null;
     
-    /** @var string|null $displayName  */
+    /** @var string|null $deviceAccountPassword The deviceAccountPassword property */
+    private ?string $deviceAccountPassword = null;
+    
+    /** @var string|null $deviceAccountUpn The deviceAccountUpn property */
+    private ?string $deviceAccountUpn = null;
+    
+    /** @var string|null $deviceFriendlyName The deviceFriendlyName property */
+    private ?string $deviceFriendlyName = null;
+    
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /** @var string|null $groupTag  */
+    /** @var string|null $groupTag The groupTag property */
     private ?string $groupTag = null;
     
-    /** @var string|null $userPrincipalName  */
+    /** @var string|null $userPrincipalName The userPrincipalName property */
     private ?string $userPrincipalName = null;
     
     /**
@@ -49,7 +58,7 @@ class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the addressableUserName property value. 
+     * Gets the addressableUserName property value. The addressableUserName property
      * @return string|null
     */
     public function getAddressableUserName(): ?string {
@@ -57,7 +66,31 @@ class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the displayName property value. 
+     * Gets the deviceAccountPassword property value. The deviceAccountPassword property
+     * @return string|null
+    */
+    public function getDeviceAccountPassword(): ?string {
+        return $this->deviceAccountPassword;
+    }
+
+    /**
+     * Gets the deviceAccountUpn property value. The deviceAccountUpn property
+     * @return string|null
+    */
+    public function getDeviceAccountUpn(): ?string {
+        return $this->deviceAccountUpn;
+    }
+
+    /**
+     * Gets the deviceFriendlyName property value. The deviceFriendlyName property
+     * @return string|null
+    */
+    public function getDeviceFriendlyName(): ?string {
+        return $this->deviceFriendlyName;
+    }
+
+    /**
+     * Gets the displayName property value. The displayName property
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -71,6 +104,9 @@ class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         return  [
             'addressableUserName' => function (self $o, ParseNode $n) { $o->setAddressableUserName($n->getStringValue()); },
+            'deviceAccountPassword' => function (self $o, ParseNode $n) { $o->setDeviceAccountPassword($n->getStringValue()); },
+            'deviceAccountUpn' => function (self $o, ParseNode $n) { $o->setDeviceAccountUpn($n->getStringValue()); },
+            'deviceFriendlyName' => function (self $o, ParseNode $n) { $o->setDeviceFriendlyName($n->getStringValue()); },
             'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
             'groupTag' => function (self $o, ParseNode $n) { $o->setGroupTag($n->getStringValue()); },
             'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
@@ -78,7 +114,7 @@ class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the groupTag property value. 
+     * Gets the groupTag property value. The groupTag property
      * @return string|null
     */
     public function getGroupTag(): ?string {
@@ -86,7 +122,7 @@ class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the userPrincipalName property value. 
+     * Gets the userPrincipalName property value. The userPrincipalName property
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -99,6 +135,9 @@ class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, Parsabl
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('addressableUserName', $this->addressableUserName);
+        $writer->writeStringValue('deviceAccountPassword', $this->deviceAccountPassword);
+        $writer->writeStringValue('deviceAccountUpn', $this->deviceAccountUpn);
+        $writer->writeStringValue('deviceFriendlyName', $this->deviceFriendlyName);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('groupTag', $this->groupTag);
         $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
@@ -114,7 +153,7 @@ class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the addressableUserName property value. 
+     * Sets the addressableUserName property value. The addressableUserName property
      *  @param string|null $value Value to set for the addressableUserName property.
     */
     public function setAddressableUserName(?string $value ): void {
@@ -122,7 +161,31 @@ class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the displayName property value. 
+     * Sets the deviceAccountPassword property value. The deviceAccountPassword property
+     *  @param string|null $value Value to set for the deviceAccountPassword property.
+    */
+    public function setDeviceAccountPassword(?string $value ): void {
+        $this->deviceAccountPassword = $value;
+    }
+
+    /**
+     * Sets the deviceAccountUpn property value. The deviceAccountUpn property
+     *  @param string|null $value Value to set for the deviceAccountUpn property.
+    */
+    public function setDeviceAccountUpn(?string $value ): void {
+        $this->deviceAccountUpn = $value;
+    }
+
+    /**
+     * Sets the deviceFriendlyName property value. The deviceFriendlyName property
+     *  @param string|null $value Value to set for the deviceFriendlyName property.
+    */
+    public function setDeviceFriendlyName(?string $value ): void {
+        $this->deviceFriendlyName = $value;
+    }
+
+    /**
+     * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -130,7 +193,7 @@ class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the groupTag property value. 
+     * Sets the groupTag property value. The groupTag property
      *  @param string|null $value Value to set for the groupTag property.
     */
     public function setGroupTag(?string $value ): void {
@@ -138,7 +201,7 @@ class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the userPrincipalName property value. 
+     * Sets the userPrincipalName property value. The userPrincipalName property
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value ): void {

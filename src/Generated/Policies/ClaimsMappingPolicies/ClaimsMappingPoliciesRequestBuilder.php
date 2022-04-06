@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\ClaimsMappingPolicies;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ClaimsMappingPolicy;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ClaimsMappingPolicyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ClaimsMappingPolicy;
+use Microsoft\Graph\Beta\Generated\Models\ClaimsMappingPolicyCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\ClaimsMappingPolicies\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ClaimsMappingPoliciesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

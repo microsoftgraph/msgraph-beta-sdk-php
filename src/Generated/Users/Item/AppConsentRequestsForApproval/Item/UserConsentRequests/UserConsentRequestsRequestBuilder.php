@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApprova
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UserConsentRequest;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UserConsentRequestCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UserConsentRequest;
+use Microsoft\Graph\Beta\Generated\Models\UserConsentRequestCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class UserConsentRequestsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -12,7 +12,7 @@ class CreateTokenRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var int|null $tokenValidityInSeconds  */
+    /** @var int|null $tokenValidityInSeconds The tokenValidityInSeconds property */
     private ?int $tokenValidityInSeconds = null;
     
     /**
@@ -50,7 +50,7 @@ class CreateTokenRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the tokenValidityInSeconds property value. 
+     * Gets the tokenValidityInSeconds property value. The tokenValidityInSeconds property
      * @return int|null
     */
     public function getTokenValidityInSeconds(): ?int {
@@ -75,7 +75,7 @@ class CreateTokenRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the tokenValidityInSeconds property value. 
+     * Sets the tokenValidityInSeconds property value. The tokenValidityInSeconds property
      *  @param int|null $value Value to set for the tokenValidityInSeconds property.
     */
     public function setTokenValidityInSeconds(?int $value ): void {

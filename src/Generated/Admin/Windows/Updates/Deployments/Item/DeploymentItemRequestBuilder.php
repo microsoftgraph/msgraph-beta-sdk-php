@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\AudienceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsUpdates\Deployment;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Deployment;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -18,6 +18,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeploymentItemRequestBuilder 
 {
+    /**
+     * The audience property
+    */
     public function audience(): AudienceRequestBuilder {
         return new AudienceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

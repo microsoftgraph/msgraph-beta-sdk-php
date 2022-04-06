@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Item\Complete\Com
 use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Item\Dismiss\DismissRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Item\Postpone\PostponeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Item\Reactivate\ReactivateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RecommendationResource;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\RecommendationResource;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class RecommendationResourceItemRequestBuilder 
 {
+    /**
+     * The complete property
+    */
     public function complete(): CompleteRequestBuilder {
         return new CompleteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The dismiss property
+    */
     public function dismiss(): DismissRequestBuilder {
         return new DismissRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -32,10 +38,16 @@ class RecommendationResourceItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The postpone property
+    */
     public function postpone(): PostponeRequestBuilder {
         return new PostponeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The reactivate property
+    */
     public function reactivate(): ReactivateRequestBuilder {
         return new ReactivateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitionFiles\Item\Definitions\DefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitionFiles\Item\Definitions\Item\GroupPolicyDefinitionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupPolicyDefinitionFile;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GroupPolicyDefinitionFile;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class GroupPolicyDefinitionFileItemRequestBuilder 
 {
+    /**
+     * The definitions property
+    */
     public function definitions(): DefinitionsRequestBuilder {
         return new DefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

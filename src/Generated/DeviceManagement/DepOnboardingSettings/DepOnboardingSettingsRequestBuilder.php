@@ -7,9 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\GetExpiringVppTokenCountWithExpiringBeforeDateTime\GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DepOnboardingSetting;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DepOnboardingSettingCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DepOnboardingSetting;
+use Microsoft\Graph\Beta\Generated\Models\DepOnboardingSettingCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DepOnboardingSettingsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

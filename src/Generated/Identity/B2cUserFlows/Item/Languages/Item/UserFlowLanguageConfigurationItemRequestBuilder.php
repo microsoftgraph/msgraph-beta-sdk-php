@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\Languages\Item\Def
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\Languages\Item\DefaultPages\Item\UserFlowLanguagePageItemRequestBuilder as MicrosoftGraphBetaGeneratedIdentityB2cUserFlowsItemLanguagesItemDefaultPagesItemUserFlowLanguagePageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\Languages\Item\OverridesPages\Item\UserFlowLanguagePageItemRequestBuilder as MicrosoftGraphBetaGeneratedIdentityB2cUserFlowsItemLanguagesItemOverridesPagesItemUserFlowLanguagePageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\Languages\Item\OverridesPages\OverridesPagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UserFlowLanguageConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UserFlowLanguageConfiguration;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class UserFlowLanguageConfigurationItemRequestBuilder 
 {
+    /**
+     * The defaultPages property
+    */
     public function defaultPages(): DefaultPagesRequestBuilder {
         return new DefaultPagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The overridesPages property
+    */
     public function overridesPages(): OverridesPagesRequestBuilder {
         return new OverridesPagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -12,10 +12,10 @@ class ApproveAppsRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var bool|null $approveAllPermissions  */
+    /** @var bool|null $approveAllPermissions The approveAllPermissions property */
     private ?bool $approveAllPermissions = null;
     
-    /** @var array<string>|null $packageIds  */
+    /** @var array<string>|null $packageIds The packageIds property */
     private ?array $packageIds = null;
     
     /**
@@ -43,7 +43,7 @@ class ApproveAppsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the approveAllPermissions property value. 
+     * Gets the approveAllPermissions property value. The approveAllPermissions property
      * @return bool|null
     */
     public function getApproveAllPermissions(): ?bool {
@@ -62,7 +62,7 @@ class ApproveAppsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the packageIds property value. 
+     * Gets the packageIds property value. The packageIds property
      * @return array<string>|null
     */
     public function getPackageIds(): ?array {
@@ -88,7 +88,7 @@ class ApproveAppsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the approveAllPermissions property value. 
+     * Sets the approveAllPermissions property value. The approveAllPermissions property
      *  @param bool|null $value Value to set for the approveAllPermissions property.
     */
     public function setApproveAllPermissions(?bool $value ): void {
@@ -96,7 +96,7 @@ class ApproveAppsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the packageIds property value. 
+     * Sets the packageIds property value. The packageIds property
      *  @param array<string>|null $value Value to set for the packageIds property.
     */
     public function setPackageIds(?array $value ): void {

@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\PermissionGrants;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ResourceSpecificPermissionGrant;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ResourceSpecificPermissionGrantCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ResourceSpecificPermissionGrant;
+use Microsoft\Graph\Beta\Generated\Models\ResourceSpecificPermissionGrantCollectionResponse;
 use Microsoft\Graph\Beta\Generated\PermissionGrants\GetByIds\GetByIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PermissionGrants\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PermissionGrants\ValidateProperties\ValidatePropertiesRequestBuilder;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PermissionGrantsRequestBuilder 
 {
+    /**
+     * The getByIds property
+    */
     public function getByIds(): GetByIdsRequestBuilder {
         return new GetByIdsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getUserOwnedObjects property
+    */
     public function getUserOwnedObjects(): GetUserOwnedObjectsRequestBuilder {
         return new GetUserOwnedObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -38,6 +44,9 @@ class PermissionGrantsRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The validateProperties property
+    */
     public function validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

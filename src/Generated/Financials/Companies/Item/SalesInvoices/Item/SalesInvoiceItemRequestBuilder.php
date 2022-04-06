@@ -16,8 +16,8 @@ use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceLines\SalesInvoiceLinesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\Send\SendRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\ShipmentMethod\ShipmentMethodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SalesInvoice;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SalesInvoice;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -28,18 +28,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SalesInvoiceItemRequestBuilder 
 {
+    /**
+     * The cancel property
+    */
     public function cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The cancelAndSend property
+    */
     public function cancelAndSend(): CancelAndSendRequestBuilder {
         return new CancelAndSendRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The currency property
+    */
     public function currency(): CurrencyRequestBuilder {
         return new CurrencyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The customer property
+    */
     public function customer(): CustomerRequestBuilder {
         return new CustomerRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -47,14 +59,23 @@ class SalesInvoiceItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The paymentTerm property
+    */
     public function paymentTerm(): PaymentTermRequestBuilder {
         return new PaymentTermRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The post property
+    */
     public function post(): PostRequestBuilder {
         return new PostRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The postAndSend property
+    */
     public function postAndSend(): PostAndSendRequestBuilder {
         return new PostAndSendRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -62,14 +83,23 @@ class SalesInvoiceItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The salesInvoiceLines property
+    */
     public function salesInvoiceLines(): SalesInvoiceLinesRequestBuilder {
         return new SalesInvoiceLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The send property
+    */
     public function send(): SendRequestBuilder {
         return new SendRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The shipmentMethod property
+    */
     public function shipmentMethod(): ShipmentMethodRequestBuilder {
         return new ShipmentMethodRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

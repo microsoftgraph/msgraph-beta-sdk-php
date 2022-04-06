@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PermissionGrants;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ResourceSpecificPermissionGrant;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ResourceSpecificPermissionGrantCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ResourceSpecificPermissionGrant;
+use Microsoft\Graph\Beta\Generated\Models\ResourceSpecificPermissionGrantCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PermissionGrants\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PermissionGrantsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

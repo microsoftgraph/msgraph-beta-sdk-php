@@ -8,9 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyServicePrincipals\ConfirmCompromised\ConfirmCompromisedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyServicePrincipals\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyServicePrincipals\Dismiss\DismissRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RiskyServicePrincipal;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RiskyServicePrincipalCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\RiskyServicePrincipal;
+use Microsoft\Graph\Beta\Generated\Models\RiskyServicePrincipalCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,14 +21,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class RiskyServicePrincipalsRequestBuilder 
 {
+    /**
+     * The confirmCompromised property
+    */
     public function confirmCompromised(): ConfirmCompromisedRequestBuilder {
         return new ConfirmCompromisedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The dismiss property
+    */
     public function dismiss(): DismissRequestBuilder {
         return new DismissRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

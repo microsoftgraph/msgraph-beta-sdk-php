@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\RiskyUsers\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RiskyUser;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\RiskyUser;
 use Microsoft\Graph\Beta\Generated\RiskyUsers\Item\History\HistoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RiskyUsers\Item\History\Item\RiskyUserHistoryItemItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class RiskyUserItemRequestBuilder 
 {
+    /**
+     * The history property
+    */
     public function history(): HistoryRequestBuilder {
         return new HistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

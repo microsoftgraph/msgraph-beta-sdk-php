@@ -13,10 +13,10 @@ class ClassifyFileRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var StreamInterface|null $file  */
+    /** @var StreamInterface|null $file The file property */
     private ?StreamInterface $file = null;
     
-    /** @var array<string>|null $sensitiveTypeIds  */
+    /** @var array<string>|null $sensitiveTypeIds The sensitiveTypeIds property */
     private ?array $sensitiveTypeIds = null;
     
     /**
@@ -55,7 +55,7 @@ class ClassifyFileRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the file property value. 
+     * Gets the file property value. The file property
      * @return StreamInterface|null
     */
     public function getFile(): ?StreamInterface {
@@ -63,7 +63,7 @@ class ClassifyFileRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the sensitiveTypeIds property value. 
+     * Gets the sensitiveTypeIds property value. The sensitiveTypeIds property
      * @return array<string>|null
     */
     public function getSensitiveTypeIds(): ?array {
@@ -89,7 +89,7 @@ class ClassifyFileRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the file property value. 
+     * Sets the file property value. The file property
      *  @param StreamInterface|null $value Value to set for the file property.
     */
     public function setFile(?StreamInterface $value ): void {
@@ -97,7 +97,7 @@ class ClassifyFileRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the sensitiveTypeIds property value. 
+     * Sets the sensitiveTypeIds property value. The sensitiveTypeIds property
      *  @param array<string>|null $value Value to set for the sensitiveTypeIds property.
     */
     public function setSensitiveTypeIds(?array $value ): void {

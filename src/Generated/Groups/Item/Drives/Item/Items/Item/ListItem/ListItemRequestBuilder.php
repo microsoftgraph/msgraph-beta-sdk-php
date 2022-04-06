@@ -14,8 +14,8 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Items\Item\ListItem\F
 use Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Items\Item\ListItem\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Items\Item\ListItem\Versions\Item\ListItemVersionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Items\Item\ListItem\Versions\VersionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ListItem;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ListItem;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -26,22 +26,37 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ListItemRequestBuilder 
 {
+    /**
+     * The activities property
+    */
     public function activities(): ActivitiesRequestBuilder {
         return new ActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The analytics property
+    */
     public function analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The createLink property
+    */
     public function createLink(): CreateLinkRequestBuilder {
         return new CreateLinkRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The driveItem property
+    */
     public function driveItem(): DriveItemRequestBuilder {
         return new DriveItemRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The fields property
+    */
     public function fields(): FieldsRequestBuilder {
         return new FieldsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -55,6 +70,9 @@ class ListItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The versions property
+    */
     public function versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

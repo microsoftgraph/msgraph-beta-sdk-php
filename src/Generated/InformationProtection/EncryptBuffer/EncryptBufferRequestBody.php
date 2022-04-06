@@ -13,10 +13,10 @@ class EncryptBufferRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var StreamInterface|null $buffer  */
+    /** @var StreamInterface|null $buffer The buffer property */
     private ?StreamInterface $buffer = null;
     
-    /** @var string|null $labelId  */
+    /** @var string|null $labelId The labelId property */
     private ?string $labelId = null;
     
     /**
@@ -44,7 +44,7 @@ class EncryptBufferRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the buffer property value. 
+     * Gets the buffer property value. The buffer property
      * @return StreamInterface|null
     */
     public function getBuffer(): ?StreamInterface {
@@ -63,7 +63,7 @@ class EncryptBufferRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the labelId property value. 
+     * Gets the labelId property value. The labelId property
      * @return string|null
     */
     public function getLabelId(): ?string {
@@ -89,7 +89,7 @@ class EncryptBufferRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the buffer property value. 
+     * Sets the buffer property value. The buffer property
      *  @param StreamInterface|null $value Value to set for the buffer property.
     */
     public function setBuffer(?StreamInterface $value ): void {
@@ -97,7 +97,7 @@ class EncryptBufferRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the labelId property value. 
+     * Sets the labelId property value. The labelId property
      *  @param string|null $value Value to set for the labelId property.
     */
     public function setLabelId(?string $value ): void {

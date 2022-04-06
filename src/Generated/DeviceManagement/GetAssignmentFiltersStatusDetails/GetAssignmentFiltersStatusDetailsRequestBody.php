@@ -12,22 +12,22 @@ class GetAssignmentFiltersStatusDetailsRequestBody implements AdditionalDataHold
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $assignmentFilterIds  */
+    /** @var array<string>|null $assignmentFilterIds The assignmentFilterIds property */
     private ?array $assignmentFilterIds = null;
     
-    /** @var string|null $managedDeviceId  */
+    /** @var string|null $managedDeviceId The managedDeviceId property */
     private ?string $managedDeviceId = null;
     
-    /** @var string|null $payloadId  */
+    /** @var string|null $payloadId The payloadId property */
     private ?string $payloadId = null;
     
-    /** @var int|null $skip  */
+    /** @var int|null $skip The skip property */
     private ?int $skip = null;
     
-    /** @var int|null $top  */
+    /** @var int|null $top The top property */
     private ?int $top = null;
     
-    /** @var string|null $userId  */
+    /** @var string|null $userId The userId property */
     private ?string $userId = null;
     
     /**
@@ -55,7 +55,7 @@ class GetAssignmentFiltersStatusDetailsRequestBody implements AdditionalDataHold
     }
 
     /**
-     * Gets the assignmentFilterIds property value. 
+     * Gets the assignmentFilterIds property value. The assignmentFilterIds property
      * @return array<string>|null
     */
     public function getAssignmentFilterIds(): ?array {
@@ -78,7 +78,7 @@ class GetAssignmentFiltersStatusDetailsRequestBody implements AdditionalDataHold
     }
 
     /**
-     * Gets the managedDeviceId property value. 
+     * Gets the managedDeviceId property value. The managedDeviceId property
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
@@ -86,7 +86,7 @@ class GetAssignmentFiltersStatusDetailsRequestBody implements AdditionalDataHold
     }
 
     /**
-     * Gets the payloadId property value. 
+     * Gets the payloadId property value. The payloadId property
      * @return string|null
     */
     public function getPayloadId(): ?string {
@@ -94,7 +94,7 @@ class GetAssignmentFiltersStatusDetailsRequestBody implements AdditionalDataHold
     }
 
     /**
-     * Gets the skip property value. 
+     * Gets the skip property value. The skip property
      * @return int|null
     */
     public function getSkip(): ?int {
@@ -102,7 +102,7 @@ class GetAssignmentFiltersStatusDetailsRequestBody implements AdditionalDataHold
     }
 
     /**
-     * Gets the top property value. 
+     * Gets the top property value. The top property
      * @return int|null
     */
     public function getTop(): ?int {
@@ -110,7 +110,7 @@ class GetAssignmentFiltersStatusDetailsRequestBody implements AdditionalDataHold
     }
 
     /**
-     * Gets the userId property value. 
+     * Gets the userId property value. The userId property
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -140,7 +140,7 @@ class GetAssignmentFiltersStatusDetailsRequestBody implements AdditionalDataHold
     }
 
     /**
-     * Sets the assignmentFilterIds property value. 
+     * Sets the assignmentFilterIds property value. The assignmentFilterIds property
      *  @param array<string>|null $value Value to set for the assignmentFilterIds property.
     */
     public function setAssignmentFilterIds(?array $value ): void {
@@ -148,7 +148,7 @@ class GetAssignmentFiltersStatusDetailsRequestBody implements AdditionalDataHold
     }
 
     /**
-     * Sets the managedDeviceId property value. 
+     * Sets the managedDeviceId property value. The managedDeviceId property
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value ): void {
@@ -156,7 +156,7 @@ class GetAssignmentFiltersStatusDetailsRequestBody implements AdditionalDataHold
     }
 
     /**
-     * Sets the payloadId property value. 
+     * Sets the payloadId property value. The payloadId property
      *  @param string|null $value Value to set for the payloadId property.
     */
     public function setPayloadId(?string $value ): void {
@@ -164,7 +164,7 @@ class GetAssignmentFiltersStatusDetailsRequestBody implements AdditionalDataHold
     }
 
     /**
-     * Sets the skip property value. 
+     * Sets the skip property value. The skip property
      *  @param int|null $value Value to set for the skip property.
     */
     public function setSkip(?int $value ): void {
@@ -172,7 +172,7 @@ class GetAssignmentFiltersStatusDetailsRequestBody implements AdditionalDataHold
     }
 
     /**
-     * Sets the top property value. 
+     * Sets the top property value. The top property
      *  @param int|null $value Value to set for the top property.
     */
     public function setTop(?int $value ): void {
@@ -180,7 +180,7 @@ class GetAssignmentFiltersStatusDetailsRequestBody implements AdditionalDataHold
     }
 
     /**
-     * Sets the userId property value. 
+     * Sets the userId property value. The userId property
      *  @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value ): void {

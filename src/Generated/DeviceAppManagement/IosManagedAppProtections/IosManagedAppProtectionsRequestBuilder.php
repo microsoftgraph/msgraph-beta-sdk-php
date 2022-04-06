@@ -7,9 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosManagedAppProtections\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosManagedAppProtections\HasPayloadLinks\HasPayloadLinksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\IosManagedAppProtection;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\IosManagedAppProtectionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\IosManagedAppProtection;
+use Microsoft\Graph\Beta\Generated\Models\IosManagedAppProtectionCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,10 +20,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class IosManagedAppProtectionsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The hasPayloadLinks property
+    */
     public function hasPayloadLinks(): HasPayloadLinksRequestBuilder {
         return new HasPayloadLinksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

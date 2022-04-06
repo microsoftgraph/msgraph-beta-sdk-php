@@ -13,7 +13,7 @@ class PostponeRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var DateTime|null $postponeUntilDateTime  */
+    /** @var DateTime|null $postponeUntilDateTime The postponeUntilDateTime property */
     private ?DateTime $postponeUntilDateTime = null;
     
     /**
@@ -51,7 +51,7 @@ class PostponeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the postponeUntilDateTime property value. 
+     * Gets the postponeUntilDateTime property value. The postponeUntilDateTime property
      * @return DateTime|null
     */
     public function getPostponeUntilDateTime(): ?DateTime {
@@ -76,7 +76,7 @@ class PostponeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the postponeUntilDateTime property value. 
+     * Sets the postponeUntilDateTime property value. The postponeUntilDateTime property
      *  @param DateTime|null $value Value to set for the postponeUntilDateTime property.
     */
     public function setPostponeUntilDateTime(?DateTime $value ): void {

@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Templates\Item\Schema\Functions;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AttributeMappingFunctionSchema;
+use Microsoft\Graph\Beta\Generated\Models\AttributeMappingFunctionSchema;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class FunctionsResponse implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<AttributeMappingFunctionSchema>|null $value  */
+    /** @var array<AttributeMappingFunctionSchema>|null $value The value property */
     private ?array $value = null;
     
     /**
@@ -51,7 +51,7 @@ class FunctionsResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the value property value. 
+     * Gets the value property value. The value property
      * @return array<AttributeMappingFunctionSchema>|null
     */
     public function getValue(): ?array {
@@ -76,7 +76,7 @@ class FunctionsResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the value property value. 
+     * Sets the value property value. The value property
      *  @param array<AttributeMappingFunctionSchema>|null $value Value to set for the value property.
     */
     public function setValue(?array $value ): void {

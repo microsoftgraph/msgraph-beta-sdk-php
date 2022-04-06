@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\WorkforceIntegrations;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WorkforceIntegration;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WorkforceIntegrationCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\WorkforceIntegration;
+use Microsoft\Graph\Beta\Generated\Models\WorkforceIntegrationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Teamwork\WorkforceIntegrations\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class WorkforceIntegrationsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

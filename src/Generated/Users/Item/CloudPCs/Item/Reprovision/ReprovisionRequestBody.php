@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Reprovision;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CloudPcOperatingSystem;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CloudPcUserAccountType;
+use Microsoft\Graph\Beta\Generated\Models\CloudPcOperatingSystem;
+use Microsoft\Graph\Beta\Generated\Models\CloudPcUserAccountType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,10 +14,10 @@ class ReprovisionRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var CloudPcOperatingSystem|null $osVersion  */
+    /** @var CloudPcOperatingSystem|null $osVersion The osVersion property */
     private ?CloudPcOperatingSystem $osVersion = null;
     
-    /** @var CloudPcUserAccountType|null $userAccountType  */
+    /** @var CloudPcUserAccountType|null $userAccountType The userAccountType property */
     private ?CloudPcUserAccountType $userAccountType = null;
     
     /**
@@ -56,7 +56,7 @@ class ReprovisionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the osVersion property value. 
+     * Gets the osVersion property value. The osVersion property
      * @return CloudPcOperatingSystem|null
     */
     public function getOsVersion(): ?CloudPcOperatingSystem {
@@ -64,7 +64,7 @@ class ReprovisionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the userAccountType property value. 
+     * Gets the userAccountType property value. The userAccountType property
      * @return CloudPcUserAccountType|null
     */
     public function getUserAccountType(): ?CloudPcUserAccountType {
@@ -90,7 +90,7 @@ class ReprovisionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the osVersion property value. 
+     * Sets the osVersion property value. The osVersion property
      *  @param CloudPcOperatingSystem|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?CloudPcOperatingSystem $value ): void {
@@ -98,7 +98,7 @@ class ReprovisionRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the userAccountType property value. 
+     * Sets the userAccountType property value. The userAccountType property
      *  @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
     */
     public function setUserAccountType(?CloudPcUserAccountType $value ): void {

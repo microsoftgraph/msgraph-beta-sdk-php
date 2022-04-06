@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Policy
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\InformationProtectionContentLabel;
+use Microsoft\Graph\Beta\Generated\Models\InformationProtectionContentLabel;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

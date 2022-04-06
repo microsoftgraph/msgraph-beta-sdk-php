@@ -12,10 +12,10 @@ class SendCustomNotificationToCompanyPortalRequestBody implements AdditionalData
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $notificationBody  */
+    /** @var string|null $notificationBody The notificationBody property */
     private ?string $notificationBody = null;
     
-    /** @var string|null $notificationTitle  */
+    /** @var string|null $notificationTitle The notificationTitle property */
     private ?string $notificationTitle = null;
     
     /**
@@ -54,7 +54,7 @@ class SendCustomNotificationToCompanyPortalRequestBody implements AdditionalData
     }
 
     /**
-     * Gets the notificationBody property value. 
+     * Gets the notificationBody property value. The notificationBody property
      * @return string|null
     */
     public function getNotificationBody(): ?string {
@@ -62,7 +62,7 @@ class SendCustomNotificationToCompanyPortalRequestBody implements AdditionalData
     }
 
     /**
-     * Gets the notificationTitle property value. 
+     * Gets the notificationTitle property value. The notificationTitle property
      * @return string|null
     */
     public function getNotificationTitle(): ?string {
@@ -88,7 +88,7 @@ class SendCustomNotificationToCompanyPortalRequestBody implements AdditionalData
     }
 
     /**
-     * Sets the notificationBody property value. 
+     * Sets the notificationBody property value. The notificationBody property
      *  @param string|null $value Value to set for the notificationBody property.
     */
     public function setNotificationBody(?string $value ): void {
@@ -96,7 +96,7 @@ class SendCustomNotificationToCompanyPortalRequestBody implements AdditionalData
     }
 
     /**
-     * Sets the notificationTitle property value. 
+     * Sets the notificationTitle property value. The notificationTitle property
      *  @param string|null $value Value to set for the notificationTitle property.
     */
     public function setNotificationTitle(?string $value ): void {

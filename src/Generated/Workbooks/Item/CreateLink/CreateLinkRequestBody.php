@@ -3,7 +3,7 @@
 namespace Microsoft\Graph\Beta\Generated\Workbooks\Item\CreateLink;
 
 use DateTime;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DriveRecipient;
+use Microsoft\Graph\Beta\Generated\Models\DriveRecipient;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,25 +14,25 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var DateTime|null $expirationDateTime  */
+    /** @var DateTime|null $expirationDateTime The expirationDateTime property */
     private ?DateTime $expirationDateTime = null;
     
-    /** @var string|null $message  */
+    /** @var string|null $message The message property */
     private ?string $message = null;
     
-    /** @var string|null $password  */
+    /** @var string|null $password The password property */
     private ?string $password = null;
     
-    /** @var array<DriveRecipient>|null $recipients  */
+    /** @var array<DriveRecipient>|null $recipients The recipients property */
     private ?array $recipients = null;
     
-    /** @var bool|null $retainInheritedPermissions  */
+    /** @var bool|null $retainInheritedPermissions The retainInheritedPermissions property */
     private ?bool $retainInheritedPermissions = null;
     
-    /** @var string|null $scope  */
+    /** @var string|null $scope The scope property */
     private ?string $scope = null;
     
-    /** @var string|null $type  */
+    /** @var string|null $type The type property */
     private ?string $type = null;
     
     /**
@@ -60,7 +60,7 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. 
+     * Gets the expirationDateTime property value. The expirationDateTime property
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -84,7 +84,7 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the message property value. 
+     * Gets the message property value. The message property
      * @return string|null
     */
     public function getMessage(): ?string {
@@ -92,7 +92,7 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the password property value. 
+     * Gets the password property value. The password property
      * @return string|null
     */
     public function getPassword(): ?string {
@@ -100,7 +100,7 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the recipients property value. 
+     * Gets the recipients property value. The recipients property
      * @return array<DriveRecipient>|null
     */
     public function getRecipients(): ?array {
@@ -108,7 +108,7 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the retainInheritedPermissions property value. 
+     * Gets the retainInheritedPermissions property value. The retainInheritedPermissions property
      * @return bool|null
     */
     public function getRetainInheritedPermissions(): ?bool {
@@ -116,7 +116,7 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the scope property value. 
+     * Gets the scope property value. The scope property
      * @return string|null
     */
     public function getScope(): ?string {
@@ -124,7 +124,7 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the type property value. 
+     * Gets the type property value. The type property
      * @return string|null
     */
     public function getType(): ?string {
@@ -155,7 +155,7 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. 
+     * Sets the expirationDateTime property value. The expirationDateTime property
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value ): void {
@@ -163,7 +163,7 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the message property value. 
+     * Sets the message property value. The message property
      *  @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value ): void {
@@ -171,7 +171,7 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the password property value. 
+     * Sets the password property value. The password property
      *  @param string|null $value Value to set for the password property.
     */
     public function setPassword(?string $value ): void {
@@ -179,7 +179,7 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the recipients property value. 
+     * Sets the recipients property value. The recipients property
      *  @param array<DriveRecipient>|null $value Value to set for the recipients property.
     */
     public function setRecipients(?array $value ): void {
@@ -187,7 +187,7 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the retainInheritedPermissions property value. 
+     * Sets the retainInheritedPermissions property value. The retainInheritedPermissions property
      *  @param bool|null $value Value to set for the retainInheritedPermissions property.
     */
     public function setRetainInheritedPermissions(?bool $value ): void {
@@ -195,7 +195,7 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the scope property value. 
+     * Sets the scope property value. The scope property
      *  @param string|null $value Value to set for the scope property.
     */
     public function setScope(?string $value ): void {
@@ -203,7 +203,7 @@ class CreateLinkRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the type property value. 
+     * Sets the type property value. The type property
      *  @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value ): void {

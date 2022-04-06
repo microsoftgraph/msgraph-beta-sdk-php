@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicyAssignment
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UnifiedRoleManagementPolicyAssignment;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleManagementPolicyAssignment;
 use Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicyAssignments\Item\Policy\PolicyRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -21,6 +21,9 @@ class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The policy property
+    */
     public function policy(): PolicyRequestBuilder {
         return new PolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

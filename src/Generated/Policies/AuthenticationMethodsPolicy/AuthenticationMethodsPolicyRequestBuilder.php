@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Policies\AuthenticationMethodsPolicy;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AuthenticationMethodsPolicy;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AuthenticationMethodsPolicy;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\AuthenticationMethodsPolicy\AuthenticationMethodConfigurations\AuthenticationMethodConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\AuthenticationMethodsPolicy\AuthenticationMethodConfigurations\Item\AuthenticationMethodConfigurationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AuthenticationMethodsPolicyRequestBuilder 
 {
+    /**
+     * The authenticationMethodConfigurations property
+    */
     public function authenticationMethodConfigurations(): AuthenticationMethodConfigurationsRequestBuilder {
         return new AuthenticationMethodConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

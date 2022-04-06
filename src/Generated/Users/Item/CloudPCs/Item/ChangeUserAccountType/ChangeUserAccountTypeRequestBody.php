@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\ChangeUserAccountType;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CloudPcUserAccountType;
+use Microsoft\Graph\Beta\Generated\Models\CloudPcUserAccountType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class ChangeUserAccountTypeRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var CloudPcUserAccountType|null $userAccountType  */
+    /** @var CloudPcUserAccountType|null $userAccountType The userAccountType property */
     private ?CloudPcUserAccountType $userAccountType = null;
     
     /**
@@ -51,7 +51,7 @@ class ChangeUserAccountTypeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the userAccountType property value. 
+     * Gets the userAccountType property value. The userAccountType property
      * @return CloudPcUserAccountType|null
     */
     public function getUserAccountType(): ?CloudPcUserAccountType {
@@ -76,7 +76,7 @@ class ChangeUserAccountTypeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the userAccountType property value. 
+     * Sets the userAccountType property value. The userAccountType property
      *  @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
     */
     public function setUserAccountType(?CloudPcUserAccountType $value ): void {

@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScripts\Item
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScripts\Item\DeviceRunStates\DeviceRunStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScripts\Item\DeviceRunStates\Item\DeviceComplianceScriptDeviceStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScripts\Item\RunSummary\RunSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceComplianceScript;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceComplianceScript;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,14 +23,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeviceComplianceScriptItemRequestBuilder 
 {
+    /**
+     * The assign property
+    */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceRunStates property
+    */
     public function deviceRunStates(): DeviceRunStatesRequestBuilder {
         return new DeviceRunStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -41,6 +50,9 @@ class DeviceComplianceScriptItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The runSummary property
+    */
     public function runSummary(): RunSummaryRequestBuilder {
         return new RunSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

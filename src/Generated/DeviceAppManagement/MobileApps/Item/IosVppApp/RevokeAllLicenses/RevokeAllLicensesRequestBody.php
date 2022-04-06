@@ -12,7 +12,7 @@ class RevokeAllLicensesRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var bool|null $notifyManagedDevices  */
+    /** @var bool|null $notifyManagedDevices The notifyManagedDevices property */
     private ?bool $notifyManagedDevices = null;
     
     /**
@@ -50,7 +50,7 @@ class RevokeAllLicensesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the notifyManagedDevices property value. 
+     * Gets the notifyManagedDevices property value. The notifyManagedDevices property
      * @return bool|null
     */
     public function getNotifyManagedDevices(): ?bool {
@@ -75,7 +75,7 @@ class RevokeAllLicensesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the notifyManagedDevices property value. 
+     * Sets the notifyManagedDevices property value. The notifyManagedDevices property
      *  @param bool|null $value Value to set for the notifyManagedDevices property.
     */
     public function setNotifyManagedDevices(?bool $value ): void {

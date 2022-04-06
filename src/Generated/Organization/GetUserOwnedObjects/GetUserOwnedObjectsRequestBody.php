@@ -12,10 +12,10 @@ class GetUserOwnedObjectsRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $type  */
+    /** @var string|null $type The type property */
     private ?string $type = null;
     
-    /** @var string|null $userId  */
+    /** @var string|null $userId The userId property */
     private ?string $userId = null;
     
     /**
@@ -54,7 +54,7 @@ class GetUserOwnedObjectsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the type property value. 
+     * Gets the type property value. The type property
      * @return string|null
     */
     public function getType(): ?string {
@@ -62,7 +62,7 @@ class GetUserOwnedObjectsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the userId property value. 
+     * Gets the userId property value. The userId property
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -88,7 +88,7 @@ class GetUserOwnedObjectsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the type property value. 
+     * Sets the type property value. The type property
      *  @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value ): void {
@@ -96,7 +96,7 @@ class GetUserOwnedObjectsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the userId property value. 
+     * Sets the userId property value. The userId property
      *  @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value ): void {

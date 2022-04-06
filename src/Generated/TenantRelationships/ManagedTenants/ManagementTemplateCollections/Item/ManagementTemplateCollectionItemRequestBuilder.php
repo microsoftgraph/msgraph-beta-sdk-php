@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Mana
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagedTenants\ManagementTemplateCollection;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementTemplateCollection;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateCollections\Item\ManagementTemplates\Item\ManagementTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateCollections\Item\ManagementTemplates\ManagementTemplatesRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ManagementTemplateCollectionItemRequestBuilder 
 {
+    /**
+     * The managementTemplates property
+    */
     public function managementTemplates(): ManagementTemplatesRequestBuilder {
         return new ManagementTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

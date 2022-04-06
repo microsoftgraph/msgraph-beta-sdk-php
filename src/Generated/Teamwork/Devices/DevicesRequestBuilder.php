@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TeamworkDevice;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TeamworkDeviceCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TeamworkDevice;
+use Microsoft\Graph\Beta\Generated\Models\TeamworkDeviceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DevicesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

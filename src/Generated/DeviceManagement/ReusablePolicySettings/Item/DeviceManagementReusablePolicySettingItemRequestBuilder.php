@@ -8,8 +8,8 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\EscapedClone\CloneRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\DeviceManagementConfigurationPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\ReferencingConfigurationPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementReusablePolicySetting;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementReusablePolicySetting;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeviceManagementReusablePolicySettingItemRequestBuilder 
 {
+    /**
+     * The clone property
+    */
     public function escapedClone(): CloneRequestBuilder {
         return new CloneRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -27,6 +30,9 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The referencingConfigurationPolicies property
+    */
     public function referencingConfigurationPolicies(): ReferencingConfigurationPoliciesRequestBuilder {
         return new ReferencingConfigurationPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

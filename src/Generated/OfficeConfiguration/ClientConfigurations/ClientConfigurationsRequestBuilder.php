@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfiguration
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OfficeClientConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OfficeClientConfigurationCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OfficeClientConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\OfficeClientConfigurationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\UpdatePriorities\UpdatePrioritiesRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ClientConfigurationsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -30,6 +33,9 @@ class ClientConfigurationsRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The updatePriorities property
+    */
     public function updatePriorities(): UpdatePrioritiesRequestBuilder {
         return new UpdatePrioritiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

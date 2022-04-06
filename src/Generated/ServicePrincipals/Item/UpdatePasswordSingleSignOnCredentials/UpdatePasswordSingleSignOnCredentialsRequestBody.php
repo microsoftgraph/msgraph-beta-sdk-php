@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\UpdatePasswordSingleSignOnCredentials;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Credential;
+use Microsoft\Graph\Beta\Generated\Models\Credential;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,10 +13,10 @@ class UpdatePasswordSingleSignOnCredentialsRequestBody implements AdditionalData
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<Credential>|null $credentials  */
+    /** @var array<Credential>|null $credentials The credentials property */
     private ?array $credentials = null;
     
-    /** @var string|null $id  */
+    /** @var string|null $id The id property */
     private ?string $id = null;
     
     /**
@@ -44,7 +44,7 @@ class UpdatePasswordSingleSignOnCredentialsRequestBody implements AdditionalData
     }
 
     /**
-     * Gets the credentials property value. 
+     * Gets the credentials property value. The credentials property
      * @return array<Credential>|null
     */
     public function getCredentials(): ?array {
@@ -63,7 +63,7 @@ class UpdatePasswordSingleSignOnCredentialsRequestBody implements AdditionalData
     }
 
     /**
-     * Gets the id property value. 
+     * Gets the id property value. The id property
      * @return string|null
     */
     public function getId(): ?string {
@@ -89,7 +89,7 @@ class UpdatePasswordSingleSignOnCredentialsRequestBody implements AdditionalData
     }
 
     /**
-     * Sets the credentials property value. 
+     * Sets the credentials property value. The credentials property
      *  @param array<Credential>|null $value Value to set for the credentials property.
     */
     public function setCredentials(?array $value ): void {
@@ -97,7 +97,7 @@ class UpdatePasswordSingleSignOnCredentialsRequestBody implements AdditionalData
     }
 
     /**
-     * Sets the id property value. 
+     * Sets the id property value. The id property
      *  @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value ): void {

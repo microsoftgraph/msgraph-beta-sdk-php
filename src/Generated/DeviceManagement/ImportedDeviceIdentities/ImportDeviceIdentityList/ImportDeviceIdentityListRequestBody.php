@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities\ImportDeviceIdentityList;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ImportedDeviceIdentity;
+use Microsoft\Graph\Beta\Generated\Models\ImportedDeviceIdentity;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,10 +13,10 @@ class ImportDeviceIdentityListRequestBody implements AdditionalDataHolder, Parsa
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<ImportedDeviceIdentity>|null $importedDeviceIdentities  */
+    /** @var array<ImportedDeviceIdentity>|null $importedDeviceIdentities The importedDeviceIdentities property */
     private ?array $importedDeviceIdentities = null;
     
-    /** @var bool|null $overwriteImportedDeviceIdentities  */
+    /** @var bool|null $overwriteImportedDeviceIdentities The overwriteImportedDeviceIdentities property */
     private ?bool $overwriteImportedDeviceIdentities = null;
     
     /**
@@ -55,7 +55,7 @@ class ImportDeviceIdentityListRequestBody implements AdditionalDataHolder, Parsa
     }
 
     /**
-     * Gets the importedDeviceIdentities property value. 
+     * Gets the importedDeviceIdentities property value. The importedDeviceIdentities property
      * @return array<ImportedDeviceIdentity>|null
     */
     public function getImportedDeviceIdentities(): ?array {
@@ -63,7 +63,7 @@ class ImportDeviceIdentityListRequestBody implements AdditionalDataHolder, Parsa
     }
 
     /**
-     * Gets the overwriteImportedDeviceIdentities property value. 
+     * Gets the overwriteImportedDeviceIdentities property value. The overwriteImportedDeviceIdentities property
      * @return bool|null
     */
     public function getOverwriteImportedDeviceIdentities(): ?bool {
@@ -89,7 +89,7 @@ class ImportDeviceIdentityListRequestBody implements AdditionalDataHolder, Parsa
     }
 
     /**
-     * Sets the importedDeviceIdentities property value. 
+     * Sets the importedDeviceIdentities property value. The importedDeviceIdentities property
      *  @param array<ImportedDeviceIdentity>|null $value Value to set for the importedDeviceIdentities property.
     */
     public function setImportedDeviceIdentities(?array $value ): void {
@@ -97,7 +97,7 @@ class ImportDeviceIdentityListRequestBody implements AdditionalDataHolder, Parsa
     }
 
     /**
-     * Sets the overwriteImportedDeviceIdentities property value. 
+     * Sets the overwriteImportedDeviceIdentities property value. The overwriteImportedDeviceIdentities property
      *  @param bool|null $value Value to set for the overwriteImportedDeviceIdentities property.
     */
     public function setOverwriteImportedDeviceIdentities(?bool $value ): void {

@@ -15,14 +15,23 @@ class IosVppAppRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The revokeAllLicenses property
+    */
     public function revokeAllLicenses(): RevokeAllLicensesRequestBuilder {
         return new RevokeAllLicensesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The revokeDeviceLicense property
+    */
     public function revokeDeviceLicense(): RevokeDeviceLicenseRequestBuilder {
         return new RevokeDeviceLicenseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The revokeUserLicense property
+    */
     public function revokeUserLicense(): RevokeUserLicenseRequestBuilder {
         return new RevokeUserLicenseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

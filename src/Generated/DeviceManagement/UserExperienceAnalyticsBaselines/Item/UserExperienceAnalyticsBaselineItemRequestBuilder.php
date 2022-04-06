@@ -12,8 +12,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBasel
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBaselines\Item\RebootAnalyticsMetrics\RebootAnalyticsMetricsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBaselines\Item\ResourcePerformanceMetrics\ResourcePerformanceMetricsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBaselines\Item\WorkFromAnywhereMetrics\WorkFromAnywhereMetricsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UserExperienceAnalyticsBaseline;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsBaseline;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -24,18 +24,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class UserExperienceAnalyticsBaselineItemRequestBuilder 
 {
+    /**
+     * The appHealthMetrics property
+    */
     public function appHealthMetrics(): AppHealthMetricsRequestBuilder {
         return new AppHealthMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The batteryHealthMetrics property
+    */
     public function batteryHealthMetrics(): BatteryHealthMetricsRequestBuilder {
         return new BatteryHealthMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The bestPracticesMetrics property
+    */
     public function bestPracticesMetrics(): BestPracticesMetricsRequestBuilder {
         return new BestPracticesMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceBootPerformanceMetrics property
+    */
     public function deviceBootPerformanceMetrics(): DeviceBootPerformanceMetricsRequestBuilder {
         return new DeviceBootPerformanceMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -43,6 +55,9 @@ class UserExperienceAnalyticsBaselineItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The rebootAnalyticsMetrics property
+    */
     public function rebootAnalyticsMetrics(): RebootAnalyticsMetricsRequestBuilder {
         return new RebootAnalyticsMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -50,6 +65,9 @@ class UserExperienceAnalyticsBaselineItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resourcePerformanceMetrics property
+    */
     public function resourcePerformanceMetrics(): ResourcePerformanceMetricsRequestBuilder {
         return new ResourcePerformanceMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -57,6 +75,9 @@ class UserExperienceAnalyticsBaselineItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The workFromAnywhereMetrics property
+    */
     public function workFromAnywhereMetrics(): WorkFromAnywhereMetricsRequestBuilder {
         return new WorkFromAnywhereMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

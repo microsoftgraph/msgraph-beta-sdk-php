@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelat
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DelegatedAdminAccessAssignment;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DelegatedAdminAccessAssignment;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -58,7 +58,7 @@ class DelegatedAdminAccessAssignmentItemRequestBuilder
     }
 
     /**
-     * Get accessAssignments from tenantRelationships
+     * The access assignments associated with the delegated admin relationship.
      * @param array|null $queryParameters Request query parameters
      * @param array<string, mixed>|null $headers Request headers
      * @param array<string, RequestOption>|null $options Request options
@@ -120,7 +120,7 @@ class DelegatedAdminAccessAssignmentItemRequestBuilder
     }
 
     /**
-     * Get accessAssignments from tenantRelationships
+     * The access assignments associated with the delegated admin relationship.
      * @param array|null $queryParameters Request query parameters
      * @param array<string, mixed>|null $headers Request headers
      * @param array<string, RequestOption>|null $options Request options

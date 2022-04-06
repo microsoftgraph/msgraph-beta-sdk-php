@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles\QueryByPlatformType;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PolicyPlatformType;
+use Microsoft\Graph\Beta\Generated\Models\PolicyPlatformType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class QueryByPlatformTypeRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var PolicyPlatformType|null $platformType  */
+    /** @var PolicyPlatformType|null $platformType The platformType property */
     private ?PolicyPlatformType $platformType = null;
     
     /**
@@ -51,7 +51,7 @@ class QueryByPlatformTypeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the platformType property value. 
+     * Gets the platformType property value. The platformType property
      * @return PolicyPlatformType|null
     */
     public function getPlatformType(): ?PolicyPlatformType {
@@ -76,7 +76,7 @@ class QueryByPlatformTypeRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the platformType property value. 
+     * Sets the platformType property value. The platformType property
      *  @param PolicyPlatformType|null $value Value to set for the platformType property.
     */
     public function setPlatformType(?PolicyPlatformType $value ): void {

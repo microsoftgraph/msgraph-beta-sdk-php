@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\ProgramControls\Item\Program;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Program;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Program;
 use Microsoft\Graph\Beta\Generated\ProgramControls\Item\Program\Controls\ControlsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ProgramControls\Item\Program\Controls\Item\ProgramControlItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ProgramRequestBuilder 
 {
+    /**
+     * The controls property
+    */
     public function controls(): ControlsRequestBuilder {
         return new ControlsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

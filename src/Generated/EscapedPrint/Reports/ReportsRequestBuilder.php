@@ -28,8 +28,8 @@ use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageSummari
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageSummariesByUser\MonthlyPrintUsageSummariesByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\UserCredentialUsageDetails\Item\UserCredentialUsageDetailsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\UserCredentialUsageDetails\UserCredentialUsageDetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ReportRoot;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ReportRoot;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -40,46 +40,79 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ReportsRequestBuilder 
 {
+    /**
+     * The applicationSignInDetailedSummary property
+    */
     public function applicationSignInDetailedSummary(): ApplicationSignInDetailedSummaryRequestBuilder {
         return new ApplicationSignInDetailedSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The authenticationMethods property
+    */
     public function authenticationMethods(): AuthenticationMethodsRequestBuilder {
         return new AuthenticationMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The credentialUserRegistrationDetails property
+    */
     public function credentialUserRegistrationDetails(): CredentialUserRegistrationDetailsRequestBuilder {
         return new CredentialUserRegistrationDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The dailyPrintUsageByPrinter property
+    */
     public function dailyPrintUsageByPrinter(): DailyPrintUsageByPrinterRequestBuilder {
         return new DailyPrintUsageByPrinterRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The dailyPrintUsageByUser property
+    */
     public function dailyPrintUsageByUser(): DailyPrintUsageByUserRequestBuilder {
         return new DailyPrintUsageByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The dailyPrintUsageSummariesByPrinter property
+    */
     public function dailyPrintUsageSummariesByPrinter(): DailyPrintUsageSummariesByPrinterRequestBuilder {
         return new DailyPrintUsageSummariesByPrinterRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The dailyPrintUsageSummariesByUser property
+    */
     public function dailyPrintUsageSummariesByUser(): DailyPrintUsageSummariesByUserRequestBuilder {
         return new DailyPrintUsageSummariesByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The monthlyPrintUsageByPrinter property
+    */
     public function monthlyPrintUsageByPrinter(): MonthlyPrintUsageByPrinterRequestBuilder {
         return new MonthlyPrintUsageByPrinterRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The monthlyPrintUsageByUser property
+    */
     public function monthlyPrintUsageByUser(): MonthlyPrintUsageByUserRequestBuilder {
         return new MonthlyPrintUsageByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The monthlyPrintUsageSummariesByPrinter property
+    */
     public function monthlyPrintUsageSummariesByPrinter(): MonthlyPrintUsageSummariesByPrinterRequestBuilder {
         return new MonthlyPrintUsageSummariesByPrinterRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The monthlyPrintUsageSummariesByUser property
+    */
     public function monthlyPrintUsageSummariesByUser(): MonthlyPrintUsageSummariesByUserRequestBuilder {
         return new MonthlyPrintUsageSummariesByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -93,6 +126,9 @@ class ReportsRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userCredentialUsageDetails property
+    */
     public function userCredentialUsageDetails(): UserCredentialUsageDetailsRequestBuilder {
         return new UserCredentialUsageDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

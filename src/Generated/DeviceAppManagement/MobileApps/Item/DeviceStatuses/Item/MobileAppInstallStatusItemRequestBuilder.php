@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\DeviceStatuses\Item\App\AppRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MobileAppInstallStatus;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\MobileAppInstallStatus;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -18,6 +18,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class MobileAppInstallStatusItemRequestBuilder 
 {
+    /**
+     * The app property
+    */
     public function app(): AppRequestBuilder {
         return new AppRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

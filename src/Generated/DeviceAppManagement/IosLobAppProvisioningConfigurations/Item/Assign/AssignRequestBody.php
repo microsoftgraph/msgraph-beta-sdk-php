@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\Assign;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\IosLobAppProvisioningConfigurationAssignment;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MobileAppProvisioningConfigGroupAssignment;
+use Microsoft\Graph\Beta\Generated\Models\IosLobAppProvisioningConfigurationAssignment;
+use Microsoft\Graph\Beta\Generated\Models\MobileAppProvisioningConfigGroupAssignment;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,10 +14,10 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<MobileAppProvisioningConfigGroupAssignment>|null $appProvisioningConfigurationGroupAssignments  */
+    /** @var array<MobileAppProvisioningConfigGroupAssignment>|null $appProvisioningConfigurationGroupAssignments The appProvisioningConfigurationGroupAssignments property */
     private ?array $appProvisioningConfigurationGroupAssignments = null;
     
-    /** @var array<IosLobAppProvisioningConfigurationAssignment>|null $iOSLobAppProvisioningConfigAssignments  */
+    /** @var array<IosLobAppProvisioningConfigurationAssignment>|null $iOSLobAppProvisioningConfigAssignments The iOSLobAppProvisioningConfigAssignments property */
     private ?array $iOSLobAppProvisioningConfigAssignments = null;
     
     /**
@@ -45,7 +45,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the appProvisioningConfigurationGroupAssignments property value. 
+     * Gets the appProvisioningConfigurationGroupAssignments property value. The appProvisioningConfigurationGroupAssignments property
      * @return array<MobileAppProvisioningConfigGroupAssignment>|null
     */
     public function getAppProvisioningConfigurationGroupAssignments(): ?array {
@@ -64,7 +64,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the iOSLobAppProvisioningConfigAssignments property value. 
+     * Gets the iOSLobAppProvisioningConfigAssignments property value. The iOSLobAppProvisioningConfigAssignments property
      * @return array<IosLobAppProvisioningConfigurationAssignment>|null
     */
     public function getIOSLobAppProvisioningConfigAssignments(): ?array {
@@ -90,7 +90,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the appProvisioningConfigurationGroupAssignments property value. 
+     * Sets the appProvisioningConfigurationGroupAssignments property value. The appProvisioningConfigurationGroupAssignments property
      *  @param array<MobileAppProvisioningConfigGroupAssignment>|null $value Value to set for the appProvisioningConfigurationGroupAssignments property.
     */
     public function setAppProvisioningConfigurationGroupAssignments(?array $value ): void {
@@ -98,7 +98,7 @@ class AssignRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the iOSLobAppProvisioningConfigAssignments property value. 
+     * Sets the iOSLobAppProvisioningConfigAssignments property value. The iOSLobAppProvisioningConfigAssignments property
      *  @param array<IosLobAppProvisioningConfigurationAssignment>|null $value Value to set for the iOSLobAppProvisioningConfigAssignments property.
     */
     public function setIOSLobAppProvisioningConfigAssignments(?array $value ): void {

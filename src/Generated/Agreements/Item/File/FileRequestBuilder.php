@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Agreements\Item\File\Localizations\Item\AgreementFileLocalizationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Agreements\Item\File\Localizations\LocalizationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AgreementFile;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AgreementFile;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class FileRequestBuilder 
 {
+    /**
+     * The localizations property
+    */
     public function localizations(): LocalizationsRequestBuilder {
         return new LocalizationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

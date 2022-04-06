@@ -12,10 +12,10 @@ class MigrateToTemplateRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $newTemplateId  */
+    /** @var string|null $newTemplateId The newTemplateId property */
     private ?string $newTemplateId = null;
     
-    /** @var bool|null $preserveCustomValues  */
+    /** @var bool|null $preserveCustomValues The preserveCustomValues property */
     private ?bool $preserveCustomValues = null;
     
     /**
@@ -54,7 +54,7 @@ class MigrateToTemplateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the newTemplateId property value. 
+     * Gets the newTemplateId property value. The newTemplateId property
      * @return string|null
     */
     public function getNewTemplateId(): ?string {
@@ -62,7 +62,7 @@ class MigrateToTemplateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the preserveCustomValues property value. 
+     * Gets the preserveCustomValues property value. The preserveCustomValues property
      * @return bool|null
     */
     public function getPreserveCustomValues(): ?bool {
@@ -88,7 +88,7 @@ class MigrateToTemplateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the newTemplateId property value. 
+     * Sets the newTemplateId property value. The newTemplateId property
      *  @param string|null $value Value to set for the newTemplateId property.
     */
     public function setNewTemplateId(?string $value ): void {
@@ -96,7 +96,7 @@ class MigrateToTemplateRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the preserveCustomValues property value. 
+     * Sets the preserveCustomValues property value. The preserveCustomValues property
      *  @param bool|null $value Value to set for the preserveCustomValues property.
     */
     public function setPreserveCustomValues(?bool $value ): void {

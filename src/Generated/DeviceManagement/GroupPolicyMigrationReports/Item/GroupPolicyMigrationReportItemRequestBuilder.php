@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationReports\
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationReports\Item\GroupPolicySettingMappings\Item\GroupPolicySettingMappingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationReports\Item\UnsupportedGroupPolicyExtensions\Item\UnsupportedGroupPolicyExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationReports\Item\UnsupportedGroupPolicyExtensions\UnsupportedGroupPolicyExtensionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupPolicyMigrationReport;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GroupPolicyMigrationReport;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class GroupPolicyMigrationReportItemRequestBuilder 
 {
+    /**
+     * The groupPolicySettingMappings property
+    */
     public function groupPolicySettingMappings(): GroupPolicySettingMappingsRequestBuilder {
         return new GroupPolicySettingMappingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -31,6 +34,9 @@ class GroupPolicyMigrationReportItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The unsupportedGroupPolicyExtensions property
+    */
     public function unsupportedGroupPolicyExtensions(): UnsupportedGroupPolicyExtensionsRequestBuilder {
         return new UnsupportedGroupPolicyExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

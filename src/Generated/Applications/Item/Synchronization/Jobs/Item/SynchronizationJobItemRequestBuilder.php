@@ -12,8 +12,8 @@ use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\S
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\Start\StartRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\Stop\StopRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\ValidateCredentials\ValidateCredentialsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SynchronizationJob;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SynchronizationJob;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -27,10 +27,16 @@ class SynchronizationJobItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The pause property
+    */
     public function pause(): PauseRequestBuilder {
         return new PauseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The provisionOnDemand property
+    */
     public function provisionOnDemand(): ProvisionOnDemandRequestBuilder {
         return new ProvisionOnDemandRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -38,18 +44,30 @@ class SynchronizationJobItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The restart property
+    */
     public function restart(): RestartRequestBuilder {
         return new RestartRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The schema property
+    */
     public function schema(): SchemaRequestBuilder {
         return new SchemaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The start property
+    */
     public function start(): StartRequestBuilder {
         return new StartRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The stop property
+    */
     public function stop(): StopRequestBuilder {
         return new StopRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -57,6 +75,9 @@ class SynchronizationJobItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The validateCredentials property
+    */
     public function validateCredentials(): ValidateCredentialsRequestBuilder {
         return new ValidateCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

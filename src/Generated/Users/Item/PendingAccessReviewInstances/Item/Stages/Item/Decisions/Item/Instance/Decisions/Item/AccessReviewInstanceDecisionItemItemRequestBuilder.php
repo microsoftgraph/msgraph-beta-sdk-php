@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessReviewInstanceDecisionItem;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstanceDecisionItem;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Stages\Item\Decisions\Item\Instance\Decisions\Item\Insights\InsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Stages\Item\Decisions\Item\Instance\Decisions\Item\Insights\Item\GovernanceInsightItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AccessReviewInstanceDecisionItemItemRequestBuilder 
 {
+    /**
+     * The insights property
+    */
     public function insights(): InsightsRequestBuilder {
         return new InsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

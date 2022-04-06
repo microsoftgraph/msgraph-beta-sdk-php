@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\GetM365AppUserDetailWithDate;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Report;
+use Microsoft\Graph\Beta\Generated\Models\Report;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -13,6 +13,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
+use Microsoft\Kiota\Abstractions\Types\Date;
 
 class GetM365AppUserDetailWithDateRequestBuilder 
 {
@@ -29,9 +30,9 @@ class GetM365AppUserDetailWithDateRequestBuilder
      * Instantiates a new GetM365AppUserDetailWithDateRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-     * @param DateOnly|null $date Usage: date={date}
+     * @param Date|null $date Usage: date={date}
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?DateOnly $date = null) {
+    public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?Date $date = null) {
         $this->urlTemplate = '{+baseurl}/reports/microsoft.graph.getM365AppUserDetail(date={date})';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\Messages\Item\Calen
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Calendar;
+use Microsoft\Graph\Beta\Generated\Models\Calendar;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

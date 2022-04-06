@@ -13,10 +13,10 @@ class DecryptBufferRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var StreamInterface|null $encryptedBuffer  */
+    /** @var StreamInterface|null $encryptedBuffer The encryptedBuffer property */
     private ?StreamInterface $encryptedBuffer = null;
     
-    /** @var StreamInterface|null $publishingLicense  */
+    /** @var StreamInterface|null $publishingLicense The publishingLicense property */
     private ?StreamInterface $publishingLicense = null;
     
     /**
@@ -44,7 +44,7 @@ class DecryptBufferRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the encryptedBuffer property value. 
+     * Gets the encryptedBuffer property value. The encryptedBuffer property
      * @return StreamInterface|null
     */
     public function getEncryptedBuffer(): ?StreamInterface {
@@ -63,7 +63,7 @@ class DecryptBufferRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the publishingLicense property value. 
+     * Gets the publishingLicense property value. The publishingLicense property
      * @return StreamInterface|null
     */
     public function getPublishingLicense(): ?StreamInterface {
@@ -89,7 +89,7 @@ class DecryptBufferRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the encryptedBuffer property value. 
+     * Sets the encryptedBuffer property value. The encryptedBuffer property
      *  @param StreamInterface|null $value Value to set for the encryptedBuffer property.
     */
     public function setEncryptedBuffer(?StreamInterface $value ): void {
@@ -97,7 +97,7 @@ class DecryptBufferRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the publishingLicense property value. 
+     * Sets the publishingLicense property value. The publishingLicense property
      *  @param StreamInterface|null $value Value to set for the publishingLicense property.
     */
     public function setPublishingLicense(?StreamInterface $value ): void {

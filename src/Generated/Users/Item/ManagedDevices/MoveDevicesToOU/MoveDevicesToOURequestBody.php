@@ -12,10 +12,10 @@ class MoveDevicesToOURequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $deviceIds  */
+    /** @var array<string>|null $deviceIds The deviceIds property */
     private ?array $deviceIds = null;
     
-    /** @var string|null $organizationalUnitPath  */
+    /** @var string|null $organizationalUnitPath The organizationalUnitPath property */
     private ?string $organizationalUnitPath = null;
     
     /**
@@ -43,7 +43,7 @@ class MoveDevicesToOURequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceIds property value. 
+     * Gets the deviceIds property value. The deviceIds property
      * @return array<string>|null
     */
     public function getDeviceIds(): ?array {
@@ -62,7 +62,7 @@ class MoveDevicesToOURequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the organizationalUnitPath property value. 
+     * Gets the organizationalUnitPath property value. The organizationalUnitPath property
      * @return string|null
     */
     public function getOrganizationalUnitPath(): ?string {
@@ -88,7 +88,7 @@ class MoveDevicesToOURequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceIds property value. 
+     * Sets the deviceIds property value. The deviceIds property
      *  @param array<string>|null $value Value to set for the deviceIds property.
     */
     public function setDeviceIds(?array $value ): void {
@@ -96,7 +96,7 @@ class MoveDevicesToOURequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the organizationalUnitPath property value. 
+     * Sets the organizationalUnitPath property value. The organizationalUnitPath property
      *  @param string|null $value Value to set for the organizationalUnitPath property.
     */
     public function setOrganizationalUnitPath(?string $value ): void {

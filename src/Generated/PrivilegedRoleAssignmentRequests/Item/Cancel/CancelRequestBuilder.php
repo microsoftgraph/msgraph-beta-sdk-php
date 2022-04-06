@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item\C
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PrivilegedRoleAssignmentRequest;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegedRoleAssignmentRequest;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

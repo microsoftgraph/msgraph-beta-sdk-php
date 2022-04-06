@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilit
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UnifiedRoleEligibilityScheduleInstance;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UnifiedRoleEligibilityScheduleInstanceCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleEligibilityScheduleInstance;
+use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleEligibilityScheduleInstanceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilityScheduleInstances\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilityScheduleInstances\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class RoleEligibilityScheduleInstancesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

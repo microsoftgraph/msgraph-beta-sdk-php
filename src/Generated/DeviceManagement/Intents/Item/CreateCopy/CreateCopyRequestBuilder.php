@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\CreateCop
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementIntent;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntent;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

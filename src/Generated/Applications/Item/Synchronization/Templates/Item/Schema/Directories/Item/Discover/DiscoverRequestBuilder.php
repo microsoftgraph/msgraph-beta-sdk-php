@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templ
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DirectoryDefinition;
+use Microsoft\Graph\Beta\Generated\Models\DirectoryDefinition;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

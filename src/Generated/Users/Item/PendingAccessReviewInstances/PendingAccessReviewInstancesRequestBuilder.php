@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessReviewInstance;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessReviewInstanceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstance;
+use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstanceCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PendingAccessReviewInstancesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

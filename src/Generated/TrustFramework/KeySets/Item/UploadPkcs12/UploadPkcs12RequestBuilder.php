@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\UploadPkcs1
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TrustFrameworkKey;
+use Microsoft\Graph\Beta\Generated\Models\TrustFrameworkKey;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

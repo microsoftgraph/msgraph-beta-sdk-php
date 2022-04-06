@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Sensit
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SensitivityLabel;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SensitivityLabel;
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\SensitivityLabels\Item\Sublabels\SublabelsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -24,6 +24,9 @@ class SensitivityLabelItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The sublabels property
+    */
     public function sublabels(): SublabelsRequestBuilder {
         return new SublabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

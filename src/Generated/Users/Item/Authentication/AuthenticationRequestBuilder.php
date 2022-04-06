@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Authentication;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Authentication;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\EmailMethods\EmailMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\EmailMethods\Item\EmailAuthenticationMethodItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Fido2Methods\Fido2MethodsRequestBuilder;
@@ -39,30 +39,51 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AuthenticationRequestBuilder 
 {
+    /**
+     * The emailMethods property
+    */
     public function emailMethods(): EmailMethodsRequestBuilder {
         return new EmailMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The fido2Methods property
+    */
     public function fido2Methods(): Fido2MethodsRequestBuilder {
         return new Fido2MethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The methods property
+    */
     public function methods(): MethodsRequestBuilder {
         return new MethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The microsoftAuthenticatorMethods property
+    */
     public function microsoftAuthenticatorMethods(): MicrosoftAuthenticatorMethodsRequestBuilder {
         return new MicrosoftAuthenticatorMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The operations property
+    */
     public function operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The passwordlessMicrosoftAuthenticatorMethods property
+    */
     public function passwordlessMicrosoftAuthenticatorMethods(): PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder {
         return new PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The passwordMethods property
+    */
     public function passwordMethods(): PasswordMethodsRequestBuilder {
         return new PasswordMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -70,6 +91,9 @@ class AuthenticationRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The phoneMethods property
+    */
     public function phoneMethods(): PhoneMethodsRequestBuilder {
         return new PhoneMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -77,10 +101,16 @@ class AuthenticationRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The softwareOathMethods property
+    */
     public function softwareOathMethods(): SoftwareOathMethodsRequestBuilder {
         return new SoftwareOathMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The temporaryAccessPassMethods property
+    */
     public function temporaryAccessPassMethods(): TemporaryAccessPassMethodsRequestBuilder {
         return new TemporaryAccessPassMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -88,6 +118,9 @@ class AuthenticationRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The windowsHelloForBusinessMethods property
+    */
     public function windowsHelloForBusinessMethods(): WindowsHelloForBusinessMethodsRequestBuilder {
         return new WindowsHelloForBusinessMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Policy
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\InformationProtectionLabel;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\InformationProtectionLabelCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\InformationProtectionLabel;
+use Microsoft\Graph\Beta\Generated\Models\InformationProtectionLabelCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Policy\Labels\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Policy\Labels\EvaluateApplication\EvaluateApplicationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Policy\Labels\EvaluateClassificationResults\EvaluateClassificationResultsRequestBuilder;
@@ -23,22 +23,37 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class LabelsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The evaluateApplication property
+    */
     public function evaluateApplication(): EvaluateApplicationRequestBuilder {
         return new EvaluateApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The evaluateClassificationResults property
+    */
     public function evaluateClassificationResults(): EvaluateClassificationResultsRequestBuilder {
         return new EvaluateClassificationResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The evaluateRemoval property
+    */
     public function evaluateRemoval(): EvaluateRemovalRequestBuilder {
         return new EvaluateRemovalRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The extractLabel property
+    */
     public function extractLabel(): ExtractLabelRequestBuilder {
         return new ExtractLabelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

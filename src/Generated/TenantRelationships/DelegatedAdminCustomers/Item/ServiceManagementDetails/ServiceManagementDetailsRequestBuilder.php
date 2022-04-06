@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminCusto
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DelegatedAdminServiceManagementDetail;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DelegatedAdminServiceManagementDetailCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DelegatedAdminServiceManagementDetail;
+use Microsoft\Graph\Beta\Generated\Models\DelegatedAdminServiceManagementDetailCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminCustomers\Item\ServiceManagementDetails\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ServiceManagementDetailsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -44,7 +47,7 @@ class ServiceManagementDetailsRequestBuilder
     }
 
     /**
-     * Get serviceManagementDetails from tenantRelationships
+     * Contains the management details of a service in the customer tenant that's managed by delegated administration.
      * @param array|null $queryParameters Request query parameters
      * @param array<string, mixed>|null $headers Request headers
      * @param array<string, RequestOption>|null $options Request options
@@ -90,7 +93,7 @@ class ServiceManagementDetailsRequestBuilder
     }
 
     /**
-     * Get serviceManagementDetails from tenantRelationships
+     * Contains the management details of a service in the customer tenant that's managed by delegated administration.
      * @param array|null $queryParameters Request query parameters
      * @param array<string, mixed>|null $headers Request headers
      * @param array<string, RequestOption>|null $options Request options

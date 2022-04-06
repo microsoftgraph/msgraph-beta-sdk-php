@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedRoles\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PrivilegedRole;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegedRole;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoles\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoles\Item\Assignments\Item\PrivilegedRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoles\Item\SelfActivate\SelfActivateRequestBuilder;
@@ -23,6 +23,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PrivilegedRoleItemRequestBuilder 
 {
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -33,18 +36,30 @@ class PrivilegedRoleItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The selfActivate property
+    */
     public function selfActivate(): SelfActivateRequestBuilder {
         return new SelfActivateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The selfDeactivate property
+    */
     public function selfDeactivate(): SelfDeactivateRequestBuilder {
         return new SelfDeactivateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The settings property
+    */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The summary property
+    */
     public function summary(): SummaryRequestBuilder {
         return new SummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Teamwork;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Teamwork;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\DevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\TeamworkDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\WorkforceIntegrations\Item\WorkforceIntegrationItemRequestBuilder;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class TeamworkRequestBuilder 
 {
+    /**
+     * The devices property
+    */
     public function devices(): DevicesRequestBuilder {
         return new DevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -34,6 +37,9 @@ class TeamworkRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The workforceIntegrations property
+    */
     public function workforceIntegrations(): WorkforceIntegrationsRequestBuilder {
         return new WorkforceIntegrationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

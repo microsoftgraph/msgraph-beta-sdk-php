@@ -12,8 +12,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\CreateInstanc
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\MigratableToRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Settings\Item\DeviceManagementSettingInstanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Settings\SettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementTemplate;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplate;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -24,14 +24,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeviceManagementTemplateItemRequestBuilder 
 {
+    /**
+     * The categories property
+    */
     public function categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The createInstance property
+    */
     public function createInstance(): CreateInstanceRequestBuilder {
         return new CreateInstanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The migratableTo property
+    */
     public function migratableTo(): MigratableToRequestBuilder {
         return new MigratableToRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -42,6 +51,9 @@ class DeviceManagementTemplateItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The settings property
+    */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

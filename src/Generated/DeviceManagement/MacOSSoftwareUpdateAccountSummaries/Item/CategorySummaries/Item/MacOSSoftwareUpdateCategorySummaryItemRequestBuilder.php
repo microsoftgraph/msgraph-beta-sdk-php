@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Item\CategorySummaries\Item\UpdateStateSummaries\Item\MacOSSoftwareUpdateStateSummaryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Item\CategorySummaries\Item\UpdateStateSummaries\UpdateStateSummariesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MacOSSoftwareUpdateCategorySummary;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\MacOSSoftwareUpdateCategorySummary;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -25,6 +25,9 @@ class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The updateStateSummaries property
+    */
     public function updateStateSummaries(): UpdateStateSummariesRequestBuilder {
         return new UpdateStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

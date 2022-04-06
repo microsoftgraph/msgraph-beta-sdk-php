@@ -9,9 +9,9 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\AreGloba
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\EnableGlobalScripts\EnableGlobalScriptsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\GetRemediationSummary\GetRemediationSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceHealthScript;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceHealthScriptCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScript;
+use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScriptCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,10 +22,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeviceHealthScriptsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The enableGlobalScripts property
+    */
     public function enableGlobalScripts(): EnableGlobalScriptsRequestBuilder {
         return new EnableGlobalScriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

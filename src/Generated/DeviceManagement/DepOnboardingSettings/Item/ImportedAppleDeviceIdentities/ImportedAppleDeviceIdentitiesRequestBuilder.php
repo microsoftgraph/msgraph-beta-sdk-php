@@ -7,9 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\ImportedAppleDeviceIdentities\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\ImportedAppleDeviceIdentities\ImportAppleDeviceIdentityList\ImportAppleDeviceIdentityListRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ImportedAppleDeviceIdentity;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ImportedAppleDeviceIdentityCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ImportedAppleDeviceIdentity;
+use Microsoft\Graph\Beta\Generated\Models\ImportedAppleDeviceIdentityCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,10 +20,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ImportedAppleDeviceIdentitiesRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The importAppleDeviceIdentityList property
+    */
     public function importAppleDeviceIdentityList(): ImportAppleDeviceIdentityListRequestBuilder {
         return new ImportAppleDeviceIdentityListRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

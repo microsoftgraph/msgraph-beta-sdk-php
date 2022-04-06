@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Shares\Item\Permission\RevokeGrants;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DriveRecipient;
+use Microsoft\Graph\Beta\Generated\Models\DriveRecipient;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class RevokeGrantsRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<DriveRecipient>|null $grantees  */
+    /** @var array<DriveRecipient>|null $grantees The grantees property */
     private ?array $grantees = null;
     
     /**
@@ -51,7 +51,7 @@ class RevokeGrantsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the grantees property value. 
+     * Gets the grantees property value. The grantees property
      * @return array<DriveRecipient>|null
     */
     public function getGrantees(): ?array {
@@ -76,7 +76,7 @@ class RevokeGrantsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the grantees property value. 
+     * Sets the grantees property value. The grantees property
      *  @param array<DriveRecipient>|null $value Value to set for the grantees property.
     */
     public function setGrantees(?array $value ): void {

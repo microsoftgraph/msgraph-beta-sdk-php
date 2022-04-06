@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UnifiedRoleManagementPolicy;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleManagementPolicy;
 use Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\EffectiveRules\EffectiveRulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\EffectiveRules\Item\UnifiedRoleManagementPolicyRuleItemRequestBuilder as MicrosoftGraphBetaGeneratedPoliciesRoleManagementPoliciesItemEffectiveRulesItemUnifiedRoleManagementPolicyRuleItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\Rules\Item\UnifiedRoleManagementPolicyRuleItemRequestBuilder as MicrosoftGraphBetaGeneratedPoliciesRoleManagementPoliciesItemRulesItemUnifiedRoleManagementPolicyRuleItemRequestBuilder;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class UnifiedRoleManagementPolicyItemRequestBuilder 
 {
+    /**
+     * The effectiveRules property
+    */
     public function effectiveRules(): EffectiveRulesRequestBuilder {
         return new EffectiveRulesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -31,6 +34,9 @@ class UnifiedRoleManagementPolicyItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The rules property
+    */
     public function rules(): RulesRequestBuilder {
         return new RulesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

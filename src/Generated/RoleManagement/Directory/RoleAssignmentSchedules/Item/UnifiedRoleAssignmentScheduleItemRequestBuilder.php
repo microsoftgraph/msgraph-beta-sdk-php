@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleAssignment
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UnifiedRoleAssignmentSchedule;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleAssignmentSchedule;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleAssignmentSchedules\Item\ActivatedUsing\ActivatedUsingRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -18,6 +18,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class UnifiedRoleAssignmentScheduleItemRequestBuilder 
 {
+    /**
+     * The activatedUsing property
+    */
     public function activatedUsing(): ActivatedUsingRequestBuilder {
         return new ActivatedUsingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

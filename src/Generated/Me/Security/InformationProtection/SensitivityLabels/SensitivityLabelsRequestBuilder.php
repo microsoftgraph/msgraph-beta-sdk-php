@@ -10,9 +10,9 @@ use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\Sensitivity
 use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\EvaluateClassificationResults\EvaluateClassificationResultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\EvaluateRemoval\EvaluateRemovalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\ExtractContentLabel\ExtractContentLabelRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Security\SensitivityLabel;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Security\SensitivityLabelCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Security\SensitivityLabel;
+use Microsoft\Graph\Beta\Generated\Models\Security\SensitivityLabelCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,22 +23,37 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SensitivityLabelsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The evaluateApplication property
+    */
     public function evaluateApplication(): EvaluateApplicationRequestBuilder {
         return new EvaluateApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The evaluateClassificationResults property
+    */
     public function evaluateClassificationResults(): EvaluateClassificationResultsRequestBuilder {
         return new EvaluateClassificationResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The evaluateRemoval property
+    */
     public function evaluateRemoval(): EvaluateRemovalRequestBuilder {
         return new EvaluateRemovalRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The extractContentLabel property
+    */
     public function extractContentLabel(): ExtractContentLabelRequestBuilder {
         return new ExtractContentLabelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

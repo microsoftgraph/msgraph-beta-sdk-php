@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelat
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DelegatedAdminRelationship;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DelegatedAdminRelationship;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelationships\Item\AccessAssignments\AccessAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelationships\Item\AccessAssignments\Item\DelegatedAdminAccessAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelationships\Item\Operations\Item\DelegatedAdminRelationshipOperationItemRequestBuilder;
@@ -23,10 +23,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DelegatedAdminRelationshipItemRequestBuilder 
 {
+    /**
+     * The accessAssignments property
+    */
     public function accessAssignments(): AccessAssignmentsRequestBuilder {
         return new AccessAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The operations property
+    */
     public function operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -37,6 +43,9 @@ class DelegatedAdminRelationshipItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The requests property
+    */
     public function requests(): RequestsRequestBuilder {
         return new RequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -87,7 +96,7 @@ class DelegatedAdminRelationshipItemRequestBuilder
     }
 
     /**
-     * Get delegatedAdminRelationships from tenantRelationships
+     * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
      * @param array|null $queryParameters Request query parameters
      * @param array<string, mixed>|null $headers Request headers
      * @param array<string, RequestOption>|null $options Request options
@@ -149,7 +158,7 @@ class DelegatedAdminRelationshipItemRequestBuilder
     }
 
     /**
-     * Get delegatedAdminRelationships from tenantRelationships
+     * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
      * @param array|null $queryParameters Request query parameters
      * @param array<string, mixed>|null $headers Request headers
      * @param array<string, RequestOption>|null $options Request options

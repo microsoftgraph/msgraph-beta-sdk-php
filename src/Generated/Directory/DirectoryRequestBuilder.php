@@ -27,8 +27,8 @@ use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Recommendation
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\RecommendationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\SharedEmailDomains\Item\SharedEmailDomainItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\SharedEmailDomains\SharedEmailDomainsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Directory;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Directory;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -39,38 +39,65 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DirectoryRequestBuilder 
 {
+    /**
+     * The administrativeUnits property
+    */
     public function administrativeUnits(): AdministrativeUnitsRequestBuilder {
         return new AdministrativeUnitsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The attributeSets property
+    */
     public function attributeSets(): AttributeSetsRequestBuilder {
         return new AttributeSetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The customSecurityAttributeDefinitions property
+    */
     public function customSecurityAttributeDefinitions(): CustomSecurityAttributeDefinitionsRequestBuilder {
         return new CustomSecurityAttributeDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deletedItems property
+    */
     public function deletedItems(): DeletedItemsRequestBuilder {
         return new DeletedItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The featureRolloutPolicies property
+    */
     public function featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder {
         return new FeatureRolloutPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The federationConfigurations property
+    */
     public function federationConfigurations(): FederationConfigurationsRequestBuilder {
         return new FederationConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The impactedResources property
+    */
     public function impactedResources(): ImpactedResourcesRequestBuilder {
         return new ImpactedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The inboundSharedUserProfiles property
+    */
     public function inboundSharedUserProfiles(): InboundSharedUserProfilesRequestBuilder {
         return new InboundSharedUserProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The outboundSharedUserProfiles property
+    */
     public function outboundSharedUserProfiles(): OutboundSharedUserProfilesRequestBuilder {
         return new OutboundSharedUserProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -78,6 +105,9 @@ class DirectoryRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The recommendations property
+    */
     public function recommendations(): RecommendationsRequestBuilder {
         return new RecommendationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -85,6 +115,9 @@ class DirectoryRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The sharedEmailDomains property
+    */
     public function sharedEmailDomains(): SharedEmailDomainsRequestBuilder {
         return new SharedEmailDomainsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

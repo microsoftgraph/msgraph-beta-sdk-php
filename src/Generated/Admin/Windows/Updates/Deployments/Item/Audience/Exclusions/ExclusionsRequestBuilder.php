@@ -10,9 +10,9 @@ use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audien
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\EnrollAssetsById\EnrollAssetsByIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\UnenrollAssets\UnenrollAssetsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\UnenrollAssetsById\UnenrollAssetsByIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsUpdates\UpdatableAsset;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsUpdates\UpdatableAssetCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAsset;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAssetCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,14 +23,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ExclusionsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The enrollAssets property
+    */
     public function enrollAssets(): EnrollAssetsRequestBuilder {
         return new EnrollAssetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The enrollAssetsById property
+    */
     public function enrollAssetsById(): EnrollAssetsByIdRequestBuilder {
         return new EnrollAssetsByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -41,10 +50,16 @@ class ExclusionsRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The unenrollAssets property
+    */
     public function unenrollAssets(): UnenrollAssetsRequestBuilder {
         return new UnenrollAssetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The unenrollAssetsById property
+    */
     public function unenrollAssetsById(): UnenrollAssetsByIdRequestBuilder {
         return new UnenrollAssetsByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

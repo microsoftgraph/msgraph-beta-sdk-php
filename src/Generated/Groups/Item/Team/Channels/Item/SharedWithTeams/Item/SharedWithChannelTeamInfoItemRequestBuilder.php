@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\SharedWithTeams\Item\AllowedMembers\AllowedMembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\SharedWithTeams\Item\AllowedMembers\Item\ConversationMemberItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SharedWithChannelTeamInfo;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SharedWithChannelTeamInfo;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SharedWithChannelTeamInfoItemRequestBuilder 
 {
+    /**
+     * The allowedMembers property
+    */
     public function allowedMembers(): AllowedMembersRequestBuilder {
         return new AllowedMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

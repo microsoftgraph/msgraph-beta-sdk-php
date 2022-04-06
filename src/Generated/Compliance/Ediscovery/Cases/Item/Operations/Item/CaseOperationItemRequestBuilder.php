@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\Item\CaseExportOperation\CaseExportOperationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Ediscovery\CaseOperation;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -18,6 +18,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class CaseOperationItemRequestBuilder 
 {
+    /**
+     * The caseExportOperation property
+    */
     public function caseExportOperation(): CaseExportOperationRequestBuilder {
         return new CaseExportOperationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -10,9 +10,9 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\Enable\Ena
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\GetPlatformSupportedPropertiesWithPlatform\GetPlatformSupportedPropertiesWithPlatformRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\GetState\GetStateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\ValidateFilter\ValidateFilterRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceAndAppManagementAssignmentFilter;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceAndAppManagementAssignmentFilterCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceAndAppManagementAssignmentFilter;
+use Microsoft\Graph\Beta\Generated\Models\DeviceAndAppManagementAssignmentFilterCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,10 +23,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AssignmentFiltersRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The enable property
+    */
     public function enable(): EnableRequestBuilder {
         return new EnableRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -40,6 +46,9 @@ class AssignmentFiltersRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The validateFilter property
+    */
     public function validateFilter(): ValidateFilterRequestBuilder {
         return new ValidateFilterRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

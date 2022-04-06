@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\App\Calls\Item\RecordResponse;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Prompt;
+use Microsoft\Graph\Beta\Generated\Models\Prompt;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,31 +13,31 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var bool|null $bargeInAllowed  */
+    /** @var bool|null $bargeInAllowed The bargeInAllowed property */
     private ?bool $bargeInAllowed = null;
     
-    /** @var string|null $clientContext  */
+    /** @var string|null $clientContext The clientContext property */
     private ?string $clientContext = null;
     
-    /** @var int|null $initialSilenceTimeoutInSeconds  */
+    /** @var int|null $initialSilenceTimeoutInSeconds The initialSilenceTimeoutInSeconds property */
     private ?int $initialSilenceTimeoutInSeconds = null;
     
-    /** @var int|null $maxRecordDurationInSeconds  */
+    /** @var int|null $maxRecordDurationInSeconds The maxRecordDurationInSeconds property */
     private ?int $maxRecordDurationInSeconds = null;
     
-    /** @var int|null $maxSilenceTimeoutInSeconds  */
+    /** @var int|null $maxSilenceTimeoutInSeconds The maxSilenceTimeoutInSeconds property */
     private ?int $maxSilenceTimeoutInSeconds = null;
     
-    /** @var bool|null $playBeep  */
+    /** @var bool|null $playBeep The playBeep property */
     private ?bool $playBeep = null;
     
-    /** @var array<Prompt>|null $prompts  */
+    /** @var array<Prompt>|null $prompts The prompts property */
     private ?array $prompts = null;
     
-    /** @var array<string>|null $stopTones  */
+    /** @var array<string>|null $stopTones The stopTones property */
     private ?array $stopTones = null;
     
-    /** @var bool|null $streamWhileRecording  */
+    /** @var bool|null $streamWhileRecording The streamWhileRecording property */
     private ?bool $streamWhileRecording = null;
     
     /**
@@ -65,7 +65,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the bargeInAllowed property value. 
+     * Gets the bargeInAllowed property value. The bargeInAllowed property
      * @return bool|null
     */
     public function getBargeInAllowed(): ?bool {
@@ -73,7 +73,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the clientContext property value. 
+     * Gets the clientContext property value. The clientContext property
      * @return string|null
     */
     public function getClientContext(): ?string {
@@ -99,7 +99,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the initialSilenceTimeoutInSeconds property value. 
+     * Gets the initialSilenceTimeoutInSeconds property value. The initialSilenceTimeoutInSeconds property
      * @return int|null
     */
     public function getInitialSilenceTimeoutInSeconds(): ?int {
@@ -107,7 +107,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the maxRecordDurationInSeconds property value. 
+     * Gets the maxRecordDurationInSeconds property value. The maxRecordDurationInSeconds property
      * @return int|null
     */
     public function getMaxRecordDurationInSeconds(): ?int {
@@ -115,7 +115,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the maxSilenceTimeoutInSeconds property value. 
+     * Gets the maxSilenceTimeoutInSeconds property value. The maxSilenceTimeoutInSeconds property
      * @return int|null
     */
     public function getMaxSilenceTimeoutInSeconds(): ?int {
@@ -123,7 +123,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the playBeep property value. 
+     * Gets the playBeep property value. The playBeep property
      * @return bool|null
     */
     public function getPlayBeep(): ?bool {
@@ -131,7 +131,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the prompts property value. 
+     * Gets the prompts property value. The prompts property
      * @return array<Prompt>|null
     */
     public function getPrompts(): ?array {
@@ -139,7 +139,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the stopTones property value. 
+     * Gets the stopTones property value. The stopTones property
      * @return array<string>|null
     */
     public function getStopTones(): ?array {
@@ -147,7 +147,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the streamWhileRecording property value. 
+     * Gets the streamWhileRecording property value. The streamWhileRecording property
      * @return bool|null
     */
     public function getStreamWhileRecording(): ?bool {
@@ -180,7 +180,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the bargeInAllowed property value. 
+     * Sets the bargeInAllowed property value. The bargeInAllowed property
      *  @param bool|null $value Value to set for the bargeInAllowed property.
     */
     public function setBargeInAllowed(?bool $value ): void {
@@ -188,7 +188,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the clientContext property value. 
+     * Sets the clientContext property value. The clientContext property
      *  @param string|null $value Value to set for the clientContext property.
     */
     public function setClientContext(?string $value ): void {
@@ -196,7 +196,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the initialSilenceTimeoutInSeconds property value. 
+     * Sets the initialSilenceTimeoutInSeconds property value. The initialSilenceTimeoutInSeconds property
      *  @param int|null $value Value to set for the initialSilenceTimeoutInSeconds property.
     */
     public function setInitialSilenceTimeoutInSeconds(?int $value ): void {
@@ -204,7 +204,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the maxRecordDurationInSeconds property value. 
+     * Sets the maxRecordDurationInSeconds property value. The maxRecordDurationInSeconds property
      *  @param int|null $value Value to set for the maxRecordDurationInSeconds property.
     */
     public function setMaxRecordDurationInSeconds(?int $value ): void {
@@ -212,7 +212,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the maxSilenceTimeoutInSeconds property value. 
+     * Sets the maxSilenceTimeoutInSeconds property value. The maxSilenceTimeoutInSeconds property
      *  @param int|null $value Value to set for the maxSilenceTimeoutInSeconds property.
     */
     public function setMaxSilenceTimeoutInSeconds(?int $value ): void {
@@ -220,7 +220,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the playBeep property value. 
+     * Sets the playBeep property value. The playBeep property
      *  @param bool|null $value Value to set for the playBeep property.
     */
     public function setPlayBeep(?bool $value ): void {
@@ -228,7 +228,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the prompts property value. 
+     * Sets the prompts property value. The prompts property
      *  @param array<Prompt>|null $value Value to set for the prompts property.
     */
     public function setPrompts(?array $value ): void {
@@ -236,7 +236,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the stopTones property value. 
+     * Sets the stopTones property value. The stopTones property
      *  @param array<string>|null $value Value to set for the stopTones property.
     */
     public function setStopTones(?array $value ): void {
@@ -244,7 +244,7 @@ class RecordResponseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the streamWhileRecording property value. 
+     * Sets the streamWhileRecording property value. The streamWhileRecording property
      *  @param bool|null $value Value to set for the streamWhileRecording property.
     */
     public function setStreamWhileRecording(?bool $value ): void {

@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleAssignments\I
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GovernanceRoleDefinition;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleDefinition;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleAssignments\Item\RoleDefinition\Resource\ResourceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleAssignments\Item\RoleDefinition\RoleSetting\RoleSettingRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -25,10 +25,16 @@ class RoleDefinitionRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resource property
+    */
     public function resource(): ResourceRequestBuilder {
         return new ResourceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The roleSetting property
+    */
     public function roleSetting(): RoleSettingRequestBuilder {
         return new RoleSettingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

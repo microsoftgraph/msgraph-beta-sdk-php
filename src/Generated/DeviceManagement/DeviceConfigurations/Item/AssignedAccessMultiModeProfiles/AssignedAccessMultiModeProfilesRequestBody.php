@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\AssignedAccessMultiModeProfiles;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsAssignedAccessProfile;
+use Microsoft\Graph\Beta\Generated\Models\WindowsAssignedAccessProfile;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class AssignedAccessMultiModeProfilesRequestBody implements AdditionalDataHolder
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<WindowsAssignedAccessProfile>|null $assignedAccessMultiModeProfiles  */
+    /** @var array<WindowsAssignedAccessProfile>|null $assignedAccessMultiModeProfiles The assignedAccessMultiModeProfiles property */
     private ?array $assignedAccessMultiModeProfiles = null;
     
     /**
@@ -41,7 +41,7 @@ class AssignedAccessMultiModeProfilesRequestBody implements AdditionalDataHolder
     }
 
     /**
-     * Gets the assignedAccessMultiModeProfiles property value. 
+     * Gets the assignedAccessMultiModeProfiles property value. The assignedAccessMultiModeProfiles property
      * @return array<WindowsAssignedAccessProfile>|null
     */
     public function getAssignedAccessMultiModeProfiles(): ?array {
@@ -76,7 +76,7 @@ class AssignedAccessMultiModeProfilesRequestBody implements AdditionalDataHolder
     }
 
     /**
-     * Sets the assignedAccessMultiModeProfiles property value. 
+     * Sets the assignedAccessMultiModeProfiles property value. The assignedAccessMultiModeProfiles property
      *  @param array<WindowsAssignedAccessProfile>|null $value Value to set for the assignedAccessMultiModeProfiles property.
     */
     public function setAssignedAccessMultiModeProfiles(?array $value ): void {

@@ -20,8 +20,8 @@ use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Relations
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\UpdateRelationships\UpdateRelationshipsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\UserStatuses\Item\UserAppInstallStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\UserStatuses\UserStatusesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MobileApp;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\MobileApp;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -32,26 +32,44 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class MobileAppItemRequestBuilder 
 {
+    /**
+     * The assign property
+    */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The categories property
+    */
     public function categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceStatuses property
+    */
     public function deviceStatuses(): DeviceStatusesRequestBuilder {
         return new DeviceStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The installSummary property
+    */
     public function installSummary(): InstallSummaryRequestBuilder {
         return new InstallSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The iosVppApp property
+    */
     public function iosVppApp(): IosVppAppRequestBuilder {
         return new IosVppAppRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -59,6 +77,9 @@ class MobileAppItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The relationships property
+    */
     public function relationships(): RelationshipsRequestBuilder {
         return new RelationshipsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -66,6 +87,9 @@ class MobileAppItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The updateRelationships property
+    */
     public function updateRelationships(): UpdateRelationshipsRequestBuilder {
         return new UpdateRelationshipsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -73,6 +97,9 @@ class MobileAppItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userStatuses property
+    */
     public function userStatuses(): UserStatusesRequestBuilder {
         return new UserStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

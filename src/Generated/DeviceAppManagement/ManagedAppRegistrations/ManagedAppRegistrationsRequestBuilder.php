@@ -7,9 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedAppRegistrations\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedAppRegistrations\GetUserIdsWithFlaggedAppRegistration\GetUserIdsWithFlaggedAppRegistrationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagedAppRegistration;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagedAppRegistrationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ManagedAppRegistration;
+use Microsoft\Graph\Beta\Generated\Models\ManagedAppRegistrationCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ManagedAppRegistrationsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -12,8 +12,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeviceIdenti
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\UnassignResourceAccountFromDevice\UnassignResourceAccountFromDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\UnassignUserFromDevice\UnassignUserFromDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\UpdateDeviceProperties\UpdateDevicePropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsAutopilotDeviceIdentity;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\WindowsAutopilotDeviceIdentity;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -24,18 +24,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class WindowsAutopilotDeviceIdentityItemRequestBuilder 
 {
+    /**
+     * The assignResourceAccountToDevice property
+    */
     public function assignResourceAccountToDevice(): AssignResourceAccountToDeviceRequestBuilder {
         return new AssignResourceAccountToDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignUserToDevice property
+    */
     public function assignUserToDevice(): AssignUserToDeviceRequestBuilder {
         return new AssignUserToDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deploymentProfile property
+    */
     public function deploymentProfile(): DeploymentProfileRequestBuilder {
         return new DeploymentProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The intendedDeploymentProfile property
+    */
     public function intendedDeploymentProfile(): IntendedDeploymentProfileRequestBuilder {
         return new IntendedDeploymentProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -46,14 +58,23 @@ class WindowsAutopilotDeviceIdentityItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The unassignResourceAccountFromDevice property
+    */
     public function unassignResourceAccountFromDevice(): UnassignResourceAccountFromDeviceRequestBuilder {
         return new UnassignResourceAccountFromDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The unassignUserFromDevice property
+    */
     public function unassignUserFromDevice(): UnassignUserFromDeviceRequestBuilder {
         return new UnassignUserFromDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The updateDeviceProperties property
+    */
     public function updateDeviceProperties(): UpdateDevicePropertiesRequestBuilder {
         return new UpdateDevicePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

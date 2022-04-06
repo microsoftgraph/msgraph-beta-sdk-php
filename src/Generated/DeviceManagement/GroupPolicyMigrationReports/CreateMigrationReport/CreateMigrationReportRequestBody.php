@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationReports\CreateMigrationReport;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupPolicyObjectFile;
+use Microsoft\Graph\Beta\Generated\Models\GroupPolicyObjectFile;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class CreateMigrationReportRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var GroupPolicyObjectFile|null $groupPolicyObjectFile  */
+    /** @var GroupPolicyObjectFile|null $groupPolicyObjectFile The groupPolicyObjectFile property */
     private ?GroupPolicyObjectFile $groupPolicyObjectFile = null;
     
     /**
@@ -51,7 +51,7 @@ class CreateMigrationReportRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the groupPolicyObjectFile property value. 
+     * Gets the groupPolicyObjectFile property value. The groupPolicyObjectFile property
      * @return GroupPolicyObjectFile|null
     */
     public function getGroupPolicyObjectFile(): ?GroupPolicyObjectFile {
@@ -76,7 +76,7 @@ class CreateMigrationReportRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the groupPolicyObjectFile property value. 
+     * Sets the groupPolicyObjectFile property value. The groupPolicyObjectFile property
      *  @param GroupPolicyObjectFile|null $value Value to set for the groupPolicyObjectFile property.
     */
     public function setGroupPolicyObjectFile(?GroupPolicyObjectFile $value ): void {

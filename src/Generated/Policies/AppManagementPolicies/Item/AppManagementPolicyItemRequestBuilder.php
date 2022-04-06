@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Policies\AppManagementPolicies\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AppManagementPolicy;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AppManagementPolicy;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\AppManagementPolicies\Item\AppliesTo\AppliesToRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\AppManagementPolicies\Item\AppliesTo\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AppManagementPolicyItemRequestBuilder 
 {
+    /**
+     * The appliesTo property
+    */
     public function appliesTo(): AppliesToRequestBuilder {
         return new AppliesToRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

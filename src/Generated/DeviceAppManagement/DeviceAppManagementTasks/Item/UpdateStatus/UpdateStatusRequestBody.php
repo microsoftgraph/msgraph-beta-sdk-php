@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\DeviceAppManagementTasks\Item\UpdateStatus;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceAppManagementTaskStatus;
+use Microsoft\Graph\Beta\Generated\Models\DeviceAppManagementTaskStatus;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,10 +13,10 @@ class UpdateStatusRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $note  */
+    /** @var string|null $note The note property */
     private ?string $note = null;
     
-    /** @var DeviceAppManagementTaskStatus|null $status  */
+    /** @var DeviceAppManagementTaskStatus|null $status The status property */
     private ?DeviceAppManagementTaskStatus $status = null;
     
     /**
@@ -55,7 +55,7 @@ class UpdateStatusRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the note property value. 
+     * Gets the note property value. The note property
      * @return string|null
     */
     public function getNote(): ?string {
@@ -63,7 +63,7 @@ class UpdateStatusRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the status property value. 
+     * Gets the status property value. The status property
      * @return DeviceAppManagementTaskStatus|null
     */
     public function getStatus(): ?DeviceAppManagementTaskStatus {
@@ -89,7 +89,7 @@ class UpdateStatusRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the note property value. 
+     * Sets the note property value. The note property
      *  @param string|null $value Value to set for the note property.
     */
     public function setNote(?string $value ): void {
@@ -97,7 +97,7 @@ class UpdateStatusRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the status property value. 
+     * Sets the status property value. The status property
      *  @param DeviceAppManagementTaskStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DeviceAppManagementTaskStatus $value ): void {

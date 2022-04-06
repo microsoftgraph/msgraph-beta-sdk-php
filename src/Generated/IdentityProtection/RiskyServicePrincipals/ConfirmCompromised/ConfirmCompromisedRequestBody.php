@@ -12,7 +12,7 @@ class ConfirmCompromisedRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $servicePrincipalIds  */
+    /** @var array<string>|null $servicePrincipalIds The servicePrincipalIds property */
     private ?array $servicePrincipalIds = null;
     
     /**
@@ -50,7 +50,7 @@ class ConfirmCompromisedRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the servicePrincipalIds property value. 
+     * Gets the servicePrincipalIds property value. The servicePrincipalIds property
      * @return array<string>|null
     */
     public function getServicePrincipalIds(): ?array {
@@ -75,7 +75,7 @@ class ConfirmCompromisedRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the servicePrincipalIds property value. 
+     * Sets the servicePrincipalIds property value. The servicePrincipalIds property
      *  @param array<string>|null $value Value to set for the servicePrincipalIds property.
     */
     public function setServicePrincipalIds(?array $value ): void {

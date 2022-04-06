@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Drive\Root\ListItem\Activities\Item\DriveItem\DriveItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drive\Root\ListItem\Activities\Item\ListItem\ListItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ItemActivityOLD;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ItemActivityOLD;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,10 +19,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ItemActivityOLDItemRequestBuilder 
 {
+    /**
+     * The driveItem property
+    */
     public function driveItem(): DriveItemRequestBuilder {
         return new DriveItemRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The listItem property
+    */
     public function listItem(): ListItemRequestBuilder {
         return new ListItemRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

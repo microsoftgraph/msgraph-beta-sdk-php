@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\C
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MailFolder;
+use Microsoft\Graph\Beta\Generated\Models\MailFolder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

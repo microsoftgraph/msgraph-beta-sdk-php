@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Privacy;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Privacy;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Privacy;
 use Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\SubjectRightsRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\SubjectRightsRequestsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -25,6 +25,9 @@ class PrivacyRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The subjectRightsRequests property
+    */
     public function subjectRightsRequests(): SubjectRightsRequestsRequestBuilder {
         return new SubjectRightsRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

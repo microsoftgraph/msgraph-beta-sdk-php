@@ -8,8 +8,8 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\Item\Definition\DefinitionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\Item\PresentationValues\Item\GroupPolicyPresentationValueItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\Item\PresentationValues\PresentationValuesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\GroupPolicyDefinitionValue;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\GroupPolicyDefinitionValue;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class GroupPolicyDefinitionValueItemRequestBuilder 
 {
+    /**
+     * The definition property
+    */
     public function definition(): DefinitionRequestBuilder {
         return new DefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -27,6 +30,9 @@ class GroupPolicyDefinitionValueItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The presentationValues property
+    */
     public function presentationValues(): PresentationValuesRequestBuilder {
         return new PresentationValuesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

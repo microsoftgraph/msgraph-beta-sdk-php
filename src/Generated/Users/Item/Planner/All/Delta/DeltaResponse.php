@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\All\Delta;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PlannerDelta;
+use Microsoft\Graph\Beta\Generated\Models\PlannerDelta;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class DeltaResponse implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<PlannerDelta>|null $value  */
+    /** @var array<PlannerDelta>|null $value The value property */
     private ?array $value = null;
     
     /**
@@ -51,7 +51,7 @@ class DeltaResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the value property value. 
+     * Gets the value property value. The value property
      * @return array<PlannerDelta>|null
     */
     public function getValue(): ?array {
@@ -76,7 +76,7 @@ class DeltaResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the value property value. 
+     * Sets the value property value. The value property
      *  @param array<PlannerDelta>|null $value Value to set for the value property.
     */
     public function setValue(?array $value ): void {

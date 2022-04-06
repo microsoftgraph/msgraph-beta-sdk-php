@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings\Connect;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ChromeOSOnboardingStatus;
+use Microsoft\Graph\Beta\Generated\Models\ChromeOSOnboardingStatus;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

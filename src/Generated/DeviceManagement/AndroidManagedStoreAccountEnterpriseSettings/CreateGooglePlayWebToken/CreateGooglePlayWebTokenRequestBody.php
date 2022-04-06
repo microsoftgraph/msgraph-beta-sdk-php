@@ -12,7 +12,7 @@ class CreateGooglePlayWebTokenRequestBody implements AdditionalDataHolder, Parsa
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $parentUri  */
+    /** @var string|null $parentUri The parentUri property */
     private ?string $parentUri = null;
     
     /**
@@ -50,7 +50,7 @@ class CreateGooglePlayWebTokenRequestBody implements AdditionalDataHolder, Parsa
     }
 
     /**
-     * Gets the parentUri property value. 
+     * Gets the parentUri property value. The parentUri property
      * @return string|null
     */
     public function getParentUri(): ?string {
@@ -75,7 +75,7 @@ class CreateGooglePlayWebTokenRequestBody implements AdditionalDataHolder, Parsa
     }
 
     /**
-     * Sets the parentUri property value. 
+     * Sets the parentUri property value. The parentUri property
      *  @param string|null $value Value to set for the parentUri property.
     */
     public function setParentUri(?string $value ): void {

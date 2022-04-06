@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Publi
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PublishedResource;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PublishedResource;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\PublishedResources\Item\AgentGroups\AgentGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\PublishedResources\Item\AgentGroups\Item\OnPremisesAgentGroupItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PublishedResourceItemRequestBuilder 
 {
+    /**
+     * The agentGroups property
+    */
     public function agentGroups(): AgentGroupsRequestBuilder {
         return new AgentGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

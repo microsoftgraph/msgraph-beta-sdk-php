@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Channels;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Channel;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ChannelCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Channel;
+use Microsoft\Graph\Beta\Generated\Models\ChannelCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\AllMessages\AllMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\GetAllMessages\GetAllMessagesRequestBuilder;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ChannelsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

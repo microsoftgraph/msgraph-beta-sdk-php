@@ -27,8 +27,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\SupportedReg
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\SupportedRegions\SupportedRegionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\UserSettings\Item\CloudPcUserSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\UserSettings\UserSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\VirtualEndpoint;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\VirtualEndpoint;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -39,26 +39,44 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class VirtualEndpointRequestBuilder 
 {
+    /**
+     * The auditEvents property
+    */
     public function auditEvents(): AuditEventsRequestBuilder {
         return new AuditEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The cloudPCs property
+    */
     public function cloudPCs(): CloudPCsRequestBuilder {
         return new CloudPCsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceImages property
+    */
     public function deviceImages(): DeviceImagesRequestBuilder {
         return new DeviceImagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The galleryImages property
+    */
     public function galleryImages(): GalleryImagesRequestBuilder {
         return new GalleryImagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The onPremisesConnections property
+    */
     public function onPremisesConnections(): OnPremisesConnectionsRequestBuilder {
         return new OnPremisesConnectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The organizationSettings property
+    */
     public function organizationSettings(): OrganizationSettingsRequestBuilder {
         return new OrganizationSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -66,6 +84,9 @@ class VirtualEndpointRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The provisioningPolicies property
+    */
     public function provisioningPolicies(): ProvisioningPoliciesRequestBuilder {
         return new ProvisioningPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -73,14 +94,23 @@ class VirtualEndpointRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The servicePlans property
+    */
     public function servicePlans(): ServicePlansRequestBuilder {
         return new ServicePlansRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The snapshots property
+    */
     public function snapshots(): SnapshotsRequestBuilder {
         return new SnapshotsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The supportedRegions property
+    */
     public function supportedRegions(): SupportedRegionsRequestBuilder {
         return new SupportedRegionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -88,6 +118,9 @@ class VirtualEndpointRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userSettings property
+    */
     public function userSettings(): UserSettingsRequestBuilder {
         return new UserSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

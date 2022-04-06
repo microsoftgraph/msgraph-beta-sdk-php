@@ -15,8 +15,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\RunSummary\RunSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\UserRunStates\Item\DeviceManagementScriptUserStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\UserRunStates\UserRunStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementScript;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementScript;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -27,18 +27,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeviceManagementScriptItemRequestBuilder 
 {
+    /**
+     * The assign property
+    */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceRunStates property
+    */
     public function deviceRunStates(): DeviceRunStatesRequestBuilder {
         return new DeviceRunStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The groupAssignments property
+    */
     public function groupAssignments(): GroupAssignmentsRequestBuilder {
         return new GroupAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -49,6 +61,9 @@ class DeviceManagementScriptItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The runSummary property
+    */
     public function runSummary(): RunSummaryRequestBuilder {
         return new RunSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -56,6 +71,9 @@ class DeviceManagementScriptItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userRunStates property
+    */
     public function userRunStates(): UserRunStatesRequestBuilder {
         return new UserRunStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

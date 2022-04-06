@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\ValidateCredentials;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SynchronizationSecretKeyStringValuePair;
+use Microsoft\Graph\Beta\Generated\Models\SynchronizationSecretKeyStringValuePair;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,16 +13,16 @@ class ValidateCredentialsRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $applicationIdentifier  */
+    /** @var string|null $applicationIdentifier The applicationIdentifier property */
     private ?string $applicationIdentifier = null;
     
-    /** @var array<SynchronizationSecretKeyStringValuePair>|null $credentials  */
+    /** @var array<SynchronizationSecretKeyStringValuePair>|null $credentials The credentials property */
     private ?array $credentials = null;
     
-    /** @var string|null $templateId  */
+    /** @var string|null $templateId The templateId property */
     private ?string $templateId = null;
     
-    /** @var bool|null $useSavedCredentials  */
+    /** @var bool|null $useSavedCredentials The useSavedCredentials property */
     private ?bool $useSavedCredentials = null;
     
     /**
@@ -50,7 +50,7 @@ class ValidateCredentialsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the applicationIdentifier property value. 
+     * Gets the applicationIdentifier property value. The applicationIdentifier property
      * @return string|null
     */
     public function getApplicationIdentifier(): ?string {
@@ -58,7 +58,7 @@ class ValidateCredentialsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the credentials property value. 
+     * Gets the credentials property value. The credentials property
      * @return array<SynchronizationSecretKeyStringValuePair>|null
     */
     public function getCredentials(): ?array {
@@ -79,7 +79,7 @@ class ValidateCredentialsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the templateId property value. 
+     * Gets the templateId property value. The templateId property
      * @return string|null
     */
     public function getTemplateId(): ?string {
@@ -87,7 +87,7 @@ class ValidateCredentialsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the useSavedCredentials property value. 
+     * Gets the useSavedCredentials property value. The useSavedCredentials property
      * @return bool|null
     */
     public function getUseSavedCredentials(): ?bool {
@@ -115,7 +115,7 @@ class ValidateCredentialsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the applicationIdentifier property value. 
+     * Sets the applicationIdentifier property value. The applicationIdentifier property
      *  @param string|null $value Value to set for the applicationIdentifier property.
     */
     public function setApplicationIdentifier(?string $value ): void {
@@ -123,7 +123,7 @@ class ValidateCredentialsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the credentials property value. 
+     * Sets the credentials property value. The credentials property
      *  @param array<SynchronizationSecretKeyStringValuePair>|null $value Value to set for the credentials property.
     */
     public function setCredentials(?array $value ): void {
@@ -131,7 +131,7 @@ class ValidateCredentialsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the templateId property value. 
+     * Sets the templateId property value. The templateId property
      *  @param string|null $value Value to set for the templateId property.
     */
     public function setTemplateId(?string $value ): void {
@@ -139,7 +139,7 @@ class ValidateCredentialsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the useSavedCredentials property value. 
+     * Sets the useSavedCredentials property value. The useSavedCredentials property
      *  @param bool|null $value Value to set for the useSavedCredentials property.
     */
     public function setUseSavedCredentials(?bool $value ): void {

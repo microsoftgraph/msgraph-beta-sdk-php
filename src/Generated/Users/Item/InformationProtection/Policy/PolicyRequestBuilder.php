@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Policy
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\InformationProtectionPolicy;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\InformationProtectionPolicy;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Policy\Labels\Item\InformationProtectionLabelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Policy\Labels\LabelsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PolicyRequestBuilder 
 {
+    /**
+     * The labels property
+    */
     public function labels(): LabelsRequestBuilder {
         return new LabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

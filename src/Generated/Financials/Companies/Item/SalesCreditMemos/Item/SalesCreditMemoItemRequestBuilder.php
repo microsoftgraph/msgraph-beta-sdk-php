@@ -10,8 +10,8 @@ use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\It
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item\PaymentTerm\PaymentTermRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item\SalesCreditMemoLines\Item\SalesCreditMemoLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item\SalesCreditMemoLines\SalesCreditMemoLinesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SalesCreditMemo;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SalesCreditMemo;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,10 +22,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SalesCreditMemoItemRequestBuilder 
 {
+    /**
+     * The currency property
+    */
     public function currency(): CurrencyRequestBuilder {
         return new CurrencyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The customer property
+    */
     public function customer(): CustomerRequestBuilder {
         return new CustomerRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -33,6 +39,9 @@ class SalesCreditMemoItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The paymentTerm property
+    */
     public function paymentTerm(): PaymentTermRequestBuilder {
         return new PaymentTermRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -40,6 +49,9 @@ class SalesCreditMemoItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The salesCreditMemoLines property
+    */
     public function salesCreditMemoLines(): SalesCreditMemoLinesRequestBuilder {
         return new SalesCreditMemoLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

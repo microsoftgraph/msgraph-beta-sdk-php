@@ -30,8 +30,8 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Acce
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\ConnectedOrganizationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\Item\ConnectedOrganizationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Settings\SettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\EntitlementManagement;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\EntitlementManagement;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -42,50 +42,86 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class EntitlementManagementRequestBuilder 
 {
+    /**
+     * The accessPackageAssignmentApprovals property
+    */
     public function accessPackageAssignmentApprovals(): AccessPackageAssignmentApprovalsRequestBuilder {
         return new AccessPackageAssignmentApprovalsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageAssignmentPolicies property
+    */
     public function accessPackageAssignmentPolicies(): AccessPackageAssignmentPoliciesRequestBuilder {
         return new AccessPackageAssignmentPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageAssignmentRequests property
+    */
     public function accessPackageAssignmentRequests(): AccessPackageAssignmentRequestsRequestBuilder {
         return new AccessPackageAssignmentRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageAssignmentResourceRoles property
+    */
     public function accessPackageAssignmentResourceRoles(): AccessPackageAssignmentResourceRolesRequestBuilder {
         return new AccessPackageAssignmentResourceRolesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageAssignments property
+    */
     public function accessPackageAssignments(): AccessPackageAssignmentsRequestBuilder {
         return new AccessPackageAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageCatalogs property
+    */
     public function accessPackageCatalogs(): AccessPackageCatalogsRequestBuilder {
         return new AccessPackageCatalogsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageResourceEnvironments property
+    */
     public function accessPackageResourceEnvironments(): AccessPackageResourceEnvironmentsRequestBuilder {
         return new AccessPackageResourceEnvironmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageResourceRequests property
+    */
     public function accessPackageResourceRequests(): AccessPackageResourceRequestsRequestBuilder {
         return new AccessPackageResourceRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageResourceRoleScopes property
+    */
     public function accessPackageResourceRoleScopes(): AccessPackageResourceRoleScopesRequestBuilder {
         return new AccessPackageResourceRoleScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageResources property
+    */
     public function accessPackageResources(): AccessPackageResourcesRequestBuilder {
         return new AccessPackageResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackages property
+    */
     public function accessPackages(): AccessPackagesRequestBuilder {
         return new AccessPackagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The connectedOrganizations property
+    */
     public function connectedOrganizations(): ConnectedOrganizationsRequestBuilder {
         return new ConnectedOrganizationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -96,6 +132,9 @@ class EntitlementManagementRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The settings property
+    */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -12,10 +12,10 @@ class RecordDecisionsRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $justification  */
+    /** @var string|null $justification The justification property */
     private ?string $justification = null;
     
-    /** @var string|null $reviewResult  */
+    /** @var string|null $reviewResult The reviewResult property */
     private ?string $reviewResult = null;
     
     /**
@@ -54,7 +54,7 @@ class RecordDecisionsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the justification property value. 
+     * Gets the justification property value. The justification property
      * @return string|null
     */
     public function getJustification(): ?string {
@@ -62,7 +62,7 @@ class RecordDecisionsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the reviewResult property value. 
+     * Gets the reviewResult property value. The reviewResult property
      * @return string|null
     */
     public function getReviewResult(): ?string {
@@ -88,7 +88,7 @@ class RecordDecisionsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the justification property value. 
+     * Sets the justification property value. The justification property
      *  @param string|null $value Value to set for the justification property.
     */
     public function setJustification(?string $value ): void {
@@ -96,7 +96,7 @@ class RecordDecisionsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the reviewResult property value. 
+     * Sets the reviewResult property value. The reviewResult property
      *  @param string|null $value Value to set for the reviewResult property.
     */
     public function setReviewResult(?string $value ): void {

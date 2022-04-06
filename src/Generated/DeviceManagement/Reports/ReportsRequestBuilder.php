@@ -63,8 +63,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpd
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpdateAlertSummaryReport\GetWindowsQualityUpdateAlertSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertsPerPolicyPerDeviceReport\GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertSummaryReport\GetWindowsUpdateAlertSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementReports;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementReports;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -75,226 +75,394 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ReportsRequestBuilder 
 {
+    /**
+     * The cachedReportConfigurations property
+    */
     public function cachedReportConfigurations(): CachedReportConfigurationsRequestBuilder {
         return new CachedReportConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The exportJobs property
+    */
     public function exportJobs(): ExportJobsRequestBuilder {
         return new ExportJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getActiveMalwareReport property
+    */
     public function getActiveMalwareReport(): GetActiveMalwareReportRequestBuilder {
         return new GetActiveMalwareReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getActiveMalwareSummaryReport property
+    */
     public function getActiveMalwareSummaryReport(): GetActiveMalwareSummaryReportRequestBuilder {
         return new GetActiveMalwareSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getAllCertificatesReport property
+    */
     public function getAllCertificatesReport(): GetAllCertificatesReportRequestBuilder {
         return new GetAllCertificatesReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getAppsInstallSummaryReport property
+    */
     public function getAppsInstallSummaryReport(): GetAppsInstallSummaryReportRequestBuilder {
         return new GetAppsInstallSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getAppStatusOverviewReport property
+    */
     public function getAppStatusOverviewReport(): GetAppStatusOverviewReportRequestBuilder {
         return new GetAppStatusOverviewReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getCachedReport property
+    */
     public function getCachedReport(): GetCachedReportRequestBuilder {
         return new GetCachedReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getCertificatesReport property
+    */
     public function getCertificatesReport(): GetCertificatesReportRequestBuilder {
         return new GetCertificatesReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getCompliancePoliciesReportForDevice property
+    */
     public function getCompliancePoliciesReportForDevice(): GetCompliancePoliciesReportForDeviceRequestBuilder {
         return new GetCompliancePoliciesReportForDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getCompliancePolicyDevicesReport property
+    */
     public function getCompliancePolicyDevicesReport(): GetCompliancePolicyDevicesReportRequestBuilder {
         return new GetCompliancePolicyDevicesReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getCompliancePolicyDeviceSummaryReport property
+    */
     public function getCompliancePolicyDeviceSummaryReport(): GetCompliancePolicyDeviceSummaryReportRequestBuilder {
         return new GetCompliancePolicyDeviceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getCompliancePolicyNonComplianceReport property
+    */
     public function getCompliancePolicyNonComplianceReport(): GetCompliancePolicyNonComplianceReportRequestBuilder {
         return new GetCompliancePolicyNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getCompliancePolicyNonComplianceSummaryReport property
+    */
     public function getCompliancePolicyNonComplianceSummaryReport(): GetCompliancePolicyNonComplianceSummaryReportRequestBuilder {
         return new GetCompliancePolicyNonComplianceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getComplianceSettingDetailsReport property
+    */
     public function getComplianceSettingDetailsReport(): GetComplianceSettingDetailsReportRequestBuilder {
         return new GetComplianceSettingDetailsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getComplianceSettingNonComplianceReport property
+    */
     public function getComplianceSettingNonComplianceReport(): GetComplianceSettingNonComplianceReportRequestBuilder {
         return new GetComplianceSettingNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getComplianceSettingsReport property
+    */
     public function getComplianceSettingsReport(): GetComplianceSettingsReportRequestBuilder {
         return new GetComplianceSettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getConfigManagerDevicePolicyStatusReport property
+    */
     public function getConfigManagerDevicePolicyStatusReport(): GetConfigManagerDevicePolicyStatusReportRequestBuilder {
         return new GetConfigManagerDevicePolicyStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getConfigurationPoliciesReportForDevice property
+    */
     public function getConfigurationPoliciesReportForDevice(): GetConfigurationPoliciesReportForDeviceRequestBuilder {
         return new GetConfigurationPoliciesReportForDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getConfigurationPolicyDevicesReport property
+    */
     public function getConfigurationPolicyDevicesReport(): GetConfigurationPolicyDevicesReportRequestBuilder {
         return new GetConfigurationPolicyDevicesReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getConfigurationPolicyDeviceSummaryReport property
+    */
     public function getConfigurationPolicyDeviceSummaryReport(): GetConfigurationPolicyDeviceSummaryReportRequestBuilder {
         return new GetConfigurationPolicyDeviceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getConfigurationPolicyNonComplianceReport property
+    */
     public function getConfigurationPolicyNonComplianceReport(): GetConfigurationPolicyNonComplianceReportRequestBuilder {
         return new GetConfigurationPolicyNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getConfigurationPolicyNonComplianceSummaryReport property
+    */
     public function getConfigurationPolicyNonComplianceSummaryReport(): GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder {
         return new GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getConfigurationPolicySettingsDeviceSummaryReport property
+    */
     public function getConfigurationPolicySettingsDeviceSummaryReport(): GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilder {
         return new GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getConfigurationSettingDetailsReport property
+    */
     public function getConfigurationSettingDetailsReport(): GetConfigurationSettingDetailsReportRequestBuilder {
         return new GetConfigurationSettingDetailsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getConfigurationSettingNonComplianceReport property
+    */
     public function getConfigurationSettingNonComplianceReport(): GetConfigurationSettingNonComplianceReportRequestBuilder {
         return new GetConfigurationSettingNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getConfigurationSettingsReport property
+    */
     public function getConfigurationSettingsReport(): GetConfigurationSettingsReportRequestBuilder {
         return new GetConfigurationSettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getDeviceConfigurationPolicySettingsSummaryReport property
+    */
     public function getDeviceConfigurationPolicySettingsSummaryReport(): GetDeviceConfigurationPolicySettingsSummaryReportRequestBuilder {
         return new GetDeviceConfigurationPolicySettingsSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getDeviceConfigurationPolicyStatusSummary property
+    */
     public function getDeviceConfigurationPolicyStatusSummary(): GetDeviceConfigurationPolicyStatusSummaryRequestBuilder {
         return new GetDeviceConfigurationPolicyStatusSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getDeviceInstallStatusReport property
+    */
     public function getDeviceInstallStatusReport(): GetDeviceInstallStatusReportRequestBuilder {
         return new GetDeviceInstallStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getDeviceManagementIntentPerSettingContributingProfiles property
+    */
     public function getDeviceManagementIntentPerSettingContributingProfiles(): GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder {
         return new GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getDeviceManagementIntentSettingsReport property
+    */
     public function getDeviceManagementIntentSettingsReport(): GetDeviceManagementIntentSettingsReportRequestBuilder {
         return new GetDeviceManagementIntentSettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getDeviceNonComplianceReport property
+    */
     public function getDeviceNonComplianceReport(): GetDeviceNonComplianceReportRequestBuilder {
         return new GetDeviceNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getEnrollmentConfigurationPoliciesByDevice property
+    */
     public function getEnrollmentConfigurationPoliciesByDevice(): GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder {
         return new GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getFailedMobileAppsReport property
+    */
     public function getFailedMobileAppsReport(): GetFailedMobileAppsReportRequestBuilder {
         return new GetFailedMobileAppsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getFailedMobileAppsSummaryReport property
+    */
     public function getFailedMobileAppsSummaryReport(): GetFailedMobileAppsSummaryReportRequestBuilder {
         return new GetFailedMobileAppsSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getGroupPolicySettingsDeviceSettingsReport property
+    */
     public function getGroupPolicySettingsDeviceSettingsReport(): GetGroupPolicySettingsDeviceSettingsReportRequestBuilder {
         return new GetGroupPolicySettingsDeviceSettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getHistoricalReport property
+    */
     public function getHistoricalReport(): GetHistoricalReportRequestBuilder {
         return new GetHistoricalReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getMalwareSummaryReport property
+    */
     public function getMalwareSummaryReport(): GetMalwareSummaryReportRequestBuilder {
         return new GetMalwareSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getPolicyNonComplianceMetadata property
+    */
     public function getPolicyNonComplianceMetadata(): GetPolicyNonComplianceMetadataRequestBuilder {
         return new GetPolicyNonComplianceMetadataRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getPolicyNonComplianceReport property
+    */
     public function getPolicyNonComplianceReport(): GetPolicyNonComplianceReportRequestBuilder {
         return new GetPolicyNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getPolicyNonComplianceSummaryReport property
+    */
     public function getPolicyNonComplianceSummaryReport(): GetPolicyNonComplianceSummaryReportRequestBuilder {
         return new GetPolicyNonComplianceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getQuietTimePolicyUsersReport property
+    */
     public function getQuietTimePolicyUsersReport(): GetQuietTimePolicyUsersReportRequestBuilder {
         return new GetQuietTimePolicyUsersReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getQuietTimePolicyUserSummaryReport property
+    */
     public function getQuietTimePolicyUserSummaryReport(): GetQuietTimePolicyUserSummaryReportRequestBuilder {
         return new GetQuietTimePolicyUserSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getRelatedAppsStatusReport property
+    */
     public function getRelatedAppsStatusReport(): GetRelatedAppsStatusReportRequestBuilder {
         return new GetRelatedAppsStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getRemoteAssistanceSessionsReport property
+    */
     public function getRemoteAssistanceSessionsReport(): GetRemoteAssistanceSessionsReportRequestBuilder {
         return new GetRemoteAssistanceSessionsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getReportFilters property
+    */
     public function getReportFilters(): GetReportFiltersRequestBuilder {
         return new GetReportFiltersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getSettingNonComplianceReport property
+    */
     public function getSettingNonComplianceReport(): GetSettingNonComplianceReportRequestBuilder {
         return new GetSettingNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getUnhealthyDefenderAgentsReport property
+    */
     public function getUnhealthyDefenderAgentsReport(): GetUnhealthyDefenderAgentsReportRequestBuilder {
         return new GetUnhealthyDefenderAgentsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getUnhealthyFirewallReport property
+    */
     public function getUnhealthyFirewallReport(): GetUnhealthyFirewallReportRequestBuilder {
         return new GetUnhealthyFirewallReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getUnhealthyFirewallSummaryReport property
+    */
     public function getUnhealthyFirewallSummaryReport(): GetUnhealthyFirewallSummaryReportRequestBuilder {
         return new GetUnhealthyFirewallSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getUserInstallStatusReport property
+    */
     public function getUserInstallStatusReport(): GetUserInstallStatusReportRequestBuilder {
         return new GetUserInstallStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getWindowsQualityUpdateAlertsPerPolicyPerDeviceReport property
+    */
     public function getWindowsQualityUpdateAlertsPerPolicyPerDeviceReport(): GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder {
         return new GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getWindowsQualityUpdateAlertSummaryReport property
+    */
     public function getWindowsQualityUpdateAlertSummaryReport(): GetWindowsQualityUpdateAlertSummaryReportRequestBuilder {
         return new GetWindowsQualityUpdateAlertSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getWindowsUpdateAlertsPerPolicyPerDeviceReport property
+    */
     public function getWindowsUpdateAlertsPerPolicyPerDeviceReport(): GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder {
         return new GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The getWindowsUpdateAlertSummaryReport property
+    */
     public function getWindowsUpdateAlertSummaryReport(): GetWindowsUpdateAlertSummaryReportRequestBuilder {
         return new GetWindowsUpdateAlertSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -12,7 +12,7 @@ class AddCopyFromContentTypeHubRequestBody implements AdditionalDataHolder, Pars
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $contentTypeId  */
+    /** @var string|null $contentTypeId The contentTypeId property */
     private ?string $contentTypeId = null;
     
     /**
@@ -40,7 +40,7 @@ class AddCopyFromContentTypeHubRequestBody implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Gets the contentTypeId property value. 
+     * Gets the contentTypeId property value. The contentTypeId property
      * @return string|null
     */
     public function getContentTypeId(): ?string {
@@ -75,7 +75,7 @@ class AddCopyFromContentTypeHubRequestBody implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Sets the contentTypeId property value. 
+     * Sets the contentTypeId property value. The contentTypeId property
      *  @param string|null $value Value to set for the contentTypeId property.
     */
     public function setContentTypeId(?string $value ): void {

@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Threat
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ThreatAssessmentRequest;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ThreatAssessmentRequest;
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\ThreatAssessmentRequests\Item\Results\Item\ThreatAssessmentResultItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\ThreatAssessmentRequests\Item\Results\ResultsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -25,6 +25,9 @@ class ThreatAssessmentRequestItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The results property
+    */
     public function results(): ResultsRequestBuilder {
         return new ResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

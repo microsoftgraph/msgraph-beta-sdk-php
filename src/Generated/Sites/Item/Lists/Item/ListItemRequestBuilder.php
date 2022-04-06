@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\EscapedList;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\EscapedList;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Columns\ColumnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Columns\Item\ColumnDefinitionItemRequestBuilder;
@@ -29,26 +29,44 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ListItemRequestBuilder 
 {
+    /**
+     * The activities property
+    */
     public function activities(): ActivitiesRequestBuilder {
         return new ActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The columns property
+    */
     public function columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The contentTypes property
+    */
     public function contentTypes(): ContentTypesRequestBuilder {
         return new ContentTypesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The drive property
+    */
     public function drive(): DriveRequestBuilder {
         return new DriveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The items property
+    */
     public function items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The operations property
+    */
     public function operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -59,6 +77,9 @@ class ListItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The subscriptions property
+    */
     public function subscriptions(): SubscriptionsRequestBuilder {
         return new SubscriptionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

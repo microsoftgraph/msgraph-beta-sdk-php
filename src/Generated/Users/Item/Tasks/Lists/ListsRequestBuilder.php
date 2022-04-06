@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Tasks\Lists;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\BaseTaskList;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\BaseTaskListCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\BaseTaskList;
+use Microsoft\Graph\Beta\Generated\Models\BaseTaskListCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Tasks\Lists\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Tasks\Lists\Delta\DeltaRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ListsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

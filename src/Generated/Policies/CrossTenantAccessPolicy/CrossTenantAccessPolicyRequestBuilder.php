@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\CrossTenantAccessPolicy;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\CrossTenantAccessPolicy;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\EscapedDefault\DefaultRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\Partners\Item\CrossTenantAccessPolicyConfigurationPartnerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\Partners\PartnersRequestBuilder;
@@ -20,10 +20,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class CrossTenantAccessPolicyRequestBuilder 
 {
+    /**
+     * The default property
+    */
     public function escapedDefault(): DefaultRequestBuilder {
         return new DefaultRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The partners property
+    */
     public function partners(): PartnersRequestBuilder {
         return new PartnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

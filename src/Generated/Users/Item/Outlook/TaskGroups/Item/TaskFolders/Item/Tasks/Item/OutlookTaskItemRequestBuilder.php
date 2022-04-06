@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskGroups\Item\Task
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OutlookTask;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OutlookTask;
 use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskGroups\Item\TaskFolders\Item\Tasks\Item\Attachments\AttachmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskGroups\Item\TaskFolders\Item\Tasks\Item\Attachments\Item\AttachmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskGroups\Item\TaskFolders\Item\Tasks\Item\Complete\CompleteRequestBuilder;
@@ -24,14 +24,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class OutlookTaskItemRequestBuilder 
 {
+    /**
+     * The attachments property
+    */
     public function attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The complete property
+    */
     public function complete(): CompleteRequestBuilder {
         return new CompleteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The multiValueExtendedProperties property
+    */
     public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -42,6 +51,9 @@ class OutlookTaskItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The singleValueExtendedProperties property
+    */
     public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

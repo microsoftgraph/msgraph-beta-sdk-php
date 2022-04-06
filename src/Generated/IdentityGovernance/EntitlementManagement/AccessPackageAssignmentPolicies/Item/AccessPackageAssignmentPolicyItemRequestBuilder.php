@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Acce
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignmentPolicies\Item\AccessPackageCatalog\AccessPackageCatalogRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignmentPolicies\Item\CustomExtensionHandlers\CustomExtensionHandlersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignmentPolicies\Item\CustomExtensionHandlers\Item\CustomExtensionHandlerItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessPackageAssignmentPolicy;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessPackageAssignmentPolicy;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,14 +21,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AccessPackageAssignmentPolicyItemRequestBuilder 
 {
+    /**
+     * The accessPackage property
+    */
     public function accessPackage(): AccessPackageRequestBuilder {
         return new AccessPackageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The accessPackageCatalog property
+    */
     public function accessPackageCatalog(): AccessPackageCatalogRequestBuilder {
         return new AccessPackageCatalogRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The customExtensionHandlers property
+    */
     public function customExtensionHandlers(): CustomExtensionHandlersRequestBuilder {
         return new CustomExtensionHandlersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

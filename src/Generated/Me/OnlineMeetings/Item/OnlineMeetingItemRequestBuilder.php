@@ -12,8 +12,8 @@ use Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\AttendeeReport\Attende
 use Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\MeetingAttendanceReport\MeetingAttendanceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\Recording\RecordingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\Registration\RegistrationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OnlineMeeting;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OnlineMeeting;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -24,18 +24,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class OnlineMeetingItemRequestBuilder 
 {
+    /**
+     * The alternativeRecording property
+    */
     public function alternativeRecording(): AlternativeRecordingRequestBuilder {
         return new AlternativeRecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The attendanceReports property
+    */
     public function attendanceReports(): AttendanceReportsRequestBuilder {
         return new AttendanceReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The attendeeReport property
+    */
     public function attendeeReport(): AttendeeReportRequestBuilder {
         return new AttendeeReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The meetingAttendanceReport property
+    */
     public function meetingAttendanceReport(): MeetingAttendanceReportRequestBuilder {
         return new MeetingAttendanceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -43,10 +55,16 @@ class OnlineMeetingItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The recording property
+    */
     public function recording(): RecordingRequestBuilder {
         return new RecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The registration property
+    */
     public function registration(): RegistrationRequestBuilder {
         return new RegistrationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

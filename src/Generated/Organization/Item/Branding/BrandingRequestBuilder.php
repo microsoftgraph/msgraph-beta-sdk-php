@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Branding;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OrganizationalBranding;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OrganizationalBranding;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\BackgroundImage\BackgroundImageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\BannerLogo\BannerLogoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Favicon\FaviconRequestBuilder;
@@ -23,18 +23,30 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class BrandingRequestBuilder 
 {
+    /**
+     * The backgroundImage property
+    */
     public function backgroundImage(): BackgroundImageRequestBuilder {
         return new BackgroundImageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The bannerLogo property
+    */
     public function bannerLogo(): BannerLogoRequestBuilder {
         return new BannerLogoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The favicon property
+    */
     public function favicon(): FaviconRequestBuilder {
         return new FaviconRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The localizations property
+    */
     public function localizations(): LocalizationsRequestBuilder {
         return new LocalizationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -45,6 +57,9 @@ class BrandingRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The squareLogo property
+    */
     public function squareLogo(): SquareLogoRequestBuilder {
         return new SquareLogoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

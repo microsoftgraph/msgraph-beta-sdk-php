@@ -10,9 +10,9 @@ use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GetMobileAppCo
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GetTopMobileAppsWithStatusWithCount\GetTopMobileAppsWithStatusWithCountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\HasPayloadLinks\HasPayloadLinksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\ValidateXml\ValidateXmlRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MobileApp;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MobileAppCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\MobileApp;
+use Microsoft\Graph\Beta\Generated\Models\MobileAppCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,10 +23,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class MobileAppsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The hasPayloadLinks property
+    */
     public function hasPayloadLinks(): HasPayloadLinksRequestBuilder {
         return new HasPayloadLinksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -40,6 +46,9 @@ class MobileAppsRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The validateXml property
+    */
     public function validateXml(): ValidateXmlRequestBuilder {
         return new ValidateXmlRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

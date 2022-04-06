@@ -10,8 +10,8 @@ use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\It
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\PurchaseInvoiceLines\Item\PurchaseInvoiceLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\PurchaseInvoiceLines\PurchaseInvoiceLinesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Vendor\VendorRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\PurchaseInvoice;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\PurchaseInvoice;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -22,6 +22,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PurchaseInvoiceItemRequestBuilder 
 {
+    /**
+     * The currency property
+    */
     public function currency(): CurrencyRequestBuilder {
         return new CurrencyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -29,10 +32,16 @@ class PurchaseInvoiceItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The post property
+    */
     public function post(): PostRequestBuilder {
         return new PostRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The purchaseInvoiceLines property
+    */
     public function purchaseInvoiceLines(): PurchaseInvoiceLinesRequestBuilder {
         return new PurchaseInvoiceLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -43,6 +52,9 @@ class PurchaseInvoiceItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The vendor property
+    */
     public function vendor(): VendorRequestBuilder {
         return new VendorRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

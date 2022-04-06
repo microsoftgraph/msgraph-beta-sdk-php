@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Conne
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Connector;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Connector;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\Members\Item\MemberOf\Item\ConnectorGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\Members\Item\MemberOf\MemberOfRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ConnectorItemRequestBuilder 
 {
+    /**
+     * The memberOf property
+    */
     public function memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

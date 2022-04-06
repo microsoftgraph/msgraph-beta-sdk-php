@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtecti
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Security\InformationProtection;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Security\InformationProtection;
 use Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtection\LabelPolicySettings\LabelPolicySettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtection\SensitivityLabels\Item\SensitivityLabelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtection\SensitivityLabels\SensitivityLabelsRequestBuilder;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class InformationProtectionRequestBuilder 
 {
+    /**
+     * The labelPolicySettings property
+    */
     public function labelPolicySettings(): LabelPolicySettingsRequestBuilder {
         return new LabelPolicySettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -30,6 +33,9 @@ class InformationProtectionRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The sensitivityLabels property
+    */
     public function sensitivityLabels(): SensitivityLabelsRequestBuilder {
         return new SensitivityLabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

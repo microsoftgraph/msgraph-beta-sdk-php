@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AuthorizationPolicy;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AuthorizationPolicy;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\Item\DefaultUserRoleOverrides\DefaultUserRoleOverridesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\Item\DefaultUserRoleOverrides\Item\DefaultUserRoleOverrideItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AuthorizationPolicyItemRequestBuilder 
 {
+    /**
+     * The defaultUserRoleOverrides property
+    */
     public function defaultUserRoleOverrides(): DefaultUserRoleOverridesRequestBuilder {
         return new DefaultUserRoleOverridesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

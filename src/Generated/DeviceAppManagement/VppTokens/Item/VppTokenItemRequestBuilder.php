@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\Item\RevokeLicenses\RevokeLicensesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\Item\SyncLicenses\SyncLicensesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\VppToken;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\VppToken;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -25,10 +25,16 @@ class VppTokenItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The revokeLicenses property
+    */
     public function revokeLicenses(): RevokeLicensesRequestBuilder {
         return new RevokeLicensesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The syncLicenses property
+    */
     public function syncLicenses(): SyncLicensesRequestBuilder {
         return new SyncLicensesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

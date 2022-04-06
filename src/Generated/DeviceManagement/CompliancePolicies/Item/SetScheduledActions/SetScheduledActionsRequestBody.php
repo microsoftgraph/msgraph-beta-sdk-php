@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\SetScheduledActions;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementComplianceScheduledActionForRule;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementComplianceScheduledActionForRule;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class SetScheduledActionsRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<DeviceManagementComplianceScheduledActionForRule>|null $scheduledActions  */
+    /** @var array<DeviceManagementComplianceScheduledActionForRule>|null $scheduledActions The scheduledActions property */
     private ?array $scheduledActions = null;
     
     /**
@@ -51,7 +51,7 @@ class SetScheduledActionsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the scheduledActions property value. 
+     * Gets the scheduledActions property value. The scheduledActions property
      * @return array<DeviceManagementComplianceScheduledActionForRule>|null
     */
     public function getScheduledActions(): ?array {
@@ -76,7 +76,7 @@ class SetScheduledActionsRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the scheduledActions property value. 
+     * Sets the scheduledActions property value. The scheduledActions property
      *  @param array<DeviceManagementComplianceScheduledActionForRule>|null $value Value to set for the scheduledActions property.
     */
     public function setScheduledActions(?array $value ): void {

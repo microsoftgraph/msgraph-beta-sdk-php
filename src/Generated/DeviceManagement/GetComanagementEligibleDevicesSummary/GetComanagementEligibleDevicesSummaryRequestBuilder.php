@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GetComanagementEligibl
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ComanagementEligibleDevicesSummary;
+use Microsoft\Graph\Beta\Generated\Models\ComanagementEligibleDevicesSummary;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

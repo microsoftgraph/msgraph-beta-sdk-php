@@ -22,8 +22,8 @@ use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\Calenda
 use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\CalendarView\Item\Instances\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\CalendarView\Item\Instances\Item\SnoozeReminder\SnoozeReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\CalendarView\Item\Instances\Item\TentativelyAccept\TentativelyAcceptRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Event;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Event;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -34,42 +34,72 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class EventItemRequestBuilder 
 {
+    /**
+     * The accept property
+    */
     public function accept(): AcceptRequestBuilder {
         return new AcceptRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The attachments property
+    */
     public function attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The calendar property
+    */
     public function calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The cancel property
+    */
     public function cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The decline property
+    */
     public function decline(): DeclineRequestBuilder {
         return new DeclineRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The dismissReminder property
+    */
     public function dismissReminder(): DismissReminderRequestBuilder {
         return new DismissReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The exceptionOccurrences property
+    */
     public function exceptionOccurrences(): ExceptionOccurrencesRequestBuilder {
         return new ExceptionOccurrencesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The extensions property
+    */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The forward property
+    */
     public function forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The multiValueExtendedProperties property
+    */
     public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -80,14 +110,23 @@ class EventItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The singleValueExtendedProperties property
+    */
     public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The snoozeReminder property
+    */
     public function snoozeReminder(): SnoozeReminderRequestBuilder {
         return new SnoozeReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The tentativelyAccept property
+    */
     public function tentativelyAccept(): TentativelyAcceptRequestBuilder {
         return new TentativelyAcceptRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

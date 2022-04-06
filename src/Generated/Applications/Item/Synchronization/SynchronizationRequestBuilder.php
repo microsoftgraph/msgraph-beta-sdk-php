@@ -11,8 +11,8 @@ use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\JobsRe
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Ping\PingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\SynchronizationTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\TemplatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Synchronization;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Synchronization;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -23,10 +23,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SynchronizationRequestBuilder 
 {
+    /**
+     * The acquireAccessToken property
+    */
     public function acquireAccessToken(): AcquireAccessTokenRequestBuilder {
         return new AcquireAccessTokenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The jobs property
+    */
     public function jobs(): JobsRequestBuilder {
         return new JobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -37,6 +43,9 @@ class SynchronizationRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The templates property
+    */
     public function templates(): TemplatesRequestBuilder {
         return new TemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

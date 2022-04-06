@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ParseExpressionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ParseExpressionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

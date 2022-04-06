@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\Me\Settings\ContactMergeSuggestions\ContactMe
 use Microsoft\Graph\Beta\Generated\Me\Settings\ItemInsights\ItemInsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Settings\RegionalAndLanguageSettings\RegionalAndLanguageSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Settings\ShiftPreferences\ShiftPreferencesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\UserSettings;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\UserSettings;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SettingsRequestBuilder 
 {
+    /**
+     * The contactMergeSuggestions property
+    */
     public function contactMergeSuggestions(): ContactMergeSuggestionsRequestBuilder {
         return new ContactMergeSuggestionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The itemInsights property
+    */
     public function itemInsights(): ItemInsightsRequestBuilder {
         return new ItemInsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -32,6 +38,9 @@ class SettingsRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The regionalAndLanguageSettings property
+    */
     public function regionalAndLanguageSettings(): RegionalAndLanguageSettingsRequestBuilder {
         return new RegionalAndLanguageSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -39,6 +48,9 @@ class SettingsRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The shiftPreferences property
+    */
     public function shiftPreferences(): ShiftPreferencesRequestBuilder {
         return new ShiftPreferencesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

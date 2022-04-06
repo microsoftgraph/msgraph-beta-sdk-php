@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Calendar\CalendarView\Item\I
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Attachment;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AttachmentCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Attachment;
+use Microsoft\Graph\Beta\Generated\Models\AttachmentCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\CalendarView\Item\Instances\Item\Attachments\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\CalendarView\Item\Instances\Item\Attachments\CreateUploadSession\CreateUploadSessionRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -20,10 +20,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AttachmentsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The createUploadSession property
+    */
     public function createUploadSession(): CreateUploadSessionRequestBuilder {
         return new CreateUploadSessionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelat
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DelegatedAdminRelationship;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DelegatedAdminRelationshipCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DelegatedAdminRelationship;
+use Microsoft\Graph\Beta\Generated\Models\DelegatedAdminRelationshipCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelationships\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DelegatedAdminRelationshipsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -44,7 +47,7 @@ class DelegatedAdminRelationshipsRequestBuilder
     }
 
     /**
-     * Get delegatedAdminRelationships from tenantRelationships
+     * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
      * @param array|null $queryParameters Request query parameters
      * @param array<string, mixed>|null $headers Request headers
      * @param array<string, RequestOption>|null $options Request options
@@ -90,7 +93,7 @@ class DelegatedAdminRelationshipsRequestBuilder
     }
 
     /**
-     * Get delegatedAdminRelationships from tenantRelationships
+     * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
      * @param array|null $queryParameters Request query parameters
      * @param array<string, mixed>|null $headers Request headers
      * @param array<string, RequestOption>|null $options Request options

@@ -12,10 +12,10 @@ class RevokeDeviceLicenseRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $managedDeviceId  */
+    /** @var string|null $managedDeviceId The managedDeviceId property */
     private ?string $managedDeviceId = null;
     
-    /** @var bool|null $notifyManagedDevices  */
+    /** @var bool|null $notifyManagedDevices The notifyManagedDevices property */
     private ?bool $notifyManagedDevices = null;
     
     /**
@@ -54,7 +54,7 @@ class RevokeDeviceLicenseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the managedDeviceId property value. 
+     * Gets the managedDeviceId property value. The managedDeviceId property
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
@@ -62,7 +62,7 @@ class RevokeDeviceLicenseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the notifyManagedDevices property value. 
+     * Gets the notifyManagedDevices property value. The notifyManagedDevices property
      * @return bool|null
     */
     public function getNotifyManagedDevices(): ?bool {
@@ -88,7 +88,7 @@ class RevokeDeviceLicenseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the managedDeviceId property value. 
+     * Sets the managedDeviceId property value. The managedDeviceId property
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value ): void {
@@ -96,7 +96,7 @@ class RevokeDeviceLicenseRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the notifyManagedDevices property value. 
+     * Sets the notifyManagedDevices property value. The notifyManagedDevices property
      *  @param bool|null $value Value to set for the notifyManagedDevices property.
     */
     public function setNotifyManagedDevices(?bool $value ): void {

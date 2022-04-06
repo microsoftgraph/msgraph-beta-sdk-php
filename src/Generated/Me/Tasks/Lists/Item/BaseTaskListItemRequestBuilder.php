@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\Me\Tasks\Lists\Item\Extensions\ExtensionsRequ
 use Microsoft\Graph\Beta\Generated\Me\Tasks\Lists\Item\Extensions\Item\ExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Tasks\Lists\Item\Tasks\Item\BaseTaskItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Tasks\Lists\Item\Tasks\TasksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\BaseTaskList;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\BaseTaskList;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class BaseTaskListItemRequestBuilder 
 {
+    /**
+     * The extensions property
+    */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -31,6 +34,9 @@ class BaseTaskListItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The tasks property
+    */
     public function tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

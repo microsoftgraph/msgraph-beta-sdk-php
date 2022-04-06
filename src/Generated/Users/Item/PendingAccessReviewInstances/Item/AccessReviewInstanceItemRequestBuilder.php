@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\AccessReviewInstance;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstance;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\AcceptRecommendations\AcceptRecommendationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\ApplyDecisions\ApplyDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\BatchRecordDecisions\BatchRecordDecisionsRequestBuilder;
@@ -30,26 +30,44 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class AccessReviewInstanceItemRequestBuilder 
 {
+    /**
+     * The acceptRecommendations property
+    */
     public function acceptRecommendations(): AcceptRecommendationsRequestBuilder {
         return new AcceptRecommendationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The applyDecisions property
+    */
     public function applyDecisions(): ApplyDecisionsRequestBuilder {
         return new ApplyDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The batchRecordDecisions property
+    */
     public function batchRecordDecisions(): BatchRecordDecisionsRequestBuilder {
         return new BatchRecordDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The contactedReviewers property
+    */
     public function contactedReviewers(): ContactedReviewersRequestBuilder {
         return new ContactedReviewersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The decisions property
+    */
     public function decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The definition property
+    */
     public function definition(): DefinitionRequestBuilder {
         return new DefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -60,18 +78,30 @@ class AccessReviewInstanceItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The resetDecisions property
+    */
     public function resetDecisions(): ResetDecisionsRequestBuilder {
         return new ResetDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The sendReminder property
+    */
     public function sendReminder(): SendReminderRequestBuilder {
         return new SendReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The stages property
+    */
     public function stages(): StagesRequestBuilder {
         return new StagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The stop property
+    */
     public function stop(): StopRequestBuilder {
         return new StopRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

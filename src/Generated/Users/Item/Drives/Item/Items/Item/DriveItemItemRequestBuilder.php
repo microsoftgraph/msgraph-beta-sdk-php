@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\Items\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DriveItem;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DriveItem;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\Items\Item\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\Items\Item\Activities\Item\ItemActivityOLDItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\Items\Item\Analytics\AnalyticsRequestBuilder;
@@ -31,22 +31,37 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DriveItemItemRequestBuilder 
 {
+    /**
+     * The activities property
+    */
     public function activities(): ActivitiesRequestBuilder {
         return new ActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The analytics property
+    */
     public function analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The children property
+    */
     public function children(): ChildrenRequestBuilder {
         return new ChildrenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The content property
+    */
     public function content(): ContentRequestBuilder {
         return new ContentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The listItem property
+    */
     public function listItem(): ListItemRequestBuilder {
         return new ListItemRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -54,6 +69,9 @@ class DriveItemItemRequestBuilder
     /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
+    /**
+     * The permissions property
+    */
     public function permissions(): PermissionsRequestBuilder {
         return new PermissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -61,10 +79,16 @@ class DriveItemItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The subscriptions property
+    */
     public function subscriptions(): SubscriptionsRequestBuilder {
         return new SubscriptionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The thumbnails property
+    */
     public function thumbnails(): ThumbnailsRequestBuilder {
         return new ThumbnailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -72,6 +96,9 @@ class DriveItemItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The versions property
+    */
     public function versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

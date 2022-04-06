@@ -3,7 +3,7 @@
 namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\BulkRestoreCloudPc;
 
 use DateTime;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\RestoreTimeRange;
+use Microsoft\Graph\Beta\Generated\Models\RestoreTimeRange;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,13 +14,13 @@ class BulkRestoreCloudPcRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var array<string>|null $managedDeviceIds  */
+    /** @var array<string>|null $managedDeviceIds The managedDeviceIds property */
     private ?array $managedDeviceIds = null;
     
-    /** @var DateTime|null $restorePointDateTime  */
+    /** @var DateTime|null $restorePointDateTime The restorePointDateTime property */
     private ?DateTime $restorePointDateTime = null;
     
-    /** @var RestoreTimeRange|null $timeRange  */
+    /** @var RestoreTimeRange|null $timeRange The timeRange property */
     private ?RestoreTimeRange $timeRange = null;
     
     /**
@@ -60,7 +60,7 @@ class BulkRestoreCloudPcRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the managedDeviceIds property value. 
+     * Gets the managedDeviceIds property value. The managedDeviceIds property
      * @return array<string>|null
     */
     public function getManagedDeviceIds(): ?array {
@@ -68,7 +68,7 @@ class BulkRestoreCloudPcRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the restorePointDateTime property value. 
+     * Gets the restorePointDateTime property value. The restorePointDateTime property
      * @return DateTime|null
     */
     public function getRestorePointDateTime(): ?DateTime {
@@ -76,7 +76,7 @@ class BulkRestoreCloudPcRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the timeRange property value. 
+     * Gets the timeRange property value. The timeRange property
      * @return RestoreTimeRange|null
     */
     public function getTimeRange(): ?RestoreTimeRange {
@@ -103,7 +103,7 @@ class BulkRestoreCloudPcRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the managedDeviceIds property value. 
+     * Sets the managedDeviceIds property value. The managedDeviceIds property
      *  @param array<string>|null $value Value to set for the managedDeviceIds property.
     */
     public function setManagedDeviceIds(?array $value ): void {
@@ -111,7 +111,7 @@ class BulkRestoreCloudPcRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the restorePointDateTime property value. 
+     * Sets the restorePointDateTime property value. The restorePointDateTime property
      *  @param DateTime|null $value Value to set for the restorePointDateTime property.
     */
     public function setRestorePointDateTime(?DateTime $value ): void {
@@ -119,7 +119,7 @@ class BulkRestoreCloudPcRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the timeRange property value. 
+     * Sets the timeRange property value. The timeRange property
      *  @param RestoreTimeRange|null $value Value to set for the timeRange property.
     */
     public function setTimeRange(?RestoreTimeRange $value ): void {

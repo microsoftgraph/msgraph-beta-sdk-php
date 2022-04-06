@@ -2,8 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\Me\InformationProtection\Policy\Labels\EvaluateRemoval;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ContentInfo;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DowngradeJustification;
+use Microsoft\Graph\Beta\Generated\Models\ContentInfo;
+use Microsoft\Graph\Beta\Generated\Models\DowngradeJustification;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -14,10 +14,10 @@ class EvaluateRemovalRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var ContentInfo|null $contentInfo  */
+    /** @var ContentInfo|null $contentInfo The contentInfo property */
     private ?ContentInfo $contentInfo = null;
     
-    /** @var DowngradeJustification|null $downgradeJustification  */
+    /** @var DowngradeJustification|null $downgradeJustification The downgradeJustification property */
     private ?DowngradeJustification $downgradeJustification = null;
     
     /**
@@ -45,7 +45,7 @@ class EvaluateRemovalRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the contentInfo property value. 
+     * Gets the contentInfo property value. The contentInfo property
      * @return ContentInfo|null
     */
     public function getContentInfo(): ?ContentInfo {
@@ -53,7 +53,7 @@ class EvaluateRemovalRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the downgradeJustification property value. 
+     * Gets the downgradeJustification property value. The downgradeJustification property
      * @return DowngradeJustification|null
     */
     public function getDowngradeJustification(): ?DowngradeJustification {
@@ -90,7 +90,7 @@ class EvaluateRemovalRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the contentInfo property value. 
+     * Sets the contentInfo property value. The contentInfo property
      *  @param ContentInfo|null $value Value to set for the contentInfo property.
     */
     public function setContentInfo(?ContentInfo $value ): void {
@@ -98,7 +98,7 @@ class EvaluateRemovalRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the downgradeJustification property value. 
+     * Sets the downgradeJustification property value. The downgradeJustification property
      *  @param DowngradeJustification|null $value Value to set for the downgradeJustification property.
     */
     public function setDowngradeJustification(?DowngradeJustification $value ): void {

@@ -12,7 +12,7 @@ class UpdateGlobalScriptRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $version  */
+    /** @var string|null $version The version property */
     private ?string $version = null;
     
     /**
@@ -50,7 +50,7 @@ class UpdateGlobalScriptRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the version property value. 
+     * Gets the version property value. The version property
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -75,7 +75,7 @@ class UpdateGlobalScriptRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the version property value. 
+     * Sets the version property value. The version property
      *  @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value ): void {

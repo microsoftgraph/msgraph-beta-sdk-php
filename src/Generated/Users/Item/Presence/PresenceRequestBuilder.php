@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Presence;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Presence;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Presence;
 use Microsoft\Graph\Beta\Generated\Users\Item\Presence\ClearPresence\ClearPresenceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Presence\ClearUserPreferredPresence\ClearUserPreferredPresenceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Presence\SetPresence\SetPresenceRequestBuilder;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class PresenceRequestBuilder 
 {
+    /**
+     * The clearPresence property
+    */
     public function clearPresence(): ClearPresenceRequestBuilder {
         return new ClearPresenceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The clearUserPreferredPresence property
+    */
     public function clearUserPreferredPresence(): ClearUserPreferredPresenceRequestBuilder {
         return new ClearUserPreferredPresenceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -35,10 +41,16 @@ class PresenceRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The setPresence property
+    */
     public function setPresence(): SetPresenceRequestBuilder {
         return new SetPresenceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The setUserPreferredPresence property
+    */
     public function setUserPreferredPresence(): SetUserPreferredPresenceRequestBuilder {
         return new SetUserPreferredPresenceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

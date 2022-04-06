@@ -12,10 +12,10 @@ class RevokeLicensesRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var bool|null $notifyManagedDevices  */
+    /** @var bool|null $notifyManagedDevices The notifyManagedDevices property */
     private ?bool $notifyManagedDevices = null;
     
-    /** @var bool|null $revokeUntrackedLicenses  */
+    /** @var bool|null $revokeUntrackedLicenses The revokeUntrackedLicenses property */
     private ?bool $revokeUntrackedLicenses = null;
     
     /**
@@ -54,7 +54,7 @@ class RevokeLicensesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the notifyManagedDevices property value. 
+     * Gets the notifyManagedDevices property value. The notifyManagedDevices property
      * @return bool|null
     */
     public function getNotifyManagedDevices(): ?bool {
@@ -62,7 +62,7 @@ class RevokeLicensesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the revokeUntrackedLicenses property value. 
+     * Gets the revokeUntrackedLicenses property value. The revokeUntrackedLicenses property
      * @return bool|null
     */
     public function getRevokeUntrackedLicenses(): ?bool {
@@ -88,7 +88,7 @@ class RevokeLicensesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the notifyManagedDevices property value. 
+     * Sets the notifyManagedDevices property value. The notifyManagedDevices property
      *  @param bool|null $value Value to set for the notifyManagedDevices property.
     */
     public function setNotifyManagedDevices(?bool $value ): void {
@@ -96,7 +96,7 @@ class RevokeLicensesRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the revokeUntrackedLicenses property value. 
+     * Sets the revokeUntrackedLicenses property value. The revokeUntrackedLicenses property
      *  @param bool|null $value Value to set for the revokeUntrackedLicenses property.
     */
     public function setRevokeUntrackedLicenses(?bool $value ): void {

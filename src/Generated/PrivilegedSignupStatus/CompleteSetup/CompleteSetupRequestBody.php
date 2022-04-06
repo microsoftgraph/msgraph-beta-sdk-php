@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\CompleteSetup;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\TenantSetupInfo;
+use Microsoft\Graph\Beta\Generated\Models\TenantSetupInfo;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class CompleteSetupRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var TenantSetupInfo|null $tenantSetupInfo  */
+    /** @var TenantSetupInfo|null $tenantSetupInfo The tenantSetupInfo property */
     private ?TenantSetupInfo $tenantSetupInfo = null;
     
     /**
@@ -51,7 +51,7 @@ class CompleteSetupRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the tenantSetupInfo property value. 
+     * Gets the tenantSetupInfo property value. The tenantSetupInfo property
      * @return TenantSetupInfo|null
     */
     public function getTenantSetupInfo(): ?TenantSetupInfo {
@@ -76,7 +76,7 @@ class CompleteSetupRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the tenantSetupInfo property value. 
+     * Sets the tenantSetupInfo property value. The tenantSetupInfo property
      *  @param TenantSetupInfo|null $value Value to set for the tenantSetupInfo property.
     */
     public function setTenantSetupInfo(?TenantSetupInfo $value ): void {

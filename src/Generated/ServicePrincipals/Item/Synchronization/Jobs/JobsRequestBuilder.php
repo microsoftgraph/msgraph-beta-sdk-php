@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SynchronizationJob;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SynchronizationJobCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\SynchronizationJob;
+use Microsoft\Graph\Beta\Generated\Models\SynchronizationJobCollectionResponse;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Jobs\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Jobs\ValidateCredentials\ValidateCredentialsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -20,6 +20,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class JobsRequestBuilder 
 {
+    /**
+     * The count property
+    */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -33,6 +36,9 @@ class JobsRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The validateCredentials property
+    */
     public function validateCredentials(): ValidateCredentialsRequestBuilder {
         return new ValidateCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

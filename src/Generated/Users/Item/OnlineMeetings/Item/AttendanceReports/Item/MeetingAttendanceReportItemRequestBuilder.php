@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Attendan
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\MeetingAttendanceReport;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\MeetingAttendanceReport;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\AttendanceReports\Item\AttendanceRecords\AttendanceRecordsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\AttendanceReports\Item\AttendanceRecords\Item\AttendanceRecordItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class MeetingAttendanceReportItemRequestBuilder 
 {
+    /**
+     * The attendanceRecords property
+    */
     public function attendanceRecords(): AttendanceRecordsRequestBuilder {
         return new AttendanceRecordsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

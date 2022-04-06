@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\Entries\EntriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\Entries\Item\CatalogEntryItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\WindowsUpdates\Catalog;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Catalog;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class CatalogRequestBuilder 
 {
+    /**
+     * The entries property
+    */
     public function entries(): EntriesRequestBuilder {
         return new EntriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

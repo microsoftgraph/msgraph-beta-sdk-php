@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\ExportDeviceAndAppManagementData;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceAndAppManagementData;
+use Microsoft\Graph\Beta\Generated\Models\DeviceAndAppManagementData;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;

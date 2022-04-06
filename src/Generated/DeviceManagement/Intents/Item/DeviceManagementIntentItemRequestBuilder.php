@@ -24,8 +24,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\UpdateSettings\
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\UserStates\Item\DeviceManagementIntentUserStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\UserStates\UserStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\UserStateSummary\UserStateSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\DeviceManagementIntent;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntent;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -36,34 +36,58 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DeviceManagementIntentItemRequestBuilder 
 {
+    /**
+     * The assign property
+    */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The assignments property
+    */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The categories property
+    */
     public function categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The createCopy property
+    */
     public function createCopy(): CreateCopyRequestBuilder {
         return new CreateCopyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceSettingStateSummaries property
+    */
     public function deviceSettingStateSummaries(): DeviceSettingStateSummariesRequestBuilder {
         return new DeviceSettingStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceStates property
+    */
     public function deviceStates(): DeviceStatesRequestBuilder {
         return new DeviceStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The deviceStateSummary property
+    */
     public function deviceStateSummary(): DeviceStateSummaryRequestBuilder {
         return new DeviceStateSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The migrateToTemplate property
+    */
     public function migrateToTemplate(): MigrateToTemplateRequestBuilder {
         return new MigrateToTemplateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -74,10 +98,16 @@ class DeviceManagementIntentItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The settings property
+    */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The updateSettings property
+    */
     public function updateSettings(): UpdateSettingsRequestBuilder {
         return new UpdateSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -85,10 +115,16 @@ class DeviceManagementIntentItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The userStates property
+    */
     public function userStates(): UserStatesRequestBuilder {
         return new UserStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The userStateSummary property
+    */
     public function userStateSummary(): UserStateSummaryRequestBuilder {
         return new UserStateSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

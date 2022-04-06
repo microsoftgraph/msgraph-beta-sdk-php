@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\OfficeConfiguration;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\OfficeConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\OfficeConfiguration;
 use Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\ClientConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\Item\OfficeClientConfigurationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +19,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class OfficeConfigurationRequestBuilder 
 {
+    /**
+     * The clientConfigurations property
+    */
     public function clientConfigurations(): ClientConfigurationsRequestBuilder {
         return new ClientConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

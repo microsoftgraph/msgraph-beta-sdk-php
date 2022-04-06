@@ -12,7 +12,7 @@ class RestoreCloudPcRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var string|null $cloudPcSnapshotId  */
+    /** @var string|null $cloudPcSnapshotId The cloudPcSnapshotId property */
     private ?string $cloudPcSnapshotId = null;
     
     /**
@@ -40,7 +40,7 @@ class RestoreCloudPcRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the cloudPcSnapshotId property value. 
+     * Gets the cloudPcSnapshotId property value. The cloudPcSnapshotId property
      * @return string|null
     */
     public function getCloudPcSnapshotId(): ?string {
@@ -75,7 +75,7 @@ class RestoreCloudPcRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the cloudPcSnapshotId property value. 
+     * Sets the cloudPcSnapshotId property value. The cloudPcSnapshotId property
      *  @param string|null $value Value to set for the cloudPcSnapshotId property.
     */
     public function setCloudPcSnapshotId(?string $value ): void {

@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Groups\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\Group;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Group;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Groups\Item\Sets\Item\SetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Groups\Item\Sets\SetsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -25,6 +25,9 @@ class GroupItemRequestBuilder
     /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
+    /**
+     * The sets property
+    */
     public function sets(): SetsRequestBuilder {
         return new SetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

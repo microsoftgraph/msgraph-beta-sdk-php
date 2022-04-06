@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Mana
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ManagedTenants\ManagementTemplateStep;
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementTemplateStep;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\Item\AcceptedVersion\AcceptedVersionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\Item\ManagementTemplate\ManagementTemplateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\Item\Versions\Item\ManagementTemplateStepVersionItemRequestBuilder;
@@ -21,10 +21,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class ManagementTemplateStepItemRequestBuilder 
 {
+    /**
+     * The acceptedVersion property
+    */
     public function acceptedVersion(): AcceptedVersionRequestBuilder {
         return new AcceptedVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * The managementTemplate property
+    */
     public function managementTemplate(): ManagementTemplateRequestBuilder {
         return new ManagementTemplateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
@@ -38,6 +44,9 @@ class ManagementTemplateStepItemRequestBuilder
     /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
+    /**
+     * The versions property
+    */
     public function versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }

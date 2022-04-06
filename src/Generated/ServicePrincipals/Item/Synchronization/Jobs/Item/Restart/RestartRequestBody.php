@@ -2,7 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Jobs\Item\Restart;
 
-use Microsoft\Graph\Beta\Generated\Models\Microsoft\Graph\SynchronizationJobRestartCriteria;
+use Microsoft\Graph\Beta\Generated\Models\SynchronizationJobRestartCriteria;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -13,7 +13,7 @@ class RestartRequestBody implements AdditionalDataHolder, Parsable
     /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /** @var SynchronizationJobRestartCriteria|null $criteria  */
+    /** @var SynchronizationJobRestartCriteria|null $criteria The criteria property */
     private ?SynchronizationJobRestartCriteria $criteria = null;
     
     /**
@@ -41,7 +41,7 @@ class RestartRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the criteria property value. 
+     * Gets the criteria property value. The criteria property
      * @return SynchronizationJobRestartCriteria|null
     */
     public function getCriteria(): ?SynchronizationJobRestartCriteria {
@@ -76,7 +76,7 @@ class RestartRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the criteria property value. 
+     * Sets the criteria property value. The criteria property
      *  @param SynchronizationJobRestartCriteria|null $value Value to set for the criteria property.
     */
     public function setCriteria(?SynchronizationJobRestartCriteria $value ): void {
