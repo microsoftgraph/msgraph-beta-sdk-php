@@ -14,10 +14,10 @@
 * @link      https://graph.microsoft.com
 */
 
-namespace Beta\Microsoft\Graph;
+namespace Microsoft\Graph\Beta;
 
 final class GraphConstants
 {
     const API_VERSION = "beta";
-    const SDK_VERSION = "2.0.0-RC5";
+    const SDK_VERSION = "2.0.0-RC6";
 }
