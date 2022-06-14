@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementExchangeDeviceClass implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $name Name of the device class which will be impacted by this rule. */
+    /**
+     * @var string|null $name Name of the device class which will be impacted by this rule.
+    */
     private ?string $name = null;
     
-    /** @var DeviceManagementExchangeAccessRuleType|null $type Type of device which is impacted by this rule e.g. Model, Family. Possible values are: family, model. */
+    /**
+     * @var DeviceManagementExchangeAccessRuleType|null $type Type of device which is impacted by this rule e.g. Model, Family. Possible values are: family, model.
+    */
     private ?DeviceManagementExchangeAccessRuleType $type = null;
     
     /**
@@ -30,7 +36,7 @@ class DeviceManagementExchangeDeviceClass implements AdditionalDataHolder, Parsa
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementExchangeDeviceClass
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementExchangeDeviceClass {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementExchangeDeviceClass {
         return new DeviceManagementExchangeDeviceClass();
     }
 
@@ -47,9 +53,10 @@ class DeviceManagementExchangeDeviceClass implements AdditionalDataHolder, Parsa
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(DeviceManagementExchangeAccessRuleType::class)); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(DeviceManagementExchangeAccessRuleType::class)); },
         ];
     }
 

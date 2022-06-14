@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class Settings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $hasGraphMailbox Specifies if the user's primary mailbox is hosted in the cloud and is enabled for Microsoft Graph. */
+    /**
+     * @var bool|null $hasGraphMailbox Specifies if the user's primary mailbox is hosted in the cloud and is enabled for Microsoft Graph.
+    */
     private ?bool $hasGraphMailbox = null;
     
-    /** @var bool|null $hasLicense Specifies if the user has a MyAnalytics license assigned. */
+    /**
+     * @var bool|null $hasLicense Specifies if the user has a MyAnalytics license assigned.
+    */
     private ?bool $hasLicense = null;
     
-    /** @var bool|null $hasOptedOut Specifies if the user opted out of MyAnalytics. */
+    /**
+     * @var bool|null $hasOptedOut Specifies if the user opted out of MyAnalytics.
+    */
     private ?bool $hasOptedOut = null;
     
     /**
@@ -33,7 +41,7 @@ class Settings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Settings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Settings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Settings {
         return new Settings();
     }
 
@@ -50,10 +58,11 @@ class Settings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'hasGraphMailbox' => function (self $o, ParseNode $n) { $o->setHasGraphMailbox($n->getBooleanValue()); },
-            'hasLicense' => function (self $o, ParseNode $n) { $o->setHasLicense($n->getBooleanValue()); },
-            'hasOptedOut' => function (self $o, ParseNode $n) { $o->setHasOptedOut($n->getBooleanValue()); },
+            'hasGraphMailbox' => function (ParseNode $n) use ($o) { $o->setHasGraphMailbox($n->getBooleanValue()); },
+            'hasLicense' => function (ParseNode $n) use ($o) { $o->setHasLicense($n->getBooleanValue()); },
+            'hasOptedOut' => function (ParseNode $n) use ($o) { $o->setHasOptedOut($n->getBooleanValue()); },
         ];
     }
 

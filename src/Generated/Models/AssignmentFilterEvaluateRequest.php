@@ -9,22 +9,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<string>|null $orderBy Order the devices should be sorted in. Default is ascending on device name. */
+    /**
+     * @var array<string>|null $orderBy Order the devices should be sorted in. Default is ascending on device name.
+    */
     private ?array $orderBy = null;
     
-    /** @var DevicePlatformType|null $platform Platform type of the devices on which the Assignment Filter will be applicable. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown. */
+    /**
+     * @var DevicePlatformType|null $platform Platform type of the devices on which the Assignment Filter will be applicable. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+    */
     private ?DevicePlatformType $platform = null;
     
-    /** @var string|null $rule Rule definition of the Assignment Filter. */
+    /**
+     * @var string|null $rule Rule definition of the Assignment Filter.
+    */
     private ?string $rule = null;
     
-    /** @var int|null $skip Number of records to skip. Default value is 0 */
+    /**
+     * @var int|null $skip Number of records to skip. Default value is 0
+    */
     private ?int $skip = null;
     
-    /** @var int|null $top Limit of records per request. Default value is 100, if provided less than 0 or greater than 100 */
+    /**
+     * @var int|null $top Limit of records per request. Default value is 100, if provided less than 0 or greater than 100
+    */
     private ?int $top = null;
     
     /**
@@ -39,7 +51,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AssignmentFilterEvaluateRequest
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentFilterEvaluateRequest {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentFilterEvaluateRequest {
         return new AssignmentFilterEvaluateRequest();
     }
 
@@ -56,12 +68,13 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'orderBy' => function (self $o, ParseNode $n) { $o->setOrderBy($n->getCollectionOfPrimitiveValues()); },
-            'platform' => function (self $o, ParseNode $n) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
-            'rule' => function (self $o, ParseNode $n) { $o->setRule($n->getStringValue()); },
-            'skip' => function (self $o, ParseNode $n) { $o->setSkip($n->getIntegerValue()); },
-            'top' => function (self $o, ParseNode $n) { $o->setTop($n->getIntegerValue()); },
+            'orderBy' => function (ParseNode $n) use ($o) { $o->setOrderBy($n->getCollectionOfPrimitiveValues()); },
+            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
+            'rule' => function (ParseNode $n) use ($o) { $o->setRule($n->getStringValue()); },
+            'skip' => function (ParseNode $n) use ($o) { $o->setSkip($n->getIntegerValue()); },
+            'top' => function (ParseNode $n) use ($o) { $o->setTop($n->getIntegerValue()); },
         ];
     }
 

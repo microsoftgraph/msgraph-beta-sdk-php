@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SafeguardSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<SafeguardProfile>|null $disabledSafeguardProfiles List of safeguards to ignore per device. */
+    /**
+     * @var array<SafeguardProfile>|null $disabledSafeguardProfiles List of safeguards to ignore per device.
+    */
     private ?array $disabledSafeguardProfiles = null;
     
     /**
@@ -27,7 +31,7 @@ class SafeguardSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SafeguardSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SafeguardSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SafeguardSettings {
         return new SafeguardSettings();
     }
 
@@ -52,8 +56,9 @@ class SafeguardSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'disabledSafeguardProfiles' => function (self $o, ParseNode $n) { $o->setDisabledSafeguardProfiles($n->getCollectionOfObjectValues(SafeguardProfile::class)); },
+            'disabledSafeguardProfiles' => function (ParseNode $n) use ($o) { $o->setDisabledSafeguardProfiles($n->getCollectionOfObjectValues(array(SafeguardProfile::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

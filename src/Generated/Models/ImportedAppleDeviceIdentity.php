@@ -7,39 +7,61 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ImportedAppleDeviceIdentity extends Entity 
+class ImportedAppleDeviceIdentity extends Entity implements Parsable 
 {
-    /** @var DateTime|null $createdDateTime Created Date Time of the device */
+    /**
+     * @var DateTime|null $createdDateTime Created Date Time of the device
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $description The description of the device */
+    /**
+     * @var string|null $description The description of the device
+    */
     private ?string $description = null;
     
-    /** @var DiscoverySource|null $discoverySource Apple device discovery source. Possible values are: unknown, adminImport, deviceEnrollmentProgram. */
+    /**
+     * @var DiscoverySource|null $discoverySource Apple device discovery source. Possible values are: unknown, adminImport, deviceEnrollmentProgram.
+    */
     private ?DiscoverySource $discoverySource = null;
     
-    /** @var EnrollmentState|null $enrollmentState The state of the device in Intune. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked. */
+    /**
+     * @var EnrollmentState|null $enrollmentState The state of the device in Intune. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+    */
     private ?EnrollmentState $enrollmentState = null;
     
-    /** @var bool|null $isDeleted Indicates if the device is deleted from Apple Business Manager */
+    /**
+     * @var bool|null $isDeleted Indicates if the device is deleted from Apple Business Manager
+    */
     private ?bool $isDeleted = null;
     
-    /** @var bool|null $isSupervised Indicates if the Apple device is supervised. More information is at: https://support.apple.com/en-us/HT202837 */
+    /**
+     * @var bool|null $isSupervised Indicates if the Apple device is supervised. More information is at: https://support.apple.com/en-us/HT202837
+    */
     private ?bool $isSupervised = null;
     
-    /** @var DateTime|null $lastContactedDateTime Last Contacted Date Time of the device */
+    /**
+     * @var DateTime|null $lastContactedDateTime Last Contacted Date Time of the device
+    */
     private ?DateTime $lastContactedDateTime = null;
     
-    /** @var Platform|null $platform The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS. */
+    /**
+     * @var Platform|null $platform The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS.
+    */
     private ?Platform $platform = null;
     
-    /** @var DateTime|null $requestedEnrollmentProfileAssignmentDateTime The time enrollment profile was assigned to the device */
+    /**
+     * @var DateTime|null $requestedEnrollmentProfileAssignmentDateTime The time enrollment profile was assigned to the device
+    */
     private ?DateTime $requestedEnrollmentProfileAssignmentDateTime = null;
     
-    /** @var string|null $requestedEnrollmentProfileId Enrollment profile Id admin intends to apply to the device during next enrollment */
+    /**
+     * @var string|null $requestedEnrollmentProfileId Enrollment profile Id admin intends to apply to the device during next enrollment
+    */
     private ?string $requestedEnrollmentProfileId = null;
     
-    /** @var string|null $serialNumber Device serial number */
+    /**
+     * @var string|null $serialNumber Device serial number
+    */
     private ?string $serialNumber = null;
     
     /**
@@ -54,7 +76,14 @@ class ImportedAppleDeviceIdentity extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ImportedAppleDeviceIdentity
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ImportedAppleDeviceIdentity {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ImportedAppleDeviceIdentity {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.importedAppleDeviceIdentityResult': return new ImportedAppleDeviceIdentityResult();
+            }
+        }
         return new ImportedAppleDeviceIdentity();
     }
 
@@ -95,18 +124,19 @@ class ImportedAppleDeviceIdentity extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'discoverySource' => function (self $o, ParseNode $n) { $o->setDiscoverySource($n->getEnumValue(DiscoverySource::class)); },
-            'enrollmentState' => function (self $o, ParseNode $n) { $o->setEnrollmentState($n->getEnumValue(EnrollmentState::class)); },
-            'isDeleted' => function (self $o, ParseNode $n) { $o->setIsDeleted($n->getBooleanValue()); },
-            'isSupervised' => function (self $o, ParseNode $n) { $o->setIsSupervised($n->getBooleanValue()); },
-            'lastContactedDateTime' => function (self $o, ParseNode $n) { $o->setLastContactedDateTime($n->getDateTimeValue()); },
-            'platform' => function (self $o, ParseNode $n) { $o->setPlatform($n->getEnumValue(Platform::class)); },
-            'requestedEnrollmentProfileAssignmentDateTime' => function (self $o, ParseNode $n) { $o->setRequestedEnrollmentProfileAssignmentDateTime($n->getDateTimeValue()); },
-            'requestedEnrollmentProfileId' => function (self $o, ParseNode $n) { $o->setRequestedEnrollmentProfileId($n->getStringValue()); },
-            'serialNumber' => function (self $o, ParseNode $n) { $o->setSerialNumber($n->getStringValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'discoverySource' => function (ParseNode $n) use ($o) { $o->setDiscoverySource($n->getEnumValue(DiscoverySource::class)); },
+            'enrollmentState' => function (ParseNode $n) use ($o) { $o->setEnrollmentState($n->getEnumValue(EnrollmentState::class)); },
+            'isDeleted' => function (ParseNode $n) use ($o) { $o->setIsDeleted($n->getBooleanValue()); },
+            'isSupervised' => function (ParseNode $n) use ($o) { $o->setIsSupervised($n->getBooleanValue()); },
+            'lastContactedDateTime' => function (ParseNode $n) use ($o) { $o->setLastContactedDateTime($n->getDateTimeValue()); },
+            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(Platform::class)); },
+            'requestedEnrollmentProfileAssignmentDateTime' => function (ParseNode $n) use ($o) { $o->setRequestedEnrollmentProfileAssignmentDateTime($n->getDateTimeValue()); },
+            'requestedEnrollmentProfileId' => function (ParseNode $n) use ($o) { $o->setRequestedEnrollmentProfileId($n->getStringValue()); },
+            'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
         ]);
     }
 

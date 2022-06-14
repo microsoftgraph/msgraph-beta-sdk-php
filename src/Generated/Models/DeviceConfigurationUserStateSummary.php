@@ -6,27 +6,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceConfigurationUserStateSummary extends Entity 
+class DeviceConfigurationUserStateSummary extends Entity implements Parsable 
 {
-    /** @var int|null $compliantUserCount Number of compliant users */
+    /**
+     * @var int|null $compliantUserCount Number of compliant users
+    */
     private ?int $compliantUserCount = null;
     
-    /** @var int|null $conflictUserCount Number of conflict users */
+    /**
+     * @var int|null $conflictUserCount Number of conflict users
+    */
     private ?int $conflictUserCount = null;
     
-    /** @var int|null $errorUserCount Number of error users */
+    /**
+     * @var int|null $errorUserCount Number of error users
+    */
     private ?int $errorUserCount = null;
     
-    /** @var int|null $nonCompliantUserCount Number of NonCompliant users */
+    /**
+     * @var int|null $nonCompliantUserCount Number of NonCompliant users
+    */
     private ?int $nonCompliantUserCount = null;
     
-    /** @var int|null $notApplicableUserCount Number of not applicable users */
+    /**
+     * @var int|null $notApplicableUserCount Number of not applicable users
+    */
     private ?int $notApplicableUserCount = null;
     
-    /** @var int|null $remediatedUserCount Number of remediated users */
+    /**
+     * @var int|null $remediatedUserCount Number of remediated users
+    */
     private ?int $remediatedUserCount = null;
     
-    /** @var int|null $unknownUserCount Number of unknown users */
+    /**
+     * @var int|null $unknownUserCount Number of unknown users
+    */
     private ?int $unknownUserCount = null;
     
     /**
@@ -41,7 +55,7 @@ class DeviceConfigurationUserStateSummary extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceConfigurationUserStateSummary
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceConfigurationUserStateSummary {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceConfigurationUserStateSummary {
         return new DeviceConfigurationUserStateSummary();
     }
 
@@ -74,14 +88,15 @@ class DeviceConfigurationUserStateSummary extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'compliantUserCount' => function (self $o, ParseNode $n) { $o->setCompliantUserCount($n->getIntegerValue()); },
-            'conflictUserCount' => function (self $o, ParseNode $n) { $o->setConflictUserCount($n->getIntegerValue()); },
-            'errorUserCount' => function (self $o, ParseNode $n) { $o->setErrorUserCount($n->getIntegerValue()); },
-            'nonCompliantUserCount' => function (self $o, ParseNode $n) { $o->setNonCompliantUserCount($n->getIntegerValue()); },
-            'notApplicableUserCount' => function (self $o, ParseNode $n) { $o->setNotApplicableUserCount($n->getIntegerValue()); },
-            'remediatedUserCount' => function (self $o, ParseNode $n) { $o->setRemediatedUserCount($n->getIntegerValue()); },
-            'unknownUserCount' => function (self $o, ParseNode $n) { $o->setUnknownUserCount($n->getIntegerValue()); },
+            'compliantUserCount' => function (ParseNode $n) use ($o) { $o->setCompliantUserCount($n->getIntegerValue()); },
+            'conflictUserCount' => function (ParseNode $n) use ($o) { $o->setConflictUserCount($n->getIntegerValue()); },
+            'errorUserCount' => function (ParseNode $n) use ($o) { $o->setErrorUserCount($n->getIntegerValue()); },
+            'nonCompliantUserCount' => function (ParseNode $n) use ($o) { $o->setNonCompliantUserCount($n->getIntegerValue()); },
+            'notApplicableUserCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableUserCount($n->getIntegerValue()); },
+            'remediatedUserCount' => function (ParseNode $n) use ($o) { $o->setRemediatedUserCount($n->getIntegerValue()); },
+            'unknownUserCount' => function (ParseNode $n) use ($o) { $o->setUnknownUserCount($n->getIntegerValue()); },
         ]);
     }
 

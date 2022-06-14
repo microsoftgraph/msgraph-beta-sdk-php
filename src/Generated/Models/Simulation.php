@@ -7,51 +7,81 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Simulation extends Entity 
+class Simulation extends Entity implements Parsable 
 {
-    /** @var SimulationAttackTechnique|null $attackTechnique The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue. For more information on the types of social engineering attack techniques, see simulations. */
+    /**
+     * @var SimulationAttackTechnique|null $attackTechnique The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue. For more information on the types of social engineering attack techniques, see simulations.
+    */
     private ?SimulationAttackTechnique $attackTechnique = null;
     
-    /** @var SimulationAttackType|null $attackType Attack type of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, social, cloud, endpoint, unknownFutureValue. */
+    /**
+     * @var SimulationAttackType|null $attackType Attack type of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, social, cloud, endpoint, unknownFutureValue.
+    */
     private ?SimulationAttackType $attackType = null;
     
-    /** @var string|null $automationId Unique identifier for the attack simulation automation. */
+    /**
+     * @var string|null $automationId Unique identifier for the attack simulation automation.
+    */
     private ?string $automationId = null;
     
-    /** @var DateTime|null $completionDateTime Date and time of completion of the attack simulation and training campaign. Supports $filter and $orderby. */
+    /**
+     * @var DateTime|null $completionDateTime Date and time of completion of the attack simulation and training campaign. Supports $filter and $orderby.
+    */
     private ?DateTime $completionDateTime = null;
     
-    /** @var EmailIdentity|null $createdBy Identity of the user who created the attack simulation and training campaign. */
+    /**
+     * @var EmailIdentity|null $createdBy Identity of the user who created the attack simulation and training campaign.
+    */
     private ?EmailIdentity $createdBy = null;
     
-    /** @var DateTime|null $createdDateTime Date and time of creation of the attack simulation and training campaign. */
+    /**
+     * @var DateTime|null $createdDateTime Date and time of creation of the attack simulation and training campaign.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $description Description of the attack simulation and training campaign. */
+    /**
+     * @var string|null $description Description of the attack simulation and training campaign.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Display name of the attack simulation and training campaign. Supports $filter and $orderby. */
+    /**
+     * @var string|null $displayName Display name of the attack simulation and training campaign. Supports $filter and $orderby.
+    */
     private ?string $displayName = null;
     
-    /** @var bool|null $isAutomated Flag representing if the attack simulation and training campaign was created from a simulation automation flow. Supports $filter and $orderby. */
+    /**
+     * @var bool|null $isAutomated Flag representing if the attack simulation and training campaign was created from a simulation automation flow. Supports $filter and $orderby.
+    */
     private ?bool $isAutomated = null;
     
-    /** @var EmailIdentity|null $lastModifiedBy Identity of the user who most recently modified the attack simulation and training campaign. */
+    /**
+     * @var EmailIdentity|null $lastModifiedBy Identity of the user who most recently modified the attack simulation and training campaign.
+    */
     private ?EmailIdentity $lastModifiedBy = null;
     
-    /** @var DateTime|null $lastModifiedDateTime Date and time of the most recent modification of the attack simulation and training campaign. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime Date and time of the most recent modification of the attack simulation and training campaign.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var DateTime|null $launchDateTime Date and time of the launch/start of the attack simulation and training campaign. Supports $filter and $orderby. */
+    /**
+     * @var DateTime|null $launchDateTime Date and time of the launch/start of the attack simulation and training campaign. Supports $filter and $orderby.
+    */
     private ?DateTime $launchDateTime = null;
     
-    /** @var PayloadDeliveryPlatform|null $payloadDeliveryPlatform Method of delivery of the phishing payload used in the attack simulation and training campaign. Possible values are: unknown, sms, email, teams, unknownFutureValue. */
+    /**
+     * @var PayloadDeliveryPlatform|null $payloadDeliveryPlatform Method of delivery of the phishing payload used in the attack simulation and training campaign. Possible values are: unknown, sms, email, teams, unknownFutureValue.
+    */
     private ?PayloadDeliveryPlatform $payloadDeliveryPlatform = null;
     
-    /** @var SimulationReport|null $report Report of the attack simulation and training campaign. */
+    /**
+     * @var SimulationReport|null $report Report of the attack simulation and training campaign.
+    */
     private ?SimulationReport $report = null;
     
-    /** @var SimulationStatus|null $status Status of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, draft, running, scheduled, succeeded, failed, cancelled, excluded, unknownFutureValue. */
+    /**
+     * @var SimulationStatus|null $status Status of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, draft, running, scheduled, succeeded, failed, cancelled, excluded, unknownFutureValue.
+    */
     private ?SimulationStatus $status = null;
     
     /**
@@ -66,7 +96,7 @@ class Simulation extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Simulation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Simulation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Simulation {
         return new Simulation();
     }
 
@@ -139,22 +169,23 @@ class Simulation extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'attackTechnique' => function (self $o, ParseNode $n) { $o->setAttackTechnique($n->getEnumValue(SimulationAttackTechnique::class)); },
-            'attackType' => function (self $o, ParseNode $n) { $o->setAttackType($n->getEnumValue(SimulationAttackType::class)); },
-            'automationId' => function (self $o, ParseNode $n) { $o->setAutomationId($n->getStringValue()); },
-            'completionDateTime' => function (self $o, ParseNode $n) { $o->setCompletionDateTime($n->getDateTimeValue()); },
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(EmailIdentity::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'isAutomated' => function (self $o, ParseNode $n) { $o->setIsAutomated($n->getBooleanValue()); },
-            'lastModifiedBy' => function (self $o, ParseNode $n) { $o->setLastModifiedBy($n->getObjectValue(EmailIdentity::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'launchDateTime' => function (self $o, ParseNode $n) { $o->setLaunchDateTime($n->getDateTimeValue()); },
-            'payloadDeliveryPlatform' => function (self $o, ParseNode $n) { $o->setPayloadDeliveryPlatform($n->getEnumValue(PayloadDeliveryPlatform::class)); },
-            'report' => function (self $o, ParseNode $n) { $o->setReport($n->getObjectValue(SimulationReport::class)); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(SimulationStatus::class)); },
+            'attackTechnique' => function (ParseNode $n) use ($o) { $o->setAttackTechnique($n->getEnumValue(SimulationAttackTechnique::class)); },
+            'attackType' => function (ParseNode $n) use ($o) { $o->setAttackType($n->getEnumValue(SimulationAttackType::class)); },
+            'automationId' => function (ParseNode $n) use ($o) { $o->setAutomationId($n->getStringValue()); },
+            'completionDateTime' => function (ParseNode $n) use ($o) { $o->setCompletionDateTime($n->getDateTimeValue()); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(EmailIdentity::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'isAutomated' => function (ParseNode $n) use ($o) { $o->setIsAutomated($n->getBooleanValue()); },
+            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(EmailIdentity::class, 'createFromDiscriminatorValue'))); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'launchDateTime' => function (ParseNode $n) use ($o) { $o->setLaunchDateTime($n->getDateTimeValue()); },
+            'payloadDeliveryPlatform' => function (ParseNode $n) use ($o) { $o->setPayloadDeliveryPlatform($n->getEnumValue(PayloadDeliveryPlatform::class)); },
+            'report' => function (ParseNode $n) use ($o) { $o->setReport($n->getObjectValue(array(SimulationReport::class, 'createFromDiscriminatorValue'))); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(SimulationStatus::class)); },
         ]);
     }
 

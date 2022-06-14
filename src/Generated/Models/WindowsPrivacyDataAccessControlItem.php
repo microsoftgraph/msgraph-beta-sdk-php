@@ -6,18 +6,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsPrivacyDataAccessControlItem extends Entity 
+class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable 
 {
-    /** @var WindowsPrivacyDataAccessLevel|null $accessLevel This indicates an access level for the privacy data category to which the specified application will be given to. Possible values are: notConfigured, forceAllow, forceDeny, userInControl. */
+    /**
+     * @var WindowsPrivacyDataAccessLevel|null $accessLevel This indicates an access level for the privacy data category to which the specified application will be given to. Possible values are: notConfigured, forceAllow, forceDeny, userInControl.
+    */
     private ?WindowsPrivacyDataAccessLevel $accessLevel = null;
     
-    /** @var string|null $appDisplayName The Package Family Name of a Windows app. When set, the access level applies to the specified application. */
+    /**
+     * @var string|null $appDisplayName The Package Family Name of a Windows app. When set, the access level applies to the specified application.
+    */
     private ?string $appDisplayName = null;
     
-    /** @var string|null $appPackageFamilyName The Package Family Name of a Windows app. When set, the access level applies to the specified application. */
+    /**
+     * @var string|null $appPackageFamilyName The Package Family Name of a Windows app. When set, the access level applies to the specified application.
+    */
     private ?string $appPackageFamilyName = null;
     
-    /** @var WindowsPrivacyDataCategory|null $dataCategory This indicates a privacy data category to which the specific access control will apply. Possible values are: notConfigured, accountInfo, appsRunInBackground, calendar, callHistory, camera, contacts, diagnosticsInfo, email, location, messaging, microphone, motion, notifications, phone, radios, tasks, syncWithDevices, trustedDevices. */
+    /**
+     * @var WindowsPrivacyDataCategory|null $dataCategory This indicates a privacy data category to which the specific access control will apply. Possible values are: notConfigured, accountInfo, appsRunInBackground, calendar, callHistory, camera, contacts, diagnosticsInfo, email, location, messaging, microphone, motion, notifications, phone, radios, tasks, syncWithDevices, trustedDevices.
+    */
     private ?WindowsPrivacyDataCategory $dataCategory = null;
     
     /**
@@ -32,7 +40,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsPrivacyDataAccessControlItem
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsPrivacyDataAccessControlItem {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsPrivacyDataAccessControlItem {
         return new WindowsPrivacyDataAccessControlItem();
     }
 
@@ -73,11 +81,12 @@ class WindowsPrivacyDataAccessControlItem extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessLevel' => function (self $o, ParseNode $n) { $o->setAccessLevel($n->getEnumValue(WindowsPrivacyDataAccessLevel::class)); },
-            'appDisplayName' => function (self $o, ParseNode $n) { $o->setAppDisplayName($n->getStringValue()); },
-            'appPackageFamilyName' => function (self $o, ParseNode $n) { $o->setAppPackageFamilyName($n->getStringValue()); },
-            'dataCategory' => function (self $o, ParseNode $n) { $o->setDataCategory($n->getEnumValue(WindowsPrivacyDataCategory::class)); },
+            'accessLevel' => function (ParseNode $n) use ($o) { $o->setAccessLevel($n->getEnumValue(WindowsPrivacyDataAccessLevel::class)); },
+            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
+            'appPackageFamilyName' => function (ParseNode $n) use ($o) { $o->setAppPackageFamilyName($n->getStringValue()); },
+            'dataCategory' => function (ParseNode $n) use ($o) { $o->setDataCategory($n->getEnumValue(WindowsPrivacyDataCategory::class)); },
         ]);
     }
 

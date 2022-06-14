@@ -6,21 +6,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SitePage extends BaseItem 
+class SitePage extends BaseItem implements Parsable 
 {
-    /** @var ContentTypeInfo|null $contentType The content type of the page. */
+    /**
+     * @var ContentTypeInfo|null $contentType The content type of the page.
+    */
     private ?ContentTypeInfo $contentType = null;
     
-    /** @var string|null $pageLayoutType The pageLayoutType property */
+    /**
+     * @var string|null $pageLayoutType The pageLayoutType property
+    */
     private ?string $pageLayoutType = null;
     
-    /** @var PublicationFacet|null $publishingState The publishingState property */
+    /**
+     * @var PublicationFacet|null $publishingState The publishingState property
+    */
     private ?PublicationFacet $publishingState = null;
     
-    /** @var string|null $title The title property */
+    /**
+     * @var string|null $title The title property
+    */
     private ?string $title = null;
     
-    /** @var array<WebPart>|null $webParts The webParts property */
+    /**
+     * @var array<WebPart>|null $webParts The webParts property
+    */
     private ?array $webParts = null;
     
     /**
@@ -35,7 +45,7 @@ class SitePage extends BaseItem
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SitePage
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SitePage {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SitePage {
         return new SitePage();
     }
 
@@ -52,12 +62,13 @@ class SitePage extends BaseItem
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contentType' => function (self $o, ParseNode $n) { $o->setContentType($n->getObjectValue(ContentTypeInfo::class)); },
-            'pageLayoutType' => function (self $o, ParseNode $n) { $o->setPageLayoutType($n->getStringValue()); },
-            'publishingState' => function (self $o, ParseNode $n) { $o->setPublishingState($n->getObjectValue(PublicationFacet::class)); },
-            'title' => function (self $o, ParseNode $n) { $o->setTitle($n->getStringValue()); },
-            'webParts' => function (self $o, ParseNode $n) { $o->setWebParts($n->getCollectionOfObjectValues(WebPart::class)); },
+            'contentType' => function (ParseNode $n) use ($o) { $o->setContentType($n->getObjectValue(array(ContentTypeInfo::class, 'createFromDiscriminatorValue'))); },
+            'pageLayoutType' => function (ParseNode $n) use ($o) { $o->setPageLayoutType($n->getStringValue()); },
+            'publishingState' => function (ParseNode $n) use ($o) { $o->setPublishingState($n->getObjectValue(array(PublicationFacet::class, 'createFromDiscriminatorValue'))); },
+            'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
+            'webParts' => function (ParseNode $n) use ($o) { $o->setWebParts($n->getCollectionOfObjectValues(array(WebPart::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

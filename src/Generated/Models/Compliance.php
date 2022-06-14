@@ -10,10 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class Compliance implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var Ediscoveryroot|null $ediscovery The ediscovery property */
+    /**
+     * @var Ediscoveryroot|null $ediscovery The ediscovery property
+    */
     private ?Ediscoveryroot $ediscovery = null;
     
     /**
@@ -28,7 +32,7 @@ class Compliance implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Compliance
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Compliance {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Compliance {
         return new Compliance();
     }
 
@@ -53,8 +57,9 @@ class Compliance implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'ediscovery' => function (self $o, ParseNode $n) { $o->setEdiscovery($n->getObjectValue(Ediscoveryroot::class)); },
+            'ediscovery' => function (ParseNode $n) use ($o) { $o->setEdiscovery($n->getObjectValue(array(Ediscoveryroot::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

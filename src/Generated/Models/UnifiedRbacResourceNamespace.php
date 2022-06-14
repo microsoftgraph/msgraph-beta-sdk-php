@@ -6,12 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRbacResourceNamespace extends Entity 
+class UnifiedRbacResourceNamespace extends Entity implements Parsable 
 {
-    /** @var string|null $name Name of the resource namespace. Typically, the same name as the id property, such as microsoft.aad.b2c. Required. Supports $filter (eq, startsWith). */
+    /**
+     * @var string|null $name Name of the resource namespace. Typically, the same name as the id property, such as microsoft.aad.b2c. Required. Supports $filter (eq, startsWith).
+    */
     private ?string $name = null;
     
-    /** @var array<UnifiedRbacResourceAction>|null $resourceActions Operations that an authorized principal are allowed to perform. */
+    /**
+     * @var array<UnifiedRbacResourceAction>|null $resourceActions Operations that an authorized principal are allowed to perform.
+    */
     private ?array $resourceActions = null;
     
     /**
@@ -26,7 +30,7 @@ class UnifiedRbacResourceNamespace extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRbacResourceNamespace
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRbacResourceNamespace {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRbacResourceNamespace {
         return new UnifiedRbacResourceNamespace();
     }
 
@@ -35,9 +39,10 @@ class UnifiedRbacResourceNamespace extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'resourceActions' => function (self $o, ParseNode $n) { $o->setResourceActions($n->getCollectionOfObjectValues(UnifiedRbacResourceAction::class)); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'resourceActions' => function (ParseNode $n) use ($o) { $o->setResourceActions($n->getCollectionOfObjectValues(array(UnifiedRbacResourceAction::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

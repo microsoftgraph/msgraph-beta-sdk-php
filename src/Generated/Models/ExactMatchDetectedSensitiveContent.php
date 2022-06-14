@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ExactMatchDetectedSensitiveContent extends DetectedSensitiveContentBase 
+class ExactMatchDetectedSensitiveContent extends DetectedSensitiveContentBase implements Parsable 
 {
-    /** @var array<SensitiveContentLocation>|null $matches The matches property */
+    /**
+     * @var array<SensitiveContentLocation>|null $matches The matches property
+    */
     private ?array $matches = null;
     
     /**
@@ -23,7 +25,7 @@ class ExactMatchDetectedSensitiveContent extends DetectedSensitiveContentBase
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExactMatchDetectedSensitiveContent
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ExactMatchDetectedSensitiveContent {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExactMatchDetectedSensitiveContent {
         return new ExactMatchDetectedSensitiveContent();
     }
 
@@ -32,8 +34,9 @@ class ExactMatchDetectedSensitiveContent extends DetectedSensitiveContentBase
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'matches' => function (self $o, ParseNode $n) { $o->setMatches($n->getCollectionOfObjectValues(SensitiveContentLocation::class)); },
+            'matches' => function (ParseNode $n) use ($o) { $o->setMatches($n->getCollectionOfObjectValues(array(SensitiveContentLocation::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

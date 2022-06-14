@@ -6,18 +6,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessReviewSet extends Entity 
+class AccessReviewSet extends Entity implements Parsable 
 {
-    /** @var array<AccessReviewInstanceDecisionItem>|null $decisions Represents an Azure AD access review decision on an instance of a review. */
+    /**
+     * @var array<AccessReviewInstanceDecisionItem>|null $decisions Represents an Azure AD access review decision on an instance of a review.
+    */
     private ?array $decisions = null;
     
-    /** @var array<AccessReviewScheduleDefinition>|null $definitions Represents the template and scheduling for an access review. */
+    /**
+     * @var array<AccessReviewScheduleDefinition>|null $definitions Represents the template and scheduling for an access review.
+    */
     private ?array $definitions = null;
     
-    /** @var array<AccessReviewHistoryDefinition>|null $historyDefinitions Represents a collection of access review history data and the scopes used to collect that data. */
+    /**
+     * @var array<AccessReviewHistoryDefinition>|null $historyDefinitions Represents a collection of access review history data and the scopes used to collect that data.
+    */
     private ?array $historyDefinitions = null;
     
-    /** @var AccessReviewPolicy|null $policy Resource that enables administrators to manage directory-level access review policies in their tenant. */
+    /**
+     * @var AccessReviewPolicy|null $policy Resource that enables administrators to manage directory-level access review policies in their tenant.
+    */
     private ?AccessReviewPolicy $policy = null;
     
     /**
@@ -32,7 +40,7 @@ class AccessReviewSet extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessReviewSet
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewSet {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewSet {
         return new AccessReviewSet();
     }
 
@@ -57,11 +65,12 @@ class AccessReviewSet extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'decisions' => function (self $o, ParseNode $n) { $o->setDecisions($n->getCollectionOfObjectValues(AccessReviewInstanceDecisionItem::class)); },
-            'definitions' => function (self $o, ParseNode $n) { $o->setDefinitions($n->getCollectionOfObjectValues(AccessReviewScheduleDefinition::class)); },
-            'historyDefinitions' => function (self $o, ParseNode $n) { $o->setHistoryDefinitions($n->getCollectionOfObjectValues(AccessReviewHistoryDefinition::class)); },
-            'policy' => function (self $o, ParseNode $n) { $o->setPolicy($n->getObjectValue(AccessReviewPolicy::class)); },
+            'decisions' => function (ParseNode $n) use ($o) { $o->setDecisions($n->getCollectionOfObjectValues(array(AccessReviewInstanceDecisionItem::class, 'createFromDiscriminatorValue'))); },
+            'definitions' => function (ParseNode $n) use ($o) { $o->setDefinitions($n->getCollectionOfObjectValues(array(AccessReviewScheduleDefinition::class, 'createFromDiscriminatorValue'))); },
+            'historyDefinitions' => function (ParseNode $n) use ($o) { $o->setHistoryDefinitions($n->getCollectionOfObjectValues(array(AccessReviewHistoryDefinition::class, 'createFromDiscriminatorValue'))); },
+            'policy' => function (ParseNode $n) use ($o) { $o->setPolicy($n->getObjectValue(array(AccessReviewPolicy::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

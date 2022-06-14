@@ -7,63 +7,101 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class Office365GroupsActivityDetail extends Entity 
+class Office365GroupsActivityDetail extends Entity implements Parsable 
 {
-    /** @var int|null $exchangeMailboxStorageUsedInBytes The storage used of the group mailbox. */
+    /**
+     * @var int|null $exchangeMailboxStorageUsedInBytes The storage used of the group mailbox.
+    */
     private ?int $exchangeMailboxStorageUsedInBytes = null;
     
-    /** @var int|null $exchangeMailboxTotalItemCount The number of items in the group mailbox. */
+    /**
+     * @var int|null $exchangeMailboxTotalItemCount The number of items in the group mailbox.
+    */
     private ?int $exchangeMailboxTotalItemCount = null;
     
-    /** @var int|null $exchangeReceivedEmailCount The number of email that the group mailbox received. */
+    /**
+     * @var int|null $exchangeReceivedEmailCount The number of email that the group mailbox received.
+    */
     private ?int $exchangeReceivedEmailCount = null;
     
-    /** @var int|null $externalMemberCount The group external member count. */
+    /**
+     * @var int|null $externalMemberCount The group external member count.
+    */
     private ?int $externalMemberCount = null;
     
-    /** @var string|null $groupDisplayName The display name of the group. */
+    /**
+     * @var string|null $groupDisplayName The display name of the group.
+    */
     private ?string $groupDisplayName = null;
     
-    /** @var string|null $groupId The group id. */
+    /**
+     * @var string|null $groupId The group id.
+    */
     private ?string $groupId = null;
     
-    /** @var string|null $groupType The group type. Possible values are: Public or Private. */
+    /**
+     * @var string|null $groupType The group type. Possible values are: Public or Private.
+    */
     private ?string $groupType = null;
     
-    /** @var bool|null $isDeleted Whether this user has been deleted or soft deleted. */
+    /**
+     * @var bool|null $isDeleted Whether this user has been deleted or soft deleted.
+    */
     private ?bool $isDeleted = null;
     
-    /** @var Date|null $lastActivityDate The last activity date for the following scenarios:  group mailbox received email; user viewed, edited, shared, or synced files in SharePoint document library; user viewed SharePoint pages; user posted, read, or liked messages in Yammer groups. */
+    /**
+     * @var Date|null $lastActivityDate The last activity date for the following scenarios:  group mailbox received email; user viewed, edited, shared, or synced files in SharePoint document library; user viewed SharePoint pages; user posted, read, or liked messages in Yammer groups.
+    */
     private ?Date $lastActivityDate = null;
     
-    /** @var int|null $memberCount The group member count. */
+    /**
+     * @var int|null $memberCount The group member count.
+    */
     private ?int $memberCount = null;
     
-    /** @var string|null $ownerPrincipalName The group owner principal name. */
+    /**
+     * @var string|null $ownerPrincipalName The group owner principal name.
+    */
     private ?string $ownerPrincipalName = null;
     
-    /** @var string|null $reportPeriod The number of days the report covers. */
+    /**
+     * @var string|null $reportPeriod The number of days the report covers.
+    */
     private ?string $reportPeriod = null;
     
-    /** @var Date|null $reportRefreshDate The latest date of the content. */
+    /**
+     * @var Date|null $reportRefreshDate The latest date of the content.
+    */
     private ?Date $reportRefreshDate = null;
     
-    /** @var int|null $sharePointActiveFileCount The number of active files in SharePoint Group site. */
+    /**
+     * @var int|null $sharePointActiveFileCount The number of active files in SharePoint Group site.
+    */
     private ?int $sharePointActiveFileCount = null;
     
-    /** @var int|null $sharePointSiteStorageUsedInBytes The storage used by SharePoint Group site. */
+    /**
+     * @var int|null $sharePointSiteStorageUsedInBytes The storage used by SharePoint Group site.
+    */
     private ?int $sharePointSiteStorageUsedInBytes = null;
     
-    /** @var int|null $sharePointTotalFileCount The total number of files in SharePoint Group site. */
+    /**
+     * @var int|null $sharePointTotalFileCount The total number of files in SharePoint Group site.
+    */
     private ?int $sharePointTotalFileCount = null;
     
-    /** @var int|null $yammerLikedMessageCount The number of messages liked in Yammer groups. */
+    /**
+     * @var int|null $yammerLikedMessageCount The number of messages liked in Yammer groups.
+    */
     private ?int $yammerLikedMessageCount = null;
     
-    /** @var int|null $yammerPostedMessageCount The number of messages posted to Yammer groups. */
+    /**
+     * @var int|null $yammerPostedMessageCount The number of messages posted to Yammer groups.
+    */
     private ?int $yammerPostedMessageCount = null;
     
-    /** @var int|null $yammerReadMessageCount The number of messages read in Yammer groups. */
+    /**
+     * @var int|null $yammerReadMessageCount The number of messages read in Yammer groups.
+    */
     private ?int $yammerReadMessageCount = null;
     
     /**
@@ -78,7 +116,7 @@ class Office365GroupsActivityDetail extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Office365GroupsActivityDetail
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Office365GroupsActivityDetail {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Office365GroupsActivityDetail {
         return new Office365GroupsActivityDetail();
     }
 
@@ -119,26 +157,27 @@ class Office365GroupsActivityDetail extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'exchangeMailboxStorageUsedInBytes' => function (self $o, ParseNode $n) { $o->setExchangeMailboxStorageUsedInBytes($n->getIntegerValue()); },
-            'exchangeMailboxTotalItemCount' => function (self $o, ParseNode $n) { $o->setExchangeMailboxTotalItemCount($n->getIntegerValue()); },
-            'exchangeReceivedEmailCount' => function (self $o, ParseNode $n) { $o->setExchangeReceivedEmailCount($n->getIntegerValue()); },
-            'externalMemberCount' => function (self $o, ParseNode $n) { $o->setExternalMemberCount($n->getIntegerValue()); },
-            'groupDisplayName' => function (self $o, ParseNode $n) { $o->setGroupDisplayName($n->getStringValue()); },
-            'groupId' => function (self $o, ParseNode $n) { $o->setGroupId($n->getStringValue()); },
-            'groupType' => function (self $o, ParseNode $n) { $o->setGroupType($n->getStringValue()); },
-            'isDeleted' => function (self $o, ParseNode $n) { $o->setIsDeleted($n->getBooleanValue()); },
-            'lastActivityDate' => function (self $o, ParseNode $n) { $o->setLastActivityDate($n->getDateValue()); },
-            'memberCount' => function (self $o, ParseNode $n) { $o->setMemberCount($n->getIntegerValue()); },
-            'ownerPrincipalName' => function (self $o, ParseNode $n) { $o->setOwnerPrincipalName($n->getStringValue()); },
-            'reportPeriod' => function (self $o, ParseNode $n) { $o->setReportPeriod($n->getStringValue()); },
-            'reportRefreshDate' => function (self $o, ParseNode $n) { $o->setReportRefreshDate($n->getDateValue()); },
-            'sharePointActiveFileCount' => function (self $o, ParseNode $n) { $o->setSharePointActiveFileCount($n->getIntegerValue()); },
-            'sharePointSiteStorageUsedInBytes' => function (self $o, ParseNode $n) { $o->setSharePointSiteStorageUsedInBytes($n->getIntegerValue()); },
-            'sharePointTotalFileCount' => function (self $o, ParseNode $n) { $o->setSharePointTotalFileCount($n->getIntegerValue()); },
-            'yammerLikedMessageCount' => function (self $o, ParseNode $n) { $o->setYammerLikedMessageCount($n->getIntegerValue()); },
-            'yammerPostedMessageCount' => function (self $o, ParseNode $n) { $o->setYammerPostedMessageCount($n->getIntegerValue()); },
-            'yammerReadMessageCount' => function (self $o, ParseNode $n) { $o->setYammerReadMessageCount($n->getIntegerValue()); },
+            'exchangeMailboxStorageUsedInBytes' => function (ParseNode $n) use ($o) { $o->setExchangeMailboxStorageUsedInBytes($n->getIntegerValue()); },
+            'exchangeMailboxTotalItemCount' => function (ParseNode $n) use ($o) { $o->setExchangeMailboxTotalItemCount($n->getIntegerValue()); },
+            'exchangeReceivedEmailCount' => function (ParseNode $n) use ($o) { $o->setExchangeReceivedEmailCount($n->getIntegerValue()); },
+            'externalMemberCount' => function (ParseNode $n) use ($o) { $o->setExternalMemberCount($n->getIntegerValue()); },
+            'groupDisplayName' => function (ParseNode $n) use ($o) { $o->setGroupDisplayName($n->getStringValue()); },
+            'groupId' => function (ParseNode $n) use ($o) { $o->setGroupId($n->getStringValue()); },
+            'groupType' => function (ParseNode $n) use ($o) { $o->setGroupType($n->getStringValue()); },
+            'isDeleted' => function (ParseNode $n) use ($o) { $o->setIsDeleted($n->getBooleanValue()); },
+            'lastActivityDate' => function (ParseNode $n) use ($o) { $o->setLastActivityDate($n->getDateValue()); },
+            'memberCount' => function (ParseNode $n) use ($o) { $o->setMemberCount($n->getIntegerValue()); },
+            'ownerPrincipalName' => function (ParseNode $n) use ($o) { $o->setOwnerPrincipalName($n->getStringValue()); },
+            'reportPeriod' => function (ParseNode $n) use ($o) { $o->setReportPeriod($n->getStringValue()); },
+            'reportRefreshDate' => function (ParseNode $n) use ($o) { $o->setReportRefreshDate($n->getDateValue()); },
+            'sharePointActiveFileCount' => function (ParseNode $n) use ($o) { $o->setSharePointActiveFileCount($n->getIntegerValue()); },
+            'sharePointSiteStorageUsedInBytes' => function (ParseNode $n) use ($o) { $o->setSharePointSiteStorageUsedInBytes($n->getIntegerValue()); },
+            'sharePointTotalFileCount' => function (ParseNode $n) use ($o) { $o->setSharePointTotalFileCount($n->getIntegerValue()); },
+            'yammerLikedMessageCount' => function (ParseNode $n) use ($o) { $o->setYammerLikedMessageCount($n->getIntegerValue()); },
+            'yammerPostedMessageCount' => function (ParseNode $n) use ($o) { $o->setYammerPostedMessageCount($n->getIntegerValue()); },
+            'yammerReadMessageCount' => function (ParseNode $n) use ($o) { $o->setYammerReadMessageCount($n->getIntegerValue()); },
         ]);
     }
 

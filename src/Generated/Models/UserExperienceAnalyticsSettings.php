@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserExperienceAnalyticsSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $configurationManagerDataConnectorConfigured True if Tenant attach is configured. If configured then SCCM tenant attached devices will show up in UXA reporting. */
+    /**
+     * @var bool|null $configurationManagerDataConnectorConfigured True if Tenant attach is configured. If configured then SCCM tenant attached devices will show up in UXA reporting.
+    */
     private ?bool $configurationManagerDataConnectorConfigured = null;
     
     /**
@@ -27,7 +31,7 @@ class UserExperienceAnalyticsSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsSettings {
         return new UserExperienceAnalyticsSettings();
     }
 
@@ -52,8 +56,9 @@ class UserExperienceAnalyticsSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'configurationManagerDataConnectorConfigured' => function (self $o, ParseNode $n) { $o->setConfigurationManagerDataConnectorConfigured($n->getBooleanValue()); },
+            'configurationManagerDataConnectorConfigured' => function (ParseNode $n) use ($o) { $o->setConfigurationManagerDataConnectorConfigured($n->getBooleanValue()); },
         ];
     }
 

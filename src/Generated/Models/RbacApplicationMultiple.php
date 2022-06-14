@@ -6,15 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RbacApplicationMultiple extends Entity 
+class RbacApplicationMultiple extends Entity implements Parsable 
 {
-    /** @var array<UnifiedRbacResourceNamespace>|null $resourceNamespaces The resourceNamespaces property */
+    /**
+     * @var array<UnifiedRbacResourceNamespace>|null $resourceNamespaces The resourceNamespaces property
+    */
     private ?array $resourceNamespaces = null;
     
-    /** @var array<UnifiedRoleAssignmentMultiple>|null $roleAssignments The roleAssignments property */
+    /**
+     * @var array<UnifiedRoleAssignmentMultiple>|null $roleAssignments The roleAssignments property
+    */
     private ?array $roleAssignments = null;
     
-    /** @var array<UnifiedRoleDefinition>|null $roleDefinitions The roleDefinitions property */
+    /**
+     * @var array<UnifiedRoleDefinition>|null $roleDefinitions The roleDefinitions property
+    */
     private ?array $roleDefinitions = null;
     
     /**
@@ -29,7 +35,7 @@ class RbacApplicationMultiple extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RbacApplicationMultiple
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RbacApplicationMultiple {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RbacApplicationMultiple {
         return new RbacApplicationMultiple();
     }
 
@@ -38,10 +44,11 @@ class RbacApplicationMultiple extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'resourceNamespaces' => function (self $o, ParseNode $n) { $o->setResourceNamespaces($n->getCollectionOfObjectValues(UnifiedRbacResourceNamespace::class)); },
-            'roleAssignments' => function (self $o, ParseNode $n) { $o->setRoleAssignments($n->getCollectionOfObjectValues(UnifiedRoleAssignmentMultiple::class)); },
-            'roleDefinitions' => function (self $o, ParseNode $n) { $o->setRoleDefinitions($n->getCollectionOfObjectValues(UnifiedRoleDefinition::class)); },
+            'resourceNamespaces' => function (ParseNode $n) use ($o) { $o->setResourceNamespaces($n->getCollectionOfObjectValues(array(UnifiedRbacResourceNamespace::class, 'createFromDiscriminatorValue'))); },
+            'roleAssignments' => function (ParseNode $n) use ($o) { $o->setRoleAssignments($n->getCollectionOfObjectValues(array(UnifiedRoleAssignmentMultiple::class, 'createFromDiscriminatorValue'))); },
+            'roleDefinitions' => function (ParseNode $n) use ($o) { $o->setRoleDefinitions($n->getCollectionOfObjectValues(array(UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

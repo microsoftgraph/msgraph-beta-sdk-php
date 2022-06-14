@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MeetingRegistrantBase extends Entity 
+class MeetingRegistrantBase extends Entity implements Parsable 
 {
-    /** @var string|null $joinWebUrl A unique web URL for the registrant to join the meeting. Read-only. */
+    /**
+     * @var string|null $joinWebUrl A unique web URL for the registrant to join the meeting. Read-only.
+    */
     private ?string $joinWebUrl = null;
     
     /**
@@ -23,7 +25,15 @@ class MeetingRegistrantBase extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MeetingRegistrantBase
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MeetingRegistrantBase {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MeetingRegistrantBase {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.externalMeetingRegistrant': return new ExternalMeetingRegistrant();
+                case '#microsoft.graph.meetingRegistrant': return new MeetingRegistrant();
+            }
+        }
         return new MeetingRegistrantBase();
     }
 
@@ -32,8 +42,9 @@ class MeetingRegistrantBase extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'joinWebUrl' => function (self $o, ParseNode $n) { $o->setJoinWebUrl($n->getStringValue()); },
+            'joinWebUrl' => function (ParseNode $n) use ($o) { $o->setJoinWebUrl($n->getStringValue()); },
         ]);
     }
 

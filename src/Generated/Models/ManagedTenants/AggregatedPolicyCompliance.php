@@ -8,39 +8,61 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AggregatedPolicyCompliance extends Entity 
+class AggregatedPolicyCompliance extends Entity implements Parsable 
 {
-    /** @var string|null $compliancePolicyId Identifier for the device compliance policy. Optional. Read-only. */
+    /**
+     * @var string|null $compliancePolicyId Identifier for the device compliance policy. Optional. Read-only.
+    */
     private ?string $compliancePolicyId = null;
     
-    /** @var string|null $compliancePolicyName Name of the device compliance policy. Optional. Read-only. */
+    /**
+     * @var string|null $compliancePolicyName Name of the device compliance policy. Optional. Read-only.
+    */
     private ?string $compliancePolicyName = null;
     
-    /** @var string|null $compliancePolicyPlatform Platform for the device compliance policy. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, androidAOSP, all. Optional. Read-only. */
+    /**
+     * @var string|null $compliancePolicyPlatform Platform for the device compliance policy. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, androidAOSP, all. Optional. Read-only.
+    */
     private ?string $compliancePolicyPlatform = null;
     
-    /** @var string|null $compliancePolicyType The type of compliance policy. Optional. Read-only. */
+    /**
+     * @var string|null $compliancePolicyType The type of compliance policy. Optional. Read-only.
+    */
     private ?string $compliancePolicyType = null;
     
-    /** @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only. */
+    /**
+     * @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
+    */
     private ?DateTime $lastRefreshedDateTime = null;
     
-    /** @var int|null $numberOfCompliantDevices The number of devices that are in a compliant status. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfCompliantDevices The number of devices that are in a compliant status. Optional. Read-only.
+    */
     private ?int $numberOfCompliantDevices = null;
     
-    /** @var int|null $numberOfErrorDevices The number of devices that are in an error status. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfErrorDevices The number of devices that are in an error status. Optional. Read-only.
+    */
     private ?int $numberOfErrorDevices = null;
     
-    /** @var int|null $numberOfNonCompliantDevices The number of device that are in a non-compliant status. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfNonCompliantDevices The number of device that are in a non-compliant status. Optional. Read-only.
+    */
     private ?int $numberOfNonCompliantDevices = null;
     
-    /** @var DateTime|null $policyModifiedDateTime The date and time the device policy was last modified. Optional. Read-only. */
+    /**
+     * @var DateTime|null $policyModifiedDateTime The date and time the device policy was last modified. Optional. Read-only.
+    */
     private ?DateTime $policyModifiedDateTime = null;
     
-    /** @var string|null $tenantDisplayName The display name for the managed tenant. Optional. Read-only. */
+    /**
+     * @var string|null $tenantDisplayName The display name for the managed tenant. Optional. Read-only.
+    */
     private ?string $tenantDisplayName = null;
     
-    /** @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only. */
+    /**
+     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
+    */
     private ?string $tenantId = null;
     
     /**
@@ -55,7 +77,7 @@ class AggregatedPolicyCompliance extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AggregatedPolicyCompliance
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AggregatedPolicyCompliance {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AggregatedPolicyCompliance {
         return new AggregatedPolicyCompliance();
     }
 
@@ -96,18 +118,19 @@ class AggregatedPolicyCompliance extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'compliancePolicyId' => function (self $o, ParseNode $n) { $o->setCompliancePolicyId($n->getStringValue()); },
-            'compliancePolicyName' => function (self $o, ParseNode $n) { $o->setCompliancePolicyName($n->getStringValue()); },
-            'compliancePolicyPlatform' => function (self $o, ParseNode $n) { $o->setCompliancePolicyPlatform($n->getStringValue()); },
-            'compliancePolicyType' => function (self $o, ParseNode $n) { $o->setCompliancePolicyType($n->getStringValue()); },
-            'lastRefreshedDateTime' => function (self $o, ParseNode $n) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
-            'numberOfCompliantDevices' => function (self $o, ParseNode $n) { $o->setNumberOfCompliantDevices($n->getIntegerValue()); },
-            'numberOfErrorDevices' => function (self $o, ParseNode $n) { $o->setNumberOfErrorDevices($n->getIntegerValue()); },
-            'numberOfNonCompliantDevices' => function (self $o, ParseNode $n) { $o->setNumberOfNonCompliantDevices($n->getIntegerValue()); },
-            'policyModifiedDateTime' => function (self $o, ParseNode $n) { $o->setPolicyModifiedDateTime($n->getDateTimeValue()); },
-            'tenantDisplayName' => function (self $o, ParseNode $n) { $o->setTenantDisplayName($n->getStringValue()); },
-            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
+            'compliancePolicyId' => function (ParseNode $n) use ($o) { $o->setCompliancePolicyId($n->getStringValue()); },
+            'compliancePolicyName' => function (ParseNode $n) use ($o) { $o->setCompliancePolicyName($n->getStringValue()); },
+            'compliancePolicyPlatform' => function (ParseNode $n) use ($o) { $o->setCompliancePolicyPlatform($n->getStringValue()); },
+            'compliancePolicyType' => function (ParseNode $n) use ($o) { $o->setCompliancePolicyType($n->getStringValue()); },
+            'lastRefreshedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
+            'numberOfCompliantDevices' => function (ParseNode $n) use ($o) { $o->setNumberOfCompliantDevices($n->getIntegerValue()); },
+            'numberOfErrorDevices' => function (ParseNode $n) use ($o) { $o->setNumberOfErrorDevices($n->getIntegerValue()); },
+            'numberOfNonCompliantDevices' => function (ParseNode $n) use ($o) { $o->setNumberOfNonCompliantDevices($n->getIntegerValue()); },
+            'policyModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setPolicyModifiedDateTime($n->getDateTimeValue()); },
+            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
+            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
         ]);
     }
 

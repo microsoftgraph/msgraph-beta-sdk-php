@@ -6,13 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCategory 
+class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCategory implements Parsable 
 {
-    /** @var array<DeviceManagementSettingInstance>|null $settings The settings this category contains */
+    /**
+     * @var array<DeviceManagementSettingInstance>|null $settings The settings this category contains
+    */
     private ?array $settings = null;
     
     /**
-     * Instantiates a new deviceManagementIntentSettingCategory and sets the default values.
+     * Instantiates a new DeviceManagementIntentSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -23,7 +25,7 @@ class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCateg
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementIntentSettingCategory
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementIntentSettingCategory {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementIntentSettingCategory {
         return new DeviceManagementIntentSettingCategory();
     }
 
@@ -32,8 +34,9 @@ class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCateg
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getCollectionOfObjectValues(DeviceManagementSettingInstance::class)); },
+            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getCollectionOfObjectValues(array(DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

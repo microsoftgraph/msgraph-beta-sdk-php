@@ -6,15 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AuthenticationContextClassReference extends Entity 
+class AuthenticationContextClassReference extends Entity implements Parsable 
 {
-    /** @var string|null $description A short explanation of the policies that are enforced by authenticationContextClassReference. This value should be used to provide secondary text to describe the authentication context class reference when building user facing admin experiences. For example, selection UX. */
+    /**
+     * @var string|null $description A short explanation of the policies that are enforced by authenticationContextClassReference. This value should be used to provide secondary text to describe the authentication context class reference when building user facing admin experiences. For example, selection UX.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The display name is the friendly name of the authenticationContextClassReference. This value should be used to identify the authentication context class reference when building user facing admin experiences. For example, selection UX. */
+    /**
+     * @var string|null $displayName The display name is the friendly name of the authenticationContextClassReference. This value should be used to identify the authentication context class reference when building user facing admin experiences. For example, selection UX.
+    */
     private ?string $displayName = null;
     
-    /** @var bool|null $isAvailable Indicates whether the authenticationContextClassReference has been published by the security admin and is ready for use by apps. When it is set to false it should not be shown in admin UX experiences because the value is not currently available for selection. */
+    /**
+     * @var bool|null $isAvailable Indicates whether the authenticationContextClassReference has been published by the security admin and is ready for use by apps. When it is set to false it should not be shown in admin UX experiences because the value is not currently available for selection.
+    */
     private ?bool $isAvailable = null;
     
     /**
@@ -29,7 +35,7 @@ class AuthenticationContextClassReference extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AuthenticationContextClassReference
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationContextClassReference {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationContextClassReference {
         return new AuthenticationContextClassReference();
     }
 
@@ -54,10 +60,11 @@ class AuthenticationContextClassReference extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'isAvailable' => function (self $o, ParseNode $n) { $o->setIsAvailable($n->getBooleanValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'isAvailable' => function (ParseNode $n) use ($o) { $o->setIsAvailable($n->getBooleanValue()); },
         ]);
     }
 

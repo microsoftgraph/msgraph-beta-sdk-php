@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserRegistrationCount implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $registrationCount Provides the registration count for your tenant. */
+    /**
+     * @var int|null $registrationCount Provides the registration count for your tenant.
+    */
     private ?int $registrationCount = null;
     
-    /** @var RegistrationStatusType|null $registrationStatus Represents the status of user registration. Possible values are: registered, enabled, capable, and mfaRegistered. */
+    /**
+     * @var RegistrationStatusType|null $registrationStatus Represents the status of user registration. Possible values are: registered, enabled, capable, and mfaRegistered.
+    */
     private ?RegistrationStatusType $registrationStatus = null;
     
     /**
@@ -30,7 +36,7 @@ class UserRegistrationCount implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserRegistrationCount
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserRegistrationCount {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserRegistrationCount {
         return new UserRegistrationCount();
     }
 
@@ -47,9 +53,10 @@ class UserRegistrationCount implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'registrationCount' => function (self $o, ParseNode $n) { $o->setRegistrationCount($n->getIntegerValue()); },
-            'registrationStatus' => function (self $o, ParseNode $n) { $o->setRegistrationStatus($n->getEnumValue(RegistrationStatusType::class)); },
+            'registrationCount' => function (ParseNode $n) use ($o) { $o->setRegistrationCount($n->getIntegerValue()); },
+            'registrationStatus' => function (ParseNode $n) use ($o) { $o->setRegistrationStatus($n->getEnumValue(RegistrationStatusType::class)); },
         ];
     }
 

@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CloudPcRestorePointSetting implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $frequencyInHours The time interval in hours to take snapshots (restore points) of a Cloud PC automatically. Possible values are 4, 6, 12, 16, and 24. The default frequency is 12 hours. */
+    /**
+     * @var int|null $frequencyInHours The time interval in hours to take snapshots (restore points) of a Cloud PC automatically. Possible values are 4, 6, 12, 16, and 24. The default frequency is 12 hours.
+    */
     private ?int $frequencyInHours = null;
     
-    /** @var bool|null $userRestoreEnabled If true, the user has the ability to use snapshots to restore Cloud PCs. If false, non-admin users cannot use snapshots to restore the Cloud PC. */
+    /**
+     * @var bool|null $userRestoreEnabled If true, the user has the ability to use snapshots to restore Cloud PCs. If false, non-admin users cannot use snapshots to restore the Cloud PC.
+    */
     private ?bool $userRestoreEnabled = null;
     
     /**
@@ -30,7 +36,7 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcRestorePointSetting
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcRestorePointSetting {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcRestorePointSetting {
         return new CloudPcRestorePointSetting();
     }
 
@@ -47,9 +53,10 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'frequencyInHours' => function (self $o, ParseNode $n) { $o->setFrequencyInHours($n->getIntegerValue()); },
-            'userRestoreEnabled' => function (self $o, ParseNode $n) { $o->setUserRestoreEnabled($n->getBooleanValue()); },
+            'frequencyInHours' => function (ParseNode $n) use ($o) { $o->setFrequencyInHours($n->getIntegerValue()); },
+            'userRestoreEnabled' => function (ParseNode $n) use ($o) { $o->setUserRestoreEnabled($n->getBooleanValue()); },
         ];
     }
 

@@ -10,22 +10,34 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 
 class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $dateFormat The date format for the device. */
+    /**
+     * @var string|null $dateFormat The date format for the device.
+    */
     private ?string $dateFormat = null;
     
-    /** @var Time|null $officeHoursEndTime The time of the day when the device is turned off. */
+    /**
+     * @var Time|null $officeHoursEndTime The time of the day when the device is turned off.
+    */
     private ?Time $officeHoursEndTime = null;
     
-    /** @var Time|null $officeHoursStartTime The time of the day when the device is turned on. */
+    /**
+     * @var Time|null $officeHoursStartTime The time of the day when the device is turned on.
+    */
     private ?Time $officeHoursStartTime = null;
     
-    /** @var string|null $timeFormat The time format for the device. */
+    /**
+     * @var string|null $timeFormat The time format for the device.
+    */
     private ?string $timeFormat = null;
     
-    /** @var string|null $timeZone The time zone to which the office hours apply. */
+    /**
+     * @var string|null $timeZone The time zone to which the office hours apply.
+    */
     private ?string $timeZone = null;
     
     /**
@@ -40,7 +52,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkDateTimeConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDateTimeConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDateTimeConfiguration {
         return new TeamworkDateTimeConfiguration();
     }
 
@@ -65,12 +77,13 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'dateFormat' => function (self $o, ParseNode $n) { $o->setDateFormat($n->getStringValue()); },
-            'officeHoursEndTime' => function (self $o, ParseNode $n) { $o->setOfficeHoursEndTime($n->getTimeValue()); },
-            'officeHoursStartTime' => function (self $o, ParseNode $n) { $o->setOfficeHoursStartTime($n->getTimeValue()); },
-            'timeFormat' => function (self $o, ParseNode $n) { $o->setTimeFormat($n->getStringValue()); },
-            'timeZone' => function (self $o, ParseNode $n) { $o->setTimeZone($n->getStringValue()); },
+            'dateFormat' => function (ParseNode $n) use ($o) { $o->setDateFormat($n->getStringValue()); },
+            'officeHoursEndTime' => function (ParseNode $n) use ($o) { $o->setOfficeHoursEndTime($n->getTimeValue()); },
+            'officeHoursStartTime' => function (ParseNode $n) use ($o) { $o->setOfficeHoursStartTime($n->getTimeValue()); },
+            'timeFormat' => function (ParseNode $n) use ($o) { $o->setTimeFormat($n->getStringValue()); },
+            'timeZone' => function (ParseNode $n) use ($o) { $o->setTimeZone($n->getStringValue()); },
         ];
     }
 

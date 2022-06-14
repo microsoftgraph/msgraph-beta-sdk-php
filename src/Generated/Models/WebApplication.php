@@ -9,25 +9,39 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class WebApplication implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $homePageUrl Home page or landing page of the application. */
+    /**
+     * @var string|null $homePageUrl Home page or landing page of the application.
+    */
     private ?string $homePageUrl = null;
     
-    /** @var ImplicitGrantSettings|null $implicitGrantSettings Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow. */
+    /**
+     * @var ImplicitGrantSettings|null $implicitGrantSettings Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow.
+    */
     private ?ImplicitGrantSettings $implicitGrantSettings = null;
     
-    /** @var string|null $logoutUrl Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols. */
+    /**
+     * @var string|null $logoutUrl Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols.
+    */
     private ?string $logoutUrl = null;
     
-    /** @var bool|null $oauth2AllowImplicitFlow The oauth2AllowImplicitFlow property */
+    /**
+     * @var bool|null $oauth2AllowImplicitFlow The oauth2AllowImplicitFlow property
+    */
     private ?bool $oauth2AllowImplicitFlow = null;
     
-    /** @var array<string>|null $redirectUris Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. */
+    /**
+     * @var array<string>|null $redirectUris Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
+    */
     private ?array $redirectUris = null;
     
-    /** @var array<RedirectUriSettings>|null $redirectUriSettings Specifies the index of the URLs where user tokens are sent for sign-in. This is only valid for applications using SAML. */
+    /**
+     * @var array<RedirectUriSettings>|null $redirectUriSettings Specifies the index of the URLs where user tokens are sent for sign-in. This is only valid for applications using SAML.
+    */
     private ?array $redirectUriSettings = null;
     
     /**
@@ -42,7 +56,7 @@ class WebApplication implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WebApplication
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): WebApplication {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): WebApplication {
         return new WebApplication();
     }
 
@@ -59,13 +73,14 @@ class WebApplication implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'homePageUrl' => function (self $o, ParseNode $n) { $o->setHomePageUrl($n->getStringValue()); },
-            'implicitGrantSettings' => function (self $o, ParseNode $n) { $o->setImplicitGrantSettings($n->getObjectValue(ImplicitGrantSettings::class)); },
-            'logoutUrl' => function (self $o, ParseNode $n) { $o->setLogoutUrl($n->getStringValue()); },
-            'oauth2AllowImplicitFlow' => function (self $o, ParseNode $n) { $o->setOauth2AllowImplicitFlow($n->getBooleanValue()); },
-            'redirectUris' => function (self $o, ParseNode $n) { $o->setRedirectUris($n->getCollectionOfPrimitiveValues()); },
-            'redirectUriSettings' => function (self $o, ParseNode $n) { $o->setRedirectUriSettings($n->getCollectionOfObjectValues(RedirectUriSettings::class)); },
+            'homePageUrl' => function (ParseNode $n) use ($o) { $o->setHomePageUrl($n->getStringValue()); },
+            'implicitGrantSettings' => function (ParseNode $n) use ($o) { $o->setImplicitGrantSettings($n->getObjectValue(array(ImplicitGrantSettings::class, 'createFromDiscriminatorValue'))); },
+            'logoutUrl' => function (ParseNode $n) use ($o) { $o->setLogoutUrl($n->getStringValue()); },
+            'oauth2AllowImplicitFlow' => function (ParseNode $n) use ($o) { $o->setOauth2AllowImplicitFlow($n->getBooleanValue()); },
+            'redirectUris' => function (ParseNode $n) use ($o) { $o->setRedirectUris($n->getCollectionOfPrimitiveValues()); },
+            'redirectUriSettings' => function (ParseNode $n) use ($o) { $o->setRedirectUriSettings($n->getCollectionOfObjectValues(array(RedirectUriSettings::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

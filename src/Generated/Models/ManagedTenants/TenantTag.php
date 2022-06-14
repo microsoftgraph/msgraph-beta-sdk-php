@@ -8,30 +8,46 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TenantTag extends Entity 
+class TenantTag extends Entity implements Parsable 
 {
-    /** @var string|null $createdByUserId The identifier for the account that created the tenant tag. Required. Read-only. */
+    /**
+     * @var string|null $createdByUserId The identifier for the account that created the tenant tag. Required. Read-only.
+    */
     private ?string $createdByUserId = null;
     
-    /** @var DateTime|null $createdDateTime The date and time when the tenant tag was created. Required. Read-only. */
+    /**
+     * @var DateTime|null $createdDateTime The date and time when the tenant tag was created. Required. Read-only.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var DateTime|null $deletedDateTime The date and time when the tenant tag was deleted. Required. Read-only. */
+    /**
+     * @var DateTime|null $deletedDateTime The date and time when the tenant tag was deleted. Required. Read-only.
+    */
     private ?DateTime $deletedDateTime = null;
     
-    /** @var string|null $description The description for the tenant tag. Optional. Read-only. */
+    /**
+     * @var string|null $description The description for the tenant tag. Optional. Read-only.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The display name for the tenant tag. Required. Read-only. */
+    /**
+     * @var string|null $displayName The display name for the tenant tag. Required. Read-only.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $lastActionByUserId The identifier for the account that lasted on the tenant tag. Optional. Read-only. */
+    /**
+     * @var string|null $lastActionByUserId The identifier for the account that lasted on the tenant tag. Optional. Read-only.
+    */
     private ?string $lastActionByUserId = null;
     
-    /** @var DateTime|null $lastActionDateTime The date and time the last action was performed against the tenant tag. Optional. Read-only. */
+    /**
+     * @var DateTime|null $lastActionDateTime The date and time the last action was performed against the tenant tag. Optional. Read-only.
+    */
     private ?DateTime $lastActionDateTime = null;
     
-    /** @var array<TenantInfo>|null $tenants The collection of managed tenants associated with the tenant tag. Optional. */
+    /**
+     * @var array<TenantInfo>|null $tenants The collection of managed tenants associated with the tenant tag. Optional.
+    */
     private ?array $tenants = null;
     
     /**
@@ -46,7 +62,7 @@ class TenantTag extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TenantTag
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TenantTag {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TenantTag {
         return new TenantTag();
     }
 
@@ -95,15 +111,16 @@ class TenantTag extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdByUserId' => function (self $o, ParseNode $n) { $o->setCreatedByUserId($n->getStringValue()); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deletedDateTime' => function (self $o, ParseNode $n) { $o->setDeletedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'lastActionByUserId' => function (self $o, ParseNode $n) { $o->setLastActionByUserId($n->getStringValue()); },
-            'lastActionDateTime' => function (self $o, ParseNode $n) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'tenants' => function (self $o, ParseNode $n) { $o->setTenants($n->getCollectionOfObjectValues(TenantInfo::class)); },
+            'createdByUserId' => function (ParseNode $n) use ($o) { $o->setCreatedByUserId($n->getStringValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'deletedDateTime' => function (ParseNode $n) use ($o) { $o->setDeletedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'lastActionByUserId' => function (ParseNode $n) use ($o) { $o->setLastActionByUserId($n->getStringValue()); },
+            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
+            'tenants' => function (ParseNode $n) use ($o) { $o->setTenants($n->getCollectionOfObjectValues(array(TenantInfo::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

@@ -9,54 +9,86 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class DeviceShellScript extends Entity 
+class DeviceShellScript extends Entity implements Parsable 
 {
-    /** @var array<DeviceManagementScriptAssignment>|null $assignments The list of group assignments for the device management script. */
+    /**
+     * @var array<DeviceManagementScriptAssignment>|null $assignments The list of group assignments for the device management script.
+    */
     private ?array $assignments = null;
     
-    /** @var bool|null $blockExecutionNotifications Does not notify the user a script is being executed */
+    /**
+     * @var bool|null $blockExecutionNotifications Does not notify the user a script is being executed
+    */
     private ?bool $blockExecutionNotifications = null;
     
-    /** @var DateTime|null $createdDateTime The date and time the device management script was created. This property is read-only. */
+    /**
+     * @var DateTime|null $createdDateTime The date and time the device management script was created. This property is read-only.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $description Optional description for the device management script. */
+    /**
+     * @var string|null $description Optional description for the device management script.
+    */
     private ?string $description = null;
     
-    /** @var array<DeviceManagementScriptDeviceState>|null $deviceRunStates List of run states for this script across all devices. */
+    /**
+     * @var array<DeviceManagementScriptDeviceState>|null $deviceRunStates List of run states for this script across all devices.
+    */
     private ?array $deviceRunStates = null;
     
-    /** @var string|null $displayName Name of the device management script. */
+    /**
+     * @var string|null $displayName Name of the device management script.
+    */
     private ?string $displayName = null;
     
-    /** @var DateInterval|null $executionFrequency The interval for script to run. If not defined the script will run once */
+    /**
+     * @var DateInterval|null $executionFrequency The interval for script to run. If not defined the script will run once
+    */
     private ?DateInterval $executionFrequency = null;
     
-    /** @var string|null $fileName Script file name. */
+    /**
+     * @var string|null $fileName Script file name.
+    */
     private ?string $fileName = null;
     
-    /** @var array<DeviceManagementScriptGroupAssignment>|null $groupAssignments The list of group assignments for the device management script. */
+    /**
+     * @var array<DeviceManagementScriptGroupAssignment>|null $groupAssignments The list of group assignments for the device management script.
+    */
     private ?array $groupAssignments = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The date and time the device management script was last modified. This property is read-only. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The date and time the device management script was last modified. This property is read-only.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var int|null $retryCount Number of times for the script to be retried if it fails */
+    /**
+     * @var int|null $retryCount Number of times for the script to be retried if it fails
+    */
     private ?int $retryCount = null;
     
-    /** @var array<string>|null $roleScopeTagIds List of Scope Tag IDs for this PowerShellScript instance. */
+    /**
+     * @var array<string>|null $roleScopeTagIds List of Scope Tag IDs for this PowerShellScript instance.
+    */
     private ?array $roleScopeTagIds = null;
     
-    /** @var RunAsAccountType|null $runAsAccount Indicates the type of execution context. Possible values are: system, user. */
+    /**
+     * @var RunAsAccountType|null $runAsAccount Indicates the type of execution context. Possible values are: system, user.
+    */
     private ?RunAsAccountType $runAsAccount = null;
     
-    /** @var DeviceManagementScriptRunSummary|null $runSummary Run summary for device management script. */
+    /**
+     * @var DeviceManagementScriptRunSummary|null $runSummary Run summary for device management script.
+    */
     private ?DeviceManagementScriptRunSummary $runSummary = null;
     
-    /** @var StreamInterface|null $scriptContent The script content. */
+    /**
+     * @var StreamInterface|null $scriptContent The script content.
+    */
     private ?StreamInterface $scriptContent = null;
     
-    /** @var array<DeviceManagementScriptUserState>|null $userRunStates List of run states for this script across all users. */
+    /**
+     * @var array<DeviceManagementScriptUserState>|null $userRunStates List of run states for this script across all users.
+    */
     private ?array $userRunStates = null;
     
     /**
@@ -71,7 +103,7 @@ class DeviceShellScript extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceShellScript
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceShellScript {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceShellScript {
         return new DeviceShellScript();
     }
 
@@ -136,23 +168,24 @@ class DeviceShellScript extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(DeviceManagementScriptAssignment::class)); },
-            'blockExecutionNotifications' => function (self $o, ParseNode $n) { $o->setBlockExecutionNotifications($n->getBooleanValue()); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'deviceRunStates' => function (self $o, ParseNode $n) { $o->setDeviceRunStates($n->getCollectionOfObjectValues(DeviceManagementScriptDeviceState::class)); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'executionFrequency' => function (self $o, ParseNode $n) { $o->setExecutionFrequency($n->getDateIntervalValue()); },
-            'fileName' => function (self $o, ParseNode $n) { $o->setFileName($n->getStringValue()); },
-            'groupAssignments' => function (self $o, ParseNode $n) { $o->setGroupAssignments($n->getCollectionOfObjectValues(DeviceManagementScriptGroupAssignment::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'retryCount' => function (self $o, ParseNode $n) { $o->setRetryCount($n->getIntegerValue()); },
-            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'runAsAccount' => function (self $o, ParseNode $n) { $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)); },
-            'runSummary' => function (self $o, ParseNode $n) { $o->setRunSummary($n->getObjectValue(DeviceManagementScriptRunSummary::class)); },
-            'scriptContent' => function (self $o, ParseNode $n) { $o->setScriptContent($n->getBinaryContent()); },
-            'userRunStates' => function (self $o, ParseNode $n) { $o->setUserRunStates($n->getCollectionOfObjectValues(DeviceManagementScriptUserState::class)); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceManagementScriptAssignment::class, 'createFromDiscriminatorValue'))); },
+            'blockExecutionNotifications' => function (ParseNode $n) use ($o) { $o->setBlockExecutionNotifications($n->getBooleanValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'deviceRunStates' => function (ParseNode $n) use ($o) { $o->setDeviceRunStates($n->getCollectionOfObjectValues(array(DeviceManagementScriptDeviceState::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'executionFrequency' => function (ParseNode $n) use ($o) { $o->setExecutionFrequency($n->getDateIntervalValue()); },
+            'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
+            'groupAssignments' => function (ParseNode $n) use ($o) { $o->setGroupAssignments($n->getCollectionOfObjectValues(array(DeviceManagementScriptGroupAssignment::class, 'createFromDiscriminatorValue'))); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'retryCount' => function (ParseNode $n) use ($o) { $o->setRetryCount($n->getIntegerValue()); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'runAsAccount' => function (ParseNode $n) use ($o) { $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)); },
+            'runSummary' => function (ParseNode $n) use ($o) { $o->setRunSummary($n->getObjectValue(array(DeviceManagementScriptRunSummary::class, 'createFromDiscriminatorValue'))); },
+            'scriptContent' => function (ParseNode $n) use ($o) { $o->setScriptContent($n->getBinaryContent()); },
+            'userRunStates' => function (ParseNode $n) use ($o) { $o->setUserRunStates($n->getCollectionOfObjectValues(array(DeviceManagementScriptUserState::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

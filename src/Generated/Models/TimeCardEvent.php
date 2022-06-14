@@ -10,16 +10,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TimeCardEvent implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $atApprovedLocation Indicates whether the entry was recorded at the approved location. */
+    /**
+     * @var bool|null $atApprovedLocation Indicates whether the entry was recorded at the approved location.
+    */
     private ?bool $atApprovedLocation = null;
     
-    /** @var DateTime|null $dateTime The time the entry is recorded. */
+    /**
+     * @var DateTime|null $dateTime The time the entry is recorded.
+    */
     private ?DateTime $dateTime = null;
     
-    /** @var ItemBody|null $notes Notes about the timeCardEvent. */
+    /**
+     * @var ItemBody|null $notes Notes about the timeCardEvent.
+    */
     private ?ItemBody $notes = null;
     
     /**
@@ -34,7 +42,7 @@ class TimeCardEvent implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TimeCardEvent
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TimeCardEvent {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TimeCardEvent {
         return new TimeCardEvent();
     }
 
@@ -67,10 +75,11 @@ class TimeCardEvent implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'atApprovedLocation' => function (self $o, ParseNode $n) { $o->setAtApprovedLocation($n->getBooleanValue()); },
-            'dateTime' => function (self $o, ParseNode $n) { $o->setDateTime($n->getDateTimeValue()); },
-            'notes' => function (self $o, ParseNode $n) { $o->setNotes($n->getObjectValue(ItemBody::class)); },
+            'atApprovedLocation' => function (ParseNode $n) use ($o) { $o->setAtApprovedLocation($n->getBooleanValue()); },
+            'dateTime' => function (ParseNode $n) use ($o) { $o->setDateTime($n->getDateTimeValue()); },
+            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

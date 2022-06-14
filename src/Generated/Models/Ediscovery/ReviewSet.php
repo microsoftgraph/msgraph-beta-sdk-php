@@ -9,18 +9,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ReviewSet extends Entity 
+class ReviewSet extends Entity implements Parsable 
 {
-    /** @var IdentitySet|null $createdBy The user who created the review set. Read-only. */
+    /**
+     * @var IdentitySet|null $createdBy The user who created the review set. Read-only.
+    */
     private ?IdentitySet $createdBy = null;
     
-    /** @var DateTime|null $createdDateTime The datetime when the review set was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
+    /**
+     * @var DateTime|null $createdDateTime The datetime when the review set was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $displayName The review set name. The name is unique with a maximum limit of 64 characters. */
+    /**
+     * @var string|null $displayName The review set name. The name is unique with a maximum limit of 64 characters.
+    */
     private ?string $displayName = null;
     
-    /** @var array<ReviewSetQuery>|null $queries Read-only. Nullable. */
+    /**
+     * @var array<ReviewSetQuery>|null $queries The queries property
+    */
     private ?array $queries = null;
     
     /**
@@ -35,7 +43,7 @@ class ReviewSet extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ReviewSet
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ReviewSet {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ReviewSet {
         return new ReviewSet();
     }
 
@@ -68,16 +76,17 @@ class ReviewSet extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(IdentitySet::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'queries' => function (self $o, ParseNode $n) { $o->setQueries($n->getCollectionOfObjectValues(ReviewSetQuery::class)); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'queries' => function (ParseNode $n) use ($o) { $o->setQueries($n->getCollectionOfObjectValues(array(ReviewSetQuery::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
     /**
-     * Gets the queries property value. Read-only. Nullable.
+     * Gets the queries property value. The queries property
      * @return array<ReviewSetQuery>|null
     */
     public function getQueries(): ?array {
@@ -121,7 +130,7 @@ class ReviewSet extends Entity
     }
 
     /**
-     * Sets the queries property value. Read-only. Nullable.
+     * Sets the queries property value. The queries property
      *  @param array<ReviewSetQuery>|null $value Value to set for the queries property.
     */
     public function setQueries(?array $value ): void {

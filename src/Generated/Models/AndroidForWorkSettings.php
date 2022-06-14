@@ -7,33 +7,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AndroidForWorkSettings extends Entity 
+class AndroidForWorkSettings extends Entity implements Parsable 
 {
-    /** @var AndroidForWorkBindStatus|null $bindStatus Bind status of the tenant with the Google EMM API. Possible values are: notBound, bound, boundAndValidated, unbinding. */
+    /**
+     * @var AndroidForWorkBindStatus|null $bindStatus Bind status of the tenant with the Google EMM API. Possible values are: notBound, bound, boundAndValidated, unbinding.
+    */
     private ?AndroidForWorkBindStatus $bindStatus = null;
     
-    /** @var bool|null $deviceOwnerManagementEnabled Indicates if this account is flighting for Android Device Owner Management with CloudDPC. */
+    /**
+     * @var bool|null $deviceOwnerManagementEnabled Indicates if this account is flighting for Android Device Owner Management with CloudDPC.
+    */
     private ?bool $deviceOwnerManagementEnabled = null;
     
-    /** @var AndroidForWorkEnrollmentTarget|null $enrollmentTarget Indicates which users can enroll devices in Android for Work device management. Possible values are: none, all, targeted, targetedAsEnrollmentRestrictions. */
+    /**
+     * @var AndroidForWorkEnrollmentTarget|null $enrollmentTarget Indicates which users can enroll devices in Android for Work device management. Possible values are: none, all, targeted, targetedAsEnrollmentRestrictions.
+    */
     private ?AndroidForWorkEnrollmentTarget $enrollmentTarget = null;
     
-    /** @var DateTime|null $lastAppSyncDateTime Last completion time for app sync */
+    /**
+     * @var DateTime|null $lastAppSyncDateTime Last completion time for app sync
+    */
     private ?DateTime $lastAppSyncDateTime = null;
     
-    /** @var AndroidForWorkSyncStatus|null $lastAppSyncStatus Last application sync result. Possible values are: success, credentialsNotValid, androidForWorkApiError, managementServiceError, unknownError, none. */
+    /**
+     * @var AndroidForWorkSyncStatus|null $lastAppSyncStatus Last application sync result. Possible values are: success, credentialsNotValid, androidForWorkApiError, managementServiceError, unknownError, none.
+    */
     private ?AndroidForWorkSyncStatus $lastAppSyncStatus = null;
     
-    /** @var DateTime|null $lastModifiedDateTime Last modification time for Android for Work settings */
+    /**
+     * @var DateTime|null $lastModifiedDateTime Last modification time for Android for Work settings
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var string|null $ownerOrganizationName Organization name used when onboarding Android for Work */
+    /**
+     * @var string|null $ownerOrganizationName Organization name used when onboarding Android for Work
+    */
     private ?string $ownerOrganizationName = null;
     
-    /** @var string|null $ownerUserPrincipalName Owner UPN that created the enterprise */
+    /**
+     * @var string|null $ownerUserPrincipalName Owner UPN that created the enterprise
+    */
     private ?string $ownerUserPrincipalName = null;
     
-    /** @var array<string>|null $targetGroupIds Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted' */
+    /**
+     * @var array<string>|null $targetGroupIds Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'
+    */
     private ?array $targetGroupIds = null;
     
     /**
@@ -48,7 +66,7 @@ class AndroidForWorkSettings extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AndroidForWorkSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AndroidForWorkSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidForWorkSettings {
         return new AndroidForWorkSettings();
     }
 
@@ -81,16 +99,17 @@ class AndroidForWorkSettings extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'bindStatus' => function (self $o, ParseNode $n) { $o->setBindStatus($n->getEnumValue(AndroidForWorkBindStatus::class)); },
-            'deviceOwnerManagementEnabled' => function (self $o, ParseNode $n) { $o->setDeviceOwnerManagementEnabled($n->getBooleanValue()); },
-            'enrollmentTarget' => function (self $o, ParseNode $n) { $o->setEnrollmentTarget($n->getEnumValue(AndroidForWorkEnrollmentTarget::class)); },
-            'lastAppSyncDateTime' => function (self $o, ParseNode $n) { $o->setLastAppSyncDateTime($n->getDateTimeValue()); },
-            'lastAppSyncStatus' => function (self $o, ParseNode $n) { $o->setLastAppSyncStatus($n->getEnumValue(AndroidForWorkSyncStatus::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'ownerOrganizationName' => function (self $o, ParseNode $n) { $o->setOwnerOrganizationName($n->getStringValue()); },
-            'ownerUserPrincipalName' => function (self $o, ParseNode $n) { $o->setOwnerUserPrincipalName($n->getStringValue()); },
-            'targetGroupIds' => function (self $o, ParseNode $n) { $o->setTargetGroupIds($n->getCollectionOfPrimitiveValues()); },
+            'bindStatus' => function (ParseNode $n) use ($o) { $o->setBindStatus($n->getEnumValue(AndroidForWorkBindStatus::class)); },
+            'deviceOwnerManagementEnabled' => function (ParseNode $n) use ($o) { $o->setDeviceOwnerManagementEnabled($n->getBooleanValue()); },
+            'enrollmentTarget' => function (ParseNode $n) use ($o) { $o->setEnrollmentTarget($n->getEnumValue(AndroidForWorkEnrollmentTarget::class)); },
+            'lastAppSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastAppSyncDateTime($n->getDateTimeValue()); },
+            'lastAppSyncStatus' => function (ParseNode $n) use ($o) { $o->setLastAppSyncStatus($n->getEnumValue(AndroidForWorkSyncStatus::class)); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'ownerOrganizationName' => function (ParseNode $n) use ($o) { $o->setOwnerOrganizationName($n->getStringValue()); },
+            'ownerUserPrincipalName' => function (ParseNode $n) use ($o) { $o->setOwnerUserPrincipalName($n->getStringValue()); },
+            'targetGroupIds' => function (ParseNode $n) use ($o) { $o->setTargetGroupIds($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
 

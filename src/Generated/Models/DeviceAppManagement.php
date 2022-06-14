@@ -7,96 +7,161 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceAppManagement extends Entity 
+class DeviceAppManagement extends Entity implements Parsable 
 {
-    /** @var array<AndroidManagedAppProtection>|null $androidManagedAppProtections Android managed app policies. */
+    /**
+     * @var array<AndroidManagedAppProtection>|null $androidManagedAppProtections Android managed app policies.
+    */
     private ?array $androidManagedAppProtections = null;
     
-    /** @var array<DefaultManagedAppProtection>|null $defaultManagedAppProtections Default managed app policies. */
+    /**
+     * @var array<DefaultManagedAppProtection>|null $defaultManagedAppProtections Default managed app policies.
+    */
     private ?array $defaultManagedAppProtections = null;
     
-    /** @var array<DeviceAppManagementTask>|null $deviceAppManagementTasks Device app management tasks. */
+    /**
+     * @var array<DeviceAppManagementTask>|null $deviceAppManagementTasks Device app management tasks.
+    */
     private ?array $deviceAppManagementTasks = null;
     
-    /** @var array<EnterpriseCodeSigningCertificate>|null $enterpriseCodeSigningCertificates The Windows Enterprise Code Signing Certificate. */
+    /**
+     * @var array<EnterpriseCodeSigningCertificate>|null $enterpriseCodeSigningCertificates The Windows Enterprise Code Signing Certificate.
+    */
     private ?array $enterpriseCodeSigningCertificates = null;
     
-    /** @var array<IosLobAppProvisioningConfiguration>|null $iosLobAppProvisioningConfigurations The IOS Lob App Provisioning Configurations. */
+    /**
+     * @var array<IosLobAppProvisioningConfiguration>|null $iosLobAppProvisioningConfigurations The IOS Lob App Provisioning Configurations.
+    */
     private ?array $iosLobAppProvisioningConfigurations = null;
     
-    /** @var array<IosManagedAppProtection>|null $iosManagedAppProtections iOS managed app policies. */
+    /**
+     * @var array<IosManagedAppProtection>|null $iosManagedAppProtections iOS managed app policies.
+    */
     private ?array $iosManagedAppProtections = null;
     
-    /** @var bool|null $isEnabledForMicrosoftStoreForBusiness Whether the account is enabled for syncing applications from the Microsoft Store for Business. */
+    /**
+     * @var bool|null $isEnabledForMicrosoftStoreForBusiness Whether the account is enabled for syncing applications from the Microsoft Store for Business.
+    */
     private ?bool $isEnabledForMicrosoftStoreForBusiness = null;
     
-    /** @var array<ManagedAppPolicy>|null $managedAppPolicies Managed app policies. */
+    /**
+     * @var array<ManagedAppPolicy>|null $managedAppPolicies Managed app policies.
+    */
     private ?array $managedAppPolicies = null;
     
-    /** @var array<ManagedAppRegistration>|null $managedAppRegistrations The managed app registrations. */
+    /**
+     * @var array<ManagedAppRegistration>|null $managedAppRegistrations The managed app registrations.
+    */
     private ?array $managedAppRegistrations = null;
     
-    /** @var array<ManagedAppStatus>|null $managedAppStatuses The managed app statuses. */
+    /**
+     * @var array<ManagedAppStatus>|null $managedAppStatuses The managed app statuses.
+    */
     private ?array $managedAppStatuses = null;
     
-    /** @var array<ManagedEBookCategory>|null $managedEBookCategories The mobile eBook categories. */
+    /**
+     * @var array<ManagedEBookCategory>|null $managedEBookCategories The mobile eBook categories.
+    */
     private ?array $managedEBookCategories = null;
     
-    /** @var array<ManagedEBook>|null $managedEBooks The Managed eBook. */
+    /**
+     * @var array<ManagedEBook>|null $managedEBooks The Managed eBook.
+    */
     private ?array $managedEBooks = null;
     
-    /** @var array<MdmWindowsInformationProtectionPolicy>|null $mdmWindowsInformationProtectionPolicies Windows information protection for apps running on devices which are MDM enrolled. */
+    /**
+     * @var array<MdmWindowsInformationProtectionPolicy>|null $mdmWindowsInformationProtectionPolicies Windows information protection for apps running on devices which are MDM enrolled.
+    */
     private ?array $mdmWindowsInformationProtectionPolicies = null;
     
-    /** @var string|null $microsoftStoreForBusinessLanguage The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is -<country/regioncode2>, where  is a lowercase two-letter code derived from ISO 639-1 and <country/regioncode2> is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture. */
+    /**
+     * @var string|null $microsoftStoreForBusinessLanguage The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is <languagecode2>-<country/regioncode2>, where <languagecode2> is a lowercase two-letter code derived from ISO 639-1 and <country/regioncode2> is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.
+    */
     private ?string $microsoftStoreForBusinessLanguage = null;
     
-    /** @var DateTime|null $microsoftStoreForBusinessLastCompletedApplicationSyncTime The last time an application sync from the Microsoft Store for Business was completed. */
+    /**
+     * @var DateTime|null $microsoftStoreForBusinessLastCompletedApplicationSyncTime The last time an application sync from the Microsoft Store for Business was completed.
+    */
     private ?DateTime $microsoftStoreForBusinessLastCompletedApplicationSyncTime = null;
     
-    /** @var DateTime|null $microsoftStoreForBusinessLastSuccessfulSyncDateTime The last time the apps from the Microsoft Store for Business were synced successfully for the account. */
+    /**
+     * @var DateTime|null $microsoftStoreForBusinessLastSuccessfulSyncDateTime The last time the apps from the Microsoft Store for Business were synced successfully for the account.
+    */
     private ?DateTime $microsoftStoreForBusinessLastSuccessfulSyncDateTime = null;
     
-    /** @var MicrosoftStoreForBusinessPortalSelectionOptions|null $microsoftStoreForBusinessPortalSelection The end user portal information is used to sync applications from the Microsoft Store for Business to Intune Company Portal. There are three options to pick from ['Company portal only', 'Company portal and private store', 'Private store only']. Possible values are: none, companyPortal, privateStore. */
+    /**
+     * @var MicrosoftStoreForBusinessPortalSelectionOptions|null $microsoftStoreForBusinessPortalSelection The end user portal information is used to sync applications from the Microsoft Store for Business to Intune Company Portal. There are three options to pick from ['Company portal only', 'Company portal and private store', 'Private store only']. Possible values are: none, companyPortal, privateStore.
+    */
     private ?MicrosoftStoreForBusinessPortalSelectionOptions $microsoftStoreForBusinessPortalSelection = null;
     
-    /** @var array<MobileAppCategory>|null $mobileAppCategories The mobile app categories. */
+    /**
+     * @var array<MobileAppCategory>|null $mobileAppCategories The mobile app categories.
+    */
     private ?array $mobileAppCategories = null;
     
-    /** @var array<ManagedDeviceMobileAppConfiguration>|null $mobileAppConfigurations The Managed Device Mobile Application Configurations. */
+    /**
+     * @var array<ManagedDeviceMobileAppConfiguration>|null $mobileAppConfigurations The Managed Device Mobile Application Configurations.
+    */
     private ?array $mobileAppConfigurations = null;
     
-    /** @var array<MobileApp>|null $mobileApps The mobile apps. */
+    /**
+     * @var array<MobileApp>|null $mobileApps The mobile apps.
+    */
     private ?array $mobileApps = null;
     
-    /** @var array<PolicySet>|null $policySets The PolicySet of Policies and Applications */
+    /**
+     * @var array<PolicySet>|null $policySets The PolicySet of Policies and Applications
+    */
     private ?array $policySets = null;
     
-    /** @var array<SideLoadingKey>|null $sideLoadingKeys Side Loading Keys that are required for the Windows 8 and 8.1 Apps installation. */
+    /**
+     * @var array<SideLoadingKey>|null $sideLoadingKeys Side Loading Keys that are required for the Windows 8 and 8.1 Apps installation.
+    */
     private ?array $sideLoadingKeys = null;
     
-    /** @var SymantecCodeSigningCertificate|null $symantecCodeSigningCertificate The WinPhone Symantec Code Signing Certificate. */
+    /**
+     * @var SymantecCodeSigningCertificate|null $symantecCodeSigningCertificate The WinPhone Symantec Code Signing Certificate.
+    */
     private ?SymantecCodeSigningCertificate $symantecCodeSigningCertificate = null;
     
-    /** @var array<TargetedManagedAppConfiguration>|null $targetedManagedAppConfigurations Targeted managed app configurations. */
+    /**
+     * @var array<TargetedManagedAppConfiguration>|null $targetedManagedAppConfigurations Targeted managed app configurations.
+    */
     private ?array $targetedManagedAppConfigurations = null;
     
-    /** @var array<VppToken>|null $vppTokens List of Vpp tokens for this organization. */
+    /**
+     * @var array<VppToken>|null $vppTokens List of Vpp tokens for this organization.
+    */
     private ?array $vppTokens = null;
     
-    /** @var array<WindowsDefenderApplicationControlSupplementalPolicy>|null $wdacSupplementalPolicies The collection of Windows Defender Application Control Supplemental Policies. */
+    /**
+     * @var array<WindowsDefenderApplicationControlSupplementalPolicy>|null $wdacSupplementalPolicies The collection of Windows Defender Application Control Supplemental Policies.
+    */
     private ?array $wdacSupplementalPolicies = null;
     
-    /** @var array<WindowsInformationProtectionDeviceRegistration>|null $windowsInformationProtectionDeviceRegistrations Windows information protection device registrations that are not MDM enrolled. */
+    /**
+     * @var array<WindowsInformationProtectionDeviceRegistration>|null $windowsInformationProtectionDeviceRegistrations Windows information protection device registrations that are not MDM enrolled.
+    */
     private ?array $windowsInformationProtectionDeviceRegistrations = null;
     
-    /** @var array<WindowsInformationProtectionPolicy>|null $windowsInformationProtectionPolicies Windows information protection for apps running on devices which are not MDM enrolled. */
+    /**
+     * @var array<WindowsInformationProtectionPolicy>|null $windowsInformationProtectionPolicies Windows information protection for apps running on devices which are not MDM enrolled.
+    */
     private ?array $windowsInformationProtectionPolicies = null;
     
-    /** @var array<WindowsInformationProtectionWipeAction>|null $windowsInformationProtectionWipeActions Windows information protection wipe actions. */
+    /**
+     * @var array<WindowsInformationProtectionWipeAction>|null $windowsInformationProtectionWipeActions Windows information protection wipe actions.
+    */
     private ?array $windowsInformationProtectionWipeActions = null;
     
-    /** @var WindowsManagementApp|null $windowsManagementApp Windows management app. */
+    /**
+     * @var array<WindowsManagedAppProtection>|null $windowsManagedAppProtections Windows managed app policies.
+    */
+    private ?array $windowsManagedAppProtections = null;
+    
+    /**
+     * @var WindowsManagementApp|null $windowsManagementApp Windows management app.
+    */
     private ?WindowsManagementApp $windowsManagementApp = null;
     
     /**
@@ -111,7 +176,7 @@ class DeviceAppManagement extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceAppManagement
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAppManagement {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAppManagement {
         return new DeviceAppManagement();
     }
 
@@ -152,37 +217,39 @@ class DeviceAppManagement extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'androidManagedAppProtections' => function (self $o, ParseNode $n) { $o->setAndroidManagedAppProtections($n->getCollectionOfObjectValues(AndroidManagedAppProtection::class)); },
-            'defaultManagedAppProtections' => function (self $o, ParseNode $n) { $o->setDefaultManagedAppProtections($n->getCollectionOfObjectValues(DefaultManagedAppProtection::class)); },
-            'deviceAppManagementTasks' => function (self $o, ParseNode $n) { $o->setDeviceAppManagementTasks($n->getCollectionOfObjectValues(DeviceAppManagementTask::class)); },
-            'enterpriseCodeSigningCertificates' => function (self $o, ParseNode $n) { $o->setEnterpriseCodeSigningCertificates($n->getCollectionOfObjectValues(EnterpriseCodeSigningCertificate::class)); },
-            'iosLobAppProvisioningConfigurations' => function (self $o, ParseNode $n) { $o->setIosLobAppProvisioningConfigurations($n->getCollectionOfObjectValues(IosLobAppProvisioningConfiguration::class)); },
-            'iosManagedAppProtections' => function (self $o, ParseNode $n) { $o->setIosManagedAppProtections($n->getCollectionOfObjectValues(IosManagedAppProtection::class)); },
-            'isEnabledForMicrosoftStoreForBusiness' => function (self $o, ParseNode $n) { $o->setIsEnabledForMicrosoftStoreForBusiness($n->getBooleanValue()); },
-            'managedAppPolicies' => function (self $o, ParseNode $n) { $o->setManagedAppPolicies($n->getCollectionOfObjectValues(ManagedAppPolicy::class)); },
-            'managedAppRegistrations' => function (self $o, ParseNode $n) { $o->setManagedAppRegistrations($n->getCollectionOfObjectValues(ManagedAppRegistration::class)); },
-            'managedAppStatuses' => function (self $o, ParseNode $n) { $o->setManagedAppStatuses($n->getCollectionOfObjectValues(ManagedAppStatus::class)); },
-            'managedEBookCategories' => function (self $o, ParseNode $n) { $o->setManagedEBookCategories($n->getCollectionOfObjectValues(ManagedEBookCategory::class)); },
-            'managedEBooks' => function (self $o, ParseNode $n) { $o->setManagedEBooks($n->getCollectionOfObjectValues(ManagedEBook::class)); },
-            'mdmWindowsInformationProtectionPolicies' => function (self $o, ParseNode $n) { $o->setMdmWindowsInformationProtectionPolicies($n->getCollectionOfObjectValues(MdmWindowsInformationProtectionPolicy::class)); },
-            'microsoftStoreForBusinessLanguage' => function (self $o, ParseNode $n) { $o->setMicrosoftStoreForBusinessLanguage($n->getStringValue()); },
-            'microsoftStoreForBusinessLastCompletedApplicationSyncTime' => function (self $o, ParseNode $n) { $o->setMicrosoftStoreForBusinessLastCompletedApplicationSyncTime($n->getDateTimeValue()); },
-            'microsoftStoreForBusinessLastSuccessfulSyncDateTime' => function (self $o, ParseNode $n) { $o->setMicrosoftStoreForBusinessLastSuccessfulSyncDateTime($n->getDateTimeValue()); },
-            'microsoftStoreForBusinessPortalSelection' => function (self $o, ParseNode $n) { $o->setMicrosoftStoreForBusinessPortalSelection($n->getEnumValue(MicrosoftStoreForBusinessPortalSelectionOptions::class)); },
-            'mobileAppCategories' => function (self $o, ParseNode $n) { $o->setMobileAppCategories($n->getCollectionOfObjectValues(MobileAppCategory::class)); },
-            'mobileAppConfigurations' => function (self $o, ParseNode $n) { $o->setMobileAppConfigurations($n->getCollectionOfObjectValues(ManagedDeviceMobileAppConfiguration::class)); },
-            'mobileApps' => function (self $o, ParseNode $n) { $o->setMobileApps($n->getCollectionOfObjectValues(MobileApp::class)); },
-            'policySets' => function (self $o, ParseNode $n) { $o->setPolicySets($n->getCollectionOfObjectValues(PolicySet::class)); },
-            'sideLoadingKeys' => function (self $o, ParseNode $n) { $o->setSideLoadingKeys($n->getCollectionOfObjectValues(SideLoadingKey::class)); },
-            'symantecCodeSigningCertificate' => function (self $o, ParseNode $n) { $o->setSymantecCodeSigningCertificate($n->getObjectValue(SymantecCodeSigningCertificate::class)); },
-            'targetedManagedAppConfigurations' => function (self $o, ParseNode $n) { $o->setTargetedManagedAppConfigurations($n->getCollectionOfObjectValues(TargetedManagedAppConfiguration::class)); },
-            'vppTokens' => function (self $o, ParseNode $n) { $o->setVppTokens($n->getCollectionOfObjectValues(VppToken::class)); },
-            'wdacSupplementalPolicies' => function (self $o, ParseNode $n) { $o->setWdacSupplementalPolicies($n->getCollectionOfObjectValues(WindowsDefenderApplicationControlSupplementalPolicy::class)); },
-            'windowsInformationProtectionDeviceRegistrations' => function (self $o, ParseNode $n) { $o->setWindowsInformationProtectionDeviceRegistrations($n->getCollectionOfObjectValues(WindowsInformationProtectionDeviceRegistration::class)); },
-            'windowsInformationProtectionPolicies' => function (self $o, ParseNode $n) { $o->setWindowsInformationProtectionPolicies($n->getCollectionOfObjectValues(WindowsInformationProtectionPolicy::class)); },
-            'windowsInformationProtectionWipeActions' => function (self $o, ParseNode $n) { $o->setWindowsInformationProtectionWipeActions($n->getCollectionOfObjectValues(WindowsInformationProtectionWipeAction::class)); },
-            'windowsManagementApp' => function (self $o, ParseNode $n) { $o->setWindowsManagementApp($n->getObjectValue(WindowsManagementApp::class)); },
+            'androidManagedAppProtections' => function (ParseNode $n) use ($o) { $o->setAndroidManagedAppProtections($n->getCollectionOfObjectValues(array(AndroidManagedAppProtection::class, 'createFromDiscriminatorValue'))); },
+            'defaultManagedAppProtections' => function (ParseNode $n) use ($o) { $o->setDefaultManagedAppProtections($n->getCollectionOfObjectValues(array(DefaultManagedAppProtection::class, 'createFromDiscriminatorValue'))); },
+            'deviceAppManagementTasks' => function (ParseNode $n) use ($o) { $o->setDeviceAppManagementTasks($n->getCollectionOfObjectValues(array(DeviceAppManagementTask::class, 'createFromDiscriminatorValue'))); },
+            'enterpriseCodeSigningCertificates' => function (ParseNode $n) use ($o) { $o->setEnterpriseCodeSigningCertificates($n->getCollectionOfObjectValues(array(EnterpriseCodeSigningCertificate::class, 'createFromDiscriminatorValue'))); },
+            'iosLobAppProvisioningConfigurations' => function (ParseNode $n) use ($o) { $o->setIosLobAppProvisioningConfigurations($n->getCollectionOfObjectValues(array(IosLobAppProvisioningConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'iosManagedAppProtections' => function (ParseNode $n) use ($o) { $o->setIosManagedAppProtections($n->getCollectionOfObjectValues(array(IosManagedAppProtection::class, 'createFromDiscriminatorValue'))); },
+            'isEnabledForMicrosoftStoreForBusiness' => function (ParseNode $n) use ($o) { $o->setIsEnabledForMicrosoftStoreForBusiness($n->getBooleanValue()); },
+            'managedAppPolicies' => function (ParseNode $n) use ($o) { $o->setManagedAppPolicies($n->getCollectionOfObjectValues(array(ManagedAppPolicy::class, 'createFromDiscriminatorValue'))); },
+            'managedAppRegistrations' => function (ParseNode $n) use ($o) { $o->setManagedAppRegistrations($n->getCollectionOfObjectValues(array(ManagedAppRegistration::class, 'createFromDiscriminatorValue'))); },
+            'managedAppStatuses' => function (ParseNode $n) use ($o) { $o->setManagedAppStatuses($n->getCollectionOfObjectValues(array(ManagedAppStatus::class, 'createFromDiscriminatorValue'))); },
+            'managedEBookCategories' => function (ParseNode $n) use ($o) { $o->setManagedEBookCategories($n->getCollectionOfObjectValues(array(ManagedEBookCategory::class, 'createFromDiscriminatorValue'))); },
+            'managedEBooks' => function (ParseNode $n) use ($o) { $o->setManagedEBooks($n->getCollectionOfObjectValues(array(ManagedEBook::class, 'createFromDiscriminatorValue'))); },
+            'mdmWindowsInformationProtectionPolicies' => function (ParseNode $n) use ($o) { $o->setMdmWindowsInformationProtectionPolicies($n->getCollectionOfObjectValues(array(MdmWindowsInformationProtectionPolicy::class, 'createFromDiscriminatorValue'))); },
+            'microsoftStoreForBusinessLanguage' => function (ParseNode $n) use ($o) { $o->setMicrosoftStoreForBusinessLanguage($n->getStringValue()); },
+            'microsoftStoreForBusinessLastCompletedApplicationSyncTime' => function (ParseNode $n) use ($o) { $o->setMicrosoftStoreForBusinessLastCompletedApplicationSyncTime($n->getDateTimeValue()); },
+            'microsoftStoreForBusinessLastSuccessfulSyncDateTime' => function (ParseNode $n) use ($o) { $o->setMicrosoftStoreForBusinessLastSuccessfulSyncDateTime($n->getDateTimeValue()); },
+            'microsoftStoreForBusinessPortalSelection' => function (ParseNode $n) use ($o) { $o->setMicrosoftStoreForBusinessPortalSelection($n->getEnumValue(MicrosoftStoreForBusinessPortalSelectionOptions::class)); },
+            'mobileAppCategories' => function (ParseNode $n) use ($o) { $o->setMobileAppCategories($n->getCollectionOfObjectValues(array(MobileAppCategory::class, 'createFromDiscriminatorValue'))); },
+            'mobileAppConfigurations' => function (ParseNode $n) use ($o) { $o->setMobileAppConfigurations($n->getCollectionOfObjectValues(array(ManagedDeviceMobileAppConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'mobileApps' => function (ParseNode $n) use ($o) { $o->setMobileApps($n->getCollectionOfObjectValues(array(MobileApp::class, 'createFromDiscriminatorValue'))); },
+            'policySets' => function (ParseNode $n) use ($o) { $o->setPolicySets($n->getCollectionOfObjectValues(array(PolicySet::class, 'createFromDiscriminatorValue'))); },
+            'sideLoadingKeys' => function (ParseNode $n) use ($o) { $o->setSideLoadingKeys($n->getCollectionOfObjectValues(array(SideLoadingKey::class, 'createFromDiscriminatorValue'))); },
+            'symantecCodeSigningCertificate' => function (ParseNode $n) use ($o) { $o->setSymantecCodeSigningCertificate($n->getObjectValue(array(SymantecCodeSigningCertificate::class, 'createFromDiscriminatorValue'))); },
+            'targetedManagedAppConfigurations' => function (ParseNode $n) use ($o) { $o->setTargetedManagedAppConfigurations($n->getCollectionOfObjectValues(array(TargetedManagedAppConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'vppTokens' => function (ParseNode $n) use ($o) { $o->setVppTokens($n->getCollectionOfObjectValues(array(VppToken::class, 'createFromDiscriminatorValue'))); },
+            'wdacSupplementalPolicies' => function (ParseNode $n) use ($o) { $o->setWdacSupplementalPolicies($n->getCollectionOfObjectValues(array(WindowsDefenderApplicationControlSupplementalPolicy::class, 'createFromDiscriminatorValue'))); },
+            'windowsInformationProtectionDeviceRegistrations' => function (ParseNode $n) use ($o) { $o->setWindowsInformationProtectionDeviceRegistrations($n->getCollectionOfObjectValues(array(WindowsInformationProtectionDeviceRegistration::class, 'createFromDiscriminatorValue'))); },
+            'windowsInformationProtectionPolicies' => function (ParseNode $n) use ($o) { $o->setWindowsInformationProtectionPolicies($n->getCollectionOfObjectValues(array(WindowsInformationProtectionPolicy::class, 'createFromDiscriminatorValue'))); },
+            'windowsInformationProtectionWipeActions' => function (ParseNode $n) use ($o) { $o->setWindowsInformationProtectionWipeActions($n->getCollectionOfObjectValues(array(WindowsInformationProtectionWipeAction::class, 'createFromDiscriminatorValue'))); },
+            'windowsManagedAppProtections' => function (ParseNode $n) use ($o) { $o->setWindowsManagedAppProtections($n->getCollectionOfObjectValues(array(WindowsManagedAppProtection::class, 'createFromDiscriminatorValue'))); },
+            'windowsManagementApp' => function (ParseNode $n) use ($o) { $o->setWindowsManagementApp($n->getObjectValue(array(WindowsManagementApp::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
@@ -259,7 +326,7 @@ class DeviceAppManagement extends Entity
     }
 
     /**
-     * Gets the microsoftStoreForBusinessLanguage property value. The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is -<country/regioncode2>, where  is a lowercase two-letter code derived from ISO 639-1 and <country/regioncode2> is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.
+     * Gets the microsoftStoreForBusinessLanguage property value. The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is <languagecode2>-<country/regioncode2>, where <languagecode2> is a lowercase two-letter code derived from ISO 639-1 and <country/regioncode2> is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.
      * @return string|null
     */
     public function getMicrosoftStoreForBusinessLanguage(): ?string {
@@ -387,6 +454,14 @@ class DeviceAppManagement extends Entity
     }
 
     /**
+     * Gets the windowsManagedAppProtections property value. Windows managed app policies.
+     * @return array<WindowsManagedAppProtection>|null
+    */
+    public function getWindowsManagedAppProtections(): ?array {
+        return $this->windowsManagedAppProtections;
+    }
+
+    /**
      * Gets the windowsManagementApp property value. Windows management app.
      * @return WindowsManagementApp|null
     */
@@ -429,6 +504,7 @@ class DeviceAppManagement extends Entity
         $writer->writeCollectionOfObjectValues('windowsInformationProtectionDeviceRegistrations', $this->windowsInformationProtectionDeviceRegistrations);
         $writer->writeCollectionOfObjectValues('windowsInformationProtectionPolicies', $this->windowsInformationProtectionPolicies);
         $writer->writeCollectionOfObjectValues('windowsInformationProtectionWipeActions', $this->windowsInformationProtectionWipeActions);
+        $writer->writeCollectionOfObjectValues('windowsManagedAppProtections', $this->windowsManagedAppProtections);
         $writer->writeObjectValue('windowsManagementApp', $this->windowsManagementApp);
     }
 
@@ -537,7 +613,7 @@ class DeviceAppManagement extends Entity
     }
 
     /**
-     * Sets the microsoftStoreForBusinessLanguage property value. The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is -<country/regioncode2>, where  is a lowercase two-letter code derived from ISO 639-1 and <country/regioncode2> is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.
+     * Sets the microsoftStoreForBusinessLanguage property value. The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is <languagecode2>-<country/regioncode2>, where <languagecode2> is a lowercase two-letter code derived from ISO 639-1 and <country/regioncode2> is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.
      *  @param string|null $value Value to set for the microsoftStoreForBusinessLanguage property.
     */
     public function setMicrosoftStoreForBusinessLanguage(?string $value ): void {
@@ -662,6 +738,14 @@ class DeviceAppManagement extends Entity
     */
     public function setWindowsInformationProtectionWipeActions(?array $value ): void {
         $this->windowsInformationProtectionWipeActions = $value;
+    }
+
+    /**
+     * Sets the windowsManagedAppProtections property value. Windows managed app policies.
+     *  @param array<WindowsManagedAppProtection>|null $value Value to set for the windowsManagedAppProtections property.
+    */
+    public function setWindowsManagedAppProtections(?array $value ): void {
+        $this->windowsManagedAppProtections = $value;
     }
 
     /**

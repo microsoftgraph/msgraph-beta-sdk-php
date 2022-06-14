@@ -24,6 +24,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\Disable\
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\DisableLostMode\DisableLostModeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\EnableLostMode\EnableLostModeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetCloudPcRemoteActionResults\GetCloudPcRemoteActionResultsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetCloudPcReviewStatus\GetCloudPcReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetFileVaultKey\GetFileVaultKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetNonCompliantSettings\GetNonCompliantSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetOemWarranty\GetOemWarrantyRequestBuilder;
@@ -39,6 +40,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RebootNo
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RecoverPasscode\RecoverPasscodeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\Reenable\ReenableRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RemoteLock\RemoteLockRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RemoveDeviceFirmwareConfigurationInterfaceManagement\RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ReprovisionCloudPc\ReprovisionCloudPcRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RequestRemoteAssistance\RequestRemoteAssistanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ResetPasscode\ResetPasscodeRequestBuilder;
@@ -51,6 +53,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RotateFi
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\SecurityBaselineStates\Item\SecurityBaselineStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\SecurityBaselineStates\SecurityBaselineStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\SendCustomNotificationToCompanyPortal\SendCustomNotificationToCompanyPortalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\SetCloudPcReviewStatus\SetCloudPcReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\SetDeviceName\SetDeviceNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ShutDown\ShutDownRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\SyncDevice\SyncDeviceRequestBuilder;
@@ -206,7 +209,9 @@ class ManagedDeviceItemRequestBuilder
         return new OverrideComplianceStateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /** @var array<string, mixed> $pathParameters Path parameters for the request */
+    /**
+     * @var array<string, mixed> $pathParameters Path parameters for the request
+    */
     private array $pathParameters;
     
     /**
@@ -245,13 +250,22 @@ class ManagedDeviceItemRequestBuilder
     }
     
     /**
+     * The removeDeviceFirmwareConfigurationInterfaceManagement property
+    */
+    public function removeDeviceFirmwareConfigurationInterfaceManagement(): RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder {
+        return new RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * The reprovisionCloudPc property
     */
     public function reprovisionCloudPc(): ReprovisionCloudPcRequestBuilder {
         return new ReprovisionCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
+    /**
+     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+    */
     private RequestAdapter $requestAdapter;
     
     /**
@@ -325,6 +339,13 @@ class ManagedDeviceItemRequestBuilder
     }
     
     /**
+     * The setCloudPcReviewStatus property
+    */
+    public function setCloudPcReviewStatus(): SetCloudPcReviewStatusRequestBuilder {
+        return new SetCloudPcReviewStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * The setDeviceName property
     */
     public function setDeviceName(): SetDeviceNameRequestBuilder {
@@ -359,7 +380,9 @@ class ManagedDeviceItemRequestBuilder
         return new UpdateWindowsDeviceAccountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
+    /**
+     * @var string $urlTemplate Url template to use to build the URL for the current request builder
+    */
     private string $urlTemplate;
     
     /**
@@ -404,7 +427,7 @@ class ManagedDeviceItemRequestBuilder
     */
     public function assignmentFilterEvaluationStatusDetailsById(string $id): AssignmentFilterEvaluationStatusDetailsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['assignmentFilterEvaluationStatusDetails_id'] = $id;
+        $urlTplParams['assignmentFilterEvaluationStatusDetails%2Did'] = $id;
         return new AssignmentFilterEvaluationStatusDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -414,51 +437,53 @@ class ManagedDeviceItemRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/managedDevices/{managedDevice_id}{?select,expand}';
+        $this->urlTemplate = '{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
      * Delete navigation property managedDevices for deviceManagement
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param ManagedDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createDeleteRequestInformation(?array $headers = null, ?array $options = null): RequestInformation {
+    public function createDeleteRequestInformation(?ManagedDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
-        if ($headers !== null) {
-            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
-        }
-        if ($options !== null) {
-            $requestInfo->addRequestOptions(...$options);
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
         }
         return $requestInfo;
     }
 
     /**
      * The list of managed devices.
-     * @param array|null $queryParameters Request query parameters
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param ManagedDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?array $queryParameters = null, ?array $headers = null, ?array $options = null): RequestInformation {
+    public function createGetRequestInformation(?ManagedDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        if ($headers !== null) {
-            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
-        }
-        if ($queryParameters !== null) {
-            $requestInfo->setQueryParameters($queryParameters);
-        }
-        if ($options !== null) {
-            $requestInfo->addRequestOptions(...$options);
+        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
         }
         return $requestInfo;
     }
@@ -466,36 +491,40 @@ class ManagedDeviceItemRequestBuilder
     /**
      * Update the navigation property managedDevices in deviceManagement
      * @param ManagedDevice $body 
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param ManagedDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(ManagedDevice $body, ?array $headers = null, ?array $options = null): RequestInformation {
+    public function createPatchRequestInformation(ManagedDevice $body, ?ManagedDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        if ($headers !== null) {
-            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
-        if ($options !== null) {
-            $requestInfo->addRequestOptions(...$options);
-        }
         return $requestInfo;
     }
 
     /**
      * Delete navigation property managedDevices for deviceManagement
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param ManagedDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createDeleteRequestInformation($headers, $options);
+    public function delete(?ManagedDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createDeleteRequestInformation($requestConfiguration);
         try {
-            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
+            $errorMappings = [
+                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+            ];
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -508,7 +537,7 @@ class ManagedDeviceItemRequestBuilder
     */
     public function detectedAppsById(string $id): DetectedAppItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['detectedApp_id'] = $id;
+        $urlTplParams['detectedApp%2Did'] = $id;
         return new DetectedAppItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -519,7 +548,7 @@ class ManagedDeviceItemRequestBuilder
     */
     public function deviceCompliancePolicyStatesById(string $id): DeviceCompliancePolicyStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceCompliancePolicyState_id'] = $id;
+        $urlTplParams['deviceCompliancePolicyState%2Did'] = $id;
         return new DeviceCompliancePolicyStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -530,22 +559,24 @@ class ManagedDeviceItemRequestBuilder
     */
     public function deviceConfigurationStatesById(string $id): DeviceConfigurationStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceConfigurationState_id'] = $id;
+        $urlTplParams['deviceConfigurationState%2Did'] = $id;
         return new DeviceConfigurationStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * The list of managed devices.
-     * @param array|null $queryParameters Request query parameters
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param ManagedDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?array $queryParameters = null, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($queryParameters, $headers, $options);
+    public function get(?ManagedDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
         try {
-            return $this->requestAdapter->sendAsync($requestInfo, ManagedDevice::class, $responseHandler);
+            $errorMappings = [
+                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, array(ManagedDevice::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -557,6 +588,14 @@ class ManagedDeviceItemRequestBuilder
     */
     public function getCloudPcRemoteActionResults(): GetCloudPcRemoteActionResultsRequestBuilder {
         return new GetCloudPcRemoteActionResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to call the getCloudPcReviewStatus method.
+     * @return GetCloudPcReviewStatusRequestBuilder
+    */
+    public function getCloudPcReviewStatus(): GetCloudPcReviewStatusRequestBuilder {
+        return new GetCloudPcReviewStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**
@@ -590,7 +629,7 @@ class ManagedDeviceItemRequestBuilder
     */
     public function logCollectionRequestsById(string $id): DeviceLogCollectionResponseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceLogCollectionResponse_id'] = $id;
+        $urlTplParams['deviceLogCollectionResponse%2Did'] = $id;
         return new DeviceLogCollectionResponseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -601,22 +640,25 @@ class ManagedDeviceItemRequestBuilder
     */
     public function managedDeviceMobileAppConfigurationStatesById(string $id): ManagedDeviceMobileAppConfigurationStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedDeviceMobileAppConfigurationState_id'] = $id;
+        $urlTplParams['managedDeviceMobileAppConfigurationState%2Did'] = $id;
         return new ManagedDeviceMobileAppConfigurationStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property managedDevices in deviceManagement
      * @param ManagedDevice $body 
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param ManagedDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(ManagedDevice $body, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $headers, $options);
+    public function patch(ManagedDevice $body, ?ManagedDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
         try {
-            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
+            $errorMappings = [
+                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+            ];
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -629,7 +671,7 @@ class ManagedDeviceItemRequestBuilder
     */
     public function securityBaselineStatesById(string $id): SecurityBaselineStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['securityBaselineState_id'] = $id;
+        $urlTplParams['securityBaselineState%2Did'] = $id;
         return new SecurityBaselineStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

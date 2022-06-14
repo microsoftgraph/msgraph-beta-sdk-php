@@ -6,96 +6,156 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Call extends Entity 
+class Call extends Entity implements Parsable 
 {
-    /** @var array<Modality>|null $activeModalities The list of active modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only. */
+    /**
+     * @var array<string>|null $activeModalities The list of active modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.
+    */
     private ?array $activeModalities = null;
     
-    /** @var ParticipantInfo|null $answeredBy The participant that answered the call. Read-only. */
+    /**
+     * @var ParticipantInfo|null $answeredBy The participant that answered the call. Read-only.
+    */
     private ?ParticipantInfo $answeredBy = null;
     
-    /** @var array<AudioRoutingGroup>|null $audioRoutingGroups Read-only. Nullable. */
+    /**
+     * @var array<AudioRoutingGroup>|null $audioRoutingGroups The audioRoutingGroups property
+    */
     private ?array $audioRoutingGroups = null;
     
-    /** @var string|null $callbackUri The callback URL on which callbacks will be delivered. Must be https. */
+    /**
+     * @var string|null $callbackUri The callback URL on which callbacks will be delivered. Must be https.
+    */
     private ?string $callbackUri = null;
     
-    /** @var string|null $callChainId A unique identifier for all the participant calls in a conference or a unique identifier for two participant calls in a P2P call.  This needs to be copied over from Microsoft.Graph.Call.CallChainId. */
+    /**
+     * @var string|null $callChainId A unique identifier for all the participant calls in a conference or a unique identifier for two participant calls in a P2P call.  This needs to be copied over from Microsoft.Graph.Call.CallChainId.
+    */
     private ?string $callChainId = null;
     
-    /** @var CallOptions|null $callOptions The callOptions property */
+    /**
+     * @var CallOptions|null $callOptions Contains the optional features for the call.
+    */
     private ?CallOptions $callOptions = null;
     
-    /** @var array<CallRoute>|null $callRoutes The routing information on how the call was retargeted. Read-only. */
+    /**
+     * @var array<CallRoute>|null $callRoutes The routing information on how the call was retargeted. Read-only.
+    */
     private ?array $callRoutes = null;
     
-    /** @var ChatInfo|null $chatInfo The chat information. Required information for joining a meeting. */
+    /**
+     * @var ChatInfo|null $chatInfo The chat information. Required information for meeting scenarios.
+    */
     private ?ChatInfo $chatInfo = null;
     
-    /** @var array<ContentSharingSession>|null $contentSharingSessions The contentSharingSessions property */
+    /**
+     * @var array<ContentSharingSession>|null $contentSharingSessions The contentSharingSessions property
+    */
     private ?array $contentSharingSessions = null;
     
-    /** @var CallDirection|null $direction The direction of the call. The possible value are incoming or outgoing. Read-only. */
+    /**
+     * @var CallDirection|null $direction The direction of the call. The possible value are incoming or outgoing. Read-only.
+    */
     private ?CallDirection $direction = null;
     
-    /** @var IncomingContext|null $incomingContext The context associated with an incoming call. Read-only. Server generated. */
+    /**
+     * @var IncomingContext|null $incomingContext The context associated with an incoming call. Read-only. Server generated.
+    */
     private ?IncomingContext $incomingContext = null;
     
-    /** @var MediaConfig|null $mediaConfig The media configuration. Required. */
+    /**
+     * @var MediaConfig|null $mediaConfig The media configuration. Required information for creating peer to peer calls or joining meetings.
+    */
     private ?MediaConfig $mediaConfig = null;
     
-    /** @var CallMediaState|null $mediaState Read-only. The call media state. */
+    /**
+     * @var CallMediaState|null $mediaState Read-only. The call media state.
+    */
     private ?CallMediaState $mediaState = null;
     
-    /** @var MeetingCapability|null $meetingCapability Contains the capabilities of a meeting. Read-only. */
+    /**
+     * @var MeetingCapability|null $meetingCapability Contains the capabilities of a meeting. Read-only.
+    */
     private ?MeetingCapability $meetingCapability = null;
     
-    /** @var MeetingInfo|null $meetingInfo The meeting information that's required for joining a meeting. */
+    /**
+     * @var MeetingInfo|null $meetingInfo The meeting information. Required information for meeting scenarios.
+    */
     private ?MeetingInfo $meetingInfo = null;
     
-    /** @var string|null $myParticipantId The myParticipantId property */
+    /**
+     * @var string|null $myParticipantId The myParticipantId property
+    */
     private ?string $myParticipantId = null;
     
-    /** @var array<CommsOperation>|null $operations Read-only. Nullable. */
+    /**
+     * @var array<CommsOperation>|null $operations The operations property
+    */
     private ?array $operations = null;
     
-    /** @var array<Participant>|null $participants Read-only. Nullable. */
+    /**
+     * @var array<Participant>|null $participants The participants property
+    */
     private ?array $participants = null;
     
-    /** @var array<Modality>|null $requestedModalities The requestedModalities property */
+    /**
+     * @var array<string>|null $requestedModalities The requestedModalities property
+    */
     private ?array $requestedModalities = null;
     
-    /** @var ResultInfo|null $resultInfo The resultInfo property */
+    /**
+     * @var ResultInfo|null $resultInfo The resultInfo property
+    */
     private ?ResultInfo $resultInfo = null;
     
-    /** @var int|null $ringingTimeoutInSeconds The ringingTimeoutInSeconds property */
+    /**
+     * @var int|null $ringingTimeoutInSeconds The ringingTimeoutInSeconds property
+    */
     private ?int $ringingTimeoutInSeconds = null;
     
-    /** @var array<RoutingPolicy>|null $routingPolicies The routingPolicies property */
+    /**
+     * @var array<string>|null $routingPolicies The routingPolicies property
+    */
     private ?array $routingPolicies = null;
     
-    /** @var ParticipantInfo|null $source The source property */
+    /**
+     * @var ParticipantInfo|null $source The source property
+    */
     private ?ParticipantInfo $source = null;
     
-    /** @var CallState|null $state The state property */
+    /**
+     * @var CallState|null $state The state property
+    */
     private ?CallState $state = null;
     
-    /** @var string|null $subject The subject property */
+    /**
+     * @var string|null $subject The subject property
+    */
     private ?string $subject = null;
     
-    /** @var array<InvitationParticipantInfo>|null $targets The targets property */
+    /**
+     * @var array<InvitationParticipantInfo>|null $targets The targets property
+    */
     private ?array $targets = null;
     
-    /** @var string|null $tenantId The tenantId property */
+    /**
+     * @var string|null $tenantId The tenantId property
+    */
     private ?string $tenantId = null;
     
-    /** @var string|null $terminationReason The terminationReason property */
+    /**
+     * @var string|null $terminationReason The terminationReason property
+    */
     private ?string $terminationReason = null;
     
-    /** @var ToneInfo|null $toneInfo The toneInfo property */
+    /**
+     * @var ToneInfo|null $toneInfo The toneInfo property
+    */
     private ?ToneInfo $toneInfo = null;
     
-    /** @var CallTranscriptionInfo|null $transcription The transcription information for the call. Read-only. */
+    /**
+     * @var CallTranscriptionInfo|null $transcription The transcription information for the call. Read-only.
+    */
     private ?CallTranscriptionInfo $transcription = null;
     
     /**
@@ -110,13 +170,13 @@ class Call extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Call
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Call {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Call {
         return new Call();
     }
 
     /**
      * Gets the activeModalities property value. The list of active modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.
-     * @return array<Modality>|null
+     * @return array<string>|null
     */
     public function getActiveModalities(): ?array {
         return $this->activeModalities;
@@ -131,7 +191,7 @@ class Call extends Entity
     }
 
     /**
-     * Gets the audioRoutingGroups property value. Read-only. Nullable.
+     * Gets the audioRoutingGroups property value. The audioRoutingGroups property
      * @return array<AudioRoutingGroup>|null
     */
     public function getAudioRoutingGroups(): ?array {
@@ -155,7 +215,7 @@ class Call extends Entity
     }
 
     /**
-     * Gets the callOptions property value. The callOptions property
+     * Gets the callOptions property value. Contains the optional features for the call.
      * @return CallOptions|null
     */
     public function getCallOptions(): ?CallOptions {
@@ -171,7 +231,7 @@ class Call extends Entity
     }
 
     /**
-     * Gets the chatInfo property value. The chat information. Required information for joining a meeting.
+     * Gets the chatInfo property value. The chat information. Required information for meeting scenarios.
      * @return ChatInfo|null
     */
     public function getChatInfo(): ?ChatInfo {
@@ -199,37 +259,38 @@ class Call extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activeModalities' => function (self $o, ParseNode $n) { $o->setActiveModalities($n->getCollectionOfEnumValues(Modality::class)); },
-            'answeredBy' => function (self $o, ParseNode $n) { $o->setAnsweredBy($n->getObjectValue(ParticipantInfo::class)); },
-            'audioRoutingGroups' => function (self $o, ParseNode $n) { $o->setAudioRoutingGroups($n->getCollectionOfObjectValues(AudioRoutingGroup::class)); },
-            'callbackUri' => function (self $o, ParseNode $n) { $o->setCallbackUri($n->getStringValue()); },
-            'callChainId' => function (self $o, ParseNode $n) { $o->setCallChainId($n->getStringValue()); },
-            'callOptions' => function (self $o, ParseNode $n) { $o->setCallOptions($n->getObjectValue(CallOptions::class)); },
-            'callRoutes' => function (self $o, ParseNode $n) { $o->setCallRoutes($n->getCollectionOfObjectValues(CallRoute::class)); },
-            'chatInfo' => function (self $o, ParseNode $n) { $o->setChatInfo($n->getObjectValue(ChatInfo::class)); },
-            'contentSharingSessions' => function (self $o, ParseNode $n) { $o->setContentSharingSessions($n->getCollectionOfObjectValues(ContentSharingSession::class)); },
-            'direction' => function (self $o, ParseNode $n) { $o->setDirection($n->getEnumValue(CallDirection::class)); },
-            'incomingContext' => function (self $o, ParseNode $n) { $o->setIncomingContext($n->getObjectValue(IncomingContext::class)); },
-            'mediaConfig' => function (self $o, ParseNode $n) { $o->setMediaConfig($n->getObjectValue(MediaConfig::class)); },
-            'mediaState' => function (self $o, ParseNode $n) { $o->setMediaState($n->getObjectValue(CallMediaState::class)); },
-            'meetingCapability' => function (self $o, ParseNode $n) { $o->setMeetingCapability($n->getObjectValue(MeetingCapability::class)); },
-            'meetingInfo' => function (self $o, ParseNode $n) { $o->setMeetingInfo($n->getObjectValue(MeetingInfo::class)); },
-            'myParticipantId' => function (self $o, ParseNode $n) { $o->setMyParticipantId($n->getStringValue()); },
-            'operations' => function (self $o, ParseNode $n) { $o->setOperations($n->getCollectionOfObjectValues(CommsOperation::class)); },
-            'participants' => function (self $o, ParseNode $n) { $o->setParticipants($n->getCollectionOfObjectValues(Participant::class)); },
-            'requestedModalities' => function (self $o, ParseNode $n) { $o->setRequestedModalities($n->getCollectionOfEnumValues(Modality::class)); },
-            'resultInfo' => function (self $o, ParseNode $n) { $o->setResultInfo($n->getObjectValue(ResultInfo::class)); },
-            'ringingTimeoutInSeconds' => function (self $o, ParseNode $n) { $o->setRingingTimeoutInSeconds($n->getIntegerValue()); },
-            'routingPolicies' => function (self $o, ParseNode $n) { $o->setRoutingPolicies($n->getCollectionOfEnumValues(RoutingPolicy::class)); },
-            'source' => function (self $o, ParseNode $n) { $o->setSource($n->getObjectValue(ParticipantInfo::class)); },
-            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(CallState::class)); },
-            'subject' => function (self $o, ParseNode $n) { $o->setSubject($n->getStringValue()); },
-            'targets' => function (self $o, ParseNode $n) { $o->setTargets($n->getCollectionOfObjectValues(InvitationParticipantInfo::class)); },
-            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
-            'terminationReason' => function (self $o, ParseNode $n) { $o->setTerminationReason($n->getStringValue()); },
-            'toneInfo' => function (self $o, ParseNode $n) { $o->setToneInfo($n->getObjectValue(ToneInfo::class)); },
-            'transcription' => function (self $o, ParseNode $n) { $o->setTranscription($n->getObjectValue(CallTranscriptionInfo::class)); },
+            'activeModalities' => function (ParseNode $n) use ($o) { $o->setActiveModalities($n->getCollectionOfPrimitiveValues()); },
+            'answeredBy' => function (ParseNode $n) use ($o) { $o->setAnsweredBy($n->getObjectValue(array(ParticipantInfo::class, 'createFromDiscriminatorValue'))); },
+            'audioRoutingGroups' => function (ParseNode $n) use ($o) { $o->setAudioRoutingGroups($n->getCollectionOfObjectValues(array(AudioRoutingGroup::class, 'createFromDiscriminatorValue'))); },
+            'callbackUri' => function (ParseNode $n) use ($o) { $o->setCallbackUri($n->getStringValue()); },
+            'callChainId' => function (ParseNode $n) use ($o) { $o->setCallChainId($n->getStringValue()); },
+            'callOptions' => function (ParseNode $n) use ($o) { $o->setCallOptions($n->getObjectValue(array(CallOptions::class, 'createFromDiscriminatorValue'))); },
+            'callRoutes' => function (ParseNode $n) use ($o) { $o->setCallRoutes($n->getCollectionOfObjectValues(array(CallRoute::class, 'createFromDiscriminatorValue'))); },
+            'chatInfo' => function (ParseNode $n) use ($o) { $o->setChatInfo($n->getObjectValue(array(ChatInfo::class, 'createFromDiscriminatorValue'))); },
+            'contentSharingSessions' => function (ParseNode $n) use ($o) { $o->setContentSharingSessions($n->getCollectionOfObjectValues(array(ContentSharingSession::class, 'createFromDiscriminatorValue'))); },
+            'direction' => function (ParseNode $n) use ($o) { $o->setDirection($n->getEnumValue(CallDirection::class)); },
+            'incomingContext' => function (ParseNode $n) use ($o) { $o->setIncomingContext($n->getObjectValue(array(IncomingContext::class, 'createFromDiscriminatorValue'))); },
+            'mediaConfig' => function (ParseNode $n) use ($o) { $o->setMediaConfig($n->getObjectValue(array(MediaConfig::class, 'createFromDiscriminatorValue'))); },
+            'mediaState' => function (ParseNode $n) use ($o) { $o->setMediaState($n->getObjectValue(array(CallMediaState::class, 'createFromDiscriminatorValue'))); },
+            'meetingCapability' => function (ParseNode $n) use ($o) { $o->setMeetingCapability($n->getObjectValue(array(MeetingCapability::class, 'createFromDiscriminatorValue'))); },
+            'meetingInfo' => function (ParseNode $n) use ($o) { $o->setMeetingInfo($n->getObjectValue(array(MeetingInfo::class, 'createFromDiscriminatorValue'))); },
+            'myParticipantId' => function (ParseNode $n) use ($o) { $o->setMyParticipantId($n->getStringValue()); },
+            'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(CommsOperation::class, 'createFromDiscriminatorValue'))); },
+            'participants' => function (ParseNode $n) use ($o) { $o->setParticipants($n->getCollectionOfObjectValues(array(Participant::class, 'createFromDiscriminatorValue'))); },
+            'requestedModalities' => function (ParseNode $n) use ($o) { $o->setRequestedModalities($n->getCollectionOfPrimitiveValues()); },
+            'resultInfo' => function (ParseNode $n) use ($o) { $o->setResultInfo($n->getObjectValue(array(ResultInfo::class, 'createFromDiscriminatorValue'))); },
+            'ringingTimeoutInSeconds' => function (ParseNode $n) use ($o) { $o->setRingingTimeoutInSeconds($n->getIntegerValue()); },
+            'routingPolicies' => function (ParseNode $n) use ($o) { $o->setRoutingPolicies($n->getCollectionOfPrimitiveValues()); },
+            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getObjectValue(array(ParticipantInfo::class, 'createFromDiscriminatorValue'))); },
+            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(CallState::class)); },
+            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
+            'targets' => function (ParseNode $n) use ($o) { $o->setTargets($n->getCollectionOfObjectValues(array(InvitationParticipantInfo::class, 'createFromDiscriminatorValue'))); },
+            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'terminationReason' => function (ParseNode $n) use ($o) { $o->setTerminationReason($n->getStringValue()); },
+            'toneInfo' => function (ParseNode $n) use ($o) { $o->setToneInfo($n->getObjectValue(array(ToneInfo::class, 'createFromDiscriminatorValue'))); },
+            'transcription' => function (ParseNode $n) use ($o) { $o->setTranscription($n->getObjectValue(array(CallTranscriptionInfo::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
@@ -242,7 +303,7 @@ class Call extends Entity
     }
 
     /**
-     * Gets the mediaConfig property value. The media configuration. Required.
+     * Gets the mediaConfig property value. The media configuration. Required information for creating peer to peer calls or joining meetings.
      * @return MediaConfig|null
     */
     public function getMediaConfig(): ?MediaConfig {
@@ -266,7 +327,7 @@ class Call extends Entity
     }
 
     /**
-     * Gets the meetingInfo property value. The meeting information that's required for joining a meeting.
+     * Gets the meetingInfo property value. The meeting information. Required information for meeting scenarios.
      * @return MeetingInfo|null
     */
     public function getMeetingInfo(): ?MeetingInfo {
@@ -282,7 +343,7 @@ class Call extends Entity
     }
 
     /**
-     * Gets the operations property value. Read-only. Nullable.
+     * Gets the operations property value. The operations property
      * @return array<CommsOperation>|null
     */
     public function getOperations(): ?array {
@@ -290,7 +351,7 @@ class Call extends Entity
     }
 
     /**
-     * Gets the participants property value. Read-only. Nullable.
+     * Gets the participants property value. The participants property
      * @return array<Participant>|null
     */
     public function getParticipants(): ?array {
@@ -299,7 +360,7 @@ class Call extends Entity
 
     /**
      * Gets the requestedModalities property value. The requestedModalities property
-     * @return array<Modality>|null
+     * @return array<string>|null
     */
     public function getRequestedModalities(): ?array {
         return $this->requestedModalities;
@@ -323,7 +384,7 @@ class Call extends Entity
 
     /**
      * Gets the routingPolicies property value. The routingPolicies property
-     * @return array<RoutingPolicy>|null
+     * @return array<string>|null
     */
     public function getRoutingPolicies(): ?array {
         return $this->routingPolicies;
@@ -399,7 +460,7 @@ class Call extends Entity
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfEnumValues('activeModalities', $this->activeModalities);
+        $writer->writeCollectionOfPrimitiveValues('activeModalities', $this->activeModalities);
         $writer->writeObjectValue('answeredBy', $this->answeredBy);
         $writer->writeCollectionOfObjectValues('audioRoutingGroups', $this->audioRoutingGroups);
         $writer->writeStringValue('callbackUri', $this->callbackUri);
@@ -417,10 +478,10 @@ class Call extends Entity
         $writer->writeStringValue('myParticipantId', $this->myParticipantId);
         $writer->writeCollectionOfObjectValues('operations', $this->operations);
         $writer->writeCollectionOfObjectValues('participants', $this->participants);
-        $writer->writeCollectionOfEnumValues('requestedModalities', $this->requestedModalities);
+        $writer->writeCollectionOfPrimitiveValues('requestedModalities', $this->requestedModalities);
         $writer->writeObjectValue('resultInfo', $this->resultInfo);
         $writer->writeIntegerValue('ringingTimeoutInSeconds', $this->ringingTimeoutInSeconds);
-        $writer->writeCollectionOfEnumValues('routingPolicies', $this->routingPolicies);
+        $writer->writeCollectionOfPrimitiveValues('routingPolicies', $this->routingPolicies);
         $writer->writeObjectValue('source', $this->source);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeStringValue('subject', $this->subject);
@@ -433,7 +494,7 @@ class Call extends Entity
 
     /**
      * Sets the activeModalities property value. The list of active modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.
-     *  @param array<Modality>|null $value Value to set for the activeModalities property.
+     *  @param array<string>|null $value Value to set for the activeModalities property.
     */
     public function setActiveModalities(?array $value ): void {
         $this->activeModalities = $value;
@@ -448,7 +509,7 @@ class Call extends Entity
     }
 
     /**
-     * Sets the audioRoutingGroups property value. Read-only. Nullable.
+     * Sets the audioRoutingGroups property value. The audioRoutingGroups property
      *  @param array<AudioRoutingGroup>|null $value Value to set for the audioRoutingGroups property.
     */
     public function setAudioRoutingGroups(?array $value ): void {
@@ -472,7 +533,7 @@ class Call extends Entity
     }
 
     /**
-     * Sets the callOptions property value. The callOptions property
+     * Sets the callOptions property value. Contains the optional features for the call.
      *  @param CallOptions|null $value Value to set for the callOptions property.
     */
     public function setCallOptions(?CallOptions $value ): void {
@@ -488,7 +549,7 @@ class Call extends Entity
     }
 
     /**
-     * Sets the chatInfo property value. The chat information. Required information for joining a meeting.
+     * Sets the chatInfo property value. The chat information. Required information for meeting scenarios.
      *  @param ChatInfo|null $value Value to set for the chatInfo property.
     */
     public function setChatInfo(?ChatInfo $value ): void {
@@ -520,7 +581,7 @@ class Call extends Entity
     }
 
     /**
-     * Sets the mediaConfig property value. The media configuration. Required.
+     * Sets the mediaConfig property value. The media configuration. Required information for creating peer to peer calls or joining meetings.
      *  @param MediaConfig|null $value Value to set for the mediaConfig property.
     */
     public function setMediaConfig(?MediaConfig $value ): void {
@@ -544,7 +605,7 @@ class Call extends Entity
     }
 
     /**
-     * Sets the meetingInfo property value. The meeting information that's required for joining a meeting.
+     * Sets the meetingInfo property value. The meeting information. Required information for meeting scenarios.
      *  @param MeetingInfo|null $value Value to set for the meetingInfo property.
     */
     public function setMeetingInfo(?MeetingInfo $value ): void {
@@ -560,7 +621,7 @@ class Call extends Entity
     }
 
     /**
-     * Sets the operations property value. Read-only. Nullable.
+     * Sets the operations property value. The operations property
      *  @param array<CommsOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value ): void {
@@ -568,7 +629,7 @@ class Call extends Entity
     }
 
     /**
-     * Sets the participants property value. Read-only. Nullable.
+     * Sets the participants property value. The participants property
      *  @param array<Participant>|null $value Value to set for the participants property.
     */
     public function setParticipants(?array $value ): void {
@@ -577,7 +638,7 @@ class Call extends Entity
 
     /**
      * Sets the requestedModalities property value. The requestedModalities property
-     *  @param array<Modality>|null $value Value to set for the requestedModalities property.
+     *  @param array<string>|null $value Value to set for the requestedModalities property.
     */
     public function setRequestedModalities(?array $value ): void {
         $this->requestedModalities = $value;
@@ -601,7 +662,7 @@ class Call extends Entity
 
     /**
      * Sets the routingPolicies property value. The routingPolicies property
-     *  @param array<RoutingPolicy>|null $value Value to set for the routingPolicies property.
+     *  @param array<string>|null $value Value to set for the routingPolicies property.
     */
     public function setRoutingPolicies(?array $value ): void {
         $this->routingPolicies = $value;

@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeploymentState implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<DeploymentStateReason>|null $reasons Specifies the reasons the deployment has its state value. Read-only. */
+    /**
+     * @var array<DeploymentStateReason>|null $reasons Specifies the reasons the deployment has its state value. Read-only.
+    */
     private ?array $reasons = null;
     
-    /** @var RequestedDeploymentStateValue|null $requestedValue Specifies the requested state of the deployment. Supports a subset of the values for requestedDeploymentStateValue. Possible values are: none, paused, unknownFutureValue. */
+    /**
+     * @var RequestedDeploymentStateValue|null $requestedValue Specifies the requested state of the deployment. Supports a subset of the values for requestedDeploymentStateValue. Possible values are: none, paused, unknownFutureValue.
+    */
     private ?RequestedDeploymentStateValue $requestedValue = null;
     
-    /** @var DeploymentStateValue|null $value Specifies the state of the deployment. Supports a subset of the values for deploymentStateValue. Possible values are: scheduled, offering, paused, unknownFutureValue. Read-only. */
+    /**
+     * @var DeploymentStateValue|null $value Specifies the state of the deployment. Supports a subset of the values for deploymentStateValue. Possible values are: scheduled, offering, paused, unknownFutureValue. Read-only.
+    */
     private ?DeploymentStateValue $value = null;
     
     /**
@@ -33,7 +41,7 @@ class DeploymentState implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeploymentState
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeploymentState {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeploymentState {
         return new DeploymentState();
     }
 
@@ -50,10 +58,11 @@ class DeploymentState implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'reasons' => function (self $o, ParseNode $n) { $o->setReasons($n->getCollectionOfObjectValues(DeploymentStateReason::class)); },
-            'requestedValue' => function (self $o, ParseNode $n) { $o->setRequestedValue($n->getEnumValue(RequestedDeploymentStateValue::class)); },
-            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getEnumValue(DeploymentStateValue::class)); },
+            'reasons' => function (ParseNode $n) use ($o) { $o->setReasons($n->getCollectionOfObjectValues(array(DeploymentStateReason::class, 'createFromDiscriminatorValue'))); },
+            'requestedValue' => function (ParseNode $n) use ($o) { $o->setRequestedValue($n->getEnumValue(RequestedDeploymentStateValue::class)); },
+            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getEnumValue(DeploymentStateValue::class)); },
         ];
     }
 

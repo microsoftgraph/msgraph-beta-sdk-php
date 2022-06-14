@@ -9,28 +9,44 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class WorkloadAction implements AdditionalDataHolder, Parsable 
 {
-    /** @var string|null $actionId The unique identifier for the workload action. Required. Read-only. */
+    /**
+     * @var string|null $actionId The unique identifier for the workload action. Required. Read-only.
+    */
     private ?string $actionId = null;
     
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var WorkloadActionCategory|null $category The category for the workload action. Possible values are: automated, manual, unknownFutureValue. Optional. Read-only. */
+    /**
+     * @var WorkloadActionCategory|null $category The category for the workload action. Possible values are: automated, manual, unknownFutureValue. Optional. Read-only.
+    */
     private ?WorkloadActionCategory $category = null;
     
-    /** @var string|null $description The description for the workload action. Optional. Read-only. */
+    /**
+     * @var string|null $description The description for the workload action. Optional. Read-only.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The display name for the workload action. Optional. Read-only. */
+    /**
+     * @var string|null $displayName The display name for the workload action. Optional. Read-only.
+    */
     private ?string $displayName = null;
     
-    /** @var array<string>|null $licenses The licenses property */
+    /**
+     * @var array<string>|null $licenses The licenses property
+    */
     private ?array $licenses = null;
     
-    /** @var string|null $service The service associated with workload action. Optional. Read-only. */
+    /**
+     * @var string|null $service The service associated with workload action. Optional. Read-only.
+    */
     private ?string $service = null;
     
-    /** @var array<Setting>|null $settings The collection of settings associated with the workload action. Optional. Read-only. */
+    /**
+     * @var array<Setting>|null $settings The collection of settings associated with the workload action. Optional. Read-only.
+    */
     private ?array $settings = null;
     
     /**
@@ -45,7 +61,7 @@ class WorkloadAction implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkloadAction
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkloadAction {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkloadAction {
         return new WorkloadAction();
     }
 
@@ -94,14 +110,15 @@ class WorkloadAction implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'actionId' => function (self $o, ParseNode $n) { $o->setActionId($n->getStringValue()); },
-            'category' => function (self $o, ParseNode $n) { $o->setCategory($n->getEnumValue(WorkloadActionCategory::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'licenses' => function (self $o, ParseNode $n) { $o->setLicenses($n->getCollectionOfPrimitiveValues()); },
-            'service' => function (self $o, ParseNode $n) { $o->setService($n->getStringValue()); },
-            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getCollectionOfObjectValues(Setting::class)); },
+            'actionId' => function (ParseNode $n) use ($o) { $o->setActionId($n->getStringValue()); },
+            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(WorkloadActionCategory::class)); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'licenses' => function (ParseNode $n) use ($o) { $o->setLicenses($n->getCollectionOfPrimitiveValues()); },
+            'service' => function (ParseNode $n) use ($o) { $o->setService($n->getStringValue()); },
+            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getCollectionOfObjectValues(array(Setting::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

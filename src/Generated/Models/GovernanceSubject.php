@@ -6,18 +6,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GovernanceSubject extends Entity 
+class GovernanceSubject extends Entity implements Parsable 
 {
-    /** @var string|null $displayName The display name of the subject. */
+    /**
+     * @var string|null $displayName The display name of the subject.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $email The email address of the user subject. If the subject is in other types, it is empty. */
+    /**
+     * @var string|null $email The email address of the user subject. If the subject is in other types, it is empty.
+    */
     private ?string $email = null;
     
-    /** @var string|null $principalName The principal name of the user subject. If the subject is in other types, it is empty. */
+    /**
+     * @var string|null $principalName The principal name of the user subject. If the subject is in other types, it is empty.
+    */
     private ?string $principalName = null;
     
-    /** @var string|null $type The type of the subject. The value can be User, Group, and ServicePrincipal. */
+    /**
+     * @var string|null $type The type of the subject. The value can be User, Group, and ServicePrincipal.
+    */
     private ?string $type = null;
     
     /**
@@ -32,7 +40,7 @@ class GovernanceSubject extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GovernanceSubject
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceSubject {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceSubject {
         return new GovernanceSubject();
     }
 
@@ -57,11 +65,12 @@ class GovernanceSubject extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'email' => function (self $o, ParseNode $n) { $o->setEmail($n->getStringValue()); },
-            'principalName' => function (self $o, ParseNode $n) { $o->setPrincipalName($n->getStringValue()); },
-            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
+            'principalName' => function (ParseNode $n) use ($o) { $o->setPrincipalName($n->getStringValue()); },
+            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
         ]);
     }
 

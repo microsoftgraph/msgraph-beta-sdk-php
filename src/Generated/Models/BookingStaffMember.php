@@ -6,28 +6,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class BookingStaffMember extends BookingPerson 
+class BookingStaffMember extends BookingPerson implements Parsable 
 {
-    /** @var bool|null $availabilityIsAffectedByPersonalCalendar True means that if the staff member is a Microsoft 365 user, the Bookings API would verify the staff member's availability in their personal calendar in Microsoft 365, before making a booking. */
+    /**
+     * @var bool|null $availabilityIsAffectedByPersonalCalendar True means that if the staff member is a Microsoft 365 user, the Bookings API would verify the staff member's availability in their personal calendar in Microsoft 365, before making a booking.
+    */
     private ?bool $availabilityIsAffectedByPersonalCalendar = null;
     
-    /** @var int|null $colorIndex Identifies a color to represent the staff member. The color corresponds to the color palette in the Staff details page in the Bookings app. */
+    /**
+     * @var int|null $colorIndex Identifies a color to represent the staff member. The color corresponds to the color palette in the Staff details page in the Bookings app.
+    */
     private ?int $colorIndex = null;
     
-    /** @var BookingStaffRole|null $role The role of the staff member in the business. Possible values are: guest, administrator, viewer, externalGuest and unknownFutureValue. Required. */
+    /**
+     * @var bool|null $isEmailNotificationEnabled The isEmailNotificationEnabled property
+    */
+    private ?bool $isEmailNotificationEnabled = null;
+    
+    /**
+     * @var BookingStaffRole|null $role The role of the staff member in the business. Possible values are: guest, administrator, viewer, externalGuest and unknownFutureValue. Required.
+    */
     private ?BookingStaffRole $role = null;
     
-    /** @var string|null $timeZone The time zone of the staff member. For a list of possible values, see dateTimeTimeZone. */
+    /**
+     * @var string|null $timeZone The time zone of the staff member. For a list of possible values, see dateTimeTimeZone.
+    */
     private ?string $timeZone = null;
     
-    /** @var bool|null $useBusinessHours True means the staff member's availability is as specified in the businessHours property of the business. False means the availability is determined by the staff member's workingHours property setting. */
+    /**
+     * @var bool|null $useBusinessHours True means the staff member's availability is as specified in the businessHours property of the business. False means the availability is determined by the staff member's workingHours property setting.
+    */
     private ?bool $useBusinessHours = null;
     
-    /** @var array<BookingWorkHours>|null $workingHours The range of hours each day of the week that the staff member is available for booking. By default, they are initialized to be the same as the businessHours property of the business. */
+    /**
+     * @var array<BookingWorkHours>|null $workingHours The range of hours each day of the week that the staff member is available for booking. By default, they are initialized to be the same as the businessHours property of the business.
+    */
     private ?array $workingHours = null;
     
     /**
-     * Instantiates a new bookingStaffMember and sets the default values.
+     * Instantiates a new BookingStaffMember and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -38,7 +55,7 @@ class BookingStaffMember extends BookingPerson
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BookingStaffMember
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): BookingStaffMember {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): BookingStaffMember {
         return new BookingStaffMember();
     }
 
@@ -63,14 +80,24 @@ class BookingStaffMember extends BookingPerson
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'availabilityIsAffectedByPersonalCalendar' => function (self $o, ParseNode $n) { $o->setAvailabilityIsAffectedByPersonalCalendar($n->getBooleanValue()); },
-            'colorIndex' => function (self $o, ParseNode $n) { $o->setColorIndex($n->getIntegerValue()); },
-            'role' => function (self $o, ParseNode $n) { $o->setRole($n->getEnumValue(BookingStaffRole::class)); },
-            'timeZone' => function (self $o, ParseNode $n) { $o->setTimeZone($n->getStringValue()); },
-            'useBusinessHours' => function (self $o, ParseNode $n) { $o->setUseBusinessHours($n->getBooleanValue()); },
-            'workingHours' => function (self $o, ParseNode $n) { $o->setWorkingHours($n->getCollectionOfObjectValues(BookingWorkHours::class)); },
+            'availabilityIsAffectedByPersonalCalendar' => function (ParseNode $n) use ($o) { $o->setAvailabilityIsAffectedByPersonalCalendar($n->getBooleanValue()); },
+            'colorIndex' => function (ParseNode $n) use ($o) { $o->setColorIndex($n->getIntegerValue()); },
+            'isEmailNotificationEnabled' => function (ParseNode $n) use ($o) { $o->setIsEmailNotificationEnabled($n->getBooleanValue()); },
+            'role' => function (ParseNode $n) use ($o) { $o->setRole($n->getEnumValue(BookingStaffRole::class)); },
+            'timeZone' => function (ParseNode $n) use ($o) { $o->setTimeZone($n->getStringValue()); },
+            'useBusinessHours' => function (ParseNode $n) use ($o) { $o->setUseBusinessHours($n->getBooleanValue()); },
+            'workingHours' => function (ParseNode $n) use ($o) { $o->setWorkingHours($n->getCollectionOfObjectValues(array(BookingWorkHours::class, 'createFromDiscriminatorValue'))); },
         ]);
+    }
+
+    /**
+     * Gets the isEmailNotificationEnabled property value. The isEmailNotificationEnabled property
+     * @return bool|null
+    */
+    public function getIsEmailNotificationEnabled(): ?bool {
+        return $this->isEmailNotificationEnabled;
     }
 
     /**
@@ -113,6 +140,7 @@ class BookingStaffMember extends BookingPerson
         parent::serialize($writer);
         $writer->writeBooleanValue('availabilityIsAffectedByPersonalCalendar', $this->availabilityIsAffectedByPersonalCalendar);
         $writer->writeIntegerValue('colorIndex', $this->colorIndex);
+        $writer->writeBooleanValue('isEmailNotificationEnabled', $this->isEmailNotificationEnabled);
         $writer->writeEnumValue('role', $this->role);
         $writer->writeStringValue('timeZone', $this->timeZone);
         $writer->writeBooleanValue('useBusinessHours', $this->useBusinessHours);
@@ -133,6 +161,14 @@ class BookingStaffMember extends BookingPerson
     */
     public function setColorIndex(?int $value ): void {
         $this->colorIndex = $value;
+    }
+
+    /**
+     * Sets the isEmailNotificationEnabled property value. The isEmailNotificationEnabled property
+     *  @param bool|null $value Value to set for the isEmailNotificationEnabled property.
+    */
+    public function setIsEmailNotificationEnabled(?bool $value ): void {
+        $this->isEmailNotificationEnabled = $value;
     }
 
     /**

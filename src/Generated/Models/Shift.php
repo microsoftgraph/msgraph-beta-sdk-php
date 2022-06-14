@@ -6,25 +6,35 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Shift extends ChangeTrackedEntity 
+class Shift extends ChangeTrackedEntity implements Parsable 
 {
-    /** @var ShiftItem|null $draftShift The draft version of this shift that is viewable by managers. Required. */
+    /**
+     * @var ShiftItem|null $draftShift The draft version of this shift that is viewable by managers. Required.
+    */
     private ?ShiftItem $draftShift = null;
     
-    /** @var bool|null $isStagedForDeletion The isStagedForDeletion property */
+    /**
+     * @var bool|null $isStagedForDeletion The isStagedForDeletion property
+    */
     private ?bool $isStagedForDeletion = null;
     
-    /** @var string|null $schedulingGroupId ID of the scheduling group the shift is part of. Required. */
+    /**
+     * @var string|null $schedulingGroupId ID of the scheduling group the shift is part of. Required.
+    */
     private ?string $schedulingGroupId = null;
     
-    /** @var ShiftItem|null $sharedShift The shared version of this shift that is viewable by both employees and managers. Required. */
+    /**
+     * @var ShiftItem|null $sharedShift The shared version of this shift that is viewable by both employees and managers. Required.
+    */
     private ?ShiftItem $sharedShift = null;
     
-    /** @var string|null $userId ID of the user assigned to the shift. Required. */
+    /**
+     * @var string|null $userId ID of the user assigned to the shift. Required.
+    */
     private ?string $userId = null;
     
     /**
-     * Instantiates a new shift and sets the default values.
+     * Instantiates a new Shift and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +45,7 @@ class Shift extends ChangeTrackedEntity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Shift
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Shift {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Shift {
         return new Shift();
     }
 
@@ -52,12 +62,13 @@ class Shift extends ChangeTrackedEntity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'draftShift' => function (self $o, ParseNode $n) { $o->setDraftShift($n->getObjectValue(ShiftItem::class)); },
-            'isStagedForDeletion' => function (self $o, ParseNode $n) { $o->setIsStagedForDeletion($n->getBooleanValue()); },
-            'schedulingGroupId' => function (self $o, ParseNode $n) { $o->setSchedulingGroupId($n->getStringValue()); },
-            'sharedShift' => function (self $o, ParseNode $n) { $o->setSharedShift($n->getObjectValue(ShiftItem::class)); },
-            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
+            'draftShift' => function (ParseNode $n) use ($o) { $o->setDraftShift($n->getObjectValue(array(ShiftItem::class, 'createFromDiscriminatorValue'))); },
+            'isStagedForDeletion' => function (ParseNode $n) use ($o) { $o->setIsStagedForDeletion($n->getBooleanValue()); },
+            'schedulingGroupId' => function (ParseNode $n) use ($o) { $o->setSchedulingGroupId($n->getStringValue()); },
+            'sharedShift' => function (ParseNode $n) use ($o) { $o->setSharedShift($n->getObjectValue(array(ShiftItem::class, 'createFromDiscriminatorValue'))); },
+            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
         ]);
     }
 

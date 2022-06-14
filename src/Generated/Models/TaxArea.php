@@ -7,18 +7,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TaxArea extends Entity 
+class TaxArea extends Entity implements Parsable 
 {
-    /** @var string|null $code The code property */
+    /**
+     * @var string|null $code The code property
+    */
     private ?string $code = null;
     
-    /** @var string|null $displayName The displayName property */
+    /**
+     * @var string|null $displayName The displayName property
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var string|null $taxType The taxType property */
+    /**
+     * @var string|null $taxType The taxType property
+    */
     private ?string $taxType = null;
     
     /**
@@ -33,7 +41,7 @@ class TaxArea extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TaxArea
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TaxArea {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TaxArea {
         return new TaxArea();
     }
 
@@ -58,11 +66,12 @@ class TaxArea extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'code' => function (self $o, ParseNode $n) { $o->setCode($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'taxType' => function (self $o, ParseNode $n) { $o->setTaxType($n->getStringValue()); },
+            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'taxType' => function (ParseNode $n) use ($o) { $o->setTaxType($n->getStringValue()); },
         ]);
     }
 

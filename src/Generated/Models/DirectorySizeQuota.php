@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DirectorySizeQuota implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $total Total amount of the directory quota. */
+    /**
+     * @var int|null $total Total amount of the directory quota.
+    */
     private ?int $total = null;
     
-    /** @var int|null $used Used amount of the directory quota. */
+    /**
+     * @var int|null $used Used amount of the directory quota.
+    */
     private ?int $used = null;
     
     /**
@@ -30,7 +36,7 @@ class DirectorySizeQuota implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DirectorySizeQuota
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DirectorySizeQuota {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DirectorySizeQuota {
         return new DirectorySizeQuota();
     }
 
@@ -47,9 +53,10 @@ class DirectorySizeQuota implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'total' => function (self $o, ParseNode $n) { $o->setTotal($n->getIntegerValue()); },
-            'used' => function (self $o, ParseNode $n) { $o->setUsed($n->getIntegerValue()); },
+            'total' => function (ParseNode $n) use ($o) { $o->setTotal($n->getIntegerValue()); },
+            'used' => function (ParseNode $n) use ($o) { $o->setUsed($n->getIntegerValue()); },
         ];
     }
 

@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SharedEmailDomain extends Entity 
+class SharedEmailDomain extends Entity implements Parsable 
 {
-    /** @var string|null $provisioningStatus The provisioningStatus property */
+    /**
+     * @var string|null $provisioningStatus The provisioningStatus property
+    */
     private ?string $provisioningStatus = null;
     
     /**
@@ -23,7 +25,7 @@ class SharedEmailDomain extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SharedEmailDomain
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SharedEmailDomain {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SharedEmailDomain {
         return new SharedEmailDomain();
     }
 
@@ -32,8 +34,9 @@ class SharedEmailDomain extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'provisioningStatus' => function (self $o, ParseNode $n) { $o->setProvisioningStatus($n->getStringValue()); },
+            'provisioningStatus' => function (ParseNode $n) use ($o) { $o->setProvisioningStatus($n->getStringValue()); },
         ]);
     }
 

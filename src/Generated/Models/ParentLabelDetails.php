@@ -9,31 +9,49 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ParentLabelDetails implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $color The color that the user interface should display for the label, if configured. */
+    /**
+     * @var string|null $color The color that the user interface should display for the label, if configured.
+    */
     private ?string $color = null;
     
-    /** @var string|null $description The admin-defined description for the label. */
+    /**
+     * @var string|null $description The admin-defined description for the label.
+    */
     private ?string $description = null;
     
-    /** @var string|null $id The label ID is a globally unique identifier (GUID). */
+    /**
+     * @var string|null $id The label ID is a globally unique identifier (GUID).
+    */
     private ?string $id = null;
     
-    /** @var bool|null $isActive Indicates whether the label is active or not. Active labels should be hidden or disabled in user interfaces. */
+    /**
+     * @var bool|null $isActive Indicates whether the label is active or not. Active labels should be hidden or disabled in user interfaces.
+    */
     private ?bool $isActive = null;
     
-    /** @var string|null $name The plaintext name of the label. */
+    /**
+     * @var string|null $name The plaintext name of the label.
+    */
     private ?string $name = null;
     
-    /** @var ParentLabelDetails|null $parent The parent property */
+    /**
+     * @var ParentLabelDetails|null $parent The parent property
+    */
     private ?ParentLabelDetails $parent = null;
     
-    /** @var int|null $sensitivity The sensitivity value of the label, where lower is less sensitive. */
+    /**
+     * @var int|null $sensitivity The sensitivity value of the label, where lower is less sensitive.
+    */
     private ?int $sensitivity = null;
     
-    /** @var string|null $tooltip The tooltip that should be displayed for the label in a user interface. */
+    /**
+     * @var string|null $tooltip The tooltip that should be displayed for the label in a user interface.
+    */
     private ?string $tooltip = null;
     
     /**
@@ -48,7 +66,7 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ParentLabelDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ParentLabelDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ParentLabelDetails {
         return new ParentLabelDetails();
     }
 
@@ -81,15 +99,16 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'color' => function (self $o, ParseNode $n) { $o->setColor($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
-            'isActive' => function (self $o, ParseNode $n) { $o->setIsActive($n->getBooleanValue()); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'parent' => function (self $o, ParseNode $n) { $o->setParent($n->getObjectValue(ParentLabelDetails::class)); },
-            'sensitivity' => function (self $o, ParseNode $n) { $o->setSensitivity($n->getIntegerValue()); },
-            'tooltip' => function (self $o, ParseNode $n) { $o->setTooltip($n->getStringValue()); },
+            'color' => function (ParseNode $n) use ($o) { $o->setColor($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'isActive' => function (ParseNode $n) use ($o) { $o->setIsActive($n->getBooleanValue()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'parent' => function (ParseNode $n) use ($o) { $o->setParent($n->getObjectValue(array(ParentLabelDetails::class, 'createFromDiscriminatorValue'))); },
+            'sensitivity' => function (ParseNode $n) use ($o) { $o->setSensitivity($n->getIntegerValue()); },
+            'tooltip' => function (ParseNode $n) use ($o) { $o->setTooltip($n->getStringValue()); },
         ];
     }
 

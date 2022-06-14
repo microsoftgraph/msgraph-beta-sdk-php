@@ -3,42 +3,59 @@
 namespace Microsoft\Graph\Beta\Generated\Models\Search;
 
 use DateTime;
-use Microsoft\Graph\Beta\Generated\Models\DevicePlatformType;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Qna extends SearchAnswer 
+class Qna extends SearchAnswer implements Parsable 
 {
-    /** @var DateTime|null $availabilityEndDateTime Timestamp of when the qna will stop to appear as a search result. Set as null for always available. */
+    /**
+     * @var DateTime|null $availabilityEndDateTime Timestamp of when the qna will stop to appear as a search result. Set as null for always available.
+    */
     private ?DateTime $availabilityEndDateTime = null;
     
-    /** @var DateTime|null $availabilityStartDateTime Timestamp of when the qna will start to appear as a search result. Set as null for always available. */
+    /**
+     * @var DateTime|null $availabilityStartDateTime Timestamp of when the qna will start to appear as a search result. Set as null for always available.
+    */
     private ?DateTime $availabilityStartDateTime = null;
     
-    /** @var array<string>|null $groupIds List of security groups able to view this qna. */
+    /**
+     * @var array<string>|null $groupIds List of security groups able to view this qna.
+    */
     private ?array $groupIds = null;
     
-    /** @var bool|null $isSuggested True if this qna was suggested to the admin by a user or was mined and suggested by Microsoft. Read-only. */
+    /**
+     * @var bool|null $isSuggested True if this qna was suggested to the admin by a user or was mined and suggested by Microsoft. Read-only.
+    */
     private ?bool $isSuggested = null;
     
-    /** @var AnswerKeyword|null $keywords Keywords that trigger this qna to appear in search results. */
+    /**
+     * @var AnswerKeyword|null $keywords Keywords that trigger this qna to appear in search results.
+    */
     private ?AnswerKeyword $keywords = null;
     
-    /** @var array<string>|null $languageTags A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{REGION}. As an example, en-US is English as used in the United States. See supported language tags for the list of possible values. */
+    /**
+     * @var array<string>|null $languageTags A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. See supported language tags for the list of possible values.
+    */
     private ?array $languageTags = null;
     
-    /** @var array<DevicePlatformType>|null $platforms List of devices and operating systems able to view this qna. Possible values are: unknown, android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, androidASOP. */
+    /**
+     * @var array<string>|null $platforms List of devices and operating systems able to view this qna. Possible values are: unknown, android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, androidASOP.
+    */
     private ?array $platforms = null;
     
-    /** @var AnswerState|null $state State of the qna. Possible values are: published, draft, excluded, or unknownFutureValue. */
+    /**
+     * @var AnswerState|null $state State of the qna. Possible values are: published, draft, excluded, or unknownFutureValue.
+    */
     private ?AnswerState $state = null;
     
-    /** @var array<AnswerVariant>|null $targetedVariations Variations of a qna for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings will apply to all variations. */
+    /**
+     * @var array<AnswerVariant>|null $targetedVariations Variations of a qna for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings will apply to all variations.
+    */
     private ?array $targetedVariations = null;
     
     /**
-     * Instantiates a new qna and sets the default values.
+     * Instantiates a new Qna and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -49,7 +66,7 @@ class Qna extends SearchAnswer
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Qna
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Qna {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Qna {
         return new Qna();
     }
 
@@ -74,16 +91,17 @@ class Qna extends SearchAnswer
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'availabilityEndDateTime' => function (self $o, ParseNode $n) { $o->setAvailabilityEndDateTime($n->getDateTimeValue()); },
-            'availabilityStartDateTime' => function (self $o, ParseNode $n) { $o->setAvailabilityStartDateTime($n->getDateTimeValue()); },
-            'groupIds' => function (self $o, ParseNode $n) { $o->setGroupIds($n->getCollectionOfPrimitiveValues()); },
-            'isSuggested' => function (self $o, ParseNode $n) { $o->setIsSuggested($n->getBooleanValue()); },
-            'keywords' => function (self $o, ParseNode $n) { $o->setKeywords($n->getObjectValue(AnswerKeyword::class)); },
-            'languageTags' => function (self $o, ParseNode $n) { $o->setLanguageTags($n->getCollectionOfPrimitiveValues()); },
-            'platforms' => function (self $o, ParseNode $n) { $o->setPlatforms($n->getCollectionOfEnumValues(DevicePlatformType::class)); },
-            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(AnswerState::class)); },
-            'targetedVariations' => function (self $o, ParseNode $n) { $o->setTargetedVariations($n->getCollectionOfObjectValues(AnswerVariant::class)); },
+            'availabilityEndDateTime' => function (ParseNode $n) use ($o) { $o->setAvailabilityEndDateTime($n->getDateTimeValue()); },
+            'availabilityStartDateTime' => function (ParseNode $n) use ($o) { $o->setAvailabilityStartDateTime($n->getDateTimeValue()); },
+            'groupIds' => function (ParseNode $n) use ($o) { $o->setGroupIds($n->getCollectionOfPrimitiveValues()); },
+            'isSuggested' => function (ParseNode $n) use ($o) { $o->setIsSuggested($n->getBooleanValue()); },
+            'keywords' => function (ParseNode $n) use ($o) { $o->setKeywords($n->getObjectValue(array(AnswerKeyword::class, 'createFromDiscriminatorValue'))); },
+            'languageTags' => function (ParseNode $n) use ($o) { $o->setLanguageTags($n->getCollectionOfPrimitiveValues()); },
+            'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getCollectionOfPrimitiveValues()); },
+            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(AnswerState::class)); },
+            'targetedVariations' => function (ParseNode $n) use ($o) { $o->setTargetedVariations($n->getCollectionOfObjectValues(array(AnswerVariant::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
@@ -112,7 +130,7 @@ class Qna extends SearchAnswer
     }
 
     /**
-     * Gets the languageTags property value. A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{REGION}. As an example, en-US is English as used in the United States. See supported language tags for the list of possible values.
+     * Gets the languageTags property value. A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. See supported language tags for the list of possible values.
      * @return array<string>|null
     */
     public function getLanguageTags(): ?array {
@@ -121,7 +139,7 @@ class Qna extends SearchAnswer
 
     /**
      * Gets the platforms property value. List of devices and operating systems able to view this qna. Possible values are: unknown, android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, androidASOP.
-     * @return array<DevicePlatformType>|null
+     * @return array<string>|null
     */
     public function getPlatforms(): ?array {
         return $this->platforms;
@@ -155,7 +173,7 @@ class Qna extends SearchAnswer
         $writer->writeBooleanValue('isSuggested', $this->isSuggested);
         $writer->writeObjectValue('keywords', $this->keywords);
         $writer->writeCollectionOfPrimitiveValues('languageTags', $this->languageTags);
-        $writer->writeCollectionOfEnumValues('platforms', $this->platforms);
+        $writer->writeCollectionOfPrimitiveValues('platforms', $this->platforms);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeCollectionOfObjectValues('targetedVariations', $this->targetedVariations);
     }
@@ -201,7 +219,7 @@ class Qna extends SearchAnswer
     }
 
     /**
-     * Sets the languageTags property value. A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{REGION}. As an example, en-US is English as used in the United States. See supported language tags for the list of possible values.
+     * Sets the languageTags property value. A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. See supported language tags for the list of possible values.
      *  @param array<string>|null $value Value to set for the languageTags property.
     */
     public function setLanguageTags(?array $value ): void {
@@ -210,7 +228,7 @@ class Qna extends SearchAnswer
 
     /**
      * Sets the platforms property value. List of devices and operating systems able to view this qna. Possible values are: unknown, android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, androidASOP.
-     *  @param array<DevicePlatformType>|null $value Value to set for the platforms property.
+     *  @param array<string>|null $value Value to set for the platforms property.
     */
     public function setPlatforms(?array $value ): void {
         $this->platforms = $value;

@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SimulationEventsContent implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var float|null $compromisedRate Actual percentage of users who fell for the simulated attack in an attack simulation and training campaign. */
+    /**
+     * @var float|null $compromisedRate Actual percentage of users who fell for the simulated attack in an attack simulation and training campaign.
+    */
     private ?float $compromisedRate = null;
     
-    /** @var array<SimulationEvent>|null $events List of simulation events in an attack simulation and training campaign. */
+    /**
+     * @var array<SimulationEvent>|null $events List of simulation events in an attack simulation and training campaign.
+    */
     private ?array $events = null;
     
     /**
@@ -30,7 +36,7 @@ class SimulationEventsContent implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SimulationEventsContent
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SimulationEventsContent {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SimulationEventsContent {
         return new SimulationEventsContent();
     }
 
@@ -63,9 +69,10 @@ class SimulationEventsContent implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'compromisedRate' => function (self $o, ParseNode $n) { $o->setCompromisedRate($n->getFloatValue()); },
-            'events' => function (self $o, ParseNode $n) { $o->setEvents($n->getCollectionOfObjectValues(SimulationEvent::class)); },
+            'compromisedRate' => function (ParseNode $n) use ($o) { $o->setCompromisedRate($n->getFloatValue()); },
+            'events' => function (ParseNode $n) use ($o) { $o->setEvents($n->getCollectionOfObjectValues(array(SimulationEvent::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

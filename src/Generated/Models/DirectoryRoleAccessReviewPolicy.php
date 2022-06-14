@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DirectoryRoleAccessReviewPolicy extends Entity 
+class DirectoryRoleAccessReviewPolicy extends Entity implements Parsable 
 {
-    /** @var AccessReviewScheduleSettings|null $settings The settings property */
+    /**
+     * @var AccessReviewScheduleSettings|null $settings The settings property
+    */
     private ?AccessReviewScheduleSettings $settings = null;
     
     /**
@@ -23,7 +25,7 @@ class DirectoryRoleAccessReviewPolicy extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DirectoryRoleAccessReviewPolicy
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DirectoryRoleAccessReviewPolicy {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DirectoryRoleAccessReviewPolicy {
         return new DirectoryRoleAccessReviewPolicy();
     }
 
@@ -32,8 +34,9 @@ class DirectoryRoleAccessReviewPolicy extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getObjectValue(AccessReviewScheduleSettings::class)); },
+            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(AccessReviewScheduleSettings::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AutoReviewSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $notReviewedResult Possible values: Approve, Deny, or Recommendation.  If Recommendation, then accessRecommendationsEnabled in the accessReviewSettings resource should also be set to true. If you want to have the system provide a decision even if the reviewer does not make a choice, set the autoReviewEnabled property in the accessReviewSettings resource to true and include an autoReviewSettings object with the notReviewedResult property. Then, when a review completes, based on the notReviewedResult property, the decision is recorded as either Approve or Deny. */
+    /**
+     * @var string|null $notReviewedResult Possible values: Approve, Deny, or Recommendation.  If Recommendation, then accessRecommendationsEnabled in the accessReviewSettings resource should also be set to true. If you want to have the system provide a decision even if the reviewer does not make a choice, set the autoReviewEnabled property in the accessReviewSettings resource to true and include an autoReviewSettings object with the notReviewedResult property. Then, when a review completes, based on the notReviewedResult property, the decision is recorded as either Approve or Deny.
+    */
     private ?string $notReviewedResult = null;
     
     /**
@@ -27,7 +31,7 @@ class AutoReviewSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AutoReviewSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AutoReviewSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AutoReviewSettings {
         return new AutoReviewSettings();
     }
 
@@ -44,8 +48,9 @@ class AutoReviewSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'notReviewedResult' => function (self $o, ParseNode $n) { $o->setNotReviewedResult($n->getStringValue()); },
+            'notReviewedResult' => function (ParseNode $n) use ($o) { $o->setNotReviewedResult($n->getStringValue()); },
         ];
     }
 

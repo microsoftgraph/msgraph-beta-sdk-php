@@ -6,19 +6,25 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TenantAppManagementPolicy extends PolicyBase 
+class TenantAppManagementPolicy extends PolicyBase implements Parsable 
 {
-    /** @var AppManagementConfiguration|null $applicationRestrictions Restrictions that apply as default to all application objects in the tenant. */
+    /**
+     * @var AppManagementConfiguration|null $applicationRestrictions Restrictions that apply as default to all application objects in the tenant.
+    */
     private ?AppManagementConfiguration $applicationRestrictions = null;
     
-    /** @var bool|null $isEnabled Denotes whether the policy is enabled. Default value is false. */
+    /**
+     * @var bool|null $isEnabled Denotes whether the policy is enabled. Default value is false.
+    */
     private ?bool $isEnabled = null;
     
-    /** @var AppManagementConfiguration|null $servicePrincipalRestrictions Restrictions that apply as default to all service principal objects in the tenant. */
+    /**
+     * @var AppManagementConfiguration|null $servicePrincipalRestrictions Restrictions that apply as default to all service principal objects in the tenant.
+    */
     private ?AppManagementConfiguration $servicePrincipalRestrictions = null;
     
     /**
-     * Instantiates a new tenantAppManagementPolicy and sets the default values.
+     * Instantiates a new TenantAppManagementPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +35,7 @@ class TenantAppManagementPolicy extends PolicyBase
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TenantAppManagementPolicy
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TenantAppManagementPolicy {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TenantAppManagementPolicy {
         return new TenantAppManagementPolicy();
     }
 
@@ -46,10 +52,11 @@ class TenantAppManagementPolicy extends PolicyBase
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationRestrictions' => function (self $o, ParseNode $n) { $o->setApplicationRestrictions($n->getObjectValue(AppManagementConfiguration::class)); },
-            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
-            'servicePrincipalRestrictions' => function (self $o, ParseNode $n) { $o->setServicePrincipalRestrictions($n->getObjectValue(AppManagementConfiguration::class)); },
+            'applicationRestrictions' => function (ParseNode $n) use ($o) { $o->setApplicationRestrictions($n->getObjectValue(array(AppManagementConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            'servicePrincipalRestrictions' => function (ParseNode $n) use ($o) { $o->setServicePrincipalRestrictions($n->getObjectValue(array(AppManagementConfiguration::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

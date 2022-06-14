@@ -6,18 +6,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Connector extends Entity 
+class Connector extends Entity implements Parsable 
 {
-    /** @var string|null $externalIp The external IP address as detected by the the connector server. Read-only. */
+    /**
+     * @var string|null $externalIp The external IP address as detected by the the connector server. Read-only.
+    */
     private ?string $externalIp = null;
     
-    /** @var string|null $machineName The machine name the connector is installed and running on. */
+    /**
+     * @var string|null $machineName The machine name the connector is installed and running on.
+    */
     private ?string $machineName = null;
     
-    /** @var array<ConnectorGroup>|null $memberOf The connectorGroup that the connector is a member of. Read-only. */
+    /**
+     * @var array<ConnectorGroup>|null $memberOf The connectorGroup that the connector is a member of. Read-only.
+    */
     private ?array $memberOf = null;
     
-    /** @var ConnectorStatus|null $status Indicates the status of the connector. Possible values are: active, inactive. Read-only. */
+    /**
+     * @var ConnectorStatus|null $status Indicates the status of the connector. Possible values are: active, inactive. Read-only.
+    */
     private ?ConnectorStatus $status = null;
     
     /**
@@ -32,7 +40,7 @@ class Connector extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Connector
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Connector {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Connector {
         return new Connector();
     }
 
@@ -49,11 +57,12 @@ class Connector extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'externalIp' => function (self $o, ParseNode $n) { $o->setExternalIp($n->getStringValue()); },
-            'machineName' => function (self $o, ParseNode $n) { $o->setMachineName($n->getStringValue()); },
-            'memberOf' => function (self $o, ParseNode $n) { $o->setMemberOf($n->getCollectionOfObjectValues(ConnectorGroup::class)); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(ConnectorStatus::class)); },
+            'externalIp' => function (ParseNode $n) use ($o) { $o->setExternalIp($n->getStringValue()); },
+            'machineName' => function (ParseNode $n) use ($o) { $o->setMachineName($n->getStringValue()); },
+            'memberOf' => function (ParseNode $n) use ($o) { $o->setMemberOf($n->getCollectionOfObjectValues(array(ConnectorGroup::class, 'createFromDiscriminatorValue'))); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ConnectorStatus::class)); },
         ]);
     }
 

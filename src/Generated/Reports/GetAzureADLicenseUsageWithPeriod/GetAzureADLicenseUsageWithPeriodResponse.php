@@ -10,10 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class GetAzureADLicenseUsageWithPeriodResponse implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<AzureADLicenseUsage>|null $value The value property */
+    /**
+     * @var array<AzureADLicenseUsage>|null $value The value property
+    */
     private ?array $value = null;
     
     /**
@@ -28,7 +32,7 @@ class GetAzureADLicenseUsageWithPeriodResponse implements AdditionalDataHolder, 
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GetAzureADLicenseUsageWithPeriodResponse
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GetAzureADLicenseUsageWithPeriodResponse {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GetAzureADLicenseUsageWithPeriodResponse {
         return new GetAzureADLicenseUsageWithPeriodResponse();
     }
 
@@ -45,8 +49,9 @@ class GetAzureADLicenseUsageWithPeriodResponse implements AdditionalDataHolder, 
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getCollectionOfObjectValues(AzureADLicenseUsage::class)); },
+            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(AzureADLicenseUsage::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

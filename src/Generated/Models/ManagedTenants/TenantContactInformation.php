@@ -9,22 +9,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TenantContactInformation implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $email The email address for the contact. Optional */
+    /**
+     * @var string|null $email The email address for the contact. Optional
+    */
     private ?string $email = null;
     
-    /** @var string|null $name The name for the contact. Required. */
+    /**
+     * @var string|null $name The name for the contact. Required.
+    */
     private ?string $name = null;
     
-    /** @var string|null $notes The notes associated with the contact. Optional */
+    /**
+     * @var string|null $notes The notes associated with the contact. Optional
+    */
     private ?string $notes = null;
     
-    /** @var string|null $phone The phone number for the contact. Optional. */
+    /**
+     * @var string|null $phone The phone number for the contact. Optional.
+    */
     private ?string $phone = null;
     
-    /** @var string|null $title The title for the contact. Required. */
+    /**
+     * @var string|null $title The title for the contact. Required.
+    */
     private ?string $title = null;
     
     /**
@@ -39,7 +51,7 @@ class TenantContactInformation implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TenantContactInformation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TenantContactInformation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TenantContactInformation {
         return new TenantContactInformation();
     }
 
@@ -64,12 +76,13 @@ class TenantContactInformation implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'email' => function (self $o, ParseNode $n) { $o->setEmail($n->getStringValue()); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'notes' => function (self $o, ParseNode $n) { $o->setNotes($n->getStringValue()); },
-            'phone' => function (self $o, ParseNode $n) { $o->setPhone($n->getStringValue()); },
-            'title' => function (self $o, ParseNode $n) { $o->setTitle($n->getStringValue()); },
+            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getStringValue()); },
+            'phone' => function (ParseNode $n) use ($o) { $o->setPhone($n->getStringValue()); },
+            'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
         ];
     }
 

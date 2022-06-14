@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CallOptions implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $hideBotAfterEscalation The hideBotAfterEscalation property */
+    /**
+     * @var bool|null $hideBotAfterEscalation The hideBotAfterEscalation property
+    */
     private ?bool $hideBotAfterEscalation = null;
     
-    /** @var bool|null $isContentSharingNotificationEnabled The isContentSharingNotificationEnabled property */
+    /**
+     * @var bool|null $isContentSharingNotificationEnabled Indicates whether content sharing notifications should be enabled for the call.
+    */
     private ?bool $isContentSharingNotificationEnabled = null;
     
     /**
@@ -30,7 +36,7 @@ class CallOptions implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CallOptions
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CallOptions {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CallOptions {
         return new CallOptions();
     }
 
@@ -47,9 +53,10 @@ class CallOptions implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'hideBotAfterEscalation' => function (self $o, ParseNode $n) { $o->setHideBotAfterEscalation($n->getBooleanValue()); },
-            'isContentSharingNotificationEnabled' => function (self $o, ParseNode $n) { $o->setIsContentSharingNotificationEnabled($n->getBooleanValue()); },
+            'hideBotAfterEscalation' => function (ParseNode $n) use ($o) { $o->setHideBotAfterEscalation($n->getBooleanValue()); },
+            'isContentSharingNotificationEnabled' => function (ParseNode $n) use ($o) { $o->setIsContentSharingNotificationEnabled($n->getBooleanValue()); },
         ];
     }
 
@@ -62,7 +69,7 @@ class CallOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the isContentSharingNotificationEnabled property value. The isContentSharingNotificationEnabled property
+     * Gets the isContentSharingNotificationEnabled property value. Indicates whether content sharing notifications should be enabled for the call.
      * @return bool|null
     */
     public function getIsContentSharingNotificationEnabled(): ?bool {
@@ -96,7 +103,7 @@ class CallOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isContentSharingNotificationEnabled property value. The isContentSharingNotificationEnabled property
+     * Sets the isContentSharingNotificationEnabled property value. Indicates whether content sharing notifications should be enabled for the call.
      *  @param bool|null $value Value to set for the isContentSharingNotificationEnabled property.
     */
     public function setIsContentSharingNotificationEnabled(?bool $value ): void {

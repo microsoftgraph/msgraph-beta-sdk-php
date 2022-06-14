@@ -7,9 +7,11 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class UserConfiguration extends Entity 
+class UserConfiguration extends Entity implements Parsable 
 {
-    /** @var StreamInterface|null $binaryData The binaryData property */
+    /**
+     * @var StreamInterface|null $binaryData The binaryData property
+    */
     private ?StreamInterface $binaryData = null;
     
     /**
@@ -24,7 +26,7 @@ class UserConfiguration extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserConfiguration {
         return new UserConfiguration();
     }
 
@@ -41,8 +43,9 @@ class UserConfiguration extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'binaryData' => function (self $o, ParseNode $n) { $o->setBinaryData($n->getBinaryContent()); },
+            'binaryData' => function (ParseNode $n) use ($o) { $o->setBinaryData($n->getBinaryContent()); },
         ]);
     }
 

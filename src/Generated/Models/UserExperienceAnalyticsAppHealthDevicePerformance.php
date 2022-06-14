@@ -7,42 +7,66 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity 
+class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implements Parsable 
 {
-    /** @var int|null $appCrashCount The number of app crashes for the device. Valid values -2147483648 to 2147483647 */
+    /**
+     * @var int|null $appCrashCount The number of app crashes for the device. Valid values -2147483648 to 2147483647
+    */
     private ?int $appCrashCount = null;
     
-    /** @var int|null $appHangCount The number of app hangs for the device. Valid values -2147483648 to 2147483647 */
+    /**
+     * @var int|null $appHangCount The number of app hangs for the device. Valid values -2147483648 to 2147483647
+    */
     private ?int $appHangCount = null;
     
-    /** @var int|null $crashedAppCount The number of distinct app crashes for the device. Valid values -2147483648 to 2147483647 */
+    /**
+     * @var int|null $crashedAppCount The number of distinct app crashes for the device. Valid values -2147483648 to 2147483647
+    */
     private ?int $crashedAppCount = null;
     
-    /** @var float|null $deviceAppHealthScore The app health score of the device. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
+    /**
+     * @var float|null $deviceAppHealthScore The app health score of the device. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+    */
     private ?float $deviceAppHealthScore = null;
     
-    /** @var string|null $deviceAppHealthStatus The overall app health status of the device. */
+    /**
+     * @var string|null $deviceAppHealthStatus The overall app health status of the device.
+    */
     private ?string $deviceAppHealthStatus = null;
     
-    /** @var string|null $deviceDisplayName The name of the device. */
+    /**
+     * @var string|null $deviceDisplayName The name of the device.
+    */
     private ?string $deviceDisplayName = null;
     
-    /** @var string|null $deviceId The id of the device. */
+    /**
+     * @var string|null $deviceId The id of the device.
+    */
     private ?string $deviceId = null;
     
-    /** @var string|null $deviceManufacturer The manufacturer name of the device. */
+    /**
+     * @var string|null $deviceManufacturer The manufacturer name of the device.
+    */
     private ?string $deviceManufacturer = null;
     
-    /** @var string|null $deviceModel The model name of the device. */
+    /**
+     * @var string|null $deviceModel The model name of the device.
+    */
     private ?string $deviceModel = null;
     
-    /** @var UserExperienceAnalyticsHealthState|null $healthStatus The health state of the user experience analytics device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals. */
+    /**
+     * @var UserExperienceAnalyticsHealthState|null $healthStatus The health state of the user experience analytics device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+    */
     private ?UserExperienceAnalyticsHealthState $healthStatus = null;
     
-    /** @var int|null $meanTimeToFailureInMinutes The mean time to failure for the device in minutes. Valid values -2147483648 to 2147483647 */
+    /**
+     * @var int|null $meanTimeToFailureInMinutes The mean time to failure for the device in minutes. Valid values -2147483648 to 2147483647
+    */
     private ?int $meanTimeToFailureInMinutes = null;
     
-    /** @var DateTime|null $processedDateTime The date and time when the statistics were last computed. */
+    /**
+     * @var DateTime|null $processedDateTime The date and time when the statistics were last computed.
+    */
     private ?DateTime $processedDateTime = null;
     
     /**
@@ -57,7 +81,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsAppHealthDevicePerformance
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAppHealthDevicePerformance {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAppHealthDevicePerformance {
         return new UserExperienceAnalyticsAppHealthDevicePerformance();
     }
 
@@ -138,19 +162,20 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appCrashCount' => function (self $o, ParseNode $n) { $o->setAppCrashCount($n->getIntegerValue()); },
-            'appHangCount' => function (self $o, ParseNode $n) { $o->setAppHangCount($n->getIntegerValue()); },
-            'crashedAppCount' => function (self $o, ParseNode $n) { $o->setCrashedAppCount($n->getIntegerValue()); },
-            'deviceAppHealthScore' => function (self $o, ParseNode $n) { $o->setDeviceAppHealthScore($n->getFloatValue()); },
-            'deviceAppHealthStatus' => function (self $o, ParseNode $n) { $o->setDeviceAppHealthStatus($n->getStringValue()); },
-            'deviceDisplayName' => function (self $o, ParseNode $n) { $o->setDeviceDisplayName($n->getStringValue()); },
-            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
-            'deviceManufacturer' => function (self $o, ParseNode $n) { $o->setDeviceManufacturer($n->getStringValue()); },
-            'deviceModel' => function (self $o, ParseNode $n) { $o->setDeviceModel($n->getStringValue()); },
-            'healthStatus' => function (self $o, ParseNode $n) { $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)); },
-            'meanTimeToFailureInMinutes' => function (self $o, ParseNode $n) { $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()); },
-            'processedDateTime' => function (self $o, ParseNode $n) { $o->setProcessedDateTime($n->getDateTimeValue()); },
+            'appCrashCount' => function (ParseNode $n) use ($o) { $o->setAppCrashCount($n->getIntegerValue()); },
+            'appHangCount' => function (ParseNode $n) use ($o) { $o->setAppHangCount($n->getIntegerValue()); },
+            'crashedAppCount' => function (ParseNode $n) use ($o) { $o->setCrashedAppCount($n->getIntegerValue()); },
+            'deviceAppHealthScore' => function (ParseNode $n) use ($o) { $o->setDeviceAppHealthScore($n->getFloatValue()); },
+            'deviceAppHealthStatus' => function (ParseNode $n) use ($o) { $o->setDeviceAppHealthStatus($n->getStringValue()); },
+            'deviceDisplayName' => function (ParseNode $n) use ($o) { $o->setDeviceDisplayName($n->getStringValue()); },
+            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
+            'deviceManufacturer' => function (ParseNode $n) use ($o) { $o->setDeviceManufacturer($n->getStringValue()); },
+            'deviceModel' => function (ParseNode $n) use ($o) { $o->setDeviceModel($n->getStringValue()); },
+            'healthStatus' => function (ParseNode $n) use ($o) { $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)); },
+            'meanTimeToFailureInMinutes' => function (ParseNode $n) use ($o) { $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()); },
+            'processedDateTime' => function (ParseNode $n) use ($o) { $o->setProcessedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

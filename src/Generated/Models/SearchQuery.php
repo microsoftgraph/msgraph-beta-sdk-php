@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SearchQuery implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var SearchQueryString|null $query_string The query_string property */
+    /**
+     * @var SearchQueryString|null $query_string The query_string property
+    */
     private ?SearchQueryString $query_string = null;
     
-    /** @var string|null $queryString The search query containing the search terms. Required. */
+    /**
+     * @var string|null $queryString The search query containing the search terms. Required.
+    */
     private ?string $queryString = null;
     
-    /** @var string|null $queryTemplate Provides a way to decorate the query string. Supports both KQL and query variables. Optional. */
+    /**
+     * @var string|null $queryTemplate Provides a way to decorate the query string. Supports both KQL and query variables. Optional.
+    */
     private ?string $queryTemplate = null;
     
     /**
@@ -33,7 +41,7 @@ class SearchQuery implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SearchQuery
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SearchQuery {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SearchQuery {
         return new SearchQuery();
     }
 
@@ -50,10 +58,11 @@ class SearchQuery implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'query_string' => function (self $o, ParseNode $n) { $o->setQuery_string($n->getObjectValue(SearchQueryString::class)); },
-            'queryString' => function (self $o, ParseNode $n) { $o->setQueryString($n->getStringValue()); },
-            'queryTemplate' => function (self $o, ParseNode $n) { $o->setQueryTemplate($n->getStringValue()); },
+            'query_string' => function (ParseNode $n) use ($o) { $o->setQuery_string($n->getObjectValue(array(SearchQueryString::class, 'createFromDiscriminatorValue'))); },
+            'queryString' => function (ParseNode $n) use ($o) { $o->setQueryString($n->getStringValue()); },
+            'queryTemplate' => function (ParseNode $n) use ($o) { $o->setQueryTemplate($n->getStringValue()); },
         ];
     }
 

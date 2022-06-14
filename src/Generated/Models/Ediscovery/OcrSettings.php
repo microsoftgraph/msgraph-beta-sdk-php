@@ -10,16 +10,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class OcrSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $isEnabled Indicates whether or not OCR is enabled for the case. */
+    /**
+     * @var bool|null $isEnabled Indicates whether or not OCR is enabled for the case.
+    */
     private ?bool $isEnabled = null;
     
-    /** @var int|null $maxImageSize Maximum image size that will be processed in KB). */
+    /**
+     * @var int|null $maxImageSize Maximum image size that will be processed in KB).
+    */
     private ?int $maxImageSize = null;
     
-    /** @var DateInterval|null $timeout The timeout duration for the OCR engine. A longer timeout may increase success of OCR, but may add to the total processing time. */
+    /**
+     * @var DateInterval|null $timeout The timeout duration for the OCR engine. A longer timeout may increase success of OCR, but may add to the total processing time.
+    */
     private ?DateInterval $timeout = null;
     
     /**
@@ -34,7 +42,7 @@ class OcrSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OcrSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): OcrSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): OcrSettings {
         return new OcrSettings();
     }
 
@@ -51,10 +59,11 @@ class OcrSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
-            'maxImageSize' => function (self $o, ParseNode $n) { $o->setMaxImageSize($n->getIntegerValue()); },
-            'timeout' => function (self $o, ParseNode $n) { $o->setTimeout($n->getDateIntervalValue()); },
+            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            'maxImageSize' => function (ParseNode $n) use ($o) { $o->setMaxImageSize($n->getIntegerValue()); },
+            'timeout' => function (ParseNode $n) use ($o) { $o->setTimeout($n->getDateIntervalValue()); },
         ];
     }
 

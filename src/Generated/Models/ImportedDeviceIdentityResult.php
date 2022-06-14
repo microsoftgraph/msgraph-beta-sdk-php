@@ -6,13 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ImportedDeviceIdentityResult extends ImportedDeviceIdentity 
+class ImportedDeviceIdentityResult extends ImportedDeviceIdentity implements Parsable 
 {
-    /** @var bool|null $status Status of imported device identity */
+    /**
+     * @var bool|null $status Status of imported device identity
+    */
     private ?bool $status = null;
     
     /**
-     * Instantiates a new importedDeviceIdentityResult and sets the default values.
+     * Instantiates a new ImportedDeviceIdentityResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -23,7 +25,7 @@ class ImportedDeviceIdentityResult extends ImportedDeviceIdentity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ImportedDeviceIdentityResult
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ImportedDeviceIdentityResult {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ImportedDeviceIdentityResult {
         return new ImportedDeviceIdentityResult();
     }
 
@@ -32,8 +34,9 @@ class ImportedDeviceIdentityResult extends ImportedDeviceIdentity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getBooleanValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getBooleanValue()); },
         ]);
     }
 

@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AppleEnrollmentProfileAssignment extends Entity 
+class AppleEnrollmentProfileAssignment extends Entity implements Parsable 
 {
-    /** @var DeviceAndAppManagementAssignmentTarget|null $target The assignment target for the Apple user initiated deployment profile. */
+    /**
+     * @var DeviceAndAppManagementAssignmentTarget|null $target The assignment target for the Apple user initiated deployment profile.
+    */
     private ?DeviceAndAppManagementAssignmentTarget $target = null;
     
     /**
@@ -23,7 +25,7 @@ class AppleEnrollmentProfileAssignment extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AppleEnrollmentProfileAssignment
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AppleEnrollmentProfileAssignment {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AppleEnrollmentProfileAssignment {
         return new AppleEnrollmentProfileAssignment();
     }
 
@@ -32,8 +34,9 @@ class AppleEnrollmentProfileAssignment extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'target' => function (self $o, ParseNode $n) { $o->setTarget($n->getObjectValue(DeviceAndAppManagementAssignmentTarget::class)); },
+            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

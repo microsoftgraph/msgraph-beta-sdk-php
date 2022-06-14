@@ -9,37 +9,59 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ItemActionSet implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var CommentAction|null $comment A comment was added to the item. */
+    /**
+     * @var CommentAction|null $comment A comment was added to the item.
+    */
     private ?CommentAction $comment = null;
     
-    /** @var CreateAction|null $create An item was created. */
+    /**
+     * @var CreateAction|null $create An item was created.
+    */
     private ?CreateAction $create = null;
     
-    /** @var DeleteAction|null $delete An item was deleted. */
+    /**
+     * @var DeleteAction|null $delete An item was deleted.
+    */
     private ?DeleteAction $delete = null;
     
-    /** @var EditAction|null $edit An item was edited. */
+    /**
+     * @var EditAction|null $edit An item was edited.
+    */
     private ?EditAction $edit = null;
     
-    /** @var MentionAction|null $mention A user was mentioned in the item. */
+    /**
+     * @var MentionAction|null $mention A user was mentioned in the item.
+    */
     private ?MentionAction $mention = null;
     
-    /** @var MoveAction|null $move An item was moved. */
+    /**
+     * @var MoveAction|null $move An item was moved.
+    */
     private ?MoveAction $move = null;
     
-    /** @var RenameAction|null $rename An item was renamed. */
+    /**
+     * @var RenameAction|null $rename An item was renamed.
+    */
     private ?RenameAction $rename = null;
     
-    /** @var RestoreAction|null $restore An item was restored. */
+    /**
+     * @var RestoreAction|null $restore An item was restored.
+    */
     private ?RestoreAction $restore = null;
     
-    /** @var ShareAction|null $share An item was shared. */
+    /**
+     * @var ShareAction|null $share An item was shared.
+    */
     private ?ShareAction $share = null;
     
-    /** @var VersionAction|null $version An item was versioned. */
+    /**
+     * @var VersionAction|null $version An item was versioned.
+    */
     private ?VersionAction $version = null;
     
     /**
@@ -54,7 +76,7 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ItemActionSet
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ItemActionSet {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ItemActionSet {
         return new ItemActionSet();
     }
 
@@ -103,17 +125,18 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'comment' => function (self $o, ParseNode $n) { $o->setComment($n->getObjectValue(CommentAction::class)); },
-            'create' => function (self $o, ParseNode $n) { $o->setCreate($n->getObjectValue(CreateAction::class)); },
-            'delete' => function (self $o, ParseNode $n) { $o->setDelete($n->getObjectValue(DeleteAction::class)); },
-            'edit' => function (self $o, ParseNode $n) { $o->setEdit($n->getObjectValue(EditAction::class)); },
-            'mention' => function (self $o, ParseNode $n) { $o->setMention($n->getObjectValue(MentionAction::class)); },
-            'move' => function (self $o, ParseNode $n) { $o->setMove($n->getObjectValue(MoveAction::class)); },
-            'rename' => function (self $o, ParseNode $n) { $o->setRename($n->getObjectValue(RenameAction::class)); },
-            'restore' => function (self $o, ParseNode $n) { $o->setRestore($n->getObjectValue(RestoreAction::class)); },
-            'share' => function (self $o, ParseNode $n) { $o->setShare($n->getObjectValue(ShareAction::class)); },
-            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getObjectValue(VersionAction::class)); },
+            'comment' => function (ParseNode $n) use ($o) { $o->setComment($n->getObjectValue(array(CommentAction::class, 'createFromDiscriminatorValue'))); },
+            'create' => function (ParseNode $n) use ($o) { $o->setCreate($n->getObjectValue(array(CreateAction::class, 'createFromDiscriminatorValue'))); },
+            'delete' => function (ParseNode $n) use ($o) { $o->setDelete($n->getObjectValue(array(DeleteAction::class, 'createFromDiscriminatorValue'))); },
+            'edit' => function (ParseNode $n) use ($o) { $o->setEdit($n->getObjectValue(array(EditAction::class, 'createFromDiscriminatorValue'))); },
+            'mention' => function (ParseNode $n) use ($o) { $o->setMention($n->getObjectValue(array(MentionAction::class, 'createFromDiscriminatorValue'))); },
+            'move' => function (ParseNode $n) use ($o) { $o->setMove($n->getObjectValue(array(MoveAction::class, 'createFromDiscriminatorValue'))); },
+            'rename' => function (ParseNode $n) use ($o) { $o->setRename($n->getObjectValue(array(RenameAction::class, 'createFromDiscriminatorValue'))); },
+            'restore' => function (ParseNode $n) use ($o) { $o->setRestore($n->getObjectValue(array(RestoreAction::class, 'createFromDiscriminatorValue'))); },
+            'share' => function (ParseNode $n) use ($o) { $o->setShare($n->getObjectValue(array(ShareAction::class, 'createFromDiscriminatorValue'))); },
+            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getObjectValue(array(VersionAction::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

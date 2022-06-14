@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkAccountConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var TeamworkOnPremisesCalendarSyncConfiguration|null $onPremisesCalendarSyncConfiguration The account used to sync the calendar. */
+    /**
+     * @var TeamworkOnPremisesCalendarSyncConfiguration|null $onPremisesCalendarSyncConfiguration The account used to sync the calendar.
+    */
     private ?TeamworkOnPremisesCalendarSyncConfiguration $onPremisesCalendarSyncConfiguration = null;
     
-    /** @var TeamworkSupportedClient|null $supportedClient The supported client for Teams Rooms devices. The possible values are: unknown, skypeDefaultAndTeams, teamsDefaultAndSkype, skypeOnly, teamsOnly, unknownFutureValue. */
+    /**
+     * @var TeamworkSupportedClient|null $supportedClient The supported client for Teams Rooms devices. The possible values are: unknown, skypeDefaultAndTeams, teamsDefaultAndSkype, skypeOnly, teamsOnly, unknownFutureValue.
+    */
     private ?TeamworkSupportedClient $supportedClient = null;
     
     /**
@@ -30,7 +36,7 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkAccountConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkAccountConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkAccountConfiguration {
         return new TeamworkAccountConfiguration();
     }
 
@@ -47,9 +53,10 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'onPremisesCalendarSyncConfiguration' => function (self $o, ParseNode $n) { $o->setOnPremisesCalendarSyncConfiguration($n->getObjectValue(TeamworkOnPremisesCalendarSyncConfiguration::class)); },
-            'supportedClient' => function (self $o, ParseNode $n) { $o->setSupportedClient($n->getEnumValue(TeamworkSupportedClient::class)); },
+            'onPremisesCalendarSyncConfiguration' => function (ParseNode $n) use ($o) { $o->setOnPremisesCalendarSyncConfiguration($n->getObjectValue(array(TeamworkOnPremisesCalendarSyncConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'supportedClient' => function (ParseNode $n) use ($o) { $o->setSupportedClient($n->getEnumValue(TeamworkSupportedClient::class)); },
         ];
     }
 

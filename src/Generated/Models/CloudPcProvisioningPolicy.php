@@ -6,36 +6,81 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPcProvisioningPolicy extends Entity 
+class CloudPcProvisioningPolicy extends Entity implements Parsable 
 {
-    /** @var array<CloudPcProvisioningPolicyAssignment>|null $assignments A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Azure AD that have provisioning policy assigned. Returned only on $expand. See an example of getting the assignments relationship. */
+    /**
+     * @var string|null $alternateResourceUrl The alternateResourceUrl property
+    */
+    private ?string $alternateResourceUrl = null;
+    
+    /**
+     * @var array<CloudPcProvisioningPolicyAssignment>|null $assignments A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Azure AD that have provisioning policy assigned. Returned only on $expand. See an example of getting the assignments relationship.
+    */
     private ?array $assignments = null;
     
-    /** @var string|null $description The provisioning policy description. */
+    /**
+     * @var string|null $cloudPcGroupDisplayName The cloudPcGroupDisplayName property
+    */
+    private ?string $cloudPcGroupDisplayName = null;
+    
+    /**
+     * @var string|null $description The provisioning policy description.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The display name for the provisioning policy. */
+    /**
+     * @var string|null $displayName The display name for the provisioning policy.
+    */
     private ?string $displayName = null;
     
-    /** @var CloudPcDomainJoinConfiguration|null $domainJoinConfiguration Specifies how Cloud PCs will join Azure Active Directory. */
+    /**
+     * @var CloudPcDomainJoinConfiguration|null $domainJoinConfiguration Specifies how Cloud PCs will join Azure Active Directory.
+    */
     private ?CloudPcDomainJoinConfiguration $domainJoinConfiguration = null;
     
-    /** @var string|null $imageDisplayName The display name for the OS image you’re provisioning. */
+    /**
+     * @var int|null $gracePeriodInHours The gracePeriodInHours property
+    */
+    private ?int $gracePeriodInHours = null;
+    
+    /**
+     * @var string|null $imageDisplayName The display name for the OS image you’re provisioning.
+    */
     private ?string $imageDisplayName = null;
     
-    /** @var string|null $imageId The ID of the OS image you want to provision on Cloud PCs. The format for a gallery type image is: {publisher_offer_sku}. Supported values for each of the parameters are as follows:publisher: Microsoftwindowsdesktop. offer: windows-ent-cpc. sku: 21h1-ent-cpc-m365, 21h1-ent-cpc-os, 20h2-ent-cpc-m365, 20h2-ent-cpc-os, 20h1-ent-cpc-m365, 20h1-ent-cpc-os, 19h2-ent-cpc-m365 and 19h2-ent-cpc-os. */
+    /**
+     * @var string|null $imageId The ID of the OS image you want to provision on Cloud PCs. The format for a gallery type image is: {publisher_offer_sku}. Supported values for each of the parameters are as follows:publisher: Microsoftwindowsdesktop. offer: windows-ent-cpc. sku: 21h1-ent-cpc-m365, 21h1-ent-cpc-os, 20h2-ent-cpc-m365, 20h2-ent-cpc-os, 20h1-ent-cpc-m365, 20h1-ent-cpc-os, 19h2-ent-cpc-m365 and 19h2-ent-cpc-os.
+    */
     private ?string $imageId = null;
     
-    /** @var CloudPcProvisioningPolicyImageType|null $imageType The type of OS image (custom or gallery) you want to provision on Cloud PCs. Possible values are: gallery, custom. */
+    /**
+     * @var CloudPcProvisioningPolicyImageType|null $imageType The type of OS image (custom or gallery) you want to provision on Cloud PCs. Possible values are: gallery, custom.
+    */
     private ?CloudPcProvisioningPolicyImageType $imageType = null;
     
-    /** @var MicrosoftManagedDesktop|null $microsoftManagedDesktop The specific settings for the Microsoft Managed Desktop, which enables customers to get a managed device experience for the Cloud PC. Before you can enable Microsoft Managed Desktop, an admin must configure it. */
+    /**
+     * @var bool|null $localAdminEnabled The localAdminEnabled property
+    */
+    private ?bool $localAdminEnabled = null;
+    
+    /**
+     * @var CloudPcManagementService|null $managedBy The managedBy property
+    */
+    private ?CloudPcManagementService $managedBy = null;
+    
+    /**
+     * @var MicrosoftManagedDesktop|null $microsoftManagedDesktop The specific settings for the Microsoft Managed Desktop, which enables customers to get a managed device experience for the Cloud PC. Before you can enable Microsoft Managed Desktop, an admin must configure it.
+    */
     private ?MicrosoftManagedDesktop $microsoftManagedDesktop = null;
     
-    /** @var string|null $onPremisesConnectionId The ID of the cloudPcOnPremisesConnection. To ensure that Cloud PCs have network connectivity and that they domain join, choose a connection with a virtual network that’s validated by the Cloud PC service. */
+    /**
+     * @var string|null $onPremisesConnectionId The ID of the cloudPcOnPremisesConnection. To ensure that Cloud PCs have network connectivity and that they domain join, choose a connection with a virtual network that’s validated by the Cloud PC service.
+    */
     private ?string $onPremisesConnectionId = null;
     
-    /** @var CloudPcWindowsSettings|null $windowsSettings Specific Windows settings to configure while creating Cloud PCs for this provisioning policy. */
+    /**
+     * @var CloudPcWindowsSettings|null $windowsSettings Specific Windows settings to configure while creating Cloud PCs for this provisioning policy.
+    */
     private ?CloudPcWindowsSettings $windowsSettings = null;
     
     /**
@@ -50,8 +95,16 @@ class CloudPcProvisioningPolicy extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcProvisioningPolicy
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcProvisioningPolicy {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcProvisioningPolicy {
         return new CloudPcProvisioningPolicy();
+    }
+
+    /**
+     * Gets the alternateResourceUrl property value. The alternateResourceUrl property
+     * @return string|null
+    */
+    public function getAlternateResourceUrl(): ?string {
+        return $this->alternateResourceUrl;
     }
 
     /**
@@ -60,6 +113,14 @@ class CloudPcProvisioningPolicy extends Entity
     */
     public function getAssignments(): ?array {
         return $this->assignments;
+    }
+
+    /**
+     * Gets the cloudPcGroupDisplayName property value. The cloudPcGroupDisplayName property
+     * @return string|null
+    */
+    public function getCloudPcGroupDisplayName(): ?string {
+        return $this->cloudPcGroupDisplayName;
     }
 
     /**
@@ -91,18 +152,32 @@ class CloudPcProvisioningPolicy extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(CloudPcProvisioningPolicyAssignment::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'domainJoinConfiguration' => function (self $o, ParseNode $n) { $o->setDomainJoinConfiguration($n->getObjectValue(CloudPcDomainJoinConfiguration::class)); },
-            'imageDisplayName' => function (self $o, ParseNode $n) { $o->setImageDisplayName($n->getStringValue()); },
-            'imageId' => function (self $o, ParseNode $n) { $o->setImageId($n->getStringValue()); },
-            'imageType' => function (self $o, ParseNode $n) { $o->setImageType($n->getEnumValue(CloudPcProvisioningPolicyImageType::class)); },
-            'microsoftManagedDesktop' => function (self $o, ParseNode $n) { $o->setMicrosoftManagedDesktop($n->getObjectValue(MicrosoftManagedDesktop::class)); },
-            'onPremisesConnectionId' => function (self $o, ParseNode $n) { $o->setOnPremisesConnectionId($n->getStringValue()); },
-            'windowsSettings' => function (self $o, ParseNode $n) { $o->setWindowsSettings($n->getObjectValue(CloudPcWindowsSettings::class)); },
+            'alternateResourceUrl' => function (ParseNode $n) use ($o) { $o->setAlternateResourceUrl($n->getStringValue()); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(CloudPcProvisioningPolicyAssignment::class, 'createFromDiscriminatorValue'))); },
+            'cloudPcGroupDisplayName' => function (ParseNode $n) use ($o) { $o->setCloudPcGroupDisplayName($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'domainJoinConfiguration' => function (ParseNode $n) use ($o) { $o->setDomainJoinConfiguration($n->getObjectValue(array(CloudPcDomainJoinConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'gracePeriodInHours' => function (ParseNode $n) use ($o) { $o->setGracePeriodInHours($n->getIntegerValue()); },
+            'imageDisplayName' => function (ParseNode $n) use ($o) { $o->setImageDisplayName($n->getStringValue()); },
+            'imageId' => function (ParseNode $n) use ($o) { $o->setImageId($n->getStringValue()); },
+            'imageType' => function (ParseNode $n) use ($o) { $o->setImageType($n->getEnumValue(CloudPcProvisioningPolicyImageType::class)); },
+            'localAdminEnabled' => function (ParseNode $n) use ($o) { $o->setLocalAdminEnabled($n->getBooleanValue()); },
+            'managedBy' => function (ParseNode $n) use ($o) { $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)); },
+            'microsoftManagedDesktop' => function (ParseNode $n) use ($o) { $o->setMicrosoftManagedDesktop($n->getObjectValue(array(MicrosoftManagedDesktop::class, 'createFromDiscriminatorValue'))); },
+            'onPremisesConnectionId' => function (ParseNode $n) use ($o) { $o->setOnPremisesConnectionId($n->getStringValue()); },
+            'windowsSettings' => function (ParseNode $n) use ($o) { $o->setWindowsSettings($n->getObjectValue(array(CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'))); },
         ]);
+    }
+
+    /**
+     * Gets the gracePeriodInHours property value. The gracePeriodInHours property
+     * @return int|null
+    */
+    public function getGracePeriodInHours(): ?int {
+        return $this->gracePeriodInHours;
     }
 
     /**
@@ -127,6 +202,22 @@ class CloudPcProvisioningPolicy extends Entity
     */
     public function getImageType(): ?CloudPcProvisioningPolicyImageType {
         return $this->imageType;
+    }
+
+    /**
+     * Gets the localAdminEnabled property value. The localAdminEnabled property
+     * @return bool|null
+    */
+    public function getLocalAdminEnabled(): ?bool {
+        return $this->localAdminEnabled;
+    }
+
+    /**
+     * Gets the managedBy property value. The managedBy property
+     * @return CloudPcManagementService|null
+    */
+    public function getManagedBy(): ?CloudPcManagementService {
+        return $this->managedBy;
     }
 
     /**
@@ -159,16 +250,29 @@ class CloudPcProvisioningPolicy extends Entity
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('alternateResourceUrl', $this->alternateResourceUrl);
         $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
+        $writer->writeStringValue('cloudPcGroupDisplayName', $this->cloudPcGroupDisplayName);
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeObjectValue('domainJoinConfiguration', $this->domainJoinConfiguration);
+        $writer->writeIntegerValue('gracePeriodInHours', $this->gracePeriodInHours);
         $writer->writeStringValue('imageDisplayName', $this->imageDisplayName);
         $writer->writeStringValue('imageId', $this->imageId);
         $writer->writeEnumValue('imageType', $this->imageType);
+        $writer->writeBooleanValue('localAdminEnabled', $this->localAdminEnabled);
+        $writer->writeEnumValue('managedBy', $this->managedBy);
         $writer->writeObjectValue('microsoftManagedDesktop', $this->microsoftManagedDesktop);
         $writer->writeStringValue('onPremisesConnectionId', $this->onPremisesConnectionId);
         $writer->writeObjectValue('windowsSettings', $this->windowsSettings);
+    }
+
+    /**
+     * Sets the alternateResourceUrl property value. The alternateResourceUrl property
+     *  @param string|null $value Value to set for the alternateResourceUrl property.
+    */
+    public function setAlternateResourceUrl(?string $value ): void {
+        $this->alternateResourceUrl = $value;
     }
 
     /**
@@ -177,6 +281,14 @@ class CloudPcProvisioningPolicy extends Entity
     */
     public function setAssignments(?array $value ): void {
         $this->assignments = $value;
+    }
+
+    /**
+     * Sets the cloudPcGroupDisplayName property value. The cloudPcGroupDisplayName property
+     *  @param string|null $value Value to set for the cloudPcGroupDisplayName property.
+    */
+    public function setCloudPcGroupDisplayName(?string $value ): void {
+        $this->cloudPcGroupDisplayName = $value;
     }
 
     /**
@@ -204,6 +316,14 @@ class CloudPcProvisioningPolicy extends Entity
     }
 
     /**
+     * Sets the gracePeriodInHours property value. The gracePeriodInHours property
+     *  @param int|null $value Value to set for the gracePeriodInHours property.
+    */
+    public function setGracePeriodInHours(?int $value ): void {
+        $this->gracePeriodInHours = $value;
+    }
+
+    /**
      * Sets the imageDisplayName property value. The display name for the OS image you’re provisioning.
      *  @param string|null $value Value to set for the imageDisplayName property.
     */
@@ -225,6 +345,22 @@ class CloudPcProvisioningPolicy extends Entity
     */
     public function setImageType(?CloudPcProvisioningPolicyImageType $value ): void {
         $this->imageType = $value;
+    }
+
+    /**
+     * Sets the localAdminEnabled property value. The localAdminEnabled property
+     *  @param bool|null $value Value to set for the localAdminEnabled property.
+    */
+    public function setLocalAdminEnabled(?bool $value ): void {
+        $this->localAdminEnabled = $value;
+    }
+
+    /**
+     * Sets the managedBy property value. The managedBy property
+     *  @param CloudPcManagementService|null $value Value to set for the managedBy property.
+    */
+    public function setManagedBy(?CloudPcManagementService $value ): void {
+        $this->managedBy = $value;
     }
 
     /**

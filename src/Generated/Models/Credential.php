@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class Credential implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $fieldId The name of the field for this credential. e.g, username or password or phoneNumber. This is defined by the application. Must match what is in the html field on singleSignOnSettings/password object. */
+    /**
+     * @var string|null $fieldId The name of the field for this credential. e.g, username or password or phoneNumber. This is defined by the application. Must match what is in the html field on singleSignOnSettings/password object.
+    */
     private ?string $fieldId = null;
     
-    /** @var string|null $type The type for this credential. Valid values: username, password, or other. */
+    /**
+     * @var string|null $type The type for this credential. Valid values: username, password, or other.
+    */
     private ?string $type = null;
     
-    /** @var string|null $value The value for this credential. e.g, mysuperhiddenpassword. Note the value for passwords is write-only, the value can never be read back. */
+    /**
+     * @var string|null $value The value for this credential. e.g, mysuperhiddenpassword. Note the value for passwords is write-only, the value can never be read back.
+    */
     private ?string $value = null;
     
     /**
@@ -33,7 +41,7 @@ class Credential implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Credential
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Credential {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Credential {
         return new Credential();
     }
 
@@ -50,10 +58,11 @@ class Credential implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'fieldId' => function (self $o, ParseNode $n) { $o->setFieldId($n->getStringValue()); },
-            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
-            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getStringValue()); },
+            'fieldId' => function (ParseNode $n) use ($o) { $o->setFieldId($n->getStringValue()); },
+            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
         ];
     }
 

@@ -9,25 +9,39 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class IpReferenceData implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $asn The asn property */
+    /**
+     * @var int|null $asn The asn property
+    */
     private ?int $asn = null;
     
-    /** @var string|null $city The city property */
+    /**
+     * @var string|null $city The city property
+    */
     private ?string $city = null;
     
-    /** @var string|null $countryOrRegionCode The countryOrRegionCode property */
+    /**
+     * @var string|null $countryOrRegionCode The countryOrRegionCode property
+    */
     private ?string $countryOrRegionCode = null;
     
-    /** @var string|null $organization The organization property */
+    /**
+     * @var string|null $organization The organization property
+    */
     private ?string $organization = null;
     
-    /** @var string|null $state The state property */
+    /**
+     * @var string|null $state The state property
+    */
     private ?string $state = null;
     
-    /** @var string|null $vendor The vendor property */
+    /**
+     * @var string|null $vendor The vendor property
+    */
     private ?string $vendor = null;
     
     /**
@@ -42,7 +56,7 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return IpReferenceData
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): IpReferenceData {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): IpReferenceData {
         return new IpReferenceData();
     }
 
@@ -83,13 +97,14 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'asn' => function (self $o, ParseNode $n) { $o->setAsn($n->getIntegerValue()); },
-            'city' => function (self $o, ParseNode $n) { $o->setCity($n->getStringValue()); },
-            'countryOrRegionCode' => function (self $o, ParseNode $n) { $o->setCountryOrRegionCode($n->getStringValue()); },
-            'organization' => function (self $o, ParseNode $n) { $o->setOrganization($n->getStringValue()); },
-            'state' => function (self $o, ParseNode $n) { $o->setState($n->getStringValue()); },
-            'vendor' => function (self $o, ParseNode $n) { $o->setVendor($n->getStringValue()); },
+            'asn' => function (ParseNode $n) use ($o) { $o->setAsn($n->getIntegerValue()); },
+            'city' => function (ParseNode $n) use ($o) { $o->setCity($n->getStringValue()); },
+            'countryOrRegionCode' => function (ParseNode $n) use ($o) { $o->setCountryOrRegionCode($n->getStringValue()); },
+            'organization' => function (ParseNode $n) use ($o) { $o->setOrganization($n->getStringValue()); },
+            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getStringValue()); },
+            'vendor' => function (ParseNode $n) use ($o) { $o->setVendor($n->getStringValue()); },
         ];
     }
 

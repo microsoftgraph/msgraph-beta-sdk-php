@@ -7,33 +7,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity 
+class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity implements Parsable 
 {
-    /** @var int|null $configurationVersion Version of the policy for that overview */
+    /**
+     * @var int|null $configurationVersion Version of the policy for that overview
+    */
     private ?int $configurationVersion = null;
     
-    /** @var int|null $conflictCount Number of devices in conflict */
+    /**
+     * @var int|null $conflictCount Number of devices in conflict
+    */
     private ?int $conflictCount = null;
     
-    /** @var int|null $errorCount Number of error devices */
+    /**
+     * @var int|null $errorCount Number of error devices
+    */
     private ?int $errorCount = null;
     
-    /** @var int|null $failedCount Number of failed devices */
+    /**
+     * @var int|null $failedCount Number of failed devices
+    */
     private ?int $failedCount = null;
     
-    /** @var DateTime|null $lastUpdateDateTime Last update time */
+    /**
+     * @var DateTime|null $lastUpdateDateTime Last update time
+    */
     private ?DateTime $lastUpdateDateTime = null;
     
-    /** @var int|null $notApplicableCount Number of not applicable devices */
+    /**
+     * @var int|null $notApplicableCount Number of not applicable devices
+    */
     private ?int $notApplicableCount = null;
     
-    /** @var int|null $notApplicablePlatformCount Number of not applicable devices due to mismatch platform and policy */
+    /**
+     * @var int|null $notApplicablePlatformCount Number of not applicable devices due to mismatch platform and policy
+    */
     private ?int $notApplicablePlatformCount = null;
     
-    /** @var int|null $pendingCount Number of pending devices */
+    /**
+     * @var int|null $pendingCount Number of pending devices
+    */
     private ?int $pendingCount = null;
     
-    /** @var int|null $successCount Number of succeeded devices */
+    /**
+     * @var int|null $successCount Number of succeeded devices
+    */
     private ?int $successCount = null;
     
     /**
@@ -48,7 +66,7 @@ class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagedDeviceMobileAppConfigurationDeviceSummary
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagedDeviceMobileAppConfigurationDeviceSummary {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagedDeviceMobileAppConfigurationDeviceSummary {
         return new ManagedDeviceMobileAppConfigurationDeviceSummary();
     }
 
@@ -89,16 +107,17 @@ class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configurationVersion' => function (self $o, ParseNode $n) { $o->setConfigurationVersion($n->getIntegerValue()); },
-            'conflictCount' => function (self $o, ParseNode $n) { $o->setConflictCount($n->getIntegerValue()); },
-            'errorCount' => function (self $o, ParseNode $n) { $o->setErrorCount($n->getIntegerValue()); },
-            'failedCount' => function (self $o, ParseNode $n) { $o->setFailedCount($n->getIntegerValue()); },
-            'lastUpdateDateTime' => function (self $o, ParseNode $n) { $o->setLastUpdateDateTime($n->getDateTimeValue()); },
-            'notApplicableCount' => function (self $o, ParseNode $n) { $o->setNotApplicableCount($n->getIntegerValue()); },
-            'notApplicablePlatformCount' => function (self $o, ParseNode $n) { $o->setNotApplicablePlatformCount($n->getIntegerValue()); },
-            'pendingCount' => function (self $o, ParseNode $n) { $o->setPendingCount($n->getIntegerValue()); },
-            'successCount' => function (self $o, ParseNode $n) { $o->setSuccessCount($n->getIntegerValue()); },
+            'configurationVersion' => function (ParseNode $n) use ($o) { $o->setConfigurationVersion($n->getIntegerValue()); },
+            'conflictCount' => function (ParseNode $n) use ($o) { $o->setConflictCount($n->getIntegerValue()); },
+            'errorCount' => function (ParseNode $n) use ($o) { $o->setErrorCount($n->getIntegerValue()); },
+            'failedCount' => function (ParseNode $n) use ($o) { $o->setFailedCount($n->getIntegerValue()); },
+            'lastUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdateDateTime($n->getDateTimeValue()); },
+            'notApplicableCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableCount($n->getIntegerValue()); },
+            'notApplicablePlatformCount' => function (ParseNode $n) use ($o) { $o->setNotApplicablePlatformCount($n->getIntegerValue()); },
+            'pendingCount' => function (ParseNode $n) use ($o) { $o->setPendingCount($n->getIntegerValue()); },
+            'successCount' => function (ParseNode $n) use ($o) { $o->setSuccessCount($n->getIntegerValue()); },
         ]);
     }
 

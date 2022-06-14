@@ -11,16 +11,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class KeyCredentialConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var DateInterval|null $maxLifetime The maxLifetime property */
+    /**
+     * @var DateInterval|null $maxLifetime The maxLifetime property
+    */
     private ?DateInterval $maxLifetime = null;
     
-    /** @var DateTime|null $restrictForAppsCreatedAfterDateTime Timestamp when the policy is enforced for all apps created on or after the specified date. For existing applications, the enforcement date would be back dated. To apply to all applications regardless of their creation date, this property would be null. Nullable. */
+    /**
+     * @var DateTime|null $restrictForAppsCreatedAfterDateTime Timestamp when the policy is enforced for all apps created on or after the specified date. For existing applications, the enforcement date would be back dated. To apply to all applications regardless of their creation date, this property would be null. Nullable.
+    */
     private ?DateTime $restrictForAppsCreatedAfterDateTime = null;
     
-    /** @var AppKeyCredentialRestrictionType|null $restrictionType The type of restriction being applied. Possible values are asymmetricKeyLifetime, unknownFutureValue. Each value of restrictionType can be used only once per policy. */
+    /**
+     * @var AppKeyCredentialRestrictionType|null $restrictionType The type of restriction being applied. Possible values are asymmetricKeyLifetime, unknownFutureValue. Each value of restrictionType can be used only once per policy.
+    */
     private ?AppKeyCredentialRestrictionType $restrictionType = null;
     
     /**
@@ -35,7 +43,7 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return KeyCredentialConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): KeyCredentialConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): KeyCredentialConfiguration {
         return new KeyCredentialConfiguration();
     }
 
@@ -52,10 +60,11 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'maxLifetime' => function (self $o, ParseNode $n) { $o->setMaxLifetime($n->getDateIntervalValue()); },
-            'restrictForAppsCreatedAfterDateTime' => function (self $o, ParseNode $n) { $o->setRestrictForAppsCreatedAfterDateTime($n->getDateTimeValue()); },
-            'restrictionType' => function (self $o, ParseNode $n) { $o->setRestrictionType($n->getEnumValue(AppKeyCredentialRestrictionType::class)); },
+            'maxLifetime' => function (ParseNode $n) use ($o) { $o->setMaxLifetime($n->getDateIntervalValue()); },
+            'restrictForAppsCreatedAfterDateTime' => function (ParseNode $n) use ($o) { $o->setRestrictForAppsCreatedAfterDateTime($n->getDateTimeValue()); },
+            'restrictionType' => function (ParseNode $n) use ($o) { $o->setRestrictionType($n->getEnumValue(AppKeyCredentialRestrictionType::class)); },
         ];
     }
 

@@ -7,33 +7,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PlannerPlan extends PlannerDelta 
+class PlannerPlan extends PlannerDelta implements Parsable 
 {
-    /** @var array<PlannerBucket>|null $buckets Read-only. Nullable. Collection of buckets in the plan. */
+    /**
+     * @var array<PlannerBucket>|null $buckets Collection of buckets in the plan. Read-only. Nullable.
+    */
     private ?array $buckets = null;
     
-    /** @var PlannerPlanContainer|null $container Identifies the container of the plan. After it is set, this property can’t be updated. Required. */
+    /**
+     * @var PlannerPlanContainer|null $container Identifies the container of the plan. After it is set, this property can’t be updated. Required.
+    */
     private ?PlannerPlanContainer $container = null;
     
-    /** @var PlannerPlanContextCollection|null $contexts Read-only. Additional user experiences in which this plan is used, represented as plannerPlanContext entries. */
+    /**
+     * @var PlannerPlanContextCollection|null $contexts Read-only. Additional user experiences in which this plan is used, represented as plannerPlanContext entries.
+    */
     private ?PlannerPlanContextCollection $contexts = null;
     
-    /** @var IdentitySet|null $createdBy Read-only. The user who created the plan. */
+    /**
+     * @var IdentitySet|null $createdBy Read-only. The user who created the plan.
+    */
     private ?IdentitySet $createdBy = null;
     
-    /** @var DateTime|null $createdDateTime Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    /**
+     * @var DateTime|null $createdDateTime Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var PlannerPlanDetails|null $details Read-only. Nullable. Additional details about the plan. */
+    /**
+     * @var PlannerPlanDetails|null $details Additional details about the plan. Read-only. Nullable.
+    */
     private ?PlannerPlanDetails $details = null;
     
-    /** @var string|null $owner ID of the Group that owns the plan. A valid group must exist before this field can be set. After it is set, this property can’t be updated. */
+    /**
+     * @var string|null $owner The owner property
+    */
     private ?string $owner = null;
     
-    /** @var array<PlannerTask>|null $tasks Read-only. Nullable. Collection of tasks in the plan. */
+    /**
+     * @var array<PlannerTask>|null $tasks Collection of tasks in the plan. Read-only. Nullable.
+    */
     private ?array $tasks = null;
     
-    /** @var string|null $title Required. Title of the plan. */
+    /**
+     * @var string|null $title Required. Title of the plan.
+    */
     private ?string $title = null;
     
     /**
@@ -48,12 +66,12 @@ class PlannerPlan extends PlannerDelta
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PlannerPlan
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PlannerPlan {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PlannerPlan {
         return new PlannerPlan();
     }
 
     /**
-     * Gets the buckets property value. Read-only. Nullable. Collection of buckets in the plan.
+     * Gets the buckets property value. Collection of buckets in the plan. Read-only. Nullable.
      * @return array<PlannerBucket>|null
     */
     public function getBuckets(): ?array {
@@ -93,7 +111,7 @@ class PlannerPlan extends PlannerDelta
     }
 
     /**
-     * Gets the details property value. Read-only. Nullable. Additional details about the plan.
+     * Gets the details property value. Additional details about the plan. Read-only. Nullable.
      * @return PlannerPlanDetails|null
     */
     public function getDetails(): ?PlannerPlanDetails {
@@ -105,21 +123,22 @@ class PlannerPlan extends PlannerDelta
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'buckets' => function (self $o, ParseNode $n) { $o->setBuckets($n->getCollectionOfObjectValues(PlannerBucket::class)); },
-            'container' => function (self $o, ParseNode $n) { $o->setContainer($n->getObjectValue(PlannerPlanContainer::class)); },
-            'contexts' => function (self $o, ParseNode $n) { $o->setContexts($n->getObjectValue(PlannerPlanContextCollection::class)); },
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(IdentitySet::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'details' => function (self $o, ParseNode $n) { $o->setDetails($n->getObjectValue(PlannerPlanDetails::class)); },
-            'owner' => function (self $o, ParseNode $n) { $o->setOwner($n->getStringValue()); },
-            'tasks' => function (self $o, ParseNode $n) { $o->setTasks($n->getCollectionOfObjectValues(PlannerTask::class)); },
-            'title' => function (self $o, ParseNode $n) { $o->setTitle($n->getStringValue()); },
+            'buckets' => function (ParseNode $n) use ($o) { $o->setBuckets($n->getCollectionOfObjectValues(array(PlannerBucket::class, 'createFromDiscriminatorValue'))); },
+            'container' => function (ParseNode $n) use ($o) { $o->setContainer($n->getObjectValue(array(PlannerPlanContainer::class, 'createFromDiscriminatorValue'))); },
+            'contexts' => function (ParseNode $n) use ($o) { $o->setContexts($n->getObjectValue(array(PlannerPlanContextCollection::class, 'createFromDiscriminatorValue'))); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getObjectValue(array(PlannerPlanDetails::class, 'createFromDiscriminatorValue'))); },
+            'owner' => function (ParseNode $n) use ($o) { $o->setOwner($n->getStringValue()); },
+            'tasks' => function (ParseNode $n) use ($o) { $o->setTasks($n->getCollectionOfObjectValues(array(PlannerTask::class, 'createFromDiscriminatorValue'))); },
+            'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
         ]);
     }
 
     /**
-     * Gets the owner property value. ID of the Group that owns the plan. A valid group must exist before this field can be set. After it is set, this property can’t be updated.
+     * Gets the owner property value. The owner property
      * @return string|null
     */
     public function getOwner(): ?string {
@@ -127,7 +146,7 @@ class PlannerPlan extends PlannerDelta
     }
 
     /**
-     * Gets the tasks property value. Read-only. Nullable. Collection of tasks in the plan.
+     * Gets the tasks property value. Collection of tasks in the plan. Read-only. Nullable.
      * @return array<PlannerTask>|null
     */
     public function getTasks(): ?array {
@@ -160,7 +179,7 @@ class PlannerPlan extends PlannerDelta
     }
 
     /**
-     * Sets the buckets property value. Read-only. Nullable. Collection of buckets in the plan.
+     * Sets the buckets property value. Collection of buckets in the plan. Read-only. Nullable.
      *  @param array<PlannerBucket>|null $value Value to set for the buckets property.
     */
     public function setBuckets(?array $value ): void {
@@ -200,7 +219,7 @@ class PlannerPlan extends PlannerDelta
     }
 
     /**
-     * Sets the details property value. Read-only. Nullable. Additional details about the plan.
+     * Sets the details property value. Additional details about the plan. Read-only. Nullable.
      *  @param PlannerPlanDetails|null $value Value to set for the details property.
     */
     public function setDetails(?PlannerPlanDetails $value ): void {
@@ -208,7 +227,7 @@ class PlannerPlan extends PlannerDelta
     }
 
     /**
-     * Sets the owner property value. ID of the Group that owns the plan. A valid group must exist before this field can be set. After it is set, this property can’t be updated.
+     * Sets the owner property value. The owner property
      *  @param string|null $value Value to set for the owner property.
     */
     public function setOwner(?string $value ): void {
@@ -216,7 +235,7 @@ class PlannerPlan extends PlannerDelta
     }
 
     /**
-     * Sets the tasks property value. Read-only. Nullable. Collection of tasks in the plan.
+     * Sets the tasks property value. Collection of tasks in the plan. Read-only. Nullable.
      *  @param array<PlannerTask>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value ): void {

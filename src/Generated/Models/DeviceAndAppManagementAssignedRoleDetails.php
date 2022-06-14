@@ -9,17 +9,23 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<string>|null $roleAssignmentIds Role Assignment IDs for the specifc Role Assignments assigned to a user. This property is read-only. */
+    /**
+     * @var array<string>|null $roleAssignmentIds Role Assignment IDs for the specifc Role Assignments assigned to a user. This property is read-only.
+    */
     private ?array $roleAssignmentIds = null;
     
-    /** @var array<string>|null $roleDefinitionIds Role Definition IDs for the specifc Role Definitions assigned to a user. This property is read-only. */
+    /**
+     * @var array<string>|null $roleDefinitionIds Role Definition IDs for the specifc Role Definitions assigned to a user. This property is read-only.
+    */
     private ?array $roleDefinitionIds = null;
     
     /**
-     * Instantiates a new deviceAndAppManagementAssignedRoleDetails and sets the default values.
+     * Instantiates a new DeviceAndAppManagementAssignedRoleDetails and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -30,7 +36,7 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceAndAppManagementAssignedRoleDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAndAppManagementAssignedRoleDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAndAppManagementAssignedRoleDetails {
         return new DeviceAndAppManagementAssignedRoleDetails();
     }
 
@@ -47,9 +53,10 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'roleAssignmentIds' => function (self $o, ParseNode $n) { $o->setRoleAssignmentIds($n->getCollectionOfPrimitiveValues()); },
-            'roleDefinitionIds' => function (self $o, ParseNode $n) { $o->setRoleDefinitionIds($n->getCollectionOfPrimitiveValues()); },
+            'roleAssignmentIds' => function (ParseNode $n) use ($o) { $o->setRoleAssignmentIds($n->getCollectionOfPrimitiveValues()); },
+            'roleDefinitionIds' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionIds($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

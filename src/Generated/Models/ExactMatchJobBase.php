@@ -7,21 +7,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ExactMatchJobBase extends Entity 
+class ExactMatchJobBase extends Entity implements Parsable 
 {
-    /** @var DateTime|null $completionDateTime The completionDateTime property */
+    /**
+     * @var DateTime|null $completionDateTime The completionDateTime property
+    */
     private ?DateTime $completionDateTime = null;
     
-    /** @var DateTime|null $creationDateTime The creationDateTime property */
+    /**
+     * @var DateTime|null $creationDateTime The creationDateTime property
+    */
     private ?DateTime $creationDateTime = null;
     
-    /** @var ClassificationError|null $error The error property */
+    /**
+     * @var ClassificationError|null $error The error property
+    */
     private ?ClassificationError $error = null;
     
-    /** @var DateTime|null $lastUpdatedDateTime The lastUpdatedDateTime property */
+    /**
+     * @var DateTime|null $lastUpdatedDateTime The lastUpdatedDateTime property
+    */
     private ?DateTime $lastUpdatedDateTime = null;
     
-    /** @var DateTime|null $startDateTime The startDateTime property */
+    /**
+     * @var DateTime|null $startDateTime The startDateTime property
+    */
     private ?DateTime $startDateTime = null;
     
     /**
@@ -36,7 +46,15 @@ class ExactMatchJobBase extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExactMatchJobBase
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ExactMatchJobBase {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExactMatchJobBase {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.exactMatchLookupJob': return new ExactMatchLookupJob();
+                case '#microsoft.graph.exactMatchSessionBase': return new ExactMatchSessionBase();
+            }
+        }
         return new ExactMatchJobBase();
     }
 
@@ -69,12 +87,13 @@ class ExactMatchJobBase extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'completionDateTime' => function (self $o, ParseNode $n) { $o->setCompletionDateTime($n->getDateTimeValue()); },
-            'creationDateTime' => function (self $o, ParseNode $n) { $o->setCreationDateTime($n->getDateTimeValue()); },
-            'error' => function (self $o, ParseNode $n) { $o->setError($n->getObjectValue(ClassificationError::class)); },
-            'lastUpdatedDateTime' => function (self $o, ParseNode $n) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'completionDateTime' => function (ParseNode $n) use ($o) { $o->setCompletionDateTime($n->getDateTimeValue()); },
+            'creationDateTime' => function (ParseNode $n) use ($o) { $o->setCreationDateTime($n->getDateTimeValue()); },
+            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(ClassificationError::class, 'createFromDiscriminatorValue'))); },
+            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
         ]);
     }
 

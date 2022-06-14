@@ -10,34 +10,54 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserSimulationDetails implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $assignedTrainingsCount Number of trainings assigned to a user in an attack simulation and training campaign. */
+    /**
+     * @var int|null $assignedTrainingsCount Number of trainings assigned to a user in an attack simulation and training campaign.
+    */
     private ?int $assignedTrainingsCount = null;
     
-    /** @var int|null $completedTrainingsCount Number of trainings completed by a user in an attack simulation and training campaign. */
+    /**
+     * @var int|null $completedTrainingsCount Number of trainings completed by a user in an attack simulation and training campaign.
+    */
     private ?int $completedTrainingsCount = null;
     
-    /** @var DateTime|null $compromisedDateTime Date and time of the compromising online action by a user in an attack simulation and training campaign. */
+    /**
+     * @var DateTime|null $compromisedDateTime Date and time of the compromising online action by a user in an attack simulation and training campaign.
+    */
     private ?DateTime $compromisedDateTime = null;
     
-    /** @var int|null $inProgressTrainingsCount Number of trainings in progress by a user in an attack simulation and training campaign. */
+    /**
+     * @var int|null $inProgressTrainingsCount Number of trainings in progress by a user in an attack simulation and training campaign.
+    */
     private ?int $inProgressTrainingsCount = null;
     
-    /** @var bool|null $isCompromised Flag representing if user was compromised in an attack simulation and training campaign. */
+    /**
+     * @var bool|null $isCompromised Flag representing if user was compromised in an attack simulation and training campaign.
+    */
     private ?bool $isCompromised = null;
     
-    /** @var DateTime|null $reportedPhishDateTime Date and time when user reported delivered payload as phish in the attack simulation and training campaign. */
+    /**
+     * @var DateTime|null $reportedPhishDateTime Date and time when user reported delivered payload as phish in the attack simulation and training campaign.
+    */
     private ?DateTime $reportedPhishDateTime = null;
     
-    /** @var array<UserSimulationEventInfo>|null $simulationEvents List of simulation events of a user in the attack simulation and training campaign. */
+    /**
+     * @var array<UserSimulationEventInfo>|null $simulationEvents List of simulation events of a user in the attack simulation and training campaign.
+    */
     private ?array $simulationEvents = null;
     
-    /** @var AttackSimulationUser|null $simulationUser User in an attack simulation and training campaign. */
+    /**
+     * @var AttackSimulationUser|null $simulationUser User in an attack simulation and training campaign.
+    */
     private ?AttackSimulationUser $simulationUser = null;
     
-    /** @var array<UserTrainingEventInfo>|null $trainingEvents List of training events of a user in the attack simulation and training campaign. */
+    /**
+     * @var array<UserTrainingEventInfo>|null $trainingEvents List of training events of a user in the attack simulation and training campaign.
+    */
     private ?array $trainingEvents = null;
     
     /**
@@ -52,7 +72,7 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserSimulationDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserSimulationDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserSimulationDetails {
         return new UserSimulationDetails();
     }
 
@@ -93,16 +113,17 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'assignedTrainingsCount' => function (self $o, ParseNode $n) { $o->setAssignedTrainingsCount($n->getIntegerValue()); },
-            'completedTrainingsCount' => function (self $o, ParseNode $n) { $o->setCompletedTrainingsCount($n->getIntegerValue()); },
-            'compromisedDateTime' => function (self $o, ParseNode $n) { $o->setCompromisedDateTime($n->getDateTimeValue()); },
-            'inProgressTrainingsCount' => function (self $o, ParseNode $n) { $o->setInProgressTrainingsCount($n->getIntegerValue()); },
-            'isCompromised' => function (self $o, ParseNode $n) { $o->setIsCompromised($n->getBooleanValue()); },
-            'reportedPhishDateTime' => function (self $o, ParseNode $n) { $o->setReportedPhishDateTime($n->getDateTimeValue()); },
-            'simulationEvents' => function (self $o, ParseNode $n) { $o->setSimulationEvents($n->getCollectionOfObjectValues(UserSimulationEventInfo::class)); },
-            'simulationUser' => function (self $o, ParseNode $n) { $o->setSimulationUser($n->getObjectValue(AttackSimulationUser::class)); },
-            'trainingEvents' => function (self $o, ParseNode $n) { $o->setTrainingEvents($n->getCollectionOfObjectValues(UserTrainingEventInfo::class)); },
+            'assignedTrainingsCount' => function (ParseNode $n) use ($o) { $o->setAssignedTrainingsCount($n->getIntegerValue()); },
+            'completedTrainingsCount' => function (ParseNode $n) use ($o) { $o->setCompletedTrainingsCount($n->getIntegerValue()); },
+            'compromisedDateTime' => function (ParseNode $n) use ($o) { $o->setCompromisedDateTime($n->getDateTimeValue()); },
+            'inProgressTrainingsCount' => function (ParseNode $n) use ($o) { $o->setInProgressTrainingsCount($n->getIntegerValue()); },
+            'isCompromised' => function (ParseNode $n) use ($o) { $o->setIsCompromised($n->getBooleanValue()); },
+            'reportedPhishDateTime' => function (ParseNode $n) use ($o) { $o->setReportedPhishDateTime($n->getDateTimeValue()); },
+            'simulationEvents' => function (ParseNode $n) use ($o) { $o->setSimulationEvents($n->getCollectionOfObjectValues(array(UserSimulationEventInfo::class, 'createFromDiscriminatorValue'))); },
+            'simulationUser' => function (ParseNode $n) use ($o) { $o->setSimulationUser($n->getObjectValue(array(AttackSimulationUser::class, 'createFromDiscriminatorValue'))); },
+            'trainingEvents' => function (ParseNode $n) use ($o) { $o->setTrainingEvents($n->getCollectionOfObjectValues(array(UserTrainingEventInfo::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

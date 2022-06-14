@@ -7,48 +7,76 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessReview extends Entity 
+class AccessReview extends Entity implements Parsable 
 {
-    /** @var string|null $businessFlowTemplateId The business flow template identifier. Required on create.  This value is case sensitive. */
+    /**
+     * @var string|null $businessFlowTemplateId The business flow template identifier. Required on create.  This value is case sensitive.
+    */
     private ?string $businessFlowTemplateId = null;
     
-    /** @var UserIdentity|null $createdBy The user who created this review. */
+    /**
+     * @var UserIdentity|null $createdBy The user who created this review.
+    */
     private ?UserIdentity $createdBy = null;
     
-    /** @var array<AccessReviewDecision>|null $decisions The collection of decisions for this access review. */
+    /**
+     * @var array<AccessReviewDecision>|null $decisions The collection of decisions for this access review.
+    */
     private ?array $decisions = null;
     
-    /** @var string|null $description The description provided by the access review creator, to show to the reviewers. */
+    /**
+     * @var string|null $description The description provided by the access review creator, to show to the reviewers.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The access review name. Required on create. */
+    /**
+     * @var string|null $displayName The access review name. Required on create.
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $endDateTime The DateTime when the review is scheduled to end. This must be at least one day later than the start date.  Required on create. */
+    /**
+     * @var DateTime|null $endDateTime The DateTime when the review is scheduled to end. This must be at least one day later than the start date.  Required on create.
+    */
     private ?DateTime $endDateTime = null;
     
-    /** @var array<AccessReview>|null $instances The collection of access reviews instances past, present and future, if this object is a recurring access review. */
+    /**
+     * @var array<AccessReview>|null $instances The collection of access reviews instances past, present and future, if this object is a recurring access review.
+    */
     private ?array $instances = null;
     
-    /** @var array<AccessReviewDecision>|null $myDecisions The collection of decisions for the caller, if the caller is a reviewer. */
+    /**
+     * @var array<AccessReviewDecision>|null $myDecisions The collection of decisions for the caller, if the caller is a reviewer.
+    */
     private ?array $myDecisions = null;
     
-    /** @var Identity|null $reviewedEntity The object for which the access reviews is reviewing the access rights assignments. This can be the group for the review of memberships of users in a group, or the app for a review of assignments of users to an application. Required on create. */
+    /**
+     * @var Identity|null $reviewedEntity The object for which the access reviews is reviewing the access rights assignments. This can be the group for the review of memberships of users in a group, or the app for a review of assignments of users to an application. Required on create.
+    */
     private ?Identity $reviewedEntity = null;
     
-    /** @var array<AccessReviewReviewer>|null $reviewers The collection of reviewers for an access review, if access review reviewerType is of type delegated. */
+    /**
+     * @var array<AccessReviewReviewer>|null $reviewers The collection of reviewers for an access review, if access review reviewerType is of type delegated.
+    */
     private ?array $reviewers = null;
     
-    /** @var string|null $reviewerType The relationship type of reviewer to the target object, one of self, delegated or entityOwners. Required on create. */
+    /**
+     * @var string|null $reviewerType The relationship type of reviewer to the target object, one of self, delegated or entityOwners. Required on create.
+    */
     private ?string $reviewerType = null;
     
-    /** @var AccessReviewSettings|null $settings The settings of an accessReview, see type definition below. */
+    /**
+     * @var AccessReviewSettings|null $settings The settings of an accessReview, see type definition below.
+    */
     private ?AccessReviewSettings $settings = null;
     
-    /** @var DateTime|null $startDateTime The DateTime when the review is scheduled to be start.  This could be a date in the future.  Required on create. */
+    /**
+     * @var DateTime|null $startDateTime The DateTime when the review is scheduled to be start.  This could be a date in the future.  Required on create.
+    */
     private ?DateTime $startDateTime = null;
     
-    /** @var string|null $status This read-only field specifies the status of an accessReview. The typical states include Initializing, NotStarted, Starting,InProgress, Completing, Completed, AutoReviewing, and AutoReviewed. */
+    /**
+     * @var string|null $status This read-only field specifies the status of an accessReview. The typical states include Initializing, NotStarted, Starting,InProgress, Completing, Completed, AutoReviewing, and AutoReviewed.
+    */
     private ?string $status = null;
     
     /**
@@ -63,7 +91,7 @@ class AccessReview extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessReview
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessReview {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReview {
         return new AccessReview();
     }
 
@@ -120,21 +148,22 @@ class AccessReview extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'businessFlowTemplateId' => function (self $o, ParseNode $n) { $o->setBusinessFlowTemplateId($n->getStringValue()); },
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(UserIdentity::class)); },
-            'decisions' => function (self $o, ParseNode $n) { $o->setDecisions($n->getCollectionOfObjectValues(AccessReviewDecision::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'instances' => function (self $o, ParseNode $n) { $o->setInstances($n->getCollectionOfObjectValues(AccessReview::class)); },
-            'myDecisions' => function (self $o, ParseNode $n) { $o->setMyDecisions($n->getCollectionOfObjectValues(AccessReviewDecision::class)); },
-            'reviewedEntity' => function (self $o, ParseNode $n) { $o->setReviewedEntity($n->getObjectValue(Identity::class)); },
-            'reviewers' => function (self $o, ParseNode $n) { $o->setReviewers($n->getCollectionOfObjectValues(AccessReviewReviewer::class)); },
-            'reviewerType' => function (self $o, ParseNode $n) { $o->setReviewerType($n->getStringValue()); },
-            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getObjectValue(AccessReviewSettings::class)); },
-            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
+            'businessFlowTemplateId' => function (ParseNode $n) use ($o) { $o->setBusinessFlowTemplateId($n->getStringValue()); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(UserIdentity::class, 'createFromDiscriminatorValue'))); },
+            'decisions' => function (ParseNode $n) use ($o) { $o->setDecisions($n->getCollectionOfObjectValues(array(AccessReviewDecision::class, 'createFromDiscriminatorValue'))); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'instances' => function (ParseNode $n) use ($o) { $o->setInstances($n->getCollectionOfObjectValues(array(AccessReview::class, 'createFromDiscriminatorValue'))); },
+            'myDecisions' => function (ParseNode $n) use ($o) { $o->setMyDecisions($n->getCollectionOfObjectValues(array(AccessReviewDecision::class, 'createFromDiscriminatorValue'))); },
+            'reviewedEntity' => function (ParseNode $n) use ($o) { $o->setReviewedEntity($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
+            'reviewers' => function (ParseNode $n) use ($o) { $o->setReviewers($n->getCollectionOfObjectValues(array(AccessReviewReviewer::class, 'createFromDiscriminatorValue'))); },
+            'reviewerType' => function (ParseNode $n) use ($o) { $o->setReviewerType($n->getStringValue()); },
+            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(AccessReviewSettings::class, 'createFromDiscriminatorValue'))); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
         ]);
     }
 

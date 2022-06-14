@@ -10,22 +10,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $backlightBrightness The brightness level on the device (0-100). Not applicable for Microsoft Teams Rooms devices. */
+    /**
+     * @var int|null $backlightBrightness The brightness level on the device (0-100). Not applicable for Microsoft Teams Rooms devices.
+    */
     private ?int $backlightBrightness = null;
     
-    /** @var DateInterval|null $backlightTimeout Timeout for backlight (30-3600 secs). Not applicable for Teams Rooms devices. */
+    /**
+     * @var DateInterval|null $backlightTimeout Timeout for backlight (30-3600 secs). Not applicable for Teams Rooms devices.
+    */
     private ?DateInterval $backlightTimeout = null;
     
-    /** @var bool|null $isHighContrastEnabled True if high contrast mode is enabled. Not applicable for Teams Rooms devices. */
+    /**
+     * @var bool|null $isHighContrastEnabled True if high contrast mode is enabled. Not applicable for Teams Rooms devices.
+    */
     private ?bool $isHighContrastEnabled = null;
     
-    /** @var bool|null $isScreensaverEnabled True if screensaver is enabled. Not applicable for Teams Rooms devices. */
+    /**
+     * @var bool|null $isScreensaverEnabled True if screensaver is enabled. Not applicable for Teams Rooms devices.
+    */
     private ?bool $isScreensaverEnabled = null;
     
-    /** @var DateInterval|null $screensaverTimeout Screensaver timeout from 30 to 3600 secs. Not applicable for Teams Rooms devices. */
+    /**
+     * @var DateInterval|null $screensaverTimeout Screensaver timeout from 30 to 3600 secs. Not applicable for Teams Rooms devices.
+    */
     private ?DateInterval $screensaverTimeout = null;
     
     /**
@@ -40,7 +52,7 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkDisplayScreenConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDisplayScreenConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDisplayScreenConfiguration {
         return new TeamworkDisplayScreenConfiguration();
     }
 
@@ -73,12 +85,13 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'backlightBrightness' => function (self $o, ParseNode $n) { $o->setBacklightBrightness($n->getIntegerValue()); },
-            'backlightTimeout' => function (self $o, ParseNode $n) { $o->setBacklightTimeout($n->getDateIntervalValue()); },
-            'isHighContrastEnabled' => function (self $o, ParseNode $n) { $o->setIsHighContrastEnabled($n->getBooleanValue()); },
-            'isScreensaverEnabled' => function (self $o, ParseNode $n) { $o->setIsScreensaverEnabled($n->getBooleanValue()); },
-            'screensaverTimeout' => function (self $o, ParseNode $n) { $o->setScreensaverTimeout($n->getDateIntervalValue()); },
+            'backlightBrightness' => function (ParseNode $n) use ($o) { $o->setBacklightBrightness($n->getIntegerValue()); },
+            'backlightTimeout' => function (ParseNode $n) use ($o) { $o->setBacklightTimeout($n->getDateIntervalValue()); },
+            'isHighContrastEnabled' => function (ParseNode $n) use ($o) { $o->setIsHighContrastEnabled($n->getBooleanValue()); },
+            'isScreensaverEnabled' => function (ParseNode $n) use ($o) { $o->setIsScreensaverEnabled($n->getBooleanValue()); },
+            'screensaverTimeout' => function (ParseNode $n) use ($o) { $o->setScreensaverTimeout($n->getDateIntervalValue()); },
         ];
     }
 

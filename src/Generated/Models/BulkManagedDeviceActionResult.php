@@ -9,23 +9,33 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class BulkManagedDeviceActionResult implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<string>|null $failedDeviceIds Failed devices */
+    /**
+     * @var array<string>|null $failedDeviceIds Failed devices
+    */
     private ?array $failedDeviceIds = null;
     
-    /** @var array<string>|null $notFoundDeviceIds Not found devices */
+    /**
+     * @var array<string>|null $notFoundDeviceIds Not found devices
+    */
     private ?array $notFoundDeviceIds = null;
     
-    /** @var array<string>|null $notSupportedDeviceIds Not supported devices */
+    /**
+     * @var array<string>|null $notSupportedDeviceIds Not supported devices
+    */
     private ?array $notSupportedDeviceIds = null;
     
-    /** @var array<string>|null $successfulDeviceIds Successful devices */
+    /**
+     * @var array<string>|null $successfulDeviceIds Successful devices
+    */
     private ?array $successfulDeviceIds = null;
     
     /**
-     * Instantiates a new bulkManagedDeviceActionResult and sets the default values.
+     * Instantiates a new BulkManagedDeviceActionResult and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -36,7 +46,7 @@ class BulkManagedDeviceActionResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BulkManagedDeviceActionResult
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): BulkManagedDeviceActionResult {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): BulkManagedDeviceActionResult {
         return new BulkManagedDeviceActionResult();
     }
 
@@ -61,11 +71,12 @@ class BulkManagedDeviceActionResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'failedDeviceIds' => function (self $o, ParseNode $n) { $o->setFailedDeviceIds($n->getCollectionOfPrimitiveValues()); },
-            'notFoundDeviceIds' => function (self $o, ParseNode $n) { $o->setNotFoundDeviceIds($n->getCollectionOfPrimitiveValues()); },
-            'notSupportedDeviceIds' => function (self $o, ParseNode $n) { $o->setNotSupportedDeviceIds($n->getCollectionOfPrimitiveValues()); },
-            'successfulDeviceIds' => function (self $o, ParseNode $n) { $o->setSuccessfulDeviceIds($n->getCollectionOfPrimitiveValues()); },
+            'failedDeviceIds' => function (ParseNode $n) use ($o) { $o->setFailedDeviceIds($n->getCollectionOfPrimitiveValues()); },
+            'notFoundDeviceIds' => function (ParseNode $n) use ($o) { $o->setNotFoundDeviceIds($n->getCollectionOfPrimitiveValues()); },
+            'notSupportedDeviceIds' => function (ParseNode $n) use ($o) { $o->setNotSupportedDeviceIds($n->getCollectionOfPrimitiveValues()); },
+            'successfulDeviceIds' => function (ParseNode $n) use ($o) { $o->setSuccessfulDeviceIds($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

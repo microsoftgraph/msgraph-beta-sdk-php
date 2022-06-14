@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceComplianceScriptRuleError extends DeviceComplianceScriptError 
+class DeviceComplianceScriptRuleError extends DeviceComplianceScriptError implements Parsable 
 {
-    /** @var string|null $settingName Setting name for the rule with error. */
+    /**
+     * @var string|null $settingName Setting name for the rule with error.
+    */
     private ?string $settingName = null;
     
     /**
@@ -23,7 +25,7 @@ class DeviceComplianceScriptRuleError extends DeviceComplianceScriptError
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceComplianceScriptRuleError
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceScriptRuleError {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceScriptRuleError {
         return new DeviceComplianceScriptRuleError();
     }
 
@@ -32,8 +34,9 @@ class DeviceComplianceScriptRuleError extends DeviceComplianceScriptError
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'settingName' => function (self $o, ParseNode $n) { $o->setSettingName($n->getStringValue()); },
+            'settingName' => function (ParseNode $n) use ($o) { $o->setSettingName($n->getStringValue()); },
         ]);
     }
 

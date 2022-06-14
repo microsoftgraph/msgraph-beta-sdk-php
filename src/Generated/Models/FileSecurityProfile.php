@@ -7,54 +7,86 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class FileSecurityProfile extends Entity 
+class FileSecurityProfile extends Entity implements Parsable 
 {
-    /** @var array<string>|null $activityGroupNames The activityGroupNames property */
+    /**
+     * @var array<string>|null $activityGroupNames The activityGroupNames property
+    */
     private ?array $activityGroupNames = null;
     
-    /** @var string|null $azureSubscriptionId The azureSubscriptionId property */
+    /**
+     * @var string|null $azureSubscriptionId The azureSubscriptionId property
+    */
     private ?string $azureSubscriptionId = null;
     
-    /** @var string|null $azureTenantId The azureTenantId property */
+    /**
+     * @var string|null $azureTenantId The azureTenantId property
+    */
     private ?string $azureTenantId = null;
     
-    /** @var string|null $certificateThumbprint The certificateThumbprint property */
+    /**
+     * @var string|null $certificateThumbprint The certificateThumbprint property
+    */
     private ?string $certificateThumbprint = null;
     
-    /** @var array<string>|null $extensions The extensions property */
+    /**
+     * @var array<string>|null $extensions The extensions property
+    */
     private ?array $extensions = null;
     
-    /** @var string|null $fileType The fileType property */
+    /**
+     * @var string|null $fileType The fileType property
+    */
     private ?string $fileType = null;
     
-    /** @var DateTime|null $firstSeenDateTime The firstSeenDateTime property */
+    /**
+     * @var DateTime|null $firstSeenDateTime The firstSeenDateTime property
+    */
     private ?DateTime $firstSeenDateTime = null;
     
-    /** @var array<FileHash>|null $hashes The hashes property */
+    /**
+     * @var array<FileHash>|null $hashes The hashes property
+    */
     private ?array $hashes = null;
     
-    /** @var DateTime|null $lastSeenDateTime The lastSeenDateTime property */
+    /**
+     * @var DateTime|null $lastSeenDateTime The lastSeenDateTime property
+    */
     private ?DateTime $lastSeenDateTime = null;
     
-    /** @var array<MalwareState>|null $malwareStates The malwareStates property */
+    /**
+     * @var array<MalwareState>|null $malwareStates The malwareStates property
+    */
     private ?array $malwareStates = null;
     
-    /** @var array<string>|null $names The names property */
+    /**
+     * @var array<string>|null $names The names property
+    */
     private ?array $names = null;
     
-    /** @var string|null $riskScore The riskScore property */
+    /**
+     * @var string|null $riskScore The riskScore property
+    */
     private ?string $riskScore = null;
     
-    /** @var int|null $size The size property */
+    /**
+     * @var int|null $size The size property
+    */
     private ?int $size = null;
     
-    /** @var array<string>|null $tags The tags property */
+    /**
+     * @var array<string>|null $tags The tags property
+    */
     private ?array $tags = null;
     
-    /** @var SecurityVendorInformation|null $vendorInformation The vendorInformation property */
+    /**
+     * @var SecurityVendorInformation|null $vendorInformation The vendorInformation property
+    */
     private ?SecurityVendorInformation $vendorInformation = null;
     
-    /** @var array<VulnerabilityState>|null $vulnerabilityStates The vulnerabilityStates property */
+    /**
+     * @var array<VulnerabilityState>|null $vulnerabilityStates The vulnerabilityStates property
+    */
     private ?array $vulnerabilityStates = null;
     
     /**
@@ -69,7 +101,7 @@ class FileSecurityProfile extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return FileSecurityProfile
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): FileSecurityProfile {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): FileSecurityProfile {
         return new FileSecurityProfile();
     }
 
@@ -118,23 +150,24 @@ class FileSecurityProfile extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activityGroupNames' => function (self $o, ParseNode $n) { $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()); },
-            'azureSubscriptionId' => function (self $o, ParseNode $n) { $o->setAzureSubscriptionId($n->getStringValue()); },
-            'azureTenantId' => function (self $o, ParseNode $n) { $o->setAzureTenantId($n->getStringValue()); },
-            'certificateThumbprint' => function (self $o, ParseNode $n) { $o->setCertificateThumbprint($n->getStringValue()); },
-            'extensions' => function (self $o, ParseNode $n) { $o->setExtensions($n->getCollectionOfPrimitiveValues()); },
-            'fileType' => function (self $o, ParseNode $n) { $o->setFileType($n->getStringValue()); },
-            'firstSeenDateTime' => function (self $o, ParseNode $n) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
-            'hashes' => function (self $o, ParseNode $n) { $o->setHashes($n->getCollectionOfObjectValues(FileHash::class)); },
-            'lastSeenDateTime' => function (self $o, ParseNode $n) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
-            'malwareStates' => function (self $o, ParseNode $n) { $o->setMalwareStates($n->getCollectionOfObjectValues(MalwareState::class)); },
-            'names' => function (self $o, ParseNode $n) { $o->setNames($n->getCollectionOfPrimitiveValues()); },
-            'riskScore' => function (self $o, ParseNode $n) { $o->setRiskScore($n->getStringValue()); },
-            'size' => function (self $o, ParseNode $n) { $o->setSize($n->getIntegerValue()); },
-            'tags' => function (self $o, ParseNode $n) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
-            'vendorInformation' => function (self $o, ParseNode $n) { $o->setVendorInformation($n->getObjectValue(SecurityVendorInformation::class)); },
-            'vulnerabilityStates' => function (self $o, ParseNode $n) { $o->setVulnerabilityStates($n->getCollectionOfObjectValues(VulnerabilityState::class)); },
+            'activityGroupNames' => function (ParseNode $n) use ($o) { $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()); },
+            'azureSubscriptionId' => function (ParseNode $n) use ($o) { $o->setAzureSubscriptionId($n->getStringValue()); },
+            'azureTenantId' => function (ParseNode $n) use ($o) { $o->setAzureTenantId($n->getStringValue()); },
+            'certificateThumbprint' => function (ParseNode $n) use ($o) { $o->setCertificateThumbprint($n->getStringValue()); },
+            'extensions' => function (ParseNode $n) use ($o) { $o->setExtensions($n->getCollectionOfPrimitiveValues()); },
+            'fileType' => function (ParseNode $n) use ($o) { $o->setFileType($n->getStringValue()); },
+            'firstSeenDateTime' => function (ParseNode $n) use ($o) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
+            'hashes' => function (ParseNode $n) use ($o) { $o->setHashes($n->getCollectionOfObjectValues(array(FileHash::class, 'createFromDiscriminatorValue'))); },
+            'lastSeenDateTime' => function (ParseNode $n) use ($o) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
+            'malwareStates' => function (ParseNode $n) use ($o) { $o->setMalwareStates($n->getCollectionOfObjectValues(array(MalwareState::class, 'createFromDiscriminatorValue'))); },
+            'names' => function (ParseNode $n) use ($o) { $o->setNames($n->getCollectionOfPrimitiveValues()); },
+            'riskScore' => function (ParseNode $n) use ($o) { $o->setRiskScore($n->getStringValue()); },
+            'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getIntegerValue()); },
+            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
+            'vendorInformation' => function (ParseNode $n) use ($o) { $o->setVendorInformation($n->getObjectValue(array(SecurityVendorInformation::class, 'createFromDiscriminatorValue'))); },
+            'vulnerabilityStates' => function (ParseNode $n) use ($o) { $o->setVulnerabilityStates($n->getCollectionOfObjectValues(array(VulnerabilityState::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

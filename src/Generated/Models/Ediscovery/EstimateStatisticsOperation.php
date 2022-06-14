@@ -6,27 +6,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EstimateStatisticsOperation extends CaseOperation 
+class EstimateStatisticsOperation extends CaseOperation implements Parsable 
 {
-    /** @var int|null $indexedItemCount The estimated count of items for the sourceCollection that matched the content query. */
+    /**
+     * @var int|null $indexedItemCount The estimated count of items for the sourceCollection that matched the content query.
+    */
     private ?int $indexedItemCount = null;
     
-    /** @var int|null $indexedItemsSize The estimated size of items for the sourceCollection that matched the content query. */
+    /**
+     * @var int|null $indexedItemsSize The estimated size of items for the sourceCollection that matched the content query.
+    */
     private ?int $indexedItemsSize = null;
     
-    /** @var int|null $mailboxCount The number of mailboxes that had search hits. */
+    /**
+     * @var int|null $mailboxCount The number of mailboxes that had search hits.
+    */
     private ?int $mailboxCount = null;
     
-    /** @var int|null $siteCount The number of mailboxes that had search hits. */
+    /**
+     * @var int|null $siteCount The number of mailboxes that had search hits.
+    */
     private ?int $siteCount = null;
     
-    /** @var SourceCollection|null $sourceCollection eDiscovery collection, commonly known as a search. */
+    /**
+     * @var SourceCollection|null $sourceCollection eDiscovery collection, commonly known as a search.
+    */
     private ?SourceCollection $sourceCollection = null;
     
-    /** @var int|null $unindexedItemCount The estimated count of unindexed items for the collection. */
+    /**
+     * @var int|null $unindexedItemCount The estimated count of unindexed items for the collection.
+    */
     private ?int $unindexedItemCount = null;
     
-    /** @var int|null $unindexedItemsSize The estimated size of unindexed items for the collection. */
+    /**
+     * @var int|null $unindexedItemsSize The estimated size of unindexed items for the collection.
+    */
     private ?int $unindexedItemsSize = null;
     
     /**
@@ -41,7 +55,7 @@ class EstimateStatisticsOperation extends CaseOperation
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EstimateStatisticsOperation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): EstimateStatisticsOperation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): EstimateStatisticsOperation {
         return new EstimateStatisticsOperation();
     }
 
@@ -50,14 +64,15 @@ class EstimateStatisticsOperation extends CaseOperation
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'indexedItemCount' => function (self $o, ParseNode $n) { $o->setIndexedItemCount($n->getIntegerValue()); },
-            'indexedItemsSize' => function (self $o, ParseNode $n) { $o->setIndexedItemsSize($n->getIntegerValue()); },
-            'mailboxCount' => function (self $o, ParseNode $n) { $o->setMailboxCount($n->getIntegerValue()); },
-            'siteCount' => function (self $o, ParseNode $n) { $o->setSiteCount($n->getIntegerValue()); },
-            'sourceCollection' => function (self $o, ParseNode $n) { $o->setSourceCollection($n->getObjectValue(SourceCollection::class)); },
-            'unindexedItemCount' => function (self $o, ParseNode $n) { $o->setUnindexedItemCount($n->getIntegerValue()); },
-            'unindexedItemsSize' => function (self $o, ParseNode $n) { $o->setUnindexedItemsSize($n->getIntegerValue()); },
+            'indexedItemCount' => function (ParseNode $n) use ($o) { $o->setIndexedItemCount($n->getIntegerValue()); },
+            'indexedItemsSize' => function (ParseNode $n) use ($o) { $o->setIndexedItemsSize($n->getIntegerValue()); },
+            'mailboxCount' => function (ParseNode $n) use ($o) { $o->setMailboxCount($n->getIntegerValue()); },
+            'siteCount' => function (ParseNode $n) use ($o) { $o->setSiteCount($n->getIntegerValue()); },
+            'sourceCollection' => function (ParseNode $n) use ($o) { $o->setSourceCollection($n->getObjectValue(array(SourceCollection::class, 'createFromDiscriminatorValue'))); },
+            'unindexedItemCount' => function (ParseNode $n) use ($o) { $o->setUnindexedItemCount($n->getIntegerValue()); },
+            'unindexedItemsSize' => function (ParseNode $n) use ($o) { $o->setUnindexedItemsSize($n->getIntegerValue()); },
         ]);
     }
 

@@ -6,15 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DelegatedAdminServiceManagementDetail extends Entity 
+class DelegatedAdminServiceManagementDetail extends Entity implements Parsable 
 {
-    /** @var string|null $serviceId The serviceId property */
-    private ?string $serviceId = null;
-    
-    /** @var string|null $serviceManagementUrl The URL of the management portal for the managed service. Read-only. */
+    /**
+     * @var string|null $serviceManagementUrl The URL of the management portal for the managed service. Read-only.
+    */
     private ?string $serviceManagementUrl = null;
     
-    /** @var string|null $serviceName The name of a managed service. Read-only. */
+    /**
+     * @var string|null $serviceName The name of a managed service. Read-only.
+    */
     private ?string $serviceName = null;
     
     /**
@@ -29,7 +30,7 @@ class DelegatedAdminServiceManagementDetail extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DelegatedAdminServiceManagementDetail
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminServiceManagementDetail {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminServiceManagementDetail {
         return new DelegatedAdminServiceManagementDetail();
     }
 
@@ -38,19 +39,11 @@ class DelegatedAdminServiceManagementDetail extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'serviceId' => function (self $o, ParseNode $n) { $o->setServiceId($n->getStringValue()); },
-            'serviceManagementUrl' => function (self $o, ParseNode $n) { $o->setServiceManagementUrl($n->getStringValue()); },
-            'serviceName' => function (self $o, ParseNode $n) { $o->setServiceName($n->getStringValue()); },
+            'serviceManagementUrl' => function (ParseNode $n) use ($o) { $o->setServiceManagementUrl($n->getStringValue()); },
+            'serviceName' => function (ParseNode $n) use ($o) { $o->setServiceName($n->getStringValue()); },
         ]);
-    }
-
-    /**
-     * Gets the serviceId property value. The serviceId property
-     * @return string|null
-    */
-    public function getServiceId(): ?string {
-        return $this->serviceId;
     }
 
     /**
@@ -75,17 +68,8 @@ class DelegatedAdminServiceManagementDetail extends Entity
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('serviceId', $this->serviceId);
         $writer->writeStringValue('serviceManagementUrl', $this->serviceManagementUrl);
         $writer->writeStringValue('serviceName', $this->serviceName);
-    }
-
-    /**
-     * Sets the serviceId property value. The serviceId property
-     *  @param string|null $value Value to set for the serviceId property.
-    */
-    public function setServiceId(?string $value ): void {
-        $this->serviceId = $value;
     }
 
     /**

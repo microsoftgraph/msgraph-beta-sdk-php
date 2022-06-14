@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class GetExpiringVppTokenCountWithExpiringBeforeDateTimeResponse implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $value The value property */
+    /**
+     * @var int|null $value The value property
+    */
     private ?int $value = null;
     
     /**
@@ -27,7 +31,7 @@ class GetExpiringVppTokenCountWithExpiringBeforeDateTimeResponse implements Addi
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GetExpiringVppTokenCountWithExpiringBeforeDateTimeResponse
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GetExpiringVppTokenCountWithExpiringBeforeDateTimeResponse {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GetExpiringVppTokenCountWithExpiringBeforeDateTimeResponse {
         return new GetExpiringVppTokenCountWithExpiringBeforeDateTimeResponse();
     }
 
@@ -44,8 +48,9 @@ class GetExpiringVppTokenCountWithExpiringBeforeDateTimeResponse implements Addi
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getIntegerValue()); },
+            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getIntegerValue()); },
         ];
     }
 

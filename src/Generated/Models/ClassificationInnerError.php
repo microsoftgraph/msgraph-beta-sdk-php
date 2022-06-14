@@ -10,19 +10,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ClassificationInnerError implements AdditionalDataHolder, Parsable 
 {
-    /** @var string|null $activityId The activityId property */
+    /**
+     * @var string|null $activityId The activityId property
+    */
     private ?string $activityId = null;
     
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $clientRequestId The clientRequestId property */
+    /**
+     * @var string|null $clientRequestId The clientRequestId property
+    */
     private ?string $clientRequestId = null;
     
-    /** @var string|null $code The code property */
+    /**
+     * @var string|null $code The code property
+    */
     private ?string $code = null;
     
-    /** @var DateTime|null $errorDateTime The errorDateTime property */
+    /**
+     * @var DateTime|null $errorDateTime The errorDateTime property
+    */
     private ?DateTime $errorDateTime = null;
     
     /**
@@ -37,7 +47,7 @@ class ClassificationInnerError implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ClassificationInnerError
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ClassificationInnerError {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ClassificationInnerError {
         return new ClassificationInnerError();
     }
 
@@ -86,11 +96,12 @@ class ClassificationInnerError implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'activityId' => function (self $o, ParseNode $n) { $o->setActivityId($n->getStringValue()); },
-            'clientRequestId' => function (self $o, ParseNode $n) { $o->setClientRequestId($n->getStringValue()); },
-            'code' => function (self $o, ParseNode $n) { $o->setCode($n->getStringValue()); },
-            'errorDateTime' => function (self $o, ParseNode $n) { $o->setErrorDateTime($n->getDateTimeValue()); },
+            'activityId' => function (ParseNode $n) use ($o) { $o->setActivityId($n->getStringValue()); },
+            'clientRequestId' => function (ParseNode $n) use ($o) { $o->setClientRequestId($n->getStringValue()); },
+            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
+            'errorDateTime' => function (ParseNode $n) use ($o) { $o->setErrorDateTime($n->getDateTimeValue()); },
         ];
     }
 

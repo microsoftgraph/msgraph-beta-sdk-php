@@ -6,64 +6,100 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OutlookTask extends OutlookItem 
+class OutlookTask extends OutlookItem implements Parsable 
 {
-    /** @var string|null $assignedTo The name of the person who has been assigned the task in Outlook. Read-only. */
+    /**
+     * @var string|null $assignedTo The name of the person who has been assigned the task in Outlook. Read-only.
+    */
     private ?string $assignedTo = null;
     
-    /** @var array<Attachment>|null $attachments The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task.  Read-only. Nullable. */
+    /**
+     * @var array<Attachment>|null $attachments The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task.  Read-only. Nullable.
+    */
     private ?array $attachments = null;
     
-    /** @var ItemBody|null $body The task body that typically contains information about the task. Note that only HTML type is supported. */
+    /**
+     * @var ItemBody|null $body The task body that typically contains information about the task. Note that only HTML type is supported.
+    */
     private ?ItemBody $body = null;
     
-    /** @var DateTimeTimeZone|null $completedDateTime The date in the specified time zone that the task was finished. */
+    /**
+     * @var DateTimeTimeZone|null $completedDateTime The date in the specified time zone that the task was finished.
+    */
     private ?DateTimeTimeZone $completedDateTime = null;
     
-    /** @var DateTimeTimeZone|null $dueDateTime The date in the specified time zone that the task is to be finished. */
+    /**
+     * @var DateTimeTimeZone|null $dueDateTime The date in the specified time zone that the task is to be finished.
+    */
     private ?DateTimeTimeZone $dueDateTime = null;
     
-    /** @var bool|null $hasAttachments Set to true if the task has attachments. */
+    /**
+     * @var bool|null $hasAttachments Set to true if the task has attachments.
+    */
     private ?bool $hasAttachments = null;
     
-    /** @var Importance|null $importance The importance property */
+    /**
+     * @var Importance|null $importance The importance property
+    */
     private ?Importance $importance = null;
     
-    /** @var bool|null $isReminderOn The isReminderOn property */
+    /**
+     * @var bool|null $isReminderOn The isReminderOn property
+    */
     private ?bool $isReminderOn = null;
     
-    /** @var array<MultiValueLegacyExtendedProperty>|null $multiValueExtendedProperties The collection of multi-value extended properties defined for the task. Read-only. Nullable. */
+    /**
+     * @var array<MultiValueLegacyExtendedProperty>|null $multiValueExtendedProperties The collection of multi-value extended properties defined for the task. Read-only. Nullable.
+    */
     private ?array $multiValueExtendedProperties = null;
     
-    /** @var string|null $owner The owner property */
+    /**
+     * @var string|null $owner The owner property
+    */
     private ?string $owner = null;
     
-    /** @var string|null $parentFolderId The parentFolderId property */
+    /**
+     * @var string|null $parentFolderId The parentFolderId property
+    */
     private ?string $parentFolderId = null;
     
-    /** @var PatternedRecurrence|null $recurrence The recurrence property */
+    /**
+     * @var PatternedRecurrence|null $recurrence The recurrence property
+    */
     private ?PatternedRecurrence $recurrence = null;
     
-    /** @var DateTimeTimeZone|null $reminderDateTime The reminderDateTime property */
+    /**
+     * @var DateTimeTimeZone|null $reminderDateTime The reminderDateTime property
+    */
     private ?DateTimeTimeZone $reminderDateTime = null;
     
-    /** @var Sensitivity|null $sensitivity The sensitivity property */
+    /**
+     * @var Sensitivity|null $sensitivity The sensitivity property
+    */
     private ?Sensitivity $sensitivity = null;
     
-    /** @var array<SingleValueLegacyExtendedProperty>|null $singleValueExtendedProperties The collection of single-value extended properties defined for the task. Read-only. Nullable. */
+    /**
+     * @var array<SingleValueLegacyExtendedProperty>|null $singleValueExtendedProperties The collection of single-value extended properties defined for the task. Read-only. Nullable.
+    */
     private ?array $singleValueExtendedProperties = null;
     
-    /** @var DateTimeTimeZone|null $startDateTime The startDateTime property */
+    /**
+     * @var DateTimeTimeZone|null $startDateTime The startDateTime property
+    */
     private ?DateTimeTimeZone $startDateTime = null;
     
-    /** @var TaskStatus|null $status The status property */
+    /**
+     * @var TaskStatus|null $status The status property
+    */
     private ?TaskStatus $status = null;
     
-    /** @var string|null $subject The subject property */
+    /**
+     * @var string|null $subject The subject property
+    */
     private ?string $subject = null;
     
     /**
-     * Instantiates a new outlookTask and sets the default values.
+     * Instantiates a new OutlookTask and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -74,7 +110,7 @@ class OutlookTask extends OutlookItem
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OutlookTask
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): OutlookTask {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): OutlookTask {
         return new OutlookTask();
     }
 
@@ -123,25 +159,26 @@ class OutlookTask extends OutlookItem
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignedTo' => function (self $o, ParseNode $n) { $o->setAssignedTo($n->getStringValue()); },
-            'attachments' => function (self $o, ParseNode $n) { $o->setAttachments($n->getCollectionOfObjectValues(Attachment::class)); },
-            'body' => function (self $o, ParseNode $n) { $o->setBody($n->getObjectValue(ItemBody::class)); },
-            'completedDateTime' => function (self $o, ParseNode $n) { $o->setCompletedDateTime($n->getObjectValue(DateTimeTimeZone::class)); },
-            'dueDateTime' => function (self $o, ParseNode $n) { $o->setDueDateTime($n->getObjectValue(DateTimeTimeZone::class)); },
-            'hasAttachments' => function (self $o, ParseNode $n) { $o->setHasAttachments($n->getBooleanValue()); },
-            'importance' => function (self $o, ParseNode $n) { $o->setImportance($n->getEnumValue(Importance::class)); },
-            'isReminderOn' => function (self $o, ParseNode $n) { $o->setIsReminderOn($n->getBooleanValue()); },
-            'multiValueExtendedProperties' => function (self $o, ParseNode $n) { $o->setMultiValueExtendedProperties($n->getCollectionOfObjectValues(MultiValueLegacyExtendedProperty::class)); },
-            'owner' => function (self $o, ParseNode $n) { $o->setOwner($n->getStringValue()); },
-            'parentFolderId' => function (self $o, ParseNode $n) { $o->setParentFolderId($n->getStringValue()); },
-            'recurrence' => function (self $o, ParseNode $n) { $o->setRecurrence($n->getObjectValue(PatternedRecurrence::class)); },
-            'reminderDateTime' => function (self $o, ParseNode $n) { $o->setReminderDateTime($n->getObjectValue(DateTimeTimeZone::class)); },
-            'sensitivity' => function (self $o, ParseNode $n) { $o->setSensitivity($n->getEnumValue(Sensitivity::class)); },
-            'singleValueExtendedProperties' => function (self $o, ParseNode $n) { $o->setSingleValueExtendedProperties($n->getCollectionOfObjectValues(SingleValueLegacyExtendedProperty::class)); },
-            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getObjectValue(DateTimeTimeZone::class)); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(TaskStatus::class)); },
-            'subject' => function (self $o, ParseNode $n) { $o->setSubject($n->getStringValue()); },
+            'assignedTo' => function (ParseNode $n) use ($o) { $o->setAssignedTo($n->getStringValue()); },
+            'attachments' => function (ParseNode $n) use ($o) { $o->setAttachments($n->getCollectionOfObjectValues(array(Attachment::class, 'createFromDiscriminatorValue'))); },
+            'body' => function (ParseNode $n) use ($o) { $o->setBody($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
+            'completedDateTime' => function (ParseNode $n) use ($o) { $o->setCompletedDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
+            'dueDateTime' => function (ParseNode $n) use ($o) { $o->setDueDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
+            'hasAttachments' => function (ParseNode $n) use ($o) { $o->setHasAttachments($n->getBooleanValue()); },
+            'importance' => function (ParseNode $n) use ($o) { $o->setImportance($n->getEnumValue(Importance::class)); },
+            'isReminderOn' => function (ParseNode $n) use ($o) { $o->setIsReminderOn($n->getBooleanValue()); },
+            'multiValueExtendedProperties' => function (ParseNode $n) use ($o) { $o->setMultiValueExtendedProperties($n->getCollectionOfObjectValues(array(MultiValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'))); },
+            'owner' => function (ParseNode $n) use ($o) { $o->setOwner($n->getStringValue()); },
+            'parentFolderId' => function (ParseNode $n) use ($o) { $o->setParentFolderId($n->getStringValue()); },
+            'recurrence' => function (ParseNode $n) use ($o) { $o->setRecurrence($n->getObjectValue(array(PatternedRecurrence::class, 'createFromDiscriminatorValue'))); },
+            'reminderDateTime' => function (ParseNode $n) use ($o) { $o->setReminderDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
+            'sensitivity' => function (ParseNode $n) use ($o) { $o->setSensitivity($n->getEnumValue(Sensitivity::class)); },
+            'singleValueExtendedProperties' => function (ParseNode $n) use ($o) { $o->setSingleValueExtendedProperties($n->getCollectionOfObjectValues(array(SingleValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'))); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(TaskStatus::class)); },
+            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
         ]);
     }
 

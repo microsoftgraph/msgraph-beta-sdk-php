@@ -7,18 +7,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ExactMatchDataStoreBase extends Entity 
+class ExactMatchDataStoreBase extends Entity implements Parsable 
 {
-    /** @var array<ExactDataMatchStoreColumn>|null $columns The columns property */
+    /**
+     * @var array<ExactDataMatchStoreColumn>|null $columns The columns property
+    */
     private ?array $columns = null;
     
-    /** @var DateTime|null $dataLastUpdatedDateTime The dataLastUpdatedDateTime property */
+    /**
+     * @var DateTime|null $dataLastUpdatedDateTime The dataLastUpdatedDateTime property
+    */
     private ?DateTime $dataLastUpdatedDateTime = null;
     
-    /** @var string|null $description The description property */
+    /**
+     * @var string|null $description The description property
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The displayName property */
+    /**
+     * @var string|null $displayName The displayName property
+    */
     private ?string $displayName = null;
     
     /**
@@ -33,7 +41,14 @@ class ExactMatchDataStoreBase extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExactMatchDataStoreBase
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ExactMatchDataStoreBase {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExactMatchDataStoreBase {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.exactMatchDataStore': return new ExactMatchDataStore();
+            }
+        }
         return new ExactMatchDataStoreBase();
     }
 
@@ -74,11 +89,12 @@ class ExactMatchDataStoreBase extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'columns' => function (self $o, ParseNode $n) { $o->setColumns($n->getCollectionOfObjectValues(ExactDataMatchStoreColumn::class)); },
-            'dataLastUpdatedDateTime' => function (self $o, ParseNode $n) { $o->setDataLastUpdatedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'columns' => function (ParseNode $n) use ($o) { $o->setColumns($n->getCollectionOfObjectValues(array(ExactDataMatchStoreColumn::class, 'createFromDiscriminatorValue'))); },
+            'dataLastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setDataLastUpdatedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
         ]);
     }
 

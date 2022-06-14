@@ -6,12 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserAnalytics extends Entity 
+class UserAnalytics extends Entity implements Parsable 
 {
-    /** @var array<ActivityStatistics>|null $activityStatistics The collection of work activities that a user spent time on during and outside of working hours. Read-only. Nullable. */
+    /**
+     * @var array<ActivityStatistics>|null $activityStatistics The collection of work activities that a user spent time on during and outside of working hours. Read-only. Nullable.
+    */
     private ?array $activityStatistics = null;
     
-    /** @var Settings|null $settings The current settings for a user to use the analytics API. */
+    /**
+     * @var Settings|null $settings The current settings for a user to use the analytics API.
+    */
     private ?Settings $settings = null;
     
     /**
@@ -26,7 +30,7 @@ class UserAnalytics extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserAnalytics
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserAnalytics {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserAnalytics {
         return new UserAnalytics();
     }
 
@@ -43,9 +47,10 @@ class UserAnalytics extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activityStatistics' => function (self $o, ParseNode $n) { $o->setActivityStatistics($n->getCollectionOfObjectValues(ActivityStatistics::class)); },
-            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getObjectValue(Settings::class)); },
+            'activityStatistics' => function (ParseNode $n) use ($o) { $o->setActivityStatistics($n->getCollectionOfObjectValues(array(ActivityStatistics::class, 'createFromDiscriminatorValue'))); },
+            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(Settings::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

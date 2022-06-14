@@ -9,25 +9,39 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var DeviceManagementComparisonResult|null $comparisonResult Setting comparison result. Possible values are: unknown, equal, notEqual, added, removed. */
+    /**
+     * @var DeviceManagementComparisonResult|null $comparisonResult Setting comparison result. Possible values are: unknown, equal, notEqual, added, removed.
+    */
     private ?DeviceManagementComparisonResult $comparisonResult = null;
     
-    /** @var string|null $currentValueJson JSON representation of current intent (or) template setting's value */
+    /**
+     * @var string|null $currentValueJson JSON representation of current intent (or) template setting's value
+    */
     private ?string $currentValueJson = null;
     
-    /** @var string|null $definitionId The ID of the setting definition for this instance */
+    /**
+     * @var string|null $definitionId The ID of the setting definition for this instance
+    */
     private ?string $definitionId = null;
     
-    /** @var string|null $displayName The setting's display name */
+    /**
+     * @var string|null $displayName The setting's display name
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $id The setting ID */
+    /**
+     * @var string|null $id The setting ID
+    */
     private ?string $id = null;
     
-    /** @var string|null $newValueJson JSON representation of new template setting's value */
+    /**
+     * @var string|null $newValueJson JSON representation of new template setting's value
+    */
     private ?string $newValueJson = null;
     
     /**
@@ -42,7 +56,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementSettingComparison
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementSettingComparison {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementSettingComparison {
         return new DeviceManagementSettingComparison();
     }
 
@@ -91,13 +105,14 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'comparisonResult' => function (self $o, ParseNode $n) { $o->setComparisonResult($n->getEnumValue(DeviceManagementComparisonResult::class)); },
-            'currentValueJson' => function (self $o, ParseNode $n) { $o->setCurrentValueJson($n->getStringValue()); },
-            'definitionId' => function (self $o, ParseNode $n) { $o->setDefinitionId($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
-            'newValueJson' => function (self $o, ParseNode $n) { $o->setNewValueJson($n->getStringValue()); },
+            'comparisonResult' => function (ParseNode $n) use ($o) { $o->setComparisonResult($n->getEnumValue(DeviceManagementComparisonResult::class)); },
+            'currentValueJson' => function (ParseNode $n) use ($o) { $o->setCurrentValueJson($n->getStringValue()); },
+            'definitionId' => function (ParseNode $n) use ($o) { $o->setDefinitionId($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'newValueJson' => function (ParseNode $n) use ($o) { $o->setNewValueJson($n->getStringValue()); },
         ];
     }
 

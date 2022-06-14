@@ -9,22 +9,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AccessPackageQuestion implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $id ID of the question. */
+    /**
+     * @var string|null $id ID of the question.
+    */
     private ?string $id = null;
     
-    /** @var bool|null $isAnswerEditable Specifies whether the requestor is allowed to edit answers to questions. */
+    /**
+     * @var bool|null $isAnswerEditable Specifies whether the requestor is allowed to edit answers to questions.
+    */
     private ?bool $isAnswerEditable = null;
     
-    /** @var bool|null $isRequired Whether the requestor is required to supply an answer or not. */
+    /**
+     * @var bool|null $isRequired Whether the requestor is required to supply an answer or not.
+    */
     private ?bool $isRequired = null;
     
-    /** @var int|null $sequence Relative position of this question when displaying a list of questions to the requestor. */
+    /**
+     * @var int|null $sequence Relative position of this question when displaying a list of questions to the requestor.
+    */
     private ?int $sequence = null;
     
-    /** @var AccessPackageLocalizedContent|null $text The text of the question to show to the requestor. */
+    /**
+     * @var AccessPackageLocalizedContent|null $text The text of the question to show to the requestor.
+    */
     private ?AccessPackageLocalizedContent $text = null;
     
     /**
@@ -39,7 +51,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageQuestion
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageQuestion {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageQuestion {
         return new AccessPackageQuestion();
     }
 
@@ -56,12 +68,13 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
-            'isAnswerEditable' => function (self $o, ParseNode $n) { $o->setIsAnswerEditable($n->getBooleanValue()); },
-            'isRequired' => function (self $o, ParseNode $n) { $o->setIsRequired($n->getBooleanValue()); },
-            'sequence' => function (self $o, ParseNode $n) { $o->setSequence($n->getIntegerValue()); },
-            'text' => function (self $o, ParseNode $n) { $o->setText($n->getObjectValue(AccessPackageLocalizedContent::class)); },
+            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'isAnswerEditable' => function (ParseNode $n) use ($o) { $o->setIsAnswerEditable($n->getBooleanValue()); },
+            'isRequired' => function (ParseNode $n) use ($o) { $o->setIsRequired($n->getBooleanValue()); },
+            'sequence' => function (ParseNode $n) use ($o) { $o->setSequence($n->getIntegerValue()); },
+            'text' => function (ParseNode $n) use ($o) { $o->setText($n->getObjectValue(array(AccessPackageLocalizedContent::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

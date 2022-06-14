@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RiskUserActivity implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var RiskDetail|null $detail Details of the detected risk. Possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. */
+    /**
+     * @var RiskDetail|null $detail The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
+    */
     private ?RiskDetail $detail = null;
     
-    /** @var array<RiskEventType>|null $eventTypes The eventTypes property */
+    /**
+     * @var array<string>|null $eventTypes The eventTypes property
+    */
     private ?array $eventTypes = null;
     
-    /** @var array<string>|null $riskEventTypes The type of risk event detected. */
+    /**
+     * @var array<string>|null $riskEventTypes The type of risk event detected.
+    */
     private ?array $riskEventTypes = null;
     
     /**
@@ -33,7 +41,7 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RiskUserActivity
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RiskUserActivity {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RiskUserActivity {
         return new RiskUserActivity();
     }
 
@@ -46,7 +54,7 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the detail property value. Details of the detected risk. Possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
+     * Gets the detail property value. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
      * @return RiskDetail|null
     */
     public function getDetail(): ?RiskDetail {
@@ -55,7 +63,7 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the eventTypes property value. The eventTypes property
-     * @return array<RiskEventType>|null
+     * @return array<string>|null
     */
     public function getEventTypes(): ?array {
         return $this->eventTypes;
@@ -66,10 +74,11 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'detail' => function (self $o, ParseNode $n) { $o->setDetail($n->getEnumValue(RiskDetail::class)); },
-            'eventTypes' => function (self $o, ParseNode $n) { $o->setEventTypes($n->getCollectionOfEnumValues(RiskEventType::class)); },
-            'riskEventTypes' => function (self $o, ParseNode $n) { $o->setRiskEventTypes($n->getCollectionOfPrimitiveValues()); },
+            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getEnumValue(RiskDetail::class)); },
+            'eventTypes' => function (ParseNode $n) use ($o) { $o->setEventTypes($n->getCollectionOfPrimitiveValues()); },
+            'riskEventTypes' => function (ParseNode $n) use ($o) { $o->setRiskEventTypes($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 
@@ -87,7 +96,7 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('detail', $this->detail);
-        $writer->writeCollectionOfEnumValues('eventTypes', $this->eventTypes);
+        $writer->writeCollectionOfPrimitiveValues('eventTypes', $this->eventTypes);
         $writer->writeCollectionOfPrimitiveValues('riskEventTypes', $this->riskEventTypes);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -101,7 +110,7 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the detail property value. Details of the detected risk. Possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
+     * Sets the detail property value. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
      *  @param RiskDetail|null $value Value to set for the detail property.
     */
     public function setDetail(?RiskDetail $value ): void {
@@ -110,7 +119,7 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the eventTypes property value. The eventTypes property
-     *  @param array<RiskEventType>|null $value Value to set for the eventTypes property.
+     *  @param array<string>|null $value Value to set for the eventTypes property.
     */
     public function setEventTypes(?array $value ): void {
         $this->eventTypes = $value;

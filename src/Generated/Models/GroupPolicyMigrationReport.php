@@ -7,48 +7,76 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyMigrationReport extends Entity 
+class GroupPolicyMigrationReport extends Entity implements Parsable 
 {
-    /** @var DateTime|null $createdDateTime The date and time at which the GroupPolicyMigrationReport was created. */
+    /**
+     * @var DateTime|null $createdDateTime The date and time at which the GroupPolicyMigrationReport was created.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $displayName The name of Group Policy Object from the GPO Xml Content */
+    /**
+     * @var string|null $displayName The name of Group Policy Object from the GPO Xml Content
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $groupPolicyCreatedDateTime The date and time at which the GroupPolicyMigrationReport was created. */
+    /**
+     * @var DateTime|null $groupPolicyCreatedDateTime The date and time at which the GroupPolicyMigrationReport was created.
+    */
     private ?DateTime $groupPolicyCreatedDateTime = null;
     
-    /** @var DateTime|null $groupPolicyLastModifiedDateTime The date and time at which the GroupPolicyMigrationReport was last modified. */
+    /**
+     * @var DateTime|null $groupPolicyLastModifiedDateTime The date and time at which the GroupPolicyMigrationReport was last modified.
+    */
     private ?DateTime $groupPolicyLastModifiedDateTime = null;
     
-    /** @var string|null $groupPolicyObjectId The Group Policy Object GUID from GPO Xml content */
+    /**
+     * @var string|null $groupPolicyObjectId The Group Policy Object GUID from GPO Xml content
+    */
     private ?string $groupPolicyObjectId = null;
     
-    /** @var array<GroupPolicySettingMapping>|null $groupPolicySettingMappings A list of group policy settings to MDM/Intune mappings. */
+    /**
+     * @var array<GroupPolicySettingMapping>|null $groupPolicySettingMappings A list of group policy settings to MDM/Intune mappings.
+    */
     private ?array $groupPolicySettingMappings = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The date and time at which the GroupPolicyMigrationReport was last modified. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The date and time at which the GroupPolicyMigrationReport was last modified.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var GroupPolicyMigrationReadiness|null $migrationReadiness The Intune coverage for the associated Group Policy Object file. Possible values are: none, partial, complete, error, notApplicable. */
+    /**
+     * @var GroupPolicyMigrationReadiness|null $migrationReadiness The Intune coverage for the associated Group Policy Object file. Possible values are: none, partial, complete, error, notApplicable.
+    */
     private ?GroupPolicyMigrationReadiness $migrationReadiness = null;
     
-    /** @var string|null $ouDistinguishedName The distinguished name of the OU. */
+    /**
+     * @var string|null $ouDistinguishedName The distinguished name of the OU.
+    */
     private ?string $ouDistinguishedName = null;
     
-    /** @var int|null $supportedSettingsCount The number of Group Policy Settings supported by Intune. */
+    /**
+     * @var int|null $supportedSettingsCount The number of Group Policy Settings supported by Intune.
+    */
     private ?int $supportedSettingsCount = null;
     
-    /** @var int|null $supportedSettingsPercent The Percentage of Group Policy Settings supported by Intune. */
+    /**
+     * @var int|null $supportedSettingsPercent The Percentage of Group Policy Settings supported by Intune.
+    */
     private ?int $supportedSettingsPercent = null;
     
-    /** @var bool|null $targetedInActiveDirectory The Targeted in AD property from GPO Xml Content */
+    /**
+     * @var bool|null $targetedInActiveDirectory The Targeted in AD property from GPO Xml Content
+    */
     private ?bool $targetedInActiveDirectory = null;
     
-    /** @var int|null $totalSettingsCount The total number of Group Policy Settings from GPO file. */
+    /**
+     * @var int|null $totalSettingsCount The total number of Group Policy Settings from GPO file.
+    */
     private ?int $totalSettingsCount = null;
     
-    /** @var array<UnsupportedGroupPolicyExtension>|null $unsupportedGroupPolicyExtensions A list of unsupported group policy extensions inside the Group Policy Object. */
+    /**
+     * @var array<UnsupportedGroupPolicyExtension>|null $unsupportedGroupPolicyExtensions A list of unsupported group policy extensions inside the Group Policy Object.
+    */
     private ?array $unsupportedGroupPolicyExtensions = null;
     
     /**
@@ -63,7 +91,7 @@ class GroupPolicyMigrationReport extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GroupPolicyMigrationReport
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyMigrationReport {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyMigrationReport {
         return new GroupPolicyMigrationReport();
     }
 
@@ -88,21 +116,22 @@ class GroupPolicyMigrationReport extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'groupPolicyCreatedDateTime' => function (self $o, ParseNode $n) { $o->setGroupPolicyCreatedDateTime($n->getDateTimeValue()); },
-            'groupPolicyLastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setGroupPolicyLastModifiedDateTime($n->getDateTimeValue()); },
-            'groupPolicyObjectId' => function (self $o, ParseNode $n) { $o->setGroupPolicyObjectId($n->getStringValue()); },
-            'groupPolicySettingMappings' => function (self $o, ParseNode $n) { $o->setGroupPolicySettingMappings($n->getCollectionOfObjectValues(GroupPolicySettingMapping::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'migrationReadiness' => function (self $o, ParseNode $n) { $o->setMigrationReadiness($n->getEnumValue(GroupPolicyMigrationReadiness::class)); },
-            'ouDistinguishedName' => function (self $o, ParseNode $n) { $o->setOuDistinguishedName($n->getStringValue()); },
-            'supportedSettingsCount' => function (self $o, ParseNode $n) { $o->setSupportedSettingsCount($n->getIntegerValue()); },
-            'supportedSettingsPercent' => function (self $o, ParseNode $n) { $o->setSupportedSettingsPercent($n->getIntegerValue()); },
-            'targetedInActiveDirectory' => function (self $o, ParseNode $n) { $o->setTargetedInActiveDirectory($n->getBooleanValue()); },
-            'totalSettingsCount' => function (self $o, ParseNode $n) { $o->setTotalSettingsCount($n->getIntegerValue()); },
-            'unsupportedGroupPolicyExtensions' => function (self $o, ParseNode $n) { $o->setUnsupportedGroupPolicyExtensions($n->getCollectionOfObjectValues(UnsupportedGroupPolicyExtension::class)); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'groupPolicyCreatedDateTime' => function (ParseNode $n) use ($o) { $o->setGroupPolicyCreatedDateTime($n->getDateTimeValue()); },
+            'groupPolicyLastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setGroupPolicyLastModifiedDateTime($n->getDateTimeValue()); },
+            'groupPolicyObjectId' => function (ParseNode $n) use ($o) { $o->setGroupPolicyObjectId($n->getStringValue()); },
+            'groupPolicySettingMappings' => function (ParseNode $n) use ($o) { $o->setGroupPolicySettingMappings($n->getCollectionOfObjectValues(array(GroupPolicySettingMapping::class, 'createFromDiscriminatorValue'))); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'migrationReadiness' => function (ParseNode $n) use ($o) { $o->setMigrationReadiness($n->getEnumValue(GroupPolicyMigrationReadiness::class)); },
+            'ouDistinguishedName' => function (ParseNode $n) use ($o) { $o->setOuDistinguishedName($n->getStringValue()); },
+            'supportedSettingsCount' => function (ParseNode $n) use ($o) { $o->setSupportedSettingsCount($n->getIntegerValue()); },
+            'supportedSettingsPercent' => function (ParseNode $n) use ($o) { $o->setSupportedSettingsPercent($n->getIntegerValue()); },
+            'targetedInActiveDirectory' => function (ParseNode $n) use ($o) { $o->setTargetedInActiveDirectory($n->getBooleanValue()); },
+            'totalSettingsCount' => function (ParseNode $n) use ($o) { $o->setTotalSettingsCount($n->getIntegerValue()); },
+            'unsupportedGroupPolicyExtensions' => function (ParseNode $n) use ($o) { $o->setUnsupportedGroupPolicyExtensions($n->getCollectionOfObjectValues(array(UnsupportedGroupPolicyExtension::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

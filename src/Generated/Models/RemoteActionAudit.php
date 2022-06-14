@@ -7,33 +7,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RemoteActionAudit extends Entity 
+class RemoteActionAudit extends Entity implements Parsable 
 {
-    /** @var RemoteAction|null $action The action name. Possible values are: unknown, factoryReset, removeCompanyData, resetPasscode, remoteLock, enableLostMode, disableLostMode, locateDevice, rebootNow, recoverPasscode, cleanWindowsDevice, logoutSharedAppleDeviceActiveUser, quickScan, fullScan, windowsDefenderUpdateSignatures, factoryResetKeepEnrollmentData, updateDeviceAccount, automaticRedeployment, shutDown, rotateBitLockerKeys, rotateFileVaultKey, getFileVaultKey, setDeviceName, activateDeviceEsim. */
+    /**
+     * @var RemoteAction|null $action The action name. Possible values are: unknown, factoryReset, removeCompanyData, resetPasscode, remoteLock, enableLostMode, disableLostMode, locateDevice, rebootNow, recoverPasscode, cleanWindowsDevice, logoutSharedAppleDeviceActiveUser, quickScan, fullScan, windowsDefenderUpdateSignatures, factoryResetKeepEnrollmentData, updateDeviceAccount, automaticRedeployment, shutDown, rotateBitLockerKeys, rotateFileVaultKey, getFileVaultKey, setDeviceName, activateDeviceEsim.
+    */
     private ?RemoteAction $action = null;
     
-    /** @var ActionState|null $actionState Action state. Possible values are: none, pending, canceled, active, done, failed, notSupported. */
+    /**
+     * @var ActionState|null $actionState Action state. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+    */
     private ?ActionState $actionState = null;
     
-    /** @var string|null $deviceDisplayName Intune device name. */
+    /**
+     * @var string|null $deviceDisplayName Intune device name.
+    */
     private ?string $deviceDisplayName = null;
     
-    /** @var string|null $deviceIMEI IMEI of the device. */
+    /**
+     * @var string|null $deviceIMEI IMEI of the device.
+    */
     private ?string $deviceIMEI = null;
     
-    /** @var string|null $deviceOwnerUserPrincipalName Upn of the device owner. */
+    /**
+     * @var string|null $deviceOwnerUserPrincipalName Upn of the device owner.
+    */
     private ?string $deviceOwnerUserPrincipalName = null;
     
-    /** @var string|null $initiatedByUserPrincipalName User who initiated the device action, format is UPN. */
+    /**
+     * @var string|null $initiatedByUserPrincipalName User who initiated the device action, format is UPN.
+    */
     private ?string $initiatedByUserPrincipalName = null;
     
-    /** @var string|null $managedDeviceId Action target. */
+    /**
+     * @var string|null $managedDeviceId Action target.
+    */
     private ?string $managedDeviceId = null;
     
-    /** @var DateTime|null $requestDateTime Time when the action was issued, given in UTC. */
+    /**
+     * @var DateTime|null $requestDateTime Time when the action was issued, given in UTC.
+    */
     private ?DateTime $requestDateTime = null;
     
-    /** @var string|null $userName [deprecated] Please use InitiatedByUserPrincipalName instead. */
+    /**
+     * @var string|null $userName [deprecated] Please use InitiatedByUserPrincipalName instead.
+    */
     private ?string $userName = null;
     
     /**
@@ -48,7 +66,7 @@ class RemoteActionAudit extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RemoteActionAudit
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RemoteActionAudit {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RemoteActionAudit {
         return new RemoteActionAudit();
     }
 
@@ -97,16 +115,17 @@ class RemoteActionAudit extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'action' => function (self $o, ParseNode $n) { $o->setAction($n->getEnumValue(RemoteAction::class)); },
-            'actionState' => function (self $o, ParseNode $n) { $o->setActionState($n->getEnumValue(ActionState::class)); },
-            'deviceDisplayName' => function (self $o, ParseNode $n) { $o->setDeviceDisplayName($n->getStringValue()); },
-            'deviceIMEI' => function (self $o, ParseNode $n) { $o->setDeviceIMEI($n->getStringValue()); },
-            'deviceOwnerUserPrincipalName' => function (self $o, ParseNode $n) { $o->setDeviceOwnerUserPrincipalName($n->getStringValue()); },
-            'initiatedByUserPrincipalName' => function (self $o, ParseNode $n) { $o->setInitiatedByUserPrincipalName($n->getStringValue()); },
-            'managedDeviceId' => function (self $o, ParseNode $n) { $o->setManagedDeviceId($n->getStringValue()); },
-            'requestDateTime' => function (self $o, ParseNode $n) { $o->setRequestDateTime($n->getDateTimeValue()); },
-            'userName' => function (self $o, ParseNode $n) { $o->setUserName($n->getStringValue()); },
+            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(RemoteAction::class)); },
+            'actionState' => function (ParseNode $n) use ($o) { $o->setActionState($n->getEnumValue(ActionState::class)); },
+            'deviceDisplayName' => function (ParseNode $n) use ($o) { $o->setDeviceDisplayName($n->getStringValue()); },
+            'deviceIMEI' => function (ParseNode $n) use ($o) { $o->setDeviceIMEI($n->getStringValue()); },
+            'deviceOwnerUserPrincipalName' => function (ParseNode $n) use ($o) { $o->setDeviceOwnerUserPrincipalName($n->getStringValue()); },
+            'initiatedByUserPrincipalName' => function (ParseNode $n) use ($o) { $o->setInitiatedByUserPrincipalName($n->getStringValue()); },
+            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
+            'requestDateTime' => function (ParseNode $n) use ($o) { $o->setRequestDateTime($n->getDateTimeValue()); },
+            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
         ]);
     }
 

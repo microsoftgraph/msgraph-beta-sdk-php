@@ -10,10 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CloudPcLoginResult implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var DateTime|null $time The time of the Cloud PC sign in action. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'. Read-only. */
+    /**
+     * @var DateTime|null $time The time of the Cloud PC sign in action. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'. Read-only.
+    */
     private ?DateTime $time = null;
     
     /**
@@ -28,7 +32,7 @@ class CloudPcLoginResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcLoginResult
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcLoginResult {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcLoginResult {
         return new CloudPcLoginResult();
     }
 
@@ -45,8 +49,9 @@ class CloudPcLoginResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'time' => function (self $o, ParseNode $n) { $o->setTime($n->getDateTimeValue()); },
+            'time' => function (ParseNode $n) use ($o) { $o->setTime($n->getDateTimeValue()); },
         ];
     }
 

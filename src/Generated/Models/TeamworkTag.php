@@ -6,24 +6,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TeamworkTag extends Entity 
+class TeamworkTag extends Entity implements Parsable 
 {
-    /** @var string|null $description Tag description as it will appear to the user in Microsoft Teams. */
+    /**
+     * @var string|null $description Tag description as it will appear to the user in Microsoft Teams.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Tag name as it will appear to the user in Microsoft Teams. */
+    /**
+     * @var string|null $displayName Tag name as it will appear to the user in Microsoft Teams.
+    */
     private ?string $displayName = null;
     
-    /** @var int|null $memberCount The number of users assigned to the tag. */
+    /**
+     * @var int|null $memberCount The number of users assigned to the tag.
+    */
     private ?int $memberCount = null;
     
-    /** @var array<TeamworkTagMember>|null $members Users assigned to the tag. */
+    /**
+     * @var array<TeamworkTagMember>|null $members Users assigned to the tag.
+    */
     private ?array $members = null;
     
-    /** @var TeamworkTagType|null $tagType The type of tag. Default is standard. */
+    /**
+     * @var TeamworkTagType|null $tagType The type of tag. Default is standard.
+    */
     private ?TeamworkTagType $tagType = null;
     
-    /** @var string|null $teamId ID of the team in which the tag is defined. */
+    /**
+     * @var string|null $teamId ID of the team in which the tag is defined.
+    */
     private ?string $teamId = null;
     
     /**
@@ -38,7 +50,7 @@ class TeamworkTag extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkTag
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkTag {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkTag {
         return new TeamworkTag();
     }
 
@@ -63,13 +75,14 @@ class TeamworkTag extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'memberCount' => function (self $o, ParseNode $n) { $o->setMemberCount($n->getIntegerValue()); },
-            'members' => function (self $o, ParseNode $n) { $o->setMembers($n->getCollectionOfObjectValues(TeamworkTagMember::class)); },
-            'tagType' => function (self $o, ParseNode $n) { $o->setTagType($n->getEnumValue(TeamworkTagType::class)); },
-            'teamId' => function (self $o, ParseNode $n) { $o->setTeamId($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'memberCount' => function (ParseNode $n) use ($o) { $o->setMemberCount($n->getIntegerValue()); },
+            'members' => function (ParseNode $n) use ($o) { $o->setMembers($n->getCollectionOfObjectValues(array(TeamworkTagMember::class, 'createFromDiscriminatorValue'))); },
+            'tagType' => function (ParseNode $n) use ($o) { $o->setTagType($n->getEnumValue(TeamworkTagType::class)); },
+            'teamId' => function (ParseNode $n) use ($o) { $o->setTeamId($n->getStringValue()); },
         ]);
     }
 

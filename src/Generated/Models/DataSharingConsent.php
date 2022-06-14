@@ -7,24 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DataSharingConsent extends Entity 
+class DataSharingConsent extends Entity implements Parsable 
 {
-    /** @var DateTime|null $grantDateTime The time consent was granted for this account */
+    /**
+     * @var DateTime|null $grantDateTime The time consent was granted for this account
+    */
     private ?DateTime $grantDateTime = null;
     
-    /** @var bool|null $granted The granted state for the data sharing consent */
+    /**
+     * @var bool|null $granted The granted state for the data sharing consent
+    */
     private ?bool $granted = null;
     
-    /** @var string|null $grantedByUpn The Upn of the user that granted consent for this account */
+    /**
+     * @var string|null $grantedByUpn The Upn of the user that granted consent for this account
+    */
     private ?string $grantedByUpn = null;
     
-    /** @var string|null $grantedByUserId The UserId of the user that granted consent for this account */
+    /**
+     * @var string|null $grantedByUserId The UserId of the user that granted consent for this account
+    */
     private ?string $grantedByUserId = null;
     
-    /** @var string|null $serviceDisplayName The display name of the service work flow */
+    /**
+     * @var string|null $serviceDisplayName The display name of the service work flow
+    */
     private ?string $serviceDisplayName = null;
     
-    /** @var string|null $termsUrl The TermsUrl for the data sharing consent */
+    /**
+     * @var string|null $termsUrl The TermsUrl for the data sharing consent
+    */
     private ?string $termsUrl = null;
     
     /**
@@ -39,7 +51,7 @@ class DataSharingConsent extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DataSharingConsent
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DataSharingConsent {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DataSharingConsent {
         return new DataSharingConsent();
     }
 
@@ -48,13 +60,14 @@ class DataSharingConsent extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'grantDateTime' => function (self $o, ParseNode $n) { $o->setGrantDateTime($n->getDateTimeValue()); },
-            'granted' => function (self $o, ParseNode $n) { $o->setGranted($n->getBooleanValue()); },
-            'grantedByUpn' => function (self $o, ParseNode $n) { $o->setGrantedByUpn($n->getStringValue()); },
-            'grantedByUserId' => function (self $o, ParseNode $n) { $o->setGrantedByUserId($n->getStringValue()); },
-            'serviceDisplayName' => function (self $o, ParseNode $n) { $o->setServiceDisplayName($n->getStringValue()); },
-            'termsUrl' => function (self $o, ParseNode $n) { $o->setTermsUrl($n->getStringValue()); },
+            'grantDateTime' => function (ParseNode $n) use ($o) { $o->setGrantDateTime($n->getDateTimeValue()); },
+            'granted' => function (ParseNode $n) use ($o) { $o->setGranted($n->getBooleanValue()); },
+            'grantedByUpn' => function (ParseNode $n) use ($o) { $o->setGrantedByUpn($n->getStringValue()); },
+            'grantedByUserId' => function (ParseNode $n) use ($o) { $o->setGrantedByUserId($n->getStringValue()); },
+            'serviceDisplayName' => function (ParseNode $n) use ($o) { $o->setServiceDisplayName($n->getStringValue()); },
+            'termsUrl' => function (ParseNode $n) use ($o) { $o->setTermsUrl($n->getStringValue()); },
         ]);
     }
 

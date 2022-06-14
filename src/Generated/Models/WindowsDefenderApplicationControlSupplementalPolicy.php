@@ -8,39 +8,61 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class WindowsDefenderApplicationControlSupplementalPolicy extends Entity 
+class WindowsDefenderApplicationControlSupplementalPolicy extends Entity implements Parsable 
 {
-    /** @var array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null $assignments The associated group assignments for this WindowsDefenderApplicationControl supplemental policy. */
+    /**
+     * @var array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null $assignments The associated group assignments for this WindowsDefenderApplicationControl supplemental policy.
+    */
     private ?array $assignments = null;
     
-    /** @var StreamInterface|null $content The WindowsDefenderApplicationControl supplemental policy content in byte array format. */
+    /**
+     * @var StreamInterface|null $content The WindowsDefenderApplicationControl supplemental policy content in byte array format.
+    */
     private ?StreamInterface $content = null;
     
-    /** @var string|null $contentFileName The WindowsDefenderApplicationControl supplemental policy content's file name. */
+    /**
+     * @var string|null $contentFileName The WindowsDefenderApplicationControl supplemental policy content's file name.
+    */
     private ?string $contentFileName = null;
     
-    /** @var DateTime|null $creationDateTime The date and time when the WindowsDefenderApplicationControl supplemental policy was uploaded. */
+    /**
+     * @var DateTime|null $creationDateTime The date and time when the WindowsDefenderApplicationControl supplemental policy was uploaded.
+    */
     private ?DateTime $creationDateTime = null;
     
-    /** @var WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary|null $deploySummary WindowsDefenderApplicationControl supplemental policy deployment summary. */
+    /**
+     * @var WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary|null $deploySummary WindowsDefenderApplicationControl supplemental policy deployment summary.
+    */
     private ?WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary $deploySummary = null;
     
-    /** @var string|null $description The description of WindowsDefenderApplicationControl supplemental policy. */
+    /**
+     * @var string|null $description The description of WindowsDefenderApplicationControl supplemental policy.
+    */
     private ?string $description = null;
     
-    /** @var array<WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus>|null $deviceStatuses The list of device deployment states for this WindowsDefenderApplicationControl supplemental policy. */
+    /**
+     * @var array<WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus>|null $deviceStatuses The list of device deployment states for this WindowsDefenderApplicationControl supplemental policy.
+    */
     private ?array $deviceStatuses = null;
     
-    /** @var string|null $displayName The display name of WindowsDefenderApplicationControl supplemental policy. */
+    /**
+     * @var string|null $displayName The display name of WindowsDefenderApplicationControl supplemental policy.
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The date and time when the WindowsDefenderApplicationControl supplemental policy was last modified. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The date and time when the WindowsDefenderApplicationControl supplemental policy was last modified.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var array<string>|null $roleScopeTagIds List of Scope Tags for this WindowsDefenderApplicationControl supplemental policy entity. */
+    /**
+     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this WindowsDefenderApplicationControl supplemental policy entity.
+    */
     private ?array $roleScopeTagIds = null;
     
-    /** @var string|null $version The WindowsDefenderApplicationControl supplemental policy's version. */
+    /**
+     * @var string|null $version The WindowsDefenderApplicationControl supplemental policy's version.
+    */
     private ?string $version = null;
     
     /**
@@ -55,7 +77,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsDefenderApplicationControlSupplementalPolicy
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDefenderApplicationControlSupplementalPolicy {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDefenderApplicationControlSupplementalPolicy {
         return new WindowsDefenderApplicationControlSupplementalPolicy();
     }
 
@@ -128,18 +150,19 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(WindowsDefenderApplicationControlSupplementalPolicyAssignment::class)); },
-            'content' => function (self $o, ParseNode $n) { $o->setContent($n->getBinaryContent()); },
-            'contentFileName' => function (self $o, ParseNode $n) { $o->setContentFileName($n->getStringValue()); },
-            'creationDateTime' => function (self $o, ParseNode $n) { $o->setCreationDateTime($n->getDateTimeValue()); },
-            'deploySummary' => function (self $o, ParseNode $n) { $o->setDeploySummary($n->getObjectValue(WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'deviceStatuses' => function (self $o, ParseNode $n) { $o->setDeviceStatuses($n->getCollectionOfObjectValues(WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus::class)); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getStringValue()); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(WindowsDefenderApplicationControlSupplementalPolicyAssignment::class, 'createFromDiscriminatorValue'))); },
+            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
+            'contentFileName' => function (ParseNode $n) use ($o) { $o->setContentFileName($n->getStringValue()); },
+            'creationDateTime' => function (ParseNode $n) use ($o) { $o->setCreationDateTime($n->getDateTimeValue()); },
+            'deploySummary' => function (ParseNode $n) use ($o) { $o->setDeploySummary($n->getObjectValue(array(WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary::class, 'createFromDiscriminatorValue'))); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'deviceStatuses' => function (ParseNode $n) use ($o) { $o->setDeviceStatuses($n->getCollectionOfObjectValues(array(WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
         ]);
     }
 

@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RankedEmailAddress implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $address The email address. */
+    /**
+     * @var string|null $address The email address.
+    */
     private ?string $address = null;
     
-    /** @var float|null $rank The rank of the email address. A rank is used as a sort key, in relation to the other returned results. A higher rank value corresponds to a more relevant result. Relevance is determined by communication, collaboration, and business relationship signals. */
+    /**
+     * @var float|null $rank The rank of the email address. A rank is used as a sort key, in relation to the other returned results. A higher rank value corresponds to a more relevant result. Relevance is determined by communication, collaboration, and business relationship signals.
+    */
     private ?float $rank = null;
     
     /**
@@ -30,7 +36,7 @@ class RankedEmailAddress implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RankedEmailAddress
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RankedEmailAddress {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RankedEmailAddress {
         return new RankedEmailAddress();
     }
 
@@ -55,9 +61,10 @@ class RankedEmailAddress implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'address' => function (self $o, ParseNode $n) { $o->setAddress($n->getStringValue()); },
-            'rank' => function (self $o, ParseNode $n) { $o->setRank($n->getFloatValue()); },
+            'address' => function (ParseNode $n) use ($o) { $o->setAddress($n->getStringValue()); },
+            'rank' => function (ParseNode $n) use ($o) { $o->setRank($n->getFloatValue()); },
         ];
     }
 

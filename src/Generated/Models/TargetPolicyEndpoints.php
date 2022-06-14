@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TargetPolicyEndpoints implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<string>|null $platformTypes Use to filter the notification distribution to a specific platform or platforms. Valid values are Windows, iOS, Android and WebPush. By default, all push endpoint types (Windows, iOS, Android and WebPush) are enabled. */
+    /**
+     * @var array<string>|null $platformTypes Use to filter the notification distribution to a specific platform or platforms. Valid values are Windows, iOS, Android and WebPush. By default, all push endpoint types (Windows, iOS, Android and WebPush) are enabled.
+    */
     private ?array $platformTypes = null;
     
     /**
@@ -27,7 +31,7 @@ class TargetPolicyEndpoints implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TargetPolicyEndpoints
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TargetPolicyEndpoints {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TargetPolicyEndpoints {
         return new TargetPolicyEndpoints();
     }
 
@@ -44,8 +48,9 @@ class TargetPolicyEndpoints implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'platformTypes' => function (self $o, ParseNode $n) { $o->setPlatformTypes($n->getCollectionOfPrimitiveValues()); },
+            'platformTypes' => function (ParseNode $n) use ($o) { $o->setPlatformTypes($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

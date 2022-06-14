@@ -8,42 +8,66 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPcDevice extends Entity 
+class CloudPcDevice extends Entity implements Parsable 
 {
-    /** @var string|null $cloudPcStatus The status of the cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed. Required. Read-only. */
+    /**
+     * @var string|null $cloudPcStatus The status of the cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed. Required. Read-only.
+    */
     private ?string $cloudPcStatus = null;
     
-    /** @var string|null $deviceSpecification The deviceSpecification property */
+    /**
+     * @var string|null $deviceSpecification The deviceSpecification property
+    */
     private ?string $deviceSpecification = null;
     
-    /** @var string|null $displayName The display name for the cloud PC. Required. Read-only. */
+    /**
+     * @var string|null $displayName The display name for the cloud PC. Required. Read-only.
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Required. Read-only. */
+    /**
+     * @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Required. Read-only.
+    */
     private ?DateTime $lastRefreshedDateTime = null;
     
-    /** @var string|null $managedDeviceId The managed device identifier for the cloud PC. Optional. Read-only. */
+    /**
+     * @var string|null $managedDeviceId The managed device identifier for the cloud PC. Optional. Read-only.
+    */
     private ?string $managedDeviceId = null;
     
-    /** @var string|null $managedDeviceName The managed device display name for the cloud PC. Optional. Read-only. */
+    /**
+     * @var string|null $managedDeviceName The managed device display name for the cloud PC. Optional. Read-only.
+    */
     private ?string $managedDeviceName = null;
     
-    /** @var string|null $provisioningPolicyId The provisioning policy identifier for the cloud PC. Required. Read-only. */
+    /**
+     * @var string|null $provisioningPolicyId The provisioning policy identifier for the cloud PC. Required. Read-only.
+    */
     private ?string $provisioningPolicyId = null;
     
-    /** @var string|null $servicePlanName The service plan name for the cloud PC. Required. Read-only. */
+    /**
+     * @var string|null $servicePlanName The service plan name for the cloud PC. Required. Read-only.
+    */
     private ?string $servicePlanName = null;
     
-    /** @var string|null $servicePlanType The servicePlanType property */
+    /**
+     * @var string|null $servicePlanType The servicePlanType property
+    */
     private ?string $servicePlanType = null;
     
-    /** @var string|null $tenantDisplayName The display name for the managed tenant. Required. Read-only. */
+    /**
+     * @var string|null $tenantDisplayName The display name for the managed tenant. Required. Read-only.
+    */
     private ?string $tenantDisplayName = null;
     
-    /** @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only. */
+    /**
+     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
+    */
     private ?string $tenantId = null;
     
-    /** @var string|null $userPrincipalName The user principal name (UPN) of the user assigned to the cloud PC. Required. Read-only. */
+    /**
+     * @var string|null $userPrincipalName The user principal name (UPN) of the user assigned to the cloud PC. Required. Read-only.
+    */
     private ?string $userPrincipalName = null;
     
     /**
@@ -58,7 +82,7 @@ class CloudPcDevice extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcDevice
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcDevice {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcDevice {
         return new CloudPcDevice();
     }
 
@@ -91,19 +115,20 @@ class CloudPcDevice extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'cloudPcStatus' => function (self $o, ParseNode $n) { $o->setCloudPcStatus($n->getStringValue()); },
-            'deviceSpecification' => function (self $o, ParseNode $n) { $o->setDeviceSpecification($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'lastRefreshedDateTime' => function (self $o, ParseNode $n) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
-            'managedDeviceId' => function (self $o, ParseNode $n) { $o->setManagedDeviceId($n->getStringValue()); },
-            'managedDeviceName' => function (self $o, ParseNode $n) { $o->setManagedDeviceName($n->getStringValue()); },
-            'provisioningPolicyId' => function (self $o, ParseNode $n) { $o->setProvisioningPolicyId($n->getStringValue()); },
-            'servicePlanName' => function (self $o, ParseNode $n) { $o->setServicePlanName($n->getStringValue()); },
-            'servicePlanType' => function (self $o, ParseNode $n) { $o->setServicePlanType($n->getStringValue()); },
-            'tenantDisplayName' => function (self $o, ParseNode $n) { $o->setTenantDisplayName($n->getStringValue()); },
-            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
-            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
+            'cloudPcStatus' => function (ParseNode $n) use ($o) { $o->setCloudPcStatus($n->getStringValue()); },
+            'deviceSpecification' => function (ParseNode $n) use ($o) { $o->setDeviceSpecification($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'lastRefreshedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
+            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
+            'managedDeviceName' => function (ParseNode $n) use ($o) { $o->setManagedDeviceName($n->getStringValue()); },
+            'provisioningPolicyId' => function (ParseNode $n) use ($o) { $o->setProvisioningPolicyId($n->getStringValue()); },
+            'servicePlanName' => function (ParseNode $n) use ($o) { $o->setServicePlanName($n->getStringValue()); },
+            'servicePlanType' => function (ParseNode $n) use ($o) { $o->setServicePlanType($n->getStringValue()); },
+            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
+            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 

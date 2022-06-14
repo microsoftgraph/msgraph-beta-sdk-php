@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class BusinessFlowTemplate extends Entity 
+class BusinessFlowTemplate extends Entity implements Parsable 
 {
-    /** @var string|null $displayName The name of the business flow template */
+    /**
+     * @var string|null $displayName The name of the business flow template
+    */
     private ?string $displayName = null;
     
     /**
@@ -23,7 +25,7 @@ class BusinessFlowTemplate extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BusinessFlowTemplate
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): BusinessFlowTemplate {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): BusinessFlowTemplate {
         return new BusinessFlowTemplate();
     }
 
@@ -40,8 +42,9 @@ class BusinessFlowTemplate extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
         ]);
     }
 

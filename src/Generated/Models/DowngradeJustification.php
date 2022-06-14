@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DowngradeJustification implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $isDowngradeJustified Indicates whether the downgrade is or is not justified. */
+    /**
+     * @var bool|null $isDowngradeJustified Indicates whether the downgrade is or is not justified.
+    */
     private ?bool $isDowngradeJustified = null;
     
-    /** @var string|null $justificationMessage Message that indicates why a downgrade is justified. The message will appear in administrative logs. */
+    /**
+     * @var string|null $justificationMessage Message that indicates why a downgrade is justified. The message will appear in administrative logs.
+    */
     private ?string $justificationMessage = null;
     
     /**
@@ -30,7 +36,7 @@ class DowngradeJustification implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DowngradeJustification
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DowngradeJustification {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DowngradeJustification {
         return new DowngradeJustification();
     }
 
@@ -47,9 +53,10 @@ class DowngradeJustification implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'isDowngradeJustified' => function (self $o, ParseNode $n) { $o->setIsDowngradeJustified($n->getBooleanValue()); },
-            'justificationMessage' => function (self $o, ParseNode $n) { $o->setJustificationMessage($n->getStringValue()); },
+            'isDowngradeJustified' => function (ParseNode $n) use ($o) { $o->setIsDowngradeJustified($n->getBooleanValue()); },
+            'justificationMessage' => function (ParseNode $n) use ($o) { $o->setJustificationMessage($n->getStringValue()); },
         ];
     }
 

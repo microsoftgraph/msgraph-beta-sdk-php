@@ -7,27 +7,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceComplianceScriptDeviceState extends Entity 
+class DeviceComplianceScriptDeviceState extends Entity implements Parsable 
 {
-    /** @var RunState|null $detectionState Detection state from the lastest device compliance script execution. Possible values are: unknown, success, fail, scriptError, pending, notApplicable. */
+    /**
+     * @var RunState|null $detectionState Detection state from the lastest device compliance script execution. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+    */
     private ?RunState $detectionState = null;
     
-    /** @var DateTime|null $expectedStateUpdateDateTime The next timestamp of when the device compliance script is expected to execute */
+    /**
+     * @var DateTime|null $expectedStateUpdateDateTime The next timestamp of when the device compliance script is expected to execute
+    */
     private ?DateTime $expectedStateUpdateDateTime = null;
     
-    /** @var DateTime|null $lastStateUpdateDateTime The last timestamp of when the device compliance script executed */
+    /**
+     * @var DateTime|null $lastStateUpdateDateTime The last timestamp of when the device compliance script executed
+    */
     private ?DateTime $lastStateUpdateDateTime = null;
     
-    /** @var DateTime|null $lastSyncDateTime The last time that Intune Managment Extension synced with Intune */
+    /**
+     * @var DateTime|null $lastSyncDateTime The last time that Intune Managment Extension synced with Intune
+    */
     private ?DateTime $lastSyncDateTime = null;
     
-    /** @var ManagedDevice|null $managedDevice The managed device on which the device compliance script executed */
+    /**
+     * @var ManagedDevice|null $managedDevice The managed device on which the device compliance script executed
+    */
     private ?ManagedDevice $managedDevice = null;
     
-    /** @var string|null $scriptError Error from the detection script */
+    /**
+     * @var string|null $scriptError Error from the detection script
+    */
     private ?string $scriptError = null;
     
-    /** @var string|null $scriptOutput Output of the detection script */
+    /**
+     * @var string|null $scriptOutput Output of the detection script
+    */
     private ?string $scriptOutput = null;
     
     /**
@@ -42,7 +56,7 @@ class DeviceComplianceScriptDeviceState extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceComplianceScriptDeviceState
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceScriptDeviceState {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceScriptDeviceState {
         return new DeviceComplianceScriptDeviceState();
     }
 
@@ -67,14 +81,15 @@ class DeviceComplianceScriptDeviceState extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'detectionState' => function (self $o, ParseNode $n) { $o->setDetectionState($n->getEnumValue(RunState::class)); },
-            'expectedStateUpdateDateTime' => function (self $o, ParseNode $n) { $o->setExpectedStateUpdateDateTime($n->getDateTimeValue()); },
-            'lastStateUpdateDateTime' => function (self $o, ParseNode $n) { $o->setLastStateUpdateDateTime($n->getDateTimeValue()); },
-            'lastSyncDateTime' => function (self $o, ParseNode $n) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'managedDevice' => function (self $o, ParseNode $n) { $o->setManagedDevice($n->getObjectValue(ManagedDevice::class)); },
-            'scriptError' => function (self $o, ParseNode $n) { $o->setScriptError($n->getStringValue()); },
-            'scriptOutput' => function (self $o, ParseNode $n) { $o->setScriptOutput($n->getStringValue()); },
+            'detectionState' => function (ParseNode $n) use ($o) { $o->setDetectionState($n->getEnumValue(RunState::class)); },
+            'expectedStateUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setExpectedStateUpdateDateTime($n->getDateTimeValue()); },
+            'lastStateUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setLastStateUpdateDateTime($n->getDateTimeValue()); },
+            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
+            'managedDevice' => function (ParseNode $n) use ($o) { $o->setManagedDevice($n->getObjectValue(array(ManagedDevice::class, 'createFromDiscriminatorValue'))); },
+            'scriptError' => function (ParseNode $n) use ($o) { $o->setScriptError($n->getStringValue()); },
+            'scriptOutput' => function (ParseNode $n) use ($o) { $o->setScriptOutput($n->getStringValue()); },
         ]);
     }
 

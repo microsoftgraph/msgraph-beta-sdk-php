@@ -7,16 +7,20 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedGroupSource extends DataSource 
+class UnifiedGroupSource extends DataSource implements Parsable 
 {
-    /** @var Group|null $group The group property */
+    /**
+     * @var Group|null $group The group property
+    */
     private ?Group $group = null;
     
-    /** @var SourceType|null $includedSources Specifies which sources are included in this group. Possible values are: mailbox, site. */
+    /**
+     * @var SourceType|null $includedSources Specifies which sources are included in this group. Possible values are: mailbox, site.
+    */
     private ?SourceType $includedSources = null;
     
     /**
-     * Instantiates a new unifiedGroupSource and sets the default values.
+     * Instantiates a new UnifiedGroupSource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -27,7 +31,7 @@ class UnifiedGroupSource extends DataSource
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedGroupSource
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedGroupSource {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedGroupSource {
         return new UnifiedGroupSource();
     }
 
@@ -36,9 +40,10 @@ class UnifiedGroupSource extends DataSource
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'group' => function (self $o, ParseNode $n) { $o->setGroup($n->getObjectValue(Group::class)); },
-            'includedSources' => function (self $o, ParseNode $n) { $o->setIncludedSources($n->getEnumValue(SourceType::class)); },
+            'group' => function (ParseNode $n) use ($o) { $o->setGroup($n->getObjectValue(array(Group::class, 'createFromDiscriminatorValue'))); },
+            'includedSources' => function (ParseNode $n) use ($o) { $o->setIncludedSources($n->getEnumValue(SourceType::class)); },
         ]);
     }
 

@@ -6,12 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CustomExtensionHandler extends Entity 
+class CustomExtensionHandler extends Entity implements Parsable 
 {
-    /** @var CustomAccessPackageWorkflowExtension|null $customExtension Indicates which custom workflow extension will be executed at this stage. Nullable. Supports $expand. */
+    /**
+     * @var CustomAccessPackageWorkflowExtension|null $customExtension Indicates which custom workflow extension will be executed at this stage. Nullable. Supports $expand.
+    */
     private ?CustomAccessPackageWorkflowExtension $customExtension = null;
     
-    /** @var AccessPackageCustomExtensionStage|null $stage Indicates the stage of the access package assignment request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue. */
+    /**
+     * @var AccessPackageCustomExtensionStage|null $stage Indicates the stage of the access package assignment request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.
+    */
     private ?AccessPackageCustomExtensionStage $stage = null;
     
     /**
@@ -26,7 +30,7 @@ class CustomExtensionHandler extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CustomExtensionHandler
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CustomExtensionHandler {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CustomExtensionHandler {
         return new CustomExtensionHandler();
     }
 
@@ -43,9 +47,10 @@ class CustomExtensionHandler extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'customExtension' => function (self $o, ParseNode $n) { $o->setCustomExtension($n->getObjectValue(CustomAccessPackageWorkflowExtension::class)); },
-            'stage' => function (self $o, ParseNode $n) { $o->setStage($n->getEnumValue(AccessPackageCustomExtensionStage::class)); },
+            'customExtension' => function (ParseNode $n) use ($o) { $o->setCustomExtension($n->getObjectValue(array(CustomAccessPackageWorkflowExtension::class, 'createFromDiscriminatorValue'))); },
+            'stage' => function (ParseNode $n) use ($o) { $o->setStage($n->getEnumValue(AccessPackageCustomExtensionStage::class)); },
         ]);
     }
 

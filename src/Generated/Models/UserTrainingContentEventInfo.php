@@ -10,22 +10,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserTrainingContentEventInfo implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $browser Browser of the user from where the training event was generated. */
+    /**
+     * @var string|null $browser Browser of the user from where the training event was generated.
+    */
     private ?string $browser = null;
     
-    /** @var DateTime|null $contentDateTime Date and time of the training content playback by the user. */
+    /**
+     * @var DateTime|null $contentDateTime Date and time of the training content playback by the user.
+    */
     private ?DateTime $contentDateTime = null;
     
-    /** @var string|null $ipAddress IP address of the user for the training event. */
+    /**
+     * @var string|null $ipAddress IP address of the user for the training event.
+    */
     private ?string $ipAddress = null;
     
-    /** @var string|null $osPlatformDeviceDetails The operating system, platform, and device details of the user for the training event. */
+    /**
+     * @var string|null $osPlatformDeviceDetails The operating system, platform, and device details of the user for the training event.
+    */
     private ?string $osPlatformDeviceDetails = null;
     
-    /** @var float|null $potentialScoreImpact Potential improvement in security posture of the tenant after completion of the training by the user. */
+    /**
+     * @var float|null $potentialScoreImpact Potential improvement in security posture of the tenant after completion of the training by the user.
+    */
     private ?float $potentialScoreImpact = null;
     
     /**
@@ -40,7 +52,7 @@ class UserTrainingContentEventInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserTrainingContentEventInfo
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserTrainingContentEventInfo {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserTrainingContentEventInfo {
         return new UserTrainingContentEventInfo();
     }
 
@@ -73,12 +85,13 @@ class UserTrainingContentEventInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'browser' => function (self $o, ParseNode $n) { $o->setBrowser($n->getStringValue()); },
-            'contentDateTime' => function (self $o, ParseNode $n) { $o->setContentDateTime($n->getDateTimeValue()); },
-            'ipAddress' => function (self $o, ParseNode $n) { $o->setIpAddress($n->getStringValue()); },
-            'osPlatformDeviceDetails' => function (self $o, ParseNode $n) { $o->setOsPlatformDeviceDetails($n->getStringValue()); },
-            'potentialScoreImpact' => function (self $o, ParseNode $n) { $o->setPotentialScoreImpact($n->getFloatValue()); },
+            'browser' => function (ParseNode $n) use ($o) { $o->setBrowser($n->getStringValue()); },
+            'contentDateTime' => function (ParseNode $n) use ($o) { $o->setContentDateTime($n->getDateTimeValue()); },
+            'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
+            'osPlatformDeviceDetails' => function (ParseNode $n) use ($o) { $o->setOsPlatformDeviceDetails($n->getStringValue()); },
+            'potentialScoreImpact' => function (ParseNode $n) use ($o) { $o->setPotentialScoreImpact($n->getFloatValue()); },
         ];
     }
 

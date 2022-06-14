@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ManagedDeviceReportedApp implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $appId The application or bundle identifier of the application */
+    /**
+     * @var string|null $appId The application or bundle identifier of the application
+    */
     private ?string $appId = null;
     
     /**
@@ -27,7 +31,7 @@ class ManagedDeviceReportedApp implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagedDeviceReportedApp
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagedDeviceReportedApp {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagedDeviceReportedApp {
         return new ManagedDeviceReportedApp();
     }
 
@@ -52,8 +56,9 @@ class ManagedDeviceReportedApp implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'appId' => function (self $o, ParseNode $n) { $o->setAppId($n->getStringValue()); },
+            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
         ];
     }
 

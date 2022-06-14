@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class FilterGroup implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<FilterClause>|null $clauses Filter clauses (conditions) of this group. All clauses in a group must be satisfied in order for the filter group to evaluate to true. */
+    /**
+     * @var array<FilterClause>|null $clauses Filter clauses (conditions) of this group. All clauses in a group must be satisfied in order for the filter group to evaluate to true.
+    */
     private ?array $clauses = null;
     
-    /** @var string|null $name Human-readable name of the filter group. */
+    /**
+     * @var string|null $name Human-readable name of the filter group.
+    */
     private ?string $name = null;
     
     /**
@@ -30,7 +36,7 @@ class FilterGroup implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return FilterGroup
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): FilterGroup {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): FilterGroup {
         return new FilterGroup();
     }
 
@@ -55,9 +61,10 @@ class FilterGroup implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'clauses' => function (self $o, ParseNode $n) { $o->setClauses($n->getCollectionOfObjectValues(FilterClause::class)); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'clauses' => function (ParseNode $n) use ($o) { $o->setClauses($n->getCollectionOfObjectValues(array(FilterClause::class, 'createFromDiscriminatorValue'))); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
         ];
     }
 

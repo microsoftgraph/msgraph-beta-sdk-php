@@ -122,7 +122,9 @@ class TeamItemRequestBuilder
         return new OwnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /** @var array<string, mixed> $pathParameters Path parameters for the request */
+    /**
+     * @var array<string, mixed> $pathParameters Path parameters for the request
+    */
     private array $pathParameters;
     
     /**
@@ -146,7 +148,9 @@ class TeamItemRequestBuilder
         return new PrimaryChannelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
+    /**
+     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+    */
     private RequestAdapter $requestAdapter;
     
     /**
@@ -184,7 +188,9 @@ class TeamItemRequestBuilder
         return new UnarchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
+    /**
+     * @var string $urlTemplate Url template to use to build the URL for the current request builder
+    */
     private string $urlTemplate;
     
     /**
@@ -194,7 +200,7 @@ class TeamItemRequestBuilder
     */
     public function allChannelsById(string $id): MicrosoftGraphBetaGeneratedTeamsItemAllChannelsItemChannelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['channel_id'] = $id;
+        $urlTplParams['channel%2Did'] = $id;
         return new MicrosoftGraphBetaGeneratedTeamsItemAllChannelsItemChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -205,7 +211,7 @@ class TeamItemRequestBuilder
     */
     public function channelsById(string $id): MicrosoftGraphBetaGeneratedTeamsItemChannelsItemChannelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['channel_id'] = $id;
+        $urlTplParams['channel%2Did'] = $id;
         return new MicrosoftGraphBetaGeneratedTeamsItemChannelsItemChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -215,105 +221,113 @@ class TeamItemRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/teams/{team_id}{?select,expand}';
+        $this->urlTemplate = '{+baseurl}/teams/{team%2Did}{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
      * Delete entity from teams
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param TeamItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createDeleteRequestInformation(?array $headers = null, ?array $options = null): RequestInformation {
+    public function createDeleteRequestInformation(?TeamItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
-        if ($headers !== null) {
-            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
-        }
-        if ($options !== null) {
-            $requestInfo->addRequestOptions(...$options);
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
         }
         return $requestInfo;
     }
 
     /**
-     * Get entity from teams by key
-     * @param array|null $queryParameters Request query parameters
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * Retrieve the properties and relationships of the specified team.
+     * @param TeamItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?array $queryParameters = null, ?array $headers = null, ?array $options = null): RequestInformation {
+    public function createGetRequestInformation(?TeamItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        if ($headers !== null) {
-            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
-        }
-        if ($queryParameters !== null) {
-            $requestInfo->setQueryParameters($queryParameters);
-        }
-        if ($options !== null) {
-            $requestInfo->addRequestOptions(...$options);
+        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
         }
         return $requestInfo;
     }
 
     /**
-     * Update entity in teams
+     * Update the properties of the specified team.
      * @param Team $body 
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param TeamItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(Team $body, ?array $headers = null, ?array $options = null): RequestInformation {
+    public function createPatchRequestInformation(Team $body, ?TeamItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        if ($headers !== null) {
-            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
-        if ($options !== null) {
-            $requestInfo->addRequestOptions(...$options);
-        }
         return $requestInfo;
     }
 
     /**
      * Delete entity from teams
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param TeamItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createDeleteRequestInformation($headers, $options);
+    public function delete(?TeamItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createDeleteRequestInformation($requestConfiguration);
         try {
-            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
+            $errorMappings = [
+                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+            ];
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Get entity from teams by key
-     * @param array|null $queryParameters Request query parameters
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * Retrieve the properties and relationships of the specified team.
+     * @param TeamItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?array $queryParameters = null, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($queryParameters, $headers, $options);
+    public function get(?TeamItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
         try {
-            return $this->requestAdapter->sendAsync($requestInfo, Team::class, $responseHandler);
+            $errorMappings = [
+                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, array(Team::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -326,7 +340,7 @@ class TeamItemRequestBuilder
     */
     public function incomingChannelsById(string $id): MicrosoftGraphBetaGeneratedTeamsItemIncomingChannelsItemChannelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['channel_id'] = $id;
+        $urlTplParams['channel%2Did'] = $id;
         return new MicrosoftGraphBetaGeneratedTeamsItemIncomingChannelsItemChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -337,7 +351,7 @@ class TeamItemRequestBuilder
     */
     public function installedAppsById(string $id): TeamsAppInstallationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamsAppInstallation_id'] = $id;
+        $urlTplParams['teamsAppInstallation%2Did'] = $id;
         return new TeamsAppInstallationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -348,7 +362,7 @@ class TeamItemRequestBuilder
     */
     public function membersById(string $id): ConversationMemberItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['conversationMember_id'] = $id;
+        $urlTplParams['conversationMember%2Did'] = $id;
         return new ConversationMemberItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -359,7 +373,7 @@ class TeamItemRequestBuilder
     */
     public function operationsById(string $id): TeamsAsyncOperationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamsAsyncOperation_id'] = $id;
+        $urlTplParams['teamsAsyncOperation%2Did'] = $id;
         return new TeamsAsyncOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -370,22 +384,25 @@ class TeamItemRequestBuilder
     */
     public function ownersById(string $id): UserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['user_id'] = $id;
+        $urlTplParams['user%2Did'] = $id;
         return new UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
-     * Update entity in teams
+     * Update the properties of the specified team.
      * @param Team $body 
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param TeamItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(Team $body, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $headers, $options);
+    public function patch(Team $body, ?TeamItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
         try {
-            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
+            $errorMappings = [
+                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+            ];
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -398,7 +415,7 @@ class TeamItemRequestBuilder
     */
     public function permissionGrantsById(string $id): ResourceSpecificPermissionGrantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['resourceSpecificPermissionGrant_id'] = $id;
+        $urlTplParams['resourceSpecificPermissionGrant%2Did'] = $id;
         return new ResourceSpecificPermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -409,7 +426,7 @@ class TeamItemRequestBuilder
     */
     public function tagsById(string $id): TeamworkTagItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamworkTag_id'] = $id;
+        $urlTplParams['teamworkTag%2Did'] = $id;
         return new TeamworkTagItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

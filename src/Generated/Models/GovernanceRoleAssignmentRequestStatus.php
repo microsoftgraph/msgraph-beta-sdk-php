@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $status The status of the role assignment request. The value can be InProgress or Closed. */
+    /**
+     * @var string|null $status The status of the role assignment request. The value can be InProgress or Closed.
+    */
     private ?string $status = null;
     
-    /** @var array<KeyValue>|null $statusDetails The details of the status of the role assignment request. It represents the evaluation results of different rules. */
+    /**
+     * @var array<KeyValue>|null $statusDetails The details of the status of the role assignment request. It represents the evaluation results of different rules.
+    */
     private ?array $statusDetails = null;
     
-    /** @var string|null $subStatus The sub status of the role assignment request. The values can be Accepted, PendingEvaluation, Granted, Denied, PendingProvisioning, Provisioned, PendingRevocation, Revoked, Canceled, Failed, PendingApprovalProvisioning, PendingApproval, FailedAsResourceIsLocked, PendingAdminDecision, AdminApproved, AdminDenied, TimedOut, and ProvisioningStarted. */
+    /**
+     * @var string|null $subStatus The sub status of the role assignment request. The values can be Accepted, PendingEvaluation, Granted, Denied, PendingProvisioning, Provisioned, PendingRevocation, Revoked, Canceled, Failed, PendingApprovalProvisioning, PendingApproval, FailedAsResourceIsLocked, PendingAdminDecision, AdminApproved, AdminDenied, TimedOut, and ProvisioningStarted.
+    */
     private ?string $subStatus = null;
     
     /**
@@ -33,7 +41,7 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Par
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GovernanceRoleAssignmentRequestStatus
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceRoleAssignmentRequestStatus {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceRoleAssignmentRequestStatus {
         return new GovernanceRoleAssignmentRequestStatus();
     }
 
@@ -50,10 +58,11 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Par
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
-            'statusDetails' => function (self $o, ParseNode $n) { $o->setStatusDetails($n->getCollectionOfObjectValues(KeyValue::class)); },
-            'subStatus' => function (self $o, ParseNode $n) { $o->setSubStatus($n->getStringValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
+            'statusDetails' => function (ParseNode $n) use ($o) { $o->setStatusDetails($n->getCollectionOfObjectValues(array(KeyValue::class, 'createFromDiscriminatorValue'))); },
+            'subStatus' => function (ParseNode $n) use ($o) { $o->setSubStatus($n->getStringValue()); },
         ];
     }
 

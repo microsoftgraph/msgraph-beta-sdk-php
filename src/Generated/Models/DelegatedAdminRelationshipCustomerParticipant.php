@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $displayName The display name of the customer tenant as set by Azure AD. Read only */
+    /**
+     * @var string|null $displayName The display name of the customer tenant as set by Azure AD. Read only
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $tenantId The Azure AD-assigned tenant ID of the customer tenant. */
+    /**
+     * @var string|null $tenantId The Azure AD-assigned tenant ID of the customer tenant.
+    */
     private ?string $tenantId = null;
     
     /**
@@ -30,7 +36,7 @@ class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHol
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DelegatedAdminRelationshipCustomerParticipant
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminRelationshipCustomerParticipant {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminRelationshipCustomerParticipant {
         return new DelegatedAdminRelationshipCustomerParticipant();
     }
 
@@ -55,9 +61,10 @@ class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHol
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
         ];
     }
 

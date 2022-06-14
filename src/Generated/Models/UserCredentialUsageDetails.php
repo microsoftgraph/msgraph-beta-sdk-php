@@ -7,27 +7,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserCredentialUsageDetails extends Entity 
+class UserCredentialUsageDetails extends Entity implements Parsable 
 {
-    /** @var UsageAuthMethod|null $authMethod Represents the authentication method that the user used. Possible values are:email, mobileSMS, mobileCall, officePhone, securityQuestion (only used for self-service password reset), appNotification, appCode, alternateMobileCall (supported only in registration), fido, appPassword,unknownFutureValue */
+    /**
+     * @var UsageAuthMethod|null $authMethod Represents the authentication method that the user used. Possible values are:email, mobileSMS, mobileCall, officePhone, securityQuestion (only used for self-service password reset), appNotification, appCode, alternateMobileCall (supported only in registration), fido, appPassword,unknownFutureValue
+    */
     private ?UsageAuthMethod $authMethod = null;
     
-    /** @var DateTime|null $eventDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    /**
+     * @var DateTime|null $eventDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    */
     private ?DateTime $eventDateTime = null;
     
-    /** @var string|null $failureReason Provides the failure reason for the corresponding reset or registration workflow. */
+    /**
+     * @var string|null $failureReason Provides the failure reason for the corresponding reset or registration workflow.
+    */
     private ?string $failureReason = null;
     
-    /** @var FeatureType|null $feature Possible values are: registration, reset, unknownFutureValue. */
+    /**
+     * @var FeatureType|null $feature Possible values are: registration, reset, unknownFutureValue.
+    */
     private ?FeatureType $feature = null;
     
-    /** @var bool|null $isSuccess Indicates success or failure of the workflow. */
+    /**
+     * @var bool|null $isSuccess Indicates success or failure of the workflow.
+    */
     private ?bool $isSuccess = null;
     
-    /** @var string|null $userDisplayName User name of the user performing the reset or registration workflow. */
+    /**
+     * @var string|null $userDisplayName User name of the user performing the reset or registration workflow.
+    */
     private ?string $userDisplayName = null;
     
-    /** @var string|null $userPrincipalName User principal name of the user performing the reset or registration workflow. */
+    /**
+     * @var string|null $userPrincipalName User principal name of the user performing the reset or registration workflow.
+    */
     private ?string $userPrincipalName = null;
     
     /**
@@ -42,7 +56,7 @@ class UserCredentialUsageDetails extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserCredentialUsageDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserCredentialUsageDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserCredentialUsageDetails {
         return new UserCredentialUsageDetails();
     }
 
@@ -83,14 +97,15 @@ class UserCredentialUsageDetails extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authMethod' => function (self $o, ParseNode $n) { $o->setAuthMethod($n->getEnumValue(UsageAuthMethod::class)); },
-            'eventDateTime' => function (self $o, ParseNode $n) { $o->setEventDateTime($n->getDateTimeValue()); },
-            'failureReason' => function (self $o, ParseNode $n) { $o->setFailureReason($n->getStringValue()); },
-            'feature' => function (self $o, ParseNode $n) { $o->setFeature($n->getEnumValue(FeatureType::class)); },
-            'isSuccess' => function (self $o, ParseNode $n) { $o->setIsSuccess($n->getBooleanValue()); },
-            'userDisplayName' => function (self $o, ParseNode $n) { $o->setUserDisplayName($n->getStringValue()); },
-            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
+            'authMethod' => function (ParseNode $n) use ($o) { $o->setAuthMethod($n->getEnumValue(UsageAuthMethod::class)); },
+            'eventDateTime' => function (ParseNode $n) use ($o) { $o->setEventDateTime($n->getDateTimeValue()); },
+            'failureReason' => function (ParseNode $n) use ($o) { $o->setFailureReason($n->getStringValue()); },
+            'feature' => function (ParseNode $n) use ($o) { $o->setFeature($n->getEnumValue(FeatureType::class)); },
+            'isSuccess' => function (ParseNode $n) use ($o) { $o->setIsSuccess($n->getBooleanValue()); },
+            'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
+            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 

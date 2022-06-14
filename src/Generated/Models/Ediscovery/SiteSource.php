@@ -7,13 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SiteSource extends DataSource 
+class SiteSource extends DataSource implements Parsable 
 {
-    /** @var Site|null $site The site property */
+    /**
+     * @var Site|null $site The site property
+    */
     private ?Site $site = null;
     
     /**
-     * Instantiates a new siteSource and sets the default values.
+     * Instantiates a new SiteSource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -24,7 +26,7 @@ class SiteSource extends DataSource
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SiteSource
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SiteSource {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SiteSource {
         return new SiteSource();
     }
 
@@ -33,8 +35,9 @@ class SiteSource extends DataSource
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'site' => function (self $o, ParseNode $n) { $o->setSite($n->getObjectValue(Site::class)); },
+            'site' => function (ParseNode $n) use ($o) { $o->setSite($n->getObjectValue(array(Site::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

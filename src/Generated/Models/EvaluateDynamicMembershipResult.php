@@ -9,20 +9,28 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class EvaluateDynamicMembershipResult implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $membershipRule If a group ID is provided, the value is the membership rule for the group. If a group ID is not provided, the value is the membership rule that was provided as a parameter. For more information, see Dynamic membership rules for groups in Azure Active Directory. */
+    /**
+     * @var string|null $membershipRule If a group ID is provided, the value is the membership rule for the group. If a group ID is not provided, the value is the membership rule that was provided as a parameter. For more information, see Dynamic membership rules for groups in Azure Active Directory.
+    */
     private ?string $membershipRule = null;
     
-    /** @var ExpressionEvaluationDetails|null $membershipRuleEvaluationDetails Provides a detailed anaylsis of the membership evaluation result. */
+    /**
+     * @var ExpressionEvaluationDetails|null $membershipRuleEvaluationDetails Provides a detailed anaylsis of the membership evaluation result.
+    */
     private ?ExpressionEvaluationDetails $membershipRuleEvaluationDetails = null;
     
-    /** @var bool|null $membershipRuleEvaluationResult The value is true if the user or device is a member of the group. The value can also be true if a membership rule was provided and the user or device passes the rule evaluation; otherwise false. */
+    /**
+     * @var bool|null $membershipRuleEvaluationResult The value is true if the user or device is a member of the group. The value can also be true if a membership rule was provided and the user or device passes the rule evaluation; otherwise false.
+    */
     private ?bool $membershipRuleEvaluationResult = null;
     
     /**
-     * Instantiates a new evaluateDynamicMembershipResult and sets the default values.
+     * Instantiates a new EvaluateDynamicMembershipResult and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -33,7 +41,7 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EvaluateDynamicMembershipResult
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): EvaluateDynamicMembershipResult {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): EvaluateDynamicMembershipResult {
         return new EvaluateDynamicMembershipResult();
     }
 
@@ -50,10 +58,11 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'membershipRule' => function (self $o, ParseNode $n) { $o->setMembershipRule($n->getStringValue()); },
-            'membershipRuleEvaluationDetails' => function (self $o, ParseNode $n) { $o->setMembershipRuleEvaluationDetails($n->getObjectValue(ExpressionEvaluationDetails::class)); },
-            'membershipRuleEvaluationResult' => function (self $o, ParseNode $n) { $o->setMembershipRuleEvaluationResult($n->getBooleanValue()); },
+            'membershipRule' => function (ParseNode $n) use ($o) { $o->setMembershipRule($n->getStringValue()); },
+            'membershipRuleEvaluationDetails' => function (ParseNode $n) use ($o) { $o->setMembershipRuleEvaluationDetails($n->getObjectValue(array(ExpressionEvaluationDetails::class, 'createFromDiscriminatorValue'))); },
+            'membershipRuleEvaluationResult' => function (ParseNode $n) use ($o) { $o->setMembershipRuleEvaluationResult($n->getBooleanValue()); },
         ];
     }
 

@@ -9,25 +9,39 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PrinterStatus implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $description A human-readable description of the printer's current processing state. Read-only. */
+    /**
+     * @var string|null $description A human-readable description of the printer's current processing state. Read-only.
+    */
     private ?string $description = null;
     
-    /** @var array<PrinterProcessingStateDetail>|null $details The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only. */
+    /**
+     * @var array<string>|null $details The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.
+    */
     private ?array $details = null;
     
-    /** @var PrinterProcessingState|null $processingState The processingState property */
+    /**
+     * @var PrinterProcessingState|null $processingState The processingState property
+    */
     private ?PrinterProcessingState $processingState = null;
     
-    /** @var string|null $processingStateDescription The processingStateDescription property */
+    /**
+     * @var string|null $processingStateDescription The processingStateDescription property
+    */
     private ?string $processingStateDescription = null;
     
-    /** @var array<PrinterProcessingStateReason>|null $processingStateReasons The processingStateReasons property */
+    /**
+     * @var array<string>|null $processingStateReasons The processingStateReasons property
+    */
     private ?array $processingStateReasons = null;
     
-    /** @var PrinterProcessingState|null $state The current processing state. Valid values are described in the following table. Read-only. */
+    /**
+     * @var PrinterProcessingState|null $state The current processing state. Valid values are described in the following table. Read-only.
+    */
     private ?PrinterProcessingState $state = null;
     
     /**
@@ -42,7 +56,7 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrinterStatus
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PrinterStatus {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrinterStatus {
         return new PrinterStatus();
     }
 
@@ -64,7 +78,7 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the details property value. The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.
-     * @return array<PrinterProcessingStateDetail>|null
+     * @return array<string>|null
     */
     public function getDetails(): ?array {
         return $this->details;
@@ -75,13 +89,14 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'details' => function (self $o, ParseNode $n) { $o->setDetails($n->getCollectionOfEnumValues(PrinterProcessingStateDetail::class)); },
-            'processingState' => function (self $o, ParseNode $n) { $o->setProcessingState($n->getEnumValue(PrinterProcessingState::class)); },
-            'processingStateDescription' => function (self $o, ParseNode $n) { $o->setProcessingStateDescription($n->getStringValue()); },
-            'processingStateReasons' => function (self $o, ParseNode $n) { $o->setProcessingStateReasons($n->getCollectionOfEnumValues(PrinterProcessingStateReason::class)); },
-            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(PrinterProcessingState::class)); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getCollectionOfPrimitiveValues()); },
+            'processingState' => function (ParseNode $n) use ($o) { $o->setProcessingState($n->getEnumValue(PrinterProcessingState::class)); },
+            'processingStateDescription' => function (ParseNode $n) use ($o) { $o->setProcessingStateDescription($n->getStringValue()); },
+            'processingStateReasons' => function (ParseNode $n) use ($o) { $o->setProcessingStateReasons($n->getCollectionOfPrimitiveValues()); },
+            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(PrinterProcessingState::class)); },
         ];
     }
 
@@ -103,7 +118,7 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the processingStateReasons property value. The processingStateReasons property
-     * @return array<PrinterProcessingStateReason>|null
+     * @return array<string>|null
     */
     public function getProcessingStateReasons(): ?array {
         return $this->processingStateReasons;
@@ -123,10 +138,10 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('description', $this->description);
-        $writer->writeCollectionOfEnumValues('details', $this->details);
+        $writer->writeCollectionOfPrimitiveValues('details', $this->details);
         $writer->writeEnumValue('processingState', $this->processingState);
         $writer->writeStringValue('processingStateDescription', $this->processingStateDescription);
-        $writer->writeCollectionOfEnumValues('processingStateReasons', $this->processingStateReasons);
+        $writer->writeCollectionOfPrimitiveValues('processingStateReasons', $this->processingStateReasons);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -149,7 +164,7 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the details property value. The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.
-     *  @param array<PrinterProcessingStateDetail>|null $value Value to set for the details property.
+     *  @param array<string>|null $value Value to set for the details property.
     */
     public function setDetails(?array $value ): void {
         $this->details = $value;
@@ -173,7 +188,7 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the processingStateReasons property value. The processingStateReasons property
-     *  @param array<PrinterProcessingStateReason>|null $value Value to set for the processingStateReasons property.
+     *  @param array<string>|null $value Value to set for the processingStateReasons property.
     */
     public function setProcessingStateReasons(?array $value ): void {
         $this->processingStateReasons = $value;

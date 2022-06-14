@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SimulationReport implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var SimulationReportOverview|null $overview Overview of an attack simulation and training campaign. */
+    /**
+     * @var SimulationReportOverview|null $overview Overview of an attack simulation and training campaign.
+    */
     private ?SimulationReportOverview $overview = null;
     
-    /** @var array<UserSimulationDetails>|null $simulationUsers Represents users of a tenant and their online actions in an attack simulation and training campaign. */
+    /**
+     * @var array<UserSimulationDetails>|null $simulationUsers Represents users of a tenant and their online actions in an attack simulation and training campaign.
+    */
     private ?array $simulationUsers = null;
     
     /**
@@ -30,7 +36,7 @@ class SimulationReport implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SimulationReport
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SimulationReport {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SimulationReport {
         return new SimulationReport();
     }
 
@@ -47,9 +53,10 @@ class SimulationReport implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'overview' => function (self $o, ParseNode $n) { $o->setOverview($n->getObjectValue(SimulationReportOverview::class)); },
-            'simulationUsers' => function (self $o, ParseNode $n) { $o->setSimulationUsers($n->getCollectionOfObjectValues(UserSimulationDetails::class)); },
+            'overview' => function (ParseNode $n) use ($o) { $o->setOverview($n->getObjectValue(array(SimulationReportOverview::class, 'createFromDiscriminatorValue'))); },
+            'simulationUsers' => function (ParseNode $n) use ($o) { $o->setSimulationUsers($n->getCollectionOfObjectValues(array(UserSimulationDetails::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

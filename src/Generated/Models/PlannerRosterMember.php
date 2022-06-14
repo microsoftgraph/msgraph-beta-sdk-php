@@ -6,15 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PlannerRosterMember extends Entity 
+class PlannerRosterMember extends Entity implements Parsable 
 {
-    /** @var array<string>|null $roles Additional roles associated with the PlannerRosterMember, which determines permissions of the member in the plannerRoster. Currently there are no available roles to assign, and every member has full control over the contents of the plannerRoster. */
+    /**
+     * @var array<string>|null $roles Additional roles associated with the PlannerRosterMember, which determines permissions of the member in the plannerRoster. Currently there are no available roles to assign, and every member has full control over the contents of the plannerRoster.
+    */
     private ?array $roles = null;
     
-    /** @var string|null $tenantId Identifier of the tenant the user belongs to. Currently only the users from the same tenant can be added to a plannerRoster. */
+    /**
+     * @var string|null $tenantId Identifier of the tenant the user belongs to. Currently only the users from the same tenant can be added to a plannerRoster.
+    */
     private ?string $tenantId = null;
     
-    /** @var string|null $userId Identifier of the user. */
+    /**
+     * @var string|null $userId Identifier of the user.
+    */
     private ?string $userId = null;
     
     /**
@@ -29,7 +35,7 @@ class PlannerRosterMember extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PlannerRosterMember
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PlannerRosterMember {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PlannerRosterMember {
         return new PlannerRosterMember();
     }
 
@@ -38,10 +44,11 @@ class PlannerRosterMember extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'roles' => function (self $o, ParseNode $n) { $o->setRoles($n->getCollectionOfPrimitiveValues()); },
-            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
-            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
+            'roles' => function (ParseNode $n) use ($o) { $o->setRoles($n->getCollectionOfPrimitiveValues()); },
+            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
         ]);
     }
 

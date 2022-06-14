@@ -10,19 +10,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var DateTime|null $expirationDateTime The expiration date of the update. */
+    /**
+     * @var DateTime|null $expirationDateTime The expiration date of the update.
+    */
     private ?DateTime $expirationDateTime = null;
     
-    /** @var DateTime|null $postingDateTime The posting date of the update. */
+    /**
+     * @var DateTime|null $postingDateTime The posting date of the update.
+    */
     private ?DateTime $postingDateTime = null;
     
-    /** @var string|null $productVersion The version of the update. */
+    /**
+     * @var string|null $productVersion The version of the update.
+    */
     private ?string $productVersion = null;
     
-    /** @var array<string>|null $supportedDevices List of supported devices for the update. */
+    /**
+     * @var array<string>|null $supportedDevices List of supported devices for the update.
+    */
     private ?array $supportedDevices = null;
     
     /**
@@ -37,7 +47,7 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return IosAvailableUpdateVersion
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): IosAvailableUpdateVersion {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): IosAvailableUpdateVersion {
         return new IosAvailableUpdateVersion();
     }
 
@@ -62,11 +72,12 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'expirationDateTime' => function (self $o, ParseNode $n) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'postingDateTime' => function (self $o, ParseNode $n) { $o->setPostingDateTime($n->getDateTimeValue()); },
-            'productVersion' => function (self $o, ParseNode $n) { $o->setProductVersion($n->getStringValue()); },
-            'supportedDevices' => function (self $o, ParseNode $n) { $o->setSupportedDevices($n->getCollectionOfPrimitiveValues()); },
+            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
+            'postingDateTime' => function (ParseNode $n) use ($o) { $o->setPostingDateTime($n->getDateTimeValue()); },
+            'productVersion' => function (ParseNode $n) use ($o) { $o->setProductVersion($n->getStringValue()); },
+            'supportedDevices' => function (ParseNode $n) use ($o) { $o->setSupportedDevices($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

@@ -7,48 +7,76 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessPackageCatalog extends Entity 
+class AccessPackageCatalog extends Entity implements Parsable 
 {
-    /** @var array<AccessPackageResourceRole>|null $accessPackageResourceRoles The roles in each resource in a catalog. Read-only. */
+    /**
+     * @var array<AccessPackageResourceRole>|null $accessPackageResourceRoles The roles in each resource in a catalog. Read-only.
+    */
     private ?array $accessPackageResourceRoles = null;
     
-    /** @var array<AccessPackageResource>|null $accessPackageResources Read-only. Nullable. */
+    /**
+     * @var array<AccessPackageResource>|null $accessPackageResources The accessPackageResources property
+    */
     private ?array $accessPackageResources = null;
     
-    /** @var array<AccessPackageResourceScope>|null $accessPackageResourceScopes Read-only. */
+    /**
+     * @var array<AccessPackageResourceScope>|null $accessPackageResourceScopes The accessPackageResourceScopes property
+    */
     private ?array $accessPackageResourceScopes = null;
     
-    /** @var array<AccessPackage>|null $accessPackages The access packages in this catalog. Read-only. Nullable. */
+    /**
+     * @var array<AccessPackage>|null $accessPackages The access packages in this catalog. Read-only. Nullable. Supports $expand.
+    */
     private ?array $accessPackages = null;
     
-    /** @var string|null $catalogStatus Has the value Published if the access packages are available for management. */
+    /**
+     * @var string|null $catalogStatus Has the value Published if the access packages are available for management.
+    */
     private ?string $catalogStatus = null;
     
-    /** @var string|null $catalogType Whether the catalog is created by a user or entitlement management. The possible values are: userManaged, serviceDefault, serviceManaged, unknownFutureValue. */
+    /**
+     * @var string|null $catalogType One of UserManaged or ServiceDefault.
+    */
     private ?string $catalogType = null;
     
-    /** @var string|null $createdBy UPN of the user who created this resource. Read-only. */
+    /**
+     * @var string|null $createdBy UPN of the user who created this resource. Read-only.
+    */
     private ?string $createdBy = null;
     
-    /** @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
+    /**
+     * @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var array<CustomAccessPackageWorkflowExtension>|null $customAccessPackageWorkflowExtensions The customAccessPackageWorkflowExtensions property */
+    /**
+     * @var array<CustomAccessPackageWorkflowExtension>|null $customAccessPackageWorkflowExtensions The customAccessPackageWorkflowExtensions property
+    */
     private ?array $customAccessPackageWorkflowExtensions = null;
     
-    /** @var string|null $description The description of the access package catalog. */
+    /**
+     * @var string|null $description The description of the access package catalog.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The display name of the access package catalog. */
+    /**
+     * @var string|null $displayName The display name of the access package catalog. Supports $filter (eq, contains).
+    */
     private ?string $displayName = null;
     
-    /** @var bool|null $isExternallyVisible Whether the access packages in this catalog can be requested by users outside of the tenant. */
+    /**
+     * @var bool|null $isExternallyVisible Whether the access packages in this catalog can be requested by users outside of the tenant.
+    */
     private ?bool $isExternallyVisible = null;
     
-    /** @var string|null $modifiedBy The UPN of the user who last modified this resource. Read-only. */
+    /**
+     * @var string|null $modifiedBy The UPN of the user who last modified this resource. Read-only.
+    */
     private ?string $modifiedBy = null;
     
-    /** @var DateTime|null $modifiedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
+    /**
+     * @var DateTime|null $modifiedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    */
     private ?DateTime $modifiedDateTime = null;
     
     /**
@@ -63,7 +91,7 @@ class AccessPackageCatalog extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageCatalog
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageCatalog {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageCatalog {
         return new AccessPackageCatalog();
     }
 
@@ -76,7 +104,7 @@ class AccessPackageCatalog extends Entity
     }
 
     /**
-     * Gets the accessPackageResources property value. Read-only. Nullable.
+     * Gets the accessPackageResources property value. The accessPackageResources property
      * @return array<AccessPackageResource>|null
     */
     public function getAccessPackageResources(): ?array {
@@ -84,7 +112,7 @@ class AccessPackageCatalog extends Entity
     }
 
     /**
-     * Gets the accessPackageResourceScopes property value. Read-only.
+     * Gets the accessPackageResourceScopes property value. The accessPackageResourceScopes property
      * @return array<AccessPackageResourceScope>|null
     */
     public function getAccessPackageResourceScopes(): ?array {
@@ -92,7 +120,7 @@ class AccessPackageCatalog extends Entity
     }
 
     /**
-     * Gets the accessPackages property value. The access packages in this catalog. Read-only. Nullable.
+     * Gets the accessPackages property value. The access packages in this catalog. Read-only. Nullable. Supports $expand.
      * @return array<AccessPackage>|null
     */
     public function getAccessPackages(): ?array {
@@ -108,7 +136,7 @@ class AccessPackageCatalog extends Entity
     }
 
     /**
-     * Gets the catalogType property value. Whether the catalog is created by a user or entitlement management. The possible values are: userManaged, serviceDefault, serviceManaged, unknownFutureValue.
+     * Gets the catalogType property value. One of UserManaged or ServiceDefault.
      * @return string|null
     */
     public function getCatalogType(): ?string {
@@ -148,7 +176,7 @@ class AccessPackageCatalog extends Entity
     }
 
     /**
-     * Gets the displayName property value. The display name of the access package catalog.
+     * Gets the displayName property value. The display name of the access package catalog. Supports $filter (eq, contains).
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -160,21 +188,22 @@ class AccessPackageCatalog extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageResourceRoles' => function (self $o, ParseNode $n) { $o->setAccessPackageResourceRoles($n->getCollectionOfObjectValues(AccessPackageResourceRole::class)); },
-            'accessPackageResources' => function (self $o, ParseNode $n) { $o->setAccessPackageResources($n->getCollectionOfObjectValues(AccessPackageResource::class)); },
-            'accessPackageResourceScopes' => function (self $o, ParseNode $n) { $o->setAccessPackageResourceScopes($n->getCollectionOfObjectValues(AccessPackageResourceScope::class)); },
-            'accessPackages' => function (self $o, ParseNode $n) { $o->setAccessPackages($n->getCollectionOfObjectValues(AccessPackage::class)); },
-            'catalogStatus' => function (self $o, ParseNode $n) { $o->setCatalogStatus($n->getStringValue()); },
-            'catalogType' => function (self $o, ParseNode $n) { $o->setCatalogType($n->getStringValue()); },
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getStringValue()); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'customAccessPackageWorkflowExtensions' => function (self $o, ParseNode $n) { $o->setCustomAccessPackageWorkflowExtensions($n->getCollectionOfObjectValues(CustomAccessPackageWorkflowExtension::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'isExternallyVisible' => function (self $o, ParseNode $n) { $o->setIsExternallyVisible($n->getBooleanValue()); },
-            'modifiedBy' => function (self $o, ParseNode $n) { $o->setModifiedBy($n->getStringValue()); },
-            'modifiedDateTime' => function (self $o, ParseNode $n) { $o->setModifiedDateTime($n->getDateTimeValue()); },
+            'accessPackageResourceRoles' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceRoles($n->getCollectionOfObjectValues(array(AccessPackageResourceRole::class, 'createFromDiscriminatorValue'))); },
+            'accessPackageResources' => function (ParseNode $n) use ($o) { $o->setAccessPackageResources($n->getCollectionOfObjectValues(array(AccessPackageResource::class, 'createFromDiscriminatorValue'))); },
+            'accessPackageResourceScopes' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceScopes($n->getCollectionOfObjectValues(array(AccessPackageResourceScope::class, 'createFromDiscriminatorValue'))); },
+            'accessPackages' => function (ParseNode $n) use ($o) { $o->setAccessPackages($n->getCollectionOfObjectValues(array(AccessPackage::class, 'createFromDiscriminatorValue'))); },
+            'catalogStatus' => function (ParseNode $n) use ($o) { $o->setCatalogStatus($n->getStringValue()); },
+            'catalogType' => function (ParseNode $n) use ($o) { $o->setCatalogType($n->getStringValue()); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getStringValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'customAccessPackageWorkflowExtensions' => function (ParseNode $n) use ($o) { $o->setCustomAccessPackageWorkflowExtensions($n->getCollectionOfObjectValues(array(CustomAccessPackageWorkflowExtension::class, 'createFromDiscriminatorValue'))); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'isExternallyVisible' => function (ParseNode $n) use ($o) { $o->setIsExternallyVisible($n->getBooleanValue()); },
+            'modifiedBy' => function (ParseNode $n) use ($o) { $o->setModifiedBy($n->getStringValue()); },
+            'modifiedDateTime' => function (ParseNode $n) use ($o) { $o->setModifiedDateTime($n->getDateTimeValue()); },
         ]);
     }
 
@@ -233,7 +262,7 @@ class AccessPackageCatalog extends Entity
     }
 
     /**
-     * Sets the accessPackageResources property value. Read-only. Nullable.
+     * Sets the accessPackageResources property value. The accessPackageResources property
      *  @param array<AccessPackageResource>|null $value Value to set for the accessPackageResources property.
     */
     public function setAccessPackageResources(?array $value ): void {
@@ -241,7 +270,7 @@ class AccessPackageCatalog extends Entity
     }
 
     /**
-     * Sets the accessPackageResourceScopes property value. Read-only.
+     * Sets the accessPackageResourceScopes property value. The accessPackageResourceScopes property
      *  @param array<AccessPackageResourceScope>|null $value Value to set for the accessPackageResourceScopes property.
     */
     public function setAccessPackageResourceScopes(?array $value ): void {
@@ -249,7 +278,7 @@ class AccessPackageCatalog extends Entity
     }
 
     /**
-     * Sets the accessPackages property value. The access packages in this catalog. Read-only. Nullable.
+     * Sets the accessPackages property value. The access packages in this catalog. Read-only. Nullable. Supports $expand.
      *  @param array<AccessPackage>|null $value Value to set for the accessPackages property.
     */
     public function setAccessPackages(?array $value ): void {
@@ -265,7 +294,7 @@ class AccessPackageCatalog extends Entity
     }
 
     /**
-     * Sets the catalogType property value. Whether the catalog is created by a user or entitlement management. The possible values are: userManaged, serviceDefault, serviceManaged, unknownFutureValue.
+     * Sets the catalogType property value. One of UserManaged or ServiceDefault.
      *  @param string|null $value Value to set for the catalogType property.
     */
     public function setCatalogType(?string $value ): void {
@@ -305,7 +334,7 @@ class AccessPackageCatalog extends Entity
     }
 
     /**
-     * Sets the displayName property value. The display name of the access package catalog.
+     * Sets the displayName property value. The display name of the access package catalog. Supports $filter (eq, contains).
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {

@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementApplicabilityRuleDeviceMode implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var Windows10DeviceModeType|null $deviceMode Applicability rule for device mode. Possible values are: standardConfiguration, sModeConfiguration. */
+    /**
+     * @var Windows10DeviceModeType|null $deviceMode Applicability rule for device mode. Possible values are: standardConfiguration, sModeConfiguration.
+    */
     private ?Windows10DeviceModeType $deviceMode = null;
     
-    /** @var string|null $name Name for object. */
+    /**
+     * @var string|null $name Name for object.
+    */
     private ?string $name = null;
     
-    /** @var DeviceManagementApplicabilityRuleType|null $ruleType Applicability Rule type. Possible values are: include, exclude. */
+    /**
+     * @var DeviceManagementApplicabilityRuleType|null $ruleType Applicability Rule type. Possible values are: include, exclude.
+    */
     private ?DeviceManagementApplicabilityRuleType $ruleType = null;
     
     /**
@@ -33,7 +41,7 @@ class DeviceManagementApplicabilityRuleDeviceMode implements AdditionalDataHolde
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementApplicabilityRuleDeviceMode
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementApplicabilityRuleDeviceMode {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementApplicabilityRuleDeviceMode {
         return new DeviceManagementApplicabilityRuleDeviceMode();
     }
 
@@ -58,10 +66,11 @@ class DeviceManagementApplicabilityRuleDeviceMode implements AdditionalDataHolde
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'deviceMode' => function (self $o, ParseNode $n) { $o->setDeviceMode($n->getEnumValue(Windows10DeviceModeType::class)); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'ruleType' => function (self $o, ParseNode $n) { $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)); },
+            'deviceMode' => function (ParseNode $n) use ($o) { $o->setDeviceMode($n->getEnumValue(Windows10DeviceModeType::class)); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'ruleType' => function (ParseNode $n) use ($o) { $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)); },
         ];
     }
 

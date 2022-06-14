@@ -7,45 +7,71 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MicrosoftTunnelConfiguration extends Entity 
+class MicrosoftTunnelConfiguration extends Entity implements Parsable 
 {
-    /** @var array<KeyValuePair>|null $advancedSettings Additional settings that may be applied to the server */
+    /**
+     * @var array<KeyValuePair>|null $advancedSettings Additional settings that may be applied to the server
+    */
     private ?array $advancedSettings = null;
     
-    /** @var string|null $defaultDomainSuffix The Default Domain appendix that will be used by the clients */
+    /**
+     * @var string|null $defaultDomainSuffix The Default Domain appendix that will be used by the clients
+    */
     private ?string $defaultDomainSuffix = null;
     
-    /** @var string|null $description The MicrosoftTunnelConfiguration's description */
+    /**
+     * @var string|null $description The MicrosoftTunnelConfiguration's description
+    */
     private ?string $description = null;
     
-    /** @var bool|null $disableUdpConnections When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to tansfer data. */
+    /**
+     * @var bool|null $disableUdpConnections When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to tansfer data.
+    */
     private ?bool $disableUdpConnections = null;
     
-    /** @var string|null $displayName The MicrosoftTunnelConfiguration's display name */
+    /**
+     * @var string|null $displayName The MicrosoftTunnelConfiguration's display name
+    */
     private ?string $displayName = null;
     
-    /** @var array<string>|null $dnsServers The DNS servers that will be used by the clients */
+    /**
+     * @var array<string>|null $dnsServers The DNS servers that will be used by the clients
+    */
     private ?array $dnsServers = null;
     
-    /** @var DateTime|null $lastUpdateDateTime When the MicrosoftTunnelConfiguration was last updated */
+    /**
+     * @var DateTime|null $lastUpdateDateTime When the MicrosoftTunnelConfiguration was last updated
+    */
     private ?DateTime $lastUpdateDateTime = null;
     
-    /** @var int|null $listenPort The port that both TCP and UPD will listen over on the server */
+    /**
+     * @var int|null $listenPort The port that both TCP and UPD will listen over on the server
+    */
     private ?int $listenPort = null;
     
-    /** @var string|null $network The subnet that will be used to allocate virtual address for the clients */
+    /**
+     * @var string|null $network The subnet that will be used to allocate virtual address for the clients
+    */
     private ?string $network = null;
     
-    /** @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance. */
+    /**
+     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
+    */
     private ?array $roleScopeTagIds = null;
     
-    /** @var array<string>|null $routesExclude Subsets of the routes that will not be routed by the server */
+    /**
+     * @var array<string>|null $routesExclude Subsets of the routes that will not be routed by the server
+    */
     private ?array $routesExclude = null;
     
-    /** @var array<string>|null $routesInclude The routs that will be routed by the server */
+    /**
+     * @var array<string>|null $routesInclude The routs that will be routed by the server
+    */
     private ?array $routesInclude = null;
     
-    /** @var array<string>|null $splitDNS The domains that will be resolved using the provided dns servers */
+    /**
+     * @var array<string>|null $splitDNS The domains that will be resolved using the provided dns servers
+    */
     private ?array $splitDNS = null;
     
     /**
@@ -60,7 +86,7 @@ class MicrosoftTunnelConfiguration extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MicrosoftTunnelConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftTunnelConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftTunnelConfiguration {
         return new MicrosoftTunnelConfiguration();
     }
 
@@ -117,20 +143,21 @@ class MicrosoftTunnelConfiguration extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'advancedSettings' => function (self $o, ParseNode $n) { $o->setAdvancedSettings($n->getCollectionOfObjectValues(KeyValuePair::class)); },
-            'defaultDomainSuffix' => function (self $o, ParseNode $n) { $o->setDefaultDomainSuffix($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'disableUdpConnections' => function (self $o, ParseNode $n) { $o->setDisableUdpConnections($n->getBooleanValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'dnsServers' => function (self $o, ParseNode $n) { $o->setDnsServers($n->getCollectionOfPrimitiveValues()); },
-            'lastUpdateDateTime' => function (self $o, ParseNode $n) { $o->setLastUpdateDateTime($n->getDateTimeValue()); },
-            'listenPort' => function (self $o, ParseNode $n) { $o->setListenPort($n->getIntegerValue()); },
-            'network' => function (self $o, ParseNode $n) { $o->setNetwork($n->getStringValue()); },
-            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'routesExclude' => function (self $o, ParseNode $n) { $o->setRoutesExclude($n->getCollectionOfPrimitiveValues()); },
-            'routesInclude' => function (self $o, ParseNode $n) { $o->setRoutesInclude($n->getCollectionOfPrimitiveValues()); },
-            'splitDNS' => function (self $o, ParseNode $n) { $o->setSplitDNS($n->getCollectionOfPrimitiveValues()); },
+            'advancedSettings' => function (ParseNode $n) use ($o) { $o->setAdvancedSettings($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            'defaultDomainSuffix' => function (ParseNode $n) use ($o) { $o->setDefaultDomainSuffix($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'disableUdpConnections' => function (ParseNode $n) use ($o) { $o->setDisableUdpConnections($n->getBooleanValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'dnsServers' => function (ParseNode $n) use ($o) { $o->setDnsServers($n->getCollectionOfPrimitiveValues()); },
+            'lastUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdateDateTime($n->getDateTimeValue()); },
+            'listenPort' => function (ParseNode $n) use ($o) { $o->setListenPort($n->getIntegerValue()); },
+            'network' => function (ParseNode $n) use ($o) { $o->setNetwork($n->getStringValue()); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'routesExclude' => function (ParseNode $n) use ($o) { $o->setRoutesExclude($n->getCollectionOfPrimitiveValues()); },
+            'routesInclude' => function (ParseNode $n) use ($o) { $o->setRoutesInclude($n->getCollectionOfPrimitiveValues()); },
+            'splitDNS' => function (ParseNode $n) use ($o) { $o->setSplitDNS($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
 

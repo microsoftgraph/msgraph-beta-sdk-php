@@ -7,45 +7,71 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementConfigurationPolicy extends Entity 
+class DeviceManagementConfigurationPolicy extends Entity implements Parsable 
 {
-    /** @var array<DeviceManagementConfigurationPolicyAssignment>|null $assignments Policy assignments */
+    /**
+     * @var array<DeviceManagementConfigurationPolicyAssignment>|null $assignments Policy assignments
+    */
     private ?array $assignments = null;
     
-    /** @var DateTime|null $createdDateTime Policy creation date and time */
+    /**
+     * @var DateTime|null $createdDateTime Policy creation date and time
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $creationSource Policy creation source */
+    /**
+     * @var string|null $creationSource Policy creation source
+    */
     private ?string $creationSource = null;
     
-    /** @var string|null $description Policy description */
+    /**
+     * @var string|null $description Policy description
+    */
     private ?string $description = null;
     
-    /** @var bool|null $isAssigned Policy assignment status. This property is read-only. */
+    /**
+     * @var bool|null $isAssigned Policy assignment status. This property is read-only.
+    */
     private ?bool $isAssigned = null;
     
-    /** @var DateTime|null $lastModifiedDateTime Policy last modification date and time */
+    /**
+     * @var DateTime|null $lastModifiedDateTime Policy last modification date and time
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var string|null $name Policy name */
+    /**
+     * @var string|null $name Policy name
+    */
     private ?string $name = null;
     
-    /** @var DeviceManagementConfigurationPlatforms|null $platforms Platforms for this policy. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue. */
+    /**
+     * @var DeviceManagementConfigurationPlatforms|null $platforms Platforms for this policy. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+    */
     private ?DeviceManagementConfigurationPlatforms $platforms = null;
     
-    /** @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance. */
+    /**
+     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
+    */
     private ?array $roleScopeTagIds = null;
     
-    /** @var int|null $settingCount Number of settings */
+    /**
+     * @var int|null $settingCount Number of settings
+    */
     private ?int $settingCount = null;
     
-    /** @var array<DeviceManagementConfigurationSetting>|null $settings Policy settings */
+    /**
+     * @var array<DeviceManagementConfigurationSetting>|null $settings Policy settings
+    */
     private ?array $settings = null;
     
-    /** @var DeviceManagementConfigurationTechnologies|null $technologies Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue. */
+    /**
+     * @var DeviceManagementConfigurationTechnologies|null $technologies Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+    */
     private ?DeviceManagementConfigurationTechnologies $technologies = null;
     
-    /** @var DeviceManagementConfigurationPolicyTemplateReference|null $templateReference Template reference information */
+    /**
+     * @var DeviceManagementConfigurationPolicyTemplateReference|null $templateReference Template reference information
+    */
     private ?DeviceManagementConfigurationPolicyTemplateReference $templateReference = null;
     
     /**
@@ -60,7 +86,7 @@ class DeviceManagementConfigurationPolicy extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementConfigurationPolicy
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationPolicy {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationPolicy {
         return new DeviceManagementConfigurationPolicy();
     }
 
@@ -101,20 +127,21 @@ class DeviceManagementConfigurationPolicy extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(DeviceManagementConfigurationPolicyAssignment::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'creationSource' => function (self $o, ParseNode $n) { $o->setCreationSource($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'isAssigned' => function (self $o, ParseNode $n) { $o->setIsAssigned($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'platforms' => function (self $o, ParseNode $n) { $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
-            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'settingCount' => function (self $o, ParseNode $n) { $o->setSettingCount($n->getIntegerValue()); },
-            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getCollectionOfObjectValues(DeviceManagementConfigurationSetting::class)); },
-            'technologies' => function (self $o, ParseNode $n) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
-            'templateReference' => function (self $o, ParseNode $n) { $o->setTemplateReference($n->getObjectValue(DeviceManagementConfigurationPolicyTemplateReference::class)); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationPolicyAssignment::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'creationSource' => function (ParseNode $n) use ($o) { $o->setCreationSource($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'isAssigned' => function (ParseNode $n) use ($o) { $o->setIsAssigned($n->getBooleanValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'settingCount' => function (ParseNode $n) use ($o) { $o->setSettingCount($n->getIntegerValue()); },
+            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSetting::class, 'createFromDiscriminatorValue'))); },
+            'technologies' => function (ParseNode $n) use ($o) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
+            'templateReference' => function (ParseNode $n) use ($o) { $o->setTemplateReference($n->getObjectValue(array(DeviceManagementConfigurationPolicyTemplateReference::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
@@ -175,7 +202,7 @@ class DeviceManagementConfigurationPolicy extends Entity
     }
 
     /**
-     * Gets the technologies property value. Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Gets the technologies property value. Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
      * @return DeviceManagementConfigurationTechnologies|null
     */
     public function getTechnologies(): ?DeviceManagementConfigurationTechnologies {
@@ -300,7 +327,7 @@ class DeviceManagementConfigurationPolicy extends Entity
     }
 
     /**
-     * Sets the technologies property value. Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Sets the technologies property value. Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
      *  @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
     */
     public function setTechnologies(?DeviceManagementConfigurationTechnologies $value ): void {

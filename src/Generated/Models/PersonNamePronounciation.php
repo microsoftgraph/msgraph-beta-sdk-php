@@ -9,22 +9,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PersonNamePronounciation implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $displayName The displayName property */
+    /**
+     * @var string|null $displayName The displayName property
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $first The first property */
+    /**
+     * @var string|null $first The first property
+    */
     private ?string $first = null;
     
-    /** @var string|null $last The last property */
+    /**
+     * @var string|null $last The last property
+    */
     private ?string $last = null;
     
-    /** @var string|null $maiden The maiden property */
+    /**
+     * @var string|null $maiden The maiden property
+    */
     private ?string $maiden = null;
     
-    /** @var string|null $middle The middle property */
+    /**
+     * @var string|null $middle The middle property
+    */
     private ?string $middle = null;
     
     /**
@@ -39,7 +51,7 @@ class PersonNamePronounciation implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PersonNamePronounciation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PersonNamePronounciation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PersonNamePronounciation {
         return new PersonNamePronounciation();
     }
 
@@ -64,12 +76,13 @@ class PersonNamePronounciation implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'first' => function (self $o, ParseNode $n) { $o->setFirst($n->getStringValue()); },
-            'last' => function (self $o, ParseNode $n) { $o->setLast($n->getStringValue()); },
-            'maiden' => function (self $o, ParseNode $n) { $o->setMaiden($n->getStringValue()); },
-            'middle' => function (self $o, ParseNode $n) { $o->setMiddle($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'first' => function (ParseNode $n) use ($o) { $o->setFirst($n->getStringValue()); },
+            'last' => function (ParseNode $n) use ($o) { $o->setLast($n->getStringValue()); },
+            'maiden' => function (ParseNode $n) use ($o) { $o->setMaiden($n->getStringValue()); },
+            'middle' => function (ParseNode $n) use ($o) { $o->setMiddle($n->getStringValue()); },
         ];
     }
 

@@ -9,37 +9,59 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MatchingLabel implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var ApplicationMode|null $applicationMode The applicationMode property */
+    /**
+     * @var ApplicationMode|null $applicationMode The applicationMode property
+    */
     private ?ApplicationMode $applicationMode = null;
     
-    /** @var string|null $description The description property */
+    /**
+     * @var string|null $description The description property
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The displayName property */
+    /**
+     * @var string|null $displayName The displayName property
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $id The id property */
+    /**
+     * @var string|null $id The id property
+    */
     private ?string $id = null;
     
-    /** @var bool|null $isEndpointProtectionEnabled The isEndpointProtectionEnabled property */
+    /**
+     * @var bool|null $isEndpointProtectionEnabled The isEndpointProtectionEnabled property
+    */
     private ?bool $isEndpointProtectionEnabled = null;
     
-    /** @var array<LabelActionBase>|null $labelActions The labelActions property */
+    /**
+     * @var array<LabelActionBase>|null $labelActions The labelActions property
+    */
     private ?array $labelActions = null;
     
-    /** @var string|null $name The name property */
+    /**
+     * @var string|null $name The name property
+    */
     private ?string $name = null;
     
-    /** @var string|null $policyTip The policyTip property */
+    /**
+     * @var string|null $policyTip The policyTip property
+    */
     private ?string $policyTip = null;
     
-    /** @var int|null $priority The priority property */
+    /**
+     * @var int|null $priority The priority property
+    */
     private ?int $priority = null;
     
-    /** @var string|null $toolTip The toolTip property */
+    /**
+     * @var string|null $toolTip The toolTip property
+    */
     private ?string $toolTip = null;
     
     /**
@@ -54,7 +76,7 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MatchingLabel
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MatchingLabel {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MatchingLabel {
         return new MatchingLabel();
     }
 
@@ -95,17 +117,18 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'applicationMode' => function (self $o, ParseNode $n) { $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
-            'isEndpointProtectionEnabled' => function (self $o, ParseNode $n) { $o->setIsEndpointProtectionEnabled($n->getBooleanValue()); },
-            'labelActions' => function (self $o, ParseNode $n) { $o->setLabelActions($n->getCollectionOfObjectValues(LabelActionBase::class)); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'policyTip' => function (self $o, ParseNode $n) { $o->setPolicyTip($n->getStringValue()); },
-            'priority' => function (self $o, ParseNode $n) { $o->setPriority($n->getIntegerValue()); },
-            'toolTip' => function (self $o, ParseNode $n) { $o->setToolTip($n->getStringValue()); },
+            'applicationMode' => function (ParseNode $n) use ($o) { $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'isEndpointProtectionEnabled' => function (ParseNode $n) use ($o) { $o->setIsEndpointProtectionEnabled($n->getBooleanValue()); },
+            'labelActions' => function (ParseNode $n) use ($o) { $o->setLabelActions($n->getCollectionOfObjectValues(array(LabelActionBase::class, 'createFromDiscriminatorValue'))); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'policyTip' => function (ParseNode $n) use ($o) { $o->setPolicyTip($n->getStringValue()); },
+            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
+            'toolTip' => function (ParseNode $n) use ($o) { $o->setToolTip($n->getStringValue()); },
         ];
     }
 

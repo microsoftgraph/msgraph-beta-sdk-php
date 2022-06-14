@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var ConditionalAccessConditions|null $conditionalAccessCondition Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client, ipAddressSeenByAzureAD, ipAddressSeenByResourceProvider, unknownFutureValue, servicePrincipals, servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals, servicePrincipalRisk. */
+    /**
+     * @var ConditionalAccessConditions|null $conditionalAccessCondition Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client, ipAddressSeenByAzureAD, ipAddressSeenByResourceProvider, unknownFutureValue, servicePrincipals, servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals, servicePrincipalRisk.
+    */
     private ?ConditionalAccessConditions $conditionalAccessCondition = null;
     
-    /** @var ConditionalAccessRule|null $ruleSatisfied Refers to the conditional access policy conditions that were satisfied. The possible values are: allApps, firstPartyApps, office365, appId, acr, appFilter, allUsers, guest, groupId, roleId, userId, allDevicePlatforms, devicePlatform, allLocations, insideCorpnet, allTrustedLocations, locationId, allDevices, deviceFilter, deviceState, unknownFutureValue, deviceFilterIncludeRuleNotMatched, allDeviceStates. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: deviceFilterIncludeRuleNotMatched, allDeviceStates. */
+    /**
+     * @var ConditionalAccessRule|null $ruleSatisfied Refers to the conditional access policy conditions that were satisfied. The possible values are: allApps, firstPartyApps, office365, appId, acr, appFilter, allUsers, guest, groupId, roleId, userId, allDevicePlatforms, devicePlatform, allLocations, insideCorpnet, allTrustedLocations, locationId, allDevices, deviceFilter, deviceState, unknownFutureValue, deviceFilterIncludeRuleNotMatched, allDeviceStates. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: deviceFilterIncludeRuleNotMatched, allDeviceStates.
+    */
     private ?ConditionalAccessRule $ruleSatisfied = null;
     
     /**
@@ -30,7 +36,7 @@ class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConditionalAccessRuleSatisfied
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessRuleSatisfied {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessRuleSatisfied {
         return new ConditionalAccessRuleSatisfied();
     }
 
@@ -55,9 +61,10 @@ class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'conditionalAccessCondition' => function (self $o, ParseNode $n) { $o->setConditionalAccessCondition($n->getEnumValue(ConditionalAccessConditions::class)); },
-            'ruleSatisfied' => function (self $o, ParseNode $n) { $o->setRuleSatisfied($n->getEnumValue(ConditionalAccessRule::class)); },
+            'conditionalAccessCondition' => function (ParseNode $n) use ($o) { $o->setConditionalAccessCondition($n->getEnumValue(ConditionalAccessConditions::class)); },
+            'ruleSatisfied' => function (ParseNode $n) use ($o) { $o->setRuleSatisfied($n->getEnumValue(ConditionalAccessRule::class)); },
         ];
     }
 
