@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $isPasscodeRequired The isPasscodeRequired property */
+    /**
+     * @var bool|null $isPasscodeRequired The isPasscodeRequired property
+    */
     private ?bool $isPasscodeRequired = null;
     
-    /** @var string|null $joinMeetingId The joinMeetingId property */
+    /**
+     * @var string|null $joinMeetingId The joinMeetingId property
+    */
     private ?string $joinMeetingId = null;
     
-    /** @var string|null $passcode The passcode property */
+    /**
+     * @var string|null $passcode The passcode property
+    */
     private ?string $passcode = null;
     
     /**
@@ -33,7 +41,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return JoinMeetingIdSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): JoinMeetingIdSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): JoinMeetingIdSettings {
         return new JoinMeetingIdSettings();
     }
 
@@ -50,10 +58,11 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'isPasscodeRequired' => function (self $o, ParseNode $n) { $o->setIsPasscodeRequired($n->getBooleanValue()); },
-            'joinMeetingId' => function (self $o, ParseNode $n) { $o->setJoinMeetingId($n->getStringValue()); },
-            'passcode' => function (self $o, ParseNode $n) { $o->setPasscode($n->getStringValue()); },
+            'isPasscodeRequired' => function (ParseNode $n) use ($o) { $o->setIsPasscodeRequired($n->getBooleanValue()); },
+            'joinMeetingId' => function (ParseNode $n) use ($o) { $o->setJoinMeetingId($n->getStringValue()); },
+            'passcode' => function (ParseNode $n) use ($o) { $o->setPasscode($n->getStringValue()); },
         ];
     }
 

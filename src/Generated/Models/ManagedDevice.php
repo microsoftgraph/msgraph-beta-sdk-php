@@ -7,273 +7,451 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagedDevice extends Entity 
+class ManagedDevice extends Entity implements Parsable 
 {
-    /** @var bool|null $aadRegistered Whether the device is Azure Active Directory registered. This property is read-only. */
+    /**
+     * @var bool|null $aadRegistered Whether the device is Azure Active Directory registered. This property is read-only.
+    */
     private ?bool $aadRegistered = null;
     
-    /** @var string|null $activationLockBypassCode Code that allows the Activation Lock on a device to be bypassed. This property is read-only. */
+    /**
+     * @var string|null $activationLockBypassCode Code that allows the Activation Lock on a device to be bypassed. This property is read-only.
+    */
     private ?string $activationLockBypassCode = null;
     
-    /** @var string|null $androidSecurityPatchLevel Android security patch level. This property is read-only. */
+    /**
+     * @var string|null $androidSecurityPatchLevel Android security patch level. This property is read-only.
+    */
     private ?string $androidSecurityPatchLevel = null;
     
-    /** @var array<AssignmentFilterEvaluationStatusDetails>|null $assignmentFilterEvaluationStatusDetails Managed device mobile app configuration states for this device. */
+    /**
+     * @var array<AssignmentFilterEvaluationStatusDetails>|null $assignmentFilterEvaluationStatusDetails Managed device mobile app configuration states for this device.
+    */
     private ?array $assignmentFilterEvaluationStatusDetails = null;
     
-    /** @var bool|null $autopilotEnrolled Reports if the managed device is enrolled via auto-pilot. This property is read-only. */
+    /**
+     * @var bool|null $autopilotEnrolled Reports if the managed device is enrolled via auto-pilot. This property is read-only.
+    */
     private ?bool $autopilotEnrolled = null;
     
-    /** @var string|null $azureActiveDirectoryDeviceId The unique identifier for the Azure Active Directory device. Read only. This property is read-only. */
+    /**
+     * @var string|null $azureActiveDirectoryDeviceId The unique identifier for the Azure Active Directory device. Read only. This property is read-only.
+    */
     private ?string $azureActiveDirectoryDeviceId = null;
     
-    /** @var string|null $azureADDeviceId The unique identifier for the Azure Active Directory device. Read only. This property is read-only. */
+    /**
+     * @var string|null $azureADDeviceId The unique identifier for the Azure Active Directory device. Read only. This property is read-only.
+    */
     private ?string $azureADDeviceId = null;
     
-    /** @var bool|null $azureADRegistered Whether the device is Azure Active Directory registered. This property is read-only. */
+    /**
+     * @var bool|null $azureADRegistered Whether the device is Azure Active Directory registered. This property is read-only.
+    */
     private ?bool $azureADRegistered = null;
     
-    /** @var ChassisType|null $chassisType Chassis type of the device. This property is read-only. Possible values are: unknown, desktop, laptop, worksWorkstation, enterpriseServer, phone, tablet, mobileOther, mobileUnknown. */
+    /**
+     * @var ChassisType|null $chassisType Chassis type of the device. This property is read-only. Possible values are: unknown, desktop, laptop, worksWorkstation, enterpriseServer, phone, tablet, mobileOther, mobileUnknown.
+    */
     private ?ChassisType $chassisType = null;
     
-    /** @var array<ChromeOSDeviceProperty>|null $chromeOSDeviceInfo List of properties of the ChromeOS Device. */
+    /**
+     * @var array<ChromeOSDeviceProperty>|null $chromeOSDeviceInfo List of properties of the ChromeOS Device.
+    */
     private ?array $chromeOSDeviceInfo = null;
     
-    /** @var array<CloudPcRemoteActionResult>|null $cloudPcRemoteActionResults The cloudPcRemoteActionResults property */
+    /**
+     * @var array<CloudPcRemoteActionResult>|null $cloudPcRemoteActionResults The cloudPcRemoteActionResults property
+    */
     private ?array $cloudPcRemoteActionResults = null;
     
-    /** @var DateTime|null $complianceGracePeriodExpirationDateTime The DateTime when device compliance grace period expires. This property is read-only. */
+    /**
+     * @var DateTime|null $complianceGracePeriodExpirationDateTime The DateTime when device compliance grace period expires. This property is read-only.
+    */
     private ?DateTime $complianceGracePeriodExpirationDateTime = null;
     
-    /** @var ComplianceState|null $complianceState Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager. */
+    /**
+     * @var ComplianceState|null $complianceState Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager.
+    */
     private ?ComplianceState $complianceState = null;
     
-    /** @var ConfigurationManagerClientEnabledFeatures|null $configurationManagerClientEnabledFeatures ConfigrMgr client enabled features. This property is read-only. */
+    /**
+     * @var ConfigurationManagerClientEnabledFeatures|null $configurationManagerClientEnabledFeatures ConfigrMgr client enabled features. This property is read-only.
+    */
     private ?ConfigurationManagerClientEnabledFeatures $configurationManagerClientEnabledFeatures = null;
     
-    /** @var ConfigurationManagerClientHealthState|null $configurationManagerClientHealthState Configuration manager client health state, valid only for devices managed by MDM/ConfigMgr Agent */
+    /**
+     * @var ConfigurationManagerClientHealthState|null $configurationManagerClientHealthState Configuration manager client health state, valid only for devices managed by MDM/ConfigMgr Agent
+    */
     private ?ConfigurationManagerClientHealthState $configurationManagerClientHealthState = null;
     
-    /** @var ConfigurationManagerClientInformation|null $configurationManagerClientInformation Configuration manager client information, valid only for devices managed, duel-managed or tri-managed by ConfigMgr Agent */
+    /**
+     * @var ConfigurationManagerClientInformation|null $configurationManagerClientInformation Configuration manager client information, valid only for devices managed, duel-managed or tri-managed by ConfigMgr Agent
+    */
     private ?ConfigurationManagerClientInformation $configurationManagerClientInformation = null;
     
-    /** @var array<DetectedApp>|null $detectedApps All applications currently installed on the device */
+    /**
+     * @var array<DetectedApp>|null $detectedApps All applications currently installed on the device
+    */
     private ?array $detectedApps = null;
     
-    /** @var array<DeviceActionResult>|null $deviceActionResults List of ComplexType deviceActionResult objects. This property is read-only. */
+    /**
+     * @var array<DeviceActionResult>|null $deviceActionResults List of ComplexType deviceActionResult objects. This property is read-only.
+    */
     private ?array $deviceActionResults = null;
     
-    /** @var DeviceCategory|null $deviceCategory Device category */
+    /**
+     * @var DeviceCategory|null $deviceCategory Device category
+    */
     private ?DeviceCategory $deviceCategory = null;
     
-    /** @var string|null $deviceCategoryDisplayName Device category display name. This property is read-only. */
+    /**
+     * @var string|null $deviceCategoryDisplayName Device category display name. This property is read-only.
+    */
     private ?string $deviceCategoryDisplayName = null;
     
-    /** @var array<DeviceCompliancePolicyState>|null $deviceCompliancePolicyStates Device compliance policy states for this device. */
+    /**
+     * @var array<DeviceCompliancePolicyState>|null $deviceCompliancePolicyStates Device compliance policy states for this device.
+    */
     private ?array $deviceCompliancePolicyStates = null;
     
-    /** @var array<DeviceConfigurationState>|null $deviceConfigurationStates Device configuration states for this device. */
+    /**
+     * @var array<DeviceConfigurationState>|null $deviceConfigurationStates Device configuration states for this device.
+    */
     private ?array $deviceConfigurationStates = null;
     
-    /** @var DeviceEnrollmentType|null $deviceEnrollmentType Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount. */
+    /**
+     * @var DeviceEnrollmentType|null $deviceEnrollmentType Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
+    */
     private ?DeviceEnrollmentType $deviceEnrollmentType = null;
     
-    /** @var DeviceHealthAttestationState|null $deviceHealthAttestationState The device health attestation state. This property is read-only. */
+    /**
+     * @var DeviceHealthAttestationState|null $deviceHealthAttestationState The device health attestation state. This property is read-only.
+    */
     private ?DeviceHealthAttestationState $deviceHealthAttestationState = null;
     
-    /** @var string|null $deviceName Name of the device. This property is read-only. */
+    /**
+     * @var string|null $deviceName Name of the device. This property is read-only.
+    */
     private ?string $deviceName = null;
     
-    /** @var DeviceRegistrationState|null $deviceRegistrationState Device registration state. This property is read-only. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown. */
+    /**
+     * @var DeviceRegistrationState|null $deviceRegistrationState Device registration state. This property is read-only. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown.
+    */
     private ?DeviceRegistrationState $deviceRegistrationState = null;
     
-    /** @var DeviceType|null $deviceType Platform of the device. This property is read-only. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC. */
+    /**
+     * @var DeviceType|null $deviceType Platform of the device. This property is read-only. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+    */
     private ?DeviceType $deviceType = null;
     
-    /** @var bool|null $easActivated Whether the device is Exchange ActiveSync activated. This property is read-only. */
+    /**
+     * @var bool|null $easActivated Whether the device is Exchange ActiveSync activated. This property is read-only.
+    */
     private ?bool $easActivated = null;
     
-    /** @var DateTime|null $easActivationDateTime Exchange ActivationSync activation time of the device. This property is read-only. */
+    /**
+     * @var DateTime|null $easActivationDateTime Exchange ActivationSync activation time of the device. This property is read-only.
+    */
     private ?DateTime $easActivationDateTime = null;
     
-    /** @var string|null $easDeviceId Exchange ActiveSync Id of the device. This property is read-only. */
+    /**
+     * @var string|null $easDeviceId Exchange ActiveSync Id of the device. This property is read-only.
+    */
     private ?string $easDeviceId = null;
     
-    /** @var string|null $emailAddress Email(s) for the user associated with the device. This property is read-only. */
+    /**
+     * @var string|null $emailAddress Email(s) for the user associated with the device. This property is read-only.
+    */
     private ?string $emailAddress = null;
     
-    /** @var DateTime|null $enrolledDateTime Enrollment time of the device. This property is read-only. */
+    /**
+     * @var DateTime|null $enrolledDateTime Enrollment time of the device. This property is read-only.
+    */
     private ?DateTime $enrolledDateTime = null;
     
-    /** @var string|null $enrollmentProfileName Name of the enrollment profile assigned to the device. Default value is empty string, indicating no enrollment profile was assgined. This property is read-only. */
+    /**
+     * @var string|null $enrollmentProfileName Name of the enrollment profile assigned to the device. Default value is empty string, indicating no enrollment profile was assgined. This property is read-only.
+    */
     private ?string $enrollmentProfileName = null;
     
-    /** @var string|null $ethernetMacAddress Ethernet MAC. This property is read-only. */
+    /**
+     * @var string|null $ethernetMacAddress Ethernet MAC. This property is read-only.
+    */
     private ?string $ethernetMacAddress = null;
     
-    /** @var DeviceManagementExchangeAccessState|null $exchangeAccessState The Access State of the device in Exchange. This property is read-only. Possible values are: none, unknown, allowed, blocked, quarantined. */
+    /**
+     * @var DeviceManagementExchangeAccessState|null $exchangeAccessState The Access State of the device in Exchange. This property is read-only. Possible values are: none, unknown, allowed, blocked, quarantined.
+    */
     private ?DeviceManagementExchangeAccessState $exchangeAccessState = null;
     
-    /** @var DeviceManagementExchangeAccessStateReason|null $exchangeAccessStateReason The reason for the device's access state in Exchange. This property is read-only. Possible values are: none, unknown, exchangeGlobalRule, exchangeIndividualRule, exchangeDeviceRule, exchangeUpgrade, exchangeMailboxPolicy, other, compliant, notCompliant, notEnrolled, unknownLocation, mfaRequired, azureADBlockDueToAccessPolicy, compromisedPassword, deviceNotKnownWithManagedApp. */
+    /**
+     * @var DeviceManagementExchangeAccessStateReason|null $exchangeAccessStateReason The reason for the device's access state in Exchange. This property is read-only. Possible values are: none, unknown, exchangeGlobalRule, exchangeIndividualRule, exchangeDeviceRule, exchangeUpgrade, exchangeMailboxPolicy, other, compliant, notCompliant, notEnrolled, unknownLocation, mfaRequired, azureADBlockDueToAccessPolicy, compromisedPassword, deviceNotKnownWithManagedApp.
+    */
     private ?DeviceManagementExchangeAccessStateReason $exchangeAccessStateReason = null;
     
-    /** @var DateTime|null $exchangeLastSuccessfulSyncDateTime Last time the device contacted Exchange. This property is read-only. */
+    /**
+     * @var DateTime|null $exchangeLastSuccessfulSyncDateTime Last time the device contacted Exchange. This property is read-only.
+    */
     private ?DateTime $exchangeLastSuccessfulSyncDateTime = null;
     
-    /** @var int|null $freeStorageSpaceInBytes Free Storage in Bytes. This property is read-only. */
+    /**
+     * @var int|null $freeStorageSpaceInBytes Free Storage in Bytes. This property is read-only.
+    */
     private ?int $freeStorageSpaceInBytes = null;
     
-    /** @var HardwareInformation|null $hardwareInformation The hardward details for the device.  Includes information such as storage space, manufacturer, serial number, etc. This property is read-only. */
+    /**
+     * @var HardwareInformation|null $hardwareInformation The hardward details for the device.  Includes information such as storage space, manufacturer, serial number, etc. This property is read-only.
+    */
     private ?HardwareInformation $hardwareInformation = null;
     
-    /** @var string|null $iccid Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only. */
+    /**
+     * @var string|null $iccid Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only.
+    */
     private ?string $iccid = null;
     
-    /** @var string|null $imei IMEI. This property is read-only. */
+    /**
+     * @var string|null $imei IMEI. This property is read-only.
+    */
     private ?string $imei = null;
     
-    /** @var bool|null $isEncrypted Device encryption status. This property is read-only. */
+    /**
+     * @var bool|null $isEncrypted Device encryption status. This property is read-only.
+    */
     private ?bool $isEncrypted = null;
     
-    /** @var bool|null $isSupervised Device supervised status. This property is read-only. */
+    /**
+     * @var bool|null $isSupervised Device supervised status. This property is read-only.
+    */
     private ?bool $isSupervised = null;
     
-    /** @var string|null $jailBroken whether the device is jail broken or rooted. This property is read-only. */
+    /**
+     * @var string|null $jailBroken whether the device is jail broken or rooted. This property is read-only.
+    */
     private ?string $jailBroken = null;
     
-    /** @var JoinType|null $joinType Device join type. Possible values are: unknown, azureADJoined, azureADRegistered, hybridAzureADJoined. */
+    /**
+     * @var JoinType|null $joinType Device join type. Possible values are: unknown, azureADJoined, azureADRegistered, hybridAzureADJoined.
+    */
     private ?JoinType $joinType = null;
     
-    /** @var DateTime|null $lastSyncDateTime The date and time that the device last completed a successful sync with Intune. This property is read-only. */
+    /**
+     * @var DateTime|null $lastSyncDateTime The date and time that the device last completed a successful sync with Intune. This property is read-only.
+    */
     private ?DateTime $lastSyncDateTime = null;
     
-    /** @var array<DeviceLogCollectionResponse>|null $logCollectionRequests List of log collection requests */
+    /**
+     * @var array<DeviceLogCollectionResponse>|null $logCollectionRequests List of log collection requests
+    */
     private ?array $logCollectionRequests = null;
     
-    /** @var LostModeState|null $lostModeState Indicates if Lost mode is enabled or disabled. This property is read-only. Possible values are: disabled, enabled. */
+    /**
+     * @var LostModeState|null $lostModeState Indicates if Lost mode is enabled or disabled. This property is read-only. Possible values are: disabled, enabled.
+    */
     private ?LostModeState $lostModeState = null;
     
-    /** @var array<ManagedDeviceMobileAppConfigurationState>|null $managedDeviceMobileAppConfigurationStates Managed device mobile app configuration states for this device. */
+    /**
+     * @var array<ManagedDeviceMobileAppConfigurationState>|null $managedDeviceMobileAppConfigurationStates Managed device mobile app configuration states for this device.
+    */
     private ?array $managedDeviceMobileAppConfigurationStates = null;
     
-    /** @var string|null $managedDeviceName Automatically generated name to identify a device. Can be overwritten to a user friendly name. */
+    /**
+     * @var string|null $managedDeviceName Automatically generated name to identify a device. Can be overwritten to a user friendly name.
+    */
     private ?string $managedDeviceName = null;
     
-    /** @var ManagedDeviceOwnerType|null $managedDeviceOwnerType Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal. */
+    /**
+     * @var ManagedDeviceOwnerType|null $managedDeviceOwnerType Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.
+    */
     private ?ManagedDeviceOwnerType $managedDeviceOwnerType = null;
     
-    /** @var ManagementAgentType|null $managementAgent Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController. */
+    /**
+     * @var ManagementAgentType|null $managementAgent Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
+    */
     private ?ManagementAgentType $managementAgent = null;
     
-    /** @var DateTime|null $managementCertificateExpirationDate Reports device management certificate expiration date. This property is read-only. */
+    /**
+     * @var DateTime|null $managementCertificateExpirationDate Reports device management certificate expiration date. This property is read-only.
+    */
     private ?DateTime $managementCertificateExpirationDate = null;
     
-    /** @var ManagedDeviceManagementFeatures|null $managementFeatures Device management features. Possible values are: none, microsoftManagedDesktop. */
+    /**
+     * @var ManagedDeviceManagementFeatures|null $managementFeatures Device management features. Possible values are: none, microsoftManagedDesktop.
+    */
     private ?ManagedDeviceManagementFeatures $managementFeatures = null;
     
-    /** @var ManagementState|null $managementState Management state of the device. This property is read-only. Possible values are: managed, retirePending, retireFailed, wipePending, wipeFailed, unhealthy, deletePending, retireIssued, wipeIssued, wipeCanceled, retireCanceled, discovered. */
+    /**
+     * @var ManagementState|null $managementState Management state of the device. This property is read-only. Possible values are: managed, retirePending, retireFailed, wipePending, wipeFailed, unhealthy, deletePending, retireIssued, wipeIssued, wipeCanceled, retireCanceled, discovered.
+    */
     private ?ManagementState $managementState = null;
     
-    /** @var string|null $manufacturer Manufacturer of the device. This property is read-only. */
+    /**
+     * @var string|null $manufacturer Manufacturer of the device. This property is read-only.
+    */
     private ?string $manufacturer = null;
     
-    /** @var string|null $meid MEID. This property is read-only. */
+    /**
+     * @var string|null $meid MEID. This property is read-only.
+    */
     private ?string $meid = null;
     
-    /** @var string|null $model Model of the device. This property is read-only. */
+    /**
+     * @var string|null $model Model of the device. This property is read-only.
+    */
     private ?string $model = null;
     
-    /** @var string|null $notes Notes on the device created by IT Admin */
+    /**
+     * @var string|null $notes Notes on the device created by IT Admin
+    */
     private ?string $notes = null;
     
-    /** @var string|null $operatingSystem Operating system of the device. Windows, iOS, etc. This property is read-only. */
+    /**
+     * @var string|null $operatingSystem Operating system of the device. Windows, iOS, etc. This property is read-only.
+    */
     private ?string $operatingSystem = null;
     
-    /** @var string|null $osVersion Operating system version of the device. This property is read-only. */
+    /**
+     * @var string|null $osVersion Operating system version of the device. This property is read-only.
+    */
     private ?string $osVersion = null;
     
-    /** @var OwnerType|null $ownerType Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal. */
+    /**
+     * @var OwnerType|null $ownerType Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.
+    */
     private ?OwnerType $ownerType = null;
     
-    /** @var ManagedDevicePartnerReportedHealthState|null $partnerReportedThreatState Indicates the threat state of a device when a Mobile Threat Defense partner is in use by the account and device. Read Only. This property is read-only. Possible values are: unknown, activated, deactivated, secured, lowSeverity, mediumSeverity, highSeverity, unresponsive, compromised, misconfigured. */
+    /**
+     * @var ManagedDevicePartnerReportedHealthState|null $partnerReportedThreatState Indicates the threat state of a device when a Mobile Threat Defense partner is in use by the account and device. Read Only. This property is read-only. Possible values are: unknown, activated, deactivated, secured, lowSeverity, mediumSeverity, highSeverity, unresponsive, compromised, misconfigured.
+    */
     private ?ManagedDevicePartnerReportedHealthState $partnerReportedThreatState = null;
     
-    /** @var string|null $phoneNumber Phone number of the device. This property is read-only. */
+    /**
+     * @var string|null $phoneNumber Phone number of the device. This property is read-only.
+    */
     private ?string $phoneNumber = null;
     
-    /** @var int|null $physicalMemoryInBytes Total Memory in Bytes. This property is read-only. */
+    /**
+     * @var int|null $physicalMemoryInBytes Total Memory in Bytes. This property is read-only.
+    */
     private ?int $physicalMemoryInBytes = null;
     
-    /** @var DateTime|null $preferMdmOverGroupPolicyAppliedDateTime Reports the DateTime the preferMdmOverGroupPolicy setting was set.  When set, the Intune MDM settings will override Group Policy settings if there is a conflict. Read Only. This property is read-only. */
+    /**
+     * @var DateTime|null $preferMdmOverGroupPolicyAppliedDateTime Reports the DateTime the preferMdmOverGroupPolicy setting was set.  When set, the Intune MDM settings will override Group Policy settings if there is a conflict. Read Only. This property is read-only.
+    */
     private ?DateTime $preferMdmOverGroupPolicyAppliedDateTime = null;
     
-    /** @var ManagedDeviceArchitecture|null $processorArchitecture Processor architecture. This property is read-only. Possible values are: unknown, x86, x64, arm, arM64. */
+    /**
+     * @var ManagedDeviceArchitecture|null $processorArchitecture Processor architecture. This property is read-only. Possible values are: unknown, x86, x64, arm, arM64.
+    */
     private ?ManagedDeviceArchitecture $processorArchitecture = null;
     
-    /** @var string|null $remoteAssistanceSessionErrorDetails An error string that identifies issues when creating Remote Assistance session objects. This property is read-only. */
+    /**
+     * @var string|null $remoteAssistanceSessionErrorDetails An error string that identifies issues when creating Remote Assistance session objects. This property is read-only.
+    */
     private ?string $remoteAssistanceSessionErrorDetails = null;
     
-    /** @var string|null $remoteAssistanceSessionUrl Url that allows a Remote Assistance session to be established with the device. This property is read-only. */
+    /**
+     * @var string|null $remoteAssistanceSessionUrl Url that allows a Remote Assistance session to be established with the device. This property is read-only.
+    */
     private ?string $remoteAssistanceSessionUrl = null;
     
-    /** @var bool|null $requireUserEnrollmentApproval Reports if the managed iOS device is user approval enrollment. This property is read-only. */
+    /**
+     * @var bool|null $requireUserEnrollmentApproval Reports if the managed iOS device is user approval enrollment. This property is read-only.
+    */
     private ?bool $requireUserEnrollmentApproval = null;
     
-    /** @var DateTime|null $retireAfterDateTime Indicates the time after when a device will be auto retired because of scheduled action. This property is read-only. */
+    /**
+     * @var DateTime|null $retireAfterDateTime Indicates the time after when a device will be auto retired because of scheduled action. This property is read-only.
+    */
     private ?DateTime $retireAfterDateTime = null;
     
-    /** @var array<string>|null $roleScopeTagIds List of Scope Tag IDs for this Device instance. */
+    /**
+     * @var array<string>|null $roleScopeTagIds List of Scope Tag IDs for this Device instance.
+    */
     private ?array $roleScopeTagIds = null;
     
-    /** @var array<SecurityBaselineState>|null $securityBaselineStates Security baseline states for this device. */
+    /**
+     * @var array<SecurityBaselineState>|null $securityBaselineStates Security baseline states for this device.
+    */
     private ?array $securityBaselineStates = null;
     
-    /** @var string|null $serialNumber SerialNumber. This property is read-only. */
+    /**
+     * @var string|null $serialNumber SerialNumber. This property is read-only.
+    */
     private ?string $serialNumber = null;
     
-    /** @var string|null $skuFamily Device sku family */
+    /**
+     * @var string|null $skuFamily Device sku family
+    */
     private ?string $skuFamily = null;
     
-    /** @var int|null $skuNumber Device sku number, see also: GetProductInfo function (sysinfoapi.h). Valid values 0 to 2147483647. This property is read-only. */
+    /**
+     * @var int|null $skuNumber Device sku number, see also: https://docs.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo. Valid values 0 to 2147483647. This property is read-only.
+    */
     private ?int $skuNumber = null;
     
-    /** @var string|null $specificationVersion Specification version. This property is read-only. */
+    /**
+     * @var string|null $specificationVersion Specification version. This property is read-only.
+    */
     private ?string $specificationVersion = null;
     
-    /** @var string|null $subscriberCarrier Subscriber Carrier. This property is read-only. */
+    /**
+     * @var string|null $subscriberCarrier Subscriber Carrier. This property is read-only.
+    */
     private ?string $subscriberCarrier = null;
     
-    /** @var int|null $totalStorageSpaceInBytes Total Storage in Bytes. This property is read-only. */
+    /**
+     * @var int|null $totalStorageSpaceInBytes Total Storage in Bytes. This property is read-only.
+    */
     private ?int $totalStorageSpaceInBytes = null;
     
-    /** @var string|null $udid Unique Device Identifier for iOS and macOS devices. This property is read-only. */
+    /**
+     * @var string|null $udid Unique Device Identifier for iOS and macOS devices. This property is read-only.
+    */
     private ?string $udid = null;
     
-    /** @var string|null $userDisplayName User display name. This property is read-only. */
+    /**
+     * @var string|null $userDisplayName User display name. This property is read-only.
+    */
     private ?string $userDisplayName = null;
     
-    /** @var string|null $userId Unique Identifier for the user associated with the device. This property is read-only. */
+    /**
+     * @var string|null $userId Unique Identifier for the user associated with the device. This property is read-only.
+    */
     private ?string $userId = null;
     
-    /** @var string|null $userPrincipalName Device user principal name. This property is read-only. */
+    /**
+     * @var string|null $userPrincipalName Device user principal name. This property is read-only.
+    */
     private ?string $userPrincipalName = null;
     
-    /** @var array<User>|null $users The primary users associated with the managed device. */
+    /**
+     * @var array<User>|null $users The primary users associated with the managed device.
+    */
     private ?array $users = null;
     
-    /** @var array<LoggedOnUser>|null $usersLoggedOn Indicates the last logged on users of a device. This property is read-only. */
+    /**
+     * @var array<LoggedOnUser>|null $usersLoggedOn Indicates the last logged on users of a device. This property is read-only.
+    */
     private ?array $usersLoggedOn = null;
     
-    /** @var string|null $wiFiMacAddress Wi-Fi MAC. This property is read-only. */
+    /**
+     * @var string|null $wiFiMacAddress Wi-Fi MAC. This property is read-only.
+    */
     private ?string $wiFiMacAddress = null;
     
-    /** @var int|null $windowsActiveMalwareCount Count of active malware for this windows device. This property is read-only. */
+    /**
+     * @var int|null $windowsActiveMalwareCount Count of active malware for this windows device. This property is read-only.
+    */
     private ?int $windowsActiveMalwareCount = null;
     
-    /** @var WindowsProtectionState|null $windowsProtectionState The device protection status. This property is read-only. */
+    /**
+     * @var WindowsProtectionState|null $windowsProtectionState The device protection status. This property is read-only.
+    */
     private ?WindowsProtectionState $windowsProtectionState = null;
     
-    /** @var int|null $windowsRemediatedMalwareCount Count of remediated malware for this windows device. This property is read-only. */
+    /**
+     * @var int|null $windowsRemediatedMalwareCount Count of remediated malware for this windows device. This property is read-only.
+    */
     private ?int $windowsRemediatedMalwareCount = null;
     
     /**
@@ -288,7 +466,14 @@ class ManagedDevice extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagedDevice
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagedDevice {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagedDevice {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.windowsManagedDevice': return new WindowsManagedDevice();
+            }
+        }
         return new ManagedDevice();
     }
 
@@ -469,7 +654,7 @@ class ManagedDevice extends Entity
     }
 
     /**
-     * Gets the deviceEnrollmentType property value. Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount.
+     * Gets the deviceEnrollmentType property value. Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
      * @return DeviceEnrollmentType|null
     */
     public function getDeviceEnrollmentType(): ?DeviceEnrollmentType {
@@ -593,96 +778,97 @@ class ManagedDevice extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'aadRegistered' => function (self $o, ParseNode $n) { $o->setAadRegistered($n->getBooleanValue()); },
-            'activationLockBypassCode' => function (self $o, ParseNode $n) { $o->setActivationLockBypassCode($n->getStringValue()); },
-            'androidSecurityPatchLevel' => function (self $o, ParseNode $n) { $o->setAndroidSecurityPatchLevel($n->getStringValue()); },
-            'assignmentFilterEvaluationStatusDetails' => function (self $o, ParseNode $n) { $o->setAssignmentFilterEvaluationStatusDetails($n->getCollectionOfObjectValues(AssignmentFilterEvaluationStatusDetails::class)); },
-            'autopilotEnrolled' => function (self $o, ParseNode $n) { $o->setAutopilotEnrolled($n->getBooleanValue()); },
-            'azureActiveDirectoryDeviceId' => function (self $o, ParseNode $n) { $o->setAzureActiveDirectoryDeviceId($n->getStringValue()); },
-            'azureADDeviceId' => function (self $o, ParseNode $n) { $o->setAzureADDeviceId($n->getStringValue()); },
-            'azureADRegistered' => function (self $o, ParseNode $n) { $o->setAzureADRegistered($n->getBooleanValue()); },
-            'chassisType' => function (self $o, ParseNode $n) { $o->setChassisType($n->getEnumValue(ChassisType::class)); },
-            'chromeOSDeviceInfo' => function (self $o, ParseNode $n) { $o->setChromeOSDeviceInfo($n->getCollectionOfObjectValues(ChromeOSDeviceProperty::class)); },
-            'cloudPcRemoteActionResults' => function (self $o, ParseNode $n) { $o->setCloudPcRemoteActionResults($n->getCollectionOfObjectValues(CloudPcRemoteActionResult::class)); },
-            'complianceGracePeriodExpirationDateTime' => function (self $o, ParseNode $n) { $o->setComplianceGracePeriodExpirationDateTime($n->getDateTimeValue()); },
-            'complianceState' => function (self $o, ParseNode $n) { $o->setComplianceState($n->getEnumValue(ComplianceState::class)); },
-            'configurationManagerClientEnabledFeatures' => function (self $o, ParseNode $n) { $o->setConfigurationManagerClientEnabledFeatures($n->getObjectValue(ConfigurationManagerClientEnabledFeatures::class)); },
-            'configurationManagerClientHealthState' => function (self $o, ParseNode $n) { $o->setConfigurationManagerClientHealthState($n->getObjectValue(ConfigurationManagerClientHealthState::class)); },
-            'configurationManagerClientInformation' => function (self $o, ParseNode $n) { $o->setConfigurationManagerClientInformation($n->getObjectValue(ConfigurationManagerClientInformation::class)); },
-            'detectedApps' => function (self $o, ParseNode $n) { $o->setDetectedApps($n->getCollectionOfObjectValues(DetectedApp::class)); },
-            'deviceActionResults' => function (self $o, ParseNode $n) { $o->setDeviceActionResults($n->getCollectionOfObjectValues(DeviceActionResult::class)); },
-            'deviceCategory' => function (self $o, ParseNode $n) { $o->setDeviceCategory($n->getObjectValue(DeviceCategory::class)); },
-            'deviceCategoryDisplayName' => function (self $o, ParseNode $n) { $o->setDeviceCategoryDisplayName($n->getStringValue()); },
-            'deviceCompliancePolicyStates' => function (self $o, ParseNode $n) { $o->setDeviceCompliancePolicyStates($n->getCollectionOfObjectValues(DeviceCompliancePolicyState::class)); },
-            'deviceConfigurationStates' => function (self $o, ParseNode $n) { $o->setDeviceConfigurationStates($n->getCollectionOfObjectValues(DeviceConfigurationState::class)); },
-            'deviceEnrollmentType' => function (self $o, ParseNode $n) { $o->setDeviceEnrollmentType($n->getEnumValue(DeviceEnrollmentType::class)); },
-            'deviceHealthAttestationState' => function (self $o, ParseNode $n) { $o->setDeviceHealthAttestationState($n->getObjectValue(DeviceHealthAttestationState::class)); },
-            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
-            'deviceRegistrationState' => function (self $o, ParseNode $n) { $o->setDeviceRegistrationState($n->getEnumValue(DeviceRegistrationState::class)); },
-            'deviceType' => function (self $o, ParseNode $n) { $o->setDeviceType($n->getEnumValue(DeviceType::class)); },
-            'easActivated' => function (self $o, ParseNode $n) { $o->setEasActivated($n->getBooleanValue()); },
-            'easActivationDateTime' => function (self $o, ParseNode $n) { $o->setEasActivationDateTime($n->getDateTimeValue()); },
-            'easDeviceId' => function (self $o, ParseNode $n) { $o->setEasDeviceId($n->getStringValue()); },
-            'emailAddress' => function (self $o, ParseNode $n) { $o->setEmailAddress($n->getStringValue()); },
-            'enrolledDateTime' => function (self $o, ParseNode $n) { $o->setEnrolledDateTime($n->getDateTimeValue()); },
-            'enrollmentProfileName' => function (self $o, ParseNode $n) { $o->setEnrollmentProfileName($n->getStringValue()); },
-            'ethernetMacAddress' => function (self $o, ParseNode $n) { $o->setEthernetMacAddress($n->getStringValue()); },
-            'exchangeAccessState' => function (self $o, ParseNode $n) { $o->setExchangeAccessState($n->getEnumValue(DeviceManagementExchangeAccessState::class)); },
-            'exchangeAccessStateReason' => function (self $o, ParseNode $n) { $o->setExchangeAccessStateReason($n->getEnumValue(DeviceManagementExchangeAccessStateReason::class)); },
-            'exchangeLastSuccessfulSyncDateTime' => function (self $o, ParseNode $n) { $o->setExchangeLastSuccessfulSyncDateTime($n->getDateTimeValue()); },
-            'freeStorageSpaceInBytes' => function (self $o, ParseNode $n) { $o->setFreeStorageSpaceInBytes($n->getIntegerValue()); },
-            'hardwareInformation' => function (self $o, ParseNode $n) { $o->setHardwareInformation($n->getObjectValue(HardwareInformation::class)); },
-            'iccid' => function (self $o, ParseNode $n) { $o->setIccid($n->getStringValue()); },
-            'imei' => function (self $o, ParseNode $n) { $o->setImei($n->getStringValue()); },
-            'isEncrypted' => function (self $o, ParseNode $n) { $o->setIsEncrypted($n->getBooleanValue()); },
-            'isSupervised' => function (self $o, ParseNode $n) { $o->setIsSupervised($n->getBooleanValue()); },
-            'jailBroken' => function (self $o, ParseNode $n) { $o->setJailBroken($n->getStringValue()); },
-            'joinType' => function (self $o, ParseNode $n) { $o->setJoinType($n->getEnumValue(JoinType::class)); },
-            'lastSyncDateTime' => function (self $o, ParseNode $n) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'logCollectionRequests' => function (self $o, ParseNode $n) { $o->setLogCollectionRequests($n->getCollectionOfObjectValues(DeviceLogCollectionResponse::class)); },
-            'lostModeState' => function (self $o, ParseNode $n) { $o->setLostModeState($n->getEnumValue(LostModeState::class)); },
-            'managedDeviceMobileAppConfigurationStates' => function (self $o, ParseNode $n) { $o->setManagedDeviceMobileAppConfigurationStates($n->getCollectionOfObjectValues(ManagedDeviceMobileAppConfigurationState::class)); },
-            'managedDeviceName' => function (self $o, ParseNode $n) { $o->setManagedDeviceName($n->getStringValue()); },
-            'managedDeviceOwnerType' => function (self $o, ParseNode $n) { $o->setManagedDeviceOwnerType($n->getEnumValue(ManagedDeviceOwnerType::class)); },
-            'managementAgent' => function (self $o, ParseNode $n) { $o->setManagementAgent($n->getEnumValue(ManagementAgentType::class)); },
-            'managementCertificateExpirationDate' => function (self $o, ParseNode $n) { $o->setManagementCertificateExpirationDate($n->getDateTimeValue()); },
-            'managementFeatures' => function (self $o, ParseNode $n) { $o->setManagementFeatures($n->getEnumValue(ManagedDeviceManagementFeatures::class)); },
-            'managementState' => function (self $o, ParseNode $n) { $o->setManagementState($n->getEnumValue(ManagementState::class)); },
-            'manufacturer' => function (self $o, ParseNode $n) { $o->setManufacturer($n->getStringValue()); },
-            'meid' => function (self $o, ParseNode $n) { $o->setMeid($n->getStringValue()); },
-            'model' => function (self $o, ParseNode $n) { $o->setModel($n->getStringValue()); },
-            'notes' => function (self $o, ParseNode $n) { $o->setNotes($n->getStringValue()); },
-            'operatingSystem' => function (self $o, ParseNode $n) { $o->setOperatingSystem($n->getStringValue()); },
-            'osVersion' => function (self $o, ParseNode $n) { $o->setOsVersion($n->getStringValue()); },
-            'ownerType' => function (self $o, ParseNode $n) { $o->setOwnerType($n->getEnumValue(OwnerType::class)); },
-            'partnerReportedThreatState' => function (self $o, ParseNode $n) { $o->setPartnerReportedThreatState($n->getEnumValue(ManagedDevicePartnerReportedHealthState::class)); },
-            'phoneNumber' => function (self $o, ParseNode $n) { $o->setPhoneNumber($n->getStringValue()); },
-            'physicalMemoryInBytes' => function (self $o, ParseNode $n) { $o->setPhysicalMemoryInBytes($n->getIntegerValue()); },
-            'preferMdmOverGroupPolicyAppliedDateTime' => function (self $o, ParseNode $n) { $o->setPreferMdmOverGroupPolicyAppliedDateTime($n->getDateTimeValue()); },
-            'processorArchitecture' => function (self $o, ParseNode $n) { $o->setProcessorArchitecture($n->getEnumValue(ManagedDeviceArchitecture::class)); },
-            'remoteAssistanceSessionErrorDetails' => function (self $o, ParseNode $n) { $o->setRemoteAssistanceSessionErrorDetails($n->getStringValue()); },
-            'remoteAssistanceSessionUrl' => function (self $o, ParseNode $n) { $o->setRemoteAssistanceSessionUrl($n->getStringValue()); },
-            'requireUserEnrollmentApproval' => function (self $o, ParseNode $n) { $o->setRequireUserEnrollmentApproval($n->getBooleanValue()); },
-            'retireAfterDateTime' => function (self $o, ParseNode $n) { $o->setRetireAfterDateTime($n->getDateTimeValue()); },
-            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'securityBaselineStates' => function (self $o, ParseNode $n) { $o->setSecurityBaselineStates($n->getCollectionOfObjectValues(SecurityBaselineState::class)); },
-            'serialNumber' => function (self $o, ParseNode $n) { $o->setSerialNumber($n->getStringValue()); },
-            'skuFamily' => function (self $o, ParseNode $n) { $o->setSkuFamily($n->getStringValue()); },
-            'skuNumber' => function (self $o, ParseNode $n) { $o->setSkuNumber($n->getIntegerValue()); },
-            'specificationVersion' => function (self $o, ParseNode $n) { $o->setSpecificationVersion($n->getStringValue()); },
-            'subscriberCarrier' => function (self $o, ParseNode $n) { $o->setSubscriberCarrier($n->getStringValue()); },
-            'totalStorageSpaceInBytes' => function (self $o, ParseNode $n) { $o->setTotalStorageSpaceInBytes($n->getIntegerValue()); },
-            'udid' => function (self $o, ParseNode $n) { $o->setUdid($n->getStringValue()); },
-            'userDisplayName' => function (self $o, ParseNode $n) { $o->setUserDisplayName($n->getStringValue()); },
-            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
-            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
-            'users' => function (self $o, ParseNode $n) { $o->setUsers($n->getCollectionOfObjectValues(User::class)); },
-            'usersLoggedOn' => function (self $o, ParseNode $n) { $o->setUsersLoggedOn($n->getCollectionOfObjectValues(LoggedOnUser::class)); },
-            'wiFiMacAddress' => function (self $o, ParseNode $n) { $o->setWiFiMacAddress($n->getStringValue()); },
-            'windowsActiveMalwareCount' => function (self $o, ParseNode $n) { $o->setWindowsActiveMalwareCount($n->getIntegerValue()); },
-            'windowsProtectionState' => function (self $o, ParseNode $n) { $o->setWindowsProtectionState($n->getObjectValue(WindowsProtectionState::class)); },
-            'windowsRemediatedMalwareCount' => function (self $o, ParseNode $n) { $o->setWindowsRemediatedMalwareCount($n->getIntegerValue()); },
+            'aadRegistered' => function (ParseNode $n) use ($o) { $o->setAadRegistered($n->getBooleanValue()); },
+            'activationLockBypassCode' => function (ParseNode $n) use ($o) { $o->setActivationLockBypassCode($n->getStringValue()); },
+            'androidSecurityPatchLevel' => function (ParseNode $n) use ($o) { $o->setAndroidSecurityPatchLevel($n->getStringValue()); },
+            'assignmentFilterEvaluationStatusDetails' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterEvaluationStatusDetails($n->getCollectionOfObjectValues(array(AssignmentFilterEvaluationStatusDetails::class, 'createFromDiscriminatorValue'))); },
+            'autopilotEnrolled' => function (ParseNode $n) use ($o) { $o->setAutopilotEnrolled($n->getBooleanValue()); },
+            'azureActiveDirectoryDeviceId' => function (ParseNode $n) use ($o) { $o->setAzureActiveDirectoryDeviceId($n->getStringValue()); },
+            'azureADDeviceId' => function (ParseNode $n) use ($o) { $o->setAzureADDeviceId($n->getStringValue()); },
+            'azureADRegistered' => function (ParseNode $n) use ($o) { $o->setAzureADRegistered($n->getBooleanValue()); },
+            'chassisType' => function (ParseNode $n) use ($o) { $o->setChassisType($n->getEnumValue(ChassisType::class)); },
+            'chromeOSDeviceInfo' => function (ParseNode $n) use ($o) { $o->setChromeOSDeviceInfo($n->getCollectionOfObjectValues(array(ChromeOSDeviceProperty::class, 'createFromDiscriminatorValue'))); },
+            'cloudPcRemoteActionResults' => function (ParseNode $n) use ($o) { $o->setCloudPcRemoteActionResults($n->getCollectionOfObjectValues(array(CloudPcRemoteActionResult::class, 'createFromDiscriminatorValue'))); },
+            'complianceGracePeriodExpirationDateTime' => function (ParseNode $n) use ($o) { $o->setComplianceGracePeriodExpirationDateTime($n->getDateTimeValue()); },
+            'complianceState' => function (ParseNode $n) use ($o) { $o->setComplianceState($n->getEnumValue(ComplianceState::class)); },
+            'configurationManagerClientEnabledFeatures' => function (ParseNode $n) use ($o) { $o->setConfigurationManagerClientEnabledFeatures($n->getObjectValue(array(ConfigurationManagerClientEnabledFeatures::class, 'createFromDiscriminatorValue'))); },
+            'configurationManagerClientHealthState' => function (ParseNode $n) use ($o) { $o->setConfigurationManagerClientHealthState($n->getObjectValue(array(ConfigurationManagerClientHealthState::class, 'createFromDiscriminatorValue'))); },
+            'configurationManagerClientInformation' => function (ParseNode $n) use ($o) { $o->setConfigurationManagerClientInformation($n->getObjectValue(array(ConfigurationManagerClientInformation::class, 'createFromDiscriminatorValue'))); },
+            'detectedApps' => function (ParseNode $n) use ($o) { $o->setDetectedApps($n->getCollectionOfObjectValues(array(DetectedApp::class, 'createFromDiscriminatorValue'))); },
+            'deviceActionResults' => function (ParseNode $n) use ($o) { $o->setDeviceActionResults($n->getCollectionOfObjectValues(array(DeviceActionResult::class, 'createFromDiscriminatorValue'))); },
+            'deviceCategory' => function (ParseNode $n) use ($o) { $o->setDeviceCategory($n->getObjectValue(array(DeviceCategory::class, 'createFromDiscriminatorValue'))); },
+            'deviceCategoryDisplayName' => function (ParseNode $n) use ($o) { $o->setDeviceCategoryDisplayName($n->getStringValue()); },
+            'deviceCompliancePolicyStates' => function (ParseNode $n) use ($o) { $o->setDeviceCompliancePolicyStates($n->getCollectionOfObjectValues(array(DeviceCompliancePolicyState::class, 'createFromDiscriminatorValue'))); },
+            'deviceConfigurationStates' => function (ParseNode $n) use ($o) { $o->setDeviceConfigurationStates($n->getCollectionOfObjectValues(array(DeviceConfigurationState::class, 'createFromDiscriminatorValue'))); },
+            'deviceEnrollmentType' => function (ParseNode $n) use ($o) { $o->setDeviceEnrollmentType($n->getEnumValue(DeviceEnrollmentType::class)); },
+            'deviceHealthAttestationState' => function (ParseNode $n) use ($o) { $o->setDeviceHealthAttestationState($n->getObjectValue(array(DeviceHealthAttestationState::class, 'createFromDiscriminatorValue'))); },
+            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
+            'deviceRegistrationState' => function (ParseNode $n) use ($o) { $o->setDeviceRegistrationState($n->getEnumValue(DeviceRegistrationState::class)); },
+            'deviceType' => function (ParseNode $n) use ($o) { $o->setDeviceType($n->getEnumValue(DeviceType::class)); },
+            'easActivated' => function (ParseNode $n) use ($o) { $o->setEasActivated($n->getBooleanValue()); },
+            'easActivationDateTime' => function (ParseNode $n) use ($o) { $o->setEasActivationDateTime($n->getDateTimeValue()); },
+            'easDeviceId' => function (ParseNode $n) use ($o) { $o->setEasDeviceId($n->getStringValue()); },
+            'emailAddress' => function (ParseNode $n) use ($o) { $o->setEmailAddress($n->getStringValue()); },
+            'enrolledDateTime' => function (ParseNode $n) use ($o) { $o->setEnrolledDateTime($n->getDateTimeValue()); },
+            'enrollmentProfileName' => function (ParseNode $n) use ($o) { $o->setEnrollmentProfileName($n->getStringValue()); },
+            'ethernetMacAddress' => function (ParseNode $n) use ($o) { $o->setEthernetMacAddress($n->getStringValue()); },
+            'exchangeAccessState' => function (ParseNode $n) use ($o) { $o->setExchangeAccessState($n->getEnumValue(DeviceManagementExchangeAccessState::class)); },
+            'exchangeAccessStateReason' => function (ParseNode $n) use ($o) { $o->setExchangeAccessStateReason($n->getEnumValue(DeviceManagementExchangeAccessStateReason::class)); },
+            'exchangeLastSuccessfulSyncDateTime' => function (ParseNode $n) use ($o) { $o->setExchangeLastSuccessfulSyncDateTime($n->getDateTimeValue()); },
+            'freeStorageSpaceInBytes' => function (ParseNode $n) use ($o) { $o->setFreeStorageSpaceInBytes($n->getIntegerValue()); },
+            'hardwareInformation' => function (ParseNode $n) use ($o) { $o->setHardwareInformation($n->getObjectValue(array(HardwareInformation::class, 'createFromDiscriminatorValue'))); },
+            'iccid' => function (ParseNode $n) use ($o) { $o->setIccid($n->getStringValue()); },
+            'imei' => function (ParseNode $n) use ($o) { $o->setImei($n->getStringValue()); },
+            'isEncrypted' => function (ParseNode $n) use ($o) { $o->setIsEncrypted($n->getBooleanValue()); },
+            'isSupervised' => function (ParseNode $n) use ($o) { $o->setIsSupervised($n->getBooleanValue()); },
+            'jailBroken' => function (ParseNode $n) use ($o) { $o->setJailBroken($n->getStringValue()); },
+            'joinType' => function (ParseNode $n) use ($o) { $o->setJoinType($n->getEnumValue(JoinType::class)); },
+            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
+            'logCollectionRequests' => function (ParseNode $n) use ($o) { $o->setLogCollectionRequests($n->getCollectionOfObjectValues(array(DeviceLogCollectionResponse::class, 'createFromDiscriminatorValue'))); },
+            'lostModeState' => function (ParseNode $n) use ($o) { $o->setLostModeState($n->getEnumValue(LostModeState::class)); },
+            'managedDeviceMobileAppConfigurationStates' => function (ParseNode $n) use ($o) { $o->setManagedDeviceMobileAppConfigurationStates($n->getCollectionOfObjectValues(array(ManagedDeviceMobileAppConfigurationState::class, 'createFromDiscriminatorValue'))); },
+            'managedDeviceName' => function (ParseNode $n) use ($o) { $o->setManagedDeviceName($n->getStringValue()); },
+            'managedDeviceOwnerType' => function (ParseNode $n) use ($o) { $o->setManagedDeviceOwnerType($n->getEnumValue(ManagedDeviceOwnerType::class)); },
+            'managementAgent' => function (ParseNode $n) use ($o) { $o->setManagementAgent($n->getEnumValue(ManagementAgentType::class)); },
+            'managementCertificateExpirationDate' => function (ParseNode $n) use ($o) { $o->setManagementCertificateExpirationDate($n->getDateTimeValue()); },
+            'managementFeatures' => function (ParseNode $n) use ($o) { $o->setManagementFeatures($n->getEnumValue(ManagedDeviceManagementFeatures::class)); },
+            'managementState' => function (ParseNode $n) use ($o) { $o->setManagementState($n->getEnumValue(ManagementState::class)); },
+            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
+            'meid' => function (ParseNode $n) use ($o) { $o->setMeid($n->getStringValue()); },
+            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
+            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getStringValue()); },
+            'operatingSystem' => function (ParseNode $n) use ($o) { $o->setOperatingSystem($n->getStringValue()); },
+            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
+            'ownerType' => function (ParseNode $n) use ($o) { $o->setOwnerType($n->getEnumValue(OwnerType::class)); },
+            'partnerReportedThreatState' => function (ParseNode $n) use ($o) { $o->setPartnerReportedThreatState($n->getEnumValue(ManagedDevicePartnerReportedHealthState::class)); },
+            'phoneNumber' => function (ParseNode $n) use ($o) { $o->setPhoneNumber($n->getStringValue()); },
+            'physicalMemoryInBytes' => function (ParseNode $n) use ($o) { $o->setPhysicalMemoryInBytes($n->getIntegerValue()); },
+            'preferMdmOverGroupPolicyAppliedDateTime' => function (ParseNode $n) use ($o) { $o->setPreferMdmOverGroupPolicyAppliedDateTime($n->getDateTimeValue()); },
+            'processorArchitecture' => function (ParseNode $n) use ($o) { $o->setProcessorArchitecture($n->getEnumValue(ManagedDeviceArchitecture::class)); },
+            'remoteAssistanceSessionErrorDetails' => function (ParseNode $n) use ($o) { $o->setRemoteAssistanceSessionErrorDetails($n->getStringValue()); },
+            'remoteAssistanceSessionUrl' => function (ParseNode $n) use ($o) { $o->setRemoteAssistanceSessionUrl($n->getStringValue()); },
+            'requireUserEnrollmentApproval' => function (ParseNode $n) use ($o) { $o->setRequireUserEnrollmentApproval($n->getBooleanValue()); },
+            'retireAfterDateTime' => function (ParseNode $n) use ($o) { $o->setRetireAfterDateTime($n->getDateTimeValue()); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'securityBaselineStates' => function (ParseNode $n) use ($o) { $o->setSecurityBaselineStates($n->getCollectionOfObjectValues(array(SecurityBaselineState::class, 'createFromDiscriminatorValue'))); },
+            'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
+            'skuFamily' => function (ParseNode $n) use ($o) { $o->setSkuFamily($n->getStringValue()); },
+            'skuNumber' => function (ParseNode $n) use ($o) { $o->setSkuNumber($n->getIntegerValue()); },
+            'specificationVersion' => function (ParseNode $n) use ($o) { $o->setSpecificationVersion($n->getStringValue()); },
+            'subscriberCarrier' => function (ParseNode $n) use ($o) { $o->setSubscriberCarrier($n->getStringValue()); },
+            'totalStorageSpaceInBytes' => function (ParseNode $n) use ($o) { $o->setTotalStorageSpaceInBytes($n->getIntegerValue()); },
+            'udid' => function (ParseNode $n) use ($o) { $o->setUdid($n->getStringValue()); },
+            'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
+            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'users' => function (ParseNode $n) use ($o) { $o->setUsers($n->getCollectionOfObjectValues(array(User::class, 'createFromDiscriminatorValue'))); },
+            'usersLoggedOn' => function (ParseNode $n) use ($o) { $o->setUsersLoggedOn($n->getCollectionOfObjectValues(array(LoggedOnUser::class, 'createFromDiscriminatorValue'))); },
+            'wiFiMacAddress' => function (ParseNode $n) use ($o) { $o->setWiFiMacAddress($n->getStringValue()); },
+            'windowsActiveMalwareCount' => function (ParseNode $n) use ($o) { $o->setWindowsActiveMalwareCount($n->getIntegerValue()); },
+            'windowsProtectionState' => function (ParseNode $n) use ($o) { $o->setWindowsProtectionState($n->getObjectValue(array(WindowsProtectionState::class, 'createFromDiscriminatorValue'))); },
+            'windowsRemediatedMalwareCount' => function (ParseNode $n) use ($o) { $o->setWindowsRemediatedMalwareCount($n->getIntegerValue()); },
         ]);
     }
 
@@ -799,7 +985,7 @@ class ManagedDevice extends Entity
     }
 
     /**
-     * Gets the managementAgent property value. Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
+     * Gets the managementAgent property value. Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
      * @return ManagementAgentType|null
     */
     public function getManagementAgent(): ?ManagementAgentType {
@@ -991,7 +1177,7 @@ class ManagedDevice extends Entity
     }
 
     /**
-     * Gets the skuNumber property value. Device sku number, see also: GetProductInfo function (sysinfoapi.h). Valid values 0 to 2147483647. This property is read-only.
+     * Gets the skuNumber property value. Device sku number, see also: https://docs.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo. Valid values 0 to 2147483647. This property is read-only.
      * @return int|null
     */
     public function getSkuNumber(): ?int {
@@ -1376,7 +1562,7 @@ class ManagedDevice extends Entity
     }
 
     /**
-     * Sets the deviceEnrollmentType property value. Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount.
+     * Sets the deviceEnrollmentType property value. Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
      *  @param DeviceEnrollmentType|null $value Value to set for the deviceEnrollmentType property.
     */
     public function setDeviceEnrollmentType(?DeviceEnrollmentType $value ): void {
@@ -1608,7 +1794,7 @@ class ManagedDevice extends Entity
     }
 
     /**
-     * Sets the managementAgent property value. Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
+     * Sets the managementAgent property value. Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
      *  @param ManagementAgentType|null $value Value to set for the managementAgent property.
     */
     public function setManagementAgent(?ManagementAgentType $value ): void {
@@ -1800,7 +1986,7 @@ class ManagedDevice extends Entity
     }
 
     /**
-     * Sets the skuNumber property value. Device sku number, see also: GetProductInfo function (sysinfoapi.h). Valid values 0 to 2147483647. This property is read-only.
+     * Sets the skuNumber property value. Device sku number, see also: https://docs.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo. Valid values 0 to 2147483647. This property is read-only.
      *  @param int|null $value Value to set for the skuNumber property.
     */
     public function setSkuNumber(?int $value ): void {

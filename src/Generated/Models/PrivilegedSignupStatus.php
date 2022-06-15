@@ -6,12 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PrivilegedSignupStatus extends Entity 
+class PrivilegedSignupStatus extends Entity implements Parsable 
 {
-    /** @var bool|null $isRegistered The isRegistered property */
+    /**
+     * @var bool|null $isRegistered The isRegistered property
+    */
     private ?bool $isRegistered = null;
     
-    /** @var SetupStatus|null $status The status property */
+    /**
+     * @var SetupStatus|null $status The status property
+    */
     private ?SetupStatus $status = null;
     
     /**
@@ -26,7 +30,7 @@ class PrivilegedSignupStatus extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrivilegedSignupStatus
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedSignupStatus {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedSignupStatus {
         return new PrivilegedSignupStatus();
     }
 
@@ -35,9 +39,10 @@ class PrivilegedSignupStatus extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isRegistered' => function (self $o, ParseNode $n) { $o->setIsRegistered($n->getBooleanValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(SetupStatus::class)); },
+            'isRegistered' => function (ParseNode $n) use ($o) { $o->setIsRegistered($n->getBooleanValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(SetupStatus::class)); },
         ]);
     }
 

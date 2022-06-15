@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AuditProperty implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $displayName Display name. */
+    /**
+     * @var string|null $displayName Display name.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $newValue New value. */
+    /**
+     * @var string|null $newValue New value.
+    */
     private ?string $newValue = null;
     
-    /** @var string|null $oldValue Old value. */
+    /**
+     * @var string|null $oldValue Old value.
+    */
     private ?string $oldValue = null;
     
     /**
@@ -33,7 +41,7 @@ class AuditProperty implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AuditProperty
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AuditProperty {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AuditProperty {
         return new AuditProperty();
     }
 
@@ -58,10 +66,11 @@ class AuditProperty implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'newValue' => function (self $o, ParseNode $n) { $o->setNewValue($n->getStringValue()); },
-            'oldValue' => function (self $o, ParseNode $n) { $o->setOldValue($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'newValue' => function (ParseNode $n) use ($o) { $o->setNewValue($n->getStringValue()); },
+            'oldValue' => function (ParseNode $n) use ($o) { $o->setOldValue($n->getStringValue()); },
         ];
     }
 

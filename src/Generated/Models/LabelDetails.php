@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class LabelDetails extends ParentLabelDetails 
+class LabelDetails extends ParentLabelDetails implements Parsable 
 {
     /**
      * Instantiates a new labelDetails and sets the default values.
@@ -20,7 +20,7 @@ class LabelDetails extends ParentLabelDetails
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return LabelDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): LabelDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): LabelDetails {
         return new LabelDetails();
     }
 
@@ -29,6 +29,7 @@ class LabelDetails extends ParentLabelDetails
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
         ]);
     }

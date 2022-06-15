@@ -6,12 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MeetingRegistrationBase extends Entity 
+class MeetingRegistrationBase extends Entity implements Parsable 
 {
-    /** @var MeetingAudience|null $allowedRegistrant Specifies who can register for the meeting. */
+    /**
+     * @var MeetingAudience|null $allowedRegistrant Specifies who can register for the meeting.
+    */
     private ?MeetingAudience $allowedRegistrant = null;
     
-    /** @var array<MeetingRegistrantBase>|null $registrants Registrants of the online meeting. */
+    /**
+     * @var array<MeetingRegistrantBase>|null $registrants Registrants of the online meeting.
+    */
     private ?array $registrants = null;
     
     /**
@@ -26,7 +30,15 @@ class MeetingRegistrationBase extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MeetingRegistrationBase
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MeetingRegistrationBase {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MeetingRegistrationBase {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.externalMeetingRegistration': return new ExternalMeetingRegistration();
+                case '#microsoft.graph.meetingRegistration': return new MeetingRegistration();
+            }
+        }
         return new MeetingRegistrationBase();
     }
 
@@ -43,9 +55,10 @@ class MeetingRegistrationBase extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedRegistrant' => function (self $o, ParseNode $n) { $o->setAllowedRegistrant($n->getEnumValue(MeetingAudience::class)); },
-            'registrants' => function (self $o, ParseNode $n) { $o->setRegistrants($n->getCollectionOfObjectValues(MeetingRegistrantBase::class)); },
+            'allowedRegistrant' => function (ParseNode $n) use ($o) { $o->setAllowedRegistrant($n->getEnumValue(MeetingAudience::class)); },
+            'registrants' => function (ParseNode $n) use ($o) { $o->setRegistrants($n->getCollectionOfObjectValues(array(MeetingRegistrantBase::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

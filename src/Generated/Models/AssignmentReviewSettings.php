@@ -10,34 +10,54 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AssignmentReviewSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var AccessReviewTimeoutBehavior|null $accessReviewTimeoutBehavior The default decision to apply if the request is not reviewed within the period specified in durationInDays. The possible values are: acceptAccessRecommendation, keepAccess, removeAccess, and unknownFutureValue. */
+    /**
+     * @var AccessReviewTimeoutBehavior|null $accessReviewTimeoutBehavior The default decision to apply if the request is not reviewed within the period specified in durationInDays. The possible values are: acceptAccessRecommendation, keepAccess, removeAccess, and unknownFutureValue.
+    */
     private ?AccessReviewTimeoutBehavior $accessReviewTimeoutBehavior = null;
     
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $durationInDays The number of days within which reviewers should provide input. */
+    /**
+     * @var int|null $durationInDays The number of days within which reviewers should provide input.
+    */
     private ?int $durationInDays = null;
     
-    /** @var bool|null $isAccessRecommendationEnabled Specifies whether to display recommendations to the reviewer. The default value is true */
+    /**
+     * @var bool|null $isAccessRecommendationEnabled Specifies whether to display recommendations to the reviewer. The default value is true
+    */
     private ?bool $isAccessRecommendationEnabled = null;
     
-    /** @var bool|null $isApprovalJustificationRequired Specifies whether the reviewer must provide justification for the approval. The default value is true. */
+    /**
+     * @var bool|null $isApprovalJustificationRequired Specifies whether the reviewer must provide justification for the approval. The default value is true.
+    */
     private ?bool $isApprovalJustificationRequired = null;
     
-    /** @var bool|null $isEnabled If true, access reviews are required for assignments from this policy. */
+    /**
+     * @var bool|null $isEnabled If true, access reviews are required for assignments from this policy.
+    */
     private ?bool $isEnabled = null;
     
-    /** @var string|null $recurrenceType The interval for recurrence, such as monthly or quarterly. */
+    /**
+     * @var string|null $recurrenceType The interval for recurrence, such as monthly or quarterly.
+    */
     private ?string $recurrenceType = null;
     
-    /** @var array<UserSet>|null $reviewers If the reviewerType is Reviewers, this collection specifies the users who will be reviewers, either by ID or as members of a group, using a collection of singleUser and groupMembers. */
+    /**
+     * @var array<UserSet>|null $reviewers If the reviewerType is Reviewers, this collection specifies the users who will be reviewers, either by ID or as members of a group, using a collection of singleUser and groupMembers.
+    */
     private ?array $reviewers = null;
     
-    /** @var string|null $reviewerType Who should be asked to do the review, either Self or Reviewers. */
+    /**
+     * @var string|null $reviewerType Who should be asked to do the review, either Self or Reviewers.
+    */
     private ?string $reviewerType = null;
     
-    /** @var DateTime|null $startDateTime When the first review should start. */
+    /**
+     * @var DateTime|null $startDateTime When the first review should start.
+    */
     private ?DateTime $startDateTime = null;
     
     /**
@@ -52,7 +72,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AssignmentReviewSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentReviewSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentReviewSettings {
         return new AssignmentReviewSettings();
     }
 
@@ -85,16 +105,17 @@ class AssignmentReviewSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'accessReviewTimeoutBehavior' => function (self $o, ParseNode $n) { $o->setAccessReviewTimeoutBehavior($n->getEnumValue(AccessReviewTimeoutBehavior::class)); },
-            'durationInDays' => function (self $o, ParseNode $n) { $o->setDurationInDays($n->getIntegerValue()); },
-            'isAccessRecommendationEnabled' => function (self $o, ParseNode $n) { $o->setIsAccessRecommendationEnabled($n->getBooleanValue()); },
-            'isApprovalJustificationRequired' => function (self $o, ParseNode $n) { $o->setIsApprovalJustificationRequired($n->getBooleanValue()); },
-            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
-            'recurrenceType' => function (self $o, ParseNode $n) { $o->setRecurrenceType($n->getStringValue()); },
-            'reviewers' => function (self $o, ParseNode $n) { $o->setReviewers($n->getCollectionOfObjectValues(UserSet::class)); },
-            'reviewerType' => function (self $o, ParseNode $n) { $o->setReviewerType($n->getStringValue()); },
-            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'accessReviewTimeoutBehavior' => function (ParseNode $n) use ($o) { $o->setAccessReviewTimeoutBehavior($n->getEnumValue(AccessReviewTimeoutBehavior::class)); },
+            'durationInDays' => function (ParseNode $n) use ($o) { $o->setDurationInDays($n->getIntegerValue()); },
+            'isAccessRecommendationEnabled' => function (ParseNode $n) use ($o) { $o->setIsAccessRecommendationEnabled($n->getBooleanValue()); },
+            'isApprovalJustificationRequired' => function (ParseNode $n) use ($o) { $o->setIsApprovalJustificationRequired($n->getBooleanValue()); },
+            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            'recurrenceType' => function (ParseNode $n) use ($o) { $o->setRecurrenceType($n->getStringValue()); },
+            'reviewers' => function (ParseNode $n) use ($o) { $o->setReviewers($n->getCollectionOfObjectValues(array(UserSet::class, 'createFromDiscriminatorValue'))); },
+            'reviewerType' => function (ParseNode $n) use ($o) { $o->setReviewerType($n->getStringValue()); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
         ];
     }
 

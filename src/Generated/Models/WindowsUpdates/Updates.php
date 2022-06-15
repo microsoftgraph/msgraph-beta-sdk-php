@@ -7,15 +7,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Updates extends Entity 
+class Updates extends Entity implements Parsable 
 {
-    /** @var Catalog|null $catalog Catalog of content that can be approved for deployment by the deployment service. Read-only. */
+    /**
+     * @var Catalog|null $catalog Catalog of content that can be approved for deployment by the deployment service. Read-only.
+    */
     private ?Catalog $catalog = null;
     
-    /** @var array<Deployment>|null $deployments Deployments created using the deployment service. Read-only. */
+    /**
+     * @var array<Deployment>|null $deployments Deployments created using the deployment service. Read-only.
+    */
     private ?array $deployments = null;
     
-    /** @var array<UpdatableAsset>|null $updatableAssets Assets registered with the deployment service that can receive updates. Read-only. */
+    /**
+     * @var array<ResourceConnection>|null $resourceConnections The resourceConnections property
+    */
+    private ?array $resourceConnections = null;
+    
+    /**
+     * @var array<UpdatableAsset>|null $updatableAssets Assets registered with the deployment service that can receive updates. Read-only.
+    */
     private ?array $updatableAssets = null;
     
     /**
@@ -30,7 +41,7 @@ class Updates extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Updates
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Updates {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Updates {
         return new Updates();
     }
 
@@ -55,11 +66,21 @@ class Updates extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'catalog' => function (self $o, ParseNode $n) { $o->setCatalog($n->getObjectValue(Catalog::class)); },
-            'deployments' => function (self $o, ParseNode $n) { $o->setDeployments($n->getCollectionOfObjectValues(Deployment::class)); },
-            'updatableAssets' => function (self $o, ParseNode $n) { $o->setUpdatableAssets($n->getCollectionOfObjectValues(UpdatableAsset::class)); },
+            'catalog' => function (ParseNode $n) use ($o) { $o->setCatalog($n->getObjectValue(array(Catalog::class, 'createFromDiscriminatorValue'))); },
+            'deployments' => function (ParseNode $n) use ($o) { $o->setDeployments($n->getCollectionOfObjectValues(array(Deployment::class, 'createFromDiscriminatorValue'))); },
+            'resourceConnections' => function (ParseNode $n) use ($o) { $o->setResourceConnections($n->getCollectionOfObjectValues(array(ResourceConnection::class, 'createFromDiscriminatorValue'))); },
+            'updatableAssets' => function (ParseNode $n) use ($o) { $o->setUpdatableAssets($n->getCollectionOfObjectValues(array(UpdatableAsset::class, 'createFromDiscriminatorValue'))); },
         ]);
+    }
+
+    /**
+     * Gets the resourceConnections property value. The resourceConnections property
+     * @return array<ResourceConnection>|null
+    */
+    public function getResourceConnections(): ?array {
+        return $this->resourceConnections;
     }
 
     /**
@@ -78,6 +99,7 @@ class Updates extends Entity
         parent::serialize($writer);
         $writer->writeObjectValue('catalog', $this->catalog);
         $writer->writeCollectionOfObjectValues('deployments', $this->deployments);
+        $writer->writeCollectionOfObjectValues('resourceConnections', $this->resourceConnections);
         $writer->writeCollectionOfObjectValues('updatableAssets', $this->updatableAssets);
     }
 
@@ -95,6 +117,14 @@ class Updates extends Entity
     */
     public function setDeployments(?array $value ): void {
         $this->deployments = $value;
+    }
+
+    /**
+     * Sets the resourceConnections property value. The resourceConnections property
+     *  @param array<ResourceConnection>|null $value Value to set for the resourceConnections property.
+    */
+    public function setResourceConnections(?array $value ): void {
+        $this->resourceConnections = $value;
     }
 
     /**

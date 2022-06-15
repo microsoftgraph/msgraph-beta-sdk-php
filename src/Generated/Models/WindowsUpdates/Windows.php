@@ -7,9 +7,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Windows extends Entity 
+class Windows extends Entity implements Parsable 
 {
-    /** @var Updates|null $updates Entity that acts as a container for the functionality of the Windows Update for Business deployment service. Read-only. */
+    /**
+     * @var Updates|null $updates Entity that acts as a container for the functionality of the Windows Update for Business deployment service. Read-only.
+    */
     private ?Updates $updates = null;
     
     /**
@@ -24,7 +26,7 @@ class Windows extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Windows
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Windows {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Windows {
         return new Windows();
     }
 
@@ -33,8 +35,9 @@ class Windows extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'updates' => function (self $o, ParseNode $n) { $o->setUpdates($n->getObjectValue(Updates::class)); },
+            'updates' => function (ParseNode $n) use ($o) { $o->setUpdates($n->getObjectValue(array(Updates::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

@@ -6,18 +6,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PublishedResource extends Entity 
+class PublishedResource extends Entity implements Parsable 
 {
-    /** @var array<OnPremisesAgentGroup>|null $agentGroups List of onPremisesAgentGroups that a publishedResource is assigned to. Read-only. Nullable. */
+    /**
+     * @var array<OnPremisesAgentGroup>|null $agentGroups List of onPremisesAgentGroups that a publishedResource is assigned to. Read-only. Nullable.
+    */
     private ?array $agentGroups = null;
     
-    /** @var string|null $displayName Display Name of the publishedResource. */
+    /**
+     * @var string|null $displayName Display Name of the publishedResource.
+    */
     private ?string $displayName = null;
     
-    /** @var OnPremisesPublishingType|null $publishingType Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration. */
+    /**
+     * @var OnPremisesPublishingType|null $publishingType Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.
+    */
     private ?OnPremisesPublishingType $publishingType = null;
     
-    /** @var string|null $resourceName Name of the publishedResource. */
+    /**
+     * @var string|null $resourceName Name of the publishedResource.
+    */
     private ?string $resourceName = null;
     
     /**
@@ -32,7 +40,7 @@ class PublishedResource extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PublishedResource
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PublishedResource {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PublishedResource {
         return new PublishedResource();
     }
 
@@ -57,11 +65,12 @@ class PublishedResource extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'agentGroups' => function (self $o, ParseNode $n) { $o->setAgentGroups($n->getCollectionOfObjectValues(OnPremisesAgentGroup::class)); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'publishingType' => function (self $o, ParseNode $n) { $o->setPublishingType($n->getEnumValue(OnPremisesPublishingType::class)); },
-            'resourceName' => function (self $o, ParseNode $n) { $o->setResourceName($n->getStringValue()); },
+            'agentGroups' => function (ParseNode $n) use ($o) { $o->setAgentGroups($n->getCollectionOfObjectValues(array(OnPremisesAgentGroup::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'publishingType' => function (ParseNode $n) use ($o) { $o->setPublishingType($n->getEnumValue(OnPremisesPublishingType::class)); },
+            'resourceName' => function (ParseNode $n) use ($o) { $o->setResourceName($n->getStringValue()); },
         ]);
     }
 

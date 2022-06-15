@@ -10,22 +10,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var DateTime|null $expiryDate The expiry date of the custom domain certificate. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    /**
+     * @var DateTime|null $expiryDate The expiry date of the custom domain certificate. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    */
     private ?DateTime $expiryDate = null;
     
-    /** @var DateTime|null $issueDate The issue date of the custom domain. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    /**
+     * @var DateTime|null $issueDate The issue date of the custom domain. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    */
     private ?DateTime $issueDate = null;
     
-    /** @var string|null $issuerName The issuer name of the custom domain certificate. */
+    /**
+     * @var string|null $issuerName The issuer name of the custom domain certificate.
+    */
     private ?string $issuerName = null;
     
-    /** @var string|null $subjectName The subject name of the custom domain certificate. */
+    /**
+     * @var string|null $subjectName The subject name of the custom domain certificate.
+    */
     private ?string $subjectName = null;
     
-    /** @var string|null $thumbprint The thumbprint associated with the custom domain certificate. */
+    /**
+     * @var string|null $thumbprint The thumbprint associated with the custom domain certificate.
+    */
     private ?string $thumbprint = null;
     
     /**
@@ -40,7 +52,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return VerifiedCustomDomainCertificatesMetadata
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): VerifiedCustomDomainCertificatesMetadata {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): VerifiedCustomDomainCertificatesMetadata {
         return new VerifiedCustomDomainCertificatesMetadata();
     }
 
@@ -65,12 +77,13 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'expiryDate' => function (self $o, ParseNode $n) { $o->setExpiryDate($n->getDateTimeValue()); },
-            'issueDate' => function (self $o, ParseNode $n) { $o->setIssueDate($n->getDateTimeValue()); },
-            'issuerName' => function (self $o, ParseNode $n) { $o->setIssuerName($n->getStringValue()); },
-            'subjectName' => function (self $o, ParseNode $n) { $o->setSubjectName($n->getStringValue()); },
-            'thumbprint' => function (self $o, ParseNode $n) { $o->setThumbprint($n->getStringValue()); },
+            'expiryDate' => function (ParseNode $n) use ($o) { $o->setExpiryDate($n->getDateTimeValue()); },
+            'issueDate' => function (ParseNode $n) use ($o) { $o->setIssueDate($n->getDateTimeValue()); },
+            'issuerName' => function (ParseNode $n) use ($o) { $o->setIssuerName($n->getStringValue()); },
+            'subjectName' => function (ParseNode $n) use ($o) { $o->setSubjectName($n->getStringValue()); },
+            'thumbprint' => function (ParseNode $n) use ($o) { $o->setThumbprint($n->getStringValue()); },
         ];
     }
 

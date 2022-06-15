@@ -8,51 +8,81 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class CustomerPayment extends Entity 
+class CustomerPayment extends Entity implements Parsable 
 {
-    /** @var float|null $amount The amount property */
-    private ?float $amount = null;
+    /**
+     * @var string|null $amount The amount property
+    */
+    private ?string $amount = null;
     
-    /** @var string|null $appliesToInvoiceId The appliesToInvoiceId property */
+    /**
+     * @var string|null $appliesToInvoiceId The appliesToInvoiceId property
+    */
     private ?string $appliesToInvoiceId = null;
     
-    /** @var string|null $appliesToInvoiceNumber The appliesToInvoiceNumber property */
+    /**
+     * @var string|null $appliesToInvoiceNumber The appliesToInvoiceNumber property
+    */
     private ?string $appliesToInvoiceNumber = null;
     
-    /** @var string|null $comment The comment property */
+    /**
+     * @var string|null $comment The comment property
+    */
     private ?string $comment = null;
     
-    /** @var string|null $contactId The contactId property */
+    /**
+     * @var string|null $contactId The contactId property
+    */
     private ?string $contactId = null;
     
-    /** @var Customer|null $customer The customer property */
+    /**
+     * @var Customer|null $customer The customer property
+    */
     private ?Customer $customer = null;
     
-    /** @var string|null $customerId The customerId property */
+    /**
+     * @var string|null $customerId The customerId property
+    */
     private ?string $customerId = null;
     
-    /** @var string|null $customerNumber The customerNumber property */
+    /**
+     * @var string|null $customerNumber The customerNumber property
+    */
     private ?string $customerNumber = null;
     
-    /** @var string|null $description The description property */
+    /**
+     * @var string|null $description The description property
+    */
     private ?string $description = null;
     
-    /** @var string|null $documentNumber The documentNumber property */
+    /**
+     * @var string|null $documentNumber The documentNumber property
+    */
     private ?string $documentNumber = null;
     
-    /** @var string|null $externalDocumentNumber The externalDocumentNumber property */
+    /**
+     * @var string|null $externalDocumentNumber The externalDocumentNumber property
+    */
     private ?string $externalDocumentNumber = null;
     
-    /** @var string|null $journalDisplayName The journalDisplayName property */
+    /**
+     * @var string|null $journalDisplayName The journalDisplayName property
+    */
     private ?string $journalDisplayName = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var int|null $lineNumber The lineNumber property */
+    /**
+     * @var int|null $lineNumber The lineNumber property
+    */
     private ?int $lineNumber = null;
     
-    /** @var Date|null $postingDate The postingDate property */
+    /**
+     * @var Date|null $postingDate The postingDate property
+    */
     private ?Date $postingDate = null;
     
     /**
@@ -67,15 +97,15 @@ class CustomerPayment extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CustomerPayment
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CustomerPayment {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CustomerPayment {
         return new CustomerPayment();
     }
 
     /**
      * Gets the amount property value. The amount property
-     * @return float|null
+     * @return string|null
     */
-    public function getAmount(): ?float {
+    public function getAmount(): ?string {
         return $this->amount;
     }
 
@@ -164,22 +194,23 @@ class CustomerPayment extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'amount' => function (self $o, ParseNode $n) { $o->setAmount($n->getFloatValue()); },
-            'appliesToInvoiceId' => function (self $o, ParseNode $n) { $o->setAppliesToInvoiceId($n->getStringValue()); },
-            'appliesToInvoiceNumber' => function (self $o, ParseNode $n) { $o->setAppliesToInvoiceNumber($n->getStringValue()); },
-            'comment' => function (self $o, ParseNode $n) { $o->setComment($n->getStringValue()); },
-            'contactId' => function (self $o, ParseNode $n) { $o->setContactId($n->getStringValue()); },
-            'customer' => function (self $o, ParseNode $n) { $o->setCustomer($n->getObjectValue(Customer::class)); },
-            'customerId' => function (self $o, ParseNode $n) { $o->setCustomerId($n->getStringValue()); },
-            'customerNumber' => function (self $o, ParseNode $n) { $o->setCustomerNumber($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'documentNumber' => function (self $o, ParseNode $n) { $o->setDocumentNumber($n->getStringValue()); },
-            'externalDocumentNumber' => function (self $o, ParseNode $n) { $o->setExternalDocumentNumber($n->getStringValue()); },
-            'journalDisplayName' => function (self $o, ParseNode $n) { $o->setJournalDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'lineNumber' => function (self $o, ParseNode $n) { $o->setLineNumber($n->getIntegerValue()); },
-            'postingDate' => function (self $o, ParseNode $n) { $o->setPostingDate($n->getDateValue()); },
+            'amount' => function (ParseNode $n) use ($o) { $o->setAmount($n->getStringValue()); },
+            'appliesToInvoiceId' => function (ParseNode $n) use ($o) { $o->setAppliesToInvoiceId($n->getStringValue()); },
+            'appliesToInvoiceNumber' => function (ParseNode $n) use ($o) { $o->setAppliesToInvoiceNumber($n->getStringValue()); },
+            'comment' => function (ParseNode $n) use ($o) { $o->setComment($n->getStringValue()); },
+            'contactId' => function (ParseNode $n) use ($o) { $o->setContactId($n->getStringValue()); },
+            'customer' => function (ParseNode $n) use ($o) { $o->setCustomer($n->getObjectValue(array(Customer::class, 'createFromDiscriminatorValue'))); },
+            'customerId' => function (ParseNode $n) use ($o) { $o->setCustomerId($n->getStringValue()); },
+            'customerNumber' => function (ParseNode $n) use ($o) { $o->setCustomerNumber($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'documentNumber' => function (ParseNode $n) use ($o) { $o->setDocumentNumber($n->getStringValue()); },
+            'externalDocumentNumber' => function (ParseNode $n) use ($o) { $o->setExternalDocumentNumber($n->getStringValue()); },
+            'journalDisplayName' => function (ParseNode $n) use ($o) { $o->setJournalDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'lineNumber' => function (ParseNode $n) use ($o) { $o->setLineNumber($n->getIntegerValue()); },
+            'postingDate' => function (ParseNode $n) use ($o) { $o->setPostingDate($n->getDateValue()); },
         ]);
     }
 
@@ -221,7 +252,7 @@ class CustomerPayment extends Entity
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeFloatValue('amount', $this->amount);
+        $writer->writeStringValue('amount', $this->amount);
         $writer->writeStringValue('appliesToInvoiceId', $this->appliesToInvoiceId);
         $writer->writeStringValue('appliesToInvoiceNumber', $this->appliesToInvoiceNumber);
         $writer->writeStringValue('comment', $this->comment);
@@ -240,9 +271,9 @@ class CustomerPayment extends Entity
 
     /**
      * Sets the amount property value. The amount property
-     *  @param float|null $value Value to set for the amount property.
+     *  @param string|null $value Value to set for the amount property.
     */
-    public function setAmount(?float $value ): void {
+    public function setAmount(?string $value ): void {
         $this->amount = $value;
     }
 

@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ClassificationResult implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $confidenceLevel The confidence level, 0 to 100, of the result. */
+    /**
+     * @var int|null $confidenceLevel The confidence level, 0 to 100, of the result.
+    */
     private ?int $confidenceLevel = null;
     
-    /** @var int|null $count The number of instances of the specific information type in the input. */
+    /**
+     * @var int|null $count The number of instances of the specific information type in the input.
+    */
     private ?int $count = null;
     
-    /** @var string|null $sensitiveTypeId The GUID of the discovered sensitive information type. */
+    /**
+     * @var string|null $sensitiveTypeId The GUID of the discovered sensitive information type.
+    */
     private ?string $sensitiveTypeId = null;
     
     /**
@@ -33,7 +41,7 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ClassificationResult
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ClassificationResult {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ClassificationResult {
         return new ClassificationResult();
     }
 
@@ -66,10 +74,11 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'confidenceLevel' => function (self $o, ParseNode $n) { $o->setConfidenceLevel($n->getIntegerValue()); },
-            'count' => function (self $o, ParseNode $n) { $o->setCount($n->getIntegerValue()); },
-            'sensitiveTypeId' => function (self $o, ParseNode $n) { $o->setSensitiveTypeId($n->getStringValue()); },
+            'confidenceLevel' => function (ParseNode $n) use ($o) { $o->setConfidenceLevel($n->getIntegerValue()); },
+            'count' => function (ParseNode $n) use ($o) { $o->setCount($n->getIntegerValue()); },
+            'sensitiveTypeId' => function (ParseNode $n) use ($o) { $o->setSensitiveTypeId($n->getStringValue()); },
         ];
     }
 

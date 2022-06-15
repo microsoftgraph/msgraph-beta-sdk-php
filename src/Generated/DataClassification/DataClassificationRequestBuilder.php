@@ -108,10 +108,14 @@ class DataClassificationRequestBuilder
         return new JobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /** @var array<string, mixed> $pathParameters Path parameters for the request */
+    /**
+     * @var array<string, mixed> $pathParameters Path parameters for the request
+    */
     private array $pathParameters;
     
-    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
+    /**
+     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+    */
     private RequestAdapter $requestAdapter;
     
     /**
@@ -128,7 +132,9 @@ class DataClassificationRequestBuilder
         return new SensitivityLabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
+    /**
+     * @var string $urlTemplate Url template to use to build the URL for the current request builder
+    */
     private string $urlTemplate;
     
     /**
@@ -138,7 +144,7 @@ class DataClassificationRequestBuilder
     */
     public function classifyFileJobsById(string $id): MicrosoftGraphBetaGeneratedDataClassificationClassifyFileJobsItemJobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['jobResponseBase_id'] = $id;
+        $urlTplParams['jobResponseBase%2Did'] = $id;
         return new MicrosoftGraphBetaGeneratedDataClassificationClassifyFileJobsItemJobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -149,7 +155,7 @@ class DataClassificationRequestBuilder
     */
     public function classifyTextJobsById(string $id): MicrosoftGraphBetaGeneratedDataClassificationClassifyTextJobsItemJobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['jobResponseBase_id'] = $id;
+        $urlTplParams['jobResponseBase%2Did'] = $id;
         return new MicrosoftGraphBetaGeneratedDataClassificationClassifyTextJobsItemJobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -159,31 +165,32 @@ class DataClassificationRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/dataClassification{?select,expand}';
+        $this->urlTemplate = '{+baseurl}/dataClassification{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
      * Get dataClassification
-     * @param array|null $queryParameters Request query parameters
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param DataClassificationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?array $queryParameters = null, ?array $headers = null, ?array $options = null): RequestInformation {
+    public function createGetRequestInformation(?DataClassificationRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        if ($headers !== null) {
-            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
-        }
-        if ($queryParameters !== null) {
-            $requestInfo->setQueryParameters($queryParameters);
-        }
-        if ($options !== null) {
-            $requestInfo->addRequestOptions(...$options);
+        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
         }
         return $requestInfo;
     }
@@ -191,22 +198,23 @@ class DataClassificationRequestBuilder
     /**
      * Update dataClassification
      * @param DataClassificationService $body 
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param DataClassificationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(DataClassificationService $body, ?array $headers = null, ?array $options = null): RequestInformation {
+    public function createPatchRequestInformation(DataClassificationService $body, ?DataClassificationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        if ($headers !== null) {
-            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
-        if ($options !== null) {
-            $requestInfo->addRequestOptions(...$options);
-        }
         return $requestInfo;
     }
 
@@ -217,7 +225,7 @@ class DataClassificationRequestBuilder
     */
     public function evaluateDlpPoliciesJobsById(string $id): MicrosoftGraphBetaGeneratedDataClassificationEvaluateDlpPoliciesJobsItemJobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['jobResponseBase_id'] = $id;
+        $urlTplParams['jobResponseBase%2Did'] = $id;
         return new MicrosoftGraphBetaGeneratedDataClassificationEvaluateDlpPoliciesJobsItemJobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -228,7 +236,7 @@ class DataClassificationRequestBuilder
     */
     public function evaluateLabelJobsById(string $id): MicrosoftGraphBetaGeneratedDataClassificationEvaluateLabelJobsItemJobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['jobResponseBase_id'] = $id;
+        $urlTplParams['jobResponseBase%2Did'] = $id;
         return new MicrosoftGraphBetaGeneratedDataClassificationEvaluateLabelJobsItemJobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -239,7 +247,7 @@ class DataClassificationRequestBuilder
     */
     public function exactMatchDataStoresById(string $id): ExactMatchDataStoreItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['exactMatchDataStore_id'] = $id;
+        $urlTplParams['exactMatchDataStore%2Did'] = $id;
         return new ExactMatchDataStoreItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -250,22 +258,24 @@ class DataClassificationRequestBuilder
     */
     public function exactMatchUploadAgentsById(string $id): ExactMatchUploadAgentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['exactMatchUploadAgent_id'] = $id;
+        $urlTplParams['exactMatchUploadAgent%2Did'] = $id;
         return new ExactMatchUploadAgentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Get dataClassification
-     * @param array|null $queryParameters Request query parameters
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param DataClassificationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?array $queryParameters = null, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($queryParameters, $headers, $options);
+    public function get(?DataClassificationRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
         try {
-            return $this->requestAdapter->sendAsync($requestInfo, DataClassificationService::class, $responseHandler);
+            $errorMappings = [
+                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, array(DataClassificationService::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -278,22 +288,25 @@ class DataClassificationRequestBuilder
     */
     public function jobsById(string $id): MicrosoftGraphBetaGeneratedDataClassificationJobsItemJobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['jobResponseBase_id'] = $id;
+        $urlTplParams['jobResponseBase%2Did'] = $id;
         return new MicrosoftGraphBetaGeneratedDataClassificationJobsItemJobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update dataClassification
      * @param DataClassificationService $body 
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param DataClassificationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(DataClassificationService $body, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $headers, $options);
+    public function patch(DataClassificationService $body, ?DataClassificationRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
         try {
-            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
+            $errorMappings = [
+                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+            ];
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -306,7 +319,7 @@ class DataClassificationRequestBuilder
     */
     public function sensitiveTypesById(string $id): SensitiveTypeItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['sensitiveType_id'] = $id;
+        $urlTplParams['sensitiveType%2Did'] = $id;
         return new SensitiveTypeItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -317,7 +330,7 @@ class DataClassificationRequestBuilder
     */
     public function sensitivityLabelsById(string $id): SensitivityLabelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['sensitivityLabel_id'] = $id;
+        $urlTplParams['sensitivityLabel%2Did'] = $id;
         return new SensitivityLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

@@ -7,27 +7,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPcUserSetting extends Entity 
+class CloudPcUserSetting extends Entity implements Parsable 
 {
-    /** @var array<CloudPcUserSettingAssignment>|null $assignments Represents the set of Microsoft 365 groups and security groups in Azure AD that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSettingample. */
+    /**
+     * @var array<CloudPcUserSettingAssignment>|null $assignments Represents the set of Microsoft 365 groups and security groups in Azure AD that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSettingample.
+    */
     private ?array $assignments = null;
     
-    /** @var DateTime|null $createdDateTime The date and time the setting was created. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'. */
+    /**
+     * @var DateTime|null $createdDateTime The date and time the setting was created. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $displayName The setting name displayed in the user interface. */
+    /**
+     * @var string|null $displayName The setting name displayed in the user interface.
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The last date and time the setting was modified. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The last date and time the setting was modified. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var bool|null $localAdminEnabled Indicates whether the local admin option is enabled. Default value is false. To enable the local admin option, change the setting to true. If the local admin option is enabled, the end user can be an admin of the Cloud PC device. */
+    /**
+     * @var bool|null $localAdminEnabled Indicates whether the local admin option is enabled. Default value is false. To enable the local admin option, change the setting to true. If the local admin option is enabled, the end user can be an admin of the Cloud PC device.
+    */
     private ?bool $localAdminEnabled = null;
     
-    /** @var CloudPcRestorePointSetting|null $restorePointSetting Defines how frequently a restore point is created that is, a snapshot is taken) for users' provisioned Cloud PCs (default is 12 hours), and whether the user is allowed to restore their own Cloud PCs to a backup made at a specific point in time. */
+    /**
+     * @var CloudPcRestorePointSetting|null $restorePointSetting Defines how frequently a restore point is created that is, a snapshot is taken) for users' provisioned Cloud PCs (default is 12 hours), and whether the user is allowed to restore their own Cloud PCs to a backup made at a specific point in time.
+    */
     private ?CloudPcRestorePointSetting $restorePointSetting = null;
     
-    /** @var bool|null $selfServiceEnabled Indicates whether the self-service option is enabled. Default value is false. To enable the self-service option, change the setting to true. If the self-service option is enabled, the end user is allowed to perform some self-service operations, such as upgrading the Cloud PC through the end user portal. */
+    /**
+     * @var bool|null $selfServiceEnabled Indicates whether the self-service option is enabled. Default value is false. To enable the self-service option, change the setting to true. If the self-service option is enabled, the end user is allowed to perform some self-service operations, such as upgrading the Cloud PC through the end user portal.
+    */
     private ?bool $selfServiceEnabled = null;
     
     /**
@@ -42,7 +56,7 @@ class CloudPcUserSetting extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcUserSetting
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcUserSetting {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcUserSetting {
         return new CloudPcUserSetting();
     }
 
@@ -75,14 +89,15 @@ class CloudPcUserSetting extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(CloudPcUserSettingAssignment::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'localAdminEnabled' => function (self $o, ParseNode $n) { $o->setLocalAdminEnabled($n->getBooleanValue()); },
-            'restorePointSetting' => function (self $o, ParseNode $n) { $o->setRestorePointSetting($n->getObjectValue(CloudPcRestorePointSetting::class)); },
-            'selfServiceEnabled' => function (self $o, ParseNode $n) { $o->setSelfServiceEnabled($n->getBooleanValue()); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(CloudPcUserSettingAssignment::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'localAdminEnabled' => function (ParseNode $n) use ($o) { $o->setLocalAdminEnabled($n->getBooleanValue()); },
+            'restorePointSetting' => function (ParseNode $n) use ($o) { $o->setRestorePointSetting($n->getObjectValue(array(CloudPcRestorePointSetting::class, 'createFromDiscriminatorValue'))); },
+            'selfServiceEnabled' => function (ParseNode $n) use ($o) { $o->setSelfServiceEnabled($n->getBooleanValue()); },
         ]);
     }
 

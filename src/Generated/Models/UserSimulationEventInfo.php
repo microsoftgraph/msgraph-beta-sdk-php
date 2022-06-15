@@ -10,22 +10,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserSimulationEventInfo implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $browser Browser information from where the simulation event was initiated by a user in an attack simulation and training campaign. */
+    /**
+     * @var string|null $browser Browser information from where the simulation event was initiated by a user in an attack simulation and training campaign.
+    */
     private ?string $browser = null;
     
-    /** @var DateTime|null $eventDateTime Date and time of the simulation event by a user in an attack simulation and training campaign. */
+    /**
+     * @var DateTime|null $eventDateTime Date and time of the simulation event by a user in an attack simulation and training campaign.
+    */
     private ?DateTime $eventDateTime = null;
     
-    /** @var string|null $eventName Name of the simulation event by a user in an attack simulation and training campaign. */
+    /**
+     * @var string|null $eventName Name of the simulation event by a user in an attack simulation and training campaign.
+    */
     private ?string $eventName = null;
     
-    /** @var string|null $ipAddress IP address from where the simulation event was initiated by a user in an attack simulation and training campaign. */
+    /**
+     * @var string|null $ipAddress IP address from where the simulation event was initiated by a user in an attack simulation and training campaign.
+    */
     private ?string $ipAddress = null;
     
-    /** @var string|null $osPlatformDeviceDetails The operating system, platform, and device details from where the simulation event was initiated by a user in an attack simulation and training campaign. */
+    /**
+     * @var string|null $osPlatformDeviceDetails The operating system, platform, and device details from where the simulation event was initiated by a user in an attack simulation and training campaign.
+    */
     private ?string $osPlatformDeviceDetails = null;
     
     /**
@@ -40,7 +52,7 @@ class UserSimulationEventInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserSimulationEventInfo
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserSimulationEventInfo {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserSimulationEventInfo {
         return new UserSimulationEventInfo();
     }
 
@@ -81,12 +93,13 @@ class UserSimulationEventInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'browser' => function (self $o, ParseNode $n) { $o->setBrowser($n->getStringValue()); },
-            'eventDateTime' => function (self $o, ParseNode $n) { $o->setEventDateTime($n->getDateTimeValue()); },
-            'eventName' => function (self $o, ParseNode $n) { $o->setEventName($n->getStringValue()); },
-            'ipAddress' => function (self $o, ParseNode $n) { $o->setIpAddress($n->getStringValue()); },
-            'osPlatformDeviceDetails' => function (self $o, ParseNode $n) { $o->setOsPlatformDeviceDetails($n->getStringValue()); },
+            'browser' => function (ParseNode $n) use ($o) { $o->setBrowser($n->getStringValue()); },
+            'eventDateTime' => function (ParseNode $n) use ($o) { $o->setEventDateTime($n->getDateTimeValue()); },
+            'eventName' => function (ParseNode $n) use ($o) { $o->setEventName($n->getStringValue()); },
+            'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
+            'osPlatformDeviceDetails' => function (ParseNode $n) use ($o) { $o->setOsPlatformDeviceDetails($n->getStringValue()); },
         ];
     }
 

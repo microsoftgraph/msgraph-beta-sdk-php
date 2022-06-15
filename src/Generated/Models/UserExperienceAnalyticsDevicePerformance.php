@@ -6,66 +6,106 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsDevicePerformance extends Entity 
+class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsable 
 {
-    /** @var float|null $averageBlueScreens Average (mean) number of Blue Screens per device in the last 14 days. Valid values 0 to 9999999 */
+    /**
+     * @var float|null $averageBlueScreens Average (mean) number of Blue Screens per device in the last 14 days. Valid values 0 to 9999999
+    */
     private ?float $averageBlueScreens = null;
     
-    /** @var float|null $averageRestarts Average (mean) number of Restarts per device in the last 14 days. Valid values 0 to 9999999 */
+    /**
+     * @var float|null $averageRestarts Average (mean) number of Restarts per device in the last 14 days. Valid values 0 to 9999999
+    */
     private ?float $averageRestarts = null;
     
-    /** @var int|null $blueScreenCount Number of Blue Screens in the last 14 days. Valid values 0 to 9999999 */
+    /**
+     * @var int|null $blueScreenCount Number of Blue Screens in the last 14 days. Valid values 0 to 9999999
+    */
     private ?int $blueScreenCount = null;
     
-    /** @var int|null $bootScore The user experience analytics device boot score. */
+    /**
+     * @var int|null $bootScore The user experience analytics device boot score.
+    */
     private ?int $bootScore = null;
     
-    /** @var int|null $coreBootTimeInMs The user experience analytics device core boot time in milliseconds. */
+    /**
+     * @var int|null $coreBootTimeInMs The user experience analytics device core boot time in milliseconds.
+    */
     private ?int $coreBootTimeInMs = null;
     
-    /** @var int|null $coreLoginTimeInMs The user experience analytics device core login time in milliseconds. */
+    /**
+     * @var int|null $coreLoginTimeInMs The user experience analytics device core login time in milliseconds.
+    */
     private ?int $coreLoginTimeInMs = null;
     
-    /** @var int|null $deviceCount User experience analytics summarized device count. */
+    /**
+     * @var int|null $deviceCount User experience analytics summarized device count.
+    */
     private ?int $deviceCount = null;
     
-    /** @var string|null $deviceName The user experience analytics device name. */
+    /**
+     * @var string|null $deviceName The user experience analytics device name.
+    */
     private ?string $deviceName = null;
     
-    /** @var DiskType|null $diskType The user experience analytics device disk type. Possible values are: unknown, hdd, ssd, unknownFutureValue. */
+    /**
+     * @var DiskType|null $diskType The user experience analytics device disk type. Possible values are: unknown, hdd, ssd, unknownFutureValue.
+    */
     private ?DiskType $diskType = null;
     
-    /** @var int|null $groupPolicyBootTimeInMs The user experience analytics device group policy boot time in milliseconds. */
+    /**
+     * @var int|null $groupPolicyBootTimeInMs The user experience analytics device group policy boot time in milliseconds.
+    */
     private ?int $groupPolicyBootTimeInMs = null;
     
-    /** @var int|null $groupPolicyLoginTimeInMs The user experience analytics device group policy login time in milliseconds. */
+    /**
+     * @var int|null $groupPolicyLoginTimeInMs The user experience analytics device group policy login time in milliseconds.
+    */
     private ?int $groupPolicyLoginTimeInMs = null;
     
-    /** @var UserExperienceAnalyticsHealthState|null $healthStatus The health state of the user experience analytics device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals. */
+    /**
+     * @var UserExperienceAnalyticsHealthState|null $healthStatus The health state of the user experience analytics device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+    */
     private ?UserExperienceAnalyticsHealthState $healthStatus = null;
     
-    /** @var int|null $loginScore The user experience analytics device login score. */
+    /**
+     * @var int|null $loginScore The user experience analytics device login score.
+    */
     private ?int $loginScore = null;
     
-    /** @var string|null $manufacturer The user experience analytics device manufacturer. */
+    /**
+     * @var string|null $manufacturer The user experience analytics device manufacturer.
+    */
     private ?string $manufacturer = null;
     
-    /** @var string|null $model The user experience analytics device model. */
+    /**
+     * @var string|null $model The user experience analytics device model.
+    */
     private ?string $model = null;
     
-    /** @var float|null $modelStartupPerformanceScore The user experience analytics model level startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
+    /**
+     * @var float|null $modelStartupPerformanceScore The user experience analytics model level startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+    */
     private ?float $modelStartupPerformanceScore = null;
     
-    /** @var string|null $operatingSystemVersion The user experience analytics device Operating System version. */
+    /**
+     * @var string|null $operatingSystemVersion The user experience analytics device Operating System version.
+    */
     private ?string $operatingSystemVersion = null;
     
-    /** @var int|null $responsiveDesktopTimeInMs The user experience analytics responsive desktop time in milliseconds. */
+    /**
+     * @var int|null $responsiveDesktopTimeInMs The user experience analytics responsive desktop time in milliseconds.
+    */
     private ?int $responsiveDesktopTimeInMs = null;
     
-    /** @var int|null $restartCount Number of Restarts in the last 14 days. Valid values 0 to 9999999 */
+    /**
+     * @var int|null $restartCount Number of Restarts in the last 14 days. Valid values 0 to 9999999
+    */
     private ?int $restartCount = null;
     
-    /** @var float|null $startupPerformanceScore The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
+    /**
+     * @var float|null $startupPerformanceScore The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+    */
     private ?float $startupPerformanceScore = null;
     
     /**
@@ -80,7 +120,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsDevicePerformance
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsDevicePerformance {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsDevicePerformance {
         return new UserExperienceAnalyticsDevicePerformance();
     }
 
@@ -161,27 +201,28 @@ class UserExperienceAnalyticsDevicePerformance extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'averageBlueScreens' => function (self $o, ParseNode $n) { $o->setAverageBlueScreens($n->getFloatValue()); },
-            'averageRestarts' => function (self $o, ParseNode $n) { $o->setAverageRestarts($n->getFloatValue()); },
-            'blueScreenCount' => function (self $o, ParseNode $n) { $o->setBlueScreenCount($n->getIntegerValue()); },
-            'bootScore' => function (self $o, ParseNode $n) { $o->setBootScore($n->getIntegerValue()); },
-            'coreBootTimeInMs' => function (self $o, ParseNode $n) { $o->setCoreBootTimeInMs($n->getIntegerValue()); },
-            'coreLoginTimeInMs' => function (self $o, ParseNode $n) { $o->setCoreLoginTimeInMs($n->getIntegerValue()); },
-            'deviceCount' => function (self $o, ParseNode $n) { $o->setDeviceCount($n->getIntegerValue()); },
-            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
-            'diskType' => function (self $o, ParseNode $n) { $o->setDiskType($n->getEnumValue(DiskType::class)); },
-            'groupPolicyBootTimeInMs' => function (self $o, ParseNode $n) { $o->setGroupPolicyBootTimeInMs($n->getIntegerValue()); },
-            'groupPolicyLoginTimeInMs' => function (self $o, ParseNode $n) { $o->setGroupPolicyLoginTimeInMs($n->getIntegerValue()); },
-            'healthStatus' => function (self $o, ParseNode $n) { $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)); },
-            'loginScore' => function (self $o, ParseNode $n) { $o->setLoginScore($n->getIntegerValue()); },
-            'manufacturer' => function (self $o, ParseNode $n) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (self $o, ParseNode $n) { $o->setModel($n->getStringValue()); },
-            'modelStartupPerformanceScore' => function (self $o, ParseNode $n) { $o->setModelStartupPerformanceScore($n->getFloatValue()); },
-            'operatingSystemVersion' => function (self $o, ParseNode $n) { $o->setOperatingSystemVersion($n->getStringValue()); },
-            'responsiveDesktopTimeInMs' => function (self $o, ParseNode $n) { $o->setResponsiveDesktopTimeInMs($n->getIntegerValue()); },
-            'restartCount' => function (self $o, ParseNode $n) { $o->setRestartCount($n->getIntegerValue()); },
-            'startupPerformanceScore' => function (self $o, ParseNode $n) { $o->setStartupPerformanceScore($n->getFloatValue()); },
+            'averageBlueScreens' => function (ParseNode $n) use ($o) { $o->setAverageBlueScreens($n->getFloatValue()); },
+            'averageRestarts' => function (ParseNode $n) use ($o) { $o->setAverageRestarts($n->getFloatValue()); },
+            'blueScreenCount' => function (ParseNode $n) use ($o) { $o->setBlueScreenCount($n->getIntegerValue()); },
+            'bootScore' => function (ParseNode $n) use ($o) { $o->setBootScore($n->getIntegerValue()); },
+            'coreBootTimeInMs' => function (ParseNode $n) use ($o) { $o->setCoreBootTimeInMs($n->getIntegerValue()); },
+            'coreLoginTimeInMs' => function (ParseNode $n) use ($o) { $o->setCoreLoginTimeInMs($n->getIntegerValue()); },
+            'deviceCount' => function (ParseNode $n) use ($o) { $o->setDeviceCount($n->getIntegerValue()); },
+            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
+            'diskType' => function (ParseNode $n) use ($o) { $o->setDiskType($n->getEnumValue(DiskType::class)); },
+            'groupPolicyBootTimeInMs' => function (ParseNode $n) use ($o) { $o->setGroupPolicyBootTimeInMs($n->getIntegerValue()); },
+            'groupPolicyLoginTimeInMs' => function (ParseNode $n) use ($o) { $o->setGroupPolicyLoginTimeInMs($n->getIntegerValue()); },
+            'healthStatus' => function (ParseNode $n) use ($o) { $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)); },
+            'loginScore' => function (ParseNode $n) use ($o) { $o->setLoginScore($n->getIntegerValue()); },
+            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
+            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
+            'modelStartupPerformanceScore' => function (ParseNode $n) use ($o) { $o->setModelStartupPerformanceScore($n->getFloatValue()); },
+            'operatingSystemVersion' => function (ParseNode $n) use ($o) { $o->setOperatingSystemVersion($n->getStringValue()); },
+            'responsiveDesktopTimeInMs' => function (ParseNode $n) use ($o) { $o->setResponsiveDesktopTimeInMs($n->getIntegerValue()); },
+            'restartCount' => function (ParseNode $n) use ($o) { $o->setRestartCount($n->getIntegerValue()); },
+            'startupPerformanceScore' => function (ParseNode $n) use ($o) { $o->setStartupPerformanceScore($n->getFloatValue()); },
         ]);
     }
 

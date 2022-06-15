@@ -6,33 +6,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class BusinessFlow extends Entity 
+class BusinessFlow extends Entity implements Parsable 
 {
-    /** @var string|null $customData The customData property */
+    /**
+     * @var string|null $customData The customData property
+    */
     private ?string $customData = null;
     
-    /** @var string|null $deDuplicationId The deDuplicationId property */
+    /**
+     * @var string|null $deDuplicationId The deDuplicationId property
+    */
     private ?string $deDuplicationId = null;
     
-    /** @var string|null $description The description property */
+    /**
+     * @var string|null $description The description property
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The displayName property */
+    /**
+     * @var string|null $displayName The displayName property
+    */
     private ?string $displayName = null;
     
-    /** @var GovernancePolicy|null $policy The policy property */
+    /**
+     * @var GovernancePolicy|null $policy The policy property
+    */
     private ?GovernancePolicy $policy = null;
     
-    /** @var string|null $policyTemplateId The policyTemplateId property */
+    /**
+     * @var string|null $policyTemplateId The policyTemplateId property
+    */
     private ?string $policyTemplateId = null;
     
-    /** @var string|null $recordVersion The recordVersion property */
+    /**
+     * @var string|null $recordVersion The recordVersion property
+    */
     private ?string $recordVersion = null;
     
-    /** @var string|null $schemaId The schemaId property */
+    /**
+     * @var string|null $schemaId The schemaId property
+    */
     private ?string $schemaId = null;
     
-    /** @var BusinessFlowSettings|null $settings The settings property */
+    /**
+     * @var BusinessFlowSettings|null $settings The settings property
+    */
     private ?BusinessFlowSettings $settings = null;
     
     /**
@@ -47,7 +65,7 @@ class BusinessFlow extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BusinessFlow
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): BusinessFlow {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): BusinessFlow {
         return new BusinessFlow();
     }
 
@@ -88,16 +106,17 @@ class BusinessFlow extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'customData' => function (self $o, ParseNode $n) { $o->setCustomData($n->getStringValue()); },
-            'deDuplicationId' => function (self $o, ParseNode $n) { $o->setDeDuplicationId($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'policy' => function (self $o, ParseNode $n) { $o->setPolicy($n->getObjectValue(GovernancePolicy::class)); },
-            'policyTemplateId' => function (self $o, ParseNode $n) { $o->setPolicyTemplateId($n->getStringValue()); },
-            'recordVersion' => function (self $o, ParseNode $n) { $o->setRecordVersion($n->getStringValue()); },
-            'schemaId' => function (self $o, ParseNode $n) { $o->setSchemaId($n->getStringValue()); },
-            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getObjectValue(BusinessFlowSettings::class)); },
+            'customData' => function (ParseNode $n) use ($o) { $o->setCustomData($n->getStringValue()); },
+            'deDuplicationId' => function (ParseNode $n) use ($o) { $o->setDeDuplicationId($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'policy' => function (ParseNode $n) use ($o) { $o->setPolicy($n->getObjectValue(array(GovernancePolicy::class, 'createFromDiscriminatorValue'))); },
+            'policyTemplateId' => function (ParseNode $n) use ($o) { $o->setPolicyTemplateId($n->getStringValue()); },
+            'recordVersion' => function (ParseNode $n) use ($o) { $o->setRecordVersion($n->getStringValue()); },
+            'schemaId' => function (ParseNode $n) use ($o) { $o->setSchemaId($n->getStringValue()); },
+            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(BusinessFlowSettings::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

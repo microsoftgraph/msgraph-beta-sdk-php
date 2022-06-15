@@ -9,23 +9,33 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class OemWarranty implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<WarrantyOffer>|null $additionalWarranties List of additional warranty offers. This collection can contain a maximum of 100 elements. */
+    /**
+     * @var array<WarrantyOffer>|null $additionalWarranties List of additional warranty offers. This collection can contain a maximum of 100 elements.
+    */
     private ?array $additionalWarranties = null;
     
-    /** @var array<WarrantyOffer>|null $baseWarranties List of base warranty offers. This collection can contain a maximum of 100 elements. */
+    /**
+     * @var array<WarrantyOffer>|null $baseWarranties List of base warranty offers. This collection can contain a maximum of 100 elements.
+    */
     private ?array $baseWarranties = null;
     
-    /** @var string|null $deviceConfigurationUrl Device configuration page URL */
+    /**
+     * @var string|null $deviceConfigurationUrl Device configuration page URL
+    */
     private ?string $deviceConfigurationUrl = null;
     
-    /** @var string|null $deviceWarrantyUrl Device warranty page URL */
+    /**
+     * @var string|null $deviceWarrantyUrl Device warranty page URL
+    */
     private ?string $deviceWarrantyUrl = null;
     
     /**
-     * Instantiates a new oemWarranty and sets the default values.
+     * Instantiates a new OemWarranty and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -36,7 +46,7 @@ class OemWarranty implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OemWarranty
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): OemWarranty {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): OemWarranty {
         return new OemWarranty();
     }
 
@@ -85,11 +95,12 @@ class OemWarranty implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'additionalWarranties' => function (self $o, ParseNode $n) { $o->setAdditionalWarranties($n->getCollectionOfObjectValues(WarrantyOffer::class)); },
-            'baseWarranties' => function (self $o, ParseNode $n) { $o->setBaseWarranties($n->getCollectionOfObjectValues(WarrantyOffer::class)); },
-            'deviceConfigurationUrl' => function (self $o, ParseNode $n) { $o->setDeviceConfigurationUrl($n->getStringValue()); },
-            'deviceWarrantyUrl' => function (self $o, ParseNode $n) { $o->setDeviceWarrantyUrl($n->getStringValue()); },
+            'additionalWarranties' => function (ParseNode $n) use ($o) { $o->setAdditionalWarranties($n->getCollectionOfObjectValues(array(WarrantyOffer::class, 'createFromDiscriminatorValue'))); },
+            'baseWarranties' => function (ParseNode $n) use ($o) { $o->setBaseWarranties($n->getCollectionOfObjectValues(array(WarrantyOffer::class, 'createFromDiscriminatorValue'))); },
+            'deviceConfigurationUrl' => function (ParseNode $n) use ($o) { $o->setDeviceConfigurationUrl($n->getStringValue()); },
+            'deviceWarrantyUrl' => function (ParseNode $n) use ($o) { $o->setDeviceWarrantyUrl($n->getStringValue()); },
         ];
     }
 

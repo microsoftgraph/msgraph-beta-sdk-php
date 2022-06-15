@@ -6,21 +6,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CustomCalloutExtension extends Entity 
+class CustomCalloutExtension extends Entity implements Parsable 
 {
-    /** @var CustomExtensionAuthenticationConfiguration|null $authenticationConfiguration Configuration for securing the API call to the logic app. For example, using OAuth client credentials flow. */
+    /**
+     * @var CustomExtensionAuthenticationConfiguration|null $authenticationConfiguration Configuration for securing the API call to the logic app. For example, using OAuth client credentials flow.
+    */
     private ?CustomExtensionAuthenticationConfiguration $authenticationConfiguration = null;
     
-    /** @var CustomExtensionClientConfiguration|null $clientConfiguration HTTP connection settings that define how long Azure AD can wait for a connection to a logic app, how many times you can retry a timed-out connection and the exception scenarios when retries are allowed. */
+    /**
+     * @var CustomExtensionClientConfiguration|null $clientConfiguration HTTP connection settings that define how long Azure AD can wait for a connection to a logic app, how many times you can retry a timed-out connection and the exception scenarios when retries are allowed.
+    */
     private ?CustomExtensionClientConfiguration $clientConfiguration = null;
     
-    /** @var string|null $description Description for the customCalloutExtension object. */
+    /**
+     * @var string|null $description Description for the customCalloutExtension object.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Display name for the customCalloutExtension object. */
+    /**
+     * @var string|null $displayName Display name for the customCalloutExtension object.
+    */
     private ?string $displayName = null;
     
-    /** @var CustomExtensionEndpointConfiguration|null $endpointConfiguration The type and details for configuring the endpoint to call the logic app's workflow. */
+    /**
+     * @var CustomExtensionEndpointConfiguration|null $endpointConfiguration The type and details for configuring the endpoint to call the logic app's workflow.
+    */
     private ?CustomExtensionEndpointConfiguration $endpointConfiguration = null;
     
     /**
@@ -35,7 +45,14 @@ class CustomCalloutExtension extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CustomCalloutExtension
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CustomCalloutExtension {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CustomCalloutExtension {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.customAccessPackageWorkflowExtension': return new CustomAccessPackageWorkflowExtension();
+            }
+        }
         return new CustomCalloutExtension();
     }
 
@@ -84,12 +101,13 @@ class CustomCalloutExtension extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationConfiguration' => function (self $o, ParseNode $n) { $o->setAuthenticationConfiguration($n->getObjectValue(CustomExtensionAuthenticationConfiguration::class)); },
-            'clientConfiguration' => function (self $o, ParseNode $n) { $o->setClientConfiguration($n->getObjectValue(CustomExtensionClientConfiguration::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'endpointConfiguration' => function (self $o, ParseNode $n) { $o->setEndpointConfiguration($n->getObjectValue(CustomExtensionEndpointConfiguration::class)); },
+            'authenticationConfiguration' => function (ParseNode $n) use ($o) { $o->setAuthenticationConfiguration($n->getObjectValue(array(CustomExtensionAuthenticationConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'clientConfiguration' => function (ParseNode $n) use ($o) { $o->setClientConfiguration($n->getObjectValue(array(CustomExtensionClientConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'endpointConfiguration' => function (ParseNode $n) use ($o) { $o->setEndpointConfiguration($n->getObjectValue(array(CustomExtensionEndpointConfiguration::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

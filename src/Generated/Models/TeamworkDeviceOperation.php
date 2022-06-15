@@ -7,33 +7,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TeamworkDeviceOperation extends Entity 
+class TeamworkDeviceOperation extends Entity implements Parsable 
 {
-    /** @var DateTime|null $completedDateTime Time at which the operation reached a final state (for example, Successful, Failed, and Cancelled). */
+    /**
+     * @var DateTime|null $completedDateTime Time at which the operation reached a final state (for example, Successful, Failed, and Cancelled).
+    */
     private ?DateTime $completedDateTime = null;
     
-    /** @var IdentitySet|null $createdBy Identity of the user who created the device operation. */
+    /**
+     * @var IdentitySet|null $createdBy Identity of the user who created the device operation.
+    */
     private ?IdentitySet $createdBy = null;
     
-    /** @var DateTime|null $createdDateTime The UTC date and time when the device operation was created. */
+    /**
+     * @var DateTime|null $createdDateTime The UTC date and time when the device operation was created.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var OperationError|null $error Error details are available only in case of a failed status. */
+    /**
+     * @var OperationError|null $error Error details are available only in case of a failed status.
+    */
     private ?OperationError $error = null;
     
-    /** @var IdentitySet|null $lastActionBy Identity of the user who last modified the device operation. */
+    /**
+     * @var IdentitySet|null $lastActionBy Identity of the user who last modified the device operation.
+    */
     private ?IdentitySet $lastActionBy = null;
     
-    /** @var DateTime|null $lastActionDateTime The UTC date and time when the device operation was last modified. */
+    /**
+     * @var DateTime|null $lastActionDateTime The UTC date and time when the device operation was last modified.
+    */
     private ?DateTime $lastActionDateTime = null;
     
-    /** @var TeamworkDeviceOperationType|null $operationType Type of async operation on a device. The possible values are: deviceRestart, configUpdate, deviceDiagnostics, softwareUpdate, deviceManagementAgentConfigUpdate, remoteLogin, remoteLogout, unknownFutureValue. */
+    /**
+     * @var TeamworkDeviceOperationType|null $operationType Type of async operation on a device. The possible values are: deviceRestart, configUpdate, deviceDiagnostics, softwareUpdate, deviceManagementAgentConfigUpdate, remoteLogin, remoteLogout, unknownFutureValue.
+    */
     private ?TeamworkDeviceOperationType $operationType = null;
     
-    /** @var DateTime|null $startedDateTime Time at which the operation was started. */
+    /**
+     * @var DateTime|null $startedDateTime Time at which the operation was started.
+    */
     private ?DateTime $startedDateTime = null;
     
-    /** @var string|null $status The current status of the async operation, for example, Queued, Scheduled, InProgress,  Successful, Cancelled, and Failed. */
+    /**
+     * @var string|null $status The current status of the async operation, for example, Queued, Scheduled, InProgress,  Successful, Cancelled, and Failed.
+    */
     private ?string $status = null;
     
     /**
@@ -48,7 +66,7 @@ class TeamworkDeviceOperation extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkDeviceOperation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDeviceOperation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDeviceOperation {
         return new TeamworkDeviceOperation();
     }
 
@@ -89,16 +107,17 @@ class TeamworkDeviceOperation extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'completedDateTime' => function (self $o, ParseNode $n) { $o->setCompletedDateTime($n->getDateTimeValue()); },
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(IdentitySet::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'error' => function (self $o, ParseNode $n) { $o->setError($n->getObjectValue(OperationError::class)); },
-            'lastActionBy' => function (self $o, ParseNode $n) { $o->setLastActionBy($n->getObjectValue(IdentitySet::class)); },
-            'lastActionDateTime' => function (self $o, ParseNode $n) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'operationType' => function (self $o, ParseNode $n) { $o->setOperationType($n->getEnumValue(TeamworkDeviceOperationType::class)); },
-            'startedDateTime' => function (self $o, ParseNode $n) { $o->setStartedDateTime($n->getDateTimeValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
+            'completedDateTime' => function (ParseNode $n) use ($o) { $o->setCompletedDateTime($n->getDateTimeValue()); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(OperationError::class, 'createFromDiscriminatorValue'))); },
+            'lastActionBy' => function (ParseNode $n) use ($o) { $o->setLastActionBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
+            'operationType' => function (ParseNode $n) use ($o) { $o->setOperationType($n->getEnumValue(TeamworkDeviceOperationType::class)); },
+            'startedDateTime' => function (ParseNode $n) use ($o) { $o->setStartedDateTime($n->getDateTimeValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
         ]);
     }
 

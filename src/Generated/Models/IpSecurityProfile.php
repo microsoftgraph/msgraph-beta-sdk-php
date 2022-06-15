@@ -7,45 +7,71 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class IpSecurityProfile extends Entity 
+class IpSecurityProfile extends Entity implements Parsable 
 {
-    /** @var array<string>|null $activityGroupNames The activityGroupNames property */
+    /**
+     * @var array<string>|null $activityGroupNames The activityGroupNames property
+    */
     private ?array $activityGroupNames = null;
     
-    /** @var string|null $address The address property */
+    /**
+     * @var string|null $address The address property
+    */
     private ?string $address = null;
     
-    /** @var string|null $azureSubscriptionId The azureSubscriptionId property */
+    /**
+     * @var string|null $azureSubscriptionId The azureSubscriptionId property
+    */
     private ?string $azureSubscriptionId = null;
     
-    /** @var string|null $azureTenantId The azureTenantId property */
+    /**
+     * @var string|null $azureTenantId The azureTenantId property
+    */
     private ?string $azureTenantId = null;
     
-    /** @var int|null $countHits The countHits property */
+    /**
+     * @var int|null $countHits The countHits property
+    */
     private ?int $countHits = null;
     
-    /** @var int|null $countHosts The countHosts property */
+    /**
+     * @var int|null $countHosts The countHosts property
+    */
     private ?int $countHosts = null;
     
-    /** @var DateTime|null $firstSeenDateTime The firstSeenDateTime property */
+    /**
+     * @var DateTime|null $firstSeenDateTime The firstSeenDateTime property
+    */
     private ?DateTime $firstSeenDateTime = null;
     
-    /** @var array<IpCategory>|null $ipCategories The ipCategories property */
+    /**
+     * @var array<IpCategory>|null $ipCategories The ipCategories property
+    */
     private ?array $ipCategories = null;
     
-    /** @var array<IpReferenceData>|null $ipReferenceData The ipReferenceData property */
+    /**
+     * @var array<IpReferenceData>|null $ipReferenceData The ipReferenceData property
+    */
     private ?array $ipReferenceData = null;
     
-    /** @var DateTime|null $lastSeenDateTime The lastSeenDateTime property */
+    /**
+     * @var DateTime|null $lastSeenDateTime The lastSeenDateTime property
+    */
     private ?DateTime $lastSeenDateTime = null;
     
-    /** @var string|null $riskScore The riskScore property */
+    /**
+     * @var string|null $riskScore The riskScore property
+    */
     private ?string $riskScore = null;
     
-    /** @var array<string>|null $tags The tags property */
+    /**
+     * @var array<string>|null $tags The tags property
+    */
     private ?array $tags = null;
     
-    /** @var SecurityVendorInformation|null $vendorInformation The vendorInformation property */
+    /**
+     * @var SecurityVendorInformation|null $vendorInformation The vendorInformation property
+    */
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
@@ -60,7 +86,7 @@ class IpSecurityProfile extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return IpSecurityProfile
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): IpSecurityProfile {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): IpSecurityProfile {
         return new IpSecurityProfile();
     }
 
@@ -117,20 +143,21 @@ class IpSecurityProfile extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activityGroupNames' => function (self $o, ParseNode $n) { $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()); },
-            'address' => function (self $o, ParseNode $n) { $o->setAddress($n->getStringValue()); },
-            'azureSubscriptionId' => function (self $o, ParseNode $n) { $o->setAzureSubscriptionId($n->getStringValue()); },
-            'azureTenantId' => function (self $o, ParseNode $n) { $o->setAzureTenantId($n->getStringValue()); },
-            'countHits' => function (self $o, ParseNode $n) { $o->setCountHits($n->getIntegerValue()); },
-            'countHosts' => function (self $o, ParseNode $n) { $o->setCountHosts($n->getIntegerValue()); },
-            'firstSeenDateTime' => function (self $o, ParseNode $n) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
-            'ipCategories' => function (self $o, ParseNode $n) { $o->setIpCategories($n->getCollectionOfObjectValues(IpCategory::class)); },
-            'ipReferenceData' => function (self $o, ParseNode $n) { $o->setIpReferenceData($n->getCollectionOfObjectValues(IpReferenceData::class)); },
-            'lastSeenDateTime' => function (self $o, ParseNode $n) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
-            'riskScore' => function (self $o, ParseNode $n) { $o->setRiskScore($n->getStringValue()); },
-            'tags' => function (self $o, ParseNode $n) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
-            'vendorInformation' => function (self $o, ParseNode $n) { $o->setVendorInformation($n->getObjectValue(SecurityVendorInformation::class)); },
+            'activityGroupNames' => function (ParseNode $n) use ($o) { $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()); },
+            'address' => function (ParseNode $n) use ($o) { $o->setAddress($n->getStringValue()); },
+            'azureSubscriptionId' => function (ParseNode $n) use ($o) { $o->setAzureSubscriptionId($n->getStringValue()); },
+            'azureTenantId' => function (ParseNode $n) use ($o) { $o->setAzureTenantId($n->getStringValue()); },
+            'countHits' => function (ParseNode $n) use ($o) { $o->setCountHits($n->getIntegerValue()); },
+            'countHosts' => function (ParseNode $n) use ($o) { $o->setCountHosts($n->getIntegerValue()); },
+            'firstSeenDateTime' => function (ParseNode $n) use ($o) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
+            'ipCategories' => function (ParseNode $n) use ($o) { $o->setIpCategories($n->getCollectionOfObjectValues(array(IpCategory::class, 'createFromDiscriminatorValue'))); },
+            'ipReferenceData' => function (ParseNode $n) use ($o) { $o->setIpReferenceData($n->getCollectionOfObjectValues(array(IpReferenceData::class, 'createFromDiscriminatorValue'))); },
+            'lastSeenDateTime' => function (ParseNode $n) use ($o) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
+            'riskScore' => function (ParseNode $n) use ($o) { $o->setRiskScore($n->getStringValue()); },
+            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
+            'vendorInformation' => function (ParseNode $n) use ($o) { $o->setVendorInformation($n->getObjectValue(array(SecurityVendorInformation::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

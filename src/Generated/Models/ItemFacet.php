@@ -7,30 +7,46 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ItemFacet extends Entity 
+class ItemFacet extends Entity implements Parsable 
 {
-    /** @var AllowedAudiences|null $allowedAudiences The audiences that are able to see the values contained within the associated entity. Possible values are: me, family, contacts, groupMembers, organization, federatedOrganizations, everyone, unknownFutureValue. */
+    /**
+     * @var AllowedAudiences|null $allowedAudiences The audiences that are able to see the values contained within the associated entity. Possible values are: me, family, contacts, groupMembers, organization, federatedOrganizations, everyone, unknownFutureValue.
+    */
     private ?AllowedAudiences $allowedAudiences = null;
     
-    /** @var IdentitySet|null $createdBy The createdBy property */
+    /**
+     * @var IdentitySet|null $createdBy The createdBy property
+    */
     private ?IdentitySet $createdBy = null;
     
-    /** @var DateTime|null $createdDateTime Provides the dateTimeOffset for when the entity was created. */
+    /**
+     * @var DateTime|null $createdDateTime Provides the dateTimeOffset for when the entity was created.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var InferenceData|null $inference Contains inference detail if the entity is inferred by the creating or modifying application. */
+    /**
+     * @var InferenceData|null $inference Contains inference detail if the entity is inferred by the creating or modifying application.
+    */
     private ?InferenceData $inference = null;
     
-    /** @var bool|null $isSearchable The isSearchable property */
+    /**
+     * @var bool|null $isSearchable The isSearchable property
+    */
     private ?bool $isSearchable = null;
     
-    /** @var IdentitySet|null $lastModifiedBy The lastModifiedBy property */
+    /**
+     * @var IdentitySet|null $lastModifiedBy The lastModifiedBy property
+    */
     private ?IdentitySet $lastModifiedBy = null;
     
-    /** @var DateTime|null $lastModifiedDateTime Provides the dateTimeOffset for when the entity was created. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime Provides the dateTimeOffset for when the entity was created.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var PersonDataSources|null $source Where the values within an entity originated if synced from another service. */
+    /**
+     * @var PersonDataSources|null $source Where the values within an entity originated if synced from another service.
+    */
     private ?PersonDataSources $source = null;
     
     /**
@@ -45,7 +61,33 @@ class ItemFacet extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ItemFacet
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ItemFacet {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ItemFacet {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.educationalActivity': return new EducationalActivity();
+                case '#microsoft.graph.itemAddress': return new ItemAddress();
+                case '#microsoft.graph.itemEmail': return new ItemEmail();
+                case '#microsoft.graph.itemPatent': return new ItemPatent();
+                case '#microsoft.graph.itemPhone': return new ItemPhone();
+                case '#microsoft.graph.itemPublication': return new ItemPublication();
+                case '#microsoft.graph.languageProficiency': return new LanguageProficiency();
+                case '#microsoft.graph.personAnnotation': return new PersonAnnotation();
+                case '#microsoft.graph.personAnnualEvent': return new PersonAnnualEvent();
+                case '#microsoft.graph.personAward': return new PersonAward();
+                case '#microsoft.graph.personCertification': return new PersonCertification();
+                case '#microsoft.graph.personInterest': return new PersonInterest();
+                case '#microsoft.graph.personName': return new PersonName();
+                case '#microsoft.graph.personResponsibility': return new PersonResponsibility();
+                case '#microsoft.graph.personWebsite': return new PersonWebsite();
+                case '#microsoft.graph.projectParticipation': return new ProjectParticipation();
+                case '#microsoft.graph.skillProficiency': return new SkillProficiency();
+                case '#microsoft.graph.userAccountInformation': return new UserAccountInformation();
+                case '#microsoft.graph.webAccount': return new WebAccount();
+                case '#microsoft.graph.workPosition': return new WorkPosition();
+            }
+        }
         return new ItemFacet();
     }
 
@@ -78,15 +120,16 @@ class ItemFacet extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedAudiences' => function (self $o, ParseNode $n) { $o->setAllowedAudiences($n->getEnumValue(AllowedAudiences::class)); },
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(IdentitySet::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'inference' => function (self $o, ParseNode $n) { $o->setInference($n->getObjectValue(InferenceData::class)); },
-            'isSearchable' => function (self $o, ParseNode $n) { $o->setIsSearchable($n->getBooleanValue()); },
-            'lastModifiedBy' => function (self $o, ParseNode $n) { $o->setLastModifiedBy($n->getObjectValue(IdentitySet::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'source' => function (self $o, ParseNode $n) { $o->setSource($n->getObjectValue(PersonDataSources::class)); },
+            'allowedAudiences' => function (ParseNode $n) use ($o) { $o->setAllowedAudiences($n->getEnumValue(AllowedAudiences::class)); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'inference' => function (ParseNode $n) use ($o) { $o->setInference($n->getObjectValue(array(InferenceData::class, 'createFromDiscriminatorValue'))); },
+            'isSearchable' => function (ParseNode $n) use ($o) { $o->setIsSearchable($n->getBooleanValue()); },
+            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getObjectValue(array(PersonDataSources::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

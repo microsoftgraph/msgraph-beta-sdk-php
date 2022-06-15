@@ -6,12 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TermsAndConditionsGroupAssignment extends Entity 
+class TermsAndConditionsGroupAssignment extends Entity implements Parsable 
 {
-    /** @var string|null $targetGroupId Unique identifier of a group that the T&C policy is assigned to. */
+    /**
+     * @var string|null $targetGroupId Unique identifier of a group that the T&C policy is assigned to.
+    */
     private ?string $targetGroupId = null;
     
-    /** @var TermsAndConditions|null $termsAndConditions Navigation link to the terms and conditions that are assigned. */
+    /**
+     * @var TermsAndConditions|null $termsAndConditions Navigation link to the terms and conditions that are assigned.
+    */
     private ?TermsAndConditions $termsAndConditions = null;
     
     /**
@@ -26,7 +30,7 @@ class TermsAndConditionsGroupAssignment extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TermsAndConditionsGroupAssignment
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TermsAndConditionsGroupAssignment {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TermsAndConditionsGroupAssignment {
         return new TermsAndConditionsGroupAssignment();
     }
 
@@ -35,9 +39,10 @@ class TermsAndConditionsGroupAssignment extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'targetGroupId' => function (self $o, ParseNode $n) { $o->setTargetGroupId($n->getStringValue()); },
-            'termsAndConditions' => function (self $o, ParseNode $n) { $o->setTermsAndConditions($n->getObjectValue(TermsAndConditions::class)); },
+            'targetGroupId' => function (ParseNode $n) use ($o) { $o->setTargetGroupId($n->getStringValue()); },
+            'termsAndConditions' => function (ParseNode $n) use ($o) { $o->setTermsAndConditions($n->getObjectValue(array(TermsAndConditions::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

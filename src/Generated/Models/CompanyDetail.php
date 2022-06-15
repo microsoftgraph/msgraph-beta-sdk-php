@@ -9,25 +9,39 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CompanyDetail implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var PhysicalAddress|null $address Address of the company. */
+    /**
+     * @var PhysicalAddress|null $address Address of the company.
+    */
     private ?PhysicalAddress $address = null;
     
-    /** @var string|null $department Department Name within a company. */
+    /**
+     * @var string|null $department Department Name within a company.
+    */
     private ?string $department = null;
     
-    /** @var string|null $displayName Company name. */
+    /**
+     * @var string|null $displayName Company name.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $officeLocation Office Location of the person referred to. */
+    /**
+     * @var string|null $officeLocation Office Location of the person referred to.
+    */
     private ?string $officeLocation = null;
     
-    /** @var string|null $pronunciation Pronunciation guide for the company name. */
+    /**
+     * @var string|null $pronunciation Pronunciation guide for the company name.
+    */
     private ?string $pronunciation = null;
     
-    /** @var string|null $webUrl Link to the company home page. */
+    /**
+     * @var string|null $webUrl Link to the company home page.
+    */
     private ?string $webUrl = null;
     
     /**
@@ -42,7 +56,7 @@ class CompanyDetail implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CompanyDetail
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CompanyDetail {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CompanyDetail {
         return new CompanyDetail();
     }
 
@@ -83,13 +97,14 @@ class CompanyDetail implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'address' => function (self $o, ParseNode $n) { $o->setAddress($n->getObjectValue(PhysicalAddress::class)); },
-            'department' => function (self $o, ParseNode $n) { $o->setDepartment($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'officeLocation' => function (self $o, ParseNode $n) { $o->setOfficeLocation($n->getStringValue()); },
-            'pronunciation' => function (self $o, ParseNode $n) { $o->setPronunciation($n->getStringValue()); },
-            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
+            'address' => function (ParseNode $n) use ($o) { $o->setAddress($n->getObjectValue(array(PhysicalAddress::class, 'createFromDiscriminatorValue'))); },
+            'department' => function (ParseNode $n) use ($o) { $o->setDepartment($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'officeLocation' => function (ParseNode $n) use ($o) { $o->setOfficeLocation($n->getStringValue()); },
+            'pronunciation' => function (ParseNode $n) use ($o) { $o->setPronunciation($n->getStringValue()); },
+            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ];
     }
 

@@ -9,18 +9,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DataSource extends Entity 
+class DataSource extends Entity implements Parsable 
 {
-    /** @var IdentitySet|null $createdBy The user who created the dataSource. */
+    /**
+     * @var IdentitySet|null $createdBy The user who created the dataSource.
+    */
     private ?IdentitySet $createdBy = null;
     
-    /** @var DateTime|null $createdDateTime The date and time the dataSource was created. */
+    /**
+     * @var DateTime|null $createdDateTime The date and time the dataSource was created.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $displayName The display name of the dataSource. This will be the name of the SharePoint site. */
+    /**
+     * @var string|null $displayName The display name of the dataSource. This will be the name of the SharePoint site.
+    */
     private ?string $displayName = null;
     
-    /** @var DataSourceHoldStatus|null $holdStatus The holdStatus property */
+    /**
+     * @var DataSourceHoldStatus|null $holdStatus The holdStatus property
+    */
     private ?DataSourceHoldStatus $holdStatus = null;
     
     /**
@@ -35,7 +43,16 @@ class DataSource extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DataSource
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DataSource {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DataSource {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.ediscovery.siteSource': return new SiteSource();
+                case '#microsoft.graph.ediscovery.unifiedGroupSource': return new UnifiedGroupSource();
+                case '#microsoft.graph.ediscovery.userSource': return new UserSource();
+            }
+        }
         return new DataSource();
     }
 
@@ -68,11 +85,12 @@ class DataSource extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(IdentitySet::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'holdStatus' => function (self $o, ParseNode $n) { $o->setHoldStatus($n->getEnumValue(DataSourceHoldStatus::class)); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'holdStatus' => function (ParseNode $n) use ($o) { $o->setHoldStatus($n->getEnumValue(DataSourceHoldStatus::class)); },
         ]);
     }
 

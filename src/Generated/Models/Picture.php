@@ -7,18 +7,26 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class Picture extends Entity 
+class Picture extends Entity implements Parsable 
 {
-    /** @var StreamInterface|null $content The content property */
+    /**
+     * @var StreamInterface|null $content The content property
+    */
     private ?StreamInterface $content = null;
     
-    /** @var string|null $contentType The contentType property */
+    /**
+     * @var string|null $contentType The contentType property
+    */
     private ?string $contentType = null;
     
-    /** @var int|null $height The height property */
+    /**
+     * @var int|null $height The height property
+    */
     private ?int $height = null;
     
-    /** @var int|null $width The width property */
+    /**
+     * @var int|null $width The width property
+    */
     private ?int $width = null;
     
     /**
@@ -33,7 +41,7 @@ class Picture extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Picture
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Picture {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Picture {
         return new Picture();
     }
 
@@ -58,11 +66,12 @@ class Picture extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (self $o, ParseNode $n) { $o->setContent($n->getBinaryContent()); },
-            'contentType' => function (self $o, ParseNode $n) { $o->setContentType($n->getStringValue()); },
-            'height' => function (self $o, ParseNode $n) { $o->setHeight($n->getIntegerValue()); },
-            'width' => function (self $o, ParseNode $n) { $o->setWidth($n->getIntegerValue()); },
+            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
+            'contentType' => function (ParseNode $n) use ($o) { $o->setContentType($n->getStringValue()); },
+            'height' => function (ParseNode $n) use ($o) { $o->setHeight($n->getIntegerValue()); },
+            'width' => function (ParseNode $n) use ($o) { $o->setWidth($n->getIntegerValue()); },
         ]);
     }
 

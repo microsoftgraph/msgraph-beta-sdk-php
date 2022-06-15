@@ -7,12 +7,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AzureADLicenseUsage extends Entity 
+class AzureADLicenseUsage extends Entity implements Parsable 
 {
-    /** @var array<LicenseInfoDetail>|null $licenseInfoDetails The licenseInfoDetails property */
+    /**
+     * @var array<LicenseInfoDetail>|null $licenseInfoDetails The licenseInfoDetails property
+    */
     private ?array $licenseInfoDetails = null;
     
-    /** @var DateTime|null $snapshotDateTime The snapshotDateTime property */
+    /**
+     * @var DateTime|null $snapshotDateTime The snapshotDateTime property
+    */
     private ?DateTime $snapshotDateTime = null;
     
     /**
@@ -27,7 +31,7 @@ class AzureADLicenseUsage extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AzureADLicenseUsage
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AzureADLicenseUsage {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AzureADLicenseUsage {
         return new AzureADLicenseUsage();
     }
 
@@ -36,9 +40,10 @@ class AzureADLicenseUsage extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'licenseInfoDetails' => function (self $o, ParseNode $n) { $o->setLicenseInfoDetails($n->getCollectionOfObjectValues(LicenseInfoDetail::class)); },
-            'snapshotDateTime' => function (self $o, ParseNode $n) { $o->setSnapshotDateTime($n->getDateTimeValue()); },
+            'licenseInfoDetails' => function (ParseNode $n) use ($o) { $o->setLicenseInfoDetails($n->getCollectionOfObjectValues(array(LicenseInfoDetail::class, 'createFromDiscriminatorValue'))); },
+            'snapshotDateTime' => function (ParseNode $n) use ($o) { $o->setSnapshotDateTime($n->getDateTimeValue()); },
         ]);
     }
 

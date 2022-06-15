@@ -8,39 +8,61 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PrivilegedApproval extends Entity 
+class PrivilegedApproval extends Entity implements Parsable 
 {
-    /** @var DateInterval|null $approvalDuration The approvalDuration property */
+    /**
+     * @var DateInterval|null $approvalDuration The approvalDuration property
+    */
     private ?DateInterval $approvalDuration = null;
     
-    /** @var ApprovalState|null $approvalState Possible values are: pending, approved, denied, aborted, canceled. */
+    /**
+     * @var ApprovalState|null $approvalState Possible values are: pending, approved, denied, aborted, canceled.
+    */
     private ?ApprovalState $approvalState = null;
     
-    /** @var string|null $approvalType The approvalType property */
+    /**
+     * @var string|null $approvalType The approvalType property
+    */
     private ?string $approvalType = null;
     
-    /** @var string|null $approverReason The approverReason property */
+    /**
+     * @var string|null $approverReason The approverReason property
+    */
     private ?string $approverReason = null;
     
-    /** @var DateTime|null $endDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    /**
+     * @var DateTime|null $endDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    */
     private ?DateTime $endDateTime = null;
     
-    /** @var PrivilegedRoleAssignmentRequest|null $request Read-only. The role assignment request for this approval object */
+    /**
+     * @var PrivilegedRoleAssignmentRequest|null $request Read-only. The role assignment request for this approval object
+    */
     private ?PrivilegedRoleAssignmentRequest $request = null;
     
-    /** @var string|null $requestorReason The requestorReason property */
+    /**
+     * @var string|null $requestorReason The requestorReason property
+    */
     private ?string $requestorReason = null;
     
-    /** @var string|null $roleId The roleId property */
+    /**
+     * @var string|null $roleId The roleId property
+    */
     private ?string $roleId = null;
     
-    /** @var PrivilegedRole|null $roleInfo Read-only. Nullable. */
+    /**
+     * @var PrivilegedRole|null $roleInfo The roleInfo property
+    */
     private ?PrivilegedRole $roleInfo = null;
     
-    /** @var DateTime|null $startDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    /**
+     * @var DateTime|null $startDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    */
     private ?DateTime $startDateTime = null;
     
-    /** @var string|null $userId The userId property */
+    /**
+     * @var string|null $userId The userId property
+    */
     private ?string $userId = null;
     
     /**
@@ -55,7 +77,7 @@ class PrivilegedApproval extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrivilegedApproval
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedApproval {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedApproval {
         return new PrivilegedApproval();
     }
 
@@ -104,18 +126,19 @@ class PrivilegedApproval extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'approvalDuration' => function (self $o, ParseNode $n) { $o->setApprovalDuration($n->getDateIntervalValue()); },
-            'approvalState' => function (self $o, ParseNode $n) { $o->setApprovalState($n->getEnumValue(ApprovalState::class)); },
-            'approvalType' => function (self $o, ParseNode $n) { $o->setApprovalType($n->getStringValue()); },
-            'approverReason' => function (self $o, ParseNode $n) { $o->setApproverReason($n->getStringValue()); },
-            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'request' => function (self $o, ParseNode $n) { $o->setRequest($n->getObjectValue(PrivilegedRoleAssignmentRequest::class)); },
-            'requestorReason' => function (self $o, ParseNode $n) { $o->setRequestorReason($n->getStringValue()); },
-            'roleId' => function (self $o, ParseNode $n) { $o->setRoleId($n->getStringValue()); },
-            'roleInfo' => function (self $o, ParseNode $n) { $o->setRoleInfo($n->getObjectValue(PrivilegedRole::class)); },
-            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
+            'approvalDuration' => function (ParseNode $n) use ($o) { $o->setApprovalDuration($n->getDateIntervalValue()); },
+            'approvalState' => function (ParseNode $n) use ($o) { $o->setApprovalState($n->getEnumValue(ApprovalState::class)); },
+            'approvalType' => function (ParseNode $n) use ($o) { $o->setApprovalType($n->getStringValue()); },
+            'approverReason' => function (ParseNode $n) use ($o) { $o->setApproverReason($n->getStringValue()); },
+            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'request' => function (ParseNode $n) use ($o) { $o->setRequest($n->getObjectValue(array(PrivilegedRoleAssignmentRequest::class, 'createFromDiscriminatorValue'))); },
+            'requestorReason' => function (ParseNode $n) use ($o) { $o->setRequestorReason($n->getStringValue()); },
+            'roleId' => function (ParseNode $n) use ($o) { $o->setRoleId($n->getStringValue()); },
+            'roleInfo' => function (ParseNode $n) use ($o) { $o->setRoleInfo($n->getObjectValue(array(PrivilegedRole::class, 'createFromDiscriminatorValue'))); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
         ]);
     }
 
@@ -144,7 +167,7 @@ class PrivilegedApproval extends Entity
     }
 
     /**
-     * Gets the roleInfo property value. Read-only. Nullable.
+     * Gets the roleInfo property value. The roleInfo property
      * @return PrivilegedRole|null
     */
     public function getRoleInfo(): ?PrivilegedRole {
@@ -251,7 +274,7 @@ class PrivilegedApproval extends Entity
     }
 
     /**
-     * Sets the roleInfo property value. Read-only. Nullable.
+     * Sets the roleInfo property value. The roleInfo property
      *  @param PrivilegedRole|null $value Value to set for the roleInfo property.
     */
     public function setRoleInfo(?PrivilegedRole $value ): void {

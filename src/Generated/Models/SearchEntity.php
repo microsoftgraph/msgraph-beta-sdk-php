@@ -9,15 +9,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SearchEntity extends Entity 
+class SearchEntity extends Entity implements Parsable 
 {
-    /** @var array<Acronym>|null $acronyms Administrative answer in Microsoft Search results to define common acronyms in a organization. */
+    /**
+     * @var array<Acronym>|null $acronyms Administrative answer in Microsoft Search results to define common acronyms in a organization.
+    */
     private ?array $acronyms = null;
     
-    /** @var array<Bookmark>|null $bookmarks Administrative answer in Microsoft Search results for common search queries in an organization. */
+    /**
+     * @var array<Bookmark>|null $bookmarks Administrative answer in Microsoft Search results for common search queries in an organization.
+    */
     private ?array $bookmarks = null;
     
-    /** @var array<Qna>|null $qnas Administrative answer in Microsoft Search results which provide answers for specific search keywords in an organization. */
+    /**
+     * @var array<Qna>|null $qnas Administrative answer in Microsoft Search results which provide answers for specific search keywords in an organization.
+    */
     private ?array $qnas = null;
     
     /**
@@ -32,7 +38,7 @@ class SearchEntity extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SearchEntity
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SearchEntity {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SearchEntity {
         return new SearchEntity();
     }
 
@@ -57,10 +63,11 @@ class SearchEntity extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'acronyms' => function (self $o, ParseNode $n) { $o->setAcronyms($n->getCollectionOfObjectValues(Acronym::class)); },
-            'bookmarks' => function (self $o, ParseNode $n) { $o->setBookmarks($n->getCollectionOfObjectValues(Bookmark::class)); },
-            'qnas' => function (self $o, ParseNode $n) { $o->setQnas($n->getCollectionOfObjectValues(Qna::class)); },
+            'acronyms' => function (ParseNode $n) use ($o) { $o->setAcronyms($n->getCollectionOfObjectValues(array(Acronym::class, 'createFromDiscriminatorValue'))); },
+            'bookmarks' => function (ParseNode $n) use ($o) { $o->setBookmarks($n->getCollectionOfObjectValues(array(Bookmark::class, 'createFromDiscriminatorValue'))); },
+            'qnas' => function (ParseNode $n) use ($o) { $o->setQnas($n->getCollectionOfObjectValues(array(Qna::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

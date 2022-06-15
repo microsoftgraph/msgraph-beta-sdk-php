@@ -6,21 +6,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsDeviceStartupProcess extends Entity 
+class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Parsable 
 {
-    /** @var string|null $managedDeviceId The user experience analytics device id. */
+    /**
+     * @var string|null $managedDeviceId The user experience analytics device id.
+    */
     private ?string $managedDeviceId = null;
     
-    /** @var string|null $processName User experience analytics device startup process name. */
+    /**
+     * @var string|null $processName User experience analytics device startup process name.
+    */
     private ?string $processName = null;
     
-    /** @var string|null $productName The user experience analytics device startup process product name. */
+    /**
+     * @var string|null $productName The user experience analytics device startup process product name.
+    */
     private ?string $productName = null;
     
-    /** @var string|null $publisher The User experience analytics device startup process publisher. */
+    /**
+     * @var string|null $publisher The User experience analytics device startup process publisher.
+    */
     private ?string $publisher = null;
     
-    /** @var int|null $startupImpactInMs User experience analytics device startup process impact in milliseconds. */
+    /**
+     * @var int|null $startupImpactInMs User experience analytics device startup process impact in milliseconds.
+    */
     private ?int $startupImpactInMs = null;
     
     /**
@@ -35,7 +45,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsDeviceStartupProcess
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsDeviceStartupProcess {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsDeviceStartupProcess {
         return new UserExperienceAnalyticsDeviceStartupProcess();
     }
 
@@ -44,12 +54,13 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'managedDeviceId' => function (self $o, ParseNode $n) { $o->setManagedDeviceId($n->getStringValue()); },
-            'processName' => function (self $o, ParseNode $n) { $o->setProcessName($n->getStringValue()); },
-            'productName' => function (self $o, ParseNode $n) { $o->setProductName($n->getStringValue()); },
-            'publisher' => function (self $o, ParseNode $n) { $o->setPublisher($n->getStringValue()); },
-            'startupImpactInMs' => function (self $o, ParseNode $n) { $o->setStartupImpactInMs($n->getIntegerValue()); },
+            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
+            'processName' => function (ParseNode $n) use ($o) { $o->setProcessName($n->getStringValue()); },
+            'productName' => function (ParseNode $n) use ($o) { $o->setProductName($n->getStringValue()); },
+            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
+            'startupImpactInMs' => function (ParseNode $n) use ($o) { $o->setStartupImpactInMs($n->getIntegerValue()); },
         ]);
     }
 

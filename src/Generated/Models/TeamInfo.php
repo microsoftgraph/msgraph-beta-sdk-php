@@ -6,15 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TeamInfo extends Entity 
+class TeamInfo extends Entity implements Parsable 
 {
-    /** @var string|null $displayName The displayName property */
+    /**
+     * @var string|null $displayName The name of the team.
+    */
     private ?string $displayName = null;
     
-    /** @var Team|null $team The team property */
+    /**
+     * @var Team|null $team The team property
+    */
     private ?Team $team = null;
     
-    /** @var string|null $tenantId The tenantId property */
+    /**
+     * @var string|null $tenantId The ID of the Azure Active Directory tenant.
+    */
     private ?string $tenantId = null;
     
     /**
@@ -29,12 +35,20 @@ class TeamInfo extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamInfo
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamInfo {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamInfo {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.associatedTeamInfo': return new AssociatedTeamInfo();
+                case '#microsoft.graph.sharedWithChannelTeamInfo': return new SharedWithChannelTeamInfo();
+            }
+        }
         return new TeamInfo();
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the team.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -46,10 +60,11 @@ class TeamInfo extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'team' => function (self $o, ParseNode $n) { $o->setTeam($n->getObjectValue(Team::class)); },
-            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'team' => function (ParseNode $n) use ($o) { $o->setTeam($n->getObjectValue(array(Team::class, 'createFromDiscriminatorValue'))); },
+            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
         ]);
     }
 
@@ -62,7 +77,7 @@ class TeamInfo extends Entity
     }
 
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. The ID of the Azure Active Directory tenant.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -81,7 +96,7 @@ class TeamInfo extends Entity
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name of the team.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -97,7 +112,7 @@ class TeamInfo extends Entity
     }
 
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. The ID of the Azure Active Directory tenant.
      *  @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value ): void {

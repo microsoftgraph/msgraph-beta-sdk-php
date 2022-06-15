@@ -7,39 +7,61 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GovernanceRoleSetting extends Entity 
+class GovernanceRoleSetting extends Entity implements Parsable 
 {
-    /** @var array<GovernanceRuleSetting>|null $adminEligibleSettings The rule settings that are evaluated when an administrator tries to add an eligible role assignment. */
+    /**
+     * @var array<GovernanceRuleSetting>|null $adminEligibleSettings The rule settings that are evaluated when an administrator tries to add an eligible role assignment.
+    */
     private ?array $adminEligibleSettings = null;
     
-    /** @var array<GovernanceRuleSetting>|null $adminMemberSettings The rule settings that are evaluated when an administrator tries to add a direct member role assignment. */
+    /**
+     * @var array<GovernanceRuleSetting>|null $adminMemberSettings The rule settings that are evaluated when an administrator tries to add a direct member role assignment.
+    */
     private ?array $adminMemberSettings = null;
     
-    /** @var bool|null $isDefault Read-only. Indicate if the roleSetting is a default roleSetting */
+    /**
+     * @var bool|null $isDefault Read-only. Indicate if the roleSetting is a default roleSetting
+    */
     private ?bool $isDefault = null;
     
-    /** @var string|null $lastUpdatedBy Read-only. The display name of the administrator who last updated the roleSetting. */
+    /**
+     * @var string|null $lastUpdatedBy Read-only. The display name of the administrator who last updated the roleSetting.
+    */
     private ?string $lastUpdatedBy = null;
     
-    /** @var DateTime|null $lastUpdatedDateTime Read-only. The time when the role setting was last updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    /**
+     * @var DateTime|null $lastUpdatedDateTime Read-only. The time when the role setting was last updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    */
     private ?DateTime $lastUpdatedDateTime = null;
     
-    /** @var GovernanceResource|null $resource Read-only. The associated resource for this role setting. */
+    /**
+     * @var GovernanceResource|null $resource Read-only. The associated resource for this role setting.
+    */
     private ?GovernanceResource $resource = null;
     
-    /** @var string|null $resourceId Required. The id of the resource that the role setting is associated with. */
+    /**
+     * @var string|null $resourceId Required. The id of the resource that the role setting is associated with.
+    */
     private ?string $resourceId = null;
     
-    /** @var GovernanceRoleDefinition|null $roleDefinition Read-only. The role definition that is enforced with this role setting. */
+    /**
+     * @var GovernanceRoleDefinition|null $roleDefinition Read-only. The role definition that is enforced with this role setting.
+    */
     private ?GovernanceRoleDefinition $roleDefinition = null;
     
-    /** @var string|null $roleDefinitionId Required. The id of the role definition that the role setting is associated with. */
+    /**
+     * @var string|null $roleDefinitionId Required. The id of the role definition that the role setting is associated with.
+    */
     private ?string $roleDefinitionId = null;
     
-    /** @var array<GovernanceRuleSetting>|null $userEligibleSettings The rule settings that are evaluated when a user tries to add an eligible role assignment. The setting is not supported for now. */
+    /**
+     * @var array<GovernanceRuleSetting>|null $userEligibleSettings The rule settings that are evaluated when a user tries to add an eligible role assignment. The setting is not supported for now.
+    */
     private ?array $userEligibleSettings = null;
     
-    /** @var array<GovernanceRuleSetting>|null $userMemberSettings The rule settings that are evaluated when a user tries to activate his role assignment. */
+    /**
+     * @var array<GovernanceRuleSetting>|null $userMemberSettings The rule settings that are evaluated when a user tries to activate his role assignment.
+    */
     private ?array $userMemberSettings = null;
     
     /**
@@ -54,7 +76,7 @@ class GovernanceRoleSetting extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GovernanceRoleSetting
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceRoleSetting {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceRoleSetting {
         return new GovernanceRoleSetting();
     }
 
@@ -79,18 +101,19 @@ class GovernanceRoleSetting extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'adminEligibleSettings' => function (self $o, ParseNode $n) { $o->setAdminEligibleSettings($n->getCollectionOfObjectValues(GovernanceRuleSetting::class)); },
-            'adminMemberSettings' => function (self $o, ParseNode $n) { $o->setAdminMemberSettings($n->getCollectionOfObjectValues(GovernanceRuleSetting::class)); },
-            'isDefault' => function (self $o, ParseNode $n) { $o->setIsDefault($n->getBooleanValue()); },
-            'lastUpdatedBy' => function (self $o, ParseNode $n) { $o->setLastUpdatedBy($n->getStringValue()); },
-            'lastUpdatedDateTime' => function (self $o, ParseNode $n) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'resource' => function (self $o, ParseNode $n) { $o->setResource($n->getObjectValue(GovernanceResource::class)); },
-            'resourceId' => function (self $o, ParseNode $n) { $o->setResourceId($n->getStringValue()); },
-            'roleDefinition' => function (self $o, ParseNode $n) { $o->setRoleDefinition($n->getObjectValue(GovernanceRoleDefinition::class)); },
-            'roleDefinitionId' => function (self $o, ParseNode $n) { $o->setRoleDefinitionId($n->getStringValue()); },
-            'userEligibleSettings' => function (self $o, ParseNode $n) { $o->setUserEligibleSettings($n->getCollectionOfObjectValues(GovernanceRuleSetting::class)); },
-            'userMemberSettings' => function (self $o, ParseNode $n) { $o->setUserMemberSettings($n->getCollectionOfObjectValues(GovernanceRuleSetting::class)); },
+            'adminEligibleSettings' => function (ParseNode $n) use ($o) { $o->setAdminEligibleSettings($n->getCollectionOfObjectValues(array(GovernanceRuleSetting::class, 'createFromDiscriminatorValue'))); },
+            'adminMemberSettings' => function (ParseNode $n) use ($o) { $o->setAdminMemberSettings($n->getCollectionOfObjectValues(array(GovernanceRuleSetting::class, 'createFromDiscriminatorValue'))); },
+            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
+            'lastUpdatedBy' => function (ParseNode $n) use ($o) { $o->setLastUpdatedBy($n->getStringValue()); },
+            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
+            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getObjectValue(array(GovernanceResource::class, 'createFromDiscriminatorValue'))); },
+            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
+            'roleDefinition' => function (ParseNode $n) use ($o) { $o->setRoleDefinition($n->getObjectValue(array(GovernanceRoleDefinition::class, 'createFromDiscriminatorValue'))); },
+            'roleDefinitionId' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionId($n->getStringValue()); },
+            'userEligibleSettings' => function (ParseNode $n) use ($o) { $o->setUserEligibleSettings($n->getCollectionOfObjectValues(array(GovernanceRuleSetting::class, 'createFromDiscriminatorValue'))); },
+            'userMemberSettings' => function (ParseNode $n) use ($o) { $o->setUserMemberSettings($n->getCollectionOfObjectValues(array(GovernanceRuleSetting::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

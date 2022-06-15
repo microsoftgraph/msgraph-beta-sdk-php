@@ -6,12 +6,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Teamwork extends Entity 
+class Teamwork extends Entity implements Parsable 
 {
-    /** @var array<TeamworkDevice>|null $devices The Teams devices provisioned for the tenant. */
+    /**
+     * @var array<DeletedTeam>|null $deletedTeams The deletedTeams property
+    */
+    private ?array $deletedTeams = null;
+    
+    /**
+     * @var array<TeamworkDevice>|null $devices The Teams devices provisioned for the tenant.
+    */
     private ?array $devices = null;
     
-    /** @var array<WorkforceIntegration>|null $workforceIntegrations A workforce integration with shifts. */
+    /**
+     * @var TeamsAppSettings|null $teamsAppSettings The teamsAppSettings property
+    */
+    private ?TeamsAppSettings $teamsAppSettings = null;
+    
+    /**
+     * @var array<WorkforceIntegration>|null $workforceIntegrations A workforce integration with shifts.
+    */
     private ?array $workforceIntegrations = null;
     
     /**
@@ -26,8 +40,16 @@ class Teamwork extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Teamwork
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Teamwork {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Teamwork {
         return new Teamwork();
+    }
+
+    /**
+     * Gets the deletedTeams property value. The deletedTeams property
+     * @return array<DeletedTeam>|null
+    */
+    public function getDeletedTeams(): ?array {
+        return $this->deletedTeams;
     }
 
     /**
@@ -43,10 +65,21 @@ class Teamwork extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'devices' => function (self $o, ParseNode $n) { $o->setDevices($n->getCollectionOfObjectValues(TeamworkDevice::class)); },
-            'workforceIntegrations' => function (self $o, ParseNode $n) { $o->setWorkforceIntegrations($n->getCollectionOfObjectValues(WorkforceIntegration::class)); },
+            'deletedTeams' => function (ParseNode $n) use ($o) { $o->setDeletedTeams($n->getCollectionOfObjectValues(array(DeletedTeam::class, 'createFromDiscriminatorValue'))); },
+            'devices' => function (ParseNode $n) use ($o) { $o->setDevices($n->getCollectionOfObjectValues(array(TeamworkDevice::class, 'createFromDiscriminatorValue'))); },
+            'teamsAppSettings' => function (ParseNode $n) use ($o) { $o->setTeamsAppSettings($n->getObjectValue(array(TeamsAppSettings::class, 'createFromDiscriminatorValue'))); },
+            'workforceIntegrations' => function (ParseNode $n) use ($o) { $o->setWorkforceIntegrations($n->getCollectionOfObjectValues(array(WorkforceIntegration::class, 'createFromDiscriminatorValue'))); },
         ]);
+    }
+
+    /**
+     * Gets the teamsAppSettings property value. The teamsAppSettings property
+     * @return TeamsAppSettings|null
+    */
+    public function getTeamsAppSettings(): ?TeamsAppSettings {
+        return $this->teamsAppSettings;
     }
 
     /**
@@ -63,8 +96,18 @@ class Teamwork extends Entity
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('deletedTeams', $this->deletedTeams);
         $writer->writeCollectionOfObjectValues('devices', $this->devices);
+        $writer->writeObjectValue('teamsAppSettings', $this->teamsAppSettings);
         $writer->writeCollectionOfObjectValues('workforceIntegrations', $this->workforceIntegrations);
+    }
+
+    /**
+     * Sets the deletedTeams property value. The deletedTeams property
+     *  @param array<DeletedTeam>|null $value Value to set for the deletedTeams property.
+    */
+    public function setDeletedTeams(?array $value ): void {
+        $this->deletedTeams = $value;
     }
 
     /**
@@ -73,6 +116,14 @@ class Teamwork extends Entity
     */
     public function setDevices(?array $value ): void {
         $this->devices = $value;
+    }
+
+    /**
+     * Sets the teamsAppSettings property value. The teamsAppSettings property
+     *  @param TeamsAppSettings|null $value Value to set for the teamsAppSettings property.
+    */
+    public function setTeamsAppSettings(?TeamsAppSettings $value ): void {
+        $this->teamsAppSettings = $value;
     }
 
     /**

@@ -7,16 +7,20 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CustomAccessPackageWorkflowExtension extends CustomCalloutExtension 
+class CustomAccessPackageWorkflowExtension extends CustomCalloutExtension implements Parsable 
 {
-    /** @var DateTime|null $createdDateTime Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
+    /**
+     * @var DateTime|null $createdDateTime Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var DateTime|null $lastModifiedDateTime Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * Instantiates a new customAccessPackageWorkflowExtension and sets the default values.
+     * Instantiates a new CustomAccessPackageWorkflowExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -27,7 +31,7 @@ class CustomAccessPackageWorkflowExtension extends CustomCalloutExtension
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CustomAccessPackageWorkflowExtension
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CustomAccessPackageWorkflowExtension {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CustomAccessPackageWorkflowExtension {
         return new CustomAccessPackageWorkflowExtension();
     }
 
@@ -44,9 +48,10 @@ class CustomAccessPackageWorkflowExtension extends CustomCalloutExtension
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

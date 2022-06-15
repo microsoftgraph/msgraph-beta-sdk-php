@@ -11,16 +11,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SynchronizationSchedule implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var DateTime|null $expiration Date and time when this job will expire. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    /**
+     * @var DateTime|null $expiration Date and time when this job will expire. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    */
     private ?DateTime $expiration = null;
     
-    /** @var DateInterval|null $interval The interval between synchronization iterations. */
+    /**
+     * @var DateInterval|null $interval The interval between synchronization iterations.
+    */
     private ?DateInterval $interval = null;
     
-    /** @var SynchronizationScheduleState|null $state Possible values are: Active, Disabled. */
+    /**
+     * @var SynchronizationScheduleState|null $state Possible values are: Active, Disabled.
+    */
     private ?SynchronizationScheduleState $state = null;
     
     /**
@@ -35,7 +43,7 @@ class SynchronizationSchedule implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SynchronizationSchedule
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationSchedule {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationSchedule {
         return new SynchronizationSchedule();
     }
 
@@ -60,10 +68,11 @@ class SynchronizationSchedule implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'expiration' => function (self $o, ParseNode $n) { $o->setExpiration($n->getDateTimeValue()); },
-            'interval' => function (self $o, ParseNode $n) { $o->setInterval($n->getDateIntervalValue()); },
-            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(SynchronizationScheduleState::class)); },
+            'expiration' => function (ParseNode $n) use ($o) { $o->setExpiration($n->getDateTimeValue()); },
+            'interval' => function (ParseNode $n) use ($o) { $o->setInterval($n->getDateIntervalValue()); },
+            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(SynchronizationScheduleState::class)); },
         ];
     }
 

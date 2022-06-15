@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UnifiedRbacResourceNamespaceCollectionResponse implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $nextLink The nextLink property */
+    /**
+     * @var string|null $nextLink The nextLink property
+    */
     private ?string $nextLink = null;
     
-    /** @var array<UnifiedRbacResourceNamespace>|null $value The value property */
+    /**
+     * @var array<UnifiedRbacResourceNamespace>|null $value The value property
+    */
     private ?array $value = null;
     
     /**
@@ -30,7 +36,7 @@ class UnifiedRbacResourceNamespaceCollectionResponse implements AdditionalDataHo
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRbacResourceNamespaceCollectionResponse
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRbacResourceNamespaceCollectionResponse {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRbacResourceNamespaceCollectionResponse {
         return new UnifiedRbacResourceNamespaceCollectionResponse();
     }
 
@@ -47,9 +53,10 @@ class UnifiedRbacResourceNamespaceCollectionResponse implements AdditionalDataHo
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            '@odata.nextLink' => function (self $o, ParseNode $n) { $o->setNextLink($n->getStringValue()); },
-            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getCollectionOfObjectValues(UnifiedRbacResourceNamespace::class)); },
+            '@odata.nextLink' => function (ParseNode $n) use ($o) { $o->setOdatanextLink($n->getStringValue()); },
+            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(UnifiedRbacResourceNamespace::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 
@@ -57,7 +64,7 @@ class UnifiedRbacResourceNamespaceCollectionResponse implements AdditionalDataHo
      * Gets the @odata.nextLink property value. The nextLink property
      * @return string|null
     */
-    public function getNextLink(): ?string {
+    public function getOdatanextLink(): ?string {
         return $this->nextLink;
     }
 
@@ -91,7 +98,7 @@ class UnifiedRbacResourceNamespaceCollectionResponse implements AdditionalDataHo
      * Sets the @odata.nextLink property value. The nextLink property
      *  @param string|null $value Value to set for the nextLink property.
     */
-    public function setNextLink(?string $value ): void {
+    public function setOdatanextLink(?string $value ): void {
         $this->nextLink = $value;
     }
 

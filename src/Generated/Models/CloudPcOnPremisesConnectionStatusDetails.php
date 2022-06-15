@@ -10,16 +10,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var DateTime|null $endDateTime The end time of the connection health check. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    /**
+     * @var DateTime|null $endDateTime The end time of the connection health check. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    */
     private ?DateTime $endDateTime = null;
     
-    /** @var array<CloudPcOnPremisesConnectionHealthCheck>|null $healthChecks All checks that are done on the connection. */
+    /**
+     * @var array<CloudPcOnPremisesConnectionHealthCheck>|null $healthChecks All checks that are done on the connection.
+    */
     private ?array $healthChecks = null;
     
-    /** @var DateTime|null $startDateTime The start time of the connection health check. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    /**
+     * @var DateTime|null $startDateTime The start time of the connection health check. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    */
     private ?DateTime $startDateTime = null;
     
     /**
@@ -34,7 +42,7 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcOnPremisesConnectionStatusDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcOnPremisesConnectionStatusDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcOnPremisesConnectionStatusDetails {
         return new CloudPcOnPremisesConnectionStatusDetails();
     }
 
@@ -59,10 +67,11 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'healthChecks' => function (self $o, ParseNode $n) { $o->setHealthChecks($n->getCollectionOfObjectValues(CloudPcOnPremisesConnectionHealthCheck::class)); },
-            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'healthChecks' => function (ParseNode $n) use ($o) { $o->setHealthChecks($n->getCollectionOfObjectValues(array(CloudPcOnPremisesConnectionHealthCheck::class, 'createFromDiscriminatorValue'))); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
         ];
     }
 

@@ -7,31 +7,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TemporaryAccessPassAuthenticationMethod extends AuthenticationMethod 
+class TemporaryAccessPassAuthenticationMethod extends AuthenticationMethod implements Parsable 
 {
-    /** @var DateTime|null $createdDateTime The date and time when the temporaryAccessPass was created. */
+    /**
+     * @var DateTime|null $createdDateTime The date and time when the temporaryAccessPass was created.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var bool|null $isUsable The state of the authentication method that indicates whether it's currently usable by the user. */
+    /**
+     * @var bool|null $isUsable The state of the authentication method that indicates whether it's currently usable by the user.
+    */
     private ?bool $isUsable = null;
     
-    /** @var bool|null $isUsableOnce Determines whether the pass is limited to a one time use. If true, the pass can be used once; if false, the pass can be used multiple times within the temporaryAccessPass lifetime. */
+    /**
+     * @var bool|null $isUsableOnce Determines whether the pass is limited to a one time use. If true, the pass can be used once; if false, the pass can be used multiple times within the temporaryAccessPass lifetime.
+    */
     private ?bool $isUsableOnce = null;
     
-    /** @var int|null $lifetimeInMinutes The lifetime of the temporaryAccessPass in minutes starting at startDateTime. Minimum 10, Maximum 43200 (equivalent to 30 days). */
+    /**
+     * @var int|null $lifetimeInMinutes The lifetime of the temporaryAccessPass in minutes starting at startDateTime. Minimum 10, Maximum 43200 (equivalent to 30 days).
+    */
     private ?int $lifetimeInMinutes = null;
     
-    /** @var string|null $methodUsabilityReason Details about usability state (isUsable). Reasons can include: enabledByPolicy, disabledByPolicy, expired, notYetValid, oneTimeUsed. */
+    /**
+     * @var string|null $methodUsabilityReason Details about usability state (isUsable). Reasons can include: enabledByPolicy, disabledByPolicy, expired, notYetValid, oneTimeUsed.
+    */
     private ?string $methodUsabilityReason = null;
     
-    /** @var DateTime|null $startDateTime The date and time when the temporaryAccessPass becomes available to use. */
+    /**
+     * @var DateTime|null $startDateTime The date and time when the temporaryAccessPass becomes available to use.
+    */
     private ?DateTime $startDateTime = null;
     
-    /** @var string|null $temporaryAccessPass The temporaryAccessPass used to authenticate. Returned only on creation of a new temporaryAccessPass; returned as NULL with GET. */
+    /**
+     * @var string|null $temporaryAccessPass The temporaryAccessPass used to authenticate. Returned only on creation of a new temporaryAccessPass; returned as NULL with GET.
+    */
     private ?string $temporaryAccessPass = null;
     
     /**
-     * Instantiates a new temporaryAccessPassAuthenticationMethod and sets the default values.
+     * Instantiates a new TemporaryAccessPassAuthenticationMethod and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -42,7 +56,7 @@ class TemporaryAccessPassAuthenticationMethod extends AuthenticationMethod
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TemporaryAccessPassAuthenticationMethod
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TemporaryAccessPassAuthenticationMethod {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TemporaryAccessPassAuthenticationMethod {
         return new TemporaryAccessPassAuthenticationMethod();
     }
 
@@ -59,14 +73,15 @@ class TemporaryAccessPassAuthenticationMethod extends AuthenticationMethod
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'isUsable' => function (self $o, ParseNode $n) { $o->setIsUsable($n->getBooleanValue()); },
-            'isUsableOnce' => function (self $o, ParseNode $n) { $o->setIsUsableOnce($n->getBooleanValue()); },
-            'lifetimeInMinutes' => function (self $o, ParseNode $n) { $o->setLifetimeInMinutes($n->getIntegerValue()); },
-            'methodUsabilityReason' => function (self $o, ParseNode $n) { $o->setMethodUsabilityReason($n->getStringValue()); },
-            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'temporaryAccessPass' => function (self $o, ParseNode $n) { $o->setTemporaryAccessPass($n->getStringValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'isUsable' => function (ParseNode $n) use ($o) { $o->setIsUsable($n->getBooleanValue()); },
+            'isUsableOnce' => function (ParseNode $n) use ($o) { $o->setIsUsableOnce($n->getBooleanValue()); },
+            'lifetimeInMinutes' => function (ParseNode $n) use ($o) { $o->setLifetimeInMinutes($n->getIntegerValue()); },
+            'methodUsabilityReason' => function (ParseNode $n) use ($o) { $o->setMethodUsabilityReason($n->getStringValue()); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'temporaryAccessPass' => function (ParseNode $n) use ($o) { $o->setTemporaryAccessPass($n->getStringValue()); },
         ]);
     }
 

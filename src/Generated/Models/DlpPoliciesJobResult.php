@@ -10,16 +10,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DlpPoliciesJobResult implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $auditCorrelationId The auditCorrelationId property */
+    /**
+     * @var string|null $auditCorrelationId The auditCorrelationId property
+    */
     private ?string $auditCorrelationId = null;
     
-    /** @var DateTime|null $evaluationDateTime The evaluationDateTime property */
+    /**
+     * @var DateTime|null $evaluationDateTime The evaluationDateTime property
+    */
     private ?DateTime $evaluationDateTime = null;
     
-    /** @var array<MatchingDlpRule>|null $matchingRules The matchingRules property */
+    /**
+     * @var array<MatchingDlpRule>|null $matchingRules The matchingRules property
+    */
     private ?array $matchingRules = null;
     
     /**
@@ -34,7 +42,7 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DlpPoliciesJobResult
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DlpPoliciesJobResult {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DlpPoliciesJobResult {
         return new DlpPoliciesJobResult();
     }
 
@@ -67,10 +75,11 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'auditCorrelationId' => function (self $o, ParseNode $n) { $o->setAuditCorrelationId($n->getStringValue()); },
-            'evaluationDateTime' => function (self $o, ParseNode $n) { $o->setEvaluationDateTime($n->getDateTimeValue()); },
-            'matchingRules' => function (self $o, ParseNode $n) { $o->setMatchingRules($n->getCollectionOfObjectValues(MatchingDlpRule::class)); },
+            'auditCorrelationId' => function (ParseNode $n) use ($o) { $o->setAuditCorrelationId($n->getStringValue()); },
+            'evaluationDateTime' => function (ParseNode $n) use ($o) { $o->setEvaluationDateTime($n->getDateTimeValue()); },
+            'matchingRules' => function (ParseNode $n) use ($o) { $o->setMatchingRules($n->getCollectionOfObjectValues(array(MatchingDlpRule::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

@@ -6,19 +6,25 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AppManagementPolicy extends PolicyBase 
+class AppManagementPolicy extends PolicyBase implements Parsable 
 {
-    /** @var array<DirectoryObject>|null $appliesTo The appliesTo property */
+    /**
+     * @var array<DirectoryObject>|null $appliesTo The appliesTo property
+    */
     private ?array $appliesTo = null;
     
-    /** @var bool|null $isEnabled The isEnabled property */
+    /**
+     * @var bool|null $isEnabled The isEnabled property
+    */
     private ?bool $isEnabled = null;
     
-    /** @var AppManagementConfiguration|null $restrictions The restrictions property */
+    /**
+     * @var AppManagementConfiguration|null $restrictions The restrictions property
+    */
     private ?AppManagementConfiguration $restrictions = null;
     
     /**
-     * Instantiates a new appManagementPolicy and sets the default values.
+     * Instantiates a new AppManagementPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +35,7 @@ class AppManagementPolicy extends PolicyBase
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AppManagementPolicy
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AppManagementPolicy {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AppManagementPolicy {
         return new AppManagementPolicy();
     }
 
@@ -46,10 +52,11 @@ class AppManagementPolicy extends PolicyBase
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appliesTo' => function (self $o, ParseNode $n) { $o->setAppliesTo($n->getCollectionOfObjectValues(DirectoryObject::class)); },
-            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
-            'restrictions' => function (self $o, ParseNode $n) { $o->setRestrictions($n->getObjectValue(AppManagementConfiguration::class)); },
+            'appliesTo' => function (ParseNode $n) use ($o) { $o->setAppliesTo($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
+            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            'restrictions' => function (ParseNode $n) use ($o) { $o->setRestrictions($n->getObjectValue(array(AppManagementConfiguration::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

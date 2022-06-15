@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PayloadTypes implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $rawContent The notification content of a raw user notification that will be delivered to and consumed by the app client on all supported platforms (Windows, iOS, Android or WebPush) receiving this notification. At least one of Payload.RawContent or Payload.VisualContent needs to be valid for a POST Notification request. */
+    /**
+     * @var string|null $rawContent The notification content of a raw user notification that will be delivered to and consumed by the app client on all supported platforms (Windows, iOS, Android or WebPush) receiving this notification. At least one of Payload.RawContent or Payload.VisualContent needs to be valid for a POST Notification request.
+    */
     private ?string $rawContent = null;
     
-    /** @var VisualProperties|null $visualContent The visual content of a visual user notification, which will be consumed by the notification platform on each supported platform (Windows, iOS and Android only) and rendered for the user. At least one of Payload.RawContent or Payload.VisualContent needs to be valid for a POST Notification request. */
+    /**
+     * @var VisualProperties|null $visualContent The visual content of a visual user notification, which will be consumed by the notification platform on each supported platform (Windows, iOS and Android only) and rendered for the user. At least one of Payload.RawContent or Payload.VisualContent needs to be valid for a POST Notification request.
+    */
     private ?VisualProperties $visualContent = null;
     
     /**
@@ -30,7 +36,7 @@ class PayloadTypes implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PayloadTypes
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PayloadTypes {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PayloadTypes {
         return new PayloadTypes();
     }
 
@@ -47,9 +53,10 @@ class PayloadTypes implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'rawContent' => function (self $o, ParseNode $n) { $o->setRawContent($n->getStringValue()); },
-            'visualContent' => function (self $o, ParseNode $n) { $o->setVisualContent($n->getObjectValue(VisualProperties::class)); },
+            'rawContent' => function (ParseNode $n) use ($o) { $o->setRawContent($n->getStringValue()); },
+            'visualContent' => function (ParseNode $n) use ($o) { $o->setVisualContent($n->getObjectValue(array(VisualProperties::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

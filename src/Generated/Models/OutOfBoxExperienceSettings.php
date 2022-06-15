@@ -9,25 +9,39 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var WindowsDeviceUsageType|null $deviceUsageType AAD join authentication type. Possible values are: singleUser, shared. */
+    /**
+     * @var WindowsDeviceUsageType|null $deviceUsageType AAD join authentication type. Possible values are: singleUser, shared.
+    */
     private ?WindowsDeviceUsageType $deviceUsageType = null;
     
-    /** @var bool|null $hideEscapeLink If set to true, then the user can't start over with different account, on company sign-in */
+    /**
+     * @var bool|null $hideEscapeLink If set to true, then the user can't start over with different account, on company sign-in
+    */
     private ?bool $hideEscapeLink = null;
     
-    /** @var bool|null $hideEULA Show or hide EULA to user */
+    /**
+     * @var bool|null $hideEULA Show or hide EULA to user
+    */
     private ?bool $hideEULA = null;
     
-    /** @var bool|null $hidePrivacySettings Show or hide privacy settings to user */
+    /**
+     * @var bool|null $hidePrivacySettings Show or hide privacy settings to user
+    */
     private ?bool $hidePrivacySettings = null;
     
-    /** @var bool|null $skipKeyboardSelectionPage If set, then skip the keyboard selection page if Language and Region are set */
+    /**
+     * @var bool|null $skipKeyboardSelectionPage If set, then skip the keyboard selection page if Language and Region are set
+    */
     private ?bool $skipKeyboardSelectionPage = null;
     
-    /** @var WindowsUserType|null $userType Type of user. Possible values are: administrator, standard. */
+    /**
+     * @var WindowsUserType|null $userType Type of user. Possible values are: administrator, standard.
+    */
     private ?WindowsUserType $userType = null;
     
     /**
@@ -42,7 +56,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OutOfBoxExperienceSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): OutOfBoxExperienceSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): OutOfBoxExperienceSettings {
         return new OutOfBoxExperienceSettings();
     }
 
@@ -67,13 +81,14 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'deviceUsageType' => function (self $o, ParseNode $n) { $o->setDeviceUsageType($n->getEnumValue(WindowsDeviceUsageType::class)); },
-            'hideEscapeLink' => function (self $o, ParseNode $n) { $o->setHideEscapeLink($n->getBooleanValue()); },
-            'hideEULA' => function (self $o, ParseNode $n) { $o->setHideEULA($n->getBooleanValue()); },
-            'hidePrivacySettings' => function (self $o, ParseNode $n) { $o->setHidePrivacySettings($n->getBooleanValue()); },
-            'skipKeyboardSelectionPage' => function (self $o, ParseNode $n) { $o->setSkipKeyboardSelectionPage($n->getBooleanValue()); },
-            'userType' => function (self $o, ParseNode $n) { $o->setUserType($n->getEnumValue(WindowsUserType::class)); },
+            'deviceUsageType' => function (ParseNode $n) use ($o) { $o->setDeviceUsageType($n->getEnumValue(WindowsDeviceUsageType::class)); },
+            'hideEscapeLink' => function (ParseNode $n) use ($o) { $o->setHideEscapeLink($n->getBooleanValue()); },
+            'hideEULA' => function (ParseNode $n) use ($o) { $o->setHideEULA($n->getBooleanValue()); },
+            'hidePrivacySettings' => function (ParseNode $n) use ($o) { $o->setHidePrivacySettings($n->getBooleanValue()); },
+            'skipKeyboardSelectionPage' => function (ParseNode $n) use ($o) { $o->setSkipKeyboardSelectionPage($n->getBooleanValue()); },
+            'userType' => function (ParseNode $n) use ($o) { $o->setUserType($n->getEnumValue(WindowsUserType::class)); },
         ];
     }
 

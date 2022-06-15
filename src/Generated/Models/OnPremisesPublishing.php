@@ -9,61 +9,109 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class OnPremisesPublishing implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $alternateUrl If you are configuring a traffic manager in front of multiple App Proxy applications, the alternateUrl is the user-friendly URL that will point to the traffic manager. */
+    /**
+     * @var string|null $alternateUrl If you are configuring a traffic manager in front of multiple App Proxy applications, the alternateUrl is the user-friendly URL that will point to the traffic manager.
+    */
     private ?string $alternateUrl = null;
     
-    /** @var string|null $applicationServerTimeout The duration the connector will wait for a response from the backend application before closing the connection. Possible values are default, long. When set to default, the backend application timeout has a length of 85 seconds. When set to long, the backend timeout is increased to 180 seconds. Use long if your server takes more than 85 seconds to respond to requests or if you are unable to access the application and the error status is 'Backend Timeout'. Default value is default. */
+    /**
+     * @var string|null $applicationServerTimeout The duration the connector will wait for a response from the backend application before closing the connection. Possible values are default, long. When set to default, the backend application timeout has a length of 85 seconds. When set to long, the backend timeout is increased to 180 seconds. Use long if your server takes more than 85 seconds to respond to requests or if you are unable to access the application and the error status is 'Backend Timeout'. Default value is default.
+    */
     private ?string $applicationServerTimeout = null;
     
-    /** @var string|null $applicationType Indicates if this application is an Application Proxy configured application. This is pre-set by the system. Read-only. */
+    /**
+     * @var string|null $applicationType Indicates if this application is an Application Proxy configured application. This is pre-set by the system. Read-only.
+    */
     private ?string $applicationType = null;
     
-    /** @var ExternalAuthenticationType|null $externalAuthenticationType Details the pre-authentication setting for the application. Pre-authentication enforces that users must authenticate before accessing the app. Passthru does not require authentication. Possible values are: passthru, aadPreAuthentication. */
+    /**
+     * @var ExternalAuthenticationType|null $externalAuthenticationType Details the pre-authentication setting for the application. Pre-authentication enforces that users must authenticate before accessing the app. Passthru does not require authentication. Possible values are: passthru, aadPreAuthentication.
+    */
     private ?ExternalAuthenticationType $externalAuthenticationType = null;
     
-    /** @var string|null $externalUrl The published external url for the application. For example, https://intranet-contoso.msappproxy.net/. */
+    /**
+     * @var string|null $externalUrl The published external url for the application. For example, https://intranet-contoso.msappproxy.net/.
+    */
     private ?string $externalUrl = null;
     
-    /** @var string|null $internalUrl The internal url of the application. For example, https://intranet/. */
+    /**
+     * @var string|null $internalUrl The internal url of the application. For example, https://intranet/.
+    */
     private ?string $internalUrl = null;
     
-    /** @var bool|null $isBackendCertificateValidationEnabled Indicates whether backend SSL certificate validation is enabled for the application. For all new Application Proxy apps, the property will be set to true by default. For all existing apps, the property will be set to false. */
+    /**
+     * @var bool|null $isBackendCertificateValidationEnabled Indicates whether backend SSL certificate validation is enabled for the application. For all new Application Proxy apps, the property will be set to true by default. For all existing apps, the property will be set to false.
+    */
     private ?bool $isBackendCertificateValidationEnabled = null;
     
-    /** @var bool|null $isHttpOnlyCookieEnabled Indicates if the HTTPOnly cookie flag should be set in the HTTP response headers. Set this value to true to have Application Proxy cookies include the HTTPOnly flag in the HTTP response headers. If using Remote Desktop Services, set this value to False. Default value is false. */
+    /**
+     * @var bool|null $isHttpOnlyCookieEnabled Indicates if the HTTPOnly cookie flag should be set in the HTTP response headers. Set this value to true to have Application Proxy cookies include the HTTPOnly flag in the HTTP response headers. If using Remote Desktop Services, set this value to False. Default value is false.
+    */
     private ?bool $isHttpOnlyCookieEnabled = null;
     
-    /** @var bool|null $isOnPremPublishingEnabled Indicates if the application is currently being published via Application Proxy or not. This is pre-set by the system. Read-only. */
+    /**
+     * @var bool|null $isOnPremPublishingEnabled Indicates if the application is currently being published via Application Proxy or not. This is pre-set by the system. Read-only.
+    */
     private ?bool $isOnPremPublishingEnabled = null;
     
-    /** @var bool|null $isPersistentCookieEnabled Indicates if the Persistent cookie flag should be set in the HTTP response headers. Keep this value set to false. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see Cookie settings for accessing on-premises applications in Azure Active Directory. Default value is false. */
+    /**
+     * @var bool|null $isPersistentCookieEnabled Indicates if the Persistent cookie flag should be set in the HTTP response headers. Keep this value set to false. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see Cookie settings for accessing on-premises applications in Azure Active Directory. Default value is false.
+    */
     private ?bool $isPersistentCookieEnabled = null;
     
-    /** @var bool|null $isSecureCookieEnabled Indicates if the Secure cookie flag should be set in the HTTP response headers. Set this value to true to transmit cookies over a secure channel such as an encrypted HTTPS request. Default value is true. */
+    /**
+     * @var bool|null $isSecureCookieEnabled Indicates if the Secure cookie flag should be set in the HTTP response headers. Set this value to true to transmit cookies over a secure channel such as an encrypted HTTPS request. Default value is true.
+    */
     private ?bool $isSecureCookieEnabled = null;
     
-    /** @var bool|null $isTranslateHostHeaderEnabled Indicates if the application should translate urls in the reponse headers. Keep this value as true unless your application required the original host header in the authentication request. Default value is true. */
+    /**
+     * @var bool|null $isStateSessionEnabled Indicates whether validation of the state parameter when the client uses the OAuth 2.0 authorization code grant flow is enabled. This setting allows admins to specify whether they want to enable CSRF protection for their apps.
+    */
+    private ?bool $isStateSessionEnabled = null;
+    
+    /**
+     * @var bool|null $isTranslateHostHeaderEnabled Indicates if the application should translate urls in the reponse headers. Keep this value as true unless your application required the original host header in the authentication request. Default value is true.
+    */
     private ?bool $isTranslateHostHeaderEnabled = null;
     
-    /** @var bool|null $isTranslateLinksInBodyEnabled Indicates if the application should translate urls in the application body. Keep this value as false unless you have hardcoded HTML links to other on-premises applications and don't use custom domains. For more information, see Link translation with Application Proxy. Default value is false. */
+    /**
+     * @var bool|null $isTranslateLinksInBodyEnabled Indicates if the application should translate urls in the application body. Keep this value as false unless you have hardcoded HTML links to other on-premises applications and don't use custom domains. For more information, see Link translation with Application Proxy. Default value is false.
+    */
     private ?bool $isTranslateLinksInBodyEnabled = null;
     
-    /** @var OnPremisesPublishingSingleSignOn|null $singleSignOnSettings Represents the single sign-on configuration for the on-premises application. */
+    /**
+     * @var array<OnPremisesApplicationSegment>|null $onPremisesApplicationSegments The onPremisesApplicationSegments property
+    */
+    private ?array $onPremisesApplicationSegments = null;
+    
+    /**
+     * @var OnPremisesPublishingSingleSignOn|null $singleSignOnSettings Represents the single sign-on configuration for the on-premises application.
+    */
     private ?OnPremisesPublishingSingleSignOn $singleSignOnSettings = null;
     
-    /** @var bool|null $useAlternateUrlForTranslationAndRedirect The useAlternateUrlForTranslationAndRedirect property */
+    /**
+     * @var bool|null $useAlternateUrlForTranslationAndRedirect The useAlternateUrlForTranslationAndRedirect property
+    */
     private ?bool $useAlternateUrlForTranslationAndRedirect = null;
     
-    /** @var VerifiedCustomDomainCertificatesMetadata|null $verifiedCustomDomainCertificatesMetadata Details of the certificate associated with the application when a custom domain is in use. null when using the default domain. Read-only. */
+    /**
+     * @var VerifiedCustomDomainCertificatesMetadata|null $verifiedCustomDomainCertificatesMetadata Details of the certificate associated with the application when a custom domain is in use. null when using the default domain. Read-only.
+    */
     private ?VerifiedCustomDomainCertificatesMetadata $verifiedCustomDomainCertificatesMetadata = null;
     
-    /** @var KeyCredential|null $verifiedCustomDomainKeyCredential The associated key credential for the custom domain used. */
+    /**
+     * @var KeyCredential|null $verifiedCustomDomainKeyCredential The associated key credential for the custom domain used.
+    */
     private ?KeyCredential $verifiedCustomDomainKeyCredential = null;
     
-    /** @var PasswordCredential|null $verifiedCustomDomainPasswordCredential The associated password credential for the custom domain used. */
+    /**
+     * @var PasswordCredential|null $verifiedCustomDomainPasswordCredential The associated password credential for the custom domain used.
+    */
     private ?PasswordCredential $verifiedCustomDomainPasswordCredential = null;
     
     /**
@@ -78,7 +126,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OnPremisesPublishing
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): OnPremisesPublishing {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): OnPremisesPublishing {
         return new OnPremisesPublishing();
     }
 
@@ -135,25 +183,28 @@ class OnPremisesPublishing implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'alternateUrl' => function (self $o, ParseNode $n) { $o->setAlternateUrl($n->getStringValue()); },
-            'applicationServerTimeout' => function (self $o, ParseNode $n) { $o->setApplicationServerTimeout($n->getStringValue()); },
-            'applicationType' => function (self $o, ParseNode $n) { $o->setApplicationType($n->getStringValue()); },
-            'externalAuthenticationType' => function (self $o, ParseNode $n) { $o->setExternalAuthenticationType($n->getEnumValue(ExternalAuthenticationType::class)); },
-            'externalUrl' => function (self $o, ParseNode $n) { $o->setExternalUrl($n->getStringValue()); },
-            'internalUrl' => function (self $o, ParseNode $n) { $o->setInternalUrl($n->getStringValue()); },
-            'isBackendCertificateValidationEnabled' => function (self $o, ParseNode $n) { $o->setIsBackendCertificateValidationEnabled($n->getBooleanValue()); },
-            'isHttpOnlyCookieEnabled' => function (self $o, ParseNode $n) { $o->setIsHttpOnlyCookieEnabled($n->getBooleanValue()); },
-            'isOnPremPublishingEnabled' => function (self $o, ParseNode $n) { $o->setIsOnPremPublishingEnabled($n->getBooleanValue()); },
-            'isPersistentCookieEnabled' => function (self $o, ParseNode $n) { $o->setIsPersistentCookieEnabled($n->getBooleanValue()); },
-            'isSecureCookieEnabled' => function (self $o, ParseNode $n) { $o->setIsSecureCookieEnabled($n->getBooleanValue()); },
-            'isTranslateHostHeaderEnabled' => function (self $o, ParseNode $n) { $o->setIsTranslateHostHeaderEnabled($n->getBooleanValue()); },
-            'isTranslateLinksInBodyEnabled' => function (self $o, ParseNode $n) { $o->setIsTranslateLinksInBodyEnabled($n->getBooleanValue()); },
-            'singleSignOnSettings' => function (self $o, ParseNode $n) { $o->setSingleSignOnSettings($n->getObjectValue(OnPremisesPublishingSingleSignOn::class)); },
-            'useAlternateUrlForTranslationAndRedirect' => function (self $o, ParseNode $n) { $o->setUseAlternateUrlForTranslationAndRedirect($n->getBooleanValue()); },
-            'verifiedCustomDomainCertificatesMetadata' => function (self $o, ParseNode $n) { $o->setVerifiedCustomDomainCertificatesMetadata($n->getObjectValue(VerifiedCustomDomainCertificatesMetadata::class)); },
-            'verifiedCustomDomainKeyCredential' => function (self $o, ParseNode $n) { $o->setVerifiedCustomDomainKeyCredential($n->getObjectValue(KeyCredential::class)); },
-            'verifiedCustomDomainPasswordCredential' => function (self $o, ParseNode $n) { $o->setVerifiedCustomDomainPasswordCredential($n->getObjectValue(PasswordCredential::class)); },
+            'alternateUrl' => function (ParseNode $n) use ($o) { $o->setAlternateUrl($n->getStringValue()); },
+            'applicationServerTimeout' => function (ParseNode $n) use ($o) { $o->setApplicationServerTimeout($n->getStringValue()); },
+            'applicationType' => function (ParseNode $n) use ($o) { $o->setApplicationType($n->getStringValue()); },
+            'externalAuthenticationType' => function (ParseNode $n) use ($o) { $o->setExternalAuthenticationType($n->getEnumValue(ExternalAuthenticationType::class)); },
+            'externalUrl' => function (ParseNode $n) use ($o) { $o->setExternalUrl($n->getStringValue()); },
+            'internalUrl' => function (ParseNode $n) use ($o) { $o->setInternalUrl($n->getStringValue()); },
+            'isBackendCertificateValidationEnabled' => function (ParseNode $n) use ($o) { $o->setIsBackendCertificateValidationEnabled($n->getBooleanValue()); },
+            'isHttpOnlyCookieEnabled' => function (ParseNode $n) use ($o) { $o->setIsHttpOnlyCookieEnabled($n->getBooleanValue()); },
+            'isOnPremPublishingEnabled' => function (ParseNode $n) use ($o) { $o->setIsOnPremPublishingEnabled($n->getBooleanValue()); },
+            'isPersistentCookieEnabled' => function (ParseNode $n) use ($o) { $o->setIsPersistentCookieEnabled($n->getBooleanValue()); },
+            'isSecureCookieEnabled' => function (ParseNode $n) use ($o) { $o->setIsSecureCookieEnabled($n->getBooleanValue()); },
+            'isStateSessionEnabled' => function (ParseNode $n) use ($o) { $o->setIsStateSessionEnabled($n->getBooleanValue()); },
+            'isTranslateHostHeaderEnabled' => function (ParseNode $n) use ($o) { $o->setIsTranslateHostHeaderEnabled($n->getBooleanValue()); },
+            'isTranslateLinksInBodyEnabled' => function (ParseNode $n) use ($o) { $o->setIsTranslateLinksInBodyEnabled($n->getBooleanValue()); },
+            'onPremisesApplicationSegments' => function (ParseNode $n) use ($o) { $o->setOnPremisesApplicationSegments($n->getCollectionOfObjectValues(array(OnPremisesApplicationSegment::class, 'createFromDiscriminatorValue'))); },
+            'singleSignOnSettings' => function (ParseNode $n) use ($o) { $o->setSingleSignOnSettings($n->getObjectValue(array(OnPremisesPublishingSingleSignOn::class, 'createFromDiscriminatorValue'))); },
+            'useAlternateUrlForTranslationAndRedirect' => function (ParseNode $n) use ($o) { $o->setUseAlternateUrlForTranslationAndRedirect($n->getBooleanValue()); },
+            'verifiedCustomDomainCertificatesMetadata' => function (ParseNode $n) use ($o) { $o->setVerifiedCustomDomainCertificatesMetadata($n->getObjectValue(array(VerifiedCustomDomainCertificatesMetadata::class, 'createFromDiscriminatorValue'))); },
+            'verifiedCustomDomainKeyCredential' => function (ParseNode $n) use ($o) { $o->setVerifiedCustomDomainKeyCredential($n->getObjectValue(array(KeyCredential::class, 'createFromDiscriminatorValue'))); },
+            'verifiedCustomDomainPasswordCredential' => function (ParseNode $n) use ($o) { $o->setVerifiedCustomDomainPasswordCredential($n->getObjectValue(array(PasswordCredential::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 
@@ -206,6 +257,14 @@ class OnPremisesPublishing implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the isStateSessionEnabled property value. Indicates whether validation of the state parameter when the client uses the OAuth 2.0 authorization code grant flow is enabled. This setting allows admins to specify whether they want to enable CSRF protection for their apps.
+     * @return bool|null
+    */
+    public function getIsStateSessionEnabled(): ?bool {
+        return $this->isStateSessionEnabled;
+    }
+
+    /**
      * Gets the isTranslateHostHeaderEnabled property value. Indicates if the application should translate urls in the reponse headers. Keep this value as true unless your application required the original host header in the authentication request. Default value is true.
      * @return bool|null
     */
@@ -219,6 +278,14 @@ class OnPremisesPublishing implements AdditionalDataHolder, Parsable
     */
     public function getIsTranslateLinksInBodyEnabled(): ?bool {
         return $this->isTranslateLinksInBodyEnabled;
+    }
+
+    /**
+     * Gets the onPremisesApplicationSegments property value. The onPremisesApplicationSegments property
+     * @return array<OnPremisesApplicationSegment>|null
+    */
+    public function getOnPremisesApplicationSegments(): ?array {
+        return $this->onPremisesApplicationSegments;
     }
 
     /**
@@ -277,8 +344,10 @@ class OnPremisesPublishing implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('isOnPremPublishingEnabled', $this->isOnPremPublishingEnabled);
         $writer->writeBooleanValue('isPersistentCookieEnabled', $this->isPersistentCookieEnabled);
         $writer->writeBooleanValue('isSecureCookieEnabled', $this->isSecureCookieEnabled);
+        $writer->writeBooleanValue('isStateSessionEnabled', $this->isStateSessionEnabled);
         $writer->writeBooleanValue('isTranslateHostHeaderEnabled', $this->isTranslateHostHeaderEnabled);
         $writer->writeBooleanValue('isTranslateLinksInBodyEnabled', $this->isTranslateLinksInBodyEnabled);
+        $writer->writeCollectionOfObjectValues('onPremisesApplicationSegments', $this->onPremisesApplicationSegments);
         $writer->writeObjectValue('singleSignOnSettings', $this->singleSignOnSettings);
         $writer->writeBooleanValue('useAlternateUrlForTranslationAndRedirect', $this->useAlternateUrlForTranslationAndRedirect);
         $writer->writeObjectValue('verifiedCustomDomainCertificatesMetadata', $this->verifiedCustomDomainCertificatesMetadata);
@@ -384,6 +453,14 @@ class OnPremisesPublishing implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the isStateSessionEnabled property value. Indicates whether validation of the state parameter when the client uses the OAuth 2.0 authorization code grant flow is enabled. This setting allows admins to specify whether they want to enable CSRF protection for their apps.
+     *  @param bool|null $value Value to set for the isStateSessionEnabled property.
+    */
+    public function setIsStateSessionEnabled(?bool $value ): void {
+        $this->isStateSessionEnabled = $value;
+    }
+
+    /**
      * Sets the isTranslateHostHeaderEnabled property value. Indicates if the application should translate urls in the reponse headers. Keep this value as true unless your application required the original host header in the authentication request. Default value is true.
      *  @param bool|null $value Value to set for the isTranslateHostHeaderEnabled property.
     */
@@ -397,6 +474,14 @@ class OnPremisesPublishing implements AdditionalDataHolder, Parsable
     */
     public function setIsTranslateLinksInBodyEnabled(?bool $value ): void {
         $this->isTranslateLinksInBodyEnabled = $value;
+    }
+
+    /**
+     * Sets the onPremisesApplicationSegments property value. The onPremisesApplicationSegments property
+     *  @param array<OnPremisesApplicationSegment>|null $value Value to set for the onPremisesApplicationSegments property.
+    */
+    public function setOnPremisesApplicationSegments(?array $value ): void {
+        $this->onPremisesApplicationSegments = $value;
     }
 
     /**

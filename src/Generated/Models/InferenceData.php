@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class InferenceData implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var float|null $confidenceScore Confidence score reflecting the accuracy of the data inferred about the user. */
+    /**
+     * @var float|null $confidenceScore Confidence score reflecting the accuracy of the data inferred about the user.
+    */
     private ?float $confidenceScore = null;
     
-    /** @var bool|null $userHasVerifiedAccuracy Records if the user has confirmed this inference as being True or False. */
+    /**
+     * @var bool|null $userHasVerifiedAccuracy Records if the user has confirmed this inference as being True or False.
+    */
     private ?bool $userHasVerifiedAccuracy = null;
     
     /**
@@ -30,7 +36,7 @@ class InferenceData implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return InferenceData
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): InferenceData {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): InferenceData {
         return new InferenceData();
     }
 
@@ -55,9 +61,10 @@ class InferenceData implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'confidenceScore' => function (self $o, ParseNode $n) { $o->setConfidenceScore($n->getFloatValue()); },
-            'userHasVerifiedAccuracy' => function (self $o, ParseNode $n) { $o->setUserHasVerifiedAccuracy($n->getBooleanValue()); },
+            'confidenceScore' => function (ParseNode $n) use ($o) { $o->setConfidenceScore($n->getFloatValue()); },
+            'userHasVerifiedAccuracy' => function (ParseNode $n) use ($o) { $o->setUserHasVerifiedAccuracy($n->getBooleanValue()); },
         ];
     }
 

@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AndroidEnrollmentCompanyCode implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $enrollmentToken Enrollment Token used by the User to enroll their device. */
+    /**
+     * @var string|null $enrollmentToken Enrollment Token used by the User to enroll their device.
+    */
     private ?string $enrollmentToken = null;
     
-    /** @var string|null $qrCodeContent String used to generate a QR code for the token. */
+    /**
+     * @var string|null $qrCodeContent String used to generate a QR code for the token.
+    */
     private ?string $qrCodeContent = null;
     
-    /** @var MimeContent|null $qrCodeImage Generated QR code for the token. */
+    /**
+     * @var MimeContent|null $qrCodeImage Generated QR code for the token.
+    */
     private ?MimeContent $qrCodeImage = null;
     
     /**
@@ -33,7 +41,7 @@ class AndroidEnrollmentCompanyCode implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AndroidEnrollmentCompanyCode
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AndroidEnrollmentCompanyCode {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidEnrollmentCompanyCode {
         return new AndroidEnrollmentCompanyCode();
     }
 
@@ -58,10 +66,11 @@ class AndroidEnrollmentCompanyCode implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'enrollmentToken' => function (self $o, ParseNode $n) { $o->setEnrollmentToken($n->getStringValue()); },
-            'qrCodeContent' => function (self $o, ParseNode $n) { $o->setQrCodeContent($n->getStringValue()); },
-            'qrCodeImage' => function (self $o, ParseNode $n) { $o->setQrCodeImage($n->getObjectValue(MimeContent::class)); },
+            'enrollmentToken' => function (ParseNode $n) use ($o) { $o->setEnrollmentToken($n->getStringValue()); },
+            'qrCodeContent' => function (ParseNode $n) use ($o) { $o->setQrCodeContent($n->getStringValue()); },
+            'qrCodeImage' => function (ParseNode $n) use ($o) { $o->setQrCodeImage($n->getObjectValue(array(MimeContent::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

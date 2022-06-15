@@ -7,15 +7,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MessageEvent extends Entity 
+class MessageEvent extends Entity implements Parsable 
 {
-    /** @var DateTime|null $dateTime The dateTime property */
+    /**
+     * @var DateTime|null $dateTime The dateTime property
+    */
     private ?DateTime $dateTime = null;
     
-    /** @var string|null $description The description property */
+    /**
+     * @var string|null $description The description property
+    */
     private ?string $description = null;
     
-    /** @var MessageEventType|null $eventType The eventType property */
+    /**
+     * @var MessageEventType|null $eventType The eventType property
+    */
     private ?MessageEventType $eventType = null;
     
     /**
@@ -30,7 +36,7 @@ class MessageEvent extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MessageEvent
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MessageEvent {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MessageEvent {
         return new MessageEvent();
     }
 
@@ -63,10 +69,11 @@ class MessageEvent extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'dateTime' => function (self $o, ParseNode $n) { $o->setDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'eventType' => function (self $o, ParseNode $n) { $o->setEventType($n->getEnumValue(MessageEventType::class)); },
+            'dateTime' => function (ParseNode $n) use ($o) { $o->setDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'eventType' => function (ParseNode $n) use ($o) { $o->setEventType($n->getEnumValue(MessageEventType::class)); },
         ]);
     }
 

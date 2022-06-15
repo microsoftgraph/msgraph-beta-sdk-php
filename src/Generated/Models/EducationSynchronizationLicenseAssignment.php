@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var EducationUserRole|null $appliesTo The user role type to assign to license. Possible values are: student, teacher, faculty. */
+    /**
+     * @var EducationUserRole|null $appliesTo The user role type to assign to license. Possible values are: student, teacher, faculty.
+    */
     private ?EducationUserRole $appliesTo = null;
     
-    /** @var array<string>|null $skuIds Represents the SKU identifiers of the licenses to assign. */
+    /**
+     * @var array<string>|null $skuIds Represents the SKU identifiers of the licenses to assign.
+    */
     private ?array $skuIds = null;
     
     /**
@@ -30,7 +36,7 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EducationSynchronizationLicenseAssignment
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): EducationSynchronizationLicenseAssignment {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationSynchronizationLicenseAssignment {
         return new EducationSynchronizationLicenseAssignment();
     }
 
@@ -55,9 +61,10 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'appliesTo' => function (self $o, ParseNode $n) { $o->setAppliesTo($n->getEnumValue(EducationUserRole::class)); },
-            'skuIds' => function (self $o, ParseNode $n) { $o->setSkuIds($n->getCollectionOfPrimitiveValues()); },
+            'appliesTo' => function (ParseNode $n) use ($o) { $o->setAppliesTo($n->getEnumValue(EducationUserRole::class)); },
+            'skuIds' => function (ParseNode $n) use ($o) { $o->setSkuIds($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

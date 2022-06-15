@@ -10,27 +10,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CaseOperation extends Entity 
+class CaseOperation extends Entity implements Parsable 
 {
-    /** @var CaseAction|null $action The type of action the operation represents. Possible values are: addToReviewSet,applyTags,contentExport,convertToPdf,estimateStatistics, purgeData */
+    /**
+     * @var CaseAction|null $action The type of action the operation represents. Possible values are: addToReviewSet,applyTags,contentExport,convertToPdf,estimateStatistics, purgeData
+    */
     private ?CaseAction $action = null;
     
-    /** @var DateTime|null $completedDateTime The date and time the operation was completed. */
+    /**
+     * @var DateTime|null $completedDateTime The date and time the operation was completed.
+    */
     private ?DateTime $completedDateTime = null;
     
-    /** @var IdentitySet|null $createdBy The user that created the operation. */
+    /**
+     * @var IdentitySet|null $createdBy The user that created the operation.
+    */
     private ?IdentitySet $createdBy = null;
     
-    /** @var DateTime|null $createdDateTime The date and time the operation was created. */
+    /**
+     * @var DateTime|null $createdDateTime The date and time the operation was created.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var int|null $percentProgress The progress of the operation. */
+    /**
+     * @var int|null $percentProgress The progress of the operation.
+    */
     private ?int $percentProgress = null;
     
-    /** @var ResultInfo|null $resultInfo Contains success and failure-specific result information. */
+    /**
+     * @var ResultInfo|null $resultInfo Contains success and failure-specific result information.
+    */
     private ?ResultInfo $resultInfo = null;
     
-    /** @var CaseOperationStatus|null $status The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed. */
+    /**
+     * @var CaseOperationStatus|null $status The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
+    */
     private ?CaseOperationStatus $status = null;
     
     /**
@@ -45,7 +59,20 @@ class CaseOperation extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CaseOperation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CaseOperation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CaseOperation {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.ediscovery.addToReviewSetOperation': return new AddToReviewSetOperation();
+                case '#microsoft.graph.ediscovery.caseExportOperation': return new CaseExportOperation();
+                case '#microsoft.graph.ediscovery.caseHoldOperation': return new CaseHoldOperation();
+                case '#microsoft.graph.ediscovery.caseIndexOperation': return new CaseIndexOperation();
+                case '#microsoft.graph.ediscovery.estimateStatisticsOperation': return new EstimateStatisticsOperation();
+                case '#microsoft.graph.ediscovery.purgeDataOperation': return new PurgeDataOperation();
+                case '#microsoft.graph.ediscovery.tagOperation': return new TagOperation();
+            }
+        }
         return new CaseOperation();
     }
 
@@ -86,14 +113,15 @@ class CaseOperation extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'action' => function (self $o, ParseNode $n) { $o->setAction($n->getEnumValue(CaseAction::class)); },
-            'completedDateTime' => function (self $o, ParseNode $n) { $o->setCompletedDateTime($n->getDateTimeValue()); },
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(IdentitySet::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'percentProgress' => function (self $o, ParseNode $n) { $o->setPercentProgress($n->getIntegerValue()); },
-            'resultInfo' => function (self $o, ParseNode $n) { $o->setResultInfo($n->getObjectValue(ResultInfo::class)); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(CaseOperationStatus::class)); },
+            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(CaseAction::class)); },
+            'completedDateTime' => function (ParseNode $n) use ($o) { $o->setCompletedDateTime($n->getDateTimeValue()); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'percentProgress' => function (ParseNode $n) use ($o) { $o->setPercentProgress($n->getIntegerValue()); },
+            'resultInfo' => function (ParseNode $n) use ($o) { $o->setResultInfo($n->getObjectValue(array(ResultInfo::class, 'createFromDiscriminatorValue'))); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CaseOperationStatus::class)); },
         ]);
     }
 

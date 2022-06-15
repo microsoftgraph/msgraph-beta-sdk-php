@@ -10,43 +10,69 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkSystemConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var TeamworkDateTimeConfiguration|null $dateTimeConfiguration The date and time configurations for a device. */
+    /**
+     * @var TeamworkDateTimeConfiguration|null $dateTimeConfiguration The date and time configurations for a device.
+    */
     private ?TeamworkDateTimeConfiguration $dateTimeConfiguration = null;
     
-    /** @var string|null $defaultPassword The default password for the device. Write-Only. */
+    /**
+     * @var string|null $defaultPassword The default password for the device. Write-Only.
+    */
     private ?string $defaultPassword = null;
     
-    /** @var DateInterval|null $deviceLockTimeout The device lock timeout in seconds. */
+    /**
+     * @var DateInterval|null $deviceLockTimeout The device lock timeout in seconds.
+    */
     private ?DateInterval $deviceLockTimeout = null;
     
-    /** @var bool|null $isDeviceLockEnabled True if the device lock is enabled. */
+    /**
+     * @var bool|null $isDeviceLockEnabled True if the device lock is enabled.
+    */
     private ?bool $isDeviceLockEnabled = null;
     
-    /** @var bool|null $isLoggingEnabled True if logging is enabled. */
+    /**
+     * @var bool|null $isLoggingEnabled True if logging is enabled.
+    */
     private ?bool $isLoggingEnabled = null;
     
-    /** @var bool|null $isPowerSavingEnabled True if power saving is enabled. */
+    /**
+     * @var bool|null $isPowerSavingEnabled True if power saving is enabled.
+    */
     private ?bool $isPowerSavingEnabled = null;
     
-    /** @var bool|null $isScreenCaptureEnabled True if screen capture is enabled. */
+    /**
+     * @var bool|null $isScreenCaptureEnabled True if screen capture is enabled.
+    */
     private ?bool $isScreenCaptureEnabled = null;
     
-    /** @var bool|null $isSilentModeEnabled True if silent mode is enabled. */
+    /**
+     * @var bool|null $isSilentModeEnabled True if silent mode is enabled.
+    */
     private ?bool $isSilentModeEnabled = null;
     
-    /** @var string|null $language The language option for the device. */
+    /**
+     * @var string|null $language The language option for the device.
+    */
     private ?string $language = null;
     
-    /** @var string|null $lockPin The pin that unlocks the device. Write-Only. */
+    /**
+     * @var string|null $lockPin The pin that unlocks the device. Write-Only.
+    */
     private ?string $lockPin = null;
     
-    /** @var string|null $loggingLevel The logging level for the device. */
+    /**
+     * @var string|null $loggingLevel The logging level for the device.
+    */
     private ?string $loggingLevel = null;
     
-    /** @var TeamworkNetworkConfiguration|null $networkConfiguration The network configuration for the device. */
+    /**
+     * @var TeamworkNetworkConfiguration|null $networkConfiguration The network configuration for the device.
+    */
     private ?TeamworkNetworkConfiguration $networkConfiguration = null;
     
     /**
@@ -61,7 +87,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkSystemConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkSystemConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkSystemConfiguration {
         return new TeamworkSystemConfiguration();
     }
 
@@ -102,19 +128,20 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'dateTimeConfiguration' => function (self $o, ParseNode $n) { $o->setDateTimeConfiguration($n->getObjectValue(TeamworkDateTimeConfiguration::class)); },
-            'defaultPassword' => function (self $o, ParseNode $n) { $o->setDefaultPassword($n->getStringValue()); },
-            'deviceLockTimeout' => function (self $o, ParseNode $n) { $o->setDeviceLockTimeout($n->getDateIntervalValue()); },
-            'isDeviceLockEnabled' => function (self $o, ParseNode $n) { $o->setIsDeviceLockEnabled($n->getBooleanValue()); },
-            'isLoggingEnabled' => function (self $o, ParseNode $n) { $o->setIsLoggingEnabled($n->getBooleanValue()); },
-            'isPowerSavingEnabled' => function (self $o, ParseNode $n) { $o->setIsPowerSavingEnabled($n->getBooleanValue()); },
-            'isScreenCaptureEnabled' => function (self $o, ParseNode $n) { $o->setIsScreenCaptureEnabled($n->getBooleanValue()); },
-            'isSilentModeEnabled' => function (self $o, ParseNode $n) { $o->setIsSilentModeEnabled($n->getBooleanValue()); },
-            'language' => function (self $o, ParseNode $n) { $o->setLanguage($n->getStringValue()); },
-            'lockPin' => function (self $o, ParseNode $n) { $o->setLockPin($n->getStringValue()); },
-            'loggingLevel' => function (self $o, ParseNode $n) { $o->setLoggingLevel($n->getStringValue()); },
-            'networkConfiguration' => function (self $o, ParseNode $n) { $o->setNetworkConfiguration($n->getObjectValue(TeamworkNetworkConfiguration::class)); },
+            'dateTimeConfiguration' => function (ParseNode $n) use ($o) { $o->setDateTimeConfiguration($n->getObjectValue(array(TeamworkDateTimeConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'defaultPassword' => function (ParseNode $n) use ($o) { $o->setDefaultPassword($n->getStringValue()); },
+            'deviceLockTimeout' => function (ParseNode $n) use ($o) { $o->setDeviceLockTimeout($n->getDateIntervalValue()); },
+            'isDeviceLockEnabled' => function (ParseNode $n) use ($o) { $o->setIsDeviceLockEnabled($n->getBooleanValue()); },
+            'isLoggingEnabled' => function (ParseNode $n) use ($o) { $o->setIsLoggingEnabled($n->getBooleanValue()); },
+            'isPowerSavingEnabled' => function (ParseNode $n) use ($o) { $o->setIsPowerSavingEnabled($n->getBooleanValue()); },
+            'isScreenCaptureEnabled' => function (ParseNode $n) use ($o) { $o->setIsScreenCaptureEnabled($n->getBooleanValue()); },
+            'isSilentModeEnabled' => function (ParseNode $n) use ($o) { $o->setIsSilentModeEnabled($n->getBooleanValue()); },
+            'language' => function (ParseNode $n) use ($o) { $o->setLanguage($n->getStringValue()); },
+            'lockPin' => function (ParseNode $n) use ($o) { $o->setLockPin($n->getStringValue()); },
+            'loggingLevel' => function (ParseNode $n) use ($o) { $o->setLoggingLevel($n->getStringValue()); },
+            'networkConfiguration' => function (ParseNode $n) use ($o) { $o->setNetworkConfiguration($n->getObjectValue(array(TeamworkNetworkConfiguration::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

@@ -9,57 +9,91 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EscapedCase extends Entity 
+class EscapedCase extends Entity implements Parsable 
 {
-    /** @var IdentitySet|null $closedBy The user who closed the case. */
+    /**
+     * @var IdentitySet|null $closedBy The user who closed the case.
+    */
     private ?IdentitySet $closedBy = null;
     
-    /** @var DateTime|null $closedDateTime The date and time when the case was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    /**
+     * @var DateTime|null $closedDateTime The date and time when the case was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    */
     private ?DateTime $closedDateTime = null;
     
-    /** @var DateTime|null $createdDateTime The date and time when the entity was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    /**
+     * @var DateTime|null $createdDateTime The date and time when the entity was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var array<Custodian>|null $custodians Returns a list of case custodian objects for this case.  Nullable. */
+    /**
+     * @var array<Custodian>|null $custodians Returns a list of case custodian objects for this case.  Nullable.
+    */
     private ?array $custodians = null;
     
-    /** @var string|null $description The case description. */
+    /**
+     * @var string|null $description The case description.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The case name. */
+    /**
+     * @var string|null $displayName The case name.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $externalId The external case number for customer reference. */
+    /**
+     * @var string|null $externalId The external case number for customer reference.
+    */
     private ?string $externalId = null;
     
-    /** @var IdentitySet|null $lastModifiedBy The last user who modified the entity. */
+    /**
+     * @var IdentitySet|null $lastModifiedBy The last user who modified the entity.
+    */
     private ?IdentitySet $lastModifiedBy = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The latest date and time when the case was modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The latest date and time when the case was modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var array<LegalHold>|null $legalHolds Returns a list of case legalHold objects for this case.  Nullable. */
+    /**
+     * @var array<LegalHold>|null $legalHolds Returns a list of case legalHold objects for this case.  Nullable.
+    */
     private ?array $legalHolds = null;
     
-    /** @var array<NoncustodialDataSource>|null $noncustodialDataSources Returns a list of case noncustodialDataSource objects for this case.  Nullable. */
+    /**
+     * @var array<NoncustodialDataSource>|null $noncustodialDataSources Returns a list of case noncustodialDataSource objects for this case.  Nullable.
+    */
     private ?array $noncustodialDataSources = null;
     
-    /** @var array<CaseOperation>|null $operations Returns a list of case operation objects for this case. Nullable. */
+    /**
+     * @var array<CaseOperation>|null $operations Returns a list of case operation objects for this case. Nullable.
+    */
     private ?array $operations = null;
     
-    /** @var array<ReviewSet>|null $reviewSets Returns a list of reviewSet objects in the case. Read-only. Nullable. */
+    /**
+     * @var array<ReviewSet>|null $reviewSets Returns a list of reviewSet objects in the case. Read-only. Nullable.
+    */
     private ?array $reviewSets = null;
     
-    /** @var CaseSettings|null $settings The settings property */
+    /**
+     * @var CaseSettings|null $settings The settings property
+    */
     private ?CaseSettings $settings = null;
     
-    /** @var array<SourceCollection>|null $sourceCollections Returns a list of sourceCollection objects associated with this case. */
+    /**
+     * @var array<SourceCollection>|null $sourceCollections Returns a list of sourceCollection objects associated with this case.
+    */
     private ?array $sourceCollections = null;
     
-    /** @var CaseStatus|null $status The case status. Possible values are unknown, active, pendingDelete, closing, closed, and closedWithError. For details, see the following table. */
+    /**
+     * @var CaseStatus|null $status The case status. Possible values are unknown, active, pendingDelete, closing, closed, and closedWithError. For details, see the following table.
+    */
     private ?CaseStatus $status = null;
     
-    /** @var array<Tag>|null $tags Returns a list of tag objects associated to this case. */
+    /**
+     * @var array<Tag>|null $tags Returns a list of tag objects associated to this case.
+    */
     private ?array $tags = null;
     
     /**
@@ -74,7 +108,7 @@ class EscapedCase extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EscapedCase
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): EscapedCase {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): EscapedCase {
         return new EscapedCase();
     }
 
@@ -139,24 +173,25 @@ class EscapedCase extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'closedBy' => function (self $o, ParseNode $n) { $o->setClosedBy($n->getObjectValue(IdentitySet::class)); },
-            'closedDateTime' => function (self $o, ParseNode $n) { $o->setClosedDateTime($n->getDateTimeValue()); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'custodians' => function (self $o, ParseNode $n) { $o->setCustodians($n->getCollectionOfObjectValues(Custodian::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'externalId' => function (self $o, ParseNode $n) { $o->setExternalId($n->getStringValue()); },
-            'lastModifiedBy' => function (self $o, ParseNode $n) { $o->setLastModifiedBy($n->getObjectValue(IdentitySet::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'legalHolds' => function (self $o, ParseNode $n) { $o->setLegalHolds($n->getCollectionOfObjectValues(LegalHold::class)); },
-            'noncustodialDataSources' => function (self $o, ParseNode $n) { $o->setNoncustodialDataSources($n->getCollectionOfObjectValues(NoncustodialDataSource::class)); },
-            'operations' => function (self $o, ParseNode $n) { $o->setOperations($n->getCollectionOfObjectValues(CaseOperation::class)); },
-            'reviewSets' => function (self $o, ParseNode $n) { $o->setReviewSets($n->getCollectionOfObjectValues(ReviewSet::class)); },
-            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getObjectValue(CaseSettings::class)); },
-            'sourceCollections' => function (self $o, ParseNode $n) { $o->setSourceCollections($n->getCollectionOfObjectValues(SourceCollection::class)); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(CaseStatus::class)); },
-            'tags' => function (self $o, ParseNode $n) { $o->setTags($n->getCollectionOfObjectValues(Tag::class)); },
+            'closedBy' => function (ParseNode $n) use ($o) { $o->setClosedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'closedDateTime' => function (ParseNode $n) use ($o) { $o->setClosedDateTime($n->getDateTimeValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'custodians' => function (ParseNode $n) use ($o) { $o->setCustodians($n->getCollectionOfObjectValues(array(Custodian::class, 'createFromDiscriminatorValue'))); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'externalId' => function (ParseNode $n) use ($o) { $o->setExternalId($n->getStringValue()); },
+            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'legalHolds' => function (ParseNode $n) use ($o) { $o->setLegalHolds($n->getCollectionOfObjectValues(array(LegalHold::class, 'createFromDiscriminatorValue'))); },
+            'noncustodialDataSources' => function (ParseNode $n) use ($o) { $o->setNoncustodialDataSources($n->getCollectionOfObjectValues(array(NoncustodialDataSource::class, 'createFromDiscriminatorValue'))); },
+            'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(CaseOperation::class, 'createFromDiscriminatorValue'))); },
+            'reviewSets' => function (ParseNode $n) use ($o) { $o->setReviewSets($n->getCollectionOfObjectValues(array(ReviewSet::class, 'createFromDiscriminatorValue'))); },
+            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(CaseSettings::class, 'createFromDiscriminatorValue'))); },
+            'sourceCollections' => function (ParseNode $n) use ($o) { $o->setSourceCollections($n->getCollectionOfObjectValues(array(SourceCollection::class, 'createFromDiscriminatorValue'))); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CaseStatus::class)); },
+            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfObjectValues(array(Tag::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

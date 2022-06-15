@@ -7,27 +7,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MicrosoftTunnelServerLogCollectionResponse extends Entity 
+class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsable 
 {
-    /** @var DateTime|null $endDateTime The end time of the logs collected */
+    /**
+     * @var DateTime|null $endDateTime The end time of the logs collected
+    */
     private ?DateTime $endDateTime = null;
     
-    /** @var DateTime|null $expiryDateTime The time when the log collection is expired */
+    /**
+     * @var DateTime|null $expiryDateTime The time when the log collection is expired
+    */
     private ?DateTime $expiryDateTime = null;
     
-    /** @var DateTime|null $requestDateTime The time when the log collection was requested */
+    /**
+     * @var DateTime|null $requestDateTime The time when the log collection was requested
+    */
     private ?DateTime $requestDateTime = null;
     
-    /** @var string|null $serverId ID of the server the log collection is requested upon */
+    /**
+     * @var string|null $serverId ID of the server the log collection is requested upon
+    */
     private ?string $serverId = null;
     
-    /** @var int|null $sizeInBytes The size of the logs in bytes */
+    /**
+     * @var int|null $sizeInBytes The size of the logs in bytes
+    */
     private ?int $sizeInBytes = null;
     
-    /** @var DateTime|null $startDateTime The start time of the logs collected */
+    /**
+     * @var DateTime|null $startDateTime The start time of the logs collected
+    */
     private ?DateTime $startDateTime = null;
     
-    /** @var MicrosoftTunnelLogCollectionStatus|null $status The status of log collection. Possible values are: pending, completed, failed. */
+    /**
+     * @var MicrosoftTunnelLogCollectionStatus|null $status The status of log collection. Possible values are: pending, completed, failed.
+    */
     private ?MicrosoftTunnelLogCollectionStatus $status = null;
     
     /**
@@ -42,7 +56,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MicrosoftTunnelServerLogCollectionResponse
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftTunnelServerLogCollectionResponse {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftTunnelServerLogCollectionResponse {
         return new MicrosoftTunnelServerLogCollectionResponse();
     }
 
@@ -67,14 +81,15 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'expiryDateTime' => function (self $o, ParseNode $n) { $o->setExpiryDateTime($n->getDateTimeValue()); },
-            'requestDateTime' => function (self $o, ParseNode $n) { $o->setRequestDateTime($n->getDateTimeValue()); },
-            'serverId' => function (self $o, ParseNode $n) { $o->setServerId($n->getStringValue()); },
-            'sizeInBytes' => function (self $o, ParseNode $n) { $o->setSizeInBytes($n->getIntegerValue()); },
-            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(MicrosoftTunnelLogCollectionStatus::class)); },
+            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'expiryDateTime' => function (ParseNode $n) use ($o) { $o->setExpiryDateTime($n->getDateTimeValue()); },
+            'requestDateTime' => function (ParseNode $n) use ($o) { $o->setRequestDateTime($n->getDateTimeValue()); },
+            'serverId' => function (ParseNode $n) use ($o) { $o->setServerId($n->getStringValue()); },
+            'sizeInBytes' => function (ParseNode $n) use ($o) { $o->setSizeInBytes($n->getIntegerValue()); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(MicrosoftTunnelLogCollectionStatus::class)); },
         ]);
     }
 

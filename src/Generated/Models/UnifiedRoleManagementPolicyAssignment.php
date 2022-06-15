@@ -6,21 +6,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRoleManagementPolicyAssignment extends Entity 
+class UnifiedRoleManagementPolicyAssignment extends Entity implements Parsable 
 {
-    /** @var UnifiedRoleManagementPolicy|null $policy The policy for the assignment. */
+    /**
+     * @var UnifiedRoleManagementPolicy|null $policy The policy for the assignment.
+    */
     private ?UnifiedRoleManagementPolicy $policy = null;
     
-    /** @var string|null $policyId The id of the policy. */
+    /**
+     * @var string|null $policyId The id of the policy.
+    */
     private ?string $policyId = null;
     
-    /** @var string|null $roleDefinitionId The id of the role definition where the policy applies. If not specified, the policy applies to all roles. */
+    /**
+     * @var string|null $roleDefinitionId The id of the role definition where the policy applies. If not specified, the policy applies to all roles.
+    */
     private ?string $roleDefinitionId = null;
     
-    /** @var string|null $scopeId The id of the scope where the policy is assigned. E.g. '/', groupId, etc. */
+    /**
+     * @var string|null $scopeId The id of the scope where the policy is assigned. E.g. '/', groupId, etc.
+    */
     private ?string $scopeId = null;
     
-    /** @var string|null $scopeType The type of the scope where the policy is assigned. One of Directory, DirectoryRole, Group. */
+    /**
+     * @var string|null $scopeType The type of the scope where the policy is assigned. One of Directory, DirectoryRole, Group.
+    */
     private ?string $scopeType = null;
     
     /**
@@ -35,7 +45,7 @@ class UnifiedRoleManagementPolicyAssignment extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRoleManagementPolicyAssignment
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleManagementPolicyAssignment {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleManagementPolicyAssignment {
         return new UnifiedRoleManagementPolicyAssignment();
     }
 
@@ -44,12 +54,13 @@ class UnifiedRoleManagementPolicyAssignment extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'policy' => function (self $o, ParseNode $n) { $o->setPolicy($n->getObjectValue(UnifiedRoleManagementPolicy::class)); },
-            'policyId' => function (self $o, ParseNode $n) { $o->setPolicyId($n->getStringValue()); },
-            'roleDefinitionId' => function (self $o, ParseNode $n) { $o->setRoleDefinitionId($n->getStringValue()); },
-            'scopeId' => function (self $o, ParseNode $n) { $o->setScopeId($n->getStringValue()); },
-            'scopeType' => function (self $o, ParseNode $n) { $o->setScopeType($n->getStringValue()); },
+            'policy' => function (ParseNode $n) use ($o) { $o->setPolicy($n->getObjectValue(array(UnifiedRoleManagementPolicy::class, 'createFromDiscriminatorValue'))); },
+            'policyId' => function (ParseNode $n) use ($o) { $o->setPolicyId($n->getStringValue()); },
+            'roleDefinitionId' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionId($n->getStringValue()); },
+            'scopeId' => function (ParseNode $n) use ($o) { $o->setScopeId($n->getStringValue()); },
+            'scopeType' => function (ParseNode $n) use ($o) { $o->setScopeType($n->getStringValue()); },
         ]);
     }
 

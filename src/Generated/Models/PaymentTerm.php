@@ -7,27 +7,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PaymentTerm extends Entity 
+class PaymentTerm extends Entity implements Parsable 
 {
-    /** @var bool|null $calculateDiscountOnCreditMemos The calculateDiscountOnCreditMemos property */
+    /**
+     * @var bool|null $calculateDiscountOnCreditMemos The calculateDiscountOnCreditMemos property
+    */
     private ?bool $calculateDiscountOnCreditMemos = null;
     
-    /** @var string|null $code The code property */
+    /**
+     * @var string|null $code The code property
+    */
     private ?string $code = null;
     
-    /** @var string|null $discountDateCalculation The discountDateCalculation property */
+    /**
+     * @var string|null $discountDateCalculation The discountDateCalculation property
+    */
     private ?string $discountDateCalculation = null;
     
-    /** @var float|null $discountPercent The discountPercent property */
-    private ?float $discountPercent = null;
+    /**
+     * @var string|null $discountPercent The discountPercent property
+    */
+    private ?string $discountPercent = null;
     
-    /** @var string|null $displayName The displayName property */
+    /**
+     * @var string|null $displayName The displayName property
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $dueDateCalculation The dueDateCalculation property */
+    /**
+     * @var string|null $dueDateCalculation The dueDateCalculation property
+    */
     private ?string $dueDateCalculation = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
@@ -42,7 +56,7 @@ class PaymentTerm extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PaymentTerm
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PaymentTerm {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PaymentTerm {
         return new PaymentTerm();
     }
 
@@ -72,9 +86,9 @@ class PaymentTerm extends Entity
 
     /**
      * Gets the discountPercent property value. The discountPercent property
-     * @return float|null
+     * @return string|null
     */
-    public function getDiscountPercent(): ?float {
+    public function getDiscountPercent(): ?string {
         return $this->discountPercent;
     }
 
@@ -99,14 +113,15 @@ class PaymentTerm extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'calculateDiscountOnCreditMemos' => function (self $o, ParseNode $n) { $o->setCalculateDiscountOnCreditMemos($n->getBooleanValue()); },
-            'code' => function (self $o, ParseNode $n) { $o->setCode($n->getStringValue()); },
-            'discountDateCalculation' => function (self $o, ParseNode $n) { $o->setDiscountDateCalculation($n->getStringValue()); },
-            'discountPercent' => function (self $o, ParseNode $n) { $o->setDiscountPercent($n->getFloatValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'dueDateCalculation' => function (self $o, ParseNode $n) { $o->setDueDateCalculation($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'calculateDiscountOnCreditMemos' => function (ParseNode $n) use ($o) { $o->setCalculateDiscountOnCreditMemos($n->getBooleanValue()); },
+            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
+            'discountDateCalculation' => function (ParseNode $n) use ($o) { $o->setDiscountDateCalculation($n->getStringValue()); },
+            'discountPercent' => function (ParseNode $n) use ($o) { $o->setDiscountPercent($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'dueDateCalculation' => function (ParseNode $n) use ($o) { $o->setDueDateCalculation($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
         ]);
     }
 
@@ -127,7 +142,7 @@ class PaymentTerm extends Entity
         $writer->writeBooleanValue('calculateDiscountOnCreditMemos', $this->calculateDiscountOnCreditMemos);
         $writer->writeStringValue('code', $this->code);
         $writer->writeStringValue('discountDateCalculation', $this->discountDateCalculation);
-        $writer->writeFloatValue('discountPercent', $this->discountPercent);
+        $writer->writeStringValue('discountPercent', $this->discountPercent);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('dueDateCalculation', $this->dueDateCalculation);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
@@ -159,9 +174,9 @@ class PaymentTerm extends Entity
 
     /**
      * Sets the discountPercent property value. The discountPercent property
-     *  @param float|null $value Value to set for the discountPercent property.
+     *  @param string|null $value Value to set for the discountPercent property.
     */
-    public function setDiscountPercent(?float $value ): void {
+    public function setDiscountPercent(?string $value ): void {
         $this->discountPercent = $value;
     }
 

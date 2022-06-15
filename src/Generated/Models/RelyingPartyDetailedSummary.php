@@ -6,39 +6,61 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RelyingPartyDetailedSummary extends Entity 
+class RelyingPartyDetailedSummary extends Entity implements Parsable 
 {
-    /** @var int|null $failedSignInCount Number of failed sign in on Active Directory Federation Service in the period specified. */
+    /**
+     * @var int|null $failedSignInCount Number of failed sign in on Active Directory Federation Service in the period specified.
+    */
     private ?int $failedSignInCount = null;
     
-    /** @var MigrationStatus|null $migrationStatus Indication of whether the application can be moved to Azure AD or require more investigation. Possible values are: ready, needsReview, additionalStepsRequired, unknownFutureValue. */
+    /**
+     * @var MigrationStatus|null $migrationStatus Indication of whether the application can be moved to Azure AD or require more investigation. Possible values are: ready, needsReview, additionalStepsRequired, unknownFutureValue.
+    */
     private ?MigrationStatus $migrationStatus = null;
     
-    /** @var array<KeyValuePair>|null $migrationValidationDetails Specifies all the validations check done on applications configuration details to evaluate if the application is ready to be moved to Azure AD. */
+    /**
+     * @var array<KeyValuePair>|null $migrationValidationDetails Specifies all the validations check done on applications configuration details to evaluate if the application is ready to be moved to Azure AD.
+    */
     private ?array $migrationValidationDetails = null;
     
-    /** @var string|null $relyingPartyId This identifier is used to identify the relying party to this Federation Service. It is used when issuing claims to the relying party. */
+    /**
+     * @var string|null $relyingPartyId This identifier is used to identify the relying party to this Federation Service. It is used when issuing claims to the relying party.
+    */
     private ?string $relyingPartyId = null;
     
-    /** @var string|null $relyingPartyName Name of application or other entity on the internet that uses an identity provider to authenticate a user who wants to log in. */
+    /**
+     * @var string|null $relyingPartyName Name of application or other entity on the internet that uses an identity provider to authenticate a user who wants to log in.
+    */
     private ?string $relyingPartyName = null;
     
-    /** @var array<string>|null $replyUrls Specifies where the relying party expects to receive the token. */
+    /**
+     * @var array<string>|null $replyUrls Specifies where the relying party expects to receive the token.
+    */
     private ?array $replyUrls = null;
     
-    /** @var string|null $serviceId Uniquely identifies the Active Directory forest. */
+    /**
+     * @var string|null $serviceId Uniquely identifies the Active Directory forest.
+    */
     private ?string $serviceId = null;
     
-    /** @var float|null $signInSuccessRate Number of successful / (number of successful + number of failed sign ins) on Active Directory Federation Service in the period specified. */
+    /**
+     * @var float|null $signInSuccessRate Number of successful / (number of successful + number of failed sign ins) on Active Directory Federation Service in the period specified.
+    */
     private ?float $signInSuccessRate = null;
     
-    /** @var int|null $successfulSignInCount Number of successful sign ins on Active Directory Federation Service. */
+    /**
+     * @var int|null $successfulSignInCount Number of successful sign ins on Active Directory Federation Service.
+    */
     private ?int $successfulSignInCount = null;
     
-    /** @var int|null $totalSignInCount Number of successful + failed sign ins failed sign ins on Active Directory Federation Service in the period specified. */
+    /**
+     * @var int|null $totalSignInCount Number of successful + failed sign ins failed sign ins on Active Directory Federation Service in the period specified.
+    */
     private ?int $totalSignInCount = null;
     
-    /** @var int|null $uniqueUserCount Number of unique users that have signed into the application. */
+    /**
+     * @var int|null $uniqueUserCount Number of unique users that have signed into the application.
+    */
     private ?int $uniqueUserCount = null;
     
     /**
@@ -53,7 +75,7 @@ class RelyingPartyDetailedSummary extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RelyingPartyDetailedSummary
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RelyingPartyDetailedSummary {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RelyingPartyDetailedSummary {
         return new RelyingPartyDetailedSummary();
     }
 
@@ -70,18 +92,19 @@ class RelyingPartyDetailedSummary extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'failedSignInCount' => function (self $o, ParseNode $n) { $o->setFailedSignInCount($n->getIntegerValue()); },
-            'migrationStatus' => function (self $o, ParseNode $n) { $o->setMigrationStatus($n->getEnumValue(MigrationStatus::class)); },
-            'migrationValidationDetails' => function (self $o, ParseNode $n) { $o->setMigrationValidationDetails($n->getCollectionOfObjectValues(KeyValuePair::class)); },
-            'relyingPartyId' => function (self $o, ParseNode $n) { $o->setRelyingPartyId($n->getStringValue()); },
-            'relyingPartyName' => function (self $o, ParseNode $n) { $o->setRelyingPartyName($n->getStringValue()); },
-            'replyUrls' => function (self $o, ParseNode $n) { $o->setReplyUrls($n->getCollectionOfPrimitiveValues()); },
-            'serviceId' => function (self $o, ParseNode $n) { $o->setServiceId($n->getStringValue()); },
-            'signInSuccessRate' => function (self $o, ParseNode $n) { $o->setSignInSuccessRate($n->getFloatValue()); },
-            'successfulSignInCount' => function (self $o, ParseNode $n) { $o->setSuccessfulSignInCount($n->getIntegerValue()); },
-            'totalSignInCount' => function (self $o, ParseNode $n) { $o->setTotalSignInCount($n->getIntegerValue()); },
-            'uniqueUserCount' => function (self $o, ParseNode $n) { $o->setUniqueUserCount($n->getIntegerValue()); },
+            'failedSignInCount' => function (ParseNode $n) use ($o) { $o->setFailedSignInCount($n->getIntegerValue()); },
+            'migrationStatus' => function (ParseNode $n) use ($o) { $o->setMigrationStatus($n->getEnumValue(MigrationStatus::class)); },
+            'migrationValidationDetails' => function (ParseNode $n) use ($o) { $o->setMigrationValidationDetails($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            'relyingPartyId' => function (ParseNode $n) use ($o) { $o->setRelyingPartyId($n->getStringValue()); },
+            'relyingPartyName' => function (ParseNode $n) use ($o) { $o->setRelyingPartyName($n->getStringValue()); },
+            'replyUrls' => function (ParseNode $n) use ($o) { $o->setReplyUrls($n->getCollectionOfPrimitiveValues()); },
+            'serviceId' => function (ParseNode $n) use ($o) { $o->setServiceId($n->getStringValue()); },
+            'signInSuccessRate' => function (ParseNode $n) use ($o) { $o->setSignInSuccessRate($n->getFloatValue()); },
+            'successfulSignInCount' => function (ParseNode $n) use ($o) { $o->setSuccessfulSignInCount($n->getIntegerValue()); },
+            'totalSignInCount' => function (ParseNode $n) use ($o) { $o->setTotalSignInCount($n->getIntegerValue()); },
+            'uniqueUserCount' => function (ParseNode $n) use ($o) { $o->setUniqueUserCount($n->getIntegerValue()); },
         ]);
     }
 

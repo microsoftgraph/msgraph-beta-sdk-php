@@ -10,25 +10,39 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserAccount implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $displayName The displayName property */
+    /**
+     * @var string|null $displayName The displayName property
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $lastSeenDateTime The lastSeenDateTime property */
+    /**
+     * @var DateTime|null $lastSeenDateTime The lastSeenDateTime property
+    */
     private ?DateTime $lastSeenDateTime = null;
     
-    /** @var string|null $riskScore The riskScore property */
+    /**
+     * @var string|null $riskScore The riskScore property
+    */
     private ?string $riskScore = null;
     
-    /** @var string|null $service The service property */
+    /**
+     * @var string|null $service The service property
+    */
     private ?string $service = null;
     
-    /** @var string|null $signinName The signinName property */
+    /**
+     * @var string|null $signinName The signinName property
+    */
     private ?string $signinName = null;
     
-    /** @var AccountStatus|null $status The status property */
+    /**
+     * @var AccountStatus|null $status The status property
+    */
     private ?AccountStatus $status = null;
     
     /**
@@ -43,7 +57,7 @@ class UserAccount implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserAccount
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserAccount {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserAccount {
         return new UserAccount();
     }
 
@@ -68,13 +82,14 @@ class UserAccount implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'lastSeenDateTime' => function (self $o, ParseNode $n) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
-            'riskScore' => function (self $o, ParseNode $n) { $o->setRiskScore($n->getStringValue()); },
-            'service' => function (self $o, ParseNode $n) { $o->setService($n->getStringValue()); },
-            'signinName' => function (self $o, ParseNode $n) { $o->setSigninName($n->getStringValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(AccountStatus::class)); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'lastSeenDateTime' => function (ParseNode $n) use ($o) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
+            'riskScore' => function (ParseNode $n) use ($o) { $o->setRiskScore($n->getStringValue()); },
+            'service' => function (ParseNode $n) use ($o) { $o->setService($n->getStringValue()); },
+            'signinName' => function (ParseNode $n) use ($o) { $o->setSigninName($n->getStringValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(AccountStatus::class)); },
         ];
     }
 

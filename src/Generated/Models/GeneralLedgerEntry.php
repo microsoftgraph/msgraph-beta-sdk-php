@@ -8,36 +8,56 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class GeneralLedgerEntry extends Entity 
+class GeneralLedgerEntry extends Entity implements Parsable 
 {
-    /** @var Account|null $account The account property */
+    /**
+     * @var Account|null $account The account property
+    */
     private ?Account $account = null;
     
-    /** @var string|null $accountId The accountId property */
+    /**
+     * @var string|null $accountId The accountId property
+    */
     private ?string $accountId = null;
     
-    /** @var string|null $accountNumber The accountNumber property */
+    /**
+     * @var string|null $accountNumber The accountNumber property
+    */
     private ?string $accountNumber = null;
     
-    /** @var float|null $creditAmount The creditAmount property */
-    private ?float $creditAmount = null;
+    /**
+     * @var string|null $creditAmount The creditAmount property
+    */
+    private ?string $creditAmount = null;
     
-    /** @var float|null $debitAmount The debitAmount property */
-    private ?float $debitAmount = null;
+    /**
+     * @var string|null $debitAmount The debitAmount property
+    */
+    private ?string $debitAmount = null;
     
-    /** @var string|null $description The description property */
+    /**
+     * @var string|null $description The description property
+    */
     private ?string $description = null;
     
-    /** @var string|null $documentNumber The documentNumber property */
+    /**
+     * @var string|null $documentNumber The documentNumber property
+    */
     private ?string $documentNumber = null;
     
-    /** @var string|null $documentType The documentType property */
+    /**
+     * @var string|null $documentType The documentType property
+    */
     private ?string $documentType = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var Date|null $postingDate The postingDate property */
+    /**
+     * @var Date|null $postingDate The postingDate property
+    */
     private ?Date $postingDate = null;
     
     /**
@@ -52,7 +72,7 @@ class GeneralLedgerEntry extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GeneralLedgerEntry
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GeneralLedgerEntry {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GeneralLedgerEntry {
         return new GeneralLedgerEntry();
     }
 
@@ -82,17 +102,17 @@ class GeneralLedgerEntry extends Entity
 
     /**
      * Gets the creditAmount property value. The creditAmount property
-     * @return float|null
+     * @return string|null
     */
-    public function getCreditAmount(): ?float {
+    public function getCreditAmount(): ?string {
         return $this->creditAmount;
     }
 
     /**
      * Gets the debitAmount property value. The debitAmount property
-     * @return float|null
+     * @return string|null
     */
-    public function getDebitAmount(): ?float {
+    public function getDebitAmount(): ?string {
         return $this->debitAmount;
     }
 
@@ -125,17 +145,18 @@ class GeneralLedgerEntry extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'account' => function (self $o, ParseNode $n) { $o->setAccount($n->getObjectValue(Account::class)); },
-            'accountId' => function (self $o, ParseNode $n) { $o->setAccountId($n->getStringValue()); },
-            'accountNumber' => function (self $o, ParseNode $n) { $o->setAccountNumber($n->getStringValue()); },
-            'creditAmount' => function (self $o, ParseNode $n) { $o->setCreditAmount($n->getFloatValue()); },
-            'debitAmount' => function (self $o, ParseNode $n) { $o->setDebitAmount($n->getFloatValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'documentNumber' => function (self $o, ParseNode $n) { $o->setDocumentNumber($n->getStringValue()); },
-            'documentType' => function (self $o, ParseNode $n) { $o->setDocumentType($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'postingDate' => function (self $o, ParseNode $n) { $o->setPostingDate($n->getDateValue()); },
+            'account' => function (ParseNode $n) use ($o) { $o->setAccount($n->getObjectValue(array(Account::class, 'createFromDiscriminatorValue'))); },
+            'accountId' => function (ParseNode $n) use ($o) { $o->setAccountId($n->getStringValue()); },
+            'accountNumber' => function (ParseNode $n) use ($o) { $o->setAccountNumber($n->getStringValue()); },
+            'creditAmount' => function (ParseNode $n) use ($o) { $o->setCreditAmount($n->getStringValue()); },
+            'debitAmount' => function (ParseNode $n) use ($o) { $o->setDebitAmount($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'documentNumber' => function (ParseNode $n) use ($o) { $o->setDocumentNumber($n->getStringValue()); },
+            'documentType' => function (ParseNode $n) use ($o) { $o->setDocumentType($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'postingDate' => function (ParseNode $n) use ($o) { $o->setPostingDate($n->getDateValue()); },
         ]);
     }
 
@@ -164,8 +185,8 @@ class GeneralLedgerEntry extends Entity
         $writer->writeObjectValue('account', $this->account);
         $writer->writeStringValue('accountId', $this->accountId);
         $writer->writeStringValue('accountNumber', $this->accountNumber);
-        $writer->writeFloatValue('creditAmount', $this->creditAmount);
-        $writer->writeFloatValue('debitAmount', $this->debitAmount);
+        $writer->writeStringValue('creditAmount', $this->creditAmount);
+        $writer->writeStringValue('debitAmount', $this->debitAmount);
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('documentNumber', $this->documentNumber);
         $writer->writeStringValue('documentType', $this->documentType);
@@ -199,17 +220,17 @@ class GeneralLedgerEntry extends Entity
 
     /**
      * Sets the creditAmount property value. The creditAmount property
-     *  @param float|null $value Value to set for the creditAmount property.
+     *  @param string|null $value Value to set for the creditAmount property.
     */
-    public function setCreditAmount(?float $value ): void {
+    public function setCreditAmount(?string $value ): void {
         $this->creditAmount = $value;
     }
 
     /**
      * Sets the debitAmount property value. The debitAmount property
-     *  @param float|null $value Value to set for the debitAmount property.
+     *  @param string|null $value Value to set for the debitAmount property.
     */
-    public function setDebitAmount(?float $value ): void {
+    public function setDebitAmount(?string $value ): void {
         $this->debitAmount = $value;
     }
 

@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ServiceInformation implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $name The name of the cloud service (for example, Twitter, Instagram). */
+    /**
+     * @var string|null $name The name of the cloud service (for example, Twitter, Instagram).
+    */
     private ?string $name = null;
     
-    /** @var string|null $webUrl Contains the URL for the service being referenced. */
+    /**
+     * @var string|null $webUrl Contains the URL for the service being referenced.
+    */
     private ?string $webUrl = null;
     
     /**
@@ -30,7 +36,7 @@ class ServiceInformation implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ServiceInformation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ServiceInformation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ServiceInformation {
         return new ServiceInformation();
     }
 
@@ -47,9 +53,10 @@ class ServiceInformation implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ];
     }
 

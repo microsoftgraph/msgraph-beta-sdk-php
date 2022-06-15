@@ -9,14 +9,18 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AssignmentFilterValidationResult implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $isValidRule Indicator to valid or invalid rule. */
+    /**
+     * @var bool|null $isValidRule Indicator to valid or invalid rule.
+    */
     private ?bool $isValidRule = null;
     
     /**
-     * Instantiates a new assignmentFilterValidationResult and sets the default values.
+     * Instantiates a new AssignmentFilterValidationResult and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -27,7 +31,7 @@ class AssignmentFilterValidationResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AssignmentFilterValidationResult
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentFilterValidationResult {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentFilterValidationResult {
         return new AssignmentFilterValidationResult();
     }
 
@@ -44,8 +48,9 @@ class AssignmentFilterValidationResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'isValidRule' => function (self $o, ParseNode $n) { $o->setIsValidRule($n->getBooleanValue()); },
+            'isValidRule' => function (ParseNode $n) use ($o) { $o->setIsValidRule($n->getBooleanValue()); },
         ];
     }
 

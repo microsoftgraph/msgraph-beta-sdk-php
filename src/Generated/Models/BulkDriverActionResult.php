@@ -9,20 +9,28 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class BulkDriverActionResult implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<string>|null $failedDriverIds List of driver Ids where the action is failed. */
+    /**
+     * @var array<string>|null $failedDriverIds List of driver Ids where the action is failed.
+    */
     private ?array $failedDriverIds = null;
     
-    /** @var array<string>|null $notFoundDriverIds List of driver Ids that are not found. */
+    /**
+     * @var array<string>|null $notFoundDriverIds List of driver Ids that are not found.
+    */
     private ?array $notFoundDriverIds = null;
     
-    /** @var array<string>|null $successfulDriverIds List of driver Ids where the action is successful. */
+    /**
+     * @var array<string>|null $successfulDriverIds List of driver Ids where the action is successful.
+    */
     private ?array $successfulDriverIds = null;
     
     /**
-     * Instantiates a new bulkDriverActionResult and sets the default values.
+     * Instantiates a new BulkDriverActionResult and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -33,7 +41,7 @@ class BulkDriverActionResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BulkDriverActionResult
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): BulkDriverActionResult {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): BulkDriverActionResult {
         return new BulkDriverActionResult();
     }
 
@@ -58,10 +66,11 @@ class BulkDriverActionResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'failedDriverIds' => function (self $o, ParseNode $n) { $o->setFailedDriverIds($n->getCollectionOfPrimitiveValues()); },
-            'notFoundDriverIds' => function (self $o, ParseNode $n) { $o->setNotFoundDriverIds($n->getCollectionOfPrimitiveValues()); },
-            'successfulDriverIds' => function (self $o, ParseNode $n) { $o->setSuccessfulDriverIds($n->getCollectionOfPrimitiveValues()); },
+            'failedDriverIds' => function (ParseNode $n) use ($o) { $o->setFailedDriverIds($n->getCollectionOfPrimitiveValues()); },
+            'notFoundDriverIds' => function (ParseNode $n) use ($o) { $o->setNotFoundDriverIds($n->getCollectionOfPrimitiveValues()); },
+            'successfulDriverIds' => function (ParseNode $n) use ($o) { $o->setSuccessfulDriverIds($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

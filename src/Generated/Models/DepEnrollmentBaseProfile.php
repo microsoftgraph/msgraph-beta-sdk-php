@@ -6,67 +6,105 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DepEnrollmentBaseProfile extends EnrollmentProfile 
+class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable 
 {
-    /** @var bool|null $appleIdDisabled Indicates if Apple id setup pane is disabled */
+    /**
+     * @var bool|null $appleIdDisabled Indicates if Apple id setup pane is disabled
+    */
     private ?bool $appleIdDisabled = null;
     
-    /** @var bool|null $applePayDisabled Indicates if Apple pay setup pane is disabled */
+    /**
+     * @var bool|null $applePayDisabled Indicates if Apple pay setup pane is disabled
+    */
     private ?bool $applePayDisabled = null;
     
-    /** @var bool|null $configurationWebUrl URL for setup assistant login */
+    /**
+     * @var bool|null $configurationWebUrl URL for setup assistant login
+    */
     private ?bool $configurationWebUrl = null;
     
-    /** @var string|null $deviceNameTemplate Sets a literal or name pattern. */
+    /**
+     * @var string|null $deviceNameTemplate Sets a literal or name pattern.
+    */
     private ?string $deviceNameTemplate = null;
     
-    /** @var bool|null $diagnosticsDisabled Indicates if diagnostics setup pane is disabled */
+    /**
+     * @var bool|null $diagnosticsDisabled Indicates if diagnostics setup pane is disabled
+    */
     private ?bool $diagnosticsDisabled = null;
     
-    /** @var bool|null $displayToneSetupDisabled Indicates if displaytone setup screen is disabled */
+    /**
+     * @var bool|null $displayToneSetupDisabled Indicates if displaytone setup screen is disabled
+    */
     private ?bool $displayToneSetupDisabled = null;
     
-    /** @var bool|null $isDefault Indicates if this is the default profile */
+    /**
+     * @var bool|null $isDefault Indicates if this is the default profile
+    */
     private ?bool $isDefault = null;
     
-    /** @var bool|null $isMandatory Indicates if the profile is mandatory */
+    /**
+     * @var bool|null $isMandatory Indicates if the profile is mandatory
+    */
     private ?bool $isMandatory = null;
     
-    /** @var bool|null $locationDisabled Indicates if Location service setup pane is disabled */
+    /**
+     * @var bool|null $locationDisabled Indicates if Location service setup pane is disabled
+    */
     private ?bool $locationDisabled = null;
     
-    /** @var bool|null $privacyPaneDisabled Indicates if privacy screen is disabled */
+    /**
+     * @var bool|null $privacyPaneDisabled Indicates if privacy screen is disabled
+    */
     private ?bool $privacyPaneDisabled = null;
     
-    /** @var bool|null $profileRemovalDisabled Indicates if the profile removal option is disabled */
+    /**
+     * @var bool|null $profileRemovalDisabled Indicates if the profile removal option is disabled
+    */
     private ?bool $profileRemovalDisabled = null;
     
-    /** @var bool|null $restoreBlocked Indicates if Restore setup pane is blocked */
+    /**
+     * @var bool|null $restoreBlocked Indicates if Restore setup pane is blocked
+    */
     private ?bool $restoreBlocked = null;
     
-    /** @var bool|null $screenTimeScreenDisabled Indicates if screen timeout setup is disabled */
+    /**
+     * @var bool|null $screenTimeScreenDisabled Indicates if screen timeout setup is disabled
+    */
     private ?bool $screenTimeScreenDisabled = null;
     
-    /** @var bool|null $siriDisabled Indicates if siri setup pane is disabled */
+    /**
+     * @var bool|null $siriDisabled Indicates if siri setup pane is disabled
+    */
     private ?bool $siriDisabled = null;
     
-    /** @var bool|null $supervisedModeEnabled Supervised mode, True to enable, false otherwise. See Enroll devices in Microsoft Intune for additional information. */
+    /**
+     * @var bool|null $supervisedModeEnabled Supervised mode, True to enable, false otherwise. See https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
+    */
     private ?bool $supervisedModeEnabled = null;
     
-    /** @var string|null $supportDepartment Support department information */
+    /**
+     * @var string|null $supportDepartment Support department information
+    */
     private ?string $supportDepartment = null;
     
-    /** @var string|null $supportPhoneNumber Support phone number */
+    /**
+     * @var string|null $supportPhoneNumber Support phone number
+    */
     private ?string $supportPhoneNumber = null;
     
-    /** @var bool|null $termsAndConditionsDisabled Indicates if 'Terms and Conditions' setup pane is disabled */
+    /**
+     * @var bool|null $termsAndConditionsDisabled Indicates if 'Terms and Conditions' setup pane is disabled
+    */
     private ?bool $termsAndConditionsDisabled = null;
     
-    /** @var bool|null $touchIdDisabled Indicates if touch id setup pane is disabled */
+    /**
+     * @var bool|null $touchIdDisabled Indicates if touch id setup pane is disabled
+    */
     private ?bool $touchIdDisabled = null;
     
     /**
-     * Instantiates a new depEnrollmentBaseProfile and sets the default values.
+     * Instantiates a new DepEnrollmentBaseProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -77,7 +115,15 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DepEnrollmentBaseProfile
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DepEnrollmentBaseProfile {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DepEnrollmentBaseProfile {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.depIOSEnrollmentProfile': return new DepIOSEnrollmentProfile();
+                case '#microsoft.graph.depMacOSEnrollmentProfile': return new DepMacOSEnrollmentProfile();
+            }
+        }
         return new DepEnrollmentBaseProfile();
     }
 
@@ -134,26 +180,27 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appleIdDisabled' => function (self $o, ParseNode $n) { $o->setAppleIdDisabled($n->getBooleanValue()); },
-            'applePayDisabled' => function (self $o, ParseNode $n) { $o->setApplePayDisabled($n->getBooleanValue()); },
-            'configurationWebUrl' => function (self $o, ParseNode $n) { $o->setConfigurationWebUrl($n->getBooleanValue()); },
-            'deviceNameTemplate' => function (self $o, ParseNode $n) { $o->setDeviceNameTemplate($n->getStringValue()); },
-            'diagnosticsDisabled' => function (self $o, ParseNode $n) { $o->setDiagnosticsDisabled($n->getBooleanValue()); },
-            'displayToneSetupDisabled' => function (self $o, ParseNode $n) { $o->setDisplayToneSetupDisabled($n->getBooleanValue()); },
-            'isDefault' => function (self $o, ParseNode $n) { $o->setIsDefault($n->getBooleanValue()); },
-            'isMandatory' => function (self $o, ParseNode $n) { $o->setIsMandatory($n->getBooleanValue()); },
-            'locationDisabled' => function (self $o, ParseNode $n) { $o->setLocationDisabled($n->getBooleanValue()); },
-            'privacyPaneDisabled' => function (self $o, ParseNode $n) { $o->setPrivacyPaneDisabled($n->getBooleanValue()); },
-            'profileRemovalDisabled' => function (self $o, ParseNode $n) { $o->setProfileRemovalDisabled($n->getBooleanValue()); },
-            'restoreBlocked' => function (self $o, ParseNode $n) { $o->setRestoreBlocked($n->getBooleanValue()); },
-            'screenTimeScreenDisabled' => function (self $o, ParseNode $n) { $o->setScreenTimeScreenDisabled($n->getBooleanValue()); },
-            'siriDisabled' => function (self $o, ParseNode $n) { $o->setSiriDisabled($n->getBooleanValue()); },
-            'supervisedModeEnabled' => function (self $o, ParseNode $n) { $o->setSupervisedModeEnabled($n->getBooleanValue()); },
-            'supportDepartment' => function (self $o, ParseNode $n) { $o->setSupportDepartment($n->getStringValue()); },
-            'supportPhoneNumber' => function (self $o, ParseNode $n) { $o->setSupportPhoneNumber($n->getStringValue()); },
-            'termsAndConditionsDisabled' => function (self $o, ParseNode $n) { $o->setTermsAndConditionsDisabled($n->getBooleanValue()); },
-            'touchIdDisabled' => function (self $o, ParseNode $n) { $o->setTouchIdDisabled($n->getBooleanValue()); },
+            'appleIdDisabled' => function (ParseNode $n) use ($o) { $o->setAppleIdDisabled($n->getBooleanValue()); },
+            'applePayDisabled' => function (ParseNode $n) use ($o) { $o->setApplePayDisabled($n->getBooleanValue()); },
+            'configurationWebUrl' => function (ParseNode $n) use ($o) { $o->setConfigurationWebUrl($n->getBooleanValue()); },
+            'deviceNameTemplate' => function (ParseNode $n) use ($o) { $o->setDeviceNameTemplate($n->getStringValue()); },
+            'diagnosticsDisabled' => function (ParseNode $n) use ($o) { $o->setDiagnosticsDisabled($n->getBooleanValue()); },
+            'displayToneSetupDisabled' => function (ParseNode $n) use ($o) { $o->setDisplayToneSetupDisabled($n->getBooleanValue()); },
+            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
+            'isMandatory' => function (ParseNode $n) use ($o) { $o->setIsMandatory($n->getBooleanValue()); },
+            'locationDisabled' => function (ParseNode $n) use ($o) { $o->setLocationDisabled($n->getBooleanValue()); },
+            'privacyPaneDisabled' => function (ParseNode $n) use ($o) { $o->setPrivacyPaneDisabled($n->getBooleanValue()); },
+            'profileRemovalDisabled' => function (ParseNode $n) use ($o) { $o->setProfileRemovalDisabled($n->getBooleanValue()); },
+            'restoreBlocked' => function (ParseNode $n) use ($o) { $o->setRestoreBlocked($n->getBooleanValue()); },
+            'screenTimeScreenDisabled' => function (ParseNode $n) use ($o) { $o->setScreenTimeScreenDisabled($n->getBooleanValue()); },
+            'siriDisabled' => function (ParseNode $n) use ($o) { $o->setSiriDisabled($n->getBooleanValue()); },
+            'supervisedModeEnabled' => function (ParseNode $n) use ($o) { $o->setSupervisedModeEnabled($n->getBooleanValue()); },
+            'supportDepartment' => function (ParseNode $n) use ($o) { $o->setSupportDepartment($n->getStringValue()); },
+            'supportPhoneNumber' => function (ParseNode $n) use ($o) { $o->setSupportPhoneNumber($n->getStringValue()); },
+            'termsAndConditionsDisabled' => function (ParseNode $n) use ($o) { $o->setTermsAndConditionsDisabled($n->getBooleanValue()); },
+            'touchIdDisabled' => function (ParseNode $n) use ($o) { $o->setTouchIdDisabled($n->getBooleanValue()); },
         ]);
     }
 
@@ -222,7 +269,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile
     }
 
     /**
-     * Gets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See Enroll devices in Microsoft Intune for additional information.
+     * Gets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
      * @return bool|null
     */
     public function getSupervisedModeEnabled(): ?bool {
@@ -401,7 +448,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile
     }
 
     /**
-     * Sets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See Enroll devices in Microsoft Intune for additional information.
+     * Sets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
      *  @param bool|null $value Value to set for the supervisedModeEnabled property.
     */
     public function setSupervisedModeEnabled(?bool $value ): void {

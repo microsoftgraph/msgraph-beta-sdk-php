@@ -7,36 +7,56 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AndroidForWorkEnrollmentProfile extends Entity 
+class AndroidForWorkEnrollmentProfile extends Entity implements Parsable 
 {
-    /** @var string|null $accountId Tenant GUID the enrollment profile belongs to. */
+    /**
+     * @var string|null $accountId Tenant GUID the enrollment profile belongs to.
+    */
     private ?string $accountId = null;
     
-    /** @var DateTime|null $createdDateTime Date time the enrollment profile was created. */
+    /**
+     * @var DateTime|null $createdDateTime Date time the enrollment profile was created.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $description Description for the enrollment profile. */
+    /**
+     * @var string|null $description Description for the enrollment profile.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Display name for the enrollment profile. */
+    /**
+     * @var string|null $displayName Display name for the enrollment profile.
+    */
     private ?string $displayName = null;
     
-    /** @var int|null $enrolledDeviceCount Total number of Android devices that have enrolled using this enrollment profile. */
+    /**
+     * @var int|null $enrolledDeviceCount Total number of Android devices that have enrolled using this enrollment profile.
+    */
     private ?int $enrolledDeviceCount = null;
     
-    /** @var DateTime|null $lastModifiedDateTime Date time the enrollment profile was last modified. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime Date time the enrollment profile was last modified.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var string|null $qrCodeContent String used to generate a QR code for the token. */
+    /**
+     * @var string|null $qrCodeContent String used to generate a QR code for the token.
+    */
     private ?string $qrCodeContent = null;
     
-    /** @var MimeContent|null $qrCodeImage String used to generate a QR code for the token. */
+    /**
+     * @var MimeContent|null $qrCodeImage String used to generate a QR code for the token.
+    */
     private ?MimeContent $qrCodeImage = null;
     
-    /** @var DateTime|null $tokenExpirationDateTime Date time the most recently created token will expire. */
+    /**
+     * @var DateTime|null $tokenExpirationDateTime Date time the most recently created token will expire.
+    */
     private ?DateTime $tokenExpirationDateTime = null;
     
-    /** @var string|null $tokenValue Value of the most recently created token for this enrollment profile. */
+    /**
+     * @var string|null $tokenValue Value of the most recently created token for this enrollment profile.
+    */
     private ?string $tokenValue = null;
     
     /**
@@ -51,7 +71,7 @@ class AndroidForWorkEnrollmentProfile extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AndroidForWorkEnrollmentProfile
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AndroidForWorkEnrollmentProfile {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidForWorkEnrollmentProfile {
         return new AndroidForWorkEnrollmentProfile();
     }
 
@@ -100,17 +120,18 @@ class AndroidForWorkEnrollmentProfile extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accountId' => function (self $o, ParseNode $n) { $o->setAccountId($n->getStringValue()); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'enrolledDeviceCount' => function (self $o, ParseNode $n) { $o->setEnrolledDeviceCount($n->getIntegerValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'qrCodeContent' => function (self $o, ParseNode $n) { $o->setQrCodeContent($n->getStringValue()); },
-            'qrCodeImage' => function (self $o, ParseNode $n) { $o->setQrCodeImage($n->getObjectValue(MimeContent::class)); },
-            'tokenExpirationDateTime' => function (self $o, ParseNode $n) { $o->setTokenExpirationDateTime($n->getDateTimeValue()); },
-            'tokenValue' => function (self $o, ParseNode $n) { $o->setTokenValue($n->getStringValue()); },
+            'accountId' => function (ParseNode $n) use ($o) { $o->setAccountId($n->getStringValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'enrolledDeviceCount' => function (ParseNode $n) use ($o) { $o->setEnrolledDeviceCount($n->getIntegerValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'qrCodeContent' => function (ParseNode $n) use ($o) { $o->setQrCodeContent($n->getStringValue()); },
+            'qrCodeImage' => function (ParseNode $n) use ($o) { $o->setQrCodeImage($n->getObjectValue(array(MimeContent::class, 'createFromDiscriminatorValue'))); },
+            'tokenExpirationDateTime' => function (ParseNode $n) use ($o) { $o->setTokenExpirationDateTime($n->getDateTimeValue()); },
+            'tokenValue' => function (ParseNode $n) use ($o) { $o->setTokenValue($n->getStringValue()); },
         ]);
     }
 

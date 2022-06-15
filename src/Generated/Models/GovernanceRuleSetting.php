@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class GovernanceRuleSetting implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $ruleIdentifier The id of the rule. For example, ExpirationRule and MfaRule. */
+    /**
+     * @var string|null $ruleIdentifier The id of the rule. For example, ExpirationRule and MfaRule.
+    */
     private ?string $ruleIdentifier = null;
     
-    /** @var string|null $setting The settings of the rule. The value is a JSON string with a list of pairs in the format of Parameter_Name:Parameter_Value. For example, {'permanentAssignment':false,'maximumGrantPeriodInMinutes':129600} */
+    /**
+     * @var string|null $setting The settings of the rule. The value is a JSON string with a list of pairs in the format of Parameter_Name:Parameter_Value. For example, {'permanentAssignment':false,'maximumGrantPeriodInMinutes':129600}
+    */
     private ?string $setting = null;
     
     /**
@@ -30,7 +36,7 @@ class GovernanceRuleSetting implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GovernanceRuleSetting
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceRuleSetting {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceRuleSetting {
         return new GovernanceRuleSetting();
     }
 
@@ -47,9 +53,10 @@ class GovernanceRuleSetting implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'ruleIdentifier' => function (self $o, ParseNode $n) { $o->setRuleIdentifier($n->getStringValue()); },
-            'setting' => function (self $o, ParseNode $n) { $o->setSetting($n->getStringValue()); },
+            'ruleIdentifier' => function (ParseNode $n) use ($o) { $o->setRuleIdentifier($n->getStringValue()); },
+            'setting' => function (ParseNode $n) use ($o) { $o->setSetting($n->getStringValue()); },
         ];
     }
 

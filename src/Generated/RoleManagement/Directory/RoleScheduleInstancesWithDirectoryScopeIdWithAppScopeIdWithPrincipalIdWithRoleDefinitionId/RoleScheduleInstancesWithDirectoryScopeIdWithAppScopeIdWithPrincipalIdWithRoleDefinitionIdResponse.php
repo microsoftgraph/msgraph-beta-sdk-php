@@ -10,10 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RoleScheduleInstancesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionIdResponse implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<UnifiedRoleScheduleInstanceBase>|null $value The value property */
+    /**
+     * @var array<UnifiedRoleScheduleInstanceBase>|null $value The value property
+    */
     private ?array $value = null;
     
     /**
@@ -28,7 +32,7 @@ class RoleScheduleInstancesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWith
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RoleScheduleInstancesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionIdResponse
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RoleScheduleInstancesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionIdResponse {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RoleScheduleInstancesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionIdResponse {
         return new RoleScheduleInstancesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionIdResponse();
     }
 
@@ -45,8 +49,9 @@ class RoleScheduleInstancesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWith
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getCollectionOfObjectValues(UnifiedRoleScheduleInstanceBase::class)); },
+            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(UnifiedRoleScheduleInstanceBase::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

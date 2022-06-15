@@ -8,93 +8,151 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class PurchaseInvoice extends Entity 
+class PurchaseInvoice extends Entity implements Parsable 
 {
-    /** @var PostalAddressType|null $buyFromAddress The buyFromAddress property */
+    /**
+     * @var PostalAddressType|null $buyFromAddress The buyFromAddress property
+    */
     private ?PostalAddressType $buyFromAddress = null;
     
-    /** @var Currency|null $currency The currency property */
+    /**
+     * @var Currency|null $currency The currency property
+    */
     private ?Currency $currency = null;
     
-    /** @var string|null $currencyCode The currencyCode property */
+    /**
+     * @var string|null $currencyCode The currencyCode property
+    */
     private ?string $currencyCode = null;
     
-    /** @var string|null $currencyId The currencyId property */
+    /**
+     * @var string|null $currencyId The currencyId property
+    */
     private ?string $currencyId = null;
     
-    /** @var float|null $discountAmount The discountAmount property */
-    private ?float $discountAmount = null;
+    /**
+     * @var string|null $discountAmount The discountAmount property
+    */
+    private ?string $discountAmount = null;
     
-    /** @var bool|null $discountAppliedBeforeTax The discountAppliedBeforeTax property */
+    /**
+     * @var bool|null $discountAppliedBeforeTax The discountAppliedBeforeTax property
+    */
     private ?bool $discountAppliedBeforeTax = null;
     
-    /** @var Date|null $dueDate The dueDate property */
+    /**
+     * @var Date|null $dueDate The dueDate property
+    */
     private ?Date $dueDate = null;
     
-    /** @var Date|null $invoiceDate The invoiceDate property */
+    /**
+     * @var Date|null $invoiceDate The invoiceDate property
+    */
     private ?Date $invoiceDate = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var string|null $number The number property */
+    /**
+     * @var string|null $number The number property
+    */
     private ?string $number = null;
     
-    /** @var PostalAddressType|null $payToAddress The payToAddress property */
+    /**
+     * @var PostalAddressType|null $payToAddress The payToAddress property
+    */
     private ?PostalAddressType $payToAddress = null;
     
-    /** @var string|null $payToContact The payToContact property */
+    /**
+     * @var string|null $payToContact The payToContact property
+    */
     private ?string $payToContact = null;
     
-    /** @var string|null $payToName The payToName property */
+    /**
+     * @var string|null $payToName The payToName property
+    */
     private ?string $payToName = null;
     
-    /** @var string|null $payToVendorId The payToVendorId property */
+    /**
+     * @var string|null $payToVendorId The payToVendorId property
+    */
     private ?string $payToVendorId = null;
     
-    /** @var string|null $payToVendorNumber The payToVendorNumber property */
+    /**
+     * @var string|null $payToVendorNumber The payToVendorNumber property
+    */
     private ?string $payToVendorNumber = null;
     
-    /** @var bool|null $pricesIncludeTax The pricesIncludeTax property */
+    /**
+     * @var bool|null $pricesIncludeTax The pricesIncludeTax property
+    */
     private ?bool $pricesIncludeTax = null;
     
-    /** @var array<PurchaseInvoiceLine>|null $purchaseInvoiceLines The purchaseInvoiceLines property */
+    /**
+     * @var array<PurchaseInvoiceLine>|null $purchaseInvoiceLines The purchaseInvoiceLines property
+    */
     private ?array $purchaseInvoiceLines = null;
     
-    /** @var PostalAddressType|null $shipToAddress The shipToAddress property */
+    /**
+     * @var PostalAddressType|null $shipToAddress The shipToAddress property
+    */
     private ?PostalAddressType $shipToAddress = null;
     
-    /** @var string|null $shipToContact The shipToContact property */
+    /**
+     * @var string|null $shipToContact The shipToContact property
+    */
     private ?string $shipToContact = null;
     
-    /** @var string|null $shipToName The shipToName property */
+    /**
+     * @var string|null $shipToName The shipToName property
+    */
     private ?string $shipToName = null;
     
-    /** @var string|null $status The status property */
+    /**
+     * @var string|null $status The status property
+    */
     private ?string $status = null;
     
-    /** @var float|null $totalAmountExcludingTax The totalAmountExcludingTax property */
-    private ?float $totalAmountExcludingTax = null;
+    /**
+     * @var string|null $totalAmountExcludingTax The totalAmountExcludingTax property
+    */
+    private ?string $totalAmountExcludingTax = null;
     
-    /** @var float|null $totalAmountIncludingTax The totalAmountIncludingTax property */
-    private ?float $totalAmountIncludingTax = null;
+    /**
+     * @var string|null $totalAmountIncludingTax The totalAmountIncludingTax property
+    */
+    private ?string $totalAmountIncludingTax = null;
     
-    /** @var float|null $totalTaxAmount The totalTaxAmount property */
-    private ?float $totalTaxAmount = null;
+    /**
+     * @var string|null $totalTaxAmount The totalTaxAmount property
+    */
+    private ?string $totalTaxAmount = null;
     
-    /** @var Vendor|null $vendor The vendor property */
+    /**
+     * @var Vendor|null $vendor The vendor property
+    */
     private ?Vendor $vendor = null;
     
-    /** @var string|null $vendorId The vendorId property */
+    /**
+     * @var string|null $vendorId The vendorId property
+    */
     private ?string $vendorId = null;
     
-    /** @var string|null $vendorInvoiceNumber The vendorInvoiceNumber property */
+    /**
+     * @var string|null $vendorInvoiceNumber The vendorInvoiceNumber property
+    */
     private ?string $vendorInvoiceNumber = null;
     
-    /** @var string|null $vendorName The vendorName property */
+    /**
+     * @var string|null $vendorName The vendorName property
+    */
     private ?string $vendorName = null;
     
-    /** @var string|null $vendorNumber The vendorNumber property */
+    /**
+     * @var string|null $vendorNumber The vendorNumber property
+    */
     private ?string $vendorNumber = null;
     
     /**
@@ -109,7 +167,7 @@ class PurchaseInvoice extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PurchaseInvoice
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PurchaseInvoice {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PurchaseInvoice {
         return new PurchaseInvoice();
     }
 
@@ -147,9 +205,9 @@ class PurchaseInvoice extends Entity
 
     /**
      * Gets the discountAmount property value. The discountAmount property
-     * @return float|null
+     * @return string|null
     */
-    public function getDiscountAmount(): ?float {
+    public function getDiscountAmount(): ?string {
         return $this->discountAmount;
     }
 
@@ -174,36 +232,37 @@ class PurchaseInvoice extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'buyFromAddress' => function (self $o, ParseNode $n) { $o->setBuyFromAddress($n->getObjectValue(PostalAddressType::class)); },
-            'currency' => function (self $o, ParseNode $n) { $o->setCurrency($n->getObjectValue(Currency::class)); },
-            'currencyCode' => function (self $o, ParseNode $n) { $o->setCurrencyCode($n->getStringValue()); },
-            'currencyId' => function (self $o, ParseNode $n) { $o->setCurrencyId($n->getStringValue()); },
-            'discountAmount' => function (self $o, ParseNode $n) { $o->setDiscountAmount($n->getFloatValue()); },
-            'discountAppliedBeforeTax' => function (self $o, ParseNode $n) { $o->setDiscountAppliedBeforeTax($n->getBooleanValue()); },
-            'dueDate' => function (self $o, ParseNode $n) { $o->setDueDate($n->getDateValue()); },
-            'invoiceDate' => function (self $o, ParseNode $n) { $o->setInvoiceDate($n->getDateValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'number' => function (self $o, ParseNode $n) { $o->setNumber($n->getStringValue()); },
-            'payToAddress' => function (self $o, ParseNode $n) { $o->setPayToAddress($n->getObjectValue(PostalAddressType::class)); },
-            'payToContact' => function (self $o, ParseNode $n) { $o->setPayToContact($n->getStringValue()); },
-            'payToName' => function (self $o, ParseNode $n) { $o->setPayToName($n->getStringValue()); },
-            'payToVendorId' => function (self $o, ParseNode $n) { $o->setPayToVendorId($n->getStringValue()); },
-            'payToVendorNumber' => function (self $o, ParseNode $n) { $o->setPayToVendorNumber($n->getStringValue()); },
-            'pricesIncludeTax' => function (self $o, ParseNode $n) { $o->setPricesIncludeTax($n->getBooleanValue()); },
-            'purchaseInvoiceLines' => function (self $o, ParseNode $n) { $o->setPurchaseInvoiceLines($n->getCollectionOfObjectValues(PurchaseInvoiceLine::class)); },
-            'shipToAddress' => function (self $o, ParseNode $n) { $o->setShipToAddress($n->getObjectValue(PostalAddressType::class)); },
-            'shipToContact' => function (self $o, ParseNode $n) { $o->setShipToContact($n->getStringValue()); },
-            'shipToName' => function (self $o, ParseNode $n) { $o->setShipToName($n->getStringValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
-            'totalAmountExcludingTax' => function (self $o, ParseNode $n) { $o->setTotalAmountExcludingTax($n->getFloatValue()); },
-            'totalAmountIncludingTax' => function (self $o, ParseNode $n) { $o->setTotalAmountIncludingTax($n->getFloatValue()); },
-            'totalTaxAmount' => function (self $o, ParseNode $n) { $o->setTotalTaxAmount($n->getFloatValue()); },
-            'vendor' => function (self $o, ParseNode $n) { $o->setVendor($n->getObjectValue(Vendor::class)); },
-            'vendorId' => function (self $o, ParseNode $n) { $o->setVendorId($n->getStringValue()); },
-            'vendorInvoiceNumber' => function (self $o, ParseNode $n) { $o->setVendorInvoiceNumber($n->getStringValue()); },
-            'vendorName' => function (self $o, ParseNode $n) { $o->setVendorName($n->getStringValue()); },
-            'vendorNumber' => function (self $o, ParseNode $n) { $o->setVendorNumber($n->getStringValue()); },
+            'buyFromAddress' => function (ParseNode $n) use ($o) { $o->setBuyFromAddress($n->getObjectValue(array(PostalAddressType::class, 'createFromDiscriminatorValue'))); },
+            'currency' => function (ParseNode $n) use ($o) { $o->setCurrency($n->getObjectValue(array(Currency::class, 'createFromDiscriminatorValue'))); },
+            'currencyCode' => function (ParseNode $n) use ($o) { $o->setCurrencyCode($n->getStringValue()); },
+            'currencyId' => function (ParseNode $n) use ($o) { $o->setCurrencyId($n->getStringValue()); },
+            'discountAmount' => function (ParseNode $n) use ($o) { $o->setDiscountAmount($n->getStringValue()); },
+            'discountAppliedBeforeTax' => function (ParseNode $n) use ($o) { $o->setDiscountAppliedBeforeTax($n->getBooleanValue()); },
+            'dueDate' => function (ParseNode $n) use ($o) { $o->setDueDate($n->getDateValue()); },
+            'invoiceDate' => function (ParseNode $n) use ($o) { $o->setInvoiceDate($n->getDateValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'number' => function (ParseNode $n) use ($o) { $o->setNumber($n->getStringValue()); },
+            'payToAddress' => function (ParseNode $n) use ($o) { $o->setPayToAddress($n->getObjectValue(array(PostalAddressType::class, 'createFromDiscriminatorValue'))); },
+            'payToContact' => function (ParseNode $n) use ($o) { $o->setPayToContact($n->getStringValue()); },
+            'payToName' => function (ParseNode $n) use ($o) { $o->setPayToName($n->getStringValue()); },
+            'payToVendorId' => function (ParseNode $n) use ($o) { $o->setPayToVendorId($n->getStringValue()); },
+            'payToVendorNumber' => function (ParseNode $n) use ($o) { $o->setPayToVendorNumber($n->getStringValue()); },
+            'pricesIncludeTax' => function (ParseNode $n) use ($o) { $o->setPricesIncludeTax($n->getBooleanValue()); },
+            'purchaseInvoiceLines' => function (ParseNode $n) use ($o) { $o->setPurchaseInvoiceLines($n->getCollectionOfObjectValues(array(PurchaseInvoiceLine::class, 'createFromDiscriminatorValue'))); },
+            'shipToAddress' => function (ParseNode $n) use ($o) { $o->setShipToAddress($n->getObjectValue(array(PostalAddressType::class, 'createFromDiscriminatorValue'))); },
+            'shipToContact' => function (ParseNode $n) use ($o) { $o->setShipToContact($n->getStringValue()); },
+            'shipToName' => function (ParseNode $n) use ($o) { $o->setShipToName($n->getStringValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
+            'totalAmountExcludingTax' => function (ParseNode $n) use ($o) { $o->setTotalAmountExcludingTax($n->getStringValue()); },
+            'totalAmountIncludingTax' => function (ParseNode $n) use ($o) { $o->setTotalAmountIncludingTax($n->getStringValue()); },
+            'totalTaxAmount' => function (ParseNode $n) use ($o) { $o->setTotalTaxAmount($n->getStringValue()); },
+            'vendor' => function (ParseNode $n) use ($o) { $o->setVendor($n->getObjectValue(array(Vendor::class, 'createFromDiscriminatorValue'))); },
+            'vendorId' => function (ParseNode $n) use ($o) { $o->setVendorId($n->getStringValue()); },
+            'vendorInvoiceNumber' => function (ParseNode $n) use ($o) { $o->setVendorInvoiceNumber($n->getStringValue()); },
+            'vendorName' => function (ParseNode $n) use ($o) { $o->setVendorName($n->getStringValue()); },
+            'vendorNumber' => function (ParseNode $n) use ($o) { $o->setVendorNumber($n->getStringValue()); },
         ]);
     }
 
@@ -321,25 +380,25 @@ class PurchaseInvoice extends Entity
 
     /**
      * Gets the totalAmountExcludingTax property value. The totalAmountExcludingTax property
-     * @return float|null
+     * @return string|null
     */
-    public function getTotalAmountExcludingTax(): ?float {
+    public function getTotalAmountExcludingTax(): ?string {
         return $this->totalAmountExcludingTax;
     }
 
     /**
      * Gets the totalAmountIncludingTax property value. The totalAmountIncludingTax property
-     * @return float|null
+     * @return string|null
     */
-    public function getTotalAmountIncludingTax(): ?float {
+    public function getTotalAmountIncludingTax(): ?string {
         return $this->totalAmountIncludingTax;
     }
 
     /**
      * Gets the totalTaxAmount property value. The totalTaxAmount property
-     * @return float|null
+     * @return string|null
     */
-    public function getTotalTaxAmount(): ?float {
+    public function getTotalTaxAmount(): ?string {
         return $this->totalTaxAmount;
     }
 
@@ -393,7 +452,7 @@ class PurchaseInvoice extends Entity
         $writer->writeObjectValue('currency', $this->currency);
         $writer->writeStringValue('currencyCode', $this->currencyCode);
         $writer->writeStringValue('currencyId', $this->currencyId);
-        $writer->writeFloatValue('discountAmount', $this->discountAmount);
+        $writer->writeStringValue('discountAmount', $this->discountAmount);
         $writer->writeBooleanValue('discountAppliedBeforeTax', $this->discountAppliedBeforeTax);
         $writer->writeDateValue('dueDate', $this->dueDate);
         $writer->writeDateValue('invoiceDate', $this->invoiceDate);
@@ -410,9 +469,9 @@ class PurchaseInvoice extends Entity
         $writer->writeStringValue('shipToContact', $this->shipToContact);
         $writer->writeStringValue('shipToName', $this->shipToName);
         $writer->writeStringValue('status', $this->status);
-        $writer->writeFloatValue('totalAmountExcludingTax', $this->totalAmountExcludingTax);
-        $writer->writeFloatValue('totalAmountIncludingTax', $this->totalAmountIncludingTax);
-        $writer->writeFloatValue('totalTaxAmount', $this->totalTaxAmount);
+        $writer->writeStringValue('totalAmountExcludingTax', $this->totalAmountExcludingTax);
+        $writer->writeStringValue('totalAmountIncludingTax', $this->totalAmountIncludingTax);
+        $writer->writeStringValue('totalTaxAmount', $this->totalTaxAmount);
         $writer->writeObjectValue('vendor', $this->vendor);
         $writer->writeStringValue('vendorId', $this->vendorId);
         $writer->writeStringValue('vendorInvoiceNumber', $this->vendorInvoiceNumber);
@@ -454,9 +513,9 @@ class PurchaseInvoice extends Entity
 
     /**
      * Sets the discountAmount property value. The discountAmount property
-     *  @param float|null $value Value to set for the discountAmount property.
+     *  @param string|null $value Value to set for the discountAmount property.
     */
-    public function setDiscountAmount(?float $value ): void {
+    public function setDiscountAmount(?string $value ): void {
         $this->discountAmount = $value;
     }
 
@@ -590,25 +649,25 @@ class PurchaseInvoice extends Entity
 
     /**
      * Sets the totalAmountExcludingTax property value. The totalAmountExcludingTax property
-     *  @param float|null $value Value to set for the totalAmountExcludingTax property.
+     *  @param string|null $value Value to set for the totalAmountExcludingTax property.
     */
-    public function setTotalAmountExcludingTax(?float $value ): void {
+    public function setTotalAmountExcludingTax(?string $value ): void {
         $this->totalAmountExcludingTax = $value;
     }
 
     /**
      * Sets the totalAmountIncludingTax property value. The totalAmountIncludingTax property
-     *  @param float|null $value Value to set for the totalAmountIncludingTax property.
+     *  @param string|null $value Value to set for the totalAmountIncludingTax property.
     */
-    public function setTotalAmountIncludingTax(?float $value ): void {
+    public function setTotalAmountIncludingTax(?string $value ): void {
         $this->totalAmountIncludingTax = $value;
     }
 
     /**
      * Sets the totalTaxAmount property value. The totalTaxAmount property
-     *  @param float|null $value Value to set for the totalTaxAmount property.
+     *  @param string|null $value Value to set for the totalTaxAmount property.
     */
-    public function setTotalTaxAmount(?float $value ): void {
+    public function setTotalTaxAmount(?string $value ): void {
         $this->totalTaxAmount = $value;
     }
 

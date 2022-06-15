@@ -7,57 +7,91 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MobileThreatDefenseConnector extends Entity 
+class MobileThreatDefenseConnector extends Entity implements Parsable 
 {
-    /** @var bool|null $allowPartnerToCollectIOSApplicationMetadata For IOS devices, allows the admin to configure whether the data sync partner may also collect metadata about installed applications from Intune */
+    /**
+     * @var bool|null $allowPartnerToCollectIOSApplicationMetadata For IOS devices, allows the admin to configure whether the data sync partner may also collect metadata about installed applications from Intune
+    */
     private ?bool $allowPartnerToCollectIOSApplicationMetadata = null;
     
-    /** @var bool|null $allowPartnerToCollectIOSPersonalApplicationMetadata For IOS devices, allows the admin to configure whether the data sync partner may also collect metadata about personally installed applications from Intune */
+    /**
+     * @var bool|null $allowPartnerToCollectIOSPersonalApplicationMetadata For IOS devices, allows the admin to configure whether the data sync partner may also collect metadata about personally installed applications from Intune
+    */
     private ?bool $allowPartnerToCollectIOSPersonalApplicationMetadata = null;
     
-    /** @var bool|null $androidDeviceBlockedOnMissingPartnerData For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant */
+    /**
+     * @var bool|null $androidDeviceBlockedOnMissingPartnerData For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant
+    */
     private ?bool $androidDeviceBlockedOnMissingPartnerData = null;
     
-    /** @var bool|null $androidEnabled For Android, set whether data from the data sync partner should be used during compliance evaluations */
+    /**
+     * @var bool|null $androidEnabled For Android, set whether data from the data sync partner should be used during compliance evaluations
+    */
     private ?bool $androidEnabled = null;
     
-    /** @var bool|null $androidMobileApplicationManagementEnabled For Android, set whether data from the data sync partner should be used during Mobile Application Management (MAM) evaluations. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation. */
+    /**
+     * @var bool|null $androidMobileApplicationManagementEnabled For Android, set whether data from the data sync partner should be used during Mobile Application Management (MAM) evaluations. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation.
+    */
     private ?bool $androidMobileApplicationManagementEnabled = null;
     
-    /** @var bool|null $iosDeviceBlockedOnMissingPartnerData For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant */
+    /**
+     * @var bool|null $iosDeviceBlockedOnMissingPartnerData For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant
+    */
     private ?bool $iosDeviceBlockedOnMissingPartnerData = null;
     
-    /** @var bool|null $iosEnabled For IOS, get or set whether data from the data sync partner should be used during compliance evaluations */
+    /**
+     * @var bool|null $iosEnabled For IOS, get or set whether data from the data sync partner should be used during compliance evaluations
+    */
     private ?bool $iosEnabled = null;
     
-    /** @var bool|null $iosMobileApplicationManagementEnabled For IOS, get or set whether data from the data sync partner should be used during Mobile Application Management (MAM) evaluations. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation. */
+    /**
+     * @var bool|null $iosMobileApplicationManagementEnabled For IOS, get or set whether data from the data sync partner should be used during Mobile Application Management (MAM) evaluations. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation.
+    */
     private ?bool $iosMobileApplicationManagementEnabled = null;
     
-    /** @var DateTime|null $lastHeartbeatDateTime DateTime of last Heartbeat recieved from the Data Sync Partner */
+    /**
+     * @var DateTime|null $lastHeartbeatDateTime DateTime of last Heartbeat recieved from the Data Sync Partner
+    */
     private ?DateTime $lastHeartbeatDateTime = null;
     
-    /** @var bool|null $macDeviceBlockedOnMissingPartnerData For Mac, get or set whether Intune must receive data from the data sync partner prior to marking a device compliant */
+    /**
+     * @var bool|null $macDeviceBlockedOnMissingPartnerData For Mac, get or set whether Intune must receive data from the data sync partner prior to marking a device compliant
+    */
     private ?bool $macDeviceBlockedOnMissingPartnerData = null;
     
-    /** @var bool|null $macEnabled For Mac, get or set whether data from the data sync partner should be used during compliance evaluations */
+    /**
+     * @var bool|null $macEnabled For Mac, get or set whether data from the data sync partner should be used during compliance evaluations
+    */
     private ?bool $macEnabled = null;
     
-    /** @var bool|null $microsoftDefenderForEndpointAttachEnabled When TRUE, configuration profile management via Microsoft Defender for Endpoint is enabled. When FALSE, configuration profile management via Microsoft Defender for Endpoint is disabled. */
+    /**
+     * @var bool|null $microsoftDefenderForEndpointAttachEnabled When TRUE, configuration profile management via Microsoft Defender for Endpoint is enabled. When FALSE, configuration profile management via Microsoft Defender for Endpoint is disabled.
+    */
     private ?bool $microsoftDefenderForEndpointAttachEnabled = null;
     
-    /** @var MobileThreatPartnerTenantState|null $partnerState Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive. */
+    /**
+     * @var MobileThreatPartnerTenantState|null $partnerState Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
+    */
     private ?MobileThreatPartnerTenantState $partnerState = null;
     
-    /** @var int|null $partnerUnresponsivenessThresholdInDays Get or Set days the per tenant tolerance to unresponsiveness for this partner integration */
+    /**
+     * @var int|null $partnerUnresponsivenessThresholdInDays Get or Set days the per tenant tolerance to unresponsiveness for this partner integration
+    */
     private ?int $partnerUnresponsivenessThresholdInDays = null;
     
-    /** @var bool|null $partnerUnsupportedOsVersionBlocked Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner */
+    /**
+     * @var bool|null $partnerUnsupportedOsVersionBlocked Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner
+    */
     private ?bool $partnerUnsupportedOsVersionBlocked = null;
     
-    /** @var bool|null $windowsDeviceBlockedOnMissingPartnerData For Windows, set whether Intune must receive data from the data sync partner prior to marking a device compliant */
+    /**
+     * @var bool|null $windowsDeviceBlockedOnMissingPartnerData For Windows, set whether Intune must receive data from the data sync partner prior to marking a device compliant
+    */
     private ?bool $windowsDeviceBlockedOnMissingPartnerData = null;
     
-    /** @var bool|null $windowsEnabled For Windows, get or set whether data from the data sync partner should be used during compliance evaluations */
+    /**
+     * @var bool|null $windowsEnabled For Windows, get or set whether data from the data sync partner should be used during compliance evaluations
+    */
     private ?bool $windowsEnabled = null;
     
     /**
@@ -72,7 +106,7 @@ class MobileThreatDefenseConnector extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MobileThreatDefenseConnector
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MobileThreatDefenseConnector {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MobileThreatDefenseConnector {
         return new MobileThreatDefenseConnector();
     }
 
@@ -121,24 +155,25 @@ class MobileThreatDefenseConnector extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowPartnerToCollectIOSApplicationMetadata' => function (self $o, ParseNode $n) { $o->setAllowPartnerToCollectIOSApplicationMetadata($n->getBooleanValue()); },
-            'allowPartnerToCollectIOSPersonalApplicationMetadata' => function (self $o, ParseNode $n) { $o->setAllowPartnerToCollectIOSPersonalApplicationMetadata($n->getBooleanValue()); },
-            'androidDeviceBlockedOnMissingPartnerData' => function (self $o, ParseNode $n) { $o->setAndroidDeviceBlockedOnMissingPartnerData($n->getBooleanValue()); },
-            'androidEnabled' => function (self $o, ParseNode $n) { $o->setAndroidEnabled($n->getBooleanValue()); },
-            'androidMobileApplicationManagementEnabled' => function (self $o, ParseNode $n) { $o->setAndroidMobileApplicationManagementEnabled($n->getBooleanValue()); },
-            'iosDeviceBlockedOnMissingPartnerData' => function (self $o, ParseNode $n) { $o->setIosDeviceBlockedOnMissingPartnerData($n->getBooleanValue()); },
-            'iosEnabled' => function (self $o, ParseNode $n) { $o->setIosEnabled($n->getBooleanValue()); },
-            'iosMobileApplicationManagementEnabled' => function (self $o, ParseNode $n) { $o->setIosMobileApplicationManagementEnabled($n->getBooleanValue()); },
-            'lastHeartbeatDateTime' => function (self $o, ParseNode $n) { $o->setLastHeartbeatDateTime($n->getDateTimeValue()); },
-            'macDeviceBlockedOnMissingPartnerData' => function (self $o, ParseNode $n) { $o->setMacDeviceBlockedOnMissingPartnerData($n->getBooleanValue()); },
-            'macEnabled' => function (self $o, ParseNode $n) { $o->setMacEnabled($n->getBooleanValue()); },
-            'microsoftDefenderForEndpointAttachEnabled' => function (self $o, ParseNode $n) { $o->setMicrosoftDefenderForEndpointAttachEnabled($n->getBooleanValue()); },
-            'partnerState' => function (self $o, ParseNode $n) { $o->setPartnerState($n->getEnumValue(MobileThreatPartnerTenantState::class)); },
-            'partnerUnresponsivenessThresholdInDays' => function (self $o, ParseNode $n) { $o->setPartnerUnresponsivenessThresholdInDays($n->getIntegerValue()); },
-            'partnerUnsupportedOsVersionBlocked' => function (self $o, ParseNode $n) { $o->setPartnerUnsupportedOsVersionBlocked($n->getBooleanValue()); },
-            'windowsDeviceBlockedOnMissingPartnerData' => function (self $o, ParseNode $n) { $o->setWindowsDeviceBlockedOnMissingPartnerData($n->getBooleanValue()); },
-            'windowsEnabled' => function (self $o, ParseNode $n) { $o->setWindowsEnabled($n->getBooleanValue()); },
+            'allowPartnerToCollectIOSApplicationMetadata' => function (ParseNode $n) use ($o) { $o->setAllowPartnerToCollectIOSApplicationMetadata($n->getBooleanValue()); },
+            'allowPartnerToCollectIOSPersonalApplicationMetadata' => function (ParseNode $n) use ($o) { $o->setAllowPartnerToCollectIOSPersonalApplicationMetadata($n->getBooleanValue()); },
+            'androidDeviceBlockedOnMissingPartnerData' => function (ParseNode $n) use ($o) { $o->setAndroidDeviceBlockedOnMissingPartnerData($n->getBooleanValue()); },
+            'androidEnabled' => function (ParseNode $n) use ($o) { $o->setAndroidEnabled($n->getBooleanValue()); },
+            'androidMobileApplicationManagementEnabled' => function (ParseNode $n) use ($o) { $o->setAndroidMobileApplicationManagementEnabled($n->getBooleanValue()); },
+            'iosDeviceBlockedOnMissingPartnerData' => function (ParseNode $n) use ($o) { $o->setIosDeviceBlockedOnMissingPartnerData($n->getBooleanValue()); },
+            'iosEnabled' => function (ParseNode $n) use ($o) { $o->setIosEnabled($n->getBooleanValue()); },
+            'iosMobileApplicationManagementEnabled' => function (ParseNode $n) use ($o) { $o->setIosMobileApplicationManagementEnabled($n->getBooleanValue()); },
+            'lastHeartbeatDateTime' => function (ParseNode $n) use ($o) { $o->setLastHeartbeatDateTime($n->getDateTimeValue()); },
+            'macDeviceBlockedOnMissingPartnerData' => function (ParseNode $n) use ($o) { $o->setMacDeviceBlockedOnMissingPartnerData($n->getBooleanValue()); },
+            'macEnabled' => function (ParseNode $n) use ($o) { $o->setMacEnabled($n->getBooleanValue()); },
+            'microsoftDefenderForEndpointAttachEnabled' => function (ParseNode $n) use ($o) { $o->setMicrosoftDefenderForEndpointAttachEnabled($n->getBooleanValue()); },
+            'partnerState' => function (ParseNode $n) use ($o) { $o->setPartnerState($n->getEnumValue(MobileThreatPartnerTenantState::class)); },
+            'partnerUnresponsivenessThresholdInDays' => function (ParseNode $n) use ($o) { $o->setPartnerUnresponsivenessThresholdInDays($n->getIntegerValue()); },
+            'partnerUnsupportedOsVersionBlocked' => function (ParseNode $n) use ($o) { $o->setPartnerUnsupportedOsVersionBlocked($n->getBooleanValue()); },
+            'windowsDeviceBlockedOnMissingPartnerData' => function (ParseNode $n) use ($o) { $o->setWindowsDeviceBlockedOnMissingPartnerData($n->getBooleanValue()); },
+            'windowsEnabled' => function (ParseNode $n) use ($o) { $o->setWindowsEnabled($n->getBooleanValue()); },
         ]);
     }
 

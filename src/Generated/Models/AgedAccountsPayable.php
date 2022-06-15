@@ -7,36 +7,56 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class AgedAccountsPayable extends Entity 
+class AgedAccountsPayable extends Entity implements Parsable 
 {
-    /** @var Date|null $agedAsOfDate The agedAsOfDate property */
+    /**
+     * @var Date|null $agedAsOfDate The agedAsOfDate property
+    */
     private ?Date $agedAsOfDate = null;
     
-    /** @var float|null $balanceDue The balanceDue property */
-    private ?float $balanceDue = null;
+    /**
+     * @var string|null $balanceDue The balanceDue property
+    */
+    private ?string $balanceDue = null;
     
-    /** @var string|null $currencyCode The currencyCode property */
+    /**
+     * @var string|null $currencyCode The currencyCode property
+    */
     private ?string $currencyCode = null;
     
-    /** @var float|null $currentAmount The currentAmount property */
-    private ?float $currentAmount = null;
+    /**
+     * @var string|null $currentAmount The currentAmount property
+    */
+    private ?string $currentAmount = null;
     
-    /** @var string|null $name The name property */
+    /**
+     * @var string|null $name The name property
+    */
     private ?string $name = null;
     
-    /** @var float|null $period1Amount The period1Amount property */
-    private ?float $period1Amount = null;
+    /**
+     * @var string|null $period1Amount The period1Amount property
+    */
+    private ?string $period1Amount = null;
     
-    /** @var float|null $period2Amount The period2Amount property */
-    private ?float $period2Amount = null;
+    /**
+     * @var string|null $period2Amount The period2Amount property
+    */
+    private ?string $period2Amount = null;
     
-    /** @var float|null $period3Amount The period3Amount property */
-    private ?float $period3Amount = null;
+    /**
+     * @var string|null $period3Amount The period3Amount property
+    */
+    private ?string $period3Amount = null;
     
-    /** @var string|null $periodLengthFilter The periodLengthFilter property */
+    /**
+     * @var string|null $periodLengthFilter The periodLengthFilter property
+    */
     private ?string $periodLengthFilter = null;
     
-    /** @var string|null $vendorNumber The vendorNumber property */
+    /**
+     * @var string|null $vendorNumber The vendorNumber property
+    */
     private ?string $vendorNumber = null;
     
     /**
@@ -51,7 +71,7 @@ class AgedAccountsPayable extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AgedAccountsPayable
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AgedAccountsPayable {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AgedAccountsPayable {
         return new AgedAccountsPayable();
     }
 
@@ -65,9 +85,9 @@ class AgedAccountsPayable extends Entity
 
     /**
      * Gets the balanceDue property value. The balanceDue property
-     * @return float|null
+     * @return string|null
     */
-    public function getBalanceDue(): ?float {
+    public function getBalanceDue(): ?string {
         return $this->balanceDue;
     }
 
@@ -81,9 +101,9 @@ class AgedAccountsPayable extends Entity
 
     /**
      * Gets the currentAmount property value. The currentAmount property
-     * @return float|null
+     * @return string|null
     */
-    public function getCurrentAmount(): ?float {
+    public function getCurrentAmount(): ?string {
         return $this->currentAmount;
     }
 
@@ -92,17 +112,18 @@ class AgedAccountsPayable extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'agedAsOfDate' => function (self $o, ParseNode $n) { $o->setAgedAsOfDate($n->getDateValue()); },
-            'balanceDue' => function (self $o, ParseNode $n) { $o->setBalanceDue($n->getFloatValue()); },
-            'currencyCode' => function (self $o, ParseNode $n) { $o->setCurrencyCode($n->getStringValue()); },
-            'currentAmount' => function (self $o, ParseNode $n) { $o->setCurrentAmount($n->getFloatValue()); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'period1Amount' => function (self $o, ParseNode $n) { $o->setPeriod1Amount($n->getFloatValue()); },
-            'period2Amount' => function (self $o, ParseNode $n) { $o->setPeriod2Amount($n->getFloatValue()); },
-            'period3Amount' => function (self $o, ParseNode $n) { $o->setPeriod3Amount($n->getFloatValue()); },
-            'periodLengthFilter' => function (self $o, ParseNode $n) { $o->setPeriodLengthFilter($n->getStringValue()); },
-            'vendorNumber' => function (self $o, ParseNode $n) { $o->setVendorNumber($n->getStringValue()); },
+            'agedAsOfDate' => function (ParseNode $n) use ($o) { $o->setAgedAsOfDate($n->getDateValue()); },
+            'balanceDue' => function (ParseNode $n) use ($o) { $o->setBalanceDue($n->getStringValue()); },
+            'currencyCode' => function (ParseNode $n) use ($o) { $o->setCurrencyCode($n->getStringValue()); },
+            'currentAmount' => function (ParseNode $n) use ($o) { $o->setCurrentAmount($n->getStringValue()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'period1Amount' => function (ParseNode $n) use ($o) { $o->setPeriod1Amount($n->getStringValue()); },
+            'period2Amount' => function (ParseNode $n) use ($o) { $o->setPeriod2Amount($n->getStringValue()); },
+            'period3Amount' => function (ParseNode $n) use ($o) { $o->setPeriod3Amount($n->getStringValue()); },
+            'periodLengthFilter' => function (ParseNode $n) use ($o) { $o->setPeriodLengthFilter($n->getStringValue()); },
+            'vendorNumber' => function (ParseNode $n) use ($o) { $o->setVendorNumber($n->getStringValue()); },
         ]);
     }
 
@@ -116,25 +137,25 @@ class AgedAccountsPayable extends Entity
 
     /**
      * Gets the period1Amount property value. The period1Amount property
-     * @return float|null
+     * @return string|null
     */
-    public function getPeriod1Amount(): ?float {
+    public function getPeriod1Amount(): ?string {
         return $this->period1Amount;
     }
 
     /**
      * Gets the period2Amount property value. The period2Amount property
-     * @return float|null
+     * @return string|null
     */
-    public function getPeriod2Amount(): ?float {
+    public function getPeriod2Amount(): ?string {
         return $this->period2Amount;
     }
 
     /**
      * Gets the period3Amount property value. The period3Amount property
-     * @return float|null
+     * @return string|null
     */
-    public function getPeriod3Amount(): ?float {
+    public function getPeriod3Amount(): ?string {
         return $this->period3Amount;
     }
 
@@ -161,13 +182,13 @@ class AgedAccountsPayable extends Entity
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateValue('agedAsOfDate', $this->agedAsOfDate);
-        $writer->writeFloatValue('balanceDue', $this->balanceDue);
+        $writer->writeStringValue('balanceDue', $this->balanceDue);
         $writer->writeStringValue('currencyCode', $this->currencyCode);
-        $writer->writeFloatValue('currentAmount', $this->currentAmount);
+        $writer->writeStringValue('currentAmount', $this->currentAmount);
         $writer->writeStringValue('name', $this->name);
-        $writer->writeFloatValue('period1Amount', $this->period1Amount);
-        $writer->writeFloatValue('period2Amount', $this->period2Amount);
-        $writer->writeFloatValue('period3Amount', $this->period3Amount);
+        $writer->writeStringValue('period1Amount', $this->period1Amount);
+        $writer->writeStringValue('period2Amount', $this->period2Amount);
+        $writer->writeStringValue('period3Amount', $this->period3Amount);
         $writer->writeStringValue('periodLengthFilter', $this->periodLengthFilter);
         $writer->writeStringValue('vendorNumber', $this->vendorNumber);
     }
@@ -182,9 +203,9 @@ class AgedAccountsPayable extends Entity
 
     /**
      * Sets the balanceDue property value. The balanceDue property
-     *  @param float|null $value Value to set for the balanceDue property.
+     *  @param string|null $value Value to set for the balanceDue property.
     */
-    public function setBalanceDue(?float $value ): void {
+    public function setBalanceDue(?string $value ): void {
         $this->balanceDue = $value;
     }
 
@@ -198,9 +219,9 @@ class AgedAccountsPayable extends Entity
 
     /**
      * Sets the currentAmount property value. The currentAmount property
-     *  @param float|null $value Value to set for the currentAmount property.
+     *  @param string|null $value Value to set for the currentAmount property.
     */
-    public function setCurrentAmount(?float $value ): void {
+    public function setCurrentAmount(?string $value ): void {
         $this->currentAmount = $value;
     }
 
@@ -214,25 +235,25 @@ class AgedAccountsPayable extends Entity
 
     /**
      * Sets the period1Amount property value. The period1Amount property
-     *  @param float|null $value Value to set for the period1Amount property.
+     *  @param string|null $value Value to set for the period1Amount property.
     */
-    public function setPeriod1Amount(?float $value ): void {
+    public function setPeriod1Amount(?string $value ): void {
         $this->period1Amount = $value;
     }
 
     /**
      * Sets the period2Amount property value. The period2Amount property
-     *  @param float|null $value Value to set for the period2Amount property.
+     *  @param string|null $value Value to set for the period2Amount property.
     */
-    public function setPeriod2Amount(?float $value ): void {
+    public function setPeriod2Amount(?string $value ): void {
         $this->period2Amount = $value;
     }
 
     /**
      * Sets the period3Amount property value. The period3Amount property
-     *  @param float|null $value Value to set for the period3Amount property.
+     *  @param string|null $value Value to set for the period3Amount property.
     */
-    public function setPeriod3Amount(?float $value ): void {
+    public function setPeriod3Amount(?string $value ): void {
         $this->period3Amount = $value;
     }
 

@@ -7,42 +7,66 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class CloudPcGalleryImage extends Entity 
+class CloudPcGalleryImage extends Entity implements Parsable 
 {
-    /** @var string|null $displayName The official display name of the gallery image. Read-only. */
+    /**
+     * @var string|null $displayName The official display name of the gallery image. Read-only.
+    */
     private ?string $displayName = null;
     
-    /** @var Date|null $endDate The date in which this image is no longer within long-term support. The Cloud PC will continue to provide short-term support. Read-only. */
+    /**
+     * @var Date|null $endDate The date in which this image is no longer within long-term support. The Cloud PC will continue to provide short-term support. Read-only.
+    */
     private ?Date $endDate = null;
     
-    /** @var Date|null $expirationDate The date when the image is no longer available. Read-only. */
+    /**
+     * @var Date|null $expirationDate The date when the image is no longer available. Read-only.
+    */
     private ?Date $expirationDate = null;
     
-    /** @var string|null $offer The offer name of the gallery image. This value will be passed to Azure to get the image resource. Read-only. */
+    /**
+     * @var string|null $offer The offer name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+    */
     private ?string $offer = null;
     
-    /** @var string|null $offerDisplayName The official display offer name of the gallery image. For example, Windows 10 Enterprise + OS Optimizations. Read-only. */
+    /**
+     * @var string|null $offerDisplayName The official display offer name of the gallery image. For example, Windows 10 Enterprise + OS Optimizations. Read-only.
+    */
     private ?string $offerDisplayName = null;
     
-    /** @var string|null $publisher The publisher name of the gallery image. This value will be passed to Azure to get the image resource. Read-only. */
+    /**
+     * @var string|null $publisher The publisher name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+    */
     private ?string $publisher = null;
     
-    /** @var string|null $recommendedSku Recommended Cloud PC SKU for this gallery image. Read-only. */
+    /**
+     * @var string|null $recommendedSku Recommended Cloud PC SKU for this gallery image. Read-only.
+    */
     private ?string $recommendedSku = null;
     
-    /** @var int|null $sizeInGB The size of this image in gigabytes. Read-only. */
+    /**
+     * @var int|null $sizeInGB The size of this image in gigabytes. Read-only.
+    */
     private ?int $sizeInGB = null;
     
-    /** @var string|null $sku The SKU name of the gallery image. This value will be passed to Azure to get the image resource. Read-only. */
+    /**
+     * @var string|null $sku The SKU name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+    */
     private ?string $sku = null;
     
-    /** @var string|null $skuDisplayName The official display stock keeping unit (SKU) name of this gallery image. For example, 2004. Read-only. */
+    /**
+     * @var string|null $skuDisplayName The official display stock keeping unit (SKU) name of this gallery image. For example, 2004. Read-only.
+    */
     private ?string $skuDisplayName = null;
     
-    /** @var Date|null $startDate The date when the image becomes available. Read-only. */
+    /**
+     * @var Date|null $startDate The date when the image becomes available. Read-only.
+    */
     private ?Date $startDate = null;
     
-    /** @var CloudPcGalleryImageStatus|null $status The status of the gallery image on the Cloud PC. Possible values are: supported, supportedWithWarning, notSupported, unknownFutureValue. Read-only. */
+    /**
+     * @var CloudPcGalleryImageStatus|null $status The status of the gallery image on the Cloud PC. Possible values are: supported, supportedWithWarning, notSupported, unknownFutureValue. Read-only.
+    */
     private ?CloudPcGalleryImageStatus $status = null;
     
     /**
@@ -57,7 +81,7 @@ class CloudPcGalleryImage extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcGalleryImage
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcGalleryImage {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcGalleryImage {
         return new CloudPcGalleryImage();
     }
 
@@ -90,19 +114,20 @@ class CloudPcGalleryImage extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'endDate' => function (self $o, ParseNode $n) { $o->setEndDate($n->getDateValue()); },
-            'expirationDate' => function (self $o, ParseNode $n) { $o->setExpirationDate($n->getDateValue()); },
-            'offer' => function (self $o, ParseNode $n) { $o->setOffer($n->getStringValue()); },
-            'offerDisplayName' => function (self $o, ParseNode $n) { $o->setOfferDisplayName($n->getStringValue()); },
-            'publisher' => function (self $o, ParseNode $n) { $o->setPublisher($n->getStringValue()); },
-            'recommendedSku' => function (self $o, ParseNode $n) { $o->setRecommendedSku($n->getStringValue()); },
-            'sizeInGB' => function (self $o, ParseNode $n) { $o->setSizeInGB($n->getIntegerValue()); },
-            'sku' => function (self $o, ParseNode $n) { $o->setSku($n->getStringValue()); },
-            'skuDisplayName' => function (self $o, ParseNode $n) { $o->setSkuDisplayName($n->getStringValue()); },
-            'startDate' => function (self $o, ParseNode $n) { $o->setStartDate($n->getDateValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(CloudPcGalleryImageStatus::class)); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'endDate' => function (ParseNode $n) use ($o) { $o->setEndDate($n->getDateValue()); },
+            'expirationDate' => function (ParseNode $n) use ($o) { $o->setExpirationDate($n->getDateValue()); },
+            'offer' => function (ParseNode $n) use ($o) { $o->setOffer($n->getStringValue()); },
+            'offerDisplayName' => function (ParseNode $n) use ($o) { $o->setOfferDisplayName($n->getStringValue()); },
+            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
+            'recommendedSku' => function (ParseNode $n) use ($o) { $o->setRecommendedSku($n->getStringValue()); },
+            'sizeInGB' => function (ParseNode $n) use ($o) { $o->setSizeInGB($n->getIntegerValue()); },
+            'sku' => function (ParseNode $n) use ($o) { $o->setSku($n->getStringValue()); },
+            'skuDisplayName' => function (ParseNode $n) use ($o) { $o->setSkuDisplayName($n->getStringValue()); },
+            'startDate' => function (ParseNode $n) use ($o) { $o->setStartDate($n->getDateValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CloudPcGalleryImageStatus::class)); },
         ]);
     }
 

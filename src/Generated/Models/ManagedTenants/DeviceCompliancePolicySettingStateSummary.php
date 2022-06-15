@@ -8,45 +8,71 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceCompliancePolicySettingStateSummary extends Entity 
+class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsable 
 {
-    /** @var int|null $conflictDeviceCount The number of devices in a conflict state. Optional. Read-only. */
+    /**
+     * @var int|null $conflictDeviceCount The number of devices in a conflict state. Optional. Read-only.
+    */
     private ?int $conflictDeviceCount = null;
     
-    /** @var int|null $errorDeviceCount The number of devices in an error state. Optional. Read-only. */
+    /**
+     * @var int|null $errorDeviceCount The number of devices in an error state. Optional. Read-only.
+    */
     private ?int $errorDeviceCount = null;
     
-    /** @var int|null $failedDeviceCount The number of devices in a failed state. Optional. Read-only. */
+    /**
+     * @var int|null $failedDeviceCount The number of devices in a failed state. Optional. Read-only.
+    */
     private ?int $failedDeviceCount = null;
     
-    /** @var string|null $intuneAccountId The identifer for the Microsoft Intune account. Required. Read-only. */
+    /**
+     * @var string|null $intuneAccountId The identifer for the Microsoft Intune account. Required. Read-only.
+    */
     private ?string $intuneAccountId = null;
     
-    /** @var string|null $intuneSettingId The identifier for the Intune setting. Optional. Read-only. */
+    /**
+     * @var string|null $intuneSettingId The identifier for the Intune setting. Optional. Read-only.
+    */
     private ?string $intuneSettingId = null;
     
-    /** @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only. */
+    /**
+     * @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
+    */
     private ?DateTime $lastRefreshedDateTime = null;
     
-    /** @var int|null $notApplicableDeviceCount The number of devices in a not applicable state. Optional. Read-only. */
+    /**
+     * @var int|null $notApplicableDeviceCount The number of devices in a not applicable state. Optional. Read-only.
+    */
     private ?int $notApplicableDeviceCount = null;
     
-    /** @var int|null $pendingDeviceCount The number of devices in a pending state. Optional. Read-only. */
+    /**
+     * @var int|null $pendingDeviceCount The number of devices in a pending state. Optional. Read-only.
+    */
     private ?int $pendingDeviceCount = null;
     
-    /** @var string|null $policyType The type for the device compliance policy. Optional. Read-only. */
+    /**
+     * @var string|null $policyType The type for the device compliance policy. Optional. Read-only.
+    */
     private ?string $policyType = null;
     
-    /** @var string|null $settingName The name for the setting within the device compliance policy. Optional. Read-only. */
+    /**
+     * @var string|null $settingName The name for the setting within the device compliance policy. Optional. Read-only.
+    */
     private ?string $settingName = null;
     
-    /** @var int|null $succeededDeviceCount The number of devices in a succeeded state. Optional. Read-only. */
+    /**
+     * @var int|null $succeededDeviceCount The number of devices in a succeeded state. Optional. Read-only.
+    */
     private ?int $succeededDeviceCount = null;
     
-    /** @var string|null $tenantDisplayName The display name for the managed tenant. Required. Read-only. */
+    /**
+     * @var string|null $tenantDisplayName The display name for the managed tenant. Required. Read-only.
+    */
     private ?string $tenantDisplayName = null;
     
-    /** @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only. */
+    /**
+     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
+    */
     private ?string $tenantId = null;
     
     /**
@@ -61,7 +87,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceCompliancePolicySettingStateSummary
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceCompliancePolicySettingStateSummary {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceCompliancePolicySettingStateSummary {
         return new DeviceCompliancePolicySettingStateSummary();
     }
 
@@ -94,20 +120,21 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'conflictDeviceCount' => function (self $o, ParseNode $n) { $o->setConflictDeviceCount($n->getIntegerValue()); },
-            'errorDeviceCount' => function (self $o, ParseNode $n) { $o->setErrorDeviceCount($n->getIntegerValue()); },
-            'failedDeviceCount' => function (self $o, ParseNode $n) { $o->setFailedDeviceCount($n->getIntegerValue()); },
-            'intuneAccountId' => function (self $o, ParseNode $n) { $o->setIntuneAccountId($n->getStringValue()); },
-            'intuneSettingId' => function (self $o, ParseNode $n) { $o->setIntuneSettingId($n->getStringValue()); },
-            'lastRefreshedDateTime' => function (self $o, ParseNode $n) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
-            'notApplicableDeviceCount' => function (self $o, ParseNode $n) { $o->setNotApplicableDeviceCount($n->getIntegerValue()); },
-            'pendingDeviceCount' => function (self $o, ParseNode $n) { $o->setPendingDeviceCount($n->getIntegerValue()); },
-            'policyType' => function (self $o, ParseNode $n) { $o->setPolicyType($n->getStringValue()); },
-            'settingName' => function (self $o, ParseNode $n) { $o->setSettingName($n->getStringValue()); },
-            'succeededDeviceCount' => function (self $o, ParseNode $n) { $o->setSucceededDeviceCount($n->getIntegerValue()); },
-            'tenantDisplayName' => function (self $o, ParseNode $n) { $o->setTenantDisplayName($n->getStringValue()); },
-            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
+            'conflictDeviceCount' => function (ParseNode $n) use ($o) { $o->setConflictDeviceCount($n->getIntegerValue()); },
+            'errorDeviceCount' => function (ParseNode $n) use ($o) { $o->setErrorDeviceCount($n->getIntegerValue()); },
+            'failedDeviceCount' => function (ParseNode $n) use ($o) { $o->setFailedDeviceCount($n->getIntegerValue()); },
+            'intuneAccountId' => function (ParseNode $n) use ($o) { $o->setIntuneAccountId($n->getStringValue()); },
+            'intuneSettingId' => function (ParseNode $n) use ($o) { $o->setIntuneSettingId($n->getStringValue()); },
+            'lastRefreshedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
+            'notApplicableDeviceCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableDeviceCount($n->getIntegerValue()); },
+            'pendingDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingDeviceCount($n->getIntegerValue()); },
+            'policyType' => function (ParseNode $n) use ($o) { $o->setPolicyType($n->getStringValue()); },
+            'settingName' => function (ParseNode $n) use ($o) { $o->setSettingName($n->getStringValue()); },
+            'succeededDeviceCount' => function (ParseNode $n) use ($o) { $o->setSucceededDeviceCount($n->getIntegerValue()); },
+            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
+            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
         ]);
     }
 

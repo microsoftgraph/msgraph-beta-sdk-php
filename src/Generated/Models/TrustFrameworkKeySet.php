@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TrustFrameworkKeySet extends Entity 
+class TrustFrameworkKeySet extends Entity implements Parsable 
 {
-    /** @var array<TrustFrameworkKey>|null $keys A collection of the keys. */
+    /**
+     * @var array<TrustFrameworkKey>|null $keys A collection of the keys.
+    */
     private ?array $keys = null;
     
     /**
@@ -23,7 +25,7 @@ class TrustFrameworkKeySet extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TrustFrameworkKeySet
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TrustFrameworkKeySet {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TrustFrameworkKeySet {
         return new TrustFrameworkKeySet();
     }
 
@@ -32,8 +34,9 @@ class TrustFrameworkKeySet extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'keys' => function (self $o, ParseNode $n) { $o->setKeys($n->getCollectionOfObjectValues(TrustFrameworkKey::class)); },
+            'keys' => function (ParseNode $n) use ($o) { $o->setKeys($n->getCollectionOfObjectValues(array(TrustFrameworkKey::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

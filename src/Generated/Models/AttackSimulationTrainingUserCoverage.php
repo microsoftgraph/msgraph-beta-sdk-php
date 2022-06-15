@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AttackSimulationTrainingUserCoverage implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var AttackSimulationUser|null $attackSimulationUser User in an attack simulation and training campaign. */
+    /**
+     * @var AttackSimulationUser|null $attackSimulationUser User in an attack simulation and training campaign.
+    */
     private ?AttackSimulationUser $attackSimulationUser = null;
     
-    /** @var array<UserTrainingStatusInfo>|null $userTrainings List of assigned trainings' and their statuses for the user. */
+    /**
+     * @var array<UserTrainingStatusInfo>|null $userTrainings List of assigned trainings' and their statuses for the user.
+    */
     private ?array $userTrainings = null;
     
     /**
@@ -30,7 +36,7 @@ class AttackSimulationTrainingUserCoverage implements AdditionalDataHolder, Pars
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AttackSimulationTrainingUserCoverage
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AttackSimulationTrainingUserCoverage {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AttackSimulationTrainingUserCoverage {
         return new AttackSimulationTrainingUserCoverage();
     }
 
@@ -55,9 +61,10 @@ class AttackSimulationTrainingUserCoverage implements AdditionalDataHolder, Pars
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'attackSimulationUser' => function (self $o, ParseNode $n) { $o->setAttackSimulationUser($n->getObjectValue(AttackSimulationUser::class)); },
-            'userTrainings' => function (self $o, ParseNode $n) { $o->setUserTrainings($n->getCollectionOfObjectValues(UserTrainingStatusInfo::class)); },
+            'attackSimulationUser' => function (ParseNode $n) use ($o) { $o->setAttackSimulationUser($n->getObjectValue(array(AttackSimulationUser::class, 'createFromDiscriminatorValue'))); },
+            'userTrainings' => function (ParseNode $n) use ($o) { $o->setUserTrainings($n->getCollectionOfObjectValues(array(UserTrainingStatusInfo::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

@@ -6,21 +6,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ItemActivityOLD extends Entity 
+class ItemActivityOLD extends Entity implements Parsable 
 {
-    /** @var ItemActionSet|null $action The action property */
+    /**
+     * @var ItemActionSet|null $action The action property
+    */
     private ?ItemActionSet $action = null;
     
-    /** @var IdentitySet|null $actor The actor property */
+    /**
+     * @var IdentitySet|null $actor The actor property
+    */
     private ?IdentitySet $actor = null;
     
-    /** @var DriveItem|null $driveItem The driveItem property */
+    /**
+     * @var DriveItem|null $driveItem The driveItem property
+    */
     private ?DriveItem $driveItem = null;
     
-    /** @var ListItem|null $listItem The listItem property */
+    /**
+     * @var ListItem|null $listItem The listItem property
+    */
     private ?ListItem $listItem = null;
     
-    /** @var ItemActivityTimeSet|null $times The times property */
+    /**
+     * @var ItemActivityTimeSet|null $times The times property
+    */
     private ?ItemActivityTimeSet $times = null;
     
     /**
@@ -35,7 +45,7 @@ class ItemActivityOLD extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ItemActivityOLD
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ItemActivityOLD {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ItemActivityOLD {
         return new ItemActivityOLD();
     }
 
@@ -68,12 +78,13 @@ class ItemActivityOLD extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'action' => function (self $o, ParseNode $n) { $o->setAction($n->getObjectValue(ItemActionSet::class)); },
-            'actor' => function (self $o, ParseNode $n) { $o->setActor($n->getObjectValue(IdentitySet::class)); },
-            'driveItem' => function (self $o, ParseNode $n) { $o->setDriveItem($n->getObjectValue(DriveItem::class)); },
-            'listItem' => function (self $o, ParseNode $n) { $o->setListItem($n->getObjectValue(ListItem::class)); },
-            'times' => function (self $o, ParseNode $n) { $o->setTimes($n->getObjectValue(ItemActivityTimeSet::class)); },
+            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getObjectValue(array(ItemActionSet::class, 'createFromDiscriminatorValue'))); },
+            'actor' => function (ParseNode $n) use ($o) { $o->setActor($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'driveItem' => function (ParseNode $n) use ($o) { $o->setDriveItem($n->getObjectValue(array(DriveItem::class, 'createFromDiscriminatorValue'))); },
+            'listItem' => function (ParseNode $n) use ($o) { $o->setListItem($n->getObjectValue(array(ListItem::class, 'createFromDiscriminatorValue'))); },
+            'times' => function (ParseNode $n) use ($o) { $o->setTimes($n->getObjectValue(array(ItemActivityTimeSet::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

@@ -6,30 +6,46 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessPackageResourceScope extends Entity 
+class AccessPackageResourceScope extends Entity implements Parsable 
 {
-    /** @var AccessPackageResource|null $accessPackageResource Read-only. Nullable. */
+    /**
+     * @var AccessPackageResource|null $accessPackageResource The accessPackageResource property
+    */
     private ?AccessPackageResource $accessPackageResource = null;
     
-    /** @var string|null $description The description of the scope. */
+    /**
+     * @var string|null $description The description of the scope.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The display name of the scope. */
+    /**
+     * @var string|null $displayName The display name of the scope.
+    */
     private ?string $displayName = null;
     
-    /** @var bool|null $isRootScope True if the scopes are arranged in a hierarchy and this is the top or root scope of the resource. */
+    /**
+     * @var bool|null $isRootScope True if the scopes are arranged in a hierarchy and this is the top or root scope of the resource.
+    */
     private ?bool $isRootScope = null;
     
-    /** @var string|null $originId The unique identifier for the scope in the resource as defined in the origin system. */
+    /**
+     * @var string|null $originId The unique identifier for the scope in the resource as defined in the origin system.
+    */
     private ?string $originId = null;
     
-    /** @var string|null $originSystem The origin system for the scope. */
+    /**
+     * @var string|null $originSystem The origin system for the scope.
+    */
     private ?string $originSystem = null;
     
-    /** @var string|null $roleOriginId The origin system for the role, if different. */
+    /**
+     * @var string|null $roleOriginId The origin system for the role, if different.
+    */
     private ?string $roleOriginId = null;
     
-    /** @var string|null $url A resource locator for the scope. */
+    /**
+     * @var string|null $url A resource locator for the scope.
+    */
     private ?string $url = null;
     
     /**
@@ -44,12 +60,12 @@ class AccessPackageResourceScope extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageResourceScope
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResourceScope {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResourceScope {
         return new AccessPackageResourceScope();
     }
 
     /**
-     * Gets the accessPackageResource property value. Read-only. Nullable.
+     * Gets the accessPackageResource property value. The accessPackageResource property
      * @return AccessPackageResource|null
     */
     public function getAccessPackageResource(): ?AccessPackageResource {
@@ -77,15 +93,16 @@ class AccessPackageResourceScope extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageResource' => function (self $o, ParseNode $n) { $o->setAccessPackageResource($n->getObjectValue(AccessPackageResource::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'isRootScope' => function (self $o, ParseNode $n) { $o->setIsRootScope($n->getBooleanValue()); },
-            'originId' => function (self $o, ParseNode $n) { $o->setOriginId($n->getStringValue()); },
-            'originSystem' => function (self $o, ParseNode $n) { $o->setOriginSystem($n->getStringValue()); },
-            'roleOriginId' => function (self $o, ParseNode $n) { $o->setRoleOriginId($n->getStringValue()); },
-            'url' => function (self $o, ParseNode $n) { $o->setUrl($n->getStringValue()); },
+            'accessPackageResource' => function (ParseNode $n) use ($o) { $o->setAccessPackageResource($n->getObjectValue(array(AccessPackageResource::class, 'createFromDiscriminatorValue'))); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'isRootScope' => function (ParseNode $n) use ($o) { $o->setIsRootScope($n->getBooleanValue()); },
+            'originId' => function (ParseNode $n) use ($o) { $o->setOriginId($n->getStringValue()); },
+            'originSystem' => function (ParseNode $n) use ($o) { $o->setOriginSystem($n->getStringValue()); },
+            'roleOriginId' => function (ParseNode $n) use ($o) { $o->setRoleOriginId($n->getStringValue()); },
+            'url' => function (ParseNode $n) use ($o) { $o->setUrl($n->getStringValue()); },
         ]);
     }
 
@@ -146,7 +163,7 @@ class AccessPackageResourceScope extends Entity
     }
 
     /**
-     * Sets the accessPackageResource property value. Read-only. Nullable.
+     * Sets the accessPackageResource property value. The accessPackageResource property
      *  @param AccessPackageResource|null $value Value to set for the accessPackageResource property.
     */
     public function setAccessPackageResource(?AccessPackageResource $value ): void {

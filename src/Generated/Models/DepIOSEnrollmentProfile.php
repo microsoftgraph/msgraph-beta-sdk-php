@@ -6,97 +6,155 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile 
+class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsable 
 {
-    /** @var bool|null $appearanceScreenDisabled Indicates if Apperance screen is disabled */
+    /**
+     * @var bool|null $appearanceScreenDisabled Indicates if Apperance screen is disabled
+    */
     private ?bool $appearanceScreenDisabled = null;
     
-    /** @var bool|null $awaitDeviceConfiguredConfirmation Indicates if the device will need to wait for configured confirmation */
+    /**
+     * @var bool|null $awaitDeviceConfiguredConfirmation Indicates if the device will need to wait for configured confirmation
+    */
     private ?bool $awaitDeviceConfiguredConfirmation = null;
     
-    /** @var string|null $carrierActivationUrl Carrier URL for activating device eSIM. */
+    /**
+     * @var string|null $carrierActivationUrl Carrier URL for activating device eSIM.
+    */
     private ?string $carrierActivationUrl = null;
     
-    /** @var string|null $companyPortalVppTokenId If set, indicates which Vpp token should be used to deploy the Company Portal w/ device licensing. 'enableAuthenticationViaCompanyPortal' must be set in order for this property to be set. */
+    /**
+     * @var string|null $companyPortalVppTokenId If set, indicates which Vpp token should be used to deploy the Company Portal w/ device licensing. 'enableAuthenticationViaCompanyPortal' must be set in order for this property to be set.
+    */
     private ?string $companyPortalVppTokenId = null;
     
-    /** @var bool|null $deviceToDeviceMigrationDisabled Indicates if Device To Device Migration is disabled */
+    /**
+     * @var bool|null $deviceToDeviceMigrationDisabled Indicates if Device To Device Migration is disabled
+    */
     private ?bool $deviceToDeviceMigrationDisabled = null;
     
-    /** @var bool|null $enableSharedIPad This indicates whether the device is to be enrolled in a mode which enables multi user scenarios. Only applicable in shared iPads. */
+    /**
+     * @var bool|null $enableSharedIPad This indicates whether the device is to be enrolled in a mode which enables multi user scenarios. Only applicable in shared iPads.
+    */
     private ?bool $enableSharedIPad = null;
     
-    /** @var bool|null $enableSingleAppEnrollmentMode Tells the device to enable single app mode and apply app-lock during enrollment. Default is false. 'enableAuthenticationViaCompanyPortal' and 'companyPortalVppTokenId' must be set for this property to be set. */
+    /**
+     * @var bool|null $enableSingleAppEnrollmentMode Tells the device to enable single app mode and apply app-lock during enrollment. Default is false. 'enableAuthenticationViaCompanyPortal' and 'companyPortalVppTokenId' must be set for this property to be set.
+    */
     private ?bool $enableSingleAppEnrollmentMode = null;
     
-    /** @var bool|null $expressLanguageScreenDisabled Indicates if Express Language screen is disabled */
+    /**
+     * @var bool|null $expressLanguageScreenDisabled Indicates if Express Language screen is disabled
+    */
     private ?bool $expressLanguageScreenDisabled = null;
     
-    /** @var bool|null $forceTemporarySession Indicates if temporary sessions is enabled */
+    /**
+     * @var bool|null $forceTemporarySession Indicates if temporary sessions is enabled
+    */
     private ?bool $forceTemporarySession = null;
     
-    /** @var bool|null $homeButtonScreenDisabled Indicates if home button sensitivity screen is disabled */
+    /**
+     * @var bool|null $homeButtonScreenDisabled Indicates if home button sensitivity screen is disabled
+    */
     private ?bool $homeButtonScreenDisabled = null;
     
-    /** @var bool|null $iMessageAndFaceTimeScreenDisabled Indicates if iMessage and FaceTime screen is disabled */
+    /**
+     * @var bool|null $iMessageAndFaceTimeScreenDisabled Indicates if iMessage and FaceTime screen is disabled
+    */
     private ?bool $iMessageAndFaceTimeScreenDisabled = null;
     
-    /** @var ITunesPairingMode|null $iTunesPairingMode Indicates the iTunes pairing mode. Possible values are: disallow, allow, requiresCertificate. */
+    /**
+     * @var ITunesPairingMode|null $iTunesPairingMode Indicates the iTunes pairing mode. Possible values are: disallow, allow, requiresCertificate.
+    */
     private ?ITunesPairingMode $iTunesPairingMode = null;
     
-    /** @var array<ManagementCertificateWithThumbprint>|null $managementCertificates Management certificates for Apple Configurator */
+    /**
+     * @var array<ManagementCertificateWithThumbprint>|null $managementCertificates Management certificates for Apple Configurator
+    */
     private ?array $managementCertificates = null;
     
-    /** @var bool|null $onBoardingScreenDisabled Indicates if onboarding setup screen is disabled */
+    /**
+     * @var bool|null $onBoardingScreenDisabled Indicates if onboarding setup screen is disabled
+    */
     private ?bool $onBoardingScreenDisabled = null;
     
-    /** @var bool|null $passCodeDisabled Indicates if Passcode setup pane is disabled */
+    /**
+     * @var bool|null $passCodeDisabled Indicates if Passcode setup pane is disabled
+    */
     private ?bool $passCodeDisabled = null;
     
-    /** @var int|null $passcodeLockGracePeriodInSeconds Indicates timeout before locked screen requires the user to enter the device passocde to unlock it */
+    /**
+     * @var int|null $passcodeLockGracePeriodInSeconds Indicates timeout before locked screen requires the user to enter the device passocde to unlock it
+    */
     private ?int $passcodeLockGracePeriodInSeconds = null;
     
-    /** @var bool|null $preferredLanguageScreenDisabled Indicates if Preferred language screen is disabled */
+    /**
+     * @var bool|null $preferredLanguageScreenDisabled Indicates if Preferred language screen is disabled
+    */
     private ?bool $preferredLanguageScreenDisabled = null;
     
-    /** @var bool|null $restoreCompletedScreenDisabled Indicates if Weclome screen is disabled */
+    /**
+     * @var bool|null $restoreCompletedScreenDisabled Indicates if Weclome screen is disabled
+    */
     private ?bool $restoreCompletedScreenDisabled = null;
     
-    /** @var bool|null $restoreFromAndroidDisabled Indicates if Restore from Android is disabled */
+    /**
+     * @var bool|null $restoreFromAndroidDisabled Indicates if Restore from Android is disabled
+    */
     private ?bool $restoreFromAndroidDisabled = null;
     
-    /** @var int|null $sharedIPadMaximumUserCount This specifies the maximum number of users that can use a shared iPad. Only applicable in shared iPad mode. */
+    /**
+     * @var int|null $sharedIPadMaximumUserCount This specifies the maximum number of users that can use a shared iPad. Only applicable in shared iPad mode.
+    */
     private ?int $sharedIPadMaximumUserCount = null;
     
-    /** @var bool|null $simSetupScreenDisabled Indicates if the SIMSetup screen is disabled */
+    /**
+     * @var bool|null $simSetupScreenDisabled Indicates if the SIMSetup screen is disabled
+    */
     private ?bool $simSetupScreenDisabled = null;
     
-    /** @var bool|null $softwareUpdateScreenDisabled Indicates if the mandatory sofware update screen is disabled */
+    /**
+     * @var bool|null $softwareUpdateScreenDisabled Indicates if the mandatory sofware update screen is disabled
+    */
     private ?bool $softwareUpdateScreenDisabled = null;
     
-    /** @var int|null $temporarySessionTimeoutInSeconds Indicates timeout of temporary session */
+    /**
+     * @var int|null $temporarySessionTimeoutInSeconds Indicates timeout of temporary session
+    */
     private ?int $temporarySessionTimeoutInSeconds = null;
     
-    /** @var bool|null $updateCompleteScreenDisabled Indicates if Weclome screen is disabled */
+    /**
+     * @var bool|null $updateCompleteScreenDisabled Indicates if Weclome screen is disabled
+    */
     private ?bool $updateCompleteScreenDisabled = null;
     
-    /** @var bool|null $userlessSharedAadModeEnabled Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See Shared iOS and iPadOS devices */
+    /**
+     * @var bool|null $userlessSharedAadModeEnabled Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See https://docs.microsoft.com/mem/intune/enrollment/device-enrollment-shared-ios
+    */
     private ?bool $userlessSharedAadModeEnabled = null;
     
-    /** @var int|null $userSessionTimeoutInSeconds Indicates timeout of temporary session */
+    /**
+     * @var int|null $userSessionTimeoutInSeconds Indicates timeout of temporary session
+    */
     private ?int $userSessionTimeoutInSeconds = null;
     
-    /** @var bool|null $watchMigrationScreenDisabled Indicates if the watch migration screen is disabled */
+    /**
+     * @var bool|null $watchMigrationScreenDisabled Indicates if the watch migration screen is disabled
+    */
     private ?bool $watchMigrationScreenDisabled = null;
     
-    /** @var bool|null $welcomeScreenDisabled Indicates if Weclome screen is disabled */
+    /**
+     * @var bool|null $welcomeScreenDisabled Indicates if Weclome screen is disabled
+    */
     private ?bool $welcomeScreenDisabled = null;
     
-    /** @var bool|null $zoomDisabled Indicates if zoom setup pane is disabled */
+    /**
+     * @var bool|null $zoomDisabled Indicates if zoom setup pane is disabled
+    */
     private ?bool $zoomDisabled = null;
     
     /**
-     * Instantiates a new depIOSEnrollmentProfile and sets the default values.
+     * Instantiates a new DepIOSEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -107,7 +165,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DepIOSEnrollmentProfile
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DepIOSEnrollmentProfile {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DepIOSEnrollmentProfile {
         return new DepIOSEnrollmentProfile();
     }
 
@@ -180,36 +238,37 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appearanceScreenDisabled' => function (self $o, ParseNode $n) { $o->setAppearanceScreenDisabled($n->getBooleanValue()); },
-            'awaitDeviceConfiguredConfirmation' => function (self $o, ParseNode $n) { $o->setAwaitDeviceConfiguredConfirmation($n->getBooleanValue()); },
-            'carrierActivationUrl' => function (self $o, ParseNode $n) { $o->setCarrierActivationUrl($n->getStringValue()); },
-            'companyPortalVppTokenId' => function (self $o, ParseNode $n) { $o->setCompanyPortalVppTokenId($n->getStringValue()); },
-            'deviceToDeviceMigrationDisabled' => function (self $o, ParseNode $n) { $o->setDeviceToDeviceMigrationDisabled($n->getBooleanValue()); },
-            'enableSharedIPad' => function (self $o, ParseNode $n) { $o->setEnableSharedIPad($n->getBooleanValue()); },
-            'enableSingleAppEnrollmentMode' => function (self $o, ParseNode $n) { $o->setEnableSingleAppEnrollmentMode($n->getBooleanValue()); },
-            'expressLanguageScreenDisabled' => function (self $o, ParseNode $n) { $o->setExpressLanguageScreenDisabled($n->getBooleanValue()); },
-            'forceTemporarySession' => function (self $o, ParseNode $n) { $o->setForceTemporarySession($n->getBooleanValue()); },
-            'homeButtonScreenDisabled' => function (self $o, ParseNode $n) { $o->setHomeButtonScreenDisabled($n->getBooleanValue()); },
-            'iMessageAndFaceTimeScreenDisabled' => function (self $o, ParseNode $n) { $o->setIMessageAndFaceTimeScreenDisabled($n->getBooleanValue()); },
-            'iTunesPairingMode' => function (self $o, ParseNode $n) { $o->setITunesPairingMode($n->getEnumValue(ITunesPairingMode::class)); },
-            'managementCertificates' => function (self $o, ParseNode $n) { $o->setManagementCertificates($n->getCollectionOfObjectValues(ManagementCertificateWithThumbprint::class)); },
-            'onBoardingScreenDisabled' => function (self $o, ParseNode $n) { $o->setOnBoardingScreenDisabled($n->getBooleanValue()); },
-            'passCodeDisabled' => function (self $o, ParseNode $n) { $o->setPassCodeDisabled($n->getBooleanValue()); },
-            'passcodeLockGracePeriodInSeconds' => function (self $o, ParseNode $n) { $o->setPasscodeLockGracePeriodInSeconds($n->getIntegerValue()); },
-            'preferredLanguageScreenDisabled' => function (self $o, ParseNode $n) { $o->setPreferredLanguageScreenDisabled($n->getBooleanValue()); },
-            'restoreCompletedScreenDisabled' => function (self $o, ParseNode $n) { $o->setRestoreCompletedScreenDisabled($n->getBooleanValue()); },
-            'restoreFromAndroidDisabled' => function (self $o, ParseNode $n) { $o->setRestoreFromAndroidDisabled($n->getBooleanValue()); },
-            'sharedIPadMaximumUserCount' => function (self $o, ParseNode $n) { $o->setSharedIPadMaximumUserCount($n->getIntegerValue()); },
-            'simSetupScreenDisabled' => function (self $o, ParseNode $n) { $o->setSimSetupScreenDisabled($n->getBooleanValue()); },
-            'softwareUpdateScreenDisabled' => function (self $o, ParseNode $n) { $o->setSoftwareUpdateScreenDisabled($n->getBooleanValue()); },
-            'temporarySessionTimeoutInSeconds' => function (self $o, ParseNode $n) { $o->setTemporarySessionTimeoutInSeconds($n->getIntegerValue()); },
-            'updateCompleteScreenDisabled' => function (self $o, ParseNode $n) { $o->setUpdateCompleteScreenDisabled($n->getBooleanValue()); },
-            'userlessSharedAadModeEnabled' => function (self $o, ParseNode $n) { $o->setUserlessSharedAadModeEnabled($n->getBooleanValue()); },
-            'userSessionTimeoutInSeconds' => function (self $o, ParseNode $n) { $o->setUserSessionTimeoutInSeconds($n->getIntegerValue()); },
-            'watchMigrationScreenDisabled' => function (self $o, ParseNode $n) { $o->setWatchMigrationScreenDisabled($n->getBooleanValue()); },
-            'welcomeScreenDisabled' => function (self $o, ParseNode $n) { $o->setWelcomeScreenDisabled($n->getBooleanValue()); },
-            'zoomDisabled' => function (self $o, ParseNode $n) { $o->setZoomDisabled($n->getBooleanValue()); },
+            'appearanceScreenDisabled' => function (ParseNode $n) use ($o) { $o->setAppearanceScreenDisabled($n->getBooleanValue()); },
+            'awaitDeviceConfiguredConfirmation' => function (ParseNode $n) use ($o) { $o->setAwaitDeviceConfiguredConfirmation($n->getBooleanValue()); },
+            'carrierActivationUrl' => function (ParseNode $n) use ($o) { $o->setCarrierActivationUrl($n->getStringValue()); },
+            'companyPortalVppTokenId' => function (ParseNode $n) use ($o) { $o->setCompanyPortalVppTokenId($n->getStringValue()); },
+            'deviceToDeviceMigrationDisabled' => function (ParseNode $n) use ($o) { $o->setDeviceToDeviceMigrationDisabled($n->getBooleanValue()); },
+            'enableSharedIPad' => function (ParseNode $n) use ($o) { $o->setEnableSharedIPad($n->getBooleanValue()); },
+            'enableSingleAppEnrollmentMode' => function (ParseNode $n) use ($o) { $o->setEnableSingleAppEnrollmentMode($n->getBooleanValue()); },
+            'expressLanguageScreenDisabled' => function (ParseNode $n) use ($o) { $o->setExpressLanguageScreenDisabled($n->getBooleanValue()); },
+            'forceTemporarySession' => function (ParseNode $n) use ($o) { $o->setForceTemporarySession($n->getBooleanValue()); },
+            'homeButtonScreenDisabled' => function (ParseNode $n) use ($o) { $o->setHomeButtonScreenDisabled($n->getBooleanValue()); },
+            'iMessageAndFaceTimeScreenDisabled' => function (ParseNode $n) use ($o) { $o->setIMessageAndFaceTimeScreenDisabled($n->getBooleanValue()); },
+            'iTunesPairingMode' => function (ParseNode $n) use ($o) { $o->setITunesPairingMode($n->getEnumValue(ITunesPairingMode::class)); },
+            'managementCertificates' => function (ParseNode $n) use ($o) { $o->setManagementCertificates($n->getCollectionOfObjectValues(array(ManagementCertificateWithThumbprint::class, 'createFromDiscriminatorValue'))); },
+            'onBoardingScreenDisabled' => function (ParseNode $n) use ($o) { $o->setOnBoardingScreenDisabled($n->getBooleanValue()); },
+            'passCodeDisabled' => function (ParseNode $n) use ($o) { $o->setPassCodeDisabled($n->getBooleanValue()); },
+            'passcodeLockGracePeriodInSeconds' => function (ParseNode $n) use ($o) { $o->setPasscodeLockGracePeriodInSeconds($n->getIntegerValue()); },
+            'preferredLanguageScreenDisabled' => function (ParseNode $n) use ($o) { $o->setPreferredLanguageScreenDisabled($n->getBooleanValue()); },
+            'restoreCompletedScreenDisabled' => function (ParseNode $n) use ($o) { $o->setRestoreCompletedScreenDisabled($n->getBooleanValue()); },
+            'restoreFromAndroidDisabled' => function (ParseNode $n) use ($o) { $o->setRestoreFromAndroidDisabled($n->getBooleanValue()); },
+            'sharedIPadMaximumUserCount' => function (ParseNode $n) use ($o) { $o->setSharedIPadMaximumUserCount($n->getIntegerValue()); },
+            'simSetupScreenDisabled' => function (ParseNode $n) use ($o) { $o->setSimSetupScreenDisabled($n->getBooleanValue()); },
+            'softwareUpdateScreenDisabled' => function (ParseNode $n) use ($o) { $o->setSoftwareUpdateScreenDisabled($n->getBooleanValue()); },
+            'temporarySessionTimeoutInSeconds' => function (ParseNode $n) use ($o) { $o->setTemporarySessionTimeoutInSeconds($n->getIntegerValue()); },
+            'updateCompleteScreenDisabled' => function (ParseNode $n) use ($o) { $o->setUpdateCompleteScreenDisabled($n->getBooleanValue()); },
+            'userlessSharedAadModeEnabled' => function (ParseNode $n) use ($o) { $o->setUserlessSharedAadModeEnabled($n->getBooleanValue()); },
+            'userSessionTimeoutInSeconds' => function (ParseNode $n) use ($o) { $o->setUserSessionTimeoutInSeconds($n->getIntegerValue()); },
+            'watchMigrationScreenDisabled' => function (ParseNode $n) use ($o) { $o->setWatchMigrationScreenDisabled($n->getBooleanValue()); },
+            'welcomeScreenDisabled' => function (ParseNode $n) use ($o) { $o->setWelcomeScreenDisabled($n->getBooleanValue()); },
+            'zoomDisabled' => function (ParseNode $n) use ($o) { $o->setZoomDisabled($n->getBooleanValue()); },
         ]);
     }
 
@@ -342,7 +401,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile
     }
 
     /**
-     * Gets the userlessSharedAadModeEnabled property value. Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See Shared iOS and iPadOS devices
+     * Gets the userlessSharedAadModeEnabled property value. Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See https://docs.microsoft.com/mem/intune/enrollment/device-enrollment-shared-ios
      * @return bool|null
     */
     public function getUserlessSharedAadModeEnabled(): ?bool {
@@ -611,7 +670,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile
     }
 
     /**
-     * Sets the userlessSharedAadModeEnabled property value. Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See Shared iOS and iPadOS devices
+     * Sets the userlessSharedAadModeEnabled property value. Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See https://docs.microsoft.com/mem/intune/enrollment/device-enrollment-shared-ios
      *  @param bool|null $value Value to set for the userlessSharedAadModeEnabled property.
     */
     public function setUserlessSharedAadModeEnabled(?bool $value ): void {

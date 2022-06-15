@@ -7,21 +7,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ProviderTenantSetting extends Entity 
+class ProviderTenantSetting extends Entity implements Parsable 
 {
-    /** @var string|null $azureTenantId The azureTenantId property */
+    /**
+     * @var string|null $azureTenantId The azureTenantId property
+    */
     private ?string $azureTenantId = null;
     
-    /** @var bool|null $enabled The enabled property */
+    /**
+     * @var bool|null $enabled The enabled property
+    */
     private ?bool $enabled = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var string|null $provider The provider property */
+    /**
+     * @var string|null $provider The provider property
+    */
     private ?string $provider = null;
     
-    /** @var string|null $vendor The vendor property */
+    /**
+     * @var string|null $vendor The vendor property
+    */
     private ?string $vendor = null;
     
     /**
@@ -36,7 +46,7 @@ class ProviderTenantSetting extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ProviderTenantSetting
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ProviderTenantSetting {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ProviderTenantSetting {
         return new ProviderTenantSetting();
     }
 
@@ -61,12 +71,13 @@ class ProviderTenantSetting extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'azureTenantId' => function (self $o, ParseNode $n) { $o->setAzureTenantId($n->getStringValue()); },
-            'enabled' => function (self $o, ParseNode $n) { $o->setEnabled($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'provider' => function (self $o, ParseNode $n) { $o->setProvider($n->getStringValue()); },
-            'vendor' => function (self $o, ParseNode $n) { $o->setVendor($n->getStringValue()); },
+            'azureTenantId' => function (ParseNode $n) use ($o) { $o->setAzureTenantId($n->getStringValue()); },
+            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'provider' => function (ParseNode $n) use ($o) { $o->setProvider($n->getStringValue()); },
+            'vendor' => function (ParseNode $n) use ($o) { $o->setVendor($n->getStringValue()); },
         ]);
     }
 

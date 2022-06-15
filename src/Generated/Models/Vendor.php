@@ -7,63 +7,101 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Vendor extends Entity 
+class Vendor extends Entity implements Parsable 
 {
-    /** @var PostalAddressType|null $address The address property */
+    /**
+     * @var PostalAddressType|null $address The address property
+    */
     private ?PostalAddressType $address = null;
     
-    /** @var float|null $balance The balance property */
-    private ?float $balance = null;
+    /**
+     * @var string|null $balance The balance property
+    */
+    private ?string $balance = null;
     
-    /** @var string|null $blocked The blocked property */
+    /**
+     * @var string|null $blocked The blocked property
+    */
     private ?string $blocked = null;
     
-    /** @var Currency|null $currency The currency property */
+    /**
+     * @var Currency|null $currency The currency property
+    */
     private ?Currency $currency = null;
     
-    /** @var string|null $currencyCode The currencyCode property */
+    /**
+     * @var string|null $currencyCode The currencyCode property
+    */
     private ?string $currencyCode = null;
     
-    /** @var string|null $currencyId The currencyId property */
+    /**
+     * @var string|null $currencyId The currencyId property
+    */
     private ?string $currencyId = null;
     
-    /** @var string|null $displayName The displayName property */
+    /**
+     * @var string|null $displayName The displayName property
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $email The email property */
+    /**
+     * @var string|null $email The email property
+    */
     private ?string $email = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var string|null $number The number property */
+    /**
+     * @var string|null $number The number property
+    */
     private ?string $number = null;
     
-    /** @var PaymentMethod|null $paymentMethod The paymentMethod property */
+    /**
+     * @var PaymentMethod|null $paymentMethod The paymentMethod property
+    */
     private ?PaymentMethod $paymentMethod = null;
     
-    /** @var string|null $paymentMethodId The paymentMethodId property */
+    /**
+     * @var string|null $paymentMethodId The paymentMethodId property
+    */
     private ?string $paymentMethodId = null;
     
-    /** @var PaymentTerm|null $paymentTerm The paymentTerm property */
+    /**
+     * @var PaymentTerm|null $paymentTerm The paymentTerm property
+    */
     private ?PaymentTerm $paymentTerm = null;
     
-    /** @var string|null $paymentTermsId The paymentTermsId property */
+    /**
+     * @var string|null $paymentTermsId The paymentTermsId property
+    */
     private ?string $paymentTermsId = null;
     
-    /** @var string|null $phoneNumber The phoneNumber property */
+    /**
+     * @var string|null $phoneNumber The phoneNumber property
+    */
     private ?string $phoneNumber = null;
     
-    /** @var array<Picture>|null $picture The picture property */
+    /**
+     * @var array<Picture>|null $picture The picture property
+    */
     private ?array $picture = null;
     
-    /** @var bool|null $taxLiable The taxLiable property */
+    /**
+     * @var bool|null $taxLiable The taxLiable property
+    */
     private ?bool $taxLiable = null;
     
-    /** @var string|null $taxRegistrationNumber The taxRegistrationNumber property */
+    /**
+     * @var string|null $taxRegistrationNumber The taxRegistrationNumber property
+    */
     private ?string $taxRegistrationNumber = null;
     
-    /** @var string|null $website The website property */
+    /**
+     * @var string|null $website The website property
+    */
     private ?string $website = null;
     
     /**
@@ -78,7 +116,7 @@ class Vendor extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Vendor
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Vendor {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Vendor {
         return new Vendor();
     }
 
@@ -92,9 +130,9 @@ class Vendor extends Entity
 
     /**
      * Gets the balance property value. The balance property
-     * @return float|null
+     * @return string|null
     */
-    public function getBalance(): ?float {
+    public function getBalance(): ?string {
         return $this->balance;
     }
 
@@ -151,26 +189,27 @@ class Vendor extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'address' => function (self $o, ParseNode $n) { $o->setAddress($n->getObjectValue(PostalAddressType::class)); },
-            'balance' => function (self $o, ParseNode $n) { $o->setBalance($n->getFloatValue()); },
-            'blocked' => function (self $o, ParseNode $n) { $o->setBlocked($n->getStringValue()); },
-            'currency' => function (self $o, ParseNode $n) { $o->setCurrency($n->getObjectValue(Currency::class)); },
-            'currencyCode' => function (self $o, ParseNode $n) { $o->setCurrencyCode($n->getStringValue()); },
-            'currencyId' => function (self $o, ParseNode $n) { $o->setCurrencyId($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'email' => function (self $o, ParseNode $n) { $o->setEmail($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'number' => function (self $o, ParseNode $n) { $o->setNumber($n->getStringValue()); },
-            'paymentMethod' => function (self $o, ParseNode $n) { $o->setPaymentMethod($n->getObjectValue(PaymentMethod::class)); },
-            'paymentMethodId' => function (self $o, ParseNode $n) { $o->setPaymentMethodId($n->getStringValue()); },
-            'paymentTerm' => function (self $o, ParseNode $n) { $o->setPaymentTerm($n->getObjectValue(PaymentTerm::class)); },
-            'paymentTermsId' => function (self $o, ParseNode $n) { $o->setPaymentTermsId($n->getStringValue()); },
-            'phoneNumber' => function (self $o, ParseNode $n) { $o->setPhoneNumber($n->getStringValue()); },
-            'picture' => function (self $o, ParseNode $n) { $o->setPicture($n->getCollectionOfObjectValues(Picture::class)); },
-            'taxLiable' => function (self $o, ParseNode $n) { $o->setTaxLiable($n->getBooleanValue()); },
-            'taxRegistrationNumber' => function (self $o, ParseNode $n) { $o->setTaxRegistrationNumber($n->getStringValue()); },
-            'website' => function (self $o, ParseNode $n) { $o->setWebsite($n->getStringValue()); },
+            'address' => function (ParseNode $n) use ($o) { $o->setAddress($n->getObjectValue(array(PostalAddressType::class, 'createFromDiscriminatorValue'))); },
+            'balance' => function (ParseNode $n) use ($o) { $o->setBalance($n->getStringValue()); },
+            'blocked' => function (ParseNode $n) use ($o) { $o->setBlocked($n->getStringValue()); },
+            'currency' => function (ParseNode $n) use ($o) { $o->setCurrency($n->getObjectValue(array(Currency::class, 'createFromDiscriminatorValue'))); },
+            'currencyCode' => function (ParseNode $n) use ($o) { $o->setCurrencyCode($n->getStringValue()); },
+            'currencyId' => function (ParseNode $n) use ($o) { $o->setCurrencyId($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'number' => function (ParseNode $n) use ($o) { $o->setNumber($n->getStringValue()); },
+            'paymentMethod' => function (ParseNode $n) use ($o) { $o->setPaymentMethod($n->getObjectValue(array(PaymentMethod::class, 'createFromDiscriminatorValue'))); },
+            'paymentMethodId' => function (ParseNode $n) use ($o) { $o->setPaymentMethodId($n->getStringValue()); },
+            'paymentTerm' => function (ParseNode $n) use ($o) { $o->setPaymentTerm($n->getObjectValue(array(PaymentTerm::class, 'createFromDiscriminatorValue'))); },
+            'paymentTermsId' => function (ParseNode $n) use ($o) { $o->setPaymentTermsId($n->getStringValue()); },
+            'phoneNumber' => function (ParseNode $n) use ($o) { $o->setPhoneNumber($n->getStringValue()); },
+            'picture' => function (ParseNode $n) use ($o) { $o->setPicture($n->getCollectionOfObjectValues(array(Picture::class, 'createFromDiscriminatorValue'))); },
+            'taxLiable' => function (ParseNode $n) use ($o) { $o->setTaxLiable($n->getBooleanValue()); },
+            'taxRegistrationNumber' => function (ParseNode $n) use ($o) { $o->setTaxRegistrationNumber($n->getStringValue()); },
+            'website' => function (ParseNode $n) use ($o) { $o->setWebsite($n->getStringValue()); },
         ]);
     }
 
@@ -269,7 +308,7 @@ class Vendor extends Entity
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('address', $this->address);
-        $writer->writeFloatValue('balance', $this->balance);
+        $writer->writeStringValue('balance', $this->balance);
         $writer->writeStringValue('blocked', $this->blocked);
         $writer->writeObjectValue('currency', $this->currency);
         $writer->writeStringValue('currencyCode', $this->currencyCode);
@@ -299,9 +338,9 @@ class Vendor extends Entity
 
     /**
      * Sets the balance property value. The balance property
-     *  @param float|null $value Value to set for the balance property.
+     *  @param string|null $value Value to set for the balance property.
     */
-    public function setBalance(?float $value ): void {
+    public function setBalance(?string $value ): void {
         $this->balance = $value;
     }
 

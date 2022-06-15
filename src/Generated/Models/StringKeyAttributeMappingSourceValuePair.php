@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class StringKeyAttributeMappingSourceValuePair implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $key The name of the parameter. */
+    /**
+     * @var string|null $key The name of the parameter.
+    */
     private ?string $key = null;
     
-    /** @var AttributeMappingSource|null $value The value of the parameter. */
+    /**
+     * @var AttributeMappingSource|null $value The value of the parameter.
+    */
     private ?AttributeMappingSource $value = null;
     
     /**
@@ -30,7 +36,7 @@ class StringKeyAttributeMappingSourceValuePair implements AdditionalDataHolder, 
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return StringKeyAttributeMappingSourceValuePair
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): StringKeyAttributeMappingSourceValuePair {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): StringKeyAttributeMappingSourceValuePair {
         return new StringKeyAttributeMappingSourceValuePair();
     }
 
@@ -47,9 +53,10 @@ class StringKeyAttributeMappingSourceValuePair implements AdditionalDataHolder, 
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'key' => function (self $o, ParseNode $n) { $o->setKey($n->getStringValue()); },
-            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getObjectValue(AttributeMappingSource::class)); },
+            'key' => function (ParseNode $n) use ($o) { $o->setKey($n->getStringValue()); },
+            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getObjectValue(array(AttributeMappingSource::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

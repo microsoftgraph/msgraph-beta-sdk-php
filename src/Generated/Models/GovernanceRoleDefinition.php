@@ -6,24 +6,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GovernanceRoleDefinition extends Entity 
+class GovernanceRoleDefinition extends Entity implements Parsable 
 {
-    /** @var string|null $displayName The display name of the role definition. */
+    /**
+     * @var string|null $displayName The display name of the role definition.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $externalId The external id of the role definition. */
+    /**
+     * @var string|null $externalId The external id of the role definition.
+    */
     private ?string $externalId = null;
     
-    /** @var GovernanceResource|null $resource Read-only. The associated resource for the role definition. */
+    /**
+     * @var GovernanceResource|null $resource Read-only. The associated resource for the role definition.
+    */
     private ?GovernanceResource $resource = null;
     
-    /** @var string|null $resourceId Required. The id of the resource associated with the role definition. */
+    /**
+     * @var string|null $resourceId Required. The id of the resource associated with the role definition.
+    */
     private ?string $resourceId = null;
     
-    /** @var GovernanceRoleSetting|null $roleSetting The associated role setting for the role definition. */
+    /**
+     * @var GovernanceRoleSetting|null $roleSetting The associated role setting for the role definition.
+    */
     private ?GovernanceRoleSetting $roleSetting = null;
     
-    /** @var string|null $templateId The templateId property */
+    /**
+     * @var string|null $templateId The templateId property
+    */
     private ?string $templateId = null;
     
     /**
@@ -38,7 +50,7 @@ class GovernanceRoleDefinition extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GovernanceRoleDefinition
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceRoleDefinition {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceRoleDefinition {
         return new GovernanceRoleDefinition();
     }
 
@@ -63,13 +75,14 @@ class GovernanceRoleDefinition extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'externalId' => function (self $o, ParseNode $n) { $o->setExternalId($n->getStringValue()); },
-            'resource' => function (self $o, ParseNode $n) { $o->setResource($n->getObjectValue(GovernanceResource::class)); },
-            'resourceId' => function (self $o, ParseNode $n) { $o->setResourceId($n->getStringValue()); },
-            'roleSetting' => function (self $o, ParseNode $n) { $o->setRoleSetting($n->getObjectValue(GovernanceRoleSetting::class)); },
-            'templateId' => function (self $o, ParseNode $n) { $o->setTemplateId($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'externalId' => function (ParseNode $n) use ($o) { $o->setExternalId($n->getStringValue()); },
+            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getObjectValue(array(GovernanceResource::class, 'createFromDiscriminatorValue'))); },
+            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
+            'roleSetting' => function (ParseNode $n) use ($o) { $o->setRoleSetting($n->getObjectValue(array(GovernanceRoleSetting::class, 'createFromDiscriminatorValue'))); },
+            'templateId' => function (ParseNode $n) use ($o) { $o->setTemplateId($n->getStringValue()); },
         ]);
     }
 

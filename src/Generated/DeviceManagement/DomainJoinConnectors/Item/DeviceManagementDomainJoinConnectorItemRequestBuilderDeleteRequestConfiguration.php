@@ -1,0 +1,17 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DomainJoinConnectors\Item;
+
+class DeviceManagementDomainJoinConnectorItemRequestBuilderDeleteRequestConfiguration 
+{
+    /**
+     * @var array|null $headers Request headers
+    */
+    public ?array $headers = null;
+    
+    /**
+     * @var array|null $options Request options
+    */
+    public ?array $options = null;
+    
+}

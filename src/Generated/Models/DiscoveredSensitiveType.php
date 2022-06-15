@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DiscoveredSensitiveType implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<ClassificationAttribute>|null $classificationAttributes The classificationAttributes property */
+    /**
+     * @var array<ClassificationAttribute>|null $classificationAttributes The classificationAttributes property
+    */
     private ?array $classificationAttributes = null;
     
-    /** @var int|null $confidence The confidence property */
+    /**
+     * @var int|null $confidence The confidence property
+    */
     private ?int $confidence = null;
     
-    /** @var int|null $count The count property */
+    /**
+     * @var int|null $count The count property
+    */
     private ?int $count = null;
     
-    /** @var string|null $id The id property */
+    /**
+     * @var string|null $id The id property
+    */
     private ?string $id = null;
     
     /**
@@ -36,7 +46,7 @@ class DiscoveredSensitiveType implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DiscoveredSensitiveType
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DiscoveredSensitiveType {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DiscoveredSensitiveType {
         return new DiscoveredSensitiveType();
     }
 
@@ -77,11 +87,12 @@ class DiscoveredSensitiveType implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'classificationAttributes' => function (self $o, ParseNode $n) { $o->setClassificationAttributes($n->getCollectionOfObjectValues(ClassificationAttribute::class)); },
-            'confidence' => function (self $o, ParseNode $n) { $o->setConfidence($n->getIntegerValue()); },
-            'count' => function (self $o, ParseNode $n) { $o->setCount($n->getIntegerValue()); },
-            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
+            'classificationAttributes' => function (ParseNode $n) use ($o) { $o->setClassificationAttributes($n->getCollectionOfObjectValues(array(ClassificationAttribute::class, 'createFromDiscriminatorValue'))); },
+            'confidence' => function (ParseNode $n) use ($o) { $o->setConfidence($n->getIntegerValue()); },
+            'count' => function (ParseNode $n) use ($o) { $o->setCount($n->getIntegerValue()); },
+            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
         ];
     }
 

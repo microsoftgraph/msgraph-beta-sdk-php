@@ -6,22 +6,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TargetedManagedAppProtection extends ManagedAppProtection 
+class TargetedManagedAppProtection extends ManagedAppProtection implements Parsable 
 {
-    /** @var TargetedManagedAppGroupType|null $appGroupType Public Apps selection: group or individual. Possible values are: selectedPublicApps, allCoreMicrosoftApps, allMicrosoftApps, allApps. */
+    /**
+     * @var TargetedManagedAppGroupType|null $appGroupType Public Apps selection: group or individual. Possible values are: selectedPublicApps, allCoreMicrosoftApps, allMicrosoftApps, allApps.
+    */
     private ?TargetedManagedAppGroupType $appGroupType = null;
     
-    /** @var array<TargetedManagedAppPolicyAssignment>|null $assignments Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
+    /**
+     * @var array<TargetedManagedAppPolicyAssignment>|null $assignments Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
+    */
     private ?array $assignments = null;
     
-    /** @var bool|null $isAssigned Indicates if the policy is deployed to any inclusion groups or not. */
+    /**
+     * @var bool|null $isAssigned Indicates if the policy is deployed to any inclusion groups or not.
+    */
     private ?bool $isAssigned = null;
     
-    /** @var AppManagementLevel|null $targetedAppManagementLevels The intended app management levels for this policy. Possible values are: unspecified, unmanaged, mdm, androidEnterprise. */
+    /**
+     * @var AppManagementLevel|null $targetedAppManagementLevels The intended app management levels for this policy. Possible values are: unspecified, unmanaged, mdm, androidEnterprise.
+    */
     private ?AppManagementLevel $targetedAppManagementLevels = null;
     
     /**
-     * Instantiates a new targetedManagedAppProtection and sets the default values.
+     * Instantiates a new TargetedManagedAppProtection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,7 +40,15 @@ class TargetedManagedAppProtection extends ManagedAppProtection
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TargetedManagedAppProtection
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TargetedManagedAppProtection {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TargetedManagedAppProtection {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.androidManagedAppProtection': return new AndroidManagedAppProtection();
+                case '#microsoft.graph.iosManagedAppProtection': return new IosManagedAppProtection();
+            }
+        }
         return new TargetedManagedAppProtection();
     }
 
@@ -57,11 +73,12 @@ class TargetedManagedAppProtection extends ManagedAppProtection
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appGroupType' => function (self $o, ParseNode $n) { $o->setAppGroupType($n->getEnumValue(TargetedManagedAppGroupType::class)); },
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(TargetedManagedAppPolicyAssignment::class)); },
-            'isAssigned' => function (self $o, ParseNode $n) { $o->setIsAssigned($n->getBooleanValue()); },
-            'targetedAppManagementLevels' => function (self $o, ParseNode $n) { $o->setTargetedAppManagementLevels($n->getEnumValue(AppManagementLevel::class)); },
+            'appGroupType' => function (ParseNode $n) use ($o) { $o->setAppGroupType($n->getEnumValue(TargetedManagedAppGroupType::class)); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(TargetedManagedAppPolicyAssignment::class, 'createFromDiscriminatorValue'))); },
+            'isAssigned' => function (ParseNode $n) use ($o) { $o->setIsAssigned($n->getBooleanValue()); },
+            'targetedAppManagementLevels' => function (ParseNode $n) use ($o) { $o->setTargetedAppManagementLevels($n->getEnumValue(AppManagementLevel::class)); },
         ]);
     }
 

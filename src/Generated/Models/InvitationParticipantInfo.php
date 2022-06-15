@@ -9,25 +9,39 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class InvitationParticipantInfo implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var EndpointType|null $endpointType The type of endpoint. Possible values are: default, voicemail. */
+    /**
+     * @var EndpointType|null $endpointType The type of the endpoint. Possible values are: default, voicemail.
+    */
     private ?EndpointType $endpointType = null;
     
-    /** @var bool|null $hidden The hidden property */
+    /**
+     * @var bool|null $hidden The hidden property
+    */
     private ?bool $hidden = null;
     
-    /** @var IdentitySet|null $identity The identity property */
+    /**
+     * @var IdentitySet|null $identity The identity property
+    */
     private ?IdentitySet $identity = null;
     
-    /** @var string|null $participantId The participantId property */
+    /**
+     * @var string|null $participantId Optional. The ID of the target participant.
+    */
     private ?string $participantId = null;
     
-    /** @var bool|null $removeFromDefaultAudioRoutingGroup The removeFromDefaultAudioRoutingGroup property */
+    /**
+     * @var bool|null $removeFromDefaultAudioRoutingGroup The removeFromDefaultAudioRoutingGroup property
+    */
     private ?bool $removeFromDefaultAudioRoutingGroup = null;
     
-    /** @var string|null $replacesCallId Optional. The call which the target identity is currently a part of. This call will be dropped once the participant is added. */
+    /**
+     * @var string|null $replacesCallId Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully.
+    */
     private ?string $replacesCallId = null;
     
     /**
@@ -42,7 +56,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return InvitationParticipantInfo
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): InvitationParticipantInfo {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): InvitationParticipantInfo {
         return new InvitationParticipantInfo();
     }
 
@@ -55,7 +69,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the endpointType property value. The type of endpoint. Possible values are: default, voicemail.
+     * Gets the endpointType property value. The type of the endpoint. Possible values are: default, voicemail.
      * @return EndpointType|null
     */
     public function getEndpointType(): ?EndpointType {
@@ -67,13 +81,14 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'endpointType' => function (self $o, ParseNode $n) { $o->setEndpointType($n->getEnumValue(EndpointType::class)); },
-            'hidden' => function (self $o, ParseNode $n) { $o->setHidden($n->getBooleanValue()); },
-            'identity' => function (self $o, ParseNode $n) { $o->setIdentity($n->getObjectValue(IdentitySet::class)); },
-            'participantId' => function (self $o, ParseNode $n) { $o->setParticipantId($n->getStringValue()); },
-            'removeFromDefaultAudioRoutingGroup' => function (self $o, ParseNode $n) { $o->setRemoveFromDefaultAudioRoutingGroup($n->getBooleanValue()); },
-            'replacesCallId' => function (self $o, ParseNode $n) { $o->setReplacesCallId($n->getStringValue()); },
+            'endpointType' => function (ParseNode $n) use ($o) { $o->setEndpointType($n->getEnumValue(EndpointType::class)); },
+            'hidden' => function (ParseNode $n) use ($o) { $o->setHidden($n->getBooleanValue()); },
+            'identity' => function (ParseNode $n) use ($o) { $o->setIdentity($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'participantId' => function (ParseNode $n) use ($o) { $o->setParticipantId($n->getStringValue()); },
+            'removeFromDefaultAudioRoutingGroup' => function (ParseNode $n) use ($o) { $o->setRemoveFromDefaultAudioRoutingGroup($n->getBooleanValue()); },
+            'replacesCallId' => function (ParseNode $n) use ($o) { $o->setReplacesCallId($n->getStringValue()); },
         ];
     }
 
@@ -94,7 +109,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the participantId property value. The participantId property
+     * Gets the participantId property value. Optional. The ID of the target participant.
      * @return string|null
     */
     public function getParticipantId(): ?string {
@@ -110,7 +125,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the replacesCallId property value. Optional. The call which the target identity is currently a part of. This call will be dropped once the participant is added.
+     * Gets the replacesCallId property value. Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully.
      * @return string|null
     */
     public function getReplacesCallId(): ?string {
@@ -140,7 +155,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the endpointType property value. The type of endpoint. Possible values are: default, voicemail.
+     * Sets the endpointType property value. The type of the endpoint. Possible values are: default, voicemail.
      *  @param EndpointType|null $value Value to set for the endpointType property.
     */
     public function setEndpointType(?EndpointType $value ): void {
@@ -164,7 +179,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the participantId property value. The participantId property
+     * Sets the participantId property value. Optional. The ID of the target participant.
      *  @param string|null $value Value to set for the participantId property.
     */
     public function setParticipantId(?string $value ): void {
@@ -180,7 +195,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the replacesCallId property value. Optional. The call which the target identity is currently a part of. This call will be dropped once the participant is added.
+     * Sets the replacesCallId property value. Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully.
      *  @param string|null $value Value to set for the replacesCallId property.
     */
     public function setReplacesCallId(?string $value ): void {

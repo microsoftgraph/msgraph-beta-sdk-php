@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $customExtensionId Identifier of the customAccessPackageWorkflowExtension triggered at this instance. */
+    /**
+     * @var string|null $customExtensionId Identifier of the customAccessPackageWorkflowExtension triggered at this instance.
+    */
     private ?string $customExtensionId = null;
     
-    /** @var string|null $externalCorrelationId The unique run ID for the logic app. */
+    /**
+     * @var string|null $externalCorrelationId The unique run ID for the logic app.
+    */
     private ?string $externalCorrelationId = null;
     
-    /** @var AccessPackageCustomExtensionStage|null $stage Indicates the stage of the request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue. */
+    /**
+     * @var AccessPackageCustomExtensionStage|null $stage Indicates the stage of the request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.
+    */
     private ?AccessPackageCustomExtensionStage $stage = null;
     
-    /** @var AccessPackageCustomExtensionHandlerStatus|null $status Status of the request to run the access package custom extension workflow that is associated with the logic app. The possible values are: requestSent, requestReceived, unknownFutureValue. */
+    /**
+     * @var AccessPackageCustomExtensionHandlerStatus|null $status Status of the request to run the access package custom extension workflow that is associated with the logic app. The possible values are: requestSent, requestReceived, unknownFutureValue.
+    */
     private ?AccessPackageCustomExtensionHandlerStatus $status = null;
     
     /**
@@ -36,7 +46,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CustomExtensionHandlerInstance
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CustomExtensionHandlerInstance {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CustomExtensionHandlerInstance {
         return new CustomExtensionHandlerInstance();
     }
 
@@ -69,11 +79,12 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'customExtensionId' => function (self $o, ParseNode $n) { $o->setCustomExtensionId($n->getStringValue()); },
-            'externalCorrelationId' => function (self $o, ParseNode $n) { $o->setExternalCorrelationId($n->getStringValue()); },
-            'stage' => function (self $o, ParseNode $n) { $o->setStage($n->getEnumValue(AccessPackageCustomExtensionStage::class)); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(AccessPackageCustomExtensionHandlerStatus::class)); },
+            'customExtensionId' => function (ParseNode $n) use ($o) { $o->setCustomExtensionId($n->getStringValue()); },
+            'externalCorrelationId' => function (ParseNode $n) use ($o) { $o->setExternalCorrelationId($n->getStringValue()); },
+            'stage' => function (ParseNode $n) use ($o) { $o->setStage($n->getEnumValue(AccessPackageCustomExtensionStage::class)); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(AccessPackageCustomExtensionHandlerStatus::class)); },
         ];
     }
 

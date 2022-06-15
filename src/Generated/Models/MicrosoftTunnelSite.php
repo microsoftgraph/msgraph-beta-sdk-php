@@ -7,42 +7,66 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
 
-class MicrosoftTunnelSite extends Entity 
+class MicrosoftTunnelSite extends Entity implements Parsable 
 {
-    /** @var string|null $description The MicrosoftTunnelSite's description */
+    /**
+     * @var string|null $description The MicrosoftTunnelSite's description
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The MicrosoftTunnelSite's display name */
+    /**
+     * @var string|null $displayName The MicrosoftTunnelSite's display name
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $internalNetworkProbeUrl The MicrosoftTunnelSite's Internal Network Access Probe URL */
+    /**
+     * @var string|null $internalNetworkProbeUrl The MicrosoftTunnelSite's Internal Network Access Probe URL
+    */
     private ?string $internalNetworkProbeUrl = null;
     
-    /** @var MicrosoftTunnelConfiguration|null $microsoftTunnelConfiguration The MicrosoftTunnelConfiguration that has been applied to this MicrosoftTunnelSite */
+    /**
+     * @var MicrosoftTunnelConfiguration|null $microsoftTunnelConfiguration The MicrosoftTunnelConfiguration that has been applied to this MicrosoftTunnelSite
+    */
     private ?MicrosoftTunnelConfiguration $microsoftTunnelConfiguration = null;
     
-    /** @var array<MicrosoftTunnelServer>|null $microsoftTunnelServers A list of MicrosoftTunnelServers that are registered to this MicrosoftTunnelSite */
+    /**
+     * @var array<MicrosoftTunnelServer>|null $microsoftTunnelServers A list of MicrosoftTunnelServers that are registered to this MicrosoftTunnelSite
+    */
     private ?array $microsoftTunnelServers = null;
     
-    /** @var string|null $publicAddress The MicrosoftTunnelSite's public domain name or IP address */
+    /**
+     * @var string|null $publicAddress The MicrosoftTunnelSite's public domain name or IP address
+    */
     private ?string $publicAddress = null;
     
-    /** @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance. */
+    /**
+     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
+    */
     private ?array $roleScopeTagIds = null;
     
-    /** @var bool|null $upgradeAutomatically The site's automatic upgrade setting. True for automatic upgrades, false for manual control */
+    /**
+     * @var bool|null $upgradeAutomatically The site's automatic upgrade setting. True for automatic upgrades, false for manual control
+    */
     private ?bool $upgradeAutomatically = null;
     
-    /** @var bool|null $upgradeAvailable True if an upgrade is available */
+    /**
+     * @var bool|null $upgradeAvailable True if an upgrade is available
+    */
     private ?bool $upgradeAvailable = null;
     
-    /** @var Time|null $upgradeWindowEndTime The site's upgrade window end time of day */
+    /**
+     * @var Time|null $upgradeWindowEndTime The site's upgrade window end time of day
+    */
     private ?Time $upgradeWindowEndTime = null;
     
-    /** @var Time|null $upgradeWindowStartTime The site's upgrade window start time of day */
+    /**
+     * @var Time|null $upgradeWindowStartTime The site's upgrade window start time of day
+    */
     private ?Time $upgradeWindowStartTime = null;
     
-    /** @var int|null $upgradeWindowUtcOffsetInMinutes The site's timezone represented as a minute offset from UTC */
+    /**
+     * @var int|null $upgradeWindowUtcOffsetInMinutes The site's timezone represented as a minute offset from UTC
+    */
     private ?int $upgradeWindowUtcOffsetInMinutes = null;
     
     /**
@@ -57,7 +81,7 @@ class MicrosoftTunnelSite extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MicrosoftTunnelSite
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftTunnelSite {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftTunnelSite {
         return new MicrosoftTunnelSite();
     }
 
@@ -82,19 +106,20 @@ class MicrosoftTunnelSite extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'internalNetworkProbeUrl' => function (self $o, ParseNode $n) { $o->setInternalNetworkProbeUrl($n->getStringValue()); },
-            'microsoftTunnelConfiguration' => function (self $o, ParseNode $n) { $o->setMicrosoftTunnelConfiguration($n->getObjectValue(MicrosoftTunnelConfiguration::class)); },
-            'microsoftTunnelServers' => function (self $o, ParseNode $n) { $o->setMicrosoftTunnelServers($n->getCollectionOfObjectValues(MicrosoftTunnelServer::class)); },
-            'publicAddress' => function (self $o, ParseNode $n) { $o->setPublicAddress($n->getStringValue()); },
-            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'upgradeAutomatically' => function (self $o, ParseNode $n) { $o->setUpgradeAutomatically($n->getBooleanValue()); },
-            'upgradeAvailable' => function (self $o, ParseNode $n) { $o->setUpgradeAvailable($n->getBooleanValue()); },
-            'upgradeWindowEndTime' => function (self $o, ParseNode $n) { $o->setUpgradeWindowEndTime($n->getTimeValue()); },
-            'upgradeWindowStartTime' => function (self $o, ParseNode $n) { $o->setUpgradeWindowStartTime($n->getTimeValue()); },
-            'upgradeWindowUtcOffsetInMinutes' => function (self $o, ParseNode $n) { $o->setUpgradeWindowUtcOffsetInMinutes($n->getIntegerValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'internalNetworkProbeUrl' => function (ParseNode $n) use ($o) { $o->setInternalNetworkProbeUrl($n->getStringValue()); },
+            'microsoftTunnelConfiguration' => function (ParseNode $n) use ($o) { $o->setMicrosoftTunnelConfiguration($n->getObjectValue(array(MicrosoftTunnelConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'microsoftTunnelServers' => function (ParseNode $n) use ($o) { $o->setMicrosoftTunnelServers($n->getCollectionOfObjectValues(array(MicrosoftTunnelServer::class, 'createFromDiscriminatorValue'))); },
+            'publicAddress' => function (ParseNode $n) use ($o) { $o->setPublicAddress($n->getStringValue()); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'upgradeAutomatically' => function (ParseNode $n) use ($o) { $o->setUpgradeAutomatically($n->getBooleanValue()); },
+            'upgradeAvailable' => function (ParseNode $n) use ($o) { $o->setUpgradeAvailable($n->getBooleanValue()); },
+            'upgradeWindowEndTime' => function (ParseNode $n) use ($o) { $o->setUpgradeWindowEndTime($n->getTimeValue()); },
+            'upgradeWindowStartTime' => function (ParseNode $n) use ($o) { $o->setUpgradeWindowStartTime($n->getTimeValue()); },
+            'upgradeWindowUtcOffsetInMinutes' => function (ParseNode $n) use ($o) { $o->setUpgradeWindowUtcOffsetInMinutes($n->getIntegerValue()); },
         ]);
     }
 

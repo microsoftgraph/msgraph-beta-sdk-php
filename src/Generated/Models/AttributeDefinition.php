@@ -9,43 +9,69 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AttributeDefinition implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $anchor true if the attribute should be used as the anchor for the object. Anchor attributes must have a unique value identifying an object, and must be immutable. Default is false. One, and only one, of the object's attributes must be designated as the anchor to support synchronization. */
+    /**
+     * @var bool|null $anchor true if the attribute should be used as the anchor for the object. Anchor attributes must have a unique value identifying an object, and must be immutable. Default is false. One, and only one, of the object's attributes must be designated as the anchor to support synchronization.
+    */
     private ?bool $anchor = null;
     
-    /** @var array<StringKeyStringValuePair>|null $apiExpressions The apiExpressions property */
+    /**
+     * @var array<StringKeyStringValuePair>|null $apiExpressions The apiExpressions property
+    */
     private ?array $apiExpressions = null;
     
-    /** @var bool|null $caseExact true if value of this attribute should be treated as case-sensitive. This setting affects how the synchronization engine detects changes for the attribute. */
+    /**
+     * @var bool|null $caseExact true if value of this attribute should be treated as case-sensitive. This setting affects how the synchronization engine detects changes for the attribute.
+    */
     private ?bool $caseExact = null;
     
-    /** @var string|null $defaultValue The defaultValue property */
+    /**
+     * @var string|null $defaultValue The defaultValue property
+    */
     private ?string $defaultValue = null;
     
-    /** @var bool|null $flowNullValues 'true' to allow null values for attributes. */
+    /**
+     * @var bool|null $flowNullValues 'true' to allow null values for attributes.
+    */
     private ?bool $flowNullValues = null;
     
-    /** @var array<MetadataEntry>|null $metadata Additional extension properties. Unless mentioned explicitly, metadata values should not be changed. */
+    /**
+     * @var array<MetadataEntry>|null $metadata Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
+    */
     private ?array $metadata = null;
     
-    /** @var bool|null $multivalued true if an attribute can have multiple values. Default is false. */
+    /**
+     * @var bool|null $multivalued true if an attribute can have multiple values. Default is false.
+    */
     private ?bool $multivalued = null;
     
-    /** @var Mutability|null $mutability An attribute's mutability. Possible values are:  ReadWrite, ReadOnly, Immutable, WriteOnly. Default is ReadWrite. */
+    /**
+     * @var Mutability|null $mutability An attribute's mutability. Possible values are:  ReadWrite, ReadOnly, Immutable, WriteOnly. Default is ReadWrite.
+    */
     private ?Mutability $mutability = null;
     
-    /** @var string|null $name Name of the attribute. Must be unique within the object definition. Not nullable. */
+    /**
+     * @var string|null $name Name of the attribute. Must be unique within the object definition. Not nullable.
+    */
     private ?string $name = null;
     
-    /** @var array<ReferencedObject>|null $referencedObjects For attributes with reference type, lists referenced objects (for example, the manager attribute would list User as the referenced object). */
+    /**
+     * @var array<ReferencedObject>|null $referencedObjects For attributes with reference type, lists referenced objects (for example, the manager attribute would list User as the referenced object).
+    */
     private ?array $referencedObjects = null;
     
-    /** @var bool|null $required true if attribute is required. Object can not be created if any of the required attributes are missing. If during synchronization, the required attribute has no value, the default value will be used. If default the value was not set, synchronization will record an error. */
+    /**
+     * @var bool|null $required true if attribute is required. Object can not be created if any of the required attributes are missing. If during synchronization, the required attribute has no value, the default value will be used. If default the value was not set, synchronization will record an error.
+    */
     private ?bool $required = null;
     
-    /** @var AttributeType|null $type Attribute value type. Possible values are: String, Integer, Reference, Binary, Boolean,DateTime. Default is String. */
+    /**
+     * @var AttributeType|null $type Attribute value type. Possible values are: String, Integer, Reference, Binary, Boolean,DateTime. Default is String.
+    */
     private ?AttributeType $type = null;
     
     /**
@@ -60,7 +86,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AttributeDefinition
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AttributeDefinition {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AttributeDefinition {
         return new AttributeDefinition();
     }
 
@@ -109,19 +135,20 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'anchor' => function (self $o, ParseNode $n) { $o->setAnchor($n->getBooleanValue()); },
-            'apiExpressions' => function (self $o, ParseNode $n) { $o->setApiExpressions($n->getCollectionOfObjectValues(StringKeyStringValuePair::class)); },
-            'caseExact' => function (self $o, ParseNode $n) { $o->setCaseExact($n->getBooleanValue()); },
-            'defaultValue' => function (self $o, ParseNode $n) { $o->setDefaultValue($n->getStringValue()); },
-            'flowNullValues' => function (self $o, ParseNode $n) { $o->setFlowNullValues($n->getBooleanValue()); },
-            'metadata' => function (self $o, ParseNode $n) { $o->setMetadata($n->getCollectionOfObjectValues(MetadataEntry::class)); },
-            'multivalued' => function (self $o, ParseNode $n) { $o->setMultivalued($n->getBooleanValue()); },
-            'mutability' => function (self $o, ParseNode $n) { $o->setMutability($n->getEnumValue(Mutability::class)); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'referencedObjects' => function (self $o, ParseNode $n) { $o->setReferencedObjects($n->getCollectionOfObjectValues(ReferencedObject::class)); },
-            'required' => function (self $o, ParseNode $n) { $o->setRequired($n->getBooleanValue()); },
-            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(AttributeType::class)); },
+            'anchor' => function (ParseNode $n) use ($o) { $o->setAnchor($n->getBooleanValue()); },
+            'apiExpressions' => function (ParseNode $n) use ($o) { $o->setApiExpressions($n->getCollectionOfObjectValues(array(StringKeyStringValuePair::class, 'createFromDiscriminatorValue'))); },
+            'caseExact' => function (ParseNode $n) use ($o) { $o->setCaseExact($n->getBooleanValue()); },
+            'defaultValue' => function (ParseNode $n) use ($o) { $o->setDefaultValue($n->getStringValue()); },
+            'flowNullValues' => function (ParseNode $n) use ($o) { $o->setFlowNullValues($n->getBooleanValue()); },
+            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(MetadataEntry::class, 'createFromDiscriminatorValue'))); },
+            'multivalued' => function (ParseNode $n) use ($o) { $o->setMultivalued($n->getBooleanValue()); },
+            'mutability' => function (ParseNode $n) use ($o) { $o->setMutability($n->getEnumValue(Mutability::class)); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'referencedObjects' => function (ParseNode $n) use ($o) { $o->setReferencedObjects($n->getCollectionOfObjectValues(array(ReferencedObject::class, 'createFromDiscriminatorValue'))); },
+            'required' => function (ParseNode $n) use ($o) { $o->setRequired($n->getBooleanValue()); },
+            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(AttributeType::class)); },
         ];
     }
 

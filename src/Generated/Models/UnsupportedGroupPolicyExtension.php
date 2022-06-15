@@ -6,18 +6,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnsupportedGroupPolicyExtension extends Entity 
+class UnsupportedGroupPolicyExtension extends Entity implements Parsable 
 {
-    /** @var string|null $extensionType ExtensionType of the unsupported extension. */
+    /**
+     * @var string|null $extensionType ExtensionType of the unsupported extension.
+    */
     private ?string $extensionType = null;
     
-    /** @var string|null $namespaceUrl Namespace Url of the unsupported extension. */
+    /**
+     * @var string|null $namespaceUrl Namespace Url of the unsupported extension.
+    */
     private ?string $namespaceUrl = null;
     
-    /** @var string|null $nodeName Node name of the unsupported extension. */
+    /**
+     * @var string|null $nodeName Node name of the unsupported extension.
+    */
     private ?string $nodeName = null;
     
-    /** @var GroupPolicySettingScope|null $settingScope Setting Scope of the unsupported extension. Possible values are: unknown, device, user. */
+    /**
+     * @var GroupPolicySettingScope|null $settingScope Setting Scope of the unsupported extension. Possible values are: unknown, device, user.
+    */
     private ?GroupPolicySettingScope $settingScope = null;
     
     /**
@@ -32,7 +40,7 @@ class UnsupportedGroupPolicyExtension extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnsupportedGroupPolicyExtension
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UnsupportedGroupPolicyExtension {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnsupportedGroupPolicyExtension {
         return new UnsupportedGroupPolicyExtension();
     }
 
@@ -49,11 +57,12 @@ class UnsupportedGroupPolicyExtension extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'extensionType' => function (self $o, ParseNode $n) { $o->setExtensionType($n->getStringValue()); },
-            'namespaceUrl' => function (self $o, ParseNode $n) { $o->setNamespaceUrl($n->getStringValue()); },
-            'nodeName' => function (self $o, ParseNode $n) { $o->setNodeName($n->getStringValue()); },
-            'settingScope' => function (self $o, ParseNode $n) { $o->setSettingScope($n->getEnumValue(GroupPolicySettingScope::class)); },
+            'extensionType' => function (ParseNode $n) use ($o) { $o->setExtensionType($n->getStringValue()); },
+            'namespaceUrl' => function (ParseNode $n) use ($o) { $o->setNamespaceUrl($n->getStringValue()); },
+            'nodeName' => function (ParseNode $n) use ($o) { $o->setNodeName($n->getStringValue()); },
+            'settingScope' => function (ParseNode $n) use ($o) { $o->setSettingScope($n->getEnumValue(GroupPolicySettingScope::class)); },
         ]);
     }
 

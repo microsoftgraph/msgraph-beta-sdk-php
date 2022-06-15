@@ -6,10 +6,11 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\Security;
+use Microsoft\Graph\Beta\Generated\Models\Security;
 use Microsoft\Graph\Beta\Generated\Security\Alerts\AlertsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Alerts\Item\AlertItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\AttackSimulationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Cases\CasesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\CloudAppSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\Item\CloudAppSecurityProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DomainSecurityProfiles\DomainSecurityProfilesRequestBuilder;
@@ -29,6 +30,8 @@ use Microsoft\Graph\Beta\Generated\Security\SecureScores\Item\SecureScoreItemReq
 use Microsoft\Graph\Beta\Generated\Security\SecureScores\SecureScoresRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecurityActions\Item\SecurityActionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecurityActions\SecurityActionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\SubjectRightsRequestItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\SubjectRightsRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\TiIndicators\Item\TiIndicatorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\TiIndicators\TiIndicatorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\UserSecurityProfiles\Item\UserSecurityProfileItemRequestBuilder;
@@ -55,6 +58,13 @@ class SecurityRequestBuilder
     */
     public function attackSimulation(): AttackSimulationRequestBuilder {
         return new AttackSimulationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The cases property
+    */
+    public function cases(): CasesRequestBuilder {
+        return new CasesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -99,7 +109,9 @@ class SecurityRequestBuilder
         return new IpSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /** @var array<string, mixed> $pathParameters Path parameters for the request */
+    /**
+     * @var array<string, mixed> $pathParameters Path parameters for the request
+    */
     private array $pathParameters;
     
     /**
@@ -109,7 +121,9 @@ class SecurityRequestBuilder
         return new ProviderTenantSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
+    /**
+     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+    */
     private RequestAdapter $requestAdapter;
     
     /**
@@ -134,13 +148,22 @@ class SecurityRequestBuilder
     }
     
     /**
+     * The subjectRightsRequests property
+    */
+    public function subjectRightsRequests(): SubjectRightsRequestsRequestBuilder {
+        return new SubjectRightsRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * The tiIndicators property
     */
     public function tiIndicators(): TiIndicatorsRequestBuilder {
         return new TiIndicatorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
+    /**
+     * @var string $urlTemplate Url template to use to build the URL for the current request builder
+    */
     private string $urlTemplate;
     
     /**
@@ -157,7 +180,7 @@ class SecurityRequestBuilder
     */
     public function alertsById(string $id): AlertItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['alert_id'] = $id;
+        $urlTplParams['alert%2Did'] = $id;
         return new AlertItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -168,7 +191,7 @@ class SecurityRequestBuilder
     */
     public function cloudAppSecurityProfilesById(string $id): CloudAppSecurityProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['cloudAppSecurityProfile_id'] = $id;
+        $urlTplParams['cloudAppSecurityProfile%2Did'] = $id;
         return new CloudAppSecurityProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -178,31 +201,32 @@ class SecurityRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/security{?select,expand}';
+        $this->urlTemplate = '{+baseurl}/security{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
      * Get security
-     * @param array|null $queryParameters Request query parameters
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param SecurityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?array $queryParameters = null, ?array $headers = null, ?array $options = null): RequestInformation {
+    public function createGetRequestInformation(?SecurityRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        if ($headers !== null) {
-            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
-        }
-        if ($queryParameters !== null) {
-            $requestInfo->setQueryParameters($queryParameters);
-        }
-        if ($options !== null) {
-            $requestInfo->addRequestOptions(...$options);
+        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
         }
         return $requestInfo;
     }
@@ -210,22 +234,23 @@ class SecurityRequestBuilder
     /**
      * Update security
      * @param Security $body 
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param SecurityRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(Security $body, ?array $headers = null, ?array $options = null): RequestInformation {
+    public function createPatchRequestInformation(Security $body, ?SecurityRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        if ($headers !== null) {
-            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
-        if ($options !== null) {
-            $requestInfo->addRequestOptions(...$options);
-        }
         return $requestInfo;
     }
 
@@ -236,7 +261,7 @@ class SecurityRequestBuilder
     */
     public function domainSecurityProfilesById(string $id): DomainSecurityProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['domainSecurityProfile_id'] = $id;
+        $urlTplParams['domainSecurityProfile%2Did'] = $id;
         return new DomainSecurityProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -247,22 +272,24 @@ class SecurityRequestBuilder
     */
     public function fileSecurityProfilesById(string $id): FileSecurityProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['fileSecurityProfile_id'] = $id;
+        $urlTplParams['fileSecurityProfile%2Did'] = $id;
         return new FileSecurityProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Get security
-     * @param array|null $queryParameters Request query parameters
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param SecurityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?array $queryParameters = null, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($queryParameters, $headers, $options);
+    public function get(?SecurityRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
         try {
-            return $this->requestAdapter->sendAsync($requestInfo, Security::class, $responseHandler);
+            $errorMappings = [
+                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, array(Security::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -275,7 +302,7 @@ class SecurityRequestBuilder
     */
     public function hostSecurityProfilesById(string $id): HostSecurityProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['hostSecurityProfile_id'] = $id;
+        $urlTplParams['hostSecurityProfile%2Did'] = $id;
         return new HostSecurityProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -286,22 +313,25 @@ class SecurityRequestBuilder
     */
     public function ipSecurityProfilesById(string $id): IpSecurityProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['ipSecurityProfile_id'] = $id;
+        $urlTplParams['ipSecurityProfile%2Did'] = $id;
         return new IpSecurityProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update security
      * @param Security $body 
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param SecurityRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(Security $body, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $headers, $options);
+    public function patch(Security $body, ?SecurityRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
         try {
-            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
+            $errorMappings = [
+                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+            ];
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -314,7 +344,7 @@ class SecurityRequestBuilder
     */
     public function providerTenantSettingsById(string $id): ProviderTenantSettingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['providerTenantSetting_id'] = $id;
+        $urlTplParams['providerTenantSetting%2Did'] = $id;
         return new ProviderTenantSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -325,7 +355,7 @@ class SecurityRequestBuilder
     */
     public function secureScoreControlProfilesById(string $id): SecureScoreControlProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['secureScoreControlProfile_id'] = $id;
+        $urlTplParams['secureScoreControlProfile%2Did'] = $id;
         return new SecureScoreControlProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -336,7 +366,7 @@ class SecurityRequestBuilder
     */
     public function secureScoresById(string $id): SecureScoreItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['secureScore_id'] = $id;
+        $urlTplParams['secureScore%2Did'] = $id;
         return new SecureScoreItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -347,8 +377,19 @@ class SecurityRequestBuilder
     */
     public function securityActionsById(string $id): SecurityActionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['securityAction_id'] = $id;
+        $urlTplParams['securityAction%2Did'] = $id;
         return new SecurityActionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.security.subjectRightsRequests.item collection
+     * @param string $id Unique identifier of the item
+     * @return SubjectRightsRequestItemRequestBuilder
+    */
+    public function subjectRightsRequestsById(string $id): SubjectRightsRequestItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['subjectRightsRequest%2Did'] = $id;
+        return new SubjectRightsRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -358,7 +399,7 @@ class SecurityRequestBuilder
     */
     public function tiIndicatorsById(string $id): TiIndicatorItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['tiIndicator_id'] = $id;
+        $urlTplParams['tiIndicator%2Did'] = $id;
         return new TiIndicatorItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -369,7 +410,7 @@ class SecurityRequestBuilder
     */
     public function userSecurityProfilesById(string $id): UserSecurityProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['userSecurityProfile_id'] = $id;
+        $urlTplParams['userSecurityProfile%2Did'] = $id;
         return new UserSecurityProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

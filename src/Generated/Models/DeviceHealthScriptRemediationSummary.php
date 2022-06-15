@@ -9,17 +9,23 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceHealthScriptRemediationSummary implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $remediatedDeviceCount The number of devices remediated by device health scripts. */
+    /**
+     * @var int|null $remediatedDeviceCount The number of devices remediated by device health scripts.
+    */
     private ?int $remediatedDeviceCount = null;
     
-    /** @var int|null $scriptCount The number of device health scripts deployed. */
+    /**
+     * @var int|null $scriptCount The number of device health scripts deployed.
+    */
     private ?int $scriptCount = null;
     
     /**
-     * Instantiates a new deviceHealthScriptRemediationSummary and sets the default values.
+     * Instantiates a new DeviceHealthScriptRemediationSummary and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -30,7 +36,7 @@ class DeviceHealthScriptRemediationSummary implements AdditionalDataHolder, Pars
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceHealthScriptRemediationSummary
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealthScriptRemediationSummary {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealthScriptRemediationSummary {
         return new DeviceHealthScriptRemediationSummary();
     }
 
@@ -47,9 +53,10 @@ class DeviceHealthScriptRemediationSummary implements AdditionalDataHolder, Pars
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'remediatedDeviceCount' => function (self $o, ParseNode $n) { $o->setRemediatedDeviceCount($n->getIntegerValue()); },
-            'scriptCount' => function (self $o, ParseNode $n) { $o->setScriptCount($n->getIntegerValue()); },
+            'remediatedDeviceCount' => function (ParseNode $n) use ($o) { $o->setRemediatedDeviceCount($n->getIntegerValue()); },
+            'scriptCount' => function (ParseNode $n) use ($o) { $o->setScriptCount($n->getIntegerValue()); },
         ];
     }
 

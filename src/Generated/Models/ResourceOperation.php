@@ -6,21 +6,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ResourceOperation extends Entity 
+class ResourceOperation extends Entity implements Parsable 
 {
-    /** @var string|null $actionName Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible. */
+    /**
+     * @var string|null $actionName Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible.
+    */
     private ?string $actionName = null;
     
-    /** @var string|null $description Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal. */
+    /**
+     * @var string|null $description Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal.
+    */
     private ?string $description = null;
     
-    /** @var bool|null $enabledForScopeValidation Determines whether the Permission is validated for Scopes defined per Role Assignment. This property is read-only. */
+    /**
+     * @var bool|null $enabledForScopeValidation Determines whether the Permission is validated for Scopes defined per Role Assignment. This property is read-only.
+    */
     private ?bool $enabledForScopeValidation = null;
     
-    /** @var string|null $resource Resource category to which this Operation belongs. This property is read-only. */
+    /**
+     * @var string|null $resource Resource category to which this Operation belongs. This property is read-only.
+    */
     private ?string $resource = null;
     
-    /** @var string|null $resourceName Name of the Resource this operation is performed on. */
+    /**
+     * @var string|null $resourceName Name of the Resource this operation is performed on.
+    */
     private ?string $resourceName = null;
     
     /**
@@ -35,7 +45,7 @@ class ResourceOperation extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ResourceOperation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ResourceOperation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ResourceOperation {
         return new ResourceOperation();
     }
 
@@ -68,12 +78,13 @@ class ResourceOperation extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionName' => function (self $o, ParseNode $n) { $o->setActionName($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'enabledForScopeValidation' => function (self $o, ParseNode $n) { $o->setEnabledForScopeValidation($n->getBooleanValue()); },
-            'resource' => function (self $o, ParseNode $n) { $o->setResource($n->getStringValue()); },
-            'resourceName' => function (self $o, ParseNode $n) { $o->setResourceName($n->getStringValue()); },
+            'actionName' => function (ParseNode $n) use ($o) { $o->setActionName($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'enabledForScopeValidation' => function (ParseNode $n) use ($o) { $o->setEnabledForScopeValidation($n->getBooleanValue()); },
+            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getStringValue()); },
+            'resourceName' => function (ParseNode $n) use ($o) { $o->setResourceName($n->getStringValue()); },
         ]);
     }
 

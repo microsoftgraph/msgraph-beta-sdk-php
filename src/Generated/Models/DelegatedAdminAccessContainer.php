@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable 
 {
-    /** @var string|null $accessContainerId The identifier of the access container (for example, a security group). For 'securityGroup' access containers, this must be a valid ID of an Azure AD security group in the Microsoft partner's tenant. */
+    /**
+     * @var string|null $accessContainerId The identifier of the access container (for example, a security group). For 'securityGroup' access containers, this must be a valid ID of an Azure AD security group in the Microsoft partner's tenant.
+    */
     private ?string $accessContainerId = null;
     
-    /** @var DelegatedAdminAccessContainerType|null $accessContainerType The type of access container (for example, security group) that will be assigned one or more roles through a delegated admin relationship. The possible values are: securityGroup, unknownFutureValue. */
+    /**
+     * @var DelegatedAdminAccessContainerType|null $accessContainerType The type of access container (for example, security group) that will be assigned one or more roles through a delegated admin relationship. The possible values are: securityGroup, unknownFutureValue.
+    */
     private ?DelegatedAdminAccessContainerType $accessContainerType = null;
     
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
     /**
@@ -30,7 +36,7 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DelegatedAdminAccessContainer
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminAccessContainer {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminAccessContainer {
         return new DelegatedAdminAccessContainer();
     }
 
@@ -63,9 +69,10 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'accessContainerId' => function (self $o, ParseNode $n) { $o->setAccessContainerId($n->getStringValue()); },
-            'accessContainerType' => function (self $o, ParseNode $n) { $o->setAccessContainerType($n->getEnumValue(DelegatedAdminAccessContainerType::class)); },
+            'accessContainerId' => function (ParseNode $n) use ($o) { $o->setAccessContainerId($n->getStringValue()); },
+            'accessContainerType' => function (ParseNode $n) use ($o) { $o->setAccessContainerType($n->getEnumValue(DelegatedAdminAccessContainerType::class)); },
         ];
     }
 

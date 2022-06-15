@@ -7,45 +7,71 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MobileAppInstallStatus extends Entity 
+class MobileAppInstallStatus extends Entity implements Parsable 
 {
-    /** @var MobileApp|null $app The navigation link to the mobile app. */
+    /**
+     * @var MobileApp|null $app The navigation link to the mobile app.
+    */
     private ?MobileApp $app = null;
     
-    /** @var string|null $deviceId Device ID */
+    /**
+     * @var string|null $deviceId Device ID
+    */
     private ?string $deviceId = null;
     
-    /** @var string|null $deviceName Device name */
+    /**
+     * @var string|null $deviceName Device name
+    */
     private ?string $deviceName = null;
     
-    /** @var string|null $displayVersion Human readable version of the application */
+    /**
+     * @var string|null $displayVersion Human readable version of the application
+    */
     private ?string $displayVersion = null;
     
-    /** @var int|null $errorCode The error code for install or uninstall failures. */
+    /**
+     * @var int|null $errorCode The error code for install or uninstall failures.
+    */
     private ?int $errorCode = null;
     
-    /** @var ResultantAppState|null $installState The install state of the app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable. */
+    /**
+     * @var ResultantAppState|null $installState The install state of the app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable.
+    */
     private ?ResultantAppState $installState = null;
     
-    /** @var ResultantAppStateDetail|null $installStateDetail The install state detail of the app. Possible values are: noAdditionalDetails, dependencyFailedToInstall, dependencyWithRequirementsNotMet, dependencyPendingReboot, dependencyWithAutoInstallDisabled, supersededAppUninstallFailed, supersededAppUninstallPendingReboot, removingSupersededApps, iosAppStoreUpdateFailedToInstall, vppAppHasUpdateAvailable, userRejectedUpdate, uninstallPendingReboot, supersedingAppsDetected, supersededAppsDetected, seeInstallErrorCode, autoInstallDisabled, managedAppNoLongerPresent, userRejectedInstall, userIsNotLoggedIntoAppStore, untargetedSupersedingAppsDetected, appRemovedBySupersedence, seeUninstallErrorCode, pendingReboot, installingDependencies, contentDownloaded, supersedingAppsNotApplicable, powerShellScriptRequirementNotMet, registryRequirementNotMet, fileSystemRequirementNotMet, platformNotApplicable, minimumCpuSpeedNotMet, minimumLogicalProcessorCountNotMet, minimumPhysicalMemoryNotMet, minimumOsVersionNotMet, minimumDiskSpaceNotMet, processorArchitectureNotApplicable. */
+    /**
+     * @var ResultantAppStateDetail|null $installStateDetail The install state detail of the app. Possible values are: noAdditionalDetails, dependencyFailedToInstall, dependencyWithRequirementsNotMet, dependencyPendingReboot, dependencyWithAutoInstallDisabled, supersededAppUninstallFailed, supersededAppUninstallPendingReboot, removingSupersededApps, iosAppStoreUpdateFailedToInstall, vppAppHasUpdateAvailable, userRejectedUpdate, uninstallPendingReboot, supersedingAppsDetected, supersededAppsDetected, seeInstallErrorCode, autoInstallDisabled, managedAppNoLongerPresent, userRejectedInstall, userIsNotLoggedIntoAppStore, untargetedSupersedingAppsDetected, appRemovedBySupersedence, seeUninstallErrorCode, pendingReboot, installingDependencies, contentDownloaded, supersedingAppsNotApplicable, powerShellScriptRequirementNotMet, registryRequirementNotMet, fileSystemRequirementNotMet, platformNotApplicable, minimumCpuSpeedNotMet, minimumLogicalProcessorCountNotMet, minimumPhysicalMemoryNotMet, minimumOsVersionNotMet, minimumDiskSpaceNotMet, processorArchitectureNotApplicable.
+    */
     private ?ResultantAppStateDetail $installStateDetail = null;
     
-    /** @var DateTime|null $lastSyncDateTime Last sync date time */
+    /**
+     * @var DateTime|null $lastSyncDateTime Last sync date time
+    */
     private ?DateTime $lastSyncDateTime = null;
     
-    /** @var ResultantAppState|null $mobileAppInstallStatusValue The install state of the app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable. */
+    /**
+     * @var ResultantAppState|null $mobileAppInstallStatusValue The install state of the app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable.
+    */
     private ?ResultantAppState $mobileAppInstallStatusValue = null;
     
-    /** @var string|null $osDescription OS Description */
+    /**
+     * @var string|null $osDescription OS Description
+    */
     private ?string $osDescription = null;
     
-    /** @var string|null $osVersion OS Version */
+    /**
+     * @var string|null $osVersion OS Version
+    */
     private ?string $osVersion = null;
     
-    /** @var string|null $userName Device User Name */
+    /**
+     * @var string|null $userName Device User Name
+    */
     private ?string $userName = null;
     
-    /** @var string|null $userPrincipalName User Principal Name */
+    /**
+     * @var string|null $userPrincipalName User Principal Name
+    */
     private ?string $userPrincipalName = null;
     
     /**
@@ -60,7 +86,7 @@ class MobileAppInstallStatus extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MobileAppInstallStatus
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppInstallStatus {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppInstallStatus {
         return new MobileAppInstallStatus();
     }
 
@@ -109,20 +135,21 @@ class MobileAppInstallStatus extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'app' => function (self $o, ParseNode $n) { $o->setApp($n->getObjectValue(MobileApp::class)); },
-            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
-            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
-            'displayVersion' => function (self $o, ParseNode $n) { $o->setDisplayVersion($n->getStringValue()); },
-            'errorCode' => function (self $o, ParseNode $n) { $o->setErrorCode($n->getIntegerValue()); },
-            'installState' => function (self $o, ParseNode $n) { $o->setInstallState($n->getEnumValue(ResultantAppState::class)); },
-            'installStateDetail' => function (self $o, ParseNode $n) { $o->setInstallStateDetail($n->getEnumValue(ResultantAppStateDetail::class)); },
-            'lastSyncDateTime' => function (self $o, ParseNode $n) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'mobileAppInstallStatusValue' => function (self $o, ParseNode $n) { $o->setMobileAppInstallStatusValue($n->getEnumValue(ResultantAppState::class)); },
-            'osDescription' => function (self $o, ParseNode $n) { $o->setOsDescription($n->getStringValue()); },
-            'osVersion' => function (self $o, ParseNode $n) { $o->setOsVersion($n->getStringValue()); },
-            'userName' => function (self $o, ParseNode $n) { $o->setUserName($n->getStringValue()); },
-            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
+            'app' => function (ParseNode $n) use ($o) { $o->setApp($n->getObjectValue(array(MobileApp::class, 'createFromDiscriminatorValue'))); },
+            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
+            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
+            'displayVersion' => function (ParseNode $n) use ($o) { $o->setDisplayVersion($n->getStringValue()); },
+            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
+            'installState' => function (ParseNode $n) use ($o) { $o->setInstallState($n->getEnumValue(ResultantAppState::class)); },
+            'installStateDetail' => function (ParseNode $n) use ($o) { $o->setInstallStateDetail($n->getEnumValue(ResultantAppStateDetail::class)); },
+            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
+            'mobileAppInstallStatusValue' => function (ParseNode $n) use ($o) { $o->setMobileAppInstallStatusValue($n->getEnumValue(ResultantAppState::class)); },
+            'osDescription' => function (ParseNode $n) use ($o) { $o->setOsDescription($n->getStringValue()); },
+            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
+            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
+            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 

@@ -10,34 +10,54 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TenantStatusInformation implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var DelegatedPrivilegeStatus|null $delegatedPrivilegeStatus The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue. Optional. Read-only. */
+    /**
+     * @var DelegatedPrivilegeStatus|null $delegatedPrivilegeStatus The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue. Optional. Read-only.
+    */
     private ?DelegatedPrivilegeStatus $delegatedPrivilegeStatus = null;
     
-    /** @var DateTime|null $lastDelegatedPrivilegeRefreshDateTime The date and time the delegated admin privileges status was updated. Optional. Read-only. */
+    /**
+     * @var DateTime|null $lastDelegatedPrivilegeRefreshDateTime The date and time the delegated admin privileges status was updated. Optional. Read-only.
+    */
     private ?DateTime $lastDelegatedPrivilegeRefreshDateTime = null;
     
-    /** @var string|null $offboardedByUserId The identifier for the account that offboarded the managed tenant. Optional. Read-only. */
+    /**
+     * @var string|null $offboardedByUserId The identifier for the account that offboarded the managed tenant. Optional. Read-only.
+    */
     private ?string $offboardedByUserId = null;
     
-    /** @var DateTime|null $offboardedDateTime The date and time when the managed tenant was offboarded. Optional. Read-only. */
+    /**
+     * @var DateTime|null $offboardedDateTime The date and time when the managed tenant was offboarded. Optional. Read-only.
+    */
     private ?DateTime $offboardedDateTime = null;
     
-    /** @var string|null $onboardedByUserId The identifier for the account that onboarded the managed tenant. Optional. Read-only. */
+    /**
+     * @var string|null $onboardedByUserId The identifier for the account that onboarded the managed tenant. Optional. Read-only.
+    */
     private ?string $onboardedByUserId = null;
     
-    /** @var DateTime|null $onboardedDateTime The date and time when the managed tenant was onboarded. Optional. Read-only. */
+    /**
+     * @var DateTime|null $onboardedDateTime The date and time when the managed tenant was onboarded. Optional. Read-only.
+    */
     private ?DateTime $onboardedDateTime = null;
     
-    /** @var TenantOnboardingStatus|null $onboardingStatus The onboarding status for the managed tenant.. Possible values are: ineligible, inProcess, active, inactive, unknownFutureValue. Optional. Read-only. */
+    /**
+     * @var TenantOnboardingStatus|null $onboardingStatus The onboarding status for the managed tenant.. Possible values are: ineligible, inProcess, active, inactive, unknownFutureValue. Optional. Read-only.
+    */
     private ?TenantOnboardingStatus $onboardingStatus = null;
     
-    /** @var TenantOnboardingEligibilityReason|null $tenantOnboardingEligibilityReason Organization's onboarding eligibility reason in Microsoft 365 Lighthouse.. Possible values are: none, contractType, delegatedAdminPrivileges,usersCount,license and unknownFutureValue. Optional. Read-only. */
+    /**
+     * @var TenantOnboardingEligibilityReason|null $tenantOnboardingEligibilityReason Organization's onboarding eligibility reason in Microsoft 365 Lighthouse.. Possible values are: none, contractType, delegatedAdminPrivileges,usersCount,license and unknownFutureValue. Optional. Read-only.
+    */
     private ?TenantOnboardingEligibilityReason $tenantOnboardingEligibilityReason = null;
     
-    /** @var array<WorkloadStatus>|null $workloadStatuses The collection of workload statues for the managed tenant. Optional. Read-only. */
+    /**
+     * @var array<WorkloadStatus>|null $workloadStatuses The collection of workload statues for the managed tenant. Optional. Read-only.
+    */
     private ?array $workloadStatuses = null;
     
     /**
@@ -52,7 +72,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TenantStatusInformation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TenantStatusInformation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TenantStatusInformation {
         return new TenantStatusInformation();
     }
 
@@ -77,16 +97,17 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'delegatedPrivilegeStatus' => function (self $o, ParseNode $n) { $o->setDelegatedPrivilegeStatus($n->getEnumValue(DelegatedPrivilegeStatus::class)); },
-            'lastDelegatedPrivilegeRefreshDateTime' => function (self $o, ParseNode $n) { $o->setLastDelegatedPrivilegeRefreshDateTime($n->getDateTimeValue()); },
-            'offboardedByUserId' => function (self $o, ParseNode $n) { $o->setOffboardedByUserId($n->getStringValue()); },
-            'offboardedDateTime' => function (self $o, ParseNode $n) { $o->setOffboardedDateTime($n->getDateTimeValue()); },
-            'onboardedByUserId' => function (self $o, ParseNode $n) { $o->setOnboardedByUserId($n->getStringValue()); },
-            'onboardedDateTime' => function (self $o, ParseNode $n) { $o->setOnboardedDateTime($n->getDateTimeValue()); },
-            'onboardingStatus' => function (self $o, ParseNode $n) { $o->setOnboardingStatus($n->getEnumValue(TenantOnboardingStatus::class)); },
-            'tenantOnboardingEligibilityReason' => function (self $o, ParseNode $n) { $o->setTenantOnboardingEligibilityReason($n->getEnumValue(TenantOnboardingEligibilityReason::class)); },
-            'workloadStatuses' => function (self $o, ParseNode $n) { $o->setWorkloadStatuses($n->getCollectionOfObjectValues(WorkloadStatus::class)); },
+            'delegatedPrivilegeStatus' => function (ParseNode $n) use ($o) { $o->setDelegatedPrivilegeStatus($n->getEnumValue(DelegatedPrivilegeStatus::class)); },
+            'lastDelegatedPrivilegeRefreshDateTime' => function (ParseNode $n) use ($o) { $o->setLastDelegatedPrivilegeRefreshDateTime($n->getDateTimeValue()); },
+            'offboardedByUserId' => function (ParseNode $n) use ($o) { $o->setOffboardedByUserId($n->getStringValue()); },
+            'offboardedDateTime' => function (ParseNode $n) use ($o) { $o->setOffboardedDateTime($n->getDateTimeValue()); },
+            'onboardedByUserId' => function (ParseNode $n) use ($o) { $o->setOnboardedByUserId($n->getStringValue()); },
+            'onboardedDateTime' => function (ParseNode $n) use ($o) { $o->setOnboardedDateTime($n->getDateTimeValue()); },
+            'onboardingStatus' => function (ParseNode $n) use ($o) { $o->setOnboardingStatus($n->getEnumValue(TenantOnboardingStatus::class)); },
+            'tenantOnboardingEligibilityReason' => function (ParseNode $n) use ($o) { $o->setTenantOnboardingEligibilityReason($n->getEnumValue(TenantOnboardingEligibilityReason::class)); },
+            'workloadStatuses' => function (ParseNode $n) use ($o) { $o->setWorkloadStatuses($n->getCollectionOfObjectValues(array(WorkloadStatus::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

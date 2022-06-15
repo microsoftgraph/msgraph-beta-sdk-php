@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PersonDataSource implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $type The type of data source. */
+    /**
+     * @var string|null $type The type of data source.
+    */
     private ?string $type = null;
     
     /**
@@ -27,7 +31,7 @@ class PersonDataSource implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PersonDataSource
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PersonDataSource {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PersonDataSource {
         return new PersonDataSource();
     }
 
@@ -44,8 +48,9 @@ class PersonDataSource implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
+            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
         ];
     }
 

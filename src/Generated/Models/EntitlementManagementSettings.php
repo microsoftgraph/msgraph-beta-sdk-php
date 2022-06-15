@@ -6,12 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EntitlementManagementSettings extends Entity 
+class EntitlementManagementSettings extends Entity implements Parsable 
 {
-    /** @var int|null $daysUntilExternalUserDeletedAfterBlocked If externalUserLifecycleAction is BlockSignInAndDelete, the number of days after an external user is blocked from sign in before their account is deleted. */
+    /**
+     * @var int|null $daysUntilExternalUserDeletedAfterBlocked If externalUserLifecycleAction is BlockSignInAndDelete, the number of days after an external user is blocked from sign in before their account is deleted.
+    */
     private ?int $daysUntilExternalUserDeletedAfterBlocked = null;
     
-    /** @var string|null $externalUserLifecycleAction Automatic action that the service should take when an external user's last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue. */
+    /**
+     * @var string|null $externalUserLifecycleAction One of None, BlockSignIn, or BlockSignInAndDelete.
+    */
     private ?string $externalUserLifecycleAction = null;
     
     /**
@@ -26,7 +30,7 @@ class EntitlementManagementSettings extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EntitlementManagementSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): EntitlementManagementSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): EntitlementManagementSettings {
         return new EntitlementManagementSettings();
     }
 
@@ -39,7 +43,7 @@ class EntitlementManagementSettings extends Entity
     }
 
     /**
-     * Gets the externalUserLifecycleAction property value. Automatic action that the service should take when an external user's last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue.
+     * Gets the externalUserLifecycleAction property value. One of None, BlockSignIn, or BlockSignInAndDelete.
      * @return string|null
     */
     public function getExternalUserLifecycleAction(): ?string {
@@ -51,9 +55,10 @@ class EntitlementManagementSettings extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'daysUntilExternalUserDeletedAfterBlocked' => function (self $o, ParseNode $n) { $o->setDaysUntilExternalUserDeletedAfterBlocked($n->getIntegerValue()); },
-            'externalUserLifecycleAction' => function (self $o, ParseNode $n) { $o->setExternalUserLifecycleAction($n->getStringValue()); },
+            'daysUntilExternalUserDeletedAfterBlocked' => function (ParseNode $n) use ($o) { $o->setDaysUntilExternalUserDeletedAfterBlocked($n->getIntegerValue()); },
+            'externalUserLifecycleAction' => function (ParseNode $n) use ($o) { $o->setExternalUserLifecycleAction($n->getStringValue()); },
         ]);
     }
 
@@ -76,7 +81,7 @@ class EntitlementManagementSettings extends Entity
     }
 
     /**
-     * Sets the externalUserLifecycleAction property value. Automatic action that the service should take when an external user's last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue.
+     * Sets the externalUserLifecycleAction property value. One of None, BlockSignIn, or BlockSignInAndDelete.
      *  @param string|null $value Value to set for the externalUserLifecycleAction property.
     */
     public function setExternalUserLifecycleAction(?string $value ): void {

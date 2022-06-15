@@ -6,30 +6,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ListItem extends BaseItem 
+class ListItem extends BaseItem implements Parsable 
 {
-    /** @var array<ItemActivityOLD>|null $activities The list of recent activities that took place on this item. */
+    /**
+     * @var array<ItemActivityOLD>|null $activities The list of recent activities that took place on this item.
+    */
     private ?array $activities = null;
     
-    /** @var ItemAnalytics|null $analytics Analytics about the view activities that took place on this item. */
+    /**
+     * @var ItemAnalytics|null $analytics Analytics about the view activities that took place on this item.
+    */
     private ?ItemAnalytics $analytics = null;
     
-    /** @var ContentTypeInfo|null $contentType The content type of this list item */
+    /**
+     * @var ContentTypeInfo|null $contentType The content type of this list item
+    */
     private ?ContentTypeInfo $contentType = null;
     
-    /** @var Deleted|null $deleted The deleted property */
+    /**
+     * @var Deleted|null $deleted The deleted property
+    */
     private ?Deleted $deleted = null;
     
-    /** @var DriveItem|null $driveItem For document libraries, the driveItem relationship exposes the listItem as a [driveItem][] */
+    /**
+     * @var array<DocumentSetVersion>|null $documentSetVersions Version information for a document set version created by a user.
+    */
+    private ?array $documentSetVersions = null;
+    
+    /**
+     * @var DriveItem|null $driveItem For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
+    */
     private ?DriveItem $driveItem = null;
     
-    /** @var FieldValueSet|null $fields The values of the columns set on this list item. */
+    /**
+     * @var FieldValueSet|null $fields The values of the columns set on this list item.
+    */
     private ?FieldValueSet $fields = null;
     
-    /** @var SharepointIds|null $sharepointIds Returns identifiers useful for SharePoint REST compatibility. Read-only. */
+    /**
+     * @var SharepointIds|null $sharepointIds Returns identifiers useful for SharePoint REST compatibility. Read-only.
+    */
     private ?SharepointIds $sharepointIds = null;
     
-    /** @var array<ListItemVersion>|null $versions The list of previous versions of the list item. */
+    /**
+     * @var array<ListItemVersion>|null $versions The list of previous versions of the list item.
+    */
     private ?array $versions = null;
     
     /**
@@ -44,7 +65,7 @@ class ListItem extends BaseItem
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ListItem
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ListItem {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ListItem {
         return new ListItem();
     }
 
@@ -81,6 +102,14 @@ class ListItem extends BaseItem
     }
 
     /**
+     * Gets the documentSetVersions property value. Version information for a document set version created by a user.
+     * @return array<DocumentSetVersion>|null
+    */
+    public function getDocumentSetVersions(): ?array {
+        return $this->documentSetVersions;
+    }
+
+    /**
      * Gets the driveItem property value. For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
      * @return DriveItem|null
     */
@@ -93,15 +122,17 @@ class ListItem extends BaseItem
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activities' => function (self $o, ParseNode $n) { $o->setActivities($n->getCollectionOfObjectValues(ItemActivityOLD::class)); },
-            'analytics' => function (self $o, ParseNode $n) { $o->setAnalytics($n->getObjectValue(ItemAnalytics::class)); },
-            'contentType' => function (self $o, ParseNode $n) { $o->setContentType($n->getObjectValue(ContentTypeInfo::class)); },
-            'deleted' => function (self $o, ParseNode $n) { $o->setDeleted($n->getObjectValue(Deleted::class)); },
-            'driveItem' => function (self $o, ParseNode $n) { $o->setDriveItem($n->getObjectValue(DriveItem::class)); },
-            'fields' => function (self $o, ParseNode $n) { $o->setFields($n->getObjectValue(FieldValueSet::class)); },
-            'sharepointIds' => function (self $o, ParseNode $n) { $o->setSharepointIds($n->getObjectValue(SharepointIds::class)); },
-            'versions' => function (self $o, ParseNode $n) { $o->setVersions($n->getCollectionOfObjectValues(ListItemVersion::class)); },
+            'activities' => function (ParseNode $n) use ($o) { $o->setActivities($n->getCollectionOfObjectValues(array(ItemActivityOLD::class, 'createFromDiscriminatorValue'))); },
+            'analytics' => function (ParseNode $n) use ($o) { $o->setAnalytics($n->getObjectValue(array(ItemAnalytics::class, 'createFromDiscriminatorValue'))); },
+            'contentType' => function (ParseNode $n) use ($o) { $o->setContentType($n->getObjectValue(array(ContentTypeInfo::class, 'createFromDiscriminatorValue'))); },
+            'deleted' => function (ParseNode $n) use ($o) { $o->setDeleted($n->getObjectValue(array(Deleted::class, 'createFromDiscriminatorValue'))); },
+            'documentSetVersions' => function (ParseNode $n) use ($o) { $o->setDocumentSetVersions($n->getCollectionOfObjectValues(array(DocumentSetVersion::class, 'createFromDiscriminatorValue'))); },
+            'driveItem' => function (ParseNode $n) use ($o) { $o->setDriveItem($n->getObjectValue(array(DriveItem::class, 'createFromDiscriminatorValue'))); },
+            'fields' => function (ParseNode $n) use ($o) { $o->setFields($n->getObjectValue(array(FieldValueSet::class, 'createFromDiscriminatorValue'))); },
+            'sharepointIds' => function (ParseNode $n) use ($o) { $o->setSharepointIds($n->getObjectValue(array(SharepointIds::class, 'createFromDiscriminatorValue'))); },
+            'versions' => function (ParseNode $n) use ($o) { $o->setVersions($n->getCollectionOfObjectValues(array(ListItemVersion::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
@@ -139,6 +170,7 @@ class ListItem extends BaseItem
         $writer->writeObjectValue('analytics', $this->analytics);
         $writer->writeObjectValue('contentType', $this->contentType);
         $writer->writeObjectValue('deleted', $this->deleted);
+        $writer->writeCollectionOfObjectValues('documentSetVersions', $this->documentSetVersions);
         $writer->writeObjectValue('driveItem', $this->driveItem);
         $writer->writeObjectValue('fields', $this->fields);
         $writer->writeObjectValue('sharepointIds', $this->sharepointIds);
@@ -175,6 +207,14 @@ class ListItem extends BaseItem
     */
     public function setDeleted(?Deleted $value ): void {
         $this->deleted = $value;
+    }
+
+    /**
+     * Sets the documentSetVersions property value. Version information for a document set version created by a user.
+     *  @param array<DocumentSetVersion>|null $value Value to set for the documentSetVersions property.
+    */
+    public function setDocumentSetVersions(?array $value ): void {
+        $this->documentSetVersions = $value;
     }
 
     /**

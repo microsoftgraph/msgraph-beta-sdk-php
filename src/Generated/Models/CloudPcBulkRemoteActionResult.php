@@ -9,23 +9,33 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<string>|null $failedDeviceIds A list of all the Intune managed device IDs that completed the bulk action with a failure. */
+    /**
+     * @var array<string>|null $failedDeviceIds A list of all the Intune managed device IDs that completed the bulk action with a failure.
+    */
     private ?array $failedDeviceIds = null;
     
-    /** @var array<string>|null $notFoundDeviceIds A list of all the Intune managed device IDs that were not found when the bulk action was attempted. */
+    /**
+     * @var array<string>|null $notFoundDeviceIds A list of all the Intune managed device IDs that were not found when the bulk action was attempted.
+    */
     private ?array $notFoundDeviceIds = null;
     
-    /** @var array<string>|null $notSupportedDeviceIds A list of all the Intune managed device IDs that were identified as unsupported for the bulk action. */
+    /**
+     * @var array<string>|null $notSupportedDeviceIds A list of all the Intune managed device IDs that were identified as unsupported for the bulk action.
+    */
     private ?array $notSupportedDeviceIds = null;
     
-    /** @var array<string>|null $successfulDeviceIds A list of all the Intune managed device IDs that completed the bulk action successfully. */
+    /**
+     * @var array<string>|null $successfulDeviceIds A list of all the Intune managed device IDs that completed the bulk action successfully.
+    */
     private ?array $successfulDeviceIds = null;
     
     /**
-     * Instantiates a new cloudPcBulkRemoteActionResult and sets the default values.
+     * Instantiates a new CloudPcBulkRemoteActionResult and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -36,7 +46,7 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcBulkRemoteActionResult
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcBulkRemoteActionResult {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcBulkRemoteActionResult {
         return new CloudPcBulkRemoteActionResult();
     }
 
@@ -61,11 +71,12 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'failedDeviceIds' => function (self $o, ParseNode $n) { $o->setFailedDeviceIds($n->getCollectionOfPrimitiveValues()); },
-            'notFoundDeviceIds' => function (self $o, ParseNode $n) { $o->setNotFoundDeviceIds($n->getCollectionOfPrimitiveValues()); },
-            'notSupportedDeviceIds' => function (self $o, ParseNode $n) { $o->setNotSupportedDeviceIds($n->getCollectionOfPrimitiveValues()); },
-            'successfulDeviceIds' => function (self $o, ParseNode $n) { $o->setSuccessfulDeviceIds($n->getCollectionOfPrimitiveValues()); },
+            'failedDeviceIds' => function (ParseNode $n) use ($o) { $o->setFailedDeviceIds($n->getCollectionOfPrimitiveValues()); },
+            'notFoundDeviceIds' => function (ParseNode $n) use ($o) { $o->setNotFoundDeviceIds($n->getCollectionOfPrimitiveValues()); },
+            'notSupportedDeviceIds' => function (ParseNode $n) use ($o) { $o->setNotSupportedDeviceIds($n->getCollectionOfPrimitiveValues()); },
+            'successfulDeviceIds' => function (ParseNode $n) use ($o) { $o->setSuccessfulDeviceIds($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity 
+class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity implements Parsable 
 {
-    /** @var array<UserExperienceAnalyticsWorkFromAnywhereDevice>|null $metricDevices The work from anywhere metric devices. */
+    /**
+     * @var array<UserExperienceAnalyticsWorkFromAnywhereDevice>|null $metricDevices The work from anywhere metric devices.
+    */
     private ?array $metricDevices = null;
     
     /**
@@ -23,7 +25,7 @@ class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsWorkFromAnywhereMetric
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsWorkFromAnywhereMetric {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsWorkFromAnywhereMetric {
         return new UserExperienceAnalyticsWorkFromAnywhereMetric();
     }
 
@@ -32,8 +34,9 @@ class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'metricDevices' => function (self $o, ParseNode $n) { $o->setMetricDevices($n->getCollectionOfObjectValues(UserExperienceAnalyticsWorkFromAnywhereDevice::class)); },
+            'metricDevices' => function (ParseNode $n) use ($o) { $o->setMetricDevices($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsWorkFromAnywhereDevice::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

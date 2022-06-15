@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DlpEvaluationInput implements AdditionalDataHolder, Parsable 
 {
-    /** @var AccessScope|null $accessScope The accessScope property */
+    /**
+     * @var AccessScope|null $accessScope The accessScope property
+    */
     private ?AccessScope $accessScope = null;
     
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var CurrentLabel|null $currentLabel The currentLabel property */
+    /**
+     * @var CurrentLabel|null $currentLabel The currentLabel property
+    */
     private ?CurrentLabel $currentLabel = null;
     
-    /** @var array<DiscoveredSensitiveType>|null $discoveredSensitiveTypes The discoveredSensitiveTypes property */
+    /**
+     * @var array<DiscoveredSensitiveType>|null $discoveredSensitiveTypes The discoveredSensitiveTypes property
+    */
     private ?array $discoveredSensitiveTypes = null;
     
     /**
@@ -33,7 +41,7 @@ class DlpEvaluationInput implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DlpEvaluationInput
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DlpEvaluationInput {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DlpEvaluationInput {
         return new DlpEvaluationInput();
     }
 
@@ -74,10 +82,11 @@ class DlpEvaluationInput implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'accessScope' => function (self $o, ParseNode $n) { $o->setAccessScope($n->getEnumValue(AccessScope::class)); },
-            'currentLabel' => function (self $o, ParseNode $n) { $o->setCurrentLabel($n->getObjectValue(CurrentLabel::class)); },
-            'discoveredSensitiveTypes' => function (self $o, ParseNode $n) { $o->setDiscoveredSensitiveTypes($n->getCollectionOfObjectValues(DiscoveredSensitiveType::class)); },
+            'accessScope' => function (ParseNode $n) use ($o) { $o->setAccessScope($n->getEnumValue(AccessScope::class)); },
+            'currentLabel' => function (ParseNode $n) use ($o) { $o->setCurrentLabel($n->getObjectValue(array(CurrentLabel::class, 'createFromDiscriminatorValue'))); },
+            'discoveredSensitiveTypes' => function (ParseNode $n) use ($o) { $o->setDiscoveredSensitiveTypes($n->getCollectionOfObjectValues(array(DiscoveredSensitiveType::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

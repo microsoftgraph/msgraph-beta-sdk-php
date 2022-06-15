@@ -7,48 +7,76 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessPackageAssignmentRequest extends Entity 
+class AccessPackageAssignmentRequest extends Entity implements Parsable 
 {
-    /** @var AccessPackage|null $accessPackage The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand. */
+    /**
+     * @var AccessPackage|null $accessPackage The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand.
+    */
     private ?AccessPackage $accessPackage = null;
     
-    /** @var AccessPackageAssignment|null $accessPackageAssignment For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.  Supports $expand. */
+    /**
+     * @var AccessPackageAssignment|null $accessPackageAssignment For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.  Supports $expand.
+    */
     private ?AccessPackageAssignment $accessPackageAssignment = null;
     
-    /** @var array<AccessPackageAnswer>|null $answers Answers provided by the requestor to accessPackageQuestions asked of them at the time of request. */
+    /**
+     * @var array<AccessPackageAnswer>|null $answers Answers provided by the requestor to accessPackageQuestions asked of them at the time of request.
+    */
     private ?array $answers = null;
     
-    /** @var DateTime|null $completedDate The date of the end of processing, either successful or failure, of a request. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
+    /**
+     * @var DateTime|null $completedDate The date of the end of processing, either successful or failure, of a request. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    */
     private ?DateTime $completedDate = null;
     
-    /** @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
+    /**
+     * @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var array<CustomExtensionHandlerInstance>|null $customExtensionHandlerInstances A collection of custom workflow extension instances being run on an assignment request. Read-only. */
+    /**
+     * @var array<CustomExtensionHandlerInstance>|null $customExtensionHandlerInstances A collection of custom workflow extension instances being run on an assignment request. Read-only.
+    */
     private ?array $customExtensionHandlerInstances = null;
     
-    /** @var DateTime|null $expirationDateTime The expirationDateTime property */
+    /**
+     * @var DateTime|null $expirationDateTime The expirationDateTime property
+    */
     private ?DateTime $expirationDateTime = null;
     
-    /** @var bool|null $isValidationOnly True if the request is not to be processed for assignment. */
+    /**
+     * @var bool|null $isValidationOnly True if the request is not to be processed for assignment.
+    */
     private ?bool $isValidationOnly = null;
     
-    /** @var string|null $justification The requestor's supplied justification. */
+    /**
+     * @var string|null $justification The requestor's supplied justification.
+    */
     private ?string $justification = null;
     
-    /** @var AccessPackageSubject|null $requestor The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand. */
+    /**
+     * @var AccessPackageSubject|null $requestor The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.
+    */
     private ?AccessPackageSubject $requestor = null;
     
-    /** @var string|null $requestState One of PendingApproval, Canceled,  Denied, Delivering, Delivered, PartiallyDelivered, DeliveryFailed, Submitted or Scheduled. Read-only. */
+    /**
+     * @var string|null $requestState One of PendingApproval, Canceled,  Denied, Delivering, Delivered, PartiallyDelivered, DeliveryFailed, Submitted or Scheduled. Read-only.
+    */
     private ?string $requestState = null;
     
-    /** @var string|null $requestStatus More information on the request processing status. Read-only. */
+    /**
+     * @var string|null $requestStatus More information on the request processing status. Read-only.
+    */
     private ?string $requestStatus = null;
     
-    /** @var string|null $requestType The type of the request. The possible values are: notSpecified, userAdd, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd, unknownFutureValue. A request from the user themselves would have requestType of UserAdd or UserRemove. This property cannot be changed once set. */
+    /**
+     * @var string|null $requestType One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only.
+    */
     private ?string $requestType = null;
     
-    /** @var RequestSchedule|null $schedule The range of dates that access is to be assigned to the requestor. This property cannot be changed once set. */
+    /**
+     * @var RequestSchedule|null $schedule The range of dates that access is to be assigned to the requestor. Read-only.
+    */
     private ?RequestSchedule $schedule = null;
     
     /**
@@ -63,12 +91,12 @@ class AccessPackageAssignmentRequest extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageAssignmentRequest
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageAssignmentRequest {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageAssignmentRequest {
         return new AccessPackageAssignmentRequest();
     }
 
     /**
-     * Gets the accessPackage property value. The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.
+     * Gets the accessPackage property value. The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand.
      * @return AccessPackage|null
     */
     public function getAccessPackage(): ?AccessPackage {
@@ -128,21 +156,22 @@ class AccessPackageAssignmentRequest extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackage' => function (self $o, ParseNode $n) { $o->setAccessPackage($n->getObjectValue(AccessPackage::class)); },
-            'accessPackageAssignment' => function (self $o, ParseNode $n) { $o->setAccessPackageAssignment($n->getObjectValue(AccessPackageAssignment::class)); },
-            'answers' => function (self $o, ParseNode $n) { $o->setAnswers($n->getCollectionOfObjectValues(AccessPackageAnswer::class)); },
-            'completedDate' => function (self $o, ParseNode $n) { $o->setCompletedDate($n->getDateTimeValue()); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'customExtensionHandlerInstances' => function (self $o, ParseNode $n) { $o->setCustomExtensionHandlerInstances($n->getCollectionOfObjectValues(CustomExtensionHandlerInstance::class)); },
-            'expirationDateTime' => function (self $o, ParseNode $n) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'isValidationOnly' => function (self $o, ParseNode $n) { $o->setIsValidationOnly($n->getBooleanValue()); },
-            'justification' => function (self $o, ParseNode $n) { $o->setJustification($n->getStringValue()); },
-            'requestor' => function (self $o, ParseNode $n) { $o->setRequestor($n->getObjectValue(AccessPackageSubject::class)); },
-            'requestState' => function (self $o, ParseNode $n) { $o->setRequestState($n->getStringValue()); },
-            'requestStatus' => function (self $o, ParseNode $n) { $o->setRequestStatus($n->getStringValue()); },
-            'requestType' => function (self $o, ParseNode $n) { $o->setRequestType($n->getStringValue()); },
-            'schedule' => function (self $o, ParseNode $n) { $o->setSchedule($n->getObjectValue(RequestSchedule::class)); },
+            'accessPackage' => function (ParseNode $n) use ($o) { $o->setAccessPackage($n->getObjectValue(array(AccessPackage::class, 'createFromDiscriminatorValue'))); },
+            'accessPackageAssignment' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignment($n->getObjectValue(array(AccessPackageAssignment::class, 'createFromDiscriminatorValue'))); },
+            'answers' => function (ParseNode $n) use ($o) { $o->setAnswers($n->getCollectionOfObjectValues(array(AccessPackageAnswer::class, 'createFromDiscriminatorValue'))); },
+            'completedDate' => function (ParseNode $n) use ($o) { $o->setCompletedDate($n->getDateTimeValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'customExtensionHandlerInstances' => function (ParseNode $n) use ($o) { $o->setCustomExtensionHandlerInstances($n->getCollectionOfObjectValues(array(CustomExtensionHandlerInstance::class, 'createFromDiscriminatorValue'))); },
+            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
+            'isValidationOnly' => function (ParseNode $n) use ($o) { $o->setIsValidationOnly($n->getBooleanValue()); },
+            'justification' => function (ParseNode $n) use ($o) { $o->setJustification($n->getStringValue()); },
+            'requestor' => function (ParseNode $n) use ($o) { $o->setRequestor($n->getObjectValue(array(AccessPackageSubject::class, 'createFromDiscriminatorValue'))); },
+            'requestState' => function (ParseNode $n) use ($o) { $o->setRequestState($n->getStringValue()); },
+            'requestStatus' => function (ParseNode $n) use ($o) { $o->setRequestStatus($n->getStringValue()); },
+            'requestType' => function (ParseNode $n) use ($o) { $o->setRequestType($n->getStringValue()); },
+            'schedule' => function (ParseNode $n) use ($o) { $o->setSchedule($n->getObjectValue(array(RequestSchedule::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
@@ -187,7 +216,7 @@ class AccessPackageAssignmentRequest extends Entity
     }
 
     /**
-     * Gets the requestType property value. The type of the request. The possible values are: notSpecified, userAdd, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd, unknownFutureValue. A request from the user themselves would have requestType of UserAdd or UserRemove. This property cannot be changed once set.
+     * Gets the requestType property value. One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only.
      * @return string|null
     */
     public function getRequestType(): ?string {
@@ -195,7 +224,7 @@ class AccessPackageAssignmentRequest extends Entity
     }
 
     /**
-     * Gets the schedule property value. The range of dates that access is to be assigned to the requestor. This property cannot be changed once set.
+     * Gets the schedule property value. The range of dates that access is to be assigned to the requestor. Read-only.
      * @return RequestSchedule|null
     */
     public function getSchedule(): ?RequestSchedule {
@@ -225,7 +254,7 @@ class AccessPackageAssignmentRequest extends Entity
     }
 
     /**
-     * Sets the accessPackage property value. The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.
+     * Sets the accessPackage property value. The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand.
      *  @param AccessPackage|null $value Value to set for the accessPackage property.
     */
     public function setAccessPackage(?AccessPackage $value ): void {
@@ -321,7 +350,7 @@ class AccessPackageAssignmentRequest extends Entity
     }
 
     /**
-     * Sets the requestType property value. The type of the request. The possible values are: notSpecified, userAdd, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd, unknownFutureValue. A request from the user themselves would have requestType of UserAdd or UserRemove. This property cannot be changed once set.
+     * Sets the requestType property value. One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only.
      *  @param string|null $value Value to set for the requestType property.
     */
     public function setRequestType(?string $value ): void {
@@ -329,7 +358,7 @@ class AccessPackageAssignmentRequest extends Entity
     }
 
     /**
-     * Sets the schedule property value. The range of dates that access is to be assigned to the requestor. This property cannot be changed once set.
+     * Sets the schedule property value. The range of dates that access is to be assigned to the requestor. Read-only.
      *  @param RequestSchedule|null $value Value to set for the schedule property.
     */
     public function setSchedule(?RequestSchedule $value ): void {

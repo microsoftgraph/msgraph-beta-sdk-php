@@ -10,16 +10,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RequestSchedule implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var ExpirationPattern|null $expiration When the access should expire. */
+    /**
+     * @var ExpirationPattern|null $expiration In entitlement management, when the access should expire.
+    */
     private ?ExpirationPattern $expiration = null;
     
-    /** @var PatternedRecurrence|null $recurrence For recurring access. Not used at present. */
+    /**
+     * @var PatternedRecurrence|null $recurrence For recurring access, or eligible or active assignment. This property is currently unsupported in both PIM and entitlement management.
+    */
     private ?PatternedRecurrence $recurrence = null;
     
-    /** @var DateTime|null $startDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    /**
+     * @var DateTime|null $startDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. In PIM, when the  eligible or active assignment becomes active.
+    */
     private ?DateTime $startDateTime = null;
     
     /**
@@ -34,7 +42,7 @@ class RequestSchedule implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RequestSchedule
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RequestSchedule {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RequestSchedule {
         return new RequestSchedule();
     }
 
@@ -47,7 +55,7 @@ class RequestSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the expiration property value. When the access should expire.
+     * Gets the expiration property value. In entitlement management, when the access should expire.
      * @return ExpirationPattern|null
     */
     public function getExpiration(): ?ExpirationPattern {
@@ -59,15 +67,16 @@ class RequestSchedule implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'expiration' => function (self $o, ParseNode $n) { $o->setExpiration($n->getObjectValue(ExpirationPattern::class)); },
-            'recurrence' => function (self $o, ParseNode $n) { $o->setRecurrence($n->getObjectValue(PatternedRecurrence::class)); },
-            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'expiration' => function (ParseNode $n) use ($o) { $o->setExpiration($n->getObjectValue(array(ExpirationPattern::class, 'createFromDiscriminatorValue'))); },
+            'recurrence' => function (ParseNode $n) use ($o) { $o->setRecurrence($n->getObjectValue(array(PatternedRecurrence::class, 'createFromDiscriminatorValue'))); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
         ];
     }
 
     /**
-     * Gets the recurrence property value. For recurring access. Not used at present.
+     * Gets the recurrence property value. For recurring access, or eligible or active assignment. This property is currently unsupported in both PIM and entitlement management.
      * @return PatternedRecurrence|null
     */
     public function getRecurrence(): ?PatternedRecurrence {
@@ -75,7 +84,7 @@ class RequestSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. In PIM, when the  eligible or active assignment becomes active.
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
@@ -102,7 +111,7 @@ class RequestSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the expiration property value. When the access should expire.
+     * Sets the expiration property value. In entitlement management, when the access should expire.
      *  @param ExpirationPattern|null $value Value to set for the expiration property.
     */
     public function setExpiration(?ExpirationPattern $value ): void {
@@ -110,7 +119,7 @@ class RequestSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the recurrence property value. For recurring access. Not used at present.
+     * Sets the recurrence property value. For recurring access, or eligible or active assignment. This property is currently unsupported in both PIM and entitlement management.
      *  @param PatternedRecurrence|null $value Value to set for the recurrence property.
     */
     public function setRecurrence(?PatternedRecurrence $value ): void {
@@ -118,7 +127,7 @@ class RequestSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. In PIM, when the  eligible or active assignment becomes active.
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value ): void {

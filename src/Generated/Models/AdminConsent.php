@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AdminConsent implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var AdminConsentState|null $shareAPNSData The admin consent state of sharing user and device data to Apple. Possible values are: notConfigured, granted, notGranted. */
+    /**
+     * @var AdminConsentState|null $shareAPNSData The admin consent state of sharing user and device data to Apple. Possible values are: notConfigured, granted, notGranted.
+    */
     private ?AdminConsentState $shareAPNSData = null;
     
-    /** @var AdminConsentState|null $shareUserExperienceAnalyticsData Gets or sets the admin consent for sharing User experience analytics data. Possible values are: notConfigured, granted, notGranted. */
+    /**
+     * @var AdminConsentState|null $shareUserExperienceAnalyticsData Gets or sets the admin consent for sharing User experience analytics data. Possible values are: notConfigured, granted, notGranted.
+    */
     private ?AdminConsentState $shareUserExperienceAnalyticsData = null;
     
     /**
@@ -30,7 +36,7 @@ class AdminConsent implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AdminConsent
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AdminConsent {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AdminConsent {
         return new AdminConsent();
     }
 
@@ -47,9 +53,10 @@ class AdminConsent implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'shareAPNSData' => function (self $o, ParseNode $n) { $o->setShareAPNSData($n->getEnumValue(AdminConsentState::class)); },
-            'shareUserExperienceAnalyticsData' => function (self $o, ParseNode $n) { $o->setShareUserExperienceAnalyticsData($n->getEnumValue(AdminConsentState::class)); },
+            'shareAPNSData' => function (ParseNode $n) use ($o) { $o->setShareAPNSData($n->getEnumValue(AdminConsentState::class)); },
+            'shareUserExperienceAnalyticsData' => function (ParseNode $n) use ($o) { $o->setShareUserExperienceAnalyticsData($n->getEnumValue(AdminConsentState::class)); },
         ];
     }
 

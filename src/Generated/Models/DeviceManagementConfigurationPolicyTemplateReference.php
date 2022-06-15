@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementConfigurationPolicyTemplateReference implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $templateDisplayName Template Display Name of the referenced template. This property is read-only. */
+    /**
+     * @var string|null $templateDisplayName Template Display Name of the referenced template. This property is read-only.
+    */
     private ?string $templateDisplayName = null;
     
-    /** @var string|null $templateDisplayVersion Template Display Version of the referenced Template. This property is read-only. */
+    /**
+     * @var string|null $templateDisplayVersion Template Display Version of the referenced Template. This property is read-only.
+    */
     private ?string $templateDisplayVersion = null;
     
-    /** @var DeviceManagementConfigurationTemplateFamily|null $templateFamily Template Family of the referenced Template. This property is read-only. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline. */
+    /**
+     * @var DeviceManagementConfigurationTemplateFamily|null $templateFamily Template Family of the referenced Template. This property is read-only. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline.
+    */
     private ?DeviceManagementConfigurationTemplateFamily $templateFamily = null;
     
-    /** @var string|null $templateId Template id */
+    /**
+     * @var string|null $templateId Template id
+    */
     private ?string $templateId = null;
     
     /**
@@ -36,7 +46,7 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementConfigurationPolicyTemplateReference
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationPolicyTemplateReference {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationPolicyTemplateReference {
         return new DeviceManagementConfigurationPolicyTemplateReference();
     }
 
@@ -53,11 +63,12 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'templateDisplayName' => function (self $o, ParseNode $n) { $o->setTemplateDisplayName($n->getStringValue()); },
-            'templateDisplayVersion' => function (self $o, ParseNode $n) { $o->setTemplateDisplayVersion($n->getStringValue()); },
-            'templateFamily' => function (self $o, ParseNode $n) { $o->setTemplateFamily($n->getEnumValue(DeviceManagementConfigurationTemplateFamily::class)); },
-            'templateId' => function (self $o, ParseNode $n) { $o->setTemplateId($n->getStringValue()); },
+            'templateDisplayName' => function (ParseNode $n) use ($o) { $o->setTemplateDisplayName($n->getStringValue()); },
+            'templateDisplayVersion' => function (ParseNode $n) use ($o) { $o->setTemplateDisplayVersion($n->getStringValue()); },
+            'templateFamily' => function (ParseNode $n) use ($o) { $o->setTemplateFamily($n->getEnumValue(DeviceManagementConfigurationTemplateFamily::class)); },
+            'templateId' => function (ParseNode $n) use ($o) { $o->setTemplateId($n->getStringValue()); },
         ];
     }
 

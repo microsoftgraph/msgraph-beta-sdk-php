@@ -9,40 +9,64 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CloudPcAuditActor implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $applicationDisplayName Name of the application. */
+    /**
+     * @var string|null $applicationDisplayName Name of the application.
+    */
     private ?string $applicationDisplayName = null;
     
-    /** @var string|null $applicationId Azure AD application ID. */
+    /**
+     * @var string|null $applicationId Azure AD application ID.
+    */
     private ?string $applicationId = null;
     
-    /** @var string|null $ipAddress IP address. */
+    /**
+     * @var string|null $ipAddress IP address.
+    */
     private ?string $ipAddress = null;
     
-    /** @var string|null $remoteTenantId The delegated partner tenant ID. */
+    /**
+     * @var string|null $remoteTenantId The delegated partner tenant ID.
+    */
     private ?string $remoteTenantId = null;
     
-    /** @var string|null $remoteUserId The delegated partner user ID. */
+    /**
+     * @var string|null $remoteUserId The delegated partner user ID.
+    */
     private ?string $remoteUserId = null;
     
-    /** @var string|null $servicePrincipalName Service Principal Name (SPN). */
+    /**
+     * @var string|null $servicePrincipalName Service Principal Name (SPN).
+    */
     private ?string $servicePrincipalName = null;
     
-    /** @var CloudPcAuditActorType|null $type The actor type. Possible values include ItPro, Application, Partner and Unknown. */
+    /**
+     * @var CloudPcAuditActorType|null $type The actor type. Possible values include ItPro, Application, Partner and Unknown.
+    */
     private ?CloudPcAuditActorType $type = null;
     
-    /** @var string|null $userId Azure AD user ID. */
+    /**
+     * @var string|null $userId Azure AD user ID.
+    */
     private ?string $userId = null;
     
-    /** @var array<string>|null $userPermissions List of user permissions and application permissions when the audit event was performed. */
+    /**
+     * @var array<string>|null $userPermissions List of user permissions and application permissions when the audit event was performed.
+    */
     private ?array $userPermissions = null;
     
-    /** @var string|null $userPrincipalName User Principal Name (UPN). */
+    /**
+     * @var string|null $userPrincipalName User Principal Name (UPN).
+    */
     private ?string $userPrincipalName = null;
     
-    /** @var array<CloudPcUserRoleScopeTagInfo>|null $userRoleScopeTags List of role scope tags. */
+    /**
+     * @var array<CloudPcUserRoleScopeTagInfo>|null $userRoleScopeTags List of role scope tags.
+    */
     private ?array $userRoleScopeTags = null;
     
     /**
@@ -57,7 +81,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcAuditActor
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcAuditActor {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcAuditActor {
         return new CloudPcAuditActor();
     }
 
@@ -90,18 +114,19 @@ class CloudPcAuditActor implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'applicationDisplayName' => function (self $o, ParseNode $n) { $o->setApplicationDisplayName($n->getStringValue()); },
-            'applicationId' => function (self $o, ParseNode $n) { $o->setApplicationId($n->getStringValue()); },
-            'ipAddress' => function (self $o, ParseNode $n) { $o->setIpAddress($n->getStringValue()); },
-            'remoteTenantId' => function (self $o, ParseNode $n) { $o->setRemoteTenantId($n->getStringValue()); },
-            'remoteUserId' => function (self $o, ParseNode $n) { $o->setRemoteUserId($n->getStringValue()); },
-            'servicePrincipalName' => function (self $o, ParseNode $n) { $o->setServicePrincipalName($n->getStringValue()); },
-            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(CloudPcAuditActorType::class)); },
-            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
-            'userPermissions' => function (self $o, ParseNode $n) { $o->setUserPermissions($n->getCollectionOfPrimitiveValues()); },
-            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
-            'userRoleScopeTags' => function (self $o, ParseNode $n) { $o->setUserRoleScopeTags($n->getCollectionOfObjectValues(CloudPcUserRoleScopeTagInfo::class)); },
+            'applicationDisplayName' => function (ParseNode $n) use ($o) { $o->setApplicationDisplayName($n->getStringValue()); },
+            'applicationId' => function (ParseNode $n) use ($o) { $o->setApplicationId($n->getStringValue()); },
+            'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
+            'remoteTenantId' => function (ParseNode $n) use ($o) { $o->setRemoteTenantId($n->getStringValue()); },
+            'remoteUserId' => function (ParseNode $n) use ($o) { $o->setRemoteUserId($n->getStringValue()); },
+            'servicePrincipalName' => function (ParseNode $n) use ($o) { $o->setServicePrincipalName($n->getStringValue()); },
+            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(CloudPcAuditActorType::class)); },
+            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'userPermissions' => function (ParseNode $n) use ($o) { $o->setUserPermissions($n->getCollectionOfPrimitiveValues()); },
+            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'userRoleScopeTags' => function (ParseNode $n) use ($o) { $o->setUserRoleScopeTags($n->getCollectionOfObjectValues(array(CloudPcUserRoleScopeTagInfo::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

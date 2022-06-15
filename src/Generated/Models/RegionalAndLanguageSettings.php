@@ -6,27 +6,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RegionalAndLanguageSettings extends Entity 
+class RegionalAndLanguageSettings extends Entity implements Parsable 
 {
-    /** @var array<LocaleInfo>|null $authoringLanguages Prioritized list of languages the user reads and authors in.Returned by default. Not nullable. */
+    /**
+     * @var array<LocaleInfo>|null $authoringLanguages Prioritized list of languages the user reads and authors in.Returned by default. Not nullable.
+    */
     private ?array $authoringLanguages = null;
     
-    /** @var LocaleInfo|null $defaultDisplayLanguage The  user's preferred user interface language (menus, buttons, ribbons, warning messages) for Microsoft web applications.Returned by default. Not nullable. */
+    /**
+     * @var LocaleInfo|null $defaultDisplayLanguage The  user's preferred user interface language (menus, buttons, ribbons, warning messages) for Microsoft web applications.Returned by default. Not nullable.
+    */
     private ?LocaleInfo $defaultDisplayLanguage = null;
     
-    /** @var LocaleInfo|null $defaultRegionalFormat The locale that drives the default date, time, and calendar formatting.Returned by default. */
+    /**
+     * @var LocaleInfo|null $defaultRegionalFormat The locale that drives the default date, time, and calendar formatting.Returned by default.
+    */
     private ?LocaleInfo $defaultRegionalFormat = null;
     
-    /** @var LocaleInfo|null $defaultSpeechInputLanguage The language a user expected to use as input for text to speech scenarios.Returned by default. */
+    /**
+     * @var LocaleInfo|null $defaultSpeechInputLanguage The language a user expected to use as input for text to speech scenarios.Returned by default.
+    */
     private ?LocaleInfo $defaultSpeechInputLanguage = null;
     
-    /** @var LocaleInfo|null $defaultTranslationLanguage The language a user expects to have documents, emails, and messages translated into.Returned by default. */
+    /**
+     * @var LocaleInfo|null $defaultTranslationLanguage The language a user expects to have documents, emails, and messages translated into.Returned by default.
+    */
     private ?LocaleInfo $defaultTranslationLanguage = null;
     
-    /** @var RegionalFormatOverrides|null $regionalFormatOverrides Allows a user to override their defaultRegionalFormat with field specific formats.Returned by default. */
+    /**
+     * @var RegionalFormatOverrides|null $regionalFormatOverrides Allows a user to override their defaultRegionalFormat with field specific formats.Returned by default.
+    */
     private ?RegionalFormatOverrides $regionalFormatOverrides = null;
     
-    /** @var TranslationPreferences|null $translationPreferences The user's preferred settings when consuming translated documents, emails, messages, and websites.Returned by default. Not nullable. */
+    /**
+     * @var TranslationPreferences|null $translationPreferences The user's preferred settings when consuming translated documents, emails, messages, and websites.Returned by default. Not nullable.
+    */
     private ?TranslationPreferences $translationPreferences = null;
     
     /**
@@ -41,7 +55,7 @@ class RegionalAndLanguageSettings extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RegionalAndLanguageSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RegionalAndLanguageSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RegionalAndLanguageSettings {
         return new RegionalAndLanguageSettings();
     }
 
@@ -90,14 +104,15 @@ class RegionalAndLanguageSettings extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authoringLanguages' => function (self $o, ParseNode $n) { $o->setAuthoringLanguages($n->getCollectionOfObjectValues(LocaleInfo::class)); },
-            'defaultDisplayLanguage' => function (self $o, ParseNode $n) { $o->setDefaultDisplayLanguage($n->getObjectValue(LocaleInfo::class)); },
-            'defaultRegionalFormat' => function (self $o, ParseNode $n) { $o->setDefaultRegionalFormat($n->getObjectValue(LocaleInfo::class)); },
-            'defaultSpeechInputLanguage' => function (self $o, ParseNode $n) { $o->setDefaultSpeechInputLanguage($n->getObjectValue(LocaleInfo::class)); },
-            'defaultTranslationLanguage' => function (self $o, ParseNode $n) { $o->setDefaultTranslationLanguage($n->getObjectValue(LocaleInfo::class)); },
-            'regionalFormatOverrides' => function (self $o, ParseNode $n) { $o->setRegionalFormatOverrides($n->getObjectValue(RegionalFormatOverrides::class)); },
-            'translationPreferences' => function (self $o, ParseNode $n) { $o->setTranslationPreferences($n->getObjectValue(TranslationPreferences::class)); },
+            'authoringLanguages' => function (ParseNode $n) use ($o) { $o->setAuthoringLanguages($n->getCollectionOfObjectValues(array(LocaleInfo::class, 'createFromDiscriminatorValue'))); },
+            'defaultDisplayLanguage' => function (ParseNode $n) use ($o) { $o->setDefaultDisplayLanguage($n->getObjectValue(array(LocaleInfo::class, 'createFromDiscriminatorValue'))); },
+            'defaultRegionalFormat' => function (ParseNode $n) use ($o) { $o->setDefaultRegionalFormat($n->getObjectValue(array(LocaleInfo::class, 'createFromDiscriminatorValue'))); },
+            'defaultSpeechInputLanguage' => function (ParseNode $n) use ($o) { $o->setDefaultSpeechInputLanguage($n->getObjectValue(array(LocaleInfo::class, 'createFromDiscriminatorValue'))); },
+            'defaultTranslationLanguage' => function (ParseNode $n) use ($o) { $o->setDefaultTranslationLanguage($n->getObjectValue(array(LocaleInfo::class, 'createFromDiscriminatorValue'))); },
+            'regionalFormatOverrides' => function (ParseNode $n) use ($o) { $o->setRegionalFormatOverrides($n->getObjectValue(array(RegionalFormatOverrides::class, 'createFromDiscriminatorValue'))); },
+            'translationPreferences' => function (ParseNode $n) use ($o) { $o->setTranslationPreferences($n->getObjectValue(array(TranslationPreferences::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

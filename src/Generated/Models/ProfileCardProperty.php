@@ -6,12 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ProfileCardProperty extends Entity 
+class ProfileCardProperty extends Entity implements Parsable 
 {
-    /** @var array<ProfileCardAnnotation>|null $annotations Allows an administrator to set a custom display label for the directory property and localize it for the users in their tenant. */
+    /**
+     * @var array<ProfileCardAnnotation>|null $annotations Allows an administrator to set a custom display label for the directory property and localize it for the users in their tenant.
+    */
     private ?array $annotations = null;
     
-    /** @var string|null $directoryPropertyName Identifies a profileCardProperty resource in Get, Update, or Delete operations. Allows an administrator to surface hidden Azure Active Directory (Azure AD) properties on the Microsoft 365 profile card within their tenant. When present, the Azure AD field referenced in this field will be visible to all users in your tenant on the contact pane of the profile card. Allowed values for this field are: UserPrincipalName, Fax, StreetAddress, PostalCode, StateOrProvince, Alias, CustomAttribute1,  CustomAttribute2, CustomAttribute3, CustomAttribute4, CustomAttribute5, CustomAttribute6, CustomAttribute7, CustomAttribute8, CustomAttribute9, CustomAttribute10, CustomAttribute11, CustomAttribute12, CustomAttribute13, CustomAttribute14, CustomAttribute15. */
+    /**
+     * @var string|null $directoryPropertyName Identifies a profileCardProperty resource in Get, Update, or Delete operations. Allows an administrator to surface hidden Azure Active Directory (Azure AD) properties on the Microsoft 365 profile card within their tenant. When present, the Azure AD field referenced in this field will be visible to all users in your tenant on the contact pane of the profile card. Allowed values for this field are: UserPrincipalName, Fax, StreetAddress, PostalCode, StateOrProvince, Alias, CustomAttribute1,  CustomAttribute2, CustomAttribute3, CustomAttribute4, CustomAttribute5, CustomAttribute6, CustomAttribute7, CustomAttribute8, CustomAttribute9, CustomAttribute10, CustomAttribute11, CustomAttribute12, CustomAttribute13, CustomAttribute14, CustomAttribute15.
+    */
     private ?string $directoryPropertyName = null;
     
     /**
@@ -26,7 +30,7 @@ class ProfileCardProperty extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ProfileCardProperty
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ProfileCardProperty {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ProfileCardProperty {
         return new ProfileCardProperty();
     }
 
@@ -51,9 +55,10 @@ class ProfileCardProperty extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'annotations' => function (self $o, ParseNode $n) { $o->setAnnotations($n->getCollectionOfObjectValues(ProfileCardAnnotation::class)); },
-            'directoryPropertyName' => function (self $o, ParseNode $n) { $o->setDirectoryPropertyName($n->getStringValue()); },
+            'annotations' => function (ParseNode $n) use ($o) { $o->setAnnotations($n->getCollectionOfObjectValues(array(ProfileCardAnnotation::class, 'createFromDiscriminatorValue'))); },
+            'directoryPropertyName' => function (ParseNode $n) use ($o) { $o->setDirectoryPropertyName($n->getStringValue()); },
         ]);
     }
 

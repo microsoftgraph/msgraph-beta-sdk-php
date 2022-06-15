@@ -10,40 +10,64 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var ComplianceStatus|null $complianceState Managed Device ComplianceStatus. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
+    /**
+     * @var ComplianceStatus|null $complianceState Managed Device ComplianceStatus. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+    */
     private ?ComplianceStatus $complianceState = null;
     
-    /** @var string|null $deviceCompliancePolicyId Device Compliance PolicyId */
+    /**
+     * @var string|null $deviceCompliancePolicyId Device Compliance PolicyId
+    */
     private ?string $deviceCompliancePolicyId = null;
     
-    /** @var string|null $deviceCompliancePolicyName Device Compliance Policy Name */
+    /**
+     * @var string|null $deviceCompliancePolicyName Device Compliance Policy Name
+    */
     private ?string $deviceCompliancePolicyName = null;
     
-    /** @var DeviceType|null $deviceType Managed Device Device Type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, cloudPC, blackberry, palm, unknown. */
+    /**
+     * @var DeviceType|null $deviceType Managed Device Device Type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, cloudPC, blackberry, palm, unknown.
+    */
     private ?DeviceType $deviceType = null;
     
-    /** @var string|null $id Key of the entity. */
+    /**
+     * @var string|null $id Key of the entity.
+    */
     private ?string $id = null;
     
-    /** @var string|null $managedDeviceId Managed DeviceId */
+    /**
+     * @var string|null $managedDeviceId Managed DeviceId
+    */
     private ?string $managedDeviceId = null;
     
-    /** @var string|null $managedDeviceName Managed Device Name */
+    /**
+     * @var string|null $managedDeviceName Managed Device Name
+    */
     private ?string $managedDeviceName = null;
     
-    /** @var ManagementAgentType|null $managementAgent Managed Device ManagementAgentType. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, windowsManagementCloudApi. */
+    /**
+     * @var ManagementAgentType|null $managementAgent Managed Device ManagementAgentType. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, windowsManagementCloudApi.
+    */
     private ?ManagementAgentType $managementAgent = null;
     
-    /** @var ManagedDeviceOwnerType|null $ownerType Managed Device ManagedDeviceOwnerType. Possible values are: unknown, company, personal. */
+    /**
+     * @var ManagedDeviceOwnerType|null $ownerType Managed Device ManagedDeviceOwnerType. Possible values are: unknown, company, personal.
+    */
     private ?ManagedDeviceOwnerType $ownerType = null;
     
-    /** @var DateTime|null $retireAfterDateTime Managed Device Retire After DateTime */
+    /**
+     * @var DateTime|null $retireAfterDateTime Managed Device Retire After DateTime
+    */
     private ?DateTime $retireAfterDateTime = null;
     
-    /** @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance. */
+    /**
+     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
+    */
     private ?array $roleScopeTagIds = null;
     
     /**
@@ -58,7 +82,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RetireScheduledManagedDevice
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RetireScheduledManagedDevice {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RetireScheduledManagedDevice {
         return new RetireScheduledManagedDevice();
     }
 
@@ -107,18 +131,19 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'complianceState' => function (self $o, ParseNode $n) { $o->setComplianceState($n->getEnumValue(ComplianceStatus::class)); },
-            'deviceCompliancePolicyId' => function (self $o, ParseNode $n) { $o->setDeviceCompliancePolicyId($n->getStringValue()); },
-            'deviceCompliancePolicyName' => function (self $o, ParseNode $n) { $o->setDeviceCompliancePolicyName($n->getStringValue()); },
-            'deviceType' => function (self $o, ParseNode $n) { $o->setDeviceType($n->getEnumValue(DeviceType::class)); },
-            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
-            'managedDeviceId' => function (self $o, ParseNode $n) { $o->setManagedDeviceId($n->getStringValue()); },
-            'managedDeviceName' => function (self $o, ParseNode $n) { $o->setManagedDeviceName($n->getStringValue()); },
-            'managementAgent' => function (self $o, ParseNode $n) { $o->setManagementAgent($n->getEnumValue(ManagementAgentType::class)); },
-            'ownerType' => function (self $o, ParseNode $n) { $o->setOwnerType($n->getEnumValue(ManagedDeviceOwnerType::class)); },
-            'retireAfterDateTime' => function (self $o, ParseNode $n) { $o->setRetireAfterDateTime($n->getDateTimeValue()); },
-            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'complianceState' => function (ParseNode $n) use ($o) { $o->setComplianceState($n->getEnumValue(ComplianceStatus::class)); },
+            'deviceCompliancePolicyId' => function (ParseNode $n) use ($o) { $o->setDeviceCompliancePolicyId($n->getStringValue()); },
+            'deviceCompliancePolicyName' => function (ParseNode $n) use ($o) { $o->setDeviceCompliancePolicyName($n->getStringValue()); },
+            'deviceType' => function (ParseNode $n) use ($o) { $o->setDeviceType($n->getEnumValue(DeviceType::class)); },
+            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
+            'managedDeviceName' => function (ParseNode $n) use ($o) { $o->setManagedDeviceName($n->getStringValue()); },
+            'managementAgent' => function (ParseNode $n) use ($o) { $o->setManagementAgent($n->getEnumValue(ManagementAgentType::class)); },
+            'ownerType' => function (ParseNode $n) use ($o) { $o->setOwnerType($n->getEnumValue(ManagedDeviceOwnerType::class)); },
+            'retireAfterDateTime' => function (ParseNode $n) use ($o) { $o->setRetireAfterDateTime($n->getDateTimeValue()); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

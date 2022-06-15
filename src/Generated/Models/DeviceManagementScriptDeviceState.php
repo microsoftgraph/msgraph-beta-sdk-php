@@ -7,24 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementScriptDeviceState extends Entity 
+class DeviceManagementScriptDeviceState extends Entity implements Parsable 
 {
-    /** @var int|null $errorCode Error code corresponding to erroneous execution of the device management script. */
+    /**
+     * @var int|null $errorCode Error code corresponding to erroneous execution of the device management script.
+    */
     private ?int $errorCode = null;
     
-    /** @var string|null $errorDescription Error description corresponding to erroneous execution of the device management script. */
+    /**
+     * @var string|null $errorDescription Error description corresponding to erroneous execution of the device management script.
+    */
     private ?string $errorDescription = null;
     
-    /** @var DateTime|null $lastStateUpdateDateTime Latest time the device management script executes. */
+    /**
+     * @var DateTime|null $lastStateUpdateDateTime Latest time the device management script executes.
+    */
     private ?DateTime $lastStateUpdateDateTime = null;
     
-    /** @var ManagedDevice|null $managedDevice The managed devices that executes the device management script. */
+    /**
+     * @var ManagedDevice|null $managedDevice The managed devices that executes the device management script.
+    */
     private ?ManagedDevice $managedDevice = null;
     
-    /** @var string|null $resultMessage Details of execution output. */
+    /**
+     * @var string|null $resultMessage Details of execution output.
+    */
     private ?string $resultMessage = null;
     
-    /** @var RunState|null $runState State of latest run of the device management script. Possible values are: unknown, success, fail, scriptError, pending, notApplicable. */
+    /**
+     * @var RunState|null $runState State of latest run of the device management script. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+    */
     private ?RunState $runState = null;
     
     /**
@@ -39,7 +51,7 @@ class DeviceManagementScriptDeviceState extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementScriptDeviceState
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementScriptDeviceState {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementScriptDeviceState {
         return new DeviceManagementScriptDeviceState();
     }
 
@@ -64,13 +76,14 @@ class DeviceManagementScriptDeviceState extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'errorCode' => function (self $o, ParseNode $n) { $o->setErrorCode($n->getIntegerValue()); },
-            'errorDescription' => function (self $o, ParseNode $n) { $o->setErrorDescription($n->getStringValue()); },
-            'lastStateUpdateDateTime' => function (self $o, ParseNode $n) { $o->setLastStateUpdateDateTime($n->getDateTimeValue()); },
-            'managedDevice' => function (self $o, ParseNode $n) { $o->setManagedDevice($n->getObjectValue(ManagedDevice::class)); },
-            'resultMessage' => function (self $o, ParseNode $n) { $o->setResultMessage($n->getStringValue()); },
-            'runState' => function (self $o, ParseNode $n) { $o->setRunState($n->getEnumValue(RunState::class)); },
+            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
+            'errorDescription' => function (ParseNode $n) use ($o) { $o->setErrorDescription($n->getStringValue()); },
+            'lastStateUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setLastStateUpdateDateTime($n->getDateTimeValue()); },
+            'managedDevice' => function (ParseNode $n) use ($o) { $o->setManagedDevice($n->getObjectValue(array(ManagedDevice::class, 'createFromDiscriminatorValue'))); },
+            'resultMessage' => function (ParseNode $n) use ($o) { $o->setResultMessage($n->getStringValue()); },
+            'runState' => function (ParseNode $n) use ($o) { $o->setRunState($n->getEnumValue(RunState::class)); },
         ]);
     }
 

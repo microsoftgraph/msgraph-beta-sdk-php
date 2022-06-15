@@ -7,12 +7,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPcUserSettingAssignment extends Entity 
+class CloudPcUserSettingAssignment extends Entity implements Parsable 
 {
-    /** @var DateTime|null $createdDateTime The date and time this assignment was created. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'. */
+    /**
+     * @var DateTime|null $createdDateTime The date and time this assignment was created. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var CloudPcManagementAssignmentTarget|null $target The assignment target for the user setting. Currently, the only target supported for this user setting is a user group. For details, see cloudPcManagementGroupAssignmentTarget. */
+    /**
+     * @var CloudPcManagementAssignmentTarget|null $target The assignment target for the user setting. Currently, the only target supported for this user setting is a user group. For details, see cloudPcManagementGroupAssignmentTarget.
+    */
     private ?CloudPcManagementAssignmentTarget $target = null;
     
     /**
@@ -27,7 +31,7 @@ class CloudPcUserSettingAssignment extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcUserSettingAssignment
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcUserSettingAssignment {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcUserSettingAssignment {
         return new CloudPcUserSettingAssignment();
     }
 
@@ -44,9 +48,10 @@ class CloudPcUserSettingAssignment extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'target' => function (self $o, ParseNode $n) { $o->setTarget($n->getObjectValue(CloudPcManagementAssignmentTarget::class)); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(CloudPcManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

@@ -6,60 +6,96 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementConfigurationSettingDefinition extends Entity 
+class DeviceManagementConfigurationSettingDefinition extends Entity implements Parsable 
 {
-    /** @var DeviceManagementConfigurationSettingAccessTypes|null $accessTypes Read/write access mode of the setting. Possible values are: none, add, copy, delete, get, replace, execute. */
+    /**
+     * @var DeviceManagementConfigurationSettingAccessTypes|null $accessTypes Read/write access mode of the setting. Possible values are: none, add, copy, delete, get, replace, execute.
+    */
     private ?DeviceManagementConfigurationSettingAccessTypes $accessTypes = null;
     
-    /** @var DeviceManagementConfigurationSettingApplicability|null $applicability Details which device setting is applicable on */
+    /**
+     * @var DeviceManagementConfigurationSettingApplicability|null $applicability Details which device setting is applicable on
+    */
     private ?DeviceManagementConfigurationSettingApplicability $applicability = null;
     
-    /** @var string|null $baseUri Base CSP Path */
+    /**
+     * @var string|null $baseUri Base CSP Path
+    */
     private ?string $baseUri = null;
     
-    /** @var string|null $categoryId Specifies the area group under which the setting is configured in a specified configuration service provider (CSP) */
+    /**
+     * @var string|null $categoryId Specifies the area group under which the setting is configured in a specified configuration service provider (CSP)
+    */
     private ?string $categoryId = null;
     
-    /** @var string|null $description Description of the item */
+    /**
+     * @var string|null $description Description of the item
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Display name of the item */
+    /**
+     * @var string|null $displayName Display name of the item
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $helpText Help text of the item */
+    /**
+     * @var string|null $helpText Help text of the item
+    */
     private ?string $helpText = null;
     
-    /** @var array<string>|null $infoUrls List of links more info for the setting can be found at */
+    /**
+     * @var array<string>|null $infoUrls List of links more info for the setting can be found at
+    */
     private ?array $infoUrls = null;
     
-    /** @var array<string>|null $keywords Tokens which to search settings on */
+    /**
+     * @var array<string>|null $keywords Tokens which to search settings on
+    */
     private ?array $keywords = null;
     
-    /** @var string|null $name Name of the item */
+    /**
+     * @var string|null $name Name of the item
+    */
     private ?string $name = null;
     
-    /** @var DeviceManagementConfigurationSettingOccurrence|null $occurrence Indicates whether the setting is required or not */
+    /**
+     * @var DeviceManagementConfigurationSettingOccurrence|null $occurrence Indicates whether the setting is required or not
+    */
     private ?DeviceManagementConfigurationSettingOccurrence $occurrence = null;
     
-    /** @var string|null $offsetUri Offset CSP Path from Base */
+    /**
+     * @var string|null $offsetUri Offset CSP Path from Base
+    */
     private ?string $offsetUri = null;
     
-    /** @var array<DeviceManagementConfigurationReferredSettingInformation>|null $referredSettingInformationList List of referred setting information. */
+    /**
+     * @var array<DeviceManagementConfigurationReferredSettingInformation>|null $referredSettingInformationList List of referred setting information.
+    */
     private ?array $referredSettingInformationList = null;
     
-    /** @var string|null $rootDefinitionId Root setting definition if the setting is a child setting. */
+    /**
+     * @var string|null $rootDefinitionId Root setting definition if the setting is a child setting.
+    */
     private ?string $rootDefinitionId = null;
     
-    /** @var DeviceManagementConfigurationSettingUsage|null $settingUsage Setting type, for example, configuration and compliance. Possible values are: none, configuration, compliance. */
+    /**
+     * @var DeviceManagementConfigurationSettingUsage|null $settingUsage Setting type, for example, configuration and compliance. Possible values are: none, configuration, compliance.
+    */
     private ?DeviceManagementConfigurationSettingUsage $settingUsage = null;
     
-    /** @var DeviceManagementConfigurationControlType|null $uxBehavior Setting control type representation in the UX. Possible values are: default, dropdown, smallTextBox, largeTextBox, toggle, multiheaderGrid, contextPane. */
+    /**
+     * @var DeviceManagementConfigurationControlType|null $uxBehavior Setting control type representation in the UX. Possible values are: default, dropdown, smallTextBox, largeTextBox, toggle, multiheaderGrid, contextPane.
+    */
     private ?DeviceManagementConfigurationControlType $uxBehavior = null;
     
-    /** @var string|null $version Item Version */
+    /**
+     * @var string|null $version Item Version
+    */
     private ?string $version = null;
     
-    /** @var DeviceManagementConfigurationSettingVisibility|null $visibility Setting visibility scope to UX. Possible values are: none, settingsCatalog, template. */
+    /**
+     * @var DeviceManagementConfigurationSettingVisibility|null $visibility Setting visibility scope to UX. Possible values are: none, settingsCatalog, template.
+    */
     private ?DeviceManagementConfigurationSettingVisibility $visibility = null;
     
     /**
@@ -74,7 +110,17 @@ class DeviceManagementConfigurationSettingDefinition extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementConfigurationSettingDefinition
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingDefinition {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingDefinition {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.deviceManagementConfigurationChoiceSettingDefinition': return new DeviceManagementConfigurationChoiceSettingDefinition();
+                case '#microsoft.graph.deviceManagementConfigurationRedirectSettingDefinition': return new DeviceManagementConfigurationRedirectSettingDefinition();
+                case '#microsoft.graph.deviceManagementConfigurationSettingGroupDefinition': return new DeviceManagementConfigurationSettingGroupDefinition();
+                case '#microsoft.graph.deviceManagementConfigurationSimpleSettingDefinition': return new DeviceManagementConfigurationSimpleSettingDefinition();
+            }
+        }
         return new DeviceManagementConfigurationSettingDefinition();
     }
 
@@ -131,25 +177,26 @@ class DeviceManagementConfigurationSettingDefinition extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessTypes' => function (self $o, ParseNode $n) { $o->setAccessTypes($n->getEnumValue(DeviceManagementConfigurationSettingAccessTypes::class)); },
-            'applicability' => function (self $o, ParseNode $n) { $o->setApplicability($n->getObjectValue(DeviceManagementConfigurationSettingApplicability::class)); },
-            'baseUri' => function (self $o, ParseNode $n) { $o->setBaseUri($n->getStringValue()); },
-            'categoryId' => function (self $o, ParseNode $n) { $o->setCategoryId($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'helpText' => function (self $o, ParseNode $n) { $o->setHelpText($n->getStringValue()); },
-            'infoUrls' => function (self $o, ParseNode $n) { $o->setInfoUrls($n->getCollectionOfPrimitiveValues()); },
-            'keywords' => function (self $o, ParseNode $n) { $o->setKeywords($n->getCollectionOfPrimitiveValues()); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'occurrence' => function (self $o, ParseNode $n) { $o->setOccurrence($n->getObjectValue(DeviceManagementConfigurationSettingOccurrence::class)); },
-            'offsetUri' => function (self $o, ParseNode $n) { $o->setOffsetUri($n->getStringValue()); },
-            'referredSettingInformationList' => function (self $o, ParseNode $n) { $o->setReferredSettingInformationList($n->getCollectionOfObjectValues(DeviceManagementConfigurationReferredSettingInformation::class)); },
-            'rootDefinitionId' => function (self $o, ParseNode $n) { $o->setRootDefinitionId($n->getStringValue()); },
-            'settingUsage' => function (self $o, ParseNode $n) { $o->setSettingUsage($n->getEnumValue(DeviceManagementConfigurationSettingUsage::class)); },
-            'uxBehavior' => function (self $o, ParseNode $n) { $o->setUxBehavior($n->getEnumValue(DeviceManagementConfigurationControlType::class)); },
-            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getStringValue()); },
-            'visibility' => function (self $o, ParseNode $n) { $o->setVisibility($n->getEnumValue(DeviceManagementConfigurationSettingVisibility::class)); },
+            'accessTypes' => function (ParseNode $n) use ($o) { $o->setAccessTypes($n->getEnumValue(DeviceManagementConfigurationSettingAccessTypes::class)); },
+            'applicability' => function (ParseNode $n) use ($o) { $o->setApplicability($n->getObjectValue(array(DeviceManagementConfigurationSettingApplicability::class, 'createFromDiscriminatorValue'))); },
+            'baseUri' => function (ParseNode $n) use ($o) { $o->setBaseUri($n->getStringValue()); },
+            'categoryId' => function (ParseNode $n) use ($o) { $o->setCategoryId($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'helpText' => function (ParseNode $n) use ($o) { $o->setHelpText($n->getStringValue()); },
+            'infoUrls' => function (ParseNode $n) use ($o) { $o->setInfoUrls($n->getCollectionOfPrimitiveValues()); },
+            'keywords' => function (ParseNode $n) use ($o) { $o->setKeywords($n->getCollectionOfPrimitiveValues()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'occurrence' => function (ParseNode $n) use ($o) { $o->setOccurrence($n->getObjectValue(array(DeviceManagementConfigurationSettingOccurrence::class, 'createFromDiscriminatorValue'))); },
+            'offsetUri' => function (ParseNode $n) use ($o) { $o->setOffsetUri($n->getStringValue()); },
+            'referredSettingInformationList' => function (ParseNode $n) use ($o) { $o->setReferredSettingInformationList($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationReferredSettingInformation::class, 'createFromDiscriminatorValue'))); },
+            'rootDefinitionId' => function (ParseNode $n) use ($o) { $o->setRootDefinitionId($n->getStringValue()); },
+            'settingUsage' => function (ParseNode $n) use ($o) { $o->setSettingUsage($n->getEnumValue(DeviceManagementConfigurationSettingUsage::class)); },
+            'uxBehavior' => function (ParseNode $n) use ($o) { $o->setUxBehavior($n->getEnumValue(DeviceManagementConfigurationControlType::class)); },
+            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'visibility' => function (ParseNode $n) use ($o) { $o->setVisibility($n->getEnumValue(DeviceManagementConfigurationSettingVisibility::class)); },
         ]);
     }
 

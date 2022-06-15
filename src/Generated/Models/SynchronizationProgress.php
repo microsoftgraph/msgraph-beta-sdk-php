@@ -10,19 +10,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SynchronizationProgress implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $completedUnits The numerator of a progress ratio; the number of units of changes already processed. */
+    /**
+     * @var int|null $completedUnits The numerator of a progress ratio; the number of units of changes already processed.
+    */
     private ?int $completedUnits = null;
     
-    /** @var DateTime|null $progressObservationDateTime The time of a progress observation as an offset in minutes from UTC. */
+    /**
+     * @var DateTime|null $progressObservationDateTime The time of a progress observation as an offset in minutes from UTC.
+    */
     private ?DateTime $progressObservationDateTime = null;
     
-    /** @var int|null $totalUnits The denominator of a progress ratio; a number of units of changes to be processed to accomplish synchronization. */
+    /**
+     * @var int|null $totalUnits The denominator of a progress ratio; a number of units of changes to be processed to accomplish synchronization.
+    */
     private ?int $totalUnits = null;
     
-    /** @var string|null $units An optional description of the units. */
+    /**
+     * @var string|null $units An optional description of the units.
+    */
     private ?string $units = null;
     
     /**
@@ -37,7 +47,7 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SynchronizationProgress
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationProgress {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationProgress {
         return new SynchronizationProgress();
     }
 
@@ -62,11 +72,12 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'completedUnits' => function (self $o, ParseNode $n) { $o->setCompletedUnits($n->getIntegerValue()); },
-            'progressObservationDateTime' => function (self $o, ParseNode $n) { $o->setProgressObservationDateTime($n->getDateTimeValue()); },
-            'totalUnits' => function (self $o, ParseNode $n) { $o->setTotalUnits($n->getIntegerValue()); },
-            'units' => function (self $o, ParseNode $n) { $o->setUnits($n->getStringValue()); },
+            'completedUnits' => function (ParseNode $n) use ($o) { $o->setCompletedUnits($n->getIntegerValue()); },
+            'progressObservationDateTime' => function (ParseNode $n) use ($o) { $o->setProgressObservationDateTime($n->getDateTimeValue()); },
+            'totalUnits' => function (ParseNode $n) use ($o) { $o->setTotalUnits($n->getIntegerValue()); },
+            'units' => function (ParseNode $n) use ($o) { $o->setUnits($n->getStringValue()); },
         ];
     }
 

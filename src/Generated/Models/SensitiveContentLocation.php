@@ -9,22 +9,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SensitiveContentLocation implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $confidence The confidence property */
+    /**
+     * @var int|null $confidence The confidence property
+    */
     private ?int $confidence = null;
     
-    /** @var array<SensitiveContentEvidence>|null $evidences The evidences property */
+    /**
+     * @var array<SensitiveContentEvidence>|null $evidences The evidences property
+    */
     private ?array $evidences = null;
     
-    /** @var string|null $idMatch The idMatch property */
+    /**
+     * @var string|null $idMatch The idMatch property
+    */
     private ?string $idMatch = null;
     
-    /** @var int|null $length The length property */
+    /**
+     * @var int|null $length The length property
+    */
     private ?int $length = null;
     
-    /** @var int|null $offset The offset property */
+    /**
+     * @var int|null $offset The offset property
+    */
     private ?int $offset = null;
     
     /**
@@ -39,7 +51,7 @@ class SensitiveContentLocation implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SensitiveContentLocation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SensitiveContentLocation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SensitiveContentLocation {
         return new SensitiveContentLocation();
     }
 
@@ -72,12 +84,13 @@ class SensitiveContentLocation implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'confidence' => function (self $o, ParseNode $n) { $o->setConfidence($n->getIntegerValue()); },
-            'evidences' => function (self $o, ParseNode $n) { $o->setEvidences($n->getCollectionOfObjectValues(SensitiveContentEvidence::class)); },
-            'idMatch' => function (self $o, ParseNode $n) { $o->setIdMatch($n->getStringValue()); },
-            'length' => function (self $o, ParseNode $n) { $o->setLength($n->getIntegerValue()); },
-            'offset' => function (self $o, ParseNode $n) { $o->setOffset($n->getIntegerValue()); },
+            'confidence' => function (ParseNode $n) use ($o) { $o->setConfidence($n->getIntegerValue()); },
+            'evidences' => function (ParseNode $n) use ($o) { $o->setEvidences($n->getCollectionOfObjectValues(array(SensitiveContentEvidence::class, 'createFromDiscriminatorValue'))); },
+            'idMatch' => function (ParseNode $n) use ($o) { $o->setIdMatch($n->getStringValue()); },
+            'length' => function (ParseNode $n) use ($o) { $o->setLength($n->getIntegerValue()); },
+            'offset' => function (ParseNode $n) use ($o) { $o->setOffset($n->getIntegerValue()); },
         ];
     }
 

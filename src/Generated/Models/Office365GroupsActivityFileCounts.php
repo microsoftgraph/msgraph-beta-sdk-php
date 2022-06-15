@@ -7,21 +7,31 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class Office365GroupsActivityFileCounts extends Entity 
+class Office365GroupsActivityFileCounts extends Entity implements Parsable 
 {
-    /** @var int|null $active The number of files that were viewed, edited, shared, or synced in the group's SharePoint document library. */
+    /**
+     * @var int|null $active The number of files that were viewed, edited, shared, or synced in the group's SharePoint document library.
+    */
     private ?int $active = null;
     
-    /** @var Date|null $reportDate The date on which a number of files were active in the group's SharePoint site. */
+    /**
+     * @var Date|null $reportDate The date on which a number of files were active in the group's SharePoint site.
+    */
     private ?Date $reportDate = null;
     
-    /** @var string|null $reportPeriod The number of days the report covers. */
+    /**
+     * @var string|null $reportPeriod The number of days the report covers.
+    */
     private ?string $reportPeriod = null;
     
-    /** @var Date|null $reportRefreshDate The latest date of the content. */
+    /**
+     * @var Date|null $reportRefreshDate The latest date of the content.
+    */
     private ?Date $reportRefreshDate = null;
     
-    /** @var int|null $total The total number of files in the group's SharePoint document library. */
+    /**
+     * @var int|null $total The total number of files in the group's SharePoint document library.
+    */
     private ?int $total = null;
     
     /**
@@ -36,7 +46,7 @@ class Office365GroupsActivityFileCounts extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Office365GroupsActivityFileCounts
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Office365GroupsActivityFileCounts {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Office365GroupsActivityFileCounts {
         return new Office365GroupsActivityFileCounts();
     }
 
@@ -53,12 +63,13 @@ class Office365GroupsActivityFileCounts extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'active' => function (self $o, ParseNode $n) { $o->setActive($n->getIntegerValue()); },
-            'reportDate' => function (self $o, ParseNode $n) { $o->setReportDate($n->getDateValue()); },
-            'reportPeriod' => function (self $o, ParseNode $n) { $o->setReportPeriod($n->getStringValue()); },
-            'reportRefreshDate' => function (self $o, ParseNode $n) { $o->setReportRefreshDate($n->getDateValue()); },
-            'total' => function (self $o, ParseNode $n) { $o->setTotal($n->getIntegerValue()); },
+            'active' => function (ParseNode $n) use ($o) { $o->setActive($n->getIntegerValue()); },
+            'reportDate' => function (ParseNode $n) use ($o) { $o->setReportDate($n->getDateValue()); },
+            'reportPeriod' => function (ParseNode $n) use ($o) { $o->setReportPeriod($n->getStringValue()); },
+            'reportRefreshDate' => function (ParseNode $n) use ($o) { $o->setReportRefreshDate($n->getDateValue()); },
+            'total' => function (ParseNode $n) use ($o) { $o->setTotal($n->getIntegerValue()); },
         ]);
     }
 

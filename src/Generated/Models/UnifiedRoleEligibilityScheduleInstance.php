@@ -7,18 +7,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstanceBase 
+class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstanceBase implements Parsable 
 {
-    /** @var DateTime|null $endDateTime Time that the roleEligibilityScheduleInstance will expire. */
+    /**
+     * @var DateTime|null $endDateTime Time that the roleEligibilityScheduleInstance will expire.
+    */
     private ?DateTime $endDateTime = null;
     
-    /** @var string|null $memberType Membership type of the assignment. It can either be Inherited, Direct, or Group. */
+    /**
+     * @var string|null $memberType Membership type of the assignment. It can either be Inherited, Direct, or Group.
+    */
     private ?string $memberType = null;
     
-    /** @var string|null $roleEligibilityScheduleId Identifier of the parent roleEligibilitySchedule for this instance. */
+    /**
+     * @var string|null $roleEligibilityScheduleId Identifier of the parent roleEligibilitySchedule for this instance.
+    */
     private ?string $roleEligibilityScheduleId = null;
     
-    /** @var DateTime|null $startDateTime Time that the roleEligibilityScheduleInstance will start. */
+    /**
+     * @var DateTime|null $startDateTime Time that the roleEligibilityScheduleInstance will start.
+    */
     private ?DateTime $startDateTime = null;
     
     /**
@@ -33,7 +41,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRoleEligibilityScheduleInstance
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleEligibilityScheduleInstance {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleEligibilityScheduleInstance {
         return new UnifiedRoleEligibilityScheduleInstance();
     }
 
@@ -50,11 +58,12 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'memberType' => function (self $o, ParseNode $n) { $o->setMemberType($n->getStringValue()); },
-            'roleEligibilityScheduleId' => function (self $o, ParseNode $n) { $o->setRoleEligibilityScheduleId($n->getStringValue()); },
-            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'memberType' => function (ParseNode $n) use ($o) { $o->setMemberType($n->getStringValue()); },
+            'roleEligibilityScheduleId' => function (ParseNode $n) use ($o) { $o->setRoleEligibilityScheduleId($n->getStringValue()); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
         ]);
     }
 

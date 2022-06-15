@@ -9,55 +9,89 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $androidCorporateWorkProfileCount The count of Corporate work profile Android devices. Also known as Corporate Owned Personally Enabled (COPE). Valid values -1 to 2147483647 */
+    /**
+     * @var int|null $androidCorporateWorkProfileCount The count of Corporate work profile Android devices. Also known as Corporate Owned Personally Enabled (COPE). Valid values -1 to 2147483647
+    */
     private ?int $androidCorporateWorkProfileCount = null;
     
-    /** @var int|null $androidCount Number of android device count. */
+    /**
+     * @var int|null $androidCount Number of android device count.
+    */
     private ?int $androidCount = null;
     
-    /** @var int|null $androidDedicatedCount Number of dedicated Android devices. */
+    /**
+     * @var int|null $androidDedicatedCount Number of dedicated Android devices.
+    */
     private ?int $androidDedicatedCount = null;
     
-    /** @var int|null $androidDeviceAdminCount Number of device admin Android devices. */
+    /**
+     * @var int|null $androidDeviceAdminCount Number of device admin Android devices.
+    */
     private ?int $androidDeviceAdminCount = null;
     
-    /** @var int|null $androidFullyManagedCount Number of fully managed Android devices. */
+    /**
+     * @var int|null $androidFullyManagedCount Number of fully managed Android devices.
+    */
     private ?int $androidFullyManagedCount = null;
     
-    /** @var int|null $androidWorkProfileCount Number of work profile Android devices. */
+    /**
+     * @var int|null $androidWorkProfileCount Number of work profile Android devices.
+    */
     private ?int $androidWorkProfileCount = null;
     
-    /** @var int|null $aospUserAssociatedCount Number of AOSP user-associated Android devices. Valid values 0 to 2147483647 */
+    /**
+     * @var int|null $aospUserAssociatedCount Number of AOSP user-associated Android devices. Valid values 0 to 2147483647
+    */
     private ?int $aospUserAssociatedCount = null;
     
-    /** @var int|null $aospUserlessCount Number of AOSP userless Android devices. Valid values 0 to 2147483647 */
+    /**
+     * @var int|null $aospUserlessCount Number of AOSP userless Android devices. Valid values 0 to 2147483647
+    */
     private ?int $aospUserlessCount = null;
     
-    /** @var int|null $chromeOSCount Number of Chrome OS devices. Valid values 0 to 2147483647 */
+    /**
+     * @var int|null $chromeOSCount Number of Chrome OS devices. Valid values 0 to 2147483647
+    */
     private ?int $chromeOSCount = null;
     
-    /** @var int|null $configMgrDeviceCount Number of ConfigMgr managed devices. */
+    /**
+     * @var int|null $configMgrDeviceCount Number of ConfigMgr managed devices.
+    */
     private ?int $configMgrDeviceCount = null;
     
-    /** @var int|null $iosCount Number of iOS device count. */
+    /**
+     * @var int|null $iosCount Number of iOS device count.
+    */
     private ?int $iosCount = null;
     
-    /** @var int|null $linuxCount Number of Linux OS devices. Valid values 0 to 2147483647 */
+    /**
+     * @var int|null $linuxCount Number of Linux OS devices. Valid values 0 to 2147483647
+    */
     private ?int $linuxCount = null;
     
-    /** @var int|null $macOSCount Number of Mac OS X device count. */
+    /**
+     * @var int|null $macOSCount Number of Mac OS X device count.
+    */
     private ?int $macOSCount = null;
     
-    /** @var int|null $unknownCount Number of unknown device count. */
+    /**
+     * @var int|null $unknownCount Number of unknown device count.
+    */
     private ?int $unknownCount = null;
     
-    /** @var int|null $windowsCount Number of Windows device count. */
+    /**
+     * @var int|null $windowsCount Number of Windows device count.
+    */
     private ?int $windowsCount = null;
     
-    /** @var int|null $windowsMobileCount Number of Windows mobile device count. */
+    /**
+     * @var int|null $windowsMobileCount Number of Windows mobile device count.
+    */
     private ?int $windowsMobileCount = null;
     
     /**
@@ -72,7 +106,7 @@ class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceOperatingSystemSummary
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceOperatingSystemSummary {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceOperatingSystemSummary {
         return new DeviceOperatingSystemSummary();
     }
 
@@ -169,23 +203,24 @@ class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'androidCorporateWorkProfileCount' => function (self $o, ParseNode $n) { $o->setAndroidCorporateWorkProfileCount($n->getIntegerValue()); },
-            'androidCount' => function (self $o, ParseNode $n) { $o->setAndroidCount($n->getIntegerValue()); },
-            'androidDedicatedCount' => function (self $o, ParseNode $n) { $o->setAndroidDedicatedCount($n->getIntegerValue()); },
-            'androidDeviceAdminCount' => function (self $o, ParseNode $n) { $o->setAndroidDeviceAdminCount($n->getIntegerValue()); },
-            'androidFullyManagedCount' => function (self $o, ParseNode $n) { $o->setAndroidFullyManagedCount($n->getIntegerValue()); },
-            'androidWorkProfileCount' => function (self $o, ParseNode $n) { $o->setAndroidWorkProfileCount($n->getIntegerValue()); },
-            'aospUserAssociatedCount' => function (self $o, ParseNode $n) { $o->setAospUserAssociatedCount($n->getIntegerValue()); },
-            'aospUserlessCount' => function (self $o, ParseNode $n) { $o->setAospUserlessCount($n->getIntegerValue()); },
-            'chromeOSCount' => function (self $o, ParseNode $n) { $o->setChromeOSCount($n->getIntegerValue()); },
-            'configMgrDeviceCount' => function (self $o, ParseNode $n) { $o->setConfigMgrDeviceCount($n->getIntegerValue()); },
-            'iosCount' => function (self $o, ParseNode $n) { $o->setIosCount($n->getIntegerValue()); },
-            'linuxCount' => function (self $o, ParseNode $n) { $o->setLinuxCount($n->getIntegerValue()); },
-            'macOSCount' => function (self $o, ParseNode $n) { $o->setMacOSCount($n->getIntegerValue()); },
-            'unknownCount' => function (self $o, ParseNode $n) { $o->setUnknownCount($n->getIntegerValue()); },
-            'windowsCount' => function (self $o, ParseNode $n) { $o->setWindowsCount($n->getIntegerValue()); },
-            'windowsMobileCount' => function (self $o, ParseNode $n) { $o->setWindowsMobileCount($n->getIntegerValue()); },
+            'androidCorporateWorkProfileCount' => function (ParseNode $n) use ($o) { $o->setAndroidCorporateWorkProfileCount($n->getIntegerValue()); },
+            'androidCount' => function (ParseNode $n) use ($o) { $o->setAndroidCount($n->getIntegerValue()); },
+            'androidDedicatedCount' => function (ParseNode $n) use ($o) { $o->setAndroidDedicatedCount($n->getIntegerValue()); },
+            'androidDeviceAdminCount' => function (ParseNode $n) use ($o) { $o->setAndroidDeviceAdminCount($n->getIntegerValue()); },
+            'androidFullyManagedCount' => function (ParseNode $n) use ($o) { $o->setAndroidFullyManagedCount($n->getIntegerValue()); },
+            'androidWorkProfileCount' => function (ParseNode $n) use ($o) { $o->setAndroidWorkProfileCount($n->getIntegerValue()); },
+            'aospUserAssociatedCount' => function (ParseNode $n) use ($o) { $o->setAospUserAssociatedCount($n->getIntegerValue()); },
+            'aospUserlessCount' => function (ParseNode $n) use ($o) { $o->setAospUserlessCount($n->getIntegerValue()); },
+            'chromeOSCount' => function (ParseNode $n) use ($o) { $o->setChromeOSCount($n->getIntegerValue()); },
+            'configMgrDeviceCount' => function (ParseNode $n) use ($o) { $o->setConfigMgrDeviceCount($n->getIntegerValue()); },
+            'iosCount' => function (ParseNode $n) use ($o) { $o->setIosCount($n->getIntegerValue()); },
+            'linuxCount' => function (ParseNode $n) use ($o) { $o->setLinuxCount($n->getIntegerValue()); },
+            'macOSCount' => function (ParseNode $n) use ($o) { $o->setMacOSCount($n->getIntegerValue()); },
+            'unknownCount' => function (ParseNode $n) use ($o) { $o->setUnknownCount($n->getIntegerValue()); },
+            'windowsCount' => function (ParseNode $n) use ($o) { $o->setWindowsCount($n->getIntegerValue()); },
+            'windowsMobileCount' => function (ParseNode $n) use ($o) { $o->setWindowsMobileCount($n->getIntegerValue()); },
         ];
     }
 

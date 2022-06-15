@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MicrosoftManagedDesktop implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $profile The name of the Microsoft Managed Desktop profile that the Windows 365 Cloud PC is associated with. */
+    /**
+     * @var string|null $profile The name of the Microsoft Managed Desktop profile that the Windows 365 Cloud PC is associated with.
+    */
     private ?string $profile = null;
     
-    /** @var MicrosoftManagedDesktopType|null $type Indicates whether the provisioning policy enables Microsoft Managed Desktop. It indicates the type of plan under which the device is managed if the provisioning policy is enabled. Possible values are: notManaged, premiumManaged, standardManaged, starterManaged, unknownFutureValue. */
+    /**
+     * @var MicrosoftManagedDesktopType|null $type Indicates whether the provisioning policy enables Microsoft Managed Desktop. It indicates the type of plan under which the device is managed if the provisioning policy is enabled. Possible values are: notManaged, premiumManaged, standardManaged, starterManaged, unknownFutureValue.
+    */
     private ?MicrosoftManagedDesktopType $type = null;
     
     /**
@@ -30,7 +36,7 @@ class MicrosoftManagedDesktop implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MicrosoftManagedDesktop
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftManagedDesktop {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftManagedDesktop {
         return new MicrosoftManagedDesktop();
     }
 
@@ -47,9 +53,10 @@ class MicrosoftManagedDesktop implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'profile' => function (self $o, ParseNode $n) { $o->setProfile($n->getStringValue()); },
-            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(MicrosoftManagedDesktopType::class)); },
+            'profile' => function (ParseNode $n) use ($o) { $o->setProfile($n->getStringValue()); },
+            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(MicrosoftManagedDesktopType::class)); },
         ];
     }
 

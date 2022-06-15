@@ -7,36 +7,56 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PolicySet extends Entity 
+class PolicySet extends Entity implements Parsable 
 {
-    /** @var array<PolicySetAssignment>|null $assignments Assignments of the PolicySet. */
+    /**
+     * @var array<PolicySetAssignment>|null $assignments Assignments of the PolicySet.
+    */
     private ?array $assignments = null;
     
-    /** @var DateTime|null $createdDateTime Creation time of the PolicySet. */
+    /**
+     * @var DateTime|null $createdDateTime Creation time of the PolicySet.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $description Description of the PolicySet. */
+    /**
+     * @var string|null $description Description of the PolicySet.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName DisplayName of the PolicySet. */
+    /**
+     * @var string|null $displayName DisplayName of the PolicySet.
+    */
     private ?string $displayName = null;
     
-    /** @var ErrorCode|null $errorCode Error code if any occured. Possible values are: noError, unauthorized, notFound, deleted. */
+    /**
+     * @var ErrorCode|null $errorCode Error code if any occured. Possible values are: noError, unauthorized, notFound, deleted.
+    */
     private ?ErrorCode $errorCode = null;
     
-    /** @var array<string>|null $guidedDeploymentTags Tags of the guided deployment */
+    /**
+     * @var array<string>|null $guidedDeploymentTags Tags of the guided deployment
+    */
     private ?array $guidedDeploymentTags = null;
     
-    /** @var array<PolicySetItem>|null $items Items of the PolicySet with maximum count 100. */
+    /**
+     * @var array<PolicySetItem>|null $items Items of the PolicySet with maximum count 100.
+    */
     private ?array $items = null;
     
-    /** @var DateTime|null $lastModifiedDateTime Last modified time of the PolicySet. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime Last modified time of the PolicySet.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var array<string>|null $roleScopeTags RoleScopeTags of the PolicySet */
+    /**
+     * @var array<string>|null $roleScopeTags RoleScopeTags of the PolicySet
+    */
     private ?array $roleScopeTags = null;
     
-    /** @var PolicySetStatus|null $status Validation/assignment status of the PolicySet. Possible values are: unknown, validating, partialSuccess, success, error, notAssigned. */
+    /**
+     * @var PolicySetStatus|null $status Validation/assignment status of the PolicySet. Possible values are: unknown, validating, partialSuccess, success, error, notAssigned.
+    */
     private ?PolicySetStatus $status = null;
     
     /**
@@ -51,7 +71,7 @@ class PolicySet extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PolicySet
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PolicySet {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PolicySet {
         return new PolicySet();
     }
 
@@ -100,17 +120,18 @@ class PolicySet extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(PolicySetAssignment::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'errorCode' => function (self $o, ParseNode $n) { $o->setErrorCode($n->getEnumValue(ErrorCode::class)); },
-            'guidedDeploymentTags' => function (self $o, ParseNode $n) { $o->setGuidedDeploymentTags($n->getCollectionOfPrimitiveValues()); },
-            'items' => function (self $o, ParseNode $n) { $o->setItems($n->getCollectionOfObjectValues(PolicySetItem::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'roleScopeTags' => function (self $o, ParseNode $n) { $o->setRoleScopeTags($n->getCollectionOfPrimitiveValues()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(PolicySetStatus::class)); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(PolicySetAssignment::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getEnumValue(ErrorCode::class)); },
+            'guidedDeploymentTags' => function (ParseNode $n) use ($o) { $o->setGuidedDeploymentTags($n->getCollectionOfPrimitiveValues()); },
+            'items' => function (ParseNode $n) use ($o) { $o->setItems($n->getCollectionOfObjectValues(array(PolicySetItem::class, 'createFromDiscriminatorValue'))); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'roleScopeTags' => function (ParseNode $n) use ($o) { $o->setRoleScopeTags($n->getCollectionOfPrimitiveValues()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(PolicySetStatus::class)); },
         ]);
     }
 

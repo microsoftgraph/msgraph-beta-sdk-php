@@ -7,69 +7,111 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsProtectionState extends Entity 
+class WindowsProtectionState extends Entity implements Parsable 
 {
-    /** @var string|null $antiMalwareVersion Current anti malware version */
+    /**
+     * @var string|null $antiMalwareVersion Current anti malware version
+    */
     private ?string $antiMalwareVersion = null;
     
-    /** @var array<WindowsDeviceMalwareState>|null $detectedMalwareState Device malware list */
+    /**
+     * @var array<WindowsDeviceMalwareState>|null $detectedMalwareState Device malware list
+    */
     private ?array $detectedMalwareState = null;
     
-    /** @var WindowsDeviceHealthState|null $deviceState Computer's state (like clean or pending full scan or pending reboot etc). Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical. */
+    /**
+     * @var WindowsDeviceHealthState|null $deviceState Computer's state (like clean or pending full scan or pending reboot etc). Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical.
+    */
     private ?WindowsDeviceHealthState $deviceState = null;
     
-    /** @var string|null $engineVersion Current endpoint protection engine's version */
+    /**
+     * @var string|null $engineVersion Current endpoint protection engine's version
+    */
     private ?string $engineVersion = null;
     
-    /** @var bool|null $fullScanOverdue Full scan overdue or not? */
+    /**
+     * @var bool|null $fullScanOverdue Full scan overdue or not?
+    */
     private ?bool $fullScanOverdue = null;
     
-    /** @var bool|null $fullScanRequired Full scan required or not? */
+    /**
+     * @var bool|null $fullScanRequired Full scan required or not?
+    */
     private ?bool $fullScanRequired = null;
     
-    /** @var bool|null $isVirtualMachine Indicates whether the device is a virtual machine. */
+    /**
+     * @var bool|null $isVirtualMachine Indicates whether the device is a virtual machine.
+    */
     private ?bool $isVirtualMachine = null;
     
-    /** @var DateTime|null $lastFullScanDateTime Last quick scan datetime */
+    /**
+     * @var DateTime|null $lastFullScanDateTime Last quick scan datetime
+    */
     private ?DateTime $lastFullScanDateTime = null;
     
-    /** @var string|null $lastFullScanSignatureVersion Last full scan signature version */
+    /**
+     * @var string|null $lastFullScanSignatureVersion Last full scan signature version
+    */
     private ?string $lastFullScanSignatureVersion = null;
     
-    /** @var DateTime|null $lastQuickScanDateTime Last quick scan datetime */
+    /**
+     * @var DateTime|null $lastQuickScanDateTime Last quick scan datetime
+    */
     private ?DateTime $lastQuickScanDateTime = null;
     
-    /** @var string|null $lastQuickScanSignatureVersion Last quick scan signature version */
+    /**
+     * @var string|null $lastQuickScanSignatureVersion Last quick scan signature version
+    */
     private ?string $lastQuickScanSignatureVersion = null;
     
-    /** @var DateTime|null $lastReportedDateTime Last device health status reported time */
+    /**
+     * @var DateTime|null $lastReportedDateTime Last device health status reported time
+    */
     private ?DateTime $lastReportedDateTime = null;
     
-    /** @var bool|null $malwareProtectionEnabled Anti malware is enabled or not */
+    /**
+     * @var bool|null $malwareProtectionEnabled Anti malware is enabled or not
+    */
     private ?bool $malwareProtectionEnabled = null;
     
-    /** @var bool|null $networkInspectionSystemEnabled Network inspection system enabled or not? */
+    /**
+     * @var bool|null $networkInspectionSystemEnabled Network inspection system enabled or not?
+    */
     private ?bool $networkInspectionSystemEnabled = null;
     
-    /** @var WindowsDefenderProductStatus|null $productStatus Product Status of Windows Defender Antivirus. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall. */
+    /**
+     * @var WindowsDefenderProductStatus|null $productStatus Product Status of Windows Defender Antivirus. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall.
+    */
     private ?WindowsDefenderProductStatus $productStatus = null;
     
-    /** @var bool|null $quickScanOverdue Quick scan overdue or not? */
+    /**
+     * @var bool|null $quickScanOverdue Quick scan overdue or not?
+    */
     private ?bool $quickScanOverdue = null;
     
-    /** @var bool|null $realTimeProtectionEnabled Real time protection is enabled or not? */
+    /**
+     * @var bool|null $realTimeProtectionEnabled Real time protection is enabled or not?
+    */
     private ?bool $realTimeProtectionEnabled = null;
     
-    /** @var bool|null $rebootRequired Reboot required or not? */
+    /**
+     * @var bool|null $rebootRequired Reboot required or not?
+    */
     private ?bool $rebootRequired = null;
     
-    /** @var bool|null $signatureUpdateOverdue Signature out of date or not? */
+    /**
+     * @var bool|null $signatureUpdateOverdue Signature out of date or not?
+    */
     private ?bool $signatureUpdateOverdue = null;
     
-    /** @var string|null $signatureVersion Current malware definitions version */
+    /**
+     * @var string|null $signatureVersion Current malware definitions version
+    */
     private ?string $signatureVersion = null;
     
-    /** @var bool|null $tamperProtectionEnabled Indicates whether the Windows Defender tamper protection feature is enabled. */
+    /**
+     * @var bool|null $tamperProtectionEnabled Indicates whether the Windows Defender tamper protection feature is enabled.
+    */
     private ?bool $tamperProtectionEnabled = null;
     
     /**
@@ -84,7 +126,7 @@ class WindowsProtectionState extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsProtectionState
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsProtectionState {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsProtectionState {
         return new WindowsProtectionState();
     }
 
@@ -125,28 +167,29 @@ class WindowsProtectionState extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'antiMalwareVersion' => function (self $o, ParseNode $n) { $o->setAntiMalwareVersion($n->getStringValue()); },
-            'detectedMalwareState' => function (self $o, ParseNode $n) { $o->setDetectedMalwareState($n->getCollectionOfObjectValues(WindowsDeviceMalwareState::class)); },
-            'deviceState' => function (self $o, ParseNode $n) { $o->setDeviceState($n->getEnumValue(WindowsDeviceHealthState::class)); },
-            'engineVersion' => function (self $o, ParseNode $n) { $o->setEngineVersion($n->getStringValue()); },
-            'fullScanOverdue' => function (self $o, ParseNode $n) { $o->setFullScanOverdue($n->getBooleanValue()); },
-            'fullScanRequired' => function (self $o, ParseNode $n) { $o->setFullScanRequired($n->getBooleanValue()); },
-            'isVirtualMachine' => function (self $o, ParseNode $n) { $o->setIsVirtualMachine($n->getBooleanValue()); },
-            'lastFullScanDateTime' => function (self $o, ParseNode $n) { $o->setLastFullScanDateTime($n->getDateTimeValue()); },
-            'lastFullScanSignatureVersion' => function (self $o, ParseNode $n) { $o->setLastFullScanSignatureVersion($n->getStringValue()); },
-            'lastQuickScanDateTime' => function (self $o, ParseNode $n) { $o->setLastQuickScanDateTime($n->getDateTimeValue()); },
-            'lastQuickScanSignatureVersion' => function (self $o, ParseNode $n) { $o->setLastQuickScanSignatureVersion($n->getStringValue()); },
-            'lastReportedDateTime' => function (self $o, ParseNode $n) { $o->setLastReportedDateTime($n->getDateTimeValue()); },
-            'malwareProtectionEnabled' => function (self $o, ParseNode $n) { $o->setMalwareProtectionEnabled($n->getBooleanValue()); },
-            'networkInspectionSystemEnabled' => function (self $o, ParseNode $n) { $o->setNetworkInspectionSystemEnabled($n->getBooleanValue()); },
-            'productStatus' => function (self $o, ParseNode $n) { $o->setProductStatus($n->getEnumValue(WindowsDefenderProductStatus::class)); },
-            'quickScanOverdue' => function (self $o, ParseNode $n) { $o->setQuickScanOverdue($n->getBooleanValue()); },
-            'realTimeProtectionEnabled' => function (self $o, ParseNode $n) { $o->setRealTimeProtectionEnabled($n->getBooleanValue()); },
-            'rebootRequired' => function (self $o, ParseNode $n) { $o->setRebootRequired($n->getBooleanValue()); },
-            'signatureUpdateOverdue' => function (self $o, ParseNode $n) { $o->setSignatureUpdateOverdue($n->getBooleanValue()); },
-            'signatureVersion' => function (self $o, ParseNode $n) { $o->setSignatureVersion($n->getStringValue()); },
-            'tamperProtectionEnabled' => function (self $o, ParseNode $n) { $o->setTamperProtectionEnabled($n->getBooleanValue()); },
+            'antiMalwareVersion' => function (ParseNode $n) use ($o) { $o->setAntiMalwareVersion($n->getStringValue()); },
+            'detectedMalwareState' => function (ParseNode $n) use ($o) { $o->setDetectedMalwareState($n->getCollectionOfObjectValues(array(WindowsDeviceMalwareState::class, 'createFromDiscriminatorValue'))); },
+            'deviceState' => function (ParseNode $n) use ($o) { $o->setDeviceState($n->getEnumValue(WindowsDeviceHealthState::class)); },
+            'engineVersion' => function (ParseNode $n) use ($o) { $o->setEngineVersion($n->getStringValue()); },
+            'fullScanOverdue' => function (ParseNode $n) use ($o) { $o->setFullScanOverdue($n->getBooleanValue()); },
+            'fullScanRequired' => function (ParseNode $n) use ($o) { $o->setFullScanRequired($n->getBooleanValue()); },
+            'isVirtualMachine' => function (ParseNode $n) use ($o) { $o->setIsVirtualMachine($n->getBooleanValue()); },
+            'lastFullScanDateTime' => function (ParseNode $n) use ($o) { $o->setLastFullScanDateTime($n->getDateTimeValue()); },
+            'lastFullScanSignatureVersion' => function (ParseNode $n) use ($o) { $o->setLastFullScanSignatureVersion($n->getStringValue()); },
+            'lastQuickScanDateTime' => function (ParseNode $n) use ($o) { $o->setLastQuickScanDateTime($n->getDateTimeValue()); },
+            'lastQuickScanSignatureVersion' => function (ParseNode $n) use ($o) { $o->setLastQuickScanSignatureVersion($n->getStringValue()); },
+            'lastReportedDateTime' => function (ParseNode $n) use ($o) { $o->setLastReportedDateTime($n->getDateTimeValue()); },
+            'malwareProtectionEnabled' => function (ParseNode $n) use ($o) { $o->setMalwareProtectionEnabled($n->getBooleanValue()); },
+            'networkInspectionSystemEnabled' => function (ParseNode $n) use ($o) { $o->setNetworkInspectionSystemEnabled($n->getBooleanValue()); },
+            'productStatus' => function (ParseNode $n) use ($o) { $o->setProductStatus($n->getEnumValue(WindowsDefenderProductStatus::class)); },
+            'quickScanOverdue' => function (ParseNode $n) use ($o) { $o->setQuickScanOverdue($n->getBooleanValue()); },
+            'realTimeProtectionEnabled' => function (ParseNode $n) use ($o) { $o->setRealTimeProtectionEnabled($n->getBooleanValue()); },
+            'rebootRequired' => function (ParseNode $n) use ($o) { $o->setRebootRequired($n->getBooleanValue()); },
+            'signatureUpdateOverdue' => function (ParseNode $n) use ($o) { $o->setSignatureUpdateOverdue($n->getBooleanValue()); },
+            'signatureVersion' => function (ParseNode $n) use ($o) { $o->setSignatureVersion($n->getStringValue()); },
+            'tamperProtectionEnabled' => function (ParseNode $n) use ($o) { $o->setTamperProtectionEnabled($n->getBooleanValue()); },
         ]);
     }
 

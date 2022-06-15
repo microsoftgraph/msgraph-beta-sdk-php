@@ -6,22 +6,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase 
+class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase implements Parsable 
 {
-    /** @var UnifiedRoleEligibilitySchedule|null $activatedUsing If the roleAssignmentSchedule is activated by a roleEligibilitySchedule, this is the link to that schedule. */
+    /**
+     * @var UnifiedRoleEligibilitySchedule|null $activatedUsing If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand.
+    */
     private ?UnifiedRoleEligibilitySchedule $activatedUsing = null;
     
-    /** @var string|null $assignmentType Type of the assignment. It can either be Assigned or Activated. */
+    /**
+     * @var string|null $assignmentType Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne).
+    */
     private ?string $assignmentType = null;
     
-    /** @var string|null $memberType Membership type of the assignment. It can either be Inherited, Direct, or Group. */
+    /**
+     * @var string|null $memberType How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne).
+    */
     private ?string $memberType = null;
     
-    /** @var RequestSchedule|null $scheduleInfo The schedule object of the role assignment request. */
+    /**
+     * @var RequestSchedule|null $scheduleInfo The period of the role assignment. It can represent a single occurrence or multiple recurrences.
+    */
     private ?RequestSchedule $scheduleInfo = null;
     
     /**
-     * Instantiates a new unifiedRoleAssignmentSchedule and sets the default values.
+     * Instantiates a new UnifiedRoleAssignmentSchedule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,12 +40,12 @@ class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRoleAssignmentSchedule
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleAssignmentSchedule {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleAssignmentSchedule {
         return new UnifiedRoleAssignmentSchedule();
     }
 
     /**
-     * Gets the activatedUsing property value. If the roleAssignmentSchedule is activated by a roleEligibilitySchedule, this is the link to that schedule.
+     * Gets the activatedUsing property value. If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand.
      * @return UnifiedRoleEligibilitySchedule|null
     */
     public function getActivatedUsing(): ?UnifiedRoleEligibilitySchedule {
@@ -45,7 +53,7 @@ class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase
     }
 
     /**
-     * Gets the assignmentType property value. Type of the assignment. It can either be Assigned or Activated.
+     * Gets the assignmentType property value. Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne).
      * @return string|null
     */
     public function getAssignmentType(): ?string {
@@ -57,16 +65,17 @@ class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activatedUsing' => function (self $o, ParseNode $n) { $o->setActivatedUsing($n->getObjectValue(UnifiedRoleEligibilitySchedule::class)); },
-            'assignmentType' => function (self $o, ParseNode $n) { $o->setAssignmentType($n->getStringValue()); },
-            'memberType' => function (self $o, ParseNode $n) { $o->setMemberType($n->getStringValue()); },
-            'scheduleInfo' => function (self $o, ParseNode $n) { $o->setScheduleInfo($n->getObjectValue(RequestSchedule::class)); },
+            'activatedUsing' => function (ParseNode $n) use ($o) { $o->setActivatedUsing($n->getObjectValue(array(UnifiedRoleEligibilitySchedule::class, 'createFromDiscriminatorValue'))); },
+            'assignmentType' => function (ParseNode $n) use ($o) { $o->setAssignmentType($n->getStringValue()); },
+            'memberType' => function (ParseNode $n) use ($o) { $o->setMemberType($n->getStringValue()); },
+            'scheduleInfo' => function (ParseNode $n) use ($o) { $o->setScheduleInfo($n->getObjectValue(array(RequestSchedule::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
     /**
-     * Gets the memberType property value. Membership type of the assignment. It can either be Inherited, Direct, or Group.
+     * Gets the memberType property value. How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne).
      * @return string|null
     */
     public function getMemberType(): ?string {
@@ -74,7 +83,7 @@ class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase
     }
 
     /**
-     * Gets the scheduleInfo property value. The schedule object of the role assignment request.
+     * Gets the scheduleInfo property value. The period of the role assignment. It can represent a single occurrence or multiple recurrences.
      * @return RequestSchedule|null
     */
     public function getScheduleInfo(): ?RequestSchedule {
@@ -94,7 +103,7 @@ class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase
     }
 
     /**
-     * Sets the activatedUsing property value. If the roleAssignmentSchedule is activated by a roleEligibilitySchedule, this is the link to that schedule.
+     * Sets the activatedUsing property value. If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand.
      *  @param UnifiedRoleEligibilitySchedule|null $value Value to set for the activatedUsing property.
     */
     public function setActivatedUsing(?UnifiedRoleEligibilitySchedule $value ): void {
@@ -102,7 +111,7 @@ class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase
     }
 
     /**
-     * Sets the assignmentType property value. Type of the assignment. It can either be Assigned or Activated.
+     * Sets the assignmentType property value. Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne).
      *  @param string|null $value Value to set for the assignmentType property.
     */
     public function setAssignmentType(?string $value ): void {
@@ -110,7 +119,7 @@ class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase
     }
 
     /**
-     * Sets the memberType property value. Membership type of the assignment. It can either be Inherited, Direct, or Group.
+     * Sets the memberType property value. How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne).
      *  @param string|null $value Value to set for the memberType property.
     */
     public function setMemberType(?string $value ): void {
@@ -118,7 +127,7 @@ class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase
     }
 
     /**
-     * Sets the scheduleInfo property value. The schedule object of the role assignment request.
+     * Sets the scheduleInfo property value. The period of the role assignment. It can represent a single occurrence or multiple recurrences.
      *  @param RequestSchedule|null $value Value to set for the scheduleInfo property.
     */
     public function setScheduleInfo(?RequestSchedule $value ): void {

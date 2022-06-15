@@ -7,33 +7,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TeamworkDeviceHealth extends Entity 
+class TeamworkDeviceHealth extends Entity implements Parsable 
 {
-    /** @var TeamworkConnection|null $connection The connection property */
+    /**
+     * @var TeamworkConnection|null $connection The connection property
+    */
     private ?TeamworkConnection $connection = null;
     
-    /** @var IdentitySet|null $createdBy Identity of the user who created the device health document. */
+    /**
+     * @var IdentitySet|null $createdBy Identity of the user who created the device health document.
+    */
     private ?IdentitySet $createdBy = null;
     
-    /** @var DateTime|null $createdDateTime The UTC date and time when the device health document was created. */
+    /**
+     * @var DateTime|null $createdDateTime The UTC date and time when the device health document was created.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var TeamworkHardwareHealth|null $hardwareHealth Health details about the device hardware. */
+    /**
+     * @var TeamworkHardwareHealth|null $hardwareHealth Health details about the device hardware.
+    */
     private ?TeamworkHardwareHealth $hardwareHealth = null;
     
-    /** @var IdentitySet|null $lastModifiedBy Identity of the user who last modified the device health details. */
+    /**
+     * @var IdentitySet|null $lastModifiedBy Identity of the user who last modified the device health details.
+    */
     private ?IdentitySet $lastModifiedBy = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The UTC date and time when the device health detail was last modified. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The UTC date and time when the device health detail was last modified.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var TeamworkLoginStatus|null $loginStatus The login status of Microsoft Teams, Skype for Business, and Exchange. */
+    /**
+     * @var TeamworkLoginStatus|null $loginStatus The login status of Microsoft Teams, Skype for Business, and Exchange.
+    */
     private ?TeamworkLoginStatus $loginStatus = null;
     
-    /** @var TeamworkPeripheralsHealth|null $peripheralsHealth Health details about all peripherals (for example, speaker and microphone) attached to a device. */
+    /**
+     * @var TeamworkPeripheralsHealth|null $peripheralsHealth Health details about all peripherals (for example, speaker and microphone) attached to a device.
+    */
     private ?TeamworkPeripheralsHealth $peripheralsHealth = null;
     
-    /** @var TeamworkSoftwareUpdateHealth|null $softwareUpdateHealth Software updates available for the device. */
+    /**
+     * @var TeamworkSoftwareUpdateHealth|null $softwareUpdateHealth Software updates available for the device.
+    */
     private ?TeamworkSoftwareUpdateHealth $softwareUpdateHealth = null;
     
     /**
@@ -48,7 +66,7 @@ class TeamworkDeviceHealth extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkDeviceHealth
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDeviceHealth {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDeviceHealth {
         return new TeamworkDeviceHealth();
     }
 
@@ -81,16 +99,17 @@ class TeamworkDeviceHealth extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'connection' => function (self $o, ParseNode $n) { $o->setConnection($n->getObjectValue(TeamworkConnection::class)); },
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(IdentitySet::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'hardwareHealth' => function (self $o, ParseNode $n) { $o->setHardwareHealth($n->getObjectValue(TeamworkHardwareHealth::class)); },
-            'lastModifiedBy' => function (self $o, ParseNode $n) { $o->setLastModifiedBy($n->getObjectValue(IdentitySet::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'loginStatus' => function (self $o, ParseNode $n) { $o->setLoginStatus($n->getObjectValue(TeamworkLoginStatus::class)); },
-            'peripheralsHealth' => function (self $o, ParseNode $n) { $o->setPeripheralsHealth($n->getObjectValue(TeamworkPeripheralsHealth::class)); },
-            'softwareUpdateHealth' => function (self $o, ParseNode $n) { $o->setSoftwareUpdateHealth($n->getObjectValue(TeamworkSoftwareUpdateHealth::class)); },
+            'connection' => function (ParseNode $n) use ($o) { $o->setConnection($n->getObjectValue(array(TeamworkConnection::class, 'createFromDiscriminatorValue'))); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'hardwareHealth' => function (ParseNode $n) use ($o) { $o->setHardwareHealth($n->getObjectValue(array(TeamworkHardwareHealth::class, 'createFromDiscriminatorValue'))); },
+            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'loginStatus' => function (ParseNode $n) use ($o) { $o->setLoginStatus($n->getObjectValue(array(TeamworkLoginStatus::class, 'createFromDiscriminatorValue'))); },
+            'peripheralsHealth' => function (ParseNode $n) use ($o) { $o->setPeripheralsHealth($n->getObjectValue(array(TeamworkPeripheralsHealth::class, 'createFromDiscriminatorValue'))); },
+            'softwareUpdateHealth' => function (ParseNode $n) use ($o) { $o->setSoftwareUpdateHealth($n->getObjectValue(array(TeamworkSoftwareUpdateHealth::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

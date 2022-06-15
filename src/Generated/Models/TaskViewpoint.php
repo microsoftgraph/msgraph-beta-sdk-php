@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TaskViewpoint implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<string>|null $categories The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined. */
+    /**
+     * @var array<string>|null $categories The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
+    */
     private ?array $categories = null;
     
-    /** @var DateTimeTimeZone|null $reminderDateTime The date and time for a reminder alert of the task to occur. */
+    /**
+     * @var DateTimeTimeZone|null $reminderDateTime The date and time for a reminder alert of the task to occur.
+    */
     private ?DateTimeTimeZone $reminderDateTime = null;
     
     /**
@@ -30,7 +36,7 @@ class TaskViewpoint implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TaskViewpoint
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TaskViewpoint {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TaskViewpoint {
         return new TaskViewpoint();
     }
 
@@ -55,9 +61,10 @@ class TaskViewpoint implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'categories' => function (self $o, ParseNode $n) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
-            'reminderDateTime' => function (self $o, ParseNode $n) { $o->setReminderDateTime($n->getObjectValue(DateTimeTimeZone::class)); },
+            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
+            'reminderDateTime' => function (ParseNode $n) use ($o) { $o->setReminderDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

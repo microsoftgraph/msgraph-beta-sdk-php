@@ -9,22 +9,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $confidence The confidence property */
+    /**
+     * @var int|null $confidence The confidence property
+    */
     private ?int $confidence = null;
     
-    /** @var string|null $displayName The displayName property */
+    /**
+     * @var string|null $displayName The displayName property
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $id The id property */
+    /**
+     * @var string|null $id The id property
+    */
     private ?string $id = null;
     
-    /** @var int|null $recommendedConfidence The recommendedConfidence property */
+    /**
+     * @var int|null $recommendedConfidence The recommendedConfidence property
+    */
     private ?int $recommendedConfidence = null;
     
-    /** @var int|null $uniqueCount The uniqueCount property */
+    /**
+     * @var int|null $uniqueCount The uniqueCount property
+    */
     private ?int $uniqueCount = null;
     
     /**
@@ -39,7 +51,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DetectedSensitiveContentBase
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DetectedSensitiveContentBase {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DetectedSensitiveContentBase {
         return new DetectedSensitiveContentBase();
     }
 
@@ -72,12 +84,13 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'confidence' => function (self $o, ParseNode $n) { $o->setConfidence($n->getIntegerValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
-            'recommendedConfidence' => function (self $o, ParseNode $n) { $o->setRecommendedConfidence($n->getIntegerValue()); },
-            'uniqueCount' => function (self $o, ParseNode $n) { $o->setUniqueCount($n->getIntegerValue()); },
+            'confidence' => function (ParseNode $n) use ($o) { $o->setConfidence($n->getIntegerValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'recommendedConfidence' => function (ParseNode $n) use ($o) { $o->setRecommendedConfidence($n->getIntegerValue()); },
+            'uniqueCount' => function (ParseNode $n) use ($o) { $o->setUniqueCount($n->getIntegerValue()); },
         ];
     }
 

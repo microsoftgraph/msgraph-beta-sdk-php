@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EmailIdentity extends Identity 
+class EmailIdentity extends Identity implements Parsable 
 {
-    /** @var string|null $email Email address of the user. */
+    /**
+     * @var string|null $email Email address of the user.
+    */
     private ?string $email = null;
     
     /**
@@ -23,7 +25,7 @@ class EmailIdentity extends Identity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EmailIdentity
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): EmailIdentity {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): EmailIdentity {
         return new EmailIdentity();
     }
 
@@ -40,8 +42,9 @@ class EmailIdentity extends Identity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'email' => function (self $o, ParseNode $n) { $o->setEmail($n->getStringValue()); },
+            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
         ]);
     }
 

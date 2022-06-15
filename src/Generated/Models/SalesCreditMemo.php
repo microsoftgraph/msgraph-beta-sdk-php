@@ -8,103 +8,167 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class SalesCreditMemo extends Entity 
+class SalesCreditMemo extends Entity implements Parsable 
 {
-    /** @var PostalAddressType|null $billingPostalAddress The billingPostalAddress property */
+    /**
+     * @var PostalAddressType|null $billingPostalAddress The billingPostalAddress property
+    */
     private ?PostalAddressType $billingPostalAddress = null;
     
-    /** @var string|null $billToCustomerId The billToCustomerId property */
+    /**
+     * @var string|null $billToCustomerId The billToCustomerId property
+    */
     private ?string $billToCustomerId = null;
     
-    /** @var string|null $billToCustomerNumber The billToCustomerNumber property */
+    /**
+     * @var string|null $billToCustomerNumber The billToCustomerNumber property
+    */
     private ?string $billToCustomerNumber = null;
     
-    /** @var string|null $billToName The billToName property */
+    /**
+     * @var string|null $billToName The billToName property
+    */
     private ?string $billToName = null;
     
-    /** @var Date|null $creditMemoDate The creditMemoDate property */
+    /**
+     * @var Date|null $creditMemoDate The creditMemoDate property
+    */
     private ?Date $creditMemoDate = null;
     
-    /** @var Currency|null $currency The currency property */
+    /**
+     * @var Currency|null $currency The currency property
+    */
     private ?Currency $currency = null;
     
-    /** @var string|null $currencyCode The currencyCode property */
+    /**
+     * @var string|null $currencyCode The currencyCode property
+    */
     private ?string $currencyCode = null;
     
-    /** @var string|null $currencyId The currencyId property */
+    /**
+     * @var string|null $currencyId The currencyId property
+    */
     private ?string $currencyId = null;
     
-    /** @var Customer|null $customer The customer property */
+    /**
+     * @var Customer|null $customer The customer property
+    */
     private ?Customer $customer = null;
     
-    /** @var string|null $customerId The customerId property */
+    /**
+     * @var string|null $customerId The customerId property
+    */
     private ?string $customerId = null;
     
-    /** @var string|null $customerName The customerName property */
+    /**
+     * @var string|null $customerName The customerName property
+    */
     private ?string $customerName = null;
     
-    /** @var string|null $customerNumber The customerNumber property */
+    /**
+     * @var string|null $customerNumber The customerNumber property
+    */
     private ?string $customerNumber = null;
     
-    /** @var float|null $discountAmount The discountAmount property */
-    private ?float $discountAmount = null;
+    /**
+     * @var string|null $discountAmount The discountAmount property
+    */
+    private ?string $discountAmount = null;
     
-    /** @var bool|null $discountAppliedBeforeTax The discountAppliedBeforeTax property */
+    /**
+     * @var bool|null $discountAppliedBeforeTax The discountAppliedBeforeTax property
+    */
     private ?bool $discountAppliedBeforeTax = null;
     
-    /** @var Date|null $dueDate The dueDate property */
+    /**
+     * @var Date|null $dueDate The dueDate property
+    */
     private ?Date $dueDate = null;
     
-    /** @var string|null $email The email property */
+    /**
+     * @var string|null $email The email property
+    */
     private ?string $email = null;
     
-    /** @var string|null $externalDocumentNumber The externalDocumentNumber property */
+    /**
+     * @var string|null $externalDocumentNumber The externalDocumentNumber property
+    */
     private ?string $externalDocumentNumber = null;
     
-    /** @var string|null $invoiceId The invoiceId property */
+    /**
+     * @var string|null $invoiceId The invoiceId property
+    */
     private ?string $invoiceId = null;
     
-    /** @var string|null $invoiceNumber The invoiceNumber property */
+    /**
+     * @var string|null $invoiceNumber The invoiceNumber property
+    */
     private ?string $invoiceNumber = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var string|null $number The number property */
+    /**
+     * @var string|null $number The number property
+    */
     private ?string $number = null;
     
-    /** @var PaymentTerm|null $paymentTerm The paymentTerm property */
+    /**
+     * @var PaymentTerm|null $paymentTerm The paymentTerm property
+    */
     private ?PaymentTerm $paymentTerm = null;
     
-    /** @var string|null $paymentTermsId The paymentTermsId property */
+    /**
+     * @var string|null $paymentTermsId The paymentTermsId property
+    */
     private ?string $paymentTermsId = null;
     
-    /** @var string|null $phoneNumber The phoneNumber property */
+    /**
+     * @var string|null $phoneNumber The phoneNumber property
+    */
     private ?string $phoneNumber = null;
     
-    /** @var bool|null $pricesIncludeTax The pricesIncludeTax property */
+    /**
+     * @var bool|null $pricesIncludeTax The pricesIncludeTax property
+    */
     private ?bool $pricesIncludeTax = null;
     
-    /** @var array<SalesCreditMemoLine>|null $salesCreditMemoLines The salesCreditMemoLines property */
+    /**
+     * @var array<SalesCreditMemoLine>|null $salesCreditMemoLines The salesCreditMemoLines property
+    */
     private ?array $salesCreditMemoLines = null;
     
-    /** @var string|null $salesperson The salesperson property */
+    /**
+     * @var string|null $salesperson The salesperson property
+    */
     private ?string $salesperson = null;
     
-    /** @var PostalAddressType|null $sellingPostalAddress The sellingPostalAddress property */
+    /**
+     * @var PostalAddressType|null $sellingPostalAddress The sellingPostalAddress property
+    */
     private ?PostalAddressType $sellingPostalAddress = null;
     
-    /** @var string|null $status The status property */
+    /**
+     * @var string|null $status The status property
+    */
     private ?string $status = null;
     
-    /** @var float|null $totalAmountExcludingTax The totalAmountExcludingTax property */
-    private ?float $totalAmountExcludingTax = null;
+    /**
+     * @var string|null $totalAmountExcludingTax The totalAmountExcludingTax property
+    */
+    private ?string $totalAmountExcludingTax = null;
     
-    /** @var float|null $totalAmountIncludingTax The totalAmountIncludingTax property */
-    private ?float $totalAmountIncludingTax = null;
+    /**
+     * @var string|null $totalAmountIncludingTax The totalAmountIncludingTax property
+    */
+    private ?string $totalAmountIncludingTax = null;
     
-    /** @var float|null $totalTaxAmount The totalTaxAmount property */
-    private ?float $totalTaxAmount = null;
+    /**
+     * @var string|null $totalTaxAmount The totalTaxAmount property
+    */
+    private ?string $totalTaxAmount = null;
     
     /**
      * Instantiates a new salesCreditMemo and sets the default values.
@@ -118,7 +182,7 @@ class SalesCreditMemo extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SalesCreditMemo
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SalesCreditMemo {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SalesCreditMemo {
         return new SalesCreditMemo();
     }
 
@@ -220,9 +284,9 @@ class SalesCreditMemo extends Entity
 
     /**
      * Gets the discountAmount property value. The discountAmount property
-     * @return float|null
+     * @return string|null
     */
-    public function getDiscountAmount(): ?float {
+    public function getDiscountAmount(): ?string {
         return $this->discountAmount;
     }
 
@@ -263,39 +327,40 @@ class SalesCreditMemo extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'billingPostalAddress' => function (self $o, ParseNode $n) { $o->setBillingPostalAddress($n->getObjectValue(PostalAddressType::class)); },
-            'billToCustomerId' => function (self $o, ParseNode $n) { $o->setBillToCustomerId($n->getStringValue()); },
-            'billToCustomerNumber' => function (self $o, ParseNode $n) { $o->setBillToCustomerNumber($n->getStringValue()); },
-            'billToName' => function (self $o, ParseNode $n) { $o->setBillToName($n->getStringValue()); },
-            'creditMemoDate' => function (self $o, ParseNode $n) { $o->setCreditMemoDate($n->getDateValue()); },
-            'currency' => function (self $o, ParseNode $n) { $o->setCurrency($n->getObjectValue(Currency::class)); },
-            'currencyCode' => function (self $o, ParseNode $n) { $o->setCurrencyCode($n->getStringValue()); },
-            'currencyId' => function (self $o, ParseNode $n) { $o->setCurrencyId($n->getStringValue()); },
-            'customer' => function (self $o, ParseNode $n) { $o->setCustomer($n->getObjectValue(Customer::class)); },
-            'customerId' => function (self $o, ParseNode $n) { $o->setCustomerId($n->getStringValue()); },
-            'customerName' => function (self $o, ParseNode $n) { $o->setCustomerName($n->getStringValue()); },
-            'customerNumber' => function (self $o, ParseNode $n) { $o->setCustomerNumber($n->getStringValue()); },
-            'discountAmount' => function (self $o, ParseNode $n) { $o->setDiscountAmount($n->getFloatValue()); },
-            'discountAppliedBeforeTax' => function (self $o, ParseNode $n) { $o->setDiscountAppliedBeforeTax($n->getBooleanValue()); },
-            'dueDate' => function (self $o, ParseNode $n) { $o->setDueDate($n->getDateValue()); },
-            'email' => function (self $o, ParseNode $n) { $o->setEmail($n->getStringValue()); },
-            'externalDocumentNumber' => function (self $o, ParseNode $n) { $o->setExternalDocumentNumber($n->getStringValue()); },
-            'invoiceId' => function (self $o, ParseNode $n) { $o->setInvoiceId($n->getStringValue()); },
-            'invoiceNumber' => function (self $o, ParseNode $n) { $o->setInvoiceNumber($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'number' => function (self $o, ParseNode $n) { $o->setNumber($n->getStringValue()); },
-            'paymentTerm' => function (self $o, ParseNode $n) { $o->setPaymentTerm($n->getObjectValue(PaymentTerm::class)); },
-            'paymentTermsId' => function (self $o, ParseNode $n) { $o->setPaymentTermsId($n->getStringValue()); },
-            'phoneNumber' => function (self $o, ParseNode $n) { $o->setPhoneNumber($n->getStringValue()); },
-            'pricesIncludeTax' => function (self $o, ParseNode $n) { $o->setPricesIncludeTax($n->getBooleanValue()); },
-            'salesCreditMemoLines' => function (self $o, ParseNode $n) { $o->setSalesCreditMemoLines($n->getCollectionOfObjectValues(SalesCreditMemoLine::class)); },
-            'salesperson' => function (self $o, ParseNode $n) { $o->setSalesperson($n->getStringValue()); },
-            'sellingPostalAddress' => function (self $o, ParseNode $n) { $o->setSellingPostalAddress($n->getObjectValue(PostalAddressType::class)); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
-            'totalAmountExcludingTax' => function (self $o, ParseNode $n) { $o->setTotalAmountExcludingTax($n->getFloatValue()); },
-            'totalAmountIncludingTax' => function (self $o, ParseNode $n) { $o->setTotalAmountIncludingTax($n->getFloatValue()); },
-            'totalTaxAmount' => function (self $o, ParseNode $n) { $o->setTotalTaxAmount($n->getFloatValue()); },
+            'billingPostalAddress' => function (ParseNode $n) use ($o) { $o->setBillingPostalAddress($n->getObjectValue(array(PostalAddressType::class, 'createFromDiscriminatorValue'))); },
+            'billToCustomerId' => function (ParseNode $n) use ($o) { $o->setBillToCustomerId($n->getStringValue()); },
+            'billToCustomerNumber' => function (ParseNode $n) use ($o) { $o->setBillToCustomerNumber($n->getStringValue()); },
+            'billToName' => function (ParseNode $n) use ($o) { $o->setBillToName($n->getStringValue()); },
+            'creditMemoDate' => function (ParseNode $n) use ($o) { $o->setCreditMemoDate($n->getDateValue()); },
+            'currency' => function (ParseNode $n) use ($o) { $o->setCurrency($n->getObjectValue(array(Currency::class, 'createFromDiscriminatorValue'))); },
+            'currencyCode' => function (ParseNode $n) use ($o) { $o->setCurrencyCode($n->getStringValue()); },
+            'currencyId' => function (ParseNode $n) use ($o) { $o->setCurrencyId($n->getStringValue()); },
+            'customer' => function (ParseNode $n) use ($o) { $o->setCustomer($n->getObjectValue(array(Customer::class, 'createFromDiscriminatorValue'))); },
+            'customerId' => function (ParseNode $n) use ($o) { $o->setCustomerId($n->getStringValue()); },
+            'customerName' => function (ParseNode $n) use ($o) { $o->setCustomerName($n->getStringValue()); },
+            'customerNumber' => function (ParseNode $n) use ($o) { $o->setCustomerNumber($n->getStringValue()); },
+            'discountAmount' => function (ParseNode $n) use ($o) { $o->setDiscountAmount($n->getStringValue()); },
+            'discountAppliedBeforeTax' => function (ParseNode $n) use ($o) { $o->setDiscountAppliedBeforeTax($n->getBooleanValue()); },
+            'dueDate' => function (ParseNode $n) use ($o) { $o->setDueDate($n->getDateValue()); },
+            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
+            'externalDocumentNumber' => function (ParseNode $n) use ($o) { $o->setExternalDocumentNumber($n->getStringValue()); },
+            'invoiceId' => function (ParseNode $n) use ($o) { $o->setInvoiceId($n->getStringValue()); },
+            'invoiceNumber' => function (ParseNode $n) use ($o) { $o->setInvoiceNumber($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'number' => function (ParseNode $n) use ($o) { $o->setNumber($n->getStringValue()); },
+            'paymentTerm' => function (ParseNode $n) use ($o) { $o->setPaymentTerm($n->getObjectValue(array(PaymentTerm::class, 'createFromDiscriminatorValue'))); },
+            'paymentTermsId' => function (ParseNode $n) use ($o) { $o->setPaymentTermsId($n->getStringValue()); },
+            'phoneNumber' => function (ParseNode $n) use ($o) { $o->setPhoneNumber($n->getStringValue()); },
+            'pricesIncludeTax' => function (ParseNode $n) use ($o) { $o->setPricesIncludeTax($n->getBooleanValue()); },
+            'salesCreditMemoLines' => function (ParseNode $n) use ($o) { $o->setSalesCreditMemoLines($n->getCollectionOfObjectValues(array(SalesCreditMemoLine::class, 'createFromDiscriminatorValue'))); },
+            'salesperson' => function (ParseNode $n) use ($o) { $o->setSalesperson($n->getStringValue()); },
+            'sellingPostalAddress' => function (ParseNode $n) use ($o) { $o->setSellingPostalAddress($n->getObjectValue(array(PostalAddressType::class, 'createFromDiscriminatorValue'))); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
+            'totalAmountExcludingTax' => function (ParseNode $n) use ($o) { $o->setTotalAmountExcludingTax($n->getStringValue()); },
+            'totalAmountIncludingTax' => function (ParseNode $n) use ($o) { $o->setTotalAmountIncludingTax($n->getStringValue()); },
+            'totalTaxAmount' => function (ParseNode $n) use ($o) { $o->setTotalTaxAmount($n->getStringValue()); },
         ]);
     }
 
@@ -397,25 +462,25 @@ class SalesCreditMemo extends Entity
 
     /**
      * Gets the totalAmountExcludingTax property value. The totalAmountExcludingTax property
-     * @return float|null
+     * @return string|null
     */
-    public function getTotalAmountExcludingTax(): ?float {
+    public function getTotalAmountExcludingTax(): ?string {
         return $this->totalAmountExcludingTax;
     }
 
     /**
      * Gets the totalAmountIncludingTax property value. The totalAmountIncludingTax property
-     * @return float|null
+     * @return string|null
     */
-    public function getTotalAmountIncludingTax(): ?float {
+    public function getTotalAmountIncludingTax(): ?string {
         return $this->totalAmountIncludingTax;
     }
 
     /**
      * Gets the totalTaxAmount property value. The totalTaxAmount property
-     * @return float|null
+     * @return string|null
     */
-    public function getTotalTaxAmount(): ?float {
+    public function getTotalTaxAmount(): ?string {
         return $this->totalTaxAmount;
     }
 
@@ -437,7 +502,7 @@ class SalesCreditMemo extends Entity
         $writer->writeStringValue('customerId', $this->customerId);
         $writer->writeStringValue('customerName', $this->customerName);
         $writer->writeStringValue('customerNumber', $this->customerNumber);
-        $writer->writeFloatValue('discountAmount', $this->discountAmount);
+        $writer->writeStringValue('discountAmount', $this->discountAmount);
         $writer->writeBooleanValue('discountAppliedBeforeTax', $this->discountAppliedBeforeTax);
         $writer->writeDateValue('dueDate', $this->dueDate);
         $writer->writeStringValue('email', $this->email);
@@ -454,9 +519,9 @@ class SalesCreditMemo extends Entity
         $writer->writeStringValue('salesperson', $this->salesperson);
         $writer->writeObjectValue('sellingPostalAddress', $this->sellingPostalAddress);
         $writer->writeStringValue('status', $this->status);
-        $writer->writeFloatValue('totalAmountExcludingTax', $this->totalAmountExcludingTax);
-        $writer->writeFloatValue('totalAmountIncludingTax', $this->totalAmountIncludingTax);
-        $writer->writeFloatValue('totalTaxAmount', $this->totalTaxAmount);
+        $writer->writeStringValue('totalAmountExcludingTax', $this->totalAmountExcludingTax);
+        $writer->writeStringValue('totalAmountIncludingTax', $this->totalAmountIncludingTax);
+        $writer->writeStringValue('totalTaxAmount', $this->totalTaxAmount);
     }
 
     /**
@@ -557,9 +622,9 @@ class SalesCreditMemo extends Entity
 
     /**
      * Sets the discountAmount property value. The discountAmount property
-     *  @param float|null $value Value to set for the discountAmount property.
+     *  @param string|null $value Value to set for the discountAmount property.
     */
-    public function setDiscountAmount(?float $value ): void {
+    public function setDiscountAmount(?string $value ): void {
         $this->discountAmount = $value;
     }
 
@@ -693,25 +758,25 @@ class SalesCreditMemo extends Entity
 
     /**
      * Sets the totalAmountExcludingTax property value. The totalAmountExcludingTax property
-     *  @param float|null $value Value to set for the totalAmountExcludingTax property.
+     *  @param string|null $value Value to set for the totalAmountExcludingTax property.
     */
-    public function setTotalAmountExcludingTax(?float $value ): void {
+    public function setTotalAmountExcludingTax(?string $value ): void {
         $this->totalAmountExcludingTax = $value;
     }
 
     /**
      * Sets the totalAmountIncludingTax property value. The totalAmountIncludingTax property
-     *  @param float|null $value Value to set for the totalAmountIncludingTax property.
+     *  @param string|null $value Value to set for the totalAmountIncludingTax property.
     */
-    public function setTotalAmountIncludingTax(?float $value ): void {
+    public function setTotalAmountIncludingTax(?string $value ): void {
         $this->totalAmountIncludingTax = $value;
     }
 
     /**
      * Sets the totalTaxAmount property value. The totalTaxAmount property
-     *  @param float|null $value Value to set for the totalTaxAmount property.
+     *  @param string|null $value Value to set for the totalTaxAmount property.
     */
-    public function setTotalTaxAmount(?float $value ): void {
+    public function setTotalTaxAmount(?string $value ): void {
         $this->totalTaxAmount = $value;
     }
 

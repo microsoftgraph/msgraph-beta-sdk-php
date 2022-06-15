@@ -6,12 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsMetric extends Entity 
+class UserExperienceAnalyticsMetric extends Entity implements Parsable 
 {
-    /** @var string|null $unit The unit of the user experience analytics metric. */
+    /**
+     * @var string|null $unit The unit of the user experience analytics metric.
+    */
     private ?string $unit = null;
     
-    /** @var float|null $value The value of the user experience analytics metric. */
+    /**
+     * @var float|null $value The value of the user experience analytics metric.
+    */
     private ?float $value = null;
     
     /**
@@ -26,7 +30,7 @@ class UserExperienceAnalyticsMetric extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsMetric
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsMetric {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsMetric {
         return new UserExperienceAnalyticsMetric();
     }
 
@@ -35,9 +39,10 @@ class UserExperienceAnalyticsMetric extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'unit' => function (self $o, ParseNode $n) { $o->setUnit($n->getStringValue()); },
-            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getFloatValue()); },
+            'unit' => function (ParseNode $n) use ($o) { $o->setUnit($n->getStringValue()); },
+            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getFloatValue()); },
         ]);
     }
 

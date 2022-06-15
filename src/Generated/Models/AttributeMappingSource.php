@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AttributeMappingSource implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $expression The expression property */
+    /**
+     * @var string|null $expression The expression property
+    */
     private ?string $expression = null;
     
-    /** @var string|null $name The name property */
+    /**
+     * @var string|null $name The name property
+    */
     private ?string $name = null;
     
-    /** @var array<StringKeyAttributeMappingSourceValuePair>|null $parameters The parameters property */
+    /**
+     * @var array<StringKeyAttributeMappingSourceValuePair>|null $parameters The parameters property
+    */
     private ?array $parameters = null;
     
-    /** @var AttributeMappingSourceType|null $type The type property */
+    /**
+     * @var AttributeMappingSourceType|null $type The type property
+    */
     private ?AttributeMappingSourceType $type = null;
     
     /**
@@ -36,7 +46,7 @@ class AttributeMappingSource implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AttributeMappingSource
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AttributeMappingSource {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AttributeMappingSource {
         return new AttributeMappingSource();
     }
 
@@ -61,11 +71,12 @@ class AttributeMappingSource implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'expression' => function (self $o, ParseNode $n) { $o->setExpression($n->getStringValue()); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'parameters' => function (self $o, ParseNode $n) { $o->setParameters($n->getCollectionOfObjectValues(StringKeyAttributeMappingSourceValuePair::class)); },
-            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(AttributeMappingSourceType::class)); },
+            'expression' => function (ParseNode $n) use ($o) { $o->setExpression($n->getStringValue()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'parameters' => function (ParseNode $n) use ($o) { $o->setParameters($n->getCollectionOfObjectValues(array(StringKeyAttributeMappingSourceValuePair::class, 'createFromDiscriminatorValue'))); },
+            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(AttributeMappingSourceType::class)); },
         ];
     }
 

@@ -9,106 +9,174 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class HardwareInformation implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $batteryChargeCycles The number of charge cycles the device’s current battery has gone through. Valid values 0 to 2147483647 */
+    /**
+     * @var int|null $batteryChargeCycles The number of charge cycles the device’s current battery has gone through. Valid values 0 to 2147483647
+    */
     private ?int $batteryChargeCycles = null;
     
-    /** @var int|null $batteryHealthPercentage The device’s current battery’s health percentage. Valid values 0 to 100 */
+    /**
+     * @var int|null $batteryHealthPercentage The device’s current battery’s health percentage. Valid values 0 to 100
+    */
     private ?int $batteryHealthPercentage = null;
     
-    /** @var string|null $batterySerialNumber The serial number of the device’s current battery */
+    /**
+     * @var string|null $batterySerialNumber The serial number of the device’s current battery
+    */
     private ?string $batterySerialNumber = null;
     
-    /** @var string|null $cellularTechnology Cellular technology of the device */
+    /**
+     * @var string|null $cellularTechnology Cellular technology of the device
+    */
     private ?string $cellularTechnology = null;
     
-    /** @var string|null $deviceFullQualifiedDomainName Returns the fully qualified domain name of the device (if any). If the device is not domain-joined, it returns an empty string. */
+    /**
+     * @var string|null $deviceFullQualifiedDomainName Returns the fully qualified domain name of the device (if any). If the device is not domain-joined, it returns an empty string.
+    */
     private ?string $deviceFullQualifiedDomainName = null;
     
-    /** @var DeviceGuardLocalSystemAuthorityCredentialGuardState|null $deviceGuardLocalSystemAuthorityCredentialGuardState Local System Authority (LSA) credential guard status. . Possible values are: running, rebootRequired, notLicensed, notConfigured, virtualizationBasedSecurityNotRunning. */
+    /**
+     * @var DeviceGuardLocalSystemAuthorityCredentialGuardState|null $deviceGuardLocalSystemAuthorityCredentialGuardState Local System Authority (LSA) credential guard status. . Possible values are: running, rebootRequired, notLicensed, notConfigured, virtualizationBasedSecurityNotRunning.
+    */
     private ?DeviceGuardLocalSystemAuthorityCredentialGuardState $deviceGuardLocalSystemAuthorityCredentialGuardState = null;
     
-    /** @var DeviceGuardVirtualizationBasedSecurityHardwareRequirementState|null $deviceGuardVirtualizationBasedSecurityHardwareRequirementState Virtualization-based security hardware requirement status. Possible values are: meetHardwareRequirements, secureBootRequired, dmaProtectionRequired, hyperVNotSupportedForGuestVM, hyperVNotAvailable. */
+    /**
+     * @var DeviceGuardVirtualizationBasedSecurityHardwareRequirementState|null $deviceGuardVirtualizationBasedSecurityHardwareRequirementState Virtualization-based security hardware requirement status. Possible values are: meetHardwareRequirements, secureBootRequired, dmaProtectionRequired, hyperVNotSupportedForGuestVM, hyperVNotAvailable.
+    */
     private ?DeviceGuardVirtualizationBasedSecurityHardwareRequirementState $deviceGuardVirtualizationBasedSecurityHardwareRequirementState = null;
     
-    /** @var DeviceGuardVirtualizationBasedSecurityState|null $deviceGuardVirtualizationBasedSecurityState Virtualization-based security status. . Possible values are: running, rebootRequired, require64BitArchitecture, notLicensed, notConfigured, doesNotMeetHardwareRequirements, other. */
+    /**
+     * @var DeviceGuardVirtualizationBasedSecurityState|null $deviceGuardVirtualizationBasedSecurityState Virtualization-based security status. . Possible values are: running, rebootRequired, require64BitArchitecture, notLicensed, notConfigured, doesNotMeetHardwareRequirements, other.
+    */
     private ?DeviceGuardVirtualizationBasedSecurityState $deviceGuardVirtualizationBasedSecurityState = null;
     
-    /** @var string|null $esimIdentifier eSIM identifier */
+    /**
+     * @var string|null $esimIdentifier eSIM identifier
+    */
     private ?string $esimIdentifier = null;
     
-    /** @var int|null $freeStorageSpace Free storage space of the device. */
+    /**
+     * @var int|null $freeStorageSpace Free storage space of the device.
+    */
     private ?int $freeStorageSpace = null;
     
-    /** @var string|null $imei IMEI */
+    /**
+     * @var string|null $imei IMEI
+    */
     private ?string $imei = null;
     
-    /** @var string|null $ipAddressV4 IPAddressV4 */
+    /**
+     * @var string|null $ipAddressV4 IPAddressV4
+    */
     private ?string $ipAddressV4 = null;
     
-    /** @var bool|null $isEncrypted Encryption status of the device */
+    /**
+     * @var bool|null $isEncrypted Encryption status of the device
+    */
     private ?bool $isEncrypted = null;
     
-    /** @var bool|null $isSharedDevice Shared iPad */
+    /**
+     * @var bool|null $isSharedDevice Shared iPad
+    */
     private ?bool $isSharedDevice = null;
     
-    /** @var bool|null $isSupervised Supervised mode of the device */
+    /**
+     * @var bool|null $isSupervised Supervised mode of the device
+    */
     private ?bool $isSupervised = null;
     
-    /** @var string|null $manufacturer Manufacturer of the device */
+    /**
+     * @var string|null $manufacturer Manufacturer of the device
+    */
     private ?string $manufacturer = null;
     
-    /** @var string|null $meid MEID */
+    /**
+     * @var string|null $meid MEID
+    */
     private ?string $meid = null;
     
-    /** @var string|null $model Model of the device */
+    /**
+     * @var string|null $model Model of the device
+    */
     private ?string $model = null;
     
-    /** @var string|null $operatingSystemEdition String that specifies the OS edition. */
+    /**
+     * @var string|null $operatingSystemEdition String that specifies the OS edition.
+    */
     private ?string $operatingSystemEdition = null;
     
-    /** @var string|null $operatingSystemLanguage Operating system language of the device */
+    /**
+     * @var string|null $operatingSystemLanguage Operating system language of the device
+    */
     private ?string $operatingSystemLanguage = null;
     
-    /** @var int|null $operatingSystemProductType Int that specifies the Windows Operating System ProductType. More details here https://go.microsoft.com/fwlink/?linkid=2126950. Valid values 0 to 2147483647 */
+    /**
+     * @var int|null $operatingSystemProductType Int that specifies the Windows Operating System ProductType. More details here https://go.microsoft.com/fwlink/?linkid=2126950. Valid values 0 to 2147483647
+    */
     private ?int $operatingSystemProductType = null;
     
-    /** @var string|null $osBuildNumber Operating System Build Number on Android device */
+    /**
+     * @var string|null $osBuildNumber Operating System Build Number on Android device
+    */
     private ?string $osBuildNumber = null;
     
-    /** @var string|null $phoneNumber Phone number of the device */
+    /**
+     * @var string|null $phoneNumber Phone number of the device
+    */
     private ?string $phoneNumber = null;
     
-    /** @var string|null $serialNumber Serial number. */
+    /**
+     * @var string|null $serialNumber Serial number.
+    */
     private ?string $serialNumber = null;
     
-    /** @var array<SharedAppleDeviceUser>|null $sharedDeviceCachedUsers All users on the shared Apple device */
+    /**
+     * @var array<SharedAppleDeviceUser>|null $sharedDeviceCachedUsers All users on the shared Apple device
+    */
     private ?array $sharedDeviceCachedUsers = null;
     
-    /** @var string|null $subnetAddress SubnetAddress */
+    /**
+     * @var string|null $subnetAddress SubnetAddress
+    */
     private ?string $subnetAddress = null;
     
-    /** @var string|null $subscriberCarrier Subscriber carrier of the device */
+    /**
+     * @var string|null $subscriberCarrier Subscriber carrier of the device
+    */
     private ?string $subscriberCarrier = null;
     
-    /** @var string|null $systemManagementBIOSVersion BIOS version as reported by SMBIOS */
+    /**
+     * @var string|null $systemManagementBIOSVersion BIOS version as reported by SMBIOS
+    */
     private ?string $systemManagementBIOSVersion = null;
     
-    /** @var int|null $totalStorageSpace Total storage space of the device. */
+    /**
+     * @var int|null $totalStorageSpace Total storage space of the device.
+    */
     private ?int $totalStorageSpace = null;
     
-    /** @var string|null $tpmManufacturer The identifying information that uniquely names the TPM manufacturer */
+    /**
+     * @var string|null $tpmManufacturer The identifying information that uniquely names the TPM manufacturer
+    */
     private ?string $tpmManufacturer = null;
     
-    /** @var string|null $tpmSpecificationVersion String that specifies the specification version. */
+    /**
+     * @var string|null $tpmSpecificationVersion String that specifies the specification version.
+    */
     private ?string $tpmSpecificationVersion = null;
     
-    /** @var string|null $tpmVersion The version of the TPM, as specified by the manufacturer */
+    /**
+     * @var string|null $tpmVersion The version of the TPM, as specified by the manufacturer
+    */
     private ?string $tpmVersion = null;
     
-    /** @var string|null $wifiMac WiFi MAC address of the device */
+    /**
+     * @var string|null $wifiMac WiFi MAC address of the device
+    */
     private ?string $wifiMac = null;
     
     /**
@@ -123,7 +191,7 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return HardwareInformation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): HardwareInformation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): HardwareInformation {
         return new HardwareInformation();
     }
 
@@ -212,40 +280,41 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'batteryChargeCycles' => function (self $o, ParseNode $n) { $o->setBatteryChargeCycles($n->getIntegerValue()); },
-            'batteryHealthPercentage' => function (self $o, ParseNode $n) { $o->setBatteryHealthPercentage($n->getIntegerValue()); },
-            'batterySerialNumber' => function (self $o, ParseNode $n) { $o->setBatterySerialNumber($n->getStringValue()); },
-            'cellularTechnology' => function (self $o, ParseNode $n) { $o->setCellularTechnology($n->getStringValue()); },
-            'deviceFullQualifiedDomainName' => function (self $o, ParseNode $n) { $o->setDeviceFullQualifiedDomainName($n->getStringValue()); },
-            'deviceGuardLocalSystemAuthorityCredentialGuardState' => function (self $o, ParseNode $n) { $o->setDeviceGuardLocalSystemAuthorityCredentialGuardState($n->getEnumValue(DeviceGuardLocalSystemAuthorityCredentialGuardState::class)); },
-            'deviceGuardVirtualizationBasedSecurityHardwareRequirementState' => function (self $o, ParseNode $n) { $o->setDeviceGuardVirtualizationBasedSecurityHardwareRequirementState($n->getEnumValue(DeviceGuardVirtualizationBasedSecurityHardwareRequirementState::class)); },
-            'deviceGuardVirtualizationBasedSecurityState' => function (self $o, ParseNode $n) { $o->setDeviceGuardVirtualizationBasedSecurityState($n->getEnumValue(DeviceGuardVirtualizationBasedSecurityState::class)); },
-            'esimIdentifier' => function (self $o, ParseNode $n) { $o->setEsimIdentifier($n->getStringValue()); },
-            'freeStorageSpace' => function (self $o, ParseNode $n) { $o->setFreeStorageSpace($n->getIntegerValue()); },
-            'imei' => function (self $o, ParseNode $n) { $o->setImei($n->getStringValue()); },
-            'ipAddressV4' => function (self $o, ParseNode $n) { $o->setIpAddressV4($n->getStringValue()); },
-            'isEncrypted' => function (self $o, ParseNode $n) { $o->setIsEncrypted($n->getBooleanValue()); },
-            'isSharedDevice' => function (self $o, ParseNode $n) { $o->setIsSharedDevice($n->getBooleanValue()); },
-            'isSupervised' => function (self $o, ParseNode $n) { $o->setIsSupervised($n->getBooleanValue()); },
-            'manufacturer' => function (self $o, ParseNode $n) { $o->setManufacturer($n->getStringValue()); },
-            'meid' => function (self $o, ParseNode $n) { $o->setMeid($n->getStringValue()); },
-            'model' => function (self $o, ParseNode $n) { $o->setModel($n->getStringValue()); },
-            'operatingSystemEdition' => function (self $o, ParseNode $n) { $o->setOperatingSystemEdition($n->getStringValue()); },
-            'operatingSystemLanguage' => function (self $o, ParseNode $n) { $o->setOperatingSystemLanguage($n->getStringValue()); },
-            'operatingSystemProductType' => function (self $o, ParseNode $n) { $o->setOperatingSystemProductType($n->getIntegerValue()); },
-            'osBuildNumber' => function (self $o, ParseNode $n) { $o->setOsBuildNumber($n->getStringValue()); },
-            'phoneNumber' => function (self $o, ParseNode $n) { $o->setPhoneNumber($n->getStringValue()); },
-            'serialNumber' => function (self $o, ParseNode $n) { $o->setSerialNumber($n->getStringValue()); },
-            'sharedDeviceCachedUsers' => function (self $o, ParseNode $n) { $o->setSharedDeviceCachedUsers($n->getCollectionOfObjectValues(SharedAppleDeviceUser::class)); },
-            'subnetAddress' => function (self $o, ParseNode $n) { $o->setSubnetAddress($n->getStringValue()); },
-            'subscriberCarrier' => function (self $o, ParseNode $n) { $o->setSubscriberCarrier($n->getStringValue()); },
-            'systemManagementBIOSVersion' => function (self $o, ParseNode $n) { $o->setSystemManagementBIOSVersion($n->getStringValue()); },
-            'totalStorageSpace' => function (self $o, ParseNode $n) { $o->setTotalStorageSpace($n->getIntegerValue()); },
-            'tpmManufacturer' => function (self $o, ParseNode $n) { $o->setTpmManufacturer($n->getStringValue()); },
-            'tpmSpecificationVersion' => function (self $o, ParseNode $n) { $o->setTpmSpecificationVersion($n->getStringValue()); },
-            'tpmVersion' => function (self $o, ParseNode $n) { $o->setTpmVersion($n->getStringValue()); },
-            'wifiMac' => function (self $o, ParseNode $n) { $o->setWifiMac($n->getStringValue()); },
+            'batteryChargeCycles' => function (ParseNode $n) use ($o) { $o->setBatteryChargeCycles($n->getIntegerValue()); },
+            'batteryHealthPercentage' => function (ParseNode $n) use ($o) { $o->setBatteryHealthPercentage($n->getIntegerValue()); },
+            'batterySerialNumber' => function (ParseNode $n) use ($o) { $o->setBatterySerialNumber($n->getStringValue()); },
+            'cellularTechnology' => function (ParseNode $n) use ($o) { $o->setCellularTechnology($n->getStringValue()); },
+            'deviceFullQualifiedDomainName' => function (ParseNode $n) use ($o) { $o->setDeviceFullQualifiedDomainName($n->getStringValue()); },
+            'deviceGuardLocalSystemAuthorityCredentialGuardState' => function (ParseNode $n) use ($o) { $o->setDeviceGuardLocalSystemAuthorityCredentialGuardState($n->getEnumValue(DeviceGuardLocalSystemAuthorityCredentialGuardState::class)); },
+            'deviceGuardVirtualizationBasedSecurityHardwareRequirementState' => function (ParseNode $n) use ($o) { $o->setDeviceGuardVirtualizationBasedSecurityHardwareRequirementState($n->getEnumValue(DeviceGuardVirtualizationBasedSecurityHardwareRequirementState::class)); },
+            'deviceGuardVirtualizationBasedSecurityState' => function (ParseNode $n) use ($o) { $o->setDeviceGuardVirtualizationBasedSecurityState($n->getEnumValue(DeviceGuardVirtualizationBasedSecurityState::class)); },
+            'esimIdentifier' => function (ParseNode $n) use ($o) { $o->setEsimIdentifier($n->getStringValue()); },
+            'freeStorageSpace' => function (ParseNode $n) use ($o) { $o->setFreeStorageSpace($n->getIntegerValue()); },
+            'imei' => function (ParseNode $n) use ($o) { $o->setImei($n->getStringValue()); },
+            'ipAddressV4' => function (ParseNode $n) use ($o) { $o->setIpAddressV4($n->getStringValue()); },
+            'isEncrypted' => function (ParseNode $n) use ($o) { $o->setIsEncrypted($n->getBooleanValue()); },
+            'isSharedDevice' => function (ParseNode $n) use ($o) { $o->setIsSharedDevice($n->getBooleanValue()); },
+            'isSupervised' => function (ParseNode $n) use ($o) { $o->setIsSupervised($n->getBooleanValue()); },
+            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
+            'meid' => function (ParseNode $n) use ($o) { $o->setMeid($n->getStringValue()); },
+            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
+            'operatingSystemEdition' => function (ParseNode $n) use ($o) { $o->setOperatingSystemEdition($n->getStringValue()); },
+            'operatingSystemLanguage' => function (ParseNode $n) use ($o) { $o->setOperatingSystemLanguage($n->getStringValue()); },
+            'operatingSystemProductType' => function (ParseNode $n) use ($o) { $o->setOperatingSystemProductType($n->getIntegerValue()); },
+            'osBuildNumber' => function (ParseNode $n) use ($o) { $o->setOsBuildNumber($n->getStringValue()); },
+            'phoneNumber' => function (ParseNode $n) use ($o) { $o->setPhoneNumber($n->getStringValue()); },
+            'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
+            'sharedDeviceCachedUsers' => function (ParseNode $n) use ($o) { $o->setSharedDeviceCachedUsers($n->getCollectionOfObjectValues(array(SharedAppleDeviceUser::class, 'createFromDiscriminatorValue'))); },
+            'subnetAddress' => function (ParseNode $n) use ($o) { $o->setSubnetAddress($n->getStringValue()); },
+            'subscriberCarrier' => function (ParseNode $n) use ($o) { $o->setSubscriberCarrier($n->getStringValue()); },
+            'systemManagementBIOSVersion' => function (ParseNode $n) use ($o) { $o->setSystemManagementBIOSVersion($n->getStringValue()); },
+            'totalStorageSpace' => function (ParseNode $n) use ($o) { $o->setTotalStorageSpace($n->getIntegerValue()); },
+            'tpmManufacturer' => function (ParseNode $n) use ($o) { $o->setTpmManufacturer($n->getStringValue()); },
+            'tpmSpecificationVersion' => function (ParseNode $n) use ($o) { $o->setTpmSpecificationVersion($n->getStringValue()); },
+            'tpmVersion' => function (ParseNode $n) use ($o) { $o->setTpmVersion($n->getStringValue()); },
+            'wifiMac' => function (ParseNode $n) use ($o) { $o->setWifiMac($n->getStringValue()); },
         ];
     }
 

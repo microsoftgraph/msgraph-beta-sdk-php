@@ -9,40 +9,64 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var AndroidManagedStoreAppConfigurationSchemaItemDataType|null $dataType The type of value this item describes. Possible values are: bool, integer, string, choice, multiselect, bundle, bundleArray, hidden. */
+    /**
+     * @var AndroidManagedStoreAppConfigurationSchemaItemDataType|null $dataType The type of value this item describes. Possible values are: bool, integer, string, choice, multiselect, bundle, bundleArray, hidden.
+    */
     private ?AndroidManagedStoreAppConfigurationSchemaItemDataType $dataType = null;
     
-    /** @var bool|null $defaultBoolValue Default value for boolean type items, if specified by the app developer */
+    /**
+     * @var bool|null $defaultBoolValue Default value for boolean type items, if specified by the app developer
+    */
     private ?bool $defaultBoolValue = null;
     
-    /** @var int|null $defaultIntValue Default value for integer type items, if specified by the app developer */
+    /**
+     * @var int|null $defaultIntValue Default value for integer type items, if specified by the app developer
+    */
     private ?int $defaultIntValue = null;
     
-    /** @var array<string>|null $defaultStringArrayValue Default value for string array type items, if specified by the app developer */
+    /**
+     * @var array<string>|null $defaultStringArrayValue Default value for string array type items, if specified by the app developer
+    */
     private ?array $defaultStringArrayValue = null;
     
-    /** @var string|null $defaultStringValue Default value for string type items, if specified by the app developer */
+    /**
+     * @var string|null $defaultStringValue Default value for string type items, if specified by the app developer
+    */
     private ?string $defaultStringValue = null;
     
-    /** @var string|null $description Description of what the item controls within the application */
+    /**
+     * @var string|null $description Description of what the item controls within the application
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Human readable name */
+    /**
+     * @var string|null $displayName Human readable name
+    */
     private ?string $displayName = null;
     
-    /** @var int|null $index Unique index the application uses to maintain nested schema items */
+    /**
+     * @var int|null $index Unique index the application uses to maintain nested schema items
+    */
     private ?int $index = null;
     
-    /** @var int|null $parentIndex Index of parent schema item to track nested schema items */
+    /**
+     * @var int|null $parentIndex Index of parent schema item to track nested schema items
+    */
     private ?int $parentIndex = null;
     
-    /** @var string|null $schemaItemKey Unique key the application uses to identify the item */
+    /**
+     * @var string|null $schemaItemKey Unique key the application uses to identify the item
+    */
     private ?string $schemaItemKey = null;
     
-    /** @var array<KeyValuePair>|null $selections List of human readable name/value pairs for the valid values that can be set for this item (Choice and Multiselect items only) */
+    /**
+     * @var array<KeyValuePair>|null $selections List of human readable name/value pairs for the valid values that can be set for this item (Choice and Multiselect items only)
+    */
     private ?array $selections = null;
     
     /**
@@ -57,7 +81,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AndroidManagedStoreAppConfigurationSchemaItem
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AndroidManagedStoreAppConfigurationSchemaItem {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidManagedStoreAppConfigurationSchemaItem {
         return new AndroidManagedStoreAppConfigurationSchemaItem();
     }
 
@@ -130,18 +154,19 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'dataType' => function (self $o, ParseNode $n) { $o->setDataType($n->getEnumValue(AndroidManagedStoreAppConfigurationSchemaItemDataType::class)); },
-            'defaultBoolValue' => function (self $o, ParseNode $n) { $o->setDefaultBoolValue($n->getBooleanValue()); },
-            'defaultIntValue' => function (self $o, ParseNode $n) { $o->setDefaultIntValue($n->getIntegerValue()); },
-            'defaultStringArrayValue' => function (self $o, ParseNode $n) { $o->setDefaultStringArrayValue($n->getCollectionOfPrimitiveValues()); },
-            'defaultStringValue' => function (self $o, ParseNode $n) { $o->setDefaultStringValue($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'index' => function (self $o, ParseNode $n) { $o->setIndex($n->getIntegerValue()); },
-            'parentIndex' => function (self $o, ParseNode $n) { $o->setParentIndex($n->getIntegerValue()); },
-            'schemaItemKey' => function (self $o, ParseNode $n) { $o->setSchemaItemKey($n->getStringValue()); },
-            'selections' => function (self $o, ParseNode $n) { $o->setSelections($n->getCollectionOfObjectValues(KeyValuePair::class)); },
+            'dataType' => function (ParseNode $n) use ($o) { $o->setDataType($n->getEnumValue(AndroidManagedStoreAppConfigurationSchemaItemDataType::class)); },
+            'defaultBoolValue' => function (ParseNode $n) use ($o) { $o->setDefaultBoolValue($n->getBooleanValue()); },
+            'defaultIntValue' => function (ParseNode $n) use ($o) { $o->setDefaultIntValue($n->getIntegerValue()); },
+            'defaultStringArrayValue' => function (ParseNode $n) use ($o) { $o->setDefaultStringArrayValue($n->getCollectionOfPrimitiveValues()); },
+            'defaultStringValue' => function (ParseNode $n) use ($o) { $o->setDefaultStringValue($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'index' => function (ParseNode $n) use ($o) { $o->setIndex($n->getIntegerValue()); },
+            'parentIndex' => function (ParseNode $n) use ($o) { $o->setParentIndex($n->getIntegerValue()); },
+            'schemaItemKey' => function (ParseNode $n) use ($o) { $o->setSchemaItemKey($n->getStringValue()); },
+            'selections' => function (ParseNode $n) use ($o) { $o->setSelections($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

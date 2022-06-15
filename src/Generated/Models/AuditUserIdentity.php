@@ -6,12 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AuditUserIdentity extends UserIdentity 
+class AuditUserIdentity extends UserIdentity implements Parsable 
 {
-    /** @var string|null $homeTenantId For user sign ins, the identifier of the tenant that the user is a member of. */
+    /**
+     * @var string|null $homeTenantId For user sign ins, the identifier of the tenant that the user is a member of.
+    */
     private ?string $homeTenantId = null;
     
-    /** @var string|null $homeTenantName For user sign ins, the name of the tenant that the user is a member of. Only populated in cases where the home tenant has provided affirmative consent to Azure AD to show the tenant content. */
+    /**
+     * @var string|null $homeTenantName For user sign ins, the name of the tenant that the user is a member of. Only populated in cases where the home tenant has provided affirmative consent to Azure AD to show the tenant content.
+    */
     private ?string $homeTenantName = null;
     
     /**
@@ -26,7 +30,7 @@ class AuditUserIdentity extends UserIdentity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AuditUserIdentity
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AuditUserIdentity {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AuditUserIdentity {
         return new AuditUserIdentity();
     }
 
@@ -35,9 +39,10 @@ class AuditUserIdentity extends UserIdentity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'homeTenantId' => function (self $o, ParseNode $n) { $o->setHomeTenantId($n->getStringValue()); },
-            'homeTenantName' => function (self $o, ParseNode $n) { $o->setHomeTenantName($n->getStringValue()); },
+            'homeTenantId' => function (ParseNode $n) use ($o) { $o->setHomeTenantId($n->getStringValue()); },
+            'homeTenantName' => function (ParseNode $n) use ($o) { $o->setHomeTenantName($n->getStringValue()); },
         ]);
     }
 

@@ -8,63 +8,101 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class DeviceHealthScript extends Entity 
+class DeviceHealthScript extends Entity implements Parsable 
 {
-    /** @var array<DeviceHealthScriptAssignment>|null $assignments The list of group assignments for the device health script */
+    /**
+     * @var array<DeviceHealthScriptAssignment>|null $assignments The list of group assignments for the device health script
+    */
     private ?array $assignments = null;
     
-    /** @var DateTime|null $createdDateTime The timestamp of when the device health script was created. This property is read-only. */
+    /**
+     * @var DateTime|null $createdDateTime The timestamp of when the device health script was created. This property is read-only.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $description Description of the device health script */
+    /**
+     * @var string|null $description Description of the device health script
+    */
     private ?string $description = null;
     
-    /** @var StreamInterface|null $detectionScriptContent The entire content of the detection powershell script */
+    /**
+     * @var StreamInterface|null $detectionScriptContent The entire content of the detection powershell script
+    */
     private ?StreamInterface $detectionScriptContent = null;
     
-    /** @var array<DeviceHealthScriptParameter>|null $detectionScriptParameters List of ComplexType DetectionScriptParameters objects. */
+    /**
+     * @var array<DeviceHealthScriptParameter>|null $detectionScriptParameters List of ComplexType DetectionScriptParameters objects.
+    */
     private ?array $detectionScriptParameters = null;
     
-    /** @var array<DeviceHealthScriptDeviceState>|null $deviceRunStates List of run states for the device health script across all devices */
+    /**
+     * @var array<DeviceHealthScriptDeviceState>|null $deviceRunStates List of run states for the device health script across all devices
+    */
     private ?array $deviceRunStates = null;
     
-    /** @var string|null $displayName Name of the device health script */
+    /**
+     * @var string|null $displayName Name of the device health script
+    */
     private ?string $displayName = null;
     
-    /** @var bool|null $enforceSignatureCheck Indicate whether the script signature needs be checked */
+    /**
+     * @var bool|null $enforceSignatureCheck Indicate whether the script signature needs be checked
+    */
     private ?bool $enforceSignatureCheck = null;
     
-    /** @var string|null $highestAvailableVersion Highest available version for a Microsoft Proprietary script */
+    /**
+     * @var string|null $highestAvailableVersion Highest available version for a Microsoft Proprietary script
+    */
     private ?string $highestAvailableVersion = null;
     
-    /** @var bool|null $isGlobalScript Determines if this is Microsoft Proprietary Script. Proprietary scripts are read-only */
+    /**
+     * @var bool|null $isGlobalScript Determines if this is Microsoft Proprietary Script. Proprietary scripts are read-only
+    */
     private ?bool $isGlobalScript = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The timestamp of when the device health script was modified. This property is read-only. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The timestamp of when the device health script was modified. This property is read-only.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var string|null $publisher Name of the device health script publisher */
+    /**
+     * @var string|null $publisher Name of the device health script publisher
+    */
     private ?string $publisher = null;
     
-    /** @var StreamInterface|null $remediationScriptContent The entire content of the remediation powershell script */
+    /**
+     * @var StreamInterface|null $remediationScriptContent The entire content of the remediation powershell script
+    */
     private ?StreamInterface $remediationScriptContent = null;
     
-    /** @var array<DeviceHealthScriptParameter>|null $remediationScriptParameters List of ComplexType RemediationScriptParameters objects. */
+    /**
+     * @var array<DeviceHealthScriptParameter>|null $remediationScriptParameters List of ComplexType RemediationScriptParameters objects.
+    */
     private ?array $remediationScriptParameters = null;
     
-    /** @var array<string>|null $roleScopeTagIds List of Scope Tag IDs for the device health script */
+    /**
+     * @var array<string>|null $roleScopeTagIds List of Scope Tag IDs for the device health script
+    */
     private ?array $roleScopeTagIds = null;
     
-    /** @var bool|null $runAs32Bit Indicate whether PowerShell script(s) should run as 32-bit */
+    /**
+     * @var bool|null $runAs32Bit Indicate whether PowerShell script(s) should run as 32-bit
+    */
     private ?bool $runAs32Bit = null;
     
-    /** @var RunAsAccountType|null $runAsAccount Indicates the type of execution context. Possible values are: system, user. */
+    /**
+     * @var RunAsAccountType|null $runAsAccount Indicates the type of execution context. Possible values are: system, user.
+    */
     private ?RunAsAccountType $runAsAccount = null;
     
-    /** @var DeviceHealthScriptRunSummary|null $runSummary High level run summary for device health script. */
+    /**
+     * @var DeviceHealthScriptRunSummary|null $runSummary High level run summary for device health script.
+    */
     private ?DeviceHealthScriptRunSummary $runSummary = null;
     
-    /** @var string|null $version Version of the device health script */
+    /**
+     * @var string|null $version Version of the device health script
+    */
     private ?string $version = null;
     
     /**
@@ -79,7 +117,7 @@ class DeviceHealthScript extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceHealthScript
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealthScript {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealthScript {
         return new DeviceHealthScript();
     }
 
@@ -152,26 +190,27 @@ class DeviceHealthScript extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(DeviceHealthScriptAssignment::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'detectionScriptContent' => function (self $o, ParseNode $n) { $o->setDetectionScriptContent($n->getBinaryContent()); },
-            'detectionScriptParameters' => function (self $o, ParseNode $n) { $o->setDetectionScriptParameters($n->getCollectionOfObjectValues(DeviceHealthScriptParameter::class)); },
-            'deviceRunStates' => function (self $o, ParseNode $n) { $o->setDeviceRunStates($n->getCollectionOfObjectValues(DeviceHealthScriptDeviceState::class)); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'enforceSignatureCheck' => function (self $o, ParseNode $n) { $o->setEnforceSignatureCheck($n->getBooleanValue()); },
-            'highestAvailableVersion' => function (self $o, ParseNode $n) { $o->setHighestAvailableVersion($n->getStringValue()); },
-            'isGlobalScript' => function (self $o, ParseNode $n) { $o->setIsGlobalScript($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'publisher' => function (self $o, ParseNode $n) { $o->setPublisher($n->getStringValue()); },
-            'remediationScriptContent' => function (self $o, ParseNode $n) { $o->setRemediationScriptContent($n->getBinaryContent()); },
-            'remediationScriptParameters' => function (self $o, ParseNode $n) { $o->setRemediationScriptParameters($n->getCollectionOfObjectValues(DeviceHealthScriptParameter::class)); },
-            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'runAs32Bit' => function (self $o, ParseNode $n) { $o->setRunAs32Bit($n->getBooleanValue()); },
-            'runAsAccount' => function (self $o, ParseNode $n) { $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)); },
-            'runSummary' => function (self $o, ParseNode $n) { $o->setRunSummary($n->getObjectValue(DeviceHealthScriptRunSummary::class)); },
-            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getStringValue()); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceHealthScriptAssignment::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'detectionScriptContent' => function (ParseNode $n) use ($o) { $o->setDetectionScriptContent($n->getBinaryContent()); },
+            'detectionScriptParameters' => function (ParseNode $n) use ($o) { $o->setDetectionScriptParameters($n->getCollectionOfObjectValues(array(DeviceHealthScriptParameter::class, 'createFromDiscriminatorValue'))); },
+            'deviceRunStates' => function (ParseNode $n) use ($o) { $o->setDeviceRunStates($n->getCollectionOfObjectValues(array(DeviceHealthScriptDeviceState::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'enforceSignatureCheck' => function (ParseNode $n) use ($o) { $o->setEnforceSignatureCheck($n->getBooleanValue()); },
+            'highestAvailableVersion' => function (ParseNode $n) use ($o) { $o->setHighestAvailableVersion($n->getStringValue()); },
+            'isGlobalScript' => function (ParseNode $n) use ($o) { $o->setIsGlobalScript($n->getBooleanValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
+            'remediationScriptContent' => function (ParseNode $n) use ($o) { $o->setRemediationScriptContent($n->getBinaryContent()); },
+            'remediationScriptParameters' => function (ParseNode $n) use ($o) { $o->setRemediationScriptParameters($n->getCollectionOfObjectValues(array(DeviceHealthScriptParameter::class, 'createFromDiscriminatorValue'))); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'runAs32Bit' => function (ParseNode $n) use ($o) { $o->setRunAs32Bit($n->getBooleanValue()); },
+            'runAsAccount' => function (ParseNode $n) use ($o) { $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)); },
+            'runSummary' => function (ParseNode $n) use ($o) { $o->setRunSummary($n->getObjectValue(array(DeviceHealthScriptRunSummary::class, 'createFromDiscriminatorValue'))); },
+            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
         ]);
     }
 

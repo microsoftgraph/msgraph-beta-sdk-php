@@ -7,27 +7,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class JobResponseBase extends Entity 
+class JobResponseBase extends Entity implements Parsable 
 {
-    /** @var DateTime|null $creationDateTime The creationDateTime property */
+    /**
+     * @var DateTime|null $creationDateTime The creationDateTime property
+    */
     private ?DateTime $creationDateTime = null;
     
-    /** @var DateTime|null $endDateTime The endDateTime property */
+    /**
+     * @var DateTime|null $endDateTime The endDateTime property
+    */
     private ?DateTime $endDateTime = null;
     
-    /** @var ClassificationError|null $error The error property */
+    /**
+     * @var ClassificationError|null $error The error property
+    */
     private ?ClassificationError $error = null;
     
-    /** @var DateTime|null $startDateTime The startDateTime property */
+    /**
+     * @var DateTime|null $startDateTime The startDateTime property
+    */
     private ?DateTime $startDateTime = null;
     
-    /** @var string|null $status The status property */
+    /**
+     * @var string|null $status The status property
+    */
     private ?string $status = null;
     
-    /** @var string|null $tenantId The tenantId property */
+    /**
+     * @var string|null $tenantId The tenantId property
+    */
     private ?string $tenantId = null;
     
-    /** @var string|null $type The type property */
+    /**
+     * @var string|null $type The type property
+    */
     private ?string $type = null;
     
     /**
@@ -42,7 +56,16 @@ class JobResponseBase extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return JobResponseBase
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): JobResponseBase {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): JobResponseBase {
+        $mappingValueNode = ParseNode::getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.classificationJobResponse': return new ClassificationJobResponse();
+                case '#microsoft.graph.dlpEvaluatePoliciesJobResponse': return new DlpEvaluatePoliciesJobResponse();
+                case '#microsoft.graph.evaluateLabelJobResponse': return new EvaluateLabelJobResponse();
+            }
+        }
         return new JobResponseBase();
     }
 
@@ -75,14 +98,15 @@ class JobResponseBase extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'creationDateTime' => function (self $o, ParseNode $n) { $o->setCreationDateTime($n->getDateTimeValue()); },
-            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'error' => function (self $o, ParseNode $n) { $o->setError($n->getObjectValue(ClassificationError::class)); },
-            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
-            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
-            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
+            'creationDateTime' => function (ParseNode $n) use ($o) { $o->setCreationDateTime($n->getDateTimeValue()); },
+            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(ClassificationError::class, 'createFromDiscriminatorValue'))); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
+            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
         ]);
     }
 

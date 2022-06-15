@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ManagementCertificateWithThumbprint implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $certificate The Base 64 encoded management certificate */
+    /**
+     * @var string|null $certificate The Base 64 encoded management certificate
+    */
     private ?string $certificate = null;
     
-    /** @var string|null $thumbprint The thumbprint of the management certificate */
+    /**
+     * @var string|null $thumbprint The thumbprint of the management certificate
+    */
     private ?string $thumbprint = null;
     
     /**
@@ -30,7 +36,7 @@ class ManagementCertificateWithThumbprint implements AdditionalDataHolder, Parsa
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagementCertificateWithThumbprint
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagementCertificateWithThumbprint {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagementCertificateWithThumbprint {
         return new ManagementCertificateWithThumbprint();
     }
 
@@ -55,9 +61,10 @@ class ManagementCertificateWithThumbprint implements AdditionalDataHolder, Parsa
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'certificate' => function (self $o, ParseNode $n) { $o->setCertificate($n->getStringValue()); },
-            'thumbprint' => function (self $o, ParseNode $n) { $o->setThumbprint($n->getStringValue()); },
+            'certificate' => function (ParseNode $n) use ($o) { $o->setCertificate($n->getStringValue()); },
+            'thumbprint' => function (ParseNode $n) use ($o) { $o->setThumbprint($n->getStringValue()); },
         ];
     }
 
