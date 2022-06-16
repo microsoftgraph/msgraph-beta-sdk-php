@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SpaApplication implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<string>|null $redirectUris Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
-    */
+    /** @var array<string>|null $redirectUris Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. */
     private ?array $redirectUris = null;
     
     /**
@@ -31,7 +27,7 @@ class SpaApplication implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SpaApplication
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SpaApplication {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SpaApplication {
         return new SpaApplication();
     }
 
@@ -48,9 +44,8 @@ class SpaApplication implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'redirectUris' => function (ParseNode $n) use ($o) { $o->setRedirectUris($n->getCollectionOfPrimitiveValues()); },
+            'redirectUris' => function (self $o, ParseNode $n) { $o->setRedirectUris($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

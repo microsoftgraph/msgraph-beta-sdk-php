@@ -6,20 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ExternalIdentitiesPolicy extends PolicyBase implements Parsable 
+class ExternalIdentitiesPolicy extends PolicyBase 
 {
-    /**
-     * @var bool|null $allowDeletedIdentitiesDataRemoval The allowDeletedIdentitiesDataRemoval property
-    */
+    /** @var bool|null $allowDeletedIdentitiesDataRemoval The allowDeletedIdentitiesDataRemoval property */
     private ?bool $allowDeletedIdentitiesDataRemoval = null;
     
-    /**
-     * @var bool|null $allowExternalIdentitiesToLeave The allowExternalIdentitiesToLeave property
-    */
+    /** @var bool|null $allowExternalIdentitiesToLeave The allowExternalIdentitiesToLeave property */
     private ?bool $allowExternalIdentitiesToLeave = null;
     
     /**
-     * Instantiates a new ExternalIdentitiesPolicy and sets the default values.
+     * Instantiates a new externalIdentitiesPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +26,7 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExternalIdentitiesPolicy
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExternalIdentitiesPolicy {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ExternalIdentitiesPolicy {
         return new ExternalIdentitiesPolicy();
     }
 
@@ -55,10 +51,9 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowDeletedIdentitiesDataRemoval' => function (ParseNode $n) use ($o) { $o->setAllowDeletedIdentitiesDataRemoval($n->getBooleanValue()); },
-            'allowExternalIdentitiesToLeave' => function (ParseNode $n) use ($o) { $o->setAllowExternalIdentitiesToLeave($n->getBooleanValue()); },
+            'allowDeletedIdentitiesDataRemoval' => function (self $o, ParseNode $n) { $o->setAllowDeletedIdentitiesDataRemoval($n->getBooleanValue()); },
+            'allowExternalIdentitiesToLeave' => function (self $o, ParseNode $n) { $o->setAllowExternalIdentitiesToLeave($n->getBooleanValue()); },
         ]);
     }
 

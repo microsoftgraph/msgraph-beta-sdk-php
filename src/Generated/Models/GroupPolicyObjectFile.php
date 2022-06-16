@@ -7,31 +7,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyObjectFile extends Entity implements Parsable 
+class GroupPolicyObjectFile extends Entity 
 {
-    /**
-     * @var string|null $content The Group Policy Object file content.
-    */
+    /** @var string|null $content The Group Policy Object file content. */
     private ?string $content = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The date and time at which the GroupPolicy was first uploaded.
-    */
+    /** @var DateTime|null $createdDateTime The date and time at which the GroupPolicy was first uploaded. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $groupPolicyObjectId The Group Policy Object GUID from GPO Xml content
-    */
+    /** @var string|null $groupPolicyObjectId The Group Policy Object GUID from GPO Xml content */
     private ?string $groupPolicyObjectId = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time at which the GroupPolicyObjectFile was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time at which the GroupPolicyObjectFile was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $ouDistinguishedName The distinguished name of the OU.
-    */
+    /** @var string|null $ouDistinguishedName The distinguished name of the OU. */
     private ?string $ouDistinguishedName = null;
     
     /**
@@ -46,7 +36,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GroupPolicyObjectFile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyObjectFile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyObjectFile {
         return new GroupPolicyObjectFile();
     }
 
@@ -71,13 +61,12 @@ class GroupPolicyObjectFile extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'groupPolicyObjectId' => function (ParseNode $n) use ($o) { $o->setGroupPolicyObjectId($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'ouDistinguishedName' => function (ParseNode $n) use ($o) { $o->setOuDistinguishedName($n->getStringValue()); },
+            'content' => function (self $o, ParseNode $n) { $o->setContent($n->getStringValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'groupPolicyObjectId' => function (self $o, ParseNode $n) { $o->setGroupPolicyObjectId($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'ouDistinguishedName' => function (self $o, ParseNode $n) { $o->setOuDistinguishedName($n->getStringValue()); },
         ]);
     }
 

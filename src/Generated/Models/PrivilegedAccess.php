@@ -6,36 +6,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PrivilegedAccess extends Entity implements Parsable 
+class PrivilegedAccess extends Entity 
 {
-    /**
-     * @var string|null $displayName The display name of the provider managed by PIM.
-    */
+    /** @var string|null $displayName The display name of the provider managed by PIM. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<GovernanceResource>|null $resources A collection of resources for the provider.
-    */
+    /** @var array<GovernanceResource>|null $resources A collection of resources for the provider. */
     private ?array $resources = null;
     
-    /**
-     * @var array<GovernanceRoleAssignmentRequest>|null $roleAssignmentRequests A collection of role assignment requests for the provider.
-    */
+    /** @var array<GovernanceRoleAssignmentRequest>|null $roleAssignmentRequests A collection of role assignment requests for the provider. */
     private ?array $roleAssignmentRequests = null;
     
-    /**
-     * @var array<GovernanceRoleAssignment>|null $roleAssignments A collection of role assignments for the provider.
-    */
+    /** @var array<GovernanceRoleAssignment>|null $roleAssignments A collection of role assignments for the provider. */
     private ?array $roleAssignments = null;
     
-    /**
-     * @var array<GovernanceRoleDefinition>|null $roleDefinitions A collection of role defintions for the provider.
-    */
+    /** @var array<GovernanceRoleDefinition>|null $roleDefinitions A collection of role defintions for the provider. */
     private ?array $roleDefinitions = null;
     
-    /**
-     * @var array<GovernanceRoleSetting>|null $roleSettings A collection of role settings for the provider.
-    */
+    /** @var array<GovernanceRoleSetting>|null $roleSettings A collection of role settings for the provider. */
     private ?array $roleSettings = null;
     
     /**
@@ -50,7 +38,7 @@ class PrivilegedAccess extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrivilegedAccess
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedAccess {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedAccess {
         return new PrivilegedAccess();
     }
 
@@ -67,14 +55,13 @@ class PrivilegedAccess extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'resources' => function (ParseNode $n) use ($o) { $o->setResources($n->getCollectionOfObjectValues(array(GovernanceResource::class, 'createFromDiscriminatorValue'))); },
-            'roleAssignmentRequests' => function (ParseNode $n) use ($o) { $o->setRoleAssignmentRequests($n->getCollectionOfObjectValues(array(GovernanceRoleAssignmentRequest::class, 'createFromDiscriminatorValue'))); },
-            'roleAssignments' => function (ParseNode $n) use ($o) { $o->setRoleAssignments($n->getCollectionOfObjectValues(array(GovernanceRoleAssignment::class, 'createFromDiscriminatorValue'))); },
-            'roleDefinitions' => function (ParseNode $n) use ($o) { $o->setRoleDefinitions($n->getCollectionOfObjectValues(array(GovernanceRoleDefinition::class, 'createFromDiscriminatorValue'))); },
-            'roleSettings' => function (ParseNode $n) use ($o) { $o->setRoleSettings($n->getCollectionOfObjectValues(array(GovernanceRoleSetting::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'resources' => function (self $o, ParseNode $n) { $o->setResources($n->getCollectionOfObjectValues(GovernanceResource::class)); },
+            'roleAssignmentRequests' => function (self $o, ParseNode $n) { $o->setRoleAssignmentRequests($n->getCollectionOfObjectValues(GovernanceRoleAssignmentRequest::class)); },
+            'roleAssignments' => function (self $o, ParseNode $n) { $o->setRoleAssignments($n->getCollectionOfObjectValues(GovernanceRoleAssignment::class)); },
+            'roleDefinitions' => function (self $o, ParseNode $n) { $o->setRoleDefinitions($n->getCollectionOfObjectValues(GovernanceRoleDefinition::class)); },
+            'roleSettings' => function (self $o, ParseNode $n) { $o->setRoleSettings($n->getCollectionOfObjectValues(GovernanceRoleSetting::class)); },
         ]);
     }
 

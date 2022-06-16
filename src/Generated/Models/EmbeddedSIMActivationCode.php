@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class EmbeddedSIMActivationCode implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $integratedCircuitCardIdentifier The Integrated Circuit Card Identifier (ICCID) for this embedded SIM activation code as provided by the mobile operator.
-    */
+    /** @var string|null $integratedCircuitCardIdentifier The Integrated Circuit Card Identifier (ICCID) for this embedded SIM activation code as provided by the mobile operator. */
     private ?string $integratedCircuitCardIdentifier = null;
     
-    /**
-     * @var string|null $matchingIdentifier The MatchingIdentifier (MatchingID) as specified in the GSMA Association SGP.22 RSP Technical Specification section 4.1.
-    */
+    /** @var string|null $matchingIdentifier The MatchingIdentifier (MatchingID) as specified in the GSMA Association SGP.22 RSP Technical Specification section 4.1. */
     private ?string $matchingIdentifier = null;
     
-    /**
-     * @var string|null $smdpPlusServerAddress The fully qualified domain name of the SM-DP+ server as specified in the GSM Association SPG .22 RSP Technical Specification.
-    */
+    /** @var string|null $smdpPlusServerAddress The fully qualified domain name of the SM-DP+ server as specified in the GSM Association SPG .22 RSP Technical Specification. */
     private ?string $smdpPlusServerAddress = null;
     
     /**
@@ -41,7 +33,7 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EmbeddedSIMActivationCode
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EmbeddedSIMActivationCode {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EmbeddedSIMActivationCode {
         return new EmbeddedSIMActivationCode();
     }
 
@@ -58,11 +50,10 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'integratedCircuitCardIdentifier' => function (ParseNode $n) use ($o) { $o->setIntegratedCircuitCardIdentifier($n->getStringValue()); },
-            'matchingIdentifier' => function (ParseNode $n) use ($o) { $o->setMatchingIdentifier($n->getStringValue()); },
-            'smdpPlusServerAddress' => function (ParseNode $n) use ($o) { $o->setSmdpPlusServerAddress($n->getStringValue()); },
+            'integratedCircuitCardIdentifier' => function (self $o, ParseNode $n) { $o->setIntegratedCircuitCardIdentifier($n->getStringValue()); },
+            'matchingIdentifier' => function (self $o, ParseNode $n) { $o->setMatchingIdentifier($n->getStringValue()); },
+            'smdpPlusServerAddress' => function (self $o, ParseNode $n) { $o->setSmdpPlusServerAddress($n->getStringValue()); },
         ];
     }
 

@@ -6,46 +6,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends Entity implements Parsable 
+class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends Entity 
 {
-    /**
-     * @var int|null $appCrashCount The number of crashes for the app. Valid values -2147483648 to 2147483647
-    */
+    /** @var int|null $appCrashCount The number of crashes for the app. Valid values -2147483648 to 2147483647 */
     private ?int $appCrashCount = null;
     
-    /**
-     * @var string|null $appDisplayName The friendly name of the application.
-    */
+    /** @var string|null $appDisplayName The friendly name of the application. */
     private ?string $appDisplayName = null;
     
-    /**
-     * @var string|null $appName The name of the application.
-    */
+    /** @var string|null $appName The name of the application. */
     private ?string $appName = null;
     
-    /**
-     * @var string|null $appPublisher The publisher of the application.
-    */
+    /** @var string|null $appPublisher The publisher of the application. */
     private ?string $appPublisher = null;
     
-    /**
-     * @var string|null $appVersion The version of the application.
-    */
+    /** @var string|null $appVersion The version of the application. */
     private ?string $appVersion = null;
     
-    /**
-     * @var int|null $deviceCountWithCrashes The total number of devices that have reported one or more application crashes for this application and version. Valid values -2147483648 to 2147483647
-    */
+    /** @var int|null $deviceCountWithCrashes The total number of devices that have reported one or more application crashes for this application and version. Valid values -2147483648 to 2147483647 */
     private ?int $deviceCountWithCrashes = null;
     
-    /**
-     * @var bool|null $isLatestUsedVersion Is the version of application the latest version for that app that is in use.
-    */
+    /** @var bool|null $isLatestUsedVersion Is the version of application the latest version for that app that is in use. */
     private ?bool $isLatestUsedVersion = null;
     
-    /**
-     * @var bool|null $isMostUsedVersion Is the version of application the most used version for that app.
-    */
+    /** @var bool|null $isMostUsedVersion Is the version of application the most used version for that app. */
     private ?bool $isMostUsedVersion = null;
     
     /**
@@ -60,7 +44,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails {
         return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails();
     }
 
@@ -117,16 +101,15 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appCrashCount' => function (ParseNode $n) use ($o) { $o->setAppCrashCount($n->getIntegerValue()); },
-            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
-            'appName' => function (ParseNode $n) use ($o) { $o->setAppName($n->getStringValue()); },
-            'appPublisher' => function (ParseNode $n) use ($o) { $o->setAppPublisher($n->getStringValue()); },
-            'appVersion' => function (ParseNode $n) use ($o) { $o->setAppVersion($n->getStringValue()); },
-            'deviceCountWithCrashes' => function (ParseNode $n) use ($o) { $o->setDeviceCountWithCrashes($n->getIntegerValue()); },
-            'isLatestUsedVersion' => function (ParseNode $n) use ($o) { $o->setIsLatestUsedVersion($n->getBooleanValue()); },
-            'isMostUsedVersion' => function (ParseNode $n) use ($o) { $o->setIsMostUsedVersion($n->getBooleanValue()); },
+            'appCrashCount' => function (self $o, ParseNode $n) { $o->setAppCrashCount($n->getIntegerValue()); },
+            'appDisplayName' => function (self $o, ParseNode $n) { $o->setAppDisplayName($n->getStringValue()); },
+            'appName' => function (self $o, ParseNode $n) { $o->setAppName($n->getStringValue()); },
+            'appPublisher' => function (self $o, ParseNode $n) { $o->setAppPublisher($n->getStringValue()); },
+            'appVersion' => function (self $o, ParseNode $n) { $o->setAppVersion($n->getStringValue()); },
+            'deviceCountWithCrashes' => function (self $o, ParseNode $n) { $o->setDeviceCountWithCrashes($n->getIntegerValue()); },
+            'isLatestUsedVersion' => function (self $o, ParseNode $n) { $o->setIsLatestUsedVersion($n->getBooleanValue()); },
+            'isMostUsedVersion' => function (self $o, ParseNode $n) { $o->setIsMostUsedVersion($n->getBooleanValue()); },
         ]);
     }
 

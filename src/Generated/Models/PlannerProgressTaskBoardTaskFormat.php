@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PlannerProgressTaskBoardTaskFormat extends PlannerDelta implements Parsable 
+class PlannerProgressTaskBoardTaskFormat extends PlannerDelta 
 {
-    /**
-     * @var string|null $orderHint Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.
-    */
+    /** @var string|null $orderHint Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here. */
     private ?string $orderHint = null;
     
     /**
@@ -25,7 +23,7 @@ class PlannerProgressTaskBoardTaskFormat extends PlannerDelta implements Parsabl
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PlannerProgressTaskBoardTaskFormat
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PlannerProgressTaskBoardTaskFormat {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PlannerProgressTaskBoardTaskFormat {
         return new PlannerProgressTaskBoardTaskFormat();
     }
 
@@ -34,9 +32,8 @@ class PlannerProgressTaskBoardTaskFormat extends PlannerDelta implements Parsabl
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'orderHint' => function (ParseNode $n) use ($o) { $o->setOrderHint($n->getStringValue()); },
+            'orderHint' => function (self $o, ParseNode $n) { $o->setOrderHint($n->getStringValue()); },
         ]);
     }
 

@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementConfigurationSettingInstanceTemplate implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $isRequired Indicates if a policy must specify this setting.
-    */
+    /** @var bool|null $isRequired Indicates if a policy must specify this setting. */
     private ?bool $isRequired = null;
     
-    /**
-     * @var string|null $settingDefinitionId Setting Definition Id
-    */
+    /** @var string|null $settingDefinitionId Setting Definition Id */
     private ?string $settingDefinitionId = null;
     
-    /**
-     * @var string|null $settingInstanceTemplateId Setting Instance Template Id
-    */
+    /** @var string|null $settingInstanceTemplateId Setting Instance Template Id */
     private ?string $settingInstanceTemplateId = null;
     
     /**
@@ -41,7 +33,7 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementConfigurationSettingInstanceTemplate
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingInstanceTemplate {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingInstanceTemplate {
         return new DeviceManagementConfigurationSettingInstanceTemplate();
     }
 
@@ -58,11 +50,10 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'isRequired' => function (ParseNode $n) use ($o) { $o->setIsRequired($n->getBooleanValue()); },
-            'settingDefinitionId' => function (ParseNode $n) use ($o) { $o->setSettingDefinitionId($n->getStringValue()); },
-            'settingInstanceTemplateId' => function (ParseNode $n) use ($o) { $o->setSettingInstanceTemplateId($n->getStringValue()); },
+            'isRequired' => function (self $o, ParseNode $n) { $o->setIsRequired($n->getBooleanValue()); },
+            'settingDefinitionId' => function (self $o, ParseNode $n) { $o->setSettingDefinitionId($n->getStringValue()); },
+            'settingInstanceTemplateId' => function (self $o, ParseNode $n) { $o->setSettingInstanceTemplateId($n->getStringValue()); },
         ];
     }
 

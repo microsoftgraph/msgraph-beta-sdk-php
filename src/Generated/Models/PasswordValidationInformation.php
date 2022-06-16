@@ -9,23 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PasswordValidationInformation implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $isValid Specifies whether the password is valid based on the calculation of the results in the validationResults property. Not nullable. Read-only.
-    */
+    /** @var bool|null $isValid Specifies whether the password is valid based on the calculation of the results in the validationResults property. Not nullable. Read-only. */
     private ?bool $isValid = null;
     
-    /**
-     * @var array<ValidationResult>|null $validationResults The list of password validation rules and whether the password passed those rules. Not nullable. Read-only.
-    */
+    /** @var array<ValidationResult>|null $validationResults The list of password validation rules and whether the password passed those rules. Not nullable. Read-only. */
     private ?array $validationResults = null;
     
     /**
-     * Instantiates a new PasswordValidationInformation and sets the default values.
+     * Instantiates a new passwordValidationInformation and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -36,7 +30,7 @@ class PasswordValidationInformation implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PasswordValidationInformation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PasswordValidationInformation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PasswordValidationInformation {
         return new PasswordValidationInformation();
     }
 
@@ -53,10 +47,9 @@ class PasswordValidationInformation implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'isValid' => function (ParseNode $n) use ($o) { $o->setIsValid($n->getBooleanValue()); },
-            'validationResults' => function (ParseNode $n) use ($o) { $o->setValidationResults($n->getCollectionOfObjectValues(array(ValidationResult::class, 'createFromDiscriminatorValue'))); },
+            'isValid' => function (self $o, ParseNode $n) { $o->setIsValid($n->getBooleanValue()); },
+            'validationResults' => function (self $o, ParseNode $n) { $o->setValidationResults($n->getCollectionOfObjectValues(ValidationResult::class)); },
         ];
     }
 

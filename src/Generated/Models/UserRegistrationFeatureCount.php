@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserRegistrationFeatureCount implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var AuthenticationMethodFeature|null $feature Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication. Possible values are: ssprRegistered, ssprEnabled, ssprCapable, passwordlessCapable, mfaCapable.
-    */
+    /** @var AuthenticationMethodFeature|null $feature Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication. Possible values are: ssprRegistered, ssprEnabled, ssprCapable, passwordlessCapable, mfaCapable. */
     private ?AuthenticationMethodFeature $feature = null;
     
-    /**
-     * @var int|null $userCount Number of users.
-    */
+    /** @var int|null $userCount Number of users. */
     private ?int $userCount = null;
     
     /**
@@ -36,7 +30,7 @@ class UserRegistrationFeatureCount implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserRegistrationFeatureCount
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserRegistrationFeatureCount {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserRegistrationFeatureCount {
         return new UserRegistrationFeatureCount();
     }
 
@@ -61,10 +55,9 @@ class UserRegistrationFeatureCount implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'feature' => function (ParseNode $n) use ($o) { $o->setFeature($n->getEnumValue(AuthenticationMethodFeature::class)); },
-            'userCount' => function (ParseNode $n) use ($o) { $o->setUserCount($n->getIntegerValue()); },
+            'feature' => function (self $o, ParseNode $n) { $o->setFeature($n->getEnumValue(AuthenticationMethodFeature::class)); },
+            'userCount' => function (self $o, ParseNode $n) { $o->setUserCount($n->getIntegerValue()); },
         ];
     }
 

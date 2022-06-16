@@ -9,39 +9,25 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ResponsibleSensitiveType implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $description The description property
-    */
+    /** @var string|null $description The description property */
     private ?string $description = null;
     
-    /**
-     * @var string|null $id The id property
-    */
+    /** @var string|null $id The id property */
     private ?string $id = null;
     
-    /**
-     * @var string|null $name The name property
-    */
+    /** @var string|null $name The name property */
     private ?string $name = null;
     
-    /**
-     * @var string|null $publisherName The publisherName property
-    */
+    /** @var string|null $publisherName The publisherName property */
     private ?string $publisherName = null;
     
-    /**
-     * @var string|null $rulePackageId The rulePackageId property
-    */
+    /** @var string|null $rulePackageId The rulePackageId property */
     private ?string $rulePackageId = null;
     
-    /**
-     * @var string|null $rulePackageType The rulePackageType property
-    */
+    /** @var string|null $rulePackageType The rulePackageType property */
     private ?string $rulePackageType = null;
     
     /**
@@ -56,7 +42,7 @@ class ResponsibleSensitiveType implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ResponsibleSensitiveType
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ResponsibleSensitiveType {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ResponsibleSensitiveType {
         return new ResponsibleSensitiveType();
     }
 
@@ -81,14 +67,13 @@ class ResponsibleSensitiveType implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'publisherName' => function (ParseNode $n) use ($o) { $o->setPublisherName($n->getStringValue()); },
-            'rulePackageId' => function (ParseNode $n) use ($o) { $o->setRulePackageId($n->getStringValue()); },
-            'rulePackageType' => function (ParseNode $n) use ($o) { $o->setRulePackageType($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'publisherName' => function (self $o, ParseNode $n) { $o->setPublisherName($n->getStringValue()); },
+            'rulePackageId' => function (self $o, ParseNode $n) { $o->setRulePackageId($n->getStringValue()); },
+            'rulePackageType' => function (self $o, ParseNode $n) { $o->setRulePackageType($n->getStringValue()); },
         ];
     }
 

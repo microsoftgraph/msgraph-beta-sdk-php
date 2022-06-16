@@ -10,39 +10,25 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CertificateConnectorSetting implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateTime|null $certExpiryTime Certificate expire time
-    */
+    /** @var DateTime|null $certExpiryTime Certificate expire time */
     private ?DateTime $certExpiryTime = null;
     
-    /**
-     * @var string|null $connectorVersion Version of certificate connector
-    */
+    /** @var string|null $connectorVersion Version of certificate connector */
     private ?string $connectorVersion = null;
     
-    /**
-     * @var string|null $enrollmentError Certificate connector enrollment error
-    */
+    /** @var string|null $enrollmentError Certificate connector enrollment error */
     private ?string $enrollmentError = null;
     
-    /**
-     * @var DateTime|null $lastConnectorConnectionTime Last time certificate connector connected
-    */
+    /** @var DateTime|null $lastConnectorConnectionTime Last time certificate connector connected */
     private ?DateTime $lastConnectorConnectionTime = null;
     
-    /**
-     * @var int|null $lastUploadVersion Version of last uploaded certificate connector
-    */
+    /** @var int|null $lastUploadVersion Version of last uploaded certificate connector */
     private ?int $lastUploadVersion = null;
     
-    /**
-     * @var int|null $status Certificate connector status
-    */
+    /** @var int|null $status Certificate connector status */
     private ?int $status = null;
     
     /**
@@ -57,7 +43,7 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CertificateConnectorSetting
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CertificateConnectorSetting {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CertificateConnectorSetting {
         return new CertificateConnectorSetting();
     }
 
@@ -98,14 +84,13 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'certExpiryTime' => function (ParseNode $n) use ($o) { $o->setCertExpiryTime($n->getDateTimeValue()); },
-            'connectorVersion' => function (ParseNode $n) use ($o) { $o->setConnectorVersion($n->getStringValue()); },
-            'enrollmentError' => function (ParseNode $n) use ($o) { $o->setEnrollmentError($n->getStringValue()); },
-            'lastConnectorConnectionTime' => function (ParseNode $n) use ($o) { $o->setLastConnectorConnectionTime($n->getDateTimeValue()); },
-            'lastUploadVersion' => function (ParseNode $n) use ($o) { $o->setLastUploadVersion($n->getIntegerValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getIntegerValue()); },
+            'certExpiryTime' => function (self $o, ParseNode $n) { $o->setCertExpiryTime($n->getDateTimeValue()); },
+            'connectorVersion' => function (self $o, ParseNode $n) { $o->setConnectorVersion($n->getStringValue()); },
+            'enrollmentError' => function (self $o, ParseNode $n) { $o->setEnrollmentError($n->getStringValue()); },
+            'lastConnectorConnectionTime' => function (self $o, ParseNode $n) { $o->setLastConnectorConnectionTime($n->getDateTimeValue()); },
+            'lastUploadVersion' => function (self $o, ParseNode $n) { $o->setLastUploadVersion($n->getIntegerValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getIntegerValue()); },
         ];
     }
 

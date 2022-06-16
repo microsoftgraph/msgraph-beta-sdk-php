@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ValidationResult implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $message The string containing the reason for why the rule passed or not. Read-only. Not nullable.
-    */
+    /** @var string|null $message The string containing the reason for why the rule passed or not. Read-only. Not nullable. */
     private ?string $message = null;
     
-    /**
-     * @var string|null $ruleName The string containing the name of the password validation rule that the action was validated against. Read-only. Not nullable.
-    */
+    /** @var string|null $ruleName The string containing the name of the password validation rule that the action was validated against. Read-only. Not nullable. */
     private ?string $ruleName = null;
     
-    /**
-     * @var bool|null $validationPassed Whether the password passed or failed the validation rule. Read-only. Not nullable.
-    */
+    /** @var bool|null $validationPassed Whether the password passed or failed the validation rule. Read-only. Not nullable. */
     private ?bool $validationPassed = null;
     
     /**
@@ -41,7 +33,7 @@ class ValidationResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ValidationResult
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ValidationResult {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ValidationResult {
         return new ValidationResult();
     }
 
@@ -58,11 +50,10 @@ class ValidationResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
-            'ruleName' => function (ParseNode $n) use ($o) { $o->setRuleName($n->getStringValue()); },
-            'validationPassed' => function (ParseNode $n) use ($o) { $o->setValidationPassed($n->getBooleanValue()); },
+            'message' => function (self $o, ParseNode $n) { $o->setMessage($n->getStringValue()); },
+            'ruleName' => function (self $o, ParseNode $n) { $o->setRuleName($n->getStringValue()); },
+            'validationPassed' => function (self $o, ParseNode $n) { $o->setValidationPassed($n->getBooleanValue()); },
         ];
     }
 

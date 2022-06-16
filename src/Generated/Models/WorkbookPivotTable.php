@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookPivotTable extends Entity implements Parsable 
+class WorkbookPivotTable extends Entity 
 {
-    /**
-     * @var string|null $name Name of the PivotTable.
-    */
+    /** @var string|null $name Name of the PivotTable. */
     private ?string $name = null;
     
-    /**
-     * @var WorkbookWorksheet|null $worksheet The worksheet containing the current PivotTable. Read-only.
-    */
+    /** @var WorkbookWorksheet|null $worksheet The worksheet containing the current PivotTable. Read-only. */
     private ?WorkbookWorksheet $worksheet = null;
     
     /**
@@ -30,7 +26,7 @@ class WorkbookPivotTable extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookPivotTable
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookPivotTable {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookPivotTable {
         return new WorkbookPivotTable();
     }
 
@@ -39,10 +35,9 @@ class WorkbookPivotTable extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'worksheet' => function (ParseNode $n) use ($o) { $o->setWorksheet($n->getObjectValue(array(WorkbookWorksheet::class, 'createFromDiscriminatorValue'))); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'worksheet' => function (self $o, ParseNode $n) { $o->setWorksheet($n->getObjectValue(WorkbookWorksheet::class)); },
         ]);
     }
 

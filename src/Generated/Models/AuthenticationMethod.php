@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AuthenticationMethod extends Entity implements Parsable 
+class AuthenticationMethod extends Entity 
 {
     /**
      * Instantiates a new authenticationMethod and sets the default values.
@@ -20,22 +20,7 @@ class AuthenticationMethod extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AuthenticationMethod
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationMethod {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.emailAuthenticationMethod': return new EmailAuthenticationMethod();
-                case '#microsoft.graph.fido2AuthenticationMethod': return new Fido2AuthenticationMethod();
-                case '#microsoft.graph.microsoftAuthenticatorAuthenticationMethod': return new MicrosoftAuthenticatorAuthenticationMethod();
-                case '#microsoft.graph.passwordAuthenticationMethod': return new PasswordAuthenticationMethod();
-                case '#microsoft.graph.passwordlessMicrosoftAuthenticatorAuthenticationMethod': return new PasswordlessMicrosoftAuthenticatorAuthenticationMethod();
-                case '#microsoft.graph.phoneAuthenticationMethod': return new PhoneAuthenticationMethod();
-                case '#microsoft.graph.softwareOathAuthenticationMethod': return new SoftwareOathAuthenticationMethod();
-                case '#microsoft.graph.temporaryAccessPassAuthenticationMethod': return new TemporaryAccessPassAuthenticationMethod();
-                case '#microsoft.graph.windowsHelloForBusinessAuthenticationMethod': return new WindowsHelloForBusinessAuthenticationMethod();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationMethod {
         return new AuthenticationMethod();
     }
 
@@ -44,7 +29,6 @@ class AuthenticationMethod extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
         ]);
     }

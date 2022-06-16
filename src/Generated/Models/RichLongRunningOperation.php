@@ -6,30 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RichLongRunningOperation extends LongRunningOperation implements Parsable 
+class RichLongRunningOperation extends LongRunningOperation 
 {
-    /**
-     * @var PublicError|null $error Error due to which the operation failed.
-    */
+    /** @var PublicError|null $error Error due to which the operation failed. */
     private ?PublicError $error = null;
     
-    /**
-     * @var int|null $percentageComplete A value between 0 and 100 that indicates the progress of the operation.
-    */
+    /** @var int|null $percentageComplete A value between 0 and 100 that indicates the progress of the operation. */
     private ?int $percentageComplete = null;
     
-    /**
-     * @var string|null $resourceId A unique identifier for the result.
-    */
+    /** @var string|null $resourceId A unique identifier for the result. */
     private ?string $resourceId = null;
     
-    /**
-     * @var string|null $type Type of the operation.
-    */
+    /** @var string|null $type Type of the operation. */
     private ?string $type = null;
     
     /**
-     * Instantiates a new RichLongRunningOperation and sets the default values.
+     * Instantiates a new richLongRunningOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -40,7 +32,7 @@ class RichLongRunningOperation extends LongRunningOperation implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RichLongRunningOperation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RichLongRunningOperation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RichLongRunningOperation {
         return new RichLongRunningOperation();
     }
 
@@ -57,12 +49,11 @@ class RichLongRunningOperation extends LongRunningOperation implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(PublicError::class, 'createFromDiscriminatorValue'))); },
-            'percentageComplete' => function (ParseNode $n) use ($o) { $o->setPercentageComplete($n->getIntegerValue()); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'error' => function (self $o, ParseNode $n) { $o->setError($n->getObjectValue(PublicError::class)); },
+            'percentageComplete' => function (self $o, ParseNode $n) { $o->setPercentageComplete($n->getIntegerValue()); },
+            'resourceId' => function (self $o, ParseNode $n) { $o->setResourceId($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
         ]);
     }
 

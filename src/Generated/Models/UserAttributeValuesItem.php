@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserAttributeValuesItem implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $isDefault Used to set the value as the default.
-    */
+    /** @var bool|null $isDefault Determines whether the value is set as the default. */
     private ?bool $isDefault = null;
     
-    /**
-     * @var string|null $name The display name of the property displayed to the end user in the user flow.
-    */
+    /** @var string|null $name The display name of the property displayed to the user in the user flow. */
     private ?string $name = null;
     
-    /**
-     * @var string|null $value The value that is set when this item is selected.
-    */
+    /** @var string|null $value The value that is set when this item is selected. */
     private ?string $value = null;
     
     /**
@@ -41,7 +33,7 @@ class UserAttributeValuesItem implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserAttributeValuesItem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserAttributeValuesItem {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserAttributeValuesItem {
         return new UserAttributeValuesItem();
     }
 
@@ -58,16 +50,15 @@ class UserAttributeValuesItem implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
+            'isDefault' => function (self $o, ParseNode $n) { $o->setIsDefault($n->getBooleanValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the isDefault property value. Used to set the value as the default.
+     * Gets the isDefault property value. Determines whether the value is set as the default.
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
@@ -75,7 +66,7 @@ class UserAttributeValuesItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the name property value. The display name of the property displayed to the end user in the user flow.
+     * Gets the name property value. The display name of the property displayed to the user in the user flow.
      * @return string|null
     */
     public function getName(): ?string {
@@ -110,7 +101,7 @@ class UserAttributeValuesItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isDefault property value. Used to set the value as the default.
+     * Sets the isDefault property value. Determines whether the value is set as the default.
      *  @param bool|null $value Value to set for the isDefault property.
     */
     public function setIsDefault(?bool $value ): void {
@@ -118,7 +109,7 @@ class UserAttributeValuesItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the name property value. The display name of the property displayed to the end user in the user flow.
+     * Sets the name property value. The display name of the property displayed to the user in the user flow.
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value ): void {

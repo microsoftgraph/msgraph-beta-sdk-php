@@ -6,61 +6,39 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Authentication extends Entity implements Parsable 
+class Authentication extends Entity 
 {
-    /**
-     * @var array<EmailAuthenticationMethod>|null $emailMethods Represents the email addresses registered to a user for authentication.
-    */
+    /** @var array<EmailAuthenticationMethod>|null $emailMethods Represents the email addresses registered to a user for authentication. */
     private ?array $emailMethods = null;
     
-    /**
-     * @var array<Fido2AuthenticationMethod>|null $fido2Methods Represents the FIDO2 security keys registered to a user for authentication.
-    */
+    /** @var array<Fido2AuthenticationMethod>|null $fido2Methods Represents the FIDO2 security keys registered to a user for authentication. */
     private ?array $fido2Methods = null;
     
-    /**
-     * @var array<AuthenticationMethod>|null $methods Represents all authentication methods registered to a user.
-    */
+    /** @var array<AuthenticationMethod>|null $methods Represents all authentication methods registered to a user. */
     private ?array $methods = null;
     
-    /**
-     * @var array<MicrosoftAuthenticatorAuthenticationMethod>|null $microsoftAuthenticatorMethods The details of the Microsoft Authenticator app registered to a user for authentication.
-    */
+    /** @var array<MicrosoftAuthenticatorAuthenticationMethod>|null $microsoftAuthenticatorMethods The details of the Microsoft Authenticator app registered to a user for authentication. */
     private ?array $microsoftAuthenticatorMethods = null;
     
-    /**
-     * @var array<LongRunningOperation>|null $operations The operations property
-    */
+    /** @var array<LongRunningOperation>|null $operations The operations property */
     private ?array $operations = null;
     
-    /**
-     * @var array<PasswordlessMicrosoftAuthenticatorAuthenticationMethod>|null $passwordlessMicrosoftAuthenticatorMethods Represents the Microsoft Authenticator Passwordless Phone Sign-in methods registered to a user for authentication.
-    */
+    /** @var array<PasswordlessMicrosoftAuthenticatorAuthenticationMethod>|null $passwordlessMicrosoftAuthenticatorMethods Represents the Microsoft Authenticator Passwordless Phone Sign-in methods registered to a user for authentication. */
     private ?array $passwordlessMicrosoftAuthenticatorMethods = null;
     
-    /**
-     * @var array<PasswordAuthenticationMethod>|null $passwordMethods Represents the details of the password authentication method registered to a user for authentication.
-    */
+    /** @var array<PasswordAuthenticationMethod>|null $passwordMethods Represents the details of the password authentication method registered to a user for authentication. */
     private ?array $passwordMethods = null;
     
-    /**
-     * @var array<PhoneAuthenticationMethod>|null $phoneMethods Represents the phone registered to a user for authentication.
-    */
+    /** @var array<PhoneAuthenticationMethod>|null $phoneMethods Represents the phone registered to a user for authentication. */
     private ?array $phoneMethods = null;
     
-    /**
-     * @var array<SoftwareOathAuthenticationMethod>|null $softwareOathMethods The softwareOathMethods property
-    */
+    /** @var array<SoftwareOathAuthenticationMethod>|null $softwareOathMethods The softwareOathMethods property */
     private ?array $softwareOathMethods = null;
     
-    /**
-     * @var array<TemporaryAccessPassAuthenticationMethod>|null $temporaryAccessPassMethods Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
-    */
+    /** @var array<TemporaryAccessPassAuthenticationMethod>|null $temporaryAccessPassMethods Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes. */
     private ?array $temporaryAccessPassMethods = null;
     
-    /**
-     * @var array<WindowsHelloForBusinessAuthenticationMethod>|null $windowsHelloForBusinessMethods Represents the Windows Hello for Business authentication method registered to a user for authentication.
-    */
+    /** @var array<WindowsHelloForBusinessAuthenticationMethod>|null $windowsHelloForBusinessMethods Represents the Windows Hello for Business authentication method registered to a user for authentication. */
     private ?array $windowsHelloForBusinessMethods = null;
     
     /**
@@ -75,7 +53,7 @@ class Authentication extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Authentication
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Authentication {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Authentication {
         return new Authentication();
     }
 
@@ -100,19 +78,18 @@ class Authentication extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'emailMethods' => function (ParseNode $n) use ($o) { $o->setEmailMethods($n->getCollectionOfObjectValues(array(EmailAuthenticationMethod::class, 'createFromDiscriminatorValue'))); },
-            'fido2Methods' => function (ParseNode $n) use ($o) { $o->setFido2Methods($n->getCollectionOfObjectValues(array(Fido2AuthenticationMethod::class, 'createFromDiscriminatorValue'))); },
-            'methods' => function (ParseNode $n) use ($o) { $o->setMethods($n->getCollectionOfObjectValues(array(AuthenticationMethod::class, 'createFromDiscriminatorValue'))); },
-            'microsoftAuthenticatorMethods' => function (ParseNode $n) use ($o) { $o->setMicrosoftAuthenticatorMethods($n->getCollectionOfObjectValues(array(MicrosoftAuthenticatorAuthenticationMethod::class, 'createFromDiscriminatorValue'))); },
-            'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(LongRunningOperation::class, 'createFromDiscriminatorValue'))); },
-            'passwordlessMicrosoftAuthenticatorMethods' => function (ParseNode $n) use ($o) { $o->setPasswordlessMicrosoftAuthenticatorMethods($n->getCollectionOfObjectValues(array(PasswordlessMicrosoftAuthenticatorAuthenticationMethod::class, 'createFromDiscriminatorValue'))); },
-            'passwordMethods' => function (ParseNode $n) use ($o) { $o->setPasswordMethods($n->getCollectionOfObjectValues(array(PasswordAuthenticationMethod::class, 'createFromDiscriminatorValue'))); },
-            'phoneMethods' => function (ParseNode $n) use ($o) { $o->setPhoneMethods($n->getCollectionOfObjectValues(array(PhoneAuthenticationMethod::class, 'createFromDiscriminatorValue'))); },
-            'softwareOathMethods' => function (ParseNode $n) use ($o) { $o->setSoftwareOathMethods($n->getCollectionOfObjectValues(array(SoftwareOathAuthenticationMethod::class, 'createFromDiscriminatorValue'))); },
-            'temporaryAccessPassMethods' => function (ParseNode $n) use ($o) { $o->setTemporaryAccessPassMethods($n->getCollectionOfObjectValues(array(TemporaryAccessPassAuthenticationMethod::class, 'createFromDiscriminatorValue'))); },
-            'windowsHelloForBusinessMethods' => function (ParseNode $n) use ($o) { $o->setWindowsHelloForBusinessMethods($n->getCollectionOfObjectValues(array(WindowsHelloForBusinessAuthenticationMethod::class, 'createFromDiscriminatorValue'))); },
+            'emailMethods' => function (self $o, ParseNode $n) { $o->setEmailMethods($n->getCollectionOfObjectValues(EmailAuthenticationMethod::class)); },
+            'fido2Methods' => function (self $o, ParseNode $n) { $o->setFido2Methods($n->getCollectionOfObjectValues(Fido2AuthenticationMethod::class)); },
+            'methods' => function (self $o, ParseNode $n) { $o->setMethods($n->getCollectionOfObjectValues(AuthenticationMethod::class)); },
+            'microsoftAuthenticatorMethods' => function (self $o, ParseNode $n) { $o->setMicrosoftAuthenticatorMethods($n->getCollectionOfObjectValues(MicrosoftAuthenticatorAuthenticationMethod::class)); },
+            'operations' => function (self $o, ParseNode $n) { $o->setOperations($n->getCollectionOfObjectValues(LongRunningOperation::class)); },
+            'passwordlessMicrosoftAuthenticatorMethods' => function (self $o, ParseNode $n) { $o->setPasswordlessMicrosoftAuthenticatorMethods($n->getCollectionOfObjectValues(PasswordlessMicrosoftAuthenticatorAuthenticationMethod::class)); },
+            'passwordMethods' => function (self $o, ParseNode $n) { $o->setPasswordMethods($n->getCollectionOfObjectValues(PasswordAuthenticationMethod::class)); },
+            'phoneMethods' => function (self $o, ParseNode $n) { $o->setPhoneMethods($n->getCollectionOfObjectValues(PhoneAuthenticationMethod::class)); },
+            'softwareOathMethods' => function (self $o, ParseNode $n) { $o->setSoftwareOathMethods($n->getCollectionOfObjectValues(SoftwareOathAuthenticationMethod::class)); },
+            'temporaryAccessPassMethods' => function (self $o, ParseNode $n) { $o->setTemporaryAccessPassMethods($n->getCollectionOfObjectValues(TemporaryAccessPassAuthenticationMethod::class)); },
+            'windowsHelloForBusinessMethods' => function (self $o, ParseNode $n) { $o->setWindowsHelloForBusinessMethods($n->getCollectionOfObjectValues(WindowsHelloForBusinessAuthenticationMethod::class)); },
         ]);
     }
 

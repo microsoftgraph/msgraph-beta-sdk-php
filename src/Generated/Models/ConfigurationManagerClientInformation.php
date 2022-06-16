@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ConfigurationManagerClientInformation implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $clientIdentifier Configuration Manager Client Id from SCCM
-    */
+    /** @var string|null $clientIdentifier Configuration Manager Client Id from SCCM */
     private ?string $clientIdentifier = null;
     
-    /**
-     * @var bool|null $isBlocked Configuration Manager Client blocked status from SCCM
-    */
+    /** @var bool|null $isBlocked Configuration Manager Client blocked status from SCCM */
     private ?bool $isBlocked = null;
     
     /**
@@ -36,7 +30,7 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConfigurationManagerClientInformation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConfigurationManagerClientInformation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ConfigurationManagerClientInformation {
         return new ConfigurationManagerClientInformation();
     }
 
@@ -61,10 +55,9 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'clientIdentifier' => function (ParseNode $n) use ($o) { $o->setClientIdentifier($n->getStringValue()); },
-            'isBlocked' => function (ParseNode $n) use ($o) { $o->setIsBlocked($n->getBooleanValue()); },
+            'clientIdentifier' => function (self $o, ParseNode $n) { $o->setClientIdentifier($n->getStringValue()); },
+            'isBlocked' => function (self $o, ParseNode $n) { $o->setIsBlocked($n->getBooleanValue()); },
         ];
     }
 

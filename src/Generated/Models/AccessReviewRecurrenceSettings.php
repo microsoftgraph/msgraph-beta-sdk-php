@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $durationInDays The duration in days for recurrence.
-    */
+    /** @var int|null $durationInDays The duration in days for recurrence. */
     private ?int $durationInDays = null;
     
-    /**
-     * @var int|null $recurrenceCount The count of recurrences, if the value of recurrenceEndType is occurrences, or 0 otherwise.
-    */
+    /** @var int|null $recurrenceCount The count of recurrences, if the value of recurrenceEndType is occurrences, or 0 otherwise. */
     private ?int $recurrenceCount = null;
     
-    /**
-     * @var string|null $recurrenceEndType How the recurrence ends. Possible values: never, endBy, occurrences, or recurrenceCount. If it is never, then there is no explicit end of the recurrence series. If it is endBy, then the recurrence ends at a certain date. If it is occurrences, then the series ends after recurrenceCount instances of the review have completed.
-    */
+    /** @var string|null $recurrenceEndType How the recurrence ends. Possible values: never, endBy, occurrences, or recurrenceCount. If it is never, then there is no explicit end of the recurrence series. If it is endBy, then the recurrence ends at a certain date. If it is occurrences, then the series ends after recurrenceCount instances of the review have completed. */
     private ?string $recurrenceEndType = null;
     
-    /**
-     * @var string|null $recurrenceType The recurrence interval. Possible vaules: onetime, weekly, monthly, quarterly, halfyearly or annual.
-    */
+    /** @var string|null $recurrenceType The recurrence interval. Possible vaules: onetime, weekly, monthly, quarterly, halfyearly or annual. */
     private ?string $recurrenceType = null;
     
     /**
@@ -46,7 +36,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessReviewRecurrenceSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewRecurrenceSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewRecurrenceSettings {
         return new AccessReviewRecurrenceSettings();
     }
 
@@ -71,12 +61,11 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'durationInDays' => function (ParseNode $n) use ($o) { $o->setDurationInDays($n->getIntegerValue()); },
-            'recurrenceCount' => function (ParseNode $n) use ($o) { $o->setRecurrenceCount($n->getIntegerValue()); },
-            'recurrenceEndType' => function (ParseNode $n) use ($o) { $o->setRecurrenceEndType($n->getStringValue()); },
-            'recurrenceType' => function (ParseNode $n) use ($o) { $o->setRecurrenceType($n->getStringValue()); },
+            'durationInDays' => function (self $o, ParseNode $n) { $o->setDurationInDays($n->getIntegerValue()); },
+            'recurrenceCount' => function (self $o, ParseNode $n) { $o->setRecurrenceCount($n->getIntegerValue()); },
+            'recurrenceEndType' => function (self $o, ParseNode $n) { $o->setRecurrenceEndType($n->getStringValue()); },
+            'recurrenceType' => function (self $o, ParseNode $n) { $o->setRecurrenceType($n->getStringValue()); },
         ];
     }
 

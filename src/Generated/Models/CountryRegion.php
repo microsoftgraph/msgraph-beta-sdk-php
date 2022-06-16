@@ -7,26 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CountryRegion extends Entity implements Parsable 
+class CountryRegion extends Entity 
 {
-    /**
-     * @var string|null $addressFormat The addressFormat property
-    */
+    /** @var string|null $addressFormat The addressFormat property */
     private ?string $addressFormat = null;
     
-    /**
-     * @var string|null $code The code property
-    */
+    /** @var string|null $code The code property */
     private ?string $code = null;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
+    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
@@ -41,7 +33,7 @@ class CountryRegion extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CountryRegion
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CountryRegion {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CountryRegion {
         return new CountryRegion();
     }
 
@@ -74,12 +66,11 @@ class CountryRegion extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'addressFormat' => function (ParseNode $n) use ($o) { $o->setAddressFormat($n->getStringValue()); },
-            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'addressFormat' => function (self $o, ParseNode $n) { $o->setAddressFormat($n->getStringValue()); },
+            'code' => function (self $o, ParseNode $n) { $o->setCode($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

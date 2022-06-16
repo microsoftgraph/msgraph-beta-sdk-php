@@ -6,51 +6,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsModelScores extends Entity implements Parsable 
+class UserExperienceAnalyticsModelScores extends Entity 
 {
-    /**
-     * @var float|null $appReliabilityScore The user experience analytics model app reliability score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $appReliabilityScore The user experience analytics model app reliability score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $appReliabilityScore = null;
     
-    /**
-     * @var float|null $batteryHealthScore The user experience analytics model battery health score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
-    private ?float $batteryHealthScore = null;
-    
-    /**
-     * @var float|null $endpointAnalyticsScore The user experience analytics model score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $endpointAnalyticsScore The user experience analytics model score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $endpointAnalyticsScore = null;
     
-    /**
-     * @var UserExperienceAnalyticsHealthState|null $healthStatus The health state of the user experience analytics model. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
-    */
+    /** @var UserExperienceAnalyticsHealthState|null $healthStatus The health state of the user experience analytics model. Possible values are: unknown, insufficientData, needsAttention, meetingGoals. */
     private ?UserExperienceAnalyticsHealthState $healthStatus = null;
     
-    /**
-     * @var string|null $manufacturer A unique identifier of the user experience analytics model scores: device manufacturer.
-    */
+    /** @var string|null $manufacturer A unique identifier of the user experience analytics model scores: device manufacturer. */
     private ?string $manufacturer = null;
     
-    /**
-     * @var string|null $model A unique identifier of the user experience analytics model scores: device model.
-    */
+    /** @var string|null $model A unique identifier of the user experience analytics model scores: device model. */
     private ?string $model = null;
     
-    /**
-     * @var int|null $modelDeviceCount The user experience analytics model device count. Valid values -9.22337203685478E+18 to 9.22337203685478E+18
-    */
+    /** @var int|null $modelDeviceCount The user experience analytics model device count. Valid values -9.22337203685478E+18 to 9.22337203685478E+18 */
     private ?int $modelDeviceCount = null;
     
-    /**
-     * @var float|null $startupPerformanceScore The user experience analytics model startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $startupPerformanceScore The user experience analytics model startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $startupPerformanceScore = null;
     
-    /**
-     * @var float|null $workFromAnywhereScore The user experience analytics model work from anywhere score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $workFromAnywhereScore The user experience analytics model work from anywhere score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $workFromAnywhereScore = null;
     
     /**
@@ -65,7 +44,7 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsModelScores
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsModelScores {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsModelScores {
         return new UserExperienceAnalyticsModelScores();
     }
 
@@ -75,14 +54,6 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     */
     public function getAppReliabilityScore(): ?float {
         return $this->appReliabilityScore;
-    }
-
-    /**
-     * Gets the batteryHealthScore property value. The user experience analytics model battery health score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     * @return float|null
-    */
-    public function getBatteryHealthScore(): ?float {
-        return $this->batteryHealthScore;
     }
 
     /**
@@ -98,17 +69,15 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appReliabilityScore' => function (ParseNode $n) use ($o) { $o->setAppReliabilityScore($n->getFloatValue()); },
-            'batteryHealthScore' => function (ParseNode $n) use ($o) { $o->setBatteryHealthScore($n->getFloatValue()); },
-            'endpointAnalyticsScore' => function (ParseNode $n) use ($o) { $o->setEndpointAnalyticsScore($n->getFloatValue()); },
-            'healthStatus' => function (ParseNode $n) use ($o) { $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'modelDeviceCount' => function (ParseNode $n) use ($o) { $o->setModelDeviceCount($n->getIntegerValue()); },
-            'startupPerformanceScore' => function (ParseNode $n) use ($o) { $o->setStartupPerformanceScore($n->getFloatValue()); },
-            'workFromAnywhereScore' => function (ParseNode $n) use ($o) { $o->setWorkFromAnywhereScore($n->getFloatValue()); },
+            'appReliabilityScore' => function (self $o, ParseNode $n) { $o->setAppReliabilityScore($n->getFloatValue()); },
+            'endpointAnalyticsScore' => function (self $o, ParseNode $n) { $o->setEndpointAnalyticsScore($n->getFloatValue()); },
+            'healthStatus' => function (self $o, ParseNode $n) { $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)); },
+            'manufacturer' => function (self $o, ParseNode $n) { $o->setManufacturer($n->getStringValue()); },
+            'model' => function (self $o, ParseNode $n) { $o->setModel($n->getStringValue()); },
+            'modelDeviceCount' => function (self $o, ParseNode $n) { $o->setModelDeviceCount($n->getIntegerValue()); },
+            'startupPerformanceScore' => function (self $o, ParseNode $n) { $o->setStartupPerformanceScore($n->getFloatValue()); },
+            'workFromAnywhereScore' => function (self $o, ParseNode $n) { $o->setWorkFromAnywhereScore($n->getFloatValue()); },
         ]);
     }
 
@@ -167,7 +136,6 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeFloatValue('appReliabilityScore', $this->appReliabilityScore);
-        $writer->writeFloatValue('batteryHealthScore', $this->batteryHealthScore);
         $writer->writeFloatValue('endpointAnalyticsScore', $this->endpointAnalyticsScore);
         $writer->writeEnumValue('healthStatus', $this->healthStatus);
         $writer->writeStringValue('manufacturer', $this->manufacturer);
@@ -183,14 +151,6 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     */
     public function setAppReliabilityScore(?float $value ): void {
         $this->appReliabilityScore = $value;
-    }
-
-    /**
-     * Sets the batteryHealthScore property value. The user experience analytics model battery health score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the batteryHealthScore property.
-    */
-    public function setBatteryHealthScore(?float $value ): void {
-        $this->batteryHealthScore = $value;
     }
 
     /**

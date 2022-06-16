@@ -7,46 +7,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends Entity implements Parsable 
+class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends Entity 
 {
-    /**
-     * @var int|null $appCrashCount The number of crashes for the app. Valid values -2147483648 to 2147483647
-    */
+    /** @var int|null $appCrashCount The number of crashes for the app. Valid values -2147483648 to 2147483647 */
     private ?int $appCrashCount = null;
     
-    /**
-     * @var string|null $appDisplayName The friendly name of the application.
-    */
+    /** @var string|null $appDisplayName The friendly name of the application. */
     private ?string $appDisplayName = null;
     
-    /**
-     * @var string|null $appName The name of the application.
-    */
+    /** @var string|null $appName The name of the application. */
     private ?string $appName = null;
     
-    /**
-     * @var string|null $appPublisher The publisher of the application.
-    */
+    /** @var string|null $appPublisher The publisher of the application. */
     private ?string $appPublisher = null;
     
-    /**
-     * @var string|null $appVersion The version of the application.
-    */
+    /** @var string|null $appVersion The version of the application. */
     private ?string $appVersion = null;
     
-    /**
-     * @var string|null $deviceDisplayName The name of the device.
-    */
+    /** @var string|null $deviceDisplayName The name of the device. */
     private ?string $deviceDisplayName = null;
     
-    /**
-     * @var string|null $deviceId The id of the device.
-    */
+    /** @var string|null $deviceId The id of the device. */
     private ?string $deviceId = null;
     
-    /**
-     * @var DateTime|null $processedDateTime The date and time when the statistics were last computed.
-    */
+    /** @var DateTime|null $processedDateTime The date and time when the statistics were last computed. */
     private ?DateTime $processedDateTime = null;
     
     /**
@@ -61,7 +45,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId {
         return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId();
     }
 
@@ -126,16 +110,15 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appCrashCount' => function (ParseNode $n) use ($o) { $o->setAppCrashCount($n->getIntegerValue()); },
-            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
-            'appName' => function (ParseNode $n) use ($o) { $o->setAppName($n->getStringValue()); },
-            'appPublisher' => function (ParseNode $n) use ($o) { $o->setAppPublisher($n->getStringValue()); },
-            'appVersion' => function (ParseNode $n) use ($o) { $o->setAppVersion($n->getStringValue()); },
-            'deviceDisplayName' => function (ParseNode $n) use ($o) { $o->setDeviceDisplayName($n->getStringValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'processedDateTime' => function (ParseNode $n) use ($o) { $o->setProcessedDateTime($n->getDateTimeValue()); },
+            'appCrashCount' => function (self $o, ParseNode $n) { $o->setAppCrashCount($n->getIntegerValue()); },
+            'appDisplayName' => function (self $o, ParseNode $n) { $o->setAppDisplayName($n->getStringValue()); },
+            'appName' => function (self $o, ParseNode $n) { $o->setAppName($n->getStringValue()); },
+            'appPublisher' => function (self $o, ParseNode $n) { $o->setAppPublisher($n->getStringValue()); },
+            'appVersion' => function (self $o, ParseNode $n) { $o->setAppVersion($n->getStringValue()); },
+            'deviceDisplayName' => function (self $o, ParseNode $n) { $o->setDeviceDisplayName($n->getStringValue()); },
+            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
+            'processedDateTime' => function (self $o, ParseNode $n) { $o->setProcessedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

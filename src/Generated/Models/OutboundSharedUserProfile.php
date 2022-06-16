@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class OutboundSharedUserProfile implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<TenantReference>|null $tenants The tenants property
-    */
+    /** @var array<TenantReference>|null $tenants The tenants property */
     private ?array $tenants = null;
     
-    /**
-     * @var string|null $userId The userId property
-    */
+    /** @var string|null $userId The userId property */
     private ?string $userId = null;
     
     /**
@@ -36,7 +30,7 @@ class OutboundSharedUserProfile implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OutboundSharedUserProfile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OutboundSharedUserProfile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OutboundSharedUserProfile {
         return new OutboundSharedUserProfile();
     }
 
@@ -53,10 +47,9 @@ class OutboundSharedUserProfile implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'tenants' => function (ParseNode $n) use ($o) { $o->setTenants($n->getCollectionOfObjectValues(array(TenantReference::class, 'createFromDiscriminatorValue'))); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'tenants' => function (self $o, ParseNode $n) { $o->setTenants($n->getCollectionOfObjectValues(TenantReference::class)); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
         ];
     }
 

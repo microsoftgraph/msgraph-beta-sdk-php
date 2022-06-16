@@ -11,34 +11,22 @@ use Psr\Http\Message\StreamInterface;
 
 class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var StreamInterface|null $content The contents of the uploaded ADML file.
-    */
+    /** @var StreamInterface|null $content The contents of the uploaded ADML file. */
     private ?StreamInterface $content = null;
     
-    /**
-     * @var string|null $fileName The file name of the uploaded ADML file.
-    */
+    /** @var string|null $fileName The file name of the uploaded ADML file. */
     private ?string $fileName = null;
     
-    /**
-     * @var string|null $id Key of the entity.
-    */
+    /** @var string|null $id Key of the entity. */
     private ?string $id = null;
     
-    /**
-     * @var string|null $languageCode The language code of the uploaded ADML file.
-    */
+    /** @var string|null $languageCode The language code of the uploaded ADML file. */
     private ?string $languageCode = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
@@ -53,7 +41,7 @@ class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GroupPolicyUploadedLanguageFile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyUploadedLanguageFile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyUploadedLanguageFile {
         return new GroupPolicyUploadedLanguageFile();
     }
 
@@ -78,13 +66,12 @@ class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
-            'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'languageCode' => function (ParseNode $n) use ($o) { $o->setLanguageCode($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'content' => function (self $o, ParseNode $n) { $o->setContent($n->getBinaryContent()); },
+            'fileName' => function (self $o, ParseNode $n) { $o->setFileName($n->getStringValue()); },
+            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
+            'languageCode' => function (self $o, ParseNode $n) { $o->setLanguageCode($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
         ];
     }
 

@@ -7,45 +7,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceBase implements Parsable 
+class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceBase 
 {
-    /**
-     * @var UnifiedRoleEligibilityScheduleInstance|null $activatedUsing If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand.
-    */
+    /** @var UnifiedRoleEligibilityScheduleInstance|null $activatedUsing If the roleAssignmentScheduleInstance is activated by a roleEligibilityScheduleRequest, this is the link to the related schedule instance. */
     private ?UnifiedRoleEligibilityScheduleInstance $activatedUsing = null;
     
-    /**
-     * @var string|null $assignmentType Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne).
-    */
+    /** @var string|null $assignmentType Type of the assignment. It can either be Assigned or Activated. */
     private ?string $assignmentType = null;
     
-    /**
-     * @var DateTime|null $endDateTime The end date of the schedule instance.
-    */
+    /** @var DateTime|null $endDateTime Time that the roleAssignmentInstance will expire */
     private ?DateTime $endDateTime = null;
     
-    /**
-     * @var string|null $memberType How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne).
-    */
+    /** @var string|null $memberType Membership type of the assignment. It can either be Inherited, Direct, or Group. */
     private ?string $memberType = null;
     
-    /**
-     * @var string|null $roleAssignmentOriginId The identifier of the role assignment in Azure AD.
-    */
+    /** @var string|null $roleAssignmentOriginId ID of the roleAssignment in the directory */
     private ?string $roleAssignmentOriginId = null;
     
-    /**
-     * @var string|null $roleAssignmentScheduleId The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created.
-    */
+    /** @var string|null $roleAssignmentScheduleId ID of the parent roleAssignmentSchedule for this instance */
     private ?string $roleAssignmentScheduleId = null;
     
-    /**
-     * @var DateTime|null $startDateTime When this instance starts.
-    */
+    /** @var DateTime|null $startDateTime Time that the roleAssignmentInstance will start */
     private ?DateTime $startDateTime = null;
     
     /**
-     * Instantiates a new UnifiedRoleAssignmentScheduleInstance and sets the default values.
+     * Instantiates a new unifiedRoleAssignmentScheduleInstance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,12 +42,12 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRoleAssignmentScheduleInstance
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleAssignmentScheduleInstance {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleAssignmentScheduleInstance {
         return new UnifiedRoleAssignmentScheduleInstance();
     }
 
     /**
-     * Gets the activatedUsing property value. If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand.
+     * Gets the activatedUsing property value. If the roleAssignmentScheduleInstance is activated by a roleEligibilityScheduleRequest, this is the link to the related schedule instance.
      * @return UnifiedRoleEligibilityScheduleInstance|null
     */
     public function getActivatedUsing(): ?UnifiedRoleEligibilityScheduleInstance {
@@ -69,7 +55,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
     }
 
     /**
-     * Gets the assignmentType property value. Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne).
+     * Gets the assignmentType property value. Type of the assignment. It can either be Assigned or Activated.
      * @return string|null
     */
     public function getAssignmentType(): ?string {
@@ -77,7 +63,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
     }
 
     /**
-     * Gets the endDateTime property value. The end date of the schedule instance.
+     * Gets the endDateTime property value. Time that the roleAssignmentInstance will expire
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
@@ -89,20 +75,19 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activatedUsing' => function (ParseNode $n) use ($o) { $o->setActivatedUsing($n->getObjectValue(array(UnifiedRoleEligibilityScheduleInstance::class, 'createFromDiscriminatorValue'))); },
-            'assignmentType' => function (ParseNode $n) use ($o) { $o->setAssignmentType($n->getStringValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'memberType' => function (ParseNode $n) use ($o) { $o->setMemberType($n->getStringValue()); },
-            'roleAssignmentOriginId' => function (ParseNode $n) use ($o) { $o->setRoleAssignmentOriginId($n->getStringValue()); },
-            'roleAssignmentScheduleId' => function (ParseNode $n) use ($o) { $o->setRoleAssignmentScheduleId($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'activatedUsing' => function (self $o, ParseNode $n) { $o->setActivatedUsing($n->getObjectValue(UnifiedRoleEligibilityScheduleInstance::class)); },
+            'assignmentType' => function (self $o, ParseNode $n) { $o->setAssignmentType($n->getStringValue()); },
+            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'memberType' => function (self $o, ParseNode $n) { $o->setMemberType($n->getStringValue()); },
+            'roleAssignmentOriginId' => function (self $o, ParseNode $n) { $o->setRoleAssignmentOriginId($n->getStringValue()); },
+            'roleAssignmentScheduleId' => function (self $o, ParseNode $n) { $o->setRoleAssignmentScheduleId($n->getStringValue()); },
+            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
         ]);
     }
 
     /**
-     * Gets the memberType property value. How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne).
+     * Gets the memberType property value. Membership type of the assignment. It can either be Inherited, Direct, or Group.
      * @return string|null
     */
     public function getMemberType(): ?string {
@@ -110,7 +95,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
     }
 
     /**
-     * Gets the roleAssignmentOriginId property value. The identifier of the role assignment in Azure AD.
+     * Gets the roleAssignmentOriginId property value. ID of the roleAssignment in the directory
      * @return string|null
     */
     public function getRoleAssignmentOriginId(): ?string {
@@ -118,7 +103,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
     }
 
     /**
-     * Gets the roleAssignmentScheduleId property value. The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created.
+     * Gets the roleAssignmentScheduleId property value. ID of the parent roleAssignmentSchedule for this instance
      * @return string|null
     */
     public function getRoleAssignmentScheduleId(): ?string {
@@ -126,7 +111,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
     }
 
     /**
-     * Gets the startDateTime property value. When this instance starts.
+     * Gets the startDateTime property value. Time that the roleAssignmentInstance will start
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
@@ -149,7 +134,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
     }
 
     /**
-     * Sets the activatedUsing property value. If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand.
+     * Sets the activatedUsing property value. If the roleAssignmentScheduleInstance is activated by a roleEligibilityScheduleRequest, this is the link to the related schedule instance.
      *  @param UnifiedRoleEligibilityScheduleInstance|null $value Value to set for the activatedUsing property.
     */
     public function setActivatedUsing(?UnifiedRoleEligibilityScheduleInstance $value ): void {
@@ -157,7 +142,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
     }
 
     /**
-     * Sets the assignmentType property value. Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne).
+     * Sets the assignmentType property value. Type of the assignment. It can either be Assigned or Activated.
      *  @param string|null $value Value to set for the assignmentType property.
     */
     public function setAssignmentType(?string $value ): void {
@@ -165,7 +150,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
     }
 
     /**
-     * Sets the endDateTime property value. The end date of the schedule instance.
+     * Sets the endDateTime property value. Time that the roleAssignmentInstance will expire
      *  @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value ): void {
@@ -173,7 +158,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
     }
 
     /**
-     * Sets the memberType property value. How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne).
+     * Sets the memberType property value. Membership type of the assignment. It can either be Inherited, Direct, or Group.
      *  @param string|null $value Value to set for the memberType property.
     */
     public function setMemberType(?string $value ): void {
@@ -181,7 +166,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
     }
 
     /**
-     * Sets the roleAssignmentOriginId property value. The identifier of the role assignment in Azure AD.
+     * Sets the roleAssignmentOriginId property value. ID of the roleAssignment in the directory
      *  @param string|null $value Value to set for the roleAssignmentOriginId property.
     */
     public function setRoleAssignmentOriginId(?string $value ): void {
@@ -189,7 +174,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
     }
 
     /**
-     * Sets the roleAssignmentScheduleId property value. The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created.
+     * Sets the roleAssignmentScheduleId property value. ID of the parent roleAssignmentSchedule for this instance
      *  @param string|null $value Value to set for the roleAssignmentScheduleId property.
     */
     public function setRoleAssignmentScheduleId(?string $value ): void {
@@ -197,7 +182,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
     }
 
     /**
-     * Sets the startDateTime property value. When this instance starts.
+     * Sets the startDateTime property value. Time that the roleAssignmentInstance will start
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value ): void {

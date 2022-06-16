@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class Privacy implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<SubjectRightsRequest>|null $subjectRightsRequests The subjectRightsRequests property
-    */
+    /** @var array<SubjectRightsRequest>|null $subjectRightsRequests The subjectRightsRequests property */
     private ?array $subjectRightsRequests = null;
     
     /**
@@ -31,7 +27,7 @@ class Privacy implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Privacy
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Privacy {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Privacy {
         return new Privacy();
     }
 
@@ -48,9 +44,8 @@ class Privacy implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'subjectRightsRequests' => function (ParseNode $n) use ($o) { $o->setSubjectRightsRequests($n->getCollectionOfObjectValues(array(SubjectRightsRequest::class, 'createFromDiscriminatorValue'))); },
+            'subjectRightsRequests' => function (self $o, ParseNode $n) { $o->setSubjectRightsRequests($n->getCollectionOfObjectValues(SubjectRightsRequest::class)); },
         ];
     }
 

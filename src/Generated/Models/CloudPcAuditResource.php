@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CloudPcAuditResource implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName The resource entity display name.
-    */
+    /** @var string|null $displayName The resource entity display name. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<CloudPcAuditProperty>|null $modifiedProperties A list of modified properties.
-    */
+    /** @var array<CloudPcAuditProperty>|null $modifiedProperties A list of modified properties. */
     private ?array $modifiedProperties = null;
     
-    /**
-     * @var string|null $resourceId The ID of the audit resource.
-    */
+    /** @var string|null $resourceId The ID of the audit resource. */
     private ?string $resourceId = null;
     
-    /**
-     * @var string|null $type The type of the audit resource.
-    */
+    /** @var string|null $type The type of the audit resource. */
     private ?string $type = null;
     
     /**
@@ -46,7 +36,7 @@ class CloudPcAuditResource implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcAuditResource
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcAuditResource {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcAuditResource {
         return new CloudPcAuditResource();
     }
 
@@ -71,12 +61,11 @@ class CloudPcAuditResource implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'modifiedProperties' => function (ParseNode $n) use ($o) { $o->setModifiedProperties($n->getCollectionOfObjectValues(array(CloudPcAuditProperty::class, 'createFromDiscriminatorValue'))); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'modifiedProperties' => function (self $o, ParseNode $n) { $o->setModifiedProperties($n->getCollectionOfObjectValues(CloudPcAuditProperty::class)); },
+            'resourceId' => function (self $o, ParseNode $n) { $o->setResourceId($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
         ];
     }
 

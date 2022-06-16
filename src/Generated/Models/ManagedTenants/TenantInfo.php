@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TenantInfo implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional.
-    */
+    /** @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. */
     private ?string $tenantId = null;
     
     /**
@@ -31,7 +27,7 @@ class TenantInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TenantInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TenantInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TenantInfo {
         return new TenantInfo();
     }
 
@@ -48,9 +44,8 @@ class TenantInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
         ];
     }
 

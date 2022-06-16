@@ -6,101 +6,63 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Profile extends Entity implements Parsable 
+class Profile extends Entity 
 {
-    /**
-     * @var array<UserAccountInformation>|null $account The account property
-    */
+    /** @var array<UserAccountInformation>|null $account The account property */
     private ?array $account = null;
     
-    /**
-     * @var array<ItemAddress>|null $addresses Represents details of addresses associated with the user.
-    */
+    /** @var array<ItemAddress>|null $addresses Represents details of addresses associated with the user. */
     private ?array $addresses = null;
     
-    /**
-     * @var array<PersonAnnualEvent>|null $anniversaries Represents the details of meaningful dates associated with a person.
-    */
+    /** @var array<PersonAnnualEvent>|null $anniversaries Represents the details of meaningful dates associated with a person. */
     private ?array $anniversaries = null;
     
-    /**
-     * @var array<PersonAward>|null $awards Represents the details of awards or honors associated with a person.
-    */
+    /** @var array<PersonAward>|null $awards Represents the details of awards or honors associated with a person. */
     private ?array $awards = null;
     
-    /**
-     * @var array<PersonCertification>|null $certifications Represents the details of certifications associated with a person.
-    */
+    /** @var array<PersonCertification>|null $certifications Represents the details of certifications associated with a person. */
     private ?array $certifications = null;
     
-    /**
-     * @var array<EducationalActivity>|null $educationalActivities Represents data that a user has supplied related to undergraduate, graduate, postgraduate or other educational activities.
-    */
+    /** @var array<EducationalActivity>|null $educationalActivities Represents data that a user has supplied related to undergraduate, graduate, postgraduate or other educational activities. */
     private ?array $educationalActivities = null;
     
-    /**
-     * @var array<ItemEmail>|null $emails Represents detailed information about email addresses associated with the user.
-    */
+    /** @var array<ItemEmail>|null $emails Represents detailed information about email addresses associated with the user. */
     private ?array $emails = null;
     
-    /**
-     * @var array<PersonInterest>|null $interests Provides detailed information about interests the user has associated with themselves in various services.
-    */
+    /** @var array<PersonInterest>|null $interests Provides detailed information about interests the user has associated with themselves in various services. */
     private ?array $interests = null;
     
-    /**
-     * @var array<LanguageProficiency>|null $languages Represents detailed information about languages that a user has added to their profile.
-    */
+    /** @var array<LanguageProficiency>|null $languages Represents detailed information about languages that a user has added to their profile. */
     private ?array $languages = null;
     
-    /**
-     * @var array<PersonName>|null $names Represents the names a user has added to their profile.
-    */
+    /** @var array<PersonName>|null $names Represents the names a user has added to their profile. */
     private ?array $names = null;
     
-    /**
-     * @var array<PersonAnnotation>|null $notes Represents notes that a user has added to their profile.
-    */
+    /** @var array<PersonAnnotation>|null $notes Represents notes that a user has added to their profile. */
     private ?array $notes = null;
     
-    /**
-     * @var array<ItemPatent>|null $patents Represents patents that a user has added to their profile.
-    */
+    /** @var array<ItemPatent>|null $patents Represents patents that a user has added to their profile. */
     private ?array $patents = null;
     
-    /**
-     * @var array<ItemPhone>|null $phones Represents detailed information about phone numbers associated with a user in various services.
-    */
+    /** @var array<ItemPhone>|null $phones Represents detailed information about phone numbers associated with a user in various services. */
     private ?array $phones = null;
     
-    /**
-     * @var array<WorkPosition>|null $positions Represents detailed information about work positions associated with a user's profile.
-    */
+    /** @var array<WorkPosition>|null $positions Represents detailed information about work positions associated with a user's profile. */
     private ?array $positions = null;
     
-    /**
-     * @var array<ProjectParticipation>|null $projects Represents detailed information about projects associated with a user.
-    */
+    /** @var array<ProjectParticipation>|null $projects Represents detailed information about projects associated with a user. */
     private ?array $projects = null;
     
-    /**
-     * @var array<ItemPublication>|null $publications Represents details of any publications a user has added to their profile.
-    */
+    /** @var array<ItemPublication>|null $publications Represents details of any publications a user has added to their profile. */
     private ?array $publications = null;
     
-    /**
-     * @var array<SkillProficiency>|null $skills Represents detailed information about skills associated with a user in various services.
-    */
+    /** @var array<SkillProficiency>|null $skills Represents detailed information about skills associated with a user in various services. */
     private ?array $skills = null;
     
-    /**
-     * @var array<WebAccount>|null $webAccounts Represents web accounts the user has indicated they use or has added to their user profile.
-    */
+    /** @var array<WebAccount>|null $webAccounts Represents web accounts the user has indicated they use or has added to their user profile. */
     private ?array $webAccounts = null;
     
-    /**
-     * @var array<PersonWebsite>|null $websites Represents detailed information about websites associated with a user in various services.
-    */
+    /** @var array<PersonWebsite>|null $websites Represents detailed information about websites associated with a user in various services. */
     private ?array $websites = null;
     
     /**
@@ -115,7 +77,7 @@ class Profile extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Profile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Profile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Profile {
         return new Profile();
     }
 
@@ -180,27 +142,26 @@ class Profile extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'account' => function (ParseNode $n) use ($o) { $o->setAccount($n->getCollectionOfObjectValues(array(UserAccountInformation::class, 'createFromDiscriminatorValue'))); },
-            'addresses' => function (ParseNode $n) use ($o) { $o->setAddresses($n->getCollectionOfObjectValues(array(ItemAddress::class, 'createFromDiscriminatorValue'))); },
-            'anniversaries' => function (ParseNode $n) use ($o) { $o->setAnniversaries($n->getCollectionOfObjectValues(array(PersonAnnualEvent::class, 'createFromDiscriminatorValue'))); },
-            'awards' => function (ParseNode $n) use ($o) { $o->setAwards($n->getCollectionOfObjectValues(array(PersonAward::class, 'createFromDiscriminatorValue'))); },
-            'certifications' => function (ParseNode $n) use ($o) { $o->setCertifications($n->getCollectionOfObjectValues(array(PersonCertification::class, 'createFromDiscriminatorValue'))); },
-            'educationalActivities' => function (ParseNode $n) use ($o) { $o->setEducationalActivities($n->getCollectionOfObjectValues(array(EducationalActivity::class, 'createFromDiscriminatorValue'))); },
-            'emails' => function (ParseNode $n) use ($o) { $o->setEmails($n->getCollectionOfObjectValues(array(ItemEmail::class, 'createFromDiscriminatorValue'))); },
-            'interests' => function (ParseNode $n) use ($o) { $o->setInterests($n->getCollectionOfObjectValues(array(PersonInterest::class, 'createFromDiscriminatorValue'))); },
-            'languages' => function (ParseNode $n) use ($o) { $o->setLanguages($n->getCollectionOfObjectValues(array(LanguageProficiency::class, 'createFromDiscriminatorValue'))); },
-            'names' => function (ParseNode $n) use ($o) { $o->setNames($n->getCollectionOfObjectValues(array(PersonName::class, 'createFromDiscriminatorValue'))); },
-            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getCollectionOfObjectValues(array(PersonAnnotation::class, 'createFromDiscriminatorValue'))); },
-            'patents' => function (ParseNode $n) use ($o) { $o->setPatents($n->getCollectionOfObjectValues(array(ItemPatent::class, 'createFromDiscriminatorValue'))); },
-            'phones' => function (ParseNode $n) use ($o) { $o->setPhones($n->getCollectionOfObjectValues(array(ItemPhone::class, 'createFromDiscriminatorValue'))); },
-            'positions' => function (ParseNode $n) use ($o) { $o->setPositions($n->getCollectionOfObjectValues(array(WorkPosition::class, 'createFromDiscriminatorValue'))); },
-            'projects' => function (ParseNode $n) use ($o) { $o->setProjects($n->getCollectionOfObjectValues(array(ProjectParticipation::class, 'createFromDiscriminatorValue'))); },
-            'publications' => function (ParseNode $n) use ($o) { $o->setPublications($n->getCollectionOfObjectValues(array(ItemPublication::class, 'createFromDiscriminatorValue'))); },
-            'skills' => function (ParseNode $n) use ($o) { $o->setSkills($n->getCollectionOfObjectValues(array(SkillProficiency::class, 'createFromDiscriminatorValue'))); },
-            'webAccounts' => function (ParseNode $n) use ($o) { $o->setWebAccounts($n->getCollectionOfObjectValues(array(WebAccount::class, 'createFromDiscriminatorValue'))); },
-            'websites' => function (ParseNode $n) use ($o) { $o->setWebsites($n->getCollectionOfObjectValues(array(PersonWebsite::class, 'createFromDiscriminatorValue'))); },
+            'account' => function (self $o, ParseNode $n) { $o->setAccount($n->getCollectionOfObjectValues(UserAccountInformation::class)); },
+            'addresses' => function (self $o, ParseNode $n) { $o->setAddresses($n->getCollectionOfObjectValues(ItemAddress::class)); },
+            'anniversaries' => function (self $o, ParseNode $n) { $o->setAnniversaries($n->getCollectionOfObjectValues(PersonAnnualEvent::class)); },
+            'awards' => function (self $o, ParseNode $n) { $o->setAwards($n->getCollectionOfObjectValues(PersonAward::class)); },
+            'certifications' => function (self $o, ParseNode $n) { $o->setCertifications($n->getCollectionOfObjectValues(PersonCertification::class)); },
+            'educationalActivities' => function (self $o, ParseNode $n) { $o->setEducationalActivities($n->getCollectionOfObjectValues(EducationalActivity::class)); },
+            'emails' => function (self $o, ParseNode $n) { $o->setEmails($n->getCollectionOfObjectValues(ItemEmail::class)); },
+            'interests' => function (self $o, ParseNode $n) { $o->setInterests($n->getCollectionOfObjectValues(PersonInterest::class)); },
+            'languages' => function (self $o, ParseNode $n) { $o->setLanguages($n->getCollectionOfObjectValues(LanguageProficiency::class)); },
+            'names' => function (self $o, ParseNode $n) { $o->setNames($n->getCollectionOfObjectValues(PersonName::class)); },
+            'notes' => function (self $o, ParseNode $n) { $o->setNotes($n->getCollectionOfObjectValues(PersonAnnotation::class)); },
+            'patents' => function (self $o, ParseNode $n) { $o->setPatents($n->getCollectionOfObjectValues(ItemPatent::class)); },
+            'phones' => function (self $o, ParseNode $n) { $o->setPhones($n->getCollectionOfObjectValues(ItemPhone::class)); },
+            'positions' => function (self $o, ParseNode $n) { $o->setPositions($n->getCollectionOfObjectValues(WorkPosition::class)); },
+            'projects' => function (self $o, ParseNode $n) { $o->setProjects($n->getCollectionOfObjectValues(ProjectParticipation::class)); },
+            'publications' => function (self $o, ParseNode $n) { $o->setPublications($n->getCollectionOfObjectValues(ItemPublication::class)); },
+            'skills' => function (self $o, ParseNode $n) { $o->setSkills($n->getCollectionOfObjectValues(SkillProficiency::class)); },
+            'webAccounts' => function (self $o, ParseNode $n) { $o->setWebAccounts($n->getCollectionOfObjectValues(WebAccount::class)); },
+            'websites' => function (self $o, ParseNode $n) { $o->setWebsites($n->getCollectionOfObjectValues(PersonWebsite::class)); },
         ]);
     }
 

@@ -6,176 +6,108 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Parsable 
+class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity 
 {
-    /**
-     * @var bool|null $autoPilotProfileAssigned The user experience analytics work from anywhere intune device's autopilotProfileAssigned.
-    */
+    /** @var bool|null $autoPilotProfileAssigned The user experience analytics work from anywhere intune device's autopilotProfileAssigned. */
     private ?bool $autoPilotProfileAssigned = null;
     
-    /**
-     * @var bool|null $autoPilotRegistered The user experience work from anywhere intune device's autopilotRegistered.
-    */
+    /** @var bool|null $autoPilotRegistered The user experience work from anywhere intune device's autopilotRegistered. */
     private ?bool $autoPilotRegistered = null;
     
-    /**
-     * @var string|null $azureAdDeviceId The user experience work from anywhere azure Ad device Id.
-    */
+    /** @var string|null $azureAdDeviceId The user experience work from anywhere azure Ad device Id. */
     private ?string $azureAdDeviceId = null;
     
-    /**
-     * @var string|null $azureAdJoinType The user experience work from anywhere device's azure Ad joinType.
-    */
+    /** @var string|null $azureAdJoinType The user experience work from anywhere device's azure Ad joinType. */
     private ?string $azureAdJoinType = null;
     
-    /**
-     * @var bool|null $azureAdRegistered The user experience work from anywhere device's azureAdRegistered.
-    */
+    /** @var bool|null $azureAdRegistered The user experience work from anywhere device's azureAdRegistered. */
     private ?bool $azureAdRegistered = null;
     
-    /**
-     * @var float|null $cloudIdentityScore The user experience work from anywhere per device cloud identity score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $cloudIdentityScore The user experience work from anywhere per device cloud identity score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $cloudIdentityScore = null;
     
-    /**
-     * @var float|null $cloudManagementScore The user experience work from anywhere per device cloud management score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $cloudManagementScore The user experience work from anywhere per device cloud management score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $cloudManagementScore = null;
     
-    /**
-     * @var float|null $cloudProvisioningScore The user experience work from anywhere per device cloud provisioning score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $cloudProvisioningScore The user experience work from anywhere per device cloud provisioning score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $cloudProvisioningScore = null;
     
-    /**
-     * @var bool|null $compliancePolicySetToIntune The user experience work from anywhere device's compliancePolicySetToIntune.
-    */
+    /** @var bool|null $compliancePolicySetToIntune The user experience work from anywhere device's compliancePolicySetToIntune. */
     private ?bool $compliancePolicySetToIntune = null;
     
-    /**
-     * @var string|null $deviceId The user experience work from anywhere device Id.
-    */
+    /** @var string|null $deviceId The user experience work from anywhere device Id. */
     private ?string $deviceId = null;
     
-    /**
-     * @var string|null $deviceName The work from anywhere device's name.
-    */
+    /** @var string|null $deviceName The work from anywhere device's name. */
     private ?string $deviceName = null;
     
-    /**
-     * @var UserExperienceAnalyticsHealthState|null $healthStatus The user experience work from anywhere per device health status. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
-    */
+    /** @var UserExperienceAnalyticsHealthState|null $healthStatus The user experience work from anywhere per device health status. Possible values are: unknown, insufficientData, needsAttention, meetingGoals. */
     private ?UserExperienceAnalyticsHealthState $healthStatus = null;
     
-    /**
-     * @var bool|null $isCloudManagedGatewayEnabled The user experience work from anywhere device's Cloud Management Gateway for Configuration Manager is enabled.
-    */
+    /** @var bool|null $isCloudManagedGatewayEnabled The user experience work from anywhere device's Cloud Management Gateway for Configuration Manager is enabled. */
     private ?bool $isCloudManagedGatewayEnabled = null;
     
-    /**
-     * @var string|null $managedBy The user experience work from anywhere management agent of the device.
-    */
+    /** @var string|null $managedBy The user experience work from anywhere management agent of the device. */
     private ?string $managedBy = null;
     
-    /**
-     * @var string|null $manufacturer The user experience work from anywhere device's manufacturer.
-    */
+    /** @var string|null $manufacturer The user experience work from anywhere device's manufacturer. */
     private ?string $manufacturer = null;
     
-    /**
-     * @var string|null $model The user experience work from anywhere device's model.
-    */
+    /** @var string|null $model The user experience work from anywhere device's model. */
     private ?string $model = null;
     
-    /**
-     * @var bool|null $osCheckFailed The user experience work from anywhere device, Is OS check failed for device to upgrade to the latest version of windows.
-    */
+    /** @var bool|null $osCheckFailed The user experience work from anywhere device, Is OS check failed for device to upgrade to the latest version of windows. */
     private ?bool $osCheckFailed = null;
     
-    /**
-     * @var string|null $osDescription The user experience work from anywhere device's OS Description.
-    */
+    /** @var string|null $osDescription The user experience work from anywhere device's OS Description. */
     private ?string $osDescription = null;
     
-    /**
-     * @var string|null $osVersion The user experience work from anywhere device's OS Version.
-    */
+    /** @var string|null $osVersion The user experience work from anywhere device's OS Version. */
     private ?string $osVersion = null;
     
-    /**
-     * @var bool|null $otherWorkloadsSetToIntune The user experience work from anywhere device's otherWorkloadsSetToIntune.
-    */
+    /** @var bool|null $otherWorkloadsSetToIntune The user experience work from anywhere device's otherWorkloadsSetToIntune. */
     private ?bool $otherWorkloadsSetToIntune = null;
     
-    /**
-     * @var string|null $ownership The user experience work from anywhere device's ownership.
-    */
+    /** @var string|null $ownership The user experience work from anywhere device's ownership. */
     private ?string $ownership = null;
     
-    /**
-     * @var bool|null $processor64BitCheckFailed The user experience work from anywhere device, Is processor hardware 64-bit architecture check failed for device to upgrade to the latest version of windows.
-    */
+    /** @var bool|null $processor64BitCheckFailed The user experience work from anywhere device, Is processor hardware 64-bit architecture check failed for device to upgrade to the latest version of windows. */
     private ?bool $processor64BitCheckFailed = null;
     
-    /**
-     * @var bool|null $processorCoreCountCheckFailed The user experience work from anywhere device, Is processor hardware core count check failed for device to upgrade to the latest version of windows.
-    */
+    /** @var bool|null $processorCoreCountCheckFailed The user experience work from anywhere device, Is processor hardware core count check failed for device to upgrade to the latest version of windows. */
     private ?bool $processorCoreCountCheckFailed = null;
     
-    /**
-     * @var bool|null $processorFamilyCheckFailed The user experience work from anywhere device, Is processor hardware family check failed for device to upgrade to the latest version of windows.
-    */
+    /** @var bool|null $processorFamilyCheckFailed The user experience work from anywhere device, Is processor hardware family check failed for device to upgrade to the latest version of windows. */
     private ?bool $processorFamilyCheckFailed = null;
     
-    /**
-     * @var bool|null $processorSpeedCheckFailed The user experience work from anywhere device, Is processor hardware speed check failed for device to upgrade to the latest version of windows.
-    */
+    /** @var bool|null $processorSpeedCheckFailed The user experience work from anywhere device, Is processor hardware speed check failed for device to upgrade to the latest version of windows. */
     private ?bool $processorSpeedCheckFailed = null;
     
-    /**
-     * @var bool|null $ramCheckFailed Is the user experience analytics work from anywhere device RAM hardware check failed for device to upgrade to the latest version of windows
-    */
+    /** @var bool|null $ramCheckFailed Is the user experience analytics work from anywhere device RAM hardware check failed for device to upgrade to the latest version of windows */
     private ?bool $ramCheckFailed = null;
     
-    /**
-     * @var bool|null $secureBootCheckFailed The user experience work from anywhere device, Is secure boot hardware check failed for device to upgrade to the latest version of windows.
-    */
+    /** @var bool|null $secureBootCheckFailed The user experience work from anywhere device, Is secure boot hardware check failed for device to upgrade to the latest version of windows. */
     private ?bool $secureBootCheckFailed = null;
     
-    /**
-     * @var string|null $serialNumber The user experience work from anywhere device's serial number.
-    */
+    /** @var string|null $serialNumber The user experience work from anywhere device's serial number. */
     private ?string $serialNumber = null;
     
-    /**
-     * @var bool|null $storageCheckFailed The user experience work from anywhere device, Is storage hardware check failed for device to upgrade to the latest version of windows.
-    */
+    /** @var bool|null $storageCheckFailed The user experience work from anywhere device, Is storage hardware check failed for device to upgrade to the latest version of windows. */
     private ?bool $storageCheckFailed = null;
     
-    /**
-     * @var bool|null $tenantAttached The user experience work from anywhere device's tenantAttached.
-    */
+    /** @var bool|null $tenantAttached The user experience work from anywhere device's tenantAttached. */
     private ?bool $tenantAttached = null;
     
-    /**
-     * @var bool|null $tpmCheckFailed The user experience work from anywhere device, Is Trusted Platform Module (TPM) hardware check failed for device to the latest version of upgrade to windows.
-    */
+    /** @var bool|null $tpmCheckFailed The user experience work from anywhere device, Is Trusted Platform Module (TPM) hardware check failed for device to the latest version of upgrade to windows. */
     private ?bool $tpmCheckFailed = null;
     
-    /**
-     * @var OperatingSystemUpgradeEligibility|null $upgradeEligibility The user experience work from anywhere windows upgrade eligibility status of device. Possible values are: upgraded, unknown, notCapable, capable.
-    */
+    /** @var OperatingSystemUpgradeEligibility|null $upgradeEligibility The user experience work from anywhere windows upgrade eligibility status of device. Possible values are: upgraded, unknown, notCapable, capable. */
     private ?OperatingSystemUpgradeEligibility $upgradeEligibility = null;
     
-    /**
-     * @var float|null $windowsScore The user experience work from anywhere per device windows score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $windowsScore The user experience work from anywhere per device windows score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $windowsScore = null;
     
-    /**
-     * @var float|null $workFromAnywhereScore The user experience work from anywhere per device overall score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $workFromAnywhereScore The user experience work from anywhere per device overall score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $workFromAnywhereScore = null;
     
     /**
@@ -190,7 +122,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsWorkFromAnywhereDevice
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsWorkFromAnywhereDevice {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsWorkFromAnywhereDevice {
         return new UserExperienceAnalyticsWorkFromAnywhereDevice();
     }
 
@@ -287,42 +219,41 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'autoPilotProfileAssigned' => function (ParseNode $n) use ($o) { $o->setAutoPilotProfileAssigned($n->getBooleanValue()); },
-            'autoPilotRegistered' => function (ParseNode $n) use ($o) { $o->setAutoPilotRegistered($n->getBooleanValue()); },
-            'azureAdDeviceId' => function (ParseNode $n) use ($o) { $o->setAzureAdDeviceId($n->getStringValue()); },
-            'azureAdJoinType' => function (ParseNode $n) use ($o) { $o->setAzureAdJoinType($n->getStringValue()); },
-            'azureAdRegistered' => function (ParseNode $n) use ($o) { $o->setAzureAdRegistered($n->getBooleanValue()); },
-            'cloudIdentityScore' => function (ParseNode $n) use ($o) { $o->setCloudIdentityScore($n->getFloatValue()); },
-            'cloudManagementScore' => function (ParseNode $n) use ($o) { $o->setCloudManagementScore($n->getFloatValue()); },
-            'cloudProvisioningScore' => function (ParseNode $n) use ($o) { $o->setCloudProvisioningScore($n->getFloatValue()); },
-            'compliancePolicySetToIntune' => function (ParseNode $n) use ($o) { $o->setCompliancePolicySetToIntune($n->getBooleanValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'healthStatus' => function (ParseNode $n) use ($o) { $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)); },
-            'isCloudManagedGatewayEnabled' => function (ParseNode $n) use ($o) { $o->setIsCloudManagedGatewayEnabled($n->getBooleanValue()); },
-            'managedBy' => function (ParseNode $n) use ($o) { $o->setManagedBy($n->getStringValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'osCheckFailed' => function (ParseNode $n) use ($o) { $o->setOsCheckFailed($n->getBooleanValue()); },
-            'osDescription' => function (ParseNode $n) use ($o) { $o->setOsDescription($n->getStringValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
-            'otherWorkloadsSetToIntune' => function (ParseNode $n) use ($o) { $o->setOtherWorkloadsSetToIntune($n->getBooleanValue()); },
-            'ownership' => function (ParseNode $n) use ($o) { $o->setOwnership($n->getStringValue()); },
-            'processor64BitCheckFailed' => function (ParseNode $n) use ($o) { $o->setProcessor64BitCheckFailed($n->getBooleanValue()); },
-            'processorCoreCountCheckFailed' => function (ParseNode $n) use ($o) { $o->setProcessorCoreCountCheckFailed($n->getBooleanValue()); },
-            'processorFamilyCheckFailed' => function (ParseNode $n) use ($o) { $o->setProcessorFamilyCheckFailed($n->getBooleanValue()); },
-            'processorSpeedCheckFailed' => function (ParseNode $n) use ($o) { $o->setProcessorSpeedCheckFailed($n->getBooleanValue()); },
-            'ramCheckFailed' => function (ParseNode $n) use ($o) { $o->setRamCheckFailed($n->getBooleanValue()); },
-            'secureBootCheckFailed' => function (ParseNode $n) use ($o) { $o->setSecureBootCheckFailed($n->getBooleanValue()); },
-            'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
-            'storageCheckFailed' => function (ParseNode $n) use ($o) { $o->setStorageCheckFailed($n->getBooleanValue()); },
-            'tenantAttached' => function (ParseNode $n) use ($o) { $o->setTenantAttached($n->getBooleanValue()); },
-            'tpmCheckFailed' => function (ParseNode $n) use ($o) { $o->setTpmCheckFailed($n->getBooleanValue()); },
-            'upgradeEligibility' => function (ParseNode $n) use ($o) { $o->setUpgradeEligibility($n->getEnumValue(OperatingSystemUpgradeEligibility::class)); },
-            'windowsScore' => function (ParseNode $n) use ($o) { $o->setWindowsScore($n->getFloatValue()); },
-            'workFromAnywhereScore' => function (ParseNode $n) use ($o) { $o->setWorkFromAnywhereScore($n->getFloatValue()); },
+            'autoPilotProfileAssigned' => function (self $o, ParseNode $n) { $o->setAutoPilotProfileAssigned($n->getBooleanValue()); },
+            'autoPilotRegistered' => function (self $o, ParseNode $n) { $o->setAutoPilotRegistered($n->getBooleanValue()); },
+            'azureAdDeviceId' => function (self $o, ParseNode $n) { $o->setAzureAdDeviceId($n->getStringValue()); },
+            'azureAdJoinType' => function (self $o, ParseNode $n) { $o->setAzureAdJoinType($n->getStringValue()); },
+            'azureAdRegistered' => function (self $o, ParseNode $n) { $o->setAzureAdRegistered($n->getBooleanValue()); },
+            'cloudIdentityScore' => function (self $o, ParseNode $n) { $o->setCloudIdentityScore($n->getFloatValue()); },
+            'cloudManagementScore' => function (self $o, ParseNode $n) { $o->setCloudManagementScore($n->getFloatValue()); },
+            'cloudProvisioningScore' => function (self $o, ParseNode $n) { $o->setCloudProvisioningScore($n->getFloatValue()); },
+            'compliancePolicySetToIntune' => function (self $o, ParseNode $n) { $o->setCompliancePolicySetToIntune($n->getBooleanValue()); },
+            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
+            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
+            'healthStatus' => function (self $o, ParseNode $n) { $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)); },
+            'isCloudManagedGatewayEnabled' => function (self $o, ParseNode $n) { $o->setIsCloudManagedGatewayEnabled($n->getBooleanValue()); },
+            'managedBy' => function (self $o, ParseNode $n) { $o->setManagedBy($n->getStringValue()); },
+            'manufacturer' => function (self $o, ParseNode $n) { $o->setManufacturer($n->getStringValue()); },
+            'model' => function (self $o, ParseNode $n) { $o->setModel($n->getStringValue()); },
+            'osCheckFailed' => function (self $o, ParseNode $n) { $o->setOsCheckFailed($n->getBooleanValue()); },
+            'osDescription' => function (self $o, ParseNode $n) { $o->setOsDescription($n->getStringValue()); },
+            'osVersion' => function (self $o, ParseNode $n) { $o->setOsVersion($n->getStringValue()); },
+            'otherWorkloadsSetToIntune' => function (self $o, ParseNode $n) { $o->setOtherWorkloadsSetToIntune($n->getBooleanValue()); },
+            'ownership' => function (self $o, ParseNode $n) { $o->setOwnership($n->getStringValue()); },
+            'processor64BitCheckFailed' => function (self $o, ParseNode $n) { $o->setProcessor64BitCheckFailed($n->getBooleanValue()); },
+            'processorCoreCountCheckFailed' => function (self $o, ParseNode $n) { $o->setProcessorCoreCountCheckFailed($n->getBooleanValue()); },
+            'processorFamilyCheckFailed' => function (self $o, ParseNode $n) { $o->setProcessorFamilyCheckFailed($n->getBooleanValue()); },
+            'processorSpeedCheckFailed' => function (self $o, ParseNode $n) { $o->setProcessorSpeedCheckFailed($n->getBooleanValue()); },
+            'ramCheckFailed' => function (self $o, ParseNode $n) { $o->setRamCheckFailed($n->getBooleanValue()); },
+            'secureBootCheckFailed' => function (self $o, ParseNode $n) { $o->setSecureBootCheckFailed($n->getBooleanValue()); },
+            'serialNumber' => function (self $o, ParseNode $n) { $o->setSerialNumber($n->getStringValue()); },
+            'storageCheckFailed' => function (self $o, ParseNode $n) { $o->setStorageCheckFailed($n->getBooleanValue()); },
+            'tenantAttached' => function (self $o, ParseNode $n) { $o->setTenantAttached($n->getBooleanValue()); },
+            'tpmCheckFailed' => function (self $o, ParseNode $n) { $o->setTpmCheckFailed($n->getBooleanValue()); },
+            'upgradeEligibility' => function (self $o, ParseNode $n) { $o->setUpgradeEligibility($n->getEnumValue(OperatingSystemUpgradeEligibility::class)); },
+            'windowsScore' => function (self $o, ParseNode $n) { $o->setWindowsScore($n->getFloatValue()); },
+            'workFromAnywhereScore' => function (self $o, ParseNode $n) { $o->setWorkFromAnywhereScore($n->getFloatValue()); },
         ]);
     }
 

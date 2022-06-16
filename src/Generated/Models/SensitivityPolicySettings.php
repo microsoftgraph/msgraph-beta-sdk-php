@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SensitivityPolicySettings extends Entity implements Parsable 
+class SensitivityPolicySettings extends Entity 
 {
-    /**
-     * @var SensitivityLabelTarget|null $applicableTo The applicableTo property
-    */
+    /** @var SensitivityLabelTarget|null $applicableTo The applicableTo property */
     private ?SensitivityLabelTarget $applicableTo = null;
     
-    /**
-     * @var bool|null $downgradeSensitivityRequiresJustification The downgradeSensitivityRequiresJustification property
-    */
+    /** @var bool|null $downgradeSensitivityRequiresJustification The downgradeSensitivityRequiresJustification property */
     private ?bool $downgradeSensitivityRequiresJustification = null;
     
-    /**
-     * @var string|null $helpWebUrl The helpWebUrl property
-    */
+    /** @var string|null $helpWebUrl The helpWebUrl property */
     private ?string $helpWebUrl = null;
     
-    /**
-     * @var bool|null $isMandatory The isMandatory property
-    */
+    /** @var bool|null $isMandatory The isMandatory property */
     private ?bool $isMandatory = null;
     
     /**
@@ -40,7 +32,7 @@ class SensitivityPolicySettings extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SensitivityPolicySettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SensitivityPolicySettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SensitivityPolicySettings {
         return new SensitivityPolicySettings();
     }
 
@@ -65,12 +57,11 @@ class SensitivityPolicySettings extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicableTo' => function (ParseNode $n) use ($o) { $o->setApplicableTo($n->getEnumValue(SensitivityLabelTarget::class)); },
-            'downgradeSensitivityRequiresJustification' => function (ParseNode $n) use ($o) { $o->setDowngradeSensitivityRequiresJustification($n->getBooleanValue()); },
-            'helpWebUrl' => function (ParseNode $n) use ($o) { $o->setHelpWebUrl($n->getStringValue()); },
-            'isMandatory' => function (ParseNode $n) use ($o) { $o->setIsMandatory($n->getBooleanValue()); },
+            'applicableTo' => function (self $o, ParseNode $n) { $o->setApplicableTo($n->getEnumValue(SensitivityLabelTarget::class)); },
+            'downgradeSensitivityRequiresJustification' => function (self $o, ParseNode $n) { $o->setDowngradeSensitivityRequiresJustification($n->getBooleanValue()); },
+            'helpWebUrl' => function (self $o, ParseNode $n) { $o->setHelpWebUrl($n->getStringValue()); },
+            'isMandatory' => function (self $o, ParseNode $n) { $o->setIsMandatory($n->getBooleanValue()); },
         ]);
     }
 

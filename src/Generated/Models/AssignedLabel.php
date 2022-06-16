@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AssignedLabel implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName The display name of the label. Read-only.
-    */
+    /** @var string|null $displayName The display name of the label. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $labelId The unique identifier of the label.
-    */
+    /** @var string|null $labelId The unique identifier of the label. */
     private ?string $labelId = null;
     
     /**
@@ -36,7 +30,7 @@ class AssignedLabel implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AssignedLabel
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AssignedLabel {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AssignedLabel {
         return new AssignedLabel();
     }
 
@@ -61,10 +55,9 @@ class AssignedLabel implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'labelId' => function (ParseNode $n) use ($o) { $o->setLabelId($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'labelId' => function (self $o, ParseNode $n) { $o->setLabelId($n->getStringValue()); },
         ];
     }
 

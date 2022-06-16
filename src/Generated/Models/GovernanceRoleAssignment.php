@@ -7,76 +7,48 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GovernanceRoleAssignment extends Entity implements Parsable 
+class GovernanceRoleAssignment extends Entity 
 {
-    /**
-     * @var string|null $assignmentState The state of the assignment. The value can be Eligible for eligible assignment or Active if it is directly assigned Active by administrators, or activated on an eligible assignment by the users.
-    */
+    /** @var string|null $assignmentState The state of the assignment. The value can be Eligible for eligible assignment or Active if it is directly assigned Active by administrators, or activated on an eligible assignment by the users. */
     private ?string $assignmentState = null;
     
-    /**
-     * @var DateTime|null $endDateTime For a non-permanent role assignment, this is the time when the role assignment will be expired. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $endDateTime For a non-permanent role assignment, this is the time when the role assignment will be expired. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $endDateTime = null;
     
-    /**
-     * @var string|null $externalId The external ID the resource that is used to identify the role assignment in the provider.
-    */
+    /** @var string|null $externalId The external ID the resource that is used to identify the role assignment in the provider. */
     private ?string $externalId = null;
     
-    /**
-     * @var GovernanceRoleAssignment|null $linkedEligibleRoleAssignment Read-only. If this is an active assignment and created due to activation on an eligible assignment, it represents the object of that eligible assignment; Otherwise, the value is null.
-    */
+    /** @var GovernanceRoleAssignment|null $linkedEligibleRoleAssignment Read-only. If this is an active assignment and created due to activation on an eligible assignment, it represents the object of that eligible assignment; Otherwise, the value is null. */
     private ?GovernanceRoleAssignment $linkedEligibleRoleAssignment = null;
     
-    /**
-     * @var string|null $linkedEligibleRoleAssignmentId If this is an active assignment and created due to activation on an eligible assignment, it represents the ID of that eligible assignment; Otherwise, the value is null.
-    */
+    /** @var string|null $linkedEligibleRoleAssignmentId If this is an active assignment and created due to activation on an eligible assignment, it represents the ID of that eligible assignment; Otherwise, the value is null. */
     private ?string $linkedEligibleRoleAssignmentId = null;
     
-    /**
-     * @var string|null $memberType The type of member. The value can be: Inherited (if the role assignment is inherited from a parent resource scope), Group (if the role assignment is not inherited, but comes from the membership of a group assignment), or User (if the role assignment is neither inherited nor from a group assignment).
-    */
+    /** @var string|null $memberType The type of member. The value can be: Inherited (if the role assignment is inherited from a parent resource scope), Group (if the role assignment is not inherited, but comes from the membership of a group assignment), or User (if the role assignment is neither inherited nor from a group assignment). */
     private ?string $memberType = null;
     
-    /**
-     * @var GovernanceResource|null $resource Read-only. The resource associated with the role assignment.
-    */
+    /** @var GovernanceResource|null $resource Read-only. The resource associated with the role assignment. */
     private ?GovernanceResource $resource = null;
     
-    /**
-     * @var string|null $resourceId Required. The ID of the resource which the role assignment is associated with.
-    */
+    /** @var string|null $resourceId Required. The ID of the resource which the role assignment is associated with. */
     private ?string $resourceId = null;
     
-    /**
-     * @var GovernanceRoleDefinition|null $roleDefinition Read-only. The role definition associated with the role assignment.
-    */
+    /** @var GovernanceRoleDefinition|null $roleDefinition Read-only. The role definition associated with the role assignment. */
     private ?GovernanceRoleDefinition $roleDefinition = null;
     
-    /**
-     * @var string|null $roleDefinitionId Required. The ID of the role definition which the role assignment is associated with.
-    */
+    /** @var string|null $roleDefinitionId Required. The ID of the role definition which the role assignment is associated with. */
     private ?string $roleDefinitionId = null;
     
-    /**
-     * @var DateTime|null $startDateTime The start time of the role assignment. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $startDateTime The start time of the role assignment. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $startDateTime = null;
     
-    /**
-     * @var string|null $status The status property
-    */
+    /** @var string|null $status The status property */
     private ?string $status = null;
     
-    /**
-     * @var GovernanceSubject|null $subject Read-only. The subject associated with the role assignment.
-    */
+    /** @var GovernanceSubject|null $subject Read-only. The subject associated with the role assignment. */
     private ?GovernanceSubject $subject = null;
     
-    /**
-     * @var string|null $subjectId Required. The ID of the subject which the role assignment is associated with.
-    */
+    /** @var string|null $subjectId Required. The ID of the subject which the role assignment is associated with. */
     private ?string $subjectId = null;
     
     /**
@@ -91,7 +63,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GovernanceRoleAssignment
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceRoleAssignment {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceRoleAssignment {
         return new GovernanceRoleAssignment();
     }
 
@@ -124,22 +96,21 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignmentState' => function (ParseNode $n) use ($o) { $o->setAssignmentState($n->getStringValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'externalId' => function (ParseNode $n) use ($o) { $o->setExternalId($n->getStringValue()); },
-            'linkedEligibleRoleAssignment' => function (ParseNode $n) use ($o) { $o->setLinkedEligibleRoleAssignment($n->getObjectValue(array(GovernanceRoleAssignment::class, 'createFromDiscriminatorValue'))); },
-            'linkedEligibleRoleAssignmentId' => function (ParseNode $n) use ($o) { $o->setLinkedEligibleRoleAssignmentId($n->getStringValue()); },
-            'memberType' => function (ParseNode $n) use ($o) { $o->setMemberType($n->getStringValue()); },
-            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getObjectValue(array(GovernanceResource::class, 'createFromDiscriminatorValue'))); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
-            'roleDefinition' => function (ParseNode $n) use ($o) { $o->setRoleDefinition($n->getObjectValue(array(GovernanceRoleDefinition::class, 'createFromDiscriminatorValue'))); },
-            'roleDefinitionId' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionId($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
-            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getObjectValue(array(GovernanceSubject::class, 'createFromDiscriminatorValue'))); },
-            'subjectId' => function (ParseNode $n) use ($o) { $o->setSubjectId($n->getStringValue()); },
+            'assignmentState' => function (self $o, ParseNode $n) { $o->setAssignmentState($n->getStringValue()); },
+            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'externalId' => function (self $o, ParseNode $n) { $o->setExternalId($n->getStringValue()); },
+            'linkedEligibleRoleAssignment' => function (self $o, ParseNode $n) { $o->setLinkedEligibleRoleAssignment($n->getObjectValue(GovernanceRoleAssignment::class)); },
+            'linkedEligibleRoleAssignmentId' => function (self $o, ParseNode $n) { $o->setLinkedEligibleRoleAssignmentId($n->getStringValue()); },
+            'memberType' => function (self $o, ParseNode $n) { $o->setMemberType($n->getStringValue()); },
+            'resource' => function (self $o, ParseNode $n) { $o->setResource($n->getObjectValue(GovernanceResource::class)); },
+            'resourceId' => function (self $o, ParseNode $n) { $o->setResourceId($n->getStringValue()); },
+            'roleDefinition' => function (self $o, ParseNode $n) { $o->setRoleDefinition($n->getObjectValue(GovernanceRoleDefinition::class)); },
+            'roleDefinitionId' => function (self $o, ParseNode $n) { $o->setRoleDefinitionId($n->getStringValue()); },
+            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
+            'subject' => function (self $o, ParseNode $n) { $o->setSubject($n->getObjectValue(GovernanceSubject::class)); },
+            'subjectId' => function (self $o, ParseNode $n) { $o->setSubjectId($n->getStringValue()); },
         ]);
     }
 

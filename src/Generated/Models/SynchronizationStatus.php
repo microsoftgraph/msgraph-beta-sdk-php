@@ -10,69 +10,43 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SynchronizationStatus implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var SynchronizationStatusCode|null $code High-level status code of the synchronization job. Possible values are: NotConfigured, NotRun, Active, Paused, Quarantine.
-    */
+    /** @var SynchronizationStatusCode|null $code High-level status code of the synchronization job. Possible values are: NotConfigured, NotRun, Active, Paused, Quarantine. */
     private ?SynchronizationStatusCode $code = null;
     
-    /**
-     * @var int|null $countSuccessiveCompleteFailures Number of consecutive times this job failed.
-    */
+    /** @var int|null $countSuccessiveCompleteFailures Number of consecutive times this job failed. */
     private ?int $countSuccessiveCompleteFailures = null;
     
-    /**
-     * @var bool|null $escrowsPruned true if the job's escrows (object-level errors) were pruned during initial synchronization. Escrows can be pruned if during the initial synchronization, you reach the threshold of errors that would normally put the job in quarantine. Instead of going into quarantine, the synchronization process clears the job's errors and continues until the initial synchronization is completed. When the initial synchronization is completed, the job will pause and wait for the customer to clean up the errors.
-    */
+    /** @var bool|null $escrowsPruned true if the job's escrows (object-level errors) were pruned during initial synchronization. Escrows can be pruned if during the initial synchronization, you reach the threshold of errors that would normally put the job in quarantine. Instead of going into quarantine, the synchronization process clears the job's errors and continues until the initial synchronization is completed. When the initial synchronization is completed, the job will pause and wait for the customer to clean up the errors. */
     private ?bool $escrowsPruned = null;
     
-    /**
-     * @var SynchronizationTaskExecution|null $lastExecution Details of the last execution of the job.
-    */
+    /** @var SynchronizationTaskExecution|null $lastExecution Details of the last execution of the job. */
     private ?SynchronizationTaskExecution $lastExecution = null;
     
-    /**
-     * @var SynchronizationTaskExecution|null $lastSuccessfulExecution Details of the last execution of this job, which didn't have any errors.
-    */
+    /** @var SynchronizationTaskExecution|null $lastSuccessfulExecution Details of the last execution of this job, which didn't have any errors. */
     private ?SynchronizationTaskExecution $lastSuccessfulExecution = null;
     
-    /**
-     * @var SynchronizationTaskExecution|null $lastSuccessfulExecutionWithExports Details of the last execution of the job, which exported objects into the target directory.
-    */
+    /** @var SynchronizationTaskExecution|null $lastSuccessfulExecutionWithExports Details of the last execution of the job, which exported objects into the target directory. */
     private ?SynchronizationTaskExecution $lastSuccessfulExecutionWithExports = null;
     
-    /**
-     * @var array<SynchronizationProgress>|null $progress Details of the progress of a job toward completion.
-    */
+    /** @var array<SynchronizationProgress>|null $progress Details of the progress of a job toward completion. */
     private ?array $progress = null;
     
-    /**
-     * @var SynchronizationQuarantine|null $quarantine If job is in quarantine, quarantine details.
-    */
+    /** @var SynchronizationQuarantine|null $quarantine If job is in quarantine, quarantine details. */
     private ?SynchronizationQuarantine $quarantine = null;
     
-    /**
-     * @var DateTime|null $steadyStateFirstAchievedTime The time when steady state (no more changes to the process) was first achieved. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $steadyStateFirstAchievedTime The time when steady state (no more changes to the process) was first achieved. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $steadyStateFirstAchievedTime = null;
     
-    /**
-     * @var DateTime|null $steadyStateLastAchievedTime The time when steady state (no more changes to the process) was last achieved. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $steadyStateLastAchievedTime The time when steady state (no more changes to the process) was last achieved. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $steadyStateLastAchievedTime = null;
     
-    /**
-     * @var array<StringKeyLongValuePair>|null $synchronizedEntryCountByType Count of synchronized objects, listed by object type.
-    */
+    /** @var array<StringKeyLongValuePair>|null $synchronizedEntryCountByType Count of synchronized objects, listed by object type. */
     private ?array $synchronizedEntryCountByType = null;
     
-    /**
-     * @var string|null $troubleshootingUrl In the event of an error, the URL with the troubleshooting steps for the issue.
-    */
+    /** @var string|null $troubleshootingUrl In the event of an error, the URL with the troubleshooting steps for the issue. */
     private ?string $troubleshootingUrl = null;
     
     /**
@@ -87,7 +61,7 @@ class SynchronizationStatus implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SynchronizationStatus
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationStatus {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationStatus {
         return new SynchronizationStatus();
     }
 
@@ -128,20 +102,19 @@ class SynchronizationStatus implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getEnumValue(SynchronizationStatusCode::class)); },
-            'countSuccessiveCompleteFailures' => function (ParseNode $n) use ($o) { $o->setCountSuccessiveCompleteFailures($n->getIntegerValue()); },
-            'escrowsPruned' => function (ParseNode $n) use ($o) { $o->setEscrowsPruned($n->getBooleanValue()); },
-            'lastExecution' => function (ParseNode $n) use ($o) { $o->setLastExecution($n->getObjectValue(array(SynchronizationTaskExecution::class, 'createFromDiscriminatorValue'))); },
-            'lastSuccessfulExecution' => function (ParseNode $n) use ($o) { $o->setLastSuccessfulExecution($n->getObjectValue(array(SynchronizationTaskExecution::class, 'createFromDiscriminatorValue'))); },
-            'lastSuccessfulExecutionWithExports' => function (ParseNode $n) use ($o) { $o->setLastSuccessfulExecutionWithExports($n->getObjectValue(array(SynchronizationTaskExecution::class, 'createFromDiscriminatorValue'))); },
-            'progress' => function (ParseNode $n) use ($o) { $o->setProgress($n->getCollectionOfObjectValues(array(SynchronizationProgress::class, 'createFromDiscriminatorValue'))); },
-            'quarantine' => function (ParseNode $n) use ($o) { $o->setQuarantine($n->getObjectValue(array(SynchronizationQuarantine::class, 'createFromDiscriminatorValue'))); },
-            'steadyStateFirstAchievedTime' => function (ParseNode $n) use ($o) { $o->setSteadyStateFirstAchievedTime($n->getDateTimeValue()); },
-            'steadyStateLastAchievedTime' => function (ParseNode $n) use ($o) { $o->setSteadyStateLastAchievedTime($n->getDateTimeValue()); },
-            'synchronizedEntryCountByType' => function (ParseNode $n) use ($o) { $o->setSynchronizedEntryCountByType($n->getCollectionOfObjectValues(array(StringKeyLongValuePair::class, 'createFromDiscriminatorValue'))); },
-            'troubleshootingUrl' => function (ParseNode $n) use ($o) { $o->setTroubleshootingUrl($n->getStringValue()); },
+            'code' => function (self $o, ParseNode $n) { $o->setCode($n->getEnumValue(SynchronizationStatusCode::class)); },
+            'countSuccessiveCompleteFailures' => function (self $o, ParseNode $n) { $o->setCountSuccessiveCompleteFailures($n->getIntegerValue()); },
+            'escrowsPruned' => function (self $o, ParseNode $n) { $o->setEscrowsPruned($n->getBooleanValue()); },
+            'lastExecution' => function (self $o, ParseNode $n) { $o->setLastExecution($n->getObjectValue(SynchronizationTaskExecution::class)); },
+            'lastSuccessfulExecution' => function (self $o, ParseNode $n) { $o->setLastSuccessfulExecution($n->getObjectValue(SynchronizationTaskExecution::class)); },
+            'lastSuccessfulExecutionWithExports' => function (self $o, ParseNode $n) { $o->setLastSuccessfulExecutionWithExports($n->getObjectValue(SynchronizationTaskExecution::class)); },
+            'progress' => function (self $o, ParseNode $n) { $o->setProgress($n->getCollectionOfObjectValues(SynchronizationProgress::class)); },
+            'quarantine' => function (self $o, ParseNode $n) { $o->setQuarantine($n->getObjectValue(SynchronizationQuarantine::class)); },
+            'steadyStateFirstAchievedTime' => function (self $o, ParseNode $n) { $o->setSteadyStateFirstAchievedTime($n->getDateTimeValue()); },
+            'steadyStateLastAchievedTime' => function (self $o, ParseNode $n) { $o->setSteadyStateLastAchievedTime($n->getDateTimeValue()); },
+            'synchronizedEntryCountByType' => function (self $o, ParseNode $n) { $o->setSynchronizedEntryCountByType($n->getCollectionOfObjectValues(StringKeyLongValuePair::class)); },
+            'troubleshootingUrl' => function (self $o, ParseNode $n) { $o->setTroubleshootingUrl($n->getStringValue()); },
         ];
     }
 

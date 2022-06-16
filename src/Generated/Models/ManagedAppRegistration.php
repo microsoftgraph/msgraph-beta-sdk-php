@@ -7,101 +7,63 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagedAppRegistration extends Entity implements Parsable 
+class ManagedAppRegistration extends Entity 
 {
-    /**
-     * @var MobileAppIdentifier|null $appIdentifier The app package Identifier
-    */
+    /** @var MobileAppIdentifier|null $appIdentifier The app package Identifier */
     private ?MobileAppIdentifier $appIdentifier = null;
     
-    /**
-     * @var string|null $applicationVersion App version
-    */
+    /** @var string|null $applicationVersion App version */
     private ?string $applicationVersion = null;
     
-    /**
-     * @var array<ManagedAppPolicy>|null $appliedPolicies Zero or more policys already applied on the registered app when it last synchronized with managment service.
-    */
+    /** @var array<ManagedAppPolicy>|null $appliedPolicies Zero or more policys already applied on the registered app when it last synchronized with managment service. */
     private ?array $appliedPolicies = null;
     
-    /**
-     * @var string|null $azureADDeviceId The Azure Active Directory Device identifier of the host device. Value could be empty even when the host device is Azure Active Directory registered.
-    */
+    /** @var string|null $azureADDeviceId The Azure Active Directory Device identifier of the host device. Value could be empty even when the host device is Azure Active Directory registered. */
     private ?string $azureADDeviceId = null;
     
-    /**
-     * @var DateTime|null $createdDateTime Date and time of creation
-    */
+    /** @var DateTime|null $createdDateTime Date and time of creation */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $deviceManufacturer The device manufacturer for the current app registration
-    */
+    /** @var string|null $deviceManufacturer The device manufacturer for the current app registration */
     private ?string $deviceManufacturer = null;
     
-    /**
-     * @var string|null $deviceModel The device model for the current app registration
-    */
+    /** @var string|null $deviceModel The device model for the current app registration */
     private ?string $deviceModel = null;
     
-    /**
-     * @var string|null $deviceName Host device name
-    */
+    /** @var string|null $deviceName Host device name */
     private ?string $deviceName = null;
     
-    /**
-     * @var string|null $deviceTag App management SDK generated tag, which helps relate apps hosted on the same device. Not guaranteed to relate apps in all conditions.
-    */
+    /** @var string|null $deviceTag App management SDK generated tag, which helps relate apps hosted on the same device. Not guaranteed to relate apps in all conditions. */
     private ?string $deviceTag = null;
     
-    /**
-     * @var string|null $deviceType Host device type
-    */
+    /** @var string|null $deviceType Host device type */
     private ?string $deviceType = null;
     
-    /**
-     * @var array<string>|null $flaggedReasons Zero or more reasons an app registration is flagged. E.g. app running on rooted device
-    */
+    /** @var array<ManagedAppFlaggedReason>|null $flaggedReasons Zero or more reasons an app registration is flagged. E.g. app running on rooted device */
     private ?array $flaggedReasons = null;
     
-    /**
-     * @var array<ManagedAppPolicy>|null $intendedPolicies Zero or more policies admin intended for the app as of now.
-    */
+    /** @var array<ManagedAppPolicy>|null $intendedPolicies Zero or more policies admin intended for the app as of now. */
     private ?array $intendedPolicies = null;
     
-    /**
-     * @var DateTime|null $lastSyncDateTime Date and time of last the app synced with management service.
-    */
+    /** @var DateTime|null $lastSyncDateTime Date and time of last the app synced with management service. */
     private ?DateTime $lastSyncDateTime = null;
     
-    /**
-     * @var string|null $managedDeviceId The Managed Device identifier of the host device. Value could be empty even when the host device is managed.
-    */
+    /** @var string|null $managedDeviceId The Managed Device identifier of the host device. Value could be empty even when the host device is managed. */
     private ?string $managedDeviceId = null;
     
-    /**
-     * @var string|null $managementSdkVersion App management SDK version
-    */
+    /** @var string|null $managementSdkVersion App management SDK version */
     private ?string $managementSdkVersion = null;
     
-    /**
-     * @var array<ManagedAppOperation>|null $operations Zero or more long running operations triggered on the app registration.
-    */
+    /** @var array<ManagedAppOperation>|null $operations Zero or more long running operations triggered on the app registration. */
     private ?array $operations = null;
     
-    /**
-     * @var string|null $platformVersion Operating System version
-    */
+    /** @var string|null $platformVersion Operating System version */
     private ?string $platformVersion = null;
     
-    /**
-     * @var string|null $userId The user Id to who this app registration belongs.
-    */
+    /** @var string|null $userId The user Id to who this app registration belongs. */
     private ?string $userId = null;
     
-    /**
-     * @var string|null $version Version of the entity.
-    */
+    /** @var string|null $version Version of the entity. */
     private ?string $version = null;
     
     /**
@@ -116,15 +78,7 @@ class ManagedAppRegistration extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagedAppRegistration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagedAppRegistration {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.androidManagedAppRegistration': return new AndroidManagedAppRegistration();
-                case '#microsoft.graph.iosManagedAppRegistration': return new IosManagedAppRegistration();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagedAppRegistration {
         return new ManagedAppRegistration();
     }
 
@@ -213,33 +167,32 @@ class ManagedAppRegistration extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appIdentifier' => function (ParseNode $n) use ($o) { $o->setAppIdentifier($n->getObjectValue(array(MobileAppIdentifier::class, 'createFromDiscriminatorValue'))); },
-            'applicationVersion' => function (ParseNode $n) use ($o) { $o->setApplicationVersion($n->getStringValue()); },
-            'appliedPolicies' => function (ParseNode $n) use ($o) { $o->setAppliedPolicies($n->getCollectionOfObjectValues(array(ManagedAppPolicy::class, 'createFromDiscriminatorValue'))); },
-            'azureADDeviceId' => function (ParseNode $n) use ($o) { $o->setAzureADDeviceId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deviceManufacturer' => function (ParseNode $n) use ($o) { $o->setDeviceManufacturer($n->getStringValue()); },
-            'deviceModel' => function (ParseNode $n) use ($o) { $o->setDeviceModel($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'deviceTag' => function (ParseNode $n) use ($o) { $o->setDeviceTag($n->getStringValue()); },
-            'deviceType' => function (ParseNode $n) use ($o) { $o->setDeviceType($n->getStringValue()); },
-            'flaggedReasons' => function (ParseNode $n) use ($o) { $o->setFlaggedReasons($n->getCollectionOfPrimitiveValues()); },
-            'intendedPolicies' => function (ParseNode $n) use ($o) { $o->setIntendedPolicies($n->getCollectionOfObjectValues(array(ManagedAppPolicy::class, 'createFromDiscriminatorValue'))); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'managementSdkVersion' => function (ParseNode $n) use ($o) { $o->setManagementSdkVersion($n->getStringValue()); },
-            'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(ManagedAppOperation::class, 'createFromDiscriminatorValue'))); },
-            'platformVersion' => function (ParseNode $n) use ($o) { $o->setPlatformVersion($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'appIdentifier' => function (self $o, ParseNode $n) { $o->setAppIdentifier($n->getObjectValue(MobileAppIdentifier::class)); },
+            'applicationVersion' => function (self $o, ParseNode $n) { $o->setApplicationVersion($n->getStringValue()); },
+            'appliedPolicies' => function (self $o, ParseNode $n) { $o->setAppliedPolicies($n->getCollectionOfObjectValues(ManagedAppPolicy::class)); },
+            'azureADDeviceId' => function (self $o, ParseNode $n) { $o->setAzureADDeviceId($n->getStringValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'deviceManufacturer' => function (self $o, ParseNode $n) { $o->setDeviceManufacturer($n->getStringValue()); },
+            'deviceModel' => function (self $o, ParseNode $n) { $o->setDeviceModel($n->getStringValue()); },
+            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
+            'deviceTag' => function (self $o, ParseNode $n) { $o->setDeviceTag($n->getStringValue()); },
+            'deviceType' => function (self $o, ParseNode $n) { $o->setDeviceType($n->getStringValue()); },
+            'flaggedReasons' => function (self $o, ParseNode $n) { $o->setFlaggedReasons($n->getCollectionOfEnumValues(ManagedAppFlaggedReason::class)); },
+            'intendedPolicies' => function (self $o, ParseNode $n) { $o->setIntendedPolicies($n->getCollectionOfObjectValues(ManagedAppPolicy::class)); },
+            'lastSyncDateTime' => function (self $o, ParseNode $n) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
+            'managedDeviceId' => function (self $o, ParseNode $n) { $o->setManagedDeviceId($n->getStringValue()); },
+            'managementSdkVersion' => function (self $o, ParseNode $n) { $o->setManagementSdkVersion($n->getStringValue()); },
+            'operations' => function (self $o, ParseNode $n) { $o->setOperations($n->getCollectionOfObjectValues(ManagedAppOperation::class)); },
+            'platformVersion' => function (self $o, ParseNode $n) { $o->setPlatformVersion($n->getStringValue()); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
+            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getStringValue()); },
         ]);
     }
 
     /**
      * Gets the flaggedReasons property value. Zero or more reasons an app registration is flagged. E.g. app running on rooted device
-     * @return array<string>|null
+     * @return array<ManagedAppFlaggedReason>|null
     */
     public function getFlaggedReasons(): ?array {
         return $this->flaggedReasons;
@@ -325,7 +278,7 @@ class ManagedAppRegistration extends Entity implements Parsable
         $writer->writeStringValue('deviceName', $this->deviceName);
         $writer->writeStringValue('deviceTag', $this->deviceTag);
         $writer->writeStringValue('deviceType', $this->deviceType);
-        $writer->writeCollectionOfPrimitiveValues('flaggedReasons', $this->flaggedReasons);
+        $writer->writeCollectionOfEnumValues('flaggedReasons', $this->flaggedReasons);
         $writer->writeCollectionOfObjectValues('intendedPolicies', $this->intendedPolicies);
         $writer->writeDateTimeValue('lastSyncDateTime', $this->lastSyncDateTime);
         $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
@@ -418,7 +371,7 @@ class ManagedAppRegistration extends Entity implements Parsable
 
     /**
      * Sets the flaggedReasons property value. Zero or more reasons an app registration is flagged. E.g. app running on rooted device
-     *  @param array<string>|null $value Value to set for the flaggedReasons property.
+     *  @param array<ManagedAppFlaggedReason>|null $value Value to set for the flaggedReasons property.
     */
     public function setFlaggedReasons(?array $value ): void {
         $this->flaggedReasons = $value;

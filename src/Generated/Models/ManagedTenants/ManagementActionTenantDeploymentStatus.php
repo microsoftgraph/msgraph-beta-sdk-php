@@ -7,21 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagementActionTenantDeploymentStatus extends Entity implements Parsable 
+class ManagementActionTenantDeploymentStatus extends Entity 
 {
-    /**
-     * @var array<ManagementActionDeploymentStatus>|null $statuses The collection of deployment status for each instance of a management action. Optional.
-    */
+    /** @var array<ManagementActionDeploymentStatus>|null $statuses The collection of deployment status for each instance of a management action. Optional. */
     private ?array $statuses = null;
     
-    /**
-     * @var string|null $tenantGroupId The identifier for the tenant group that is associated with the management action. Required. Read-only.
-    */
+    /** @var string|null $tenantGroupId The identifier for the tenant group that is associated with the management action. Required. Read-only. */
     private ?string $tenantGroupId = null;
     
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
-    */
+    /** @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only. */
     private ?string $tenantId = null;
     
     /**
@@ -36,7 +30,7 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagementActionTenantDeploymentStatus
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagementActionTenantDeploymentStatus {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagementActionTenantDeploymentStatus {
         return new ManagementActionTenantDeploymentStatus();
     }
 
@@ -45,11 +39,10 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'statuses' => function (ParseNode $n) use ($o) { $o->setStatuses($n->getCollectionOfObjectValues(array(ManagementActionDeploymentStatus::class, 'createFromDiscriminatorValue'))); },
-            'tenantGroupId' => function (ParseNode $n) use ($o) { $o->setTenantGroupId($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'statuses' => function (self $o, ParseNode $n) { $o->setStatuses($n->getCollectionOfObjectValues(ManagementActionDeploymentStatus::class)); },
+            'tenantGroupId' => function (self $o, ParseNode $n) { $o->setTenantGroupId($n->getStringValue()); },
+            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
         ]);
     }
 

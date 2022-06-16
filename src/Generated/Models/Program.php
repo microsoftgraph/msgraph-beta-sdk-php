@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Program extends Entity implements Parsable 
+class Program extends Entity 
 {
-    /**
-     * @var array<ProgramControl>|null $controls Controls associated with the program.
-    */
+    /** @var array<ProgramControl>|null $controls Controls associated with the program. */
     private ?array $controls = null;
     
-    /**
-     * @var string|null $description The description of the program.
-    */
+    /** @var string|null $description The description of the program. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The name of the program.  Required on create.
-    */
+    /** @var string|null $displayName The name of the program.  Required on create. */
     private ?string $displayName = null;
     
     /**
@@ -35,7 +29,7 @@ class Program extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Program
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Program {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Program {
         return new Program();
     }
 
@@ -68,11 +62,10 @@ class Program extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'controls' => function (ParseNode $n) use ($o) { $o->setControls($n->getCollectionOfObjectValues(array(ProgramControl::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'controls' => function (self $o, ParseNode $n) { $o->setControls($n->getCollectionOfObjectValues(ProgramControl::class)); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
         ]);
     }
 

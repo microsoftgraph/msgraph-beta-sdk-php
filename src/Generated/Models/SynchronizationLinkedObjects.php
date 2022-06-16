@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var SynchronizationJobSubject|null $manager The manager property
-    */
+    /** @var SynchronizationJobSubject|null $manager The manager property */
     private ?SynchronizationJobSubject $manager = null;
     
-    /**
-     * @var array<SynchronizationJobSubject>|null $members The members property
-    */
+    /** @var array<SynchronizationJobSubject>|null $members The members property */
     private ?array $members = null;
     
-    /**
-     * @var array<SynchronizationJobSubject>|null $owners The owners property
-    */
+    /** @var array<SynchronizationJobSubject>|null $owners The owners property */
     private ?array $owners = null;
     
     /**
@@ -41,7 +33,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SynchronizationLinkedObjects
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationLinkedObjects {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationLinkedObjects {
         return new SynchronizationLinkedObjects();
     }
 
@@ -58,11 +50,10 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'manager' => function (ParseNode $n) use ($o) { $o->setManager($n->getObjectValue(array(SynchronizationJobSubject::class, 'createFromDiscriminatorValue'))); },
-            'members' => function (ParseNode $n) use ($o) { $o->setMembers($n->getCollectionOfObjectValues(array(SynchronizationJobSubject::class, 'createFromDiscriminatorValue'))); },
-            'owners' => function (ParseNode $n) use ($o) { $o->setOwners($n->getCollectionOfObjectValues(array(SynchronizationJobSubject::class, 'createFromDiscriminatorValue'))); },
+            'manager' => function (self $o, ParseNode $n) { $o->setManager($n->getObjectValue(SynchronizationJobSubject::class)); },
+            'members' => function (self $o, ParseNode $n) { $o->setMembers($n->getCollectionOfObjectValues(SynchronizationJobSubject::class)); },
+            'owners' => function (self $o, ParseNode $n) { $o->setOwners($n->getCollectionOfObjectValues(SynchronizationJobSubject::class)); },
         ];
     }
 

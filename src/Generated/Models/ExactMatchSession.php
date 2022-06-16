@@ -6,50 +6,34 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ExactMatchSession extends ExactMatchSessionBase implements Parsable 
+class ExactMatchSession extends ExactMatchSessionBase 
 {
-    /**
-     * @var string|null $checksum The checksum property
-    */
+    /** @var string|null $checksum The checksum property */
     private ?string $checksum = null;
     
-    /**
-     * @var string|null $dataUploadURI The dataUploadURI property
-    */
+    /** @var string|null $dataUploadURI The dataUploadURI property */
     private ?string $dataUploadURI = null;
     
-    /**
-     * @var array<string>|null $fields The fields property
-    */
+    /** @var array<string>|null $fields The fields property */
     private ?array $fields = null;
     
-    /**
-     * @var string|null $fileName The fileName property
-    */
+    /** @var string|null $fileName The fileName property */
     private ?string $fileName = null;
     
-    /**
-     * @var int|null $rowsPerBlock The rowsPerBlock property
-    */
+    /** @var int|null $rowsPerBlock The rowsPerBlock property */
     private ?int $rowsPerBlock = null;
     
-    /**
-     * @var string|null $salt The salt property
-    */
+    /** @var string|null $salt The salt property */
     private ?string $salt = null;
     
-    /**
-     * @var ExactMatchUploadAgent|null $uploadAgent The uploadAgent property
-    */
+    /** @var ExactMatchUploadAgent|null $uploadAgent The uploadAgent property */
     private ?ExactMatchUploadAgent $uploadAgent = null;
     
-    /**
-     * @var string|null $uploadAgentId The uploadAgentId property
-    */
+    /** @var string|null $uploadAgentId The uploadAgentId property */
     private ?string $uploadAgentId = null;
     
     /**
-     * Instantiates a new ExactMatchSession and sets the default values.
+     * Instantiates a new exactMatchSession and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -60,7 +44,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExactMatchSession
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExactMatchSession {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ExactMatchSession {
         return new ExactMatchSession();
     }
 
@@ -85,16 +69,15 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'checksum' => function (ParseNode $n) use ($o) { $o->setChecksum($n->getStringValue()); },
-            'dataUploadURI' => function (ParseNode $n) use ($o) { $o->setDataUploadURI($n->getStringValue()); },
-            'fields' => function (ParseNode $n) use ($o) { $o->setFields($n->getCollectionOfPrimitiveValues()); },
-            'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
-            'rowsPerBlock' => function (ParseNode $n) use ($o) { $o->setRowsPerBlock($n->getIntegerValue()); },
-            'salt' => function (ParseNode $n) use ($o) { $o->setSalt($n->getStringValue()); },
-            'uploadAgent' => function (ParseNode $n) use ($o) { $o->setUploadAgent($n->getObjectValue(array(ExactMatchUploadAgent::class, 'createFromDiscriminatorValue'))); },
-            'uploadAgentId' => function (ParseNode $n) use ($o) { $o->setUploadAgentId($n->getStringValue()); },
+            'checksum' => function (self $o, ParseNode $n) { $o->setChecksum($n->getStringValue()); },
+            'dataUploadURI' => function (self $o, ParseNode $n) { $o->setDataUploadURI($n->getStringValue()); },
+            'fields' => function (self $o, ParseNode $n) { $o->setFields($n->getCollectionOfPrimitiveValues()); },
+            'fileName' => function (self $o, ParseNode $n) { $o->setFileName($n->getStringValue()); },
+            'rowsPerBlock' => function (self $o, ParseNode $n) { $o->setRowsPerBlock($n->getIntegerValue()); },
+            'salt' => function (self $o, ParseNode $n) { $o->setSalt($n->getStringValue()); },
+            'uploadAgent' => function (self $o, ParseNode $n) { $o->setUploadAgent($n->getObjectValue(ExactMatchUploadAgent::class)); },
+            'uploadAgentId' => function (self $o, ParseNode $n) { $o->setUploadAgentId($n->getStringValue()); },
         ]);
     }
 

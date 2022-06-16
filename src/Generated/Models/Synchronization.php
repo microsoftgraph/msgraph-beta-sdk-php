@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Synchronization extends Entity implements Parsable 
+class Synchronization extends Entity 
 {
-    /**
-     * @var array<SynchronizationJob>|null $jobs Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
-    */
+    /** @var array<SynchronizationJob>|null $jobs Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory. */
     private ?array $jobs = null;
     
-    /**
-     * @var array<SynchronizationSecretKeyStringValuePair>|null $secrets Represents a collection of credentials to access provisioned cloud applications.
-    */
+    /** @var array<SynchronizationSecretKeyStringValuePair>|null $secrets Represents a collection of credentials to access provisioned cloud applications. */
     private ?array $secrets = null;
     
-    /**
-     * @var array<SynchronizationTemplate>|null $templates Pre-configured synchronization settings for a particular application.
-    */
+    /** @var array<SynchronizationTemplate>|null $templates Pre-configured synchronization settings for a particular application. */
     private ?array $templates = null;
     
     /**
@@ -35,7 +29,7 @@ class Synchronization extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Synchronization
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Synchronization {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Synchronization {
         return new Synchronization();
     }
 
@@ -44,11 +38,10 @@ class Synchronization extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'jobs' => function (ParseNode $n) use ($o) { $o->setJobs($n->getCollectionOfObjectValues(array(SynchronizationJob::class, 'createFromDiscriminatorValue'))); },
-            'secrets' => function (ParseNode $n) use ($o) { $o->setSecrets($n->getCollectionOfObjectValues(array(SynchronizationSecretKeyStringValuePair::class, 'createFromDiscriminatorValue'))); },
-            'templates' => function (ParseNode $n) use ($o) { $o->setTemplates($n->getCollectionOfObjectValues(array(SynchronizationTemplate::class, 'createFromDiscriminatorValue'))); },
+            'jobs' => function (self $o, ParseNode $n) { $o->setJobs($n->getCollectionOfObjectValues(SynchronizationJob::class)); },
+            'secrets' => function (self $o, ParseNode $n) { $o->setSecrets($n->getCollectionOfObjectValues(SynchronizationSecretKeyStringValuePair::class)); },
+            'templates' => function (self $o, ParseNode $n) { $o->setTemplates($n->getCollectionOfObjectValues(SynchronizationTemplate::class)); },
         ]);
     }
 

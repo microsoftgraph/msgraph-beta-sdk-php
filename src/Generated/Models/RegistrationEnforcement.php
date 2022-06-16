@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RegistrationEnforcement implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var AuthenticationMethodsRegistrationCampaign|null $authenticationMethodsRegistrationCampaign Run campaigns to remind users to setup targeted authentication methods.
-    */
+    /** @var AuthenticationMethodsRegistrationCampaign|null $authenticationMethodsRegistrationCampaign Run campaigns to remind users to set up targeted authentication methods. */
     private ?AuthenticationMethodsRegistrationCampaign $authenticationMethodsRegistrationCampaign = null;
     
     /**
@@ -31,7 +27,7 @@ class RegistrationEnforcement implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RegistrationEnforcement
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RegistrationEnforcement {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RegistrationEnforcement {
         return new RegistrationEnforcement();
     }
 
@@ -44,7 +40,7 @@ class RegistrationEnforcement implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to setup targeted authentication methods.
+     * Gets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to set up targeted authentication methods.
      * @return AuthenticationMethodsRegistrationCampaign|null
     */
     public function getAuthenticationMethodsRegistrationCampaign(): ?AuthenticationMethodsRegistrationCampaign {
@@ -56,9 +52,8 @@ class RegistrationEnforcement implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'authenticationMethodsRegistrationCampaign' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethodsRegistrationCampaign($n->getObjectValue(array(AuthenticationMethodsRegistrationCampaign::class, 'createFromDiscriminatorValue'))); },
+            'authenticationMethodsRegistrationCampaign' => function (self $o, ParseNode $n) { $o->setAuthenticationMethodsRegistrationCampaign($n->getObjectValue(AuthenticationMethodsRegistrationCampaign::class)); },
         ];
     }
 
@@ -80,7 +75,7 @@ class RegistrationEnforcement implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to setup targeted authentication methods.
+     * Sets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to set up targeted authentication methods.
      *  @param AuthenticationMethodsRegistrationCampaign|null $value Value to set for the authenticationMethodsRegistrationCampaign property.
     */
     public function setAuthenticationMethodsRegistrationCampaign(?AuthenticationMethodsRegistrationCampaign $value ): void {

@@ -7,46 +7,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PrintConnector extends Entity implements Parsable 
+class PrintConnector extends Entity 
 {
-    /**
-     * @var string|null $appVersion The connector's version.
-    */
+    /** @var string|null $appVersion The connector's version. */
     private ?string $appVersion = null;
     
-    /**
-     * @var DeviceHealth|null $deviceHealth The connector's device health.
-    */
+    /** @var DeviceHealth|null $deviceHealth The connector's device health. */
     private ?DeviceHealth $deviceHealth = null;
     
-    /**
-     * @var string|null $displayName The name of the connector.
-    */
+    /** @var string|null $displayName The name of the connector. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $fullyQualifiedDomainName The connector machine's hostname.
-    */
+    /** @var string|null $fullyQualifiedDomainName The connector machine's hostname. */
     private ?string $fullyQualifiedDomainName = null;
     
-    /**
-     * @var PrinterLocation|null $location The physical and/or organizational location of the connector.
-    */
+    /** @var PrinterLocation|null $location The physical and/or organizational location of the connector. */
     private ?PrinterLocation $location = null;
     
-    /**
-     * @var string|null $name The name property
-    */
+    /** @var string|null $name The name property */
     private ?string $name = null;
     
-    /**
-     * @var string|null $operatingSystem The connector machine's operating system version.
-    */
+    /** @var string|null $operatingSystem The connector machine's operating system version. */
     private ?string $operatingSystem = null;
     
-    /**
-     * @var DateTime|null $registeredDateTime The DateTimeOffset when the connector was registered.
-    */
+    /** @var DateTime|null $registeredDateTime The DateTimeOffset when the connector was registered. */
     private ?DateTime $registeredDateTime = null;
     
     /**
@@ -61,7 +45,7 @@ class PrintConnector extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrintConnector
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrintConnector {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PrintConnector {
         return new PrintConnector();
     }
 
@@ -94,16 +78,15 @@ class PrintConnector extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appVersion' => function (ParseNode $n) use ($o) { $o->setAppVersion($n->getStringValue()); },
-            'deviceHealth' => function (ParseNode $n) use ($o) { $o->setDeviceHealth($n->getObjectValue(array(DeviceHealth::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'fullyQualifiedDomainName' => function (ParseNode $n) use ($o) { $o->setFullyQualifiedDomainName($n->getStringValue()); },
-            'location' => function (ParseNode $n) use ($o) { $o->setLocation($n->getObjectValue(array(PrinterLocation::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'operatingSystem' => function (ParseNode $n) use ($o) { $o->setOperatingSystem($n->getStringValue()); },
-            'registeredDateTime' => function (ParseNode $n) use ($o) { $o->setRegisteredDateTime($n->getDateTimeValue()); },
+            'appVersion' => function (self $o, ParseNode $n) { $o->setAppVersion($n->getStringValue()); },
+            'deviceHealth' => function (self $o, ParseNode $n) { $o->setDeviceHealth($n->getObjectValue(DeviceHealth::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'fullyQualifiedDomainName' => function (self $o, ParseNode $n) { $o->setFullyQualifiedDomainName($n->getStringValue()); },
+            'location' => function (self $o, ParseNode $n) { $o->setLocation($n->getObjectValue(PrinterLocation::class)); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'operatingSystem' => function (self $o, ParseNode $n) { $o->setOperatingSystem($n->getStringValue()); },
+            'registeredDateTime' => function (self $o, ParseNode $n) { $o->setRegisteredDateTime($n->getDateTimeValue()); },
         ]);
     }
 

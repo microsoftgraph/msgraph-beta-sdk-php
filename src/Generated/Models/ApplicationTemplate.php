@@ -6,51 +6,33 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ApplicationTemplate extends Entity implements Parsable 
+class ApplicationTemplate extends Entity 
 {
-    /**
-     * @var array<string>|null $categories The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting.
-    */
+    /** @var array<string>|null $categories The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting. */
     private ?array $categories = null;
     
-    /**
-     * @var string|null $description A description of the application.
-    */
+    /** @var string|null $description A description of the application. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The name of the application.
-    */
+    /** @var string|null $displayName The name of the application. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $homePageUrl The home page URL of the application.
-    */
+    /** @var string|null $homePageUrl The home page URL of the application. */
     private ?string $homePageUrl = null;
     
-    /**
-     * @var InformationalUrls|null $informationalUrls The informationalUrls property
-    */
+    /** @var InformationalUrls|null $informationalUrls The informationalUrls property */
     private ?InformationalUrls $informationalUrls = null;
     
-    /**
-     * @var string|null $logoUrl The URL to get the logo for this application.
-    */
+    /** @var string|null $logoUrl The URL to get the logo for this application. */
     private ?string $logoUrl = null;
     
-    /**
-     * @var string|null $publisher The name of the publisher for this application.
-    */
+    /** @var string|null $publisher The name of the publisher for this application. */
     private ?string $publisher = null;
     
-    /**
-     * @var array<string>|null $supportedProvisioningTypes The list of provisioning modes supported by this application. The only valid value is sync.
-    */
+    /** @var array<string>|null $supportedProvisioningTypes The list of provisioning modes supported by this application. The only valid value is sync. */
     private ?array $supportedProvisioningTypes = null;
     
-    /**
-     * @var array<string>|null $supportedSingleSignOnModes The list of single sign-on modes supported by this application. The supported values are oidc, password, saml, and notSupported.
-    */
+    /** @var array<string>|null $supportedSingleSignOnModes The list of single sign-on modes supported by this application. The supported values are oidc, password, saml, and notSupported. */
     private ?array $supportedSingleSignOnModes = null;
     
     /**
@@ -65,7 +47,7 @@ class ApplicationTemplate extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ApplicationTemplate
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ApplicationTemplate {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ApplicationTemplate {
         return new ApplicationTemplate();
     }
 
@@ -98,17 +80,16 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'homePageUrl' => function (ParseNode $n) use ($o) { $o->setHomePageUrl($n->getStringValue()); },
-            'informationalUrls' => function (ParseNode $n) use ($o) { $o->setInformationalUrls($n->getObjectValue(array(InformationalUrls::class, 'createFromDiscriminatorValue'))); },
-            'logoUrl' => function (ParseNode $n) use ($o) { $o->setLogoUrl($n->getStringValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
-            'supportedProvisioningTypes' => function (ParseNode $n) use ($o) { $o->setSupportedProvisioningTypes($n->getCollectionOfPrimitiveValues()); },
-            'supportedSingleSignOnModes' => function (ParseNode $n) use ($o) { $o->setSupportedSingleSignOnModes($n->getCollectionOfPrimitiveValues()); },
+            'categories' => function (self $o, ParseNode $n) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'homePageUrl' => function (self $o, ParseNode $n) { $o->setHomePageUrl($n->getStringValue()); },
+            'informationalUrls' => function (self $o, ParseNode $n) { $o->setInformationalUrls($n->getObjectValue(InformationalUrls::class)); },
+            'logoUrl' => function (self $o, ParseNode $n) { $o->setLogoUrl($n->getStringValue()); },
+            'publisher' => function (self $o, ParseNode $n) { $o->setPublisher($n->getStringValue()); },
+            'supportedProvisioningTypes' => function (self $o, ParseNode $n) { $o->setSupportedProvisioningTypes($n->getCollectionOfPrimitiveValues()); },
+            'supportedSingleSignOnModes' => function (self $o, ParseNode $n) { $o->setSupportedSingleSignOnModes($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
 

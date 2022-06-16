@@ -6,36 +6,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity implements Parsable 
+class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity 
 {
-    /**
-     * @var string|null $appDisplayName User friendly display name for the app. Eg: Outlook
-    */
+    /** @var string|null $appDisplayName User friendly display name for the app. Eg: Outlook */
     private ?string $appDisplayName = null;
     
-    /**
-     * @var string|null $appName App name. Eg: oltk.exe
-    */
+    /** @var string|null $appName App name. Eg: oltk.exe */
     private ?string $appName = null;
     
-    /**
-     * @var string|null $appPublisher App publisher. Eg: Microsoft Corporation
-    */
+    /** @var string|null $appPublisher App publisher. Eg: Microsoft Corporation */
     private ?string $appPublisher = null;
     
-    /**
-     * @var float|null $batteryUsagePercentage The percent of total battery power used by this application when the device was not plugged into AC power, over 14 days. Unit in percentage. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $batteryUsagePercentage The percent of total battery power used by this application when the device was not plugged into AC power, over 14 days. Unit in percentage. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $batteryUsagePercentage = null;
     
-    /**
-     * @var string|null $deviceId The unique identifier of the device, Intune DeviceID or SCCM device id.
-    */
+    /** @var string|null $deviceId The unique identifier of the device, Intune DeviceID or SCCM device id. */
     private ?string $deviceId = null;
     
-    /**
-     * @var bool|null $isForegroundApp true if the user had active interaction with the app.
-    */
+    /** @var bool|null $isForegroundApp true if the user had active interaction with the app. */
     private ?bool $isForegroundApp = null;
     
     /**
@@ -50,7 +38,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsBatteryHealthDeviceAppImpact
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsBatteryHealthDeviceAppImpact {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsBatteryHealthDeviceAppImpact {
         return new UserExperienceAnalyticsBatteryHealthDeviceAppImpact();
     }
 
@@ -99,14 +87,13 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
-            'appName' => function (ParseNode $n) use ($o) { $o->setAppName($n->getStringValue()); },
-            'appPublisher' => function (ParseNode $n) use ($o) { $o->setAppPublisher($n->getStringValue()); },
-            'batteryUsagePercentage' => function (ParseNode $n) use ($o) { $o->setBatteryUsagePercentage($n->getFloatValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'isForegroundApp' => function (ParseNode $n) use ($o) { $o->setIsForegroundApp($n->getBooleanValue()); },
+            'appDisplayName' => function (self $o, ParseNode $n) { $o->setAppDisplayName($n->getStringValue()); },
+            'appName' => function (self $o, ParseNode $n) { $o->setAppName($n->getStringValue()); },
+            'appPublisher' => function (self $o, ParseNode $n) { $o->setAppPublisher($n->getStringValue()); },
+            'batteryUsagePercentage' => function (self $o, ParseNode $n) { $o->setBatteryUsagePercentage($n->getFloatValue()); },
+            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
+            'isForegroundApp' => function (self $o, ParseNode $n) { $o->setIsForegroundApp($n->getBooleanValue()); },
         ]);
     }
 

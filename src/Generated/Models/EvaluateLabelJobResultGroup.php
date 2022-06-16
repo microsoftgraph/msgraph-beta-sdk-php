@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class EvaluateLabelJobResultGroup implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var EvaluateLabelJobResult|null $automatic The automatic property
-    */
+    /** @var EvaluateLabelJobResult|null $automatic The automatic property */
     private ?EvaluateLabelJobResult $automatic = null;
     
-    /**
-     * @var EvaluateLabelJobResult|null $recommended The recommended property
-    */
+    /** @var EvaluateLabelJobResult|null $recommended The recommended property */
     private ?EvaluateLabelJobResult $recommended = null;
     
     /**
@@ -36,7 +30,7 @@ class EvaluateLabelJobResultGroup implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EvaluateLabelJobResultGroup
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EvaluateLabelJobResultGroup {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EvaluateLabelJobResultGroup {
         return new EvaluateLabelJobResultGroup();
     }
 
@@ -61,10 +55,9 @@ class EvaluateLabelJobResultGroup implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'automatic' => function (ParseNode $n) use ($o) { $o->setAutomatic($n->getObjectValue(array(EvaluateLabelJobResult::class, 'createFromDiscriminatorValue'))); },
-            'recommended' => function (ParseNode $n) use ($o) { $o->setRecommended($n->getObjectValue(array(EvaluateLabelJobResult::class, 'createFromDiscriminatorValue'))); },
+            'automatic' => function (self $o, ParseNode $n) { $o->setAutomatic($n->getObjectValue(EvaluateLabelJobResult::class)); },
+            'recommended' => function (self $o, ParseNode $n) { $o->setRecommended($n->getObjectValue(EvaluateLabelJobResult::class)); },
         ];
     }
 

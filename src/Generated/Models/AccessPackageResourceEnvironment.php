@@ -7,61 +7,39 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessPackageResourceEnvironment extends Entity implements Parsable 
+class AccessPackageResourceEnvironment extends Entity 
 {
-    /**
-     * @var array<AccessPackageResource>|null $accessPackageResources Read-only. Required.
-    */
+    /** @var array<AccessPackageResource>|null $accessPackageResources Read-only. Required. */
     private ?array $accessPackageResources = null;
     
-    /**
-     * @var ConnectionInfo|null $connectionInfo Connection information of an environment used to connect to a resource.
-    */
+    /** @var ConnectionInfo|null $connectionInfo Connection information of an environment used to connect to a resource. */
     private ?ConnectionInfo $connectionInfo = null;
     
-    /**
-     * @var string|null $createdBy The display name of the user that created this object.
-    */
+    /** @var string|null $createdBy The display name of the user that created this object. */
     private ?string $createdBy = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The date and time that this object was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $createdDateTime The date and time that this object was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $description The description of this object.
-    */
+    /** @var string|null $description The description of this object. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The display name of this object.
-    */
+    /** @var string|null $displayName The display name of this object. */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $isDefaultEnvironment Determines whether this is default environment or not. It is set to true for all static origin systems, such as Azure AD groups and Azure AD Applications.
-    */
+    /** @var bool|null $isDefaultEnvironment Determines whether this is default environment or not. It is set to true for all static origin systems, such as Azure AD groups and Azure AD Applications. */
     private ?bool $isDefaultEnvironment = null;
     
-    /**
-     * @var string|null $modifiedBy The display name of the entity that last modified this object.
-    */
+    /** @var string|null $modifiedBy The display name of the entity that last modified this object. */
     private ?string $modifiedBy = null;
     
-    /**
-     * @var DateTime|null $modifiedDateTime The date and time that this object was last modified. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $modifiedDateTime The date and time that this object was last modified. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $modifiedDateTime = null;
     
-    /**
-     * @var string|null $originId The unique identifier of this environment in the origin system.
-    */
+    /** @var string|null $originId The unique identifier of this environment in the origin system. */
     private ?string $originId = null;
     
-    /**
-     * @var string|null $originSystem The type of the resource in the origin system, that is, SharePointOnline. Requires $filter (eq).
-    */
+    /** @var string|null $originSystem The type of the resource in the origin system, that is, SharePointOnline. Requires $filter (eq). */
     private ?string $originSystem = null;
     
     /**
@@ -76,7 +54,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageResourceEnvironment
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResourceEnvironment {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResourceEnvironment {
         return new AccessPackageResourceEnvironment();
     }
 
@@ -133,19 +111,18 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageResources' => function (ParseNode $n) use ($o) { $o->setAccessPackageResources($n->getCollectionOfObjectValues(array(AccessPackageResource::class, 'createFromDiscriminatorValue'))); },
-            'connectionInfo' => function (ParseNode $n) use ($o) { $o->setConnectionInfo($n->getObjectValue(array(ConnectionInfo::class, 'createFromDiscriminatorValue'))); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isDefaultEnvironment' => function (ParseNode $n) use ($o) { $o->setIsDefaultEnvironment($n->getBooleanValue()); },
-            'modifiedBy' => function (ParseNode $n) use ($o) { $o->setModifiedBy($n->getStringValue()); },
-            'modifiedDateTime' => function (ParseNode $n) use ($o) { $o->setModifiedDateTime($n->getDateTimeValue()); },
-            'originId' => function (ParseNode $n) use ($o) { $o->setOriginId($n->getStringValue()); },
-            'originSystem' => function (ParseNode $n) use ($o) { $o->setOriginSystem($n->getStringValue()); },
+            'accessPackageResources' => function (self $o, ParseNode $n) { $o->setAccessPackageResources($n->getCollectionOfObjectValues(AccessPackageResource::class)); },
+            'connectionInfo' => function (self $o, ParseNode $n) { $o->setConnectionInfo($n->getObjectValue(ConnectionInfo::class)); },
+            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getStringValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'isDefaultEnvironment' => function (self $o, ParseNode $n) { $o->setIsDefaultEnvironment($n->getBooleanValue()); },
+            'modifiedBy' => function (self $o, ParseNode $n) { $o->setModifiedBy($n->getStringValue()); },
+            'modifiedDateTime' => function (self $o, ParseNode $n) { $o->setModifiedDateTime($n->getDateTimeValue()); },
+            'originId' => function (self $o, ParseNode $n) { $o->setOriginId($n->getStringValue()); },
+            'originSystem' => function (self $o, ParseNode $n) { $o->setOriginSystem($n->getStringValue()); },
         ]);
     }
 

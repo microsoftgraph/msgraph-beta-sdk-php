@@ -6,36 +6,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TenantSetupInfo extends Entity implements Parsable 
+class TenantSetupInfo extends Entity 
 {
-    /**
-     * @var PrivilegedRoleSettings|null $defaultRolesSettings The defaultRolesSettings property
-    */
+    /** @var PrivilegedRoleSettings|null $defaultRolesSettings The defaultRolesSettings property */
     private ?PrivilegedRoleSettings $defaultRolesSettings = null;
     
-    /**
-     * @var bool|null $firstTimeSetup The firstTimeSetup property
-    */
+    /** @var bool|null $firstTimeSetup The firstTimeSetup property */
     private ?bool $firstTimeSetup = null;
     
-    /**
-     * @var array<string>|null $relevantRolesSettings The relevantRolesSettings property
-    */
+    /** @var array<string>|null $relevantRolesSettings The relevantRolesSettings property */
     private ?array $relevantRolesSettings = null;
     
-    /**
-     * @var SetupStatus|null $setupStatus The setupStatus property
-    */
+    /** @var SetupStatus|null $setupStatus The setupStatus property */
     private ?SetupStatus $setupStatus = null;
     
-    /**
-     * @var bool|null $skipSetup The skipSetup property
-    */
+    /** @var bool|null $skipSetup The skipSetup property */
     private ?bool $skipSetup = null;
     
-    /**
-     * @var string|null $userRolesActions The userRolesActions property
-    */
+    /** @var string|null $userRolesActions The userRolesActions property */
     private ?string $userRolesActions = null;
     
     /**
@@ -50,7 +38,7 @@ class TenantSetupInfo extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TenantSetupInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TenantSetupInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TenantSetupInfo {
         return new TenantSetupInfo();
     }
 
@@ -67,14 +55,13 @@ class TenantSetupInfo extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultRolesSettings' => function (ParseNode $n) use ($o) { $o->setDefaultRolesSettings($n->getObjectValue(array(PrivilegedRoleSettings::class, 'createFromDiscriminatorValue'))); },
-            'firstTimeSetup' => function (ParseNode $n) use ($o) { $o->setFirstTimeSetup($n->getBooleanValue()); },
-            'relevantRolesSettings' => function (ParseNode $n) use ($o) { $o->setRelevantRolesSettings($n->getCollectionOfPrimitiveValues()); },
-            'setupStatus' => function (ParseNode $n) use ($o) { $o->setSetupStatus($n->getEnumValue(SetupStatus::class)); },
-            'skipSetup' => function (ParseNode $n) use ($o) { $o->setSkipSetup($n->getBooleanValue()); },
-            'userRolesActions' => function (ParseNode $n) use ($o) { $o->setUserRolesActions($n->getStringValue()); },
+            'defaultRolesSettings' => function (self $o, ParseNode $n) { $o->setDefaultRolesSettings($n->getObjectValue(PrivilegedRoleSettings::class)); },
+            'firstTimeSetup' => function (self $o, ParseNode $n) { $o->setFirstTimeSetup($n->getBooleanValue()); },
+            'relevantRolesSettings' => function (self $o, ParseNode $n) { $o->setRelevantRolesSettings($n->getCollectionOfPrimitiveValues()); },
+            'setupStatus' => function (self $o, ParseNode $n) { $o->setSetupStatus($n->getEnumValue(SetupStatus::class)); },
+            'skipSetup' => function (self $o, ParseNode $n) { $o->setSkipSetup($n->getBooleanValue()); },
+            'userRolesActions' => function (self $o, ParseNode $n) { $o->setUserRolesActions($n->getStringValue()); },
         ]);
     }
 

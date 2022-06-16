@@ -10,14 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class GetEffectivePermissionsWithScopeResponse implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<RolePermission>|null $value The value property
-    */
+    /** @var array<RolePermission>|null $value The value property */
     private ?array $value = null;
     
     /**
@@ -32,7 +28,7 @@ class GetEffectivePermissionsWithScopeResponse implements AdditionalDataHolder, 
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GetEffectivePermissionsWithScopeResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GetEffectivePermissionsWithScopeResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GetEffectivePermissionsWithScopeResponse {
         return new GetEffectivePermissionsWithScopeResponse();
     }
 
@@ -49,9 +45,8 @@ class GetEffectivePermissionsWithScopeResponse implements AdditionalDataHolder, 
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(RolePermission::class, 'createFromDiscriminatorValue'))); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getCollectionOfObjectValues(RolePermission::class)); },
         ];
     }
 

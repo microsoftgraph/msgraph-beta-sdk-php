@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class BaseTaskList extends Entity implements Parsable 
+class BaseTaskList extends Entity 
 {
-    /**
-     * @var string|null $displayName The name of the task list.
-    */
+    /** @var string|null $displayName The name of the task list. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<Extension>|null $extensions The collection of open extensions defined for the task list. Nullable.
-    */
+    /** @var array<Extension>|null $extensions The collection of open extensions defined for the task list. Nullable. */
     private ?array $extensions = null;
     
-    /**
-     * @var array<BaseTask>|null $tasks The tasks in this task list. Read-only. Nullable.
-    */
+    /** @var array<BaseTask>|null $tasks The tasks in this task list. Read-only. Nullable. */
     private ?array $tasks = null;
     
     /**
@@ -35,15 +29,7 @@ class BaseTaskList extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BaseTaskList
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): BaseTaskList {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.taskList': return new TaskList();
-                case '#microsoft.graph.wellKnownTaskList': return new WellKnownTaskList();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): BaseTaskList {
         return new BaseTaskList();
     }
 
@@ -68,11 +54,10 @@ class BaseTaskList extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'extensions' => function (ParseNode $n) use ($o) { $o->setExtensions($n->getCollectionOfObjectValues(array(Extension::class, 'createFromDiscriminatorValue'))); },
-            'tasks' => function (ParseNode $n) use ($o) { $o->setTasks($n->getCollectionOfObjectValues(array(BaseTask::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'extensions' => function (self $o, ParseNode $n) { $o->setExtensions($n->getCollectionOfObjectValues(Extension::class)); },
+            'tasks' => function (self $o, ParseNode $n) { $o->setTasks($n->getCollectionOfObjectValues(BaseTask::class)); },
         ]);
     }
 

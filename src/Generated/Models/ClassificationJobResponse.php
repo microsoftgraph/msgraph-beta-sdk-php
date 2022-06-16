@@ -6,15 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ClassificationJobResponse extends JobResponseBase implements Parsable 
+class ClassificationJobResponse extends JobResponseBase 
 {
-    /**
-     * @var DetectedSensitiveContentWrapper|null $result The result property
-    */
+    /** @var DetectedSensitiveContentWrapper|null $result The result property */
     private ?DetectedSensitiveContentWrapper $result = null;
     
     /**
-     * Instantiates a new ClassificationJobResponse and sets the default values.
+     * Instantiates a new classificationJobResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,7 +23,7 @@ class ClassificationJobResponse extends JobResponseBase implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ClassificationJobResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ClassificationJobResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ClassificationJobResponse {
         return new ClassificationJobResponse();
     }
 
@@ -34,9 +32,8 @@ class ClassificationJobResponse extends JobResponseBase implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'result' => function (ParseNode $n) use ($o) { $o->setResult($n->getObjectValue(array(DetectedSensitiveContentWrapper::class, 'createFromDiscriminatorValue'))); },
+            'result' => function (self $o, ParseNode $n) { $o->setResult($n->getObjectValue(DetectedSensitiveContentWrapper::class)); },
         ]);
     }
 

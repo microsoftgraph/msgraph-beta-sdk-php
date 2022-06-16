@@ -7,11 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GovernanceInsight extends Entity implements Parsable 
+class GovernanceInsight extends Entity 
 {
-    /**
-     * @var DateTime|null $insightCreatedDateTime Indicates when the insight was created.
-    */
+    /** @var DateTime|null $insightCreatedDateTime Indicates when the insight was created. */
     private ?DateTime $insightCreatedDateTime = null;
     
     /**
@@ -26,14 +24,7 @@ class GovernanceInsight extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GovernanceInsight
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceInsight {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.userSignInInsight': return new UserSignInInsight();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceInsight {
         return new GovernanceInsight();
     }
 
@@ -42,9 +33,8 @@ class GovernanceInsight extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'insightCreatedDateTime' => function (ParseNode $n) use ($o) { $o->setInsightCreatedDateTime($n->getDateTimeValue()); },
+            'insightCreatedDateTime' => function (self $o, ParseNode $n) { $o->setInsightCreatedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

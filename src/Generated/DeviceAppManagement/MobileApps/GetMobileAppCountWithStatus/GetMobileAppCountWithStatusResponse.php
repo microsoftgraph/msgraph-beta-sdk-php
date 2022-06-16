@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class GetMobileAppCountWithStatusResponse implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $value The value property
-    */
+    /** @var int|null $value The value property */
     private ?int $value = null;
     
     /**
@@ -31,7 +27,7 @@ class GetMobileAppCountWithStatusResponse implements AdditionalDataHolder, Parsa
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GetMobileAppCountWithStatusResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GetMobileAppCountWithStatusResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GetMobileAppCountWithStatusResponse {
         return new GetMobileAppCountWithStatusResponse();
     }
 
@@ -48,9 +44,8 @@ class GetMobileAppCountWithStatusResponse implements AdditionalDataHolder, Parsa
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getIntegerValue()); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getIntegerValue()); },
         ];
     }
 

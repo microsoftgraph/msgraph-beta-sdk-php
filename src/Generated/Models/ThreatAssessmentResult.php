@@ -7,21 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ThreatAssessmentResult extends Entity implements Parsable 
+class ThreatAssessmentResult extends Entity 
 {
-    /**
-     * @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $message The result message for each threat assessment.
-    */
+    /** @var string|null $message The result message for each threat assessment. */
     private ?string $message = null;
     
-    /**
-     * @var ThreatAssessmentResultType|null $resultType The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan.
-    */
+    /** @var ThreatAssessmentResultType|null $resultType The threat assessment result type. Possible values are: checkPolicy, rescan. */
     private ?ThreatAssessmentResultType $resultType = null;
     
     /**
@@ -36,7 +30,7 @@ class ThreatAssessmentResult extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ThreatAssessmentResult
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ThreatAssessmentResult {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ThreatAssessmentResult {
         return new ThreatAssessmentResult();
     }
 
@@ -53,11 +47,10 @@ class ThreatAssessmentResult extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
-            'resultType' => function (ParseNode $n) use ($o) { $o->setResultType($n->getEnumValue(ThreatAssessmentResultType::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'message' => function (self $o, ParseNode $n) { $o->setMessage($n->getStringValue()); },
+            'resultType' => function (self $o, ParseNode $n) { $o->setResultType($n->getEnumValue(ThreatAssessmentResultType::class)); },
         ]);
     }
 
@@ -70,7 +63,7 @@ class ThreatAssessmentResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the resultType property value. The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan.
+     * Gets the resultType property value. The threat assessment result type. Possible values are: checkPolicy, rescan.
      * @return ThreatAssessmentResultType|null
     */
     public function getResultType(): ?ThreatAssessmentResultType {
@@ -105,7 +98,7 @@ class ThreatAssessmentResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the resultType property value. The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan.
+     * Sets the resultType property value. The threat assessment result type. Possible values are: checkPolicy, rescan.
      *  @param ThreatAssessmentResultType|null $value Value to set for the resultType property.
     */
     public function setResultType(?ThreatAssessmentResultType $value ): void {

@@ -6,40 +6,28 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WebAccount extends ItemFacet implements Parsable 
+class WebAccount extends ItemFacet 
 {
-    /**
-     * @var string|null $description Contains the description the user has provided for the account on the service being referenced.
-    */
+    /** @var string|null $description Contains the description the user has provided for the account on the service being referenced. */
     private ?string $description = null;
     
-    /**
-     * @var ServiceInformation|null $service The service property
-    */
+    /** @var ServiceInformation|null $service The service property */
     private ?ServiceInformation $service = null;
     
-    /**
-     * @var string|null $statusMessage Contains a status message from the cloud service if provided or synchronized.
-    */
+    /** @var string|null $statusMessage Contains a status message from the cloud service if provided or synchronized. */
     private ?string $statusMessage = null;
     
-    /**
-     * @var string|null $thumbnailUrl The thumbnailUrl property
-    */
+    /** @var string|null $thumbnailUrl The thumbnailUrl property */
     private ?string $thumbnailUrl = null;
     
-    /**
-     * @var string|null $userId The user name  displayed for the webaccount.
-    */
+    /** @var string|null $userId The user name  displayed for the webaccount. */
     private ?string $userId = null;
     
-    /**
-     * @var string|null $webUrl Contains a link to the user's profile on the cloud service if one exists.
-    */
+    /** @var string|null $webUrl Contains a link to the user's profile on the cloud service if one exists. */
     private ?string $webUrl = null;
     
     /**
-     * Instantiates a new WebAccount and sets the default values.
+     * Instantiates a new webAccount and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -50,7 +38,7 @@ class WebAccount extends ItemFacet implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WebAccount
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WebAccount {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WebAccount {
         return new WebAccount();
     }
 
@@ -67,14 +55,13 @@ class WebAccount extends ItemFacet implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'service' => function (ParseNode $n) use ($o) { $o->setService($n->getObjectValue(array(ServiceInformation::class, 'createFromDiscriminatorValue'))); },
-            'statusMessage' => function (ParseNode $n) use ($o) { $o->setStatusMessage($n->getStringValue()); },
-            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'service' => function (self $o, ParseNode $n) { $o->setService($n->getObjectValue(ServiceInformation::class)); },
+            'statusMessage' => function (self $o, ParseNode $n) { $o->setStatusMessage($n->getStringValue()); },
+            'thumbnailUrl' => function (self $o, ParseNode $n) { $o->setThumbnailUrl($n->getStringValue()); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
+            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
         ]);
     }
 

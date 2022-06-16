@@ -7,66 +7,42 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ExternalConnection extends Entity implements Parsable 
+class ExternalConnection extends Entity 
 {
-    /**
-     * @var Configuration|null $configuration Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.
-    */
+    /** @var Configuration|null $configuration Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional. */
     private ?Configuration $configuration = null;
     
-    /**
-     * @var string|null $connectorId The Teams App ID. Optional.
-    */
+    /** @var string|null $connectorId The Teams App ID. Optional. */
     private ?string $connectorId = null;
     
-    /**
-     * @var string|null $description Description of the connection displayed in the Microsoft 365 admin center. Optional.
-    */
+    /** @var string|null $description Description of the connection displayed in the Microsoft 365 admin center. Optional. */
     private ?string $description = null;
     
-    /**
-     * @var array<ExternalGroup>|null $groups The groups property
-    */
+    /** @var array<ExternalGroup>|null $groups Read-only. Nullable. */
     private ?array $groups = null;
     
-    /**
-     * @var int|null $ingestedItemsCount The number of items ingested into a connection. This value is refreshed every 15 minutes. If the connection state is draft, then ingestedItemsCount will be null.
-    */
+    /** @var int|null $ingestedItemsCount The ingestedItemsCount property */
     private ?int $ingestedItemsCount = null;
     
-    /**
-     * @var array<ExternalItem>|null $items The items property
-    */
+    /** @var array<ExternalItem>|null $items Read-only. Nullable. */
     private ?array $items = null;
     
-    /**
-     * @var string|null $name The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required.
-    */
+    /** @var string|null $name The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required. */
     private ?string $name = null;
     
-    /**
-     * @var array<ConnectionOperation>|null $operations The operations property
-    */
+    /** @var array<ConnectionOperation>|null $operations Read-only. Nullable. */
     private ?array $operations = null;
     
-    /**
-     * @var ConnectionQuota|null $quota The quota property
-    */
+    /** @var ConnectionQuota|null $quota The quota property */
     private ?ConnectionQuota $quota = null;
     
-    /**
-     * @var Schema|null $schema The schema property
-    */
+    /** @var Schema|null $schema Read-only. Nullable. */
     private ?Schema $schema = null;
     
-    /**
-     * @var SearchSettings|null $searchSettings The settings configuring the search experience for content in this connection, such as the display templates for search results.
-    */
+    /** @var SearchSettings|null $searchSettings The settings configuring the search experience for content in this connection, such as the display templates for search results. */
     private ?SearchSettings $searchSettings = null;
     
-    /**
-     * @var ConnectionState|null $state Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required.
-    */
+    /** @var ConnectionState|null $state Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue. */
     private ?ConnectionState $state = null;
     
     /**
@@ -81,7 +57,7 @@ class ExternalConnection extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExternalConnection
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExternalConnection {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ExternalConnection {
         return new ExternalConnection();
     }
 
@@ -114,25 +90,24 @@ class ExternalConnection extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configuration' => function (ParseNode $n) use ($o) { $o->setConfiguration($n->getObjectValue(array(Configuration::class, 'createFromDiscriminatorValue'))); },
-            'connectorId' => function (ParseNode $n) use ($o) { $o->setConnectorId($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'groups' => function (ParseNode $n) use ($o) { $o->setGroups($n->getCollectionOfObjectValues(array(ExternalGroup::class, 'createFromDiscriminatorValue'))); },
-            'ingestedItemsCount' => function (ParseNode $n) use ($o) { $o->setIngestedItemsCount($n->getIntegerValue()); },
-            'items' => function (ParseNode $n) use ($o) { $o->setItems($n->getCollectionOfObjectValues(array(ExternalItem::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(ConnectionOperation::class, 'createFromDiscriminatorValue'))); },
-            'quota' => function (ParseNode $n) use ($o) { $o->setQuota($n->getObjectValue(array(ConnectionQuota::class, 'createFromDiscriminatorValue'))); },
-            'schema' => function (ParseNode $n) use ($o) { $o->setSchema($n->getObjectValue(array(Schema::class, 'createFromDiscriminatorValue'))); },
-            'searchSettings' => function (ParseNode $n) use ($o) { $o->setSearchSettings($n->getObjectValue(array(SearchSettings::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ConnectionState::class)); },
+            'configuration' => function (self $o, ParseNode $n) { $o->setConfiguration($n->getObjectValue(Configuration::class)); },
+            'connectorId' => function (self $o, ParseNode $n) { $o->setConnectorId($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'groups' => function (self $o, ParseNode $n) { $o->setGroups($n->getCollectionOfObjectValues(ExternalGroup::class)); },
+            'ingestedItemsCount' => function (self $o, ParseNode $n) { $o->setIngestedItemsCount($n->getIntegerValue()); },
+            'items' => function (self $o, ParseNode $n) { $o->setItems($n->getCollectionOfObjectValues(ExternalItem::class)); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'operations' => function (self $o, ParseNode $n) { $o->setOperations($n->getCollectionOfObjectValues(ConnectionOperation::class)); },
+            'quota' => function (self $o, ParseNode $n) { $o->setQuota($n->getObjectValue(ConnectionQuota::class)); },
+            'schema' => function (self $o, ParseNode $n) { $o->setSchema($n->getObjectValue(Schema::class)); },
+            'searchSettings' => function (self $o, ParseNode $n) { $o->setSearchSettings($n->getObjectValue(SearchSettings::class)); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(ConnectionState::class)); },
         ]);
     }
 
     /**
-     * Gets the groups property value. The groups property
+     * Gets the groups property value. Read-only. Nullable.
      * @return array<ExternalGroup>|null
     */
     public function getGroups(): ?array {
@@ -140,7 +115,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the ingestedItemsCount property value. The number of items ingested into a connection. This value is refreshed every 15 minutes. If the connection state is draft, then ingestedItemsCount will be null.
+     * Gets the ingestedItemsCount property value. The ingestedItemsCount property
      * @return int|null
     */
     public function getIngestedItemsCount(): ?int {
@@ -148,7 +123,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the items property value. The items property
+     * Gets the items property value. Read-only. Nullable.
      * @return array<ExternalItem>|null
     */
     public function getItems(): ?array {
@@ -164,7 +139,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the operations property value. The operations property
+     * Gets the operations property value. Read-only. Nullable.
      * @return array<ConnectionOperation>|null
     */
     public function getOperations(): ?array {
@@ -180,7 +155,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the schema property value. The schema property
+     * Gets the schema property value. Read-only. Nullable.
      * @return Schema|null
     */
     public function getSchema(): ?Schema {
@@ -196,7 +171,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required.
+     * Gets the state property value. Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue.
      * @return ConnectionState|null
     */
     public function getState(): ?ConnectionState {
@@ -248,7 +223,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the groups property value. The groups property
+     * Sets the groups property value. Read-only. Nullable.
      *  @param array<ExternalGroup>|null $value Value to set for the groups property.
     */
     public function setGroups(?array $value ): void {
@@ -256,7 +231,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the ingestedItemsCount property value. The number of items ingested into a connection. This value is refreshed every 15 minutes. If the connection state is draft, then ingestedItemsCount will be null.
+     * Sets the ingestedItemsCount property value. The ingestedItemsCount property
      *  @param int|null $value Value to set for the ingestedItemsCount property.
     */
     public function setIngestedItemsCount(?int $value ): void {
@@ -264,7 +239,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the items property value. The items property
+     * Sets the items property value. Read-only. Nullable.
      *  @param array<ExternalItem>|null $value Value to set for the items property.
     */
     public function setItems(?array $value ): void {
@@ -280,7 +255,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the operations property value. The operations property
+     * Sets the operations property value. Read-only. Nullable.
      *  @param array<ConnectionOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value ): void {
@@ -296,7 +271,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the schema property value. The schema property
+     * Sets the schema property value. Read-only. Nullable.
      *  @param Schema|null $value Value to set for the schema property.
     */
     public function setSchema(?Schema $value ): void {
@@ -312,7 +287,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required.
+     * Sets the state property value. Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue.
      *  @param ConnectionState|null $value Value to set for the state property.
     */
     public function setState(?ConnectionState $value ): void {

@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AssignmentFilterEvaluationStatusDetails extends Entity implements Parsable 
+class AssignmentFilterEvaluationStatusDetails extends Entity 
 {
-    /**
-     * @var string|null $payloadId PayloadId on which filter has been applied.
-    */
+    /** @var string|null $payloadId PayloadId on which filter has been applied. */
     private ?string $payloadId = null;
     
     /**
@@ -25,7 +23,7 @@ class AssignmentFilterEvaluationStatusDetails extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AssignmentFilterEvaluationStatusDetails
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentFilterEvaluationStatusDetails {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentFilterEvaluationStatusDetails {
         return new AssignmentFilterEvaluationStatusDetails();
     }
 
@@ -34,9 +32,8 @@ class AssignmentFilterEvaluationStatusDetails extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'payloadId' => function (ParseNode $n) use ($o) { $o->setPayloadId($n->getStringValue()); },
+            'payloadId' => function (self $o, ParseNode $n) { $o->setPayloadId($n->getStringValue()); },
         ]);
     }
 

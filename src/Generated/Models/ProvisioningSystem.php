@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ProvisioningSystem extends Identity implements Parsable 
+class ProvisioningSystem extends Identity 
 {
-    /**
-     * @var DetailsInfo|null $details Details of the system.
-    */
+    /** @var DetailsInfo|null $details Details of the system. */
     private ?DetailsInfo $details = null;
     
     /**
@@ -25,7 +23,7 @@ class ProvisioningSystem extends Identity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ProvisioningSystem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ProvisioningSystem {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ProvisioningSystem {
         return new ProvisioningSystem();
     }
 
@@ -42,9 +40,8 @@ class ProvisioningSystem extends Identity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getObjectValue(array(DetailsInfo::class, 'createFromDiscriminatorValue'))); },
+            'details' => function (self $o, ParseNode $n) { $o->setDetails($n->getObjectValue(DetailsInfo::class)); },
         ]);
     }
 

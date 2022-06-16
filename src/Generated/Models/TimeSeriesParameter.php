@@ -10,24 +10,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TimeSeriesParameter implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateTime|null $endDateTime End time of the series being requested. Optional; if not specified, current time is used.
-    */
+    /** @var DateTime|null $endDateTime End time of the series being requested. Optional; if not specified, current time is used. */
     private ?DateTime $endDateTime = null;
     
-    /**
-     * @var string|null $metricName The name of the metric for which a time series is requested.
-    */
+    /** @var string|null $metricName The name of the metric for which a time series is requested. */
     private ?string $metricName = null;
     
-    /**
-     * @var DateTime|null $startDateTime Start time of the series being requested.
-    */
+    /** @var DateTime|null $startDateTime Start time of the series being requested. */
     private ?DateTime $startDateTime = null;
     
     /**
@@ -42,7 +34,7 @@ class TimeSeriesParameter implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TimeSeriesParameter
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TimeSeriesParameter {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TimeSeriesParameter {
         return new TimeSeriesParameter();
     }
 
@@ -67,11 +59,10 @@ class TimeSeriesParameter implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'metricName' => function (ParseNode $n) use ($o) { $o->setMetricName($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'metricName' => function (self $o, ParseNode $n) { $o->setMetricName($n->getStringValue()); },
+            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
         ];
     }
 

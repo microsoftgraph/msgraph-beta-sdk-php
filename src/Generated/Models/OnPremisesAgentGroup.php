@@ -6,31 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OnPremisesAgentGroup extends Entity implements Parsable 
+class OnPremisesAgentGroup extends Entity 
 {
-    /**
-     * @var array<OnPremisesAgent>|null $agents List of onPremisesAgent that are assigned to an onPremisesAgentGroup. Read-only. Nullable.
-    */
+    /** @var array<OnPremisesAgent>|null $agents List of onPremisesAgent that are assigned to an onPremisesAgentGroup. Read-only. Nullable. */
     private ?array $agents = null;
     
-    /**
-     * @var string|null $displayName Display name of the onPremisesAgentGroup.
-    */
+    /** @var string|null $displayName Display name of the onPremisesAgentGroup. */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $isDefault Indicates if the onPremisesAgentGroup is the default agent group. Only a single agent group can be the default onPremisesAgentGroup and is set by the system.
-    */
+    /** @var bool|null $isDefault Indicates if the onPremisesAgentGroup is the default agent group. Only a single agent group can be the default onPremisesAgentGroup and is set by the system. */
     private ?bool $isDefault = null;
     
-    /**
-     * @var array<PublishedResource>|null $publishedResources List of publishedResource that are assigned to an onPremisesAgentGroup. Read-only. Nullable.
-    */
+    /** @var array<PublishedResource>|null $publishedResources List of publishedResource that are assigned to an onPremisesAgentGroup. Read-only. Nullable. */
     private ?array $publishedResources = null;
     
-    /**
-     * @var OnPremisesPublishingType|null $publishingType Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.
-    */
+    /** @var OnPremisesPublishingType|null $publishingType Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration. */
     private ?OnPremisesPublishingType $publishingType = null;
     
     /**
@@ -45,7 +35,7 @@ class OnPremisesAgentGroup extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OnPremisesAgentGroup
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OnPremisesAgentGroup {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OnPremisesAgentGroup {
         return new OnPremisesAgentGroup();
     }
 
@@ -70,13 +60,12 @@ class OnPremisesAgentGroup extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'agents' => function (ParseNode $n) use ($o) { $o->setAgents($n->getCollectionOfObjectValues(array(OnPremisesAgent::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
-            'publishedResources' => function (ParseNode $n) use ($o) { $o->setPublishedResources($n->getCollectionOfObjectValues(array(PublishedResource::class, 'createFromDiscriminatorValue'))); },
-            'publishingType' => function (ParseNode $n) use ($o) { $o->setPublishingType($n->getEnumValue(OnPremisesPublishingType::class)); },
+            'agents' => function (self $o, ParseNode $n) { $o->setAgents($n->getCollectionOfObjectValues(OnPremisesAgent::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'isDefault' => function (self $o, ParseNode $n) { $o->setIsDefault($n->getBooleanValue()); },
+            'publishedResources' => function (self $o, ParseNode $n) { $o->setPublishedResources($n->getCollectionOfObjectValues(PublishedResource::class)); },
+            'publishingType' => function (self $o, ParseNode $n) { $o->setPublishingType($n->getEnumValue(OnPremisesPublishingType::class)); },
         ]);
     }
 

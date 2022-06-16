@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementSettingInstance extends Entity implements Parsable 
+class DeviceManagementSettingInstance extends Entity 
 {
-    /**
-     * @var string|null $definitionId The ID of the setting definition for this instance
-    */
+    /** @var string|null $definitionId The ID of the setting definition for this instance */
     private ?string $definitionId = null;
     
-    /**
-     * @var string|null $valueJson JSON representation of the value
-    */
+    /** @var string|null $valueJson JSON representation of the value */
     private ?string $valueJson = null;
     
     /**
@@ -30,19 +26,7 @@ class DeviceManagementSettingInstance extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementSettingInstance
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementSettingInstance {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.deviceManagementAbstractComplexSettingInstance': return new DeviceManagementAbstractComplexSettingInstance();
-                case '#microsoft.graph.deviceManagementBooleanSettingInstance': return new DeviceManagementBooleanSettingInstance();
-                case '#microsoft.graph.deviceManagementCollectionSettingInstance': return new DeviceManagementCollectionSettingInstance();
-                case '#microsoft.graph.deviceManagementComplexSettingInstance': return new DeviceManagementComplexSettingInstance();
-                case '#microsoft.graph.deviceManagementIntegerSettingInstance': return new DeviceManagementIntegerSettingInstance();
-                case '#microsoft.graph.deviceManagementStringSettingInstance': return new DeviceManagementStringSettingInstance();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementSettingInstance {
         return new DeviceManagementSettingInstance();
     }
 
@@ -59,10 +43,9 @@ class DeviceManagementSettingInstance extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'definitionId' => function (ParseNode $n) use ($o) { $o->setDefinitionId($n->getStringValue()); },
-            'valueJson' => function (ParseNode $n) use ($o) { $o->setValueJson($n->getStringValue()); },
+            'definitionId' => function (self $o, ParseNode $n) { $o->setDefinitionId($n->getStringValue()); },
+            'valueJson' => function (self $o, ParseNode $n) { $o->setValueJson($n->getStringValue()); },
         ]);
     }
 

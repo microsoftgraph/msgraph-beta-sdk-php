@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DomainRegistrant implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $countryOrRegionCode The countryOrRegionCode property
-    */
+    /** @var string|null $countryOrRegionCode The countryOrRegionCode property */
     private ?string $countryOrRegionCode = null;
     
-    /**
-     * @var string|null $organization The organization property
-    */
+    /** @var string|null $organization The organization property */
     private ?string $organization = null;
     
-    /**
-     * @var string|null $url The url property
-    */
+    /** @var string|null $url The url property */
     private ?string $url = null;
     
-    /**
-     * @var string|null $vendor The vendor property
-    */
+    /** @var string|null $vendor The vendor property */
     private ?string $vendor = null;
     
     /**
@@ -46,7 +36,7 @@ class DomainRegistrant implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DomainRegistrant
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DomainRegistrant {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DomainRegistrant {
         return new DomainRegistrant();
     }
 
@@ -71,12 +61,11 @@ class DomainRegistrant implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'countryOrRegionCode' => function (ParseNode $n) use ($o) { $o->setCountryOrRegionCode($n->getStringValue()); },
-            'organization' => function (ParseNode $n) use ($o) { $o->setOrganization($n->getStringValue()); },
-            'url' => function (ParseNode $n) use ($o) { $o->setUrl($n->getStringValue()); },
-            'vendor' => function (ParseNode $n) use ($o) { $o->setVendor($n->getStringValue()); },
+            'countryOrRegionCode' => function (self $o, ParseNode $n) { $o->setCountryOrRegionCode($n->getStringValue()); },
+            'organization' => function (self $o, ParseNode $n) { $o->setOrganization($n->getStringValue()); },
+            'url' => function (self $o, ParseNode $n) { $o->setUrl($n->getStringValue()); },
+            'vendor' => function (self $o, ParseNode $n) { $o->setVendor($n->getStringValue()); },
         ];
     }
 

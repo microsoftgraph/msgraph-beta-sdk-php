@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PendingOperations implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var PendingContentUpdate|null $pendingContentUpdate A property that indicates that an operation that might update the binary content of a file is pending completion.
-    */
+    /** @var PendingContentUpdate|null $pendingContentUpdate A property that indicates that an operation that might update the binary content of a file is pending completion. */
     private ?PendingContentUpdate $pendingContentUpdate = null;
     
     /**
@@ -31,7 +27,7 @@ class PendingOperations implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PendingOperations
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PendingOperations {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PendingOperations {
         return new PendingOperations();
     }
 
@@ -48,9 +44,8 @@ class PendingOperations implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'pendingContentUpdate' => function (ParseNode $n) use ($o) { $o->setPendingContentUpdate($n->getObjectValue(array(PendingContentUpdate::class, 'createFromDiscriminatorValue'))); },
+            'pendingContentUpdate' => function (self $o, ParseNode $n) { $o->setPendingContentUpdate($n->getObjectValue(PendingContentUpdate::class)); },
         ];
     }
 

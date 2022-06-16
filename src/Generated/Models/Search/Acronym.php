@@ -6,20 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Acronym extends SearchAnswer implements Parsable 
+class Acronym extends SearchAnswer 
 {
-    /**
-     * @var string|null $standsFor What the acronym stands for.
-    */
+    /** @var string|null $standsFor What the acronym stands for. */
     private ?string $standsFor = null;
     
-    /**
-     * @var AnswerState|null $state State of the acronym. Possible values are: published, draft, excluded, or unknownFutureValue.
-    */
+    /** @var AnswerState|null $state State of the acronym. Possible values are: published, draft, excluded, or unknownFutureValue. */
     private ?AnswerState $state = null;
     
     /**
-     * Instantiates a new Acronym and sets the default values.
+     * Instantiates a new acronym and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +26,7 @@ class Acronym extends SearchAnswer implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Acronym
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Acronym {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Acronym {
         return new Acronym();
     }
 
@@ -39,10 +35,9 @@ class Acronym extends SearchAnswer implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'standsFor' => function (ParseNode $n) use ($o) { $o->setStandsFor($n->getStringValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(AnswerState::class)); },
+            'standsFor' => function (self $o, ParseNode $n) { $o->setStandsFor($n->getStringValue()); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(AnswerState::class)); },
         ]);
     }
 

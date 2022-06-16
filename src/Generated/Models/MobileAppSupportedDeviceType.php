@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $maximumOperatingSystemVersion Maximum OS version
-    */
+    /** @var string|null $maximumOperatingSystemVersion Maximum OS version */
     private ?string $maximumOperatingSystemVersion = null;
     
-    /**
-     * @var string|null $minimumOperatingSystemVersion Minimum OS version
-    */
+    /** @var string|null $minimumOperatingSystemVersion Minimum OS version */
     private ?string $minimumOperatingSystemVersion = null;
     
-    /**
-     * @var DeviceType|null $type Device type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
-    */
+    /** @var DeviceType|null $type Device type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC. */
     private ?DeviceType $type = null;
     
     /**
@@ -41,7 +33,7 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MobileAppSupportedDeviceType
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppSupportedDeviceType {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppSupportedDeviceType {
         return new MobileAppSupportedDeviceType();
     }
 
@@ -58,11 +50,10 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'maximumOperatingSystemVersion' => function (ParseNode $n) use ($o) { $o->setMaximumOperatingSystemVersion($n->getStringValue()); },
-            'minimumOperatingSystemVersion' => function (ParseNode $n) use ($o) { $o->setMinimumOperatingSystemVersion($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(DeviceType::class)); },
+            'maximumOperatingSystemVersion' => function (self $o, ParseNode $n) { $o->setMaximumOperatingSystemVersion($n->getStringValue()); },
+            'minimumOperatingSystemVersion' => function (self $o, ParseNode $n) { $o->setMinimumOperatingSystemVersion($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(DeviceType::class)); },
         ];
     }
 

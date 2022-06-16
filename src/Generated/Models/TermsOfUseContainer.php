@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TermsOfUseContainer extends Entity implements Parsable 
+class TermsOfUseContainer extends Entity 
 {
-    /**
-     * @var array<AgreementAcceptance>|null $agreementAcceptances Represents the current status of a user's response to a company's customizable terms of use agreement.
-    */
+    /** @var array<AgreementAcceptance>|null $agreementAcceptances Represents the current status of a user's response to a company's customizable terms of use agreement. */
     private ?array $agreementAcceptances = null;
     
-    /**
-     * @var array<Agreement>|null $agreements Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).
-    */
+    /** @var array<Agreement>|null $agreements Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD). */
     private ?array $agreements = null;
     
     /**
@@ -30,7 +26,7 @@ class TermsOfUseContainer extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TermsOfUseContainer
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TermsOfUseContainer {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TermsOfUseContainer {
         return new TermsOfUseContainer();
     }
 
@@ -55,10 +51,9 @@ class TermsOfUseContainer extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'agreementAcceptances' => function (ParseNode $n) use ($o) { $o->setAgreementAcceptances($n->getCollectionOfObjectValues(array(AgreementAcceptance::class, 'createFromDiscriminatorValue'))); },
-            'agreements' => function (ParseNode $n) use ($o) { $o->setAgreements($n->getCollectionOfObjectValues(array(Agreement::class, 'createFromDiscriminatorValue'))); },
+            'agreementAcceptances' => function (self $o, ParseNode $n) { $o->setAgreementAcceptances($n->getCollectionOfObjectValues(AgreementAcceptance::class)); },
+            'agreements' => function (self $o, ParseNode $n) { $o->setAgreements($n->getCollectionOfObjectValues(Agreement::class)); },
         ]);
     }
 

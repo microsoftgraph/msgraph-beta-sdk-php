@@ -9,65 +9,38 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var AuthenticationStrength|null $authenticationStrength The custom authentication strength enforced in a Conditional Access policy.
-    */
+    /** @var AuthenticationStrength|null $authenticationStrength The custom authentication strength enforced in a Conditional Access policy. */
     private ?AuthenticationStrength $authenticationStrength = null;
     
-    /**
-     * @var ConditionalAccessConditions|null $conditionsNotSatisfied Refers to the conditional access policy conditions that are not satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk.
-    */
+    /** @var ConditionalAccessConditions|null $conditionsNotSatisfied Refers to the conditional access policy conditions that are not satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk. */
     private ?ConditionalAccessConditions $conditionsNotSatisfied = null;
     
-    /**
-     * @var ConditionalAccessConditions|null $conditionsSatisfied Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk.
-    */
+    /** @var ConditionalAccessConditions|null $conditionsSatisfied Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk. */
     private ?ConditionalAccessConditions $conditionsSatisfied = null;
     
-    /**
-     * @var string|null $displayName Name of the conditional access policy.
-    */
+    /** @var string|null $displayName Refers to the Name of the conditional access policy (example: 'Require MFA for Salesforce'). */
     private ?string $displayName = null;
     
-    /**
-     * @var array<string>|null $enforcedGrantControls Refers to the grant controls enforced by the conditional access policy (example: 'Require multi-factor authentication').
-    */
+    /** @var array<string>|null $enforcedGrantControls Refers to the grant controls enforced by the conditional access policy (example: 'Require multi-factor authentication'). */
     private ?array $enforcedGrantControls = null;
     
-    /**
-     * @var array<string>|null $enforcedSessionControls Refers to the session controls enforced by the conditional access policy (example: 'Require app enforced controls').
-    */
+    /** @var array<string>|null $enforcedSessionControls Refers to the session controls enforced by the conditional access policy (example: 'Require app enforced controls'). */
     private ?array $enforcedSessionControls = null;
     
-    /**
-     * @var array<ConditionalAccessRuleSatisfied>|null $excludeRulesSatisfied List of key-value pairs containing each matched exclude condition in the conditional access policy. Example: [{'devicePlatform' : 'DevicePlatform'}] means the policy didn’t apply, because the DevicePlatform condition was a match.
-    */
+    /** @var array<ConditionalAccessRuleSatisfied>|null $excludeRulesSatisfied List of key-value pairs containing each matched exclude condition in the conditional access policy. Example: [{'devicePlatform' : 'DevicePlatform'}] means the policy didn’t apply, because the DevicePlatform condition was a match. */
     private ?array $excludeRulesSatisfied = null;
     
-    /**
-     * @var string|null $id Identifier of the conditional access policy.
-    */
+    /** @var string|null $id An identifier of the conditional access policy. */
     private ?string $id = null;
     
-    /**
-     * @var array<ConditionalAccessRuleSatisfied>|null $includeRulesSatisfied List of key-value pairs containing each matched include condition in the conditional access policy. Example: [{ 'application' : 'AllApps'}, {'users': 'Group'}], meaning Application condition was a match because AllApps are included and Users condition was a match because the user was part of the included Group rule.
-    */
+    /** @var array<ConditionalAccessRuleSatisfied>|null $includeRulesSatisfied List of key-value pairs containing each matched include condition in the conditional access policy. Example: [{ 'application' : 'AllApps'}, {'users': 'Group'}], meaning Application condition was a match because AllApps are included and Users condition was a match because the user was part of the included Group rule. */
     private ?array $includeRulesSatisfied = null;
     
-    /**
-     * @var AppliedConditionalAccessPolicyResult|null $result Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.
-    */
+    /** @var AppliedConditionalAccessPolicyResult|null $result Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue. */
     private ?AppliedConditionalAccessPolicyResult $result = null;
-    
-    /**
-     * @var array<string>|null $sessionControlsNotSatisfied Refers to the session controls that a sign-in activity did not satisfy. (Example: Application enforced Restrictions).
-    */
-    private ?array $sessionControlsNotSatisfied = null;
     
     /**
      * Instantiates a new appliedConditionalAccessPolicy and sets the default values.
@@ -81,7 +54,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AppliedConditionalAccessPolicy
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AppliedConditionalAccessPolicy {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AppliedConditionalAccessPolicy {
         return new AppliedConditionalAccessPolicy();
     }
 
@@ -118,7 +91,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the displayName property value. Name of the conditional access policy.
+     * Gets the displayName property value. Refers to the Name of the conditional access policy (example: 'Require MFA for Salesforce').
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -154,24 +127,22 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'authenticationStrength' => function (ParseNode $n) use ($o) { $o->setAuthenticationStrength($n->getObjectValue(array(AuthenticationStrength::class, 'createFromDiscriminatorValue'))); },
-            'conditionsNotSatisfied' => function (ParseNode $n) use ($o) { $o->setConditionsNotSatisfied($n->getEnumValue(ConditionalAccessConditions::class)); },
-            'conditionsSatisfied' => function (ParseNode $n) use ($o) { $o->setConditionsSatisfied($n->getEnumValue(ConditionalAccessConditions::class)); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'enforcedGrantControls' => function (ParseNode $n) use ($o) { $o->setEnforcedGrantControls($n->getCollectionOfPrimitiveValues()); },
-            'enforcedSessionControls' => function (ParseNode $n) use ($o) { $o->setEnforcedSessionControls($n->getCollectionOfPrimitiveValues()); },
-            'excludeRulesSatisfied' => function (ParseNode $n) use ($o) { $o->setExcludeRulesSatisfied($n->getCollectionOfObjectValues(array(ConditionalAccessRuleSatisfied::class, 'createFromDiscriminatorValue'))); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'includeRulesSatisfied' => function (ParseNode $n) use ($o) { $o->setIncludeRulesSatisfied($n->getCollectionOfObjectValues(array(ConditionalAccessRuleSatisfied::class, 'createFromDiscriminatorValue'))); },
-            'result' => function (ParseNode $n) use ($o) { $o->setResult($n->getEnumValue(AppliedConditionalAccessPolicyResult::class)); },
-            'sessionControlsNotSatisfied' => function (ParseNode $n) use ($o) { $o->setSessionControlsNotSatisfied($n->getCollectionOfPrimitiveValues()); },
+            'authenticationStrength' => function (self $o, ParseNode $n) { $o->setAuthenticationStrength($n->getObjectValue(AuthenticationStrength::class)); },
+            'conditionsNotSatisfied' => function (self $o, ParseNode $n) { $o->setConditionsNotSatisfied($n->getEnumValue(ConditionalAccessConditions::class)); },
+            'conditionsSatisfied' => function (self $o, ParseNode $n) { $o->setConditionsSatisfied($n->getEnumValue(ConditionalAccessConditions::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'enforcedGrantControls' => function (self $o, ParseNode $n) { $o->setEnforcedGrantControls($n->getCollectionOfPrimitiveValues()); },
+            'enforcedSessionControls' => function (self $o, ParseNode $n) { $o->setEnforcedSessionControls($n->getCollectionOfPrimitiveValues()); },
+            'excludeRulesSatisfied' => function (self $o, ParseNode $n) { $o->setExcludeRulesSatisfied($n->getCollectionOfObjectValues(ConditionalAccessRuleSatisfied::class)); },
+            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
+            'includeRulesSatisfied' => function (self $o, ParseNode $n) { $o->setIncludeRulesSatisfied($n->getCollectionOfObjectValues(ConditionalAccessRuleSatisfied::class)); },
+            'result' => function (self $o, ParseNode $n) { $o->setResult($n->getEnumValue(AppliedConditionalAccessPolicyResult::class)); },
         ];
     }
 
     /**
-     * Gets the id property value. Identifier of the conditional access policy.
+     * Gets the id property value. An identifier of the conditional access policy.
      * @return string|null
     */
     public function getId(): ?string {
@@ -187,19 +158,11 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the result property value. Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.
+     * Gets the result property value. Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.
      * @return AppliedConditionalAccessPolicyResult|null
     */
     public function getResult(): ?AppliedConditionalAccessPolicyResult {
         return $this->result;
-    }
-
-    /**
-     * Gets the sessionControlsNotSatisfied property value. Refers to the session controls that a sign-in activity did not satisfy. (Example: Application enforced Restrictions).
-     * @return array<string>|null
-    */
-    public function getSessionControlsNotSatisfied(): ?array {
-        return $this->sessionControlsNotSatisfied;
     }
 
     /**
@@ -217,7 +180,6 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('id', $this->id);
         $writer->writeCollectionOfObjectValues('includeRulesSatisfied', $this->includeRulesSatisfied);
         $writer->writeEnumValue('result', $this->result);
-        $writer->writeCollectionOfPrimitiveValues('sessionControlsNotSatisfied', $this->sessionControlsNotSatisfied);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -254,7 +216,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the displayName property value. Name of the conditional access policy.
+     * Sets the displayName property value. Refers to the Name of the conditional access policy (example: 'Require MFA for Salesforce').
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -286,7 +248,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the id property value. Identifier of the conditional access policy.
+     * Sets the id property value. An identifier of the conditional access policy.
      *  @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value ): void {
@@ -302,19 +264,11 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the result property value. Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.
+     * Sets the result property value. Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.
      *  @param AppliedConditionalAccessPolicyResult|null $value Value to set for the result property.
     */
     public function setResult(?AppliedConditionalAccessPolicyResult $value ): void {
         $this->result = $value;
-    }
-
-    /**
-     * Sets the sessionControlsNotSatisfied property value. Refers to the session controls that a sign-in activity did not satisfy. (Example: Application enforced Restrictions).
-     *  @param array<string>|null $value Value to set for the sessionControlsNotSatisfied property.
-    */
-    public function setSessionControlsNotSatisfied(?array $value ): void {
-        $this->sessionControlsNotSatisfied = $value;
     }
 
 }

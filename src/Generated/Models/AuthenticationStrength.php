@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AuthenticationStrength implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $authenticationStrengthId Identifier of the authentication strength.
-    */
+    /** @var string|null $authenticationStrengthId Identifier of the authentication strength. */
     private ?string $authenticationStrengthId = null;
     
-    /**
-     * @var string|null $displayName The name of the authentication strength.
-    */
+    /** @var string|null $displayName The name of the authentication strength. */
     private ?string $displayName = null;
     
     /**
@@ -36,7 +30,7 @@ class AuthenticationStrength implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AuthenticationStrength
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationStrength {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationStrength {
         return new AuthenticationStrength();
     }
 
@@ -69,10 +63,9 @@ class AuthenticationStrength implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'authenticationStrengthId' => function (ParseNode $n) use ($o) { $o->setAuthenticationStrengthId($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'authenticationStrengthId' => function (self $o, ParseNode $n) { $o->setAuthenticationStrengthId($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
         ];
     }
 

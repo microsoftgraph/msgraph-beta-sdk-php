@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TenantAttachRBAC extends Entity implements Parsable 
+class TenantAttachRBAC extends Entity 
 {
     /**
      * Instantiates a new tenantAttachRBAC and sets the default values.
@@ -20,7 +20,7 @@ class TenantAttachRBAC extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TenantAttachRBAC
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TenantAttachRBAC {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TenantAttachRBAC {
         return new TenantAttachRBAC();
     }
 
@@ -29,7 +29,6 @@ class TenantAttachRBAC extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
         ]);
     }

@@ -7,71 +7,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementCompliancePolicy extends Entity implements Parsable 
+class DeviceManagementCompliancePolicy extends Entity 
 {
-    /**
-     * @var array<DeviceManagementConfigurationPolicyAssignment>|null $assignments Policy assignments
-    */
+    /** @var array<DeviceManagementConfigurationPolicyAssignment>|null $assignments Policy assignments */
     private ?array $assignments = null;
     
-    /**
-     * @var DateTime|null $createdDateTime Policy creation date and time. This property is read-only.
-    */
+    /** @var DateTime|null $createdDateTime Policy creation date and time. This property is read-only. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $creationSource Policy creation source
-    */
+    /** @var string|null $creationSource Policy creation source */
     private ?string $creationSource = null;
     
-    /**
-     * @var string|null $description Policy description
-    */
+    /** @var string|null $description Policy description */
     private ?string $description = null;
     
-    /**
-     * @var bool|null $isAssigned Policy assignment status. This property is read-only.
-    */
+    /** @var bool|null $isAssigned Policy assignment status. This property is read-only. */
     private ?bool $isAssigned = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime Policy last modification date and time. This property is read-only.
-    */
+    /** @var DateTime|null $lastModifiedDateTime Policy last modification date and time. This property is read-only. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $name Policy name
-    */
+    /** @var string|null $name Policy name */
     private ?string $name = null;
     
-    /**
-     * @var DeviceManagementConfigurationPlatforms|null $platforms Platforms for this policy. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
-    */
+    /** @var DeviceManagementConfigurationPlatforms|null $platforms Platforms for this policy. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue. */
     private ?DeviceManagementConfigurationPlatforms $platforms = null;
     
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
-    */
+    /** @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance. */
     private ?array $roleScopeTagIds = null;
     
-    /**
-     * @var array<DeviceManagementComplianceScheduledActionForRule>|null $scheduledActionsForRule The list of scheduled action for this rule
-    */
+    /** @var array<DeviceManagementComplianceScheduledActionForRule>|null $scheduledActionsForRule The list of scheduled action for this rule */
     private ?array $scheduledActionsForRule = null;
     
-    /**
-     * @var int|null $settingCount Number of settings. This property is read-only.
-    */
+    /** @var int|null $settingCount Number of settings. This property is read-only. */
     private ?int $settingCount = null;
     
-    /**
-     * @var array<DeviceManagementConfigurationSetting>|null $settings Policy settings
-    */
+    /** @var array<DeviceManagementConfigurationSetting>|null $settings Policy settings */
     private ?array $settings = null;
     
-    /**
-     * @var DeviceManagementConfigurationTechnologies|null $technologies Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
-    */
+    /** @var DeviceManagementConfigurationTechnologies|null $technologies Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue. */
     private ?DeviceManagementConfigurationTechnologies $technologies = null;
     
     /**
@@ -86,7 +60,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementCompliancePolicy
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementCompliancePolicy {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementCompliancePolicy {
         return new DeviceManagementCompliancePolicy();
     }
 
@@ -127,21 +101,20 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationPolicyAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'creationSource' => function (ParseNode $n) use ($o) { $o->setCreationSource($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'isAssigned' => function (ParseNode $n) use ($o) { $o->setIsAssigned($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'scheduledActionsForRule' => function (ParseNode $n) use ($o) { $o->setScheduledActionsForRule($n->getCollectionOfObjectValues(array(DeviceManagementComplianceScheduledActionForRule::class, 'createFromDiscriminatorValue'))); },
-            'settingCount' => function (ParseNode $n) use ($o) { $o->setSettingCount($n->getIntegerValue()); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSetting::class, 'createFromDiscriminatorValue'))); },
-            'technologies' => function (ParseNode $n) use ($o) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
+            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(DeviceManagementConfigurationPolicyAssignment::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'creationSource' => function (self $o, ParseNode $n) { $o->setCreationSource($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'isAssigned' => function (self $o, ParseNode $n) { $o->setIsAssigned($n->getBooleanValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'platforms' => function (self $o, ParseNode $n) { $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
+            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'scheduledActionsForRule' => function (self $o, ParseNode $n) { $o->setScheduledActionsForRule($n->getCollectionOfObjectValues(DeviceManagementComplianceScheduledActionForRule::class)); },
+            'settingCount' => function (self $o, ParseNode $n) { $o->setSettingCount($n->getIntegerValue()); },
+            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getCollectionOfObjectValues(DeviceManagementConfigurationSetting::class)); },
+            'technologies' => function (self $o, ParseNode $n) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
         ]);
     }
 
@@ -210,7 +183,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the technologies property value. Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Gets the technologies property value. Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
      * @return DeviceManagementConfigurationTechnologies|null
     */
     public function getTechnologies(): ?DeviceManagementConfigurationTechnologies {
@@ -335,7 +308,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the technologies property value. Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Sets the technologies property value. Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
      *  @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
     */
     public function setTechnologies(?DeviceManagementConfigurationTechnologies $value ): void {

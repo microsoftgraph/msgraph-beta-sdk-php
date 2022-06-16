@@ -9,54 +9,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkNetworkConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $defaultGateway The default gateway is the path used to pass information when the destination is unknown to the device.
-    */
+    /** @var string|null $defaultGateway The default gateway is the path used to pass information when the destination is unknown to the device. */
     private ?string $defaultGateway = null;
     
-    /**
-     * @var string|null $domainName The network domain of the device, for example, contoso.com.
-    */
+    /** @var string|null $domainName The network domain of the device, for example, contoso.com. */
     private ?string $domainName = null;
     
-    /**
-     * @var string|null $hostName The device name on a network.
-    */
+    /** @var string|null $hostName The device name on a network. */
     private ?string $hostName = null;
     
-    /**
-     * @var string|null $ipAddress The IP address is a numerical label that uniquely identifies every device connected to the internet.
-    */
+    /** @var string|null $ipAddress The IP address is a numerical label that uniquely identifies every device connected to the internet. */
     private ?string $ipAddress = null;
     
-    /**
-     * @var bool|null $isDhcpEnabled True if DHCP is enabled.
-    */
+    /** @var bool|null $isDhcpEnabled True if DHCP is enabled. */
     private ?bool $isDhcpEnabled = null;
     
-    /**
-     * @var bool|null $isPCPortEnabled True if the PC port is enabled.
-    */
+    /** @var bool|null $isPCPortEnabled True if the PC port is enabled. */
     private ?bool $isPCPortEnabled = null;
     
-    /**
-     * @var string|null $primaryDns A primary DNS is the first point of contact for a device that translates the hostname into an IP address.
-    */
+    /** @var string|null $primaryDns A primary DNS is the first point of contact for a device that translates the hostname into an IP address. */
     private ?string $primaryDns = null;
     
-    /**
-     * @var string|null $secondaryDns A secondary DNS is used when the primary DNS is not available.
-    */
+    /** @var string|null $secondaryDns A secondary DNS is used when the primary DNS is not available. */
     private ?string $secondaryDns = null;
     
-    /**
-     * @var string|null $subnetMask A subnet mask is a number that distinguishes the network address and the host address within an IP address.
-    */
+    /** @var string|null $subnetMask A subnet mask is a number that distinguishes the network address and the host address within an IP address. */
     private ?string $subnetMask = null;
     
     /**
@@ -71,7 +51,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkNetworkConfiguration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkNetworkConfiguration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkNetworkConfiguration {
         return new TeamworkNetworkConfiguration();
     }
 
@@ -104,17 +84,16 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'defaultGateway' => function (ParseNode $n) use ($o) { $o->setDefaultGateway($n->getStringValue()); },
-            'domainName' => function (ParseNode $n) use ($o) { $o->setDomainName($n->getStringValue()); },
-            'hostName' => function (ParseNode $n) use ($o) { $o->setHostName($n->getStringValue()); },
-            'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
-            'isDhcpEnabled' => function (ParseNode $n) use ($o) { $o->setIsDhcpEnabled($n->getBooleanValue()); },
-            'isPCPortEnabled' => function (ParseNode $n) use ($o) { $o->setIsPCPortEnabled($n->getBooleanValue()); },
-            'primaryDns' => function (ParseNode $n) use ($o) { $o->setPrimaryDns($n->getStringValue()); },
-            'secondaryDns' => function (ParseNode $n) use ($o) { $o->setSecondaryDns($n->getStringValue()); },
-            'subnetMask' => function (ParseNode $n) use ($o) { $o->setSubnetMask($n->getStringValue()); },
+            'defaultGateway' => function (self $o, ParseNode $n) { $o->setDefaultGateway($n->getStringValue()); },
+            'domainName' => function (self $o, ParseNode $n) { $o->setDomainName($n->getStringValue()); },
+            'hostName' => function (self $o, ParseNode $n) { $o->setHostName($n->getStringValue()); },
+            'ipAddress' => function (self $o, ParseNode $n) { $o->setIpAddress($n->getStringValue()); },
+            'isDhcpEnabled' => function (self $o, ParseNode $n) { $o->setIsDhcpEnabled($n->getBooleanValue()); },
+            'isPCPortEnabled' => function (self $o, ParseNode $n) { $o->setIsPCPortEnabled($n->getBooleanValue()); },
+            'primaryDns' => function (self $o, ParseNode $n) { $o->setPrimaryDns($n->getStringValue()); },
+            'secondaryDns' => function (self $o, ParseNode $n) { $o->setSecondaryDns($n->getStringValue()); },
+            'subnetMask' => function (self $o, ParseNode $n) { $o->setSubnetMask($n->getStringValue()); },
         ];
     }
 

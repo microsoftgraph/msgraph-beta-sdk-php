@@ -10,29 +10,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserTrainingStatusInfo implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateTime|null $assignedDateTime Date and time of assignment of the training to the user.
-    */
+    /** @var DateTime|null $assignedDateTime Date and time of assignment of the training to the user. */
     private ?DateTime $assignedDateTime = null;
     
-    /**
-     * @var DateTime|null $completionDateTime Date and time of completion of the training by the user.
-    */
+    /** @var DateTime|null $completionDateTime Date and time of completion of the training by the user. */
     private ?DateTime $completionDateTime = null;
     
-    /**
-     * @var string|null $displayName Display name of the assigned training.
-    */
+    /** @var string|null $displayName Display name of the assigned training. */
     private ?string $displayName = null;
     
-    /**
-     * @var TrainingStatus|null $trainingStatus Status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
-    */
+    /** @var TrainingStatus|null $trainingStatus Status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue. */
     private ?TrainingStatus $trainingStatus = null;
     
     /**
@@ -47,7 +37,7 @@ class UserTrainingStatusInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserTrainingStatusInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserTrainingStatusInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserTrainingStatusInfo {
         return new UserTrainingStatusInfo();
     }
 
@@ -88,12 +78,11 @@ class UserTrainingStatusInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'assignedDateTime' => function (ParseNode $n) use ($o) { $o->setAssignedDateTime($n->getDateTimeValue()); },
-            'completionDateTime' => function (ParseNode $n) use ($o) { $o->setCompletionDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'trainingStatus' => function (ParseNode $n) use ($o) { $o->setTrainingStatus($n->getEnumValue(TrainingStatus::class)); },
+            'assignedDateTime' => function (self $o, ParseNode $n) { $o->setAssignedDateTime($n->getDateTimeValue()); },
+            'completionDateTime' => function (self $o, ParseNode $n) { $o->setCompletionDateTime($n->getDateTimeValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'trainingStatus' => function (self $o, ParseNode $n) { $o->setTrainingStatus($n->getEnumValue(TrainingStatus::class)); },
         ];
     }
 

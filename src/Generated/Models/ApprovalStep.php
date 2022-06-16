@@ -7,41 +7,27 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ApprovalStep extends Entity implements Parsable 
+class ApprovalStep extends Entity 
 {
-    /**
-     * @var bool|null $assignedToMe Indicates whether the step is assigned to the calling user to review. Read-only.
-    */
+    /** @var bool|null $assignedToMe Indicates whether the step is assigned to the calling user to review. Read-only. */
     private ?bool $assignedToMe = null;
     
-    /**
-     * @var string|null $displayName The label provided by the policy creator to identify an approval step. Read-only.
-    */
+    /** @var string|null $displayName The label provided by the policy creator to identify an approval step. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $justification The justification associated with the approval step decision.
-    */
+    /** @var string|null $justification The justification associated with the approval step decision. */
     private ?string $justification = null;
     
-    /**
-     * @var Identity|null $reviewedBy The identifier of the reviewer. Read-only.
-    */
+    /** @var Identity|null $reviewedBy The identifier of the reviewer. Read-only. */
     private ?Identity $reviewedBy = null;
     
-    /**
-     * @var DateTime|null $reviewedDateTime The date and time when a decision was recorded. The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    */
+    /** @var DateTime|null $reviewedDateTime The date and time when a decision was recorded. The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private ?DateTime $reviewedDateTime = null;
     
-    /**
-     * @var string|null $reviewResult The result of this approval record. Possible values include: NotReviewed, Approved, Denied.
-    */
+    /** @var string|null $reviewResult The result of this approval record. Possible values include: NotReviewed, Approved, Denied. */
     private ?string $reviewResult = null;
     
-    /**
-     * @var string|null $status The step status. Possible values: InProgress, Initializing, Completed, Expired. Read-only.
-    */
+    /** @var string|null $status The step status. Possible values: InProgress, Initializing, Completed, Expired. Read-only. */
     private ?string $status = null;
     
     /**
@@ -56,7 +42,7 @@ class ApprovalStep extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ApprovalStep
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ApprovalStep {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ApprovalStep {
         return new ApprovalStep();
     }
 
@@ -81,15 +67,14 @@ class ApprovalStep extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignedToMe' => function (ParseNode $n) use ($o) { $o->setAssignedToMe($n->getBooleanValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'justification' => function (ParseNode $n) use ($o) { $o->setJustification($n->getStringValue()); },
-            'reviewedBy' => function (ParseNode $n) use ($o) { $o->setReviewedBy($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
-            'reviewedDateTime' => function (ParseNode $n) use ($o) { $o->setReviewedDateTime($n->getDateTimeValue()); },
-            'reviewResult' => function (ParseNode $n) use ($o) { $o->setReviewResult($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
+            'assignedToMe' => function (self $o, ParseNode $n) { $o->setAssignedToMe($n->getBooleanValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'justification' => function (self $o, ParseNode $n) { $o->setJustification($n->getStringValue()); },
+            'reviewedBy' => function (self $o, ParseNode $n) { $o->setReviewedBy($n->getObjectValue(Identity::class)); },
+            'reviewedDateTime' => function (self $o, ParseNode $n) { $o->setReviewedDateTime($n->getDateTimeValue()); },
+            'reviewResult' => function (self $o, ParseNode $n) { $o->setReviewResult($n->getStringValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
         ]);
     }
 

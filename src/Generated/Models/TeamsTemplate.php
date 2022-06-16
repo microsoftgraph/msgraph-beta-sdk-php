@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TeamsTemplate extends Entity implements Parsable 
+class TeamsTemplate extends Entity 
 {
     /**
      * Instantiates a new teamsTemplate and sets the default values.
@@ -20,7 +20,7 @@ class TeamsTemplate extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamsTemplate
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamsTemplate {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamsTemplate {
         return new TeamsTemplate();
     }
 
@@ -29,7 +29,6 @@ class TeamsTemplate extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
         ]);
     }

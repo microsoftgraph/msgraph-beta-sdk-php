@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AuthenticationRequirementPolicy implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $detail Provides additional detail on the feature identified in requirementProvider.
-    */
+    /** @var string|null $detail Provides additional detail on the feature identified in requirementProvider. */
     private ?string $detail = null;
     
-    /**
-     * @var RequirementProvider|null $requirementProvider Identifies what Azure AD feature requires MFA in this policy. Possible values are: user, request, servicePrincipal, v1ConditionalAccess, multiConditionalAccess, tenantSessionRiskPolicy, accountCompromisePolicies, v1ConditionalAccessDependency, v1ConditionalAccessPolicyIdRequested, mfaRegistrationRequiredByIdentityProtectionPolicy, baselineProtection, mfaRegistrationRequiredByBaselineProtection, mfaRegistrationRequiredByMultiConditionalAccess, enforcedForCspAdmins, securityDefaults, mfaRegistrationRequiredBySecurityDefaults, proofUpCodeRequest, crossTenantOutboundRule, gpsLocationCondition, riskBasedPolicy, unknownFutureValue.
-    */
+    /** @var RequirementProvider|null $requirementProvider Identifies what Azure AD feature requires MFA in this policy. Possible values are: user, request, servicePrincipal, v1ConditionalAccess, multiConditionalAccess, tenantSessionRiskPolicy, accountCompromisePolicies, v1ConditionalAccessDependency, v1ConditionalAccessPolicyIdRequested, mfaRegistrationRequiredByIdentityProtectionPolicy, baselineProtection, mfaRegistrationRequiredByBaselineProtection, mfaRegistrationRequiredByMultiConditionalAccess, enforcedForCspAdmins, securityDefaults, mfaRegistrationRequiredBySecurityDefaults, proofUpCodeRequest, crossTenantOutboundRule, gpsLocationCondition, riskBasedPolicy, unknownFutureValue. */
     private ?RequirementProvider $requirementProvider = null;
     
     /**
@@ -36,7 +30,7 @@ class AuthenticationRequirementPolicy implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AuthenticationRequirementPolicy
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationRequirementPolicy {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationRequirementPolicy {
         return new AuthenticationRequirementPolicy();
     }
 
@@ -61,10 +55,9 @@ class AuthenticationRequirementPolicy implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getStringValue()); },
-            'requirementProvider' => function (ParseNode $n) use ($o) { $o->setRequirementProvider($n->getEnumValue(RequirementProvider::class)); },
+            'detail' => function (self $o, ParseNode $n) { $o->setDetail($n->getStringValue()); },
+            'requirementProvider' => function (self $o, ParseNode $n) { $o->setRequirementProvider($n->getEnumValue(RequirementProvider::class)); },
         ];
     }
 

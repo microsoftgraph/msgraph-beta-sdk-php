@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class Deleted implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $state Represents the state of the deleted item.
-    */
+    /** @var string|null $state Represents the state of the deleted item. */
     private ?string $state = null;
     
     /**
@@ -31,7 +27,7 @@ class Deleted implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Deleted
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Deleted {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Deleted {
         return new Deleted();
     }
 
@@ -48,9 +44,8 @@ class Deleted implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getStringValue()); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getStringValue()); },
         ];
     }
 

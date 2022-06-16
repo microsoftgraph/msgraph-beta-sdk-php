@@ -7,76 +7,48 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementIntent extends Entity implements Parsable 
+class DeviceManagementIntent extends Entity 
 {
-    /**
-     * @var array<DeviceManagementIntentAssignment>|null $assignments Collection of assignments
-    */
+    /** @var array<DeviceManagementIntentAssignment>|null $assignments Collection of assignments */
     private ?array $assignments = null;
     
-    /**
-     * @var array<DeviceManagementIntentSettingCategory>|null $categories Collection of setting categories within the intent
-    */
+    /** @var array<DeviceManagementIntentSettingCategory>|null $categories Collection of setting categories within the intent */
     private ?array $categories = null;
     
-    /**
-     * @var string|null $description The user given description
-    */
+    /** @var string|null $description The user given description */
     private ?string $description = null;
     
-    /**
-     * @var array<DeviceManagementIntentDeviceSettingStateSummary>|null $deviceSettingStateSummaries Collection of settings and their states and counts of devices that belong to corresponding state for all settings within the intent
-    */
+    /** @var array<DeviceManagementIntentDeviceSettingStateSummary>|null $deviceSettingStateSummaries Collection of settings and their states and counts of devices that belong to corresponding state for all settings within the intent */
     private ?array $deviceSettingStateSummaries = null;
     
-    /**
-     * @var array<DeviceManagementIntentDeviceState>|null $deviceStates Collection of states of all devices that the intent is applied to
-    */
+    /** @var array<DeviceManagementIntentDeviceState>|null $deviceStates Collection of states of all devices that the intent is applied to */
     private ?array $deviceStates = null;
     
-    /**
-     * @var DeviceManagementIntentDeviceStateSummary|null $deviceStateSummary A summary of device states and counts of devices that belong to corresponding state for all devices that the intent is applied to
-    */
+    /** @var DeviceManagementIntentDeviceStateSummary|null $deviceStateSummary A summary of device states and counts of devices that belong to corresponding state for all devices that the intent is applied to */
     private ?DeviceManagementIntentDeviceStateSummary $deviceStateSummary = null;
     
-    /**
-     * @var string|null $displayName The user given display name
-    */
+    /** @var string|null $displayName The user given display name */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $isAssigned Signifies whether or not the intent is assigned to users
-    */
+    /** @var bool|null $isAssigned Signifies whether or not the intent is assigned to users */
     private ?bool $isAssigned = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime When the intent was last modified
-    */
+    /** @var DateTime|null $lastModifiedDateTime When the intent was last modified */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
-    */
+    /** @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance. */
     private ?array $roleScopeTagIds = null;
     
-    /**
-     * @var array<DeviceManagementSettingInstance>|null $settings Collection of all settings to be applied
-    */
+    /** @var array<DeviceManagementSettingInstance>|null $settings Collection of all settings to be applied */
     private ?array $settings = null;
     
-    /**
-     * @var string|null $templateId The ID of the template this intent was created from (if any)
-    */
+    /** @var string|null $templateId The ID of the template this intent was created from (if any) */
     private ?string $templateId = null;
     
-    /**
-     * @var array<DeviceManagementIntentUserState>|null $userStates Collection of states of all users that the intent is applied to
-    */
+    /** @var array<DeviceManagementIntentUserState>|null $userStates Collection of states of all users that the intent is applied to */
     private ?array $userStates = null;
     
-    /**
-     * @var DeviceManagementIntentUserStateSummary|null $userStateSummary A summary of user states and counts of users that belong to corresponding state for all users that the intent is applied to
-    */
+    /** @var DeviceManagementIntentUserStateSummary|null $userStateSummary A summary of user states and counts of users that belong to corresponding state for all users that the intent is applied to */
     private ?DeviceManagementIntentUserStateSummary $userStateSummary = null;
     
     /**
@@ -91,7 +63,7 @@ class DeviceManagementIntent extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementIntent
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementIntent {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementIntent {
         return new DeviceManagementIntent();
     }
 
@@ -156,22 +128,21 @@ class DeviceManagementIntent extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceManagementIntentAssignment::class, 'createFromDiscriminatorValue'))); },
-            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfObjectValues(array(DeviceManagementIntentSettingCategory::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'deviceSettingStateSummaries' => function (ParseNode $n) use ($o) { $o->setDeviceSettingStateSummaries($n->getCollectionOfObjectValues(array(DeviceManagementIntentDeviceSettingStateSummary::class, 'createFromDiscriminatorValue'))); },
-            'deviceStates' => function (ParseNode $n) use ($o) { $o->setDeviceStates($n->getCollectionOfObjectValues(array(DeviceManagementIntentDeviceState::class, 'createFromDiscriminatorValue'))); },
-            'deviceStateSummary' => function (ParseNode $n) use ($o) { $o->setDeviceStateSummary($n->getObjectValue(array(DeviceManagementIntentDeviceStateSummary::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isAssigned' => function (ParseNode $n) use ($o) { $o->setIsAssigned($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getCollectionOfObjectValues(array(DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'))); },
-            'templateId' => function (ParseNode $n) use ($o) { $o->setTemplateId($n->getStringValue()); },
-            'userStates' => function (ParseNode $n) use ($o) { $o->setUserStates($n->getCollectionOfObjectValues(array(DeviceManagementIntentUserState::class, 'createFromDiscriminatorValue'))); },
-            'userStateSummary' => function (ParseNode $n) use ($o) { $o->setUserStateSummary($n->getObjectValue(array(DeviceManagementIntentUserStateSummary::class, 'createFromDiscriminatorValue'))); },
+            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(DeviceManagementIntentAssignment::class)); },
+            'categories' => function (self $o, ParseNode $n) { $o->setCategories($n->getCollectionOfObjectValues(DeviceManagementIntentSettingCategory::class)); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'deviceSettingStateSummaries' => function (self $o, ParseNode $n) { $o->setDeviceSettingStateSummaries($n->getCollectionOfObjectValues(DeviceManagementIntentDeviceSettingStateSummary::class)); },
+            'deviceStates' => function (self $o, ParseNode $n) { $o->setDeviceStates($n->getCollectionOfObjectValues(DeviceManagementIntentDeviceState::class)); },
+            'deviceStateSummary' => function (self $o, ParseNode $n) { $o->setDeviceStateSummary($n->getObjectValue(DeviceManagementIntentDeviceStateSummary::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'isAssigned' => function (self $o, ParseNode $n) { $o->setIsAssigned($n->getBooleanValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getCollectionOfObjectValues(DeviceManagementSettingInstance::class)); },
+            'templateId' => function (self $o, ParseNode $n) { $o->setTemplateId($n->getStringValue()); },
+            'userStates' => function (self $o, ParseNode $n) { $o->setUserStates($n->getCollectionOfObjectValues(DeviceManagementIntentUserState::class)); },
+            'userStateSummary' => function (self $o, ParseNode $n) { $o->setUserStateSummary($n->getObjectValue(DeviceManagementIntentUserStateSummary::class)); },
         ]);
     }
 

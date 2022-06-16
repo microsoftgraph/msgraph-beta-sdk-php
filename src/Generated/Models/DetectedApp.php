@@ -6,31 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DetectedApp extends Entity implements Parsable 
+class DetectedApp extends Entity 
 {
-    /**
-     * @var int|null $deviceCount The number of devices that have installed this application
-    */
+    /** @var int|null $deviceCount The number of devices that have installed this application */
     private ?int $deviceCount = null;
     
-    /**
-     * @var string|null $displayName Name of the discovered application. Read-only
-    */
+    /** @var string|null $displayName Name of the discovered application. Read-only */
     private ?string $displayName = null;
     
-    /**
-     * @var array<ManagedDevice>|null $managedDevices The devices that have the discovered application installed
-    */
+    /** @var array<ManagedDevice>|null $managedDevices The devices that have the discovered application installed */
     private ?array $managedDevices = null;
     
-    /**
-     * @var int|null $sizeInByte Discovered application size in bytes. Read-only
-    */
+    /** @var int|null $sizeInByte Discovered application size in bytes. Read-only */
     private ?int $sizeInByte = null;
     
-    /**
-     * @var string|null $version Version of the discovered application. Read-only
-    */
+    /** @var string|null $version Version of the discovered application. Read-only */
     private ?string $version = null;
     
     /**
@@ -45,7 +35,7 @@ class DetectedApp extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DetectedApp
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DetectedApp {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DetectedApp {
         return new DetectedApp();
     }
 
@@ -70,13 +60,12 @@ class DetectedApp extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceCount' => function (ParseNode $n) use ($o) { $o->setDeviceCount($n->getIntegerValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'managedDevices' => function (ParseNode $n) use ($o) { $o->setManagedDevices($n->getCollectionOfObjectValues(array(ManagedDevice::class, 'createFromDiscriminatorValue'))); },
-            'sizeInByte' => function (ParseNode $n) use ($o) { $o->setSizeInByte($n->getIntegerValue()); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'deviceCount' => function (self $o, ParseNode $n) { $o->setDeviceCount($n->getIntegerValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'managedDevices' => function (self $o, ParseNode $n) { $o->setManagedDevices($n->getCollectionOfObjectValues(ManagedDevice::class)); },
+            'sizeInByte' => function (self $o, ParseNode $n) { $o->setSizeInByte($n->getIntegerValue()); },
+            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getStringValue()); },
         ]);
     }
 

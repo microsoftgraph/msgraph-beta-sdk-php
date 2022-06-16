@@ -8,31 +8,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SearchAnswer extends Entity implements Parsable 
+class SearchAnswer extends Entity 
 {
-    /**
-     * @var string|null $description Search answer description shown on search results page.
-    */
+    /** @var string|null $description Search answer description shown on search results page. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName Search answer name displayed in search results.
-    */
+    /** @var string|null $displayName Search answer name displayed in search results. */
     private ?string $displayName = null;
     
-    /**
-     * @var IdentitySet|null $lastModifiedBy Details of the user that created or last modified the search answer. Read-only.
-    */
+    /** @var IdentitySet|null $lastModifiedBy Details of the user that created or last modified the search answer. Read-only. */
     private ?IdentitySet $lastModifiedBy = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime Timestamp of when the search answer is created or edited. Read-only.
-    */
+    /** @var DateTime|null $lastModifiedDateTime Timestamp of when the search answer is created or edited. Read-only. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $webUrl Search answer URL link. When users click this search answer in search results, they will go to this URL.
-    */
+    /** @var string|null $webUrl Search answer URL link. When users click this search answer in search results, they will go to this URL. */
     private ?string $webUrl = null;
     
     /**
@@ -47,16 +37,7 @@ class SearchAnswer extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SearchAnswer
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SearchAnswer {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.search.acronym': return new Acronym();
-                case '#microsoft.graph.search.bookmark': return new Bookmark();
-                case '#microsoft.graph.search.qna': return new Qna();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SearchAnswer {
         return new SearchAnswer();
     }
 
@@ -81,13 +62,12 @@ class SearchAnswer extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedBy' => function (self $o, ParseNode $n) { $o->setLastModifiedBy($n->getObjectValue(IdentitySet::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
         ]);
     }
 

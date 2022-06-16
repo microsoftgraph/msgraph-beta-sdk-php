@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $languageCode The ISO code for the intended language. Required.
-    */
+    /** @var string|null $languageCode The ISO code for the intended language. Required. */
     private ?string $languageCode = null;
     
-    /**
-     * @var string|null $text The text in the specific language. Required.
-    */
+    /** @var string|null $text The text in the specific language. Required. */
     private ?string $text = null;
     
     /**
@@ -36,7 +30,7 @@ class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageLocalizedText
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageLocalizedText {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageLocalizedText {
         return new AccessPackageLocalizedText();
     }
 
@@ -53,10 +47,9 @@ class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'languageCode' => function (ParseNode $n) use ($o) { $o->setLanguageCode($n->getStringValue()); },
-            'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
+            'languageCode' => function (self $o, ParseNode $n) { $o->setLanguageCode($n->getStringValue()); },
+            'text' => function (self $o, ParseNode $n) { $o->setText($n->getStringValue()); },
         ];
     }
 

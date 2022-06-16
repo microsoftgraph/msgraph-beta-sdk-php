@@ -10,49 +10,31 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MobileAppRelationshipState implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $deviceId The corresponding device id.
-    */
+    /** @var string|null $deviceId The corresponding device id. */
     private ?string $deviceId = null;
     
-    /**
-     * @var int|null $errorCode The error code for install or uninstall failures of target app.
-    */
+    /** @var int|null $errorCode The error code for install or uninstall failures of target app. */
     private ?int $errorCode = null;
     
-    /**
-     * @var ResultantAppState|null $installState The install state of the app of target app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable.
-    */
+    /** @var ResultantAppState|null $installState The install state of the app of target app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable. */
     private ?ResultantAppState $installState = null;
     
-    /**
-     * @var ResultantAppStateDetail|null $installStateDetail The install state detail of the app. Possible values are: noAdditionalDetails, dependencyFailedToInstall, dependencyWithRequirementsNotMet, dependencyPendingReboot, dependencyWithAutoInstallDisabled, supersededAppUninstallFailed, supersededAppUninstallPendingReboot, removingSupersededApps, iosAppStoreUpdateFailedToInstall, vppAppHasUpdateAvailable, userRejectedUpdate, uninstallPendingReboot, supersedingAppsDetected, supersededAppsDetected, seeInstallErrorCode, autoInstallDisabled, managedAppNoLongerPresent, userRejectedInstall, userIsNotLoggedIntoAppStore, untargetedSupersedingAppsDetected, appRemovedBySupersedence, seeUninstallErrorCode, pendingReboot, installingDependencies, contentDownloaded, supersedingAppsNotApplicable, powerShellScriptRequirementNotMet, registryRequirementNotMet, fileSystemRequirementNotMet, platformNotApplicable, minimumCpuSpeedNotMet, minimumLogicalProcessorCountNotMet, minimumPhysicalMemoryNotMet, minimumOsVersionNotMet, minimumDiskSpaceNotMet, processorArchitectureNotApplicable.
-    */
+    /** @var ResultantAppStateDetail|null $installStateDetail The install state detail of the app. Possible values are: noAdditionalDetails, dependencyFailedToInstall, dependencyWithRequirementsNotMet, dependencyPendingReboot, dependencyWithAutoInstallDisabled, supersededAppUninstallFailed, supersededAppUninstallPendingReboot, removingSupersededApps, iosAppStoreUpdateFailedToInstall, vppAppHasUpdateAvailable, userRejectedUpdate, uninstallPendingReboot, supersedingAppsDetected, supersededAppsDetected, seeInstallErrorCode, autoInstallDisabled, managedAppNoLongerPresent, userRejectedInstall, userIsNotLoggedIntoAppStore, untargetedSupersedingAppsDetected, appRemovedBySupersedence, seeUninstallErrorCode, pendingReboot, installingDependencies, contentDownloaded, supersedingAppsNotApplicable, powerShellScriptRequirementNotMet, registryRequirementNotMet, fileSystemRequirementNotMet, platformNotApplicable, minimumCpuSpeedNotMet, minimumLogicalProcessorCountNotMet, minimumPhysicalMemoryNotMet, minimumOsVersionNotMet, minimumDiskSpaceNotMet, processorArchitectureNotApplicable. */
     private ?ResultantAppStateDetail $installStateDetail = null;
     
-    /**
-     * @var array<string>|null $sourceIds The collection of source mobile app's ids.
-    */
+    /** @var array<string>|null $sourceIds The collection of source mobile app's ids. */
     private ?array $sourceIds = null;
     
-    /**
-     * @var string|null $targetDisplayName The related target app's display name.
-    */
+    /** @var string|null $targetDisplayName The related target app's display name. */
     private ?string $targetDisplayName = null;
     
-    /**
-     * @var string|null $targetId The related target app's id.
-    */
+    /** @var string|null $targetId The related target app's id. */
     private ?string $targetId = null;
     
-    /**
-     * @var DateTime|null $targetLastSyncDateTime The last sync time of the target app.
-    */
+    /** @var DateTime|null $targetLastSyncDateTime The last sync time of the target app. */
     private ?DateTime $targetLastSyncDateTime = null;
     
     /**
@@ -67,7 +49,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MobileAppRelationshipState
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppRelationshipState {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppRelationshipState {
         return new MobileAppRelationshipState();
     }
 
@@ -100,16 +82,15 @@ class MobileAppRelationshipState implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
-            'installState' => function (ParseNode $n) use ($o) { $o->setInstallState($n->getEnumValue(ResultantAppState::class)); },
-            'installStateDetail' => function (ParseNode $n) use ($o) { $o->setInstallStateDetail($n->getEnumValue(ResultantAppStateDetail::class)); },
-            'sourceIds' => function (ParseNode $n) use ($o) { $o->setSourceIds($n->getCollectionOfPrimitiveValues()); },
-            'targetDisplayName' => function (ParseNode $n) use ($o) { $o->setTargetDisplayName($n->getStringValue()); },
-            'targetId' => function (ParseNode $n) use ($o) { $o->setTargetId($n->getStringValue()); },
-            'targetLastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setTargetLastSyncDateTime($n->getDateTimeValue()); },
+            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
+            'errorCode' => function (self $o, ParseNode $n) { $o->setErrorCode($n->getIntegerValue()); },
+            'installState' => function (self $o, ParseNode $n) { $o->setInstallState($n->getEnumValue(ResultantAppState::class)); },
+            'installStateDetail' => function (self $o, ParseNode $n) { $o->setInstallStateDetail($n->getEnumValue(ResultantAppStateDetail::class)); },
+            'sourceIds' => function (self $o, ParseNode $n) { $o->setSourceIds($n->getCollectionOfPrimitiveValues()); },
+            'targetDisplayName' => function (self $o, ParseNode $n) { $o->setTargetDisplayName($n->getStringValue()); },
+            'targetId' => function (self $o, ParseNode $n) { $o->setTargetId($n->getStringValue()); },
+            'targetLastSyncDateTime' => function (self $o, ParseNode $n) { $o->setTargetLastSyncDateTime($n->getDateTimeValue()); },
         ];
     }
 

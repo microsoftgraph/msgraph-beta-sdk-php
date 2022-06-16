@@ -7,56 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extends Entity implements Parsable 
+class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extends Entity 
 {
-    /**
-     * @var WindowsDefenderApplicationControlSupplementalPolicyStatuses|null $deploymentStatus The deployment state of the policy. Possible values are: unknown, success, tokenError, notAuthorizedByToken, policyNotFound.
-    */
+    /** @var WindowsDefenderApplicationControlSupplementalPolicyStatuses|null $deploymentStatus The deployment state of the policy. Possible values are: unknown, success, tokenError, notAuthorizedByToken, policyNotFound. */
     private ?WindowsDefenderApplicationControlSupplementalPolicyStatuses $deploymentStatus = null;
     
-    /**
-     * @var string|null $deviceId Device ID.
-    */
+    /** @var string|null $deviceId Device ID. */
     private ?string $deviceId = null;
     
-    /**
-     * @var string|null $deviceName Device name.
-    */
+    /** @var string|null $deviceName Device name. */
     private ?string $deviceName = null;
     
-    /**
-     * @var DateTime|null $lastSyncDateTime Last sync date time.
-    */
+    /** @var DateTime|null $lastSyncDateTime Last sync date time. */
     private ?DateTime $lastSyncDateTime = null;
     
-    /**
-     * @var string|null $osDescription Windows OS Version Description.
-    */
+    /** @var string|null $osDescription Windows OS Version Description. */
     private ?string $osDescription = null;
     
-    /**
-     * @var string|null $osVersion Windows OS Version.
-    */
+    /** @var string|null $osVersion Windows OS Version. */
     private ?string $osVersion = null;
     
-    /**
-     * @var WindowsDefenderApplicationControlSupplementalPolicy|null $policy The navigation link to the WindowsDefenderApplicationControl supplemental policy.
-    */
+    /** @var WindowsDefenderApplicationControlSupplementalPolicy|null $policy The navigation link to the WindowsDefenderApplicationControl supplemental policy. */
     private ?WindowsDefenderApplicationControlSupplementalPolicy $policy = null;
     
-    /**
-     * @var string|null $policyVersion Human readable version of the WindowsDefenderApplicationControl supplemental policy.
-    */
+    /** @var string|null $policyVersion Human readable version of the WindowsDefenderApplicationControl supplemental policy. */
     private ?string $policyVersion = null;
     
-    /**
-     * @var string|null $userName The name of the user of this device.
-    */
+    /** @var string|null $userName The name of the user of this device. */
     private ?string $userName = null;
     
-    /**
-     * @var string|null $userPrincipalName User Principal Name.
-    */
+    /** @var string|null $userPrincipalName User Principal Name. */
     private ?string $userPrincipalName = null;
     
     /**
@@ -71,7 +51,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus {
         return new WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus();
     }
 
@@ -104,18 +84,17 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deploymentStatus' => function (ParseNode $n) use ($o) { $o->setDeploymentStatus($n->getEnumValue(WindowsDefenderApplicationControlSupplementalPolicyStatuses::class)); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'osDescription' => function (ParseNode $n) use ($o) { $o->setOsDescription($n->getStringValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
-            'policy' => function (ParseNode $n) use ($o) { $o->setPolicy($n->getObjectValue(array(WindowsDefenderApplicationControlSupplementalPolicy::class, 'createFromDiscriminatorValue'))); },
-            'policyVersion' => function (ParseNode $n) use ($o) { $o->setPolicyVersion($n->getStringValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'deploymentStatus' => function (self $o, ParseNode $n) { $o->setDeploymentStatus($n->getEnumValue(WindowsDefenderApplicationControlSupplementalPolicyStatuses::class)); },
+            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
+            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
+            'lastSyncDateTime' => function (self $o, ParseNode $n) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
+            'osDescription' => function (self $o, ParseNode $n) { $o->setOsDescription($n->getStringValue()); },
+            'osVersion' => function (self $o, ParseNode $n) { $o->setOsVersion($n->getStringValue()); },
+            'policy' => function (self $o, ParseNode $n) { $o->setPolicy($n->getObjectValue(WindowsDefenderApplicationControlSupplementalPolicy::class)); },
+            'policyVersion' => function (self $o, ParseNode $n) { $o->setPolicyVersion($n->getStringValue()); },
+            'userName' => function (self $o, ParseNode $n) { $o->setUserName($n->getStringValue()); },
+            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 

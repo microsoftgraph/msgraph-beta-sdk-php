@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TenantContract implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $contractType The type of relationship that exists between the managing entity and tenant. Optional. Read-only.
-    */
+    /** @var int|null $contractType The type of relationship that exists between the managing entity and tenant. Optional. Read-only. */
     private ?int $contractType = null;
     
-    /**
-     * @var string|null $defaultDomainName The default domain name for the tenant. Required. Read-only.
-    */
+    /** @var string|null $defaultDomainName The default domain name for the tenant. Required. Read-only. */
     private ?string $defaultDomainName = null;
     
-    /**
-     * @var string|null $displayName The display name for the tenant. Optional. Read-only.
-    */
+    /** @var string|null $displayName The display name for the tenant. Optional. Read-only. */
     private ?string $displayName = null;
     
     /**
@@ -41,7 +33,7 @@ class TenantContract implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TenantContract
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TenantContract {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TenantContract {
         return new TenantContract();
     }
 
@@ -82,11 +74,10 @@ class TenantContract implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'contractType' => function (ParseNode $n) use ($o) { $o->setContractType($n->getIntegerValue()); },
-            'defaultDomainName' => function (ParseNode $n) use ($o) { $o->setDefaultDomainName($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'contractType' => function (self $o, ParseNode $n) { $o->setContractType($n->getIntegerValue()); },
+            'defaultDomainName' => function (self $o, ParseNode $n) { $o->setDefaultDomainName($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
         ];
     }
 

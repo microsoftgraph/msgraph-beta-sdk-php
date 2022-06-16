@@ -6,36 +6,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserSettings extends Entity implements Parsable 
+class UserSettings extends Entity 
 {
-    /**
-     * @var ContactMergeSuggestions|null $contactMergeSuggestions The user's settings for the visibility of merge suggestion for the duplicate contacts in the user's contact list.
-    */
+    /** @var ContactMergeSuggestions|null $contactMergeSuggestions The user's settings for the visibility of merge suggestion for the duplicate contacts in the user's contact list. */
     private ?ContactMergeSuggestions $contactMergeSuggestions = null;
     
-    /**
-     * @var bool|null $contributionToContentDiscoveryAsOrganizationDisabled Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.
-    */
+    /** @var bool|null $contributionToContentDiscoveryAsOrganizationDisabled Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center. */
     private ?bool $contributionToContentDiscoveryAsOrganizationDisabled = null;
     
-    /**
-     * @var bool|null $contributionToContentDiscoveryDisabled When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve.
-    */
+    /** @var bool|null $contributionToContentDiscoveryDisabled When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve. */
     private ?bool $contributionToContentDiscoveryDisabled = null;
     
-    /**
-     * @var UserInsightsSettings|null $itemInsights The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
-    */
+    /** @var UserInsightsSettings|null $itemInsights The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property. */
     private ?UserInsightsSettings $itemInsights = null;
     
-    /**
-     * @var RegionalAndLanguageSettings|null $regionalAndLanguageSettings The user's preferences for languages, regional locale and date/time formatting.
-    */
+    /** @var RegionalAndLanguageSettings|null $regionalAndLanguageSettings The user's preferences for languages, regional locale and date/time formatting. */
     private ?RegionalAndLanguageSettings $regionalAndLanguageSettings = null;
     
-    /**
-     * @var ShiftPreferences|null $shiftPreferences The shift preferences for the user.
-    */
+    /** @var ShiftPreferences|null $shiftPreferences The shift preferences for the user. */
     private ?ShiftPreferences $shiftPreferences = null;
     
     /**
@@ -50,7 +38,7 @@ class UserSettings extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserSettings {
         return new UserSettings();
     }
 
@@ -83,14 +71,13 @@ class UserSettings extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contactMergeSuggestions' => function (ParseNode $n) use ($o) { $o->setContactMergeSuggestions($n->getObjectValue(array(ContactMergeSuggestions::class, 'createFromDiscriminatorValue'))); },
-            'contributionToContentDiscoveryAsOrganizationDisabled' => function (ParseNode $n) use ($o) { $o->setContributionToContentDiscoveryAsOrganizationDisabled($n->getBooleanValue()); },
-            'contributionToContentDiscoveryDisabled' => function (ParseNode $n) use ($o) { $o->setContributionToContentDiscoveryDisabled($n->getBooleanValue()); },
-            'itemInsights' => function (ParseNode $n) use ($o) { $o->setItemInsights($n->getObjectValue(array(UserInsightsSettings::class, 'createFromDiscriminatorValue'))); },
-            'regionalAndLanguageSettings' => function (ParseNode $n) use ($o) { $o->setRegionalAndLanguageSettings($n->getObjectValue(array(RegionalAndLanguageSettings::class, 'createFromDiscriminatorValue'))); },
-            'shiftPreferences' => function (ParseNode $n) use ($o) { $o->setShiftPreferences($n->getObjectValue(array(ShiftPreferences::class, 'createFromDiscriminatorValue'))); },
+            'contactMergeSuggestions' => function (self $o, ParseNode $n) { $o->setContactMergeSuggestions($n->getObjectValue(ContactMergeSuggestions::class)); },
+            'contributionToContentDiscoveryAsOrganizationDisabled' => function (self $o, ParseNode $n) { $o->setContributionToContentDiscoveryAsOrganizationDisabled($n->getBooleanValue()); },
+            'contributionToContentDiscoveryDisabled' => function (self $o, ParseNode $n) { $o->setContributionToContentDiscoveryDisabled($n->getBooleanValue()); },
+            'itemInsights' => function (self $o, ParseNode $n) { $o->setItemInsights($n->getObjectValue(UserInsightsSettings::class)); },
+            'regionalAndLanguageSettings' => function (self $o, ParseNode $n) { $o->setRegionalAndLanguageSettings($n->getObjectValue(RegionalAndLanguageSettings::class)); },
+            'shiftPreferences' => function (self $o, ParseNode $n) { $o->setShiftPreferences($n->getObjectValue(ShiftPreferences::class)); },
         ]);
     }
 

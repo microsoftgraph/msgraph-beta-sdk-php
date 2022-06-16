@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AttackSimulationUser implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName Display name of the user.
-    */
+    /** @var string|null $displayName Display name of the user. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $email Email address of the user.
-    */
+    /** @var string|null $email Email address of the user. */
     private ?string $email = null;
     
-    /**
-     * @var string|null $userId This is the id property value of the user resource that represents the user in the Azure AD tenant.
-    */
+    /** @var string|null $userId This is the id property value of the user resource that represents the user in the Azure AD tenant. */
     private ?string $userId = null;
     
     /**
@@ -41,7 +33,7 @@ class AttackSimulationUser implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AttackSimulationUser
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AttackSimulationUser {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AttackSimulationUser {
         return new AttackSimulationUser();
     }
 
@@ -74,11 +66,10 @@ class AttackSimulationUser implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'email' => function (self $o, ParseNode $n) { $o->setEmail($n->getStringValue()); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
         ];
     }
 

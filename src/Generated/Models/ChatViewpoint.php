@@ -10,19 +10,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ChatViewpoint implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $isHidden Indicates whether the chat is hidden for the current user.
-    */
+    /** @var bool|null $isHidden Indicates whether the chat is hidden for the current user. */
     private ?bool $isHidden = null;
     
-    /**
-     * @var DateTime|null $lastMessageReadDateTime Represents the dateTime up until which the current user has read chatMessages in a specific chat.
-    */
+    /** @var DateTime|null $lastMessageReadDateTime Represents the dateTime up until which the current user has read chatMessages in a specific chat. */
     private ?DateTime $lastMessageReadDateTime = null;
     
     /**
@@ -37,7 +31,7 @@ class ChatViewpoint implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ChatViewpoint
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ChatViewpoint {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ChatViewpoint {
         return new ChatViewpoint();
     }
 
@@ -54,10 +48,9 @@ class ChatViewpoint implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'isHidden' => function (ParseNode $n) use ($o) { $o->setIsHidden($n->getBooleanValue()); },
-            'lastMessageReadDateTime' => function (ParseNode $n) use ($o) { $o->setLastMessageReadDateTime($n->getDateTimeValue()); },
+            'isHidden' => function (self $o, ParseNode $n) { $o->setIsHidden($n->getBooleanValue()); },
+            'lastMessageReadDateTime' => function (self $o, ParseNode $n) { $o->setLastMessageReadDateTime($n->getDateTimeValue()); },
         ];
     }
 

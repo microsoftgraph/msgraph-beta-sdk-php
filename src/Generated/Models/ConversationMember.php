@@ -7,21 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ConversationMember extends Entity implements Parsable 
+class ConversationMember extends Entity 
 {
-    /**
-     * @var string|null $displayName The display name of the user.
-    */
+    /** @var string|null $displayName The display name of the user. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<string>|null $roles The roles for that user.
-    */
+    /** @var array<string>|null $roles The roles for that user. */
     private ?array $roles = null;
     
-    /**
-     * @var DateTime|null $visibleHistoryStartDateTime The timestamp denoting how far back a conversation's history is shared with the conversation member. This property is settable only for members of a chat.
-    */
+    /** @var DateTime|null $visibleHistoryStartDateTime The timestamp denoting how far back a conversation's history is shared with the conversation member. This property is settable only for members of a chat. */
     private ?DateTime $visibleHistoryStartDateTime = null;
     
     /**
@@ -36,18 +30,7 @@ class ConversationMember extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConversationMember
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConversationMember {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.aadUserConversationMember': return new AadUserConversationMember();
-                case '#microsoft.graph.anonymousGuestConversationMember': return new AnonymousGuestConversationMember();
-                case '#microsoft.graph.microsoftAccountUserConversationMember': return new MicrosoftAccountUserConversationMember();
-                case '#microsoft.graph.skypeForBusinessUserConversationMember': return new SkypeForBusinessUserConversationMember();
-                case '#microsoft.graph.skypeUserConversationMember': return new SkypeUserConversationMember();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ConversationMember {
         return new ConversationMember();
     }
 
@@ -64,11 +47,10 @@ class ConversationMember extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'roles' => function (ParseNode $n) use ($o) { $o->setRoles($n->getCollectionOfPrimitiveValues()); },
-            'visibleHistoryStartDateTime' => function (ParseNode $n) use ($o) { $o->setVisibleHistoryStartDateTime($n->getDateTimeValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'roles' => function (self $o, ParseNode $n) { $o->setRoles($n->getCollectionOfPrimitiveValues()); },
+            'visibleHistoryStartDateTime' => function (self $o, ParseNode $n) { $o->setVisibleHistoryStartDateTime($n->getDateTimeValue()); },
         ]);
     }
 

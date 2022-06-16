@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DecisionItemPrincipalResourceMembershipType|null $membershipType The membershipType property
-    */
+    /** @var DecisionItemPrincipalResourceMembershipType|null $membershipType The membershipType property */
     private ?DecisionItemPrincipalResourceMembershipType $membershipType = null;
     
     /**
@@ -31,7 +27,7 @@ class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, P
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DecisionItemPrincipalResourceMembership
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DecisionItemPrincipalResourceMembership {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DecisionItemPrincipalResourceMembership {
         return new DecisionItemPrincipalResourceMembership();
     }
 
@@ -48,9 +44,8 @@ class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, P
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'membershipType' => function (ParseNode $n) use ($o) { $o->setMembershipType($n->getEnumValue(DecisionItemPrincipalResourceMembershipType::class)); },
+            'membershipType' => function (self $o, ParseNode $n) { $o->setMembershipType($n->getEnumValue(DecisionItemPrincipalResourceMembershipType::class)); },
         ];
     }
 

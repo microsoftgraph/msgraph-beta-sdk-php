@@ -10,18 +10,14 @@ use Psr\Http\Message\StreamInterface;
 
 class Report implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var StreamInterface|null $content Report content; details vary by report type.
-    */
+    /** @var StreamInterface|null $content Not yet documented */
     private ?StreamInterface $content = null;
     
     /**
-     * Instantiates a new Report and sets the default values.
+     * Instantiates a new report and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -32,7 +28,7 @@ class Report implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Report
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Report {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Report {
         return new Report();
     }
 
@@ -45,7 +41,7 @@ class Report implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the content property value. Report content; details vary by report type.
+     * Gets the content property value. Not yet documented
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -57,9 +53,8 @@ class Report implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
+            'content' => function (self $o, ParseNode $n) { $o->setContent($n->getBinaryContent()); },
         ];
     }
 
@@ -81,7 +76,7 @@ class Report implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the content property value. Report content; details vary by report type.
+     * Sets the content property value. Not yet documented
      *  @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value ): void {

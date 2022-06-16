@@ -9,41 +9,27 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Tag extends Entity implements Parsable 
+class Tag extends Entity 
 {
-    /**
-     * @var ChildSelectability|null $childSelectability Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
-    */
+    /** @var ChildSelectability|null $childSelectability Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group. */
     private ?ChildSelectability $childSelectability = null;
     
-    /**
-     * @var array<Tag>|null $childTags Returns the tags that are a child of a tag.
-    */
+    /** @var array<Tag>|null $childTags Returns the tags that are a child of a tag. */
     private ?array $childTags = null;
     
-    /**
-     * @var IdentitySet|null $createdBy The user who created the tag.
-    */
+    /** @var IdentitySet|null $createdBy The user who created the tag. */
     private ?IdentitySet $createdBy = null;
     
-    /**
-     * @var string|null $description The description for the tag.
-    */
+    /** @var string|null $description The description for the tag. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName Display name of the tag.
-    */
+    /** @var string|null $displayName Display name of the tag. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the tag was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time the tag was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var Tag|null $parent Returns the parent tag of the specified tag.
-    */
+    /** @var Tag|null $parent Returns the parent tag of the specified tag. */
     private ?Tag $parent = null;
     
     /**
@@ -58,7 +44,7 @@ class Tag extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Tag
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Tag {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Tag {
         return new Tag();
     }
 
@@ -107,15 +93,14 @@ class Tag extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'childSelectability' => function (ParseNode $n) use ($o) { $o->setChildSelectability($n->getEnumValue(ChildSelectability::class)); },
-            'childTags' => function (ParseNode $n) use ($o) { $o->setChildTags($n->getCollectionOfObjectValues(array(Tag::class, 'createFromDiscriminatorValue'))); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'parent' => function (ParseNode $n) use ($o) { $o->setParent($n->getObjectValue(array(Tag::class, 'createFromDiscriminatorValue'))); },
+            'childSelectability' => function (self $o, ParseNode $n) { $o->setChildSelectability($n->getEnumValue(ChildSelectability::class)); },
+            'childTags' => function (self $o, ParseNode $n) { $o->setChildTags($n->getCollectionOfObjectValues(Tag::class)); },
+            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(IdentitySet::class)); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'parent' => function (self $o, ParseNode $n) { $o->setParent($n->getObjectValue(Tag::class)); },
         ]);
     }
 

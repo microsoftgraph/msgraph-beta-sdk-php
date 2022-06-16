@@ -7,96 +7,60 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class HostSecurityProfile extends Entity implements Parsable 
+class HostSecurityProfile extends Entity 
 {
-    /**
-     * @var string|null $azureSubscriptionId The azureSubscriptionId property
-    */
+    /** @var string|null $azureSubscriptionId The azureSubscriptionId property */
     private ?string $azureSubscriptionId = null;
     
-    /**
-     * @var string|null $azureTenantId The azureTenantId property
-    */
+    /** @var string|null $azureTenantId The azureTenantId property */
     private ?string $azureTenantId = null;
     
-    /**
-     * @var DateTime|null $firstSeenDateTime The firstSeenDateTime property
-    */
+    /** @var DateTime|null $firstSeenDateTime The firstSeenDateTime property */
     private ?DateTime $firstSeenDateTime = null;
     
-    /**
-     * @var string|null $fqdn The fqdn property
-    */
+    /** @var string|null $fqdn The fqdn property */
     private ?string $fqdn = null;
     
-    /**
-     * @var bool|null $isAzureAdJoined The isAzureAdJoined property
-    */
+    /** @var bool|null $isAzureAdJoined The isAzureAdJoined property */
     private ?bool $isAzureAdJoined = null;
     
-    /**
-     * @var bool|null $isAzureAdRegistered The isAzureAdRegistered property
-    */
+    /** @var bool|null $isAzureAdRegistered The isAzureAdRegistered property */
     private ?bool $isAzureAdRegistered = null;
     
-    /**
-     * @var bool|null $isHybridAzureDomainJoined The isHybridAzureDomainJoined property
-    */
+    /** @var bool|null $isHybridAzureDomainJoined The isHybridAzureDomainJoined property */
     private ?bool $isHybridAzureDomainJoined = null;
     
-    /**
-     * @var DateTime|null $lastSeenDateTime The lastSeenDateTime property
-    */
+    /** @var DateTime|null $lastSeenDateTime The lastSeenDateTime property */
     private ?DateTime $lastSeenDateTime = null;
     
-    /**
-     * @var array<LogonUser>|null $logonUsers The logonUsers property
-    */
+    /** @var array<LogonUser>|null $logonUsers The logonUsers property */
     private ?array $logonUsers = null;
     
-    /**
-     * @var string|null $netBiosName The netBiosName property
-    */
+    /** @var string|null $netBiosName The netBiosName property */
     private ?string $netBiosName = null;
     
-    /**
-     * @var array<NetworkInterface>|null $networkInterfaces The networkInterfaces property
-    */
+    /** @var array<NetworkInterface>|null $networkInterfaces The networkInterfaces property */
     private ?array $networkInterfaces = null;
     
-    /**
-     * @var string|null $os The os property
-    */
+    /** @var string|null $os The os property */
     private ?string $os = null;
     
-    /**
-     * @var string|null $osVersion The osVersion property
-    */
+    /** @var string|null $osVersion The osVersion property */
     private ?string $osVersion = null;
     
-    /**
-     * @var string|null $parentHost The parentHost property
-    */
+    /** @var string|null $parentHost The parentHost property */
     private ?string $parentHost = null;
     
-    /**
-     * @var array<string>|null $relatedHostIds The relatedHostIds property
-    */
+    /** @var array<string>|null $relatedHostIds The relatedHostIds property */
     private ?array $relatedHostIds = null;
     
-    /**
-     * @var string|null $riskScore The riskScore property
-    */
+    /** @var string|null $riskScore The riskScore property */
     private ?string $riskScore = null;
     
-    /**
-     * @var array<string>|null $tags The tags property
-    */
+    /** @var array<string>|null $tags The tags property */
     private ?array $tags = null;
     
-    /**
-     * @var SecurityVendorInformation|null $vendorInformation The vendorInformation property
-    */
+    /** @var SecurityVendorInformation|null $vendorInformation The vendorInformation property */
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
@@ -111,7 +75,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return HostSecurityProfile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): HostSecurityProfile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): HostSecurityProfile {
         return new HostSecurityProfile();
     }
 
@@ -136,26 +100,25 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'azureSubscriptionId' => function (ParseNode $n) use ($o) { $o->setAzureSubscriptionId($n->getStringValue()); },
-            'azureTenantId' => function (ParseNode $n) use ($o) { $o->setAzureTenantId($n->getStringValue()); },
-            'firstSeenDateTime' => function (ParseNode $n) use ($o) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
-            'fqdn' => function (ParseNode $n) use ($o) { $o->setFqdn($n->getStringValue()); },
-            'isAzureAdJoined' => function (ParseNode $n) use ($o) { $o->setIsAzureAdJoined($n->getBooleanValue()); },
-            'isAzureAdRegistered' => function (ParseNode $n) use ($o) { $o->setIsAzureAdRegistered($n->getBooleanValue()); },
-            'isHybridAzureDomainJoined' => function (ParseNode $n) use ($o) { $o->setIsHybridAzureDomainJoined($n->getBooleanValue()); },
-            'lastSeenDateTime' => function (ParseNode $n) use ($o) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
-            'logonUsers' => function (ParseNode $n) use ($o) { $o->setLogonUsers($n->getCollectionOfObjectValues(array(LogonUser::class, 'createFromDiscriminatorValue'))); },
-            'netBiosName' => function (ParseNode $n) use ($o) { $o->setNetBiosName($n->getStringValue()); },
-            'networkInterfaces' => function (ParseNode $n) use ($o) { $o->setNetworkInterfaces($n->getCollectionOfObjectValues(array(NetworkInterface::class, 'createFromDiscriminatorValue'))); },
-            'os' => function (ParseNode $n) use ($o) { $o->setOs($n->getStringValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
-            'parentHost' => function (ParseNode $n) use ($o) { $o->setParentHost($n->getStringValue()); },
-            'relatedHostIds' => function (ParseNode $n) use ($o) { $o->setRelatedHostIds($n->getCollectionOfPrimitiveValues()); },
-            'riskScore' => function (ParseNode $n) use ($o) { $o->setRiskScore($n->getStringValue()); },
-            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
-            'vendorInformation' => function (ParseNode $n) use ($o) { $o->setVendorInformation($n->getObjectValue(array(SecurityVendorInformation::class, 'createFromDiscriminatorValue'))); },
+            'azureSubscriptionId' => function (self $o, ParseNode $n) { $o->setAzureSubscriptionId($n->getStringValue()); },
+            'azureTenantId' => function (self $o, ParseNode $n) { $o->setAzureTenantId($n->getStringValue()); },
+            'firstSeenDateTime' => function (self $o, ParseNode $n) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
+            'fqdn' => function (self $o, ParseNode $n) { $o->setFqdn($n->getStringValue()); },
+            'isAzureAdJoined' => function (self $o, ParseNode $n) { $o->setIsAzureAdJoined($n->getBooleanValue()); },
+            'isAzureAdRegistered' => function (self $o, ParseNode $n) { $o->setIsAzureAdRegistered($n->getBooleanValue()); },
+            'isHybridAzureDomainJoined' => function (self $o, ParseNode $n) { $o->setIsHybridAzureDomainJoined($n->getBooleanValue()); },
+            'lastSeenDateTime' => function (self $o, ParseNode $n) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
+            'logonUsers' => function (self $o, ParseNode $n) { $o->setLogonUsers($n->getCollectionOfObjectValues(LogonUser::class)); },
+            'netBiosName' => function (self $o, ParseNode $n) { $o->setNetBiosName($n->getStringValue()); },
+            'networkInterfaces' => function (self $o, ParseNode $n) { $o->setNetworkInterfaces($n->getCollectionOfObjectValues(NetworkInterface::class)); },
+            'os' => function (self $o, ParseNode $n) { $o->setOs($n->getStringValue()); },
+            'osVersion' => function (self $o, ParseNode $n) { $o->setOsVersion($n->getStringValue()); },
+            'parentHost' => function (self $o, ParseNode $n) { $o->setParentHost($n->getStringValue()); },
+            'relatedHostIds' => function (self $o, ParseNode $n) { $o->setRelatedHostIds($n->getCollectionOfPrimitiveValues()); },
+            'riskScore' => function (self $o, ParseNode $n) { $o->setRiskScore($n->getStringValue()); },
+            'tags' => function (self $o, ParseNode $n) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
+            'vendorInformation' => function (self $o, ParseNode $n) { $o->setVendorInformation($n->getObjectValue(SecurityVendorInformation::class)); },
         ]);
     }
 

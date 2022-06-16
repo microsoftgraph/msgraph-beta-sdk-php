@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TrainingEventsContent implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<AssignedTrainingInfo>|null $assignedTrainingsInfos List of assigned trainings and their information in an attack simulation and training campaign.
-    */
+    /** @var array<AssignedTrainingInfo>|null $assignedTrainingsInfos List of assigned trainings and their information in an attack simulation and training campaign. */
     private ?array $assignedTrainingsInfos = null;
     
-    /**
-     * @var int|null $trainingsAssignedUserCount Number of users who were assigned trainings in an attack simulation and training campaign.
-    */
+    /** @var int|null $trainingsAssignedUserCount Number of users who were assigned trainings in an attack simulation and training campaign. */
     private ?int $trainingsAssignedUserCount = null;
     
     /**
@@ -36,7 +30,7 @@ class TrainingEventsContent implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TrainingEventsContent
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TrainingEventsContent {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TrainingEventsContent {
         return new TrainingEventsContent();
     }
 
@@ -61,10 +55,9 @@ class TrainingEventsContent implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'assignedTrainingsInfos' => function (ParseNode $n) use ($o) { $o->setAssignedTrainingsInfos($n->getCollectionOfObjectValues(array(AssignedTrainingInfo::class, 'createFromDiscriminatorValue'))); },
-            'trainingsAssignedUserCount' => function (ParseNode $n) use ($o) { $o->setTrainingsAssignedUserCount($n->getIntegerValue()); },
+            'assignedTrainingsInfos' => function (self $o, ParseNode $n) { $o->setAssignedTrainingsInfos($n->getCollectionOfObjectValues(AssignedTrainingInfo::class)); },
+            'trainingsAssignedUserCount' => function (self $o, ParseNode $n) { $o->setTrainingsAssignedUserCount($n->getIntegerValue()); },
         ];
     }
 

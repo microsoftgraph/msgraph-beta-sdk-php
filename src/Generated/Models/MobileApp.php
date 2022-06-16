@@ -7,131 +7,81 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MobileApp extends Entity implements Parsable 
+class MobileApp extends Entity 
 {
-    /**
-     * @var array<MobileAppAssignment>|null $assignments The list of group assignments for this mobile app.
-    */
+    /** @var array<MobileAppAssignment>|null $assignments The list of group assignments for this mobile app. */
     private ?array $assignments = null;
     
-    /**
-     * @var array<MobileAppCategory>|null $categories The list of categories for this app.
-    */
+    /** @var array<MobileAppCategory>|null $categories The list of categories for this app. */
     private ?array $categories = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The date and time the app was created.
-    */
+    /** @var DateTime|null $createdDateTime The date and time the app was created. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var int|null $dependentAppCount The total number of dependencies the child app has.
-    */
+    /** @var int|null $dependentAppCount The total number of dependencies the child app has. */
     private ?int $dependentAppCount = null;
     
-    /**
-     * @var string|null $description The description of the app.
-    */
+    /** @var string|null $description The description of the app. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $developer The developer of the app.
-    */
+    /** @var string|null $developer The developer of the app. */
     private ?string $developer = null;
     
-    /**
-     * @var array<MobileAppInstallStatus>|null $deviceStatuses The list of installation states for this mobile app.
-    */
+    /** @var array<MobileAppInstallStatus>|null $deviceStatuses The list of installation states for this mobile app. */
     private ?array $deviceStatuses = null;
     
-    /**
-     * @var string|null $displayName The admin provided or imported title of the app.
-    */
+    /** @var string|null $displayName The admin provided or imported title of the app. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $informationUrl The more information Url.
-    */
+    /** @var string|null $informationUrl The more information Url. */
     private ?string $informationUrl = null;
     
-    /**
-     * @var MobileAppInstallSummary|null $installSummary Mobile App Install Summary.
-    */
+    /** @var MobileAppInstallSummary|null $installSummary Mobile App Install Summary. */
     private ?MobileAppInstallSummary $installSummary = null;
     
-    /**
-     * @var bool|null $isAssigned The value indicating whether the app is assigned to at least one group.
-    */
+    /** @var bool|null $isAssigned The value indicating whether the app is assigned to at least one group. */
     private ?bool $isAssigned = null;
     
-    /**
-     * @var bool|null $isFeatured The value indicating whether the app is marked as featured by the admin.
-    */
+    /** @var bool|null $isFeatured The value indicating whether the app is marked as featured by the admin. */
     private ?bool $isFeatured = null;
     
-    /**
-     * @var MimeContent|null $largeIcon The large icon, to be displayed in the app details and used for upload of the icon.
-    */
+    /** @var MimeContent|null $largeIcon The large icon, to be displayed in the app details and used for upload of the icon. */
     private ?MimeContent $largeIcon = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the app was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time the app was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $notes Notes for the app.
-    */
+    /** @var string|null $notes Notes for the app. */
     private ?string $notes = null;
     
-    /**
-     * @var string|null $owner The owner of the app.
-    */
+    /** @var string|null $owner The owner of the app. */
     private ?string $owner = null;
     
-    /**
-     * @var string|null $privacyInformationUrl The privacy statement Url.
-    */
+    /** @var string|null $privacyInformationUrl The privacy statement Url. */
     private ?string $privacyInformationUrl = null;
     
-    /**
-     * @var string|null $publisher The publisher of the app.
-    */
+    /** @var string|null $publisher The publisher of the app. */
     private ?string $publisher = null;
     
-    /**
-     * @var MobileAppPublishingState|null $publishingState The publishing state for the app. The app cannot be assigned unless the app is published. Possible values are: notPublished, processing, published.
-    */
+    /** @var MobileAppPublishingState|null $publishingState The publishing state for the app. The app cannot be assigned unless the app is published. Possible values are: notPublished, processing, published. */
     private ?MobileAppPublishingState $publishingState = null;
     
-    /**
-     * @var array<MobileAppRelationship>|null $relationships List of relationships for this mobile app.
-    */
+    /** @var array<MobileAppRelationship>|null $relationships List of relationships for this mobile app. */
     private ?array $relationships = null;
     
-    /**
-     * @var array<string>|null $roleScopeTagIds List of scope tag ids for this mobile app.
-    */
+    /** @var array<string>|null $roleScopeTagIds List of scope tag ids for this mobile app. */
     private ?array $roleScopeTagIds = null;
     
-    /**
-     * @var int|null $supersededAppCount The total number of apps this app is directly or indirectly superseded by.
-    */
+    /** @var int|null $supersededAppCount The total number of apps this app is directly or indirectly superseded by. */
     private ?int $supersededAppCount = null;
     
-    /**
-     * @var int|null $supersedingAppCount The total number of apps this app directly or indirectly supersedes.
-    */
+    /** @var int|null $supersedingAppCount The total number of apps this app directly or indirectly supersedes. */
     private ?int $supersedingAppCount = null;
     
-    /**
-     * @var int|null $uploadState The upload state.
-    */
+    /** @var int|null $uploadState The upload state. */
     private ?int $uploadState = null;
     
-    /**
-     * @var array<UserAppInstallStatus>|null $userStatuses The list of installation states for this mobile app.
-    */
+    /** @var array<UserAppInstallStatus>|null $userStatuses The list of installation states for this mobile app. */
     private ?array $userStatuses = null;
     
     /**
@@ -146,32 +96,7 @@ class MobileApp extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MobileApp
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MobileApp {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.androidForWorkApp': return new AndroidForWorkApp();
-                case '#microsoft.graph.androidManagedStoreApp': return new AndroidManagedStoreApp();
-                case '#microsoft.graph.androidStoreApp': return new AndroidStoreApp();
-                case '#microsoft.graph.iosiPadOSWebClip': return new IosiPadOSWebClip();
-                case '#microsoft.graph.iosStoreApp': return new IosStoreApp();
-                case '#microsoft.graph.iosVppApp': return new IosVppApp();
-                case '#microsoft.graph.macOSMdatpApp': return new MacOSMdatpApp();
-                case '#microsoft.graph.macOSMicrosoftEdgeApp': return new MacOSMicrosoftEdgeApp();
-                case '#microsoft.graph.macOSOfficeSuiteApp': return new MacOSOfficeSuiteApp();
-                case '#microsoft.graph.macOsVppApp': return new MacOsVppApp();
-                case '#microsoft.graph.managedApp': return new ManagedApp();
-                case '#microsoft.graph.microsoftStoreForBusinessApp': return new MicrosoftStoreForBusinessApp();
-                case '#microsoft.graph.mobileLobApp': return new MobileLobApp();
-                case '#microsoft.graph.officeSuiteApp': return new OfficeSuiteApp();
-                case '#microsoft.graph.webApp': return new WebApp();
-                case '#microsoft.graph.windowsMicrosoftEdgeApp': return new WindowsMicrosoftEdgeApp();
-                case '#microsoft.graph.windowsPhone81StoreApp': return new WindowsPhone81StoreApp();
-                case '#microsoft.graph.windowsStoreApp': return new WindowsStoreApp();
-                case '#microsoft.graph.windowsWebApp': return new WindowsWebApp();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MobileApp {
         return new MobileApp();
     }
 
@@ -244,33 +169,32 @@ class MobileApp extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(MobileAppAssignment::class, 'createFromDiscriminatorValue'))); },
-            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfObjectValues(array(MobileAppCategory::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'dependentAppCount' => function (ParseNode $n) use ($o) { $o->setDependentAppCount($n->getIntegerValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'developer' => function (ParseNode $n) use ($o) { $o->setDeveloper($n->getStringValue()); },
-            'deviceStatuses' => function (ParseNode $n) use ($o) { $o->setDeviceStatuses($n->getCollectionOfObjectValues(array(MobileAppInstallStatus::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'informationUrl' => function (ParseNode $n) use ($o) { $o->setInformationUrl($n->getStringValue()); },
-            'installSummary' => function (ParseNode $n) use ($o) { $o->setInstallSummary($n->getObjectValue(array(MobileAppInstallSummary::class, 'createFromDiscriminatorValue'))); },
-            'isAssigned' => function (ParseNode $n) use ($o) { $o->setIsAssigned($n->getBooleanValue()); },
-            'isFeatured' => function (ParseNode $n) use ($o) { $o->setIsFeatured($n->getBooleanValue()); },
-            'largeIcon' => function (ParseNode $n) use ($o) { $o->setLargeIcon($n->getObjectValue(array(MimeContent::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getStringValue()); },
-            'owner' => function (ParseNode $n) use ($o) { $o->setOwner($n->getStringValue()); },
-            'privacyInformationUrl' => function (ParseNode $n) use ($o) { $o->setPrivacyInformationUrl($n->getStringValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
-            'publishingState' => function (ParseNode $n) use ($o) { $o->setPublishingState($n->getEnumValue(MobileAppPublishingState::class)); },
-            'relationships' => function (ParseNode $n) use ($o) { $o->setRelationships($n->getCollectionOfObjectValues(array(MobileAppRelationship::class, 'createFromDiscriminatorValue'))); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'supersededAppCount' => function (ParseNode $n) use ($o) { $o->setSupersededAppCount($n->getIntegerValue()); },
-            'supersedingAppCount' => function (ParseNode $n) use ($o) { $o->setSupersedingAppCount($n->getIntegerValue()); },
-            'uploadState' => function (ParseNode $n) use ($o) { $o->setUploadState($n->getIntegerValue()); },
-            'userStatuses' => function (ParseNode $n) use ($o) { $o->setUserStatuses($n->getCollectionOfObjectValues(array(UserAppInstallStatus::class, 'createFromDiscriminatorValue'))); },
+            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(MobileAppAssignment::class)); },
+            'categories' => function (self $o, ParseNode $n) { $o->setCategories($n->getCollectionOfObjectValues(MobileAppCategory::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'dependentAppCount' => function (self $o, ParseNode $n) { $o->setDependentAppCount($n->getIntegerValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'developer' => function (self $o, ParseNode $n) { $o->setDeveloper($n->getStringValue()); },
+            'deviceStatuses' => function (self $o, ParseNode $n) { $o->setDeviceStatuses($n->getCollectionOfObjectValues(MobileAppInstallStatus::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'informationUrl' => function (self $o, ParseNode $n) { $o->setInformationUrl($n->getStringValue()); },
+            'installSummary' => function (self $o, ParseNode $n) { $o->setInstallSummary($n->getObjectValue(MobileAppInstallSummary::class)); },
+            'isAssigned' => function (self $o, ParseNode $n) { $o->setIsAssigned($n->getBooleanValue()); },
+            'isFeatured' => function (self $o, ParseNode $n) { $o->setIsFeatured($n->getBooleanValue()); },
+            'largeIcon' => function (self $o, ParseNode $n) { $o->setLargeIcon($n->getObjectValue(MimeContent::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'notes' => function (self $o, ParseNode $n) { $o->setNotes($n->getStringValue()); },
+            'owner' => function (self $o, ParseNode $n) { $o->setOwner($n->getStringValue()); },
+            'privacyInformationUrl' => function (self $o, ParseNode $n) { $o->setPrivacyInformationUrl($n->getStringValue()); },
+            'publisher' => function (self $o, ParseNode $n) { $o->setPublisher($n->getStringValue()); },
+            'publishingState' => function (self $o, ParseNode $n) { $o->setPublishingState($n->getEnumValue(MobileAppPublishingState::class)); },
+            'relationships' => function (self $o, ParseNode $n) { $o->setRelationships($n->getCollectionOfObjectValues(MobileAppRelationship::class)); },
+            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'supersededAppCount' => function (self $o, ParseNode $n) { $o->setSupersededAppCount($n->getIntegerValue()); },
+            'supersedingAppCount' => function (self $o, ParseNode $n) { $o->setSupersedingAppCount($n->getIntegerValue()); },
+            'uploadState' => function (self $o, ParseNode $n) { $o->setUploadState($n->getIntegerValue()); },
+            'userStatuses' => function (self $o, ParseNode $n) { $o->setUserStatuses($n->getCollectionOfObjectValues(UserAppInstallStatus::class)); },
         ]);
     }
 

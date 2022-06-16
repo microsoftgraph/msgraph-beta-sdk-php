@@ -7,21 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class NdesConnector extends Entity implements Parsable 
+class NdesConnector extends Entity 
 {
-    /**
-     * @var string|null $displayName The friendly name of the Ndes Connector.
-    */
+    /** @var string|null $displayName The friendly name of the Ndes Connector. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastConnectionDateTime Last connection time for the Ndes Connector
-    */
+    /** @var DateTime|null $lastConnectionDateTime Last connection time for the Ndes Connector */
     private ?DateTime $lastConnectionDateTime = null;
     
-    /**
-     * @var NdesConnectorState|null $state Ndes Connector Status. Possible values are: none, active, inactive.
-    */
+    /** @var NdesConnectorState|null $state Ndes Connector Status. Possible values are: none, active, inactive. */
     private ?NdesConnectorState $state = null;
     
     /**
@@ -36,7 +30,7 @@ class NdesConnector extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return NdesConnector
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): NdesConnector {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): NdesConnector {
         return new NdesConnector();
     }
 
@@ -53,11 +47,10 @@ class NdesConnector extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastConnectionDateTime' => function (ParseNode $n) use ($o) { $o->setLastConnectionDateTime($n->getDateTimeValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(NdesConnectorState::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastConnectionDateTime' => function (self $o, ParseNode $n) { $o->setLastConnectionDateTime($n->getDateTimeValue()); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(NdesConnectorState::class)); },
         ]);
     }
 

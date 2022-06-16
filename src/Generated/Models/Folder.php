@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class Folder implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $childCount Number of children contained immediately within this container.
-    */
+    /** @var int|null $childCount Number of children contained immediately within this container. */
     private ?int $childCount = null;
     
-    /**
-     * @var FolderView|null $view A collection of properties defining the recommended view for the folder.
-    */
+    /** @var FolderView|null $view A collection of properties defining the recommended view for the folder. */
     private ?FolderView $view = null;
     
     /**
@@ -36,7 +30,7 @@ class Folder implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Folder
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Folder {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Folder {
         return new Folder();
     }
 
@@ -61,10 +55,9 @@ class Folder implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'childCount' => function (ParseNode $n) use ($o) { $o->setChildCount($n->getIntegerValue()); },
-            'view' => function (ParseNode $n) use ($o) { $o->setView($n->getObjectValue(array(FolderView::class, 'createFromDiscriminatorValue'))); },
+            'childCount' => function (self $o, ParseNode $n) { $o->setChildCount($n->getIntegerValue()); },
+            'view' => function (self $o, ParseNode $n) { $o->setView($n->getObjectValue(FolderView::class)); },
         ];
     }
 

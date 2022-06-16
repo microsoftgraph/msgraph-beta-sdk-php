@@ -7,21 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CaseSettings extends Entity implements Parsable 
+class CaseSettings extends Entity 
 {
-    /**
-     * @var OcrSettings|null $ocr The OCR (Optical Character Recognition) settings for the case.
-    */
+    /** @var OcrSettings|null $ocr The OCR (Optical Character Recognition) settings for the case. */
     private ?OcrSettings $ocr = null;
     
-    /**
-     * @var RedundancyDetectionSettings|null $redundancyDetection The redundancy (near duplicate and email threading) detection settings for the case.
-    */
+    /** @var RedundancyDetectionSettings|null $redundancyDetection The redundancy (near duplicate and email threading) detection settings for the case. */
     private ?RedundancyDetectionSettings $redundancyDetection = null;
     
-    /**
-     * @var TopicModelingSettings|null $topicModeling The Topic Modeling (Themes) settings for the case.
-    */
+    /** @var TopicModelingSettings|null $topicModeling The Topic Modeling (Themes) settings for the case. */
     private ?TopicModelingSettings $topicModeling = null;
     
     /**
@@ -36,7 +30,7 @@ class CaseSettings extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CaseSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CaseSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CaseSettings {
         return new CaseSettings();
     }
 
@@ -45,11 +39,10 @@ class CaseSettings extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'ocr' => function (ParseNode $n) use ($o) { $o->setOcr($n->getObjectValue(array(OcrSettings::class, 'createFromDiscriminatorValue'))); },
-            'redundancyDetection' => function (ParseNode $n) use ($o) { $o->setRedundancyDetection($n->getObjectValue(array(RedundancyDetectionSettings::class, 'createFromDiscriminatorValue'))); },
-            'topicModeling' => function (ParseNode $n) use ($o) { $o->setTopicModeling($n->getObjectValue(array(TopicModelingSettings::class, 'createFromDiscriminatorValue'))); },
+            'ocr' => function (self $o, ParseNode $n) { $o->setOcr($n->getObjectValue(OcrSettings::class)); },
+            'redundancyDetection' => function (self $o, ParseNode $n) { $o->setRedundancyDetection($n->getObjectValue(RedundancyDetectionSettings::class)); },
+            'topicModeling' => function (self $o, ParseNode $n) { $o->setTopicModeling($n->getObjectValue(TopicModelingSettings::class)); },
         ]);
     }
 

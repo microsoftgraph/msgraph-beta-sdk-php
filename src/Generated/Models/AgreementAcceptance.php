@@ -7,71 +7,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AgreementAcceptance extends Entity implements Parsable 
+class AgreementAcceptance extends Entity 
 {
-    /**
-     * @var string|null $agreementFileId ID of the agreement file accepted by the user.
-    */
+    /** @var string|null $agreementFileId The identifier of the agreement file accepted by the user. */
     private ?string $agreementFileId = null;
     
-    /**
-     * @var string|null $agreementId ID of the agreement.
-    */
+    /** @var string|null $agreementId The identifier of the agreement. */
     private ?string $agreementId = null;
     
-    /**
-     * @var string|null $deviceDisplayName The display name of the device used for accepting the agreement.
-    */
+    /** @var string|null $deviceDisplayName The display name of the device used for accepting the agreement. */
     private ?string $deviceDisplayName = null;
     
-    /**
-     * @var string|null $deviceId The unique identifier of the device used for accepting the agreement.
-    */
+    /** @var string|null $deviceId The unique identifier of the device used for accepting the agreement. */
     private ?string $deviceId = null;
     
-    /**
-     * @var string|null $deviceOSType The operating system used for accepting the agreement.
-    */
+    /** @var string|null $deviceOSType The operating system used to accept the agreement. */
     private ?string $deviceOSType = null;
     
-    /**
-     * @var string|null $deviceOSVersion The operating system version of the device used for accepting the agreement.
-    */
+    /** @var string|null $deviceOSVersion The operating system version of the device used to accept the agreement. */
     private ?string $deviceOSVersion = null;
     
-    /**
-     * @var DateTime|null $expirationDateTime The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $expirationDateTime The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $expirationDateTime = null;
     
-    /**
-     * @var DateTime|null $recordedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $recordedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $recordedDateTime = null;
     
-    /**
-     * @var AgreementAcceptanceState|null $state Possible values are: accepted, declined. Supports $filter (eq).
-    */
+    /** @var AgreementAcceptanceState|null $state The state of the agreement acceptance. Possible values are: accepted, declined. Supports $filter (eq). */
     private ?AgreementAcceptanceState $state = null;
     
-    /**
-     * @var string|null $userDisplayName Display name of the user when the acceptance was recorded.
-    */
+    /** @var string|null $userDisplayName Display name of the user when the acceptance was recorded. */
     private ?string $userDisplayName = null;
     
-    /**
-     * @var string|null $userEmail Email of the user when the acceptance was recorded.
-    */
+    /** @var string|null $userEmail Email of the user when the acceptance was recorded. */
     private ?string $userEmail = null;
     
-    /**
-     * @var string|null $userId ID of the user who accepted the agreement.
-    */
+    /** @var string|null $userId The identifier of the user who accepted the agreement. */
     private ?string $userId = null;
     
-    /**
-     * @var string|null $userPrincipalName UPN of the user when the acceptance was recorded.
-    */
+    /** @var string|null $userPrincipalName UPN of the user when the acceptance was recorded. */
     private ?string $userPrincipalName = null;
     
     /**
@@ -86,12 +60,12 @@ class AgreementAcceptance extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AgreementAcceptance
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AgreementAcceptance {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AgreementAcceptance {
         return new AgreementAcceptance();
     }
 
     /**
-     * Gets the agreementFileId property value. ID of the agreement file accepted by the user.
+     * Gets the agreementFileId property value. The identifier of the agreement file accepted by the user.
      * @return string|null
     */
     public function getAgreementFileId(): ?string {
@@ -99,7 +73,7 @@ class AgreementAcceptance extends Entity implements Parsable
     }
 
     /**
-     * Gets the agreementId property value. ID of the agreement.
+     * Gets the agreementId property value. The identifier of the agreement.
      * @return string|null
     */
     public function getAgreementId(): ?string {
@@ -123,7 +97,7 @@ class AgreementAcceptance extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceOSType property value. The operating system used for accepting the agreement.
+     * Gets the deviceOSType property value. The operating system used to accept the agreement.
      * @return string|null
     */
     public function getDeviceOSType(): ?string {
@@ -131,7 +105,7 @@ class AgreementAcceptance extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceOSVersion property value. The operating system version of the device used for accepting the agreement.
+     * Gets the deviceOSVersion property value. The operating system version of the device used to accept the agreement.
      * @return string|null
     */
     public function getDeviceOSVersion(): ?string {
@@ -139,7 +113,7 @@ class AgreementAcceptance extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the expirationDateTime property value. The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -151,26 +125,25 @@ class AgreementAcceptance extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'agreementFileId' => function (ParseNode $n) use ($o) { $o->setAgreementFileId($n->getStringValue()); },
-            'agreementId' => function (ParseNode $n) use ($o) { $o->setAgreementId($n->getStringValue()); },
-            'deviceDisplayName' => function (ParseNode $n) use ($o) { $o->setDeviceDisplayName($n->getStringValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'deviceOSType' => function (ParseNode $n) use ($o) { $o->setDeviceOSType($n->getStringValue()); },
-            'deviceOSVersion' => function (ParseNode $n) use ($o) { $o->setDeviceOSVersion($n->getStringValue()); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'recordedDateTime' => function (ParseNode $n) use ($o) { $o->setRecordedDateTime($n->getDateTimeValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(AgreementAcceptanceState::class)); },
-            'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
-            'userEmail' => function (ParseNode $n) use ($o) { $o->setUserEmail($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'agreementFileId' => function (self $o, ParseNode $n) { $o->setAgreementFileId($n->getStringValue()); },
+            'agreementId' => function (self $o, ParseNode $n) { $o->setAgreementId($n->getStringValue()); },
+            'deviceDisplayName' => function (self $o, ParseNode $n) { $o->setDeviceDisplayName($n->getStringValue()); },
+            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
+            'deviceOSType' => function (self $o, ParseNode $n) { $o->setDeviceOSType($n->getStringValue()); },
+            'deviceOSVersion' => function (self $o, ParseNode $n) { $o->setDeviceOSVersion($n->getStringValue()); },
+            'expirationDateTime' => function (self $o, ParseNode $n) { $o->setExpirationDateTime($n->getDateTimeValue()); },
+            'recordedDateTime' => function (self $o, ParseNode $n) { $o->setRecordedDateTime($n->getDateTimeValue()); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(AgreementAcceptanceState::class)); },
+            'userDisplayName' => function (self $o, ParseNode $n) { $o->setUserDisplayName($n->getStringValue()); },
+            'userEmail' => function (self $o, ParseNode $n) { $o->setUserEmail($n->getStringValue()); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
+            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 
     /**
-     * Gets the recordedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the recordedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getRecordedDateTime(): ?DateTime {
@@ -178,7 +151,7 @@ class AgreementAcceptance extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. Possible values are: accepted, declined. Supports $filter (eq).
+     * Gets the state property value. The state of the agreement acceptance. Possible values are: accepted, declined. Supports $filter (eq).
      * @return AgreementAcceptanceState|null
     */
     public function getState(): ?AgreementAcceptanceState {
@@ -202,7 +175,7 @@ class AgreementAcceptance extends Entity implements Parsable
     }
 
     /**
-     * Gets the userId property value. ID of the user who accepted the agreement.
+     * Gets the userId property value. The identifier of the user who accepted the agreement.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -239,7 +212,7 @@ class AgreementAcceptance extends Entity implements Parsable
     }
 
     /**
-     * Sets the agreementFileId property value. ID of the agreement file accepted by the user.
+     * Sets the agreementFileId property value. The identifier of the agreement file accepted by the user.
      *  @param string|null $value Value to set for the agreementFileId property.
     */
     public function setAgreementFileId(?string $value ): void {
@@ -247,7 +220,7 @@ class AgreementAcceptance extends Entity implements Parsable
     }
 
     /**
-     * Sets the agreementId property value. ID of the agreement.
+     * Sets the agreementId property value. The identifier of the agreement.
      *  @param string|null $value Value to set for the agreementId property.
     */
     public function setAgreementId(?string $value ): void {
@@ -271,7 +244,7 @@ class AgreementAcceptance extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceOSType property value. The operating system used for accepting the agreement.
+     * Sets the deviceOSType property value. The operating system used to accept the agreement.
      *  @param string|null $value Value to set for the deviceOSType property.
     */
     public function setDeviceOSType(?string $value ): void {
@@ -279,7 +252,7 @@ class AgreementAcceptance extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceOSVersion property value. The operating system version of the device used for accepting the agreement.
+     * Sets the deviceOSVersion property value. The operating system version of the device used to accept the agreement.
      *  @param string|null $value Value to set for the deviceOSVersion property.
     */
     public function setDeviceOSVersion(?string $value ): void {
@@ -287,7 +260,7 @@ class AgreementAcceptance extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the expirationDateTime property value. The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value ): void {
@@ -295,7 +268,7 @@ class AgreementAcceptance extends Entity implements Parsable
     }
 
     /**
-     * Sets the recordedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the recordedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the recordedDateTime property.
     */
     public function setRecordedDateTime(?DateTime $value ): void {
@@ -303,7 +276,7 @@ class AgreementAcceptance extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. Possible values are: accepted, declined. Supports $filter (eq).
+     * Sets the state property value. The state of the agreement acceptance. Possible values are: accepted, declined. Supports $filter (eq).
      *  @param AgreementAcceptanceState|null $value Value to set for the state property.
     */
     public function setState(?AgreementAcceptanceState $value ): void {
@@ -327,7 +300,7 @@ class AgreementAcceptance extends Entity implements Parsable
     }
 
     /**
-     * Sets the userId property value. ID of the user who accepted the agreement.
+     * Sets the userId property value. The identifier of the user who accepted the agreement.
      *  @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value ): void {

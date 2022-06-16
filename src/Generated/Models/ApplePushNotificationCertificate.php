@@ -7,46 +7,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ApplePushNotificationCertificate extends Entity implements Parsable 
+class ApplePushNotificationCertificate extends Entity 
 {
-    /**
-     * @var string|null $appleIdentifier Apple Id of the account used to create the MDM push certificate.
-    */
+    /** @var string|null $appleIdentifier Apple Id of the account used to create the MDM push certificate. */
     private ?string $appleIdentifier = null;
     
-    /**
-     * @var string|null $certificate Not yet documented
-    */
+    /** @var string|null $certificate Not yet documented */
     private ?string $certificate = null;
     
-    /**
-     * @var string|null $certificateSerialNumber Certificate serial number. This property is read-only.
-    */
+    /** @var string|null $certificateSerialNumber Certificate serial number. This property is read-only. */
     private ?string $certificateSerialNumber = null;
     
-    /**
-     * @var string|null $certificateUploadFailureReason The reason the certificate upload failed.
-    */
+    /** @var string|null $certificateUploadFailureReason The reason the certificate upload failed. */
     private ?string $certificateUploadFailureReason = null;
     
-    /**
-     * @var string|null $certificateUploadStatus The certificate upload status.
-    */
+    /** @var string|null $certificateUploadStatus The certificate upload status. */
     private ?string $certificateUploadStatus = null;
     
-    /**
-     * @var DateTime|null $expirationDateTime The expiration date and time for Apple push notification certificate.
-    */
+    /** @var DateTime|null $expirationDateTime The expiration date and time for Apple push notification certificate. */
     private ?DateTime $expirationDateTime = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime Last modified date and time for Apple push notification certificate.
-    */
+    /** @var DateTime|null $lastModifiedDateTime Last modified date and time for Apple push notification certificate. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $topicIdentifier Topic Id.
-    */
+    /** @var string|null $topicIdentifier Topic Id. */
     private ?string $topicIdentifier = null;
     
     /**
@@ -61,7 +45,7 @@ class ApplePushNotificationCertificate extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ApplePushNotificationCertificate
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ApplePushNotificationCertificate {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ApplePushNotificationCertificate {
         return new ApplePushNotificationCertificate();
     }
 
@@ -118,16 +102,15 @@ class ApplePushNotificationCertificate extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appleIdentifier' => function (ParseNode $n) use ($o) { $o->setAppleIdentifier($n->getStringValue()); },
-            'certificate' => function (ParseNode $n) use ($o) { $o->setCertificate($n->getStringValue()); },
-            'certificateSerialNumber' => function (ParseNode $n) use ($o) { $o->setCertificateSerialNumber($n->getStringValue()); },
-            'certificateUploadFailureReason' => function (ParseNode $n) use ($o) { $o->setCertificateUploadFailureReason($n->getStringValue()); },
-            'certificateUploadStatus' => function (ParseNode $n) use ($o) { $o->setCertificateUploadStatus($n->getStringValue()); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'topicIdentifier' => function (ParseNode $n) use ($o) { $o->setTopicIdentifier($n->getStringValue()); },
+            'appleIdentifier' => function (self $o, ParseNode $n) { $o->setAppleIdentifier($n->getStringValue()); },
+            'certificate' => function (self $o, ParseNode $n) { $o->setCertificate($n->getStringValue()); },
+            'certificateSerialNumber' => function (self $o, ParseNode $n) { $o->setCertificateSerialNumber($n->getStringValue()); },
+            'certificateUploadFailureReason' => function (self $o, ParseNode $n) { $o->setCertificateUploadFailureReason($n->getStringValue()); },
+            'certificateUploadStatus' => function (self $o, ParseNode $n) { $o->setCertificateUploadStatus($n->getStringValue()); },
+            'expirationDateTime' => function (self $o, ParseNode $n) { $o->setExpirationDateTime($n->getDateTimeValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'topicIdentifier' => function (self $o, ParseNode $n) { $o->setTopicIdentifier($n->getStringValue()); },
         ]);
     }
 

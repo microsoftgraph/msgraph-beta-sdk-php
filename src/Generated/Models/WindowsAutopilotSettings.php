@@ -7,21 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsAutopilotSettings extends Entity implements Parsable 
+class WindowsAutopilotSettings extends Entity 
 {
-    /**
-     * @var DateTime|null $lastManualSyncTriggerDateTime Last data sync date time with DDS service.
-    */
+    /** @var DateTime|null $lastManualSyncTriggerDateTime Last data sync date time with DDS service. */
     private ?DateTime $lastManualSyncTriggerDateTime = null;
     
-    /**
-     * @var DateTime|null $lastSyncDateTime Last data sync date time with DDS service.
-    */
+    /** @var DateTime|null $lastSyncDateTime Last data sync date time with DDS service. */
     private ?DateTime $lastSyncDateTime = null;
     
-    /**
-     * @var WindowsAutopilotSyncStatus|null $syncStatus Indicates the status of sync with Device data sync (DDS) service. Possible values are: unknown, inProgress, completed, failed.
-    */
+    /** @var WindowsAutopilotSyncStatus|null $syncStatus Indicates the status of sync with Device data sync (DDS) service. Possible values are: unknown, inProgress, completed, failed. */
     private ?WindowsAutopilotSyncStatus $syncStatus = null;
     
     /**
@@ -36,7 +30,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsAutopilotSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsAutopilotSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsAutopilotSettings {
         return new WindowsAutopilotSettings();
     }
 
@@ -45,11 +39,10 @@ class WindowsAutopilotSettings extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'lastManualSyncTriggerDateTime' => function (ParseNode $n) use ($o) { $o->setLastManualSyncTriggerDateTime($n->getDateTimeValue()); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'syncStatus' => function (ParseNode $n) use ($o) { $o->setSyncStatus($n->getEnumValue(WindowsAutopilotSyncStatus::class)); },
+            'lastManualSyncTriggerDateTime' => function (self $o, ParseNode $n) { $o->setLastManualSyncTriggerDateTime($n->getDateTimeValue()); },
+            'lastSyncDateTime' => function (self $o, ParseNode $n) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
+            'syncStatus' => function (self $o, ParseNode $n) { $o->setSyncStatus($n->getEnumValue(WindowsAutopilotSyncStatus::class)); },
         ]);
     }
 

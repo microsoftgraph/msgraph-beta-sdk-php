@@ -6,71 +6,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsable 
+class UserExperienceAnalyticsResourcePerformance extends Entity 
 {
-    /**
-     * @var int|null $averageSpikeTimeScore AverageSpikeTimeScore of a device or a model type. Valid values 0 to 100
-    */
+    /** @var int|null $averageSpikeTimeScore AverageSpikeTimeScore of a device or a model type. Valid values 0 to 100 */
     private ?int $averageSpikeTimeScore = null;
     
-    /**
-     * @var float|null $cpuSpikeTimePercentage CPU spike time in percentage. Valid values 0 to 100
-    */
+    /** @var float|null $cpuSpikeTimePercentage CPU spike time in percentage. Valid values 0 to 100 */
     private ?float $cpuSpikeTimePercentage = null;
     
-    /**
-     * @var float|null $cpuSpikeTimePercentageThreshold Threshold of cpuSpikeTimeScore. Valid values 0 to 100
-    */
+    /** @var float|null $cpuSpikeTimePercentageThreshold Threshold of cpuSpikeTimeScore. Valid values 0 to 100 */
     private ?float $cpuSpikeTimePercentageThreshold = null;
     
-    /**
-     * @var int|null $cpuSpikeTimeScore The user experience analytics device CPU spike time score. Valid values 0 to 100
-    */
+    /** @var int|null $cpuSpikeTimeScore The user experience analytics device CPU spike time score. Valid values 0 to 100 */
     private ?int $cpuSpikeTimeScore = null;
     
-    /**
-     * @var int|null $deviceCount User experience analytics summarized device count.
-    */
+    /** @var int|null $deviceCount User experience analytics summarized device count. */
     private ?int $deviceCount = null;
     
-    /**
-     * @var string|null $deviceId The id of the device.
-    */
+    /** @var string|null $deviceId The id of the device. */
     private ?string $deviceId = null;
     
-    /**
-     * @var string|null $deviceName The name of the device.
-    */
+    /** @var string|null $deviceName The name of the device. */
     private ?string $deviceName = null;
     
-    /**
-     * @var int|null $deviceResourcePerformanceScore Resource performance score of a specific device. Valid values 0 to 100
-    */
+    /** @var int|null $deviceResourcePerformanceScore Resource performance score of a specific device. Valid values 0 to 100 */
     private ?int $deviceResourcePerformanceScore = null;
     
-    /**
-     * @var string|null $manufacturer The user experience analytics device manufacturer.
-    */
+    /** @var string|null $manufacturer The user experience analytics device manufacturer. */
     private ?string $manufacturer = null;
     
-    /**
-     * @var string|null $model The user experience analytics device model.
-    */
+    /** @var string|null $model The user experience analytics device model. */
     private ?string $model = null;
     
-    /**
-     * @var float|null $ramSpikeTimePercentage RAM spike time in percentage. Valid values 0 to 100
-    */
+    /** @var float|null $ramSpikeTimePercentage RAM spike time in percentage. Valid values 0 to 100 */
     private ?float $ramSpikeTimePercentage = null;
     
-    /**
-     * @var float|null $ramSpikeTimePercentageThreshold Threshold of ramSpikeTimeScore. Valid values 0 to 100
-    */
+    /** @var float|null $ramSpikeTimePercentageThreshold Threshold of ramSpikeTimeScore. Valid values 0 to 100 */
     private ?float $ramSpikeTimePercentageThreshold = null;
     
-    /**
-     * @var int|null $ramSpikeTimeScore The user experience analytics device RAM spike time score. Valid values 0 to 100
-    */
+    /** @var int|null $ramSpikeTimeScore The user experience analytics device RAM spike time score. Valid values 0 to 100 */
     private ?int $ramSpikeTimeScore = null;
     
     /**
@@ -85,7 +59,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsResourcePerformance
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsResourcePerformance {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsResourcePerformance {
         return new UserExperienceAnalyticsResourcePerformance();
     }
 
@@ -158,21 +132,20 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'averageSpikeTimeScore' => function (ParseNode $n) use ($o) { $o->setAverageSpikeTimeScore($n->getIntegerValue()); },
-            'cpuSpikeTimePercentage' => function (ParseNode $n) use ($o) { $o->setCpuSpikeTimePercentage($n->getFloatValue()); },
-            'cpuSpikeTimePercentageThreshold' => function (ParseNode $n) use ($o) { $o->setCpuSpikeTimePercentageThreshold($n->getFloatValue()); },
-            'cpuSpikeTimeScore' => function (ParseNode $n) use ($o) { $o->setCpuSpikeTimeScore($n->getIntegerValue()); },
-            'deviceCount' => function (ParseNode $n) use ($o) { $o->setDeviceCount($n->getIntegerValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'deviceResourcePerformanceScore' => function (ParseNode $n) use ($o) { $o->setDeviceResourcePerformanceScore($n->getIntegerValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'ramSpikeTimePercentage' => function (ParseNode $n) use ($o) { $o->setRamSpikeTimePercentage($n->getFloatValue()); },
-            'ramSpikeTimePercentageThreshold' => function (ParseNode $n) use ($o) { $o->setRamSpikeTimePercentageThreshold($n->getFloatValue()); },
-            'ramSpikeTimeScore' => function (ParseNode $n) use ($o) { $o->setRamSpikeTimeScore($n->getIntegerValue()); },
+            'averageSpikeTimeScore' => function (self $o, ParseNode $n) { $o->setAverageSpikeTimeScore($n->getIntegerValue()); },
+            'cpuSpikeTimePercentage' => function (self $o, ParseNode $n) { $o->setCpuSpikeTimePercentage($n->getFloatValue()); },
+            'cpuSpikeTimePercentageThreshold' => function (self $o, ParseNode $n) { $o->setCpuSpikeTimePercentageThreshold($n->getFloatValue()); },
+            'cpuSpikeTimeScore' => function (self $o, ParseNode $n) { $o->setCpuSpikeTimeScore($n->getIntegerValue()); },
+            'deviceCount' => function (self $o, ParseNode $n) { $o->setDeviceCount($n->getIntegerValue()); },
+            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
+            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
+            'deviceResourcePerformanceScore' => function (self $o, ParseNode $n) { $o->setDeviceResourcePerformanceScore($n->getIntegerValue()); },
+            'manufacturer' => function (self $o, ParseNode $n) { $o->setManufacturer($n->getStringValue()); },
+            'model' => function (self $o, ParseNode $n) { $o->setModel($n->getStringValue()); },
+            'ramSpikeTimePercentage' => function (self $o, ParseNode $n) { $o->setRamSpikeTimePercentage($n->getFloatValue()); },
+            'ramSpikeTimePercentageThreshold' => function (self $o, ParseNode $n) { $o->setRamSpikeTimePercentageThreshold($n->getFloatValue()); },
+            'ramSpikeTimeScore' => function (self $o, ParseNode $n) { $o->setRamSpikeTimeScore($n->getIntegerValue()); },
         ]);
     }
 

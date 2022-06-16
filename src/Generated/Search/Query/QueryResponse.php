@@ -10,14 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class QueryResponse implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<SearchResponse>|null $value The value property
-    */
+    /** @var array<SearchResponse>|null $value The value property */
     private ?array $value = null;
     
     /**
@@ -32,7 +28,7 @@ class QueryResponse implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return QueryResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): QueryResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): QueryResponse {
         return new QueryResponse();
     }
 
@@ -49,9 +45,8 @@ class QueryResponse implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(SearchResponse::class, 'createFromDiscriminatorValue'))); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getCollectionOfObjectValues(SearchResponse::class)); },
         ];
     }
 

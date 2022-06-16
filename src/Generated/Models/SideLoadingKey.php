@@ -6,31 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SideLoadingKey extends Entity implements Parsable 
+class SideLoadingKey extends Entity 
 {
-    /**
-     * @var string|null $description Side Loading Key description displayed to the ITPro Admins..
-    */
+    /** @var string|null $description Side Loading Key description displayed to the ITPro Admins.. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName Side Loading Key Name displayed to the ITPro Admins.
-    */
+    /** @var string|null $displayName Side Loading Key Name displayed to the ITPro Admins. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $lastUpdatedDateTime Side Loading Key Last Updated Date displayed to the ITPro Admins.
-    */
+    /** @var string|null $lastUpdatedDateTime Side Loading Key Last Updated Date displayed to the ITPro Admins. */
     private ?string $lastUpdatedDateTime = null;
     
-    /**
-     * @var int|null $totalActivation Side Loading Key Total Activation displayed to the ITPro Admins.
-    */
+    /** @var int|null $totalActivation Side Loading Key Total Activation displayed to the ITPro Admins. */
     private ?int $totalActivation = null;
     
-    /**
-     * @var string|null $value Side Loading Key Value, it is 5x5 value, seperated by hiphens.
-    */
+    /** @var string|null $value Side Loading Key Value, it is 5x5 value, seperated by hiphens. */
     private ?string $value = null;
     
     /**
@@ -45,7 +35,7 @@ class SideLoadingKey extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SideLoadingKey
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SideLoadingKey {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SideLoadingKey {
         return new SideLoadingKey();
     }
 
@@ -70,13 +60,12 @@ class SideLoadingKey extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getStringValue()); },
-            'totalActivation' => function (ParseNode $n) use ($o) { $o->setTotalActivation($n->getIntegerValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastUpdatedDateTime' => function (self $o, ParseNode $n) { $o->setLastUpdatedDateTime($n->getStringValue()); },
+            'totalActivation' => function (self $o, ParseNode $n) { $o->setTotalActivation($n->getIntegerValue()); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getStringValue()); },
         ]);
     }
 

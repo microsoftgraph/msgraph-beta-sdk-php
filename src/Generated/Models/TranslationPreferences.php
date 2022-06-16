@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TranslationPreferences implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<TranslationLanguageOverride>|null $languageOverrides Translation override behavior for languages, if any.Returned by default.
-    */
+    /** @var array<TranslationLanguageOverride>|null $languageOverrides Translation override behavior for languages, if any.Returned by default. */
     private ?array $languageOverrides = null;
     
-    /**
-     * @var TranslationBehavior|null $translationBehavior The user's preferred translation behavior.Returned by default. Not nullable.
-    */
+    /** @var TranslationBehavior|null $translationBehavior The user's preferred translation behavior.Returned by default. Not nullable. */
     private ?TranslationBehavior $translationBehavior = null;
     
-    /**
-     * @var array<string>|null $untranslatedLanguages The list of languages the user does not need translated. This is computed from the authoringLanguages collection in regionalAndLanguageSettings, and the languageOverrides collection in translationPreferences. The list specifies neutral culture values that include the language code without any country or region association. For example, it would specify 'fr' for the neutral French culture, but not 'fr-FR' for the French culture in France. Returned by default. Read only.
-    */
+    /** @var array<string>|null $untranslatedLanguages The list of languages the user does not need translated. This is computed from the authoringLanguages collection in regionalAndLanguageSettings, and the languageOverrides collection in translationPreferences. The list specifies neutral culture values that include the language code without any country or region association. For example, it would specify 'fr' for the neutral French culture, but not 'fr-FR' for the French culture in France. Returned by default. Read only. */
     private ?array $untranslatedLanguages = null;
     
     /**
@@ -41,7 +33,7 @@ class TranslationPreferences implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TranslationPreferences
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TranslationPreferences {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TranslationPreferences {
         return new TranslationPreferences();
     }
 
@@ -58,11 +50,10 @@ class TranslationPreferences implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'languageOverrides' => function (ParseNode $n) use ($o) { $o->setLanguageOverrides($n->getCollectionOfObjectValues(array(TranslationLanguageOverride::class, 'createFromDiscriminatorValue'))); },
-            'translationBehavior' => function (ParseNode $n) use ($o) { $o->setTranslationBehavior($n->getEnumValue(TranslationBehavior::class)); },
-            'untranslatedLanguages' => function (ParseNode $n) use ($o) { $o->setUntranslatedLanguages($n->getCollectionOfPrimitiveValues()); },
+            'languageOverrides' => function (self $o, ParseNode $n) { $o->setLanguageOverrides($n->getCollectionOfObjectValues(TranslationLanguageOverride::class)); },
+            'translationBehavior' => function (self $o, ParseNode $n) { $o->setTranslationBehavior($n->getEnumValue(TranslationBehavior::class)); },
+            'untranslatedLanguages' => function (self $o, ParseNode $n) { $o->setUntranslatedLanguages($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

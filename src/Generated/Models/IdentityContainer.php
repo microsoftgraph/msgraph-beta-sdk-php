@@ -9,49 +9,31 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class IdentityContainer implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<IdentityApiConnector>|null $apiConnectors Represents entry point for API connectors.
-    */
+    /** @var array<IdentityApiConnector>|null $apiConnectors Represents entry point for API connectors. */
     private ?array $apiConnectors = null;
     
-    /**
-     * @var array<B2cIdentityUserFlow>|null $b2cUserFlows Represents entry point for B2C identity userflows.
-    */
+    /** @var array<B2cIdentityUserFlow>|null $b2cUserFlows Represents entry point for B2C identity userflows. */
     private ?array $b2cUserFlows = null;
     
-    /**
-     * @var array<B2xIdentityUserFlow>|null $b2xUserFlows Represents entry point for B2X and self-service sign-up identity userflows.
-    */
+    /** @var array<B2xIdentityUserFlow>|null $b2xUserFlows Represents entry point for B2X/self-service sign-up identity userflows. */
     private ?array $b2xUserFlows = null;
     
-    /**
-     * @var ConditionalAccessRoot|null $conditionalAccess the entry point for the Conditional Access (CA) object model.
-    */
+    /** @var ConditionalAccessRoot|null $conditionalAccess the entry point for the Conditional Access (CA) object model. */
     private ?ConditionalAccessRoot $conditionalAccess = null;
     
-    /**
-     * @var ContinuousAccessEvaluationPolicy|null $continuousAccessEvaluationPolicy Represents entry point for continuous access evaluation policy.
-    */
+    /** @var ContinuousAccessEvaluationPolicy|null $continuousAccessEvaluationPolicy Represents entry point for continuous access evaluation policy. */
     private ?ContinuousAccessEvaluationPolicy $continuousAccessEvaluationPolicy = null;
     
-    /**
-     * @var array<IdentityProviderBase>|null $identityProviders Represents entry point for identity provider base.
-    */
+    /** @var array<IdentityProviderBase>|null $identityProviders Represents entry point for identity provider base. */
     private ?array $identityProviders = null;
     
-    /**
-     * @var array<IdentityUserFlowAttribute>|null $userFlowAttributes Represents entry point for identity userflow attributes.
-    */
+    /** @var array<IdentityUserFlowAttribute>|null $userFlowAttributes Represents entry point for identity userflow attributes. */
     private ?array $userFlowAttributes = null;
     
-    /**
-     * @var array<IdentityUserFlow>|null $userFlows The userFlows property
-    */
+    /** @var array<IdentityUserFlow>|null $userFlows The userFlows property */
     private ?array $userFlows = null;
     
     /**
@@ -66,7 +48,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return IdentityContainer
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): IdentityContainer {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): IdentityContainer {
         return new IdentityContainer();
     }
 
@@ -95,7 +77,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the b2xUserFlows property value. Represents entry point for B2X and self-service sign-up identity userflows.
+     * Gets the b2xUserFlows property value. Represents entry point for B2X/self-service sign-up identity userflows.
      * @return array<B2xIdentityUserFlow>|null
     */
     public function getB2xUserFlows(): ?array {
@@ -123,16 +105,15 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'apiConnectors' => function (ParseNode $n) use ($o) { $o->setApiConnectors($n->getCollectionOfObjectValues(array(IdentityApiConnector::class, 'createFromDiscriminatorValue'))); },
-            'b2cUserFlows' => function (ParseNode $n) use ($o) { $o->setB2cUserFlows($n->getCollectionOfObjectValues(array(B2cIdentityUserFlow::class, 'createFromDiscriminatorValue'))); },
-            'b2xUserFlows' => function (ParseNode $n) use ($o) { $o->setB2xUserFlows($n->getCollectionOfObjectValues(array(B2xIdentityUserFlow::class, 'createFromDiscriminatorValue'))); },
-            'conditionalAccess' => function (ParseNode $n) use ($o) { $o->setConditionalAccess($n->getObjectValue(array(ConditionalAccessRoot::class, 'createFromDiscriminatorValue'))); },
-            'continuousAccessEvaluationPolicy' => function (ParseNode $n) use ($o) { $o->setContinuousAccessEvaluationPolicy($n->getObjectValue(array(ContinuousAccessEvaluationPolicy::class, 'createFromDiscriminatorValue'))); },
-            'identityProviders' => function (ParseNode $n) use ($o) { $o->setIdentityProviders($n->getCollectionOfObjectValues(array(IdentityProviderBase::class, 'createFromDiscriminatorValue'))); },
-            'userFlowAttributes' => function (ParseNode $n) use ($o) { $o->setUserFlowAttributes($n->getCollectionOfObjectValues(array(IdentityUserFlowAttribute::class, 'createFromDiscriminatorValue'))); },
-            'userFlows' => function (ParseNode $n) use ($o) { $o->setUserFlows($n->getCollectionOfObjectValues(array(IdentityUserFlow::class, 'createFromDiscriminatorValue'))); },
+            'apiConnectors' => function (self $o, ParseNode $n) { $o->setApiConnectors($n->getCollectionOfObjectValues(IdentityApiConnector::class)); },
+            'b2cUserFlows' => function (self $o, ParseNode $n) { $o->setB2cUserFlows($n->getCollectionOfObjectValues(B2cIdentityUserFlow::class)); },
+            'b2xUserFlows' => function (self $o, ParseNode $n) { $o->setB2xUserFlows($n->getCollectionOfObjectValues(B2xIdentityUserFlow::class)); },
+            'conditionalAccess' => function (self $o, ParseNode $n) { $o->setConditionalAccess($n->getObjectValue(ConditionalAccessRoot::class)); },
+            'continuousAccessEvaluationPolicy' => function (self $o, ParseNode $n) { $o->setContinuousAccessEvaluationPolicy($n->getObjectValue(ContinuousAccessEvaluationPolicy::class)); },
+            'identityProviders' => function (self $o, ParseNode $n) { $o->setIdentityProviders($n->getCollectionOfObjectValues(IdentityProviderBase::class)); },
+            'userFlowAttributes' => function (self $o, ParseNode $n) { $o->setUserFlowAttributes($n->getCollectionOfObjectValues(IdentityUserFlowAttribute::class)); },
+            'userFlows' => function (self $o, ParseNode $n) { $o->setUserFlows($n->getCollectionOfObjectValues(IdentityUserFlow::class)); },
         ];
     }
 
@@ -201,7 +182,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the b2xUserFlows property value. Represents entry point for B2X and self-service sign-up identity userflows.
+     * Sets the b2xUserFlows property value. Represents entry point for B2X/self-service sign-up identity userflows.
      *  @param array<B2xIdentityUserFlow>|null $value Value to set for the b2xUserFlows property.
     */
     public function setB2xUserFlows(?array $value ): void {

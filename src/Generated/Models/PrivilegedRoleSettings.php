@@ -7,56 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PrivilegedRoleSettings extends Entity implements Parsable 
+class PrivilegedRoleSettings extends Entity 
 {
-    /**
-     * @var bool|null $approvalOnElevation true if the approval is required when activate the role. false if the approval is not required when activate the role.
-    */
+    /** @var bool|null $approvalOnElevation true if the approval is required when activate the role. false if the approval is not required when activate the role. */
     private ?bool $approvalOnElevation = null;
     
-    /**
-     * @var array<string>|null $approverIds List of Approval ids, if approval is required for activation.
-    */
+    /** @var array<string>|null $approverIds List of Approval ids, if approval is required for activation. */
     private ?array $approverIds = null;
     
-    /**
-     * @var DateInterval|null $elevationDuration The duration when the role is activated.
-    */
+    /** @var DateInterval|null $elevationDuration The duration when the role is activated. */
     private ?DateInterval $elevationDuration = null;
     
-    /**
-     * @var bool|null $isMfaOnElevationConfigurable true if mfaOnElevation is configurable. false if mfaOnElevation is not configurable.
-    */
+    /** @var bool|null $isMfaOnElevationConfigurable true if mfaOnElevation is configurable. false if mfaOnElevation is not configurable. */
     private ?bool $isMfaOnElevationConfigurable = null;
     
-    /**
-     * @var bool|null $lastGlobalAdmin Internal used only.
-    */
+    /** @var bool|null $lastGlobalAdmin Internal used only. */
     private ?bool $lastGlobalAdmin = null;
     
-    /**
-     * @var DateInterval|null $maxElavationDuration Maximal duration for the activated role.
-    */
+    /** @var DateInterval|null $maxElavationDuration Maximal duration for the activated role. */
     private ?DateInterval $maxElavationDuration = null;
     
-    /**
-     * @var bool|null $mfaOnElevation true if MFA is required to activate the role. false if MFA is not required to activate the role.
-    */
+    /** @var bool|null $mfaOnElevation true if MFA is required to activate the role. false if MFA is not required to activate the role. */
     private ?bool $mfaOnElevation = null;
     
-    /**
-     * @var DateInterval|null $minElevationDuration Minimal duration for the activated role.
-    */
+    /** @var DateInterval|null $minElevationDuration Minimal duration for the activated role. */
     private ?DateInterval $minElevationDuration = null;
     
-    /**
-     * @var bool|null $notificationToUserOnElevation true if send notification to the end user when the role is activated. false if do not send notification when the role is activated.
-    */
+    /** @var bool|null $notificationToUserOnElevation true if send notification to the end user when the role is activated. false if do not send notification when the role is activated. */
     private ?bool $notificationToUserOnElevation = null;
     
-    /**
-     * @var bool|null $ticketingInfoOnElevation true if the ticketing information is required when activate the role. false if the ticketing information is not required when activate the role.
-    */
+    /** @var bool|null $ticketingInfoOnElevation true if the ticketing information is required when activate the role. false if the ticketing information is not required when activate the role. */
     private ?bool $ticketingInfoOnElevation = null;
     
     /**
@@ -71,7 +51,7 @@ class PrivilegedRoleSettings extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrivilegedRoleSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedRoleSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedRoleSettings {
         return new PrivilegedRoleSettings();
     }
 
@@ -104,18 +84,17 @@ class PrivilegedRoleSettings extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'approvalOnElevation' => function (ParseNode $n) use ($o) { $o->setApprovalOnElevation($n->getBooleanValue()); },
-            'approverIds' => function (ParseNode $n) use ($o) { $o->setApproverIds($n->getCollectionOfPrimitiveValues()); },
-            'elevationDuration' => function (ParseNode $n) use ($o) { $o->setElevationDuration($n->getDateIntervalValue()); },
-            'isMfaOnElevationConfigurable' => function (ParseNode $n) use ($o) { $o->setIsMfaOnElevationConfigurable($n->getBooleanValue()); },
-            'lastGlobalAdmin' => function (ParseNode $n) use ($o) { $o->setLastGlobalAdmin($n->getBooleanValue()); },
-            'maxElavationDuration' => function (ParseNode $n) use ($o) { $o->setMaxElavationDuration($n->getDateIntervalValue()); },
-            'mfaOnElevation' => function (ParseNode $n) use ($o) { $o->setMfaOnElevation($n->getBooleanValue()); },
-            'minElevationDuration' => function (ParseNode $n) use ($o) { $o->setMinElevationDuration($n->getDateIntervalValue()); },
-            'notificationToUserOnElevation' => function (ParseNode $n) use ($o) { $o->setNotificationToUserOnElevation($n->getBooleanValue()); },
-            'ticketingInfoOnElevation' => function (ParseNode $n) use ($o) { $o->setTicketingInfoOnElevation($n->getBooleanValue()); },
+            'approvalOnElevation' => function (self $o, ParseNode $n) { $o->setApprovalOnElevation($n->getBooleanValue()); },
+            'approverIds' => function (self $o, ParseNode $n) { $o->setApproverIds($n->getCollectionOfPrimitiveValues()); },
+            'elevationDuration' => function (self $o, ParseNode $n) { $o->setElevationDuration($n->getDateIntervalValue()); },
+            'isMfaOnElevationConfigurable' => function (self $o, ParseNode $n) { $o->setIsMfaOnElevationConfigurable($n->getBooleanValue()); },
+            'lastGlobalAdmin' => function (self $o, ParseNode $n) { $o->setLastGlobalAdmin($n->getBooleanValue()); },
+            'maxElavationDuration' => function (self $o, ParseNode $n) { $o->setMaxElavationDuration($n->getDateIntervalValue()); },
+            'mfaOnElevation' => function (self $o, ParseNode $n) { $o->setMfaOnElevation($n->getBooleanValue()); },
+            'minElevationDuration' => function (self $o, ParseNode $n) { $o->setMinElevationDuration($n->getDateIntervalValue()); },
+            'notificationToUserOnElevation' => function (self $o, ParseNode $n) { $o->setNotificationToUserOnElevation($n->getBooleanValue()); },
+            'ticketingInfoOnElevation' => function (self $o, ParseNode $n) { $o->setTicketingInfoOnElevation($n->getBooleanValue()); },
         ]);
     }
 

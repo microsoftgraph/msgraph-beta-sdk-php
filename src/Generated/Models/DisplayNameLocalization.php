@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DisplayNameLocalization implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName If present, the value of this field contains the displayName string that has been set for the language present in the languageTag field.
-    */
+    /** @var string|null $displayName If present, the value of this field contains the displayName string that has been set for the language present in the languageTag field. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $languageTag Provides the language culture-code and friendly name of the language that the displayName field has been provided in.
-    */
+    /** @var string|null $languageTag Provides the language culture-code and friendly name of the language that the displayName field has been provided in. */
     private ?string $languageTag = null;
     
     /**
@@ -36,7 +30,7 @@ class DisplayNameLocalization implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DisplayNameLocalization
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DisplayNameLocalization {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DisplayNameLocalization {
         return new DisplayNameLocalization();
     }
 
@@ -61,10 +55,9 @@ class DisplayNameLocalization implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'languageTag' => function (ParseNode $n) use ($o) { $o->setLanguageTag($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'languageTag' => function (self $o, ParseNode $n) { $o->setLanguageTag($n->getStringValue()); },
         ];
     }
 

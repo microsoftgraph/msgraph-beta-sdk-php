@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class OutOfOfficeSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $isOutOfOffice True if either:It is currently in the out of office time window configured on the Outlook or Teams client.There is currently an event on the user's calendar that's marked as Show as Out of OfficeOtherwise, false.
-    */
+    /** @var bool|null $isOutOfOffice True if either:It is currently in the out of office time window configured on the Outlook or Teams client.There is currently an event on the user's calendar that's marked as Show as Out of OfficeOtherwise, false. */
     private ?bool $isOutOfOffice = null;
     
-    /**
-     * @var string|null $message The out of office message that the user configured on Outlook client (Automatic Replies (Out of Office)) or the Teams client (Schedule out of office).
-    */
+    /** @var string|null $message The out of office message that the user configured on Outlook client (Automatic Replies (Out of Office)) or the Teams client (Schedule out of office). */
     private ?string $message = null;
     
     /**
@@ -36,7 +30,7 @@ class OutOfOfficeSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OutOfOfficeSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OutOfOfficeSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OutOfOfficeSettings {
         return new OutOfOfficeSettings();
     }
 
@@ -53,10 +47,9 @@ class OutOfOfficeSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'isOutOfOffice' => function (ParseNode $n) use ($o) { $o->setIsOutOfOffice($n->getBooleanValue()); },
-            'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
+            'isOutOfOffice' => function (self $o, ParseNode $n) { $o->setIsOutOfOffice($n->getBooleanValue()); },
+            'message' => function (self $o, ParseNode $n) { $o->setMessage($n->getStringValue()); },
         ];
     }
 

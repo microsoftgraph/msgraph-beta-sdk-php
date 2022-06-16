@@ -9,18 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SuggestedEnrollmentLimit implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $suggestedDailyLimit The suggested enrollment limit within a day
-    */
+    /** @var int|null $suggestedDailyLimit The suggested enrollment limit within a day */
     private ?int $suggestedDailyLimit = null;
     
     /**
-     * Instantiates a new SuggestedEnrollmentLimit and sets the default values.
+     * Instantiates a new suggestedEnrollmentLimit and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -31,7 +27,7 @@ class SuggestedEnrollmentLimit implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SuggestedEnrollmentLimit
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SuggestedEnrollmentLimit {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SuggestedEnrollmentLimit {
         return new SuggestedEnrollmentLimit();
     }
 
@@ -48,9 +44,8 @@ class SuggestedEnrollmentLimit implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'suggestedDailyLimit' => function (ParseNode $n) use ($o) { $o->setSuggestedDailyLimit($n->getIntegerValue()); },
+            'suggestedDailyLimit' => function (self $o, ParseNode $n) { $o->setSuggestedDailyLimit($n->getIntegerValue()); },
         ];
     }
 

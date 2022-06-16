@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookFilter extends Entity implements Parsable 
+class WorkbookFilter extends Entity 
 {
-    /**
-     * @var WorkbookFilterCriteria|null $criteria The currently applied filter on the given column. Read-only.
-    */
+    /** @var WorkbookFilterCriteria|null $criteria The currently applied filter on the given column. Read-only. */
     private ?WorkbookFilterCriteria $criteria = null;
     
     /**
@@ -25,7 +23,7 @@ class WorkbookFilter extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookFilter
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookFilter {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookFilter {
         return new WorkbookFilter();
     }
 
@@ -42,9 +40,8 @@ class WorkbookFilter extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'criteria' => function (ParseNode $n) use ($o) { $o->setCriteria($n->getObjectValue(array(WorkbookFilterCriteria::class, 'createFromDiscriminatorValue'))); },
+            'criteria' => function (self $o, ParseNode $n) { $o->setCriteria($n->getObjectValue(WorkbookFilterCriteria::class)); },
         ]);
     }
 

@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PlannerGroup extends Entity implements Parsable 
+class PlannerGroup extends Entity 
 {
-    /**
-     * @var array<PlannerPlan>|null $plans Read-only. Nullable. Returns the plannerPlans owned by the group.
-    */
+    /** @var array<PlannerPlan>|null $plans Read-only. Nullable. Returns the plannerPlans owned by the group. */
     private ?array $plans = null;
     
     /**
@@ -25,7 +23,7 @@ class PlannerGroup extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PlannerGroup
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PlannerGroup {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PlannerGroup {
         return new PlannerGroup();
     }
 
@@ -34,9 +32,8 @@ class PlannerGroup extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'plans' => function (ParseNode $n) use ($o) { $o->setPlans($n->getCollectionOfObjectValues(array(PlannerPlan::class, 'createFromDiscriminatorValue'))); },
+            'plans' => function (self $o, ParseNode $n) { $o->setPlans($n->getCollectionOfObjectValues(PlannerPlan::class)); },
         ]);
     }
 

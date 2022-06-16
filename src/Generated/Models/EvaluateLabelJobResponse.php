@@ -6,15 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EvaluateLabelJobResponse extends JobResponseBase implements Parsable 
+class EvaluateLabelJobResponse extends JobResponseBase 
 {
-    /**
-     * @var EvaluateLabelJobResultGroup|null $result The result property
-    */
+    /** @var EvaluateLabelJobResultGroup|null $result The result property */
     private ?EvaluateLabelJobResultGroup $result = null;
     
     /**
-     * Instantiates a new EvaluateLabelJobResponse and sets the default values.
+     * Instantiates a new evaluateLabelJobResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,7 +23,7 @@ class EvaluateLabelJobResponse extends JobResponseBase implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EvaluateLabelJobResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EvaluateLabelJobResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EvaluateLabelJobResponse {
         return new EvaluateLabelJobResponse();
     }
 
@@ -34,9 +32,8 @@ class EvaluateLabelJobResponse extends JobResponseBase implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'result' => function (ParseNode $n) use ($o) { $o->setResult($n->getObjectValue(array(EvaluateLabelJobResultGroup::class, 'createFromDiscriminatorValue'))); },
+            'result' => function (self $o, ParseNode $n) { $o->setResult($n->getObjectValue(EvaluateLabelJobResultGroup::class)); },
         ]);
     }
 

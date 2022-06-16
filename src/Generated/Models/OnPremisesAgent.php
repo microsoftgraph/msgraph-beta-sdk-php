@@ -6,31 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OnPremisesAgent extends Entity implements Parsable 
+class OnPremisesAgent extends Entity 
 {
-    /**
-     * @var array<OnPremisesAgentGroup>|null $agentGroups List of onPremisesAgentGroups that an onPremisesAgent is assigned to. Read-only. Nullable.
-    */
+    /** @var array<OnPremisesAgentGroup>|null $agentGroups List of onPremisesAgentGroups that an onPremisesAgent is assigned to. Read-only. Nullable. */
     private ?array $agentGroups = null;
     
-    /**
-     * @var string|null $externalIp The external IP address as detected by the service for the agent machine. Read-only
-    */
+    /** @var string|null $externalIp The external IP address as detected by the service for the agent machine. Read-only */
     private ?string $externalIp = null;
     
-    /**
-     * @var string|null $machineName The name of the machine that the aggent is running on. Read-only
-    */
+    /** @var string|null $machineName The name of the machine that the aggent is running on. Read-only */
     private ?string $machineName = null;
     
-    /**
-     * @var AgentStatus|null $status Possible values are: active, inactive.
-    */
+    /** @var AgentStatus|null $status Possible values are: active, inactive. */
     private ?AgentStatus $status = null;
     
-    /**
-     * @var array<string>|null $supportedPublishingTypes The supportedPublishingTypes property
-    */
+    /** @var array<OnPremisesPublishingType>|null $supportedPublishingTypes The supportedPublishingTypes property */
     private ?array $supportedPublishingTypes = null;
     
     /**
@@ -45,7 +35,7 @@ class OnPremisesAgent extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OnPremisesAgent
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OnPremisesAgent {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OnPremisesAgent {
         return new OnPremisesAgent();
     }
 
@@ -70,13 +60,12 @@ class OnPremisesAgent extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'agentGroups' => function (ParseNode $n) use ($o) { $o->setAgentGroups($n->getCollectionOfObjectValues(array(OnPremisesAgentGroup::class, 'createFromDiscriminatorValue'))); },
-            'externalIp' => function (ParseNode $n) use ($o) { $o->setExternalIp($n->getStringValue()); },
-            'machineName' => function (ParseNode $n) use ($o) { $o->setMachineName($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(AgentStatus::class)); },
-            'supportedPublishingTypes' => function (ParseNode $n) use ($o) { $o->setSupportedPublishingTypes($n->getCollectionOfPrimitiveValues()); },
+            'agentGroups' => function (self $o, ParseNode $n) { $o->setAgentGroups($n->getCollectionOfObjectValues(OnPremisesAgentGroup::class)); },
+            'externalIp' => function (self $o, ParseNode $n) { $o->setExternalIp($n->getStringValue()); },
+            'machineName' => function (self $o, ParseNode $n) { $o->setMachineName($n->getStringValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(AgentStatus::class)); },
+            'supportedPublishingTypes' => function (self $o, ParseNode $n) { $o->setSupportedPublishingTypes($n->getCollectionOfEnumValues(OnPremisesPublishingType::class)); },
         ]);
     }
 
@@ -98,7 +87,7 @@ class OnPremisesAgent extends Entity implements Parsable
 
     /**
      * Gets the supportedPublishingTypes property value. The supportedPublishingTypes property
-     * @return array<string>|null
+     * @return array<OnPremisesPublishingType>|null
     */
     public function getSupportedPublishingTypes(): ?array {
         return $this->supportedPublishingTypes;
@@ -114,7 +103,7 @@ class OnPremisesAgent extends Entity implements Parsable
         $writer->writeStringValue('externalIp', $this->externalIp);
         $writer->writeStringValue('machineName', $this->machineName);
         $writer->writeEnumValue('status', $this->status);
-        $writer->writeCollectionOfPrimitiveValues('supportedPublishingTypes', $this->supportedPublishingTypes);
+        $writer->writeCollectionOfEnumValues('supportedPublishingTypes', $this->supportedPublishingTypes);
     }
 
     /**
@@ -151,7 +140,7 @@ class OnPremisesAgent extends Entity implements Parsable
 
     /**
      * Sets the supportedPublishingTypes property value. The supportedPublishingTypes property
-     *  @param array<string>|null $value Value to set for the supportedPublishingTypes property.
+     *  @param array<OnPremisesPublishingType>|null $value Value to set for the supportedPublishingTypes property.
     */
     public function setSupportedPublishingTypes(?array $value ): void {
         $this->supportedPublishingTypes = $value;

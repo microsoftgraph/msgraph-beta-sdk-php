@@ -7,61 +7,39 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPcAuditEvent extends Entity implements Parsable 
+class CloudPcAuditEvent extends Entity 
 {
-    /**
-     * @var string|null $activity Friendly name of the activity. Optional.
-    */
+    /** @var string|null $activity Friendly name of the activity. Optional. */
     private ?string $activity = null;
     
-    /**
-     * @var DateTime|null $activityDateTime The date time in UTC when the activity was performed. Read-only.
-    */
+    /** @var DateTime|null $activityDateTime The date time in UTC when the activity was performed. Read-only. */
     private ?DateTime $activityDateTime = null;
     
-    /**
-     * @var CloudPcAuditActivityOperationType|null $activityOperationType The HTTP operation type of the activity. Possible values include create, delete, patch and other. Read-only.
-    */
+    /** @var CloudPcAuditActivityOperationType|null $activityOperationType The HTTP operation type of the activity. Possible values include create, delete, patch and other. Read-only. */
     private ?CloudPcAuditActivityOperationType $activityOperationType = null;
     
-    /**
-     * @var CloudPcAuditActivityResult|null $activityResult The result of the activity. Read-only.
-    */
+    /** @var CloudPcAuditActivityResult|null $activityResult The result of the activity. Read-only. */
     private ?CloudPcAuditActivityResult $activityResult = null;
     
-    /**
-     * @var string|null $activityType The type of activity that was performed. Read-only.
-    */
+    /** @var string|null $activityType The type of activity that was performed. Read-only. */
     private ?string $activityType = null;
     
-    /**
-     * @var CloudPcAuditActor|null $actor The actor property
-    */
+    /** @var CloudPcAuditActor|null $actor The actor property */
     private ?CloudPcAuditActor $actor = null;
     
-    /**
-     * @var CloudPcAuditCategory|null $category Audit category. Read-only.
-    */
+    /** @var CloudPcAuditCategory|null $category Audit category. Read-only. */
     private ?CloudPcAuditCategory $category = null;
     
-    /**
-     * @var string|null $componentName Component name. Read-only.
-    */
+    /** @var string|null $componentName Component name. Read-only. */
     private ?string $componentName = null;
     
-    /**
-     * @var string|null $correlationId The client request identifier, used to correlate activity within the system. Read-only.
-    */
+    /** @var string|null $correlationId The client request identifier, used to correlate activity within the system. Read-only. */
     private ?string $correlationId = null;
     
-    /**
-     * @var string|null $displayName Event display name. Read-only.
-    */
+    /** @var string|null $displayName Event display name. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<CloudPcAuditResource>|null $resources List of cloudPcAuditResource objects. Read-only.
-    */
+    /** @var array<CloudPcAuditResource>|null $resources List of cloudPcAuditResource objects. Read-only. */
     private ?array $resources = null;
     
     /**
@@ -76,7 +54,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcAuditEvent
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcAuditEvent {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcAuditEvent {
         return new CloudPcAuditEvent();
     }
 
@@ -165,19 +143,18 @@ class CloudPcAuditEvent extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activity' => function (ParseNode $n) use ($o) { $o->setActivity($n->getStringValue()); },
-            'activityDateTime' => function (ParseNode $n) use ($o) { $o->setActivityDateTime($n->getDateTimeValue()); },
-            'activityOperationType' => function (ParseNode $n) use ($o) { $o->setActivityOperationType($n->getEnumValue(CloudPcAuditActivityOperationType::class)); },
-            'activityResult' => function (ParseNode $n) use ($o) { $o->setActivityResult($n->getEnumValue(CloudPcAuditActivityResult::class)); },
-            'activityType' => function (ParseNode $n) use ($o) { $o->setActivityType($n->getStringValue()); },
-            'actor' => function (ParseNode $n) use ($o) { $o->setActor($n->getObjectValue(array(CloudPcAuditActor::class, 'createFromDiscriminatorValue'))); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(CloudPcAuditCategory::class)); },
-            'componentName' => function (ParseNode $n) use ($o) { $o->setComponentName($n->getStringValue()); },
-            'correlationId' => function (ParseNode $n) use ($o) { $o->setCorrelationId($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'resources' => function (ParseNode $n) use ($o) { $o->setResources($n->getCollectionOfObjectValues(array(CloudPcAuditResource::class, 'createFromDiscriminatorValue'))); },
+            'activity' => function (self $o, ParseNode $n) { $o->setActivity($n->getStringValue()); },
+            'activityDateTime' => function (self $o, ParseNode $n) { $o->setActivityDateTime($n->getDateTimeValue()); },
+            'activityOperationType' => function (self $o, ParseNode $n) { $o->setActivityOperationType($n->getEnumValue(CloudPcAuditActivityOperationType::class)); },
+            'activityResult' => function (self $o, ParseNode $n) { $o->setActivityResult($n->getEnumValue(CloudPcAuditActivityResult::class)); },
+            'activityType' => function (self $o, ParseNode $n) { $o->setActivityType($n->getStringValue()); },
+            'actor' => function (self $o, ParseNode $n) { $o->setActor($n->getObjectValue(CloudPcAuditActor::class)); },
+            'category' => function (self $o, ParseNode $n) { $o->setCategory($n->getEnumValue(CloudPcAuditCategory::class)); },
+            'componentName' => function (self $o, ParseNode $n) { $o->setComponentName($n->getStringValue()); },
+            'correlationId' => function (self $o, ParseNode $n) { $o->setCorrelationId($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'resources' => function (self $o, ParseNode $n) { $o->setResources($n->getCollectionOfObjectValues(CloudPcAuditResource::class)); },
         ]);
     }
 

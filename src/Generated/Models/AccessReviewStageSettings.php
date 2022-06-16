@@ -10,54 +10,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AccessReviewStageSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<string>|null $decisionsThatWillMoveToNextStage Indicate which decisions will go to the next stage. Can be a sub-set of Approve, Deny, Recommendation, or NotReviewed. If not provided, all decisions will go to the next stage. Optional.
-    */
+    /** @var array<string>|null $decisionsThatWillMoveToNextStage Indicate which decisions will go to the next stage. Can be a sub-set of Approve, Deny, Recommendation, or NotReviewed. If not provided, all decisions will go to the next stage. Optional. */
     private ?array $decisionsThatWillMoveToNextStage = null;
     
-    /**
-     * @var array<string>|null $dependsOn Defines the sequential or parallel order of the stages and depends on the stageId. Only sequential stages are currently supported. For example, if stageId is 2, then dependsOn must be 1. If stageId is 1, do not specify dependsOn. Required if stageId is not 1.
-    */
+    /** @var array<string>|null $dependsOn Defines the sequential or parallel order of the stages and depends on the stageId. Only sequential stages are currently supported. For example, if stageId is 2, then dependsOn must be 1. If stageId is 1, do not specify dependsOn. Required if stageId is not 1. */
     private ?array $dependsOn = null;
     
-    /**
-     * @var int|null $durationInDays The duration of the stage. Required.  NOTE: The cumulative value of this property across all stages  1. Will override the instanceDurationInDays setting on the accessReviewScheduleDefinition object. 2. Cannot exceed the length of one recurrence. That is, if the review recurs weekly, the cumulative durationInDays cannot exceed 7.
-    */
+    /** @var int|null $durationInDays The duration of the stage. Required.  NOTE: The cumulative value of this property across all stages  1. Will override the instanceDurationInDays setting on the accessReviewScheduleDefinition object. 2. Cannot exceed the length of one recurrence. That is, if the review recurs weekly, the cumulative durationInDays cannot exceed 7. */
     private ?int $durationInDays = null;
     
-    /**
-     * @var array<AccessReviewReviewerScope>|null $fallbackReviewers If provided, the fallback reviewers are asked to complete a review if the primary reviewers do not exist. For example, if managers are selected as reviewers and a principal under review does not have a manager in Azure AD, the fallback reviewers are asked to review that principal. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition object.
-    */
+    /** @var array<AccessReviewReviewerScope>|null $fallbackReviewers If provided, the fallback reviewers are asked to complete a review if the primary reviewers do not exist. For example, if managers are selected as reviewers and a principal under review does not have a manager in Azure AD, the fallback reviewers are asked to review that principal. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition object. */
     private ?array $fallbackReviewers = null;
     
-    /**
-     * @var array<AccessReviewRecommendationInsightSetting>|null $recommendationInsightSettings The recommendationInsightSettings property
-    */
+    /** @var array<AccessReviewRecommendationInsightSetting>|null $recommendationInsightSettings The recommendationInsightSettings property */
     private ?array $recommendationInsightSettings = null;
     
-    /**
-     * @var DateInterval|null $recommendationLookBackDuration Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. For reviews of groups and Azure AD roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition object.
-    */
+    /** @var DateInterval|null $recommendationLookBackDuration Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look back duration. For reviews of groups and Azure AD roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition object. */
     private ?DateInterval $recommendationLookBackDuration = null;
     
-    /**
-     * @var bool|null $recommendationsEnabled Indicates whether showing recommendations to reviewers is enabled. Required. NOTE: The value of this property will override override the corresponding setting on the accessReviewScheduleDefinition object.
-    */
+    /** @var bool|null $recommendationsEnabled Indicates whether showing recommendations to reviewers is enabled. Required. NOTE: The value of this property will override override the corresponding setting on the accessReviewScheduleDefinition object. */
     private ?bool $recommendationsEnabled = null;
     
-    /**
-     * @var array<AccessReviewReviewerScope>|null $reviewers Defines who the reviewers are. If none are specified, the review is a self-review (users review their own access).  For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition.
-    */
+    /** @var array<AccessReviewReviewerScope>|null $reviewers Defines who the reviewers are. If none are specified, the review is a self-review (users review their own access).  For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition. */
     private ?array $reviewers = null;
     
-    /**
-     * @var string|null $stageId Unique identifier of the accessReviewStageSettings. The stageId will be used in dependsOn property to indicate the stage relationship. Required.
-    */
+    /** @var string|null $stageId Unique identifier of the accessReviewStageSettings. The stageId will be used in dependsOn property to indicate the stage relationship. Required. */
     private ?string $stageId = null;
     
     /**
@@ -72,7 +52,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessReviewStageSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewStageSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewStageSettings {
         return new AccessReviewStageSettings();
     }
 
@@ -121,17 +101,16 @@ class AccessReviewStageSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'decisionsThatWillMoveToNextStage' => function (ParseNode $n) use ($o) { $o->setDecisionsThatWillMoveToNextStage($n->getCollectionOfPrimitiveValues()); },
-            'dependsOn' => function (ParseNode $n) use ($o) { $o->setDependsOn($n->getCollectionOfPrimitiveValues()); },
-            'durationInDays' => function (ParseNode $n) use ($o) { $o->setDurationInDays($n->getIntegerValue()); },
-            'fallbackReviewers' => function (ParseNode $n) use ($o) { $o->setFallbackReviewers($n->getCollectionOfObjectValues(array(AccessReviewReviewerScope::class, 'createFromDiscriminatorValue'))); },
-            'recommendationInsightSettings' => function (ParseNode $n) use ($o) { $o->setRecommendationInsightSettings($n->getCollectionOfObjectValues(array(AccessReviewRecommendationInsightSetting::class, 'createFromDiscriminatorValue'))); },
-            'recommendationLookBackDuration' => function (ParseNode $n) use ($o) { $o->setRecommendationLookBackDuration($n->getDateIntervalValue()); },
-            'recommendationsEnabled' => function (ParseNode $n) use ($o) { $o->setRecommendationsEnabled($n->getBooleanValue()); },
-            'reviewers' => function (ParseNode $n) use ($o) { $o->setReviewers($n->getCollectionOfObjectValues(array(AccessReviewReviewerScope::class, 'createFromDiscriminatorValue'))); },
-            'stageId' => function (ParseNode $n) use ($o) { $o->setStageId($n->getStringValue()); },
+            'decisionsThatWillMoveToNextStage' => function (self $o, ParseNode $n) { $o->setDecisionsThatWillMoveToNextStage($n->getCollectionOfPrimitiveValues()); },
+            'dependsOn' => function (self $o, ParseNode $n) { $o->setDependsOn($n->getCollectionOfPrimitiveValues()); },
+            'durationInDays' => function (self $o, ParseNode $n) { $o->setDurationInDays($n->getIntegerValue()); },
+            'fallbackReviewers' => function (self $o, ParseNode $n) { $o->setFallbackReviewers($n->getCollectionOfObjectValues(AccessReviewReviewerScope::class)); },
+            'recommendationInsightSettings' => function (self $o, ParseNode $n) { $o->setRecommendationInsightSettings($n->getCollectionOfObjectValues(AccessReviewRecommendationInsightSetting::class)); },
+            'recommendationLookBackDuration' => function (self $o, ParseNode $n) { $o->setRecommendationLookBackDuration($n->getDateIntervalValue()); },
+            'recommendationsEnabled' => function (self $o, ParseNode $n) { $o->setRecommendationsEnabled($n->getBooleanValue()); },
+            'reviewers' => function (self $o, ParseNode $n) { $o->setReviewers($n->getCollectionOfObjectValues(AccessReviewReviewerScope::class)); },
+            'stageId' => function (self $o, ParseNode $n) { $o->setStageId($n->getStringValue()); },
         ];
     }
 

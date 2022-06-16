@@ -9,66 +9,42 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 use Psr\Http\Message\StreamInterface;
 
-class CompanyInformation extends Entity implements Parsable 
+class CompanyInformation extends Entity 
 {
-    /**
-     * @var PostalAddressType|null $address The address property
-    */
+    /** @var PostalAddressType|null $address The address property */
     private ?PostalAddressType $address = null;
     
-    /**
-     * @var string|null $currencyCode The currencyCode property
-    */
+    /** @var string|null $currencyCode The currencyCode property */
     private ?string $currencyCode = null;
     
-    /**
-     * @var Date|null $currentFiscalYearStartDate The currentFiscalYearStartDate property
-    */
+    /** @var Date|null $currentFiscalYearStartDate The currentFiscalYearStartDate property */
     private ?Date $currentFiscalYearStartDate = null;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $email The email property
-    */
+    /** @var string|null $email The email property */
     private ?string $email = null;
     
-    /**
-     * @var string|null $faxNumber The faxNumber property
-    */
+    /** @var string|null $faxNumber The faxNumber property */
     private ?string $faxNumber = null;
     
-    /**
-     * @var string|null $industry The industry property
-    */
+    /** @var string|null $industry The industry property */
     private ?string $industry = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
+    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $phoneNumber The phoneNumber property
-    */
+    /** @var string|null $phoneNumber The phoneNumber property */
     private ?string $phoneNumber = null;
     
-    /**
-     * @var StreamInterface|null $picture The picture property
-    */
+    /** @var StreamInterface|null $picture The picture property */
     private ?StreamInterface $picture = null;
     
-    /**
-     * @var string|null $taxRegistrationNumber The taxRegistrationNumber property
-    */
+    /** @var string|null $taxRegistrationNumber The taxRegistrationNumber property */
     private ?string $taxRegistrationNumber = null;
     
-    /**
-     * @var string|null $website The website property
-    */
+    /** @var string|null $website The website property */
     private ?string $website = null;
     
     /**
@@ -83,7 +59,7 @@ class CompanyInformation extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CompanyInformation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CompanyInformation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CompanyInformation {
         return new CompanyInformation();
     }
 
@@ -140,20 +116,19 @@ class CompanyInformation extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'address' => function (ParseNode $n) use ($o) { $o->setAddress($n->getObjectValue(array(PostalAddressType::class, 'createFromDiscriminatorValue'))); },
-            'currencyCode' => function (ParseNode $n) use ($o) { $o->setCurrencyCode($n->getStringValue()); },
-            'currentFiscalYearStartDate' => function (ParseNode $n) use ($o) { $o->setCurrentFiscalYearStartDate($n->getDateValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
-            'faxNumber' => function (ParseNode $n) use ($o) { $o->setFaxNumber($n->getStringValue()); },
-            'industry' => function (ParseNode $n) use ($o) { $o->setIndustry($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'phoneNumber' => function (ParseNode $n) use ($o) { $o->setPhoneNumber($n->getStringValue()); },
-            'picture' => function (ParseNode $n) use ($o) { $o->setPicture($n->getBinaryContent()); },
-            'taxRegistrationNumber' => function (ParseNode $n) use ($o) { $o->setTaxRegistrationNumber($n->getStringValue()); },
-            'website' => function (ParseNode $n) use ($o) { $o->setWebsite($n->getStringValue()); },
+            'address' => function (self $o, ParseNode $n) { $o->setAddress($n->getObjectValue(PostalAddressType::class)); },
+            'currencyCode' => function (self $o, ParseNode $n) { $o->setCurrencyCode($n->getStringValue()); },
+            'currentFiscalYearStartDate' => function (self $o, ParseNode $n) { $o->setCurrentFiscalYearStartDate($n->getDateValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'email' => function (self $o, ParseNode $n) { $o->setEmail($n->getStringValue()); },
+            'faxNumber' => function (self $o, ParseNode $n) { $o->setFaxNumber($n->getStringValue()); },
+            'industry' => function (self $o, ParseNode $n) { $o->setIndustry($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'phoneNumber' => function (self $o, ParseNode $n) { $o->setPhoneNumber($n->getStringValue()); },
+            'picture' => function (self $o, ParseNode $n) { $o->setPicture($n->getBinaryContent()); },
+            'taxRegistrationNumber' => function (self $o, ParseNode $n) { $o->setTaxRegistrationNumber($n->getStringValue()); },
+            'website' => function (self $o, ParseNode $n) { $o->setWebsite($n->getStringValue()); },
         ]);
     }
 

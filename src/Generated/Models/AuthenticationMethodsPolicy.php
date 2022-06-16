@@ -7,41 +7,27 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AuthenticationMethodsPolicy extends Entity implements Parsable 
+class AuthenticationMethodsPolicy extends Entity 
 {
-    /**
-     * @var array<AuthenticationMethodConfiguration>|null $authenticationMethodConfigurations Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
-    */
+    /** @var array<AuthenticationMethodConfiguration>|null $authenticationMethodConfigurations Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy. */
     private ?array $authenticationMethodConfigurations = null;
     
-    /**
-     * @var string|null $description A description of the policy.
-    */
+    /** @var string|null $description A description of the policy. Read-only. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The name of the policy.
-    */
+    /** @var string|null $displayName The name of the policy. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time of the last update to the policy.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time of the last update to the policy. Read-only. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $policyVersion The version of the policy in use.
-    */
+    /** @var string|null $policyVersion The version of the policy in use. Read-only. */
     private ?string $policyVersion = null;
     
-    /**
-     * @var int|null $reconfirmationInDays The reconfirmationInDays property
-    */
+    /** @var int|null $reconfirmationInDays The reconfirmationInDays property */
     private ?int $reconfirmationInDays = null;
     
-    /**
-     * @var RegistrationEnforcement|null $registrationEnforcement Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods.
-    */
+    /** @var RegistrationEnforcement|null $registrationEnforcement Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods. */
     private ?RegistrationEnforcement $registrationEnforcement = null;
     
     /**
@@ -56,7 +42,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AuthenticationMethodsPolicy
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationMethodsPolicy {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationMethodsPolicy {
         return new AuthenticationMethodsPolicy();
     }
 
@@ -69,7 +55,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. A description of the policy.
+     * Gets the description property value. A description of the policy. Read-only.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -77,7 +63,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The name of the policy.
+     * Gets the displayName property value. The name of the policy. Read-only.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -89,20 +75,19 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationMethodConfigurations' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethodConfigurations($n->getCollectionOfObjectValues(array(AuthenticationMethodConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'policyVersion' => function (ParseNode $n) use ($o) { $o->setPolicyVersion($n->getStringValue()); },
-            'reconfirmationInDays' => function (ParseNode $n) use ($o) { $o->setReconfirmationInDays($n->getIntegerValue()); },
-            'registrationEnforcement' => function (ParseNode $n) use ($o) { $o->setRegistrationEnforcement($n->getObjectValue(array(RegistrationEnforcement::class, 'createFromDiscriminatorValue'))); },
+            'authenticationMethodConfigurations' => function (self $o, ParseNode $n) { $o->setAuthenticationMethodConfigurations($n->getCollectionOfObjectValues(AuthenticationMethodConfiguration::class)); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'policyVersion' => function (self $o, ParseNode $n) { $o->setPolicyVersion($n->getStringValue()); },
+            'reconfirmationInDays' => function (self $o, ParseNode $n) { $o->setReconfirmationInDays($n->getIntegerValue()); },
+            'registrationEnforcement' => function (self $o, ParseNode $n) { $o->setRegistrationEnforcement($n->getObjectValue(RegistrationEnforcement::class)); },
         ]);
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The date and time of the last update to the policy.
+     * Gets the lastModifiedDateTime property value. The date and time of the last update to the policy. Read-only.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -110,7 +95,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the policyVersion property value. The version of the policy in use.
+     * Gets the policyVersion property value. The version of the policy in use. Read-only.
      * @return string|null
     */
     public function getPolicyVersion(): ?string {
@@ -157,7 +142,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. A description of the policy.
+     * Sets the description property value. A description of the policy. Read-only.
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -165,7 +150,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The name of the policy.
+     * Sets the displayName property value. The name of the policy. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -173,7 +158,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The date and time of the last update to the policy.
+     * Sets the lastModifiedDateTime property value. The date and time of the last update to the policy. Read-only.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
@@ -181,7 +166,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the policyVersion property value. The version of the policy in use.
+     * Sets the policyVersion property value. The version of the policy in use. Read-only.
      *  @param string|null $value Value to set for the policyVersion property.
     */
     public function setPolicyVersion(?string $value ): void {

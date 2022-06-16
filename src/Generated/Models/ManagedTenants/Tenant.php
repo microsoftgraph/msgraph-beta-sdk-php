@@ -8,36 +8,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Tenant extends Entity implements Parsable 
+class Tenant extends Entity 
 {
-    /**
-     * @var TenantContract|null $contract The relationship details for the tenant with the managing entity.
-    */
+    /** @var TenantContract|null $contract The relationship details for the tenant with the managing entity. */
     private ?TenantContract $contract = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The date and time the tenant was created in the multi-tenant management platform. Optional. Read-only.
-    */
+    /** @var DateTime|null $createdDateTime The date and time the tenant was created in the multi-tenant management platform. Optional. Read-only. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $displayName The display name for the tenant. Required. Read-only.
-    */
+    /** @var string|null $displayName The display name for the tenant. Required. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastUpdatedDateTime The date and time the tenant was last updated within the multi-tenant management platform. Optional. Read-only.
-    */
+    /** @var DateTime|null $lastUpdatedDateTime The date and time the tenant was last updated within the multi-tenant management platform. Optional. Read-only. */
     private ?DateTime $lastUpdatedDateTime = null;
     
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-    */
+    /** @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only. */
     private ?string $tenantId = null;
     
-    /**
-     * @var TenantStatusInformation|null $tenantStatusInformation The onboarding status information for the tenant. Optional. Read-only.
-    */
+    /** @var TenantStatusInformation|null $tenantStatusInformation The onboarding status information for the tenant. Optional. Read-only. */
     private ?TenantStatusInformation $tenantStatusInformation = null;
     
     /**
@@ -52,7 +40,7 @@ class Tenant extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Tenant
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Tenant {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Tenant {
         return new Tenant();
     }
 
@@ -85,14 +73,13 @@ class Tenant extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contract' => function (ParseNode $n) use ($o) { $o->setContract($n->getObjectValue(array(TenantContract::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
-            'tenantStatusInformation' => function (ParseNode $n) use ($o) { $o->setTenantStatusInformation($n->getObjectValue(array(TenantStatusInformation::class, 'createFromDiscriminatorValue'))); },
+            'contract' => function (self $o, ParseNode $n) { $o->setContract($n->getObjectValue(TenantContract::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastUpdatedDateTime' => function (self $o, ParseNode $n) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
+            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
+            'tenantStatusInformation' => function (self $o, ParseNode $n) { $o->setTenantStatusInformation($n->getObjectValue(TenantStatusInformation::class)); },
         ]);
     }
 

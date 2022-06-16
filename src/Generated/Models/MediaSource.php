@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MediaSource implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var MediaSourceContentCategory|null $contentCategory Enumeration value that indicates the media content category.
-    */
+    /** @var MediaSourceContentCategory|null $contentCategory Enumeration value that indicates the media content category. */
     private ?MediaSourceContentCategory $contentCategory = null;
     
     /**
@@ -31,7 +27,7 @@ class MediaSource implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MediaSource
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MediaSource {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MediaSource {
         return new MediaSource();
     }
 
@@ -56,9 +52,8 @@ class MediaSource implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'contentCategory' => function (ParseNode $n) use ($o) { $o->setContentCategory($n->getEnumValue(MediaSourceContentCategory::class)); },
+            'contentCategory' => function (self $o, ParseNode $n) { $o->setContentCategory($n->getEnumValue(MediaSourceContentCategory::class)); },
         ];
     }
 

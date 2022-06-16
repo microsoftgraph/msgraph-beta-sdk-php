@@ -6,25 +6,19 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PersonAnnotation extends ItemFacet implements Parsable 
+class PersonAnnotation extends ItemFacet 
 {
-    /**
-     * @var ItemBody|null $detail Contains the detail of the note itself.
-    */
+    /** @var ItemBody|null $detail Contains the detail of the note itself. */
     private ?ItemBody $detail = null;
     
-    /**
-     * @var string|null $displayName Contains a friendly name for the note.
-    */
+    /** @var string|null $displayName Contains a friendly name for the note. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $thumbnailUrl The thumbnailUrl property
-    */
+    /** @var string|null $thumbnailUrl The thumbnailUrl property */
     private ?string $thumbnailUrl = null;
     
     /**
-     * Instantiates a new PersonAnnotation and sets the default values.
+     * Instantiates a new personAnnotation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +29,7 @@ class PersonAnnotation extends ItemFacet implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PersonAnnotation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PersonAnnotation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PersonAnnotation {
         return new PersonAnnotation();
     }
 
@@ -60,11 +54,10 @@ class PersonAnnotation extends ItemFacet implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
+            'detail' => function (self $o, ParseNode $n) { $o->setDetail($n->getObjectValue(ItemBody::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'thumbnailUrl' => function (self $o, ParseNode $n) { $o->setThumbnailUrl($n->getStringValue()); },
         ]);
     }
 

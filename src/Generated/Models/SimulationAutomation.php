@@ -7,56 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SimulationAutomation extends Entity implements Parsable 
+class SimulationAutomation extends Entity 
 {
-    /**
-     * @var EmailIdentity|null $createdBy Identity of the user who created the attack simulation automation.
-    */
+    /** @var EmailIdentity|null $createdBy Identity of the user who created the attack simulation automation. */
     private ?EmailIdentity $createdBy = null;
     
-    /**
-     * @var DateTime|null $createdDateTime Date and time when the attack simulation automation was created.
-    */
+    /** @var DateTime|null $createdDateTime Date and time when the attack simulation automation was created. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $description Description of the attack simulation automation.
-    */
+    /** @var string|null $description Description of the attack simulation automation. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName Display name of the attack simulation automation. Supports $filter and $orderby.
-    */
+    /** @var string|null $displayName Display name of the attack simulation automation. Supports $filter and $orderby. */
     private ?string $displayName = null;
     
-    /**
-     * @var EmailIdentity|null $lastModifiedBy Identity of the user who most recently modified the attack simulation automation.
-    */
+    /** @var EmailIdentity|null $lastModifiedBy Identity of the user who most recently modified the attack simulation automation. */
     private ?EmailIdentity $lastModifiedBy = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime Date and time when the attack simulation automation was most recently modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime Date and time when the attack simulation automation was most recently modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var DateTime|null $lastRunDateTime Date and time of the latest run of the attack simulation automation.
-    */
+    /** @var DateTime|null $lastRunDateTime Date and time of the latest run of the attack simulation automation. */
     private ?DateTime $lastRunDateTime = null;
     
-    /**
-     * @var DateTime|null $nextRunDateTime Date and time of the upcoming run of the attack simulation automation.
-    */
+    /** @var DateTime|null $nextRunDateTime Date and time of the upcoming run of the attack simulation automation. */
     private ?DateTime $nextRunDateTime = null;
     
-    /**
-     * @var array<SimulationAutomationRun>|null $runs A collection of simulation automation runs.
-    */
+    /** @var array<SimulationAutomationRun>|null $runs A collection of simulation automation runs. */
     private ?array $runs = null;
     
-    /**
-     * @var SimulationAutomationStatus|null $status Status of the attack simulation automation. Supports $filter and $orderby. The possible values are: unknown, draft, notRunning, running, completed, unknownFutureValue.
-    */
+    /** @var SimulationAutomationStatus|null $status Status of the attack simulation automation. Supports $filter and $orderby. The possible values are: unknown, draft, notRunning, running, completed, unknownFutureValue. */
     private ?SimulationAutomationStatus $status = null;
     
     /**
@@ -71,7 +51,7 @@ class SimulationAutomation extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SimulationAutomation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SimulationAutomation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SimulationAutomation {
         return new SimulationAutomation();
     }
 
@@ -112,18 +92,17 @@ class SimulationAutomation extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(EmailIdentity::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(EmailIdentity::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'lastRunDateTime' => function (ParseNode $n) use ($o) { $o->setLastRunDateTime($n->getDateTimeValue()); },
-            'nextRunDateTime' => function (ParseNode $n) use ($o) { $o->setNextRunDateTime($n->getDateTimeValue()); },
-            'runs' => function (ParseNode $n) use ($o) { $o->setRuns($n->getCollectionOfObjectValues(array(SimulationAutomationRun::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(SimulationAutomationStatus::class)); },
+            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(EmailIdentity::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedBy' => function (self $o, ParseNode $n) { $o->setLastModifiedBy($n->getObjectValue(EmailIdentity::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'lastRunDateTime' => function (self $o, ParseNode $n) { $o->setLastRunDateTime($n->getDateTimeValue()); },
+            'nextRunDateTime' => function (self $o, ParseNode $n) { $o->setNextRunDateTime($n->getDateTimeValue()); },
+            'runs' => function (self $o, ParseNode $n) { $o->setRuns($n->getCollectionOfObjectValues(SimulationAutomationRun::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(SimulationAutomationStatus::class)); },
         ]);
     }
 

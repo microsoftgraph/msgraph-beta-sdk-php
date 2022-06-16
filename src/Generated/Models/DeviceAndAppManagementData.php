@@ -10,18 +10,14 @@ use Psr\Http\Message\StreamInterface;
 
 class DeviceAndAppManagementData implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var StreamInterface|null $content Not yet documented
-    */
+    /** @var StreamInterface|null $content Not yet documented */
     private ?StreamInterface $content = null;
     
     /**
-     * Instantiates a new DeviceAndAppManagementData and sets the default values.
+     * Instantiates a new deviceAndAppManagementData and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -32,7 +28,7 @@ class DeviceAndAppManagementData implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceAndAppManagementData
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAndAppManagementData {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAndAppManagementData {
         return new DeviceAndAppManagementData();
     }
 
@@ -57,9 +53,8 @@ class DeviceAndAppManagementData implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
+            'content' => function (self $o, ParseNode $n) { $o->setContent($n->getBinaryContent()); },
         ];
     }
 

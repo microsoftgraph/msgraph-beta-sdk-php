@@ -7,21 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class NamedLocation extends Entity implements Parsable 
+class NamedLocation extends Entity 
 {
-    /**
-     * @var DateTime|null $createdDateTime The Timestamp type represents creation date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    */
+    /** @var DateTime|null $createdDateTime The Timestamp type represents creation date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $displayName Human-readable name of the location.
-    */
+    /** @var string|null $displayName Human-readable name of the location. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $modifiedDateTime The Timestamp type represents last modified date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    */
+    /** @var DateTime|null $modifiedDateTime The Timestamp type represents last modified date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private ?DateTime $modifiedDateTime = null;
     
     /**
@@ -36,15 +30,7 @@ class NamedLocation extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return NamedLocation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): NamedLocation {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.countryNamedLocation': return new CountryNamedLocation();
-                case '#microsoft.graph.ipNamedLocation': return new IpNamedLocation();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): NamedLocation {
         return new NamedLocation();
     }
 
@@ -69,11 +55,10 @@ class NamedLocation extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'modifiedDateTime' => function (ParseNode $n) use ($o) { $o->setModifiedDateTime($n->getDateTimeValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'modifiedDateTime' => function (self $o, ParseNode $n) { $o->setModifiedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

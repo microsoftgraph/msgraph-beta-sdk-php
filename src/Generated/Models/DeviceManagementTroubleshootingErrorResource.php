@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementTroubleshootingErrorResource implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $link The link to the web resource. Can contain any of the following formatters: {{UPN}}, {{DeviceGUID}}, {{UserGUID}}
-    */
+    /** @var string|null $link The link to the web resource. Can contain any of the following formatters: {{UPN}}, {{DeviceGUID}}, {{UserGUID}} */
     private ?string $link = null;
     
-    /**
-     * @var string|null $text Not yet documented
-    */
+    /** @var string|null $text Not yet documented */
     private ?string $text = null;
     
     /**
@@ -36,7 +30,7 @@ class DeviceManagementTroubleshootingErrorResource implements AdditionalDataHold
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementTroubleshootingErrorResource
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementTroubleshootingErrorResource {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementTroubleshootingErrorResource {
         return new DeviceManagementTroubleshootingErrorResource();
     }
 
@@ -53,10 +47,9 @@ class DeviceManagementTroubleshootingErrorResource implements AdditionalDataHold
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'link' => function (ParseNode $n) use ($o) { $o->setLink($n->getStringValue()); },
-            'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
+            'link' => function (self $o, ParseNode $n) { $o->setLink($n->getStringValue()); },
+            'text' => function (self $o, ParseNode $n) { $o->setText($n->getStringValue()); },
         ];
     }
 

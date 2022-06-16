@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ItemBody implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $content The content of the item.
-    */
+    /** @var string|null $content The content of the item. */
     private ?string $content = null;
     
-    /**
-     * @var BodyType|null $contentType The type of the content. Possible values are text and html.
-    */
+    /** @var BodyType|null $contentType The type of the content. Possible values are text and html. */
     private ?BodyType $contentType = null;
     
     /**
@@ -36,7 +30,7 @@ class ItemBody implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ItemBody
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ItemBody {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ItemBody {
         return new ItemBody();
     }
 
@@ -69,10 +63,9 @@ class ItemBody implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getStringValue()); },
-            'contentType' => function (ParseNode $n) use ($o) { $o->setContentType($n->getEnumValue(BodyType::class)); },
+            'content' => function (self $o, ParseNode $n) { $o->setContent($n->getStringValue()); },
+            'contentType' => function (self $o, ParseNode $n) { $o->setContentType($n->getEnumValue(BodyType::class)); },
         ];
     }
 

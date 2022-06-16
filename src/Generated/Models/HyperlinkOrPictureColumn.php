@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class HyperlinkOrPictureColumn implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $isPicture Specifies whether the display format used for URL columns is an image or a hyperlink.
-    */
+    /** @var bool|null $isPicture Specifies whether the display format used for URL columns is an image or a hyperlink. */
     private ?bool $isPicture = null;
     
     /**
@@ -31,7 +27,7 @@ class HyperlinkOrPictureColumn implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return HyperlinkOrPictureColumn
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): HyperlinkOrPictureColumn {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): HyperlinkOrPictureColumn {
         return new HyperlinkOrPictureColumn();
     }
 
@@ -48,9 +44,8 @@ class HyperlinkOrPictureColumn implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'isPicture' => function (ParseNode $n) use ($o) { $o->setIsPicture($n->getBooleanValue()); },
+            'isPicture' => function (self $o, ParseNode $n) { $o->setIsPicture($n->getBooleanValue()); },
         ];
     }
 

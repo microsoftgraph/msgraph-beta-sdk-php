@@ -6,25 +6,19 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ItemAddress extends ItemFacet implements Parsable 
+class ItemAddress extends ItemFacet 
 {
-    /**
-     * @var PhysicalAddress|null $detail The detail property
-    */
+    /** @var PhysicalAddress|null $detail The detail property */
     private ?PhysicalAddress $detail = null;
     
-    /**
-     * @var string|null $displayName Friendly name the user has assigned to this address.
-    */
+    /** @var string|null $displayName Friendly name the user has assigned to this address. */
     private ?string $displayName = null;
     
-    /**
-     * @var GeoCoordinates|null $geoCoordinates The geocoordinates of the address.
-    */
+    /** @var GeoCoordinates|null $geoCoordinates The geocoordinates of the address. */
     private ?GeoCoordinates $geoCoordinates = null;
     
     /**
-     * Instantiates a new ItemAddress and sets the default values.
+     * Instantiates a new itemAddress and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +29,7 @@ class ItemAddress extends ItemFacet implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ItemAddress
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ItemAddress {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ItemAddress {
         return new ItemAddress();
     }
 
@@ -60,11 +54,10 @@ class ItemAddress extends ItemFacet implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getObjectValue(array(PhysicalAddress::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'geoCoordinates' => function (ParseNode $n) use ($o) { $o->setGeoCoordinates($n->getObjectValue(array(GeoCoordinates::class, 'createFromDiscriminatorValue'))); },
+            'detail' => function (self $o, ParseNode $n) { $o->setDetail($n->getObjectValue(PhysicalAddress::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'geoCoordinates' => function (self $o, ParseNode $n) { $o->setGeoCoordinates($n->getObjectValue(GeoCoordinates::class)); },
         ]);
     }
 

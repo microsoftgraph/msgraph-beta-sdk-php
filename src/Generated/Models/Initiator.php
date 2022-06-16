@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Initiator extends Identity implements Parsable 
+class Initiator extends Identity 
 {
-    /**
-     * @var InitiatorType|null $initiatorType Type of initiator. Possible values are: user, application, system, unknownFutureValue.
-    */
+    /** @var InitiatorType|null $initiatorType Type of initiator. Possible values are: user, application, system, unknownFutureValue. */
     private ?InitiatorType $initiatorType = null;
     
     /**
@@ -25,7 +23,7 @@ class Initiator extends Identity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Initiator
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Initiator {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Initiator {
         return new Initiator();
     }
 
@@ -34,9 +32,8 @@ class Initiator extends Identity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'initiatorType' => function (ParseNode $n) use ($o) { $o->setInitiatorType($n->getEnumValue(InitiatorType::class)); },
+            'initiatorType' => function (self $o, ParseNode $n) { $o->setInitiatorType($n->getEnumValue(InitiatorType::class)); },
         ]);
     }
 

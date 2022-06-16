@@ -9,38 +9,26 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ParseExpressionResponse implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var PublicError|null $error Error details, if expression evaluation resulted in an error.
-    */
+    /** @var PublicError|null $error Error details, if expression evaluation resulted in an error. */
     private ?PublicError $error = null;
     
-    /**
-     * @var array<string>|null $evaluationResult A collection of values produced by the evaluation of the expression.
-    */
+    /** @var array<string>|null $evaluationResult A collection of values produced by the evaluation of the expression. */
     private ?array $evaluationResult = null;
     
-    /**
-     * @var bool|null $evaluationSucceeded true if the evaluation was successful.
-    */
+    /** @var bool|null $evaluationSucceeded true if the evaluation was successful. */
     private ?bool $evaluationSucceeded = null;
     
-    /**
-     * @var AttributeMappingSource|null $parsedExpression An attributeMappingSource object representing the parsed expression.
-    */
+    /** @var AttributeMappingSource|null $parsedExpression An attributeMappingSource object representing the parsed expression. */
     private ?AttributeMappingSource $parsedExpression = null;
     
-    /**
-     * @var bool|null $parsingSucceeded true if the expression was parsed successfully.
-    */
+    /** @var bool|null $parsingSucceeded true if the expression was parsed successfully. */
     private ?bool $parsingSucceeded = null;
     
     /**
-     * Instantiates a new ParseExpressionResponse and sets the default values.
+     * Instantiates a new parseExpressionResponse and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -51,7 +39,7 @@ class ParseExpressionResponse implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ParseExpressionResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ParseExpressionResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ParseExpressionResponse {
         return new ParseExpressionResponse();
     }
 
@@ -92,13 +80,12 @@ class ParseExpressionResponse implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(PublicError::class, 'createFromDiscriminatorValue'))); },
-            'evaluationResult' => function (ParseNode $n) use ($o) { $o->setEvaluationResult($n->getCollectionOfPrimitiveValues()); },
-            'evaluationSucceeded' => function (ParseNode $n) use ($o) { $o->setEvaluationSucceeded($n->getBooleanValue()); },
-            'parsedExpression' => function (ParseNode $n) use ($o) { $o->setParsedExpression($n->getObjectValue(array(AttributeMappingSource::class, 'createFromDiscriminatorValue'))); },
-            'parsingSucceeded' => function (ParseNode $n) use ($o) { $o->setParsingSucceeded($n->getBooleanValue()); },
+            'error' => function (self $o, ParseNode $n) { $o->setError($n->getObjectValue(PublicError::class)); },
+            'evaluationResult' => function (self $o, ParseNode $n) { $o->setEvaluationResult($n->getCollectionOfPrimitiveValues()); },
+            'evaluationSucceeded' => function (self $o, ParseNode $n) { $o->setEvaluationSucceeded($n->getBooleanValue()); },
+            'parsedExpression' => function (self $o, ParseNode $n) { $o->setParsedExpression($n->getObjectValue(AttributeMappingSource::class)); },
+            'parsingSucceeded' => function (self $o, ParseNode $n) { $o->setParsingSucceeded($n->getBooleanValue()); },
         ];
     }
 

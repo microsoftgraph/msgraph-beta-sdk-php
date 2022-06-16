@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ChromeOSDeviceProperty implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $name Name of the property
-    */
+    /** @var string|null $name Name of the property */
     private ?string $name = null;
     
-    /**
-     * @var bool|null $updatable Whether this property is updatable
-    */
+    /** @var bool|null $updatable Whether this property is updatable */
     private ?bool $updatable = null;
     
-    /**
-     * @var string|null $value Value of the property
-    */
+    /** @var string|null $value Value of the property */
     private ?string $value = null;
     
-    /**
-     * @var string|null $valueType Type of the value
-    */
+    /** @var string|null $valueType Type of the value */
     private ?string $valueType = null;
     
     /**
@@ -46,7 +36,7 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ChromeOSDeviceProperty
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ChromeOSDeviceProperty {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ChromeOSDeviceProperty {
         return new ChromeOSDeviceProperty();
     }
 
@@ -63,12 +53,11 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'updatable' => function (ParseNode $n) use ($o) { $o->setUpdatable($n->getBooleanValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
-            'valueType' => function (ParseNode $n) use ($o) { $o->setValueType($n->getStringValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'updatable' => function (self $o, ParseNode $n) { $o->setUpdatable($n->getBooleanValue()); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getStringValue()); },
+            'valueType' => function (self $o, ParseNode $n) { $o->setValueType($n->getStringValue()); },
         ];
     }
 

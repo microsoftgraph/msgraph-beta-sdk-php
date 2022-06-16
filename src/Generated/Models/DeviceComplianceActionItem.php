@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceComplianceActionItem extends Entity implements Parsable 
+class DeviceComplianceActionItem extends Entity 
 {
-    /**
-     * @var DeviceComplianceActionType|null $actionType What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
-    */
+    /** @var DeviceComplianceActionType|null $actionType What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification. */
     private ?DeviceComplianceActionType $actionType = null;
     
-    /**
-     * @var int|null $gracePeriodHours Number of hours to wait till the action will be enforced. Valid values 0 to 8760
-    */
+    /** @var int|null $gracePeriodHours Number of hours to wait till the action will be enforced. Valid values 0 to 8760 */
     private ?int $gracePeriodHours = null;
     
-    /**
-     * @var array<string>|null $notificationMessageCCList A list of group IDs to speicify who to CC this notification message to.
-    */
+    /** @var array<string>|null $notificationMessageCCList A list of group IDs to speicify who to CC this notification message to. */
     private ?array $notificationMessageCCList = null;
     
-    /**
-     * @var string|null $notificationTemplateId What notification Message template to use
-    */
+    /** @var string|null $notificationTemplateId What notification Message template to use */
     private ?string $notificationTemplateId = null;
     
     /**
@@ -40,12 +32,12 @@ class DeviceComplianceActionItem extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceComplianceActionItem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceActionItem {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceActionItem {
         return new DeviceComplianceActionItem();
     }
 
     /**
-     * Gets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
+     * Gets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification.
      * @return DeviceComplianceActionType|null
     */
     public function getActionType(): ?DeviceComplianceActionType {
@@ -57,12 +49,11 @@ class DeviceComplianceActionItem extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionType' => function (ParseNode $n) use ($o) { $o->setActionType($n->getEnumValue(DeviceComplianceActionType::class)); },
-            'gracePeriodHours' => function (ParseNode $n) use ($o) { $o->setGracePeriodHours($n->getIntegerValue()); },
-            'notificationMessageCCList' => function (ParseNode $n) use ($o) { $o->setNotificationMessageCCList($n->getCollectionOfPrimitiveValues()); },
-            'notificationTemplateId' => function (ParseNode $n) use ($o) { $o->setNotificationTemplateId($n->getStringValue()); },
+            'actionType' => function (self $o, ParseNode $n) { $o->setActionType($n->getEnumValue(DeviceComplianceActionType::class)); },
+            'gracePeriodHours' => function (self $o, ParseNode $n) { $o->setGracePeriodHours($n->getIntegerValue()); },
+            'notificationMessageCCList' => function (self $o, ParseNode $n) { $o->setNotificationMessageCCList($n->getCollectionOfPrimitiveValues()); },
+            'notificationTemplateId' => function (self $o, ParseNode $n) { $o->setNotificationTemplateId($n->getStringValue()); },
         ]);
     }
 
@@ -103,7 +94,7 @@ class DeviceComplianceActionItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
+     * Sets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification.
      *  @param DeviceComplianceActionType|null $value Value to set for the actionType property.
     */
     public function setActionType(?DeviceComplianceActionType $value ): void {

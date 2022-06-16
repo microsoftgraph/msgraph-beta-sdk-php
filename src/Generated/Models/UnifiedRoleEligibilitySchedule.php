@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase implements Parsable 
+class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase 
 {
-    /**
-     * @var string|null $memberType Membership type of the eligible assignment. It can either be Inherited, Direct, or Group.
-    */
+    /** @var string|null $memberType Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. */
     private ?string $memberType = null;
     
-    /**
-     * @var RequestSchedule|null $scheduleInfo The schedule object of the eligible role assignment request.
-    */
+    /** @var RequestSchedule|null $scheduleInfo The schedule object of the eligible role assignment request. */
     private ?RequestSchedule $scheduleInfo = null;
     
     /**
@@ -30,7 +26,7 @@ class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase implements 
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRoleEligibilitySchedule
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleEligibilitySchedule {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleEligibilitySchedule {
         return new UnifiedRoleEligibilitySchedule();
     }
 
@@ -39,10 +35,9 @@ class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase implements 
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'memberType' => function (ParseNode $n) use ($o) { $o->setMemberType($n->getStringValue()); },
-            'scheduleInfo' => function (ParseNode $n) use ($o) { $o->setScheduleInfo($n->getObjectValue(array(RequestSchedule::class, 'createFromDiscriminatorValue'))); },
+            'memberType' => function (self $o, ParseNode $n) { $o->setMemberType($n->getStringValue()); },
+            'scheduleInfo' => function (self $o, ParseNode $n) { $o->setScheduleInfo($n->getObjectValue(RequestSchedule::class)); },
         ]);
     }
 

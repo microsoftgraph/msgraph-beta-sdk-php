@@ -6,35 +6,25 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkPosition extends ItemFacet implements Parsable 
+class WorkPosition extends ItemFacet 
 {
-    /**
-     * @var array<string>|null $categories Categories that the user has associated with this position.
-    */
+    /** @var array<string>|null $categories Categories that the user has associated with this position. */
     private ?array $categories = null;
     
-    /**
-     * @var array<RelatedPerson>|null $colleagues Colleagues that are associated with this position.
-    */
+    /** @var array<RelatedPerson>|null $colleagues Colleagues that are associated with this position. */
     private ?array $colleagues = null;
     
-    /**
-     * @var PositionDetail|null $detail The detail property
-    */
+    /** @var PositionDetail|null $detail The detail property */
     private ?PositionDetail $detail = null;
     
-    /**
-     * @var bool|null $isCurrent Denotes whether or not the position is current.
-    */
+    /** @var bool|null $isCurrent Denotes whether or not the position is current. */
     private ?bool $isCurrent = null;
     
-    /**
-     * @var RelatedPerson|null $manager Contains detail of the user's manager in this position.
-    */
+    /** @var RelatedPerson|null $manager Contains detail of the user's manager in this position. */
     private ?RelatedPerson $manager = null;
     
     /**
-     * Instantiates a new WorkPosition and sets the default values.
+     * Instantiates a new workPosition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -45,7 +35,7 @@ class WorkPosition extends ItemFacet implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkPosition
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkPosition {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkPosition {
         return new WorkPosition();
     }
 
@@ -78,13 +68,12 @@ class WorkPosition extends ItemFacet implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
-            'colleagues' => function (ParseNode $n) use ($o) { $o->setColleagues($n->getCollectionOfObjectValues(array(RelatedPerson::class, 'createFromDiscriminatorValue'))); },
-            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getObjectValue(array(PositionDetail::class, 'createFromDiscriminatorValue'))); },
-            'isCurrent' => function (ParseNode $n) use ($o) { $o->setIsCurrent($n->getBooleanValue()); },
-            'manager' => function (ParseNode $n) use ($o) { $o->setManager($n->getObjectValue(array(RelatedPerson::class, 'createFromDiscriminatorValue'))); },
+            'categories' => function (self $o, ParseNode $n) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
+            'colleagues' => function (self $o, ParseNode $n) { $o->setColleagues($n->getCollectionOfObjectValues(RelatedPerson::class)); },
+            'detail' => function (self $o, ParseNode $n) { $o->setDetail($n->getObjectValue(PositionDetail::class)); },
+            'isCurrent' => function (self $o, ParseNode $n) { $o->setIsCurrent($n->getBooleanValue()); },
+            'manager' => function (self $o, ParseNode $n) { $o->setManager($n->getObjectValue(RelatedPerson::class)); },
         ]);
     }
 

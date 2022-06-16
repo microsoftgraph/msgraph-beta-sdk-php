@@ -10,44 +10,28 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 
 class PositionDetail implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var CompanyDetail|null $company Detail about the company or employer.
-    */
+    /** @var CompanyDetail|null $company Detail about the company or employer. */
     private ?CompanyDetail $company = null;
     
-    /**
-     * @var string|null $description Description of the position in question.
-    */
+    /** @var string|null $description Description of the position in question. */
     private ?string $description = null;
     
-    /**
-     * @var Date|null $endMonthYear When the position ended.
-    */
+    /** @var Date|null $endMonthYear When the position ended. */
     private ?Date $endMonthYear = null;
     
-    /**
-     * @var string|null $jobTitle The title held when in that position.
-    */
+    /** @var string|null $jobTitle The title held when in that position. */
     private ?string $jobTitle = null;
     
-    /**
-     * @var string|null $role The role the position entailed.
-    */
+    /** @var string|null $role The role the position entailed. */
     private ?string $role = null;
     
-    /**
-     * @var Date|null $startMonthYear The start month and year of the position.
-    */
+    /** @var Date|null $startMonthYear The start month and year of the position. */
     private ?Date $startMonthYear = null;
     
-    /**
-     * @var string|null $summary Short summary of the position.
-    */
+    /** @var string|null $summary Short summary of the position. */
     private ?string $summary = null;
     
     /**
@@ -62,7 +46,7 @@ class PositionDetail implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PositionDetail
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PositionDetail {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PositionDetail {
         return new PositionDetail();
     }
 
@@ -103,15 +87,14 @@ class PositionDetail implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'company' => function (ParseNode $n) use ($o) { $o->setCompany($n->getObjectValue(array(CompanyDetail::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'endMonthYear' => function (ParseNode $n) use ($o) { $o->setEndMonthYear($n->getDateValue()); },
-            'jobTitle' => function (ParseNode $n) use ($o) { $o->setJobTitle($n->getStringValue()); },
-            'role' => function (ParseNode $n) use ($o) { $o->setRole($n->getStringValue()); },
-            'startMonthYear' => function (ParseNode $n) use ($o) { $o->setStartMonthYear($n->getDateValue()); },
-            'summary' => function (ParseNode $n) use ($o) { $o->setSummary($n->getStringValue()); },
+            'company' => function (self $o, ParseNode $n) { $o->setCompany($n->getObjectValue(CompanyDetail::class)); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'endMonthYear' => function (self $o, ParseNode $n) { $o->setEndMonthYear($n->getDateValue()); },
+            'jobTitle' => function (self $o, ParseNode $n) { $o->setJobTitle($n->getStringValue()); },
+            'role' => function (self $o, ParseNode $n) { $o->setRole($n->getStringValue()); },
+            'startMonthYear' => function (self $o, ParseNode $n) { $o->setStartMonthYear($n->getDateValue()); },
+            'summary' => function (self $o, ParseNode $n) { $o->setSummary($n->getStringValue()); },
         ];
     }
 

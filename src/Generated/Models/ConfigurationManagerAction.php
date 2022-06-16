@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ConfigurationManagerAction implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var ConfigurationManagerActionType|null $action The action type to trigger on Configuration Manager client. Possible values are: refreshMachinePolicy, refreshUserPolicy, wakeUpClient, appEvaluation, quickScan, fullScan, windowsDefenderUpdateSignatures.
-    */
+    /** @var ConfigurationManagerActionType|null $action The action type to trigger on Configuration Manager client. Possible values are: refreshMachinePolicy, refreshUserPolicy, wakeUpClient, appEvaluation, quickScan, fullScan, windowsDefenderUpdateSignatures. */
     private ?ConfigurationManagerActionType $action = null;
     
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
     /**
@@ -31,7 +27,7 @@ class ConfigurationManagerAction implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConfigurationManagerAction
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConfigurationManagerAction {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ConfigurationManagerAction {
         return new ConfigurationManagerAction();
     }
 
@@ -56,9 +52,8 @@ class ConfigurationManagerAction implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(ConfigurationManagerActionType::class)); },
+            'action' => function (self $o, ParseNode $n) { $o->setAction($n->getEnumValue(ConfigurationManagerActionType::class)); },
         ];
     }
 

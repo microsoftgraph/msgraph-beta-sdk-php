@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkHardwareHealth implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var TeamworkPeripheralHealth|null $computeHealth The system health details for a teamworkDevice.
-    */
+    /** @var TeamworkPeripheralHealth|null $computeHealth The system health details for a teamworkDevice. */
     private ?TeamworkPeripheralHealth $computeHealth = null;
     
-    /**
-     * @var TeamworkPeripheralHealth|null $hdmiIngestHealth The health details about the HDMI ingest of a device.
-    */
+    /** @var TeamworkPeripheralHealth|null $hdmiIngestHealth The health details about the HDMI ingest of a device. */
     private ?TeamworkPeripheralHealth $hdmiIngestHealth = null;
     
     /**
@@ -36,7 +30,7 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkHardwareHealth
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkHardwareHealth {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkHardwareHealth {
         return new TeamworkHardwareHealth();
     }
 
@@ -61,10 +55,9 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'computeHealth' => function (ParseNode $n) use ($o) { $o->setComputeHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
-            'hdmiIngestHealth' => function (ParseNode $n) use ($o) { $o->setHdmiIngestHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
+            'computeHealth' => function (self $o, ParseNode $n) { $o->setComputeHealth($n->getObjectValue(TeamworkPeripheralHealth::class)); },
+            'hdmiIngestHealth' => function (self $o, ParseNode $n) { $o->setHdmiIngestHealth($n->getObjectValue(TeamworkPeripheralHealth::class)); },
         ];
     }
 

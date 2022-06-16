@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SynchronizationSecretKeyStringValuePair implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var SynchronizationSecret|null $key Possible values are: None, UserName, Password, SecretToken, AppKey, BaseAddress, ClientIdentifier, ClientSecret, SingleSignOnType, Sandbox, Url, Domain, ConsumerKey, ConsumerSecret, TokenKey, TokenExpiration, Oauth2AccessToken, Oauth2AccessTokenCreationTime, Oauth2RefreshToken, SyncAll, InstanceName, Oauth2ClientId, Oauth2ClientSecret, CompanyId, UpdateKeyOnSoftDelete, SynchronizationSchedule, SystemOfRecord, SandboxName, EnforceDomain, SyncNotificationSettings, Server, PerformInboundEntitlementGrants, HardDeletesEnabled, SyncAgentCompatibilityKey, SyncAgentADContainer, ValidateDomain, Oauth2TokenExchangeUri, Oauth2AuthorizationUri, AuthenticationType, TestReferences, ConnectionString.
-    */
+    /** @var SynchronizationSecret|null $key Possible values are: None, UserName, Password, SecretToken, AppKey, BaseAddress, ClientIdentifier, ClientSecret, SingleSignOnType, Sandbox, Url, Domain, ConsumerKey, ConsumerSecret, TokenKey, TokenExpiration, Oauth2AccessToken, Oauth2AccessTokenCreationTime, Oauth2RefreshToken, SyncAll, InstanceName, Oauth2ClientId, Oauth2ClientSecret, CompanyId, UpdateKeyOnSoftDelete, SynchronizationSchedule, SystemOfRecord, SandboxName, EnforceDomain, SyncNotificationSettings, Server, PerformInboundEntitlementGrants, HardDeletesEnabled, SyncAgentCompatibilityKey, SyncAgentADContainer, ValidateDomain, Oauth2TokenExchangeUri, Oauth2AuthorizationUri, AuthenticationType, TestReferences, ConnectionString. */
     private ?SynchronizationSecret $key = null;
     
-    /**
-     * @var string|null $value The value of the secret.
-    */
+    /** @var string|null $value The value of the secret. */
     private ?string $value = null;
     
     /**
@@ -36,7 +30,7 @@ class SynchronizationSecretKeyStringValuePair implements AdditionalDataHolder, P
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SynchronizationSecretKeyStringValuePair
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationSecretKeyStringValuePair {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationSecretKeyStringValuePair {
         return new SynchronizationSecretKeyStringValuePair();
     }
 
@@ -53,10 +47,9 @@ class SynchronizationSecretKeyStringValuePair implements AdditionalDataHolder, P
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'key' => function (ParseNode $n) use ($o) { $o->setKey($n->getEnumValue(SynchronizationSecret::class)); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
+            'key' => function (self $o, ParseNode $n) { $o->setKey($n->getEnumValue(SynchronizationSecret::class)); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getStringValue()); },
         ];
     }
 

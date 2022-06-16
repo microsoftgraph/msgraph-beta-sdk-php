@@ -10,14 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PrinterShareViewpoint implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateTime|null $lastUsedDateTime The lastUsedDateTime property
-    */
+    /** @var DateTime|null $lastUsedDateTime The lastUsedDateTime property */
     private ?DateTime $lastUsedDateTime = null;
     
     /**
@@ -32,7 +28,7 @@ class PrinterShareViewpoint implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrinterShareViewpoint
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrinterShareViewpoint {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PrinterShareViewpoint {
         return new PrinterShareViewpoint();
     }
 
@@ -49,9 +45,8 @@ class PrinterShareViewpoint implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'lastUsedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUsedDateTime($n->getDateTimeValue()); },
+            'lastUsedDateTime' => function (self $o, ParseNode $n) { $o->setLastUsedDateTime($n->getDateTimeValue()); },
         ];
     }
 

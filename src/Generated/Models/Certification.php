@@ -10,34 +10,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class Certification implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $certificationDetailsUrl URL that shows certification details for the application.
-    */
+    /** @var string|null $certificationDetailsUrl URL that shows certification details for the application. */
     private ?string $certificationDetailsUrl = null;
     
-    /**
-     * @var DateTime|null $certificationExpirationDateTime The timestamp when the current certification for the application will expire.
-    */
+    /** @var DateTime|null $certificationExpirationDateTime The timestamp when the current certification for the application will expire. */
     private ?DateTime $certificationExpirationDateTime = null;
     
-    /**
-     * @var bool|null $isCertifiedByMicrosoft Indicates whether the application is certified by Microsoft.
-    */
+    /** @var bool|null $isCertifiedByMicrosoft Indicates whether the application is certified by Microsoft. */
     private ?bool $isCertifiedByMicrosoft = null;
     
-    /**
-     * @var bool|null $isPublisherAttested Indicates whether the application has been self-attested by the application developer or the publisher.
-    */
+    /** @var bool|null $isPublisherAttested Indicates whether the application has been self-attested by the application developer or the publisher. */
     private ?bool $isPublisherAttested = null;
     
-    /**
-     * @var DateTime|null $lastCertificationDateTime The timestamp when the certification for the application was most recently added or updated.
-    */
+    /** @var DateTime|null $lastCertificationDateTime The timestamp when the certification for the application was most recently added or updated. */
     private ?DateTime $lastCertificationDateTime = null;
     
     /**
@@ -52,7 +40,7 @@ class Certification implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Certification
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Certification {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Certification {
         return new Certification();
     }
 
@@ -85,13 +73,12 @@ class Certification implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'certificationDetailsUrl' => function (ParseNode $n) use ($o) { $o->setCertificationDetailsUrl($n->getStringValue()); },
-            'certificationExpirationDateTime' => function (ParseNode $n) use ($o) { $o->setCertificationExpirationDateTime($n->getDateTimeValue()); },
-            'isCertifiedByMicrosoft' => function (ParseNode $n) use ($o) { $o->setIsCertifiedByMicrosoft($n->getBooleanValue()); },
-            'isPublisherAttested' => function (ParseNode $n) use ($o) { $o->setIsPublisherAttested($n->getBooleanValue()); },
-            'lastCertificationDateTime' => function (ParseNode $n) use ($o) { $o->setLastCertificationDateTime($n->getDateTimeValue()); },
+            'certificationDetailsUrl' => function (self $o, ParseNode $n) { $o->setCertificationDetailsUrl($n->getStringValue()); },
+            'certificationExpirationDateTime' => function (self $o, ParseNode $n) { $o->setCertificationExpirationDateTime($n->getDateTimeValue()); },
+            'isCertifiedByMicrosoft' => function (self $o, ParseNode $n) { $o->setIsCertifiedByMicrosoft($n->getBooleanValue()); },
+            'isPublisherAttested' => function (self $o, ParseNode $n) { $o->setIsPublisherAttested($n->getBooleanValue()); },
+            'lastCertificationDateTime' => function (self $o, ParseNode $n) { $o->setLastCertificationDateTime($n->getDateTimeValue()); },
         ];
     }
 

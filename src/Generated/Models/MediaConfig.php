@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MediaConfig implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $removeFromDefaultAudioGroup The removeFromDefaultAudioGroup property
-    */
+    /** @var bool|null $removeFromDefaultAudioGroup The removeFromDefaultAudioGroup property */
     private ?bool $removeFromDefaultAudioGroup = null;
     
     /**
@@ -31,7 +27,7 @@ class MediaConfig implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MediaConfig
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MediaConfig {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MediaConfig {
         return new MediaConfig();
     }
 
@@ -48,9 +44,8 @@ class MediaConfig implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'removeFromDefaultAudioGroup' => function (ParseNode $n) use ($o) { $o->setRemoveFromDefaultAudioGroup($n->getBooleanValue()); },
+            'removeFromDefaultAudioGroup' => function (self $o, ParseNode $n) { $o->setRemoveFromDefaultAudioGroup($n->getBooleanValue()); },
         ];
     }
 

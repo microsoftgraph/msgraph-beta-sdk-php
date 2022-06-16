@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CredentialUsageSummary extends Entity implements Parsable 
+class CredentialUsageSummary extends Entity 
 {
-    /**
-     * @var UsageAuthMethod|null $authMethod Represents the authentication method that the user used. Possible values are:email, mobileSMS, mobileCall, officePhone, securityQuestion (only used for self-service password reset), appNotification, appCode, alternateMobileCall (supported only in registration), fido, appPassword, unknownFutureValue.
-    */
+    /** @var UsageAuthMethod|null $authMethod Represents the authentication method that the user used. Possible values are:email, mobileSMS, mobileCall, officePhone, securityQuestion (only used for self-service password reset), appNotification, appCode, alternateMobileCall (supported only in registration), fido, appPassword, unknownFutureValue. */
     private ?UsageAuthMethod $authMethod = null;
     
-    /**
-     * @var int|null $failureActivityCount Provides the count of failed resets or registration data.
-    */
+    /** @var int|null $failureActivityCount Provides the count of failed resets or registration data. */
     private ?int $failureActivityCount = null;
     
-    /**
-     * @var FeatureType|null $feature Defines the feature to report. Possible values are: registration, reset, unknownFutureValue.
-    */
+    /** @var FeatureType|null $feature Defines the feature to report. Possible values are: registration, reset, unknownFutureValue. */
     private ?FeatureType $feature = null;
     
-    /**
-     * @var int|null $successfulActivityCount Provides the count of successful registrations or resets.
-    */
+    /** @var int|null $successfulActivityCount Provides the count of successful registrations or resets. */
     private ?int $successfulActivityCount = null;
     
     /**
@@ -40,7 +32,7 @@ class CredentialUsageSummary extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CredentialUsageSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CredentialUsageSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CredentialUsageSummary {
         return new CredentialUsageSummary();
     }
 
@@ -73,12 +65,11 @@ class CredentialUsageSummary extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authMethod' => function (ParseNode $n) use ($o) { $o->setAuthMethod($n->getEnumValue(UsageAuthMethod::class)); },
-            'failureActivityCount' => function (ParseNode $n) use ($o) { $o->setFailureActivityCount($n->getIntegerValue()); },
-            'feature' => function (ParseNode $n) use ($o) { $o->setFeature($n->getEnumValue(FeatureType::class)); },
-            'successfulActivityCount' => function (ParseNode $n) use ($o) { $o->setSuccessfulActivityCount($n->getIntegerValue()); },
+            'authMethod' => function (self $o, ParseNode $n) { $o->setAuthMethod($n->getEnumValue(UsageAuthMethod::class)); },
+            'failureActivityCount' => function (self $o, ParseNode $n) { $o->setFailureActivityCount($n->getIntegerValue()); },
+            'feature' => function (self $o, ParseNode $n) { $o->setFeature($n->getEnumValue(FeatureType::class)); },
+            'successfulActivityCount' => function (self $o, ParseNode $n) { $o->setSuccessfulActivityCount($n->getIntegerValue()); },
         ]);
     }
 

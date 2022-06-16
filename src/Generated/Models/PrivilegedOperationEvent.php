@@ -7,76 +7,48 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PrivilegedOperationEvent extends Entity implements Parsable 
+class PrivilegedOperationEvent extends Entity 
 {
-    /**
-     * @var string|null $additionalInformation Detailed human readable information for the event.
-    */
+    /** @var string|null $additionalInformation Detailed human readable information for the event. */
     private ?string $additionalInformation = null;
     
-    /**
-     * @var DateTime|null $creationDateTime Indicates the time when the event is created.
-    */
+    /** @var DateTime|null $creationDateTime Indicates the time when the event is created. */
     private ?DateTime $creationDateTime = null;
     
-    /**
-     * @var DateTime|null $expirationDateTime This is only used when the requestType is Activate, and it indicates the expiration time for the role activation.
-    */
+    /** @var DateTime|null $expirationDateTime This is only used when the requestType is Activate, and it indicates the expiration time for the role activation. */
     private ?DateTime $expirationDateTime = null;
     
-    /**
-     * @var string|null $referenceKey Incident/Request ticket number during role activation. The value is presented only if the ticket number is provided during role activation.
-    */
+    /** @var string|null $referenceKey Incident/Request ticket number during role activation. The value is presented only if the ticket number is provided during role activation. */
     private ?string $referenceKey = null;
     
-    /**
-     * @var string|null $referenceSystem Incident/Request ticketing system provided during tole activation. The value is presented only if the ticket system is provided during role activation.
-    */
+    /** @var string|null $referenceSystem Incident/Request ticketing system provided during tole activation. The value is presented only if the ticket system is provided during role activation. */
     private ?string $referenceSystem = null;
     
-    /**
-     * @var string|null $requestorId The user id of the requestor who initiates the operation.
-    */
+    /** @var string|null $requestorId The user id of the requestor who initiates the operation. */
     private ?string $requestorId = null;
     
-    /**
-     * @var string|null $requestorName The user name of the requestor who initiates the operation.
-    */
+    /** @var string|null $requestorName The user name of the requestor who initiates the operation. */
     private ?string $requestorName = null;
     
-    /**
-     * @var string|null $requestType The request operation type. The requestType value can be: Assign (role assignment), Activate (role activation), Unassign (remove role assignment), Deactivate (role deactivation), ScanAlertsNow (scan security alerts), DismissAlert (dismiss security alert), FixAlertItem (fix a security alert issue),  AccessReview_Review (review an Access Review), AccessReview_Create (create an Access Review) , AccessReview_Update (update an Access Review), AccessReview_Delete (delete an Access Review).
-    */
+    /** @var string|null $requestType The request operation type. The requestType value can be: Assign (role assignment), Activate (role activation), Unassign (remove role assignment), Deactivate (role deactivation), ScanAlertsNow (scan security alerts), DismissAlert (dismiss security alert), FixAlertItem (fix a security alert issue),  AccessReview_Review (review an Access Review), AccessReview_Create (create an Access Review) , AccessReview_Update (update an Access Review), AccessReview_Delete (delete an Access Review). */
     private ?string $requestType = null;
     
-    /**
-     * @var string|null $roleId The id of the role that is associated with the operation.
-    */
+    /** @var string|null $roleId The id of the role that is associated with the operation. */
     private ?string $roleId = null;
     
-    /**
-     * @var string|null $roleName The name of the role.
-    */
+    /** @var string|null $roleName The name of the role. */
     private ?string $roleName = null;
     
-    /**
-     * @var string|null $tenantId The tenant (organization) id.
-    */
+    /** @var string|null $tenantId The tenant (organization) id. */
     private ?string $tenantId = null;
     
-    /**
-     * @var string|null $userId The id of the user that is associated with the operation.
-    */
+    /** @var string|null $userId The id of the user that is associated with the operation. */
     private ?string $userId = null;
     
-    /**
-     * @var string|null $userMail The user's email.
-    */
+    /** @var string|null $userMail The user's email. */
     private ?string $userMail = null;
     
-    /**
-     * @var string|null $userName The user's display name.
-    */
+    /** @var string|null $userName The user's display name. */
     private ?string $userName = null;
     
     /**
@@ -91,7 +63,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrivilegedOperationEvent
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedOperationEvent {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedOperationEvent {
         return new PrivilegedOperationEvent();
     }
 
@@ -124,22 +96,21 @@ class PrivilegedOperationEvent extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'additionalInformation' => function (ParseNode $n) use ($o) { $o->setAdditionalInformation($n->getStringValue()); },
-            'creationDateTime' => function (ParseNode $n) use ($o) { $o->setCreationDateTime($n->getDateTimeValue()); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'referenceKey' => function (ParseNode $n) use ($o) { $o->setReferenceKey($n->getStringValue()); },
-            'referenceSystem' => function (ParseNode $n) use ($o) { $o->setReferenceSystem($n->getStringValue()); },
-            'requestorId' => function (ParseNode $n) use ($o) { $o->setRequestorId($n->getStringValue()); },
-            'requestorName' => function (ParseNode $n) use ($o) { $o->setRequestorName($n->getStringValue()); },
-            'requestType' => function (ParseNode $n) use ($o) { $o->setRequestType($n->getStringValue()); },
-            'roleId' => function (ParseNode $n) use ($o) { $o->setRoleId($n->getStringValue()); },
-            'roleName' => function (ParseNode $n) use ($o) { $o->setRoleName($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userMail' => function (ParseNode $n) use ($o) { $o->setUserMail($n->getStringValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
+            'additionalInformation' => function (self $o, ParseNode $n) { $o->setAdditionalInformation($n->getStringValue()); },
+            'creationDateTime' => function (self $o, ParseNode $n) { $o->setCreationDateTime($n->getDateTimeValue()); },
+            'expirationDateTime' => function (self $o, ParseNode $n) { $o->setExpirationDateTime($n->getDateTimeValue()); },
+            'referenceKey' => function (self $o, ParseNode $n) { $o->setReferenceKey($n->getStringValue()); },
+            'referenceSystem' => function (self $o, ParseNode $n) { $o->setReferenceSystem($n->getStringValue()); },
+            'requestorId' => function (self $o, ParseNode $n) { $o->setRequestorId($n->getStringValue()); },
+            'requestorName' => function (self $o, ParseNode $n) { $o->setRequestorName($n->getStringValue()); },
+            'requestType' => function (self $o, ParseNode $n) { $o->setRequestType($n->getStringValue()); },
+            'roleId' => function (self $o, ParseNode $n) { $o->setRoleId($n->getStringValue()); },
+            'roleName' => function (self $o, ParseNode $n) { $o->setRoleName($n->getStringValue()); },
+            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
+            'userMail' => function (self $o, ParseNode $n) { $o->setUserMail($n->getStringValue()); },
+            'userName' => function (self $o, ParseNode $n) { $o->setUserName($n->getStringValue()); },
         ]);
     }
 

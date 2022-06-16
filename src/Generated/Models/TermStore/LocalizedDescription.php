@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class LocalizedDescription implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $description The description in the localized language.
-    */
+    /** @var string|null $description The description in the localized language. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $languageTag The language tag for the label.
-    */
+    /** @var string|null $languageTag The language tag for the label. */
     private ?string $languageTag = null;
     
     /**
@@ -36,7 +30,7 @@ class LocalizedDescription implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return LocalizedDescription
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): LocalizedDescription {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): LocalizedDescription {
         return new LocalizedDescription();
     }
 
@@ -61,10 +55,9 @@ class LocalizedDescription implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'languageTag' => function (ParseNode $n) use ($o) { $o->setLanguageTag($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'languageTag' => function (self $o, ParseNode $n) { $o->setLanguageTag($n->getStringValue()); },
         ];
     }
 

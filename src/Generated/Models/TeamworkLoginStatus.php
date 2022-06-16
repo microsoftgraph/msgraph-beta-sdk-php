@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkLoginStatus implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var TeamworkConnection|null $exchangeConnection Information about the Exchange connection.
-    */
+    /** @var TeamworkConnection|null $exchangeConnection Information about the Exchange connection. */
     private ?TeamworkConnection $exchangeConnection = null;
     
-    /**
-     * @var TeamworkConnection|null $skypeConnection Information about the Skype for Business connection.
-    */
+    /** @var TeamworkConnection|null $skypeConnection Information about the Skype for Business connection. */
     private ?TeamworkConnection $skypeConnection = null;
     
-    /**
-     * @var TeamworkConnection|null $teamsConnection Information about the Teams connection.
-    */
+    /** @var TeamworkConnection|null $teamsConnection Information about the Teams connection. */
     private ?TeamworkConnection $teamsConnection = null;
     
     /**
@@ -41,7 +33,7 @@ class TeamworkLoginStatus implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkLoginStatus
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkLoginStatus {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkLoginStatus {
         return new TeamworkLoginStatus();
     }
 
@@ -66,11 +58,10 @@ class TeamworkLoginStatus implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'exchangeConnection' => function (ParseNode $n) use ($o) { $o->setExchangeConnection($n->getObjectValue(array(TeamworkConnection::class, 'createFromDiscriminatorValue'))); },
-            'skypeConnection' => function (ParseNode $n) use ($o) { $o->setSkypeConnection($n->getObjectValue(array(TeamworkConnection::class, 'createFromDiscriminatorValue'))); },
-            'teamsConnection' => function (ParseNode $n) use ($o) { $o->setTeamsConnection($n->getObjectValue(array(TeamworkConnection::class, 'createFromDiscriminatorValue'))); },
+            'exchangeConnection' => function (self $o, ParseNode $n) { $o->setExchangeConnection($n->getObjectValue(TeamworkConnection::class)); },
+            'skypeConnection' => function (self $o, ParseNode $n) { $o->setSkypeConnection($n->getObjectValue(TeamworkConnection::class)); },
+            'teamsConnection' => function (self $o, ParseNode $n) { $o->setTeamsConnection($n->getObjectValue(TeamworkConnection::class)); },
         ];
     }
 

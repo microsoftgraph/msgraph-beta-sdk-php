@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class KerberosSignOnSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $kerberosServicePrincipalName The Internal Application SPN of the application server. This SPN needs to be in the list of services to which the connector can present delegated credentials.
-    */
+    /** @var string|null $kerberosServicePrincipalName The Internal Application SPN of the application server. This SPN needs to be in the list of services to which the connector can present delegated credentials. */
     private ?string $kerberosServicePrincipalName = null;
     
-    /**
-     * @var KerberosSignOnMappingAttributeType|null $kerberosSignOnMappingAttributeType The Delegated Login Identity for the connector to use on behalf of your users. For more information, see Working with different on-premises and cloud identities . Possible values are: userPrincipalName, onPremisesUserPrincipalName, userPrincipalUsername, onPremisesUserPrincipalUsername, onPremisesSAMAccountName.
-    */
+    /** @var KerberosSignOnMappingAttributeType|null $kerberosSignOnMappingAttributeType The Delegated Login Identity for the connector to use on behalf of your users. For more information, see Working with different on-premises and cloud identities . Possible values are: userPrincipalName, onPremisesUserPrincipalName, userPrincipalUsername, onPremisesUserPrincipalUsername, onPremisesSAMAccountName. */
     private ?KerberosSignOnMappingAttributeType $kerberosSignOnMappingAttributeType = null;
     
     /**
@@ -36,7 +30,7 @@ class KerberosSignOnSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return KerberosSignOnSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): KerberosSignOnSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): KerberosSignOnSettings {
         return new KerberosSignOnSettings();
     }
 
@@ -53,10 +47,9 @@ class KerberosSignOnSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'kerberosServicePrincipalName' => function (ParseNode $n) use ($o) { $o->setKerberosServicePrincipalName($n->getStringValue()); },
-            'kerberosSignOnMappingAttributeType' => function (ParseNode $n) use ($o) { $o->setKerberosSignOnMappingAttributeType($n->getEnumValue(KerberosSignOnMappingAttributeType::class)); },
+            'kerberosServicePrincipalName' => function (self $o, ParseNode $n) { $o->setKerberosServicePrincipalName($n->getStringValue()); },
+            'kerberosSignOnMappingAttributeType' => function (self $o, ParseNode $n) { $o->setKerberosSignOnMappingAttributeType($n->getEnumValue(KerberosSignOnMappingAttributeType::class)); },
         ];
     }
 

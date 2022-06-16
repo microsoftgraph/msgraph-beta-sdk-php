@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookChartPointFormat extends Entity implements Parsable 
+class WorkbookChartPointFormat extends Entity 
 {
-    /**
-     * @var WorkbookChartFill|null $fill Represents the fill format of a chart, which includes background formating information. Read-only.
-    */
+    /** @var WorkbookChartFill|null $fill Represents the fill format of a chart, which includes background formating information. Read-only. */
     private ?WorkbookChartFill $fill = null;
     
     /**
@@ -25,7 +23,7 @@ class WorkbookChartPointFormat extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookChartPointFormat
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartPointFormat {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartPointFormat {
         return new WorkbookChartPointFormat();
     }
 
@@ -34,9 +32,8 @@ class WorkbookChartPointFormat extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'fill' => function (ParseNode $n) use ($o) { $o->setFill($n->getObjectValue(array(WorkbookChartFill::class, 'createFromDiscriminatorValue'))); },
+            'fill' => function (self $o, ParseNode $n) { $o->setFill($n->getObjectValue(WorkbookChartFill::class)); },
         ]);
     }
 

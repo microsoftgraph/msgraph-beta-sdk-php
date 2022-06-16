@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementExchangeAccessRule implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var DeviceManagementExchangeAccessLevel|null $accessLevel Access Level for Exchange granted by this rule. Possible values are: none, allow, block, quarantine.
-    */
+    /** @var DeviceManagementExchangeAccessLevel|null $accessLevel Access Level for Exchange granted by this rule. Possible values are: none, allow, block, quarantine. */
     private ?DeviceManagementExchangeAccessLevel $accessLevel = null;
     
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DeviceManagementExchangeDeviceClass|null $deviceClass Device Class which will be impacted by this rule.
-    */
+    /** @var DeviceManagementExchangeDeviceClass|null $deviceClass Device Class which will be impacted by this rule. */
     private ?DeviceManagementExchangeDeviceClass $deviceClass = null;
     
     /**
@@ -36,7 +30,7 @@ class DeviceManagementExchangeAccessRule implements AdditionalDataHolder, Parsab
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementExchangeAccessRule
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementExchangeAccessRule {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementExchangeAccessRule {
         return new DeviceManagementExchangeAccessRule();
     }
 
@@ -69,10 +63,9 @@ class DeviceManagementExchangeAccessRule implements AdditionalDataHolder, Parsab
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'accessLevel' => function (ParseNode $n) use ($o) { $o->setAccessLevel($n->getEnumValue(DeviceManagementExchangeAccessLevel::class)); },
-            'deviceClass' => function (ParseNode $n) use ($o) { $o->setDeviceClass($n->getObjectValue(array(DeviceManagementExchangeDeviceClass::class, 'createFromDiscriminatorValue'))); },
+            'accessLevel' => function (self $o, ParseNode $n) { $o->setAccessLevel($n->getEnumValue(DeviceManagementExchangeAccessLevel::class)); },
+            'deviceClass' => function (self $o, ParseNode $n) { $o->setDeviceClass($n->getObjectValue(DeviceManagementExchangeDeviceClass::class)); },
         ];
     }
 

@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var CompanyPortalAction|null $action Device Action. Possible values are: unknown, remove, reset.
-    */
+    /** @var CompanyPortalAction|null $action Device Action. Possible values are: unknown, remove, reset. */
     private ?CompanyPortalAction $action = null;
     
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var OwnerType|null $ownerType Device ownership type. Possible values are: unknown, company, personal.
-    */
+    /** @var OwnerType|null $ownerType Device ownership type. Possible values are: unknown, company, personal. */
     private ?OwnerType $ownerType = null;
     
-    /**
-     * @var DevicePlatformType|null $platform Device OS/Platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
-    */
+    /** @var DevicePlatformType|null $platform Device OS/Platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown. */
     private ?DevicePlatformType $platform = null;
     
     /**
@@ -41,7 +33,7 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CompanyPortalBlockedAction
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CompanyPortalBlockedAction {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CompanyPortalBlockedAction {
         return new CompanyPortalBlockedAction();
     }
 
@@ -66,11 +58,10 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(CompanyPortalAction::class)); },
-            'ownerType' => function (ParseNode $n) use ($o) { $o->setOwnerType($n->getEnumValue(OwnerType::class)); },
-            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
+            'action' => function (self $o, ParseNode $n) { $o->setAction($n->getEnumValue(CompanyPortalAction::class)); },
+            'ownerType' => function (self $o, ParseNode $n) { $o->setOwnerType($n->getEnumValue(OwnerType::class)); },
+            'platform' => function (self $o, ParseNode $n) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
         ];
     }
 

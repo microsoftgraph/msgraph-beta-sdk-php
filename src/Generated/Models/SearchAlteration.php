@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SearchAlteration implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $alteredHighlightedQueryString Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is (/ue000, /ue001)
-    */
+    /** @var string|null $alteredHighlightedQueryString Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is: /ue000, /ue001. */
     private ?string $alteredHighlightedQueryString = null;
     
-    /**
-     * @var string|null $alteredQueryString Defines the altered query string with spelling correction.
-    */
+    /** @var string|null $alteredQueryString Defines the altered query string with spelling correction. */
     private ?string $alteredQueryString = null;
     
-    /**
-     * @var array<AlteredQueryToken>|null $alteredQueryTokens Represents changed segments with respect to original query.
-    */
+    /** @var array<AlteredQueryToken>|null $alteredQueryTokens Represents changed segments related to an original user query. */
     private ?array $alteredQueryTokens = null;
     
     /**
@@ -41,7 +33,7 @@ class SearchAlteration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SearchAlteration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SearchAlteration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SearchAlteration {
         return new SearchAlteration();
     }
 
@@ -54,7 +46,7 @@ class SearchAlteration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the alteredHighlightedQueryString property value. Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is (/ue000, /ue001)
+     * Gets the alteredHighlightedQueryString property value. Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is: /ue000, /ue001.
      * @return string|null
     */
     public function getAlteredHighlightedQueryString(): ?string {
@@ -70,7 +62,7 @@ class SearchAlteration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the alteredQueryTokens property value. Represents changed segments with respect to original query.
+     * Gets the alteredQueryTokens property value. Represents changed segments related to an original user query.
      * @return array<AlteredQueryToken>|null
     */
     public function getAlteredQueryTokens(): ?array {
@@ -82,11 +74,10 @@ class SearchAlteration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'alteredHighlightedQueryString' => function (ParseNode $n) use ($o) { $o->setAlteredHighlightedQueryString($n->getStringValue()); },
-            'alteredQueryString' => function (ParseNode $n) use ($o) { $o->setAlteredQueryString($n->getStringValue()); },
-            'alteredQueryTokens' => function (ParseNode $n) use ($o) { $o->setAlteredQueryTokens($n->getCollectionOfObjectValues(array(AlteredQueryToken::class, 'createFromDiscriminatorValue'))); },
+            'alteredHighlightedQueryString' => function (self $o, ParseNode $n) { $o->setAlteredHighlightedQueryString($n->getStringValue()); },
+            'alteredQueryString' => function (self $o, ParseNode $n) { $o->setAlteredQueryString($n->getStringValue()); },
+            'alteredQueryTokens' => function (self $o, ParseNode $n) { $o->setAlteredQueryTokens($n->getCollectionOfObjectValues(AlteredQueryToken::class)); },
         ];
     }
 
@@ -110,7 +101,7 @@ class SearchAlteration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the alteredHighlightedQueryString property value. Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is (/ue000, /ue001)
+     * Sets the alteredHighlightedQueryString property value. Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is: /ue000, /ue001.
      *  @param string|null $value Value to set for the alteredHighlightedQueryString property.
     */
     public function setAlteredHighlightedQueryString(?string $value ): void {
@@ -126,7 +117,7 @@ class SearchAlteration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the alteredQueryTokens property value. Represents changed segments with respect to original query.
+     * Sets the alteredQueryTokens property value. Represents changed segments related to an original user query.
      *  @param array<AlteredQueryToken>|null $value Value to set for the alteredQueryTokens property.
     */
     public function setAlteredQueryTokens(?array $value ): void {

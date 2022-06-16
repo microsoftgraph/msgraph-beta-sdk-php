@@ -7,71 +7,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessPackageResource extends Entity implements Parsable 
+class AccessPackageResource extends Entity 
 {
-    /**
-     * @var AccessPackageResourceEnvironment|null $accessPackageResourceEnvironment Contains the environment information for the resource. This can be set using either the @odata.bind annotation or the environment's originId.Supports $expand.
-    */
+    /** @var AccessPackageResourceEnvironment|null $accessPackageResourceEnvironment Contains the environment information for the resource. This can be set using either the @odata.bind annotation or the environment's originId.Supports $expand. */
     private ?AccessPackageResourceEnvironment $accessPackageResourceEnvironment = null;
     
-    /**
-     * @var array<AccessPackageResourceRole>|null $accessPackageResourceRoles Read-only. Nullable. Supports $expand.
-    */
+    /** @var array<AccessPackageResourceRole>|null $accessPackageResourceRoles Read-only. Nullable. Supports $expand. */
     private ?array $accessPackageResourceRoles = null;
     
-    /**
-     * @var array<AccessPackageResourceScope>|null $accessPackageResourceScopes Read-only. Nullable. Supports $expand.
-    */
+    /** @var array<AccessPackageResourceScope>|null $accessPackageResourceScopes Read-only. Nullable. Supports $expand. */
     private ?array $accessPackageResourceScopes = null;
     
-    /**
-     * @var string|null $addedBy The name of the user or application that first added this resource. Read-only.
-    */
+    /** @var string|null $addedBy The name of the user or application that first added this resource. Read-only. */
     private ?string $addedBy = null;
     
-    /**
-     * @var DateTime|null $addedOn The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $addedOn The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $addedOn = null;
     
-    /**
-     * @var array<AccessPackageResourceAttribute>|null $attributes Contains information about the attributes to be collected from the requestor and sent to the resource application.
-    */
+    /** @var array<AccessPackageResourceAttribute>|null $attributes Contains information about the attributes to be collected from the requestor and sent to the resource application. */
     private ?array $attributes = null;
     
-    /**
-     * @var string|null $description A description for the resource.
-    */
+    /** @var string|null $description A description for the resource. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The display name of the resource, such as the application name, group name or site name.
-    */
+    /** @var string|null $displayName The display name of the resource, such as the application name, group name or site name. */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $isPendingOnboarding True if the resource is not yet available for assignment.
-    */
+    /** @var bool|null $isPendingOnboarding True if the resource is not yet available for assignment. */
     private ?bool $isPendingOnboarding = null;
     
-    /**
-     * @var string|null $originId The unique identifier of the resource in the origin system. In the case of an Azure AD group, this is the identifier of the group.
-    */
+    /** @var string|null $originId The unique identifier of the resource in the origin system. In the case of an Azure AD group, this is the identifier of the group. */
     private ?string $originId = null;
     
-    /**
-     * @var string|null $originSystem The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup.
-    */
+    /** @var string|null $originSystem The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup. */
     private ?string $originSystem = null;
     
-    /**
-     * @var string|null $resourceType The type of the resource, such as Application if it is an Azure AD connected application, or SharePoint Online Site for a SharePoint Online site.
-    */
+    /** @var string|null $resourceType The type of the resource, such as Application if it is an Azure AD connected application, or SharePoint Online Site for a SharePoint Online site. */
     private ?string $resourceType = null;
     
-    /**
-     * @var string|null $url A unique resource locator for the resource, such as the URL for signing a user into an application.
-    */
+    /** @var string|null $url A unique resource locator for the resource, such as the URL for signing a user into an application. */
     private ?string $url = null;
     
     /**
@@ -86,7 +60,7 @@ class AccessPackageResource extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageResource
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResource {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResource {
         return new AccessPackageResource();
     }
 
@@ -159,21 +133,20 @@ class AccessPackageResource extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageResourceEnvironment' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceEnvironment($n->getObjectValue(array(AccessPackageResourceEnvironment::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageResourceRoles' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceRoles($n->getCollectionOfObjectValues(array(AccessPackageResourceRole::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageResourceScopes' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceScopes($n->getCollectionOfObjectValues(array(AccessPackageResourceScope::class, 'createFromDiscriminatorValue'))); },
-            'addedBy' => function (ParseNode $n) use ($o) { $o->setAddedBy($n->getStringValue()); },
-            'addedOn' => function (ParseNode $n) use ($o) { $o->setAddedOn($n->getDateTimeValue()); },
-            'attributes' => function (ParseNode $n) use ($o) { $o->setAttributes($n->getCollectionOfObjectValues(array(AccessPackageResourceAttribute::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isPendingOnboarding' => function (ParseNode $n) use ($o) { $o->setIsPendingOnboarding($n->getBooleanValue()); },
-            'originId' => function (ParseNode $n) use ($o) { $o->setOriginId($n->getStringValue()); },
-            'originSystem' => function (ParseNode $n) use ($o) { $o->setOriginSystem($n->getStringValue()); },
-            'resourceType' => function (ParseNode $n) use ($o) { $o->setResourceType($n->getStringValue()); },
-            'url' => function (ParseNode $n) use ($o) { $o->setUrl($n->getStringValue()); },
+            'accessPackageResourceEnvironment' => function (self $o, ParseNode $n) { $o->setAccessPackageResourceEnvironment($n->getObjectValue(AccessPackageResourceEnvironment::class)); },
+            'accessPackageResourceRoles' => function (self $o, ParseNode $n) { $o->setAccessPackageResourceRoles($n->getCollectionOfObjectValues(AccessPackageResourceRole::class)); },
+            'accessPackageResourceScopes' => function (self $o, ParseNode $n) { $o->setAccessPackageResourceScopes($n->getCollectionOfObjectValues(AccessPackageResourceScope::class)); },
+            'addedBy' => function (self $o, ParseNode $n) { $o->setAddedBy($n->getStringValue()); },
+            'addedOn' => function (self $o, ParseNode $n) { $o->setAddedOn($n->getDateTimeValue()); },
+            'attributes' => function (self $o, ParseNode $n) { $o->setAttributes($n->getCollectionOfObjectValues(AccessPackageResourceAttribute::class)); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'isPendingOnboarding' => function (self $o, ParseNode $n) { $o->setIsPendingOnboarding($n->getBooleanValue()); },
+            'originId' => function (self $o, ParseNode $n) { $o->setOriginId($n->getStringValue()); },
+            'originSystem' => function (self $o, ParseNode $n) { $o->setOriginSystem($n->getStringValue()); },
+            'resourceType' => function (self $o, ParseNode $n) { $o->setResourceType($n->getStringValue()); },
+            'url' => function (self $o, ParseNode $n) { $o->setUrl($n->getStringValue()); },
         ]);
     }
 

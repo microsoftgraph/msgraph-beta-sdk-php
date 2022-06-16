@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AuditResource implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName Display name.
-    */
+    /** @var string|null $displayName Display name. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<AuditProperty>|null $modifiedProperties List of modified properties.
-    */
+    /** @var array<AuditProperty>|null $modifiedProperties List of modified properties. */
     private ?array $modifiedProperties = null;
     
-    /**
-     * @var string|null $resourceId Audit resource's Id.
-    */
+    /** @var string|null $resourceId Audit resource's Id. */
     private ?string $resourceId = null;
     
-    /**
-     * @var string|null $type Audit resource's type.
-    */
+    /** @var string|null $type Audit resource's type. */
     private ?string $type = null;
     
     /**
@@ -46,7 +36,7 @@ class AuditResource implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AuditResource
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AuditResource {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AuditResource {
         return new AuditResource();
     }
 
@@ -71,12 +61,11 @@ class AuditResource implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'modifiedProperties' => function (ParseNode $n) use ($o) { $o->setModifiedProperties($n->getCollectionOfObjectValues(array(AuditProperty::class, 'createFromDiscriminatorValue'))); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'modifiedProperties' => function (self $o, ParseNode $n) { $o->setModifiedProperties($n->getCollectionOfObjectValues(AuditProperty::class)); },
+            'resourceId' => function (self $o, ParseNode $n) { $o->setResourceId($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
         ];
     }
 

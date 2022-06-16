@@ -9,71 +9,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class LegalHold extends Entity implements Parsable 
+class LegalHold extends Entity 
 {
-    /**
-     * @var string|null $contentQuery KQL query that specifies content to be held in the specified locations. To learn more, see Keyword queries and search conditions for Content Search and eDiscovery.  To hold all content in the specified locations, leave contentQuery blank.
-    */
+    /** @var string|null $contentQuery KQL query that specifies content to be held in the specified locations. To learn more, see Keyword queries and search conditions for Content Search and eDiscovery.  To hold all content in the specified locations, leave contentQuery blank. */
     private ?string $contentQuery = null;
     
-    /**
-     * @var IdentitySet|null $createdBy The user who created the legal hold.
-    */
+    /** @var IdentitySet|null $createdBy The user who created the legal hold. */
     private ?IdentitySet $createdBy = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The date and time the legal hold was created.
-    */
+    /** @var DateTime|null $createdDateTime The date and time the legal hold was created. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $description The legal hold description.
-    */
+    /** @var string|null $description The legal hold description. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The display name of the legal hold.
-    */
+    /** @var string|null $displayName The display name of the legal hold. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<string>|null $errors Lists any errors that happened while placing the hold.
-    */
+    /** @var array<string>|null $errors Lists any errors that happened while placing the hold. */
     private ?array $errors = null;
     
-    /**
-     * @var bool|null $isEnabled Indicates whether the hold is enabled and actively holding content.
-    */
+    /** @var bool|null $isEnabled Indicates whether the hold is enabled and actively holding content. */
     private ?bool $isEnabled = null;
     
-    /**
-     * @var IdentitySet|null $lastModifiedBy the user who last modified the legal hold.
-    */
+    /** @var IdentitySet|null $lastModifiedBy the user who last modified the legal hold. */
     private ?IdentitySet $lastModifiedBy = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the legal hold was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time the legal hold was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var array<SiteSource>|null $siteSources Data source entity for SharePoint sites associated with the legal hold.
-    */
+    /** @var array<SiteSource>|null $siteSources Data source entity for SharePoint sites associated with the legal hold. */
     private ?array $siteSources = null;
     
-    /**
-     * @var LegalHoldStatus|null $status The status of the legal hold. Possible values are: Pending, Error, Success, UnknownFutureValue.
-    */
+    /** @var LegalHoldStatus|null $status The status of the legal hold. Possible values are: Pending, Error, Success, UnknownFutureValue. */
     private ?LegalHoldStatus $status = null;
     
-    /**
-     * @var array<UnifiedGroupSource>|null $unifiedGroupSources The unifiedGroupSources property
-    */
+    /** @var array<UnifiedGroupSource>|null $unifiedGroupSources The unifiedGroupSources property */
     private ?array $unifiedGroupSources = null;
     
-    /**
-     * @var array<UserSource>|null $userSources Data source entity for a the legal hold. This is the container for a mailbox and OneDrive for Business site.
-    */
+    /** @var array<UserSource>|null $userSources Data source entity for a the legal hold. This is the container for a mailbox and OneDrive for Business site. */
     private ?array $userSources = null;
     
     /**
@@ -88,7 +62,7 @@ class LegalHold extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return LegalHold
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): LegalHold {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): LegalHold {
         return new LegalHold();
     }
 
@@ -145,21 +119,20 @@ class LegalHold extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contentQuery' => function (ParseNode $n) use ($o) { $o->setContentQuery($n->getStringValue()); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'errors' => function (ParseNode $n) use ($o) { $o->setErrors($n->getCollectionOfPrimitiveValues()); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'siteSources' => function (ParseNode $n) use ($o) { $o->setSiteSources($n->getCollectionOfObjectValues(array(SiteSource::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(LegalHoldStatus::class)); },
-            'unifiedGroupSources' => function (ParseNode $n) use ($o) { $o->setUnifiedGroupSources($n->getCollectionOfObjectValues(array(UnifiedGroupSource::class, 'createFromDiscriminatorValue'))); },
-            'userSources' => function (ParseNode $n) use ($o) { $o->setUserSources($n->getCollectionOfObjectValues(array(UserSource::class, 'createFromDiscriminatorValue'))); },
+            'contentQuery' => function (self $o, ParseNode $n) { $o->setContentQuery($n->getStringValue()); },
+            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(IdentitySet::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'errors' => function (self $o, ParseNode $n) { $o->setErrors($n->getCollectionOfPrimitiveValues()); },
+            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
+            'lastModifiedBy' => function (self $o, ParseNode $n) { $o->setLastModifiedBy($n->getObjectValue(IdentitySet::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'siteSources' => function (self $o, ParseNode $n) { $o->setSiteSources($n->getCollectionOfObjectValues(SiteSource::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(LegalHoldStatus::class)); },
+            'unifiedGroupSources' => function (self $o, ParseNode $n) { $o->setUnifiedGroupSources($n->getCollectionOfObjectValues(UnifiedGroupSource::class)); },
+            'userSources' => function (self $o, ParseNode $n) { $o->setUserSources($n->getCollectionOfObjectValues(UserSource::class)); },
         ]);
     }
 

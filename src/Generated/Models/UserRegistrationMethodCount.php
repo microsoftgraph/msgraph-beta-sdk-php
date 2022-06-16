@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserRegistrationMethodCount implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $authenticationMethod Name of authentication method.
-    */
+    /** @var string|null $authenticationMethod Name of authentication method. */
     private ?string $authenticationMethod = null;
     
-    /**
-     * @var int|null $userCount Number of users registered.
-    */
+    /** @var int|null $userCount Number of users registered. */
     private ?int $userCount = null;
     
     /**
@@ -36,7 +30,7 @@ class UserRegistrationMethodCount implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserRegistrationMethodCount
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserRegistrationMethodCount {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserRegistrationMethodCount {
         return new UserRegistrationMethodCount();
     }
 
@@ -61,10 +55,9 @@ class UserRegistrationMethodCount implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'authenticationMethod' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethod($n->getStringValue()); },
-            'userCount' => function (ParseNode $n) use ($o) { $o->setUserCount($n->getIntegerValue()); },
+            'authenticationMethod' => function (self $o, ParseNode $n) { $o->setAuthenticationMethod($n->getStringValue()); },
+            'userCount' => function (self $o, ParseNode $n) { $o->setUserCount($n->getIntegerValue()); },
         ];
     }
 

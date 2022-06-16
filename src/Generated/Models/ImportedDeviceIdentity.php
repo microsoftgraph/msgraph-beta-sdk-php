@@ -7,46 +7,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ImportedDeviceIdentity extends Entity implements Parsable 
+class ImportedDeviceIdentity extends Entity 
 {
-    /**
-     * @var DateTime|null $createdDateTime Created Date Time of the device
-    */
+    /** @var DateTime|null $createdDateTime Created Date Time of the device */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $description The description of the device
-    */
+    /** @var string|null $description The description of the device */
     private ?string $description = null;
     
-    /**
-     * @var EnrollmentState|null $enrollmentState The state of the device in Intune. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
-    */
+    /** @var EnrollmentState|null $enrollmentState The state of the device in Intune. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked. */
     private ?EnrollmentState $enrollmentState = null;
     
-    /**
-     * @var string|null $importedDeviceIdentifier Imported Device Identifier
-    */
+    /** @var string|null $importedDeviceIdentifier Imported Device Identifier */
     private ?string $importedDeviceIdentifier = null;
     
-    /**
-     * @var ImportedDeviceIdentityType|null $importedDeviceIdentityType Type of Imported Device Identity. Possible values are: unknown, imei, serialNumber.
-    */
+    /** @var ImportedDeviceIdentityType|null $importedDeviceIdentityType Type of Imported Device Identity. Possible values are: unknown, imei, serialNumber. */
     private ?ImportedDeviceIdentityType $importedDeviceIdentityType = null;
     
-    /**
-     * @var DateTime|null $lastContactedDateTime Last Contacted Date Time of the device
-    */
+    /** @var DateTime|null $lastContactedDateTime Last Contacted Date Time of the device */
     private ?DateTime $lastContactedDateTime = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime Last Modified DateTime of the description
-    */
+    /** @var DateTime|null $lastModifiedDateTime Last Modified DateTime of the description */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var Platform|null $platform The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS.
-    */
+    /** @var Platform|null $platform The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS. */
     private ?Platform $platform = null;
     
     /**
@@ -61,14 +45,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ImportedDeviceIdentity
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ImportedDeviceIdentity {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.importedDeviceIdentityResult': return new ImportedDeviceIdentityResult();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ImportedDeviceIdentity {
         return new ImportedDeviceIdentity();
     }
 
@@ -101,16 +78,15 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'enrollmentState' => function (ParseNode $n) use ($o) { $o->setEnrollmentState($n->getEnumValue(EnrollmentState::class)); },
-            'importedDeviceIdentifier' => function (ParseNode $n) use ($o) { $o->setImportedDeviceIdentifier($n->getStringValue()); },
-            'importedDeviceIdentityType' => function (ParseNode $n) use ($o) { $o->setImportedDeviceIdentityType($n->getEnumValue(ImportedDeviceIdentityType::class)); },
-            'lastContactedDateTime' => function (ParseNode $n) use ($o) { $o->setLastContactedDateTime($n->getDateTimeValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(Platform::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'enrollmentState' => function (self $o, ParseNode $n) { $o->setEnrollmentState($n->getEnumValue(EnrollmentState::class)); },
+            'importedDeviceIdentifier' => function (self $o, ParseNode $n) { $o->setImportedDeviceIdentifier($n->getStringValue()); },
+            'importedDeviceIdentityType' => function (self $o, ParseNode $n) { $o->setImportedDeviceIdentityType($n->getEnumValue(ImportedDeviceIdentityType::class)); },
+            'lastContactedDateTime' => function (self $o, ParseNode $n) { $o->setLastContactedDateTime($n->getDateTimeValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'platform' => function (self $o, ParseNode $n) { $o->setPlatform($n->getEnumValue(Platform::class)); },
         ]);
     }
 

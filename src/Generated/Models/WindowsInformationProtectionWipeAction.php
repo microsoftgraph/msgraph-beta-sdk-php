@@ -7,36 +7,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsInformationProtectionWipeAction extends Entity implements Parsable 
+class WindowsInformationProtectionWipeAction extends Entity 
 {
-    /**
-     * @var DateTime|null $lastCheckInDateTime Last checkin time of the device that was targeted by this wipe action.
-    */
+    /** @var DateTime|null $lastCheckInDateTime Last checkin time of the device that was targeted by this wipe action. */
     private ?DateTime $lastCheckInDateTime = null;
     
-    /**
-     * @var ActionState|null $status Wipe action status. Possible values are: none, pending, canceled, active, done, failed, notSupported.
-    */
+    /** @var ActionState|null $status Wipe action status. Possible values are: none, pending, canceled, active, done, failed, notSupported. */
     private ?ActionState $status = null;
     
-    /**
-     * @var string|null $targetedDeviceMacAddress Targeted device Mac address.
-    */
+    /** @var string|null $targetedDeviceMacAddress Targeted device Mac address. */
     private ?string $targetedDeviceMacAddress = null;
     
-    /**
-     * @var string|null $targetedDeviceName Targeted device name.
-    */
+    /** @var string|null $targetedDeviceName Targeted device name. */
     private ?string $targetedDeviceName = null;
     
-    /**
-     * @var string|null $targetedDeviceRegistrationId The DeviceRegistrationId being targeted by this wipe action.
-    */
+    /** @var string|null $targetedDeviceRegistrationId The DeviceRegistrationId being targeted by this wipe action. */
     private ?string $targetedDeviceRegistrationId = null;
     
-    /**
-     * @var string|null $targetedUserId The UserId being targeted by this wipe action.
-    */
+    /** @var string|null $targetedUserId The UserId being targeted by this wipe action. */
     private ?string $targetedUserId = null;
     
     /**
@@ -51,7 +39,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsInformationProtectionWipeAction
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsInformationProtectionWipeAction {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsInformationProtectionWipeAction {
         return new WindowsInformationProtectionWipeAction();
     }
 
@@ -60,14 +48,13 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'lastCheckInDateTime' => function (ParseNode $n) use ($o) { $o->setLastCheckInDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ActionState::class)); },
-            'targetedDeviceMacAddress' => function (ParseNode $n) use ($o) { $o->setTargetedDeviceMacAddress($n->getStringValue()); },
-            'targetedDeviceName' => function (ParseNode $n) use ($o) { $o->setTargetedDeviceName($n->getStringValue()); },
-            'targetedDeviceRegistrationId' => function (ParseNode $n) use ($o) { $o->setTargetedDeviceRegistrationId($n->getStringValue()); },
-            'targetedUserId' => function (ParseNode $n) use ($o) { $o->setTargetedUserId($n->getStringValue()); },
+            'lastCheckInDateTime' => function (self $o, ParseNode $n) { $o->setLastCheckInDateTime($n->getDateTimeValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(ActionState::class)); },
+            'targetedDeviceMacAddress' => function (self $o, ParseNode $n) { $o->setTargetedDeviceMacAddress($n->getStringValue()); },
+            'targetedDeviceName' => function (self $o, ParseNode $n) { $o->setTargetedDeviceName($n->getStringValue()); },
+            'targetedDeviceRegistrationId' => function (self $o, ParseNode $n) { $o->setTargetedDeviceRegistrationId($n->getStringValue()); },
+            'targetedUserId' => function (self $o, ParseNode $n) { $o->setTargetedUserId($n->getStringValue()); },
         ]);
     }
 

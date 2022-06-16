@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceHealthScriptAssignment extends Entity implements Parsable 
+class DeviceHealthScriptAssignment extends Entity 
 {
-    /**
-     * @var bool|null $runRemediationScript Determine whether we want to run detection script only or run both detection script and remediation script
-    */
+    /** @var bool|null $runRemediationScript Determine whether we want to run detection script only or run both detection script and remediation script */
     private ?bool $runRemediationScript = null;
     
-    /**
-     * @var DeviceHealthScriptRunSchedule|null $runSchedule Script run schedule for the target group
-    */
+    /** @var DeviceHealthScriptRunSchedule|null $runSchedule Script run schedule for the target group */
     private ?DeviceHealthScriptRunSchedule $runSchedule = null;
     
-    /**
-     * @var DeviceAndAppManagementAssignmentTarget|null $target The Azure Active Directory group we are targeting the script to
-    */
+    /** @var DeviceAndAppManagementAssignmentTarget|null $target The Azure Active Directory group we are targeting the script to */
     private ?DeviceAndAppManagementAssignmentTarget $target = null;
     
     /**
@@ -35,7 +29,7 @@ class DeviceHealthScriptAssignment extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceHealthScriptAssignment
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealthScriptAssignment {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealthScriptAssignment {
         return new DeviceHealthScriptAssignment();
     }
 
@@ -44,11 +38,10 @@ class DeviceHealthScriptAssignment extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'runRemediationScript' => function (ParseNode $n) use ($o) { $o->setRunRemediationScript($n->getBooleanValue()); },
-            'runSchedule' => function (ParseNode $n) use ($o) { $o->setRunSchedule($n->getObjectValue(array(DeviceHealthScriptRunSchedule::class, 'createFromDiscriminatorValue'))); },
-            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
+            'runRemediationScript' => function (self $o, ParseNode $n) { $o->setRunRemediationScript($n->getBooleanValue()); },
+            'runSchedule' => function (self $o, ParseNode $n) { $o->setRunSchedule($n->getObjectValue(DeviceHealthScriptRunSchedule::class)); },
+            'target' => function (self $o, ParseNode $n) { $o->setTarget($n->getObjectValue(DeviceAndAppManagementAssignmentTarget::class)); },
         ]);
     }
 

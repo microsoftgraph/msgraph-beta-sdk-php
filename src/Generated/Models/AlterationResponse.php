@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AlterationResponse implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $originalQueryString Defines the original user query string.
-    */
+    /** @var string|null $originalQueryString Defines the original user query string. */
     private ?string $originalQueryString = null;
     
-    /**
-     * @var SearchAlteration|null $queryAlteration Defines the details of alteration information for the spelling correction.
-    */
+    /** @var SearchAlteration|null $queryAlteration Defines the details of the alteration information for the spelling correction. */
     private ?SearchAlteration $queryAlteration = null;
     
-    /**
-     * @var SearchAlterationType|null $queryAlterationType Defines the type of the spelling correction. Possible values are suggestion, modification.
-    */
+    /** @var SearchAlterationType|null $queryAlterationType Defines the type of the spelling correction. Possible values are: suggestion, modification. */
     private ?SearchAlterationType $queryAlterationType = null;
     
     /**
@@ -41,7 +33,7 @@ class AlterationResponse implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AlterationResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AlterationResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AlterationResponse {
         return new AlterationResponse();
     }
 
@@ -58,11 +50,10 @@ class AlterationResponse implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'originalQueryString' => function (ParseNode $n) use ($o) { $o->setOriginalQueryString($n->getStringValue()); },
-            'queryAlteration' => function (ParseNode $n) use ($o) { $o->setQueryAlteration($n->getObjectValue(array(SearchAlteration::class, 'createFromDiscriminatorValue'))); },
-            'queryAlterationType' => function (ParseNode $n) use ($o) { $o->setQueryAlterationType($n->getEnumValue(SearchAlterationType::class)); },
+            'originalQueryString' => function (self $o, ParseNode $n) { $o->setOriginalQueryString($n->getStringValue()); },
+            'queryAlteration' => function (self $o, ParseNode $n) { $o->setQueryAlteration($n->getObjectValue(SearchAlteration::class)); },
+            'queryAlterationType' => function (self $o, ParseNode $n) { $o->setQueryAlterationType($n->getEnumValue(SearchAlterationType::class)); },
         ];
     }
 
@@ -75,7 +66,7 @@ class AlterationResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the queryAlteration property value. Defines the details of alteration information for the spelling correction.
+     * Gets the queryAlteration property value. Defines the details of the alteration information for the spelling correction.
      * @return SearchAlteration|null
     */
     public function getQueryAlteration(): ?SearchAlteration {
@@ -83,7 +74,7 @@ class AlterationResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the queryAlterationType property value. Defines the type of the spelling correction. Possible values are suggestion, modification.
+     * Gets the queryAlterationType property value. Defines the type of the spelling correction. Possible values are: suggestion, modification.
      * @return SearchAlterationType|null
     */
     public function getQueryAlterationType(): ?SearchAlterationType {
@@ -118,7 +109,7 @@ class AlterationResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the queryAlteration property value. Defines the details of alteration information for the spelling correction.
+     * Sets the queryAlteration property value. Defines the details of the alteration information for the spelling correction.
      *  @param SearchAlteration|null $value Value to set for the queryAlteration property.
     */
     public function setQueryAlteration(?SearchAlteration $value ): void {
@@ -126,7 +117,7 @@ class AlterationResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the queryAlterationType property value. Defines the type of the spelling correction. Possible values are suggestion, modification.
+     * Sets the queryAlterationType property value. Defines the type of the spelling correction. Possible values are: suggestion, modification.
      *  @param SearchAlterationType|null $value Value to set for the queryAlterationType property.
     */
     public function setQueryAlterationType(?SearchAlterationType $value ): void {

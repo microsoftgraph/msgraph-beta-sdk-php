@@ -9,34 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $context Not yet documented
-    */
+    /** @var string|null $context Not yet documented */
     private ?string $context = null;
     
-    /**
-     * @var string|null $failure Not yet documented
-    */
+    /** @var string|null $failure Not yet documented */
     private ?string $failure = null;
     
-    /**
-     * @var string|null $failureDetails The detailed description of what went wrong.
-    */
+    /** @var string|null $failureDetails The detailed description of what went wrong. */
     private ?string $failureDetails = null;
     
-    /**
-     * @var string|null $remediation The detailed description of how to remediate this issue.
-    */
+    /** @var string|null $remediation The detailed description of how to remediate this issue. */
     private ?string $remediation = null;
     
-    /**
-     * @var array<DeviceManagementTroubleshootingErrorResource>|null $resources Links to helpful documentation about this failure.
-    */
+    /** @var array<DeviceManagementTroubleshootingErrorResource>|null $resources Links to helpful documentation about this failure. */
     private ?array $resources = null;
     
     /**
@@ -51,7 +39,7 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementTroubleshootingErrorDetails
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementTroubleshootingErrorDetails {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementTroubleshootingErrorDetails {
         return new DeviceManagementTroubleshootingErrorDetails();
     }
 
@@ -92,13 +80,12 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'context' => function (ParseNode $n) use ($o) { $o->setContext($n->getStringValue()); },
-            'failure' => function (ParseNode $n) use ($o) { $o->setFailure($n->getStringValue()); },
-            'failureDetails' => function (ParseNode $n) use ($o) { $o->setFailureDetails($n->getStringValue()); },
-            'remediation' => function (ParseNode $n) use ($o) { $o->setRemediation($n->getStringValue()); },
-            'resources' => function (ParseNode $n) use ($o) { $o->setResources($n->getCollectionOfObjectValues(array(DeviceManagementTroubleshootingErrorResource::class, 'createFromDiscriminatorValue'))); },
+            'context' => function (self $o, ParseNode $n) { $o->setContext($n->getStringValue()); },
+            'failure' => function (self $o, ParseNode $n) { $o->setFailure($n->getStringValue()); },
+            'failureDetails' => function (self $o, ParseNode $n) { $o->setFailureDetails($n->getStringValue()); },
+            'remediation' => function (self $o, ParseNode $n) { $o->setRemediation($n->getStringValue()); },
+            'resources' => function (self $o, ParseNode $n) { $o->setResources($n->getCollectionOfObjectValues(DeviceManagementTroubleshootingErrorResource::class)); },
         ];
     }
 

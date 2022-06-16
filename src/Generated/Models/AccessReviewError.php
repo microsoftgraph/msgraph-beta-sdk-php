@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessReviewError extends GenericError implements Parsable 
+class AccessReviewError extends GenericError 
 {
     /**
      * Instantiates a new accessReviewError and sets the default values.
@@ -20,7 +20,7 @@ class AccessReviewError extends GenericError implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessReviewError
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewError {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewError {
         return new AccessReviewError();
     }
 
@@ -29,7 +29,6 @@ class AccessReviewError extends GenericError implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
         ]);
     }

@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class InsightsSettings extends Entity implements Parsable 
+class InsightsSettings extends Entity 
 {
-    /**
-     * @var string|null $disabledForGroup The ID of an Azure Active Directory group, of which the specified type of insights are disabled for its members. Default is empty. Optional.
-    */
+    /** @var string|null $disabledForGroup The ID of an Azure Active Directory group, of which the specified type of insights are disabled for its members. Default is empty. Optional. */
     private ?string $disabledForGroup = null;
     
-    /**
-     * @var bool|null $isEnabledInOrganization true if the specified type of insights are enabled for the organization; false if the specified type of insights are disabled for all users without exceptions. Default is true. Optional.
-    */
+    /** @var bool|null $isEnabledInOrganization true if the specified type of insights are enabled for the organization; false if the specified type of insights are disabled for all users without exceptions. Default is true. Optional. */
     private ?bool $isEnabledInOrganization = null;
     
     /**
@@ -30,7 +26,7 @@ class InsightsSettings extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return InsightsSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): InsightsSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): InsightsSettings {
         return new InsightsSettings();
     }
 
@@ -47,10 +43,9 @@ class InsightsSettings extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'disabledForGroup' => function (ParseNode $n) use ($o) { $o->setDisabledForGroup($n->getStringValue()); },
-            'isEnabledInOrganization' => function (ParseNode $n) use ($o) { $o->setIsEnabledInOrganization($n->getBooleanValue()); },
+            'disabledForGroup' => function (self $o, ParseNode $n) { $o->setDisabledForGroup($n->getStringValue()); },
+            'isEnabledInOrganization' => function (self $o, ParseNode $n) { $o->setIsEnabledInOrganization($n->getBooleanValue()); },
         ]);
     }
 

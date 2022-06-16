@@ -6,201 +6,123 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Company extends Entity implements Parsable 
+class Company extends Entity 
 {
-    /**
-     * @var array<Account>|null $accounts The accounts property
-    */
+    /** @var array<Account>|null $accounts The accounts property */
     private ?array $accounts = null;
     
-    /**
-     * @var array<AgedAccountsPayable>|null $agedAccountsPayable The agedAccountsPayable property
-    */
+    /** @var array<AgedAccountsPayable>|null $agedAccountsPayable The agedAccountsPayable property */
     private ?array $agedAccountsPayable = null;
     
-    /**
-     * @var array<AgedAccountsReceivable>|null $agedAccountsReceivable The agedAccountsReceivable property
-    */
+    /** @var array<AgedAccountsReceivable>|null $agedAccountsReceivable The agedAccountsReceivable property */
     private ?array $agedAccountsReceivable = null;
     
-    /**
-     * @var string|null $businessProfileId The businessProfileId property
-    */
+    /** @var string|null $businessProfileId The businessProfileId property */
     private ?string $businessProfileId = null;
     
-    /**
-     * @var array<CompanyInformation>|null $companyInformation The companyInformation property
-    */
+    /** @var array<CompanyInformation>|null $companyInformation The companyInformation property */
     private ?array $companyInformation = null;
     
-    /**
-     * @var array<CountryRegion>|null $countriesRegions The countriesRegions property
-    */
+    /** @var array<CountryRegion>|null $countriesRegions The countriesRegions property */
     private ?array $countriesRegions = null;
     
-    /**
-     * @var array<Currency>|null $currencies The currencies property
-    */
+    /** @var array<Currency>|null $currencies The currencies property */
     private ?array $currencies = null;
     
-    /**
-     * @var array<CustomerPaymentJournal>|null $customerPaymentJournals The customerPaymentJournals property
-    */
+    /** @var array<CustomerPaymentJournal>|null $customerPaymentJournals The customerPaymentJournals property */
     private ?array $customerPaymentJournals = null;
     
-    /**
-     * @var array<CustomerPayment>|null $customerPayments The customerPayments property
-    */
+    /** @var array<CustomerPayment>|null $customerPayments The customerPayments property */
     private ?array $customerPayments = null;
     
-    /**
-     * @var array<Customer>|null $customers The customers property
-    */
+    /** @var array<Customer>|null $customers The customers property */
     private ?array $customers = null;
     
-    /**
-     * @var array<Dimension>|null $dimensions The dimensions property
-    */
+    /** @var array<Dimension>|null $dimensions The dimensions property */
     private ?array $dimensions = null;
     
-    /**
-     * @var array<DimensionValue>|null $dimensionValues The dimensionValues property
-    */
+    /** @var array<DimensionValue>|null $dimensionValues The dimensionValues property */
     private ?array $dimensionValues = null;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var array<Employee>|null $employees The employees property
-    */
+    /** @var array<Employee>|null $employees The employees property */
     private ?array $employees = null;
     
-    /**
-     * @var array<GeneralLedgerEntry>|null $generalLedgerEntries The generalLedgerEntries property
-    */
+    /** @var array<GeneralLedgerEntry>|null $generalLedgerEntries The generalLedgerEntries property */
     private ?array $generalLedgerEntries = null;
     
-    /**
-     * @var array<ItemCategory>|null $itemCategories The itemCategories property
-    */
+    /** @var array<ItemCategory>|null $itemCategories The itemCategories property */
     private ?array $itemCategories = null;
     
-    /**
-     * @var array<Item>|null $items The items property
-    */
+    /** @var array<Item>|null $items The items property */
     private ?array $items = null;
     
-    /**
-     * @var array<JournalLine>|null $journalLines The journalLines property
-    */
+    /** @var array<JournalLine>|null $journalLines The journalLines property */
     private ?array $journalLines = null;
     
-    /**
-     * @var array<Journal>|null $journals The journals property
-    */
+    /** @var array<Journal>|null $journals The journals property */
     private ?array $journals = null;
     
-    /**
-     * @var string|null $name The name property
-    */
+    /** @var string|null $name The name property */
     private ?string $name = null;
     
-    /**
-     * @var array<PaymentMethod>|null $paymentMethods The paymentMethods property
-    */
+    /** @var array<PaymentMethod>|null $paymentMethods The paymentMethods property */
     private ?array $paymentMethods = null;
     
-    /**
-     * @var array<PaymentTerm>|null $paymentTerms The paymentTerms property
-    */
+    /** @var array<PaymentTerm>|null $paymentTerms The paymentTerms property */
     private ?array $paymentTerms = null;
     
-    /**
-     * @var array<Picture>|null $picture The picture property
-    */
+    /** @var array<Picture>|null $picture The picture property */
     private ?array $picture = null;
     
-    /**
-     * @var array<PurchaseInvoiceLine>|null $purchaseInvoiceLines The purchaseInvoiceLines property
-    */
+    /** @var array<PurchaseInvoiceLine>|null $purchaseInvoiceLines The purchaseInvoiceLines property */
     private ?array $purchaseInvoiceLines = null;
     
-    /**
-     * @var array<PurchaseInvoice>|null $purchaseInvoices The purchaseInvoices property
-    */
+    /** @var array<PurchaseInvoice>|null $purchaseInvoices The purchaseInvoices property */
     private ?array $purchaseInvoices = null;
     
-    /**
-     * @var array<SalesCreditMemoLine>|null $salesCreditMemoLines The salesCreditMemoLines property
-    */
+    /** @var array<SalesCreditMemoLine>|null $salesCreditMemoLines The salesCreditMemoLines property */
     private ?array $salesCreditMemoLines = null;
     
-    /**
-     * @var array<SalesCreditMemo>|null $salesCreditMemos The salesCreditMemos property
-    */
+    /** @var array<SalesCreditMemo>|null $salesCreditMemos The salesCreditMemos property */
     private ?array $salesCreditMemos = null;
     
-    /**
-     * @var array<SalesInvoiceLine>|null $salesInvoiceLines The salesInvoiceLines property
-    */
+    /** @var array<SalesInvoiceLine>|null $salesInvoiceLines The salesInvoiceLines property */
     private ?array $salesInvoiceLines = null;
     
-    /**
-     * @var array<SalesInvoice>|null $salesInvoices The salesInvoices property
-    */
+    /** @var array<SalesInvoice>|null $salesInvoices The salesInvoices property */
     private ?array $salesInvoices = null;
     
-    /**
-     * @var array<SalesOrderLine>|null $salesOrderLines The salesOrderLines property
-    */
+    /** @var array<SalesOrderLine>|null $salesOrderLines The salesOrderLines property */
     private ?array $salesOrderLines = null;
     
-    /**
-     * @var array<SalesOrder>|null $salesOrders The salesOrders property
-    */
+    /** @var array<SalesOrder>|null $salesOrders The salesOrders property */
     private ?array $salesOrders = null;
     
-    /**
-     * @var array<SalesQuoteLine>|null $salesQuoteLines The salesQuoteLines property
-    */
+    /** @var array<SalesQuoteLine>|null $salesQuoteLines The salesQuoteLines property */
     private ?array $salesQuoteLines = null;
     
-    /**
-     * @var array<SalesQuote>|null $salesQuotes The salesQuotes property
-    */
+    /** @var array<SalesQuote>|null $salesQuotes The salesQuotes property */
     private ?array $salesQuotes = null;
     
-    /**
-     * @var array<ShipmentMethod>|null $shipmentMethods The shipmentMethods property
-    */
+    /** @var array<ShipmentMethod>|null $shipmentMethods The shipmentMethods property */
     private ?array $shipmentMethods = null;
     
-    /**
-     * @var string|null $systemVersion The systemVersion property
-    */
+    /** @var string|null $systemVersion The systemVersion property */
     private ?string $systemVersion = null;
     
-    /**
-     * @var array<TaxArea>|null $taxAreas The taxAreas property
-    */
+    /** @var array<TaxArea>|null $taxAreas The taxAreas property */
     private ?array $taxAreas = null;
     
-    /**
-     * @var array<TaxGroup>|null $taxGroups The taxGroups property
-    */
+    /** @var array<TaxGroup>|null $taxGroups The taxGroups property */
     private ?array $taxGroups = null;
     
-    /**
-     * @var array<UnitOfMeasure>|null $unitsOfMeasure The unitsOfMeasure property
-    */
+    /** @var array<UnitOfMeasure>|null $unitsOfMeasure The unitsOfMeasure property */
     private ?array $unitsOfMeasure = null;
     
-    /**
-     * @var array<Vendor>|null $vendors The vendors property
-    */
+    /** @var array<Vendor>|null $vendors The vendors property */
     private ?array $vendors = null;
     
     /**
@@ -215,7 +137,7 @@ class Company extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Company
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Company {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Company {
         return new Company();
     }
 
@@ -336,47 +258,46 @@ class Company extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accounts' => function (ParseNode $n) use ($o) { $o->setAccounts($n->getCollectionOfObjectValues(array(Account::class, 'createFromDiscriminatorValue'))); },
-            'agedAccountsPayable' => function (ParseNode $n) use ($o) { $o->setAgedAccountsPayable($n->getCollectionOfObjectValues(array(AgedAccountsPayable::class, 'createFromDiscriminatorValue'))); },
-            'agedAccountsReceivable' => function (ParseNode $n) use ($o) { $o->setAgedAccountsReceivable($n->getCollectionOfObjectValues(array(AgedAccountsReceivable::class, 'createFromDiscriminatorValue'))); },
-            'businessProfileId' => function (ParseNode $n) use ($o) { $o->setBusinessProfileId($n->getStringValue()); },
-            'companyInformation' => function (ParseNode $n) use ($o) { $o->setCompanyInformation($n->getCollectionOfObjectValues(array(CompanyInformation::class, 'createFromDiscriminatorValue'))); },
-            'countriesRegions' => function (ParseNode $n) use ($o) { $o->setCountriesRegions($n->getCollectionOfObjectValues(array(CountryRegion::class, 'createFromDiscriminatorValue'))); },
-            'currencies' => function (ParseNode $n) use ($o) { $o->setCurrencies($n->getCollectionOfObjectValues(array(Currency::class, 'createFromDiscriminatorValue'))); },
-            'customerPaymentJournals' => function (ParseNode $n) use ($o) { $o->setCustomerPaymentJournals($n->getCollectionOfObjectValues(array(CustomerPaymentJournal::class, 'createFromDiscriminatorValue'))); },
-            'customerPayments' => function (ParseNode $n) use ($o) { $o->setCustomerPayments($n->getCollectionOfObjectValues(array(CustomerPayment::class, 'createFromDiscriminatorValue'))); },
-            'customers' => function (ParseNode $n) use ($o) { $o->setCustomers($n->getCollectionOfObjectValues(array(Customer::class, 'createFromDiscriminatorValue'))); },
-            'dimensions' => function (ParseNode $n) use ($o) { $o->setDimensions($n->getCollectionOfObjectValues(array(Dimension::class, 'createFromDiscriminatorValue'))); },
-            'dimensionValues' => function (ParseNode $n) use ($o) { $o->setDimensionValues($n->getCollectionOfObjectValues(array(DimensionValue::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'employees' => function (ParseNode $n) use ($o) { $o->setEmployees($n->getCollectionOfObjectValues(array(Employee::class, 'createFromDiscriminatorValue'))); },
-            'generalLedgerEntries' => function (ParseNode $n) use ($o) { $o->setGeneralLedgerEntries($n->getCollectionOfObjectValues(array(GeneralLedgerEntry::class, 'createFromDiscriminatorValue'))); },
-            'itemCategories' => function (ParseNode $n) use ($o) { $o->setItemCategories($n->getCollectionOfObjectValues(array(ItemCategory::class, 'createFromDiscriminatorValue'))); },
-            'items' => function (ParseNode $n) use ($o) { $o->setItems($n->getCollectionOfObjectValues(array(Item::class, 'createFromDiscriminatorValue'))); },
-            'journalLines' => function (ParseNode $n) use ($o) { $o->setJournalLines($n->getCollectionOfObjectValues(array(JournalLine::class, 'createFromDiscriminatorValue'))); },
-            'journals' => function (ParseNode $n) use ($o) { $o->setJournals($n->getCollectionOfObjectValues(array(Journal::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'paymentMethods' => function (ParseNode $n) use ($o) { $o->setPaymentMethods($n->getCollectionOfObjectValues(array(PaymentMethod::class, 'createFromDiscriminatorValue'))); },
-            'paymentTerms' => function (ParseNode $n) use ($o) { $o->setPaymentTerms($n->getCollectionOfObjectValues(array(PaymentTerm::class, 'createFromDiscriminatorValue'))); },
-            'picture' => function (ParseNode $n) use ($o) { $o->setPicture($n->getCollectionOfObjectValues(array(Picture::class, 'createFromDiscriminatorValue'))); },
-            'purchaseInvoiceLines' => function (ParseNode $n) use ($o) { $o->setPurchaseInvoiceLines($n->getCollectionOfObjectValues(array(PurchaseInvoiceLine::class, 'createFromDiscriminatorValue'))); },
-            'purchaseInvoices' => function (ParseNode $n) use ($o) { $o->setPurchaseInvoices($n->getCollectionOfObjectValues(array(PurchaseInvoice::class, 'createFromDiscriminatorValue'))); },
-            'salesCreditMemoLines' => function (ParseNode $n) use ($o) { $o->setSalesCreditMemoLines($n->getCollectionOfObjectValues(array(SalesCreditMemoLine::class, 'createFromDiscriminatorValue'))); },
-            'salesCreditMemos' => function (ParseNode $n) use ($o) { $o->setSalesCreditMemos($n->getCollectionOfObjectValues(array(SalesCreditMemo::class, 'createFromDiscriminatorValue'))); },
-            'salesInvoiceLines' => function (ParseNode $n) use ($o) { $o->setSalesInvoiceLines($n->getCollectionOfObjectValues(array(SalesInvoiceLine::class, 'createFromDiscriminatorValue'))); },
-            'salesInvoices' => function (ParseNode $n) use ($o) { $o->setSalesInvoices($n->getCollectionOfObjectValues(array(SalesInvoice::class, 'createFromDiscriminatorValue'))); },
-            'salesOrderLines' => function (ParseNode $n) use ($o) { $o->setSalesOrderLines($n->getCollectionOfObjectValues(array(SalesOrderLine::class, 'createFromDiscriminatorValue'))); },
-            'salesOrders' => function (ParseNode $n) use ($o) { $o->setSalesOrders($n->getCollectionOfObjectValues(array(SalesOrder::class, 'createFromDiscriminatorValue'))); },
-            'salesQuoteLines' => function (ParseNode $n) use ($o) { $o->setSalesQuoteLines($n->getCollectionOfObjectValues(array(SalesQuoteLine::class, 'createFromDiscriminatorValue'))); },
-            'salesQuotes' => function (ParseNode $n) use ($o) { $o->setSalesQuotes($n->getCollectionOfObjectValues(array(SalesQuote::class, 'createFromDiscriminatorValue'))); },
-            'shipmentMethods' => function (ParseNode $n) use ($o) { $o->setShipmentMethods($n->getCollectionOfObjectValues(array(ShipmentMethod::class, 'createFromDiscriminatorValue'))); },
-            'systemVersion' => function (ParseNode $n) use ($o) { $o->setSystemVersion($n->getStringValue()); },
-            'taxAreas' => function (ParseNode $n) use ($o) { $o->setTaxAreas($n->getCollectionOfObjectValues(array(TaxArea::class, 'createFromDiscriminatorValue'))); },
-            'taxGroups' => function (ParseNode $n) use ($o) { $o->setTaxGroups($n->getCollectionOfObjectValues(array(TaxGroup::class, 'createFromDiscriminatorValue'))); },
-            'unitsOfMeasure' => function (ParseNode $n) use ($o) { $o->setUnitsOfMeasure($n->getCollectionOfObjectValues(array(UnitOfMeasure::class, 'createFromDiscriminatorValue'))); },
-            'vendors' => function (ParseNode $n) use ($o) { $o->setVendors($n->getCollectionOfObjectValues(array(Vendor::class, 'createFromDiscriminatorValue'))); },
+            'accounts' => function (self $o, ParseNode $n) { $o->setAccounts($n->getCollectionOfObjectValues(Account::class)); },
+            'agedAccountsPayable' => function (self $o, ParseNode $n) { $o->setAgedAccountsPayable($n->getCollectionOfObjectValues(AgedAccountsPayable::class)); },
+            'agedAccountsReceivable' => function (self $o, ParseNode $n) { $o->setAgedAccountsReceivable($n->getCollectionOfObjectValues(AgedAccountsReceivable::class)); },
+            'businessProfileId' => function (self $o, ParseNode $n) { $o->setBusinessProfileId($n->getStringValue()); },
+            'companyInformation' => function (self $o, ParseNode $n) { $o->setCompanyInformation($n->getCollectionOfObjectValues(CompanyInformation::class)); },
+            'countriesRegions' => function (self $o, ParseNode $n) { $o->setCountriesRegions($n->getCollectionOfObjectValues(CountryRegion::class)); },
+            'currencies' => function (self $o, ParseNode $n) { $o->setCurrencies($n->getCollectionOfObjectValues(Currency::class)); },
+            'customerPaymentJournals' => function (self $o, ParseNode $n) { $o->setCustomerPaymentJournals($n->getCollectionOfObjectValues(CustomerPaymentJournal::class)); },
+            'customerPayments' => function (self $o, ParseNode $n) { $o->setCustomerPayments($n->getCollectionOfObjectValues(CustomerPayment::class)); },
+            'customers' => function (self $o, ParseNode $n) { $o->setCustomers($n->getCollectionOfObjectValues(Customer::class)); },
+            'dimensions' => function (self $o, ParseNode $n) { $o->setDimensions($n->getCollectionOfObjectValues(Dimension::class)); },
+            'dimensionValues' => function (self $o, ParseNode $n) { $o->setDimensionValues($n->getCollectionOfObjectValues(DimensionValue::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'employees' => function (self $o, ParseNode $n) { $o->setEmployees($n->getCollectionOfObjectValues(Employee::class)); },
+            'generalLedgerEntries' => function (self $o, ParseNode $n) { $o->setGeneralLedgerEntries($n->getCollectionOfObjectValues(GeneralLedgerEntry::class)); },
+            'itemCategories' => function (self $o, ParseNode $n) { $o->setItemCategories($n->getCollectionOfObjectValues(ItemCategory::class)); },
+            'items' => function (self $o, ParseNode $n) { $o->setItems($n->getCollectionOfObjectValues(Item::class)); },
+            'journalLines' => function (self $o, ParseNode $n) { $o->setJournalLines($n->getCollectionOfObjectValues(JournalLine::class)); },
+            'journals' => function (self $o, ParseNode $n) { $o->setJournals($n->getCollectionOfObjectValues(Journal::class)); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'paymentMethods' => function (self $o, ParseNode $n) { $o->setPaymentMethods($n->getCollectionOfObjectValues(PaymentMethod::class)); },
+            'paymentTerms' => function (self $o, ParseNode $n) { $o->setPaymentTerms($n->getCollectionOfObjectValues(PaymentTerm::class)); },
+            'picture' => function (self $o, ParseNode $n) { $o->setPicture($n->getCollectionOfObjectValues(Picture::class)); },
+            'purchaseInvoiceLines' => function (self $o, ParseNode $n) { $o->setPurchaseInvoiceLines($n->getCollectionOfObjectValues(PurchaseInvoiceLine::class)); },
+            'purchaseInvoices' => function (self $o, ParseNode $n) { $o->setPurchaseInvoices($n->getCollectionOfObjectValues(PurchaseInvoice::class)); },
+            'salesCreditMemoLines' => function (self $o, ParseNode $n) { $o->setSalesCreditMemoLines($n->getCollectionOfObjectValues(SalesCreditMemoLine::class)); },
+            'salesCreditMemos' => function (self $o, ParseNode $n) { $o->setSalesCreditMemos($n->getCollectionOfObjectValues(SalesCreditMemo::class)); },
+            'salesInvoiceLines' => function (self $o, ParseNode $n) { $o->setSalesInvoiceLines($n->getCollectionOfObjectValues(SalesInvoiceLine::class)); },
+            'salesInvoices' => function (self $o, ParseNode $n) { $o->setSalesInvoices($n->getCollectionOfObjectValues(SalesInvoice::class)); },
+            'salesOrderLines' => function (self $o, ParseNode $n) { $o->setSalesOrderLines($n->getCollectionOfObjectValues(SalesOrderLine::class)); },
+            'salesOrders' => function (self $o, ParseNode $n) { $o->setSalesOrders($n->getCollectionOfObjectValues(SalesOrder::class)); },
+            'salesQuoteLines' => function (self $o, ParseNode $n) { $o->setSalesQuoteLines($n->getCollectionOfObjectValues(SalesQuoteLine::class)); },
+            'salesQuotes' => function (self $o, ParseNode $n) { $o->setSalesQuotes($n->getCollectionOfObjectValues(SalesQuote::class)); },
+            'shipmentMethods' => function (self $o, ParseNode $n) { $o->setShipmentMethods($n->getCollectionOfObjectValues(ShipmentMethod::class)); },
+            'systemVersion' => function (self $o, ParseNode $n) { $o->setSystemVersion($n->getStringValue()); },
+            'taxAreas' => function (self $o, ParseNode $n) { $o->setTaxAreas($n->getCollectionOfObjectValues(TaxArea::class)); },
+            'taxGroups' => function (self $o, ParseNode $n) { $o->setTaxGroups($n->getCollectionOfObjectValues(TaxGroup::class)); },
+            'unitsOfMeasure' => function (self $o, ParseNode $n) { $o->setUnitsOfMeasure($n->getCollectionOfObjectValues(UnitOfMeasure::class)); },
+            'vendors' => function (self $o, ParseNode $n) { $o->setVendors($n->getCollectionOfObjectValues(Vendor::class)); },
         ]);
     }
 

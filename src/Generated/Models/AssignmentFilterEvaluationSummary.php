@@ -10,49 +10,31 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $assignmentFilterDisplayName The admin defined name for assignment filter.
-    */
+    /** @var string|null $assignmentFilterDisplayName The admin defined name for assignment filter. */
     private ?string $assignmentFilterDisplayName = null;
     
-    /**
-     * @var string|null $assignmentFilterId Unique identifier for the assignment filter object
-    */
+    /** @var string|null $assignmentFilterId Unique identifier for the assignment filter object */
     private ?string $assignmentFilterId = null;
     
-    /**
-     * @var DateTime|null $assignmentFilterLastModifiedDateTime The time the assignment filter was last modified.
-    */
+    /** @var DateTime|null $assignmentFilterLastModifiedDateTime The time the assignment filter was last modified. */
     private ?DateTime $assignmentFilterLastModifiedDateTime = null;
     
-    /**
-     * @var DevicePlatformType|null $assignmentFilterPlatform The platform for which this assignment filter is created. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
-    */
+    /** @var DevicePlatformType|null $assignmentFilterPlatform The platform for which this assignment filter is created. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown. */
     private ?DevicePlatformType $assignmentFilterPlatform = null;
     
-    /**
-     * @var DeviceAndAppManagementAssignmentFilterType|null $assignmentFilterType Indicate filter type either include or exclude. Possible values are: none, include, exclude.
-    */
+    /** @var DeviceAndAppManagementAssignmentFilterType|null $assignmentFilterType Indicate filter type either include or exclude. Possible values are: none, include, exclude. */
     private ?DeviceAndAppManagementAssignmentFilterType $assignmentFilterType = null;
     
-    /**
-     * @var array<AssignmentFilterTypeAndEvaluationResult>|null $assignmentFilterTypeAndEvaluationResults A collection of filter types and their corresponding evaluation results.
-    */
+    /** @var array<AssignmentFilterTypeAndEvaluationResult>|null $assignmentFilterTypeAndEvaluationResults A collection of filter types and their corresponding evaluation results. */
     private ?array $assignmentFilterTypeAndEvaluationResults = null;
     
-    /**
-     * @var DateTime|null $evaluationDateTime The time assignment filter was evaluated.
-    */
+    /** @var DateTime|null $evaluationDateTime The time assignment filter was evaluated. */
     private ?DateTime $evaluationDateTime = null;
     
-    /**
-     * @var AssignmentFilterEvaluationResult|null $evaluationResult Assignment filter evaluation result. Possible values are: unknown, match, notMatch, inconclusive, failure, notEvaluated.
-    */
+    /** @var AssignmentFilterEvaluationResult|null $evaluationResult Assignment filter evaluation result. Possible values are: unknown, match, notMatch, inconclusive, failure, notEvaluated. */
     private ?AssignmentFilterEvaluationResult $evaluationResult = null;
     
     /**
@@ -67,7 +49,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AssignmentFilterEvaluationSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentFilterEvaluationSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentFilterEvaluationSummary {
         return new AssignmentFilterEvaluationSummary();
     }
 
@@ -148,16 +130,15 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'assignmentFilterDisplayName' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterDisplayName($n->getStringValue()); },
-            'assignmentFilterId' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterId($n->getStringValue()); },
-            'assignmentFilterLastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterLastModifiedDateTime($n->getDateTimeValue()); },
-            'assignmentFilterPlatform' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterPlatform($n->getEnumValue(DevicePlatformType::class)); },
-            'assignmentFilterType' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)); },
-            'assignmentFilterTypeAndEvaluationResults' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterTypeAndEvaluationResults($n->getCollectionOfObjectValues(array(AssignmentFilterTypeAndEvaluationResult::class, 'createFromDiscriminatorValue'))); },
-            'evaluationDateTime' => function (ParseNode $n) use ($o) { $o->setEvaluationDateTime($n->getDateTimeValue()); },
-            'evaluationResult' => function (ParseNode $n) use ($o) { $o->setEvaluationResult($n->getEnumValue(AssignmentFilterEvaluationResult::class)); },
+            'assignmentFilterDisplayName' => function (self $o, ParseNode $n) { $o->setAssignmentFilterDisplayName($n->getStringValue()); },
+            'assignmentFilterId' => function (self $o, ParseNode $n) { $o->setAssignmentFilterId($n->getStringValue()); },
+            'assignmentFilterLastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setAssignmentFilterLastModifiedDateTime($n->getDateTimeValue()); },
+            'assignmentFilterPlatform' => function (self $o, ParseNode $n) { $o->setAssignmentFilterPlatform($n->getEnumValue(DevicePlatformType::class)); },
+            'assignmentFilterType' => function (self $o, ParseNode $n) { $o->setAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)); },
+            'assignmentFilterTypeAndEvaluationResults' => function (self $o, ParseNode $n) { $o->setAssignmentFilterTypeAndEvaluationResults($n->getCollectionOfObjectValues(AssignmentFilterTypeAndEvaluationResult::class)); },
+            'evaluationDateTime' => function (self $o, ParseNode $n) { $o->setEvaluationDateTime($n->getDateTimeValue()); },
+            'evaluationResult' => function (self $o, ParseNode $n) { $o->setEvaluationResult($n->getEnumValue(AssignmentFilterEvaluationResult::class)); },
         ];
     }
 

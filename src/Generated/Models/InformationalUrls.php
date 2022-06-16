@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class InformationalUrls implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $appSignUpUrl The appSignUpUrl property
-    */
+    /** @var string|null $appSignUpUrl The appSignUpUrl property */
     private ?string $appSignUpUrl = null;
     
-    /**
-     * @var string|null $singleSignOnDocumentationUrl The singleSignOnDocumentationUrl property
-    */
+    /** @var string|null $singleSignOnDocumentationUrl The singleSignOnDocumentationUrl property */
     private ?string $singleSignOnDocumentationUrl = null;
     
     /**
@@ -36,7 +30,7 @@ class InformationalUrls implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return InformationalUrls
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): InformationalUrls {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): InformationalUrls {
         return new InformationalUrls();
     }
 
@@ -61,10 +55,9 @@ class InformationalUrls implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'appSignUpUrl' => function (ParseNode $n) use ($o) { $o->setAppSignUpUrl($n->getStringValue()); },
-            'singleSignOnDocumentationUrl' => function (ParseNode $n) use ($o) { $o->setSingleSignOnDocumentationUrl($n->getStringValue()); },
+            'appSignUpUrl' => function (self $o, ParseNode $n) { $o->setAppSignUpUrl($n->getStringValue()); },
+            'singleSignOnDocumentationUrl' => function (self $o, ParseNode $n) { $o->setSingleSignOnDocumentationUrl($n->getStringValue()); },
         ];
     }
 

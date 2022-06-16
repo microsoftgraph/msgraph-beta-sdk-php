@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class LinkedResource extends Entity implements Parsable 
+class LinkedResource extends Entity 
 {
-    /**
-     * @var string|null $applicationName Field indicating the app name of the source that is sending the linkedResource.
-    */
+    /** @var string|null $applicationName Field indicating the app name of the source that is sending the linkedResource. */
     private ?string $applicationName = null;
     
-    /**
-     * @var string|null $displayName Field indicating the title of the linkedResource.
-    */
+    /** @var string|null $displayName Field indicating the title of the linkedResource. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $externalId Id of the object that is associated with this task on the third-party/partner system.
-    */
+    /** @var string|null $externalId Id of the object that is associated with this task on the third-party/partner system. */
     private ?string $externalId = null;
     
-    /**
-     * @var string|null $webUrl Deep link to the linkedResource.
-    */
+    /** @var string|null $webUrl Deep link to the linkedResource. */
     private ?string $webUrl = null;
     
     /**
@@ -40,7 +32,7 @@ class LinkedResource extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return LinkedResource
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): LinkedResource {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): LinkedResource {
         return new LinkedResource();
     }
 
@@ -73,12 +65,11 @@ class LinkedResource extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationName' => function (ParseNode $n) use ($o) { $o->setApplicationName($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'externalId' => function (ParseNode $n) use ($o) { $o->setExternalId($n->getStringValue()); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'applicationName' => function (self $o, ParseNode $n) { $o->setApplicationName($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'externalId' => function (self $o, ParseNode $n) { $o->setExternalId($n->getStringValue()); },
+            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
         ]);
     }
 

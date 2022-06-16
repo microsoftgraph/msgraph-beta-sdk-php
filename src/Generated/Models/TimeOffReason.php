@@ -6,25 +6,19 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TimeOffReason extends ChangeTrackedEntity implements Parsable 
+class TimeOffReason extends ChangeTrackedEntity 
 {
-    /**
-     * @var string|null $displayName The name of the timeOffReason. Required.
-    */
+    /** @var string|null $displayName The name of the timeOffReason. Required. */
     private ?string $displayName = null;
     
-    /**
-     * @var TimeOffReasonIconType|null $iconType Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required.
-    */
+    /** @var TimeOffReasonIconType|null $iconType Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required. */
     private ?TimeOffReasonIconType $iconType = null;
     
-    /**
-     * @var bool|null $isActive Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required.
-    */
+    /** @var bool|null $isActive Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required. */
     private ?bool $isActive = null;
     
     /**
-     * Instantiates a new TimeOffReason and sets the default values.
+     * Instantiates a new timeOffReason and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +29,7 @@ class TimeOffReason extends ChangeTrackedEntity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TimeOffReason
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TimeOffReason {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TimeOffReason {
         return new TimeOffReason();
     }
 
@@ -52,11 +46,10 @@ class TimeOffReason extends ChangeTrackedEntity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'iconType' => function (ParseNode $n) use ($o) { $o->setIconType($n->getEnumValue(TimeOffReasonIconType::class)); },
-            'isActive' => function (ParseNode $n) use ($o) { $o->setIsActive($n->getBooleanValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'iconType' => function (self $o, ParseNode $n) { $o->setIconType($n->getEnumValue(TimeOffReasonIconType::class)); },
+            'isActive' => function (self $o, ParseNode $n) { $o->setIsActive($n->getBooleanValue()); },
         ]);
     }
 

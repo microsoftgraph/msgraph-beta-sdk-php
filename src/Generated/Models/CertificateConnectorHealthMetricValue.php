@@ -10,24 +10,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CertificateConnectorHealthMetricValue implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateTime|null $dateTime Timestamp for this metric data-point.
-    */
+    /** @var DateTime|null $dateTime Timestamp for this metric data-point. */
     private ?DateTime $dateTime = null;
     
-    /**
-     * @var int|null $failureCount Count of failed requests/operations.
-    */
+    /** @var int|null $failureCount Count of failed requests/operations. */
     private ?int $failureCount = null;
     
-    /**
-     * @var int|null $successCount Count of successful requests/operations.
-    */
+    /** @var int|null $successCount Count of successful requests/operations. */
     private ?int $successCount = null;
     
     /**
@@ -42,7 +34,7 @@ class CertificateConnectorHealthMetricValue implements AdditionalDataHolder, Par
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CertificateConnectorHealthMetricValue
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CertificateConnectorHealthMetricValue {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CertificateConnectorHealthMetricValue {
         return new CertificateConnectorHealthMetricValue();
     }
 
@@ -75,11 +67,10 @@ class CertificateConnectorHealthMetricValue implements AdditionalDataHolder, Par
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'dateTime' => function (ParseNode $n) use ($o) { $o->setDateTime($n->getDateTimeValue()); },
-            'failureCount' => function (ParseNode $n) use ($o) { $o->setFailureCount($n->getIntegerValue()); },
-            'successCount' => function (ParseNode $n) use ($o) { $o->setSuccessCount($n->getIntegerValue()); },
+            'dateTime' => function (self $o, ParseNode $n) { $o->setDateTime($n->getDateTimeValue()); },
+            'failureCount' => function (self $o, ParseNode $n) { $o->setFailureCount($n->getIntegerValue()); },
+            'successCount' => function (self $o, ParseNode $n) { $o->setSuccessCount($n->getIntegerValue()); },
         ];
     }
 

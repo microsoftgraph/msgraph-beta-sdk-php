@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class OfficeConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<OfficeClientConfiguration>|null $clientConfigurations List of office Client configuration.
-    */
+    /** @var array<OfficeClientConfiguration>|null $clientConfigurations List of office Client configuration. */
     private ?array $clientConfigurations = null;
     
-    /**
-     * @var array<OfficeClientCheckinStatus>|null $tenantCheckinStatuses List of office Client check-in status.
-    */
+    /** @var array<OfficeClientCheckinStatus>|null $tenantCheckinStatuses List of office Client check-in status. */
     private ?array $tenantCheckinStatuses = null;
     
-    /**
-     * @var OfficeUserCheckinSummary|null $tenantUserCheckinSummary Entity that describes tenant check-in statues
-    */
+    /** @var OfficeUserCheckinSummary|null $tenantUserCheckinSummary Entity that describes tenant check-in statues */
     private ?OfficeUserCheckinSummary $tenantUserCheckinSummary = null;
     
     /**
@@ -41,7 +33,7 @@ class OfficeConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OfficeConfiguration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OfficeConfiguration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OfficeConfiguration {
         return new OfficeConfiguration();
     }
 
@@ -66,11 +58,10 @@ class OfficeConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'clientConfigurations' => function (ParseNode $n) use ($o) { $o->setClientConfigurations($n->getCollectionOfObjectValues(array(OfficeClientConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'tenantCheckinStatuses' => function (ParseNode $n) use ($o) { $o->setTenantCheckinStatuses($n->getCollectionOfObjectValues(array(OfficeClientCheckinStatus::class, 'createFromDiscriminatorValue'))); },
-            'tenantUserCheckinSummary' => function (ParseNode $n) use ($o) { $o->setTenantUserCheckinSummary($n->getObjectValue(array(OfficeUserCheckinSummary::class, 'createFromDiscriminatorValue'))); },
+            'clientConfigurations' => function (self $o, ParseNode $n) { $o->setClientConfigurations($n->getCollectionOfObjectValues(OfficeClientConfiguration::class)); },
+            'tenantCheckinStatuses' => function (self $o, ParseNode $n) { $o->setTenantCheckinStatuses($n->getCollectionOfObjectValues(OfficeClientCheckinStatus::class)); },
+            'tenantUserCheckinSummary' => function (self $o, ParseNode $n) { $o->setTenantUserCheckinSummary($n->getObjectValue(OfficeUserCheckinSummary::class)); },
         ];
     }
 

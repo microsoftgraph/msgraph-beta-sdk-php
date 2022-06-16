@@ -7,56 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceAppManagementTask extends Entity implements Parsable 
+class DeviceAppManagementTask extends Entity 
 {
-    /**
-     * @var string|null $assignedTo The name or email of the admin this task is assigned to.
-    */
+    /** @var string|null $assignedTo The name or email of the admin this task is assigned to. */
     private ?string $assignedTo = null;
     
-    /**
-     * @var DeviceAppManagementTaskCategory|null $category The category. Possible values are: unknown, advancedThreatProtection.
-    */
+    /** @var DeviceAppManagementTaskCategory|null $category The category. Possible values are: unknown, advancedThreatProtection. */
     private ?DeviceAppManagementTaskCategory $category = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The created date.
-    */
+    /** @var DateTime|null $createdDateTime The created date. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $creator The email address of the creator.
-    */
+    /** @var string|null $creator The email address of the creator. */
     private ?string $creator = null;
     
-    /**
-     * @var string|null $creatorNotes Notes from the creator.
-    */
+    /** @var string|null $creatorNotes Notes from the creator. */
     private ?string $creatorNotes = null;
     
-    /**
-     * @var string|null $description The description.
-    */
+    /** @var string|null $description The description. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The name.
-    */
+    /** @var string|null $displayName The name. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $dueDateTime The due date.
-    */
+    /** @var DateTime|null $dueDateTime The due date. */
     private ?DateTime $dueDateTime = null;
     
-    /**
-     * @var DeviceAppManagementTaskPriority|null $priority The priority. Possible values are: none, high, low.
-    */
+    /** @var DeviceAppManagementTaskPriority|null $priority The priority. Possible values are: none, high, low. */
     private ?DeviceAppManagementTaskPriority $priority = null;
     
-    /**
-     * @var DeviceAppManagementTaskStatus|null $status The status. Possible values are: unknown, pending, active, completed, rejected.
-    */
+    /** @var DeviceAppManagementTaskStatus|null $status The status. Possible values are: unknown, pending, active, completed, rejected. */
     private ?DeviceAppManagementTaskStatus $status = null;
     
     /**
@@ -71,16 +51,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceAppManagementTask
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAppManagementTask {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.appVulnerabilityTask': return new AppVulnerabilityTask();
-                case '#microsoft.graph.securityConfigurationTask': return new SecurityConfigurationTask();
-                case '#microsoft.graph.unmanagedDeviceDiscoveryTask': return new UnmanagedDeviceDiscoveryTask();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAppManagementTask {
         return new DeviceAppManagementTask();
     }
 
@@ -153,18 +124,17 @@ class DeviceAppManagementTask extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignedTo' => function (ParseNode $n) use ($o) { $o->setAssignedTo($n->getStringValue()); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(DeviceAppManagementTaskCategory::class)); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'creator' => function (ParseNode $n) use ($o) { $o->setCreator($n->getStringValue()); },
-            'creatorNotes' => function (ParseNode $n) use ($o) { $o->setCreatorNotes($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'dueDateTime' => function (ParseNode $n) use ($o) { $o->setDueDateTime($n->getDateTimeValue()); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getEnumValue(DeviceAppManagementTaskPriority::class)); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DeviceAppManagementTaskStatus::class)); },
+            'assignedTo' => function (self $o, ParseNode $n) { $o->setAssignedTo($n->getStringValue()); },
+            'category' => function (self $o, ParseNode $n) { $o->setCategory($n->getEnumValue(DeviceAppManagementTaskCategory::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'creator' => function (self $o, ParseNode $n) { $o->setCreator($n->getStringValue()); },
+            'creatorNotes' => function (self $o, ParseNode $n) { $o->setCreatorNotes($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'dueDateTime' => function (self $o, ParseNode $n) { $o->setDueDateTime($n->getDateTimeValue()); },
+            'priority' => function (self $o, ParseNode $n) { $o->setPriority($n->getEnumValue(DeviceAppManagementTaskPriority::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(DeviceAppManagementTaskStatus::class)); },
         ]);
     }
 

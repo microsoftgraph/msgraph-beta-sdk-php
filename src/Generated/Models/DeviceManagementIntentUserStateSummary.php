@@ -6,31 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementIntentUserStateSummary extends Entity implements Parsable 
+class DeviceManagementIntentUserStateSummary extends Entity 
 {
-    /**
-     * @var int|null $conflictCount Number of users in conflict
-    */
+    /** @var int|null $conflictCount Number of users in conflict */
     private ?int $conflictCount = null;
     
-    /**
-     * @var int|null $errorCount Number of error users
-    */
+    /** @var int|null $errorCount Number of error users */
     private ?int $errorCount = null;
     
-    /**
-     * @var int|null $failedCount Number of failed users
-    */
+    /** @var int|null $failedCount Number of failed users */
     private ?int $failedCount = null;
     
-    /**
-     * @var int|null $notApplicableCount Number of not applicable users
-    */
+    /** @var int|null $notApplicableCount Number of not applicable users */
     private ?int $notApplicableCount = null;
     
-    /**
-     * @var int|null $successCount Number of succeeded users
-    */
+    /** @var int|null $successCount Number of succeeded users */
     private ?int $successCount = null;
     
     /**
@@ -45,7 +35,7 @@ class DeviceManagementIntentUserStateSummary extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementIntentUserStateSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementIntentUserStateSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementIntentUserStateSummary {
         return new DeviceManagementIntentUserStateSummary();
     }
 
@@ -78,13 +68,12 @@ class DeviceManagementIntentUserStateSummary extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'conflictCount' => function (ParseNode $n) use ($o) { $o->setConflictCount($n->getIntegerValue()); },
-            'errorCount' => function (ParseNode $n) use ($o) { $o->setErrorCount($n->getIntegerValue()); },
-            'failedCount' => function (ParseNode $n) use ($o) { $o->setFailedCount($n->getIntegerValue()); },
-            'notApplicableCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableCount($n->getIntegerValue()); },
-            'successCount' => function (ParseNode $n) use ($o) { $o->setSuccessCount($n->getIntegerValue()); },
+            'conflictCount' => function (self $o, ParseNode $n) { $o->setConflictCount($n->getIntegerValue()); },
+            'errorCount' => function (self $o, ParseNode $n) { $o->setErrorCount($n->getIntegerValue()); },
+            'failedCount' => function (self $o, ParseNode $n) { $o->setFailedCount($n->getIntegerValue()); },
+            'notApplicableCount' => function (self $o, ParseNode $n) { $o->setNotApplicableCount($n->getIntegerValue()); },
+            'successCount' => function (self $o, ParseNode $n) { $o->setSuccessCount($n->getIntegerValue()); },
         ]);
     }
 

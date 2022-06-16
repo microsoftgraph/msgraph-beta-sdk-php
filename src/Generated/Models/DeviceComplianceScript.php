@@ -8,76 +8,48 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class DeviceComplianceScript extends Entity implements Parsable 
+class DeviceComplianceScript extends Entity 
 {
-    /**
-     * @var array<DeviceHealthScriptAssignment>|null $assignments The list of group assignments for the device compliance script
-    */
+    /** @var array<DeviceHealthScriptAssignment>|null $assignments The list of group assignments for the device compliance script */
     private ?array $assignments = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The timestamp of when the device compliance script was created. This property is read-only.
-    */
+    /** @var DateTime|null $createdDateTime The timestamp of when the device compliance script was created. This property is read-only. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $description Description of the device compliance script
-    */
+    /** @var string|null $description Description of the device compliance script */
     private ?string $description = null;
     
-    /**
-     * @var StreamInterface|null $detectionScriptContent The entire content of the detection powershell script
-    */
+    /** @var StreamInterface|null $detectionScriptContent The entire content of the detection powershell script */
     private ?StreamInterface $detectionScriptContent = null;
     
-    /**
-     * @var array<DeviceComplianceScriptDeviceState>|null $deviceRunStates List of run states for the device compliance script across all devices
-    */
+    /** @var array<DeviceComplianceScriptDeviceState>|null $deviceRunStates List of run states for the device compliance script across all devices */
     private ?array $deviceRunStates = null;
     
-    /**
-     * @var string|null $displayName Name of the device compliance script
-    */
+    /** @var string|null $displayName Name of the device compliance script */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $enforceSignatureCheck Indicate whether the script signature needs be checked
-    */
+    /** @var bool|null $enforceSignatureCheck Indicate whether the script signature needs be checked */
     private ?bool $enforceSignatureCheck = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The timestamp of when the device compliance script was modified. This property is read-only.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The timestamp of when the device compliance script was modified. This property is read-only. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $publisher Name of the device compliance script publisher
-    */
+    /** @var string|null $publisher Name of the device compliance script publisher */
     private ?string $publisher = null;
     
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tag IDs for the device compliance script
-    */
+    /** @var array<string>|null $roleScopeTagIds List of Scope Tag IDs for the device compliance script */
     private ?array $roleScopeTagIds = null;
     
-    /**
-     * @var bool|null $runAs32Bit Indicate whether PowerShell script(s) should run as 32-bit
-    */
+    /** @var bool|null $runAs32Bit Indicate whether PowerShell script(s) should run as 32-bit */
     private ?bool $runAs32Bit = null;
     
-    /**
-     * @var RunAsAccountType|null $runAsAccount Indicates the type of execution context. Possible values are: system, user.
-    */
+    /** @var RunAsAccountType|null $runAsAccount Indicates the type of execution context. Possible values are: system, user. */
     private ?RunAsAccountType $runAsAccount = null;
     
-    /**
-     * @var DeviceComplianceScriptRunSummary|null $runSummary High level run summary for device compliance script.
-    */
+    /** @var DeviceComplianceScriptRunSummary|null $runSummary High level run summary for device compliance script. */
     private ?DeviceComplianceScriptRunSummary $runSummary = null;
     
-    /**
-     * @var string|null $version Version of the device compliance script
-    */
+    /** @var string|null $version Version of the device compliance script */
     private ?string $version = null;
     
     /**
@@ -92,7 +64,7 @@ class DeviceComplianceScript extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceComplianceScript
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceScript {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceScript {
         return new DeviceComplianceScript();
     }
 
@@ -157,22 +129,21 @@ class DeviceComplianceScript extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceHealthScriptAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'detectionScriptContent' => function (ParseNode $n) use ($o) { $o->setDetectionScriptContent($n->getBinaryContent()); },
-            'deviceRunStates' => function (ParseNode $n) use ($o) { $o->setDeviceRunStates($n->getCollectionOfObjectValues(array(DeviceComplianceScriptDeviceState::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'enforceSignatureCheck' => function (ParseNode $n) use ($o) { $o->setEnforceSignatureCheck($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'runAs32Bit' => function (ParseNode $n) use ($o) { $o->setRunAs32Bit($n->getBooleanValue()); },
-            'runAsAccount' => function (ParseNode $n) use ($o) { $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)); },
-            'runSummary' => function (ParseNode $n) use ($o) { $o->setRunSummary($n->getObjectValue(array(DeviceComplianceScriptRunSummary::class, 'createFromDiscriminatorValue'))); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(DeviceHealthScriptAssignment::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'detectionScriptContent' => function (self $o, ParseNode $n) { $o->setDetectionScriptContent($n->getBinaryContent()); },
+            'deviceRunStates' => function (self $o, ParseNode $n) { $o->setDeviceRunStates($n->getCollectionOfObjectValues(DeviceComplianceScriptDeviceState::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'enforceSignatureCheck' => function (self $o, ParseNode $n) { $o->setEnforceSignatureCheck($n->getBooleanValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'publisher' => function (self $o, ParseNode $n) { $o->setPublisher($n->getStringValue()); },
+            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'runAs32Bit' => function (self $o, ParseNode $n) { $o->setRunAs32Bit($n->getBooleanValue()); },
+            'runAsAccount' => function (self $o, ParseNode $n) { $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)); },
+            'runSummary' => function (self $o, ParseNode $n) { $o->setRunSummary($n->getObjectValue(DeviceComplianceScriptRunSummary::class)); },
+            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getStringValue()); },
         ]);
     }
 

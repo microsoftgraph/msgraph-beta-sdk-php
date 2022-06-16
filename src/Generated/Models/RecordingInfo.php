@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RecordingInfo implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var ParticipantInfo|null $initiatedBy The participant who initiated the recording.
-    */
+    /** @var ParticipantInfo|null $initiatedBy The participant who initiated the recording. */
     private ?ParticipantInfo $initiatedBy = null;
     
-    /**
-     * @var IdentitySet|null $initiator The identities of recording initiator.
-    */
+    /** @var IdentitySet|null $initiator The identities of the recording initiator. */
     private ?IdentitySet $initiator = null;
     
-    /**
-     * @var RecordingStatus|null $recordingStatus Possible values are: unknown, notRecording, recording, or failed.
-    */
+    /** @var RecordingStatus|null $recordingStatus Possible values are: unknown, notRecording, recording, or failed. */
     private ?RecordingStatus $recordingStatus = null;
     
     /**
@@ -41,7 +33,7 @@ class RecordingInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RecordingInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RecordingInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RecordingInfo {
         return new RecordingInfo();
     }
 
@@ -58,11 +50,10 @@ class RecordingInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'initiatedBy' => function (ParseNode $n) use ($o) { $o->setInitiatedBy($n->getObjectValue(array(ParticipantInfo::class, 'createFromDiscriminatorValue'))); },
-            'initiator' => function (ParseNode $n) use ($o) { $o->setInitiator($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'recordingStatus' => function (ParseNode $n) use ($o) { $o->setRecordingStatus($n->getEnumValue(RecordingStatus::class)); },
+            'initiatedBy' => function (self $o, ParseNode $n) { $o->setInitiatedBy($n->getObjectValue(ParticipantInfo::class)); },
+            'initiator' => function (self $o, ParseNode $n) { $o->setInitiator($n->getObjectValue(IdentitySet::class)); },
+            'recordingStatus' => function (self $o, ParseNode $n) { $o->setRecordingStatus($n->getEnumValue(RecordingStatus::class)); },
         ];
     }
 
@@ -75,7 +66,7 @@ class RecordingInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the initiator property value. The identities of recording initiator.
+     * Gets the initiator property value. The identities of the recording initiator.
      * @return IdentitySet|null
     */
     public function getInitiator(): ?IdentitySet {
@@ -118,7 +109,7 @@ class RecordingInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the initiator property value. The identities of recording initiator.
+     * Sets the initiator property value. The identities of the recording initiator.
      *  @param IdentitySet|null $value Value to set for the initiator property.
     */
     public function setInitiator(?IdentitySet $value ): void {

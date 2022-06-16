@@ -9,109 +9,67 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PrinterDocumentConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $collate The collate property
-    */
+    /** @var bool|null $collate The collate property */
     private ?bool $collate = null;
     
-    /**
-     * @var PrintColorMode|null $colorMode The colorMode property
-    */
+    /** @var PrintColorMode|null $colorMode The colorMode property */
     private ?PrintColorMode $colorMode = null;
     
-    /**
-     * @var int|null $copies The copies property
-    */
+    /** @var int|null $copies The copies property */
     private ?int $copies = null;
     
-    /**
-     * @var int|null $dpi The dpi property
-    */
+    /** @var int|null $dpi The dpi property */
     private ?int $dpi = null;
     
-    /**
-     * @var PrintDuplexMode|null $duplexMode The duplexMode property
-    */
+    /** @var PrintDuplexMode|null $duplexMode The duplexMode property */
     private ?PrintDuplexMode $duplexMode = null;
     
-    /**
-     * @var PrinterFeedDirection|null $feedDirection The feedDirection property
-    */
+    /** @var PrinterFeedDirection|null $feedDirection The feedDirection property */
     private ?PrinterFeedDirection $feedDirection = null;
     
-    /**
-     * @var PrinterFeedOrientation|null $feedOrientation The feedOrientation property
-    */
+    /** @var PrinterFeedOrientation|null $feedOrientation The feedOrientation property */
     private ?PrinterFeedOrientation $feedOrientation = null;
     
-    /**
-     * @var array<string>|null $finishings The finishings property
-    */
+    /** @var array<PrintFinishing>|null $finishings The finishings property */
     private ?array $finishings = null;
     
-    /**
-     * @var bool|null $fitPdfToPage The fitPdfToPage property
-    */
+    /** @var bool|null $fitPdfToPage The fitPdfToPage property */
     private ?bool $fitPdfToPage = null;
     
-    /**
-     * @var string|null $inputBin The inputBin property
-    */
+    /** @var string|null $inputBin The inputBin property */
     private ?string $inputBin = null;
     
-    /**
-     * @var PrintMargin|null $margin The margin property
-    */
+    /** @var PrintMargin|null $margin The margin property */
     private ?PrintMargin $margin = null;
     
-    /**
-     * @var string|null $mediaSize The mediaSize property
-    */
+    /** @var string|null $mediaSize The mediaSize property */
     private ?string $mediaSize = null;
     
-    /**
-     * @var string|null $mediaType The mediaType property
-    */
+    /** @var string|null $mediaType The mediaType property */
     private ?string $mediaType = null;
     
-    /**
-     * @var PrintMultipageLayout|null $multipageLayout The multipageLayout property
-    */
+    /** @var PrintMultipageLayout|null $multipageLayout The multipageLayout property */
     private ?PrintMultipageLayout $multipageLayout = null;
     
-    /**
-     * @var PrintOrientation|null $orientation The orientation property
-    */
+    /** @var PrintOrientation|null $orientation The orientation property */
     private ?PrintOrientation $orientation = null;
     
-    /**
-     * @var string|null $outputBin The outputBin property
-    */
+    /** @var string|null $outputBin The outputBin property */
     private ?string $outputBin = null;
     
-    /**
-     * @var array<IntegerRange>|null $pageRanges The pageRanges property
-    */
+    /** @var array<IntegerRange>|null $pageRanges The pageRanges property */
     private ?array $pageRanges = null;
     
-    /**
-     * @var int|null $pagesPerSheet The pagesPerSheet property
-    */
+    /** @var int|null $pagesPerSheet The pagesPerSheet property */
     private ?int $pagesPerSheet = null;
     
-    /**
-     * @var PrintQuality|null $quality The quality property
-    */
+    /** @var PrintQuality|null $quality The quality property */
     private ?PrintQuality $quality = null;
     
-    /**
-     * @var PrintScaling|null $scaling The scaling property
-    */
+    /** @var PrintScaling|null $scaling The scaling property */
     private ?PrintScaling $scaling = null;
     
     /**
@@ -126,7 +84,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrinterDocumentConfiguration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrinterDocumentConfiguration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PrinterDocumentConfiguration {
         return new PrinterDocumentConfiguration();
     }
 
@@ -199,34 +157,33 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'collate' => function (ParseNode $n) use ($o) { $o->setCollate($n->getBooleanValue()); },
-            'colorMode' => function (ParseNode $n) use ($o) { $o->setColorMode($n->getEnumValue(PrintColorMode::class)); },
-            'copies' => function (ParseNode $n) use ($o) { $o->setCopies($n->getIntegerValue()); },
-            'dpi' => function (ParseNode $n) use ($o) { $o->setDpi($n->getIntegerValue()); },
-            'duplexMode' => function (ParseNode $n) use ($o) { $o->setDuplexMode($n->getEnumValue(PrintDuplexMode::class)); },
-            'feedDirection' => function (ParseNode $n) use ($o) { $o->setFeedDirection($n->getEnumValue(PrinterFeedDirection::class)); },
-            'feedOrientation' => function (ParseNode $n) use ($o) { $o->setFeedOrientation($n->getEnumValue(PrinterFeedOrientation::class)); },
-            'finishings' => function (ParseNode $n) use ($o) { $o->setFinishings($n->getCollectionOfPrimitiveValues()); },
-            'fitPdfToPage' => function (ParseNode $n) use ($o) { $o->setFitPdfToPage($n->getBooleanValue()); },
-            'inputBin' => function (ParseNode $n) use ($o) { $o->setInputBin($n->getStringValue()); },
-            'margin' => function (ParseNode $n) use ($o) { $o->setMargin($n->getObjectValue(array(PrintMargin::class, 'createFromDiscriminatorValue'))); },
-            'mediaSize' => function (ParseNode $n) use ($o) { $o->setMediaSize($n->getStringValue()); },
-            'mediaType' => function (ParseNode $n) use ($o) { $o->setMediaType($n->getStringValue()); },
-            'multipageLayout' => function (ParseNode $n) use ($o) { $o->setMultipageLayout($n->getEnumValue(PrintMultipageLayout::class)); },
-            'orientation' => function (ParseNode $n) use ($o) { $o->setOrientation($n->getEnumValue(PrintOrientation::class)); },
-            'outputBin' => function (ParseNode $n) use ($o) { $o->setOutputBin($n->getStringValue()); },
-            'pageRanges' => function (ParseNode $n) use ($o) { $o->setPageRanges($n->getCollectionOfObjectValues(array(IntegerRange::class, 'createFromDiscriminatorValue'))); },
-            'pagesPerSheet' => function (ParseNode $n) use ($o) { $o->setPagesPerSheet($n->getIntegerValue()); },
-            'quality' => function (ParseNode $n) use ($o) { $o->setQuality($n->getEnumValue(PrintQuality::class)); },
-            'scaling' => function (ParseNode $n) use ($o) { $o->setScaling($n->getEnumValue(PrintScaling::class)); },
+            'collate' => function (self $o, ParseNode $n) { $o->setCollate($n->getBooleanValue()); },
+            'colorMode' => function (self $o, ParseNode $n) { $o->setColorMode($n->getEnumValue(PrintColorMode::class)); },
+            'copies' => function (self $o, ParseNode $n) { $o->setCopies($n->getIntegerValue()); },
+            'dpi' => function (self $o, ParseNode $n) { $o->setDpi($n->getIntegerValue()); },
+            'duplexMode' => function (self $o, ParseNode $n) { $o->setDuplexMode($n->getEnumValue(PrintDuplexMode::class)); },
+            'feedDirection' => function (self $o, ParseNode $n) { $o->setFeedDirection($n->getEnumValue(PrinterFeedDirection::class)); },
+            'feedOrientation' => function (self $o, ParseNode $n) { $o->setFeedOrientation($n->getEnumValue(PrinterFeedOrientation::class)); },
+            'finishings' => function (self $o, ParseNode $n) { $o->setFinishings($n->getCollectionOfEnumValues(PrintFinishing::class)); },
+            'fitPdfToPage' => function (self $o, ParseNode $n) { $o->setFitPdfToPage($n->getBooleanValue()); },
+            'inputBin' => function (self $o, ParseNode $n) { $o->setInputBin($n->getStringValue()); },
+            'margin' => function (self $o, ParseNode $n) { $o->setMargin($n->getObjectValue(PrintMargin::class)); },
+            'mediaSize' => function (self $o, ParseNode $n) { $o->setMediaSize($n->getStringValue()); },
+            'mediaType' => function (self $o, ParseNode $n) { $o->setMediaType($n->getStringValue()); },
+            'multipageLayout' => function (self $o, ParseNode $n) { $o->setMultipageLayout($n->getEnumValue(PrintMultipageLayout::class)); },
+            'orientation' => function (self $o, ParseNode $n) { $o->setOrientation($n->getEnumValue(PrintOrientation::class)); },
+            'outputBin' => function (self $o, ParseNode $n) { $o->setOutputBin($n->getStringValue()); },
+            'pageRanges' => function (self $o, ParseNode $n) { $o->setPageRanges($n->getCollectionOfObjectValues(IntegerRange::class)); },
+            'pagesPerSheet' => function (self $o, ParseNode $n) { $o->setPagesPerSheet($n->getIntegerValue()); },
+            'quality' => function (self $o, ParseNode $n) { $o->setQuality($n->getEnumValue(PrintQuality::class)); },
+            'scaling' => function (self $o, ParseNode $n) { $o->setScaling($n->getEnumValue(PrintScaling::class)); },
         ];
     }
 
     /**
      * Gets the finishings property value. The finishings property
-     * @return array<string>|null
+     * @return array<PrintFinishing>|null
     */
     public function getFinishings(): ?array {
         return $this->finishings;
@@ -340,7 +297,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('duplexMode', $this->duplexMode);
         $writer->writeEnumValue('feedDirection', $this->feedDirection);
         $writer->writeEnumValue('feedOrientation', $this->feedOrientation);
-        $writer->writeCollectionOfPrimitiveValues('finishings', $this->finishings);
+        $writer->writeCollectionOfEnumValues('finishings', $this->finishings);
         $writer->writeBooleanValue('fitPdfToPage', $this->fitPdfToPage);
         $writer->writeStringValue('inputBin', $this->inputBin);
         $writer->writeObjectValue('margin', $this->margin);
@@ -422,7 +379,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the finishings property value. The finishings property
-     *  @param array<string>|null $value Value to set for the finishings property.
+     *  @param array<PrintFinishing>|null $value Value to set for the finishings property.
     */
     public function setFinishings(?array $value ): void {
         $this->finishings = $value;

@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ManagementActionInfo implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $managementActionId The identifier for the management action. Required. Read-only.
-    */
+    /** @var string|null $managementActionId The identifier for the management action. Required. Read-only. */
     private ?string $managementActionId = null;
     
-    /**
-     * @var string|null $managementTemplateId The identifier for the management template. Required. Read-only.
-    */
+    /** @var string|null $managementTemplateId The identifier for the management template. Required. Read-only. */
     private ?string $managementTemplateId = null;
     
-    /**
-     * @var int|null $managementTemplateVersion The managementTemplateVersion property
-    */
+    /** @var int|null $managementTemplateVersion The managementTemplateVersion property */
     private ?int $managementTemplateVersion = null;
     
     /**
@@ -41,7 +33,7 @@ class ManagementActionInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagementActionInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagementActionInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagementActionInfo {
         return new ManagementActionInfo();
     }
 
@@ -58,11 +50,10 @@ class ManagementActionInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'managementActionId' => function (ParseNode $n) use ($o) { $o->setManagementActionId($n->getStringValue()); },
-            'managementTemplateId' => function (ParseNode $n) use ($o) { $o->setManagementTemplateId($n->getStringValue()); },
-            'managementTemplateVersion' => function (ParseNode $n) use ($o) { $o->setManagementTemplateVersion($n->getIntegerValue()); },
+            'managementActionId' => function (self $o, ParseNode $n) { $o->setManagementActionId($n->getStringValue()); },
+            'managementTemplateId' => function (self $o, ParseNode $n) { $o->setManagementTemplateId($n->getStringValue()); },
+            'managementTemplateVersion' => function (self $o, ParseNode $n) { $o->setManagementTemplateVersion($n->getIntegerValue()); },
         ];
     }
 

@@ -9,43 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $compliantDeviceCount The number of devices evaluated to be compliant by the policy.
-    */
+    /** @var int|null $compliantDeviceCount The number of devices evaluated to be compliant by the policy. */
     private ?int $compliantDeviceCount = null;
     
-    /**
-     * @var int|null $enforcedDeviceCount The number of devices that have have been remediated by the policy.
-    */
+    /** @var int|null $enforcedDeviceCount The number of devices that have have been remediated by the policy. */
     private ?int $enforcedDeviceCount = null;
     
-    /**
-     * @var int|null $failedDeviceCount The number of devices that failed to be evaluated by the policy.
-    */
+    /** @var int|null $failedDeviceCount The number of devices that failed to be evaluated by the policy. */
     private ?int $failedDeviceCount = null;
     
-    /**
-     * @var int|null $nonCompliantDeviceCount The number of devices evaluated to be noncompliant by the policy.
-    */
+    /** @var int|null $nonCompliantDeviceCount The number of devices evaluated to be noncompliant by the policy. */
     private ?int $nonCompliantDeviceCount = null;
     
-    /**
-     * @var int|null $pendingDeviceCount The number of devices that have acknowledged the policy but are pending evaluation.
-    */
+    /** @var int|null $pendingDeviceCount The number of devices that have acknowledged the policy but are pending evaluation. */
     private ?int $pendingDeviceCount = null;
     
-    /**
-     * @var int|null $targetedDeviceCount The number of devices targeted by the policy.
-    */
+    /** @var int|null $targetedDeviceCount The number of devices targeted by the policy. */
     private ?int $targetedDeviceCount = null;
     
     /**
-     * Instantiates a new ConfigManagerPolicySummary and sets the default values.
+     * Instantiates a new configManagerPolicySummary and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -56,7 +42,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConfigManagerPolicySummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConfigManagerPolicySummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ConfigManagerPolicySummary {
         return new ConfigManagerPolicySummary();
     }
 
@@ -97,14 +83,13 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'compliantDeviceCount' => function (ParseNode $n) use ($o) { $o->setCompliantDeviceCount($n->getIntegerValue()); },
-            'enforcedDeviceCount' => function (ParseNode $n) use ($o) { $o->setEnforcedDeviceCount($n->getIntegerValue()); },
-            'failedDeviceCount' => function (ParseNode $n) use ($o) { $o->setFailedDeviceCount($n->getIntegerValue()); },
-            'nonCompliantDeviceCount' => function (ParseNode $n) use ($o) { $o->setNonCompliantDeviceCount($n->getIntegerValue()); },
-            'pendingDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingDeviceCount($n->getIntegerValue()); },
-            'targetedDeviceCount' => function (ParseNode $n) use ($o) { $o->setTargetedDeviceCount($n->getIntegerValue()); },
+            'compliantDeviceCount' => function (self $o, ParseNode $n) { $o->setCompliantDeviceCount($n->getIntegerValue()); },
+            'enforcedDeviceCount' => function (self $o, ParseNode $n) { $o->setEnforcedDeviceCount($n->getIntegerValue()); },
+            'failedDeviceCount' => function (self $o, ParseNode $n) { $o->setFailedDeviceCount($n->getIntegerValue()); },
+            'nonCompliantDeviceCount' => function (self $o, ParseNode $n) { $o->setNonCompliantDeviceCount($n->getIntegerValue()); },
+            'pendingDeviceCount' => function (self $o, ParseNode $n) { $o->setPendingDeviceCount($n->getIntegerValue()); },
+            'targetedDeviceCount' => function (self $o, ParseNode $n) { $o->setTargetedDeviceCount($n->getIntegerValue()); },
         ];
     }
 

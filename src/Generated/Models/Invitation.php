@@ -6,56 +6,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Invitation extends Entity implements Parsable 
+class Invitation extends Entity 
 {
-    /**
-     * @var User|null $invitedUser The user created as part of the invitation creation. Read-Only
-    */
+    /** @var User|null $invitedUser The user created as part of the invitation creation. Read-Only */
     private ?User $invitedUser = null;
     
-    /**
-     * @var string|null $invitedUserDisplayName The display name of the user being invited.
-    */
+    /** @var string|null $invitedUserDisplayName The display name of the user being invited. */
     private ?string $invitedUserDisplayName = null;
     
-    /**
-     * @var string|null $invitedUserEmailAddress The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)At sign (@)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&)Asterisk (*)Parentheses (( ))Hyphen (-)Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (`
-    */
+    /** @var string|null $invitedUserEmailAddress The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&)Asterisk (*)Parentheses (( ))Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (/|)Semicolon (;)Colon (:)Quotation marks (')Angle brackets (< >)Question mark (?)Comma (,)However, the following exceptions apply:A period (.) or a hyphen (-) is permitted anywhere in the user name, except at the beginning or end of the name.An underscore (_) is permitted anywhere in the user name. This includes at the beginning or end of the name. */
     private ?string $invitedUserEmailAddress = null;
     
-    /**
-     * @var InvitedUserMessageInfo|null $invitedUserMessageInfo Additional configuration for the message being sent to the invited user, including customizing message text, language and cc recipient list.
-    */
+    /** @var InvitedUserMessageInfo|null $invitedUserMessageInfo Additional configuration for the message being sent to the invited user, including customizing message text, language and cc recipient list. */
     private ?InvitedUserMessageInfo $invitedUserMessageInfo = null;
     
-    /**
-     * @var string|null $invitedUserType The userType of the user being invited. By default, this is Guest. You can invite as Member if you're are company administrator. The default is false.
-    */
+    /** @var string|null $invitedUserType The userType of the user being invited. By default, this is Guest. You can invite as Member if you are a company administrator. */
     private ?string $invitedUserType = null;
     
-    /**
-     * @var string|null $inviteRedeemUrl The URL the user can use to redeem their invitation. Read-only.
-    */
+    /** @var string|null $inviteRedeemUrl The URL the user can use to redeem their invitation. Read-only. */
     private ?string $inviteRedeemUrl = null;
     
-    /**
-     * @var string|null $inviteRedirectUrl The URL user should be redirected to once the invitation is redeemed. Required.
-    */
+    /** @var string|null $inviteRedirectUrl The URL the user should be redirected to once the invitation is redeemed. Required. */
     private ?string $inviteRedirectUrl = null;
     
-    /**
-     * @var bool|null $resetRedemption Reset the user's redemption status and reinvite a user while retaining their user identifier, group memberships, and app assignments. This property allows you to enable a user to sign-in using a different email address from the one in the previous invitation. For more information about using this property, see Reset redemption status for a guest user (Preview).
-    */
+    /** @var bool|null $resetRedemption Reset the user's redemption status and reinvite a user while retaining their user identifier, group memberships, and app assignments. This property allows you to enable a user to sign-in using a different email address from the one in the previous invitation. For more information about using this property, see Reset redemption status for a guest user (Preview). */
     private ?bool $resetRedemption = null;
     
-    /**
-     * @var bool|null $sendInvitationMessage Indicates whether an email should be sent to the user being invited. The default is false.
-    */
+    /** @var bool|null $sendInvitationMessage Indicates whether an email should be sent to the user being invited. The default is false. */
     private ?bool $sendInvitationMessage = null;
     
-    /**
-     * @var string|null $status The status of the invitation. Possible values: PendingAcceptance, Completed, InProgress, and Error
-    */
+    /** @var string|null $status The status of the invitation. Possible values are: PendingAcceptance, Completed, InProgress, and Error. */
     private ?string $status = null;
     
     /**
@@ -70,7 +50,7 @@ class Invitation extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Invitation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Invitation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Invitation {
         return new Invitation();
     }
 
@@ -79,18 +59,17 @@ class Invitation extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'invitedUser' => function (ParseNode $n) use ($o) { $o->setInvitedUser($n->getObjectValue(array(User::class, 'createFromDiscriminatorValue'))); },
-            'invitedUserDisplayName' => function (ParseNode $n) use ($o) { $o->setInvitedUserDisplayName($n->getStringValue()); },
-            'invitedUserEmailAddress' => function (ParseNode $n) use ($o) { $o->setInvitedUserEmailAddress($n->getStringValue()); },
-            'invitedUserMessageInfo' => function (ParseNode $n) use ($o) { $o->setInvitedUserMessageInfo($n->getObjectValue(array(InvitedUserMessageInfo::class, 'createFromDiscriminatorValue'))); },
-            'invitedUserType' => function (ParseNode $n) use ($o) { $o->setInvitedUserType($n->getStringValue()); },
-            'inviteRedeemUrl' => function (ParseNode $n) use ($o) { $o->setInviteRedeemUrl($n->getStringValue()); },
-            'inviteRedirectUrl' => function (ParseNode $n) use ($o) { $o->setInviteRedirectUrl($n->getStringValue()); },
-            'resetRedemption' => function (ParseNode $n) use ($o) { $o->setResetRedemption($n->getBooleanValue()); },
-            'sendInvitationMessage' => function (ParseNode $n) use ($o) { $o->setSendInvitationMessage($n->getBooleanValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
+            'invitedUser' => function (self $o, ParseNode $n) { $o->setInvitedUser($n->getObjectValue(User::class)); },
+            'invitedUserDisplayName' => function (self $o, ParseNode $n) { $o->setInvitedUserDisplayName($n->getStringValue()); },
+            'invitedUserEmailAddress' => function (self $o, ParseNode $n) { $o->setInvitedUserEmailAddress($n->getStringValue()); },
+            'invitedUserMessageInfo' => function (self $o, ParseNode $n) { $o->setInvitedUserMessageInfo($n->getObjectValue(InvitedUserMessageInfo::class)); },
+            'invitedUserType' => function (self $o, ParseNode $n) { $o->setInvitedUserType($n->getStringValue()); },
+            'inviteRedeemUrl' => function (self $o, ParseNode $n) { $o->setInviteRedeemUrl($n->getStringValue()); },
+            'inviteRedirectUrl' => function (self $o, ParseNode $n) { $o->setInviteRedirectUrl($n->getStringValue()); },
+            'resetRedemption' => function (self $o, ParseNode $n) { $o->setResetRedemption($n->getBooleanValue()); },
+            'sendInvitationMessage' => function (self $o, ParseNode $n) { $o->setSendInvitationMessage($n->getBooleanValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
         ]);
     }
 
@@ -111,7 +90,7 @@ class Invitation extends Entity implements Parsable
     }
 
     /**
-     * Gets the invitedUserEmailAddress property value. The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)At sign (@)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&)Asterisk (*)Parentheses (( ))Hyphen (-)Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (`
+     * Gets the invitedUserEmailAddress property value. The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&)Asterisk (*)Parentheses (( ))Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (/|)Semicolon (;)Colon (:)Quotation marks (')Angle brackets (< >)Question mark (?)Comma (,)However, the following exceptions apply:A period (.) or a hyphen (-) is permitted anywhere in the user name, except at the beginning or end of the name.An underscore (_) is permitted anywhere in the user name. This includes at the beginning or end of the name.
      * @return string|null
     */
     public function getInvitedUserEmailAddress(): ?string {
@@ -127,7 +106,7 @@ class Invitation extends Entity implements Parsable
     }
 
     /**
-     * Gets the invitedUserType property value. The userType of the user being invited. By default, this is Guest. You can invite as Member if you're are company administrator. The default is false.
+     * Gets the invitedUserType property value. The userType of the user being invited. By default, this is Guest. You can invite as Member if you are a company administrator.
      * @return string|null
     */
     public function getInvitedUserType(): ?string {
@@ -143,7 +122,7 @@ class Invitation extends Entity implements Parsable
     }
 
     /**
-     * Gets the inviteRedirectUrl property value. The URL user should be redirected to once the invitation is redeemed. Required.
+     * Gets the inviteRedirectUrl property value. The URL the user should be redirected to once the invitation is redeemed. Required.
      * @return string|null
     */
     public function getInviteRedirectUrl(): ?string {
@@ -167,7 +146,7 @@ class Invitation extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status of the invitation. Possible values: PendingAcceptance, Completed, InProgress, and Error
+     * Gets the status property value. The status of the invitation. Possible values are: PendingAcceptance, Completed, InProgress, and Error.
      * @return string|null
     */
     public function getStatus(): ?string {
@@ -209,7 +188,7 @@ class Invitation extends Entity implements Parsable
     }
 
     /**
-     * Sets the invitedUserEmailAddress property value. The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)At sign (@)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&)Asterisk (*)Parentheses (( ))Hyphen (-)Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (`
+     * Sets the invitedUserEmailAddress property value. The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&)Asterisk (*)Parentheses (( ))Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (/|)Semicolon (;)Colon (:)Quotation marks (')Angle brackets (< >)Question mark (?)Comma (,)However, the following exceptions apply:A period (.) or a hyphen (-) is permitted anywhere in the user name, except at the beginning or end of the name.An underscore (_) is permitted anywhere in the user name. This includes at the beginning or end of the name.
      *  @param string|null $value Value to set for the invitedUserEmailAddress property.
     */
     public function setInvitedUserEmailAddress(?string $value ): void {
@@ -225,7 +204,7 @@ class Invitation extends Entity implements Parsable
     }
 
     /**
-     * Sets the invitedUserType property value. The userType of the user being invited. By default, this is Guest. You can invite as Member if you're are company administrator. The default is false.
+     * Sets the invitedUserType property value. The userType of the user being invited. By default, this is Guest. You can invite as Member if you are a company administrator.
      *  @param string|null $value Value to set for the invitedUserType property.
     */
     public function setInvitedUserType(?string $value ): void {
@@ -241,7 +220,7 @@ class Invitation extends Entity implements Parsable
     }
 
     /**
-     * Sets the inviteRedirectUrl property value. The URL user should be redirected to once the invitation is redeemed. Required.
+     * Sets the inviteRedirectUrl property value. The URL the user should be redirected to once the invitation is redeemed. Required.
      *  @param string|null $value Value to set for the inviteRedirectUrl property.
     */
     public function setInviteRedirectUrl(?string $value ): void {
@@ -265,7 +244,7 @@ class Invitation extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status of the invitation. Possible values: PendingAcceptance, Completed, InProgress, and Error
+     * Sets the status property value. The status of the invitation. Possible values are: PendingAcceptance, Completed, InProgress, and Error.
      *  @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value ): void {

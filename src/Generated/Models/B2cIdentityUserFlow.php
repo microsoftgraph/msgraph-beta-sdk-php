@@ -6,45 +6,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable 
+class B2cIdentityUserFlow extends IdentityUserFlow 
 {
-    /**
-     * @var UserFlowApiConnectorConfiguration|null $apiConnectorConfiguration Configuration for enabling an API connector for use as part of the user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
-    */
+    /** @var UserFlowApiConnectorConfiguration|null $apiConnectorConfiguration Configuration for enabling an API connector for use as part of the user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration. */
     private ?UserFlowApiConnectorConfiguration $apiConnectorConfiguration = null;
     
-    /**
-     * @var string|null $defaultLanguageTag Indicates the default language of the b2cIdentityUserFlow that is used when no ui_locale tag is specified in the request. This field is RFC 5646 compliant.
-    */
+    /** @var string|null $defaultLanguageTag Indicates the default language of the b2cIdentityUserFlow that is used when no ui_locale tag is specified in the request. This field is RFC 5646 compliant. */
     private ?string $defaultLanguageTag = null;
     
-    /**
-     * @var array<IdentityProvider>|null $identityProviders The identityProviders property
-    */
+    /** @var array<IdentityProvider>|null $identityProviders The identityProviders property */
     private ?array $identityProviders = null;
     
-    /**
-     * @var bool|null $isLanguageCustomizationEnabled The property that determines whether language customization is enabled within the B2C user flow. Language customization is not enabled by default for B2C user flows.
-    */
+    /** @var bool|null $isLanguageCustomizationEnabled The property that determines whether language customization is enabled within the B2C user flow. Language customization is not enabled by default for B2C user flows. */
     private ?bool $isLanguageCustomizationEnabled = null;
     
-    /**
-     * @var array<UserFlowLanguageConfiguration>|null $languages The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.
-    */
+    /** @var array<UserFlowLanguageConfiguration>|null $languages The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows. */
     private ?array $languages = null;
     
-    /**
-     * @var array<IdentityUserFlowAttributeAssignment>|null $userAttributeAssignments The user attribute assignments included in the user flow.
-    */
+    /** @var array<IdentityUserFlowAttributeAssignment>|null $userAttributeAssignments The user attribute assignments included in the user flow. */
     private ?array $userAttributeAssignments = null;
     
-    /**
-     * @var array<IdentityProviderBase>|null $userFlowIdentityProviders The userFlowIdentityProviders property
-    */
+    /** @var array<IdentityProviderBase>|null $userFlowIdentityProviders The userFlowIdentityProviders property */
     private ?array $userFlowIdentityProviders = null;
     
     /**
-     * Instantiates a new B2cIdentityUserFlow and sets the default values.
+     * Instantiates a new b2cIdentityUserFlow and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,7 +41,7 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return B2cIdentityUserFlow
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): B2cIdentityUserFlow {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): B2cIdentityUserFlow {
         return new B2cIdentityUserFlow();
     }
 
@@ -80,15 +66,14 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'apiConnectorConfiguration' => function (ParseNode $n) use ($o) { $o->setApiConnectorConfiguration($n->getObjectValue(array(UserFlowApiConnectorConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'defaultLanguageTag' => function (ParseNode $n) use ($o) { $o->setDefaultLanguageTag($n->getStringValue()); },
-            'identityProviders' => function (ParseNode $n) use ($o) { $o->setIdentityProviders($n->getCollectionOfObjectValues(array(IdentityProvider::class, 'createFromDiscriminatorValue'))); },
-            'isLanguageCustomizationEnabled' => function (ParseNode $n) use ($o) { $o->setIsLanguageCustomizationEnabled($n->getBooleanValue()); },
-            'languages' => function (ParseNode $n) use ($o) { $o->setLanguages($n->getCollectionOfObjectValues(array(UserFlowLanguageConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'userAttributeAssignments' => function (ParseNode $n) use ($o) { $o->setUserAttributeAssignments($n->getCollectionOfObjectValues(array(IdentityUserFlowAttributeAssignment::class, 'createFromDiscriminatorValue'))); },
-            'userFlowIdentityProviders' => function (ParseNode $n) use ($o) { $o->setUserFlowIdentityProviders($n->getCollectionOfObjectValues(array(IdentityProviderBase::class, 'createFromDiscriminatorValue'))); },
+            'apiConnectorConfiguration' => function (self $o, ParseNode $n) { $o->setApiConnectorConfiguration($n->getObjectValue(UserFlowApiConnectorConfiguration::class)); },
+            'defaultLanguageTag' => function (self $o, ParseNode $n) { $o->setDefaultLanguageTag($n->getStringValue()); },
+            'identityProviders' => function (self $o, ParseNode $n) { $o->setIdentityProviders($n->getCollectionOfObjectValues(IdentityProvider::class)); },
+            'isLanguageCustomizationEnabled' => function (self $o, ParseNode $n) { $o->setIsLanguageCustomizationEnabled($n->getBooleanValue()); },
+            'languages' => function (self $o, ParseNode $n) { $o->setLanguages($n->getCollectionOfObjectValues(UserFlowLanguageConfiguration::class)); },
+            'userAttributeAssignments' => function (self $o, ParseNode $n) { $o->setUserAttributeAssignments($n->getCollectionOfObjectValues(IdentityUserFlowAttributeAssignment::class)); },
+            'userFlowIdentityProviders' => function (self $o, ParseNode $n) { $o->setUserFlowIdentityProviders($n->getCollectionOfObjectValues(IdentityProviderBase::class)); },
         ]);
     }
 

@@ -9,89 +9,55 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TrustFrameworkKey implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $d RSA Key - private exponent. Field cannot be read back.
-    */
+    /** @var string|null $d RSA Key - private exponent. Field cannot be read back. */
     private ?string $d = null;
     
-    /**
-     * @var string|null $dp RSA Key - first exponent. Field cannot be read back.
-    */
+    /** @var string|null $dp RSA Key - first exponent. Field cannot be read back. */
     private ?string $dp = null;
     
-    /**
-     * @var string|null $dq RSA Key - second exponent. Field cannot be read back.
-    */
+    /** @var string|null $dq RSA Key - second exponent. Field cannot be read back. */
     private ?string $dq = null;
     
-    /**
-     * @var string|null $e RSA Key - public exponent
-    */
+    /** @var string|null $e RSA Key - public exponent */
     private ?string $e = null;
     
-    /**
-     * @var string|null $EscapedUse The use (public key use) parameter identifies the intended use of the public key.  The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption)
-    */
+    /** @var string|null $EscapedUse The use (public key use) parameter identifies the intended use of the public key.  The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption) */
     private ?string $escapedUse = null;
     
-    /**
-     * @var int|null $exp This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.)
-    */
+    /** @var int|null $exp This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.) */
     private ?int $exp = null;
     
-    /**
-     * @var string|null $k Symmetric Key for oct key type. Field cannot be read back.
-    */
+    /** @var string|null $k Symmetric Key for oct key type. Field cannot be read back. */
     private ?string $k = null;
     
-    /**
-     * @var string|null $kid The unique identifier for the key.
-    */
+    /** @var string|null $kid The unique identifier for the key. */
     private ?string $kid = null;
     
-    /**
-     * @var string|null $kty The kty (key type) parameter identifies the cryptographic algorithm family used with the key, The valid values are rsa, oct.
-    */
+    /** @var string|null $kty The kty (key type) parameter identifies the cryptographic algorithm family used with the key, The valid values are rsa, oct. */
     private ?string $kty = null;
     
-    /**
-     * @var string|null $n RSA Key - modulus
-    */
+    /** @var string|null $n RSA Key - modulus */
     private ?string $n = null;
     
-    /**
-     * @var int|null $nbf This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.)
-    */
+    /** @var int|null $nbf This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.) */
     private ?int $nbf = null;
     
-    /**
-     * @var string|null $p RSA Key - first prime. Field cannot be read back.
-    */
+    /** @var string|null $p RSA Key - first prime. Field cannot be read back. */
     private ?string $p = null;
     
-    /**
-     * @var string|null $q RSA Key - second prime. Field cannot be read back.
-    */
+    /** @var string|null $q RSA Key - second prime. Field cannot be read back. */
     private ?string $q = null;
     
-    /**
-     * @var string|null $qi RSA Key - Coefficient. Field cannot be read back.
-    */
+    /** @var string|null $qi RSA Key - Coefficient. Field cannot be read back. */
     private ?string $qi = null;
     
-    /**
-     * @var array<string>|null $x5c The x5c (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates RFC 5280.
-    */
+    /** @var array<string>|null $x5c The x5c (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates RFC 5280. */
     private ?array $x5c = null;
     
-    /**
-     * @var string|null $x5t The x5t (X.509 certificate SHA-1 thumbprint) parameter is a base64url-encoded SHA-1 thumbprint (a.k.a. digest) of the DER encoding of an X.509 certificate RFC 5280.
-    */
+    /** @var string|null $x5t The x5t (X.509 certificate SHA-1 thumbprint) parameter is a base64url-encoded SHA-1 thumbprint (a.k.a. digest) of the DER encoding of an X.509 certificate RFC 5280. */
     private ?string $x5t = null;
     
     /**
@@ -106,7 +72,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TrustFrameworkKey
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TrustFrameworkKey {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TrustFrameworkKey {
         return new TrustFrameworkKey();
     }
 
@@ -163,24 +129,23 @@ class TrustFrameworkKey implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'd' => function (ParseNode $n) use ($o) { $o->setD($n->getStringValue()); },
-            'dp' => function (ParseNode $n) use ($o) { $o->setDp($n->getStringValue()); },
-            'dq' => function (ParseNode $n) use ($o) { $o->setDq($n->getStringValue()); },
-            'e' => function (ParseNode $n) use ($o) { $o->setE($n->getStringValue()); },
-            'use' => function (ParseNode $n) use ($o) { $o->setUse($n->getStringValue()); },
-            'exp' => function (ParseNode $n) use ($o) { $o->setExp($n->getIntegerValue()); },
-            'k' => function (ParseNode $n) use ($o) { $o->setK($n->getStringValue()); },
-            'kid' => function (ParseNode $n) use ($o) { $o->setKid($n->getStringValue()); },
-            'kty' => function (ParseNode $n) use ($o) { $o->setKty($n->getStringValue()); },
-            'n' => function (ParseNode $n) use ($o) { $o->setN($n->getStringValue()); },
-            'nbf' => function (ParseNode $n) use ($o) { $o->setNbf($n->getIntegerValue()); },
-            'p' => function (ParseNode $n) use ($o) { $o->setP($n->getStringValue()); },
-            'q' => function (ParseNode $n) use ($o) { $o->setQ($n->getStringValue()); },
-            'qi' => function (ParseNode $n) use ($o) { $o->setQi($n->getStringValue()); },
-            'x5c' => function (ParseNode $n) use ($o) { $o->setX5c($n->getCollectionOfPrimitiveValues()); },
-            'x5t' => function (ParseNode $n) use ($o) { $o->setX5t($n->getStringValue()); },
+            'd' => function (self $o, ParseNode $n) { $o->setD($n->getStringValue()); },
+            'dp' => function (self $o, ParseNode $n) { $o->setDp($n->getStringValue()); },
+            'dq' => function (self $o, ParseNode $n) { $o->setDq($n->getStringValue()); },
+            'e' => function (self $o, ParseNode $n) { $o->setE($n->getStringValue()); },
+            'use' => function (self $o, ParseNode $n) { $o->setEscapedUse($n->getStringValue()); },
+            'exp' => function (self $o, ParseNode $n) { $o->setExp($n->getIntegerValue()); },
+            'k' => function (self $o, ParseNode $n) { $o->setK($n->getStringValue()); },
+            'kid' => function (self $o, ParseNode $n) { $o->setKid($n->getStringValue()); },
+            'kty' => function (self $o, ParseNode $n) { $o->setKty($n->getStringValue()); },
+            'n' => function (self $o, ParseNode $n) { $o->setN($n->getStringValue()); },
+            'nbf' => function (self $o, ParseNode $n) { $o->setNbf($n->getIntegerValue()); },
+            'p' => function (self $o, ParseNode $n) { $o->setP($n->getStringValue()); },
+            'q' => function (self $o, ParseNode $n) { $o->setQ($n->getStringValue()); },
+            'qi' => function (self $o, ParseNode $n) { $o->setQi($n->getStringValue()); },
+            'x5c' => function (self $o, ParseNode $n) { $o->setX5c($n->getCollectionOfPrimitiveValues()); },
+            'x5t' => function (self $o, ParseNode $n) { $o->setX5t($n->getStringValue()); },
         ];
     }
 

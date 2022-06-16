@@ -9,39 +9,25 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamMemberSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $allowAddRemoveApps If set to true, members can add and remove apps.
-    */
+    /** @var bool|null $allowAddRemoveApps If set to true, members can add and remove apps. */
     private ?bool $allowAddRemoveApps = null;
     
-    /**
-     * @var bool|null $allowCreatePrivateChannels If set to true, members can add and update private channels.
-    */
+    /** @var bool|null $allowCreatePrivateChannels If set to true, members can add and update private channels. */
     private ?bool $allowCreatePrivateChannels = null;
     
-    /**
-     * @var bool|null $allowCreateUpdateChannels If set to true, members can add and update any channels.
-    */
+    /** @var bool|null $allowCreateUpdateChannels If set to true, members can add and update channels. */
     private ?bool $allowCreateUpdateChannels = null;
     
-    /**
-     * @var bool|null $allowCreateUpdateRemoveConnectors If set to true, members can add, update, and remove connectors.
-    */
+    /** @var bool|null $allowCreateUpdateRemoveConnectors If set to true, members can add, update, and remove connectors. */
     private ?bool $allowCreateUpdateRemoveConnectors = null;
     
-    /**
-     * @var bool|null $allowCreateUpdateRemoveTabs If set to true, members can add, update, and remove tabs.
-    */
+    /** @var bool|null $allowCreateUpdateRemoveTabs If set to true, members can add, update, and remove tabs. */
     private ?bool $allowCreateUpdateRemoveTabs = null;
     
-    /**
-     * @var bool|null $allowDeleteChannels If set to true, members can delete channels.
-    */
+    /** @var bool|null $allowDeleteChannels If set to true, members can delete channels. */
     private ?bool $allowDeleteChannels = null;
     
     /**
@@ -56,7 +42,7 @@ class TeamMemberSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamMemberSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamMemberSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamMemberSettings {
         return new TeamMemberSettings();
     }
 
@@ -85,7 +71,7 @@ class TeamMemberSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the allowCreateUpdateChannels property value. If set to true, members can add and update any channels.
+     * Gets the allowCreateUpdateChannels property value. If set to true, members can add and update channels.
      * @return bool|null
     */
     public function getAllowCreateUpdateChannels(): ?bool {
@@ -121,14 +107,13 @@ class TeamMemberSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'allowAddRemoveApps' => function (ParseNode $n) use ($o) { $o->setAllowAddRemoveApps($n->getBooleanValue()); },
-            'allowCreatePrivateChannels' => function (ParseNode $n) use ($o) { $o->setAllowCreatePrivateChannels($n->getBooleanValue()); },
-            'allowCreateUpdateChannels' => function (ParseNode $n) use ($o) { $o->setAllowCreateUpdateChannels($n->getBooleanValue()); },
-            'allowCreateUpdateRemoveConnectors' => function (ParseNode $n) use ($o) { $o->setAllowCreateUpdateRemoveConnectors($n->getBooleanValue()); },
-            'allowCreateUpdateRemoveTabs' => function (ParseNode $n) use ($o) { $o->setAllowCreateUpdateRemoveTabs($n->getBooleanValue()); },
-            'allowDeleteChannels' => function (ParseNode $n) use ($o) { $o->setAllowDeleteChannels($n->getBooleanValue()); },
+            'allowAddRemoveApps' => function (self $o, ParseNode $n) { $o->setAllowAddRemoveApps($n->getBooleanValue()); },
+            'allowCreatePrivateChannels' => function (self $o, ParseNode $n) { $o->setAllowCreatePrivateChannels($n->getBooleanValue()); },
+            'allowCreateUpdateChannels' => function (self $o, ParseNode $n) { $o->setAllowCreateUpdateChannels($n->getBooleanValue()); },
+            'allowCreateUpdateRemoveConnectors' => function (self $o, ParseNode $n) { $o->setAllowCreateUpdateRemoveConnectors($n->getBooleanValue()); },
+            'allowCreateUpdateRemoveTabs' => function (self $o, ParseNode $n) { $o->setAllowCreateUpdateRemoveTabs($n->getBooleanValue()); },
+            'allowDeleteChannels' => function (self $o, ParseNode $n) { $o->setAllowDeleteChannels($n->getBooleanValue()); },
         ];
     }
 
@@ -171,7 +156,7 @@ class TeamMemberSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the allowCreateUpdateChannels property value. If set to true, members can add and update any channels.
+     * Sets the allowCreateUpdateChannels property value. If set to true, members can add and update channels.
      *  @param bool|null $value Value to set for the allowCreateUpdateChannels property.
     */
     public function setAllowCreateUpdateChannels(?bool $value ): void {

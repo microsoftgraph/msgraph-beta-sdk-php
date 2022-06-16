@@ -10,39 +10,25 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SynchronizationQuarantine implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateTime|null $currentBegan Date and time when the quarantine was last evaluated and imposed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $currentBegan Date and time when the quarantine was last evaluated and imposed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $currentBegan = null;
     
-    /**
-     * @var SynchronizationError|null $error Describes the error(s) that occurred when putting the synchronization job into quarantine.
-    */
+    /** @var SynchronizationError|null $error Describes the error(s) that occurred when putting the synchronization job into quarantine. */
     private ?SynchronizationError $error = null;
     
-    /**
-     * @var DateTime|null $nextAttempt Date and time when the next attempt to re-evaluate the quarantine will be made. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $nextAttempt Date and time when the next attempt to re-evaluate the quarantine will be made. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $nextAttempt = null;
     
-    /**
-     * @var QuarantineReason|null $reason A code that signifies why the quarantine was imposed. Possible values are: EncounteredBaseEscrowThreshold, EncounteredTotalEscrowThreshold, EncounteredEscrowProportionThreshold, EncounteredQuarantineException, QuarantinedOnDemand, TooManyDeletes, Unknown.
-    */
+    /** @var QuarantineReason|null $reason A code that signifies why the quarantine was imposed. Possible values are: EncounteredBaseEscrowThreshold, EncounteredTotalEscrowThreshold, EncounteredEscrowProportionThreshold, EncounteredQuarantineException, QuarantinedOnDemand, TooManyDeletes, Unknown. */
     private ?QuarantineReason $reason = null;
     
-    /**
-     * @var DateTime|null $seriesBegan Date and time when the quarantine was first imposed in this series (a series starts when a quarantine is first imposed, and is reset as soon as the quarantine is lifted). The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $seriesBegan Date and time when the quarantine was first imposed in this series (a series starts when a quarantine is first imposed, and is reset as soon as the quarantine is lifted). The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $seriesBegan = null;
     
-    /**
-     * @var int|null $seriesCount Number of times in this series the quarantine was re-evaluated and left in effect (a series starts when quarantine is first imposed, and is reset as soon as quarantine is lifted).
-    */
+    /** @var int|null $seriesCount Number of times in this series the quarantine was re-evaluated and left in effect (a series starts when quarantine is first imposed, and is reset as soon as quarantine is lifted). */
     private ?int $seriesCount = null;
     
     /**
@@ -57,7 +43,7 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SynchronizationQuarantine
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationQuarantine {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationQuarantine {
         return new SynchronizationQuarantine();
     }
 
@@ -90,14 +76,13 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'currentBegan' => function (ParseNode $n) use ($o) { $o->setCurrentBegan($n->getDateTimeValue()); },
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(SynchronizationError::class, 'createFromDiscriminatorValue'))); },
-            'nextAttempt' => function (ParseNode $n) use ($o) { $o->setNextAttempt($n->getDateTimeValue()); },
-            'reason' => function (ParseNode $n) use ($o) { $o->setReason($n->getEnumValue(QuarantineReason::class)); },
-            'seriesBegan' => function (ParseNode $n) use ($o) { $o->setSeriesBegan($n->getDateTimeValue()); },
-            'seriesCount' => function (ParseNode $n) use ($o) { $o->setSeriesCount($n->getIntegerValue()); },
+            'currentBegan' => function (self $o, ParseNode $n) { $o->setCurrentBegan($n->getDateTimeValue()); },
+            'error' => function (self $o, ParseNode $n) { $o->setError($n->getObjectValue(SynchronizationError::class)); },
+            'nextAttempt' => function (self $o, ParseNode $n) { $o->setNextAttempt($n->getDateTimeValue()); },
+            'reason' => function (self $o, ParseNode $n) { $o->setReason($n->getEnumValue(QuarantineReason::class)); },
+            'seriesBegan' => function (self $o, ParseNode $n) { $o->setSeriesBegan($n->getDateTimeValue()); },
+            'seriesCount' => function (self $o, ParseNode $n) { $o->setSeriesCount($n->getIntegerValue()); },
         ];
     }
 

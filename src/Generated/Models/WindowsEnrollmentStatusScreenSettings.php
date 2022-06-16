@@ -9,44 +9,28 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $allowDeviceUseBeforeProfileAndAppInstallComplete Allow or block user to use device before profile and app installation complete
-    */
+    /** @var bool|null $allowDeviceUseBeforeProfileAndAppInstallComplete Allow or block user to use device before profile and app installation complete */
     private ?bool $allowDeviceUseBeforeProfileAndAppInstallComplete = null;
     
-    /**
-     * @var bool|null $allowDeviceUseOnInstallFailure Allow the user to continue using the device on installation failure
-    */
+    /** @var bool|null $allowDeviceUseOnInstallFailure Allow the user to continue using the device on installation failure */
     private ?bool $allowDeviceUseOnInstallFailure = null;
     
-    /**
-     * @var bool|null $allowLogCollectionOnInstallFailure Allow or block log collection on installation failure
-    */
+    /** @var bool|null $allowLogCollectionOnInstallFailure Allow or block log collection on installation failure */
     private ?bool $allowLogCollectionOnInstallFailure = null;
     
-    /**
-     * @var bool|null $blockDeviceSetupRetryByUser Allow the user to retry the setup on installation failure
-    */
+    /** @var bool|null $blockDeviceSetupRetryByUser Allow the user to retry the setup on installation failure */
     private ?bool $blockDeviceSetupRetryByUser = null;
     
-    /**
-     * @var string|null $customErrorMessage Set custom error message to show upon installation failure
-    */
+    /** @var string|null $customErrorMessage Set custom error message to show upon installation failure */
     private ?string $customErrorMessage = null;
     
-    /**
-     * @var bool|null $hideInstallationProgress Show or hide installation progress to user
-    */
+    /** @var bool|null $hideInstallationProgress Show or hide installation progress to user */
     private ?bool $hideInstallationProgress = null;
     
-    /**
-     * @var int|null $installProgressTimeoutInMinutes Set installation progress timeout in minutes
-    */
+    /** @var int|null $installProgressTimeoutInMinutes Set installation progress timeout in minutes */
     private ?int $installProgressTimeoutInMinutes = null;
     
     /**
@@ -61,7 +45,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Par
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsEnrollmentStatusScreenSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsEnrollmentStatusScreenSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsEnrollmentStatusScreenSettings {
         return new WindowsEnrollmentStatusScreenSettings();
     }
 
@@ -118,15 +102,14 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Par
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'allowDeviceUseBeforeProfileAndAppInstallComplete' => function (ParseNode $n) use ($o) { $o->setAllowDeviceUseBeforeProfileAndAppInstallComplete($n->getBooleanValue()); },
-            'allowDeviceUseOnInstallFailure' => function (ParseNode $n) use ($o) { $o->setAllowDeviceUseOnInstallFailure($n->getBooleanValue()); },
-            'allowLogCollectionOnInstallFailure' => function (ParseNode $n) use ($o) { $o->setAllowLogCollectionOnInstallFailure($n->getBooleanValue()); },
-            'blockDeviceSetupRetryByUser' => function (ParseNode $n) use ($o) { $o->setBlockDeviceSetupRetryByUser($n->getBooleanValue()); },
-            'customErrorMessage' => function (ParseNode $n) use ($o) { $o->setCustomErrorMessage($n->getStringValue()); },
-            'hideInstallationProgress' => function (ParseNode $n) use ($o) { $o->setHideInstallationProgress($n->getBooleanValue()); },
-            'installProgressTimeoutInMinutes' => function (ParseNode $n) use ($o) { $o->setInstallProgressTimeoutInMinutes($n->getIntegerValue()); },
+            'allowDeviceUseBeforeProfileAndAppInstallComplete' => function (self $o, ParseNode $n) { $o->setAllowDeviceUseBeforeProfileAndAppInstallComplete($n->getBooleanValue()); },
+            'allowDeviceUseOnInstallFailure' => function (self $o, ParseNode $n) { $o->setAllowDeviceUseOnInstallFailure($n->getBooleanValue()); },
+            'allowLogCollectionOnInstallFailure' => function (self $o, ParseNode $n) { $o->setAllowLogCollectionOnInstallFailure($n->getBooleanValue()); },
+            'blockDeviceSetupRetryByUser' => function (self $o, ParseNode $n) { $o->setBlockDeviceSetupRetryByUser($n->getBooleanValue()); },
+            'customErrorMessage' => function (self $o, ParseNode $n) { $o->setCustomErrorMessage($n->getStringValue()); },
+            'hideInstallationProgress' => function (self $o, ParseNode $n) { $o->setHideInstallationProgress($n->getBooleanValue()); },
+            'installProgressTimeoutInMinutes' => function (self $o, ParseNode $n) { $o->setInstallProgressTimeoutInMinutes($n->getIntegerValue()); },
         ];
     }
 

@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RenameAction implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $newName The new name of the item.
-    */
+    /** @var string|null $newName The new name of the item. */
     private ?string $newName = null;
     
-    /**
-     * @var string|null $oldName The previous name of the item.
-    */
+    /** @var string|null $oldName The previous name of the item. */
     private ?string $oldName = null;
     
     /**
@@ -36,7 +30,7 @@ class RenameAction implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RenameAction
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RenameAction {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RenameAction {
         return new RenameAction();
     }
 
@@ -53,10 +47,9 @@ class RenameAction implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'newName' => function (ParseNode $n) use ($o) { $o->setNewName($n->getStringValue()); },
-            'oldName' => function (ParseNode $n) use ($o) { $o->setOldName($n->getStringValue()); },
+            'newName' => function (self $o, ParseNode $n) { $o->setNewName($n->getStringValue()); },
+            'oldName' => function (self $o, ParseNode $n) { $o->setOldName($n->getStringValue()); },
         ];
     }
 

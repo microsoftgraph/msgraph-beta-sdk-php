@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl implements Parsable 
+class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl 
 {
-    /**
-     * @var CloudAppSecuritySessionControlType|null $cloudAppSecurityType Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.
-    */
+    /** @var CloudAppSecuritySessionControlType|null $cloudAppSecurityType Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps. */
     private ?CloudAppSecuritySessionControlType $cloudAppSecurityType = null;
     
     /**
@@ -25,12 +23,12 @@ class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl imp
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudAppSecuritySessionControl
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudAppSecuritySessionControl {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudAppSecuritySessionControl {
         return new CloudAppSecuritySessionControl();
     }
 
     /**
-     * Gets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.
+     * Gets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.
      * @return CloudAppSecuritySessionControlType|null
     */
     public function getCloudAppSecurityType(): ?CloudAppSecuritySessionControlType {
@@ -42,9 +40,8 @@ class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl imp
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'cloudAppSecurityType' => function (ParseNode $n) use ($o) { $o->setCloudAppSecurityType($n->getEnumValue(CloudAppSecuritySessionControlType::class)); },
+            'cloudAppSecurityType' => function (self $o, ParseNode $n) { $o->setCloudAppSecurityType($n->getEnumValue(CloudAppSecuritySessionControlType::class)); },
         ]);
     }
 
@@ -58,7 +55,7 @@ class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl imp
     }
 
     /**
-     * Sets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.
+     * Sets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.
      *  @param CloudAppSecuritySessionControlType|null $value Value to set for the cloudAppSecurityType property.
     */
     public function setCloudAppSecurityType(?CloudAppSecuritySessionControlType $value ): void {

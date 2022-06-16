@@ -6,20 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PermissionGrantPolicy extends PolicyBase implements Parsable 
+class PermissionGrantPolicy extends PolicyBase 
 {
-    /**
-     * @var array<PermissionGrantConditionSet>|null $excludes Condition sets which are excluded in this permission grant policy. Automatically expanded on GET.
-    */
+    /** @var array<PermissionGrantConditionSet>|null $excludes Condition sets which are excluded in this permission grant policy. Automatically expanded on GET. */
     private ?array $excludes = null;
     
-    /**
-     * @var array<PermissionGrantConditionSet>|null $includes Condition sets which are included in this permission grant policy. Automatically expanded on GET.
-    */
+    /** @var array<PermissionGrantConditionSet>|null $includes Condition sets which are included in this permission grant policy. Automatically expanded on GET. */
     private ?array $includes = null;
     
     /**
-     * Instantiates a new PermissionGrantPolicy and sets the default values.
+     * Instantiates a new permissionGrantPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +26,7 @@ class PermissionGrantPolicy extends PolicyBase implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PermissionGrantPolicy
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PermissionGrantPolicy {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PermissionGrantPolicy {
         return new PermissionGrantPolicy();
     }
 
@@ -47,10 +43,9 @@ class PermissionGrantPolicy extends PolicyBase implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'excludes' => function (ParseNode $n) use ($o) { $o->setExcludes($n->getCollectionOfObjectValues(array(PermissionGrantConditionSet::class, 'createFromDiscriminatorValue'))); },
-            'includes' => function (ParseNode $n) use ($o) { $o->setIncludes($n->getCollectionOfObjectValues(array(PermissionGrantConditionSet::class, 'createFromDiscriminatorValue'))); },
+            'excludes' => function (self $o, ParseNode $n) { $o->setExcludes($n->getCollectionOfObjectValues(PermissionGrantConditionSet::class)); },
+            'includes' => function (self $o, ParseNode $n) { $o->setIncludes($n->getCollectionOfObjectValues(PermissionGrantConditionSet::class)); },
         ]);
     }
 

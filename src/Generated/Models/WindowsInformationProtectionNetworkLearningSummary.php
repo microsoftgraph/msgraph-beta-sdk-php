@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsInformationProtectionNetworkLearningSummary extends Entity implements Parsable 
+class WindowsInformationProtectionNetworkLearningSummary extends Entity 
 {
-    /**
-     * @var int|null $deviceCount Device Count
-    */
+    /** @var int|null $deviceCount Device Count */
     private ?int $deviceCount = null;
     
-    /**
-     * @var string|null $url Website url
-    */
+    /** @var string|null $url Website url */
     private ?string $url = null;
     
     /**
@@ -30,7 +26,7 @@ class WindowsInformationProtectionNetworkLearningSummary extends Entity implemen
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsInformationProtectionNetworkLearningSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsInformationProtectionNetworkLearningSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsInformationProtectionNetworkLearningSummary {
         return new WindowsInformationProtectionNetworkLearningSummary();
     }
 
@@ -47,10 +43,9 @@ class WindowsInformationProtectionNetworkLearningSummary extends Entity implemen
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceCount' => function (ParseNode $n) use ($o) { $o->setDeviceCount($n->getIntegerValue()); },
-            'url' => function (ParseNode $n) use ($o) { $o->setUrl($n->getStringValue()); },
+            'deviceCount' => function (self $o, ParseNode $n) { $o->setDeviceCount($n->getIntegerValue()); },
+            'url' => function (self $o, ParseNode $n) { $o->setUrl($n->getStringValue()); },
         ]);
     }
 

@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class LicenseInfoDetail implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var AzureADLicenseType|null $licenseType The licenseType property
-    */
+    /** @var AzureADLicenseType|null $licenseType The licenseType property */
     private ?AzureADLicenseType $licenseType = null;
     
-    /**
-     * @var int|null $totalAssignedCount The totalAssignedCount property
-    */
+    /** @var int|null $totalAssignedCount The totalAssignedCount property */
     private ?int $totalAssignedCount = null;
     
-    /**
-     * @var int|null $totalLicenseCount The totalLicenseCount property
-    */
+    /** @var int|null $totalLicenseCount The totalLicenseCount property */
     private ?int $totalLicenseCount = null;
     
-    /**
-     * @var int|null $totalUsageCount The totalUsageCount property
-    */
+    /** @var int|null $totalUsageCount The totalUsageCount property */
     private ?int $totalUsageCount = null;
     
     /**
@@ -46,7 +36,7 @@ class LicenseInfoDetail implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return LicenseInfoDetail
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): LicenseInfoDetail {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): LicenseInfoDetail {
         return new LicenseInfoDetail();
     }
 
@@ -63,12 +53,11 @@ class LicenseInfoDetail implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'licenseType' => function (ParseNode $n) use ($o) { $o->setLicenseType($n->getEnumValue(AzureADLicenseType::class)); },
-            'totalAssignedCount' => function (ParseNode $n) use ($o) { $o->setTotalAssignedCount($n->getIntegerValue()); },
-            'totalLicenseCount' => function (ParseNode $n) use ($o) { $o->setTotalLicenseCount($n->getIntegerValue()); },
-            'totalUsageCount' => function (ParseNode $n) use ($o) { $o->setTotalUsageCount($n->getIntegerValue()); },
+            'licenseType' => function (self $o, ParseNode $n) { $o->setLicenseType($n->getEnumValue(AzureADLicenseType::class)); },
+            'totalAssignedCount' => function (self $o, ParseNode $n) { $o->setTotalAssignedCount($n->getIntegerValue()); },
+            'totalLicenseCount' => function (self $o, ParseNode $n) { $o->setTotalLicenseCount($n->getIntegerValue()); },
+            'totalUsageCount' => function (self $o, ParseNode $n) { $o->setTotalUsageCount($n->getIntegerValue()); },
         ];
     }
 

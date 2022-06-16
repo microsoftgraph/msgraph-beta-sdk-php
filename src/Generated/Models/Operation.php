@@ -7,21 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Operation extends Entity implements Parsable 
+class Operation extends Entity 
 {
-    /**
-     * @var DateTime|null $createdDateTime The start time of the operation.
-    */
+    /** @var DateTime|null $createdDateTime The start time of the operation. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var DateTime|null $lastActionDateTime The time of the last action of the operation.
-    */
+    /** @var DateTime|null $lastActionDateTime The time of the last action of the operation. */
     private ?DateTime $lastActionDateTime = null;
     
-    /**
-     * @var OperationStatus|null $status Possible values are: notStarted, running, completed, failed. Read-only.
-    */
+    /** @var OperationStatus|null $status The current status of the operation: notStarted, running, completed, failed */
     private ?OperationStatus $status = null;
     
     /**
@@ -36,14 +30,7 @@ class Operation extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Operation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Operation {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.onenoteOperation': return new OnenoteOperation();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Operation {
         return new Operation();
     }
 
@@ -60,11 +47,10 @@ class Operation extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(OperationStatus::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'lastActionDateTime' => function (self $o, ParseNode $n) { $o->setLastActionDateTime($n->getDateTimeValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(OperationStatus::class)); },
         ]);
     }
 
@@ -77,7 +63,7 @@ class Operation extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
+     * Gets the status property value. The current status of the operation: notStarted, running, completed, failed
      * @return OperationStatus|null
     */
     public function getStatus(): ?OperationStatus {
@@ -112,7 +98,7 @@ class Operation extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
+     * Sets the status property value. The current status of the operation: notStarted, running, completed, failed
      *  @param OperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?OperationStatus $value ): void {

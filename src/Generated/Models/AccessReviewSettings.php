@@ -9,54 +9,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AccessReviewSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var bool|null $accessRecommendationsEnabled Indicates whether showing recommendations to reviewers is enabled.
-    */
+    /** @var bool|null $accessRecommendationsEnabled Indicates whether showing recommendations to reviewers is enabled. */
     private ?bool $accessRecommendationsEnabled = null;
     
-    /**
-     * @var int|null $activityDurationInDays The number of days of user activities to show to reviewers.
-    */
+    /** @var int|null $activityDurationInDays The number of days of user activities to show to reviewers. */
     private ?int $activityDurationInDays = null;
     
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $autoApplyReviewResultsEnabled Indicates whether the auto-apply capability, to automatically change the target object access resource, is enabled.  If not enabled, a user must, after the review completes, apply the access review.
-    */
+    /** @var bool|null $autoApplyReviewResultsEnabled Indicates whether the auto-apply capability, to automatically change the target object access resource, is enabled.  If not enabled, a user must, after the review completes, apply the access review. */
     private ?bool $autoApplyReviewResultsEnabled = null;
     
-    /**
-     * @var bool|null $autoReviewEnabled Indicates whether a decision should be set if the reviewer did not supply one. For use when auto-apply is enabled. If you don't want to have a review decision recorded unless the reviewer makes an explicit choice, set it to false.
-    */
+    /** @var bool|null $autoReviewEnabled Indicates whether a decision should be set if the reviewer did not supply one. For use when auto-apply is enabled. If you don't want to have a review decision recorded unless the reviewer makes an explicit choice, set it to false. */
     private ?bool $autoReviewEnabled = null;
     
-    /**
-     * @var AutoReviewSettings|null $autoReviewSettings Detailed settings for how the feature should set the review decision. For use when auto-apply is enabled.
-    */
+    /** @var AutoReviewSettings|null $autoReviewSettings Detailed settings for how the feature should set the review decision. For use when auto-apply is enabled. */
     private ?AutoReviewSettings $autoReviewSettings = null;
     
-    /**
-     * @var bool|null $justificationRequiredOnApproval Indicates whether reviewers are required to provide a justification when reviewing access.
-    */
+    /** @var bool|null $justificationRequiredOnApproval Indicates whether reviewers are required to provide a justification when reviewing access. */
     private ?bool $justificationRequiredOnApproval = null;
     
-    /**
-     * @var bool|null $mailNotificationsEnabled Indicates whether sending mails to reviewers and the review creator is enabled.
-    */
+    /** @var bool|null $mailNotificationsEnabled Indicates whether sending mails to reviewers and the review creator is enabled. */
     private ?bool $mailNotificationsEnabled = null;
     
-    /**
-     * @var AccessReviewRecurrenceSettings|null $recurrenceSettings Detailed settings for recurrence.
-    */
+    /** @var AccessReviewRecurrenceSettings|null $recurrenceSettings Detailed settings for recurrence. */
     private ?AccessReviewRecurrenceSettings $recurrenceSettings = null;
     
-    /**
-     * @var bool|null $remindersEnabled Indicates whether sending reminder emails to reviewers is enabled.
-    */
+    /** @var bool|null $remindersEnabled Indicates whether sending reminder emails to reviewers is enabled. */
     private ?bool $remindersEnabled = null;
     
     /**
@@ -71,7 +51,7 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessReviewSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewSettings {
         return new AccessReviewSettings();
     }
 
@@ -128,17 +108,16 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'accessRecommendationsEnabled' => function (ParseNode $n) use ($o) { $o->setAccessRecommendationsEnabled($n->getBooleanValue()); },
-            'activityDurationInDays' => function (ParseNode $n) use ($o) { $o->setActivityDurationInDays($n->getIntegerValue()); },
-            'autoApplyReviewResultsEnabled' => function (ParseNode $n) use ($o) { $o->setAutoApplyReviewResultsEnabled($n->getBooleanValue()); },
-            'autoReviewEnabled' => function (ParseNode $n) use ($o) { $o->setAutoReviewEnabled($n->getBooleanValue()); },
-            'autoReviewSettings' => function (ParseNode $n) use ($o) { $o->setAutoReviewSettings($n->getObjectValue(array(AutoReviewSettings::class, 'createFromDiscriminatorValue'))); },
-            'justificationRequiredOnApproval' => function (ParseNode $n) use ($o) { $o->setJustificationRequiredOnApproval($n->getBooleanValue()); },
-            'mailNotificationsEnabled' => function (ParseNode $n) use ($o) { $o->setMailNotificationsEnabled($n->getBooleanValue()); },
-            'recurrenceSettings' => function (ParseNode $n) use ($o) { $o->setRecurrenceSettings($n->getObjectValue(array(AccessReviewRecurrenceSettings::class, 'createFromDiscriminatorValue'))); },
-            'remindersEnabled' => function (ParseNode $n) use ($o) { $o->setRemindersEnabled($n->getBooleanValue()); },
+            'accessRecommendationsEnabled' => function (self $o, ParseNode $n) { $o->setAccessRecommendationsEnabled($n->getBooleanValue()); },
+            'activityDurationInDays' => function (self $o, ParseNode $n) { $o->setActivityDurationInDays($n->getIntegerValue()); },
+            'autoApplyReviewResultsEnabled' => function (self $o, ParseNode $n) { $o->setAutoApplyReviewResultsEnabled($n->getBooleanValue()); },
+            'autoReviewEnabled' => function (self $o, ParseNode $n) { $o->setAutoReviewEnabled($n->getBooleanValue()); },
+            'autoReviewSettings' => function (self $o, ParseNode $n) { $o->setAutoReviewSettings($n->getObjectValue(AutoReviewSettings::class)); },
+            'justificationRequiredOnApproval' => function (self $o, ParseNode $n) { $o->setJustificationRequiredOnApproval($n->getBooleanValue()); },
+            'mailNotificationsEnabled' => function (self $o, ParseNode $n) { $o->setMailNotificationsEnabled($n->getBooleanValue()); },
+            'recurrenceSettings' => function (self $o, ParseNode $n) { $o->setRecurrenceSettings($n->getObjectValue(AccessReviewRecurrenceSettings::class)); },
+            'remindersEnabled' => function (self $o, ParseNode $n) { $o->setRemindersEnabled($n->getBooleanValue()); },
         ];
     }
 

@@ -7,126 +7,78 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class Office365ActiveUserDetail extends Entity implements Parsable 
+class Office365ActiveUserDetail extends Entity 
 {
-    /**
-     * @var array<string>|null $assignedProducts All the products assigned for the user.
-    */
+    /** @var array<string>|null $assignedProducts All the products assigned for the user. */
     private ?array $assignedProducts = null;
     
-    /**
-     * @var Date|null $deletedDate The date when the delete operation happened. Default value is 'null' when the user has not been deleted.
-    */
+    /** @var Date|null $deletedDate The date when the delete operation happened. Default value is 'null' when the user has not been deleted. */
     private ?Date $deletedDate = null;
     
-    /**
-     * @var string|null $displayName The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates.
-    */
+    /** @var string|null $displayName The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates. */
     private ?string $displayName = null;
     
-    /**
-     * @var Date|null $exchangeLastActivityDate The date when user last read or sent email.
-    */
+    /** @var Date|null $exchangeLastActivityDate The date when user last read or sent email. */
     private ?Date $exchangeLastActivityDate = null;
     
-    /**
-     * @var Date|null $exchangeLicenseAssignDate The last date when the user was assigned an Exchange license.
-    */
+    /** @var Date|null $exchangeLicenseAssignDate The last date when the user was assigned an Exchange license. */
     private ?Date $exchangeLicenseAssignDate = null;
     
-    /**
-     * @var bool|null $hasExchangeLicense Whether the user has been assigned an Exchange license.
-    */
+    /** @var bool|null $hasExchangeLicense Whether the user has been assigned an Exchange license. */
     private ?bool $hasExchangeLicense = null;
     
-    /**
-     * @var bool|null $hasOneDriveLicense Whether the user has been assigned a OneDrive license.
-    */
+    /** @var bool|null $hasOneDriveLicense Whether the user has been assigned a OneDrive license. */
     private ?bool $hasOneDriveLicense = null;
     
-    /**
-     * @var bool|null $hasSharePointLicense Whether the user has been assigned a SharePoint license.
-    */
+    /** @var bool|null $hasSharePointLicense Whether the user has been assigned a SharePoint license. */
     private ?bool $hasSharePointLicense = null;
     
-    /**
-     * @var bool|null $hasSkypeForBusinessLicense Whether the user has been assigned a Skype For Business license.
-    */
+    /** @var bool|null $hasSkypeForBusinessLicense Whether the user has been assigned a Skype For Business license. */
     private ?bool $hasSkypeForBusinessLicense = null;
     
-    /**
-     * @var bool|null $hasTeamsLicense Whether the user has been assigned a Teams license.
-    */
+    /** @var bool|null $hasTeamsLicense Whether the user has been assigned a Teams license. */
     private ?bool $hasTeamsLicense = null;
     
-    /**
-     * @var bool|null $hasYammerLicense Whether the user has been assigned a Yammer license.
-    */
+    /** @var bool|null $hasYammerLicense Whether the user has been assigned a Yammer license. */
     private ?bool $hasYammerLicense = null;
     
-    /**
-     * @var bool|null $isDeleted Whether this user has been deleted or soft deleted.
-    */
+    /** @var bool|null $isDeleted Whether this user has been deleted or soft deleted. */
     private ?bool $isDeleted = null;
     
-    /**
-     * @var Date|null $oneDriveLastActivityDate The date when user last viewed or edited files, shared files internally or externally, or synced files.
-    */
+    /** @var Date|null $oneDriveLastActivityDate The date when user last viewed or edited files, shared files internally or externally, or synced files. */
     private ?Date $oneDriveLastActivityDate = null;
     
-    /**
-     * @var Date|null $oneDriveLicenseAssignDate The last date when the user was assigned a OneDrive license.
-    */
+    /** @var Date|null $oneDriveLicenseAssignDate The last date when the user was assigned a OneDrive license. */
     private ?Date $oneDriveLicenseAssignDate = null;
     
-    /**
-     * @var Date|null $reportRefreshDate The latest date of the content.
-    */
+    /** @var Date|null $reportRefreshDate The latest date of the content. */
     private ?Date $reportRefreshDate = null;
     
-    /**
-     * @var Date|null $sharePointLastActivityDate The date when user last viewed or edited files, shared files internally or externally, synced files, or viewed SharePoint pages.
-    */
+    /** @var Date|null $sharePointLastActivityDate The date when user last viewed or edited files, shared files internally or externally, synced files, or viewed SharePoint pages. */
     private ?Date $sharePointLastActivityDate = null;
     
-    /**
-     * @var Date|null $sharePointLicenseAssignDate The last date when the user was assigned a SharePoint license.
-    */
+    /** @var Date|null $sharePointLicenseAssignDate The last date when the user was assigned a SharePoint license. */
     private ?Date $sharePointLicenseAssignDate = null;
     
-    /**
-     * @var Date|null $skypeForBusinessLastActivityDate The date when user last organized or participated in conferences, or joined peer-to-peer sessions.
-    */
+    /** @var Date|null $skypeForBusinessLastActivityDate The date when user last organized or participated in conferences, or joined peer-to-peer sessions. */
     private ?Date $skypeForBusinessLastActivityDate = null;
     
-    /**
-     * @var Date|null $skypeForBusinessLicenseAssignDate The last date when the user was assigned a Skype For Business license.
-    */
+    /** @var Date|null $skypeForBusinessLicenseAssignDate The last date when the user was assigned a Skype For Business license. */
     private ?Date $skypeForBusinessLicenseAssignDate = null;
     
-    /**
-     * @var Date|null $teamsLastActivityDate The date when user last posted messages in team channels, sent messages in private chat sessions, or participated in meetings or calls.
-    */
+    /** @var Date|null $teamsLastActivityDate The date when user last posted messages in team channels, sent messages in private chat sessions, or participated in meetings or calls. */
     private ?Date $teamsLastActivityDate = null;
     
-    /**
-     * @var Date|null $teamsLicenseAssignDate The last date when the user was assigned a Teams license.
-    */
+    /** @var Date|null $teamsLicenseAssignDate The last date when the user was assigned a Teams license. */
     private ?Date $teamsLicenseAssignDate = null;
     
-    /**
-     * @var string|null $userPrincipalName The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant’s collection of verified domains. This property is required when a user is created.
-    */
+    /** @var string|null $userPrincipalName The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant’s collection of verified domains. This property is required when a user is created. */
     private ?string $userPrincipalName = null;
     
-    /**
-     * @var Date|null $yammerLastActivityDate The date when user last posted, read, or liked message.
-    */
+    /** @var Date|null $yammerLastActivityDate The date when user last posted, read, or liked message. */
     private ?Date $yammerLastActivityDate = null;
     
-    /**
-     * @var Date|null $yammerLicenseAssignDate The last date when the user was assigned a Yammer license.
-    */
+    /** @var Date|null $yammerLicenseAssignDate The last date when the user was assigned a Yammer license. */
     private ?Date $yammerLicenseAssignDate = null;
     
     /**
@@ -141,7 +93,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Office365ActiveUserDetail
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Office365ActiveUserDetail {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Office365ActiveUserDetail {
         return new Office365ActiveUserDetail();
     }
 
@@ -190,32 +142,31 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignedProducts' => function (ParseNode $n) use ($o) { $o->setAssignedProducts($n->getCollectionOfPrimitiveValues()); },
-            'deletedDate' => function (ParseNode $n) use ($o) { $o->setDeletedDate($n->getDateValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'exchangeLastActivityDate' => function (ParseNode $n) use ($o) { $o->setExchangeLastActivityDate($n->getDateValue()); },
-            'exchangeLicenseAssignDate' => function (ParseNode $n) use ($o) { $o->setExchangeLicenseAssignDate($n->getDateValue()); },
-            'hasExchangeLicense' => function (ParseNode $n) use ($o) { $o->setHasExchangeLicense($n->getBooleanValue()); },
-            'hasOneDriveLicense' => function (ParseNode $n) use ($o) { $o->setHasOneDriveLicense($n->getBooleanValue()); },
-            'hasSharePointLicense' => function (ParseNode $n) use ($o) { $o->setHasSharePointLicense($n->getBooleanValue()); },
-            'hasSkypeForBusinessLicense' => function (ParseNode $n) use ($o) { $o->setHasSkypeForBusinessLicense($n->getBooleanValue()); },
-            'hasTeamsLicense' => function (ParseNode $n) use ($o) { $o->setHasTeamsLicense($n->getBooleanValue()); },
-            'hasYammerLicense' => function (ParseNode $n) use ($o) { $o->setHasYammerLicense($n->getBooleanValue()); },
-            'isDeleted' => function (ParseNode $n) use ($o) { $o->setIsDeleted($n->getBooleanValue()); },
-            'oneDriveLastActivityDate' => function (ParseNode $n) use ($o) { $o->setOneDriveLastActivityDate($n->getDateValue()); },
-            'oneDriveLicenseAssignDate' => function (ParseNode $n) use ($o) { $o->setOneDriveLicenseAssignDate($n->getDateValue()); },
-            'reportRefreshDate' => function (ParseNode $n) use ($o) { $o->setReportRefreshDate($n->getDateValue()); },
-            'sharePointLastActivityDate' => function (ParseNode $n) use ($o) { $o->setSharePointLastActivityDate($n->getDateValue()); },
-            'sharePointLicenseAssignDate' => function (ParseNode $n) use ($o) { $o->setSharePointLicenseAssignDate($n->getDateValue()); },
-            'skypeForBusinessLastActivityDate' => function (ParseNode $n) use ($o) { $o->setSkypeForBusinessLastActivityDate($n->getDateValue()); },
-            'skypeForBusinessLicenseAssignDate' => function (ParseNode $n) use ($o) { $o->setSkypeForBusinessLicenseAssignDate($n->getDateValue()); },
-            'teamsLastActivityDate' => function (ParseNode $n) use ($o) { $o->setTeamsLastActivityDate($n->getDateValue()); },
-            'teamsLicenseAssignDate' => function (ParseNode $n) use ($o) { $o->setTeamsLicenseAssignDate($n->getDateValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
-            'yammerLastActivityDate' => function (ParseNode $n) use ($o) { $o->setYammerLastActivityDate($n->getDateValue()); },
-            'yammerLicenseAssignDate' => function (ParseNode $n) use ($o) { $o->setYammerLicenseAssignDate($n->getDateValue()); },
+            'assignedProducts' => function (self $o, ParseNode $n) { $o->setAssignedProducts($n->getCollectionOfPrimitiveValues()); },
+            'deletedDate' => function (self $o, ParseNode $n) { $o->setDeletedDate($n->getDateValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'exchangeLastActivityDate' => function (self $o, ParseNode $n) { $o->setExchangeLastActivityDate($n->getDateValue()); },
+            'exchangeLicenseAssignDate' => function (self $o, ParseNode $n) { $o->setExchangeLicenseAssignDate($n->getDateValue()); },
+            'hasExchangeLicense' => function (self $o, ParseNode $n) { $o->setHasExchangeLicense($n->getBooleanValue()); },
+            'hasOneDriveLicense' => function (self $o, ParseNode $n) { $o->setHasOneDriveLicense($n->getBooleanValue()); },
+            'hasSharePointLicense' => function (self $o, ParseNode $n) { $o->setHasSharePointLicense($n->getBooleanValue()); },
+            'hasSkypeForBusinessLicense' => function (self $o, ParseNode $n) { $o->setHasSkypeForBusinessLicense($n->getBooleanValue()); },
+            'hasTeamsLicense' => function (self $o, ParseNode $n) { $o->setHasTeamsLicense($n->getBooleanValue()); },
+            'hasYammerLicense' => function (self $o, ParseNode $n) { $o->setHasYammerLicense($n->getBooleanValue()); },
+            'isDeleted' => function (self $o, ParseNode $n) { $o->setIsDeleted($n->getBooleanValue()); },
+            'oneDriveLastActivityDate' => function (self $o, ParseNode $n) { $o->setOneDriveLastActivityDate($n->getDateValue()); },
+            'oneDriveLicenseAssignDate' => function (self $o, ParseNode $n) { $o->setOneDriveLicenseAssignDate($n->getDateValue()); },
+            'reportRefreshDate' => function (self $o, ParseNode $n) { $o->setReportRefreshDate($n->getDateValue()); },
+            'sharePointLastActivityDate' => function (self $o, ParseNode $n) { $o->setSharePointLastActivityDate($n->getDateValue()); },
+            'sharePointLicenseAssignDate' => function (self $o, ParseNode $n) { $o->setSharePointLicenseAssignDate($n->getDateValue()); },
+            'skypeForBusinessLastActivityDate' => function (self $o, ParseNode $n) { $o->setSkypeForBusinessLastActivityDate($n->getDateValue()); },
+            'skypeForBusinessLicenseAssignDate' => function (self $o, ParseNode $n) { $o->setSkypeForBusinessLicenseAssignDate($n->getDateValue()); },
+            'teamsLastActivityDate' => function (self $o, ParseNode $n) { $o->setTeamsLastActivityDate($n->getDateValue()); },
+            'teamsLicenseAssignDate' => function (self $o, ParseNode $n) { $o->setTeamsLicenseAssignDate($n->getDateValue()); },
+            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
+            'yammerLastActivityDate' => function (self $o, ParseNode $n) { $o->setYammerLastActivityDate($n->getDateValue()); },
+            'yammerLicenseAssignDate' => function (self $o, ParseNode $n) { $o->setYammerLicenseAssignDate($n->getDateValue()); },
         ]);
     }
 

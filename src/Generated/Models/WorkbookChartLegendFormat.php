@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookChartLegendFormat extends Entity implements Parsable 
+class WorkbookChartLegendFormat extends Entity 
 {
-    /**
-     * @var WorkbookChartFill|null $fill Represents the fill format of an object, which includes background formating information. Read-only.
-    */
+    /** @var WorkbookChartFill|null $fill Represents the fill format of an object, which includes background formating information. Read-only. */
     private ?WorkbookChartFill $fill = null;
     
-    /**
-     * @var WorkbookChartFont|null $font Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only.
-    */
+    /** @var WorkbookChartFont|null $font Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only. */
     private ?WorkbookChartFont $font = null;
     
     /**
@@ -30,7 +26,7 @@ class WorkbookChartLegendFormat extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookChartLegendFormat
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartLegendFormat {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartLegendFormat {
         return new WorkbookChartLegendFormat();
     }
 
@@ -39,10 +35,9 @@ class WorkbookChartLegendFormat extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'fill' => function (ParseNode $n) use ($o) { $o->setFill($n->getObjectValue(array(WorkbookChartFill::class, 'createFromDiscriminatorValue'))); },
-            'font' => function (ParseNode $n) use ($o) { $o->setFont($n->getObjectValue(array(WorkbookChartFont::class, 'createFromDiscriminatorValue'))); },
+            'fill' => function (self $o, ParseNode $n) { $o->setFill($n->getObjectValue(WorkbookChartFill::class)); },
+            'font' => function (self $o, ParseNode $n) { $o->setFont($n->getObjectValue(WorkbookChartFont::class)); },
         ]);
     }
 

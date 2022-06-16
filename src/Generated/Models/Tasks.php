@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Tasks extends Entity implements Parsable 
+class Tasks extends Entity 
 {
-    /**
-     * @var array<BaseTask>|null $alltasks All tasks in the users mailbox.
-    */
+    /** @var array<BaseTask>|null $alltasks All tasks in the users mailbox. */
     private ?array $alltasks = null;
     
-    /**
-     * @var array<BaseTaskList>|null $lists The task lists in the users mailbox.
-    */
+    /** @var array<BaseTaskList>|null $lists The task lists in the users mailbox. */
     private ?array $lists = null;
     
     /**
@@ -30,7 +26,7 @@ class Tasks extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Tasks
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Tasks {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Tasks {
         return new Tasks();
     }
 
@@ -47,10 +43,9 @@ class Tasks extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alltasks' => function (ParseNode $n) use ($o) { $o->setAlltasks($n->getCollectionOfObjectValues(array(BaseTask::class, 'createFromDiscriminatorValue'))); },
-            'lists' => function (ParseNode $n) use ($o) { $o->setLists($n->getCollectionOfObjectValues(array(BaseTaskList::class, 'createFromDiscriminatorValue'))); },
+            'alltasks' => function (self $o, ParseNode $n) { $o->setAlltasks($n->getCollectionOfObjectValues(BaseTask::class)); },
+            'lists' => function (self $o, ParseNode $n) { $o->setLists($n->getCollectionOfObjectValues(BaseTaskList::class)); },
         ]);
     }
 

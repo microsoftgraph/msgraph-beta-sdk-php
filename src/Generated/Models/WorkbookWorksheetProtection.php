@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookWorksheetProtection extends Entity implements Parsable 
+class WorkbookWorksheetProtection extends Entity 
 {
-    /**
-     * @var bool|null $EscapedProtected Indicates if the worksheet is protected.  Read-only.
-    */
+    /** @var bool|null $EscapedProtected Indicates if the worksheet is protected.  Read-only. */
     private ?bool $escapedProtected = null;
     
-    /**
-     * @var WorkbookWorksheetProtectionOptions|null $options Sheet protection options. Read-only.
-    */
+    /** @var WorkbookWorksheetProtectionOptions|null $options Sheet protection options. Read-only. */
     private ?WorkbookWorksheetProtectionOptions $options = null;
     
     /**
@@ -30,7 +26,7 @@ class WorkbookWorksheetProtection extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookWorksheetProtection
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookWorksheetProtection {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookWorksheetProtection {
         return new WorkbookWorksheetProtection();
     }
 
@@ -39,10 +35,9 @@ class WorkbookWorksheetProtection extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'protected' => function (ParseNode $n) use ($o) { $o->setProtected($n->getBooleanValue()); },
-            'options' => function (ParseNode $n) use ($o) { $o->setOptions($n->getObjectValue(array(WorkbookWorksheetProtectionOptions::class, 'createFromDiscriminatorValue'))); },
+            'protected' => function (self $o, ParseNode $n) { $o->setEscapedProtected($n->getBooleanValue()); },
+            'options' => function (self $o, ParseNode $n) { $o->setOptions($n->getObjectValue(WorkbookWorksheetProtectionOptions::class)); },
         ]);
     }
 

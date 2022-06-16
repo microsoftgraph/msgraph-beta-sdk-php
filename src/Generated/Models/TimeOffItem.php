@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TimeOffItem extends ScheduleEntity implements Parsable 
+class TimeOffItem extends ScheduleEntity 
 {
-    /**
-     * @var string|null $timeOffReasonId ID of the timeOffReason for this timeOffItem. Required.
-    */
+    /** @var string|null $timeOffReasonId ID of the timeOffReason for this timeOffItem. Required. */
     private ?string $timeOffReasonId = null;
     
     /**
@@ -25,7 +23,7 @@ class TimeOffItem extends ScheduleEntity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TimeOffItem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TimeOffItem {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TimeOffItem {
         return new TimeOffItem();
     }
 
@@ -34,9 +32,8 @@ class TimeOffItem extends ScheduleEntity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'timeOffReasonId' => function (ParseNode $n) use ($o) { $o->setTimeOffReasonId($n->getStringValue()); },
+            'timeOffReasonId' => function (self $o, ParseNode $n) { $o->setTimeOffReasonId($n->getStringValue()); },
         ]);
     }
 

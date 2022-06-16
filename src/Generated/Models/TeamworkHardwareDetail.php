@@ -9,34 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkHardwareDetail implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<string>|null $macAddresses MAC address.
-    */
+    /** @var array<string>|null $macAddresses MAC address. */
     private ?array $macAddresses = null;
     
-    /**
-     * @var string|null $manufacturer Device manufacturer.
-    */
+    /** @var string|null $manufacturer Device manufacturer. */
     private ?string $manufacturer = null;
     
-    /**
-     * @var string|null $model Devie model.
-    */
+    /** @var string|null $model Devie model. */
     private ?string $model = null;
     
-    /**
-     * @var string|null $serialNumber Device serial number.
-    */
+    /** @var string|null $serialNumber Device serial number. */
     private ?string $serialNumber = null;
     
-    /**
-     * @var string|null $uniqueId The unique identifier for the device.
-    */
+    /** @var string|null $uniqueId The unique identifier for the device. */
     private ?string $uniqueId = null;
     
     /**
@@ -51,7 +39,7 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkHardwareDetail
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkHardwareDetail {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkHardwareDetail {
         return new TeamworkHardwareDetail();
     }
 
@@ -68,13 +56,12 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'macAddresses' => function (ParseNode $n) use ($o) { $o->setMacAddresses($n->getCollectionOfPrimitiveValues()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
-            'uniqueId' => function (ParseNode $n) use ($o) { $o->setUniqueId($n->getStringValue()); },
+            'macAddresses' => function (self $o, ParseNode $n) { $o->setMacAddresses($n->getCollectionOfPrimitiveValues()); },
+            'manufacturer' => function (self $o, ParseNode $n) { $o->setManufacturer($n->getStringValue()); },
+            'model' => function (self $o, ParseNode $n) { $o->setModel($n->getStringValue()); },
+            'serialNumber' => function (self $o, ParseNode $n) { $o->setSerialNumber($n->getStringValue()); },
+            'uniqueId' => function (self $o, ParseNode $n) { $o->setUniqueId($n->getStringValue()); },
         ];
     }
 

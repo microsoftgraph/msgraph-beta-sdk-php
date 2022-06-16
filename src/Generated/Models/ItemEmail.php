@@ -6,25 +6,19 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ItemEmail extends ItemFacet implements Parsable 
+class ItemEmail extends ItemFacet 
 {
-    /**
-     * @var string|null $address The email address itself.
-    */
+    /** @var string|null $address The email address itself. */
     private ?string $address = null;
     
-    /**
-     * @var string|null $displayName The name or label a user has associated with a particular email address.
-    */
+    /** @var string|null $displayName The name or label a user has associated with a particular email address. */
     private ?string $displayName = null;
     
-    /**
-     * @var EmailType|null $type The type of email address. Possible values are: unknown, work, personal, main, other.
-    */
+    /** @var EmailType|null $type The type of email address. Possible values are: unknown, work, personal, main, other. */
     private ?EmailType $type = null;
     
     /**
-     * Instantiates a new ItemEmail and sets the default values.
+     * Instantiates a new itemEmail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +29,7 @@ class ItemEmail extends ItemFacet implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ItemEmail
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ItemEmail {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ItemEmail {
         return new ItemEmail();
     }
 
@@ -60,11 +54,10 @@ class ItemEmail extends ItemFacet implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'address' => function (ParseNode $n) use ($o) { $o->setAddress($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(EmailType::class)); },
+            'address' => function (self $o, ParseNode $n) { $o->setAddress($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(EmailType::class)); },
         ]);
     }
 

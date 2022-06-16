@@ -7,45 +7,31 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class ItemPatent extends ItemFacet implements Parsable 
+class ItemPatent extends ItemFacet 
 {
-    /**
-     * @var string|null $description Descpription of the patent or filing.
-    */
+    /** @var string|null $description Descpription of the patent or filing. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName Title of the patent or filing.
-    */
+    /** @var string|null $displayName Title of the patent or filing. */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $isPending Indicates the patent is pending.
-    */
+    /** @var bool|null $isPending Indicates the patent is pending. */
     private ?bool $isPending = null;
     
-    /**
-     * @var Date|null $issuedDate The date that the patent was granted.
-    */
+    /** @var Date|null $issuedDate The date that the patent was granted. */
     private ?Date $issuedDate = null;
     
-    /**
-     * @var string|null $issuingAuthority Authority which granted the patent.
-    */
+    /** @var string|null $issuingAuthority Authority which granted the patent. */
     private ?string $issuingAuthority = null;
     
-    /**
-     * @var string|null $number The patent number.
-    */
+    /** @var string|null $number The patent number. */
     private ?string $number = null;
     
-    /**
-     * @var string|null $webUrl URL referencing the patent or filing.
-    */
+    /** @var string|null $webUrl URL referencing the patent or filing. */
     private ?string $webUrl = null;
     
     /**
-     * Instantiates a new ItemPatent and sets the default values.
+     * Instantiates a new itemPatent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,7 +42,7 @@ class ItemPatent extends ItemFacet implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ItemPatent
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ItemPatent {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ItemPatent {
         return new ItemPatent();
     }
 
@@ -81,15 +67,14 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isPending' => function (ParseNode $n) use ($o) { $o->setIsPending($n->getBooleanValue()); },
-            'issuedDate' => function (ParseNode $n) use ($o) { $o->setIssuedDate($n->getDateValue()); },
-            'issuingAuthority' => function (ParseNode $n) use ($o) { $o->setIssuingAuthority($n->getStringValue()); },
-            'number' => function (ParseNode $n) use ($o) { $o->setNumber($n->getStringValue()); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'isPending' => function (self $o, ParseNode $n) { $o->setIsPending($n->getBooleanValue()); },
+            'issuedDate' => function (self $o, ParseNode $n) { $o->setIssuedDate($n->getDateValue()); },
+            'issuingAuthority' => function (self $o, ParseNode $n) { $o->setIssuingAuthority($n->getStringValue()); },
+            'number' => function (self $o, ParseNode $n) { $o->setNumber($n->getStringValue()); },
+            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
         ]);
     }
 

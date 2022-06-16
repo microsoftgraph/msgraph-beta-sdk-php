@@ -7,76 +7,48 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EducationSubmission extends Entity implements Parsable 
+class EducationSubmission extends Entity 
 {
-    /**
-     * @var array<EducationOutcome>|null $outcomes The outcomes property
-    */
+    /** @var array<EducationOutcome>|null $outcomes Read-Write. Nullable. */
     private ?array $outcomes = null;
     
-    /**
-     * @var IdentitySet|null $reassignedBy User who moved the status of this submission to reassigned.
-    */
+    /** @var IdentitySet|null $reassignedBy User who moved the status of this submission to reassigned. */
     private ?IdentitySet $reassignedBy = null;
     
-    /**
-     * @var DateTime|null $reassignedDateTime Moment in time when the submission was reassigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $reassignedDateTime Moment in time when the submission was reassigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $reassignedDateTime = null;
     
-    /**
-     * @var EducationSubmissionRecipient|null $recipient Who this submission is assigned to.
-    */
+    /** @var EducationSubmissionRecipient|null $recipient Who this submission is assigned to. */
     private ?EducationSubmissionRecipient $recipient = null;
     
-    /**
-     * @var array<EducationSubmissionResource>|null $resources The resources property
-    */
+    /** @var array<EducationSubmissionResource>|null $resources Nullable. */
     private ?array $resources = null;
     
-    /**
-     * @var string|null $resourcesFolderUrl Folder where all file resources for this submission need to be stored.
-    */
+    /** @var string|null $resourcesFolderUrl Folder where all file resources for this submission need to be stored. */
     private ?string $resourcesFolderUrl = null;
     
-    /**
-     * @var IdentitySet|null $returnedBy User who moved the status of this submission to returned.
-    */
+    /** @var IdentitySet|null $returnedBy User who moved the status of this submission to returned. */
     private ?IdentitySet $returnedBy = null;
     
-    /**
-     * @var DateTime|null $returnedDateTime Moment in time when the submission was returned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $returnedDateTime Moment in time when the submission was returned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $returnedDateTime = null;
     
-    /**
-     * @var EducationSubmissionStatus|null $status Read-only. Possible values are: working, submitted, released, returned, unknownFutureValue and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
-    */
+    /** @var EducationSubmissionStatus|null $status Read-only. Possible values are: working, submitted, released, returned, and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned. */
     private ?EducationSubmissionStatus $status = null;
     
-    /**
-     * @var IdentitySet|null $submittedBy User who moved the resource into the submitted state.
-    */
+    /** @var IdentitySet|null $submittedBy User who moved the resource into the submitted state. */
     private ?IdentitySet $submittedBy = null;
     
-    /**
-     * @var DateTime|null $submittedDateTime Moment in time when the submission was moved into the submitted state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $submittedDateTime Moment in time when the submission was moved into the submitted state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $submittedDateTime = null;
     
-    /**
-     * @var array<EducationSubmissionResource>|null $submittedResources The submittedResources property
-    */
+    /** @var array<EducationSubmissionResource>|null $submittedResources Read-only. Nullable. */
     private ?array $submittedResources = null;
     
-    /**
-     * @var IdentitySet|null $unsubmittedBy User who moved the resource from submitted into the working state.
-    */
+    /** @var IdentitySet|null $unsubmittedBy User who moved the resource from submitted into the working state. */
     private ?IdentitySet $unsubmittedBy = null;
     
-    /**
-     * @var DateTime|null $unsubmittedDateTime Moment in time when the submission was moved from submitted into the working state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $unsubmittedDateTime Moment in time when the submission was moved from submitted into the working state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $unsubmittedDateTime = null;
     
     /**
@@ -91,7 +63,7 @@ class EducationSubmission extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EducationSubmission
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationSubmission {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EducationSubmission {
         return new EducationSubmission();
     }
 
@@ -100,27 +72,26 @@ class EducationSubmission extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'outcomes' => function (ParseNode $n) use ($o) { $o->setOutcomes($n->getCollectionOfObjectValues(array(EducationOutcome::class, 'createFromDiscriminatorValue'))); },
-            'reassignedBy' => function (ParseNode $n) use ($o) { $o->setReassignedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'reassignedDateTime' => function (ParseNode $n) use ($o) { $o->setReassignedDateTime($n->getDateTimeValue()); },
-            'recipient' => function (ParseNode $n) use ($o) { $o->setRecipient($n->getObjectValue(array(EducationSubmissionRecipient::class, 'createFromDiscriminatorValue'))); },
-            'resources' => function (ParseNode $n) use ($o) { $o->setResources($n->getCollectionOfObjectValues(array(EducationSubmissionResource::class, 'createFromDiscriminatorValue'))); },
-            'resourcesFolderUrl' => function (ParseNode $n) use ($o) { $o->setResourcesFolderUrl($n->getStringValue()); },
-            'returnedBy' => function (ParseNode $n) use ($o) { $o->setReturnedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'returnedDateTime' => function (ParseNode $n) use ($o) { $o->setReturnedDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(EducationSubmissionStatus::class)); },
-            'submittedBy' => function (ParseNode $n) use ($o) { $o->setSubmittedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'submittedDateTime' => function (ParseNode $n) use ($o) { $o->setSubmittedDateTime($n->getDateTimeValue()); },
-            'submittedResources' => function (ParseNode $n) use ($o) { $o->setSubmittedResources($n->getCollectionOfObjectValues(array(EducationSubmissionResource::class, 'createFromDiscriminatorValue'))); },
-            'unsubmittedBy' => function (ParseNode $n) use ($o) { $o->setUnsubmittedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'unsubmittedDateTime' => function (ParseNode $n) use ($o) { $o->setUnsubmittedDateTime($n->getDateTimeValue()); },
+            'outcomes' => function (self $o, ParseNode $n) { $o->setOutcomes($n->getCollectionOfObjectValues(EducationOutcome::class)); },
+            'reassignedBy' => function (self $o, ParseNode $n) { $o->setReassignedBy($n->getObjectValue(IdentitySet::class)); },
+            'reassignedDateTime' => function (self $o, ParseNode $n) { $o->setReassignedDateTime($n->getDateTimeValue()); },
+            'recipient' => function (self $o, ParseNode $n) { $o->setRecipient($n->getObjectValue(EducationSubmissionRecipient::class)); },
+            'resources' => function (self $o, ParseNode $n) { $o->setResources($n->getCollectionOfObjectValues(EducationSubmissionResource::class)); },
+            'resourcesFolderUrl' => function (self $o, ParseNode $n) { $o->setResourcesFolderUrl($n->getStringValue()); },
+            'returnedBy' => function (self $o, ParseNode $n) { $o->setReturnedBy($n->getObjectValue(IdentitySet::class)); },
+            'returnedDateTime' => function (self $o, ParseNode $n) { $o->setReturnedDateTime($n->getDateTimeValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(EducationSubmissionStatus::class)); },
+            'submittedBy' => function (self $o, ParseNode $n) { $o->setSubmittedBy($n->getObjectValue(IdentitySet::class)); },
+            'submittedDateTime' => function (self $o, ParseNode $n) { $o->setSubmittedDateTime($n->getDateTimeValue()); },
+            'submittedResources' => function (self $o, ParseNode $n) { $o->setSubmittedResources($n->getCollectionOfObjectValues(EducationSubmissionResource::class)); },
+            'unsubmittedBy' => function (self $o, ParseNode $n) { $o->setUnsubmittedBy($n->getObjectValue(IdentitySet::class)); },
+            'unsubmittedDateTime' => function (self $o, ParseNode $n) { $o->setUnsubmittedDateTime($n->getDateTimeValue()); },
         ]);
     }
 
     /**
-     * Gets the outcomes property value. The outcomes property
+     * Gets the outcomes property value. Read-Write. Nullable.
      * @return array<EducationOutcome>|null
     */
     public function getOutcomes(): ?array {
@@ -152,7 +123,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Gets the resources property value. The resources property
+     * Gets the resources property value. Nullable.
      * @return array<EducationSubmissionResource>|null
     */
     public function getResources(): ?array {
@@ -184,7 +155,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Read-only. Possible values are: working, submitted, released, returned, unknownFutureValue and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
+     * Gets the status property value. Read-only. Possible values are: working, submitted, released, returned, and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
      * @return EducationSubmissionStatus|null
     */
     public function getStatus(): ?EducationSubmissionStatus {
@@ -208,7 +179,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Gets the submittedResources property value. The submittedResources property
+     * Gets the submittedResources property value. Read-only. Nullable.
      * @return array<EducationSubmissionResource>|null
     */
     public function getSubmittedResources(): ?array {
@@ -254,7 +225,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the outcomes property value. The outcomes property
+     * Sets the outcomes property value. Read-Write. Nullable.
      *  @param array<EducationOutcome>|null $value Value to set for the outcomes property.
     */
     public function setOutcomes(?array $value ): void {
@@ -286,7 +257,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the resources property value. The resources property
+     * Sets the resources property value. Nullable.
      *  @param array<EducationSubmissionResource>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value ): void {
@@ -318,7 +289,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Read-only. Possible values are: working, submitted, released, returned, unknownFutureValue and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
+     * Sets the status property value. Read-only. Possible values are: working, submitted, released, returned, and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
      *  @param EducationSubmissionStatus|null $value Value to set for the status property.
     */
     public function setStatus(?EducationSubmissionStatus $value ): void {
@@ -342,7 +313,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the submittedResources property value. The submittedResources property
+     * Sets the submittedResources property value. Read-only. Nullable.
      *  @param array<EducationSubmissionResource>|null $value Value to set for the submittedResources property.
     */
     public function setSubmittedResources(?array $value ): void {

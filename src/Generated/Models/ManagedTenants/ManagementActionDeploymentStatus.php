@@ -9,34 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $managementActionId The identifier for the management action. Required. Read-only.
-    */
+    /** @var string|null $managementActionId The identifier for the management action. Required. Read-only. */
     private ?string $managementActionId = null;
     
-    /**
-     * @var string|null $managementTemplateId The management template identifier that was used to generate the management action. Required. Read-only.
-    */
+    /** @var string|null $managementTemplateId The management template identifier that was used to generate the management action. Required. Read-only. */
     private ?string $managementTemplateId = null;
     
-    /**
-     * @var int|null $managementTemplateVersion The managementTemplateVersion property
-    */
+    /** @var int|null $managementTemplateVersion The managementTemplateVersion property */
     private ?int $managementTemplateVersion = null;
     
-    /**
-     * @var ManagementActionStatus|null $status The status of the management action. Possible values are: toAddress, completed, error, timeOut, inProgress, planned, resolvedBy3rdParty, resolvedThroughAlternateMitigation, riskAccepted, unknownFutureValue. Required.
-    */
+    /** @var ManagementActionStatus|null $status The status of the management action. Possible values are: toAddress, completed, error, timeOut, inProgress, planned, resolvedBy3rdParty, resolvedThroughAlternateMitigation, riskAccepted, unknownFutureValue. Required. */
     private ?ManagementActionStatus $status = null;
     
-    /**
-     * @var array<WorkloadActionDeploymentStatus>|null $workloadActionDeploymentStatuses The collection of workload action deployment statues for the given management action. Optional.
-    */
+    /** @var array<WorkloadActionDeploymentStatus>|null $workloadActionDeploymentStatuses The collection of workload action deployment statues for the given management action. Optional. */
     private ?array $workloadActionDeploymentStatuses = null;
     
     /**
@@ -51,7 +39,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagementActionDeploymentStatus
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagementActionDeploymentStatus {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagementActionDeploymentStatus {
         return new ManagementActionDeploymentStatus();
     }
 
@@ -68,13 +56,12 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'managementActionId' => function (ParseNode $n) use ($o) { $o->setManagementActionId($n->getStringValue()); },
-            'managementTemplateId' => function (ParseNode $n) use ($o) { $o->setManagementTemplateId($n->getStringValue()); },
-            'managementTemplateVersion' => function (ParseNode $n) use ($o) { $o->setManagementTemplateVersion($n->getIntegerValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ManagementActionStatus::class)); },
-            'workloadActionDeploymentStatuses' => function (ParseNode $n) use ($o) { $o->setWorkloadActionDeploymentStatuses($n->getCollectionOfObjectValues(array(WorkloadActionDeploymentStatus::class, 'createFromDiscriminatorValue'))); },
+            'managementActionId' => function (self $o, ParseNode $n) { $o->setManagementActionId($n->getStringValue()); },
+            'managementTemplateId' => function (self $o, ParseNode $n) { $o->setManagementTemplateId($n->getStringValue()); },
+            'managementTemplateVersion' => function (self $o, ParseNode $n) { $o->setManagementTemplateVersion($n->getIntegerValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(ManagementActionStatus::class)); },
+            'workloadActionDeploymentStatuses' => function (self $o, ParseNode $n) { $o->setWorkloadActionDeploymentStatuses($n->getCollectionOfObjectValues(WorkloadActionDeploymentStatus::class)); },
         ];
     }
 

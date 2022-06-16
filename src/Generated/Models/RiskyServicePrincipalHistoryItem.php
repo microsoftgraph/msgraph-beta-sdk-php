@@ -6,25 +6,19 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements Parsable 
+class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal 
 {
-    /**
-     * @var RiskServicePrincipalActivity|null $activity The activity related to service principal risk level change.
-    */
+    /** @var RiskServicePrincipalActivity|null $activity The activity related to service principal risk level change. */
     private ?RiskServicePrincipalActivity $activity = null;
     
-    /**
-     * @var string|null $initiatedBy The identifier of the actor of the operation.
-    */
+    /** @var string|null $initiatedBy The identifier of the actor of the operation. */
     private ?string $initiatedBy = null;
     
-    /**
-     * @var string|null $servicePrincipalId The identifier of the service principal.
-    */
+    /** @var string|null $servicePrincipalId The identifier of the service principal. */
     private ?string $servicePrincipalId = null;
     
     /**
-     * Instantiates a new RiskyServicePrincipalHistoryItem and sets the default values.
+     * Instantiates a new riskyServicePrincipalHistoryItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +29,7 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements 
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RiskyServicePrincipalHistoryItem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RiskyServicePrincipalHistoryItem {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RiskyServicePrincipalHistoryItem {
         return new RiskyServicePrincipalHistoryItem();
     }
 
@@ -52,11 +46,10 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements 
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activity' => function (ParseNode $n) use ($o) { $o->setActivity($n->getObjectValue(array(RiskServicePrincipalActivity::class, 'createFromDiscriminatorValue'))); },
-            'initiatedBy' => function (ParseNode $n) use ($o) { $o->setInitiatedBy($n->getStringValue()); },
-            'servicePrincipalId' => function (ParseNode $n) use ($o) { $o->setServicePrincipalId($n->getStringValue()); },
+            'activity' => function (self $o, ParseNode $n) { $o->setActivity($n->getObjectValue(RiskServicePrincipalActivity::class)); },
+            'initiatedBy' => function (self $o, ParseNode $n) { $o->setInitiatedBy($n->getStringValue()); },
+            'servicePrincipalId' => function (self $o, ParseNode $n) { $o->setServicePrincipalId($n->getStringValue()); },
         ]);
     }
 

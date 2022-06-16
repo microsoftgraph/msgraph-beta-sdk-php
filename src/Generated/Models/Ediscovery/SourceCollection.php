@@ -9,71 +9,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SourceCollection extends Entity implements Parsable 
+class SourceCollection extends Entity 
 {
-    /**
-     * @var array<DataSource>|null $additionalSources Adds an additional source to the sourceCollection.
-    */
+    /** @var array<DataSource>|null $additionalSources Adds an additional source to the sourceCollection. */
     private ?array $additionalSources = null;
     
-    /**
-     * @var AddToReviewSetOperation|null $addToReviewSetOperation Adds the results of the sourceCollection to the specified reviewSet.
-    */
+    /** @var AddToReviewSetOperation|null $addToReviewSetOperation Adds the results of the sourceCollection to the specified reviewSet. */
     private ?AddToReviewSetOperation $addToReviewSetOperation = null;
     
-    /**
-     * @var string|null $contentQuery The query string in KQL (Keyword Query Language) query. For details, see Keyword queries and search conditions for Content Search and eDiscovery. You can refine searches by using fields paired with values; for example, subject:'Quarterly Financials' AND Date>=06/01/2016 AND Date<=07/01/2016.
-    */
+    /** @var string|null $contentQuery The query string in KQL (Keyword Query Language) query. For details, see Keyword queries and search conditions for Content Search and eDiscovery. You can refine searches by using fields paired with values; for example, subject:'Quarterly Financials' AND Date>=06/01/2016 AND Date<=07/01/2016. */
     private ?string $contentQuery = null;
     
-    /**
-     * @var IdentitySet|null $createdBy The user who created the sourceCollection.
-    */
+    /** @var IdentitySet|null $createdBy The user who created the sourceCollection. */
     private ?IdentitySet $createdBy = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The date and time the sourceCollection was created.
-    */
+    /** @var DateTime|null $createdDateTime The date and time the sourceCollection was created. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var array<DataSource>|null $custodianSources Custodian sources that are included in the sourceCollection.
-    */
+    /** @var array<DataSource>|null $custodianSources Custodian sources that are included in the sourceCollection. */
     private ?array $custodianSources = null;
     
-    /**
-     * @var DataSourceScopes|null $dataSourceScopes When specified, the collection will span across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
-    */
+    /** @var DataSourceScopes|null $dataSourceScopes When specified, the collection will span across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources. */
     private ?DataSourceScopes $dataSourceScopes = null;
     
-    /**
-     * @var string|null $description The description of the sourceCollection.
-    */
+    /** @var string|null $description The description of the sourceCollection. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The display name of the sourceCollection.
-    */
+    /** @var string|null $displayName The display name of the sourceCollection. */
     private ?string $displayName = null;
     
-    /**
-     * @var EstimateStatisticsOperation|null $lastEstimateStatisticsOperation The last estimate operation associated with the sourceCollection.
-    */
+    /** @var EstimateStatisticsOperation|null $lastEstimateStatisticsOperation The last estimate operation associated with the sourceCollection. */
     private ?EstimateStatisticsOperation $lastEstimateStatisticsOperation = null;
     
-    /**
-     * @var IdentitySet|null $lastModifiedBy The last user who modified the sourceCollection.
-    */
+    /** @var IdentitySet|null $lastModifiedBy The last user who modified the sourceCollection. */
     private ?IdentitySet $lastModifiedBy = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The last date and time the sourceCollection was modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The last date and time the sourceCollection was modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var array<NoncustodialDataSource>|null $noncustodialSources noncustodialDataSource sources that are included in the sourceCollection
-    */
+    /** @var array<NoncustodialDataSource>|null $noncustodialSources noncustodialDataSource sources that are included in the sourceCollection */
     private ?array $noncustodialSources = null;
     
     /**
@@ -88,7 +62,7 @@ class SourceCollection extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SourceCollection
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SourceCollection {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SourceCollection {
         return new SourceCollection();
     }
 
@@ -169,21 +143,20 @@ class SourceCollection extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'additionalSources' => function (ParseNode $n) use ($o) { $o->setAdditionalSources($n->getCollectionOfObjectValues(array(DataSource::class, 'createFromDiscriminatorValue'))); },
-            'addToReviewSetOperation' => function (ParseNode $n) use ($o) { $o->setAddToReviewSetOperation($n->getObjectValue(array(AddToReviewSetOperation::class, 'createFromDiscriminatorValue'))); },
-            'contentQuery' => function (ParseNode $n) use ($o) { $o->setContentQuery($n->getStringValue()); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'custodianSources' => function (ParseNode $n) use ($o) { $o->setCustodianSources($n->getCollectionOfObjectValues(array(DataSource::class, 'createFromDiscriminatorValue'))); },
-            'dataSourceScopes' => function (ParseNode $n) use ($o) { $o->setDataSourceScopes($n->getEnumValue(DataSourceScopes::class)); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastEstimateStatisticsOperation' => function (ParseNode $n) use ($o) { $o->setLastEstimateStatisticsOperation($n->getObjectValue(array(EstimateStatisticsOperation::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'noncustodialSources' => function (ParseNode $n) use ($o) { $o->setNoncustodialSources($n->getCollectionOfObjectValues(array(NoncustodialDataSource::class, 'createFromDiscriminatorValue'))); },
+            'additionalSources' => function (self $o, ParseNode $n) { $o->setAdditionalSources($n->getCollectionOfObjectValues(DataSource::class)); },
+            'addToReviewSetOperation' => function (self $o, ParseNode $n) { $o->setAddToReviewSetOperation($n->getObjectValue(AddToReviewSetOperation::class)); },
+            'contentQuery' => function (self $o, ParseNode $n) { $o->setContentQuery($n->getStringValue()); },
+            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(IdentitySet::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'custodianSources' => function (self $o, ParseNode $n) { $o->setCustodianSources($n->getCollectionOfObjectValues(DataSource::class)); },
+            'dataSourceScopes' => function (self $o, ParseNode $n) { $o->setDataSourceScopes($n->getEnumValue(DataSourceScopes::class)); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastEstimateStatisticsOperation' => function (self $o, ParseNode $n) { $o->setLastEstimateStatisticsOperation($n->getObjectValue(EstimateStatisticsOperation::class)); },
+            'lastModifiedBy' => function (self $o, ParseNode $n) { $o->setLastModifiedBy($n->getObjectValue(IdentitySet::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'noncustodialSources' => function (self $o, ParseNode $n) { $o->setNoncustodialSources($n->getCollectionOfObjectValues(NoncustodialDataSource::class)); },
         ]);
     }
 

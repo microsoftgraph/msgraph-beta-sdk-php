@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RoleScopeTagInfo implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName Scope Tag Display name.
-    */
+    /** @var string|null $displayName Scope Tag Display name. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $roleScopeTagId Scope Tag Id.
-    */
+    /** @var string|null $roleScopeTagId Scope Tag Id. */
     private ?string $roleScopeTagId = null;
     
     /**
@@ -36,7 +30,7 @@ class RoleScopeTagInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RoleScopeTagInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RoleScopeTagInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RoleScopeTagInfo {
         return new RoleScopeTagInfo();
     }
 
@@ -61,10 +55,9 @@ class RoleScopeTagInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'roleScopeTagId' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagId($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'roleScopeTagId' => function (self $o, ParseNode $n) { $o->setRoleScopeTagId($n->getStringValue()); },
         ];
     }
 

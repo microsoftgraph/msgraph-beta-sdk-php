@@ -6,101 +6,63 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ComanagementEligibleDevice extends Entity implements Parsable 
+class ComanagementEligibleDevice extends Entity 
 {
-    /**
-     * @var DeviceRegistrationState|null $clientRegistrationStatus ClientRegistrationStatus. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown.
-    */
+    /** @var DeviceRegistrationState|null $clientRegistrationStatus ClientRegistrationStatus. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown. */
     private ?DeviceRegistrationState $clientRegistrationStatus = null;
     
-    /**
-     * @var string|null $deviceName DeviceName
-    */
+    /** @var string|null $deviceName DeviceName */
     private ?string $deviceName = null;
     
-    /**
-     * @var DeviceType|null $deviceType DeviceType. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
-    */
+    /** @var DeviceType|null $deviceType DeviceType. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC. */
     private ?DeviceType $deviceType = null;
     
-    /**
-     * @var int|null $entitySource EntitySource
-    */
+    /** @var int|null $entitySource EntitySource */
     private ?int $entitySource = null;
     
-    /**
-     * @var ManagementAgentType|null $managementAgents ManagementAgents. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
-    */
+    /** @var ManagementAgentType|null $managementAgents ManagementAgents. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp. */
     private ?ManagementAgentType $managementAgents = null;
     
-    /**
-     * @var ManagementState|null $managementState ManagementState. Possible values are: managed, retirePending, retireFailed, wipePending, wipeFailed, unhealthy, deletePending, retireIssued, wipeIssued, wipeCanceled, retireCanceled, discovered.
-    */
+    /** @var ManagementState|null $managementState ManagementState. Possible values are: managed, retirePending, retireFailed, wipePending, wipeFailed, unhealthy, deletePending, retireIssued, wipeIssued, wipeCanceled, retireCanceled, discovered. */
     private ?ManagementState $managementState = null;
     
-    /**
-     * @var string|null $manufacturer Manufacturer
-    */
+    /** @var string|null $manufacturer Manufacturer */
     private ?string $manufacturer = null;
     
-    /**
-     * @var string|null $mdmStatus MDMStatus
-    */
+    /** @var string|null $mdmStatus MDMStatus */
     private ?string $mdmStatus = null;
     
-    /**
-     * @var string|null $model Model
-    */
+    /** @var string|null $model Model */
     private ?string $model = null;
     
-    /**
-     * @var string|null $osDescription OSDescription
-    */
+    /** @var string|null $osDescription OSDescription */
     private ?string $osDescription = null;
     
-    /**
-     * @var string|null $osVersion OSVersion
-    */
+    /** @var string|null $osVersion OSVersion */
     private ?string $osVersion = null;
     
-    /**
-     * @var OwnerType|null $ownerType OwnerType. Possible values are: unknown, company, personal.
-    */
+    /** @var OwnerType|null $ownerType OwnerType. Possible values are: unknown, company, personal. */
     private ?OwnerType $ownerType = null;
     
-    /**
-     * @var string|null $referenceId ReferenceId
-    */
+    /** @var string|null $referenceId ReferenceId */
     private ?string $referenceId = null;
     
-    /**
-     * @var string|null $serialNumber SerialNumber
-    */
+    /** @var string|null $serialNumber SerialNumber */
     private ?string $serialNumber = null;
     
-    /**
-     * @var ComanagementEligibleType|null $status ComanagementEligibleStatus. Possible values are: comanaged, eligible, eligibleButNotAzureAdJoined, needsOsUpdate, ineligible.
-    */
+    /** @var ComanagementEligibleType|null $status ComanagementEligibleStatus. Possible values are: comanaged, eligible, eligibleButNotAzureAdJoined, needsOsUpdate, ineligible. */
     private ?ComanagementEligibleType $status = null;
     
-    /**
-     * @var string|null $upn UPN
-    */
+    /** @var string|null $upn UPN */
     private ?string $upn = null;
     
-    /**
-     * @var string|null $userEmail UserEmail
-    */
+    /** @var string|null $userEmail UserEmail */
     private ?string $userEmail = null;
     
-    /**
-     * @var string|null $userId UserId
-    */
+    /** @var string|null $userId UserId */
     private ?string $userId = null;
     
-    /**
-     * @var string|null $userName UserName
-    */
+    /** @var string|null $userName UserName */
     private ?string $userName = null;
     
     /**
@@ -115,7 +77,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ComanagementEligibleDevice
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ComanagementEligibleDevice {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ComanagementEligibleDevice {
         return new ComanagementEligibleDevice();
     }
 
@@ -156,27 +118,26 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'clientRegistrationStatus' => function (ParseNode $n) use ($o) { $o->setClientRegistrationStatus($n->getEnumValue(DeviceRegistrationState::class)); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'deviceType' => function (ParseNode $n) use ($o) { $o->setDeviceType($n->getEnumValue(DeviceType::class)); },
-            'entitySource' => function (ParseNode $n) use ($o) { $o->setEntitySource($n->getIntegerValue()); },
-            'managementAgents' => function (ParseNode $n) use ($o) { $o->setManagementAgents($n->getEnumValue(ManagementAgentType::class)); },
-            'managementState' => function (ParseNode $n) use ($o) { $o->setManagementState($n->getEnumValue(ManagementState::class)); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'mdmStatus' => function (ParseNode $n) use ($o) { $o->setMdmStatus($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'osDescription' => function (ParseNode $n) use ($o) { $o->setOsDescription($n->getStringValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
-            'ownerType' => function (ParseNode $n) use ($o) { $o->setOwnerType($n->getEnumValue(OwnerType::class)); },
-            'referenceId' => function (ParseNode $n) use ($o) { $o->setReferenceId($n->getStringValue()); },
-            'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ComanagementEligibleType::class)); },
-            'upn' => function (ParseNode $n) use ($o) { $o->setUpn($n->getStringValue()); },
-            'userEmail' => function (ParseNode $n) use ($o) { $o->setUserEmail($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
+            'clientRegistrationStatus' => function (self $o, ParseNode $n) { $o->setClientRegistrationStatus($n->getEnumValue(DeviceRegistrationState::class)); },
+            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
+            'deviceType' => function (self $o, ParseNode $n) { $o->setDeviceType($n->getEnumValue(DeviceType::class)); },
+            'entitySource' => function (self $o, ParseNode $n) { $o->setEntitySource($n->getIntegerValue()); },
+            'managementAgents' => function (self $o, ParseNode $n) { $o->setManagementAgents($n->getEnumValue(ManagementAgentType::class)); },
+            'managementState' => function (self $o, ParseNode $n) { $o->setManagementState($n->getEnumValue(ManagementState::class)); },
+            'manufacturer' => function (self $o, ParseNode $n) { $o->setManufacturer($n->getStringValue()); },
+            'mdmStatus' => function (self $o, ParseNode $n) { $o->setMdmStatus($n->getStringValue()); },
+            'model' => function (self $o, ParseNode $n) { $o->setModel($n->getStringValue()); },
+            'osDescription' => function (self $o, ParseNode $n) { $o->setOsDescription($n->getStringValue()); },
+            'osVersion' => function (self $o, ParseNode $n) { $o->setOsVersion($n->getStringValue()); },
+            'ownerType' => function (self $o, ParseNode $n) { $o->setOwnerType($n->getEnumValue(OwnerType::class)); },
+            'referenceId' => function (self $o, ParseNode $n) { $o->setReferenceId($n->getStringValue()); },
+            'serialNumber' => function (self $o, ParseNode $n) { $o->setSerialNumber($n->getStringValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(ComanagementEligibleType::class)); },
+            'upn' => function (self $o, ParseNode $n) { $o->setUpn($n->getStringValue()); },
+            'userEmail' => function (self $o, ParseNode $n) { $o->setUserEmail($n->getStringValue()); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
+            'userName' => function (self $o, ParseNode $n) { $o->setUserName($n->getStringValue()); },
         ]);
     }
 

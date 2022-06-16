@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserRegistrationFeatureSummary implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $totalUserCount Total number of users accounts, excluding those that are blocked
-    */
+    /** @var int|null $totalUserCount Total number of users accounts, excluding those that are blocked */
     private ?int $totalUserCount = null;
     
-    /**
-     * @var array<UserRegistrationFeatureCount>|null $userRegistrationFeatureCounts Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication.
-    */
+    /** @var array<UserRegistrationFeatureCount>|null $userRegistrationFeatureCounts Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication. */
     private ?array $userRegistrationFeatureCounts = null;
     
-    /**
-     * @var IncludedUserRoles|null $userRoles User role type. Possible values are: all, privilegedAdmin, admin, user.
-    */
+    /** @var IncludedUserRoles|null $userRoles User role type. Possible values are: all, privilegedAdmin, admin, user. */
     private ?IncludedUserRoles $userRoles = null;
     
-    /**
-     * @var IncludedUserTypes|null $userTypes User type. Possible values are: all, member, guest.
-    */
+    /** @var IncludedUserTypes|null $userTypes User type. Possible values are: all, member, guest. */
     private ?IncludedUserTypes $userTypes = null;
     
     /**
@@ -46,7 +36,7 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserRegistrationFeatureSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserRegistrationFeatureSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserRegistrationFeatureSummary {
         return new UserRegistrationFeatureSummary();
     }
 
@@ -63,12 +53,11 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'totalUserCount' => function (ParseNode $n) use ($o) { $o->setTotalUserCount($n->getIntegerValue()); },
-            'userRegistrationFeatureCounts' => function (ParseNode $n) use ($o) { $o->setUserRegistrationFeatureCounts($n->getCollectionOfObjectValues(array(UserRegistrationFeatureCount::class, 'createFromDiscriminatorValue'))); },
-            'userRoles' => function (ParseNode $n) use ($o) { $o->setUserRoles($n->getEnumValue(IncludedUserRoles::class)); },
-            'userTypes' => function (ParseNode $n) use ($o) { $o->setUserTypes($n->getEnumValue(IncludedUserTypes::class)); },
+            'totalUserCount' => function (self $o, ParseNode $n) { $o->setTotalUserCount($n->getIntegerValue()); },
+            'userRegistrationFeatureCounts' => function (self $o, ParseNode $n) { $o->setUserRegistrationFeatureCounts($n->getCollectionOfObjectValues(UserRegistrationFeatureCount::class)); },
+            'userRoles' => function (self $o, ParseNode $n) { $o->setUserRoles($n->getEnumValue(IncludedUserRoles::class)); },
+            'userTypes' => function (self $o, ParseNode $n) { $o->setUserTypes($n->getEnumValue(IncludedUserTypes::class)); },
         ];
     }
 

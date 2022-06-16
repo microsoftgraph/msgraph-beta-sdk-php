@@ -10,14 +10,10 @@ use Psr\Http\Message\StreamInterface;
 
 class AgreementFileData implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var StreamInterface|null $data Data that represents the terms of use PDF document. Read-only. Note: You can use the .NET Convert.ToBase64String method to convert your file to binary data for uploading using the Create agreements API. A sample syntax using this method in PowerShell is [convert]::ToBase64String((Get-Content -path 'your_file_path' -Encoding byte)).
-    */
+    /** @var StreamInterface|null $data Data that represents the terms of use PDF document. Read-only. */
     private ?StreamInterface $data = null;
     
     /**
@@ -32,7 +28,7 @@ class AgreementFileData implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AgreementFileData
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AgreementFileData {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AgreementFileData {
         return new AgreementFileData();
     }
 
@@ -45,7 +41,7 @@ class AgreementFileData implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the data property value. Data that represents the terms of use PDF document. Read-only. Note: You can use the .NET Convert.ToBase64String method to convert your file to binary data for uploading using the Create agreements API. A sample syntax using this method in PowerShell is [convert]::ToBase64String((Get-Content -path 'your_file_path' -Encoding byte)).
+     * Gets the data property value. Data that represents the terms of use PDF document. Read-only.
      * @return StreamInterface|null
     */
     public function getData(): ?StreamInterface {
@@ -57,9 +53,8 @@ class AgreementFileData implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'data' => function (ParseNode $n) use ($o) { $o->setData($n->getBinaryContent()); },
+            'data' => function (self $o, ParseNode $n) { $o->setData($n->getBinaryContent()); },
         ];
     }
 
@@ -81,7 +76,7 @@ class AgreementFileData implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the data property value. Data that represents the terms of use PDF document. Read-only. Note: You can use the .NET Convert.ToBase64String method to convert your file to binary data for uploading using the Create agreements API. A sample syntax using this method in PowerShell is [convert]::ToBase64String((Get-Content -path 'your_file_path' -Encoding byte)).
+     * Sets the data property value. Data that represents the terms of use PDF document. Read-only.
      *  @param StreamInterface|null $value Value to set for the data property.
     */
     public function setData(?StreamInterface $value ): void {

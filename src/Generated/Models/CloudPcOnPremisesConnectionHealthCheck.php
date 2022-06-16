@@ -10,44 +10,28 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $additionalDetails Additional details about the health check or the recommended action.
-    */
+    /** @var string|null $additionalDetails Additional details about the health check or the recommended action. */
     private ?string $additionalDetails = null;
     
-    /**
-     * @var string|null $displayName The display name for this health check item.
-    */
+    /** @var string|null $displayName The display name for this health check item. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $endDateTime The end time of the health check item. Read-only.
-    */
+    /** @var DateTime|null $endDateTime The end time of the health check item. Read-only. */
     private ?DateTime $endDateTime = null;
     
-    /**
-     * @var CloudPcOnPremisesConnectionHealthCheckErrorType|null $errorType The type of error that occurred during this health check.
-    */
+    /** @var CloudPcOnPremisesConnectionHealthCheckErrorType|null $errorType The type of error that occurred during this health check. */
     private ?CloudPcOnPremisesConnectionHealthCheckErrorType $errorType = null;
     
-    /**
-     * @var string|null $recommendedAction The recommended action to fix the corresponding error.
-    */
+    /** @var string|null $recommendedAction The recommended action to fix the corresponding error. */
     private ?string $recommendedAction = null;
     
-    /**
-     * @var DateTime|null $startDateTime The start time of the health check item. Read-only.
-    */
+    /** @var DateTime|null $startDateTime The start time of the health check item. Read-only. */
     private ?DateTime $startDateTime = null;
     
-    /**
-     * @var CloudPcOnPremisesConnectionStatus|null $status The status of the health check item. Possible values are: pending, running, passed, failed, unknownFutureValue. Read-only.
-    */
+    /** @var CloudPcOnPremisesConnectionStatus|null $status The status of the health check item. Possible values are: pending, running, passed, failed, unknownFutureValue. Read-only. */
     private ?CloudPcOnPremisesConnectionStatus $status = null;
     
     /**
@@ -62,7 +46,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcOnPremisesConnectionHealthCheck
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcOnPremisesConnectionHealthCheck {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcOnPremisesConnectionHealthCheck {
         return new CloudPcOnPremisesConnectionHealthCheck();
     }
 
@@ -111,15 +95,14 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'additionalDetails' => function (ParseNode $n) use ($o) { $o->setAdditionalDetails($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'errorType' => function (ParseNode $n) use ($o) { $o->setErrorType($n->getEnumValue(CloudPcOnPremisesConnectionHealthCheckErrorType::class)); },
-            'recommendedAction' => function (ParseNode $n) use ($o) { $o->setRecommendedAction($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CloudPcOnPremisesConnectionStatus::class)); },
+            'additionalDetails' => function (self $o, ParseNode $n) { $o->setAdditionalDetails($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'errorType' => function (self $o, ParseNode $n) { $o->setErrorType($n->getEnumValue(CloudPcOnPremisesConnectionHealthCheckErrorType::class)); },
+            'recommendedAction' => function (self $o, ParseNode $n) { $o->setRecommendedAction($n->getStringValue()); },
+            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(CloudPcOnPremisesConnectionStatus::class)); },
         ];
     }
 

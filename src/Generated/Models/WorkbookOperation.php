@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookOperation extends Entity implements Parsable 
+class WorkbookOperation extends Entity 
 {
-    /**
-     * @var WorkbookOperationError|null $error The error returned by the operation.
-    */
+    /** @var WorkbookOperationError|null $error The error returned by the operation. */
     private ?WorkbookOperationError $error = null;
     
-    /**
-     * @var string|null $resourceLocation The resource URI for the result.
-    */
+    /** @var string|null $resourceLocation The resource URI for the result. */
     private ?string $resourceLocation = null;
     
-    /**
-     * @var WorkbookOperationStatus|null $status The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
-    */
+    /** @var WorkbookOperationStatus|null $status The current status of the operation. Possible values are: NotStarted, Running, Completed, Failed. */
     private ?WorkbookOperationStatus $status = null;
     
     /**
@@ -35,7 +29,7 @@ class WorkbookOperation extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookOperation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookOperation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookOperation {
         return new WorkbookOperation();
     }
 
@@ -52,11 +46,10 @@ class WorkbookOperation extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(WorkbookOperationError::class, 'createFromDiscriminatorValue'))); },
-            'resourceLocation' => function (ParseNode $n) use ($o) { $o->setResourceLocation($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(WorkbookOperationStatus::class)); },
+            'error' => function (self $o, ParseNode $n) { $o->setError($n->getObjectValue(WorkbookOperationError::class)); },
+            'resourceLocation' => function (self $o, ParseNode $n) { $o->setResourceLocation($n->getStringValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(WorkbookOperationStatus::class)); },
         ]);
     }
 
@@ -69,7 +62,7 @@ class WorkbookOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
+     * Gets the status property value. The current status of the operation. Possible values are: NotStarted, Running, Completed, Failed.
      * @return WorkbookOperationStatus|null
     */
     public function getStatus(): ?WorkbookOperationStatus {
@@ -104,7 +97,7 @@ class WorkbookOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
+     * Sets the status property value. The current status of the operation. Possible values are: NotStarted, Running, Completed, Failed.
      *  @param WorkbookOperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?WorkbookOperationStatus $value ): void {

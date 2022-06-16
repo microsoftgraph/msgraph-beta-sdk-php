@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookChartLineFormat extends Entity implements Parsable 
+class WorkbookChartLineFormat extends Entity 
 {
-    /**
-     * @var string|null $color HTML color code representing the color of lines in the chart.
-    */
+    /** @var string|null $color HTML color code representing the color of lines in the chart. */
     private ?string $color = null;
     
     /**
@@ -25,7 +23,7 @@ class WorkbookChartLineFormat extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookChartLineFormat
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartLineFormat {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartLineFormat {
         return new WorkbookChartLineFormat();
     }
 
@@ -42,9 +40,8 @@ class WorkbookChartLineFormat extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'color' => function (ParseNode $n) use ($o) { $o->setColor($n->getStringValue()); },
+            'color' => function (self $o, ParseNode $n) { $o->setColor($n->getStringValue()); },
         ]);
     }
 

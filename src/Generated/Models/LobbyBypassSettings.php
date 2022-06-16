@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class LobbyBypassSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $isDialInBypassEnabled Specifies whether or not to always let dial-in callers bypass the lobby. Optional.
-    */
+    /** @var bool|null $isDialInBypassEnabled Specifies whether or not to always let dial-in callers bypass the lobby. Optional. */
     private ?bool $isDialInBypassEnabled = null;
     
-    /**
-     * @var LobbyBypassScope|null $scope Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
-    */
+    /** @var LobbyBypassScope|null $scope Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional. */
     private ?LobbyBypassScope $scope = null;
     
     /**
@@ -36,7 +30,7 @@ class LobbyBypassSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return LobbyBypassSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): LobbyBypassSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): LobbyBypassSettings {
         return new LobbyBypassSettings();
     }
 
@@ -53,10 +47,9 @@ class LobbyBypassSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'isDialInBypassEnabled' => function (ParseNode $n) use ($o) { $o->setIsDialInBypassEnabled($n->getBooleanValue()); },
-            'scope' => function (ParseNode $n) use ($o) { $o->setScope($n->getEnumValue(LobbyBypassScope::class)); },
+            'isDialInBypassEnabled' => function (self $o, ParseNode $n) { $o->setIsDialInBypassEnabled($n->getBooleanValue()); },
+            'scope' => function (self $o, ParseNode $n) { $o->setScope($n->getEnumValue(LobbyBypassScope::class)); },
         ];
     }
 

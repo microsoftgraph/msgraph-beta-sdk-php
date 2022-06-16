@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TopicModelingSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $dynamicallyAdjustTopicCount To learn more, see Adjust maximum number of themes dynamically.
-    */
+    /** @var bool|null $dynamicallyAdjustTopicCount To learn more, see Adjust maximum number of themes dynamically. */
     private ?bool $dynamicallyAdjustTopicCount = null;
     
-    /**
-     * @var bool|null $ignoreNumbers To learn more, see Include numbers in themes.
-    */
+    /** @var bool|null $ignoreNumbers To learn more, see Include numbers in themes. */
     private ?bool $ignoreNumbers = null;
     
-    /**
-     * @var bool|null $isEnabled Indicates whether themes is enabled for the case.
-    */
+    /** @var bool|null $isEnabled Indicates whether themes is enabled for the case. */
     private ?bool $isEnabled = null;
     
-    /**
-     * @var int|null $topicCount To learn more, see Maximum number of themes.
-    */
+    /** @var int|null $topicCount To learn more, see Maximum number of themes. */
     private ?int $topicCount = null;
     
     /**
@@ -46,7 +36,7 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TopicModelingSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TopicModelingSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TopicModelingSettings {
         return new TopicModelingSettings();
     }
 
@@ -71,12 +61,11 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'dynamicallyAdjustTopicCount' => function (ParseNode $n) use ($o) { $o->setDynamicallyAdjustTopicCount($n->getBooleanValue()); },
-            'ignoreNumbers' => function (ParseNode $n) use ($o) { $o->setIgnoreNumbers($n->getBooleanValue()); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'topicCount' => function (ParseNode $n) use ($o) { $o->setTopicCount($n->getIntegerValue()); },
+            'dynamicallyAdjustTopicCount' => function (self $o, ParseNode $n) { $o->setDynamicallyAdjustTopicCount($n->getBooleanValue()); },
+            'ignoreNumbers' => function (self $o, ParseNode $n) { $o->setIgnoreNumbers($n->getBooleanValue()); },
+            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
+            'topicCount' => function (self $o, ParseNode $n) { $o->setTopicCount($n->getIntegerValue()); },
         ];
     }
 

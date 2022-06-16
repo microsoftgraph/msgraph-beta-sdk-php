@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserExperienceAnalyticsInsight implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $insightId The unique identifier of the user experience analytics insight.
-    */
+    /** @var string|null $insightId The unique identifier of the user experience analytics insight. */
     private ?string $insightId = null;
     
-    /**
-     * @var UserExperienceAnalyticsInsightSeverity|null $severity The value of the user experience analytics insight. Possible values are: none, informational, warning, error.
-    */
+    /** @var UserExperienceAnalyticsInsightSeverity|null $severity The value of the user experience analytics insight. Possible values are: none, informational, warning, error. */
     private ?UserExperienceAnalyticsInsightSeverity $severity = null;
     
-    /**
-     * @var string|null $userExperienceAnalyticsMetricId The unique identifier of the user experience analytics insight.
-    */
+    /** @var string|null $userExperienceAnalyticsMetricId The unique identifier of the user experience analytics insight. */
     private ?string $userExperienceAnalyticsMetricId = null;
     
-    /**
-     * @var array<UserExperienceAnalyticsInsightValue>|null $values The value of the user experience analytics insight.
-    */
+    /** @var array<UserExperienceAnalyticsInsightValue>|null $values The value of the user experience analytics insight. */
     private ?array $values = null;
     
     /**
@@ -46,7 +36,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsInsight
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsInsight {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsInsight {
         return new UserExperienceAnalyticsInsight();
     }
 
@@ -63,12 +53,11 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'insightId' => function (ParseNode $n) use ($o) { $o->setInsightId($n->getStringValue()); },
-            'severity' => function (ParseNode $n) use ($o) { $o->setSeverity($n->getEnumValue(UserExperienceAnalyticsInsightSeverity::class)); },
-            'userExperienceAnalyticsMetricId' => function (ParseNode $n) use ($o) { $o->setUserExperienceAnalyticsMetricId($n->getStringValue()); },
-            'values' => function (ParseNode $n) use ($o) { $o->setValues($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsInsightValue::class, 'createFromDiscriminatorValue'))); },
+            'insightId' => function (self $o, ParseNode $n) { $o->setInsightId($n->getStringValue()); },
+            'severity' => function (self $o, ParseNode $n) { $o->setSeverity($n->getEnumValue(UserExperienceAnalyticsInsightSeverity::class)); },
+            'userExperienceAnalyticsMetricId' => function (self $o, ParseNode $n) { $o->setUserExperienceAnalyticsMetricId($n->getStringValue()); },
+            'values' => function (self $o, ParseNode $n) { $o->setValues($n->getCollectionOfObjectValues(UserExperienceAnalyticsInsightValue::class)); },
         ];
     }
 

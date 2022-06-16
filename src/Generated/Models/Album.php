@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class Album implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $coverImageItemId Unique identifier of the [driveItem][] that is the cover of the album.
-    */
+    /** @var string|null $coverImageItemId Unique identifier of the [driveItem][] that is the cover of the album. */
     private ?string $coverImageItemId = null;
     
     /**
@@ -31,7 +27,7 @@ class Album implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Album
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Album {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Album {
         return new Album();
     }
 
@@ -56,9 +52,8 @@ class Album implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'coverImageItemId' => function (ParseNode $n) use ($o) { $o->setCoverImageItemId($n->getStringValue()); },
+            'coverImageItemId' => function (self $o, ParseNode $n) { $o->setCoverImageItemId($n->getStringValue()); },
         ];
     }
 

@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity implements Parsable 
+class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity 
 {
-    /**
-     * @var string|null $deviceId The unique identifier of the device, Intune DeviceID or SCCM device id.
-    */
+    /** @var string|null $deviceId The unique identifier of the device, Intune DeviceID or SCCM device id. */
     private ?string $deviceId = null;
     
-    /**
-     * @var int|null $estimatedRuntimeInMinutes The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values -2147483648 to 2147483647
-    */
+    /** @var int|null $estimatedRuntimeInMinutes The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values -2147483648 to 2147483647 */
     private ?int $estimatedRuntimeInMinutes = null;
     
-    /**
-     * @var string|null $runtimeDateTime The datetime for the instance of runtime history.
-    */
+    /** @var string|null $runtimeDateTime The datetime for the instance of runtime history. */
     private ?string $runtimeDateTime = null;
     
     /**
@@ -35,7 +29,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory {
         return new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory();
     }
 
@@ -60,11 +54,10 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'estimatedRuntimeInMinutes' => function (ParseNode $n) use ($o) { $o->setEstimatedRuntimeInMinutes($n->getIntegerValue()); },
-            'runtimeDateTime' => function (ParseNode $n) use ($o) { $o->setRuntimeDateTime($n->getStringValue()); },
+            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
+            'estimatedRuntimeInMinutes' => function (self $o, ParseNode $n) { $o->setEstimatedRuntimeInMinutes($n->getIntegerValue()); },
+            'runtimeDateTime' => function (self $o, ParseNode $n) { $o->setRuntimeDateTime($n->getStringValue()); },
         ]);
     }
 

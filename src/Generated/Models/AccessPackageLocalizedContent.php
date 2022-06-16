@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AccessPackageLocalizedContent implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $defaultText The fallback string, which is used when a requested localization is not available. Required.
-    */
+    /** @var string|null $defaultText The fallback string, which is used when a requested localization is not available. Required. */
     private ?string $defaultText = null;
     
-    /**
-     * @var array<AccessPackageLocalizedText>|null $localizedTexts Content represented in a format for a specific locale.
-    */
+    /** @var array<AccessPackageLocalizedText>|null $localizedTexts Content represented in a format for a specific locale. */
     private ?array $localizedTexts = null;
     
     /**
@@ -36,7 +30,7 @@ class AccessPackageLocalizedContent implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageLocalizedContent
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageLocalizedContent {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageLocalizedContent {
         return new AccessPackageLocalizedContent();
     }
 
@@ -61,10 +55,9 @@ class AccessPackageLocalizedContent implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'defaultText' => function (ParseNode $n) use ($o) { $o->setDefaultText($n->getStringValue()); },
-            'localizedTexts' => function (ParseNode $n) use ($o) { $o->setLocalizedTexts($n->getCollectionOfObjectValues(array(AccessPackageLocalizedText::class, 'createFromDiscriminatorValue'))); },
+            'defaultText' => function (self $o, ParseNode $n) { $o->setDefaultText($n->getStringValue()); },
+            'localizedTexts' => function (self $o, ParseNode $n) { $o->setLocalizedTexts($n->getCollectionOfObjectValues(AccessPackageLocalizedText::class)); },
         ];
     }
 

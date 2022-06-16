@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookChartAxisFormat extends Entity implements Parsable 
+class WorkbookChartAxisFormat extends Entity 
 {
-    /**
-     * @var WorkbookChartFont|null $font Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
-    */
+    /** @var WorkbookChartFont|null $font Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only. */
     private ?WorkbookChartFont $font = null;
     
-    /**
-     * @var WorkbookChartLineFormat|null $line Represents chart line formatting. Read-only.
-    */
+    /** @var WorkbookChartLineFormat|null $line Represents chart line formatting. Read-only. */
     private ?WorkbookChartLineFormat $line = null;
     
     /**
@@ -30,7 +26,7 @@ class WorkbookChartAxisFormat extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookChartAxisFormat
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartAxisFormat {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartAxisFormat {
         return new WorkbookChartAxisFormat();
     }
 
@@ -39,10 +35,9 @@ class WorkbookChartAxisFormat extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'font' => function (ParseNode $n) use ($o) { $o->setFont($n->getObjectValue(array(WorkbookChartFont::class, 'createFromDiscriminatorValue'))); },
-            'line' => function (ParseNode $n) use ($o) { $o->setLine($n->getObjectValue(array(WorkbookChartLineFormat::class, 'createFromDiscriminatorValue'))); },
+            'font' => function (self $o, ParseNode $n) { $o->setFont($n->getObjectValue(WorkbookChartFont::class)); },
+            'line' => function (self $o, ParseNode $n) { $o->setLine($n->getObjectValue(WorkbookChartLineFormat::class)); },
         ]);
     }
 

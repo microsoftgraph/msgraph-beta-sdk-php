@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class EvaluateLabelJobResult implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var ResponsiblePolicy|null $responsiblePolicy The responsiblePolicy property
-    */
+    /** @var ResponsiblePolicy|null $responsiblePolicy The responsiblePolicy property */
     private ?ResponsiblePolicy $responsiblePolicy = null;
     
-    /**
-     * @var array<ResponsibleSensitiveType>|null $responsibleSensitiveTypes The responsibleSensitiveTypes property
-    */
+    /** @var array<ResponsibleSensitiveType>|null $responsibleSensitiveTypes The responsibleSensitiveTypes property */
     private ?array $responsibleSensitiveTypes = null;
     
-    /**
-     * @var MatchingLabel|null $sensitivityLabel The sensitivityLabel property
-    */
+    /** @var MatchingLabel|null $sensitivityLabel The sensitivityLabel property */
     private ?MatchingLabel $sensitivityLabel = null;
     
     /**
@@ -41,7 +33,7 @@ class EvaluateLabelJobResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EvaluateLabelJobResult
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EvaluateLabelJobResult {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EvaluateLabelJobResult {
         return new EvaluateLabelJobResult();
     }
 
@@ -58,11 +50,10 @@ class EvaluateLabelJobResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'responsiblePolicy' => function (ParseNode $n) use ($o) { $o->setResponsiblePolicy($n->getObjectValue(array(ResponsiblePolicy::class, 'createFromDiscriminatorValue'))); },
-            'responsibleSensitiveTypes' => function (ParseNode $n) use ($o) { $o->setResponsibleSensitiveTypes($n->getCollectionOfObjectValues(array(ResponsibleSensitiveType::class, 'createFromDiscriminatorValue'))); },
-            'sensitivityLabel' => function (ParseNode $n) use ($o) { $o->setSensitivityLabel($n->getObjectValue(array(MatchingLabel::class, 'createFromDiscriminatorValue'))); },
+            'responsiblePolicy' => function (self $o, ParseNode $n) { $o->setResponsiblePolicy($n->getObjectValue(ResponsiblePolicy::class)); },
+            'responsibleSensitiveTypes' => function (self $o, ParseNode $n) { $o->setResponsibleSensitiveTypes($n->getCollectionOfObjectValues(ResponsibleSensitiveType::class)); },
+            'sensitivityLabel' => function (self $o, ParseNode $n) { $o->setSensitivityLabel($n->getObjectValue(MatchingLabel::class)); },
         ];
     }
 

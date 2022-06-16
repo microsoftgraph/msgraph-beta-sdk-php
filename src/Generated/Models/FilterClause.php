@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class FilterClause implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $operatorName Name of the operator to be applied to the source and target operands. Must be one of the supported operators. Supported operators can be discovered.
-    */
+    /** @var string|null $operatorName Name of the operator to be applied to the source and target operands. Must be one of the supported operators. Supported operators can be discovered. */
     private ?string $operatorName = null;
     
-    /**
-     * @var string|null $sourceOperandName Name of source operand (the operand being tested). The source operand name must match one of the attribute names on the source object.
-    */
+    /** @var string|null $sourceOperandName Name of source operand (the operand being tested). The source operand name must match one of the attribute names on the source object. */
     private ?string $sourceOperandName = null;
     
-    /**
-     * @var FilterOperand|null $targetOperand Values that the source operand will be tested against.
-    */
+    /** @var FilterOperand|null $targetOperand Values that the source operand will be tested against. */
     private ?FilterOperand $targetOperand = null;
     
     /**
@@ -41,7 +33,7 @@ class FilterClause implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return FilterClause
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): FilterClause {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): FilterClause {
         return new FilterClause();
     }
 
@@ -58,11 +50,10 @@ class FilterClause implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'operatorName' => function (ParseNode $n) use ($o) { $o->setOperatorName($n->getStringValue()); },
-            'sourceOperandName' => function (ParseNode $n) use ($o) { $o->setSourceOperandName($n->getStringValue()); },
-            'targetOperand' => function (ParseNode $n) use ($o) { $o->setTargetOperand($n->getObjectValue(array(FilterOperand::class, 'createFromDiscriminatorValue'))); },
+            'operatorName' => function (self $o, ParseNode $n) { $o->setOperatorName($n->getStringValue()); },
+            'sourceOperandName' => function (self $o, ParseNode $n) { $o->setSourceOperandName($n->getStringValue()); },
+            'targetOperand' => function (self $o, ParseNode $n) { $o->setTargetOperand($n->getObjectValue(FilterOperand::class)); },
         ];
     }
 

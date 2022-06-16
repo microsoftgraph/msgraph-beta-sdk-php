@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PrintServiceEndpoint extends Entity implements Parsable 
+class PrintServiceEndpoint extends Entity 
 {
-    /**
-     * @var string|null $displayName A human-readable display name for the endpoint.
-    */
+    /** @var string|null $displayName A human-readable display name for the endpoint. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $uri The URI that can be used to access the service.
-    */
+    /** @var string|null $uri The URI that can be used to access the service. */
     private ?string $uri = null;
     
     /**
@@ -30,7 +26,7 @@ class PrintServiceEndpoint extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrintServiceEndpoint
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrintServiceEndpoint {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PrintServiceEndpoint {
         return new PrintServiceEndpoint();
     }
 
@@ -47,10 +43,9 @@ class PrintServiceEndpoint extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'uri' => function (ParseNode $n) use ($o) { $o->setUri($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'uri' => function (self $o, ParseNode $n) { $o->setUri($n->getStringValue()); },
         ]);
     }
 

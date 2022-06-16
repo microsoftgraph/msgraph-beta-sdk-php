@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class IntegerRange implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $end The inclusive upper bound of the integer range.
-    */
+    /** @var int|null $end The inclusive upper bound of the integer range. */
     private ?int $end = null;
     
-    /**
-     * @var int|null $maximum The maximum property
-    */
+    /** @var int|null $maximum The maximum property */
     private ?int $maximum = null;
     
-    /**
-     * @var int|null $minimum The minimum property
-    */
+    /** @var int|null $minimum The minimum property */
     private ?int $minimum = null;
     
-    /**
-     * @var int|null $start The inclusive lower bound of the integer range.
-    */
+    /** @var int|null $start The inclusive lower bound of the integer range. */
     private ?int $start = null;
     
     /**
@@ -46,7 +36,7 @@ class IntegerRange implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return IntegerRange
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): IntegerRange {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): IntegerRange {
         return new IntegerRange();
     }
 
@@ -71,12 +61,11 @@ class IntegerRange implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'end' => function (ParseNode $n) use ($o) { $o->setEnd($n->getIntegerValue()); },
-            'maximum' => function (ParseNode $n) use ($o) { $o->setMaximum($n->getIntegerValue()); },
-            'minimum' => function (ParseNode $n) use ($o) { $o->setMinimum($n->getIntegerValue()); },
-            'start' => function (ParseNode $n) use ($o) { $o->setStart($n->getIntegerValue()); },
+            'end' => function (self $o, ParseNode $n) { $o->setEnd($n->getIntegerValue()); },
+            'maximum' => function (self $o, ParseNode $n) { $o->setMaximum($n->getIntegerValue()); },
+            'minimum' => function (self $o, ParseNode $n) { $o->setMinimum($n->getIntegerValue()); },
+            'start' => function (self $o, ParseNode $n) { $o->setStart($n->getIntegerValue()); },
         ];
     }
 

@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OpenShiftItem extends ShiftItem implements Parsable 
+class OpenShiftItem extends ShiftItem 
 {
-    /**
-     * @var int|null $openSlotCount Count of the number of slots for the given open shift.
-    */
+    /** @var int|null $openSlotCount Count of the number of slots for the given open shift. */
     private ?int $openSlotCount = null;
     
     /**
@@ -25,7 +23,7 @@ class OpenShiftItem extends ShiftItem implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OpenShiftItem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OpenShiftItem {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OpenShiftItem {
         return new OpenShiftItem();
     }
 
@@ -34,9 +32,8 @@ class OpenShiftItem extends ShiftItem implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'openSlotCount' => function (ParseNode $n) use ($o) { $o->setOpenSlotCount($n->getIntegerValue()); },
+            'openSlotCount' => function (self $o, ParseNode $n) { $o->setOpenSlotCount($n->getIntegerValue()); },
         ]);
     }
 

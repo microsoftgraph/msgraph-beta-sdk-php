@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceConfigurationConflictSummary extends Entity implements Parsable 
+class DeviceConfigurationConflictSummary extends Entity 
 {
-    /**
-     * @var array<SettingSource>|null $conflictingDeviceConfigurations The set of policies in conflict with the given setting
-    */
+    /** @var array<SettingSource>|null $conflictingDeviceConfigurations The set of policies in conflict with the given setting */
     private ?array $conflictingDeviceConfigurations = null;
     
-    /**
-     * @var array<string>|null $contributingSettings The set of settings in conflict with the given policies
-    */
+    /** @var array<string>|null $contributingSettings The set of settings in conflict with the given policies */
     private ?array $contributingSettings = null;
     
-    /**
-     * @var int|null $deviceCheckinsImpacted The count of checkins impacted by the conflicting policies and settings
-    */
+    /** @var int|null $deviceCheckinsImpacted The count of checkins impacted by the conflicting policies and settings */
     private ?int $deviceCheckinsImpacted = null;
     
     /**
@@ -35,7 +29,7 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceConfigurationConflictSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceConfigurationConflictSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceConfigurationConflictSummary {
         return new DeviceConfigurationConflictSummary();
     }
 
@@ -68,11 +62,10 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'conflictingDeviceConfigurations' => function (ParseNode $n) use ($o) { $o->setConflictingDeviceConfigurations($n->getCollectionOfObjectValues(array(SettingSource::class, 'createFromDiscriminatorValue'))); },
-            'contributingSettings' => function (ParseNode $n) use ($o) { $o->setContributingSettings($n->getCollectionOfPrimitiveValues()); },
-            'deviceCheckinsImpacted' => function (ParseNode $n) use ($o) { $o->setDeviceCheckinsImpacted($n->getIntegerValue()); },
+            'conflictingDeviceConfigurations' => function (self $o, ParseNode $n) { $o->setConflictingDeviceConfigurations($n->getCollectionOfObjectValues(SettingSource::class)); },
+            'contributingSettings' => function (self $o, ParseNode $n) { $o->setContributingSettings($n->getCollectionOfPrimitiveValues()); },
+            'deviceCheckinsImpacted' => function (self $o, ParseNode $n) { $o->setDeviceCheckinsImpacted($n->getIntegerValue()); },
         ]);
     }
 

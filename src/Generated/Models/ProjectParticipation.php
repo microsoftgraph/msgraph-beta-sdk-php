@@ -6,50 +6,34 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ProjectParticipation extends ItemFacet implements Parsable 
+class ProjectParticipation extends ItemFacet 
 {
-    /**
-     * @var array<string>|null $categories Contains categories a user has associated with the project (for example, digital transformation, oil rig).
-    */
+    /** @var array<string>|null $categories Contains categories a user has associated with the project (for example, digital transformation, oil rig). */
     private ?array $categories = null;
     
-    /**
-     * @var CompanyDetail|null $client Contains detailed information about the client the project was for.
-    */
+    /** @var CompanyDetail|null $client Contains detailed information about the client the project was for. */
     private ?CompanyDetail $client = null;
     
-    /**
-     * @var array<string>|null $collaborationTags Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
-    */
+    /** @var array<string>|null $collaborationTags Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove. */
     private ?array $collaborationTags = null;
     
-    /**
-     * @var array<RelatedPerson>|null $colleagues Lists people that also worked on the project.
-    */
+    /** @var array<RelatedPerson>|null $colleagues Lists people that also worked on the project. */
     private ?array $colleagues = null;
     
-    /**
-     * @var PositionDetail|null $detail Contains detail about the user's role on the project.
-    */
+    /** @var PositionDetail|null $detail Contains detail about the user's role on the project. */
     private ?PositionDetail $detail = null;
     
-    /**
-     * @var string|null $displayName Contains a friendly name for the project.
-    */
+    /** @var string|null $displayName Contains a friendly name for the project. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<RelatedPerson>|null $sponsors The Person or people who sponsored the project.
-    */
+    /** @var array<RelatedPerson>|null $sponsors The Person or people who sponsored the project. */
     private ?array $sponsors = null;
     
-    /**
-     * @var string|null $thumbnailUrl The thumbnailUrl property
-    */
+    /** @var string|null $thumbnailUrl The thumbnailUrl property */
     private ?string $thumbnailUrl = null;
     
     /**
-     * Instantiates a new ProjectParticipation and sets the default values.
+     * Instantiates a new projectParticipation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -60,7 +44,7 @@ class ProjectParticipation extends ItemFacet implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ProjectParticipation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ProjectParticipation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ProjectParticipation {
         return new ProjectParticipation();
     }
 
@@ -117,16 +101,15 @@ class ProjectParticipation extends ItemFacet implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
-            'client' => function (ParseNode $n) use ($o) { $o->setClient($n->getObjectValue(array(CompanyDetail::class, 'createFromDiscriminatorValue'))); },
-            'collaborationTags' => function (ParseNode $n) use ($o) { $o->setCollaborationTags($n->getCollectionOfPrimitiveValues()); },
-            'colleagues' => function (ParseNode $n) use ($o) { $o->setColleagues($n->getCollectionOfObjectValues(array(RelatedPerson::class, 'createFromDiscriminatorValue'))); },
-            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getObjectValue(array(PositionDetail::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'sponsors' => function (ParseNode $n) use ($o) { $o->setSponsors($n->getCollectionOfObjectValues(array(RelatedPerson::class, 'createFromDiscriminatorValue'))); },
-            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
+            'categories' => function (self $o, ParseNode $n) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
+            'client' => function (self $o, ParseNode $n) { $o->setClient($n->getObjectValue(CompanyDetail::class)); },
+            'collaborationTags' => function (self $o, ParseNode $n) { $o->setCollaborationTags($n->getCollectionOfPrimitiveValues()); },
+            'colleagues' => function (self $o, ParseNode $n) { $o->setColleagues($n->getCollectionOfObjectValues(RelatedPerson::class)); },
+            'detail' => function (self $o, ParseNode $n) { $o->setDetail($n->getObjectValue(PositionDetail::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'sponsors' => function (self $o, ParseNode $n) { $o->setSponsors($n->getCollectionOfObjectValues(RelatedPerson::class)); },
+            'thumbnailUrl' => function (self $o, ParseNode $n) { $o->setThumbnailUrl($n->getStringValue()); },
         ]);
     }
 

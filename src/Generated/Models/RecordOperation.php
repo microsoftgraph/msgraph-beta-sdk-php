@@ -6,25 +6,19 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RecordOperation extends CommsOperation implements Parsable 
+class RecordOperation extends CommsOperation 
 {
-    /**
-     * @var RecordCompletionReason|null $completionReason Possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.
-    */
+    /** @var RecordCompletionReason|null $completionReason Possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none. */
     private ?RecordCompletionReason $completionReason = null;
     
-    /**
-     * @var string|null $recordingAccessToken The access token required to retrieve the recording.
-    */
+    /** @var string|null $recordingAccessToken The access token required to retrieve the recording. */
     private ?string $recordingAccessToken = null;
     
-    /**
-     * @var string|null $recordingLocation The location where the recording is located.
-    */
+    /** @var string|null $recordingLocation The location where the recording is located. */
     private ?string $recordingLocation = null;
     
     /**
-     * Instantiates a new RecordOperation and sets the default values.
+     * Instantiates a new recordOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +29,7 @@ class RecordOperation extends CommsOperation implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RecordOperation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RecordOperation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RecordOperation {
         return new RecordOperation();
     }
 
@@ -52,11 +46,10 @@ class RecordOperation extends CommsOperation implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'completionReason' => function (ParseNode $n) use ($o) { $o->setCompletionReason($n->getEnumValue(RecordCompletionReason::class)); },
-            'recordingAccessToken' => function (ParseNode $n) use ($o) { $o->setRecordingAccessToken($n->getStringValue()); },
-            'recordingLocation' => function (ParseNode $n) use ($o) { $o->setRecordingLocation($n->getStringValue()); },
+            'completionReason' => function (self $o, ParseNode $n) { $o->setCompletionReason($n->getEnumValue(RecordCompletionReason::class)); },
+            'recordingAccessToken' => function (self $o, ParseNode $n) { $o->setRecordingAccessToken($n->getStringValue()); },
+            'recordingLocation' => function (self $o, ParseNode $n) { $o->setRecordingLocation($n->getStringValue()); },
         ]);
     }
 

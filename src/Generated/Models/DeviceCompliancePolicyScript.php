@@ -10,19 +10,13 @@ use Psr\Http\Message\StreamInterface;
 
 class DeviceCompliancePolicyScript implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $deviceComplianceScriptId Device compliance script Id.
-    */
+    /** @var string|null $deviceComplianceScriptId Device compliance script Id. */
     private ?string $deviceComplianceScriptId = null;
     
-    /**
-     * @var StreamInterface|null $rulesContent Json of the rules.
-    */
+    /** @var StreamInterface|null $rulesContent Json of the rules. */
     private ?StreamInterface $rulesContent = null;
     
     /**
@@ -37,7 +31,7 @@ class DeviceCompliancePolicyScript implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceCompliancePolicyScript
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceCompliancePolicyScript {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceCompliancePolicyScript {
         return new DeviceCompliancePolicyScript();
     }
 
@@ -62,10 +56,9 @@ class DeviceCompliancePolicyScript implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'deviceComplianceScriptId' => function (ParseNode $n) use ($o) { $o->setDeviceComplianceScriptId($n->getStringValue()); },
-            'rulesContent' => function (ParseNode $n) use ($o) { $o->setRulesContent($n->getBinaryContent()); },
+            'deviceComplianceScriptId' => function (self $o, ParseNode $n) { $o->setDeviceComplianceScriptId($n->getStringValue()); },
+            'rulesContent' => function (self $o, ParseNode $n) { $o->setRulesContent($n->getBinaryContent()); },
         ];
     }
 

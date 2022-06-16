@@ -6,15 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TenantRelationshipAccessPolicyBase extends PolicyBase implements Parsable 
+class TenantRelationshipAccessPolicyBase extends PolicyBase 
 {
-    /**
-     * @var array<string>|null $definition The definition property
-    */
+    /** @var array<string>|null $definition The definition property */
     private ?array $definition = null;
     
     /**
-     * Instantiates a new TenantRelationshipAccessPolicyBase and sets the default values.
+     * Instantiates a new tenantRelationshipAccessPolicyBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,14 +23,7 @@ class TenantRelationshipAccessPolicyBase extends PolicyBase implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TenantRelationshipAccessPolicyBase
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TenantRelationshipAccessPolicyBase {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.crossTenantAccessPolicy': return new CrossTenantAccessPolicy();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TenantRelationshipAccessPolicyBase {
         return new TenantRelationshipAccessPolicyBase();
     }
 
@@ -49,9 +40,8 @@ class TenantRelationshipAccessPolicyBase extends PolicyBase implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'definition' => function (ParseNode $n) use ($o) { $o->setDefinition($n->getCollectionOfPrimitiveValues()); },
+            'definition' => function (self $o, ParseNode $n) { $o->setDefinition($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
 

@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CredentialUserRegistrationDetailsCollectionResponse implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $nextLink The nextLink property
-    */
+    /** @var string|null $nextLink The nextLink property */
     private ?string $nextLink = null;
     
-    /**
-     * @var array<CredentialUserRegistrationDetails>|null $value The value property
-    */
+    /** @var array<CredentialUserRegistrationDetails>|null $value The value property */
     private ?array $value = null;
     
     /**
@@ -36,7 +30,7 @@ class CredentialUserRegistrationDetailsCollectionResponse implements AdditionalD
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CredentialUserRegistrationDetailsCollectionResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CredentialUserRegistrationDetailsCollectionResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CredentialUserRegistrationDetailsCollectionResponse {
         return new CredentialUserRegistrationDetailsCollectionResponse();
     }
 
@@ -53,10 +47,9 @@ class CredentialUserRegistrationDetailsCollectionResponse implements AdditionalD
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            '@odata.nextLink' => function (ParseNode $n) use ($o) { $o->setOdatanextLink($n->getStringValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(CredentialUserRegistrationDetails::class, 'createFromDiscriminatorValue'))); },
+            '@odata.nextLink' => function (self $o, ParseNode $n) { $o->setNextLink($n->getStringValue()); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getCollectionOfObjectValues(CredentialUserRegistrationDetails::class)); },
         ];
     }
 
@@ -64,7 +57,7 @@ class CredentialUserRegistrationDetailsCollectionResponse implements AdditionalD
      * Gets the @odata.nextLink property value. The nextLink property
      * @return string|null
     */
-    public function getOdatanextLink(): ?string {
+    public function getNextLink(): ?string {
         return $this->nextLink;
     }
 
@@ -98,7 +91,7 @@ class CredentialUserRegistrationDetailsCollectionResponse implements AdditionalD
      * Sets the @odata.nextLink property value. The nextLink property
      *  @param string|null $value Value to set for the nextLink property.
     */
-    public function setOdatanextLink(?string $value ): void {
+    public function setNextLink(?string $value ): void {
         $this->nextLink = $value;
     }
 

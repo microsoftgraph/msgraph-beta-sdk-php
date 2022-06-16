@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AddIn implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $id The id property
-    */
+    /** @var string|null $id The id property */
     private ?string $id = null;
     
-    /**
-     * @var array<KeyValue>|null $properties The properties property
-    */
+    /** @var array<KeyValue>|null $properties The properties property */
     private ?array $properties = null;
     
-    /**
-     * @var string|null $type The type property
-    */
+    /** @var string|null $type The type property */
     private ?string $type = null;
     
     /**
@@ -41,7 +33,7 @@ class AddIn implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AddIn
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AddIn {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AddIn {
         return new AddIn();
     }
 
@@ -58,11 +50,10 @@ class AddIn implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'properties' => function (ParseNode $n) use ($o) { $o->setProperties($n->getCollectionOfObjectValues(array(KeyValue::class, 'createFromDiscriminatorValue'))); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
+            'properties' => function (self $o, ParseNode $n) { $o->setProperties($n->getCollectionOfObjectValues(KeyValue::class)); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
         ];
     }
 

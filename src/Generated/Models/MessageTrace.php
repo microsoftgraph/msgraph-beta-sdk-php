@@ -7,46 +7,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MessageTrace extends Entity implements Parsable 
+class MessageTrace extends Entity 
 {
-    /**
-     * @var string|null $destinationIPAddress The destinationIPAddress property
-    */
+    /** @var string|null $destinationIPAddress The destinationIPAddress property */
     private ?string $destinationIPAddress = null;
     
-    /**
-     * @var string|null $messageId The messageId property
-    */
+    /** @var string|null $messageId The messageId property */
     private ?string $messageId = null;
     
-    /**
-     * @var DateTime|null $receivedDateTime The receivedDateTime property
-    */
+    /** @var DateTime|null $receivedDateTime The receivedDateTime property */
     private ?DateTime $receivedDateTime = null;
     
-    /**
-     * @var array<MessageRecipient>|null $recipients The recipients property
-    */
+    /** @var array<MessageRecipient>|null $recipients The recipients property */
     private ?array $recipients = null;
     
-    /**
-     * @var string|null $senderEmail The senderEmail property
-    */
+    /** @var string|null $senderEmail The senderEmail property */
     private ?string $senderEmail = null;
     
-    /**
-     * @var int|null $size The size property
-    */
+    /** @var int|null $size The size property */
     private ?int $size = null;
     
-    /**
-     * @var string|null $sourceIPAddress The sourceIPAddress property
-    */
+    /** @var string|null $sourceIPAddress The sourceIPAddress property */
     private ?string $sourceIPAddress = null;
     
-    /**
-     * @var string|null $subject The subject property
-    */
+    /** @var string|null $subject The subject property */
     private ?string $subject = null;
     
     /**
@@ -61,7 +45,7 @@ class MessageTrace extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MessageTrace
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MessageTrace {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MessageTrace {
         return new MessageTrace();
     }
 
@@ -78,16 +62,15 @@ class MessageTrace extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'destinationIPAddress' => function (ParseNode $n) use ($o) { $o->setDestinationIPAddress($n->getStringValue()); },
-            'messageId' => function (ParseNode $n) use ($o) { $o->setMessageId($n->getStringValue()); },
-            'receivedDateTime' => function (ParseNode $n) use ($o) { $o->setReceivedDateTime($n->getDateTimeValue()); },
-            'recipients' => function (ParseNode $n) use ($o) { $o->setRecipients($n->getCollectionOfObjectValues(array(MessageRecipient::class, 'createFromDiscriminatorValue'))); },
-            'senderEmail' => function (ParseNode $n) use ($o) { $o->setSenderEmail($n->getStringValue()); },
-            'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getIntegerValue()); },
-            'sourceIPAddress' => function (ParseNode $n) use ($o) { $o->setSourceIPAddress($n->getStringValue()); },
-            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
+            'destinationIPAddress' => function (self $o, ParseNode $n) { $o->setDestinationIPAddress($n->getStringValue()); },
+            'messageId' => function (self $o, ParseNode $n) { $o->setMessageId($n->getStringValue()); },
+            'receivedDateTime' => function (self $o, ParseNode $n) { $o->setReceivedDateTime($n->getDateTimeValue()); },
+            'recipients' => function (self $o, ParseNode $n) { $o->setRecipients($n->getCollectionOfObjectValues(MessageRecipient::class)); },
+            'senderEmail' => function (self $o, ParseNode $n) { $o->setSenderEmail($n->getStringValue()); },
+            'size' => function (self $o, ParseNode $n) { $o->setSize($n->getIntegerValue()); },
+            'sourceIPAddress' => function (self $o, ParseNode $n) { $o->setSourceIPAddress($n->getStringValue()); },
+            'subject' => function (self $o, ParseNode $n) { $o->setSubject($n->getStringValue()); },
         ]);
     }
 

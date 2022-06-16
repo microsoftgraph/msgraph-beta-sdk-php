@@ -10,19 +10,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class WindowsDriverUpdateProfileInventorySyncStatus implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var WindowsDriverUpdateProfileInventorySyncState|null $driverInventorySyncState The state of the latest sync. Possible values are: pending, success, failure.
-    */
+    /** @var WindowsDriverUpdateProfileInventorySyncState|null $driverInventorySyncState The state of the latest sync. Possible values are: pending, success, failure. */
     private ?WindowsDriverUpdateProfileInventorySyncState $driverInventorySyncState = null;
     
-    /**
-     * @var DateTime|null $lastSuccessfulSyncDateTime The last successful sync date and time in UTC.
-    */
+    /** @var DateTime|null $lastSuccessfulSyncDateTime The last successful sync date and time in UTC. */
     private ?DateTime $lastSuccessfulSyncDateTime = null;
     
     /**
@@ -37,7 +31,7 @@ class WindowsDriverUpdateProfileInventorySyncStatus implements AdditionalDataHol
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsDriverUpdateProfileInventorySyncStatus
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDriverUpdateProfileInventorySyncStatus {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDriverUpdateProfileInventorySyncStatus {
         return new WindowsDriverUpdateProfileInventorySyncStatus();
     }
 
@@ -62,10 +56,9 @@ class WindowsDriverUpdateProfileInventorySyncStatus implements AdditionalDataHol
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'driverInventorySyncState' => function (ParseNode $n) use ($o) { $o->setDriverInventorySyncState($n->getEnumValue(WindowsDriverUpdateProfileInventorySyncState::class)); },
-            'lastSuccessfulSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSuccessfulSyncDateTime($n->getDateTimeValue()); },
+            'driverInventorySyncState' => function (self $o, ParseNode $n) { $o->setDriverInventorySyncState($n->getEnumValue(WindowsDriverUpdateProfileInventorySyncState::class)); },
+            'lastSuccessfulSyncDateTime' => function (self $o, ParseNode $n) { $o->setLastSuccessfulSyncDateTime($n->getDateTimeValue()); },
         ];
     }
 

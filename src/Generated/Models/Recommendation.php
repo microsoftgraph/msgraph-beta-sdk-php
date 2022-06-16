@@ -7,81 +7,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Recommendation extends Entity implements Parsable 
+class Recommendation extends Entity 
 {
-    /**
-     * @var array<ActionStep>|null $actionSteps The actionSteps property
-    */
+    /** @var array<ActionStep>|null $actionSteps The actionSteps property */
     private ?array $actionSteps = null;
     
-    /**
-     * @var string|null $benefits The benefits property
-    */
+    /** @var string|null $benefits The benefits property */
     private ?string $benefits = null;
     
-    /**
-     * @var RecommendationCategory|null $category The category property
-    */
+    /** @var RecommendationCategory|null $category The category property */
     private ?RecommendationCategory $category = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
+    /** @var DateTime|null $createdDateTime The createdDateTime property */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var array<RecommendationResource>|null $impactedResources The impactedResources property
-    */
+    /** @var array<RecommendationResource>|null $impactedResources The impactedResources property */
     private ?array $impactedResources = null;
     
-    /**
-     * @var DateTime|null $impactStartDateTime The impactStartDateTime property
-    */
+    /** @var DateTime|null $impactStartDateTime The impactStartDateTime property */
     private ?DateTime $impactStartDateTime = null;
     
-    /**
-     * @var string|null $impactType The impactType property
-    */
+    /** @var string|null $impactType The impactType property */
     private ?string $impactType = null;
     
-    /**
-     * @var string|null $insights The insights property
-    */
+    /** @var string|null $insights The insights property */
     private ?string $insights = null;
     
-    /**
-     * @var DateTime|null $lastCheckedDateTime The lastCheckedDateTime property
-    */
+    /** @var DateTime|null $lastCheckedDateTime The lastCheckedDateTime property */
     private ?DateTime $lastCheckedDateTime = null;
     
-    /**
-     * @var string|null $lastModifiedBy The lastModifiedBy property
-    */
+    /** @var string|null $lastModifiedBy The lastModifiedBy property */
     private ?string $lastModifiedBy = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
+    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var DateTime|null $postponeUntilDateTime The postponeUntilDateTime property
-    */
+    /** @var DateTime|null $postponeUntilDateTime The postponeUntilDateTime property */
     private ?DateTime $postponeUntilDateTime = null;
     
-    /**
-     * @var RecommendationPriority|null $priority The priority property
-    */
+    /** @var RecommendationPriority|null $priority The priority property */
     private ?RecommendationPriority $priority = null;
     
-    /**
-     * @var RecommendationStatus|null $status The status property
-    */
+    /** @var RecommendationStatus|null $status The status property */
     private ?RecommendationStatus $status = null;
     
     /**
@@ -96,7 +66,7 @@ class Recommendation extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Recommendation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Recommendation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Recommendation {
         return new Recommendation();
     }
 
@@ -145,23 +115,22 @@ class Recommendation extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionSteps' => function (ParseNode $n) use ($o) { $o->setActionSteps($n->getCollectionOfObjectValues(array(ActionStep::class, 'createFromDiscriminatorValue'))); },
-            'benefits' => function (ParseNode $n) use ($o) { $o->setBenefits($n->getStringValue()); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(RecommendationCategory::class)); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'impactedResources' => function (ParseNode $n) use ($o) { $o->setImpactedResources($n->getCollectionOfObjectValues(array(RecommendationResource::class, 'createFromDiscriminatorValue'))); },
-            'impactStartDateTime' => function (ParseNode $n) use ($o) { $o->setImpactStartDateTime($n->getDateTimeValue()); },
-            'impactType' => function (ParseNode $n) use ($o) { $o->setImpactType($n->getStringValue()); },
-            'insights' => function (ParseNode $n) use ($o) { $o->setInsights($n->getStringValue()); },
-            'lastCheckedDateTime' => function (ParseNode $n) use ($o) { $o->setLastCheckedDateTime($n->getDateTimeValue()); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'postponeUntilDateTime' => function (ParseNode $n) use ($o) { $o->setPostponeUntilDateTime($n->getDateTimeValue()); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getEnumValue(RecommendationPriority::class)); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(RecommendationStatus::class)); },
+            'actionSteps' => function (self $o, ParseNode $n) { $o->setActionSteps($n->getCollectionOfObjectValues(ActionStep::class)); },
+            'benefits' => function (self $o, ParseNode $n) { $o->setBenefits($n->getStringValue()); },
+            'category' => function (self $o, ParseNode $n) { $o->setCategory($n->getEnumValue(RecommendationCategory::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'impactedResources' => function (self $o, ParseNode $n) { $o->setImpactedResources($n->getCollectionOfObjectValues(RecommendationResource::class)); },
+            'impactStartDateTime' => function (self $o, ParseNode $n) { $o->setImpactStartDateTime($n->getDateTimeValue()); },
+            'impactType' => function (self $o, ParseNode $n) { $o->setImpactType($n->getStringValue()); },
+            'insights' => function (self $o, ParseNode $n) { $o->setInsights($n->getStringValue()); },
+            'lastCheckedDateTime' => function (self $o, ParseNode $n) { $o->setLastCheckedDateTime($n->getDateTimeValue()); },
+            'lastModifiedBy' => function (self $o, ParseNode $n) { $o->setLastModifiedBy($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'postponeUntilDateTime' => function (self $o, ParseNode $n) { $o->setPostponeUntilDateTime($n->getDateTimeValue()); },
+            'priority' => function (self $o, ParseNode $n) { $o->setPriority($n->getEnumValue(RecommendationPriority::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(RecommendationStatus::class)); },
         ]);
     }
 

@@ -7,41 +7,27 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Journal extends Entity implements Parsable 
+class Journal extends Entity 
 {
-    /**
-     * @var Account|null $account The account property
-    */
+    /** @var Account|null $account The account property */
     private ?Account $account = null;
     
-    /**
-     * @var string|null $balancingAccountId The balancingAccountId property
-    */
+    /** @var string|null $balancingAccountId The balancingAccountId property */
     private ?string $balancingAccountId = null;
     
-    /**
-     * @var string|null $balancingAccountNumber The balancingAccountNumber property
-    */
+    /** @var string|null $balancingAccountNumber The balancingAccountNumber property */
     private ?string $balancingAccountNumber = null;
     
-    /**
-     * @var string|null $code The code property
-    */
+    /** @var string|null $code The code property */
     private ?string $code = null;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var array<JournalLine>|null $journalLines The journalLines property
-    */
+    /** @var array<JournalLine>|null $journalLines The journalLines property */
     private ?array $journalLines = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
+    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
@@ -56,7 +42,7 @@ class Journal extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Journal
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Journal {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Journal {
         return new Journal();
     }
 
@@ -105,15 +91,14 @@ class Journal extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'account' => function (ParseNode $n) use ($o) { $o->setAccount($n->getObjectValue(array(Account::class, 'createFromDiscriminatorValue'))); },
-            'balancingAccountId' => function (ParseNode $n) use ($o) { $o->setBalancingAccountId($n->getStringValue()); },
-            'balancingAccountNumber' => function (ParseNode $n) use ($o) { $o->setBalancingAccountNumber($n->getStringValue()); },
-            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'journalLines' => function (ParseNode $n) use ($o) { $o->setJournalLines($n->getCollectionOfObjectValues(array(JournalLine::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'account' => function (self $o, ParseNode $n) { $o->setAccount($n->getObjectValue(Account::class)); },
+            'balancingAccountId' => function (self $o, ParseNode $n) { $o->setBalancingAccountId($n->getStringValue()); },
+            'balancingAccountNumber' => function (self $o, ParseNode $n) { $o->setBalancingAccountNumber($n->getStringValue()); },
+            'code' => function (self $o, ParseNode $n) { $o->setCode($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'journalLines' => function (self $o, ParseNode $n) { $o->setJournalLines($n->getCollectionOfObjectValues(JournalLine::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

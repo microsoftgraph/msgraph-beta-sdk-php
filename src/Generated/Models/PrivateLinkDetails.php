@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PrivateLinkDetails implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $policyId The unique identifier for the Private Link policy.
-    */
+    /** @var string|null $policyId The unique identifier for the Private Link policy. */
     private ?string $policyId = null;
     
-    /**
-     * @var string|null $policyName The name of the Private Link policy in Azure AD.
-    */
+    /** @var string|null $policyName The name of the Private Link policy in Azure AD. */
     private ?string $policyName = null;
     
-    /**
-     * @var string|null $policyTenantId The tenant identifier of the Azure AD tenant the Private Link policy belongs to.
-    */
+    /** @var string|null $policyTenantId The tenant identifier of the Azure AD tenant the Private Link policy belongs to. */
     private ?string $policyTenantId = null;
     
-    /**
-     * @var string|null $resourceId The Azure Resource Manager (ARM) path for the Private Link policy resource.
-    */
+    /** @var string|null $resourceId The Azure Resource Manager (ARM) path for the Private Link policy resource. */
     private ?string $resourceId = null;
     
     /**
@@ -46,7 +36,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrivateLinkDetails
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrivateLinkDetails {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PrivateLinkDetails {
         return new PrivateLinkDetails();
     }
 
@@ -63,12 +53,11 @@ class PrivateLinkDetails implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'policyId' => function (ParseNode $n) use ($o) { $o->setPolicyId($n->getStringValue()); },
-            'policyName' => function (ParseNode $n) use ($o) { $o->setPolicyName($n->getStringValue()); },
-            'policyTenantId' => function (ParseNode $n) use ($o) { $o->setPolicyTenantId($n->getStringValue()); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
+            'policyId' => function (self $o, ParseNode $n) { $o->setPolicyId($n->getStringValue()); },
+            'policyName' => function (self $o, ParseNode $n) { $o->setPolicyName($n->getStringValue()); },
+            'policyTenantId' => function (self $o, ParseNode $n) { $o->setPolicyTenantId($n->getStringValue()); },
+            'resourceId' => function (self $o, ParseNode $n) { $o->setResourceId($n->getStringValue()); },
         ];
     }
 

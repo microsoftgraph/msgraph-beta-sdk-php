@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class LicenseProcessingState implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $state The state property
-    */
+    /** @var string|null $state The state property */
     private ?string $state = null;
     
     /**
@@ -31,7 +27,7 @@ class LicenseProcessingState implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return LicenseProcessingState
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): LicenseProcessingState {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): LicenseProcessingState {
         return new LicenseProcessingState();
     }
 
@@ -48,9 +44,8 @@ class LicenseProcessingState implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getStringValue()); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getStringValue()); },
         ];
     }
 

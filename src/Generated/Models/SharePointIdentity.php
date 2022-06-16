@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SharePointIdentity extends Identity implements Parsable 
+class SharePointIdentity extends Identity 
 {
-    /**
-     * @var string|null $loginName The sign in name of the SharePoint identity.
-    */
+    /** @var string|null $loginName The sign in name of the SharePoint identity. */
     private ?string $loginName = null;
     
     /**
@@ -25,7 +23,7 @@ class SharePointIdentity extends Identity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SharePointIdentity
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SharePointIdentity {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SharePointIdentity {
         return new SharePointIdentity();
     }
 
@@ -34,9 +32,8 @@ class SharePointIdentity extends Identity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'loginName' => function (ParseNode $n) use ($o) { $o->setLoginName($n->getStringValue()); },
+            'loginName' => function (self $o, ParseNode $n) { $o->setLoginName($n->getStringValue()); },
         ]);
     }
 

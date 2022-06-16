@@ -10,24 +10,16 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 
 class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var Date|null $date The date on which devices were remediated by the device health script.
-    */
+    /** @var Date|null $date The date on which devices were remediated by the device health script. */
     private ?Date $date = null;
     
-    /**
-     * @var int|null $noIssueDeviceCount The number of devices that were found to have no issue by the device health script.
-    */
+    /** @var int|null $noIssueDeviceCount The number of devices that were found to have no issue by the device health script. */
     private ?int $noIssueDeviceCount = null;
     
-    /**
-     * @var int|null $remediatedDeviceCount The number of devices remediated by the device health script.
-    */
+    /** @var int|null $remediatedDeviceCount The number of devices remediated by the device health script. */
     private ?int $remediatedDeviceCount = null;
     
     /**
@@ -42,7 +34,7 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceHealthScriptRemediationHistoryData
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealthScriptRemediationHistoryData {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealthScriptRemediationHistoryData {
         return new DeviceHealthScriptRemediationHistoryData();
     }
 
@@ -67,11 +59,10 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'date' => function (ParseNode $n) use ($o) { $o->setDate($n->getDateValue()); },
-            'noIssueDeviceCount' => function (ParseNode $n) use ($o) { $o->setNoIssueDeviceCount($n->getIntegerValue()); },
-            'remediatedDeviceCount' => function (ParseNode $n) use ($o) { $o->setRemediatedDeviceCount($n->getIntegerValue()); },
+            'date' => function (self $o, ParseNode $n) { $o->setDate($n->getDateValue()); },
+            'noIssueDeviceCount' => function (self $o, ParseNode $n) { $o->setNoIssueDeviceCount($n->getIntegerValue()); },
+            'remediatedDeviceCount' => function (self $o, ParseNode $n) { $o->setRemediatedDeviceCount($n->getIntegerValue()); },
         ];
     }
 

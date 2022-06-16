@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MeetingParticipants implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<MeetingParticipantInfo>|null $attendees Information of the meeting attendees.
-    */
+    /** @var array<MeetingParticipantInfo>|null $attendees Information of the meeting attendees. */
     private ?array $attendees = null;
     
-    /**
-     * @var array<MeetingParticipantInfo>|null $contributors The contributors property
-    */
+    /** @var array<MeetingParticipantInfo>|null $contributors The contributors property */
     private ?array $contributors = null;
     
-    /**
-     * @var MeetingParticipantInfo|null $organizer Information of the meeting organizer.
-    */
+    /** @var MeetingParticipantInfo|null $organizer Information of the meeting organizer. */
     private ?MeetingParticipantInfo $organizer = null;
     
-    /**
-     * @var array<MeetingParticipantInfo>|null $producers The producers property
-    */
+    /** @var array<MeetingParticipantInfo>|null $producers The producers property */
     private ?array $producers = null;
     
     /**
@@ -46,7 +36,7 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MeetingParticipants
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MeetingParticipants {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MeetingParticipants {
         return new MeetingParticipants();
     }
 
@@ -79,12 +69,11 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'attendees' => function (ParseNode $n) use ($o) { $o->setAttendees($n->getCollectionOfObjectValues(array(MeetingParticipantInfo::class, 'createFromDiscriminatorValue'))); },
-            'contributors' => function (ParseNode $n) use ($o) { $o->setContributors($n->getCollectionOfObjectValues(array(MeetingParticipantInfo::class, 'createFromDiscriminatorValue'))); },
-            'organizer' => function (ParseNode $n) use ($o) { $o->setOrganizer($n->getObjectValue(array(MeetingParticipantInfo::class, 'createFromDiscriminatorValue'))); },
-            'producers' => function (ParseNode $n) use ($o) { $o->setProducers($n->getCollectionOfObjectValues(array(MeetingParticipantInfo::class, 'createFromDiscriminatorValue'))); },
+            'attendees' => function (self $o, ParseNode $n) { $o->setAttendees($n->getCollectionOfObjectValues(MeetingParticipantInfo::class)); },
+            'contributors' => function (self $o, ParseNode $n) { $o->setContributors($n->getCollectionOfObjectValues(MeetingParticipantInfo::class)); },
+            'organizer' => function (self $o, ParseNode $n) { $o->setOrganizer($n->getObjectValue(MeetingParticipantInfo::class)); },
+            'producers' => function (self $o, ParseNode $n) { $o->setProducers($n->getCollectionOfObjectValues(MeetingParticipantInfo::class)); },
         ];
     }
 

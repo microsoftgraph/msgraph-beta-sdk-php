@@ -9,36 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ReviewSetQuery extends Entity implements Parsable 
+class ReviewSetQuery extends Entity 
 {
-    /**
-     * @var IdentitySet|null $createdBy The user who created the query.
-    */
+    /** @var IdentitySet|null $createdBy The user who created the query. */
     private ?IdentitySet $createdBy = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The time and date when the query was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $createdDateTime The time and date when the query was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $displayName The name of the query.
-    */
+    /** @var string|null $displayName The name of the query. */
     private ?string $displayName = null;
     
-    /**
-     * @var IdentitySet|null $lastModifiedBy The user who last modified the query.
-    */
+    /** @var IdentitySet|null $lastModifiedBy The user who last modified the query. */
     private ?IdentitySet $lastModifiedBy = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the query was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time the query was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $query The query string in KQL (Keyword Query Language) query. For details, see Document metadata fields in Advanced eDiscovery.  This field maps directly to the keywords condition.  You can refine searches by using fields listed in the searchable field name paired with values; for example, subject:'Quarterly Financials' AND Date>=06/01/2016 AND Date<=07/01/2016.
-    */
+    /** @var string|null $query The query string in KQL (Keyword Query Language) query. For details, see Document metadata fields in Advanced eDiscovery.  This field maps directly to the keywords condition.  You can refine searches by using fields listed in the searchable field name paired with values; for example, subject:'Quarterly Financials' AND Date>=06/01/2016 AND Date<=07/01/2016. */
     private ?string $query = null;
     
     /**
@@ -53,7 +41,7 @@ class ReviewSetQuery extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ReviewSetQuery
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ReviewSetQuery {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ReviewSetQuery {
         return new ReviewSetQuery();
     }
 
@@ -86,14 +74,13 @@ class ReviewSetQuery extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'query' => function (ParseNode $n) use ($o) { $o->setQuery($n->getStringValue()); },
+            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(IdentitySet::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedBy' => function (self $o, ParseNode $n) { $o->setLastModifiedBy($n->getObjectValue(IdentitySet::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'query' => function (self $o, ParseNode $n) { $o->setQuery($n->getStringValue()); },
         ]);
     }
 

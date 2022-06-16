@@ -9,23 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ExactMatchClassificationResult implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<ExactMatchDetectedSensitiveContent>|null $classification The classification property
-    */
+    /** @var array<ExactMatchDetectedSensitiveContent>|null $classification The classification property */
     private ?array $classification = null;
     
-    /**
-     * @var array<ClassificationError>|null $errors The errors property
-    */
+    /** @var array<ClassificationError>|null $errors The errors property */
     private ?array $errors = null;
     
     /**
-     * Instantiates a new ExactMatchClassificationResult and sets the default values.
+     * Instantiates a new exactMatchClassificationResult and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -36,7 +30,7 @@ class ExactMatchClassificationResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExactMatchClassificationResult
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExactMatchClassificationResult {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ExactMatchClassificationResult {
         return new ExactMatchClassificationResult();
     }
 
@@ -69,10 +63,9 @@ class ExactMatchClassificationResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'classification' => function (ParseNode $n) use ($o) { $o->setClassification($n->getCollectionOfObjectValues(array(ExactMatchDetectedSensitiveContent::class, 'createFromDiscriminatorValue'))); },
-            'errors' => function (ParseNode $n) use ($o) { $o->setErrors($n->getCollectionOfObjectValues(array(ClassificationError::class, 'createFromDiscriminatorValue'))); },
+            'classification' => function (self $o, ParseNode $n) { $o->setClassification($n->getCollectionOfObjectValues(ExactMatchDetectedSensitiveContent::class)); },
+            'errors' => function (self $o, ParseNode $n) { $o->setErrors($n->getCollectionOfObjectValues(ClassificationError::class)); },
         ];
     }
 

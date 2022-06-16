@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class External implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<ExternalConnection>|null $connections The connections property
-    */
+    /** @var array<ExternalConnection>|null $connections The connections property */
     private ?array $connections = null;
     
     /**
@@ -31,7 +27,7 @@ class External implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return External
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): External {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): External {
         return new External();
     }
 
@@ -56,9 +52,8 @@ class External implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'connections' => function (ParseNode $n) use ($o) { $o->setConnections($n->getCollectionOfObjectValues(array(ExternalConnection::class, 'createFromDiscriminatorValue'))); },
+            'connections' => function (self $o, ParseNode $n) { $o->setConnections($n->getCollectionOfObjectValues(ExternalConnection::class)); },
         ];
     }
 

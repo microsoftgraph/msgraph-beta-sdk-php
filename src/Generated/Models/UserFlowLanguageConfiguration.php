@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserFlowLanguageConfiguration extends Entity implements Parsable 
+class UserFlowLanguageConfiguration extends Entity 
 {
-    /**
-     * @var array<UserFlowLanguagePage>|null $defaultPages Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.
-    */
+    /** @var array<UserFlowLanguagePage>|null $defaultPages Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification. */
     private ?array $defaultPages = null;
     
-    /**
-     * @var string|null $displayName The language name to display. This property is read-only.
-    */
+    /** @var string|null $displayName The language name to display. This property is read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $isEnabled Indicates whether the language is enabled within the user flow.
-    */
+    /** @var bool|null $isEnabled Indicates whether the language is enabled within the user flow. */
     private ?bool $isEnabled = null;
     
-    /**
-     * @var array<UserFlowLanguagePage>|null $overridesPages Collection of pages with the overrides messages to display in a user flow for a specified language. This collection only allows to modify the content of the page, any other modification is not allowed (creation or deletion of pages).
-    */
+    /** @var array<UserFlowLanguagePage>|null $overridesPages Collection of pages with the overrides messages to display in a user flow for a specified language. This collection only allows to modify the content of the page, any other modification is not allowed (creation or deletion of pages). */
     private ?array $overridesPages = null;
     
     /**
@@ -40,7 +32,7 @@ class UserFlowLanguageConfiguration extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserFlowLanguageConfiguration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserFlowLanguageConfiguration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserFlowLanguageConfiguration {
         return new UserFlowLanguageConfiguration();
     }
 
@@ -65,12 +57,11 @@ class UserFlowLanguageConfiguration extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultPages' => function (ParseNode $n) use ($o) { $o->setDefaultPages($n->getCollectionOfObjectValues(array(UserFlowLanguagePage::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'overridesPages' => function (ParseNode $n) use ($o) { $o->setOverridesPages($n->getCollectionOfObjectValues(array(UserFlowLanguagePage::class, 'createFromDiscriminatorValue'))); },
+            'defaultPages' => function (self $o, ParseNode $n) { $o->setDefaultPages($n->getCollectionOfObjectValues(UserFlowLanguagePage::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
+            'overridesPages' => function (self $o, ParseNode $n) { $o->setOverridesPages($n->getCollectionOfObjectValues(UserFlowLanguagePage::class)); },
         ]);
     }
 

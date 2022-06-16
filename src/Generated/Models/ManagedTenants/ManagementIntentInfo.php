@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ManagementIntentInfo implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $managementIntentDisplayName The display name for the management intent. Optional. Read-only.
-    */
+    /** @var string|null $managementIntentDisplayName The display name for the management intent. Optional. Read-only. */
     private ?string $managementIntentDisplayName = null;
     
-    /**
-     * @var string|null $managementIntentId The identifier for the management intent. Required. Read-only.
-    */
+    /** @var string|null $managementIntentId The identifier for the management intent. Required. Read-only. */
     private ?string $managementIntentId = null;
     
-    /**
-     * @var array<ManagementTemplateDetailedInfo>|null $managementTemplates The collection of management template information associated with the management intent. Optional. Read-only.
-    */
+    /** @var array<ManagementTemplateDetailedInfo>|null $managementTemplates The collection of management template information associated with the management intent. Optional. Read-only. */
     private ?array $managementTemplates = null;
     
     /**
@@ -41,7 +33,7 @@ class ManagementIntentInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagementIntentInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagementIntentInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagementIntentInfo {
         return new ManagementIntentInfo();
     }
 
@@ -58,11 +50,10 @@ class ManagementIntentInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'managementIntentDisplayName' => function (ParseNode $n) use ($o) { $o->setManagementIntentDisplayName($n->getStringValue()); },
-            'managementIntentId' => function (ParseNode $n) use ($o) { $o->setManagementIntentId($n->getStringValue()); },
-            'managementTemplates' => function (ParseNode $n) use ($o) { $o->setManagementTemplates($n->getCollectionOfObjectValues(array(ManagementTemplateDetailedInfo::class, 'createFromDiscriminatorValue'))); },
+            'managementIntentDisplayName' => function (self $o, ParseNode $n) { $o->setManagementIntentDisplayName($n->getStringValue()); },
+            'managementIntentId' => function (self $o, ParseNode $n) { $o->setManagementIntentId($n->getStringValue()); },
+            'managementTemplates' => function (self $o, ParseNode $n) { $o->setManagementTemplates($n->getCollectionOfObjectValues(ManagementTemplateDetailedInfo::class)); },
         ];
     }
 

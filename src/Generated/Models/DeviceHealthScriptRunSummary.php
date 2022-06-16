@@ -7,61 +7,39 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceHealthScriptRunSummary extends Entity implements Parsable 
+class DeviceHealthScriptRunSummary extends Entity 
 {
-    /**
-     * @var int|null $detectionScriptErrorDeviceCount Number of devices on which the detection script execution encountered an error and did not complete
-    */
+    /** @var int|null $detectionScriptErrorDeviceCount Number of devices on which the detection script execution encountered an error and did not complete */
     private ?int $detectionScriptErrorDeviceCount = null;
     
-    /**
-     * @var int|null $detectionScriptNotApplicableDeviceCount Number of devices for which the detection script was not applicable
-    */
+    /** @var int|null $detectionScriptNotApplicableDeviceCount Number of devices for which the detection script was not applicable */
     private ?int $detectionScriptNotApplicableDeviceCount = null;
     
-    /**
-     * @var int|null $detectionScriptPendingDeviceCount Number of devices which have not yet run the latest version of the device health script
-    */
+    /** @var int|null $detectionScriptPendingDeviceCount Number of devices which have not yet run the latest version of the device health script */
     private ?int $detectionScriptPendingDeviceCount = null;
     
-    /**
-     * @var int|null $issueDetectedDeviceCount Number of devices for which the detection script found an issue
-    */
+    /** @var int|null $issueDetectedDeviceCount Number of devices for which the detection script found an issue */
     private ?int $issueDetectedDeviceCount = null;
     
-    /**
-     * @var int|null $issueRemediatedCumulativeDeviceCount Number of devices that were remediated over the last 30 days
-    */
+    /** @var int|null $issueRemediatedCumulativeDeviceCount Number of devices that were remediated over the last 30 days */
     private ?int $issueRemediatedCumulativeDeviceCount = null;
     
-    /**
-     * @var int|null $issueRemediatedDeviceCount Number of devices for which the remediation script was able to resolve the detected issue
-    */
+    /** @var int|null $issueRemediatedDeviceCount Number of devices for which the remediation script was able to resolve the detected issue */
     private ?int $issueRemediatedDeviceCount = null;
     
-    /**
-     * @var int|null $issueReoccurredDeviceCount Number of devices for which the remediation script executed successfully but failed to resolve the detected issue
-    */
+    /** @var int|null $issueReoccurredDeviceCount Number of devices for which the remediation script executed successfully but failed to resolve the detected issue */
     private ?int $issueReoccurredDeviceCount = null;
     
-    /**
-     * @var DateTime|null $lastScriptRunDateTime Last run time for the script across all devices
-    */
+    /** @var DateTime|null $lastScriptRunDateTime Last run time for the script across all devices */
     private ?DateTime $lastScriptRunDateTime = null;
     
-    /**
-     * @var int|null $noIssueDetectedDeviceCount Number of devices for which the detection script did not find an issue and the device is healthy
-    */
+    /** @var int|null $noIssueDetectedDeviceCount Number of devices for which the detection script did not find an issue and the device is healthy */
     private ?int $noIssueDetectedDeviceCount = null;
     
-    /**
-     * @var int|null $remediationScriptErrorDeviceCount Number of devices for which the remediation script execution encountered an error and did not complete
-    */
+    /** @var int|null $remediationScriptErrorDeviceCount Number of devices for which the remediation script execution encountered an error and did not complete */
     private ?int $remediationScriptErrorDeviceCount = null;
     
-    /**
-     * @var int|null $remediationSkippedDeviceCount Number of devices for which remediation was skipped
-    */
+    /** @var int|null $remediationSkippedDeviceCount Number of devices for which remediation was skipped */
     private ?int $remediationSkippedDeviceCount = null;
     
     /**
@@ -76,7 +54,7 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceHealthScriptRunSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealthScriptRunSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealthScriptRunSummary {
         return new DeviceHealthScriptRunSummary();
     }
 
@@ -109,19 +87,18 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'detectionScriptErrorDeviceCount' => function (ParseNode $n) use ($o) { $o->setDetectionScriptErrorDeviceCount($n->getIntegerValue()); },
-            'detectionScriptNotApplicableDeviceCount' => function (ParseNode $n) use ($o) { $o->setDetectionScriptNotApplicableDeviceCount($n->getIntegerValue()); },
-            'detectionScriptPendingDeviceCount' => function (ParseNode $n) use ($o) { $o->setDetectionScriptPendingDeviceCount($n->getIntegerValue()); },
-            'issueDetectedDeviceCount' => function (ParseNode $n) use ($o) { $o->setIssueDetectedDeviceCount($n->getIntegerValue()); },
-            'issueRemediatedCumulativeDeviceCount' => function (ParseNode $n) use ($o) { $o->setIssueRemediatedCumulativeDeviceCount($n->getIntegerValue()); },
-            'issueRemediatedDeviceCount' => function (ParseNode $n) use ($o) { $o->setIssueRemediatedDeviceCount($n->getIntegerValue()); },
-            'issueReoccurredDeviceCount' => function (ParseNode $n) use ($o) { $o->setIssueReoccurredDeviceCount($n->getIntegerValue()); },
-            'lastScriptRunDateTime' => function (ParseNode $n) use ($o) { $o->setLastScriptRunDateTime($n->getDateTimeValue()); },
-            'noIssueDetectedDeviceCount' => function (ParseNode $n) use ($o) { $o->setNoIssueDetectedDeviceCount($n->getIntegerValue()); },
-            'remediationScriptErrorDeviceCount' => function (ParseNode $n) use ($o) { $o->setRemediationScriptErrorDeviceCount($n->getIntegerValue()); },
-            'remediationSkippedDeviceCount' => function (ParseNode $n) use ($o) { $o->setRemediationSkippedDeviceCount($n->getIntegerValue()); },
+            'detectionScriptErrorDeviceCount' => function (self $o, ParseNode $n) { $o->setDetectionScriptErrorDeviceCount($n->getIntegerValue()); },
+            'detectionScriptNotApplicableDeviceCount' => function (self $o, ParseNode $n) { $o->setDetectionScriptNotApplicableDeviceCount($n->getIntegerValue()); },
+            'detectionScriptPendingDeviceCount' => function (self $o, ParseNode $n) { $o->setDetectionScriptPendingDeviceCount($n->getIntegerValue()); },
+            'issueDetectedDeviceCount' => function (self $o, ParseNode $n) { $o->setIssueDetectedDeviceCount($n->getIntegerValue()); },
+            'issueRemediatedCumulativeDeviceCount' => function (self $o, ParseNode $n) { $o->setIssueRemediatedCumulativeDeviceCount($n->getIntegerValue()); },
+            'issueRemediatedDeviceCount' => function (self $o, ParseNode $n) { $o->setIssueRemediatedDeviceCount($n->getIntegerValue()); },
+            'issueReoccurredDeviceCount' => function (self $o, ParseNode $n) { $o->setIssueReoccurredDeviceCount($n->getIntegerValue()); },
+            'lastScriptRunDateTime' => function (self $o, ParseNode $n) { $o->setLastScriptRunDateTime($n->getDateTimeValue()); },
+            'noIssueDetectedDeviceCount' => function (self $o, ParseNode $n) { $o->setNoIssueDetectedDeviceCount($n->getIntegerValue()); },
+            'remediationScriptErrorDeviceCount' => function (self $o, ParseNode $n) { $o->setRemediationScriptErrorDeviceCount($n->getIntegerValue()); },
+            'remediationSkippedDeviceCount' => function (self $o, ParseNode $n) { $o->setRemediationSkippedDeviceCount($n->getIntegerValue()); },
         ]);
     }
 

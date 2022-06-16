@@ -10,29 +10,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AssignedPlan implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateTime|null $assignedDateTime The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $assignedDateTime The date and time at which the plan was assigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $assignedDateTime = null;
     
-    /**
-     * @var string|null $capabilityStatus Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut.
-    */
+    /** @var string|null $capabilityStatus Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut. See a detailed description of each value. */
     private ?string $capabilityStatus = null;
     
-    /**
-     * @var string|null $service The name of the service; for example, exchange.
-    */
+    /** @var string|null $service The name of the service; for example, exchange. */
     private ?string $service = null;
     
-    /**
-     * @var string|null $servicePlanId A GUID that identifies the service plan. For a complete list of GUIDs and their equivalent friendly service names, see Product names and service plan identifiers for licensing.
-    */
+    /** @var string|null $servicePlanId A GUID that identifies the service plan. For a complete list of GUIDs and their equivalent friendly service names, see Product names and service plan identifiers for licensing. */
     private ?string $servicePlanId = null;
     
     /**
@@ -47,7 +37,7 @@ class AssignedPlan implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AssignedPlan
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AssignedPlan {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AssignedPlan {
         return new AssignedPlan();
     }
 
@@ -60,7 +50,7 @@ class AssignedPlan implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the assignedDateTime property value. The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the assignedDateTime property value. The date and time at which the plan was assigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getAssignedDateTime(): ?DateTime {
@@ -68,7 +58,7 @@ class AssignedPlan implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the capabilityStatus property value. Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut.
+     * Gets the capabilityStatus property value. Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut. See a detailed description of each value.
      * @return string|null
     */
     public function getCapabilityStatus(): ?string {
@@ -80,12 +70,11 @@ class AssignedPlan implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'assignedDateTime' => function (ParseNode $n) use ($o) { $o->setAssignedDateTime($n->getDateTimeValue()); },
-            'capabilityStatus' => function (ParseNode $n) use ($o) { $o->setCapabilityStatus($n->getStringValue()); },
-            'service' => function (ParseNode $n) use ($o) { $o->setService($n->getStringValue()); },
-            'servicePlanId' => function (ParseNode $n) use ($o) { $o->setServicePlanId($n->getStringValue()); },
+            'assignedDateTime' => function (self $o, ParseNode $n) { $o->setAssignedDateTime($n->getDateTimeValue()); },
+            'capabilityStatus' => function (self $o, ParseNode $n) { $o->setCapabilityStatus($n->getStringValue()); },
+            'service' => function (self $o, ParseNode $n) { $o->setService($n->getStringValue()); },
+            'servicePlanId' => function (self $o, ParseNode $n) { $o->setServicePlanId($n->getStringValue()); },
         ];
     }
 
@@ -126,7 +115,7 @@ class AssignedPlan implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the assignedDateTime property value. The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the assignedDateTime property value. The date and time at which the plan was assigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the assignedDateTime property.
     */
     public function setAssignedDateTime(?DateTime $value ): void {
@@ -134,7 +123,7 @@ class AssignedPlan implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the capabilityStatus property value. Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut.
+     * Sets the capabilityStatus property value. Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut. See a detailed description of each value.
      *  @param string|null $value Value to set for the capabilityStatus property.
     */
     public function setCapabilityStatus(?string $value ): void {

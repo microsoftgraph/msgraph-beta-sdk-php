@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CloudPcSourceDeviceImage implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName The display name for the source image.
-    */
+    /** @var string|null $displayName The display name for the source image. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $id The ID of the source image.
-    */
+    /** @var string|null $id The ID of the source image. */
     private ?string $id = null;
     
-    /**
-     * @var string|null $subscriptionDisplayName The display name of subscription that hosts the source image.
-    */
+    /** @var string|null $subscriptionDisplayName The display name of subscription that hosts the source image. */
     private ?string $subscriptionDisplayName = null;
     
-    /**
-     * @var string|null $subscriptionId The ID of subscription that hosts the source image.
-    */
+    /** @var string|null $subscriptionId The ID of subscription that hosts the source image. */
     private ?string $subscriptionId = null;
     
     /**
@@ -46,7 +36,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcSourceDeviceImage
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcSourceDeviceImage {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcSourceDeviceImage {
         return new CloudPcSourceDeviceImage();
     }
 
@@ -71,12 +61,11 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'subscriptionDisplayName' => function (ParseNode $n) use ($o) { $o->setSubscriptionDisplayName($n->getStringValue()); },
-            'subscriptionId' => function (ParseNode $n) use ($o) { $o->setSubscriptionId($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
+            'subscriptionDisplayName' => function (self $o, ParseNode $n) { $o->setSubscriptionDisplayName($n->getStringValue()); },
+            'subscriptionId' => function (self $o, ParseNode $n) { $o->setSubscriptionId($n->getStringValue()); },
         ];
     }
 

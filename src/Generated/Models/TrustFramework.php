@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TrustFramework implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<TrustFrameworkKeySet>|null $keySets The keySets property
-    */
+    /** @var array<TrustFrameworkKeySet>|null $keySets The keySets property */
     private ?array $keySets = null;
     
-    /**
-     * @var array<TrustFrameworkPolicy>|null $policies The policies property
-    */
+    /** @var array<TrustFrameworkPolicy>|null $policies The policies property */
     private ?array $policies = null;
     
     /**
@@ -36,7 +30,7 @@ class TrustFramework implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TrustFramework
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TrustFramework {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TrustFramework {
         return new TrustFramework();
     }
 
@@ -53,10 +47,9 @@ class TrustFramework implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'keySets' => function (ParseNode $n) use ($o) { $o->setKeySets($n->getCollectionOfObjectValues(array(TrustFrameworkKeySet::class, 'createFromDiscriminatorValue'))); },
-            'policies' => function (ParseNode $n) use ($o) { $o->setPolicies($n->getCollectionOfObjectValues(array(TrustFrameworkPolicy::class, 'createFromDiscriminatorValue'))); },
+            'keySets' => function (self $o, ParseNode $n) { $o->setKeySets($n->getCollectionOfObjectValues(TrustFrameworkKeySet::class)); },
+            'policies' => function (self $o, ParseNode $n) { $o->setPolicies($n->getCollectionOfObjectValues(TrustFrameworkPolicy::class)); },
         ];
     }
 

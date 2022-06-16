@@ -46,9 +46,7 @@ class PrintRequestBuilder
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
+    /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
     /**
@@ -72,9 +70,7 @@ class PrintRequestBuilder
         return new ReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
+    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
     /**
@@ -98,9 +94,7 @@ class PrintRequestBuilder
         return new TaskDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
+    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
     /**
@@ -110,7 +104,7 @@ class PrintRequestBuilder
     */
     public function connectorsById(string $id): PrintConnectorItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printConnector%2Did'] = $id;
+        $urlTplParams['printConnector_id'] = $id;
         return new PrintConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -120,32 +114,31 @@ class PrintRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/print{?%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/print{?select,expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
      * Get print
-     * @param PrintRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?PrintRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createGetRequestInformation(?array $queryParameters = null, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->queryParameters !== null) {
-                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($queryParameters !== null) {
+            $requestInfo->setQueryParameters($queryParameters);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
         }
         return $requestInfo;
     }
@@ -153,40 +146,37 @@ class PrintRequestBuilder
     /**
      * Update print
      * @param EscapedPrint $body 
-     * @param PrintRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(EscapedPrint $body, ?PrintRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createPatchRequestInformation(EscapedPrint $body, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
+        }
         return $requestInfo;
     }
 
     /**
      * Get print
-     * @param PrintRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?PrintRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
+    public function get(?array $queryParameters = null, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($queryParameters, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(EscapedPrint::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, EscapedPrint::class, $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -199,25 +189,22 @@ class PrintRequestBuilder
     */
     public function operationsById(string $id): PrintOperationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printOperation%2Did'] = $id;
+        $urlTplParams['printOperation_id'] = $id;
         return new PrintOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update print
      * @param EscapedPrint $body 
-     * @param PrintRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(EscapedPrint $body, ?PrintRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
+    public function patch(EscapedPrint $body, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createPatchRequestInformation($body, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -230,7 +217,7 @@ class PrintRequestBuilder
     */
     public function printersById(string $id): PrinterItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printer%2Did'] = $id;
+        $urlTplParams['printer_id'] = $id;
         return new PrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -241,7 +228,7 @@ class PrintRequestBuilder
     */
     public function printerSharesById(string $id): MicrosoftGraphBetaGeneratedEscapedPrintPrinterSharesItemPrinterShareItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printerShare%2Did'] = $id;
+        $urlTplParams['printerShare_id'] = $id;
         return new MicrosoftGraphBetaGeneratedEscapedPrintPrinterSharesItemPrinterShareItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -252,7 +239,7 @@ class PrintRequestBuilder
     */
     public function servicesById(string $id): PrintServiceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printService%2Did'] = $id;
+        $urlTplParams['printService_id'] = $id;
         return new PrintServiceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -263,7 +250,7 @@ class PrintRequestBuilder
     */
     public function sharesById(string $id): MicrosoftGraphBetaGeneratedEscapedPrintSharesItemPrinterShareItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printerShare%2Did'] = $id;
+        $urlTplParams['printerShare_id'] = $id;
         return new MicrosoftGraphBetaGeneratedEscapedPrintSharesItemPrinterShareItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -274,7 +261,7 @@ class PrintRequestBuilder
     */
     public function taskDefinitionsById(string $id): PrintTaskDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printTaskDefinition%2Did'] = $id;
+        $urlTplParams['printTaskDefinition_id'] = $id;
         return new PrintTaskDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

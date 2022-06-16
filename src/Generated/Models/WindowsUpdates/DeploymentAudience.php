@@ -7,16 +7,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeploymentAudience extends Entity implements Parsable 
+class DeploymentAudience extends Entity 
 {
-    /**
-     * @var array<UpdatableAsset>|null $exclusions Specifies the assets to exclude from the audience.
-    */
+    /** @var array<UpdatableAsset>|null $exclusions Specifies the assets to exclude from the audience. */
     private ?array $exclusions = null;
     
-    /**
-     * @var array<UpdatableAsset>|null $members Specifies the assets to include in the audience.
-    */
+    /** @var array<UpdatableAsset>|null $members Specifies the assets to include in the audience. */
     private ?array $members = null;
     
     /**
@@ -31,7 +27,7 @@ class DeploymentAudience extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeploymentAudience
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeploymentAudience {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeploymentAudience {
         return new DeploymentAudience();
     }
 
@@ -48,10 +44,9 @@ class DeploymentAudience extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'exclusions' => function (ParseNode $n) use ($o) { $o->setExclusions($n->getCollectionOfObjectValues(array(UpdatableAsset::class, 'createFromDiscriminatorValue'))); },
-            'members' => function (ParseNode $n) use ($o) { $o->setMembers($n->getCollectionOfObjectValues(array(UpdatableAsset::class, 'createFromDiscriminatorValue'))); },
+            'exclusions' => function (self $o, ParseNode $n) { $o->setExclusions($n->getCollectionOfObjectValues(UpdatableAsset::class)); },
+            'members' => function (self $o, ParseNode $n) { $o->setMembers($n->getCollectionOfObjectValues(UpdatableAsset::class)); },
         ]);
     }
 

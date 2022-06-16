@@ -7,31 +7,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ApplicationSignInDetailedSummary extends Entity implements Parsable 
+class ApplicationSignInDetailedSummary extends Entity 
 {
-    /**
-     * @var DateTime|null $aggregatedEventDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $aggregatedEventDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $aggregatedEventDateTime = null;
     
-    /**
-     * @var string|null $appDisplayName Name of the application that the user signed in to.
-    */
+    /** @var string|null $appDisplayName Name of the application that the user signed in to. */
     private ?string $appDisplayName = null;
     
-    /**
-     * @var string|null $appId ID of the application that the user signed in to.
-    */
+    /** @var string|null $appId ID of the application that the user signed in to. */
     private ?string $appId = null;
     
-    /**
-     * @var int|null $signInCount Count of sign-ins made by the application.
-    */
+    /** @var int|null $signInCount Count of sign-ins made by the application. */
     private ?int $signInCount = null;
     
-    /**
-     * @var SignInStatus|null $status Details of the sign-in status.
-    */
+    /** @var SignInStatus|null $status Details of the sign-in status. */
     private ?SignInStatus $status = null;
     
     /**
@@ -46,7 +36,7 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ApplicationSignInDetailedSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ApplicationSignInDetailedSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ApplicationSignInDetailedSummary {
         return new ApplicationSignInDetailedSummary();
     }
 
@@ -79,13 +69,12 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'aggregatedEventDateTime' => function (ParseNode $n) use ($o) { $o->setAggregatedEventDateTime($n->getDateTimeValue()); },
-            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'signInCount' => function (ParseNode $n) use ($o) { $o->setSignInCount($n->getIntegerValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getObjectValue(array(SignInStatus::class, 'createFromDiscriminatorValue'))); },
+            'aggregatedEventDateTime' => function (self $o, ParseNode $n) { $o->setAggregatedEventDateTime($n->getDateTimeValue()); },
+            'appDisplayName' => function (self $o, ParseNode $n) { $o->setAppDisplayName($n->getStringValue()); },
+            'appId' => function (self $o, ParseNode $n) { $o->setAppId($n->getStringValue()); },
+            'signInCount' => function (self $o, ParseNode $n) { $o->setSignInCount($n->getIntegerValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getObjectValue(SignInStatus::class)); },
         ]);
     }
 

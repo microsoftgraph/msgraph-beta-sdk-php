@@ -6,31 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SecurityBaselineState extends Entity implements Parsable 
+class SecurityBaselineState extends Entity 
 {
-    /**
-     * @var string|null $displayName The display name of the security baseline
-    */
+    /** @var string|null $displayName The display name of the security baseline */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $securityBaselineTemplateId The security baseline template id
-    */
+    /** @var string|null $securityBaselineTemplateId The security baseline template id */
     private ?string $securityBaselineTemplateId = null;
     
-    /**
-     * @var array<SecurityBaselineSettingState>|null $settingStates The security baseline state for different settings for a device
-    */
+    /** @var array<SecurityBaselineSettingState>|null $settingStates The security baseline state for different settings for a device */
     private ?array $settingStates = null;
     
-    /**
-     * @var SecurityBaselineComplianceState|null $state Security baseline compliance state
-    */
+    /** @var SecurityBaselineComplianceState|null $state Security baseline compliance state */
     private ?SecurityBaselineComplianceState $state = null;
     
-    /**
-     * @var string|null $userPrincipalName User Principal Name
-    */
+    /** @var string|null $userPrincipalName User Principal Name */
     private ?string $userPrincipalName = null;
     
     /**
@@ -45,7 +35,7 @@ class SecurityBaselineState extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SecurityBaselineState
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SecurityBaselineState {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SecurityBaselineState {
         return new SecurityBaselineState();
     }
 
@@ -62,13 +52,12 @@ class SecurityBaselineState extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'securityBaselineTemplateId' => function (ParseNode $n) use ($o) { $o->setSecurityBaselineTemplateId($n->getStringValue()); },
-            'settingStates' => function (ParseNode $n) use ($o) { $o->setSettingStates($n->getCollectionOfObjectValues(array(SecurityBaselineSettingState::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(SecurityBaselineComplianceState::class)); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'securityBaselineTemplateId' => function (self $o, ParseNode $n) { $o->setSecurityBaselineTemplateId($n->getStringValue()); },
+            'settingStates' => function (self $o, ParseNode $n) { $o->setSettingStates($n->getCollectionOfObjectValues(SecurityBaselineSettingState::class)); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(SecurityBaselineComplianceState::class)); },
+            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 

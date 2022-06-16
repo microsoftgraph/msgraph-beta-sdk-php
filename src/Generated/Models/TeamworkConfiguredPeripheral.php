@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkConfiguredPeripheral implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $isOptional True if the current peripheral is optional. If set to false, this property is also used as part of the calculation of the health state for the device.
-    */
+    /** @var bool|null $isOptional True if the current peripheral is optional. If set to false, this property is also used as part of the calculation of the health state for the device. */
     private ?bool $isOptional = null;
     
-    /**
-     * @var TeamworkPeripheral|null $peripheral The peripheral property
-    */
+    /** @var TeamworkPeripheral|null $peripheral The peripheral property */
     private ?TeamworkPeripheral $peripheral = null;
     
     /**
@@ -36,7 +30,7 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkConfiguredPeripheral
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkConfiguredPeripheral {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkConfiguredPeripheral {
         return new TeamworkConfiguredPeripheral();
     }
 
@@ -53,10 +47,9 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'isOptional' => function (ParseNode $n) use ($o) { $o->setIsOptional($n->getBooleanValue()); },
-            'peripheral' => function (ParseNode $n) use ($o) { $o->setPeripheral($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
+            'isOptional' => function (self $o, ParseNode $n) { $o->setIsOptional($n->getBooleanValue()); },
+            'peripheral' => function (self $o, ParseNode $n) { $o->setPeripheral($n->getObjectValue(TeamworkPeripheral::class)); },
         ];
     }
 

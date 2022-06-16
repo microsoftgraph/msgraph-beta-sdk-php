@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ScopedRoleMembership extends Entity implements Parsable 
+class ScopedRoleMembership extends Entity 
 {
-    /**
-     * @var string|null $administrativeUnitId Unique identifier for the administrative unit that the directory role is scoped to
-    */
+    /** @var string|null $administrativeUnitId Unique identifier for the administrative unit that the directory role is scoped to */
     private ?string $administrativeUnitId = null;
     
-    /**
-     * @var string|null $roleId Unique identifier for the directory role that the member is in.
-    */
+    /** @var string|null $roleId Unique identifier for the directory role that the member is in. */
     private ?string $roleId = null;
     
-    /**
-     * @var Identity|null $roleMemberInfo The roleMemberInfo property
-    */
+    /** @var Identity|null $roleMemberInfo The roleMemberInfo property */
     private ?Identity $roleMemberInfo = null;
     
     /**
@@ -35,7 +29,7 @@ class ScopedRoleMembership extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ScopedRoleMembership
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ScopedRoleMembership {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ScopedRoleMembership {
         return new ScopedRoleMembership();
     }
 
@@ -52,11 +46,10 @@ class ScopedRoleMembership extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'administrativeUnitId' => function (ParseNode $n) use ($o) { $o->setAdministrativeUnitId($n->getStringValue()); },
-            'roleId' => function (ParseNode $n) use ($o) { $o->setRoleId($n->getStringValue()); },
-            'roleMemberInfo' => function (ParseNode $n) use ($o) { $o->setRoleMemberInfo($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
+            'administrativeUnitId' => function (self $o, ParseNode $n) { $o->setAdministrativeUnitId($n->getStringValue()); },
+            'roleId' => function (self $o, ParseNode $n) { $o->setRoleId($n->getStringValue()); },
+            'roleMemberInfo' => function (self $o, ParseNode $n) { $o->setRoleMemberInfo($n->getObjectValue(Identity::class)); },
         ]);
     }
 

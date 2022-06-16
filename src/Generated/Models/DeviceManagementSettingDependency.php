@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementSettingDependency implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<DeviceManagementConstraint>|null $constraints Collection of constraints for the dependency setting value
-    */
+    /** @var array<DeviceManagementConstraint>|null $constraints Collection of constraints for the dependency setting value */
     private ?array $constraints = null;
     
-    /**
-     * @var string|null $definitionId The setting definition ID of the setting depended on
-    */
+    /** @var string|null $definitionId The setting definition ID of the setting depended on */
     private ?string $definitionId = null;
     
     /**
@@ -36,7 +30,7 @@ class DeviceManagementSettingDependency implements AdditionalDataHolder, Parsabl
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementSettingDependency
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementSettingDependency {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementSettingDependency {
         return new DeviceManagementSettingDependency();
     }
 
@@ -69,10 +63,9 @@ class DeviceManagementSettingDependency implements AdditionalDataHolder, Parsabl
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'constraints' => function (ParseNode $n) use ($o) { $o->setConstraints($n->getCollectionOfObjectValues(array(DeviceManagementConstraint::class, 'createFromDiscriminatorValue'))); },
-            'definitionId' => function (ParseNode $n) use ($o) { $o->setDefinitionId($n->getStringValue()); },
+            'constraints' => function (self $o, ParseNode $n) { $o->setConstraints($n->getCollectionOfObjectValues(DeviceManagementConstraint::class)); },
+            'definitionId' => function (self $o, ParseNode $n) { $o->setDefinitionId($n->getStringValue()); },
         ];
     }
 

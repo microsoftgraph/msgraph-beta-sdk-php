@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeleteAction implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $name The name of the item that was deleted.
-    */
+    /** @var string|null $name The name of the item that was deleted. */
     private ?string $name = null;
     
-    /**
-     * @var string|null $objectType File or Folder, depending on the type of the deleted item.
-    */
+    /** @var string|null $objectType File or Folder, depending on the type of the deleted item. */
     private ?string $objectType = null;
     
     /**
@@ -36,7 +30,7 @@ class DeleteAction implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeleteAction
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeleteAction {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeleteAction {
         return new DeleteAction();
     }
 
@@ -53,10 +47,9 @@ class DeleteAction implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'objectType' => function (ParseNode $n) use ($o) { $o->setObjectType($n->getStringValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'objectType' => function (self $o, ParseNode $n) { $o->setObjectType($n->getStringValue()); },
         ];
     }
 

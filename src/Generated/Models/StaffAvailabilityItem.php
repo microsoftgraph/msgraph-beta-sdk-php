@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class StaffAvailabilityItem implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<AvailabilityItem>|null $availabilityItems Each item in this collection indicates a slot and the status of the staff member.
-    */
+    /** @var array<AvailabilityItem>|null $availabilityItems The availabilityItems property */
     private ?array $availabilityItems = null;
     
-    /**
-     * @var string|null $staffId The ID of the staff member.
-    */
+    /** @var string|null $staffId The staffId property */
     private ?string $staffId = null;
     
     /**
@@ -36,7 +30,7 @@ class StaffAvailabilityItem implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return StaffAvailabilityItem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): StaffAvailabilityItem {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): StaffAvailabilityItem {
         return new StaffAvailabilityItem();
     }
 
@@ -49,7 +43,7 @@ class StaffAvailabilityItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the availabilityItems property value. Each item in this collection indicates a slot and the status of the staff member.
+     * Gets the availabilityItems property value. The availabilityItems property
      * @return array<AvailabilityItem>|null
     */
     public function getAvailabilityItems(): ?array {
@@ -61,15 +55,14 @@ class StaffAvailabilityItem implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'availabilityItems' => function (ParseNode $n) use ($o) { $o->setAvailabilityItems($n->getCollectionOfObjectValues(array(AvailabilityItem::class, 'createFromDiscriminatorValue'))); },
-            'staffId' => function (ParseNode $n) use ($o) { $o->setStaffId($n->getStringValue()); },
+            'availabilityItems' => function (self $o, ParseNode $n) { $o->setAvailabilityItems($n->getCollectionOfObjectValues(AvailabilityItem::class)); },
+            'staffId' => function (self $o, ParseNode $n) { $o->setStaffId($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the staffId property value. The ID of the staff member.
+     * Gets the staffId property value. The staffId property
      * @return string|null
     */
     public function getStaffId(): ?string {
@@ -95,7 +88,7 @@ class StaffAvailabilityItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the availabilityItems property value. Each item in this collection indicates a slot and the status of the staff member.
+     * Sets the availabilityItems property value. The availabilityItems property
      *  @param array<AvailabilityItem>|null $value Value to set for the availabilityItems property.
     */
     public function setAvailabilityItems(?array $value ): void {
@@ -103,7 +96,7 @@ class StaffAvailabilityItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the staffId property value. The ID of the staff member.
+     * Sets the staffId property value. The staffId property
      *  @param string|null $value Value to set for the staffId property.
     */
     public function setStaffId(?string $value ): void {

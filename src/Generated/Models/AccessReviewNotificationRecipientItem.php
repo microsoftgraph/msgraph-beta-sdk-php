@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AccessReviewNotificationRecipientItem implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var AccessReviewNotificationRecipientScope|null $notificationRecipientScope Determines the recipient of the notification email.
-    */
+    /** @var AccessReviewNotificationRecipientScope|null $notificationRecipientScope Determines the recipient of the notification email. */
     private ?AccessReviewNotificationRecipientScope $notificationRecipientScope = null;
     
-    /**
-     * @var string|null $notificationTemplateType Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients.
-    */
+    /** @var string|null $notificationTemplateType Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients. */
     private ?string $notificationTemplateType = null;
     
     /**
@@ -36,7 +30,7 @@ class AccessReviewNotificationRecipientItem implements AdditionalDataHolder, Par
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessReviewNotificationRecipientItem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewNotificationRecipientItem {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewNotificationRecipientItem {
         return new AccessReviewNotificationRecipientItem();
     }
 
@@ -53,10 +47,9 @@ class AccessReviewNotificationRecipientItem implements AdditionalDataHolder, Par
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'notificationRecipientScope' => function (ParseNode $n) use ($o) { $o->setNotificationRecipientScope($n->getObjectValue(array(AccessReviewNotificationRecipientScope::class, 'createFromDiscriminatorValue'))); },
-            'notificationTemplateType' => function (ParseNode $n) use ($o) { $o->setNotificationTemplateType($n->getStringValue()); },
+            'notificationRecipientScope' => function (self $o, ParseNode $n) { $o->setNotificationRecipientScope($n->getObjectValue(AccessReviewNotificationRecipientScope::class)); },
+            'notificationTemplateType' => function (self $o, ParseNode $n) { $o->setNotificationTemplateType($n->getStringValue()); },
         ];
     }
 
@@ -69,7 +62,7 @@ class AccessReviewNotificationRecipientItem implements AdditionalDataHolder, Par
     }
 
     /**
-     * Gets the notificationTemplateType property value. Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients.
+     * Gets the notificationTemplateType property value. Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.
      * @return string|null
     */
     public function getNotificationTemplateType(): ?string {
@@ -103,7 +96,7 @@ class AccessReviewNotificationRecipientItem implements AdditionalDataHolder, Par
     }
 
     /**
-     * Sets the notificationTemplateType property value. Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients.
+     * Sets the notificationTemplateType property value. Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.
      *  @param string|null $value Value to set for the notificationTemplateType property.
     */
     public function setNotificationTemplateType(?string $value ): void {

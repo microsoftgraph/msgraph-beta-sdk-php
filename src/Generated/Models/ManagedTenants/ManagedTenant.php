@@ -7,131 +7,78 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagedTenant extends Entity implements Parsable 
+class ManagedTenant extends Entity 
 {
-    /**
-     * @var array<AggregatedPolicyCompliance>|null $aggregatedPolicyCompliances Aggregate view of device compliance policies across managed tenants.
-    */
+    /** @var array<AggregatedPolicyCompliance>|null $aggregatedPolicyCompliances Aggregate view of device compliance policies across managed tenants. */
     private ?array $aggregatedPolicyCompliances = null;
     
-    /**
-     * @var array<AuditEvent>|null $auditEvents The collection of audit events across managed tenants.
-    */
+    /** @var array<AuditEvent>|null $auditEvents The collection of audit events across managed tenants. */
     private ?array $auditEvents = null;
     
-    /**
-     * @var array<CloudPcConnection>|null $cloudPcConnections The collection of cloud PC connections across managed tenants.
-    */
+    /** @var array<CloudPcConnection>|null $cloudPcConnections The collection of cloud PC connections across managed tenants. */
     private ?array $cloudPcConnections = null;
     
-    /**
-     * @var array<CloudPcDevice>|null $cloudPcDevices The collection of cloud PC devices across managed tenants.
-    */
+    /** @var array<CloudPcDevice>|null $cloudPcDevices The collection of cloud PC devices across managed tenants. */
     private ?array $cloudPcDevices = null;
     
-    /**
-     * @var array<CloudPcOverview>|null $cloudPcsOverview Overview of cloud PC information across managed tenants.
-    */
+    /** @var array<CloudPcOverview>|null $cloudPcsOverview Overview of cloud PC information across managed tenants. */
     private ?array $cloudPcsOverview = null;
     
-    /**
-     * @var array<ConditionalAccessPolicyCoverage>|null $conditionalAccessPolicyCoverages Aggregate view of conditional access policy coverage across managed tenants.
-    */
+    /** @var array<ConditionalAccessPolicyCoverage>|null $conditionalAccessPolicyCoverages Aggregate view of conditional access policy coverage across managed tenants. */
     private ?array $conditionalAccessPolicyCoverages = null;
     
-    /**
-     * @var array<CredentialUserRegistrationsSummary>|null $credentialUserRegistrationsSummaries Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.
-    */
+    /** @var array<CredentialUserRegistrationsSummary>|null $credentialUserRegistrationsSummaries Summary information for user registration for multi-factor authentication and self service password reset across managed tenants. */
     private ?array $credentialUserRegistrationsSummaries = null;
     
-    /**
-     * @var array<DeviceCompliancePolicySettingStateSummary>|null $deviceCompliancePolicySettingStateSummaries Summary information for device compliance policy setting states across managed tenants.
-    */
+    /** @var array<DeviceCompliancePolicySettingStateSummary>|null $deviceCompliancePolicySettingStateSummaries Summary information for device compliance policy setting states across managed tenants. */
     private ?array $deviceCompliancePolicySettingStateSummaries = null;
     
-    /**
-     * @var array<ManagedDeviceCompliance>|null $managedDeviceCompliances The collection of compliance for managed devices across managed tenants.
-    */
+    /** @var array<ManagedDeviceCompliance>|null $managedDeviceCompliances The collection of compliance for managed devices across managed tenants. */
     private ?array $managedDeviceCompliances = null;
     
-    /**
-     * @var array<ManagedDeviceComplianceTrend>|null $managedDeviceComplianceTrends Trend insights for device compliance across managed tenants.
-    */
+    /** @var array<ManagedDeviceComplianceTrend>|null $managedDeviceComplianceTrends Trend insights for device compliance across managed tenants. */
     private ?array $managedDeviceComplianceTrends = null;
     
-    /**
-     * @var array<ManagementAction>|null $managementActions The collection of baseline management actions across managed tenants.
-    */
+    /** @var array<ManagementAction>|null $managementActions The collection of baseline management actions across managed tenants. */
     private ?array $managementActions = null;
     
-    /**
-     * @var array<ManagementActionTenantDeploymentStatus>|null $managementActionTenantDeploymentStatuses The tenant level status of management actions across managed tenants.
-    */
+    /** @var array<ManagementActionTenantDeploymentStatus>|null $managementActionTenantDeploymentStatuses The tenant level status of management actions across managed tenants. */
     private ?array $managementActionTenantDeploymentStatuses = null;
     
-    /**
-     * @var array<ManagementIntent>|null $managementIntents The collection of baseline management intents across managed tenants.
-    */
+    /** @var array<ManagementIntent>|null $managementIntents The collection of baseline management intents across managed tenants. */
     private ?array $managementIntents = null;
     
-    /**
-     * @var array<ManagementTemplateCollection>|null $managementTemplateCollections The managementTemplateCollections property
-    */
+    /** @var array<ManagementTemplateCollection>|null $managementTemplateCollections The managementTemplateCollections property */
     private ?array $managementTemplateCollections = null;
     
-    /**
-     * @var array<ManagementTemplate>|null $managementTemplates The collection of baseline management templates across managed tenants.
-    */
+    /** @var array<ManagementTemplate>|null $managementTemplates The collection of baseline management templates across managed tenants. */
     private ?array $managementTemplates = null;
     
-    /**
-     * @var array<ManagementTemplateStep>|null $managementTemplateSteps The managementTemplateSteps property
-    */
+    /** @var array<ManagementTemplateStep>|null $managementTemplateSteps The managementTemplateSteps property */
     private ?array $managementTemplateSteps = null;
     
-    /**
-     * @var array<ManagementTemplateStepVersion>|null $managementTemplateStepVersions The managementTemplateStepVersions property
-    */
+    /** @var array<ManagementTemplateStepVersion>|null $managementTemplateStepVersions The managementTemplateStepVersions property */
     private ?array $managementTemplateStepVersions = null;
     
-    /**
-     * @var array<MyRole>|null $myRoles The collection of role assignments to a signed-in user for a managed tenant.
-    */
-    private ?array $myRoles = null;
-    
-    /**
-     * @var array<TenantGroup>|null $tenantGroups The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
-    */
+    /** @var array<TenantGroup>|null $tenantGroups The collection of a logical grouping of managed tenants used by the multi-tenant management platform. */
     private ?array $tenantGroups = null;
     
-    /**
-     * @var array<Tenant>|null $tenants The collection of tenants associated with the managing entity.
-    */
+    /** @var array<Tenant>|null $tenants The collection of tenants associated with the managing entity. */
     private ?array $tenants = null;
     
-    /**
-     * @var array<TenantCustomizedInformation>|null $tenantsCustomizedInformation The collection of tenant level customized information across managed tenants.
-    */
+    /** @var array<TenantCustomizedInformation>|null $tenantsCustomizedInformation The collection of tenant level customized information across managed tenants. */
     private ?array $tenantsCustomizedInformation = null;
     
-    /**
-     * @var array<TenantDetailedInformation>|null $tenantsDetailedInformation The collection tenant level detailed information across managed tenants.
-    */
+    /** @var array<TenantDetailedInformation>|null $tenantsDetailedInformation The collection tenant level detailed information across managed tenants. */
     private ?array $tenantsDetailedInformation = null;
     
-    /**
-     * @var array<TenantTag>|null $tenantTags The collection of tenant tags across managed tenants.
-    */
+    /** @var array<TenantTag>|null $tenantTags The collection of tenant tags across managed tenants. */
     private ?array $tenantTags = null;
     
-    /**
-     * @var array<WindowsDeviceMalwareState>|null $windowsDeviceMalwareStates The state of malware for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.
-    */
+    /** @var array<WindowsDeviceMalwareState>|null $windowsDeviceMalwareStates The state of malware for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants. */
     private ?array $windowsDeviceMalwareStates = null;
     
-    /**
-     * @var array<WindowsProtectionState>|null $windowsProtectionStates The protection state for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.
-    */
+    /** @var array<WindowsProtectionState>|null $windowsProtectionStates The protection state for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants. */
     private ?array $windowsProtectionStates = null;
     
     /**
@@ -146,7 +93,7 @@ class ManagedTenant extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagedTenant
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagedTenant {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagedTenant {
         return new ManagedTenant();
     }
 
@@ -219,33 +166,31 @@ class ManagedTenant extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'aggregatedPolicyCompliances' => function (ParseNode $n) use ($o) { $o->setAggregatedPolicyCompliances($n->getCollectionOfObjectValues(array(AggregatedPolicyCompliance::class, 'createFromDiscriminatorValue'))); },
-            'auditEvents' => function (ParseNode $n) use ($o) { $o->setAuditEvents($n->getCollectionOfObjectValues(array(AuditEvent::class, 'createFromDiscriminatorValue'))); },
-            'cloudPcConnections' => function (ParseNode $n) use ($o) { $o->setCloudPcConnections($n->getCollectionOfObjectValues(array(CloudPcConnection::class, 'createFromDiscriminatorValue'))); },
-            'cloudPcDevices' => function (ParseNode $n) use ($o) { $o->setCloudPcDevices($n->getCollectionOfObjectValues(array(CloudPcDevice::class, 'createFromDiscriminatorValue'))); },
-            'cloudPcsOverview' => function (ParseNode $n) use ($o) { $o->setCloudPcsOverview($n->getCollectionOfObjectValues(array(CloudPcOverview::class, 'createFromDiscriminatorValue'))); },
-            'conditionalAccessPolicyCoverages' => function (ParseNode $n) use ($o) { $o->setConditionalAccessPolicyCoverages($n->getCollectionOfObjectValues(array(ConditionalAccessPolicyCoverage::class, 'createFromDiscriminatorValue'))); },
-            'credentialUserRegistrationsSummaries' => function (ParseNode $n) use ($o) { $o->setCredentialUserRegistrationsSummaries($n->getCollectionOfObjectValues(array(CredentialUserRegistrationsSummary::class, 'createFromDiscriminatorValue'))); },
-            'deviceCompliancePolicySettingStateSummaries' => function (ParseNode $n) use ($o) { $o->setDeviceCompliancePolicySettingStateSummaries($n->getCollectionOfObjectValues(array(DeviceCompliancePolicySettingStateSummary::class, 'createFromDiscriminatorValue'))); },
-            'managedDeviceCompliances' => function (ParseNode $n) use ($o) { $o->setManagedDeviceCompliances($n->getCollectionOfObjectValues(array(ManagedDeviceCompliance::class, 'createFromDiscriminatorValue'))); },
-            'managedDeviceComplianceTrends' => function (ParseNode $n) use ($o) { $o->setManagedDeviceComplianceTrends($n->getCollectionOfObjectValues(array(ManagedDeviceComplianceTrend::class, 'createFromDiscriminatorValue'))); },
-            'managementActions' => function (ParseNode $n) use ($o) { $o->setManagementActions($n->getCollectionOfObjectValues(array(ManagementAction::class, 'createFromDiscriminatorValue'))); },
-            'managementActionTenantDeploymentStatuses' => function (ParseNode $n) use ($o) { $o->setManagementActionTenantDeploymentStatuses($n->getCollectionOfObjectValues(array(ManagementActionTenantDeploymentStatus::class, 'createFromDiscriminatorValue'))); },
-            'managementIntents' => function (ParseNode $n) use ($o) { $o->setManagementIntents($n->getCollectionOfObjectValues(array(ManagementIntent::class, 'createFromDiscriminatorValue'))); },
-            'managementTemplateCollections' => function (ParseNode $n) use ($o) { $o->setManagementTemplateCollections($n->getCollectionOfObjectValues(array(ManagementTemplateCollection::class, 'createFromDiscriminatorValue'))); },
-            'managementTemplates' => function (ParseNode $n) use ($o) { $o->setManagementTemplates($n->getCollectionOfObjectValues(array(ManagementTemplate::class, 'createFromDiscriminatorValue'))); },
-            'managementTemplateSteps' => function (ParseNode $n) use ($o) { $o->setManagementTemplateSteps($n->getCollectionOfObjectValues(array(ManagementTemplateStep::class, 'createFromDiscriminatorValue'))); },
-            'managementTemplateStepVersions' => function (ParseNode $n) use ($o) { $o->setManagementTemplateStepVersions($n->getCollectionOfObjectValues(array(ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'))); },
-            'myRoles' => function (ParseNode $n) use ($o) { $o->setMyRoles($n->getCollectionOfObjectValues(array(MyRole::class, 'createFromDiscriminatorValue'))); },
-            'tenantGroups' => function (ParseNode $n) use ($o) { $o->setTenantGroups($n->getCollectionOfObjectValues(array(TenantGroup::class, 'createFromDiscriminatorValue'))); },
-            'tenants' => function (ParseNode $n) use ($o) { $o->setTenants($n->getCollectionOfObjectValues(array(Tenant::class, 'createFromDiscriminatorValue'))); },
-            'tenantsCustomizedInformation' => function (ParseNode $n) use ($o) { $o->setTenantsCustomizedInformation($n->getCollectionOfObjectValues(array(TenantCustomizedInformation::class, 'createFromDiscriminatorValue'))); },
-            'tenantsDetailedInformation' => function (ParseNode $n) use ($o) { $o->setTenantsDetailedInformation($n->getCollectionOfObjectValues(array(TenantDetailedInformation::class, 'createFromDiscriminatorValue'))); },
-            'tenantTags' => function (ParseNode $n) use ($o) { $o->setTenantTags($n->getCollectionOfObjectValues(array(TenantTag::class, 'createFromDiscriminatorValue'))); },
-            'windowsDeviceMalwareStates' => function (ParseNode $n) use ($o) { $o->setWindowsDeviceMalwareStates($n->getCollectionOfObjectValues(array(WindowsDeviceMalwareState::class, 'createFromDiscriminatorValue'))); },
-            'windowsProtectionStates' => function (ParseNode $n) use ($o) { $o->setWindowsProtectionStates($n->getCollectionOfObjectValues(array(WindowsProtectionState::class, 'createFromDiscriminatorValue'))); },
+            'aggregatedPolicyCompliances' => function (self $o, ParseNode $n) { $o->setAggregatedPolicyCompliances($n->getCollectionOfObjectValues(AggregatedPolicyCompliance::class)); },
+            'auditEvents' => function (self $o, ParseNode $n) { $o->setAuditEvents($n->getCollectionOfObjectValues(AuditEvent::class)); },
+            'cloudPcConnections' => function (self $o, ParseNode $n) { $o->setCloudPcConnections($n->getCollectionOfObjectValues(CloudPcConnection::class)); },
+            'cloudPcDevices' => function (self $o, ParseNode $n) { $o->setCloudPcDevices($n->getCollectionOfObjectValues(CloudPcDevice::class)); },
+            'cloudPcsOverview' => function (self $o, ParseNode $n) { $o->setCloudPcsOverview($n->getCollectionOfObjectValues(CloudPcOverview::class)); },
+            'conditionalAccessPolicyCoverages' => function (self $o, ParseNode $n) { $o->setConditionalAccessPolicyCoverages($n->getCollectionOfObjectValues(ConditionalAccessPolicyCoverage::class)); },
+            'credentialUserRegistrationsSummaries' => function (self $o, ParseNode $n) { $o->setCredentialUserRegistrationsSummaries($n->getCollectionOfObjectValues(CredentialUserRegistrationsSummary::class)); },
+            'deviceCompliancePolicySettingStateSummaries' => function (self $o, ParseNode $n) { $o->setDeviceCompliancePolicySettingStateSummaries($n->getCollectionOfObjectValues(DeviceCompliancePolicySettingStateSummary::class)); },
+            'managedDeviceCompliances' => function (self $o, ParseNode $n) { $o->setManagedDeviceCompliances($n->getCollectionOfObjectValues(ManagedDeviceCompliance::class)); },
+            'managedDeviceComplianceTrends' => function (self $o, ParseNode $n) { $o->setManagedDeviceComplianceTrends($n->getCollectionOfObjectValues(ManagedDeviceComplianceTrend::class)); },
+            'managementActions' => function (self $o, ParseNode $n) { $o->setManagementActions($n->getCollectionOfObjectValues(ManagementAction::class)); },
+            'managementActionTenantDeploymentStatuses' => function (self $o, ParseNode $n) { $o->setManagementActionTenantDeploymentStatuses($n->getCollectionOfObjectValues(ManagementActionTenantDeploymentStatus::class)); },
+            'managementIntents' => function (self $o, ParseNode $n) { $o->setManagementIntents($n->getCollectionOfObjectValues(ManagementIntent::class)); },
+            'managementTemplateCollections' => function (self $o, ParseNode $n) { $o->setManagementTemplateCollections($n->getCollectionOfObjectValues(ManagementTemplateCollection::class)); },
+            'managementTemplates' => function (self $o, ParseNode $n) { $o->setManagementTemplates($n->getCollectionOfObjectValues(ManagementTemplate::class)); },
+            'managementTemplateSteps' => function (self $o, ParseNode $n) { $o->setManagementTemplateSteps($n->getCollectionOfObjectValues(ManagementTemplateStep::class)); },
+            'managementTemplateStepVersions' => function (self $o, ParseNode $n) { $o->setManagementTemplateStepVersions($n->getCollectionOfObjectValues(ManagementTemplateStepVersion::class)); },
+            'tenantGroups' => function (self $o, ParseNode $n) { $o->setTenantGroups($n->getCollectionOfObjectValues(TenantGroup::class)); },
+            'tenants' => function (self $o, ParseNode $n) { $o->setTenants($n->getCollectionOfObjectValues(Tenant::class)); },
+            'tenantsCustomizedInformation' => function (self $o, ParseNode $n) { $o->setTenantsCustomizedInformation($n->getCollectionOfObjectValues(TenantCustomizedInformation::class)); },
+            'tenantsDetailedInformation' => function (self $o, ParseNode $n) { $o->setTenantsDetailedInformation($n->getCollectionOfObjectValues(TenantDetailedInformation::class)); },
+            'tenantTags' => function (self $o, ParseNode $n) { $o->setTenantTags($n->getCollectionOfObjectValues(TenantTag::class)); },
+            'windowsDeviceMalwareStates' => function (self $o, ParseNode $n) { $o->setWindowsDeviceMalwareStates($n->getCollectionOfObjectValues(WindowsDeviceMalwareState::class)); },
+            'windowsProtectionStates' => function (self $o, ParseNode $n) { $o->setWindowsProtectionStates($n->getCollectionOfObjectValues(WindowsProtectionState::class)); },
         ]);
     }
 
@@ -319,14 +264,6 @@ class ManagedTenant extends Entity implements Parsable
     */
     public function getManagementTemplateStepVersions(): ?array {
         return $this->managementTemplateStepVersions;
-    }
-
-    /**
-     * Gets the myRoles property value. The collection of role assignments to a signed-in user for a managed tenant.
-     * @return array<MyRole>|null
-    */
-    public function getMyRoles(): ?array {
-        return $this->myRoles;
     }
 
     /**
@@ -408,7 +345,6 @@ class ManagedTenant extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('managementTemplates', $this->managementTemplates);
         $writer->writeCollectionOfObjectValues('managementTemplateSteps', $this->managementTemplateSteps);
         $writer->writeCollectionOfObjectValues('managementTemplateStepVersions', $this->managementTemplateStepVersions);
-        $writer->writeCollectionOfObjectValues('myRoles', $this->myRoles);
         $writer->writeCollectionOfObjectValues('tenantGroups', $this->tenantGroups);
         $writer->writeCollectionOfObjectValues('tenants', $this->tenants);
         $writer->writeCollectionOfObjectValues('tenantsCustomizedInformation', $this->tenantsCustomizedInformation);
@@ -552,14 +488,6 @@ class ManagedTenant extends Entity implements Parsable
     */
     public function setManagementTemplateStepVersions(?array $value ): void {
         $this->managementTemplateStepVersions = $value;
-    }
-
-    /**
-     * Sets the myRoles property value. The collection of role assignments to a signed-in user for a managed tenant.
-     *  @param array<MyRole>|null $value Value to set for the myRoles property.
-    */
-    public function setMyRoles(?array $value ): void {
-        $this->myRoles = $value;
     }
 
     /**

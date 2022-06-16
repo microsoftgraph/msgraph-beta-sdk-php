@@ -7,16 +7,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagedEBookCategory extends Entity implements Parsable 
+class ManagedEBookCategory extends Entity 
 {
-    /**
-     * @var string|null $displayName The name of the eBook category.
-    */
+    /** @var string|null $displayName The name of the eBook category. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the ManagedEBookCategory was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time the ManagedEBookCategory was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
@@ -31,7 +27,7 @@ class ManagedEBookCategory extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagedEBookCategory
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagedEBookCategory {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagedEBookCategory {
         return new ManagedEBookCategory();
     }
 
@@ -48,10 +44,9 @@ class ManagedEBookCategory extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ContentInfo implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var ContentFormat|null $format Possible values are: default, email.
-    */
+    /** @var ContentFormat|null $format Possible values are: default, email. */
     private ?ContentFormat $format = null;
     
-    /**
-     * @var string|null $identifier Identifier used for Azure Information Protection Analytics.
-    */
+    /** @var string|null $identifier Identifier used for Azure Information Protection Analytics. */
     private ?string $identifier = null;
     
-    /**
-     * @var array<KeyValuePair>|null $metadata Existing Microsoft Purview Information Protection metadata is passed as key/value pairs, where the key is the MSIP_Label_GUID_PropName.
-    */
+    /** @var array<KeyValuePair>|null $metadata Existing Microsoft Information Protection metadata is passed as key/value pairs, where the key is the MSIP_Label_GUID_PropName. */
     private ?array $metadata = null;
     
-    /**
-     * @var ContentState|null $state Possible values are: rest, motion, use.
-    */
+    /** @var ContentState|null $state Possible values are: rest, motion, use. */
     private ?ContentState $state = null;
     
     /**
@@ -46,7 +36,7 @@ class ContentInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ContentInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ContentInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ContentInfo {
         return new ContentInfo();
     }
 
@@ -63,12 +53,11 @@ class ContentInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'format' => function (ParseNode $n) use ($o) { $o->setFormat($n->getEnumValue(ContentFormat::class)); },
-            'identifier' => function (ParseNode $n) use ($o) { $o->setIdentifier($n->getStringValue()); },
-            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ContentState::class)); },
+            'format' => function (self $o, ParseNode $n) { $o->setFormat($n->getEnumValue(ContentFormat::class)); },
+            'identifier' => function (self $o, ParseNode $n) { $o->setIdentifier($n->getStringValue()); },
+            'metadata' => function (self $o, ParseNode $n) { $o->setMetadata($n->getCollectionOfObjectValues(KeyValuePair::class)); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(ContentState::class)); },
         ];
     }
 
@@ -89,7 +78,7 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the metadata property value. Existing Microsoft Purview Information Protection metadata is passed as key/value pairs, where the key is the MSIP_Label_GUID_PropName.
+     * Gets the metadata property value. Existing Microsoft Information Protection metadata is passed as key/value pairs, where the key is the MSIP_Label_GUID_PropName.
      * @return array<KeyValuePair>|null
     */
     public function getMetadata(): ?array {
@@ -141,7 +130,7 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the metadata property value. Existing Microsoft Purview Information Protection metadata is passed as key/value pairs, where the key is the MSIP_Label_GUID_PropName.
+     * Sets the metadata property value. Existing Microsoft Information Protection metadata is passed as key/value pairs, where the key is the MSIP_Label_GUID_PropName.
      *  @param array<KeyValuePair>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value ): void {

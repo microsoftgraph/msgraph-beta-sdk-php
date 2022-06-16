@@ -6,61 +6,39 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Directory extends Entity implements Parsable 
+class Directory extends Entity 
 {
-    /**
-     * @var array<AdministrativeUnit>|null $administrativeUnits Conceptual container for user and group directory objects.
-    */
+    /** @var array<AdministrativeUnit>|null $administrativeUnits Conceptual container for user and group directory objects. */
     private ?array $administrativeUnits = null;
     
-    /**
-     * @var array<AttributeSet>|null $attributeSets Group of related custom security attribute definitions.
-    */
+    /** @var array<AttributeSet>|null $attributeSets Group of related custom security attribute definitions. */
     private ?array $attributeSets = null;
     
-    /**
-     * @var array<CustomSecurityAttributeDefinition>|null $customSecurityAttributeDefinitions Schema of a custom security attributes (key-value pairs).
-    */
+    /** @var array<CustomSecurityAttributeDefinition>|null $customSecurityAttributeDefinitions Schema of a custom security attributes (key-value pairs). */
     private ?array $customSecurityAttributeDefinitions = null;
     
-    /**
-     * @var array<DirectoryObject>|null $deletedItems Recently deleted items. Read-only. Nullable.
-    */
+    /** @var array<DirectoryObject>|null $deletedItems Recently deleted items. Read-only. Nullable. */
     private ?array $deletedItems = null;
     
-    /**
-     * @var array<FeatureRolloutPolicy>|null $featureRolloutPolicies The featureRolloutPolicies property
-    */
+    /** @var array<FeatureRolloutPolicy>|null $featureRolloutPolicies Nullable. */
     private ?array $featureRolloutPolicies = null;
     
-    /**
-     * @var array<IdentityProviderBase>|null $federationConfigurations Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol.
-    */
+    /** @var array<IdentityProviderBase>|null $federationConfigurations Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol. */
     private ?array $federationConfigurations = null;
     
-    /**
-     * @var array<RecommendationResource>|null $impactedResources The impactedResources property
-    */
+    /** @var array<RecommendationResource>|null $impactedResources The impactedResources property */
     private ?array $impactedResources = null;
     
-    /**
-     * @var array<InboundSharedUserProfile>|null $inboundSharedUserProfiles The inboundSharedUserProfiles property
-    */
+    /** @var array<InboundSharedUserProfile>|null $inboundSharedUserProfiles The inboundSharedUserProfiles property */
     private ?array $inboundSharedUserProfiles = null;
     
-    /**
-     * @var array<OutboundSharedUserProfile>|null $outboundSharedUserProfiles The outboundSharedUserProfiles property
-    */
+    /** @var array<OutboundSharedUserProfile>|null $outboundSharedUserProfiles The outboundSharedUserProfiles property */
     private ?array $outboundSharedUserProfiles = null;
     
-    /**
-     * @var array<Recommendation>|null $recommendations The recommendations property
-    */
+    /** @var array<Recommendation>|null $recommendations The recommendations property */
     private ?array $recommendations = null;
     
-    /**
-     * @var array<SharedEmailDomain>|null $sharedEmailDomains The sharedEmailDomains property
-    */
+    /** @var array<SharedEmailDomain>|null $sharedEmailDomains The sharedEmailDomains property */
     private ?array $sharedEmailDomains = null;
     
     /**
@@ -75,7 +53,7 @@ class Directory extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Directory
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Directory {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Directory {
         return new Directory();
     }
 
@@ -112,7 +90,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the featureRolloutPolicies property value. The featureRolloutPolicies property
+     * Gets the featureRolloutPolicies property value. Nullable.
      * @return array<FeatureRolloutPolicy>|null
     */
     public function getFeatureRolloutPolicies(): ?array {
@@ -132,19 +110,18 @@ class Directory extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'administrativeUnits' => function (ParseNode $n) use ($o) { $o->setAdministrativeUnits($n->getCollectionOfObjectValues(array(AdministrativeUnit::class, 'createFromDiscriminatorValue'))); },
-            'attributeSets' => function (ParseNode $n) use ($o) { $o->setAttributeSets($n->getCollectionOfObjectValues(array(AttributeSet::class, 'createFromDiscriminatorValue'))); },
-            'customSecurityAttributeDefinitions' => function (ParseNode $n) use ($o) { $o->setCustomSecurityAttributeDefinitions($n->getCollectionOfObjectValues(array(CustomSecurityAttributeDefinition::class, 'createFromDiscriminatorValue'))); },
-            'deletedItems' => function (ParseNode $n) use ($o) { $o->setDeletedItems($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
-            'featureRolloutPolicies' => function (ParseNode $n) use ($o) { $o->setFeatureRolloutPolicies($n->getCollectionOfObjectValues(array(FeatureRolloutPolicy::class, 'createFromDiscriminatorValue'))); },
-            'federationConfigurations' => function (ParseNode $n) use ($o) { $o->setFederationConfigurations($n->getCollectionOfObjectValues(array(IdentityProviderBase::class, 'createFromDiscriminatorValue'))); },
-            'impactedResources' => function (ParseNode $n) use ($o) { $o->setImpactedResources($n->getCollectionOfObjectValues(array(RecommendationResource::class, 'createFromDiscriminatorValue'))); },
-            'inboundSharedUserProfiles' => function (ParseNode $n) use ($o) { $o->setInboundSharedUserProfiles($n->getCollectionOfObjectValues(array(InboundSharedUserProfile::class, 'createFromDiscriminatorValue'))); },
-            'outboundSharedUserProfiles' => function (ParseNode $n) use ($o) { $o->setOutboundSharedUserProfiles($n->getCollectionOfObjectValues(array(OutboundSharedUserProfile::class, 'createFromDiscriminatorValue'))); },
-            'recommendations' => function (ParseNode $n) use ($o) { $o->setRecommendations($n->getCollectionOfObjectValues(array(Recommendation::class, 'createFromDiscriminatorValue'))); },
-            'sharedEmailDomains' => function (ParseNode $n) use ($o) { $o->setSharedEmailDomains($n->getCollectionOfObjectValues(array(SharedEmailDomain::class, 'createFromDiscriminatorValue'))); },
+            'administrativeUnits' => function (self $o, ParseNode $n) { $o->setAdministrativeUnits($n->getCollectionOfObjectValues(AdministrativeUnit::class)); },
+            'attributeSets' => function (self $o, ParseNode $n) { $o->setAttributeSets($n->getCollectionOfObjectValues(AttributeSet::class)); },
+            'customSecurityAttributeDefinitions' => function (self $o, ParseNode $n) { $o->setCustomSecurityAttributeDefinitions($n->getCollectionOfObjectValues(CustomSecurityAttributeDefinition::class)); },
+            'deletedItems' => function (self $o, ParseNode $n) { $o->setDeletedItems($n->getCollectionOfObjectValues(DirectoryObject::class)); },
+            'featureRolloutPolicies' => function (self $o, ParseNode $n) { $o->setFeatureRolloutPolicies($n->getCollectionOfObjectValues(FeatureRolloutPolicy::class)); },
+            'federationConfigurations' => function (self $o, ParseNode $n) { $o->setFederationConfigurations($n->getCollectionOfObjectValues(IdentityProviderBase::class)); },
+            'impactedResources' => function (self $o, ParseNode $n) { $o->setImpactedResources($n->getCollectionOfObjectValues(RecommendationResource::class)); },
+            'inboundSharedUserProfiles' => function (self $o, ParseNode $n) { $o->setInboundSharedUserProfiles($n->getCollectionOfObjectValues(InboundSharedUserProfile::class)); },
+            'outboundSharedUserProfiles' => function (self $o, ParseNode $n) { $o->setOutboundSharedUserProfiles($n->getCollectionOfObjectValues(OutboundSharedUserProfile::class)); },
+            'recommendations' => function (self $o, ParseNode $n) { $o->setRecommendations($n->getCollectionOfObjectValues(Recommendation::class)); },
+            'sharedEmailDomains' => function (self $o, ParseNode $n) { $o->setSharedEmailDomains($n->getCollectionOfObjectValues(SharedEmailDomain::class)); },
         ]);
     }
 
@@ -240,7 +217,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Sets the featureRolloutPolicies property value. The featureRolloutPolicies property
+     * Sets the featureRolloutPolicies property value. Nullable.
      *  @param array<FeatureRolloutPolicy>|null $value Value to set for the featureRolloutPolicies property.
     */
     public function setFeatureRolloutPolicies(?array $value ): void {

@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $deviceAndAppManagementAssignmentFilterId The Id of the filter for the target assignment.
-    */
+    /** @var string|null $deviceAndAppManagementAssignmentFilterId The Id of the filter for the target assignment. */
     private ?string $deviceAndAppManagementAssignmentFilterId = null;
     
-    /**
-     * @var DeviceAndAppManagementAssignmentFilterType|null $deviceAndAppManagementAssignmentFilterType The type of filter of the target assignment i.e. Exclude or Include. Possible values are: none, include, exclude.
-    */
+    /** @var DeviceAndAppManagementAssignmentFilterType|null $deviceAndAppManagementAssignmentFilterType The type of filter of the target assignment i.e. Exclude or Include. Possible values are: none, include, exclude. */
     private ?DeviceAndAppManagementAssignmentFilterType $deviceAndAppManagementAssignmentFilterType = null;
     
     /**
@@ -36,7 +30,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Pa
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceAndAppManagementAssignmentTarget
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAndAppManagementAssignmentTarget {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAndAppManagementAssignmentTarget {
         return new DeviceAndAppManagementAssignmentTarget();
     }
 
@@ -69,10 +63,9 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Pa
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'deviceAndAppManagementAssignmentFilterId' => function (ParseNode $n) use ($o) { $o->setDeviceAndAppManagementAssignmentFilterId($n->getStringValue()); },
-            'deviceAndAppManagementAssignmentFilterType' => function (ParseNode $n) use ($o) { $o->setDeviceAndAppManagementAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)); },
+            'deviceAndAppManagementAssignmentFilterId' => function (self $o, ParseNode $n) { $o->setDeviceAndAppManagementAssignmentFilterId($n->getStringValue()); },
+            'deviceAndAppManagementAssignmentFilterType' => function (self $o, ParseNode $n) { $o->setDeviceAndAppManagementAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)); },
         ];
     }
 

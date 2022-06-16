@@ -6,51 +6,33 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Command extends Entity implements Parsable 
+class Command extends Entity 
 {
-    /**
-     * @var string|null $appServiceName The appServiceName property
-    */
+    /** @var string|null $appServiceName The appServiceName property */
     private ?string $appServiceName = null;
     
-    /**
-     * @var string|null $error The error property
-    */
+    /** @var string|null $error The error property */
     private ?string $error = null;
     
-    /**
-     * @var string|null $packageFamilyName The packageFamilyName property
-    */
+    /** @var string|null $packageFamilyName The packageFamilyName property */
     private ?string $packageFamilyName = null;
     
-    /**
-     * @var PayloadRequest|null $payload The payload property
-    */
+    /** @var PayloadRequest|null $payload The payload property */
     private ?PayloadRequest $payload = null;
     
-    /**
-     * @var string|null $permissionTicket The permissionTicket property
-    */
+    /** @var string|null $permissionTicket The permissionTicket property */
     private ?string $permissionTicket = null;
     
-    /**
-     * @var string|null $postBackUri The postBackUri property
-    */
+    /** @var string|null $postBackUri The postBackUri property */
     private ?string $postBackUri = null;
     
-    /**
-     * @var PayloadResponse|null $responsepayload The responsepayload property
-    */
+    /** @var PayloadResponse|null $responsepayload The responsepayload property */
     private ?PayloadResponse $responsepayload = null;
     
-    /**
-     * @var string|null $status The status property
-    */
+    /** @var string|null $status The status property */
     private ?string $status = null;
     
-    /**
-     * @var string|null $type The type property
-    */
+    /** @var string|null $type The type property */
     private ?string $type = null;
     
     /**
@@ -65,7 +47,7 @@ class Command extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Command
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Command {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Command {
         return new Command();
     }
 
@@ -90,17 +72,16 @@ class Command extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appServiceName' => function (ParseNode $n) use ($o) { $o->setAppServiceName($n->getStringValue()); },
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getStringValue()); },
-            'packageFamilyName' => function (ParseNode $n) use ($o) { $o->setPackageFamilyName($n->getStringValue()); },
-            'payload' => function (ParseNode $n) use ($o) { $o->setPayload($n->getObjectValue(array(PayloadRequest::class, 'createFromDiscriminatorValue'))); },
-            'permissionTicket' => function (ParseNode $n) use ($o) { $o->setPermissionTicket($n->getStringValue()); },
-            'postBackUri' => function (ParseNode $n) use ($o) { $o->setPostBackUri($n->getStringValue()); },
-            'responsepayload' => function (ParseNode $n) use ($o) { $o->setResponsepayload($n->getObjectValue(array(PayloadResponse::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'appServiceName' => function (self $o, ParseNode $n) { $o->setAppServiceName($n->getStringValue()); },
+            'error' => function (self $o, ParseNode $n) { $o->setError($n->getStringValue()); },
+            'packageFamilyName' => function (self $o, ParseNode $n) { $o->setPackageFamilyName($n->getStringValue()); },
+            'payload' => function (self $o, ParseNode $n) { $o->setPayload($n->getObjectValue(PayloadRequest::class)); },
+            'permissionTicket' => function (self $o, ParseNode $n) { $o->setPermissionTicket($n->getStringValue()); },
+            'postBackUri' => function (self $o, ParseNode $n) { $o->setPostBackUri($n->getStringValue()); },
+            'responsepayload' => function (self $o, ParseNode $n) { $o->setResponsepayload($n->getObjectValue(PayloadResponse::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
         ]);
     }
 

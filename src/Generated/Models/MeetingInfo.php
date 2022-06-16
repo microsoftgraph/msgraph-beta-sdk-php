@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MeetingInfo implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $allowConversationWithoutHost The allowConversationWithoutHost property
-    */
+    /** @var bool|null $allowConversationWithoutHost The allowConversationWithoutHost property */
     private ?bool $allowConversationWithoutHost = null;
     
     /**
@@ -31,7 +27,7 @@ class MeetingInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MeetingInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MeetingInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MeetingInfo {
         return new MeetingInfo();
     }
 
@@ -56,9 +52,8 @@ class MeetingInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'allowConversationWithoutHost' => function (ParseNode $n) use ($o) { $o->setAllowConversationWithoutHost($n->getBooleanValue()); },
+            'allowConversationWithoutHost' => function (self $o, ParseNode $n) { $o->setAllowConversationWithoutHost($n->getBooleanValue()); },
         ];
     }
 

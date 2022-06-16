@@ -9,25 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RgbColor implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $b Blue value
-    */
-    private ?string $b = null;
+    /** @var Byte|null $b Blue value */
+    private ?Byte $b = null;
     
-    /**
-     * @var string|null $g Green value
-    */
-    private ?string $g = null;
+    /** @var Byte|null $g Green value */
+    private ?Byte $g = null;
     
-    /**
-     * @var string|null $r Red value
-    */
-    private ?string $r = null;
+    /** @var Byte|null $r Red value */
+    private ?Byte $r = null;
     
     /**
      * Instantiates a new rgbColor and sets the default values.
@@ -41,7 +33,7 @@ class RgbColor implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RgbColor
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RgbColor {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RgbColor {
         return new RgbColor();
     }
 
@@ -55,9 +47,9 @@ class RgbColor implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the b property value. Blue value
-     * @return string|null
+     * @return Byte|null
     */
-    public function getB(): ?string {
+    public function getB(): ?Byte {
         return $this->b;
     }
 
@@ -66,27 +58,26 @@ class RgbColor implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'b' => function (ParseNode $n) use ($o) { $o->setB($n->getStringValue()); },
-            'g' => function (ParseNode $n) use ($o) { $o->setG($n->getStringValue()); },
-            'r' => function (ParseNode $n) use ($o) { $o->setR($n->getStringValue()); },
+            'b' => function (self $o, ParseNode $n) { $o->setB($n->getObjectValue(Byte::class)); },
+            'g' => function (self $o, ParseNode $n) { $o->setG($n->getObjectValue(Byte::class)); },
+            'r' => function (self $o, ParseNode $n) { $o->setR($n->getObjectValue(Byte::class)); },
         ];
     }
 
     /**
      * Gets the g property value. Green value
-     * @return string|null
+     * @return Byte|null
     */
-    public function getG(): ?string {
+    public function getG(): ?Byte {
         return $this->g;
     }
 
     /**
      * Gets the r property value. Red value
-     * @return string|null
+     * @return Byte|null
     */
-    public function getR(): ?string {
+    public function getR(): ?Byte {
         return $this->r;
     }
 
@@ -95,9 +86,9 @@ class RgbColor implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('b', $this->b);
-        $writer->writeStringValue('g', $this->g);
-        $writer->writeStringValue('r', $this->r);
+        $writer->writeAnyValue('b', $this->b);
+        $writer->writeAnyValue('g', $this->g);
+        $writer->writeAnyValue('r', $this->r);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -111,25 +102,25 @@ class RgbColor implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the b property value. Blue value
-     *  @param string|null $value Value to set for the b property.
+     *  @param Byte|null $value Value to set for the b property.
     */
-    public function setB(?string $value ): void {
+    public function setB(?Byte $value ): void {
         $this->b = $value;
     }
 
     /**
      * Sets the g property value. Green value
-     *  @param string|null $value Value to set for the g property.
+     *  @param Byte|null $value Value to set for the g property.
     */
-    public function setG(?string $value ): void {
+    public function setG(?Byte $value ): void {
         $this->g = $value;
     }
 
     /**
      * Sets the r property value. Red value
-     *  @param string|null $value Value to set for the r property.
+     *  @param Byte|null $value Value to set for the r property.
     */
-    public function setR(?string $value ): void {
+    public function setR(?Byte $value ): void {
         $this->r = $value;
     }
 

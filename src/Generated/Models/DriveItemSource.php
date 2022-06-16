@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DriveItemSource implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DriveItemSourceApplication|null $application Enumeration value that indicates the source application where the file was created.
-    */
+    /** @var DriveItemSourceApplication|null $application Enumeration value that indicates the source application where the file was created. */
     private ?DriveItemSourceApplication $application = null;
     
-    /**
-     * @var string|null $externalId The external identifier for the drive item from the source.
-    */
+    /** @var string|null $externalId The external identifier for the drive item from the source. */
     private ?string $externalId = null;
     
     /**
@@ -36,7 +30,7 @@ class DriveItemSource implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DriveItemSource
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DriveItemSource {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DriveItemSource {
         return new DriveItemSource();
     }
 
@@ -69,10 +63,9 @@ class DriveItemSource implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'application' => function (ParseNode $n) use ($o) { $o->setApplication($n->getEnumValue(DriveItemSourceApplication::class)); },
-            'externalId' => function (ParseNode $n) use ($o) { $o->setExternalId($n->getStringValue()); },
+            'application' => function (self $o, ParseNode $n) { $o->setApplication($n->getEnumValue(DriveItemSourceApplication::class)); },
+            'externalId' => function (self $o, ParseNode $n) { $o->setExternalId($n->getStringValue()); },
         ];
     }
 

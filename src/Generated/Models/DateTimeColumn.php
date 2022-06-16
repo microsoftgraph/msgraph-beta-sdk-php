@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DateTimeColumn implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayAs How the value should be presented in the UX. Must be one of default, friendly, or standard. See below for more details. If unspecified, treated as default.
-    */
+    /** @var string|null $displayAs How the value should be presented in the UX. Must be one of default, friendly, or standard. See below for more details. If unspecified, treated as default. */
     private ?string $displayAs = null;
     
-    /**
-     * @var string|null $format Indicates whether the value should be presented as a date only or a date and time. Must be one of dateOnly or dateTime
-    */
+    /** @var string|null $format Indicates whether the value should be presented as a date only or a date and time. Must be one of dateOnly or dateTime */
     private ?string $format = null;
     
     /**
@@ -36,7 +30,7 @@ class DateTimeColumn implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DateTimeColumn
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DateTimeColumn {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DateTimeColumn {
         return new DateTimeColumn();
     }
 
@@ -61,10 +55,9 @@ class DateTimeColumn implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayAs' => function (ParseNode $n) use ($o) { $o->setDisplayAs($n->getStringValue()); },
-            'format' => function (ParseNode $n) use ($o) { $o->setFormat($n->getStringValue()); },
+            'displayAs' => function (self $o, ParseNode $n) { $o->setDisplayAs($n->getStringValue()); },
+            'format' => function (self $o, ParseNode $n) { $o->setFormat($n->getStringValue()); },
         ];
     }
 

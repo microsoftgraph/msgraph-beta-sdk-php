@@ -7,16 +7,12 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable 
+class AndroidForWorkAppConfigurationSchema extends Entity 
 {
-    /**
-     * @var StreamInterface|null $exampleJson UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
-    */
+    /** @var StreamInterface|null $exampleJson UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app */
     private ?StreamInterface $exampleJson = null;
     
-    /**
-     * @var array<AndroidForWorkAppConfigurationSchemaItem>|null $schemaItems Collection of items each representing a named configuration option in the schema
-    */
+    /** @var array<AndroidForWorkAppConfigurationSchemaItem>|null $schemaItems Collection of items each representing a named configuration option in the schema */
     private ?array $schemaItems = null;
     
     /**
@@ -31,7 +27,7 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AndroidForWorkAppConfigurationSchema
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidForWorkAppConfigurationSchema {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AndroidForWorkAppConfigurationSchema {
         return new AndroidForWorkAppConfigurationSchema();
     }
 
@@ -48,10 +44,9 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'exampleJson' => function (ParseNode $n) use ($o) { $o->setExampleJson($n->getBinaryContent()); },
-            'schemaItems' => function (ParseNode $n) use ($o) { $o->setSchemaItems($n->getCollectionOfObjectValues(array(AndroidForWorkAppConfigurationSchemaItem::class, 'createFromDiscriminatorValue'))); },
+            'exampleJson' => function (self $o, ParseNode $n) { $o->setExampleJson($n->getBinaryContent()); },
+            'schemaItems' => function (self $o, ParseNode $n) { $o->setSchemaItems($n->getCollectionOfObjectValues(AndroidForWorkAppConfigurationSchemaItem::class)); },
         ]);
     }
 

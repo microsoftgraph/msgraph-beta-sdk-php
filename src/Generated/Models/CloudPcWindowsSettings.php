@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CloudPcWindowsSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $language The Windows language/region tag to use for language pack configuration and localization of the Cloud PC. The default value is en-US, which corresponds to English (United States).
-    */
+    /** @var string|null $language The Windows language/region tag to use for language pack configuration and localization of the Cloud PC. The default value is en-US, which corresponds to English (United States). */
     private ?string $language = null;
     
     /**
@@ -31,7 +27,7 @@ class CloudPcWindowsSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcWindowsSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcWindowsSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcWindowsSettings {
         return new CloudPcWindowsSettings();
     }
 
@@ -48,9 +44,8 @@ class CloudPcWindowsSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'language' => function (ParseNode $n) use ($o) { $o->setLanguage($n->getStringValue()); },
+            'language' => function (self $o, ParseNode $n) { $o->setLanguage($n->getStringValue()); },
         ];
     }
 

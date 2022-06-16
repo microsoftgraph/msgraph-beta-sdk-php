@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ServiceHealth extends Entity implements Parsable 
+class ServiceHealth extends Entity 
 {
-    /**
-     * @var array<ServiceHealthIssue>|null $issues A collection of issues that happened on the service, with detailed information for each issue.
-    */
+    /** @var array<ServiceHealthIssue>|null $issues A collection of issues that happened on the service, with detailed information for each issue. */
     private ?array $issues = null;
     
-    /**
-     * @var string|null $service The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant.
-    */
+    /** @var string|null $service The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant. */
     private ?string $service = null;
     
-    /**
-     * @var ServiceHealthStatus|null $status Show the overall service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.
-    */
+    /** @var ServiceHealthStatus|null $status Show the overral service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values. */
     private ?ServiceHealthStatus $status = null;
     
     /**
@@ -35,7 +29,7 @@ class ServiceHealth extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ServiceHealth
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ServiceHealth {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ServiceHealth {
         return new ServiceHealth();
     }
 
@@ -44,11 +38,10 @@ class ServiceHealth extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'issues' => function (ParseNode $n) use ($o) { $o->setIssues($n->getCollectionOfObjectValues(array(ServiceHealthIssue::class, 'createFromDiscriminatorValue'))); },
-            'service' => function (ParseNode $n) use ($o) { $o->setService($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ServiceHealthStatus::class)); },
+            'issues' => function (self $o, ParseNode $n) { $o->setIssues($n->getCollectionOfObjectValues(ServiceHealthIssue::class)); },
+            'service' => function (self $o, ParseNode $n) { $o->setService($n->getStringValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(ServiceHealthStatus::class)); },
         ]);
     }
 
@@ -69,7 +62,7 @@ class ServiceHealth extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Show the overall service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.
+     * Gets the status property value. Show the overral service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.
      * @return ServiceHealthStatus|null
     */
     public function getStatus(): ?ServiceHealthStatus {
@@ -104,7 +97,7 @@ class ServiceHealth extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Show the overall service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.
+     * Sets the status property value. Show the overral service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.
      *  @param ServiceHealthStatus|null $value Value to set for the status property.
     */
     public function setStatus(?ServiceHealthStatus $value ): void {

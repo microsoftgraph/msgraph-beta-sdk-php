@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsDefenderApplicationControlSupplementalPolicyAssignment extends Entity implements Parsable 
+class WindowsDefenderApplicationControlSupplementalPolicyAssignment extends Entity 
 {
-    /**
-     * @var DeviceAndAppManagementAssignmentTarget|null $target The target group assignment defined by the admin.
-    */
+    /** @var DeviceAndAppManagementAssignmentTarget|null $target The target group assignment defined by the admin. */
     private ?DeviceAndAppManagementAssignmentTarget $target = null;
     
     /**
@@ -25,7 +23,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyAssignment extends Enti
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsDefenderApplicationControlSupplementalPolicyAssignment
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDefenderApplicationControlSupplementalPolicyAssignment {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDefenderApplicationControlSupplementalPolicyAssignment {
         return new WindowsDefenderApplicationControlSupplementalPolicyAssignment();
     }
 
@@ -34,9 +32,8 @@ class WindowsDefenderApplicationControlSupplementalPolicyAssignment extends Enti
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
+            'target' => function (self $o, ParseNode $n) { $o->setTarget($n->getObjectValue(DeviceAndAppManagementAssignmentTarget::class)); },
         ]);
     }
 

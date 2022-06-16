@@ -6,46 +6,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MessageRule extends Entity implements Parsable 
+class MessageRule extends Entity 
 {
-    /**
-     * @var MessageRuleActions|null $actions Actions to be taken on a message when the corresponding conditions are fulfilled.
-    */
+    /** @var MessageRuleActions|null $actions Actions to be taken on a message when the corresponding conditions are fulfilled. */
     private ?MessageRuleActions $actions = null;
     
-    /**
-     * @var MessageRulePredicates|null $conditions Conditions that when fulfilled, will trigger the corresponding actions for that rule.
-    */
+    /** @var MessageRulePredicates|null $conditions Conditions that when fulfilled, will trigger the corresponding actions for that rule. */
     private ?MessageRulePredicates $conditions = null;
     
-    /**
-     * @var string|null $displayName The display name of the rule.
-    */
+    /** @var string|null $displayName The display name of the rule. */
     private ?string $displayName = null;
     
-    /**
-     * @var MessageRulePredicates|null $exceptions Exception conditions for the rule.
-    */
+    /** @var MessageRulePredicates|null $exceptions Exception conditions for the rule. */
     private ?MessageRulePredicates $exceptions = null;
     
-    /**
-     * @var bool|null $hasError Indicates whether the rule is in an error condition. Read-only.
-    */
+    /** @var bool|null $hasError Indicates whether the rule is in an error condition. Read-only. */
     private ?bool $hasError = null;
     
-    /**
-     * @var bool|null $isEnabled Indicates whether the rule is enabled to be applied to messages.
-    */
+    /** @var bool|null $isEnabled Indicates whether the rule is enabled to be applied to messages. */
     private ?bool $isEnabled = null;
     
-    /**
-     * @var bool|null $isReadOnly Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API.
-    */
+    /** @var bool|null $isReadOnly Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API. */
     private ?bool $isReadOnly = null;
     
-    /**
-     * @var int|null $sequence Indicates the order in which the rule is executed, among other rules.
-    */
+    /** @var int|null $sequence Indicates the order in which the rule is executed, among other rules. */
     private ?int $sequence = null;
     
     /**
@@ -60,7 +44,7 @@ class MessageRule extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MessageRule
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MessageRule {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MessageRule {
         return new MessageRule();
     }
 
@@ -101,16 +85,15 @@ class MessageRule extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actions' => function (ParseNode $n) use ($o) { $o->setActions($n->getObjectValue(array(MessageRuleActions::class, 'createFromDiscriminatorValue'))); },
-            'conditions' => function (ParseNode $n) use ($o) { $o->setConditions($n->getObjectValue(array(MessageRulePredicates::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'exceptions' => function (ParseNode $n) use ($o) { $o->setExceptions($n->getObjectValue(array(MessageRulePredicates::class, 'createFromDiscriminatorValue'))); },
-            'hasError' => function (ParseNode $n) use ($o) { $o->setHasError($n->getBooleanValue()); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'isReadOnly' => function (ParseNode $n) use ($o) { $o->setIsReadOnly($n->getBooleanValue()); },
-            'sequence' => function (ParseNode $n) use ($o) { $o->setSequence($n->getIntegerValue()); },
+            'actions' => function (self $o, ParseNode $n) { $o->setActions($n->getObjectValue(MessageRuleActions::class)); },
+            'conditions' => function (self $o, ParseNode $n) { $o->setConditions($n->getObjectValue(MessageRulePredicates::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'exceptions' => function (self $o, ParseNode $n) { $o->setExceptions($n->getObjectValue(MessageRulePredicates::class)); },
+            'hasError' => function (self $o, ParseNode $n) { $o->setHasError($n->getBooleanValue()); },
+            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
+            'isReadOnly' => function (self $o, ParseNode $n) { $o->setIsReadOnly($n->getBooleanValue()); },
+            'sequence' => function (self $o, ParseNode $n) { $o->setSequence($n->getIntegerValue()); },
         ]);
     }
 

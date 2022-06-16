@@ -7,56 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserSecurityProfile extends Entity implements Parsable 
+class UserSecurityProfile extends Entity 
 {
-    /**
-     * @var array<UserAccount>|null $accounts The accounts property
-    */
+    /** @var array<UserAccount>|null $accounts The accounts property */
     private ?array $accounts = null;
     
-    /**
-     * @var string|null $azureSubscriptionId The azureSubscriptionId property
-    */
+    /** @var string|null $azureSubscriptionId The azureSubscriptionId property */
     private ?string $azureSubscriptionId = null;
     
-    /**
-     * @var string|null $azureTenantId The azureTenantId property
-    */
+    /** @var string|null $azureTenantId The azureTenantId property */
     private ?string $azureTenantId = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
+    /** @var DateTime|null $createdDateTime The createdDateTime property */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
+    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $riskScore The riskScore property
-    */
+    /** @var string|null $riskScore The riskScore property */
     private ?string $riskScore = null;
     
-    /**
-     * @var array<string>|null $tags The tags property
-    */
+    /** @var array<string>|null $tags The tags property */
     private ?array $tags = null;
     
-    /**
-     * @var string|null $userPrincipalName The userPrincipalName property
-    */
+    /** @var string|null $userPrincipalName The userPrincipalName property */
     private ?string $userPrincipalName = null;
     
-    /**
-     * @var SecurityVendorInformation|null $vendorInformation The vendorInformation property
-    */
+    /** @var SecurityVendorInformation|null $vendorInformation The vendorInformation property */
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
@@ -71,7 +51,7 @@ class UserSecurityProfile extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserSecurityProfile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserSecurityProfile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserSecurityProfile {
         return new UserSecurityProfile();
     }
 
@@ -120,18 +100,17 @@ class UserSecurityProfile extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accounts' => function (ParseNode $n) use ($o) { $o->setAccounts($n->getCollectionOfObjectValues(array(UserAccount::class, 'createFromDiscriminatorValue'))); },
-            'azureSubscriptionId' => function (ParseNode $n) use ($o) { $o->setAzureSubscriptionId($n->getStringValue()); },
-            'azureTenantId' => function (ParseNode $n) use ($o) { $o->setAzureTenantId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'riskScore' => function (ParseNode $n) use ($o) { $o->setRiskScore($n->getStringValue()); },
-            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
-            'vendorInformation' => function (ParseNode $n) use ($o) { $o->setVendorInformation($n->getObjectValue(array(SecurityVendorInformation::class, 'createFromDiscriminatorValue'))); },
+            'accounts' => function (self $o, ParseNode $n) { $o->setAccounts($n->getCollectionOfObjectValues(UserAccount::class)); },
+            'azureSubscriptionId' => function (self $o, ParseNode $n) { $o->setAzureSubscriptionId($n->getStringValue()); },
+            'azureTenantId' => function (self $o, ParseNode $n) { $o->setAzureTenantId($n->getStringValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'riskScore' => function (self $o, ParseNode $n) { $o->setRiskScore($n->getStringValue()); },
+            'tags' => function (self $o, ParseNode $n) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
+            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
+            'vendorInformation' => function (self $o, ParseNode $n) { $o->setVendorInformation($n->getObjectValue(SecurityVendorInformation::class)); },
         ]);
     }
 

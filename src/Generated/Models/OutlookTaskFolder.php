@@ -6,41 +6,27 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OutlookTaskFolder extends Entity implements Parsable 
+class OutlookTaskFolder extends Entity 
 {
-    /**
-     * @var string|null $changeKey The version of the task folder.
-    */
+    /** @var string|null $changeKey The version of the task folder. */
     private ?string $changeKey = null;
     
-    /**
-     * @var bool|null $isDefaultFolder True if the folder is the default task folder.
-    */
+    /** @var bool|null $isDefaultFolder True if the folder is the default task folder. */
     private ?bool $isDefaultFolder = null;
     
-    /**
-     * @var array<MultiValueLegacyExtendedProperty>|null $multiValueExtendedProperties The collection of multi-value extended properties defined for the task folder. Read-only. Nullable.
-    */
+    /** @var array<MultiValueLegacyExtendedProperty>|null $multiValueExtendedProperties The collection of multi-value extended properties defined for the task folder. Read-only. Nullable. */
     private ?array $multiValueExtendedProperties = null;
     
-    /**
-     * @var string|null $name The name of the task folder.
-    */
+    /** @var string|null $name The name of the task folder. */
     private ?string $name = null;
     
-    /**
-     * @var string|null $parentGroupKey The unique GUID identifier for the task folder's parent group.
-    */
+    /** @var string|null $parentGroupKey The unique GUID identifier for the task folder's parent group. */
     private ?string $parentGroupKey = null;
     
-    /**
-     * @var array<SingleValueLegacyExtendedProperty>|null $singleValueExtendedProperties The collection of single-value extended properties defined for the task folder. Read-only. Nullable.
-    */
+    /** @var array<SingleValueLegacyExtendedProperty>|null $singleValueExtendedProperties The collection of single-value extended properties defined for the task folder. Read-only. Nullable. */
     private ?array $singleValueExtendedProperties = null;
     
-    /**
-     * @var array<OutlookTask>|null $tasks The tasks in this task folder. Read-only. Nullable.
-    */
+    /** @var array<OutlookTask>|null $tasks The tasks in this task folder. Read-only. Nullable. */
     private ?array $tasks = null;
     
     /**
@@ -55,7 +41,7 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OutlookTaskFolder
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OutlookTaskFolder {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OutlookTaskFolder {
         return new OutlookTaskFolder();
     }
 
@@ -72,15 +58,14 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'changeKey' => function (ParseNode $n) use ($o) { $o->setChangeKey($n->getStringValue()); },
-            'isDefaultFolder' => function (ParseNode $n) use ($o) { $o->setIsDefaultFolder($n->getBooleanValue()); },
-            'multiValueExtendedProperties' => function (ParseNode $n) use ($o) { $o->setMultiValueExtendedProperties($n->getCollectionOfObjectValues(array(MultiValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'parentGroupKey' => function (ParseNode $n) use ($o) { $o->setParentGroupKey($n->getStringValue()); },
-            'singleValueExtendedProperties' => function (ParseNode $n) use ($o) { $o->setSingleValueExtendedProperties($n->getCollectionOfObjectValues(array(SingleValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'))); },
-            'tasks' => function (ParseNode $n) use ($o) { $o->setTasks($n->getCollectionOfObjectValues(array(OutlookTask::class, 'createFromDiscriminatorValue'))); },
+            'changeKey' => function (self $o, ParseNode $n) { $o->setChangeKey($n->getStringValue()); },
+            'isDefaultFolder' => function (self $o, ParseNode $n) { $o->setIsDefaultFolder($n->getBooleanValue()); },
+            'multiValueExtendedProperties' => function (self $o, ParseNode $n) { $o->setMultiValueExtendedProperties($n->getCollectionOfObjectValues(MultiValueLegacyExtendedProperty::class)); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'parentGroupKey' => function (self $o, ParseNode $n) { $o->setParentGroupKey($n->getStringValue()); },
+            'singleValueExtendedProperties' => function (self $o, ParseNode $n) { $o->setSingleValueExtendedProperties($n->getCollectionOfObjectValues(SingleValueLegacyExtendedProperty::class)); },
+            'tasks' => function (self $o, ParseNode $n) { $o->setTasks($n->getCollectionOfObjectValues(OutlookTask::class)); },
         ]);
     }
 

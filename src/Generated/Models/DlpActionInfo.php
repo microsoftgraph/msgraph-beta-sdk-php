@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DlpActionInfo implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var DlpAction|null $action The action property
-    */
+    /** @var DlpAction|null $action The action property */
     private ?DlpAction $action = null;
     
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
     /**
@@ -31,7 +27,7 @@ class DlpActionInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DlpActionInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DlpActionInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DlpActionInfo {
         return new DlpActionInfo();
     }
 
@@ -56,9 +52,8 @@ class DlpActionInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(DlpAction::class)); },
+            'action' => function (self $o, ParseNode $n) { $o->setAction($n->getEnumValue(DlpAction::class)); },
         ];
     }
 

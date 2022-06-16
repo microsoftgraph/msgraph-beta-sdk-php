@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EducationAssignmentResource extends Entity implements Parsable 
+class EducationAssignmentResource extends Entity 
 {
-    /**
-     * @var bool|null $distributeForStudentWork Indicates whether this resource should be copied to each student submission for modification and submission. Required
-    */
+    /** @var bool|null $distributeForStudentWork Indicates whether this resource should be copied to each student submission for modification and submission. Required */
     private ?bool $distributeForStudentWork = null;
     
-    /**
-     * @var EducationResource|null $resource Resource object that has been associated with this assignment.
-    */
+    /** @var EducationResource|null $resource Resource object that has been associated with this assignment. */
     private ?EducationResource $resource = null;
     
     /**
@@ -30,7 +26,7 @@ class EducationAssignmentResource extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EducationAssignmentResource
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationAssignmentResource {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EducationAssignmentResource {
         return new EducationAssignmentResource();
     }
 
@@ -47,10 +43,9 @@ class EducationAssignmentResource extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'distributeForStudentWork' => function (ParseNode $n) use ($o) { $o->setDistributeForStudentWork($n->getBooleanValue()); },
-            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getObjectValue(array(EducationResource::class, 'createFromDiscriminatorValue'))); },
+            'distributeForStudentWork' => function (self $o, ParseNode $n) { $o->setDistributeForStudentWork($n->getBooleanValue()); },
+            'resource' => function (self $o, ParseNode $n) { $o->setResource($n->getObjectValue(EducationResource::class)); },
         ]);
     }
 

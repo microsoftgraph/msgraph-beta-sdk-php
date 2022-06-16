@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookChartAxisTitle extends Entity implements Parsable 
+class WorkbookChartAxisTitle extends Entity 
 {
-    /**
-     * @var WorkbookChartAxisTitleFormat|null $format Represents the formatting of chart axis title. Read-only.
-    */
+    /** @var WorkbookChartAxisTitleFormat|null $format Represents the formatting of chart axis title. Read-only. */
     private ?WorkbookChartAxisTitleFormat $format = null;
     
-    /**
-     * @var string|null $text Represents the axis title.
-    */
+    /** @var string|null $text Represents the axis title. */
     private ?string $text = null;
     
-    /**
-     * @var bool|null $visible A boolean that specifies the visibility of an axis title.
-    */
+    /** @var bool|null $visible A boolean that specifies the visibility of an axis title. */
     private ?bool $visible = null;
     
     /**
@@ -35,7 +29,7 @@ class WorkbookChartAxisTitle extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookChartAxisTitle
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartAxisTitle {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartAxisTitle {
         return new WorkbookChartAxisTitle();
     }
 
@@ -44,11 +38,10 @@ class WorkbookChartAxisTitle extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'format' => function (ParseNode $n) use ($o) { $o->setFormat($n->getObjectValue(array(WorkbookChartAxisTitleFormat::class, 'createFromDiscriminatorValue'))); },
-            'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
-            'visible' => function (ParseNode $n) use ($o) { $o->setVisible($n->getBooleanValue()); },
+            'format' => function (self $o, ParseNode $n) { $o->setFormat($n->getObjectValue(WorkbookChartAxisTitleFormat::class)); },
+            'text' => function (self $o, ParseNode $n) { $o->setText($n->getStringValue()); },
+            'visible' => function (self $o, ParseNode $n) { $o->setVisible($n->getBooleanValue()); },
         ]);
     }
 

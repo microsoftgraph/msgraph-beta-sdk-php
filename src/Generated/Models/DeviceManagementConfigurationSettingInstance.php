@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementConfigurationSettingInstance implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $settingDefinitionId Setting Definition Id
-    */
+    /** @var string|null $settingDefinitionId Setting Definition Id */
     private ?string $settingDefinitionId = null;
     
-    /**
-     * @var DeviceManagementConfigurationSettingInstanceTemplateReference|null $settingInstanceTemplateReference Setting Instance Template Reference
-    */
+    /** @var DeviceManagementConfigurationSettingInstanceTemplateReference|null $settingInstanceTemplateReference Setting Instance Template Reference */
     private ?DeviceManagementConfigurationSettingInstanceTemplateReference $settingInstanceTemplateReference = null;
     
     /**
@@ -36,7 +30,7 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementConfigurationSettingInstance
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingInstance {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingInstance {
         return new DeviceManagementConfigurationSettingInstance();
     }
 
@@ -53,10 +47,9 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'settingDefinitionId' => function (ParseNode $n) use ($o) { $o->setSettingDefinitionId($n->getStringValue()); },
-            'settingInstanceTemplateReference' => function (ParseNode $n) use ($o) { $o->setSettingInstanceTemplateReference($n->getObjectValue(array(DeviceManagementConfigurationSettingInstanceTemplateReference::class, 'createFromDiscriminatorValue'))); },
+            'settingDefinitionId' => function (self $o, ParseNode $n) { $o->setSettingDefinitionId($n->getStringValue()); },
+            'settingInstanceTemplateReference' => function (self $o, ParseNode $n) { $o->setSettingInstanceTemplateReference($n->getObjectValue(DeviceManagementConfigurationSettingInstanceTemplateReference::class)); },
         ];
     }
 

@@ -9,64 +9,40 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AuditActor implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $applicationDisplayName Name of the Application.
-    */
+    /** @var string|null $applicationDisplayName Name of the Application. */
     private ?string $applicationDisplayName = null;
     
-    /**
-     * @var string|null $applicationId AAD Application Id.
-    */
+    /** @var string|null $applicationId AAD Application Id. */
     private ?string $applicationId = null;
     
-    /**
-     * @var string|null $ipAddress IPAddress.
-    */
+    /** @var string|null $ipAddress IPAddress. */
     private ?string $ipAddress = null;
     
-    /**
-     * @var string|null $remoteTenantId Remote Tenant Id
-    */
+    /** @var string|null $remoteTenantId Remote Tenant Id */
     private ?string $remoteTenantId = null;
     
-    /**
-     * @var string|null $remoteUserId Remote User Id
-    */
+    /** @var string|null $remoteUserId Remote User Id */
     private ?string $remoteUserId = null;
     
-    /**
-     * @var string|null $servicePrincipalName Service Principal Name (SPN).
-    */
+    /** @var string|null $servicePrincipalName Service Principal Name (SPN). */
     private ?string $servicePrincipalName = null;
     
-    /**
-     * @var string|null $type Actor Type.
-    */
+    /** @var string|null $type Actor Type. */
     private ?string $type = null;
     
-    /**
-     * @var string|null $userId User Id.
-    */
+    /** @var string|null $userId User Id. */
     private ?string $userId = null;
     
-    /**
-     * @var array<string>|null $userPermissions List of user permissions when the audit was performed.
-    */
+    /** @var array<string>|null $userPermissions List of user permissions when the audit was performed. */
     private ?array $userPermissions = null;
     
-    /**
-     * @var string|null $userPrincipalName User Principal Name (UPN).
-    */
+    /** @var string|null $userPrincipalName User Principal Name (UPN). */
     private ?string $userPrincipalName = null;
     
-    /**
-     * @var array<RoleScopeTagInfo>|null $userRoleScopeTags List of user scope tags when the audit was performed.
-    */
+    /** @var array<RoleScopeTagInfo>|null $userRoleScopeTags List of user scope tags when the audit was performed. */
     private ?array $userRoleScopeTags = null;
     
     /**
@@ -81,7 +57,7 @@ class AuditActor implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AuditActor
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AuditActor {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AuditActor {
         return new AuditActor();
     }
 
@@ -114,19 +90,18 @@ class AuditActor implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'applicationDisplayName' => function (ParseNode $n) use ($o) { $o->setApplicationDisplayName($n->getStringValue()); },
-            'applicationId' => function (ParseNode $n) use ($o) { $o->setApplicationId($n->getStringValue()); },
-            'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
-            'remoteTenantId' => function (ParseNode $n) use ($o) { $o->setRemoteTenantId($n->getStringValue()); },
-            'remoteUserId' => function (ParseNode $n) use ($o) { $o->setRemoteUserId($n->getStringValue()); },
-            'servicePrincipalName' => function (ParseNode $n) use ($o) { $o->setServicePrincipalName($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userPermissions' => function (ParseNode $n) use ($o) { $o->setUserPermissions($n->getCollectionOfPrimitiveValues()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
-            'userRoleScopeTags' => function (ParseNode $n) use ($o) { $o->setUserRoleScopeTags($n->getCollectionOfObjectValues(array(RoleScopeTagInfo::class, 'createFromDiscriminatorValue'))); },
+            'applicationDisplayName' => function (self $o, ParseNode $n) { $o->setApplicationDisplayName($n->getStringValue()); },
+            'applicationId' => function (self $o, ParseNode $n) { $o->setApplicationId($n->getStringValue()); },
+            'ipAddress' => function (self $o, ParseNode $n) { $o->setIpAddress($n->getStringValue()); },
+            'remoteTenantId' => function (self $o, ParseNode $n) { $o->setRemoteTenantId($n->getStringValue()); },
+            'remoteUserId' => function (self $o, ParseNode $n) { $o->setRemoteUserId($n->getStringValue()); },
+            'servicePrincipalName' => function (self $o, ParseNode $n) { $o->setServicePrincipalName($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
+            'userPermissions' => function (self $o, ParseNode $n) { $o->setUserPermissions($n->getCollectionOfPrimitiveValues()); },
+            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
+            'userRoleScopeTags' => function (self $o, ParseNode $n) { $o->setUserRoleScopeTags($n->getCollectionOfObjectValues(RoleScopeTagInfo::class)); },
         ];
     }
 

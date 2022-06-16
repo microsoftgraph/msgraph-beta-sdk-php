@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AvailabilityItem implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateTimeTimeZone|null $endDateTime The endDateTime property
-    */
+    /** @var DateTimeTimeZone|null $endDateTime The endDateTime property */
     private ?DateTimeTimeZone $endDateTime = null;
     
-    /**
-     * @var string|null $serviceId Indicates the service ID in case of 1:n appointments. If the appointment is of type 1:n, this field will be present, otherwise, null.
-    */
+    /** @var string|null $serviceId The serviceId property */
     private ?string $serviceId = null;
     
-    /**
-     * @var DateTimeTimeZone|null $startDateTime The startDateTime property
-    */
+    /** @var DateTimeTimeZone|null $startDateTime The startDateTime property */
     private ?DateTimeTimeZone $startDateTime = null;
     
-    /**
-     * @var BookingsAvailabilityStatus|null $status The status of the staff member. Possible values are: available, busy, slotsAvailable, outOfOffice, unknownFutureValue.
-    */
+    /** @var BookingsAvailabilityStatus|null $status The status property */
     private ?BookingsAvailabilityStatus $status = null;
     
     /**
@@ -46,7 +36,7 @@ class AvailabilityItem implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AvailabilityItem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AvailabilityItem {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AvailabilityItem {
         return new AvailabilityItem();
     }
 
@@ -71,17 +61,16 @@ class AvailabilityItem implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
-            'serviceId' => function (ParseNode $n) use ($o) { $o->setServiceId($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(BookingsAvailabilityStatus::class)); },
+            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getObjectValue(DateTimeTimeZone::class)); },
+            'serviceId' => function (self $o, ParseNode $n) { $o->setServiceId($n->getStringValue()); },
+            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getObjectValue(DateTimeTimeZone::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(BookingsAvailabilityStatus::class)); },
         ];
     }
 
     /**
-     * Gets the serviceId property value. Indicates the service ID in case of 1:n appointments. If the appointment is of type 1:n, this field will be present, otherwise, null.
+     * Gets the serviceId property value. The serviceId property
      * @return string|null
     */
     public function getServiceId(): ?string {
@@ -97,7 +86,7 @@ class AvailabilityItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the status property value. The status of the staff member. Possible values are: available, busy, slotsAvailable, outOfOffice, unknownFutureValue.
+     * Gets the status property value. The status property
      * @return BookingsAvailabilityStatus|null
     */
     public function getStatus(): ?BookingsAvailabilityStatus {
@@ -133,7 +122,7 @@ class AvailabilityItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the serviceId property value. Indicates the service ID in case of 1:n appointments. If the appointment is of type 1:n, this field will be present, otherwise, null.
+     * Sets the serviceId property value. The serviceId property
      *  @param string|null $value Value to set for the serviceId property.
     */
     public function setServiceId(?string $value ): void {
@@ -149,7 +138,7 @@ class AvailabilityItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the status property value. The status of the staff member. Possible values are: available, busy, slotsAvailable, outOfOffice, unknownFutureValue.
+     * Sets the status property value. The status property
      *  @param BookingsAvailabilityStatus|null $value Value to set for the status property.
     */
     public function setStatus(?BookingsAvailabilityStatus $value ): void {

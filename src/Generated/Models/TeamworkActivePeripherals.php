@@ -9,34 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var TeamworkPeripheral|null $communicationSpeaker The communicationSpeaker property
-    */
+    /** @var TeamworkPeripheral|null $communicationSpeaker The communicationSpeaker property */
     private ?TeamworkPeripheral $communicationSpeaker = null;
     
-    /**
-     * @var TeamworkPeripheral|null $contentCamera The contentCamera property
-    */
+    /** @var TeamworkPeripheral|null $contentCamera The contentCamera property */
     private ?TeamworkPeripheral $contentCamera = null;
     
-    /**
-     * @var TeamworkPeripheral|null $microphone The microphone property
-    */
+    /** @var TeamworkPeripheral|null $microphone The microphone property */
     private ?TeamworkPeripheral $microphone = null;
     
-    /**
-     * @var TeamworkPeripheral|null $roomCamera The roomCamera property
-    */
+    /** @var TeamworkPeripheral|null $roomCamera The roomCamera property */
     private ?TeamworkPeripheral $roomCamera = null;
     
-    /**
-     * @var TeamworkPeripheral|null $speaker The speaker property
-    */
+    /** @var TeamworkPeripheral|null $speaker The speaker property */
     private ?TeamworkPeripheral $speaker = null;
     
     /**
@@ -51,7 +39,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkActivePeripherals
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkActivePeripherals {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkActivePeripherals {
         return new TeamworkActivePeripherals();
     }
 
@@ -84,13 +72,12 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'communicationSpeaker' => function (ParseNode $n) use ($o) { $o->setCommunicationSpeaker($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'contentCamera' => function (ParseNode $n) use ($o) { $o->setContentCamera($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'microphone' => function (ParseNode $n) use ($o) { $o->setMicrophone($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'roomCamera' => function (ParseNode $n) use ($o) { $o->setRoomCamera($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'speaker' => function (ParseNode $n) use ($o) { $o->setSpeaker($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
+            'communicationSpeaker' => function (self $o, ParseNode $n) { $o->setCommunicationSpeaker($n->getObjectValue(TeamworkPeripheral::class)); },
+            'contentCamera' => function (self $o, ParseNode $n) { $o->setContentCamera($n->getObjectValue(TeamworkPeripheral::class)); },
+            'microphone' => function (self $o, ParseNode $n) { $o->setMicrophone($n->getObjectValue(TeamworkPeripheral::class)); },
+            'roomCamera' => function (self $o, ParseNode $n) { $o->setRoomCamera($n->getObjectValue(TeamworkPeripheral::class)); },
+            'speaker' => function (self $o, ParseNode $n) { $o->setSpeaker($n->getObjectValue(TeamworkPeripheral::class)); },
         ];
     }
 

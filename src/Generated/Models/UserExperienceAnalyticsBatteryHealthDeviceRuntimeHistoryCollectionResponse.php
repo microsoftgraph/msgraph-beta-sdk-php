@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryCollectionResponse implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $nextLink The nextLink property
-    */
+    /** @var string|null $nextLink The nextLink property */
     private ?string $nextLink = null;
     
-    /**
-     * @var array<UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory>|null $value The value property
-    */
+    /** @var array<UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory>|null $value The value property */
     private ?array $value = null;
     
     /**
@@ -36,7 +30,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryCollectionResponse
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryCollectionResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryCollectionResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryCollectionResponse {
         return new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryCollectionResponse();
     }
 
@@ -53,10 +47,9 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryCollectionResponse
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            '@odata.nextLink' => function (ParseNode $n) use ($o) { $o->setOdatanextLink($n->getStringValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory::class, 'createFromDiscriminatorValue'))); },
+            '@odata.nextLink' => function (self $o, ParseNode $n) { $o->setNextLink($n->getStringValue()); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getCollectionOfObjectValues(UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory::class)); },
         ];
     }
 
@@ -64,7 +57,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryCollectionResponse
      * Gets the @odata.nextLink property value. The nextLink property
      * @return string|null
     */
-    public function getOdatanextLink(): ?string {
+    public function getNextLink(): ?string {
         return $this->nextLink;
     }
 
@@ -98,7 +91,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryCollectionResponse
      * Sets the @odata.nextLink property value. The nextLink property
      *  @param string|null $value Value to set for the nextLink property.
     */
-    public function setOdatanextLink(?string $value ): void {
+    public function setNextLink(?string $value ): void {
         $this->nextLink = $value;
     }
 

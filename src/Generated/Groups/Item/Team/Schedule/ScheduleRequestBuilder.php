@@ -59,14 +59,10 @@ class ScheduleRequestBuilder
         return new OpenShiftsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
+    /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
+    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
     /**
@@ -125,9 +121,7 @@ class ScheduleRequestBuilder
         return new TimesOffRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
+    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
     /**
@@ -136,53 +130,51 @@ class ScheduleRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/groups/{group%2Did}/team/schedule{?%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/groups/{group_id}/team/schedule{?select,expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
      * Delete navigation property schedule for groups
-     * @param ScheduleRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createDeleteRequestInformation(?ScheduleRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createDeleteRequestInformation(?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
         }
         return $requestInfo;
     }
 
     /**
      * The schedule of shifts for this team.
-     * @param ScheduleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?ScheduleRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createGetRequestInformation(?array $queryParameters = null, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->queryParameters !== null) {
-                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($queryParameters !== null) {
+            $requestInfo->setQueryParameters($queryParameters);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
         }
         return $requestInfo;
     }
@@ -190,40 +182,36 @@ class ScheduleRequestBuilder
     /**
      * Update the navigation property schedule in groups
      * @param Schedule $body 
-     * @param ScheduleRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(Schedule $body, ?ScheduleRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createPatchRequestInformation(Schedule $body, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
+        }
         return $requestInfo;
     }
 
     /**
      * Delete navigation property schedule for groups
-     * @param ScheduleRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?ScheduleRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createDeleteRequestInformation($requestConfiguration);
+    public function delete(?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createDeleteRequestInformation($headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -231,18 +219,16 @@ class ScheduleRequestBuilder
 
     /**
      * The schedule of shifts for this team.
-     * @param ScheduleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?ScheduleRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
+    public function get(?array $queryParameters = null, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($queryParameters, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(Schedule::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, Schedule::class, $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -255,7 +241,7 @@ class ScheduleRequestBuilder
     */
     public function offerShiftRequestsById(string $id): OfferShiftRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['offerShiftRequest%2Did'] = $id;
+        $urlTplParams['offerShiftRequest_id'] = $id;
         return new OfferShiftRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -266,7 +252,7 @@ class ScheduleRequestBuilder
     */
     public function openShiftChangeRequestsById(string $id): OpenShiftChangeRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['openShiftChangeRequest%2Did'] = $id;
+        $urlTplParams['openShiftChangeRequest_id'] = $id;
         return new OpenShiftChangeRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -277,25 +263,22 @@ class ScheduleRequestBuilder
     */
     public function openShiftsById(string $id): OpenShiftItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['openShift%2Did'] = $id;
+        $urlTplParams['openShift_id'] = $id;
         return new OpenShiftItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property schedule in groups
      * @param Schedule $body 
-     * @param ScheduleRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(Schedule $body, ?ScheduleRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
+    public function patch(Schedule $body, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createPatchRequestInformation($body, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -308,7 +291,7 @@ class ScheduleRequestBuilder
     */
     public function schedulingGroupsById(string $id): SchedulingGroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['schedulingGroup%2Did'] = $id;
+        $urlTplParams['schedulingGroup_id'] = $id;
         return new SchedulingGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -319,7 +302,7 @@ class ScheduleRequestBuilder
     */
     public function shiftsById(string $id): ShiftItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['shift%2Did'] = $id;
+        $urlTplParams['shift_id'] = $id;
         return new ShiftItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -330,7 +313,7 @@ class ScheduleRequestBuilder
     */
     public function swapShiftsChangeRequestsById(string $id): SwapShiftsChangeRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['swapShiftsChangeRequest%2Did'] = $id;
+        $urlTplParams['swapShiftsChangeRequest_id'] = $id;
         return new SwapShiftsChangeRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -341,7 +324,7 @@ class ScheduleRequestBuilder
     */
     public function timeCardsById(string $id): TimeCardItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['timeCard%2Did'] = $id;
+        $urlTplParams['timeCard_id'] = $id;
         return new TimeCardItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -352,7 +335,7 @@ class ScheduleRequestBuilder
     */
     public function timeOffReasonsById(string $id): TimeOffReasonItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['timeOffReason%2Did'] = $id;
+        $urlTplParams['timeOffReason_id'] = $id;
         return new TimeOffReasonItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -363,7 +346,7 @@ class ScheduleRequestBuilder
     */
     public function timeOffRequestsById(string $id): TimeOffRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['timeOffRequest%2Did'] = $id;
+        $urlTplParams['timeOffRequest_id'] = $id;
         return new TimeOffRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -374,7 +357,7 @@ class ScheduleRequestBuilder
     */
     public function timesOffById(string $id): TimeOffItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['timeOff%2Did'] = $id;
+        $urlTplParams['timeOff_id'] = $id;
         return new TimeOffItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

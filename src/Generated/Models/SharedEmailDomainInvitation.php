@@ -7,21 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SharedEmailDomainInvitation extends Entity implements Parsable 
+class SharedEmailDomainInvitation extends Entity 
 {
-    /**
-     * @var DateTime|null $expiryTime The expiryTime property
-    */
+    /** @var DateTime|null $expiryTime The expiryTime property */
     private ?DateTime $expiryTime = null;
     
-    /**
-     * @var string|null $invitationDomain The invitationDomain property
-    */
+    /** @var string|null $invitationDomain The invitationDomain property */
     private ?string $invitationDomain = null;
     
-    /**
-     * @var string|null $invitationStatus The invitationStatus property
-    */
+    /** @var string|null $invitationStatus The invitationStatus property */
     private ?string $invitationStatus = null;
     
     /**
@@ -36,7 +30,7 @@ class SharedEmailDomainInvitation extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SharedEmailDomainInvitation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SharedEmailDomainInvitation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SharedEmailDomainInvitation {
         return new SharedEmailDomainInvitation();
     }
 
@@ -53,11 +47,10 @@ class SharedEmailDomainInvitation extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'expiryTime' => function (ParseNode $n) use ($o) { $o->setExpiryTime($n->getDateTimeValue()); },
-            'invitationDomain' => function (ParseNode $n) use ($o) { $o->setInvitationDomain($n->getStringValue()); },
-            'invitationStatus' => function (ParseNode $n) use ($o) { $o->setInvitationStatus($n->getStringValue()); },
+            'expiryTime' => function (self $o, ParseNode $n) { $o->setExpiryTime($n->getDateTimeValue()); },
+            'invitationDomain' => function (self $o, ParseNode $n) { $o->setInvitationDomain($n->getStringValue()); },
+            'invitationStatus' => function (self $o, ParseNode $n) { $o->setInvitationStatus($n->getStringValue()); },
         ]);
     }
 

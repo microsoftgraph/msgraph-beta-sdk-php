@@ -7,41 +7,27 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OAuth2PermissionGrant extends Entity implements Parsable 
+class OAuth2PermissionGrant extends Entity 
 {
-    /**
-     * @var string|null $clientId The id of the client service principal for the application which is authorized to act on behalf of a signed-in user when accessing an API. Required. Supports $filter (eq only).
-    */
+    /** @var string|null $clientId The id of the client service principal for the application which is authorized to act on behalf of a signed-in user when accessing an API. Required. Supports $filter (eq only). */
     private ?string $clientId = null;
     
-    /**
-     * @var string|null $consentType Indicates whether authorization is granted for the client application to impersonate all users or only a specific user. AllPrincipals indicates authorization to impersonate all users. Principal indicates authorization to impersonate a specific user. Consent on behalf of all users can be granted by an administrator. Non-admin users may be authorized to consent on behalf of themselves in some cases, for some delegated permissions. Required. Supports $filter (eq only).
-    */
+    /** @var string|null $consentType Indicates if authorization is granted for the client application to impersonate all users or only a specific user. AllPrincipals indicates authorization to impersonate all users. Principal indicates authorization to impersonate a specific user. Consent on behalf of all users can be granted by an administrator. Non-admin users may be authorized to consent on behalf of themselves in some cases, for some delegated permissions. Required. Supports $filter (eq only). */
     private ?string $consentType = null;
     
-    /**
-     * @var DateTime|null $expiryTime Currently, the end time value is ignored, but a value is required when creating an oAuth2PermissionGrant. Required.
-    */
+    /** @var DateTime|null $expiryTime Currently, the end time value is ignored, but a value is required when creating an oAuth2PermissionGrant. Required. */
     private ?DateTime $expiryTime = null;
     
-    /**
-     * @var string|null $principalId The id of the user on behalf of whom the client is authorized to access the resource, when consentType is Principal. If consentType is AllPrincipals this value is null. Required when consentType is Principal.
-    */
+    /** @var string|null $principalId The id of the user on behalf of whom the client is authorized to access the resource, when consentType is Principal. If consentType is AllPrincipals this value is null. Required when consentType is Principal. */
     private ?string $principalId = null;
     
-    /**
-     * @var string|null $resourceId The id of the resource service principal to which access is authorized. This identifies the API which the client is authorized to attempt to call on behalf of a signed-in user.
-    */
+    /** @var string|null $resourceId The id of the resource service principal to which access is authorized. This identifies the API which the client is authorized to attempt to call on behalf of a signed-in user. */
     private ?string $resourceId = null;
     
-    /**
-     * @var string|null $scope A space-separated list of the claim values for delegated permissions which should be included in access tokens for the resource application (the API). For example, openid User.Read GroupMember.Read.All. Each claim value should match the value field of one of the delegated permissions defined by the API, listed in the publishedPermissionScopes property of the resource service principal.
-    */
+    /** @var string|null $scope A space-separated list of the claim values for delegated permissions which should be included in access tokens for the resource application (the API). For example, openid User.Read GroupMember.Read.All. Each claim value should match the value field of one of the delegated permissions defined by the API, listed in the oauth2PermissionScopes property of the resource service principal. */
     private ?string $scope = null;
     
-    /**
-     * @var DateTime|null $startTime Currently, the start time value is ignored, but a value is required when creating an oAuth2PermissionGrant. Required.
-    */
+    /** @var DateTime|null $startTime Currently, the start time value is ignored, but a value is required when creating an oAuth2PermissionGrant. Required. */
     private ?DateTime $startTime = null;
     
     /**
@@ -56,7 +42,7 @@ class OAuth2PermissionGrant extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OAuth2PermissionGrant
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OAuth2PermissionGrant {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OAuth2PermissionGrant {
         return new OAuth2PermissionGrant();
     }
 
@@ -69,7 +55,7 @@ class OAuth2PermissionGrant extends Entity implements Parsable
     }
 
     /**
-     * Gets the consentType property value. Indicates whether authorization is granted for the client application to impersonate all users or only a specific user. AllPrincipals indicates authorization to impersonate all users. Principal indicates authorization to impersonate a specific user. Consent on behalf of all users can be granted by an administrator. Non-admin users may be authorized to consent on behalf of themselves in some cases, for some delegated permissions. Required. Supports $filter (eq only).
+     * Gets the consentType property value. Indicates if authorization is granted for the client application to impersonate all users or only a specific user. AllPrincipals indicates authorization to impersonate all users. Principal indicates authorization to impersonate a specific user. Consent on behalf of all users can be granted by an administrator. Non-admin users may be authorized to consent on behalf of themselves in some cases, for some delegated permissions. Required. Supports $filter (eq only).
      * @return string|null
     */
     public function getConsentType(): ?string {
@@ -89,15 +75,14 @@ class OAuth2PermissionGrant extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'clientId' => function (ParseNode $n) use ($o) { $o->setClientId($n->getStringValue()); },
-            'consentType' => function (ParseNode $n) use ($o) { $o->setConsentType($n->getStringValue()); },
-            'expiryTime' => function (ParseNode $n) use ($o) { $o->setExpiryTime($n->getDateTimeValue()); },
-            'principalId' => function (ParseNode $n) use ($o) { $o->setPrincipalId($n->getStringValue()); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
-            'scope' => function (ParseNode $n) use ($o) { $o->setScope($n->getStringValue()); },
-            'startTime' => function (ParseNode $n) use ($o) { $o->setStartTime($n->getDateTimeValue()); },
+            'clientId' => function (self $o, ParseNode $n) { $o->setClientId($n->getStringValue()); },
+            'consentType' => function (self $o, ParseNode $n) { $o->setConsentType($n->getStringValue()); },
+            'expiryTime' => function (self $o, ParseNode $n) { $o->setExpiryTime($n->getDateTimeValue()); },
+            'principalId' => function (self $o, ParseNode $n) { $o->setPrincipalId($n->getStringValue()); },
+            'resourceId' => function (self $o, ParseNode $n) { $o->setResourceId($n->getStringValue()); },
+            'scope' => function (self $o, ParseNode $n) { $o->setScope($n->getStringValue()); },
+            'startTime' => function (self $o, ParseNode $n) { $o->setStartTime($n->getDateTimeValue()); },
         ]);
     }
 
@@ -118,7 +103,7 @@ class OAuth2PermissionGrant extends Entity implements Parsable
     }
 
     /**
-     * Gets the scope property value. A space-separated list of the claim values for delegated permissions which should be included in access tokens for the resource application (the API). For example, openid User.Read GroupMember.Read.All. Each claim value should match the value field of one of the delegated permissions defined by the API, listed in the publishedPermissionScopes property of the resource service principal.
+     * Gets the scope property value. A space-separated list of the claim values for delegated permissions which should be included in access tokens for the resource application (the API). For example, openid User.Read GroupMember.Read.All. Each claim value should match the value field of one of the delegated permissions defined by the API, listed in the oauth2PermissionScopes property of the resource service principal.
      * @return string|null
     */
     public function getScope(): ?string {
@@ -157,7 +142,7 @@ class OAuth2PermissionGrant extends Entity implements Parsable
     }
 
     /**
-     * Sets the consentType property value. Indicates whether authorization is granted for the client application to impersonate all users or only a specific user. AllPrincipals indicates authorization to impersonate all users. Principal indicates authorization to impersonate a specific user. Consent on behalf of all users can be granted by an administrator. Non-admin users may be authorized to consent on behalf of themselves in some cases, for some delegated permissions. Required. Supports $filter (eq only).
+     * Sets the consentType property value. Indicates if authorization is granted for the client application to impersonate all users or only a specific user. AllPrincipals indicates authorization to impersonate all users. Principal indicates authorization to impersonate a specific user. Consent on behalf of all users can be granted by an administrator. Non-admin users may be authorized to consent on behalf of themselves in some cases, for some delegated permissions. Required. Supports $filter (eq only).
      *  @param string|null $value Value to set for the consentType property.
     */
     public function setConsentType(?string $value ): void {
@@ -189,7 +174,7 @@ class OAuth2PermissionGrant extends Entity implements Parsable
     }
 
     /**
-     * Sets the scope property value. A space-separated list of the claim values for delegated permissions which should be included in access tokens for the resource application (the API). For example, openid User.Read GroupMember.Read.All. Each claim value should match the value field of one of the delegated permissions defined by the API, listed in the publishedPermissionScopes property of the resource service principal.
+     * Sets the scope property value. A space-separated list of the claim values for delegated permissions which should be included in access tokens for the resource application (the API). For example, openid User.Read GroupMember.Read.All. Each claim value should match the value field of one of the delegated permissions defined by the API, listed in the oauth2PermissionScopes property of the resource service principal.
      *  @param string|null $value Value to set for the scope property.
     */
     public function setScope(?string $value ): void {

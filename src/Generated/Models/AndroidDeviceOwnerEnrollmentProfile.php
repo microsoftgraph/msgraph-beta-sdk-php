@@ -7,101 +7,63 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable 
+class AndroidDeviceOwnerEnrollmentProfile extends Entity 
 {
-    /**
-     * @var string|null $accountId Tenant GUID the enrollment profile belongs to.
-    */
+    /** @var string|null $accountId Tenant GUID the enrollment profile belongs to. */
     private ?string $accountId = null;
     
-    /**
-     * @var DateTime|null $createdDateTime Date time the enrollment profile was created.
-    */
+    /** @var DateTime|null $createdDateTime Date time the enrollment profile was created. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $description Description for the enrollment profile.
-    */
+    /** @var string|null $description Description for the enrollment profile. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName Display name for the enrollment profile.
-    */
+    /** @var string|null $displayName Display name for the enrollment profile. */
     private ?string $displayName = null;
     
-    /**
-     * @var int|null $enrolledDeviceCount Total number of Android devices that have enrolled using this enrollment profile.
-    */
+    /** @var int|null $enrolledDeviceCount Total number of Android devices that have enrolled using this enrollment profile. */
     private ?int $enrolledDeviceCount = null;
     
-    /**
-     * @var AndroidDeviceOwnerEnrollmentMode|null $enrollmentMode The enrollment mode of devices that use this enrollment profile. Possible values are: corporateOwnedDedicatedDevice, corporateOwnedFullyManaged, corporateOwnedWorkProfile, corporateOwnedAOSPUserlessDevice, corporateOwnedAOSPUserAssociatedDevice.
-    */
+    /** @var AndroidDeviceOwnerEnrollmentMode|null $enrollmentMode The enrollment mode of devices that use this enrollment profile. Possible values are: corporateOwnedDedicatedDevice, corporateOwnedFullyManaged, corporateOwnedWorkProfile, corporateOwnedAOSPUserlessDevice, corporateOwnedAOSPUserAssociatedDevice. */
     private ?AndroidDeviceOwnerEnrollmentMode $enrollmentMode = null;
     
-    /**
-     * @var AndroidDeviceOwnerEnrollmentTokenType|null $enrollmentTokenType The enrollment token type for an enrollment profile. Possible values are: default, corporateOwnedDedicatedDeviceWithAzureADSharedMode.
-    */
+    /** @var AndroidDeviceOwnerEnrollmentTokenType|null $enrollmentTokenType The enrollment token type for an enrollment profile. Possible values are: default, corporateOwnedDedicatedDeviceWithAzureADSharedMode. */
     private ?AndroidDeviceOwnerEnrollmentTokenType $enrollmentTokenType = null;
     
-    /**
-     * @var int|null $enrollmentTokenUsageCount Total number of AOSP devices that have enrolled using the current token.
-    */
+    /** @var int|null $enrollmentTokenUsageCount Total number of AOSP devices that have enrolled using the current token. */
     private ?int $enrollmentTokenUsageCount = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime Date time the enrollment profile was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime Date time the enrollment profile was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $qrCodeContent String used to generate a QR code for the token.
-    */
+    /** @var string|null $qrCodeContent String used to generate a QR code for the token. */
     private ?string $qrCodeContent = null;
     
-    /**
-     * @var MimeContent|null $qrCodeImage String used to generate a QR code for the token.
-    */
+    /** @var MimeContent|null $qrCodeImage String used to generate a QR code for the token. */
     private ?MimeContent $qrCodeImage = null;
     
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
-    */
+    /** @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance. */
     private ?array $roleScopeTagIds = null;
     
-    /**
-     * @var DateTime|null $tokenCreationDateTime Date time the most recently created token was created.
-    */
+    /** @var DateTime|null $tokenCreationDateTime Date time the most recently created token was created. */
     private ?DateTime $tokenCreationDateTime = null;
     
-    /**
-     * @var DateTime|null $tokenExpirationDateTime Date time the most recently created token will expire.
-    */
+    /** @var DateTime|null $tokenExpirationDateTime Date time the most recently created token will expire. */
     private ?DateTime $tokenExpirationDateTime = null;
     
-    /**
-     * @var string|null $tokenValue Value of the most recently created token for this enrollment profile.
-    */
+    /** @var string|null $tokenValue Value of the most recently created token for this enrollment profile. */
     private ?string $tokenValue = null;
     
-    /**
-     * @var bool|null $wifiHidden Boolean that indicates if hidden wifi networks are enabled
-    */
+    /** @var bool|null $wifiHidden Boolean that indicates if hidden wifi networks are enabled */
     private ?bool $wifiHidden = null;
     
-    /**
-     * @var string|null $wifiPassword String that contains the wi-fi login password
-    */
+    /** @var string|null $wifiPassword String that contains the wi-fi login password */
     private ?string $wifiPassword = null;
     
-    /**
-     * @var AospWifiSecurityType|null $wifiSecurityType String that contains the wi-fi security type. Possible values are: none, wpa, wep.
-    */
+    /** @var AospWifiSecurityType|null $wifiSecurityType String that contains the wi-fi security type. Possible values are: none, wpa, wep. */
     private ?AospWifiSecurityType $wifiSecurityType = null;
     
-    /**
-     * @var string|null $wifiSsid String that contains the wi-fi login ssid
-    */
+    /** @var string|null $wifiSsid String that contains the wi-fi login ssid */
     private ?string $wifiSsid = null;
     
     /**
@@ -116,7 +78,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AndroidDeviceOwnerEnrollmentProfile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidDeviceOwnerEnrollmentProfile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AndroidDeviceOwnerEnrollmentProfile {
         return new AndroidDeviceOwnerEnrollmentProfile();
     }
 
@@ -189,27 +151,26 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accountId' => function (ParseNode $n) use ($o) { $o->setAccountId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'enrolledDeviceCount' => function (ParseNode $n) use ($o) { $o->setEnrolledDeviceCount($n->getIntegerValue()); },
-            'enrollmentMode' => function (ParseNode $n) use ($o) { $o->setEnrollmentMode($n->getEnumValue(AndroidDeviceOwnerEnrollmentMode::class)); },
-            'enrollmentTokenType' => function (ParseNode $n) use ($o) { $o->setEnrollmentTokenType($n->getEnumValue(AndroidDeviceOwnerEnrollmentTokenType::class)); },
-            'enrollmentTokenUsageCount' => function (ParseNode $n) use ($o) { $o->setEnrollmentTokenUsageCount($n->getIntegerValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'qrCodeContent' => function (ParseNode $n) use ($o) { $o->setQrCodeContent($n->getStringValue()); },
-            'qrCodeImage' => function (ParseNode $n) use ($o) { $o->setQrCodeImage($n->getObjectValue(array(MimeContent::class, 'createFromDiscriminatorValue'))); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'tokenCreationDateTime' => function (ParseNode $n) use ($o) { $o->setTokenCreationDateTime($n->getDateTimeValue()); },
-            'tokenExpirationDateTime' => function (ParseNode $n) use ($o) { $o->setTokenExpirationDateTime($n->getDateTimeValue()); },
-            'tokenValue' => function (ParseNode $n) use ($o) { $o->setTokenValue($n->getStringValue()); },
-            'wifiHidden' => function (ParseNode $n) use ($o) { $o->setWifiHidden($n->getBooleanValue()); },
-            'wifiPassword' => function (ParseNode $n) use ($o) { $o->setWifiPassword($n->getStringValue()); },
-            'wifiSecurityType' => function (ParseNode $n) use ($o) { $o->setWifiSecurityType($n->getEnumValue(AospWifiSecurityType::class)); },
-            'wifiSsid' => function (ParseNode $n) use ($o) { $o->setWifiSsid($n->getStringValue()); },
+            'accountId' => function (self $o, ParseNode $n) { $o->setAccountId($n->getStringValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'enrolledDeviceCount' => function (self $o, ParseNode $n) { $o->setEnrolledDeviceCount($n->getIntegerValue()); },
+            'enrollmentMode' => function (self $o, ParseNode $n) { $o->setEnrollmentMode($n->getEnumValue(AndroidDeviceOwnerEnrollmentMode::class)); },
+            'enrollmentTokenType' => function (self $o, ParseNode $n) { $o->setEnrollmentTokenType($n->getEnumValue(AndroidDeviceOwnerEnrollmentTokenType::class)); },
+            'enrollmentTokenUsageCount' => function (self $o, ParseNode $n) { $o->setEnrollmentTokenUsageCount($n->getIntegerValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'qrCodeContent' => function (self $o, ParseNode $n) { $o->setQrCodeContent($n->getStringValue()); },
+            'qrCodeImage' => function (self $o, ParseNode $n) { $o->setQrCodeImage($n->getObjectValue(MimeContent::class)); },
+            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'tokenCreationDateTime' => function (self $o, ParseNode $n) { $o->setTokenCreationDateTime($n->getDateTimeValue()); },
+            'tokenExpirationDateTime' => function (self $o, ParseNode $n) { $o->setTokenExpirationDateTime($n->getDateTimeValue()); },
+            'tokenValue' => function (self $o, ParseNode $n) { $o->setTokenValue($n->getStringValue()); },
+            'wifiHidden' => function (self $o, ParseNode $n) { $o->setWifiHidden($n->getBooleanValue()); },
+            'wifiPassword' => function (self $o, ParseNode $n) { $o->setWifiPassword($n->getStringValue()); },
+            'wifiSecurityType' => function (self $o, ParseNode $n) { $o->setWifiSecurityType($n->getEnumValue(AospWifiSecurityType::class)); },
+            'wifiSsid' => function (self $o, ParseNode $n) { $o->setWifiSsid($n->getStringValue()); },
         ]);
     }
 

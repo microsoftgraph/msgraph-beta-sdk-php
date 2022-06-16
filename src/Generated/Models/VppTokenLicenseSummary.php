@@ -9,34 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $appleId The Apple Id associated with the given Apple Volume Purchase Program Token.
-    */
+    /** @var string|null $appleId The Apple Id associated with the given Apple Volume Purchase Program Token. */
     private ?string $appleId = null;
     
-    /**
-     * @var int|null $availableLicenseCount The number of VPP licenses available.
-    */
+    /** @var int|null $availableLicenseCount The number of VPP licenses available. */
     private ?int $availableLicenseCount = null;
     
-    /**
-     * @var string|null $organizationName The organization associated with the Apple Volume Purchase Program Token.
-    */
+    /** @var string|null $organizationName The organization associated with the Apple Volume Purchase Program Token. */
     private ?string $organizationName = null;
     
-    /**
-     * @var int|null $usedLicenseCount The number of VPP licenses in use.
-    */
+    /** @var int|null $usedLicenseCount The number of VPP licenses in use. */
     private ?int $usedLicenseCount = null;
     
-    /**
-     * @var string|null $vppTokenId Identifier of the VPP token.
-    */
+    /** @var string|null $vppTokenId Identifier of the VPP token. */
     private ?string $vppTokenId = null;
     
     /**
@@ -51,7 +39,7 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return VppTokenLicenseSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): VppTokenLicenseSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): VppTokenLicenseSummary {
         return new VppTokenLicenseSummary();
     }
 
@@ -84,13 +72,12 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'appleId' => function (ParseNode $n) use ($o) { $o->setAppleId($n->getStringValue()); },
-            'availableLicenseCount' => function (ParseNode $n) use ($o) { $o->setAvailableLicenseCount($n->getIntegerValue()); },
-            'organizationName' => function (ParseNode $n) use ($o) { $o->setOrganizationName($n->getStringValue()); },
-            'usedLicenseCount' => function (ParseNode $n) use ($o) { $o->setUsedLicenseCount($n->getIntegerValue()); },
-            'vppTokenId' => function (ParseNode $n) use ($o) { $o->setVppTokenId($n->getStringValue()); },
+            'appleId' => function (self $o, ParseNode $n) { $o->setAppleId($n->getStringValue()); },
+            'availableLicenseCount' => function (self $o, ParseNode $n) { $o->setAvailableLicenseCount($n->getIntegerValue()); },
+            'organizationName' => function (self $o, ParseNode $n) { $o->setOrganizationName($n->getStringValue()); },
+            'usedLicenseCount' => function (self $o, ParseNode $n) { $o->setUsedLicenseCount($n->getIntegerValue()); },
+            'vppTokenId' => function (self $o, ParseNode $n) { $o->setVppTokenId($n->getStringValue()); },
         ];
     }
 

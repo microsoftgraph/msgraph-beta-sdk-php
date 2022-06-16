@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ReferencedObject implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $referencedObjectName Name of the referenced object. Must match one of the objects in the directory definition.
-    */
+    /** @var string|null $referencedObjectName Name of the referenced object. Must match one of the objects in the directory definition. */
     private ?string $referencedObjectName = null;
     
-    /**
-     * @var string|null $referencedProperty Currently not supported. Name of the property in the referenced object, the value for which is used as the reference.
-    */
+    /** @var string|null $referencedProperty Currently not supported. Name of the property in the referenced object, the value for which is used as the reference. */
     private ?string $referencedProperty = null;
     
     /**
@@ -36,7 +30,7 @@ class ReferencedObject implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ReferencedObject
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ReferencedObject {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ReferencedObject {
         return new ReferencedObject();
     }
 
@@ -53,10 +47,9 @@ class ReferencedObject implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'referencedObjectName' => function (ParseNode $n) use ($o) { $o->setReferencedObjectName($n->getStringValue()); },
-            'referencedProperty' => function (ParseNode $n) use ($o) { $o->setReferencedProperty($n->getStringValue()); },
+            'referencedObjectName' => function (self $o, ParseNode $n) { $o->setReferencedObjectName($n->getStringValue()); },
+            'referencedProperty' => function (self $o, ParseNode $n) { $o->setReferencedProperty($n->getStringValue()); },
         ];
     }
 

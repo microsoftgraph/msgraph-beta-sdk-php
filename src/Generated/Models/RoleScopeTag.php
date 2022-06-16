@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RoleScopeTag extends Entity implements Parsable 
+class RoleScopeTag extends Entity 
 {
-    /**
-     * @var array<RoleScopeTagAutoAssignment>|null $assignments The list of assignments for this Role Scope Tag.
-    */
+    /** @var array<RoleScopeTagAutoAssignment>|null $assignments The list of assignments for this Role Scope Tag. */
     private ?array $assignments = null;
     
-    /**
-     * @var string|null $description Description of the Role Scope Tag.
-    */
+    /** @var string|null $description Description of the Role Scope Tag. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The display or friendly name of the Role Scope Tag.
-    */
+    /** @var string|null $displayName The display or friendly name of the Role Scope Tag. */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $isBuiltIn Description of the Role Scope Tag. This property is read-only.
-    */
+    /** @var bool|null $isBuiltIn Description of the Role Scope Tag. This property is read-only. */
     private ?bool $isBuiltIn = null;
     
     /**
@@ -40,7 +32,7 @@ class RoleScopeTag extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RoleScopeTag
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RoleScopeTag {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RoleScopeTag {
         return new RoleScopeTag();
     }
 
@@ -73,12 +65,11 @@ class RoleScopeTag extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(RoleScopeTagAutoAssignment::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isBuiltIn' => function (ParseNode $n) use ($o) { $o->setIsBuiltIn($n->getBooleanValue()); },
+            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(RoleScopeTagAutoAssignment::class)); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'isBuiltIn' => function (self $o, ParseNode $n) { $o->setIsBuiltIn($n->getBooleanValue()); },
         ]);
     }
 

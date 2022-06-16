@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkMicrophoneConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var TeamworkPeripheral|null $defaultMicrophone The defaultMicrophone property
-    */
+    /** @var TeamworkPeripheral|null $defaultMicrophone The defaultMicrophone property */
     private ?TeamworkPeripheral $defaultMicrophone = null;
     
-    /**
-     * @var bool|null $isMicrophoneOptional True if the configured microphone is optional. False if the microphone is not optional and the health state of the device should be computed.
-    */
+    /** @var bool|null $isMicrophoneOptional True if the configured microphone is optional. False if the microphone is not optional and the health state of the device should be computed. */
     private ?bool $isMicrophoneOptional = null;
     
-    /**
-     * @var array<TeamworkPeripheral>|null $microphones The microphones property
-    */
+    /** @var array<TeamworkPeripheral>|null $microphones The microphones property */
     private ?array $microphones = null;
     
     /**
@@ -41,7 +33,7 @@ class TeamworkMicrophoneConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkMicrophoneConfiguration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkMicrophoneConfiguration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkMicrophoneConfiguration {
         return new TeamworkMicrophoneConfiguration();
     }
 
@@ -66,11 +58,10 @@ class TeamworkMicrophoneConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'defaultMicrophone' => function (ParseNode $n) use ($o) { $o->setDefaultMicrophone($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'isMicrophoneOptional' => function (ParseNode $n) use ($o) { $o->setIsMicrophoneOptional($n->getBooleanValue()); },
-            'microphones' => function (ParseNode $n) use ($o) { $o->setMicrophones($n->getCollectionOfObjectValues(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
+            'defaultMicrophone' => function (self $o, ParseNode $n) { $o->setDefaultMicrophone($n->getObjectValue(TeamworkPeripheral::class)); },
+            'isMicrophoneOptional' => function (self $o, ParseNode $n) { $o->setIsMicrophoneOptional($n->getBooleanValue()); },
+            'microphones' => function (self $o, ParseNode $n) { $o->setMicrophones($n->getCollectionOfObjectValues(TeamworkPeripheral::class)); },
         ];
     }
 

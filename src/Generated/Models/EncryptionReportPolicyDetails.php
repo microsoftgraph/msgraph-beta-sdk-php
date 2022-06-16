@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class EncryptionReportPolicyDetails implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $policyId Policy Id for Encryption Report
-    */
+    /** @var string|null $policyId Policy Id for Encryption Report */
     private ?string $policyId = null;
     
-    /**
-     * @var string|null $policyName Policy Name for Encryption Report
-    */
+    /** @var string|null $policyName Policy Name for Encryption Report */
     private ?string $policyName = null;
     
     /**
@@ -36,7 +30,7 @@ class EncryptionReportPolicyDetails implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EncryptionReportPolicyDetails
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EncryptionReportPolicyDetails {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EncryptionReportPolicyDetails {
         return new EncryptionReportPolicyDetails();
     }
 
@@ -53,10 +47,9 @@ class EncryptionReportPolicyDetails implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'policyId' => function (ParseNode $n) use ($o) { $o->setPolicyId($n->getStringValue()); },
-            'policyName' => function (ParseNode $n) use ($o) { $o->setPolicyName($n->getStringValue()); },
+            'policyId' => function (self $o, ParseNode $n) { $o->setPolicyId($n->getStringValue()); },
+            'policyName' => function (self $o, ParseNode $n) { $o->setPolicyName($n->getStringValue()); },
         ];
     }
 

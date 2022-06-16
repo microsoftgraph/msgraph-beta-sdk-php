@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsable 
+class MobileAppProvisioningConfigGroupAssignment extends Entity 
 {
-    /**
-     * @var string|null $targetGroupId The ID of the AAD group in which the app provisioning configuration is being targeted.
-    */
+    /** @var string|null $targetGroupId The ID of the AAD group in which the app provisioning configuration is being targeted. */
     private ?string $targetGroupId = null;
     
     /**
@@ -25,7 +23,7 @@ class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsa
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MobileAppProvisioningConfigGroupAssignment
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppProvisioningConfigGroupAssignment {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppProvisioningConfigGroupAssignment {
         return new MobileAppProvisioningConfigGroupAssignment();
     }
 
@@ -34,9 +32,8 @@ class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsa
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'targetGroupId' => function (ParseNode $n) use ($o) { $o->setTargetGroupId($n->getStringValue()); },
+            'targetGroupId' => function (self $o, ParseNode $n) { $o->setTargetGroupId($n->getStringValue()); },
         ]);
     }
 

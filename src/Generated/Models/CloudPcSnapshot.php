@@ -7,26 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPcSnapshot extends Entity implements Parsable 
+class CloudPcSnapshot extends Entity 
 {
-    /**
-     * @var string|null $cloudPcId The unique identifier for the Cloud PC.
-    */
+    /** @var string|null $cloudPcId The unique identifier for the Cloud PC. */
     private ?string $cloudPcId = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The date and time at which the snapshot was taken. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $createdDateTime The date and time at which the snapshot was taken. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var DateTime|null $lastRestoredDateTime The date and time at which the snapshot was last used to restore the Cloud PC device. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $lastRestoredDateTime The date and time at which the snapshot was last used to restore the Cloud PC device. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $lastRestoredDateTime = null;
     
-    /**
-     * @var CloudPcSnapshotStatus|null $status The status of the Cloud PC snapshot. The possible values are: ready, unknownFutureValue.
-    */
+    /** @var CloudPcSnapshotStatus|null $status The status of the Cloud PC snapshot. The possible values are: ready, unknownFutureValue. */
     private ?CloudPcSnapshotStatus $status = null;
     
     /**
@@ -41,7 +33,7 @@ class CloudPcSnapshot extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcSnapshot
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcSnapshot {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcSnapshot {
         return new CloudPcSnapshot();
     }
 
@@ -66,12 +58,11 @@ class CloudPcSnapshot extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'cloudPcId' => function (ParseNode $n) use ($o) { $o->setCloudPcId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'lastRestoredDateTime' => function (ParseNode $n) use ($o) { $o->setLastRestoredDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CloudPcSnapshotStatus::class)); },
+            'cloudPcId' => function (self $o, ParseNode $n) { $o->setCloudPcId($n->getStringValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'lastRestoredDateTime' => function (self $o, ParseNode $n) { $o->setLastRestoredDateTime($n->getDateTimeValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(CloudPcSnapshotStatus::class)); },
         ]);
     }
 

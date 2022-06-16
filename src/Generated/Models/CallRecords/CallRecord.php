@@ -9,56 +9,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CallRecord extends Entity implements Parsable 
+class CallRecord extends Entity 
 {
-    /**
-     * @var DateTime|null $endDateTime UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $endDateTime UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $endDateTime = null;
     
-    /**
-     * @var string|null $joinWebUrl Meeting URL associated to the call. May not be available for a peerToPeer call record type.
-    */
+    /** @var string|null $joinWebUrl Meeting URL associated to the call. May not be available for a peerToPeer call record type. */
     private ?string $joinWebUrl = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime UTC time when the call record was created. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $lastModifiedDateTime UTC time when the call record was created. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var array<string>|null $modalities List of all the modalities used in the call. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
-    */
+    /** @var array<Modality>|null $modalities List of all the modalities used in the call. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue. */
     private ?array $modalities = null;
     
-    /**
-     * @var IdentitySet|null $organizer The organizing party's identity.
-    */
+    /** @var IdentitySet|null $organizer The organizing party's identity. */
     private ?IdentitySet $organizer = null;
     
-    /**
-     * @var array<IdentitySet>|null $participants List of distinct identities involved in the call.
-    */
+    /** @var array<IdentitySet>|null $participants List of distinct identities involved in the call. */
     private ?array $participants = null;
     
-    /**
-     * @var array<Session>|null $sessions List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable.
-    */
+    /** @var array<Session>|null $sessions List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable. */
     private ?array $sessions = null;
     
-    /**
-     * @var DateTime|null $startDateTime UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $startDateTime UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $startDateTime = null;
     
-    /**
-     * @var CallType|null $type Indicates the type of the call. Possible values are: unknown, groupCall, peerToPeer, unknownFutureValue.
-    */
+    /** @var CallType|null $type Indicates the type of the call. Possible values are: unknown, groupCall, peerToPeer, unknownFutureValue. */
     private ?CallType $type = null;
     
-    /**
-     * @var int|null $version Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version.
-    */
+    /** @var int|null $version Monotonically increasing version of the call record. Higher version call records with the same id includes additional data compared to the lower version. */
     private ?int $version = null;
     
     /**
@@ -73,7 +53,7 @@ class CallRecord extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CallRecord
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CallRecord {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CallRecord {
         return new CallRecord();
     }
 
@@ -90,18 +70,17 @@ class CallRecord extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'joinWebUrl' => function (ParseNode $n) use ($o) { $o->setJoinWebUrl($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'modalities' => function (ParseNode $n) use ($o) { $o->setModalities($n->getCollectionOfPrimitiveValues()); },
-            'organizer' => function (ParseNode $n) use ($o) { $o->setOrganizer($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'participants' => function (ParseNode $n) use ($o) { $o->setParticipants($n->getCollectionOfObjectValues(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'sessions' => function (ParseNode $n) use ($o) { $o->setSessions($n->getCollectionOfObjectValues(array(Session::class, 'createFromDiscriminatorValue'))); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(CallType::class)); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
+            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'joinWebUrl' => function (self $o, ParseNode $n) { $o->setJoinWebUrl($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'modalities' => function (self $o, ParseNode $n) { $o->setModalities($n->getCollectionOfEnumValues(Modality::class)); },
+            'organizer' => function (self $o, ParseNode $n) { $o->setOrganizer($n->getObjectValue(IdentitySet::class)); },
+            'participants' => function (self $o, ParseNode $n) { $o->setParticipants($n->getCollectionOfObjectValues(IdentitySet::class)); },
+            'sessions' => function (self $o, ParseNode $n) { $o->setSessions($n->getCollectionOfObjectValues(Session::class)); },
+            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(CallType::class)); },
+            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getIntegerValue()); },
         ]);
     }
 
@@ -123,7 +102,7 @@ class CallRecord extends Entity implements Parsable
 
     /**
      * Gets the modalities property value. List of all the modalities used in the call. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
-     * @return array<string>|null
+     * @return array<Modality>|null
     */
     public function getModalities(): ?array {
         return $this->modalities;
@@ -154,7 +133,7 @@ class CallRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the startDateTime property value. UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the startDateTime property value. UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
@@ -170,7 +149,7 @@ class CallRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version.
+     * Gets the version property value. Monotonically increasing version of the call record. Higher version call records with the same id includes additional data compared to the lower version.
      * @return int|null
     */
     public function getVersion(): ?int {
@@ -186,7 +165,7 @@ class CallRecord extends Entity implements Parsable
         $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
         $writer->writeStringValue('joinWebUrl', $this->joinWebUrl);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeCollectionOfPrimitiveValues('modalities', $this->modalities);
+        $writer->writeCollectionOfEnumValues('modalities', $this->modalities);
         $writer->writeObjectValue('organizer', $this->organizer);
         $writer->writeCollectionOfObjectValues('participants', $this->participants);
         $writer->writeCollectionOfObjectValues('sessions', $this->sessions);
@@ -221,7 +200,7 @@ class CallRecord extends Entity implements Parsable
 
     /**
      * Sets the modalities property value. List of all the modalities used in the call. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
-     *  @param array<string>|null $value Value to set for the modalities property.
+     *  @param array<Modality>|null $value Value to set for the modalities property.
     */
     public function setModalities(?array $value ): void {
         $this->modalities = $value;
@@ -252,7 +231,7 @@ class CallRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the startDateTime property value. UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the startDateTime property value. UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value ): void {
@@ -268,7 +247,7 @@ class CallRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version.
+     * Sets the version property value. Monotonically increasing version of the call record. Higher version call records with the same id includes additional data compared to the lower version.
      *  @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value ): void {

@@ -8,41 +8,27 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagementTemplateCollection extends Entity implements Parsable 
+class ManagementTemplateCollection extends Entity 
 {
-    /**
-     * @var string|null $createdByUserId The createdByUserId property
-    */
+    /** @var string|null $createdByUserId The createdByUserId property */
     private ?string $createdByUserId = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
+    /** @var DateTime|null $createdDateTime The createdDateTime property */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $description The description property
-    */
+    /** @var string|null $description The description property */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $lastActionByUserId The lastActionByUserId property
-    */
+    /** @var string|null $lastActionByUserId The lastActionByUserId property */
     private ?string $lastActionByUserId = null;
     
-    /**
-     * @var DateTime|null $lastActionDateTime The lastActionDateTime property
-    */
+    /** @var DateTime|null $lastActionDateTime The lastActionDateTime property */
     private ?DateTime $lastActionDateTime = null;
     
-    /**
-     * @var array<ManagementTemplate>|null $managementTemplates The managementTemplates property
-    */
+    /** @var array<ManagementTemplate>|null $managementTemplates The managementTemplates property */
     private ?array $managementTemplates = null;
     
     /**
@@ -57,7 +43,7 @@ class ManagementTemplateCollection extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagementTemplateCollection
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagementTemplateCollection {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagementTemplateCollection {
         return new ManagementTemplateCollection();
     }
 
@@ -98,15 +84,14 @@ class ManagementTemplateCollection extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdByUserId' => function (ParseNode $n) use ($o) { $o->setCreatedByUserId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastActionByUserId' => function (ParseNode $n) use ($o) { $o->setLastActionByUserId($n->getStringValue()); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'managementTemplates' => function (ParseNode $n) use ($o) { $o->setManagementTemplates($n->getCollectionOfObjectValues(array(ManagementTemplate::class, 'createFromDiscriminatorValue'))); },
+            'createdByUserId' => function (self $o, ParseNode $n) { $o->setCreatedByUserId($n->getStringValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastActionByUserId' => function (self $o, ParseNode $n) { $o->setLastActionByUserId($n->getStringValue()); },
+            'lastActionDateTime' => function (self $o, ParseNode $n) { $o->setLastActionDateTime($n->getDateTimeValue()); },
+            'managementTemplates' => function (self $o, ParseNode $n) { $o->setManagementTemplates($n->getCollectionOfObjectValues(ManagementTemplate::class)); },
         ]);
     }
 

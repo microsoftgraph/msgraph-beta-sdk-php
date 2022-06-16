@@ -6,31 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MobileAppRelationship extends Entity implements Parsable 
+class MobileAppRelationship extends Entity 
 {
-    /**
-     * @var string|null $targetDisplayName The target mobile app's display name.
-    */
+    /** @var string|null $targetDisplayName The target mobile app's display name. */
     private ?string $targetDisplayName = null;
     
-    /**
-     * @var string|null $targetDisplayVersion The target mobile app's display version.
-    */
+    /** @var string|null $targetDisplayVersion The target mobile app's display version. */
     private ?string $targetDisplayVersion = null;
     
-    /**
-     * @var string|null $targetId The target mobile app's app id.
-    */
+    /** @var string|null $targetId The target mobile app's app id. */
     private ?string $targetId = null;
     
-    /**
-     * @var string|null $targetPublisher The target mobile app's publisher.
-    */
+    /** @var string|null $targetPublisher The target mobile app's publisher. */
     private ?string $targetPublisher = null;
     
-    /**
-     * @var MobileAppRelationshipType|null $targetType The type of relationship indicating whether the target is a parent or child. Possible values are: child, parent.
-    */
+    /** @var MobileAppRelationshipType|null $targetType The type of relationship indicating whether the target is a parent or child. Possible values are: child, parent. */
     private ?MobileAppRelationshipType $targetType = null;
     
     /**
@@ -45,15 +35,7 @@ class MobileAppRelationship extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MobileAppRelationship
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppRelationship {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.mobileAppDependency': return new MobileAppDependency();
-                case '#microsoft.graph.mobileAppSupersedence': return new MobileAppSupersedence();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppRelationship {
         return new MobileAppRelationship();
     }
 
@@ -62,13 +44,12 @@ class MobileAppRelationship extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'targetDisplayName' => function (ParseNode $n) use ($o) { $o->setTargetDisplayName($n->getStringValue()); },
-            'targetDisplayVersion' => function (ParseNode $n) use ($o) { $o->setTargetDisplayVersion($n->getStringValue()); },
-            'targetId' => function (ParseNode $n) use ($o) { $o->setTargetId($n->getStringValue()); },
-            'targetPublisher' => function (ParseNode $n) use ($o) { $o->setTargetPublisher($n->getStringValue()); },
-            'targetType' => function (ParseNode $n) use ($o) { $o->setTargetType($n->getEnumValue(MobileAppRelationshipType::class)); },
+            'targetDisplayName' => function (self $o, ParseNode $n) { $o->setTargetDisplayName($n->getStringValue()); },
+            'targetDisplayVersion' => function (self $o, ParseNode $n) { $o->setTargetDisplayVersion($n->getStringValue()); },
+            'targetId' => function (self $o, ParseNode $n) { $o->setTargetId($n->getStringValue()); },
+            'targetPublisher' => function (self $o, ParseNode $n) { $o->setTargetPublisher($n->getStringValue()); },
+            'targetType' => function (self $o, ParseNode $n) { $o->setTargetType($n->getEnumValue(MobileAppRelationshipType::class)); },
         ]);
     }
 

@@ -7,31 +7,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RemoteAssistancePartner extends Entity implements Parsable 
+class RemoteAssistancePartner extends Entity 
 {
-    /**
-     * @var string|null $displayName Display name of the partner.
-    */
+    /** @var string|null $displayName Display name of the partner. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastConnectionDateTime Timestamp of the last request sent to Intune by the TEM partner.
-    */
+    /** @var DateTime|null $lastConnectionDateTime Timestamp of the last request sent to Intune by the TEM partner. */
     private ?DateTime $lastConnectionDateTime = null;
     
-    /**
-     * @var DateTime|null $onboardingRequestExpiryDateTime When the OnboardingStatus is Onboarding, This is the date time when the onboarding request expires.
-    */
+    /** @var DateTime|null $onboardingRequestExpiryDateTime When the OnboardingStatus is Onboarding, This is the date time when the onboarding request expires. */
     private ?DateTime $onboardingRequestExpiryDateTime = null;
     
-    /**
-     * @var RemoteAssistanceOnboardingStatus|null $onboardingStatus A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded.
-    */
+    /** @var RemoteAssistanceOnboardingStatus|null $onboardingStatus A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded. */
     private ?RemoteAssistanceOnboardingStatus $onboardingStatus = null;
     
-    /**
-     * @var string|null $onboardingUrl URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service.
-    */
+    /** @var string|null $onboardingUrl URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service. */
     private ?string $onboardingUrl = null;
     
     /**
@@ -46,7 +36,7 @@ class RemoteAssistancePartner extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RemoteAssistancePartner
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RemoteAssistancePartner {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RemoteAssistancePartner {
         return new RemoteAssistancePartner();
     }
 
@@ -63,13 +53,12 @@ class RemoteAssistancePartner extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastConnectionDateTime' => function (ParseNode $n) use ($o) { $o->setLastConnectionDateTime($n->getDateTimeValue()); },
-            'onboardingRequestExpiryDateTime' => function (ParseNode $n) use ($o) { $o->setOnboardingRequestExpiryDateTime($n->getDateTimeValue()); },
-            'onboardingStatus' => function (ParseNode $n) use ($o) { $o->setOnboardingStatus($n->getEnumValue(RemoteAssistanceOnboardingStatus::class)); },
-            'onboardingUrl' => function (ParseNode $n) use ($o) { $o->setOnboardingUrl($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastConnectionDateTime' => function (self $o, ParseNode $n) { $o->setLastConnectionDateTime($n->getDateTimeValue()); },
+            'onboardingRequestExpiryDateTime' => function (self $o, ParseNode $n) { $o->setOnboardingRequestExpiryDateTime($n->getDateTimeValue()); },
+            'onboardingStatus' => function (self $o, ParseNode $n) { $o->setOnboardingStatus($n->getEnumValue(RemoteAssistanceOnboardingStatus::class)); },
+            'onboardingUrl' => function (self $o, ParseNode $n) { $o->setOnboardingUrl($n->getStringValue()); },
         ]);
     }
 

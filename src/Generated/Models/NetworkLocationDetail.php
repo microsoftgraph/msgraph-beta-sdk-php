@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class NetworkLocationDetail implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<string>|null $networkNames Provides the name of the network used when signing in.
-    */
+    /** @var array<string>|null $networkNames Provides the name of the network used when signing in. */
     private ?array $networkNames = null;
     
-    /**
-     * @var NetworkType|null $networkType Provides the type of network used when signing in. Possible values are: intranet, extranet, namedNetwork, trusted, unknownFutureValue.
-    */
+    /** @var NetworkType|null $networkType Provides the type of network used when signing in. Possible values are: intranet, extranet, namedNetwork, trusted, unknownFutureValue. */
     private ?NetworkType $networkType = null;
     
     /**
@@ -36,7 +30,7 @@ class NetworkLocationDetail implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return NetworkLocationDetail
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): NetworkLocationDetail {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): NetworkLocationDetail {
         return new NetworkLocationDetail();
     }
 
@@ -53,10 +47,9 @@ class NetworkLocationDetail implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'networkNames' => function (ParseNode $n) use ($o) { $o->setNetworkNames($n->getCollectionOfPrimitiveValues()); },
-            'networkType' => function (ParseNode $n) use ($o) { $o->setNetworkType($n->getEnumValue(NetworkType::class)); },
+            'networkNames' => function (self $o, ParseNode $n) { $o->setNetworkNames($n->getCollectionOfPrimitiveValues()); },
+            'networkType' => function (self $o, ParseNode $n) { $o->setNetworkType($n->getEnumValue(NetworkType::class)); },
         ];
     }
 

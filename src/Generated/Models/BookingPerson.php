@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class BookingPerson extends BookingNamedEntity implements Parsable 
+class BookingPerson extends BookingNamedEntity 
 {
-    /**
-     * @var string|null $emailAddress The email address of the person.
-    */
+    /** @var string|null $emailAddress The email address of the person. */
     private ?string $emailAddress = null;
     
     /**
@@ -25,15 +23,7 @@ class BookingPerson extends BookingNamedEntity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BookingPerson
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): BookingPerson {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.bookingCustomer': return new BookingCustomer();
-                case '#microsoft.graph.bookingStaffMember': return new BookingStaffMember();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): BookingPerson {
         return new BookingPerson();
     }
 
@@ -50,9 +40,8 @@ class BookingPerson extends BookingNamedEntity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'emailAddress' => function (ParseNode $n) use ($o) { $o->setEmailAddress($n->getStringValue()); },
+            'emailAddress' => function (self $o, ParseNode $n) { $o->setEmailAddress($n->getStringValue()); },
         ]);
     }
 

@@ -7,31 +7,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Attachment extends Entity implements Parsable 
+class Attachment extends Entity 
 {
-    /**
-     * @var string|null $contentType The MIME type.
-    */
+    /** @var string|null $contentType The MIME type. */
     private ?string $contentType = null;
     
-    /**
-     * @var bool|null $isInline true if the attachment is an inline attachment; otherwise, false.
-    */
+    /** @var bool|null $isInline true if the attachment is an inline attachment; otherwise, false. */
     private ?bool $isInline = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $lastModifiedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $name The display name of the attachment. This does not need to be the actual file name.
-    */
+    /** @var string|null $name The attachment's file name. */
     private ?string $name = null;
     
-    /**
-     * @var int|null $size The length of the attachment in bytes.
-    */
+    /** @var int|null $size The length of the attachment in bytes. */
     private ?int $size = null;
     
     /**
@@ -46,16 +36,7 @@ class Attachment extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Attachment
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Attachment {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.fileAttachment': return new FileAttachment();
-                case '#microsoft.graph.itemAttachment': return new ItemAttachment();
-                case '#microsoft.graph.referenceAttachment': return new ReferenceAttachment();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Attachment {
         return new Attachment();
     }
 
@@ -72,13 +53,12 @@ class Attachment extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contentType' => function (ParseNode $n) use ($o) { $o->setContentType($n->getStringValue()); },
-            'isInline' => function (ParseNode $n) use ($o) { $o->setIsInline($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getIntegerValue()); },
+            'contentType' => function (self $o, ParseNode $n) { $o->setContentType($n->getStringValue()); },
+            'isInline' => function (self $o, ParseNode $n) { $o->setIsInline($n->getBooleanValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'size' => function (self $o, ParseNode $n) { $o->setSize($n->getIntegerValue()); },
         ]);
     }
 
@@ -99,7 +79,7 @@ class Attachment extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. The display name of the attachment. This does not need to be the actual file name.
+     * Gets the name property value. The attachment's file name.
      * @return string|null
     */
     public function getName(): ?string {
@@ -152,7 +132,7 @@ class Attachment extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. The display name of the attachment. This does not need to be the actual file name.
+     * Sets the name property value. The attachment's file name.
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value ): void {

@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class KeyValue implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $key Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
-    */
+    /** @var string|null $key Key for the key-value pair. */
     private ?string $key = null;
     
-    /**
-     * @var string|null $value Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
-    */
+    /** @var string|null $value Value for the key-value pair. */
     private ?string $value = null;
     
     /**
@@ -36,7 +30,7 @@ class KeyValue implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return KeyValue
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): KeyValue {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): KeyValue {
         return new KeyValue();
     }
 
@@ -53,15 +47,14 @@ class KeyValue implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'key' => function (ParseNode $n) use ($o) { $o->setKey($n->getStringValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
+            'key' => function (self $o, ParseNode $n) { $o->setKey($n->getStringValue()); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the key property value. Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
+     * Gets the key property value. Key for the key-value pair.
      * @return string|null
     */
     public function getKey(): ?string {
@@ -69,7 +62,7 @@ class KeyValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the value property value. Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
+     * Gets the value property value. Value for the key-value pair.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -95,7 +88,7 @@ class KeyValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the key property value. Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
+     * Sets the key property value. Key for the key-value pair.
      *  @param string|null $value Value to set for the key property.
     */
     public function setKey(?string $value ): void {
@@ -103,7 +96,7 @@ class KeyValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the value property value. Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
+     * Sets the value property value. Value for the key-value pair.
      *  @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value ): void {

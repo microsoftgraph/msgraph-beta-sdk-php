@@ -11,29 +11,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class GovernanceSchedule implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateInterval|null $duration The duration of a role assignment. It is in format of a TimeSpan.
-    */
+    /** @var DateInterval|null $duration The duration of a role assignment. It is in format of a TimeSpan. */
     private ?DateInterval $duration = null;
     
-    /**
-     * @var DateTime|null $endDateTime The end time of the role assignment. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Note: if the value is null, it indicates a permanent assignment.
-    */
+    /** @var DateTime|null $endDateTime The end time of the role assignment. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Note: if the value is null, it indicates a permanent assignment. */
     private ?DateTime $endDateTime = null;
     
-    /**
-     * @var DateTime|null $startDateTime The start time of the role assignment. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $startDateTime The start time of the role assignment. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $startDateTime = null;
     
-    /**
-     * @var string|null $type The role assignment schedule type. Only Once is supported for now.
-    */
+    /** @var string|null $type The role assignment schedule type. Only Once is supported for now. */
     private ?string $type = null;
     
     /**
@@ -48,7 +38,7 @@ class GovernanceSchedule implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GovernanceSchedule
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceSchedule {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceSchedule {
         return new GovernanceSchedule();
     }
 
@@ -81,12 +71,11 @@ class GovernanceSchedule implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'duration' => function (ParseNode $n) use ($o) { $o->setDuration($n->getDateIntervalValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'duration' => function (self $o, ParseNode $n) { $o->setDuration($n->getDateIntervalValue()); },
+            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
         ];
     }
 

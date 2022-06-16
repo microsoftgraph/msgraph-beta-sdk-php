@@ -6,31 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CalendarPermission extends Entity implements Parsable 
+class CalendarPermission extends Entity 
 {
-    /**
-     * @var array<string>|null $allowedRoles List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.
-    */
+    /** @var array<CalendarRoleType>|null $allowedRoles List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom. */
     private ?array $allowedRoles = null;
     
-    /**
-     * @var EmailAddress|null $emailAddress Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only.
-    */
+    /** @var EmailAddress|null $emailAddress Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only. */
     private ?EmailAddress $emailAddress = null;
     
-    /**
-     * @var bool|null $isInsideOrganization True if the user in context (sharee or delegate) is inside the same organization as the calendar owner.
-    */
+    /** @var bool|null $isInsideOrganization True if the user in context (sharee or delegate) is inside the same organization as the calendar owner. */
     private ?bool $isInsideOrganization = null;
     
-    /**
-     * @var bool|null $isRemovable True if the user can be removed from the list of sharees or delegates for the specified calendar, false otherwise. The 'My organization' user determines the permissions other people within your organization have to the given calendar. You cannot remove 'My organization' as a sharee to a calendar.
-    */
+    /** @var bool|null $isRemovable True if the user can be removed from the list of sharees or delegates for the specified calendar, false otherwise. The 'My organization' user determines the permissions other people within your organization have to the given calendar. You cannot remove 'My organization' as a sharee to a calendar. */
     private ?bool $isRemovable = null;
     
-    /**
-     * @var CalendarRoleType|null $role Current permission level of the calendar sharee or delegate.
-    */
+    /** @var CalendarRoleType|null $role Current permission level of the calendar sharee or delegate. */
     private ?CalendarRoleType $role = null;
     
     /**
@@ -45,13 +35,13 @@ class CalendarPermission extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CalendarPermission
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CalendarPermission {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CalendarPermission {
         return new CalendarPermission();
     }
 
     /**
      * Gets the allowedRoles property value. List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.
-     * @return array<string>|null
+     * @return array<CalendarRoleType>|null
     */
     public function getAllowedRoles(): ?array {
         return $this->allowedRoles;
@@ -70,13 +60,12 @@ class CalendarPermission extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedRoles' => function (ParseNode $n) use ($o) { $o->setAllowedRoles($n->getCollectionOfPrimitiveValues()); },
-            'emailAddress' => function (ParseNode $n) use ($o) { $o->setEmailAddress($n->getObjectValue(array(EmailAddress::class, 'createFromDiscriminatorValue'))); },
-            'isInsideOrganization' => function (ParseNode $n) use ($o) { $o->setIsInsideOrganization($n->getBooleanValue()); },
-            'isRemovable' => function (ParseNode $n) use ($o) { $o->setIsRemovable($n->getBooleanValue()); },
-            'role' => function (ParseNode $n) use ($o) { $o->setRole($n->getEnumValue(CalendarRoleType::class)); },
+            'allowedRoles' => function (self $o, ParseNode $n) { $o->setAllowedRoles($n->getCollectionOfEnumValues(CalendarRoleType::class)); },
+            'emailAddress' => function (self $o, ParseNode $n) { $o->setEmailAddress($n->getObjectValue(EmailAddress::class)); },
+            'isInsideOrganization' => function (self $o, ParseNode $n) { $o->setIsInsideOrganization($n->getBooleanValue()); },
+            'isRemovable' => function (self $o, ParseNode $n) { $o->setIsRemovable($n->getBooleanValue()); },
+            'role' => function (self $o, ParseNode $n) { $o->setRole($n->getEnumValue(CalendarRoleType::class)); },
         ]);
     }
 
@@ -110,7 +99,7 @@ class CalendarPermission extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('allowedRoles', $this->allowedRoles);
+        $writer->writeCollectionOfEnumValues('allowedRoles', $this->allowedRoles);
         $writer->writeObjectValue('emailAddress', $this->emailAddress);
         $writer->writeBooleanValue('isInsideOrganization', $this->isInsideOrganization);
         $writer->writeBooleanValue('isRemovable', $this->isRemovable);
@@ -119,7 +108,7 @@ class CalendarPermission extends Entity implements Parsable
 
     /**
      * Sets the allowedRoles property value. List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.
-     *  @param array<string>|null $value Value to set for the allowedRoles property.
+     *  @param array<CalendarRoleType>|null $value Value to set for the allowedRoles property.
     */
     public function setAllowedRoles(?array $value ): void {
         $this->allowedRoles = $value;

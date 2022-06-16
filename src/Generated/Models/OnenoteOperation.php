@@ -6,30 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OnenoteOperation extends Operation implements Parsable 
+class OnenoteOperation extends Operation 
 {
-    /**
-     * @var OnenoteOperationError|null $error The error returned by the operation.
-    */
+    /** @var OnenoteOperationError|null $error The error returned by the operation. */
     private ?OnenoteOperationError $error = null;
     
-    /**
-     * @var string|null $percentComplete The operation percent complete if the operation is still in running status.
-    */
+    /** @var string|null $percentComplete The operation percent complete if the operation is still in running status. */
     private ?string $percentComplete = null;
     
-    /**
-     * @var string|null $resourceId The resource id.
-    */
+    /** @var string|null $resourceId The resource id. */
     private ?string $resourceId = null;
     
-    /**
-     * @var string|null $resourceLocation The resource URI for the object. For example, the resource URI for a copied page or section.
-    */
+    /** @var string|null $resourceLocation The resource URI for the object. For example, the resource URI for a copied page or section. */
     private ?string $resourceLocation = null;
     
     /**
-     * Instantiates a new OnenoteOperation and sets the default values.
+     * Instantiates a new onenoteOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -40,7 +32,7 @@ class OnenoteOperation extends Operation implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OnenoteOperation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OnenoteOperation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OnenoteOperation {
         return new OnenoteOperation();
     }
 
@@ -57,12 +49,11 @@ class OnenoteOperation extends Operation implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(OnenoteOperationError::class, 'createFromDiscriminatorValue'))); },
-            'percentComplete' => function (ParseNode $n) use ($o) { $o->setPercentComplete($n->getStringValue()); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
-            'resourceLocation' => function (ParseNode $n) use ($o) { $o->setResourceLocation($n->getStringValue()); },
+            'error' => function (self $o, ParseNode $n) { $o->setError($n->getObjectValue(OnenoteOperationError::class)); },
+            'percentComplete' => function (self $o, ParseNode $n) { $o->setPercentComplete($n->getStringValue()); },
+            'resourceId' => function (self $o, ParseNode $n) { $o->setResourceId($n->getStringValue()); },
+            'resourceLocation' => function (self $o, ParseNode $n) { $o->setResourceLocation($n->getStringValue()); },
         ]);
     }
 

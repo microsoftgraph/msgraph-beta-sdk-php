@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ImplicitGrantSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $enableAccessTokenIssuance Specifies whether this web application can request an access token using the OAuth 2.0 implicit flow.
-    */
+    /** @var bool|null $enableAccessTokenIssuance Specifies whether this web application can request an access token using the OAuth 2.0 implicit flow. */
     private ?bool $enableAccessTokenIssuance = null;
     
-    /**
-     * @var bool|null $enableIdTokenIssuance Specifies whether this web application can request an ID token using the OAuth 2.0 implicit flow.
-    */
+    /** @var bool|null $enableIdTokenIssuance Specifies whether this web application can request an ID token using the OAuth 2.0 implicit flow. */
     private ?bool $enableIdTokenIssuance = null;
     
     /**
@@ -36,7 +30,7 @@ class ImplicitGrantSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ImplicitGrantSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ImplicitGrantSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ImplicitGrantSettings {
         return new ImplicitGrantSettings();
     }
 
@@ -69,10 +63,9 @@ class ImplicitGrantSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'enableAccessTokenIssuance' => function (ParseNode $n) use ($o) { $o->setEnableAccessTokenIssuance($n->getBooleanValue()); },
-            'enableIdTokenIssuance' => function (ParseNode $n) use ($o) { $o->setEnableIdTokenIssuance($n->getBooleanValue()); },
+            'enableAccessTokenIssuance' => function (self $o, ParseNode $n) { $o->setEnableAccessTokenIssuance($n->getBooleanValue()); },
+            'enableIdTokenIssuance' => function (self $o, ParseNode $n) { $o->setEnableIdTokenIssuance($n->getBooleanValue()); },
         ];
     }
 

@@ -9,34 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ApprovalSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $approvalMode One of SingleStage, Serial, Parallel, NoApproval (default). NoApproval is used when isApprovalRequired is false.
-    */
+    /** @var string|null $approvalMode One of NoApproval, SingleStage or Serial. The NoApproval is used when isApprovalRequired is false. */
     private ?string $approvalMode = null;
     
-    /**
-     * @var array<ApprovalStage>|null $approvalStages If approval is required, the one or two elements of this collection define each of the stages of approval. An empty array if no approval is required.
-    */
+    /** @var array<ApprovalStage>|null $approvalStages If approval is required, the one or two elements of this collection define each of the stages of approval. An empty array if no approval is required. */
     private ?array $approvalStages = null;
     
-    /**
-     * @var bool|null $isApprovalRequired Indicates whether approval is required for requests in this policy.
-    */
+    /** @var bool|null $isApprovalRequired If false, then approval is not required for requests in this policy. */
     private ?bool $isApprovalRequired = null;
     
-    /**
-     * @var bool|null $isApprovalRequiredForExtension Indicates whether approval is required for a user to extend their assignment.
-    */
+    /** @var bool|null $isApprovalRequiredForExtension If false, then approval is not required for a user who already has an assignment to extend their assignment. */
     private ?bool $isApprovalRequiredForExtension = null;
     
-    /**
-     * @var bool|null $isRequestorJustificationRequired Indicates whether the requestor is required to supply a justification in their request.
-    */
+    /** @var bool|null $isRequestorJustificationRequired Indicates whether the requestor is required to supply a justification in their request. */
     private ?bool $isRequestorJustificationRequired = null;
     
     /**
@@ -51,7 +39,7 @@ class ApprovalSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ApprovalSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ApprovalSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ApprovalSettings {
         return new ApprovalSettings();
     }
 
@@ -64,7 +52,7 @@ class ApprovalSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the approvalMode property value. One of SingleStage, Serial, Parallel, NoApproval (default). NoApproval is used when isApprovalRequired is false.
+     * Gets the approvalMode property value. One of NoApproval, SingleStage or Serial. The NoApproval is used when isApprovalRequired is false.
      * @return string|null
     */
     public function getApprovalMode(): ?string {
@@ -84,18 +72,17 @@ class ApprovalSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'approvalMode' => function (ParseNode $n) use ($o) { $o->setApprovalMode($n->getStringValue()); },
-            'approvalStages' => function (ParseNode $n) use ($o) { $o->setApprovalStages($n->getCollectionOfObjectValues(array(ApprovalStage::class, 'createFromDiscriminatorValue'))); },
-            'isApprovalRequired' => function (ParseNode $n) use ($o) { $o->setIsApprovalRequired($n->getBooleanValue()); },
-            'isApprovalRequiredForExtension' => function (ParseNode $n) use ($o) { $o->setIsApprovalRequiredForExtension($n->getBooleanValue()); },
-            'isRequestorJustificationRequired' => function (ParseNode $n) use ($o) { $o->setIsRequestorJustificationRequired($n->getBooleanValue()); },
+            'approvalMode' => function (self $o, ParseNode $n) { $o->setApprovalMode($n->getStringValue()); },
+            'approvalStages' => function (self $o, ParseNode $n) { $o->setApprovalStages($n->getCollectionOfObjectValues(ApprovalStage::class)); },
+            'isApprovalRequired' => function (self $o, ParseNode $n) { $o->setIsApprovalRequired($n->getBooleanValue()); },
+            'isApprovalRequiredForExtension' => function (self $o, ParseNode $n) { $o->setIsApprovalRequiredForExtension($n->getBooleanValue()); },
+            'isRequestorJustificationRequired' => function (self $o, ParseNode $n) { $o->setIsRequestorJustificationRequired($n->getBooleanValue()); },
         ];
     }
 
     /**
-     * Gets the isApprovalRequired property value. Indicates whether approval is required for requests in this policy.
+     * Gets the isApprovalRequired property value. If false, then approval is not required for requests in this policy.
      * @return bool|null
     */
     public function getIsApprovalRequired(): ?bool {
@@ -103,7 +90,7 @@ class ApprovalSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the isApprovalRequiredForExtension property value. Indicates whether approval is required for a user to extend their assignment.
+     * Gets the isApprovalRequiredForExtension property value. If false, then approval is not required for a user who already has an assignment to extend their assignment.
      * @return bool|null
     */
     public function getIsApprovalRequiredForExtension(): ?bool {
@@ -140,7 +127,7 @@ class ApprovalSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the approvalMode property value. One of SingleStage, Serial, Parallel, NoApproval (default). NoApproval is used when isApprovalRequired is false.
+     * Sets the approvalMode property value. One of NoApproval, SingleStage or Serial. The NoApproval is used when isApprovalRequired is false.
      *  @param string|null $value Value to set for the approvalMode property.
     */
     public function setApprovalMode(?string $value ): void {
@@ -156,7 +143,7 @@ class ApprovalSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isApprovalRequired property value. Indicates whether approval is required for requests in this policy.
+     * Sets the isApprovalRequired property value. If false, then approval is not required for requests in this policy.
      *  @param bool|null $value Value to set for the isApprovalRequired property.
     */
     public function setIsApprovalRequired(?bool $value ): void {
@@ -164,7 +151,7 @@ class ApprovalSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isApprovalRequiredForExtension property value. Indicates whether approval is required for a user to extend their assignment.
+     * Sets the isApprovalRequiredForExtension property value. If false, then approval is not required for a user who already has an assignment to extend their assignment.
      *  @param bool|null $value Value to set for the isApprovalRequiredForExtension property.
     */
     public function setIsApprovalRequiredForExtension(?bool $value ): void {
